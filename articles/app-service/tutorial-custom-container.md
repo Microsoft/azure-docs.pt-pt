@@ -7,12 +7,12 @@ ms.author: msangapu
 keywords: serviço de aplicativos azure, web app, linux, janelas, estivador, recipiente
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: f3c687d5c8b4e4c6d0b7f4ff912137066fe10bbb
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b5682275a9e5f3993de715ab5f23a708d5df47ae
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743725"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130124"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Migrar software personalizado para o Azure App Service usando um recipiente personalizado
 
@@ -319,6 +319,10 @@ ENTRYPOINT ["init.sh"]
 
 ## <a name="build-and-test-the-image-locally"></a>Construa e teste a imagem localmente
 
+> [!NOTE]
+> O Docker Hub tem [quotas no número de atrações anónimas por IP e no número de atrações autenticadas por utilizador gratuito (ver transferência de **dados).**](https://www.docker.com/pricing) Se notar que as suas atrações do Docker Hub estão a ser limitadas, tente `docker login` se ainda não tiver iniciado sessão.
+> 
+
 1. Executar o seguinte comando para construir a imagem:
 
     ```bash
@@ -610,7 +614,7 @@ service ssh start
 
     Por exemplo, pode examinar os processos que estão a decorrer no seu interior utilizando o `top` comando.
     
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Os recursos que criou neste artigo podem incorrer em custos contínuos. para limpar os recursos, basta eliminar o grupo de recursos que os contém:
 

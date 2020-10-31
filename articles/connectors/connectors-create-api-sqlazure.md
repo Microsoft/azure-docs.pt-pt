@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: f8dccca1d1264492a4e7c8dab568e13eec9d2557
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100716"
+ms.locfileid: "93130940"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizar fluxos de trabalho para uma base de dados SQL utilizando apps Azure Logic
 
@@ -96,9 +96,14 @@ A primeira vez que adiciona um [gatilho SQL](#add-sql-trigger) ou [uma ação SQ
    ||||
 
    > [!TIP]
-   > Pode encontrar esta informação na cadeia de ligação da sua base de dados. Por exemplo, no portal Azure, encontre e abra a sua base de dados. No menu da base de dados, selecione **as cadeias de ligação** ou **propriedades** onde pode encontrar esta cadeia:
+   > Para fornecer a sua base de dados e informações de tabela, tem estas opções:
+   > 
+   > * Encontre esta informação na cadeia de ligação da sua base de dados. Por exemplo, no portal Azure, encontre e abra a sua base de dados. No menu da base de dados, selecione **as cadeias de ligação** ou **propriedades,** onde pode encontrar esta cadeia:
    >
-   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >
+   > * Por predefinição, as tabelas nas bases de dados do sistema são filtradas, pelo que podem não aparecer automaticamente quando selecionar uma base de dados do sistema. Como alternativa, pode introduzir manualmente o nome da tabela depois de selecionar **Introduzir o valor personalizado** na lista de bases de dados.
+   >
 
    Este exemplo mostra como estes valores podem parecer:
 

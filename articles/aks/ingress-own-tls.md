@@ -5,12 +5,12 @@ description: Aprenda a instalar e configurar um controlador de entrada NGINX que
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 42e9f2128063caa13cf3fca1a28ec7e6465ba74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8ea245444fa5e8e042644bd3f7a34ed021ccd1d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855700"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131042"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Criar um controlador de entrada HTTPS e utilizar os seus próprios certificados TLS no Azure Kubernetes Service (AKS)
 
@@ -33,15 +33,15 @@ Este artigo também requer que esteja a executar a versão Azure CLI 2.0.64 ou p
 
 ## <a name="create-an-ingress-controller"></a>Criar um controlador de entrada
 
-Para criar o controlador de entrada, utilize `Helm` para instalar a entrada de *nginx*. Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para beneficiar totalmente da execução de réplicas do controlador de entrada, certifique-se de que há mais de um nó no seu cluster AKS.
+Para criar o controlador de entrada, utilize `Helm` para instalar a entrada de *nginx* . Para uma maior redundância, são implementadas duas réplicas dos controladores de entrada do NGINX com o parâmetro `--set controller.replicaCount`. Para beneficiar totalmente da execução de réplicas do controlador de entrada, certifique-se de que há mais de um nó no seu cluster AKS.
 
 O controlador de entrada também tem de estar agendado num nó do Linux. Os nós do Windows Server não devem executar o controlador de entrada. É especificado um seletor de nós com o parâmetro `--set nodeSelector` para indicar ao agendador do Kubernetes que execute o controlador de entrada do NGINX num nó baseado no Linux.
 
 > [!TIP]
-> O exemplo a seguir cria um espaço de nome Kubernetes para os recursos *ingressos denominados ingress-basic*. Especifique um espaço de nome para o seu próprio ambiente, conforme necessário. Se o seu cluster AKS não estiver ativado por RBAC, adicione `--set rbac.create=false` aos comandos Helm.
+> O exemplo a seguir cria um espaço de nome Kubernetes para os recursos *ingressos denominados ingress-basic* . Especifique um espaço de nome para o seu próprio ambiente, conforme necessário. Se o seu cluster AKS não estiver ativado por RBAC, adicione `--set rbac.create=false` aos comandos Helm.
 
 > [!TIP]
-> Se pretender permitir a [preservação ip da fonte do cliente][client-source-ip] para pedidos a contentores no seu cluster, adicione ao comando de `--set controller.service.externalTrafficPolicy=Local` instalação Helm. A FONTE DO CLIENTE IP é armazenada no cabeçalho de pedido sob *X-Forwarded-For*. Ao utilizar um controlador de entrada com a preservação IP de fonte do cliente ativada, o passe do TLS não funcionará.
+> Se pretender permitir a [preservação ip da fonte do cliente][client-source-ip] para pedidos a contentores no seu cluster, adicione ao comando de `--set controller.service.externalTrafficPolicy=Local` instalação Helm. A FONTE DO CLIENTE IP é armazenada no cabeçalho de pedido sob *X-Forwarded-For* . Ao utilizar um controlador de entrada com a preservação IP de fonte do cliente ativada, o passe do TLS não funcionará.
 
 ```console
 # Create a namespace for your ingress resources
@@ -83,7 +83,7 @@ Ainda não foram criadas regras ingressas. Se navegar no endereço IP público, 
 
 Para este artigo, vamos gerar um certificado auto-assinado com `openssl` . Para uso de produção, deverá solicitar um certificado de confiança assinado através de um fornecedor ou da sua própria autoridade de certificados (CA). No passo seguinte, gera um Kubernetes *Secret* utilizando o certificado TLS e a chave privada gerada pela OpenSSL.
 
-O exemplo a seguir gera um certificado RSA X509 de 2048 válido por 365 dias denominado *aks-ingress-tls.crt*. O ficheiro de chave privada é nomeado *aks-ingress-tls.key*. Um segredo do Kubernetes TLS requer ambos estes ficheiros.
+O exemplo a seguir gera um certificado RSA X509 de 2048 válido por 365 dias denominado *aks-ingress-tls.crt* . O ficheiro de chave privada é nomeado *aks-ingress-tls.key* . Um segredo do Kubernetes TLS requer ambos estes ficheiros.
 
 Este artigo funciona com o *demo.azure.com* nome comum e não precisa de ser alterado. Para uso de produção, especifique os seus próprios valores organizacionais para o `-subj` parâmetro:
 
@@ -98,7 +98,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 Para permitir que kubernetes utilize o certificado TLS e a chave privada para o controlador de entrada, você cria e usa um Segredo. O segredo é definido uma vez, e usa o certificado e o ficheiro chave criado no passo anterior. Em seguida, referencia este segredo quando define rotas de entrada.
 
-O exemplo a seguir cria um nome secreto *aks-ingress-tls*:
+O exemplo a seguir cria um nome secreto *aks-ingress-tls* :
 
 ```console
 kubectl create secret tls aks-ingress-tls \
@@ -132,7 +132,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -170,7 +170,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -205,7 +205,7 @@ No exemplo seguinte, o tráfego para o endereço `https://demo.azure.com/` é en
 > [!TIP]
 > Se o nome do anfitrião especificado durante o processo de pedido de certificado, o nome CN, não corresponder ao anfitrião definido na sua rota de entrada, o controlador de entrada apresenta um aviso *de Certificado Falso do Controlador De Entrada Kubernetes.* Certifique-se de que o seu certificado e os nomes dos anfitriões da rota de entrada correspondem.
 
-A secção *tls* diz à rota de entrada para usar o Segredo chamado *aks-ingress-tls* para o anfitrião *demo.azure.com*. Mais uma vez, para uso de produção, especifique o seu próprio endereço de anfitrião.
+A secção *tls* diz à rota de entrada para usar o Segredo chamado *aks-ingress-tls* para o anfitrião *demo.azure.com* . Mais uma vez, para uso de produção, especifique o seu próprio endereço de anfitrião.
 
 Crie um ficheiro nomeado `hello-world-ingress.yaml` e copie no seguinte exemplo YAML.
 
@@ -305,7 +305,7 @@ $ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com/hel
 [...]
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este artigo usou o Helm para instalar os componentes de entrada e as aplicações de amostra. Quando se implementa um gráfico Helm, são criados vários recursos kubernetes. Estes recursos incluem cápsulas, implantações e serviços. Para limpar estes recursos, pode eliminar todo o espaço de nome da amostra ou os recursos individuais.
 

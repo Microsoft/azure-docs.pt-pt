@@ -6,21 +6,18 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: 9704ff7dec02a0de044863ec2da6280d65b30ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043520"
+ms.locfileid: "93131161"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Nível premium para armazenamento de lago de dados Azure
 
-A Azure Data Lake Storage Gen2 suporta agora o [nível de desempenho premium.](storage-blob-performance-tiers.md#premium-performance) O nível de desempenho premium é ideal para aplicações de big data analytics e cargas de trabalho que requerem baixa latência consistente e têm um elevado número de transações. 
-
-> [!NOTE]
-> O nível premium para Azure Data Lake Storage está em pré-visualização pública. Ver [disponibilidade regional.](#regional-availability)
+A Azure Data Lake Storage Gen2 suporta agora o [nível de desempenho premium.](storage-blob-performance-tiers.md#premium-performance) O nível de desempenho premium é ideal para aplicações de big data analytics e cargas de trabalho que requerem baixa latência consistente e têm um elevado número de transações.
 
 ## <a name="workloads-that-can-benefit-from-the-premium-performance-tier"></a>Cargas de trabalho que podem beneficiar do nível de desempenho premium
 
@@ -106,8 +103,3 @@ O nível premium para o Azure Data Lake Storage está disponível nas seguintes 
 |Leste da Austrália|LRS, ZRS|
 |Sudeste da Austrália|LRS|
 |Sul do Brasil|LRS|
-
-
-## <a name="next-steps"></a>Passos seguintes
-
-Consulte o nível premium para anúncio do [blog](https://www.microsoft.com)Azure Data Lake Storage .

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1ae5908fe3ab95dcd62da976988bd7ce107217e5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 1826b66b0548b7567af59de64549c7eb700025c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027411"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130906"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Utilize dados de referência de uma base de dados SQL para um trabalho de Azure Stream Analytics
 
@@ -173,11 +173,11 @@ Ao utilizar a consulta delta, recomenda-se a utilização [de tabelas temporais 
    Note que o tempo de funcionamento do Stream Analytics pode executar periodicamente a consulta instantânea, além da consulta delta para armazenar pontos de verificação.
 
 ## <a name="test-your-query"></a>Testar a consulta
-   É importante verificar se a sua consulta está a devolver o conjunto de dados esperado que o trabalho stream Analytics utilizará como dados de referência. Para testar a sua consulta, aceda à entrada na secção Job Topology no portal. Em seguida, pode selecionar dados de amostra na sua entrada de referência de base de dados SQL. Depois de a amostra ficar disponível, pode descarregar o ficheiro e verificar se os dados que estão a ser devolvidos são como esperado. Se quiser otimizar o seu desenvolvimento e testar iterações, recomenda-se a utilização das [ferramentas Stream Analytics para o Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). Também pode ser qualquer outra ferramenta da sua preferência para primeiro garantir que a consulta está a devolver os resultados certos da base de dados Azure SQL e, em seguida, usá-la no seu trabalho stream Analytics. 
+   É importante verificar se a sua consulta está a devolver o conjunto de dados esperado que o trabalho stream Analytics utilizará como dados de referência. Para testar a sua consulta, aceda à entrada na secção Job Topology no portal. Em seguida, pode selecionar dados de amostra na sua entrada de referência de base de dados SQL. Depois de a amostra ficar disponível, pode descarregar o ficheiro e verificar se os dados que estão a ser devolvidos são como esperado. Se quiser otimizar o seu desenvolvimento e testar iterações, recomenda-se a utilização das [ferramentas Stream Analytics para o Visual Studio](./stream-analytics-tools-for-visual-studio-install.md). Também pode ser qualquer outra ferramenta da sua preferência para primeiro garantir que a consulta está a devolver os resultados certos da base de dados Azure SQL e, em seguida, usá-la no seu trabalho stream Analytics. 
 
 ### <a name="test-your-query-with-visual-studio-code"></a>Teste a sua consulta com o Código do Estúdio Visual
 
-   Instale [as ferramentas de análise do Azure Stream](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) e [o SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) no Código do Estúdio Visual e crie o seu projeto ASA. Para obter mais informações, consulte [Quickstart: Crie um trabalho Azure Stream Analytics no Código do Estúdio Visual](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code) e no tutorial de [extensão SQL Server (mssql).](https://aka.ms/mssql-getting-started)
+   Instale [as ferramentas de análise do Azure Stream](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) e [o SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) no Código do Estúdio Visual e crie o seu projeto ASA. Para obter mais informações, consulte [Quickstart: Crie um trabalho Azure Stream Analytics no Código do Estúdio Visual](./quick-create-visual-studio-code.md) e no tutorial de [extensão SQL Server (mssql).](/sql/tools/visual-studio-code/sql-server-develop-use-vscode)
 
 1. Configure a entrada de dados de referência SQL.
    

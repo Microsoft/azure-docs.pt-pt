@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 10/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896471"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131025"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Grant B2B utilizadores em Azure AD acesso às suas aplicações no local
 
@@ -77,7 +77,7 @@ Para obter informações sobre como utilizar o Pacote de Serviço MIM 2016 e o a
 
 Existe um script de amostra PowerShell disponível que pode usar como ponto de partida para criar os objetos de utilizador convidados no seu Ative Directory.
 
-Pode descarregar o script e o ficheiro Readme do Centro de [Descarregamentos.](https://www.microsoft.com/download/details.aspx?id=51495) Escolha o **Script e Readme para puxar os utilizadores Azure AD B2B on-prem.zip** ficheiro.
+Você pode baixar o script e o ficheiro Readme de [Connectors para Microsoft Identity Manager 2016 e Forefront Identity Manager 2010 R2](https://www.microsoft.com/download/details.aspx?id=51495). No pacote de descarregamento, escolha o **Script e o Readme para puxar os utilizadores AZure AD B2B on-prem.zip** ficheiro.
 
 Antes de utilizar o script, certifique-se de que revê os pré-requisitos e considerações importantes no ficheiro Readme associado. Além disso, entenda que o script é disponibilizado apenas como uma amostra. A sua equipa de desenvolvimento ou um parceiro deve personalizar e rever o script antes de executá-lo.
 

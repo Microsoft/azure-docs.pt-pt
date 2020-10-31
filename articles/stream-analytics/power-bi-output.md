@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822991"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129784"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Saída de Power BI da Azure Stream Analytics
 
@@ -24,7 +24,7 @@ A produção de Power BI do Stream Analytics não está atualmente disponível n
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para configurar a sua saída Power BI.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Alias de saída |Forneça um nome amigável que seja usado em consultas para direcionar a saída de consulta para esta saída Power BI. |
 | Espaço de trabalho em grupo |Para ativar a partilha de dados com outros utilizadores do Power BI, pode selecionar grupos dentro da sua conta Power BI ou escolher **o My Workspace** se não quiser escrever para um grupo. A atualização de um grupo existente requer a renovação da autenticação Power BI. |
@@ -51,12 +51,12 @@ Power BI utiliza a política de retenção de primeira e primeira saída (FIFO).
 
 O Azure Stream Analytics atualiza o modelo de dados dinamicamente no tempo de execução se o esquema de saída mudar. Alterações no nome da coluna, alterações do tipo de coluna e a adição ou remoção de colunas são todas rastreadas.
 
-Esta tabela cobre as conversões do tipo de dados do [Stream Analytics](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) para os tipos de Data [Model (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model)da Power BIEntity Data Model , se não existir um conjunto de dados e tabela power BI.
+Esta tabela cobre as conversões do tipo de dados do [Stream Analytics](/stream-analytics-query/data-types-azure-stream-analytics) para os tipos de Data [Model (EDM)](/dotnet/framework/data/adonet/entity-data-model)da Power BIEntity Data Model , se não existir um conjunto de dados e tabela power BI.
 
 De Stream Analytics | Para Power BI
 -----|-----
 bigint | Int64
-nvarchar(máx) | Cadeia
+nvarchar(máx) | String
 datetime | Datetime
 float | Double (Duplo)
 Matriz de registos | Tipo de corda, valor constante "IRecord" ou "IArray"
@@ -67,16 +67,16 @@ O Stream Analytics infere o esquema do modelo de dados com base no primeiro conj
 
 Evite a `SELECT *` consulta para evitar uma atualização dinâmica do esquema através de linhas. Além das potenciais implicações de desempenho, pode resultar na incerteza do tempo que os resultados demoram. Selecione os campos exatos que precisam de ser mostrados no painel Power BI. Além disso, os valores dos dados devem estar em conformidade com o tipo de dados escolhido.
 
-Anterior/corrente | Int64 | Cadeia | Datetime | Double (Duplo)
+Anterior/corrente | Int64 | String | Datetime | Double (Duplo)
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | Cadeia | Cadeia | Double (Duplo)
 Double (Duplo) | Double (Duplo) | Cadeia | Cadeia | Double (Duplo)
 Cadeia | Cadeia | Cadeia | Cadeia | Cadeia 
-Datetime | Cadeia | Cadeia |  Datetime | Cadeia
+Datetime | Cadeia | Cadeia |  Datetime | String
 
 ## <a name="output-batch-size"></a>Tamanho do lote de saída
 
-Para o tamanho do lote de saída, consulte [os limites da API de repouso Power BI](https://msdn.microsoft.com/library/dn950053.aspx).
+Para o tamanho do lote de saída, consulte [os limites da API de repouso Power BI](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Passos seguintes
 

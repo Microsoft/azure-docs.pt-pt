@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
 ms.date: 10/19/2020
-ms.openlocfilehash: 343a6c92c9d77b5ef589477802015c6346a95ea9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 819b0401b8516538c6fdd12b47e57f79ec45ae09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520999"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131093"
 ---
 # <a name="co-sell-partner-engagement"></a>Compromisso entre parceiros para venda conjunta
 
@@ -40,15 +40,15 @@ Ofertas que atingem **a Azure IP Co-venda** de estatuto incentivado obtenha este
 
 ## <a name="co-sell-publishing-steps-and-requirements"></a>Co-venda de etapas e requisitos de publicação
 
-A tabela abaixo lista os passos e requisitos para obter a sua oferta de mercado Co-vender pronto ou Co-vender incentivado. Nem todos os tipos de oferta de mercado comercial são configuráveis para co-venda ainda no Partner Center. Pode consultar a [opção Co-venda no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell) para obter as informações mais recentes. 
+A tabela abaixo lista os passos e requisitos para obter a sua oferta de mercado Co-vender pronto ou Co-vender incentivado. Nem todos os tipos de oferta de mercado comercial são configuráveis para co-venda ainda no Partner Center. Pode consultar a [opção Co-venda no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) para obter as informações mais recentes. 
 
 |Passo    |Tipo de oferta    |Requisitos    |Estatuto de co-venda    |
 |----    |-------------    |------------    |---------------   |
 |<ol start=1><li> Crie uma conta no Partner Center e publique a sua oferta no mercado comercial.</li>|Todos|<li>A oferta satisfaz os requisitos de publicação do mercado comercial.</li><li>Tem um perfil de negócio completo no Partner Center.</li>|Não está pronto.|
-|<ol start=2><li>Envie os materiais de co-venda necessários.</li>|OFERTAS IP *com* [opção co-venda no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|[Upload de materiais necessários no Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-vender pronto|
-||OFERTAS IP *sem* [opção de Co-venda no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)|<li>Solicitação para [trabalhar com um Especialista em Nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer documentação de co-venda necessária.|Co-vender pronto|
+|<ol start=2><li>Envie os materiais de co-venda necessários.</li>|OFERTAS IP *com* [opção co-venda no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md)|[Upload de materiais necessários no Partner Center](#how-to-submit-co-sell-materials-in-partner-center)|Co-vender pronto|
+||OFERTAS IP *sem* [opção de Co-venda no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md)|<li>Solicitação para [trabalhar com um Especialista em Nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer documentação de co-venda necessária.|Co-vender pronto|
 ||Serviços de Consultoria|<li>Solicitação para [trabalhar com um Especialista em Nuvem](https://partner.microsoft.com/campaigns/ced-nomination-form/) para fornecer documentação de co-venda necessária.</li><li>Competência ative Gold.</li>|Co-vender pronto|
-|<ol start=3><li>Qualificar-se para incentivos de co-venda ip</li>|Aplicações Azure, Recipientes Azure, Módulos de Borda IoT, SaaS, VMs|Depois de conseguir a Co-venda pronta, existem dois requisitos adicionais: <ul> Requisito 1: alcançar qualquer um:<ul><li>*A nível organizacional:* conheça ou exceda $100.000 USD de Azure Consumed Revenue ao longo dos 12 meses.</li><li>*Ao nível da oferta:* mercado acumulado faturado receitas de $100.000 USD.</li></ul><br>Requisito 2: mais de 50% da infraestrutura da sua oferta deve funcionar em Azure:<ul><li>A IP oferece *com* [opção de Co-venda no Partner Center:](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)faça upload de um diagrama de arquitetura com os seus documentos de Co-venda no Partner Center para revisão.</li><li>IP oferece *sem* [opção de Co-venda no Partner Center:](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-co-sell)faça upload de um diagrama de arquitetura para OCP GTM.|Azure IP Co-venda incentivado|
+|<ol start=3><li>Qualificar-se para incentivos de co-venda ip</li>|Aplicações Azure, Recipientes Azure, Módulos de Borda IoT, SaaS, VMs|Depois de conseguir a Co-venda pronta, existem dois requisitos adicionais: <ul> Requisito 1: alcançar qualquer um:<ul><li>*A nível organizacional:* conheça ou exceda $100.000 USD de Azure Consumed Revenue ao longo dos 12 meses.</li><li>*Ao nível da oferta:* mercado acumulado faturado receitas de $100.000 USD.</li></ul><br>Requisito 2: mais de 50% da infraestrutura da sua oferta deve funcionar em Azure:<ul><li>A IP oferece *com* [opção de Co-venda no Partner Center:](./partner-center-portal/commercial-marketplace-co-sell.md)faça upload de um diagrama de arquitetura com os seus documentos de Co-venda no Partner Center para revisão.</li><li>IP oferece *sem* [opção de Co-venda no Partner Center:](./partner-center-portal/commercial-marketplace-co-sell.md)faça upload de um diagrama de arquitetura para OCP GTM.|Azure IP Co-venda incentivado|
 ||Dynamics|<li>Tem uma inscrição ativa no nível premium ISV Connect.</li>|Aplicações empresariais Co-vender incentivado|
 
 ## <a name="how-to-submit-co-sell-materials-in-partner-center"></a>Como submeter Co-venda de materiais no Partner Center
@@ -61,19 +61,19 @@ Inicie a sua viagem de Co-venda diretamente no Partner Center seguindo os passos
     > [!NOTE]
     > Pode aderir ao programa Co-sell com uma nova oferta ainda não publicada ou com uma oferta que já foi publicada.
 
-1. No menu à esquerda, selecione **Co-venda com a Microsoft**.
+1. No menu à esquerda, selecione **Co-venda com a Microsoft** .
 
     :::image type="content" source="media/co-sell/co-sell-with-microsoft-tab.png" alt-text="Esta imagem mostra a localização da Co-venda com o separador Microsoft.":::
 
-1. Forneça detalhes básicos da listagem para ajudar os vendedores da Microsoft a classificar rapidamente e descobrir a sua oferta na secção **De listagem.** *(Obrigatório: todos os campos.*)
+1. Forneça detalhes básicos da listagem para ajudar os vendedores da Microsoft a classificar rapidamente e descobrir a sua oferta na secção **De listagem.** *(Obrigatório: todos os campos.* )
 
     :::image type="content" source="media/co-sell/co-sell-listing-section.png" alt-text="Esta imagem mostra a localização da Co-venda com o separador Microsoft.":::  
 
-1. Forneça detalhes sobre a sua oferta e carrene a garantia na secção **Documentos.** Os vendedores da Microsoft usarão esta informação para recomendar e vender a sua oferta. *(Requerido: Pager de um pager e deck de apresentação do cliente.*)
+1. Forneça detalhes sobre a sua oferta e carrene a garantia na secção **Documentos.** Os vendedores da Microsoft usarão esta informação para recomendar e vender a sua oferta. *(Requerido: Pager de um pager e deck de apresentação do cliente.* )
 
     :::image type="content" source="media/co-sell/co-sell-documents-section.png" alt-text="Esta imagem mostra a localização da Co-venda com o separador Microsoft.":::
  
-1. Faça upload de informações de contacto de vendas na secção **Contactos.** Os vendedores da Microsoft podem contactar estes contactos para solicitar informações adicionais sobre a sua oferta. *(Requerido: um contacto para cada geografia em que a sua oferta é disponibilizada.*)
+1. Faça upload de informações de contacto de vendas na secção **Contactos.** Os vendedores da Microsoft podem contactar estes contactos para solicitar informações adicionais sobre a sua oferta. *(Requerido: um contacto para cada geografia em que a sua oferta é disponibilizada.* )
 
     :::image type="content" source="media/co-sell/co-sell-contacts-section.png" alt-text="Esta imagem mostra a localização da Co-venda com o separador Microsoft." no âmbito do dropdown "Serviços CED desejados":
 <ul><ul>

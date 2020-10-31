@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: dddcdd52709c634f0dcf67cb982804f5556e88b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548340"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130022"
 ---
 # <a name="register-a-saas-application"></a>Registar uma aplicação SaaS
 
@@ -20,7 +20,7 @@ Este artigo explica como registar uma aplicação SaaS utilizando o portal Micro
 
 O Azure Marketplace não impõe quaisquer constrangimentos ao método de autenticação que o seu serviço SaaS utiliza para os utilizadores finais. O fluxo abaixo é necessário apenas para autenticar o Serviço SaaS no Azure Marketplace.
 
-Para obter mais informações sobre a Azure AD (Ative Directory), consulte [o que é a autenticação?](../../active-directory/develop/authentication-scenarios.md)
+Para obter mais informações sobre a Azure AD (Ative Directory), consulte [o que é a autenticação?](../../active-directory/develop/authentication-vs-authorization.md)
 
 ## <a name="register-an-azure-ad-secured-app"></a>Registe uma aplicação azure ad-secureed
 
@@ -28,15 +28,15 @@ Qualquer aplicação que pretenda utilizar as capacidades do Azure AD, tem de es
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Se a sua conta lhe der acesso a mais de um, clique na sua conta no canto superior direito e deite a sua sessão de portal ao inquilino AD AD desejado.
-3. No painel de navegação à esquerda, clique no serviço **Azure Ative Directory,** clique nos **registos da App**e clique em **Novo registo de aplicações.**
+3. No painel de navegação à esquerda, clique no serviço **Azure Ative Directory,** clique nos **registos da App** e clique em **Novo registo de aplicações.**
 
     ![Registos de Aplicações AD SaaS](./media/saas-offer-app-registration-v1.png)
 
 4. Na página Criar, insira as \' informações de inscrição do seu pedido:
-    -   **Nome**: Introduza um nome de aplicação significativo
+    -   **Nome** : Introduza um nome de aplicação significativo
     -   **Tipo de aplicação:**  
         
-        Selecione **aplicativo Web / API** para [aplicações de clientes)](../../active-directory/develop/active-directory-dev-glossary.md#client-application)e [aplicações de recursos/API](../../active-directory/develop/active-directory-dev-glossary.md#resource-server)que são instaladas num servidor seguro. Esta definição é utilizada para [clientes web](../../active-directory/develop/active-directory-dev-glossary.md#web-client)confidenciais da OAuth e [para clientes públicos baseados em agentes de utilizadores).](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client)
+        Selecione **aplicativo Web / API** para [aplicações de clientes)](../../active-directory/develop/developer-glossary.md#client-application)e [aplicações de recursos/API](../../active-directory/develop/developer-glossary.md#resource-server)que são instaladas num servidor seguro. Esta definição é utilizada para [clientes web](../../active-directory/develop/developer-glossary.md#web-client)confidenciais da OAuth e [para clientes públicos baseados em agentes de utilizadores).](../../active-directory/develop/developer-glossary.md#user-agent-based-client)
         A mesma aplicação também pode expor um cliente e um recurso/API.
 
         Para exemplos específicos de aplicações web, confira as configurações guiadas de arranque rápido que estão disponíveis na secção [Get Started](../../active-directory/develop/quickstart-create-new-tenant.md) do [Azure AD Developers Guide](../../active-directory/develop/index.yml).
@@ -62,7 +62,7 @@ Para obter mais informações sobre estes tokens, consulte [os tokens de acesso 
 
 Publicar<br>
 
-##### <a name="request-url"></a>*URL de pedido* 
+##### <a name="request-url"></a>*URL do Pedido* 
 
 `https://login.microsoftonline.com/*{tenantId}*/oauth2/token`
 
@@ -89,7 +89,7 @@ Publicar<br>
 
 ##### <a name="response"></a>*Response*
 
-|  Nome     |  Tipo         |  Descrição |
+|  Nome     |  Tipo         |  Description |
 |  ------   |  ---------------  | ------------ |
 |  200 OK   |  TokenResponse    |  Pedido bem sucedido. |
 

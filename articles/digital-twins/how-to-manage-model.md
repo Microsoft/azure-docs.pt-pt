@@ -7,18 +7,22 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 399ae682028479f801b82b6273f7d1429cfa1b97
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e50c2bb73f56017a047e6c657c866b61e5eaa465
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494857"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130395"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerir os modelos Azure Digital Twins
 
 Pode gerir os [modelos](concepts-models.md) que a sua instância Azure Digital Twins conhece sobre a utilização das [**APIs digitalTwinModels,**](/rest/api/digital-twins/dataplane/models)da [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou do [Azure Digital Twins CLI](how-to-use-cli.md). 
 
 As operações de gestão incluem upload, validação, recuperação e eliminação de modelos. 
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## <a name="create-models"></a>Criar modelos
 
@@ -61,7 +65,7 @@ O primeiro passo para a solução é criar modelos que representem aspetos do ho
 > [!NOTE]
 > Este é um corpo de amostra para um ficheiro .json no qual um modelo é definido e guardado, para ser carregado como parte de um projeto de cliente. A chamada REST API, por outro lado, leva uma série de definições de modelo como a acima (que é mapeada para um `IEnumerable<string>` no .NET SDK). Assim, para utilizar este modelo na API REST diretamente, rodei-lo com suportes.
 
-Este modelo define um nome e um ID único para a sala do paciente, e propriedades para representar a contagem de visitantes e o estado de lavagem à mão (estes contadores serão atualizados a partir de sensores de movimento e distribuidores de sabão inteligentes, e serão usados em conjunto para calcular uma *percentagem de lavagem à mão).* O modelo também define uma relação *com Devices*, que será usada para ligar quaisquer [gémeos digitais](concepts-twins-graph.md) com base neste modelo *da Sala* aos dispositivos reais.
+Este modelo define um nome e um ID único para a sala do paciente, e propriedades para representar a contagem de visitantes e o estado de lavagem à mão (estes contadores serão atualizados a partir de sensores de movimento e distribuidores de sabão inteligentes, e serão usados em conjunto para calcular uma *percentagem de lavagem à mão).* O modelo também define uma relação *com Devices* , que será usada para ligar quaisquer [gémeos digitais](concepts-twins-graph.md) com base neste modelo *da Sala* aos dispositivos reais.
 
 Seguindo este método, pode continuar a definir modelos para as enfermarias, zonas ou o próprio hospital.
 

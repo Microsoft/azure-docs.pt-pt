@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 06a2a5bbe637cd2366dbdf218c0278cd683635df
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275546"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130039"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>SaaS cumpre APIs versão 2 no mercado comercial
 
@@ -51,7 +51,7 @@ Na página de aterragem, o cliente deve ser iniciado na nova ou existente conta 
 O editor deve implementar o sSO iniciar sessão para fornecer a experiência do utilizador exigida pela Microsoft para este fluxo.  Certifique-se de que utiliza a aplicação AD Azure multi-arrendatário, permite tanto contas de trabalho como escolas ou contas pessoais da Microsoft, ao configurar o SSO.  Este requisito aplica-se apenas à página de aterragem e aos utilizadores que são redirecionados para o serviço SaaS quando já iniciam sessão com as credenciais da Microsoft. Não se aplica a todos os logins no serviço SaaS.
 
 > [!NOTE]
->Se o SSO iniciar sessão requer que uma autorização de concessão de administração a uma aplicação, a descrição da oferta no Partner Center deve revelar que é necessário acesso ao nível de administração. Isto é para cumprir as [políticas de certificação do mercado comercial.](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options)
+>Se o SSO iniciar sessão requer que uma autorização de concessão de administração a uma aplicação, a descrição da oferta no Partner Center deve revelar que é necessário acesso ao nível de administração. Isto é para cumprir as [políticas de certificação do mercado comercial.](/legal/marketplace/certification-policies#10003-authentication-options)
 
 Uma vez iniciado o login, o cliente deverá completar a configuração SaaS no lado da editora. Em seguida, o editor deve ligar para [ativar a API de subscrição](#activate-a-subscription) ativa para enviar um sinal ao Marketplace de que o provisionamento da conta SaaS está completo.
 Isto iniciará o ciclo de faturação do cliente. Se a chamada API de Subscrição Ativada não for bem sucedida, o cliente não é cobrado para a compra.
@@ -108,7 +108,7 @@ A sequência de API requer o cenário de atualização iniciado pelo lado da edi
 
 #### <a name="suspended-suspended"></a>Suspenso *(suspenso)*
 
-Este estado indica que o pagamento de um cliente pelo serviço SaaS não foi recebido. A editora será notificada desta alteração no estado de subscrição do SaaS pela Microsoft. A notificação é feita através de uma chamada para webhook com parâmetro *de ação* definido para *Suspenso*.
+Este estado indica que o pagamento de um cliente pelo serviço SaaS não foi recebido. A editora será notificada desta alteração no estado de subscrição do SaaS pela Microsoft. A notificação é feita através de uma chamada para webhook com parâmetro *de ação* definido para *Suspenso* .
 
 A editora pode ou não fazer alterações no serviço SaaS do lado da editora. Recomendamos que o editor disponibilize esta informação ao cliente suspenso e limites ou bloqueie o acesso do cliente ao serviço SaaS.  Há uma probabilidade de o pagamento nunca ser recebido.
 
@@ -683,7 +683,7 @@ Se uma subscrição for cancelada nos seguintes períodos de graça, o cliente n
 
 O cliente será faturado se uma subscrição for cancelada após os períodos de graça acima.  Assim que o cancelamento for bem sucedido, o cliente perderá imediatamente o acesso à subscrição saaS do lado da Microsoft.
 
-##### <a name="deletehttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Excluir`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
+##### <a name="deletehttpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidapi-versionapiversion"></a>Eliminar`https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>?api-version=<ApiVersion>`
 
 *Parâmetros de consulta:*
 
@@ -788,7 +788,7 @@ Código: 500 Erro interno do servidor. Re-tentar a chamada da API.  Se o erro pe
 
 #### <a name="get-operation-status"></a>Obter estado de operação
 
-Não  **subscrição,** **ChangePlan**ou **ChangeQuantity**.
+Não  **subscrição,** **ChangePlan** ou **ChangeQuantity** .
 
 A `operationId` chamada para esta API pode ser recuperada a partir do valor devolvido pela **Operação-Localização,** receber chamadas de API de operações pendentes ou o valor do `<id>` parâmetro recebido numa chamada webhook.
 
@@ -962,7 +962,7 @@ Quando a editora estiver pronta para o fim dos testes:
 
 Um fluxo de compra pode ser desencadeado a partir do portal Azure ou dos sites Microsoft AppSource, dependendo do local onde a oferta está a ser publicada.
 
-*O plano de alteração,* *a quantidade de alteração*e as ações de não subscrição são *testadas* do lado da editora.  Do lado da Microsoft, *a subscrição não-subscrição* pode ser acionada tanto a partir do portal Azure como do Admin Center (o portal onde as compras do Microsoft AppSource são geridas).  *A alteração da quantidade e do plano* só pode ser acionada a partir do Centro de Administração.
+*O plano de alteração,* *a quantidade de alteração* e as ações de não subscrição são *testadas* do lado da editora.  Do lado da Microsoft, *a subscrição não-subscrição* pode ser acionada tanto a partir do portal Azure como do Admin Center (o portal onde as compras do Microsoft AppSource são geridas).  *A alteração da quantidade e do plano* só pode ser acionada a partir do Centro de Administração.
 
 ## <a name="get-support"></a>Obter suporte
 

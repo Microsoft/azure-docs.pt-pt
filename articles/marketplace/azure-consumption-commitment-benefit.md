@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperfq2
-ms.openlocfilehash: f7c08172f3a60487ae6e15260a0cd5fc5e4a712c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740751"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129546"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Benefício do compromisso de consumo do Azure
 
@@ -57,4 +57,4 @@ Se não tem a certeza se a sua organização tem um acordo de qualificação, in
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais sobre como a sua organização pode alavancar o Azure Marketplace, complete o nosso módulo Microsoft Learn: [Simplifique a aquisição em nuvem e a governação com o Azure Marketplace.](https://aka.ms/cm.marketplaceprocurement)
+- Para saber mais sobre como a sua organização pode alavancar o Azure Marketplace, complete o nosso módulo Microsoft Learn: [Simplifique a aquisição em nuvem e a governação com o Azure Marketplace.](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/)

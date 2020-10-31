@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5cff53ee9e742e93a6183eb5d506bf8f1a08deb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130192"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro da Autenticação e autorização do Azure AD
 
@@ -60,7 +60,7 @@ Aqui está uma resposta de erro de amostra:
 
 O `error` campo tem vários valores possíveis - reveja as ligações de documentação do protocolo e as especificações de OAuth 2.0 para saber mais sobre erros específicos (por exemplo, `authorization_pending` no fluxo de código do [dispositivo](v2-oauth2-device-code.md)) e como reagir a eles.  Alguns comuns estão listados aqui:
 
-| Código de Erro         | Descrição        | Ação do Cliente    |
+| Código de Erro         | Description        | Ação do Cliente    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Erro de protocolo, como um parâmetro exigido em falta. | Corrija e reenvia o pedido.|
 | `invalid_grant`    | Parte do material de autenticação (código auth, token de atualização, token de acesso, desafio PKCE) era inválido, inparável, em falta ou de outra forma inutilizável | Tente um novo pedido para o `/authorize` ponto final para obter um novo código de autorização.  Considere rever e validar o uso da aplicação nos protocolos. |
@@ -156,7 +156,7 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS50136 | Reorientar OToApp desativado - Sessão MSA única detetada. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken - A sessão é inválida devido a uma atualização externa em falta. |
 | AADSTS50140 | KmsiInterrupt - Este erro ocorreu devido à interrupção "Mantenha-me assinado" quando o utilizador estava a iniciar a sessão. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o ID de Correlação, o ID do Pedido e o código de Erro para obter mais detalhes. |
-| AADSTS50143 | Incompatibilidade de sessão - A sessão é inválida porque o inquilino do utilizador não corresponde à sugestão de domínio devido a recursos diferentes.  [Abra um bilhete de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com ID de correlação, ID de pedido e código de erro para obter mais detalhes. |
+| AADSTS50143 | Erro de correspondência de sessão: a sessão é inválida porque o inquilino do utilizador não corresponde à sugestão de domínio devido a um recurso ser diferente. [Abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) com o ID de Correlação, o ID do Pedido e o código de Erro para obter mais detalhes. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword - A palavra-passe do Diretor Ativo do Utilizador expirou. Gere uma nova palavra-passe para o utilizador ou faz com que o utilizador utilize a ferramenta de reset de autosserviço para redefinir a sua palavra-passe. |
 | AADSTS50146 | MissingCustomSigningKey - Esta aplicação é necessária para ser configurada com uma chave de assinatura específica da aplicação. Ou não está configurada com uma chave destas ou a chave expirou ou ainda não é válida. |
 | AADSTS50147 | MissingCodeChallenge - O tamanho do parâmetro de desafio de código não é válido. |
@@ -200,7 +200,7 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS70007 | Não suportadaResponseMode - A aplicação devolveu um valor não suportado `response_mode` ao solicitar um token.  |
 | AADSTS70008 | ExpiradoOrRevokedGrant - O token de atualização expirou devido à inatividade. O token foi emitido em XXX e esteve inativo por um certo período de tempo. |
 | AADSTS70011 | InvalidScope - O âmbito solicitado pela aplicação é inválido. |
-| AADSTS70012 | MsaServerError - Ocorreu um erro de servidor durante a autenticação de um utilizador MSA (consumidor). Tente novamente. Se continuar a falhar, [abra um bilhete de apoio](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError - Ocorreu um erro de servidor durante a autenticação de um utilizador MSA (consumidor). Tente novamente. Se continuar a falhar, [abra um pedido de suporte](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AutorizaçãoSPending - Erro de fluxo do dispositivo OAuth 2.0. A autorização está pendente. O dispositivo vai voltar a sondar o pedido. |
 | AADSTS70018 | BadVerificationCode - Código de verificação inválido devido à dactilografia do Utilizador no código do utilizador errado para o fluxo de código do dispositivo. A autorização não é aprovada. |
 | AADSTS70019 | CódigoEx expirado - Código de verificação expirado. Peça ao utilizador que volte a tentar iniciar sessão. |
@@ -320,6 +320,7 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS1000000 | UserNotBoundError - A API Bind exige que o utilizador AZure AD também autentica com um IDP externo, o que ainda não aconteceu. |
 | AADSTS100002 | BindCompleteInterruptError - A ligação foi concluída com sucesso, mas o utilizador deve ser informado. |
 | AADSTS7000112 | Não autorizadoClientApplicationDabled - A aplicação está desativada. |
+| AADSTS7000114| A aplicação 'appIdentifier' não está autorizada a fazer a aplicação em nome de chamadas.|
 | AADSTS7500529 | O valor 'SAMLId-Guid' não é um ID SAML válido - A azure AD utiliza este atributo para preencher o atributo InResponseTo da resposta devolvida. O ID não deve começar com um número, por isso uma estratégia comum é preparar uma corda como "id" para a representação de cordas de um GUID. Por exemplo, id6c1c178c16666687be4aaf5e482730 é um ID válido. |
 
 ## <a name="next-steps"></a>Passos seguintes

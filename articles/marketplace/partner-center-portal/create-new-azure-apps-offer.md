@@ -7,12 +7,12 @@ ms.topic: how-to
 author: AarathiN
 ms.author: aarathin
 ms.date: 07/14/2020
-ms.openlocfilehash: 6bd43f89ff6e341756c1706eb96d07510c6fb1a4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9ae770a21e93a0c8ab3827e91f15e163d7a875b4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428212"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130209"
 ---
 # <a name="create-an-azure-application-offer"></a>Criar uma oferta de aplicações do Azure
 
@@ -34,25 +34,25 @@ Projetar, construir e testar as ofertas de aplicações Azure requer conheciment
 
 Reveja os seguintes recursos enquanto prepara a sua oferta de candidatura a Azure para o mercado comercial.
 
-* [Compreenda os modelos do gestor de recursos do Azure](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Compreenda os modelos do gestor de recursos do Azure](../../azure-resource-manager/templates/template-syntax.md)
 
 * Guias de Início Rápido:
 
-    * [Modelos de Início Rápido do Azure](https://azure.microsoft.com/documentation/templates/)
+    * [Modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/)
     * [Guia de boas práticas de modelos de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md)
-    * [Publicar a definição da aplicação](../../managed-applications/publish-service-catalog-app.md)
-    * [Implementar a aplicação do catálogo de serviços](../../managed-applications/deploy-service-catalog-quickstart.md)
+    * [Publicar a definição da aplicação](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Implementar a aplicação do catálogo de serviços](../../azure-resource-manager/managed-applications/deploy-service-catalog-quickstart.md)
 
 * Tutoriais:
 
-    * [Criar ficheiros de definição](../../managed-applications/publish-service-catalog-app.md)
-    * [Publicar a aplicação do marketplace](../../managed-applications/publish-marketplace-app.md)
+    * [Criar ficheiros de definição](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md)
+    * [Publicar a aplicação do marketplace]()
 
 * Amostras:
 
-    * [CLI do Azure](../../managed-applications/cli-samples.md)
-    * [Azure PowerShell](../../managed-applications/powershell-samples.md)
-    * [Soluções de aplicação gerida](../../managed-applications/sample-projects.md)
+    * [CLI do Azure](../../azure-resource-manager/managed-applications/cli-samples.md)
+    * [Azure PowerShell](../../azure-resource-manager/managed-applications/powershell-samples.md)
+    * [Soluções de aplicação gerida](../../azure-resource-manager/managed-applications/sample-projects.md)
 
 Os [modelos de solução de construção de vídeo e aplicações geridas para o Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603) dão uma introdução abrangente ao tipo de oferta de aplicação Azure:
 
@@ -67,8 +67,8 @@ Os [modelos de solução de construção de vídeo e aplicações geridas para o
 
 Escolha um ou ambos os seguintes ambientes de script para ajudar a gerir a sua aplicação Azure:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
-* [CLI do Azure](https://docs.microsoft.com/cli/azure)
+* [Azure PowerShell](/powershell/azure/)
+* [CLI do Azure](/cli/azure)
 
 Recomendamos adicionar as seguintes ferramentas ao seu ambiente de desenvolvimento:
 
@@ -84,17 +84,17 @@ Pode rever as ferramentas disponíveis na página [Azure Developer Tools.](https
 
 Existem dois tipos de planos de aplicação Azure: modelos de solução e aplicações geridas.
 
-* **O modelo de solução** é uma das principais formas de publicar uma solução no Mercado. Utilize este tipo de plano quando a sua solução necessitar de uma automatização adicional de implantação e configuração para além de uma única máquina virtual (VM). Com um modelo de solução, pode automatizar o fornecimento de mais de um recurso, incluindo VMs, networking e recursos de armazenamento para fornecer soluções complexas de IaaS.  Para obter mais informações sobre modelos de solução de construção, consulte [o Gestor de Recursos Azure.](../../azure-resource-manager/resource-group-overview.md)
+* **O modelo de solução** é uma das principais formas de publicar uma solução no Mercado. Utilize este tipo de plano quando a sua solução necessitar de uma automatização adicional de implantação e configuração para além de uma única máquina virtual (VM). Com um modelo de solução, pode automatizar o fornecimento de mais de um recurso, incluindo VMs, networking e recursos de armazenamento para fornecer soluções complexas de IaaS.  Para obter mais informações sobre modelos de solução de construção, consulte [o Gestor de Recursos Azure.](../../azure-resource-manager/management/overview.md)
 
-* **A aplicação gerida** é semelhante aos modelos de solução, com uma diferença fundamental. Numa aplicação gerida, os recursos são implementados num grupo de recursos que é gerido pelo editor da aplicação. O grupo de recursos está presente na subscrição do cliente, mas uma identidade no inquilino do editor tem acesso ao grupo de recursos. Como editor, tem de especificar o custo do suporte contínuo da solução. Utilize aplicações geridas para facilmente construir e entregar aplicações chave na mão e totalmente geridas aos seus clientes.  Para obter mais informações sobre as vantagens e tipos de aplicações geridas, consulte a visão geral das [aplicações geridas pelo Azure.](../../managed-applications/overview.md)
+* **A aplicação gerida** é semelhante aos modelos de solução, com uma diferença fundamental. Numa aplicação gerida, os recursos são implementados num grupo de recursos que é gerido pelo editor da aplicação. O grupo de recursos está presente na subscrição do cliente, mas uma identidade no inquilino do editor tem acesso ao grupo de recursos. Como editor, tem de especificar o custo do suporte contínuo da solução. Utilize aplicações geridas para facilmente construir e entregar aplicações chave na mão e totalmente geridas aos seus clientes.  Para obter mais informações sobre as vantagens e tipos de aplicações geridas, consulte a visão geral das [aplicações geridas pelo Azure.](../../azure-resource-manager/managed-applications/overview.md)
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
 Todas as aplicações Azure incluem pelo menos dois ficheiros na pasta raiz de um `.zip` arquivo:
 
-* Um ficheiro de modelo do Gestor de Recursos nomeado [mainTemplate.jsem](../../azure-resource-manager/resource-group-overview.md).  Este modelo define os recursos para implantar na subscrição Azure do cliente. Para exemplos de modelos de Gestor de Recursos, consulte a [galeria de modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/) ou o [gitHub correspondente: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+* Um ficheiro de modelo do Gestor de Recursos nomeado [mainTemplate.jsem](../../azure-resource-manager/management/overview.md).  Este modelo define os recursos para implantar na subscrição Azure do cliente. Para exemplos de modelos de Gestor de Recursos, consulte a [galeria de modelos Azure Quickstart](https://azure.microsoft.com/resources/templates/) ou o [gitHub correspondente: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
 
-* Uma definição de interface de utilizador para a experiência de criação de aplicações Azure chamada [createUiDefinition.jsem](../../managed-applications/create-uidefinition-overview.md).  Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
+* Uma definição de interface de utilizador para a experiência de criação de aplicações Azure chamada [createUiDefinition.jsem](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).  Na interface de utilizador, especifique os elementos que permitem aos consumidores fornecer valores de parâmetros.
 
 Todas as novas ofertas de aplicações da Azure devem incluir uma [atribuição de utilização do cliente parceiro Azure GUID](../azure-partner-customer-usage-attribution.md). 
 
@@ -107,9 +107,9 @@ Para conhecer os requisitos de publicação de cada plano de aplicação, consul
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 
-1. No menu esquerdo, selecione **Commercial Marketplace**  >  **Overview**.
+1. No menu esquerdo, selecione **Commercial Marketplace**  >  **Overview** .
 
-1. Na página 'Vista Geral', selecione **+ Nova oferta**  >  **Aplicação Azure**.
+1. Na página 'Vista Geral', selecione **+ Nova oferta**  >  **Aplicação Azure** .
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-azure-app.png)
 
@@ -117,12 +117,12 @@ Para conhecer os requisitos de publicação de cada plano de aplicação, consul
 
      * Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
      * Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir **a oferta de teste-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-     * O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
+     * O ID da Oferta não pode ser alterado depois de selecionar **Criar** .
 
 1. Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
      * Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
-     * O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar**.
+     * O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar** .
 
 1. Selecione **Criar** para gerar a oferta e continuar.
 
@@ -136,7 +136,7 @@ Um test drive é uma ótima maneira de mostrar a sua oferta a potenciais cliente
 
 Para ativar uma unidade de teste durante um período de tempo fixo, selecione a caixa de **verificação de acionamento de test drive.** Para remover o test drive da sua oferta, limpe esta caixa de verificação. Configure o ambiente de test drive na secção [técnica de configuração da unidade de teste](#test-drive-technical-configuration) mais tarde neste tópico.
 
-Para obter informações adicionais, consulte [Test drive a sua oferta no mercado comercial.](test-drive.md) Também pode ler sobre [as melhores práticas](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) de test drive e baixar o [PDF de unidades de teste](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (certifique-se de que o seu bloqueador pop-up está desligado)
+Para obter informações adicionais, consulte [Test drive a sua oferta no mercado comercial.](../what-is-test-drive.md) Também pode ler sobre [as melhores práticas](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices) de test drive e baixar o [PDF de unidades de teste](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) (certifique-se de que o seu bloqueador pop-up está desligado)
 
 >[!Note]
 >Como todas as aplicações Azure são implementadas usando um modelo de Gestor de Recursos Azure, o único tipo de unidade de teste disponível para uma aplicação Azure é uma [unidade de teste baseada em recursos Azure.](../azure-resource-manager-test-drive.md)
@@ -158,7 +158,7 @@ A página **Propriedades** é onde define as categorias usadas para agrupar a su
 Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável** .
 
 Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md)
 
@@ -188,7 +188,7 @@ Aqui está um exemplo de como a informação de oferta aparece no Azure Marketpl
 5. Endereço de política de privacidade (link)
 6. Nome da oferta
 7. Resumo
-8. Descrição
+8. Description
 9. Screenshots/vídeos
 
 <br>Aqui está um exemplo de como a oferta de informação aparece no portal Azure:
@@ -214,7 +214,7 @@ Forneça uma breve descrição da sua oferta, até 100 caracteres. Esta descriç
 
 Forneça uma descrição mais longa da sua oferta, até 256 caracteres. Esta descrição pode ser utilizada nos resultados da pesquisa.
 
-#### <a name="description"></a>Descrição
+#### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -236,7 +236,7 @@ Adicione links a documentos online suplementares opcionais sobre a sua solução
 
 ### <a name="contact-information"></a>Informações de contacto
 
-Forneça o nome, e-mail e número de telefone para um **contacto de suporte,** **contacto de engenharia**e contacto do Programa **CSP.** Esta informação não é mostrada aos clientes, mas estará disponível para a Microsoft e poderá ser fornecida aos parceiros da CSP. Alguns contactos podem requerer informações adicionais.
+Forneça o nome, e-mail e número de telefone para um **contacto de suporte,** **contacto de engenharia** e contacto do Programa **CSP.** Esta informação não é mostrada aos clientes, mas estará disponível para a Microsoft e poderá ser fornecida aos parceiros da CSP. Alguns contactos podem requerer informações adicionais.
 
 ### <a name="marketplace-media"></a>Meios de comunicação do mercado
 
@@ -305,7 +305,7 @@ Complete esta secção apenas se a sua oferta incluir uma aplicação gerida que
 A configuração técnica define os detalhes (ID do inquilino e ID de aplicativo) usados para identificar o seu serviço, que emitirá eventos de medição para uma aplicação gerida usando o [serviço de medição do Marketplace APIs](./marketplace-metering-service-apis.md).  Insira a identidade que o seu serviço utilizará ao emitir eventos de medição.
 
 * **ID do inquilino Azure AD** (obrigatório): Dentro do portal Azure, você deve [criar uma app Azure Ative Directory (AD)](../../active-directory/develop/howto-create-service-principal-portal.md) para que possamos validar a ligação entre os nossos dois serviços está por trás de uma comunicação autenticada. Para encontrar o ID do [inquilino),](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)vá ao seu Diretório Ativo Azure e selecione **Propriedades,** em seguida, procure o número **de ID** do Diretório listado (por exemplo 50c464d3-4930-494c-963c-1e951d15360e).
-* **ID da aplicação AD Azure** (obrigatório): Também precisa do seu [ID de aplicação)](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)e uma chave de autenticação. Para obter esses valores, vá ao seu Diretório Ativo Azure e selecione **registos de Aplicações**, em seguida, procure o número **de ID da aplicação** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Para encontrar a chave de autenticação, vá a **Definições** e selecione **Teclas**. Terá de fornecer uma descrição e duração e, em seguida, será fornecido um valor numer numer.
+* **ID da aplicação AD Azure** (obrigatório): Também precisa do seu [ID de aplicação)](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)e uma chave de autenticação. Para obter esses valores, vá ao seu Diretório Ativo Azure e selecione **registos de Aplicações** , em seguida, procure o número **de ID da aplicação** listado (por exemplo, 50c464d3-4930-494c-963c-1e951d15360e). Para encontrar a chave de autenticação, vá a **Definições** e selecione **Teclas** . Terá de fornecer uma descrição e duração e, em seguida, será fornecido um valor numer numer.
 
 >[!Note]
 >O ID da aplicação Azure será associado ao ID da sua editora, e só pode ser reutilizado dentro desta conta de editor.
@@ -328,7 +328,7 @@ Uma vez criado, verá os nomes do seu plano, IDs, tipo de plano, disponibilidade
 
 ### <a name="create-new-plan"></a>Criar novo plano
 
-**_ID plano_*_ – Criar um ID de plano único para cada plano nesta oferta. Este ID será visível para os clientes no URL do produto.  Utilize apenas caracteres minúsculos, alfanuméricos, traços ou sublinhados. Um máximo de 50 caracteres são permitidos para este iD do plano. Este ID não pode ser modificado após a seleção criar.
+**_ID plano_* _ – Criar um ID de plano único para cada plano nesta oferta. Este ID será visível para os clientes no URL do produto.  Utilize apenas caracteres minúsculos, alfanuméricos, traços ou sublinhados. Um máximo de 50 caracteres são permitidos para este iD do plano. Este ID não pode ser modificado após a seleção criar.
 
 _*_Nome do_*_ plano – Os clientes verão este nome ao decidir qual o plano a selecionar dentro da sua oferta. Crie um nome de oferta único para cada plano nesta oferta. O nome do plano é usado para diferenciar planos de software que podem fazer parte da mesma oferta (por exemplo, nome de oferta: Windows Server; planos: Windows Server 2016, Windows Server 2019).
 
@@ -337,11 +337,11 @@ _*_Nome do_*_ plano – Os clientes verão este nome ao decidir qual o plano a s
 Este separador permite definir a configuração de alto nível para o tipo de plano, quer reutilie os pacotes de outro plano, e quais as nuvens em que o plano deve estar disponível. As suas respostas neste separador afetarão quais os campos apresentados em outros separadores para o mesmo plano.
 
 #### <a name="plan-type"></a>Tipo de plano
-Selecione o tipo de plano para a sua oferta. A _*Modelo de solução** o plano é gerido inteiramente pelo cliente. Um plano **de aplicação gerido** permite aos editores gerir a aplicação em nome do cliente. Para mais informações, consulte [os planos de aplicação do Azure](#types-of-azure-application-plans).
+Selecione o tipo de plano para a sua oferta. A _ *Modelo de solução* * o plano é gerido inteiramente pelo cliente. Um plano **de aplicação gerido** permite aos editores gerir a aplicação em nome do cliente. Para mais informações, consulte [os planos de aplicação do Azure](#types-of-azure-application-plans).
 
 #### <a name="re-use-technical-configuration"></a>Reutilizar a configuração técnica
 
-Se tiver mais do que um plano do mesmo tipo e as embalagens forem idênticas entre eles, poderá selecionar **este plano reutiliza pacotes de outro plano**.  Ao selecionar esta opção, poderá selecionar um dos outros planos do mesmo tipo para esta oferta de reutilização de pacotes a partir de.
+Se tiver mais do que um plano do mesmo tipo e as embalagens forem idênticas entre eles, poderá selecionar **este plano reutiliza pacotes de outro plano** .  Ao selecionar esta opção, poderá selecionar um dos outros planos do mesmo tipo para esta oferta de reutilização de pacotes a partir de.
 
 >[!Note]
 >Quando reutilizar os pacotes a partir de outro plano, todo o separador de configuração técnica desaparecerá deste plano. Os detalhes de configuração técnica do outro plano, incluindo quaisquer atualizações que fizer no futuro, também serão utilizados para este plano.<br><br>Esta definição não pode ser alterada após a publicação deste plano.
@@ -465,8 +465,8 @@ Este separador permite-lhe editar a versão de projeto da sua configuração té
 
 Todos os pacotes do plano de aplicações Azure devem incluir estes dois ficheiros na pasta raiz de um `.zip` arquivo:
 
-* Um ficheiro de modelo do Gestor de Recursos nomeado [mainTemplate.jsem](../../azure-resource-manager/resource-group-overview.md). Este modelo automatiza a implantação de recursos na subscrição do Azure dos clientes.  Para exemplos de modelos de Gestor de Recursos, consulte a [galeria de modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/) ou o [gitHub correspondente: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
-* Uma definição de interface de utilizador para a experiência de criação de aplicações Azure chamada [createUiDefinition.jsem](../../azure-resource-manager/managed-application-createuidefinition-overview.md).
+* Um ficheiro de modelo do Gestor de Recursos nomeado [mainTemplate.jsem](../../azure-resource-manager/management/overview.md). Este modelo automatiza a implantação de recursos na subscrição do Azure dos clientes.  Para exemplos de modelos de Gestor de Recursos, consulte a [galeria de modelos Azure Quickstart](https://azure.microsoft.com/documentation/templates/) ou o [gitHub correspondente: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates) repo.
+* Uma definição de interface de utilizador para a experiência de criação de aplicações Azure chamada [createUiDefinition.jsem](../../azure-resource-manager/managed-applications/create-uidefinition-overview.md).
 
 Os tamanhos máximos de ficheiro suportados são:
 
@@ -486,7 +486,7 @@ O sub-separador de **pacotes previamente publicado** permite-lhe visualizar toda
 
 #### <a name="enable-just-in-time-jit-access"></a>Ativar o acesso just-in-time (JIT)
 
-Selecione esta opção para ativar o acesso just-in-time (JIT) para este plano.  O acesso ao JIT permite-lhe solicitar um acesso elevado aos recursos de uma aplicação gerida para resolução de problemas ou manutenção. Sempre tem acesso apenas de leitura aos recursos, mas por um período específico pode ter um maior acesso.  Para obter mais informações, consulte [Ativar e solicitar acesso just-in-time para aplicações geridas azure](../../managed-applications/request-just-in-time-access.md).  Para exigir que os consumidores da sua aplicação gerida concedam acesso permanente à sua conta, deixe esta opção desmarcada.
+Selecione esta opção para ativar o acesso just-in-time (JIT) para este plano.  O acesso ao JIT permite-lhe solicitar um acesso elevado aos recursos de uma aplicação gerida para resolução de problemas ou manutenção. Sempre tem acesso apenas de leitura aos recursos, mas por um período específico pode ter um maior acesso.  Para obter mais informações, consulte [Ativar e solicitar acesso just-in-time para aplicações geridas azure](../../azure-resource-manager/managed-applications/request-just-in-time-access.md).  Para exigir que os consumidores da sua aplicação gerida concedam acesso permanente à sua conta, deixe esta opção desmarcada.
 
 >[!Note]
 >Certifique-se de atualizar o seu `createUiDefinition.json` ficheiro de forma a suportar esta funcionalidade.  
@@ -498,7 +498,7 @@ Selecione se configurar **o modo de implantação** **completo** ou incremental 
 * Em **modo completo,** uma redistribuição da aplicação pelo cliente resultará na remoção de recursos no grupo de recursos geridos se os recursos não forem definidos no `mainTemplate.json` . 
 * Em **modo incremental,** uma redistribuição da aplicação deixa os recursos existentes inalterados.
 
-Para saber mais sobre os modos de implementação, consulte os [modos de implementação do Gestor de Recursos Azure](../../azure-resource-manager/deployment-modes.md).
+Para saber mais sobre os modos de implementação, consulte os [modos de implementação do Gestor de Recursos Azure](../../azure-resource-manager/templates/deployment-modes.md).
 
 #### <a name="notification-endpoint-url"></a>URL de ponto final de notificação
 
@@ -543,23 +543,23 @@ Expanda o alcance da sua oferta disponibilizando-a aos parceiros do programa [Cl
 
 ## <a name="test-drive"></a>Unidade de teste
 
-Crie uma demonstração (test drive) que permita que os clientes experimentem a sua oferta antes de a comprar. Para criar um ambiente de demonstração que permita aos clientes experimentarem a sua oferta por um período de tempo fixo, consulte [a Test Drive a sua oferta no mercado comercial.](test-drive.md)
+Crie uma demonstração (test drive) que permita que os clientes experimentem a sua oferta antes de a comprar. Para criar um ambiente de demonstração que permita aos clientes experimentarem a sua oferta por um período de tempo fixo, consulte [a Test Drive a sua oferta no mercado comercial.](../what-is-test-drive.md)
 
 Para ativar uma unidade de teste, selecione a caixa **de verificação de unidade de teste** no separador de [configuração 'Oferta'.](#test-drive) Para remover o test drive da sua oferta, limpe esta caixa de verificação.
 
 ### <a name="test-drive-technical-configuration"></a>Configuração técnica da versão de teste
 
-- **ID da aplicação AZure AD** (obrigatório): Introduza o seu ID de aplicação Azure Ative [(AD).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu esquerdo, selecione **as inscrições da App**, em seguida, procure o número de **ID da aplicação** listado (como 50c464d3-4930-494c-963c-1e951d15360e).
+- **ID da aplicação AZure AD** (obrigatório): Introduza o seu ID de aplicação Azure Ative [(AD).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu esquerdo, selecione **as inscrições da App** , em seguida, procure o número de **ID da aplicação** listado (como 50c464d3-4930-494c-963c-1e951d15360e).
 
 #### <a name="deployment-subscription-details"></a>Detalhes da subscrição de implementação
 
 Para permitir que a Unidade de Teste seja implantada em seu nome, crie e forneça uma assinatura Azure separada e única (não necessária para as unidades de teste Power BI).
 
-* **ID de subscrição Azure** (obrigatório para o Azure Resource Manager e aplicações Lógica) – Introduza o ID de subscrição para garantir o acesso aos serviços de conta Azure para reportar e faturar o uso de recursos. Recomendamos que considere [criar uma subscrição Azure separada](../../billing/billing-create-subscription.md) para usar para test drives se ainda não tiver uma. Pode encontrar o seu ID de subscrição Azure iniciando sessão no [portal Azure](https://portal.azure.com/) e navegando no separador **Subscrições** do menu do lado esquerdo. A seleção do separador apresentará o seu ID de subscrição (como "a83645ac-1234-5ab6-6789-1h234g764ghty").
-* **ID do inquilino Azure AD** (obrigatório) – Insira o seu ID do inquilino Azure Ative [(AD).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu esquerdo, selecione **Propriedades**, em seguida, procure o número de ID do **diretório** listado (como 50c464d3-4930-494c-963c-1e951d15360e). Também pode procurar o ID do inquilino da sua organização usando o seu url de nome de domínio em:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
+* **ID de subscrição Azure** (obrigatório para o Azure Resource Manager e aplicações Lógica) – Introduza o ID de subscrição para garantir o acesso aos serviços de conta Azure para reportar e faturar o uso de recursos. Recomendamos que considere [criar uma subscrição Azure separada](../../cost-management-billing/manage/create-subscription.md) para usar para test drives se ainda não tiver uma. Pode encontrar o seu ID de subscrição Azure iniciando sessão no [portal Azure](https://portal.azure.com/) e navegando no separador **Subscrições** do menu do lado esquerdo. A seleção do separador apresentará o seu ID de subscrição (como "a83645ac-1234-5ab6-6789-1h234g764ghty").
+* **ID do inquilino Azure AD** (obrigatório) – Insira o seu ID do inquilino Azure Ative [(AD).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu esquerdo, selecione **Propriedades** , em seguida, procure o número de ID do **diretório** listado (como 50c464d3-4930-494c-963c-1e951d15360e). Também pode procurar o ID do inquilino da sua organização usando o seu url de nome de domínio em:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com) .
 * **Nome do inquilino Azure AD** (obrigatório para Dynamic 365) – Insira o seu nome Azure Ative Directory (AD). Para encontrar este nome, inscreva-se no [portal Azure,](https://portal.azure.com/)no canto superior direito o nome do seu inquilino será listado no nome da sua conta.
-* **ID da aplicação AD AZure** (obrigatório) – Introduza o ID da aplicação Azure Ative [(AD).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu de navegação à esquerda, selecione **registos de aplicações**, em seguida, procure o número **de ID da aplicação** listado (como 50c464d3-4930-494c-963c-1e951d15360e).
-* **Azure Ative Directory application cliente secret** (obrigatório) – Insira o [segredo do seu cliente de](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)aplicação Azure AD). Para encontrar este valor, inscreva-se no [portal Azure](https://portal.azure.com/). Selecione o separador **Azure Ative Directory** no menu de navegação à esquerda, selecione **registos de Aplicações**e, em seguida, selecione a sua aplicação de test drive. Em seguida, selecione **Certificados e segredos**, selecione **Novo segredo de cliente,** introduza uma descrição, selecione **Nunca** em **Expiração,** em seguida, escolha **Adicionar**. Certifique-se de copiar o valor antes de sair desta página.)
+* **ID da aplicação AD AZure** (obrigatório) – Introduza o ID da aplicação Azure Ative [(AD).](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) Para encontrar este ID, inscreva-se no [portal Azure](https://portal.azure.com/), selecione o separador Ative Directory no menu de navegação à esquerda, selecione **registos de aplicações** , em seguida, procure o número **de ID da aplicação** listado (como 50c464d3-4930-494c-963c-1e951d15360e).
+* **Azure Ative Directory application cliente secret** (obrigatório) – Insira o [segredo do seu cliente de](../../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)aplicação Azure AD). Para encontrar este valor, inscreva-se no [portal Azure](https://portal.azure.com/). Selecione o separador **Azure Ative Directory** no menu de navegação à esquerda, selecione **registos de Aplicações** e, em seguida, selecione a sua aplicação de test drive. Em seguida, selecione **Certificados e segredos** , selecione **Novo segredo de cliente,** introduza uma descrição, selecione **Nunca** em **Expiração,** em seguida, escolha **Adicionar** . Certifique-se de copiar o valor antes de sair desta página.)
 
 **Selecione Guardar o projeto** antes de continuar.
 

@@ -8,24 +8,24 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329037"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129597"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Como planear uma oferta de máquina virtual
 
 Este artigo explica as diferentes opções e requisitos para a publicação de uma oferta de máquina virtual (VM) ao mercado comercial. As ofertas de VM são ofertas transacionáveis implementadas e faturadas através do Azure Marketplace.
 
-Antes de iniciar, [Crie uma conta de marketplace comercial no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) e certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
+Antes de iniciar, [Crie uma conta de marketplace comercial no Partner Center](./partner-center-portal/create-account.md) e certifique-se de que a sua conta está inscrita no programa de marketplace comercial.
 
 ### <a name="technical-fundamentals"></a>Fundamentos técnicos
 
 O processo de conceção, construção e testes oferece tempo e requer experiência tanto na plataforma Azure como nas tecnologias usadas para construir a sua oferta. A sua equipa de engenharia deverá ter um conhecimento de trabalho das [Máquinas Virtuais Azure,](https://azure.microsoft.com/services/virtual-machines/) [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage)e [Azure Networking,](https://azure.microsoft.com/services/?filter=networking#networking)bem como proficiência com o [design e arquitetura das aplicações Azure.](https://azure.microsoft.com/solutions/architecture/) Consulte estes recursos técnicos adicionais: 
 
-- Tutorials (Tutoriais)
+- Tutoriais
   - [VMs do Linux](../virtual-machines/linux/tutorial-manage-vm.md)
   - [VMs do Windows](../virtual-machines/windows/tutorial-manage-vm.md)
 
@@ -70,7 +70,7 @@ Pode enviar convites para endereços de e-mail da Conta Microsoft (MSA) ou do Az
 
 As ofertas de VM requerem pelo menos um plano. Um plano define o âmbito e os limites da solução, e os preços associados. Pode criar vários planos para a sua oferta para dar aos seus clientes diferentes opções técnicas e de licenciamento, bem como testes gratuitos. Consulte [planos e preços para ofertas de mercado comercial](plans-pricing.md) para orientação geral sobre planos, incluindo modelos de preços, testes gratuitos e planos privados. 
 
-Os VMs são totalmente habilitados para o comércio, utilizando modelos de licenciamento pay-as-you-go ou bring-your-own-license (BYOL). A Microsoft acolhe a transação de comércio e fatura o seu cliente em seu nome. Obtém o benefício de utilizar a relação de pagamento preferida entre o seu cliente e a Microsoft, incluindo quaisquer Acordos empresariais. Para obter mais informações, consulte [as capacidades de transação do mercado comercial.](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations)
+Os VMs são totalmente habilitados para o comércio, utilizando modelos de licenciamento pay-as-you-go ou bring-your-own-license (BYOL). A Microsoft acolhe a transação de comércio e fatura o seu cliente em seu nome. Obtém o benefício de utilizar a relação de pagamento preferida entre o seu cliente e a Microsoft, incluindo quaisquer Acordos empresariais. Para obter mais informações, consulte [as capacidades de transação do mercado comercial.](./marketplace-commercial-transaction-capabilities-and-considerations.md)
 
 > [!NOTE]
 > Os compromissos monetários associados a um Acordo de Empresa podem ser usados contra o uso do Azure do seu VM, mas não contra as suas taxas de licenciamento de software.
@@ -84,7 +84,7 @@ Estas são as opções de licenciamento disponíveis para as ofertas de VM:
 | Opção de licenciamento | Processo de transação |
 | --- | --- |
 | Avaliação gratuita | Ofereça aos seus clientes um teste gratuito de um, três ou seis meses. |
-| Unidade de teste | Esta opção permite que os seus clientes avaliem VMs sem custos adicionais para eles. Não precisam de ser um cliente Azure existente para se envolverem com a experiência do teste. Para mais detalhes, veja [o que é um test drive?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
+| Unidade de teste | Esta opção permite que os seus clientes avaliem VMs sem custos adicionais para eles. Não precisam de ser um cliente Azure existente para se envolverem com a experiência do teste. Para mais detalhes, veja [o que é um test drive?](./what-is-test-drive.md) |
 | BYOL | A opção Bring Your Own Licensing permite que os seus clientes levem licenças de software existentes para a Azure.\* |
 | Baseada na utilização | Também conhecida como pay-as-you-go, esta opção permite que os seus clientes paguem por hora. |
 | Demonstração interativa  | Dê aos seus clientes uma experiência guiada da sua solução utilizando uma demonstração interativa. O benefício é que você pode oferecer uma experiência experimental sem ter que fornecer uma configuração complicada da sua complexa solução. |
@@ -129,7 +129,7 @@ Se optar por utilizar o contrato padrão, tem a opção de adicionar termos de e
 Ao criar a sua oferta no Partner Center, verá o **separador Revenda através do separador CSPs.** Esta opção permite que os parceiros que fazem parte do programa Microsoft Cloud Solution Providers (CSP) revendem o seu VM como parte de uma oferta agregada. Todos os planos Bring-your-your-own-license (BYOL) são automaticamente optados pelo programa. Também pode optar pelos seus planos não BYOL. Consulte [o programa Cloud Solution Provider](cloud-solution-providers.md) para obter mais informações. 
 
 > [!NOTE]
-> O opt-in do canal parceiro Cloud Solution Provider (CSP) já está disponível. Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [**os Fornecedores de Soluções Cloud.**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers)
+> O opt-in do canal parceiro Cloud Solution Provider (CSP) já está disponível. Para obter mais informações sobre o marketing da sua oferta através dos canais parceiros da Microsoft CSP, consulte [**os Fornecedores de Soluções Cloud.**](./cloud-solution-providers.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

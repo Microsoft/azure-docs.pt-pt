@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c02812d4c97b94667fcddcb275243e7a9b36b29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01fb93a4b74a35501d0684b822ea83fc7b20770a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321909"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130583"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Crie um grupo de ação com um modelo de Gestor de Recursos
 Este artigo mostra-lhe como usar um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para configurar grupos de ação. Ao utilizar modelos, pode configurar automaticamente grupos de ação que podem ser reutilizados em certos tipos de alertas. Estes grupos de ação asseguram que todas as partes corretas sejam notificadas quando um alerta é desencadeado.
@@ -23,11 +23,11 @@ Os passos básicos são:
 
 2. Implemente o modelo utilizando [qualquer método de implantação](../../azure-resource-manager/templates/deploy-powershell.md).
 
-Em primeiro lugar, descrevemos como criar um modelo de Gestor de Recursos para um grupo de ação onde as definições de ação são codificadas no modelo. Em segundo lugar, descrevemos como criar um modelo que leva a informação de configuração webhook como parâmetros de entrada quando o modelo é implementado.
-
 ## <a name="resource-manager-templates-for-an-action-group"></a>Modelos de gestor de recursos para um grupo de ação
 
 Para criar um grupo de ação utilizando um modelo de Gestor de Recursos, cria-se um recurso do tipo `Microsoft.Insights/actionGroups` . Depois preenche todas as propriedades relacionadas. Aqui estão dois modelos de amostra que criam um grupo de ação.
+
+Primeiro modelo, descreve como criar um modelo de Gestor de Recursos para um grupo de ação onde as definições de ação são codificadas no modelo. Segundo modelo, descreve como criar um modelo que toma a informação de configuração webhook como parâmetros de entrada quando o modelo é implementado.
 
 ```json
 {

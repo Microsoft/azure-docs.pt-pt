@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 843e05a68a9fd9a72f14847a941d69c672094b66
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a9f48d95281971fc49a6a3fda93e4ee13ed8d753
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077018"
+ms.locfileid: "93130787"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Compreenda as entradas para a Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Stream Analytics tem integração de primeira classe com quatro tipos de recurso
 
 Estes recursos de entrada podem viver na mesma subscrição Azure que o seu trabalho Stream Analytics, ou de uma subscrição diferente.
 
-Pode utilizar o [portal Azure](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET API,](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions) [REST API](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs)e [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) para criar, editar e testar entradas de trabalho stream Analytics.
+Pode utilizar o [portal Azure](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), [.NET API,](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions) [REST API](./stream-analytics-define-inputs.md)e [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) para criar, editar e testar entradas de trabalho stream Analytics.
 
 ## <a name="stream-and-reference-inputs"></a>Entradas de fluxo e referência
 À medida que os dados são levados para uma fonte de dados, é consumido pelo trabalho stream Analytics e processado em tempo real. As entradas são divididas em dois tipos: entradas de fluxo de dados e entradas de dados de referência.

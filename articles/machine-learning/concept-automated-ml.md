@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 04/22/2020
-ms.openlocfilehash: 49c3e5602834576e8d3de86ac7d6683f9b6f7b89
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/27/2020
+ms.openlocfilehash: 8ffdd8c15cf225e4f5b99a0b84b71bdbed456234
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367521"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130090"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
@@ -74,7 +74,7 @@ Utilizando **a Azure Machine Learning,** pode conceber e executar as suas experi
 
 1. **Identificar o problema do ML** a resolver: classificação, previsão ou regressão
 
-1. **Escolha se deseja utilizar o Python SDK ou a experiência web do estúdio**: Saiba mais sobre a paridade entre o Python [SDK e](#parity)a experiência web do estúdio.
+1. **Escolha se deseja utilizar o Python SDK ou a experiência web do estúdio** : Saiba mais sobre a paridade entre o Python [SDK e](#parity)a experiência web do estúdio.
 
    * Para experiência limitada ou sem código, experimente a experiência web do estúdio Azure Machine Learning em [https://ml.azure.com](https://ml.azure.com/)  
    * Para desenvolvedores de Python, confira o [Azure Machine Learning Python SDK](how-to-configure-auto-train.md) 
@@ -116,7 +116,7 @@ Para experiências automatizadas de machine learning, a caracterização é apli
 
 Em todas as experiências automatizadas de aprendizagem automática de máquinas, os seus dados são automaticamente dimensionados ou normalizados para ajudar os algoritmos a funcionarem bem. Durante o treino de modelo, uma das seguintes técnicas de escala ou normalização será aplicada a cada modelo. Saiba como o AutoML ajuda a [prevenir dados sobreajustes e desequilibrados](concept-manage-ml-pitfalls.md) nos seus modelos.
 
-|Normalização &nbsp; & de escala &nbsp;| Descrição |
+|Normalização &nbsp; & de escala &nbsp;| Description |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Padronizar as características removendo a média e a escala para a variação da unidade  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transforma as características escalando cada recurso pelo mínimo e máximo da coluna  |
@@ -140,8 +140,8 @@ Ative esta definição com:
 
 A aprendizagem automática suporta modelos conjuntos, que são ativados por padrão. A aprendizagem do conjunto melhora os resultados da aprendizagem automática e o desempenho preditivo, combinando vários modelos em oposição à utilização de modelos individuais. As iterações do conjunto aparecem como as iterações finais da sua corrida. A aprendizagem automática de máquinas utiliza métodos de votação e empilhamento para combinar modelos:
 
-* **Votação**: prevê com base na média ponderada das probabilidades de classe previstas (para tarefas de classificação) ou nos objetivos de regressão previstos (para tarefas de regressão).
-* **Empilhamento**: empilhamento combina modelos heterogéneos e treina um meta-modelo baseado na saída dos modelos individuais. Os meta-modelos predefinidos atuais são a LogísticaRegression para tarefas de classificação e a ElasticNet para tarefas de regressão/previsão.
+* **Votação** : prevê com base na média ponderada das probabilidades de classe previstas (para tarefas de classificação) ou nos objetivos de regressão previstos (para tarefas de regressão).
+* **Empilhamento** : empilhamento combina modelos heterogéneos e treina um meta-modelo baseado na saída dos modelos individuais. Os meta-modelos predefinidos atuais são a LogísticaRegression para tarefas de classificação e a ElasticNet para tarefas de regressão/previsão.
 
 O [algoritmo de seleção do conjunto Caruana](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) com inicialização de conjunto ordenado é usado para decidir quais modelos usar dentro do conjunto. A um nível elevado, este algoritmo inicializa o conjunto com até cinco modelos com as melhores pontuações individuais, e verifica que estes modelos estão a 5% do limiar da melhor pontuação para evitar um conjunto inicial pobre. Em seguida, para cada iteração de conjunto, um novo modelo é adicionado ao conjunto existente e a pontuação resultante é calculada. Se um novo modelo melhorou a pontuação do conjunto existente, o conjunto é atualizado para incluir o novo modelo.
 
@@ -151,14 +151,14 @@ Consulte o [modo de](how-to-configure-auto-train.md#ensemble) alterar as defini�
 
 A interface web para ML automatizado usa sempre um [alvo de computação](concept-compute-target.md)remota .  Mas quando utilizar o Python SDK, escolherá um compute local ou um alvo de computação remota para o treino automatizado de ML.
 
-* **Cálculo local**: A formação ocorre no seu portátil local ou no cálculo VM. 
-* **Computação remota**: O treino ocorre em clusters de cálculo machine learning.  
+* **Cálculo local** : A formação ocorre no seu portátil local ou no cálculo VM. 
+* **Computação remota** : O treino ocorre em clusters de cálculo machine learning.  
 
 ### <a name="choose-compute-target"></a>Escolha o alvo do cálculo
 Considere estes fatores ao escolher o seu alvo de computação:
 
- * **Escolha um cálculo local**: Se o seu cenário for sobre explorações iniciais ou demonstrações usando pequenos dados e comboios curtos (isto é, segundos ou alguns minutos por criança), treinar no seu computador local pode ser uma escolha melhor.  Não há tempo de configuração, os recursos de infraestrutura (o seu PC ou VM) estão disponíveis diretamente.
- * **Escolha um cluster de computação ML remoto**: Se estiver a treinar com conjuntos de dados maiores, como na formação de produção, criando modelos que necessitem de comboios mais longos, o cálculo remoto proporcionará um desempenho de tempo muito melhor de ponta a ponta, porque `AutoML` irá paralelizar os comboios através dos nós do cluster. Num cálculo remoto, o tempo de arranque da infraestrutura interna irá adicionar cerca de 1,5 minutos por criança, além de minutos adicionais para a infraestrutura de cluster se os VMs ainda não estiverem em funcionamento.
+ * **Escolha um cálculo local** : Se o seu cenário for sobre explorações iniciais ou demonstrações usando pequenos dados e comboios curtos (isto é, segundos ou alguns minutos por criança), treinar no seu computador local pode ser uma escolha melhor.  Não há tempo de configuração, os recursos de infraestrutura (o seu PC ou VM) estão disponíveis diretamente.
+ * **Escolha um cluster de computação ML remoto** : Se estiver a treinar com conjuntos de dados maiores, como na formação de produção, criando modelos que necessitem de comboios mais longos, o cálculo remoto proporcionará um desempenho de tempo muito melhor de ponta a ponta, porque `AutoML` irá paralelizar os comboios através dos nós do cluster. Num cálculo remoto, o tempo de arranque da infraestrutura interna irá adicionar cerca de 1,5 minutos por criança, além de minutos adicionais para a infraestrutura de cluster se os VMs ainda não estiverem em funcionamento.
 
 ### <a name="pros-and-cons"></a>Prós e contras
 Considere estes prós e contras ao optar por utilizar local vs. remoto.
@@ -172,7 +172,7 @@ Considere estes prós e contras ao optar por utilizar local vs. remoto.
 
  Mais funcionalidades estão disponíveis quando utiliza o cálculo remoto, como mostra a tabela abaixo. 
 
-| Funcionalidade                                                    | Remoto | Local | 
+| Destaque                                                    | Remoto | Local | 
 |------------------------------------------------------------|--------|-------|
 | Streaming de dados (Grande suporte a dados, até 100 GB)          | ✓      |       | 
 | A participação e formação de texto baseados em DNN-BERT             | ✓      |       |
@@ -263,7 +263,7 @@ Com a Azure Machine Learning, pode utilizar ml automatizado para construir um mo
 
 Veja como converter para o formato ONNX [neste exemplo de caderno Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb). Saiba quais [os algoritmos suportados no ONNX.](how-to-configure-auto-train.md#select-your-experiment-type)
 
-O tempo de execução ONNX também suporta C#, para que possa utilizar o modelo construído automaticamente nas suas aplicações C# sem qualquer necessidade de recoding ou qualquer uma das latências de rede que os pontos finais REST introduzem. Saiba mais sobre [a inferencção dos modelos ONNX com o tempo de execução ONNX C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
+O tempo de execução ONNX também suporta C#, para que possa utilizar o modelo construído automaticamente nas suas aplicações C# sem qualquer necessidade de recoding ou qualquer uma das latências de rede que os pontos finais REST introduzem. Saiba mais sobre [a utilização de um modelo AutoML ONNX numa aplicação .NET com ML.NET](./how-to-use-automl-onnx-model-dotnet.md) e [inferencing os modelos ONNX com o tempo de execução ONNX C# API](https://github.com/Microsoft/onnxruntime/blob/master/docs/CSharp_API.md). 
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -271,7 +271,7 @@ Existem vários recursos para te pôr a funcionar com o AutoML.
 
 ### <a name="tutorials-how-tos"></a>Tutoriais/ como-tos
 Os tutoriais são exemplos introdutórios de cenários AutoML.
-+ **Para uma primeira experiência**de código, siga o [Tutorial: Treine automaticamente um modelo de regressão com Azure Machine Learning Python SDK](tutorial-auto-train-models.md).
++ **Para uma primeira experiência** de código, siga o [Tutorial: Treine automaticamente um modelo de regressão com Azure Machine Learning Python SDK](tutorial-auto-train-models.md).
 
  + **Para uma experiência de baixo ou nenhum código,** consulte o [Tutorial: Crie modelos automatizados de classificação ML com estúdio Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 

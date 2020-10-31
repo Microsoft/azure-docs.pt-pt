@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337811"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130260"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Resolução de problemas Azure Stream Análises
 
@@ -25,26 +25,26 @@ Este artigo descreve questões comuns com o desenvolvimento de consultas Azure S
 
 1.  Examinar erros testando localmente:
 
-    - No portal Azure, no **separador 'Consulta',** selecione **Teste**. Utilize os dados da amostra descarregados para [testar a consulta](stream-analytics-test-query.md). Examine quaisquer erros e tente corrigi-los.   
+    - No portal Azure, no **separador 'Consulta',** selecione **Teste** . Utilize os dados da amostra descarregados para [testar a consulta](stream-analytics-test-query.md). Examine quaisquer erros e tente corrigi-los.   
     - Também pode [testar a sua consulta localmente](stream-analytics-live-data-local-testing.md) utilizando ferramentas Azure Stream Analytics para Visual Studio ou Visual Studio [Code](visual-studio-code-local-run-live-input.md). 
 
 2.  [Consultas de depuração passo a passo localmente usando diagrama de trabalho](debug-locally-using-job-diagram-vs-code.md) em ferramentas Azure Stream Analytics para Código de Estúdio Visual. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (Event Hub, IoT Hub, etc.) através de múltiplos passos de consulta e, finalmente, para os lavatórios de saída. Cada passo de consulta é mapeado para um conjunto de resultados temporário definido no script usando a declaração COM. Pode ver os dados, bem como as métricas, em cada conjunto de resultados intermédios para encontrar a origem da questão.
 
     ![Resultado da pré-visualização do diagrama de trabalho](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
-3.  Se utilizar [**o Timetamp By,**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)verifique se os eventos têm prazos superiores aos da [hora de início](stream-analytics-out-of-order-and-late-events.md)do trabalho .
+3.  Se utilizar [**o Timetamp By,**](/stream-analytics-query/timestamp-by-azure-stream-analytics)verifique se os eventos têm prazos superiores aos da [hora de início](./stream-analytics-time-handling.md)do trabalho .
 
 4.  Eliminar armadilhas comuns, tais como:
-    - Uma cláusula [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) na consulta filtrada todos os eventos, impedindo que qualquer saída seja gerada.
-    - Uma função [**CAST**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) falha, fazendo com que o trabalho falhe. Para evitar falhas de tipo de molde, utilize [**TRY_CAST.**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics)
+    - Uma cláusula [**WHERE**](/stream-analytics-query/where-azure-stream-analytics) na consulta filtrada todos os eventos, impedindo que qualquer saída seja gerada.
+    - Uma função [**CAST**](/stream-analytics-query/cast-azure-stream-analytics) falha, fazendo com que o trabalho falhe. Para evitar falhas de tipo de molde, utilize [**TRY_CAST.**](/stream-analytics-query/try-cast-azure-stream-analytics)
     - Quando utilizar funções de janela, aguarde toda a duração da janela para ver uma saída da consulta.
     - O tempo de espera para eventos antecede a hora de início do trabalho e os eventos são retirados.
-    - [**As**](https://docs.microsoft.com/stream-analytics-query/join-azure-stream-analytics) condições de junção não coincidem. Se não houver fósforos, não haverá saída zero.
+    - [**As**](/stream-analytics-query/join-azure-stream-analytics) condições de junção não coincidem. Se não houver fósforos, não haverá saída zero.
 
-5.  Certifique-se de que as políticas de ordenação de eventos estão configuradas como esperado. Vá a **Definições** e [**selecione Pedido de Eventos**](stream-analytics-out-of-order-and-late-events.md). A apólice *não* é aplicada quando se utiliza o botão **Teste** para testar a consulta. Este resultado é uma diferença entre testar no navegador e executar o trabalho em produção. 
+5.  Certifique-se de que as políticas de ordenação de eventos estão configuradas como esperado. Vá a **Definições** e [**selecione Pedido de Eventos**](./stream-analytics-time-handling.md). A apólice *não* é aplicada quando se utiliza o botão **Teste** para testar a consulta. Este resultado é uma diferença entre testar no navegador e executar o trabalho em produção. 
 
 6. Depurar utilizando registos de atividade e de recursos:
-    - Utilize [Registos de Atividades](../azure-resource-manager/resource-group-audit.md)e filtre para identificar e depurar erros.
+    - Utilize [Registos de Atividades](../azure-resource-manager/management/view-activity-logs.md)e filtre para identificar e depurar erros.
     - Utilize [registos de recursos de trabalho](stream-analytics-job-diagnostic-logs.md) para identificar e depurar erros.
 
 ## <a name="resource-utilization-is-high"></a>A utilização de recursos é elevada
@@ -103,12 +103,12 @@ Desta vez, os dados na saída são formatados e povoados como esperado.
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência de API do REST de gestão do Azure Stream Analytics](/rest/api/streamanalytics/)

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2020
-ms.openlocfilehash: 8dfc1eb35572a6b706deb47335357417bd837825
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3f3b2c5927b31bde4575a08888e8844f2a1027
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819935"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130005"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planear uma oferta saaS para o mercado comercial
 
@@ -47,7 +47,7 @@ Os requisitos técnicos diferem consoante a opção de listagem que escolher par
 
 A opção de listagem _Contacte-me_ não tem requisitos técnicos. Tem a opção de ligar um sistema CRM para gerir os leads do cliente, que é descrito na secção [de ligações ao Cliente,](#customer-leads) mais tarde neste artigo.
 
-O _Get it now (Free)_, Free _trial_, and Sell _through Microsoft_ listing options têm os seguintes requisitos técnicos:
+O _Get it now (Free)_ , Free _trial_ , and Sell _through Microsoft_ listing options têm os seguintes requisitos técnicos:
 
 - A sua aplicação SaaS deve ser uma solução multitenante.
 - Pode ativar tanto as Contas Microsoft (MSA) como [o Azure Ative Directory (AZure AD)](https://azure.microsoft.com/services/active-directory/) para autenticar utilizadores.
@@ -66,7 +66,7 @@ Estes requisitos técnicos adicionais aplicam-se apenas à opção de listagem _
 
 Se estiver a criar uma oferta transacionável, terá de recolher as seguintes informações para a página **de configuração técnica.** Se optar por processar transações de forma independente em vez de criar uma oferta transacionável, ignore esta secção e vá a [Test drives](#test-drives).
 
-- **URL da página de aterragem**: O URL do site SaaS (por exemplo: `https://contoso.com/signup` ) para o que os utilizadores serão direcionados após a aquisição da sua oferta no mercado comercial, desencadeando o processo de configuração a partir da recém-criada subscrição SaaS. Este URL receberá um token que pode ser usado para chamar as APIs de cumprimento para obter detalhes de provisionamento para a sua página de registo interativo.
+- **URL da página de aterragem** : O URL do site SaaS (por exemplo: `https://contoso.com/signup` ) para o que os utilizadores serão direcionados após a aquisição da sua oferta no mercado comercial, desencadeando o processo de configuração a partir da recém-criada subscrição SaaS. Este URL receberá um token que pode ser usado para chamar as APIs de cumprimento para obter detalhes de provisionamento para a sua página de registo interativo.
 
   Este URL será chamado com o parâmetro de identificação de compra de mercado que identifica exclusivamente a compra específica do cliente SaaS. Tem de trocar este token pelos correspondentes dados de subscrição do SaaS utilizando a [API de resolução](./partner-center-portal/pc-saas-fulfillment-api-v2.md#resolve-a-purchased-subscription). Esses detalhes e quaisquer outros que deseje recolher devem ser usados como parte de uma página web interativa do cliente, construída na sua experiência para completar o registo do cliente e ativar a sua compra. Nesta página, o utilizador deve inscrever-se através da autenticação de um clique utilizando o Azure Ative Directory (Azure AD).
 
@@ -74,16 +74,16 @@ Se estiver a criar uma oferta transacionável, terá de recolher as seguintes in
 
     A página de Desembarque que configurar deve estar a funcionar 24 horas por dia, 7 horas por dia. Esta é a única forma de ser notificado sobre novas compras das suas ofertas SaaS feitas no mercado comercial, ou pedidos de configuração para uma subscrição ativa de uma oferta.
 
-- **Connection webhook**: Para todos os eventos assíncronos que a Microsoft precisa de enviar para si (por exemplo, quando uma subscrição saaS foi cancelada), exigimos que forneça um URL webhook de ligação. Vamos chamar este URL para notificá-lo sobre o evento.
+- **Connection webhook** : Para todos os eventos assíncronos que a Microsoft precisa de enviar para si (por exemplo, quando uma subscrição saaS foi cancelada), exigimos que forneça um URL webhook de ligação. Vamos chamar este URL para notificá-lo sobre o evento.
 
   O webhook que fornece deve estar a funcionar 24 horas por dia, 7 dias por semana, já que esta é a única forma de ser notificado sobre atualizações sobre as subscrições saaS dos seus clientes adquiridas através do mercado comercial.
 
   > [!NOTE]
   > Dentro do portal Azure, exigimos que crie uma aplicação de [diretório ativo Azure (Azure AD)](../active-directory/develop/howto-create-service-principal-portal.md) para permitir que um ID da App Azure seja usado para autenticar a ligação entre os nossos dois serviços. Para encontrar o ID do [inquilino,](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)vá ao seu Diretório Ativo Azure e selecione **Propriedades,** em seguida, procure o número de identificação do diretório listado. Por exemplo, `50c464d3-4930-494c-963c-1e951d15360e`.
 
-- **ID do inquilino do Azure Ative Directory:**(também conhecido como ID do diretório). Dentro do portal Azure, exigimos que [registe uma aplicação Azure Ative Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) para que possamos adicioná-la à lista de controlo de acesso (ACL) da API para garantir que está autorizado a chamá-la. Para encontrar o ID do inquilino para a sua aplicação Azure Ative Directory (AD), vá à lâmina [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App em Azure Ative Directory. Na coluna **'Mostrar' o nome,** selecione a aplicação. Em seguida, procure o número de ID do **Diretório (inquilino)** listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **ID do inquilino do Azure Ative Directory:** (também conhecido como ID do diretório). Dentro do portal Azure, exigimos que [registe uma aplicação Azure Ative Directory (AD)](../active-directory/develop/howto-create-service-principal-portal.md) para que possamos adicioná-la à lista de controlo de acesso (ACL) da API para garantir que está autorizado a chamá-la. Para encontrar o ID do inquilino para a sua aplicação Azure Ative Directory (AD), vá à lâmina [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App em Azure Ative Directory. Na coluna **'Mostrar' o nome,** selecione a aplicação. Em seguida, procure o número de ID do **Diretório (inquilino)** listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- ID de aplicação do **Azure Ative Directory**: Também precisa do seu [ID de aplicação](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Para obter o seu valor, aceda à lâmina de [registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no Azure Ative Directory. Na coluna **'Mostrar' o nome,** selecione a aplicação. Em seguida, procure o número de ID de aplicação (cliente) listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
+- ID de aplicação do **Azure Ative Directory** : Também precisa do seu [ID de aplicação](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Para obter o seu valor, aceda à lâmina de [registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no Azure Ative Directory. Na coluna **'Mostrar' o nome,** selecione a aplicação. Em seguida, procure o número de ID de aplicação (cliente) listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
   O ID da aplicação Azure está associado com o seu ID de editor na sua conta Partner Center. Deve utilizar o mesmo ID de aplicação para todas as ofertas nessa conta.
 
@@ -131,7 +131,7 @@ Quando [criar uma nova oferta SaaS](create-new-saas-offer.md) no Partner Center,
 6. Política de privacidade
 7. Nome da oferta
 8. Resumo
-9. Descrição
+9. Description
 10. Screenshots/vídeos
 11. Documentos
 
@@ -151,22 +151,22 @@ O exemplo a seguir mostra uma listagem de oferta no portal Azure.
 
 Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens com antecedência. Os seguintes itens são necessários, salvo indicação em contrário.
 
-- **Nome**: Este nome aparecerá como o título da sua listagem de oferta no mercado comercial. O nome pode ser marcado. Não pode conter emojis (a menos que sejam símbolos de marca e direitos de autor) e deve ser limitado a 50 caracteres.
-- Resumo dos **resultados**da pesquisa : Descreva a finalidade ou função da sua oferta como uma única frase sem quebras de linha em 100 caracteres ou menos. Este resumo é utilizado nos resultados de pesquisa de anúncios de mercado comercial.
-- **Descrição**: Esta descrição será exibida na lista(s) visão geral da listagem do mercado comercial. Considere incluir uma proposta de valor, benefícios-chave, base de utilizadores pretendida, qualquer categoria ou associações do setor, oportunidades de compra in-app, quaisquer divulgações necessárias e um link para saber mais.
+- **Nome** : Este nome aparecerá como o título da sua listagem de oferta no mercado comercial. O nome pode ser marcado. Não pode conter emojis (a menos que sejam símbolos de marca e direitos de autor) e deve ser limitado a 50 caracteres.
+- Resumo dos **resultados** da pesquisa : Descreva a finalidade ou função da sua oferta como uma única frase sem quebras de linha em 100 caracteres ou menos. Este resumo é utilizado nos resultados de pesquisa de anúncios de mercado comercial.
+- **Descrição** : Esta descrição será exibida na lista(s) visão geral da listagem do mercado comercial. Considere incluir uma proposta de valor, benefícios-chave, base de utilizadores pretendida, qualquer categoria ou associações do setor, oportunidades de compra in-app, quaisquer divulgações necessárias e um link para saber mais.
     
-    Esta caixa de texto tem controlos de editores de texto ricos que pode usar para tornar a sua descrição mais envolvente. Também pode utilizar tags HTML para formatar a sua descrição. Pode introduzir até 3.000 caracteres de texto nesta caixa, incluindo marcação HTML. Para obter dicas adicionais, consulte [Escrever uma excelente descrição da aplicação.](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)
+    Esta caixa de texto tem controlos de editores de texto ricos que pode usar para tornar a sua descrição mais envolvente. Também pode utilizar tags HTML para formatar a sua descrição. Pode introduzir até 3.000 caracteres de texto nesta caixa, incluindo marcação HTML. Para obter dicas adicionais, consulte [Escrever uma excelente descrição da aplicação.](/windows/uwp/publish/write-a-great-app-description)
 
-- **Instruções de início**: Se optar por vender a sua oferta através da Microsoft (oferta transacionável), este campo é necessário. Estas são instruções para ajudar os clientes a conectarem-se à sua oferta SaaS. Pode adicionar até 3.000 caracteres de texto e links para documentação online mais detalhada.
-- **Procurar palavras-chave** (opcional): Forneça até três palavras-chave de pesquisa que os clientes podem usar para encontrar a sua oferta nas lojas online. Não é necessário incluir a oferta **Nome** e **Descrição**: esse texto está automaticamente incluído na pesquisa.
-- **Ligação de política de privacidade**: O URL para a política de privacidade da sua empresa. Você deve fornecer uma política de privacidade válida e é responsável por garantir que a sua aplicação está em conformidade com as leis e regulamentos de privacidade.
-- **Informações de contacto**: Deve designar os seguintes contactos da sua organização:
-  - **Contacto de suporte**: Forneça o nome, telefone e e-mail para os parceiros da Microsoft usarem quando os seus clientes abrirem os bilhetes. Também deve incluir o URL para o seu site de suporte.
-  - **Contacto de engenharia**: Forneça o nome, telefone e e-mail para que a Microsoft utilize diretamente quando houver problemas com a sua oferta. Esta informação de contacto não está listada no mercado comercial.
+- **Instruções de início** : Se optar por vender a sua oferta através da Microsoft (oferta transacionável), este campo é necessário. Estas são instruções para ajudar os clientes a conectarem-se à sua oferta SaaS. Pode adicionar até 3.000 caracteres de texto e links para documentação online mais detalhada.
+- **Procurar palavras-chave** (opcional): Forneça até três palavras-chave de pesquisa que os clientes podem usar para encontrar a sua oferta nas lojas online. Não é necessário incluir a oferta **Nome** e **Descrição** : esse texto está automaticamente incluído na pesquisa.
+- **Ligação de política de privacidade** : O URL para a política de privacidade da sua empresa. Você deve fornecer uma política de privacidade válida e é responsável por garantir que a sua aplicação está em conformidade com as leis e regulamentos de privacidade.
+- **Informações de contacto** : Deve designar os seguintes contactos da sua organização:
+  - **Contacto de suporte** : Forneça o nome, telefone e e-mail para os parceiros da Microsoft usarem quando os seus clientes abrirem os bilhetes. Também deve incluir o URL para o seu site de suporte.
+  - **Contacto de engenharia** : Forneça o nome, telefone e e-mail para que a Microsoft utilize diretamente quando houver problemas com a sua oferta. Esta informação de contacto não está listada no mercado comercial.
   - **Contacto do Programa CSP** (opcional): Forneça o nome, telefone e e-mail se optar pelo programa CSP, para que esses parceiros possam contactá-lo com quaisquer questões. Também pode incluir um URL nos seus materiais de marketing.
 - **Links úteis** (opcional): Pode fornecer links para vários recursos para os utilizadores da sua oferta. Por exemplo, fóruns, PERGUNTAS Frequentes e notas de lançamento.
-- **Documentos comprovativos**: Pode fornecer até três documentos voltados para o cliente, tais como papel branco, brochuras, checklists ou apresentações de PowerPoint.
-- **Mídia – Logotipos**: Forneça um ficheiro PNG para o logotipo de tamanho **grande.** O Partner Center utilizará isto para criar um logótipo **Pequeno** e **Médio.** Pode substituir opcionalmente estas imagens por diferentes imagens mais tarde.
+- **Documentos comprovativos** : Pode fornecer até três documentos voltados para o cliente, tais como papel branco, brochuras, checklists ou apresentações de PowerPoint.
+- **Mídia – Logotipos** : Forneça um ficheiro PNG para o logotipo de tamanho **grande.** O Partner Center utilizará isto para criar um logótipo **Pequeno** e **Médio.** Pode substituir opcionalmente estas imagens por diferentes imagens mais tarde.
 
    - Grande (de 216 x 216 a 350 x 350 px, necessário)
    - Médio (90 x 90 px, opcional)
@@ -178,17 +178,17 @@ Para ajudar a criar a sua oferta mais facilmente, prepare alguns destes itens co
   - O logótipo Medium aparece quando cria um novo recurso no Microsoft Azure.
   - O logotipo Large aparece na sua página de listagem de ofertas no Azure Marketplace e microsoft AppSource.
 
-- **Meios de comunicação - Screenshots**: Deve adicionar pelo menos uma e até cinco imagens com os seguintes requisitos, que mostram como a sua oferta funciona:
+- **Meios de comunicação - Screenshots** : Deve adicionar pelo menos uma e até cinco imagens com os seguintes requisitos, que mostram como a sua oferta funciona:
   - 1280 x 720 pixels
   - ficheiro .png
   - Deve incluir uma legenda
 - **Meios - Vídeos** (opcional): Pode adicionar até quatro vídeos com os seguintes requisitos, que demonstram a sua oferta:
-  - Nome
+  - Name
   - URL: Deve ser hospedado apenas no YouTube ou Vimeo.
   - Miniatura: 1280 x 720 .png file
 
 > [!Note]
-> A sua oferta deve atender às [políticas gerais de certificação](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general) do mercado comercial e ao [software como uma política de serviços](https://docs.microsoft.com/legal/marketplace/certification-policies#1000-software-as-a-service-saas) a publicar no mercado comercial.
+> A sua oferta deve atender às [políticas gerais de certificação](/legal/marketplace/certification-policies#100-general) do mercado comercial e ao [software como uma política de serviços](/legal/marketplace/certification-policies#1000-software-as-a-service-saas) a publicar no mercado comercial.
 
 ## <a name="preview-audience"></a>Audiência de pré-visualização
 Um público de pré-visualização pode aceder à sua oferta antes de ser publicado ao vivo nas lojas online de forma a testar a funcionalidade de ponta a ponta antes de a publicar ao vivo. Na página de **audiência de pré-visualização,** pode definir um público de pré-visualização limitado. Esta definição não está disponível se optar por processar transações de forma independente em vez de vender a sua oferta através da Microsoft. Em caso afirmativo, pode saltar esta secção e ir a [oportunidades de venda adicionais.](#additional-sales-opportunities)
@@ -231,15 +231,15 @@ Trata-se de uma repartição de custos e pagamentos para demonstrar o modelo da 
 | Microsoft paga-lhe 80% do custo da sua licença<br>`*` Para aplicações SaaS qualificadas, a Microsoft paga 90% do custo da sua licença| $80,00 por mês<br>``*`` $90,00 por mês |
 |||
 
-** `*` Taxa reduzida de serviço no Mercado** – Para certas ofertas da SaaS que publicou no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa reduzida de Serviço de Marketplace também se aplica à Azure IP Co-vender VMs, Apps Geridas e quaisquer outras ofertas de ias transacionáveis qualificadas disponibilizadas através do mercado comercial.
+**`*` Taxa reduzida de serviço no Mercado** – Para certas ofertas da SaaS que publicou no mercado comercial, a Microsoft reduzirá a sua Taxa de Serviço de Marketplace de 20% (conforme descrito no Microsoft Publisher Agreement) para 10%. Para que a sua(s) oferta(s) se qualifique, a sua(s) oferta(s) deve ter sido designada pela Microsoft como Azure IP Co-venda incentivado. A elegibilidade deve ser cumprida pelo menos cinco (5) dias úteis antes do final de cada mês civil para receber a Taxa reduzida de Serviço do Mercado para o mês. A Taxa reduzida de Serviço de Marketplace também se aplica à Azure IP Co-vender VMs, Apps Geridas e quaisquer outras ofertas de ias transacionáveis qualificadas disponibilizadas através do mercado comercial.
 
 ## <a name="additional-sales-opportunities"></a>Oportunidades de venda adicionais
 
 Pode optar por optar por canais de marketing e vendas suportados pela Microsoft. Ao criar a sua oferta no Partner Center, verá dois separadores no final do processo:
 
-- **Revender através de CSPs**: Utilize esta opção para permitir que os parceiros da Microsoft Cloud Solution Providers (CSP) revendam a sua solução como parte de uma oferta agregada. Consulte [o programa Cloud Solution Provider](cloud-solution-providers.md) para obter mais informações.
+- **Revender através de CSPs** : Utilize esta opção para permitir que os parceiros da Microsoft Cloud Solution Providers (CSP) revendam a sua solução como parte de uma oferta agregada. Consulte [o programa Cloud Solution Provider](cloud-solution-providers.md) para obter mais informações.
 
-- **Co-vender com**a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Consulte [a opção de Co-venda no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar a sua oferta para avaliação.
+- **Co-vender com** a Microsoft: Esta opção permite que as equipas de vendas da Microsoft considerem a sua solução elegível para co-venda ip ao avaliar as necessidades dos seus clientes. Consulte [a opção de Co-venda no Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) para obter informações detalhadas sobre como preparar a sua oferta para avaliação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

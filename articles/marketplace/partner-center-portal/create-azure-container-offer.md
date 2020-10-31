@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: cbaca0b9d608d7703beec559e5434f52308629ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c30a9997fcc7ac10b1072d4f164c3e7bfa16f0b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91709109"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130515"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Criar uma oferta de contentor do Azure no Azure Marketplace
 
@@ -22,9 +22,9 @@ Este artigo descreve como criar e publicar uma oferta de contentores para o Azur
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
 
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
 
-3. Na página 'Vista Geral', selecione **+ Novo**recipiente  >  **Azure.**
+3. Na página 'Vista Geral', selecione **+ Novo** recipiente  >  **Azure.**
 
    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-azure-container.png)
 
@@ -33,16 +33,16 @@ Este artigo descreve como criar e publicar uma oferta de contentores para o Azur
 
 ### <a name="offer-id-and-alias"></a>ID de oferta e pseudónimo
 
-Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
+Introduza um **ID de oferta** . Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
 - Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir **a oferta de teste-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-- O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
+- O ID da Oferta não pode ser alterado depois de selecionar **Criar** .
 
 Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
 - Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
-- Isto não pode ser alterado depois de selecionar **Criar**.
+- Isto não pode ser alterado depois de selecionar **Criar** .
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -52,10 +52,10 @@ A página **geral da Oferta** mostra uma representação visual dos passos neces
 
 Esta página mostra diferentes links com base no estado atual da oferta. Por exemplo:
 
-- Se a oferta for um rascunho - [Eliminar oferta de rascunho](update-existing-offer.md#delete-a-draft-offer)
+- Se a oferta for um rascunho - Eliminar oferta de rascunho
 - Se a oferta for ao vivo - [Pare de vender a oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Se a oferta estiver em pré-visualização - [Go-live](publishing-status.md#publisher-approval)
-- Se ainda não completou a assinatura da editora - [Cancele a publicação](update-existing-offer.md#cancel-publishing)
+- Se a oferta estiver em pré-visualização - [Go-live](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Se ainda não tiver concluído a assinatura do editor - [Cancele a publicação.](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuração de oferta
 
@@ -96,7 +96,7 @@ Esta página permite definir as categorias utilizadas para agrupar a sua oferta 
 Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável** .
 
 Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md) Os recipientes aparecem sempre sob **os contentores** e, em seguida, na categoria **Imagens de Contentores.**
 
@@ -133,7 +133,7 @@ Esta página permite definir os detalhes da oferta que são exibidos no mercado 
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase"Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -151,7 +151,7 @@ Uma breve descrição da sua oferta. Isto pode ter até 100 caracteres de compri
 
 Uma descrição mais detalhada da sua oferta. Isto pode ter até 256 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -180,7 +180,7 @@ Deve fornecer o nome, e-mail e número de telefone para um **contacto de suporte
 
 Na secção **de contato de apoio,** forneça o **site de Apoio** onde os parceiros possam encontrar apoio para a sua oferta com base no facto de a oferta estar disponível no Global Azure, Azure Government, ou ambos.
 
-Na secção de contacto do **Programa CSP,** forneça o link **(CSP Program Marketing Materials**) onde os parceiros da CSP possam encontrar materiais de marketing para a sua oferta.
+Na secção de contacto do **Programa CSP,** forneça o link **(CSP Program Marketing Materials** ) onde os parceiros da CSP possam encontrar materiais de marketing para a sua oferta.
 
 #### <a name="additional-marketplace-listing-resources"></a>Recursos de listagem de mercado adicionais
 
@@ -279,9 +279,9 @@ As ações disponíveis no Resumo do Plano variam consoante o estado atual do se
 Na caixa **de Identificação** do Plano, crie um identificador de plano único para cada plano nesta oferta. Este ID será visível para os clientes no endereço web do produto. Utilize apenas letras e números minúsculos, traços ou sublinhados, e um máximo de 50 caracteres.
 
 > [!NOTE]
-> O ID do plano não pode ser alterado depois de selecionar **Criar**.
+> O ID do plano não pode ser alterado depois de selecionar **Criar** .
 
-Na caixa de nomes do **Plano,** insira um nome para este plano. Os clientes vêem este nome ao decidir qual o plano a selecionar dentro da sua oferta. Crie um nome único para cada plano nesta oferta. Por exemplo, pode utilizar um nome de oferta do **Windows Server** com os planos Windows **Server 2016** e **Windows Server 2019**.
+Na caixa de nomes do **Plano,** insira um nome para este plano. Os clientes vêem este nome ao decidir qual o plano a selecionar dentro da sua oferta. Crie um nome único para cada plano nesta oferta. Por exemplo, pode utilizar um nome de oferta do **Windows Server** com os planos Windows **Server 2016** e **Windows Server 2019** .
 
 ### <a name="plan-setup"></a>Configuração do plano
 
@@ -365,11 +365,11 @@ Nome do **Registo do Contentor Azure** – Forneça o nome do Registo do [Conten
 
  :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Ilustra a utilização do Contrato Padrão para a caixa de verificação do mercado comercial da Microsoft.":::
 
-**Palavra-passe para o Registo do Contentor Azure** – Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de contentor. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [espetáculo](https://docs.microsoft.com/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
+**Palavra-passe para o Registo do Contentor Azure** – Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de contentor. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [espetáculo](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
 
 :::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Ilustra a utilização do Contrato Padrão para a caixa de verificação do mercado comercial da Microsoft.":::
 
-**Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Inclua o nome do repositório quando empurrar a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../../container-registry/container-registry-repositories.md)
+**Nome do repositório no registo do contentor Azure** . Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Inclua o nome do repositório quando empurrar a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../../container-registry/container-registry-repositories.md)
 
 > [!NOTE]
 > Depois do nome estar definido, não pode ser mudado. Use um nome único para cada oferta na sua conta.
@@ -391,7 +391,7 @@ Todas as tags manifesto (exceto a última etiqueta) devem começar com X.Y **-**
 
 Depois de ter concluído todas as secções necessárias da oferta, pode submetê-la para revisão e publicação.
 
-No canto superior direito do portal, selecione **'Rever e** **publicar**.
+No canto superior direito do portal, selecione **'Rever e** **publicar** .
 
 Na página de comentários pode:
 
@@ -401,11 +401,11 @@ Na página de comentários pode:
   - **Completo** – Inclui todos os dados necessários sem erros. Todas as secções da oferta devem estar completas antes de poder submeter a oferta.
 - Forneça instruções de teste à equipa de certificação para garantir que a sua oferta é testada corretamente. Além disso, forneça quaisquer notas suplementares que sejam úteis para entender a sua oferta.
 
-Para submeter a oferta de publicação, **selecione Publicar**.
+Para submeter a oferta de publicação, **selecione Publicar** .
 
 Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação.
 
-Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.
+Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live** .
 
 ## <a name="next-step"></a>Passo seguinte
 

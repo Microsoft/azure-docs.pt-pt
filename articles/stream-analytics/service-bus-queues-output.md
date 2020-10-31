@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: bad81e8929cd0c5c66c87fd9f6cc11dc746b3e5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bba7da0343f234d8cc057ac4ecfa2a4f2e5b7242
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317798"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129886"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Saída de filas de autocarros de serviço a partir de Azure Stream Analytics
 
@@ -24,7 +24,7 @@ No [nível de compatibilidade 1.2](stream-analytics-compatibility-level.md), o A
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para a criação de uma saída de fila.
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para esta fila de serviço. |
 | Espaço de nome de ônibus de serviço |Um contentor para um conjunto de entidades de mensagens. |
@@ -70,9 +70,9 @@ A imagem a seguir é das propriedades de mensagens de saída esperadas inspecion
 
 ## <a name="system-properties"></a>Propriedades do sistema
 
-Pode anexar colunas de consulta como [propriedades do sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) à fila do autocarro de serviço de saída ou mensagens tópicos.
+Pode anexar colunas de consulta como [propriedades do sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) à fila do autocarro de serviço de saída ou mensagens tópicos.
 
-Estas colunas não entram na carga útil, em vez disso, a propriedade correspondente do [sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage é povoada com os valores da coluna de consulta.
+Estas colunas não entram na carga útil, em vez disso, a propriedade correspondente do [sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage é povoada com os valores da coluna de consulta.
 Estas propriedades do sistema são suportadas - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc` .
 
 Os valores de cadeia destas colunas são analisados como o tipo de valor contabilístico correspondente do sistema e quaisquer falhas de análise são tratadas como erros de dados.

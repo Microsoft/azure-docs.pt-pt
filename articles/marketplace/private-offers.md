@@ -7,12 +7,12 @@ ms.topic: article
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 07/01/2020
-ms.openlocfilehash: 2808f0d3b99257d52b2d400424f256f980005863
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0bb5dccfc99a693ec89ed08ac31b77eb16442f73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88607200"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129971"
 ---
 # <a name="private-offers-in-the-microsoft-commercial-marketplace"></a>Ofertas privadas no mercado comercial da Microsoft
 
@@ -30,14 +30,14 @@ As ofertas privadas permitem que os editores aproveitem a escala e a disponibili
 
 As ofertas privadas estão agora disponíveis para Máquina Virtual, Aplicação Azure (implementada como modelos de solução ou aplicações geridas) e ofertas de Apps SaaS.
 
-<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md). Customers can be granted or revoked access to private offers in minutes.
+<!--- Like public offers, private offers can be created and managed via the [Cloud Partner Portal](). Customers can be granted or revoked access to private offers in minutes.
 --->
 
 ## <a name="creating-private-offers-using-plans"></a>Criação de ofertas privadas usando planos
 
 Para *ofertas novas ou existentes com planos,* as editoras podem facilmente criar novas variações privadas, criando novos planos (anteriormente conhecidos como SKUs) e marcando-os como privados. Cada oferta pode ter até 45 planos privados.
 
-<!--- [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) --->
+<!--- [Private SKUs]() --->
 
 Os planos privados são componentes de uma oferta e só são visíveis e purciáveis pelos clientes visados. Os planos privados podem reutilizar as imagens base e/ou oferecer metadados já publicados para um plano público. Esta opção permite que os editores criem múltiplas variações privadas de uma oferta pública sem terem de publicar várias versões da mesma imagem base e oferecer metadados. Para a aplicação Virtual Machine e Azure oferece apenas, quando um plano privado partilha uma imagem base com um plano público, quaisquer alterações à imagem base da oferta irão propagar-se em todos os planos públicos e privados usando essa imagem base.
 
@@ -69,5 +69,5 @@ As ofertas privadas também aparecerão nos resultados da pesquisa. Procura o di
 <!---
 ## Next steps
 
-To start using private offers, follow the steps in the [Private SKUs and Plans](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md) guide.
+To start using private offers, follow the steps in the [Private SKUs and Plans]() guide.
 --->

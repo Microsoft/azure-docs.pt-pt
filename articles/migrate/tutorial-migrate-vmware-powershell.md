@@ -7,12 +7,12 @@ manager: bsiva
 ms.topic: tutorial
 ms.date: 10/1/2020
 ms.author: rahugup
-ms.openlocfilehash: eed10f13b9495ab2cccfd9c57ae14ccc5d8e4a63
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 40f8a63481adc2e5641337c41dee1cf55d1f39ae
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043549"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130311"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless---powershell"></a>Migrar VMware VMs para Azure (sem agente) - PowerShell
 
@@ -114,10 +114,10 @@ $DiscoveredServers = Get-AzMigrateDiscoveredServer -ProjectName $MigrateProject.
 
 [Azure Migrate: A migração do servidor](migrate-services-overview.md#azure-migrate-server-migration-tool) aproveita vários recursos Azure para a migração de VMs. A Migração de Servidores fornece os seguintes recursos, no mesmo grupo de recursos que o projeto.
 
-- **Autocarro de**serviço : A Migração do Servidor utiliza o autocarro de serviço para enviar mensagens de orquestração de replicação para o aparelho.
-- **Conta de armazenamento gateway**: A migração do servidor utiliza a conta de armazenamento de gateway para armazenar informações do Estado sobre os VMs que estão a ser replicados.
-- **Conta de armazenamento de**registo : O aparelho Azure Migrate envia registos de replicação de VMs para uma conta de armazenamento de registo. Azure Migrate aplica a informação de replicação aos discos geridos por réplicas.
-- **Cofre chave**: O aparelho Azure Migrate utiliza o cofre-chave para gerir as cordas de ligação do autocarro de serviço e as chaves de acesso para as contas de armazenamento utilizadas na replicação.
+- **Autocarro de** serviço : A Migração do Servidor utiliza o autocarro de serviço para enviar mensagens de orquestração de replicação para o aparelho.
+- **Conta de armazenamento gateway** : A migração do servidor utiliza a conta de armazenamento de gateway para armazenar informações do Estado sobre os VMs que estão a ser replicados.
+- **Conta de armazenamento de** registo : O aparelho Azure Migrate envia registos de replicação de VMs para uma conta de armazenamento de registo. Azure Migrate aplica a informação de replicação aos discos geridos por réplicas.
+- **Cofre chave** : O aparelho Azure Migrate utiliza o cofre-chave para gerir as cordas de ligação do autocarro de serviço e as chaves de acesso para as contas de armazenamento utilizadas na replicação.
 
 Antes de replicar o primeiro VM no projeto Azure Migrate, executar o seguinte script para providenciar a infraestrutura de replicação. Este script prevê e configura os recursos acima mencionados para que possa começar a migrar os seus VMware VMs.
 
@@ -146,7 +146,7 @@ Pode especificar as propriedades de replicação da seguinte forma.
 - **Rede virtual-alvo e sub-rede** - Especifique o ID da Rede Virtual Azure e o nome da sub-rede para a qual o VM deve ser migrado utilizando os `TargetNetworkId` parâmetros e `TargetSubnetName` parâmetros respectivamente. 
 - **Nome VM-alvo** - Especifique o nome do VM Azure a ser criado utilizando o `TargetVMName` parâmetro.
 - **Tamanho do VM do alvo** - Especifique o tamanho Azure VM a ser utilizado para a replicação de VM utilizando `TargetVMSize` o parâmetro. Por exemplo, para migrar um VM para D2_v2 VM em Azure, especifique o valor para `TargetVMSize` "Standard_D2_v2".  
-- **Licença** - Para utilizar o Benefício Híbrido Azure para as suas máquinas do Windows Server que estejam cobertas com subscrições ativas de Software Assurance ou Windows Server, especifique o valor para `LicenseType` o parâmetro como "AHUB". Caso contrário, especifique o valor do `LicenseType` parâmetro como "NoLicenseType".
+- **Licença** - Para utilizar o Benefício Híbrido Azure para as suas máquinas do Windows Server que estejam cobertas com subscrições ativas de Software Assurance ou Windows Server, especifique o valor para `LicenseType` o parâmetro como "WindowsServer". Caso contrário, especifique o valor do `LicenseType` parâmetro como "NoLicenseType".
 - **Disco OS** - Especifique o identificador único do disco que tem o bootloader e o instalador do sistema operativo. O ID do disco a ser usado é a propriedade de identificador único (UUID) para o disco recuperado usando o `Get-AzMigrateServer` cmdlet.
 - **Tipo de disco** - Especifique o valor para o `DiskType` parâmetro da seguinte forma.
     - Para utilizar discos geridos por prémios, especifique "Premium_LRS" como valor para `DiskType` o parâmetro. 
@@ -156,6 +156,7 @@ Pode especificar as propriedades de replicação da seguinte forma.
     - Zona de Disponibilidade para fixar a máquina migrada a uma zona de disponibilidade específica na região. Utilize esta opção para distribuir servidores que formam um nível de aplicação de vários nós em zonas de disponibilidade. Esta opção só está disponível se a região-alvo selecionada para a migração suportar Zonas de Disponibilidade. Para utilizar zonas de disponibilidade, especifique o valor da zona de disponibilidade para `TargetAvailabilityZone` parâmetro.
     - Disponibilidade Definir para colocar a máquina migrada num Conjunto de Disponibilidade. O Grupo de Recursos-Alvo que foi selecionado deve ter um ou mais conjuntos de disponibilidade para utilizar esta opção. Para utilizar o conjunto de disponibilidade, especifique o ID definidor de disponibilidade para `TargetAvailabilitySet` parâmetro. 
 
+### <a name="replicate-vms-with-all-disks"></a>Replicar VMs com todos os discos
 Neste tutorial, vamos replicar todos os discos do VM descoberto e especificar um novo nome para o VM em Azure. Especificamos o primeiro disco do servidor descoberto como DISCO DESeso e migramos todos os discos como HDD padrão. O disco do SO é o disco que possui o carregador e o instalador do sistema operativo.
 
 ```azurepowershell
@@ -178,6 +179,7 @@ while (($MigrateJob.State -eq "InProgress") -or ($MigrateJob.State -eq "NotStart
 Write-Output $MigrateJob.State
 ```
 
+### <a name="replicate-vms-with-select-disks"></a>Replicar VMs com discos selecionados
 Também pode replicar seletivamente os discos do VM descoberto utilizando `New-AzMigrateDiskMapping` o cmdlet e fornecendo-o como uma entrada para o `DiskToInclude` parâmetro no `New-AzMigrateServerReplication` cmdlet. Também pode utilizar `New-AzMigrateDiskMapping` o cmdlet para especificar diferentes tipos de disco-alvo para cada disco individual a ser replicado. 
 
 Especificar os valores para os seguintes parâmetros do `New-AzMigrateDiskMapping` cmdlet.

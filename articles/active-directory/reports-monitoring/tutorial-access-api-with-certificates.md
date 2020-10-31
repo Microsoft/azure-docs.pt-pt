@@ -17,12 +17,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: bc763a99c945925b80171738f4076e6305d92df9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3443cb73e85fc69349e7293597a5f4a723959d3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89229464"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130056"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Tutorial: Obtenha dados utilizando o Diretório Ativo Azure reportando API com certificados
 
@@ -62,11 +62,11 @@ Neste tutorial, você aprende a usar um certificado de teste para aceder à API 
 
 ## <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Obter dados com a API de relatórios do Azure Active Directory com certificados
 
-1. Navegue até ao [portal Azure](https://portal.azure.com), selecione **Azure Ative Directory**, em seguida, selecione **as inscrições da App** e escolha a sua aplicação na lista. 
+1. Navegue até ao [portal Azure](https://portal.azure.com), selecione **Azure Ative Directory** , em seguida, selecione **as inscrições da App** e escolha a sua aplicação na lista. 
 
-2. Selecione **Certificados & segredos** na secção **Gerir** a lâmina de registo da aplicação e selecione **o Certificado de Upload**.
+2. Selecione **Certificados & segredos** na secção **Gerir** a lâmina de registo da aplicação e selecione **o Certificado de Upload** .
 
-3. Selecione o ficheiro de certificado do passo anterior e selecione **Adicionar**. 
+3. Selecione o ficheiro de certificado do passo anterior e selecione **Adicionar** . 
 
 4. Note o ID do formulário de aplicação e a impressão digital do certificado que acabou de registar na sua aplicação. Para encontrar a impressão digital, a partir da sua página de aplicação no portal, vá a **Certificados & segredos** na secção **Manage.** A impressão digital estará na lista **de certificados.**
 
@@ -85,15 +85,17 @@ Neste tutorial, você aprende a usar um certificado de teste para aceder à API 
    ``` 
 6. Agora, você pode obter um token de acesso para a MS Graph API usando este certificado. Utilize o cmdlet **Get-MSCloudIdMSGraphAccessTokenFromCert** do módulo MSCloudIdUtils PowerShell, passando no ID da aplicação e na impressão digital que obteve a partir do passo anterior. 
 
-   ![Portal do Azure](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![A screenshot mostra uma janela PowerShell com um comando que cria um token de acesso.](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 7. Utilize o token de acesso no seu script PowerShell para consultar a API do gráfico. Utilize o cmdlet **Invoke-MSCloudIdMSGraphQuery** do MSCloudIDUtils para enumerar os signins e o ponto final do directórioAudits. Este cmdlet lida com resultados com várias páginas e envia esses resultados para o gasoduto PowerShell.
 
 8. Consultar o directórioAudits ponto final para recuperar os registos de auditoria. 
-   ![Portal do Azure](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+
+   ![A screenshot mostra uma janela PowerShell com um comando para consultar o ponto final do directórioAudits usando o token de acesso de mais cedo neste procedimento.](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 9. Consultar o ponto final dos signins para recuperar os registos de inscrição.
-    ![Portal do Azure](./media/tutorial-access-api-with-certificates/query-signins.png)
+
+    ![A screenshot mostra uma janela PowerShell com um comando para consultar o ponto final do signins usando o token de acesso de início neste procedimento.](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 10. Pode agora optar por exportar estes dados para um CSV e economizar para um sistema SIEM. Também pode encapsular o script numa tarefa agendada para obter dados do Azure AD a partir do seu inquilino periodicamente, sem ter de armazenar chaves de aplicação no código de origem. 
 

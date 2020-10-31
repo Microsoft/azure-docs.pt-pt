@@ -7,13 +7,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 08/12/2020
-ms.openlocfilehash: 47d82982bbb7546b53dd4754c49bd22fe958d5ef
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.date: 10/27/2020
+ms.openlocfilehash: b038834df3889a8b4b7f4a749568635e99f8408e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976491"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129580"
 ---
 # <a name="how-to-review-and-publish-an-offer-to-the-commercial-marketplace"></a>Como rever e publicar uma oferta ao mercado comercial
 
@@ -42,7 +42,7 @@ Quando estiver pronto para submeter uma oferta de publicação, selecione **'Rev
    - **Incompleto** – Falta informação necessária ou tem erros que precisam de ser corrigidos. Terá de voltar à página e atualizá-la.
    - **Completo** - A página está completa. Todos os dados necessários foram fornecidos e não há erros.
 
-Se alguma das páginas tiver um estado diferente do **Completo,** tem de corrigir o problema nessa página e, em seguida, voltar à página **de Revisão e publicar** para confirmar que o estado agora mostra como **Completo**. Alguns tipos de oferta requerem testes. Em caso afirmativo, verá um campo **de Notas para certificação** onde precisa de fornecer instruções de teste à equipa de certificação e quaisquer notas suplementares úteis para a compreensão da sua app.
+Se alguma das páginas tiver um estado diferente do **Completo,** tem de corrigir o problema nessa página e, em seguida, voltar à página **de Revisão e publicar** para confirmar que o estado agora mostra como **Completo** . Alguns tipos de oferta requerem testes. Em caso afirmativo, verá um campo **de Notas para certificação** onde precisa de fornecer instruções de teste à equipa de certificação e quaisquer notas suplementares úteis para a compreensão da sua app.
 
 Depois de todas as páginas estarem completas e tiver introduzido notas de teste aplicáveis, **selecione Publicar** para iniciar os processos de validação e publicação. As fases e a sequência geral podem variar dependendo do tipo de oferta que está a publicar. A tabela a seguir mostra um possível fluxo de publicação. Cada fase é explicada mais detalhadamente nas seguintes secções.
 
@@ -77,7 +77,7 @@ O primeiro passo no processo de publicação é um conjunto de validações auto
 
 ## <a name="certification-phase"></a>Fase de certificação
 
-As ofertas submetidas ao mercado comercial devem ser certificadas antes de serem publicadas. As ofertas são submetidas a testes rigorosos, alguns manuais automatizados e outros. Para saber mais, consulte [as políticas de certificação do mercado comercial.](https://aka.ms/commercial-marketplace-certification-policies)
+As ofertas submetidas ao mercado comercial devem ser certificadas antes de serem publicadas. As ofertas são submetidas a testes rigorosos, alguns manuais automatizados e outros. Para saber mais, consulte [as políticas de certificação do mercado comercial.](/legal/marketplace/certification-policies)
 
 ### <a name="types-of-validation-that-take-place-during-certification"></a>Tipos de validação que ocorrem durante a certificação
 
@@ -100,7 +100,7 @@ A informação inserida quando criou a sua oferta é verificada pela qualidade e
 - Imagens e vídeos de qualidade
 - Uma explicação de como a oferta utiliza plataformas e ferramentas da Microsoft.
 
-Saiba mais sobre os critérios de validação de conteúdos através da leitura das [políticas gerais de listagem.](https://aka.ms/commercial-marketplace-certification-policies#100-general)
+Saiba mais sobre os critérios de validação de conteúdos através da leitura das [políticas gerais de listagem.](/legal/marketplace/certification-policies#100-general)
 
 #### <a name="technical-validation"></a>Validação técnica
 
@@ -126,6 +126,19 @@ Durante a fase de pré-visualização da criação, criamos uma versão da sua o
 > [!NOTE]
 > Não utilize o público de pré-visualização para dar visibilidade às pessoas fora da sua organização. Em vez disso, utilize a opção Oferta Privada. Neste momento, a sua oferta não foi totalmente testada e validada, e não está pronta para distribuição externa.
 
+## <a name="cancel-publishing"></a>Cancelar publicação
+
+Para cancelar uma oferta com a **Publicação em curso:**
+
+1. Selecione o nome da oferta para abrir a página **geral da Oferta.**
+1. Selecione **Cancelar a publicação** do canto superior direito da página.
+1. Confirme que deseja impedir que a oferta seja publicada.
+
+Se quiser publicar a oferta mais tarde, terá de começar o processo de publicação.
+
+> [!NOTE]
+> Só pode impedir que uma oferta seja publicada se a oferta ainda não tiver progredido para que a editora assine o passo. Depois de selecionar **Go ao vivo,** não terá a opção de cancelar a publicação por mais tempo.
+
 ## <a name="publisher-sign-off-phase"></a>Fase de aprovação da editora
 
 Quando a oferta estiver pronta para que você reveja e seja assinado, enviaremos um e-mail para solicitar que reveja e aprove a sua pré-visualização da oferta. Também pode atualizar a página geral da **Oferta** no seu navegador para ver se a sua oferta chegou à fase de desinsusitada do Publisher. Se tiver, o botão **Go ao vivo** e os links de pré-visualização estarão disponíveis.
@@ -143,7 +156,7 @@ Na página **'Geral' da Oferta,** verá links de pré-visualização no botão *
 
 Depois de aprovar a sua pré-visualização, selecione **Go live** para publicar a sua oferta ao vivo no mercado comercial. 
 
-Se quiser fazer alterações após a pré-visualização da oferta, pode editar e reenviar o seu pedido de publicação. Se a sua oferta já estiver ao vivo e disponível para o público no mercado, quaisquer atualizações que faça não serão transmitidas ao vivo até que escolha **Vá ao vivo*. Para mais informações, consulte [Atualizar uma oferta existente no mercado comercial](./partner-center-portal/update-existing-offer.md)
+Se quiser fazer alterações após a pré-visualização da oferta, pode editar e reenviar o seu pedido de publicação. Se a sua oferta já estiver ao vivo e disponível para o público no mercado, quaisquer atualizações que faça não serão transmitidas ao vivo até que escolha * *Vá ao vivo* . Para mais informações, consulte [Atualizar uma oferta existente no mercado comercial](partner-center-portal/update-existing-offer.md)
 
 ## <a name="publish-phase"></a>Fase de publicação
 
@@ -178,11 +191,11 @@ A página **História** no Partner Center mostra os eventos de publicação das 
 Para ver a história da sua oferta:
 
 1.    Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2.    No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
+2.    No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
 3.    Selecione a sua oferta.
 4.    Selecione o **separador Histórico** no menu de navegação à esquerda. A página fornece detalhes para os seguintes eventos, conforme aplicável à sua oferta:
 
-|Evento    |Descrição    |
+|Evento    |Description    |
 |---------|---------------|
 |Oferta criada    |A oferta foi criada no Partner Center. Um utilizador selecionou o tipo de oferta, oferece iD e oferece um pseudónimo na Visão Geral **do Mercado Comercial.**  >  **Overview**    |
 |Plano criado: *nome do plano*    |Um utilizador criou um novo plano ao introduzir o ID do plano e o nome do plano no separador **Plan overview.**</br>*Este evento aplica-se apenas para oferecer tipos que suportem planos.*    |
@@ -212,7 +225,7 @@ Pode utilizar filtros para reduzir todo o histórico da sua oferta a eventos de 
 Há quatro filtros:
 * Eventos
 * Utilizadores
-* Data
+* Date
 * Páginas
 
 Ao escolher o filtro **Páginas,** pode selecionar qualquer uma das páginas do Centro parceiro que sejam aplicáveis ao seu tipo de oferta. Quando aplicado, o filtro **Páginas** mostra toda a **oferta submetida a eventos de pré-visualização** com alterações na página selecionada.

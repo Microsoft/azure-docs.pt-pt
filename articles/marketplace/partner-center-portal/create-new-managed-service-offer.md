@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 34af52b32d9e31ad003c5e95e288f88b157a944a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d253bda69839c76aed0170f9a79a03b7d4bf1a79
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710622"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130111"
 ---
 # <a name="create-a-managed-service-offer"></a>Criar uma oferta de Serviço Gerido
 
@@ -23,8 +23,8 @@ Você deve ter um [nível](https://partner.microsoft.com/membership/cloud-platfo
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
-3. Na página 'Vista Geral', selecione + Serviço Gerido **de Nova Oferta**  >  **Managed Service**.
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
+3. Na página 'Vista Geral', selecione + Serviço Gerido **de Nova Oferta**  >  **Managed Service** .
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-managed-service.png)
 
@@ -33,16 +33,16 @@ Você deve ter um [nível](https://partner.microsoft.com/membership/cloud-platfo
 
 ## <a name="new-offer"></a>Nova oferta
 
-Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
+Introduza um **ID de oferta** . Este é um identificador único para cada oferta na sua conta.
 
 * Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
 * Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir **a oferta de teste-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-* O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
+* O ID da Oferta não pode ser alterado depois de selecionar **Criar** .
 
 Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
 * Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
-* O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar**.
+* O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar** .
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -52,7 +52,7 @@ Selecione **Criar** para gerar a oferta e continuar.
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-De acordo com as [políticas de certificação de Serviços Geridos,](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services)é necessário um **Destino Líder.** Isto criará um registo no seu sistema CRM sempre que um cliente implementar a sua oferta.
+De acordo com as [políticas de certificação de Serviços Geridos,](/legal/marketplace/certification-policies#700-managed-services)é necessário um **Destino Líder.** Isto criará um registo no seu sistema CRM sempre que um cliente implementar a sua oferta.
 
 Para obter mais informações, consulte [a visão geral da gestão do chumbo.](./commercial-marketplace-get-customer-leads.md)
 
@@ -90,7 +90,7 @@ Aqui está um exemplo de como a oferta de informação aparece no portal Azure:
 3. Ligações úteis
 4. Capturas de ecrã
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -102,7 +102,7 @@ Forneça uma breve descrição da sua oferta (até 100 caracteres), que pode ser
 
 Forneça uma descrição mais longa da sua oferta (até 256 caracteres). Este longo resumo também pode ser usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -120,7 +120,7 @@ Forneça documentos online suplementares opcionais sobre a sua solução. Adicio
 
 ### <a name="contact-information"></a>Informações de Contacto
 
-Nesta secção, deve fornecer o nome, e-mail e número de telefone para um **contacto de Suporte** e um contacto de **Engenharia**. Esta informação não é mostrada aos clientes, mas estará disponível para a Microsoft, e poderá ser fornecida aos parceiros da CSP.
+Nesta secção, deve fornecer o nome, e-mail e número de telefone para um **contacto de Suporte** e um contacto de **Engenharia** . Esta informação não é mostrada aos clientes, mas estará disponível para a Microsoft, e poderá ser fornecida aos parceiros da CSP.
 
 ### <a name="support-urls"></a>UrLs de apoio
 
@@ -179,7 +179,7 @@ Cada oferta deve ter um ou mais planos (anteriormente chamados SKUs). Pode adici
 
 Pode criar até 100 planos para cada oferta: até 45 destes podem ser privados. Saiba mais sobre [planos privados em ofertas privadas no mercado comercial da Microsoft.](../private-offers.md)
 
-Na página **de visão geral** do Plano, selecione + Criar novo **plano**. Em seguida, insira um **ID do plano** e um **nome de plano**. Ambos os valores só podem conter caracteres alfanuméricos minúsculos, traços e sublinhados, com um máximo de 50 caracteres. Estes valores podem ser visíveis para os clientes, e não podem ser alterados após a publicação da oferta.
+Na página **de visão geral** do Plano, selecione + Criar novo **plano** . Em seguida, insira um **ID do plano** e um **nome de plano** . Ambos os valores só podem conter caracteres alfanuméricos minúsculos, traços e sublinhados, com um máximo de 50 caracteres. Estes valores podem ser visíveis para os clientes, e não podem ser alterados após a publicação da oferta.
 
 **Selecione Criar** uma vez que tenha introduzido estes valores para continuar a trabalhar no seu plano. Há três secções a completar: **Listagem de planos,** **preços e disponibilidade,** e **configuração técnica.**
 
@@ -191,7 +191,7 @@ Em seguida, insira uma **Descrição** que fornece uma explicação mais detalha
 
 ### <a name="pricing-and-availability"></a>Preços e disponibilidade
 
-Atualmente, existe apenas um modelo de preços que pode ser usado para a oferta de Serviço Gerido: **Traga a sua própria licença (BYOL)**. Isto significa que irá cobrar diretamente aos seus clientes pelos custos relacionados com esta oferta, e a Microsoft não cobra quaisquer taxas a si.
+Atualmente, existe apenas um modelo de preços que pode ser usado para a oferta de Serviço Gerido: **Traga a sua própria licença (BYOL)** . Isto significa que irá cobrar diretamente aos seus clientes pelos custos relacionados com esta oferta, e a Microsoft não cobra quaisquer taxas a si.
 
 A secção **de visibilidade do Plano** permite-lhe indicar se este plano deve ser [privado](../../marketplace/private-offers.md). Se sair da Esta é uma caixa **de plano privado** sem controlo, o seu plano não será restringido a clientes específicos (ou a um determinado número de clientes).
 
@@ -216,9 +216,9 @@ Certifique-se de rever [inquilinos, papéis e utilizadores em cenários do Farol
 
 Primeiro, forneça uma **versão** para o manifesto. Utilize o formato *n.n.n* (por exemplo, 1.2.5).
 
-Em seguida, insira o seu **ID do inquilino.** Este é um GUID associado ao Azure Ative Directory (Azure AD) ID do inquilino da sua organização; ou seja, o inquilino gerente a partir do qual você vai aceder aos recursos dos seus clientes. Se não tiver este útil, pode encontrá-lo pairando sobre o nome da sua conta no lado superior direito do portal Azure, ou selecionando o **diretório da Switch**.
+Em seguida, insira o seu **ID do inquilino.** Este é um GUID associado ao Azure Ative Directory (Azure AD) ID do inquilino da sua organização; ou seja, o inquilino gerente a partir do qual você vai aceder aos recursos dos seus clientes. Se não tiver este útil, pode encontrá-lo pairando sobre o nome da sua conta no lado superior direito do portal Azure, ou selecionando o **diretório da Switch** .
 
-Se publicar uma nova versão da sua oferta e precisar de criar um manifesto atualizado, selecione **+ Novo manifesto**. Certifique-se de aumentar o número de versão da versão anterior do manifesto.
+Se publicar uma nova versão da sua oferta e precisar de criar um manifesto atualizado, selecione **+ Novo manifesto** . Certifique-se de aumentar o número de versão da versão anterior do manifesto.
 
 #### <a name="authorization"></a>Autorização
 
@@ -232,16 +232,16 @@ Pode criar até vinte autorizações para cada plano.
 Para cada **Autorização,** terá de fornecer o seguinte. Pode então selecionar **+ Adicionar a autorização** quantas vezes for necessário para adicionar mais utilizadores e definições de função.
 
 - **ID do objeto Azure :** O identificador Azure AD de um utilizador, grupo de utilizadores ou aplicação que será concedida determinadas permissões (conforme definido pela Definição de Função) aos recursos dos seus clientes.
-- **Nome de visualização de objeto Ad Azure**: Um nome amigável para ajudar o cliente a compreender o propósito desta autorização. O cliente verá este nome ao delegar recursos.
-- **Definição de Função**: Selecione uma das funções incorporadas AZure AD disponíveis da lista. Esta função determinará as permissões que o utilizador no campo **Azure AD Object ID** terá nos recursos dos seus clientes. Para descrições destes papéis, consulte [funções incorporadas](../../role-based-access-control/built-in-roles.md) e [suporte de função para o Farol de Azure.](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse)
+- **Nome de visualização de objeto Ad Azure** : Um nome amigável para ajudar o cliente a compreender o propósito desta autorização. O cliente verá este nome ao delegar recursos.
+- **Definição de Função** : Selecione uma das funções incorporadas AZure AD disponíveis da lista. Esta função determinará as permissões que o utilizador no campo **Azure AD Object ID** terá nos recursos dos seus clientes. Para descrições destes papéis, consulte [funções incorporadas](../../role-based-access-control/built-in-roles.md) e [suporte de função para o Farol de Azure.](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse)
   > [!NOTE]
   > Como as novas funções incorporadas aplicáveis são adicionadas ao Azure, elas ficarão disponíveis aqui, embora possa haver algum atraso antes de aparecerem.
-- **Funções atribuíveis**: Esta opção só aparecerá se tiver selecionado o Administrador de Acesso ao Utilizador na **Definição de Função** para esta autorização. Em caso afirmativo, deve adicionar uma ou mais funções atribuíveis aqui. O utilizador no campo **Azure AD Object ID** poderá atribuir estas funções a [identidades geridas,](../../active-directory/managed-identities-azure-resources/overview.md)o que é necessário para [implementar políticas que possam ser remediadas.](../../lighthouse/how-to/deploy-policy-remediation.md) Note que nenhuma outra permissão normalmente associada à função de Administrador de Acesso ao Utilizador será aplicada a este utilizador.
+- **Funções atribuíveis** : Esta opção só aparecerá se tiver selecionado o Administrador de Acesso ao Utilizador na **Definição de Função** para esta autorização. Em caso afirmativo, deve adicionar uma ou mais funções atribuíveis aqui. O utilizador no campo **Azure AD Object ID** poderá atribuir estas funções a [identidades geridas,](../../active-directory/managed-identities-azure-resources/overview.md)o que é necessário para [implementar políticas que possam ser remediadas.](../../lighthouse/how-to/deploy-policy-remediation.md) Note que nenhuma outra permissão normalmente associada à função de Administrador de Acesso ao Utilizador será aplicada a este utilizador.
 
 > [!TIP]
 > Para garantir que pode [remover o acesso a uma delegação,](../../lighthouse/how-to/remove-delegation.md) se necessário, inclua uma **Autorização** com a **Definição de Função** definida para [Atribuição de Registo de Serviços Geridos Eliminar Função](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Se esta função não for atribuída, os recursos delegados só podem ser removidos por um utilizador no arrendatário do cliente.
 
-Uma vez concluídas todas as secções para o seu plano, pode selecionar **+ Criar um novo plano** quantas vezes precisar para criar planos adicionais. Quando tiver terminado, selecione **Guardar**.
+Uma vez concluídas todas as secções para o seu plano, pode selecionar **+ Criar um novo plano** quantas vezes precisar para criar planos adicionais. Quando tiver terminado, selecione **Guardar** .
 
 **Selecione Guardar o projeto** antes de continuar.
 

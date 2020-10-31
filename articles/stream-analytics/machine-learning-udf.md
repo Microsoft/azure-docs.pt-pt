@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: a24d1716448363a199151a50a260bbdbd1e8e634
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14f7462aec65d2a13eb36b291331c347b995d281
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249489"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130685"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integre a Azure Stream Analytics com Azure Machine Learning (Preview)
 
@@ -23,13 +23,13 @@ Pode implementar modelos de machine learning como uma função definida pelo uti
 
 Complete os seguintes passos antes de adicionar um modelo de aprendizagem automática como função ao seu trabalho stream Analytics:
 
-1. Utilize a Azure Machine Learning para [implementar o seu modelo como serviço web](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+1. Utilize a Azure Machine Learning para [implementar o seu modelo como serviço web](../machine-learning/how-to-deploy-and-where.md).
 
 2. O seu script de pontuação deve ter [entradas e saídas de amostra](../machine-learning/how-to-deploy-and-where.md) que são usadas pela Azure Machine Learning para gerar uma especificação de esquema. Stream Analytics utiliza o esquema para entender a assinatura de função do seu serviço web. Pode utilizar esta [definição de swagger de amostra](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) como referência para garantir que a definiu corretamente.
 
 3. Certifique-se de que o seu serviço web aceita e devolve dados serializados da JSON.
 
-4. Implemente o seu modelo no [Serviço Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) para implantações de produção de alta escala. Se o serviço web não for capaz de lidar com o número de pedidos provenientes do seu trabalho, o desempenho do seu trabalho stream Analytics será degradado, o que tem impacto na latência. Os modelos implantados em Instâncias de Contentores Azure só são suportados quando utilizar o portal Azure. Os modelos construídos com [o Azure Machine Learning Designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) ainda não são suportados no Stream Analytics.
+4. Implemente o seu modelo no [Serviço Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) para implantações de produção de alta escala. Se o serviço web não for capaz de lidar com o número de pedidos provenientes do seu trabalho, o desempenho do seu trabalho stream Analytics será degradado, o que tem impacto na latência. Os modelos implantados em Instâncias de Contentores Azure só são suportados quando utilizar o portal Azure. Os modelos construídos com [o Azure Machine Learning Designer](../machine-learning/concept-designer.md) ainda não são suportados no Stream Analytics.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Adicione um modelo de aprendizagem automática ao seu trabalho
 
@@ -37,7 +37,7 @@ Pode adicionar funções de Aprendizagem automática Azure ao seu trabalho strea
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-1. Navegue para o seu trabalho stream Analytics no portal Azure e selecione **Funções** em **topologia de Job**. Em seguida, selecione O Serviço de Aprendizagem automática **Azure** a partir do menu **+ Adicionar** o menu de dropdown.
+1. Navegue para o seu trabalho stream Analytics no portal Azure e selecione **Funções** em **topologia de Job** . Em seguida, selecione O Serviço de Aprendizagem automática **Azure** a partir do menu **+ Adicionar** o menu de dropdown.
 
    ![Adicionar Azure Machine Learning UDF](./media/machine-learning-udf/add-azure-machine-learning-udf.png)
 
@@ -47,7 +47,7 @@ Pode adicionar funções de Aprendizagem automática Azure ao seu trabalho strea
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-1. Abra o seu projeto Stream Analytics no Código do Estúdio Visual e clique com o botão direito na pasta **Funções.** Em seguida, escolha **Adicionar Função**. Selecione **Machine Learning UDF** da lista de dropdown.
+1. Abra o seu projeto Stream Analytics no Código do Estúdio Visual e clique com o botão direito na pasta **Funções.** Em seguida, escolha **Adicionar Função** . Selecione **Machine Learning UDF** da lista de dropdown.
 
    :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Adicionar UDF no Código VS":::
 

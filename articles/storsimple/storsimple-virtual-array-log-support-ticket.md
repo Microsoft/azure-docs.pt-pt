@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 0ed8533b093c5af0d8aefdcd5175bed63f37a76c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57cd9b55f529bde3f6bcb0a25a95c70333f6d8dd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507675"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130957"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Utilize o serviço StorSimple Device Manager para registar um pedido de suporte para o StorSimple Virtual Array
 
@@ -33,27 +33,27 @@ Dependendo do seu [plano de suporte,](https://azure.microsoft.com/support/plans/
 
 #### <a name="to-log-a-new-request"></a>Para registar um novo pedido
 
-1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple. Nas definições da lâmina de resumo de serviço, vá à secção **SUPPORT + TROUBLESHOOTING** e, em seguida, clique em **Novo pedido de suporte**.
+1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple. Nas definições da lâmina de resumo de serviço, vá à secção **SUPPORT + TROUBLESHOOTING** e, em seguida, clique em **Novo pedido de suporte** .
    
-    ![Novo pedido de suporte](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
+    ![A screenshot mostra o painel Basics para um novo pedido de suporte.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
 2. Na lâmina **Basics,** faça o seguinte:
 
-    1. A partir da lista de dropdown **do tipo Demissão,** selecione **Técnico**. 
+    1. A partir da lista de dropdown **do tipo Demissão,** selecione **Técnico** . 
     
-    2. A **subscrição**atual, o tipo **de serviço** e o **recurso** (serviço StorSimple Device Manager) são automaticamente escolhidos. 
+    2. A **subscrição** atual, o tipo **de serviço** e o **recurso** (serviço StorSimple Device Manager) são automaticamente escolhidos. 
 
     3. Especifique um ou mais dispositivos registados no seu serviço que estejam a passar por problemas.
 
     4. Escolha um plano de **suporte** apropriado se tiver vários planos associados à sua subscrição. Precisa de um plano de apoio pago para permitir o Apoio Técnico.
 
-3. No **Passo 2**, escolha a **Severidade** e especifique se o problema está relacionado com a matriz ou com o serviço StorSimple Device Manager. Além disso, escolha uma **categoria** para esta edição e forneça mais **detalhes** sobre o assunto.
+3. No **Passo 2** , escolha a **Severidade** e especifique se o problema está relacionado com a matriz ou com o serviço StorSimple Device Manager. Além disso, escolha uma **categoria** para esta edição e forneça mais **detalhes** sobre o assunto.
    
-    ![Novo pedido de suporte](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
+    ![O screenshot mostra o painel de problemas onde pode introduzir o tipo de problema, categoria e detalhes para o seu pedido de suporte.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
 4. No **passo 3,** forneça os seus dados de contacto. O Microsoft Support utilizará estas informações para lhe contactar para obter mais informações, diagnóstico e resolução.
    
-    ![Novo pedido de suporte](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
+    ![A screenshot mostra o painel de informações de contacto.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
 ## <a name="manage-a-support-request"></a>Gerir um pedido de apoio
 
@@ -61,7 +61,7 @@ Depois de criar um pedido de suporte, pode gerir o ciclo de vida do mesmo no por
 
 #### <a name="to-manage-your-support-requests"></a>Para gerir os seus pedidos de apoio
 
-Para chegar à página de ajuda e suporte, navegue para **procurar > suporte Help +**.
+Para chegar à página de ajuda e suporte, navegue para **procurar > suporte Help +** .
 
 ![Gerir pedidos de apoio](./media/storsimple-virtual-array-log-support-ticket/manage-support-tickets.png)
 

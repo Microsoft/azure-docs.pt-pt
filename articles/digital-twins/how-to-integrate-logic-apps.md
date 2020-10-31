@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 9ea85449d3980f46e88eddc7e06e4a5384b8cea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 3fbd9016bcbfa83574d894af7ca728b863f54344
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027555"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129325"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Integre com As Aplicações Lógicas usando um conector personalizado
 
@@ -33,34 +33,11 @@ Inscreva-se no [portal Azure](https://portal.azure.com) com esta conta.
 
 Também precisa de completar os seguintes itens como parte da configuração pré-requisito. O restante desta secção irá acompanhá-lo através destes passos:
 - Configurar um exemplo de Gémeos Digitais Azure
-- Obtenha o segredo do cliente de registo de aplicativos
 - Adicione um gémeo digital
 
 ### <a name="set-up-azure-digital-twins-instance"></a>Configurar a instância Azure Digital Twins
 
-Para ligar uma instância Azure Digital Twins a Logic Apps neste artigo, terá de ter a **instância Azure Digital Twins** já configurada. 
-
-Em primeiro lugar, **crie uma instância Azure Digital Twins** e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md).
-* Depois de configurar o seu exemplo Azure Digital Twins, você precisará do nome de **_anfitrião_** do caso [(encontre no portal Azure).](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
-
-Para autenticar o conector, também terá de configurar um **registo de aplicações.** Siga as instruções em [*Como-a: Crie um registo de aplicações*](how-to-create-app-registration.md) para configurar isto. 
-* Uma vez que você tem um registro de aplicação, você precisará do ID de **_Aplicação (cliente)_** do registo e **_diretório (inquilino) ID (encontre_** [no portal Azure).](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
-
-### <a name="get-app-registration-client-secret"></a>Obtenha o segredo do cliente de registo de aplicativos
-
-Também terá de criar um segredo de **_Cliente_** para o seu registo de aplicações AZure AD. Para isso, navegue para a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Selecione a sua inscrição que criou na secção anterior da lista, de forma a abrir os seus detalhes. 
-
-Bata *certificados e segredos* no menu do registo e selecione *+ Novo segredo do cliente.*
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
-
-Introduza os valores que quiser para Descrição e Expira, e bata *Em Adicionar* .
-
-:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
-
-Agora, verifique se o segredo do cliente está visível na página _de segredos & certificados_ com campos _expira_ e _valor._ Tome nota do seu _Valor_ para usar mais tarde (também pode copiá-lo para a área de transferência com o ícone Copy)
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ### <a name="add-a-digital-twin"></a>Adicione um gémeo digital
 
@@ -70,9 +47,29 @@ Pode adicionar gémeos utilizando as [APIs DigitalTwins,](/rest/api/digital-twin
 
 Vai precisar da **_identificação de_** um gémeo no seu caso que criou.
 
+## <a name="set-up-app-registration"></a>Configurar o registo de aplicativos
+
+[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
+
+### <a name="get-app-registration-client-secret"></a>Obtenha o segredo do cliente de registo de aplicativos
+
+Também terá de criar um segredo de **_Cliente_** para o seu registo de aplicações AZure AD. Para isso, navegue para a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Selecione a sua inscrição que criou na secção anterior da lista, de forma a abrir os seus detalhes. 
+
+Bata *certificados e segredos* no menu do registo e selecione *+ Novo segredo do cliente.*
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
+
+Introduza os valores que quiser para *Descrição* e *Expira,* e bata *em Adicionar* .
+
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
+
+Agora, verifique se o segredo do cliente está visível na página _de segredos & certificados_ com campos _expira_ e _valor._ Tome nota do seu _Valor_ para usar mais tarde (também pode copiá-lo para a área de transferência com o ícone Copy)
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Vista do portal de um registo de aplicações AD Azure. Há um destaque em torno de 'Certificados e segredos' no menu de recursos, e um destaque na página em torno de 'Novo segredo de cliente'":::
+
 ## <a name="create-custom-logic-apps-connector"></a>Crie o conector de Apps Lógicas personalizadas
 
-Neste passo, irá criar um [conector de Apps Lógicas personalizado](../logic-apps/custom-connector-overview.md) para as APIs de Gémeos Digitais Azure. Depois de o fazer, poderá ligar a Azure Digital Twins ao criar uma aplicação lógica na secção seguinte.
+Agora, está pronto para criar um [conector de Apps Lógicas personalizado](../logic-apps/custom-connector-overview.md) para as APIs de Gémeos Digitais Azure. Depois de o fazer, poderá ligar a Azure Digital Twins ao criar uma aplicação lógica na secção seguinte.
 
 Navegue para a página [de Connector Personalizado de Aplicações Lógicas](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) no portal Azure (pode utilizar este link ou procurá-lo na barra de pesquisa do portal). Hit *+ Add* .
 

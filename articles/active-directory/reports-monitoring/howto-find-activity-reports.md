@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42afa073da9197c12e4cbd316d311a7699d9a95f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230624"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131059"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Encontrar relatórios de atividade no portal do Azure
 
@@ -149,7 +149,7 @@ Pode aceder a relatórios sobre deteções de risco detetadas na secção de **S
 
 Transferi os registos de atividades (auditorias ou inícios de sessão) e não vejo todos os registos para o período de tempo que escolhi. Porquê? 
 
- ![Relatórios](./media/troubleshoot-missing-data-download/01.png)
+ ![A screenshot mostra o botão descarregar no relatório de atividade.](./media/troubleshoot-missing-data-download/01.png)
  
 #### <a name="cause"></a>Causa
 
@@ -165,7 +165,7 @@ Pode tirar partido das [APIs de Relatórios do Azure AD](concept-reporting-api.m
 
 Efetuei algumas ações no portal do Azure e esperava ver os registos de auditoria dessas ações no painel `Activity logs > Audit Logs`, mas não consegui encontrá-los.
 
- ![Relatórios](./media/troubleshoot-missing-audit-data/01.png)
+ ![A imagem mostra o relatório da atividade.](./media/troubleshoot-missing-audit-data/01.png)
  
 #### <a name="cause"></a>Causa
 
@@ -186,7 +186,7 @@ Aguarde entre 15 minutos a duas horas e veja se as ações aparecem no registo. 
 
 Iniciei sessão recentemente no portal do Azure e esperava ver os registos de início de sessão dessas ações no painel `Activity logs > Sign-ins`, mas não consigo encontrá-los.
 
- ![Relatórios](./media/troubleshoot-missing-audit-data/02.png)
+ ![A screenshot mostra inscrições para o Azure Ative Directory.](./media/troubleshoot-missing-audit-data/02.png)
  
 #### <a name="cause"></a>Causa
 
@@ -207,7 +207,7 @@ Aguarde entre 15 minutos a duas horas e veja se as ações aparecem no registo. 
 
 Não consigo ver mais de 30 dias de dados de início de sessão e auditoria no portal do Azure. Porquê? 
 
- ![Relatórios](./media/troubleshoot-missing-audit-data/03.png)
+ ![A screenshot mostra o menu Date.](./media/troubleshoot-missing-audit-data/03.png)
 
 #### <a name="cause"></a>Causa
 

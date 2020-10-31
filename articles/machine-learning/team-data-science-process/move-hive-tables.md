@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7cce0a927c2ffd69252a22ea4459f789d22721c2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d61c0f5f26bc46b9c4a5bc4a793df1e10710004
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86080742"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130872"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Criar tabelas de Colmeia e carregar dados a partir do armazenamento do Blob Azure
 
@@ -86,7 +86,7 @@ hive -S -e "<Hive queries>"
 ```
 
 #### <a name="submit-hive-queries-in-hive-command-console"></a>Submeta consultas de Colmeia na consola de comando da Hive.
-Também pode primeiro introduzir a consola de comando da Colmeia executando o comando `hive` na Linha de Comando Hadoop e, em seguida, submeter consultas de Colmeia na consola de comando da Hive. Segue-se um exemplo. Neste exemplo, as duas caixas vermelhas destacam os comandos utilizados para entrar na consola de comando da Colmeia, e a consulta hive submetida na consola de comando da Hive, respectivamente. A caixa verde destaca a saída da consulta hive.
+Também pode primeiro introduzir a consola de comando da Colmeia executando o comando `hive` na Linha de Comando Hadoop e, em seguida, submeter consultas de Colmeia na consola de comando da Hive. Eis um exemplo. Neste exemplo, as duas caixas vermelhas destacam os comandos utilizados para entrar na consola de comando da Colmeia, e a consulta hive submetida na consola de comando da Hive, respectivamente. A caixa verde destaca a saída da consulta hive.
 
 ![Abra a consola de comando da Colmeia e insira o comando, veja a saída da consulta da Hive](./media/move-hive-tables/run-hive-queries-2.png)
 
@@ -101,7 +101,7 @@ hive -e "<hive query>" > <local path in the head node>
 
 No exemplo seguinte, a saída da consulta hive é escrita num ficheiro `hivequeryoutput.txt` em diretório `C:\apps\temp` .
 
-![Saída da consulta de Colmeia](./media/move-hive-tables/output-hive-results-1.png)
+![A screenshot mostra a saída da consulta de Colmeia numa janela da Linha de Comando Hadoop.](./media/move-hive-tables/output-hive-results-1.png)
 
 **Consulta de hive de saída resulta de uma bolha Azure**
 
@@ -113,7 +113,7 @@ insert overwrite directory wasb:///<directory within the default container> <sel
 
 No exemplo seguinte, a saída da consulta de Hive é escrita para um diretório blob `queryoutputdir` dentro do recipiente padrão do cluster Hadoop. Aqui, só precisa de fornecer o nome do diretório, sem o nome blob. Um erro é lançado se fornecer nomes de diretório e blob, tais como `wasb:///queryoutputdir/queryoutput.txt` .
 
-![Saída da consulta de Colmeia](./media/move-hive-tables/output-hive-results-2.png)
+![A screenshot mostra o comando anterior na janela da Linha de Comando Hadoop.](./media/move-hive-tables/output-hive-results-2.png)
 
 Se abrir o recipiente predefinido do cluster Hadoop utilizando o Azure Storage Explorer, pode ver a saída da consulta hive como mostrado na seguinte figura. Pode aplicar o filtro (realçado pela caixa vermelha) para apenas recuperar a bolha com letras especificadas em nomes.
 
@@ -147,12 +147,12 @@ STORED AS TEXTFILE LOCATION '<storage location>' TBLPROPERTIES("skip.header.line
 
 Aqui estão as descrições dos campos que precisa de ligar e outras configurações:
 
-* **\<database name\>**: o nome da base de dados que pretende criar. Se apenas quiser utilizar a base de dados padrão, a consulta "*criar base de dados"* pode ser omitida.
-* **\<table name\>**: o nome da tabela que pretende criar na base de dados especificada. Se pretender utilizar a base de dados predefinida, a tabela pode ser diretamente encaminhada *\<table name\>* sem \<database name\> .
-* **\<field separator\>**: o separador que delimita campos no ficheiro de dados a ser enviado para a tabela Hive.
-* **\<line separator\>**: o separador que delimita linhas no ficheiro de dados.
-* **\<storage location\>**: o local de armazenamento Azure para guardar os dados das tabelas da Colmeia. Se não especificar *localização, \<storage location\> *a base de dados e as tabelas são armazenadas em *colmeia/armazém/diretório* no recipiente predefinido do cluster da Colmeia por padrão por padrão. Se pretender especificar o local de armazenamento, o local de armazenamento deve estar dentro do recipiente predefinido para a base de dados e tabelas. Esta localização deve ser referida como localização relativa ao recipiente predefinido do cluster no formato de * \<directory 1> "wasb:////"* ou * \<directory 1> / \<directory 2> "wasb:////'*, etc. Após a execução da consulta, os diretórios relativos são criados dentro do recipiente padrão.
-* **TBLPROPERTIES ("skip.header.line.count"="1")**: Se o ficheiro de dados tiver uma linha de cabeçalho, tem de adicionar esta propriedade **no final** da consulta de *tabela criar.* Caso contrário, a linha do cabeçalho é carregada como um registo para a mesa. Se o ficheiro de dados não tiver uma linha de cabeçalho, esta configuração pode ser omitida na consulta.
+* **\<database name\>** : o nome da base de dados que pretende criar. Se apenas quiser utilizar a base de dados padrão, a consulta " *criar base de dados"* pode ser omitida.
+* **\<table name\>** : o nome da tabela que pretende criar na base de dados especificada. Se pretender utilizar a base de dados predefinida, a tabela pode ser diretamente encaminhada *\<table name\>* sem \<database name\> .
+* **\<field separator\>** : o separador que delimita campos no ficheiro de dados a ser enviado para a tabela Hive.
+* **\<line separator\>** : o separador que delimita linhas no ficheiro de dados.
+* **\<storage location\>** : o local de armazenamento Azure para guardar os dados das tabelas da Colmeia. Se não especificar *localização, \<storage location\>* a base de dados e as tabelas são armazenadas em *colmeia/armazém/diretório* no recipiente predefinido do cluster da Colmeia por padrão por padrão. Se pretender especificar o local de armazenamento, o local de armazenamento deve estar dentro do recipiente predefinido para a base de dados e tabelas. Esta localização deve ser referida como localização relativa ao recipiente predefinido do cluster no formato de *\<directory 1> "wasb:////"* ou *\<directory 1> / \<directory 2> "wasb:////'* , etc. Após a execução da consulta, os diretórios relativos são criados dentro do recipiente padrão.
+* **TBLPROPERTIES ("skip.header.line.count"="1")** : Se o ficheiro de dados tiver uma linha de cabeçalho, tem de adicionar esta propriedade **no final** da consulta de *tabela criar.* Caso contrário, a linha do cabeçalho é carregada como um registo para a mesa. Se o ficheiro de dados não tiver uma linha de cabeçalho, esta configuração pode ser omitida na consulta.
 
 ## <a name="load-data-to-hive-tables"></a><a name="load-data"></a>Carregar dados para as tabelas da Colmeia
 Aqui está a consulta da Colmeia que carrega dados numa tabela de Colmeias.
@@ -161,7 +161,7 @@ Aqui está a consulta da Colmeia que carrega dados numa tabela de Colmeias.
 LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 ```
 
-* **\<path to blob data\>**: Se o ficheiro blob a ser carregado para a tabela Hive estiver no recipiente predefinido do cluster HDInsight Hadoop, o *\<path to blob data\>* deve estar no formato * \<directory in this container> / \<blob file name> 'wasb://'*. O ficheiro blob também pode estar num recipiente adicional do cluster HDInsight Hadoop. Neste caso, *\<path to blob data\>* deve estar no formato *«wasb:// \<container name> @ \<storage account name> \<blob file name> .blob.core.windows.net/».*
+* **\<path to blob data\>** : Se o ficheiro blob a ser carregado para a tabela Hive estiver no recipiente predefinido do cluster HDInsight Hadoop, o *\<path to blob data\>* deve estar no formato *\<directory in this container> / \<blob file name> 'wasb://'* . O ficheiro blob também pode estar num recipiente adicional do cluster HDInsight Hadoop. Neste caso, *\<path to blob data\>* deve estar no formato *«wasb:// \<container name> @ \<storage account name> \<blob file name> .blob.core.windows.net/».*
 
   > [!NOTE]
   > Os dados blob a serem enviados para a tabela Hive devem estar na conta padrão ou adicional da conta de armazenamento do cluster Hadoop. Caso contrário, a consulta *DE DADOS DE CARGA* falha ao queixar-se de que não consegue aceder aos dados.
@@ -238,7 +238,7 @@ INSERT OVERWRITE TABLE <database name>.<ORC table name>
 ```
 
 > [!NOTE]
-> Se a tabela TEXTFILE * \<database name\> . \<external textfile table name\> * tem divisórias, no PASSO 3, o `SELECT * FROM <database name>.<external textfile table name>` comando seleciona a variável de partição como um campo no conjunto de dados devolvidos. Inserindo-o no * \<database name\> . \<ORC table name\> * falha desde * \<database name\> . \<ORC table name\> * não tem a variável de partição como um campo no esquema de mesa. Neste caso, é necessário selecionar especificamente os campos a introduzir * \<database name\> . \<ORC table name\> * da seguinte forma:
+> Se a tabela TEXTFILE *\<database name\> . \<external textfile table name\>* tem divisórias, no PASSO 3, o `SELECT * FROM <database name>.<external textfile table name>` comando seleciona a variável de partição como um campo no conjunto de dados devolvidos. Inserindo-o no *\<database name\> . \<ORC table name\>* falha desde *\<database name\> . \<ORC table name\>* não tem a variável de partição como um campo no esquema de mesa. Neste caso, é necessário selecionar especificamente os campos a introduzir *\<database name\> . \<ORC table name\>* da seguinte forma:
 >
 >
 
@@ -249,7 +249,7 @@ INSERT OVERWRITE TABLE <database name>.<ORC table name> PARTITION (<partition va
     WHERE <partition variable>=<partition value>;
 ```
 
-É seguro deixar cair a *\<external text file table name\>* seguinte consulta depois de todos os dados terem sido inseridos * \<database name\> \<ORC table name\> *em :
+É seguro deixar cair a *\<external text file table name\>* seguinte consulta depois de todos os dados terem sido inseridos *\<database name\> \<ORC table name\>* em :
 
 ```hiveql
     DROP TABLE IF EXISTS <database name>.<external textfile table name>;

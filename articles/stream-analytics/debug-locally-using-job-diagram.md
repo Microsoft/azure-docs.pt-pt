@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
-ms.openlocfilehash: e9d6bbdf325c0da96b81c1f2146da284ea744def
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c32ba468979e4566d8e349d481eddca7d407b659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218260"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130991"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio"></a>Debug Azure Stream Analytics consulta localmente usando diagrama de trabalho em Estúdio Visual
 
@@ -119,7 +119,7 @@ Outras métricas de nível de trabalho aparecem na consola pop-up. Prima **Ctrl+
 
 * Os lavatórios de produção da Power BI e do Azure Data Lake Storage Gen1 não são suportados devido a limitações do modelo de autenticação.
 
-* Apenas as opções de entrada na nuvem têm suporte às políticas de [tempo,](stream-analytics-out-of-order-and-late-events.md) enquanto as opções de entrada local não.
+* Apenas as opções de entrada na nuvem têm suporte às políticas de [tempo,](./stream-analytics-time-handling.md) enquanto as opções de entrada local não.
 
 ## <a name="next-steps"></a>Passos seguintes
 

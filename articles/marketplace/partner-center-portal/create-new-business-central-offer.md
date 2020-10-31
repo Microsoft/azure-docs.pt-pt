@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71cbc09f21e21c325665809953f209615d835124
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91774583"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130158"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Criar uma oferta do Dynamics 365 Business Central
 
@@ -23,8 +23,8 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
-3. Na página 'Visão Geral', selecione **+ Nova oferta**  >  **Dynamics 365 business central**.
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
+3. Na página 'Visão Geral', selecione **+ Nova oferta**  >  **Dynamics 365 business central** .
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-dynamics-365-business-central.png)
 
@@ -33,17 +33,17 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 
 ## <a name="new-offer"></a>Nova oferta
 
-Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
+Introduza um **ID de oferta** . Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
 - O ID da oferta combinado com o ID da Editora deve ter menos de 40 caracteres de comprimento.
 - Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços. Por exemplo, se o seu ID editor for testpublisherid e introduzir **test-offer-1** aqui, o endereço web da oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
+- O ID da Oferta não pode ser alterado depois de selecionar **Criar** .
 
 Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
 - Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
-- O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar**.
+- O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar** .
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -91,7 +91,7 @@ Esta página permite definir as categorias e indústrias usadas para agrupar a s
 Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável** .
 
 Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md)
 
@@ -130,10 +130,10 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 6. Política de privacidade
 7. Nome da oferta
 8. Resumo
-9. Descrição
+9. Description
 10. Screenshots/vídeos
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que introduzir aqui será mostrado aos clientes como o título da sua listagem de oferta. Este campo é pré-povoado com o texto que inseriu para **o pseudónimo Oferta** quando criou a oferta, mas pode alterar este valor. Este nome pode ser comercializado (e pode incluir símbolos de marca registada ou de direitos autorais). O nome não pode ter mais de 50 caracteres e não pode incluir emojis.
 
@@ -141,7 +141,7 @@ O nome que introduzir aqui será mostrado aos clientes como o título da sua lis
 
 Forneça uma breve descrição da sua oferta, até 100 caracteres. Esta descrição pode ser usada em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -171,7 +171,7 @@ Insira o URL na política de privacidade da sua organização. Você é respons�
 
 ### <a name="contact-information"></a>Informações de Contacto
 
-Nesta secção, deve fornecer o nome, e-mail e número de telefone para um **contacto de Suporte** e um contacto de **Engenharia**. Esta informação não é mostrada aos clientes, mas estará disponível para a Microsoft, e poderá ser fornecida aos parceiros da CSP.
+Nesta secção, deve fornecer o nome, e-mail e número de telefone para um **contacto de Suporte** e um contacto de **Engenharia** . Esta informação não é mostrada aos clientes, mas estará disponível para a Microsoft, e poderá ser fornecida aos parceiros da CSP.
 
 Na secção **de contacto de Suporte,** também deve fornecer o **URL de suporte** onde os parceiros da CSP podem encontrar suporte para a sua oferta. O URL de suporte não pode ser o mesmo que o link **ajuda.**
 
@@ -228,7 +228,7 @@ Tenha em mente que mesmo que selecione todos os mercados, leis locais, restriç�
 
 ### <a name="preview-audience"></a>Audiência de pré-visualização
 
-Antes de publicar a sua oferta ao vivo para a oferta de mercado mais ampla, primeiro terá de a disponibilizar a um público de **pré-visualização**limitado. Introduza uma **tecla Oculta** (qualquer fio utilizando apenas letras minúsculas e/ou números) aqui. Os membros do seu público de pré-visualização podem usar esta chave de ocultação como um símbolo para visualizar uma pré-visualização da sua oferta no mercado.
+Antes de publicar a sua oferta ao vivo para a oferta de mercado mais ampla, primeiro terá de a disponibilizar a um público de **pré-visualização** limitado. Introduza uma **tecla Oculta** (qualquer fio utilizando apenas letras minúsculas e/ou números) aqui. Os membros do seu público de pré-visualização podem usar esta chave de ocultação como um símbolo para visualizar uma pré-visualização da sua oferta no mercado.
 
 Em seguida, quando estiver pronto para disponibilizar a sua oferta e remover a restrição de pré-visualização, terá de remover a **tecla Oculta** e publicar novamente.
 
@@ -242,8 +242,8 @@ Esta página define os detalhes técnicos utilizados para se ligar à sua oferta
 
 Selecione a opção que se aplica à sua oferta:
 
-* **Add On** – Uma aplicação Add-on alarga a experiência e a funcionalidade existente da Dynamics 365 Business Central. Para mais detalhes, consulte [as aplicações Add-on](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
-* **Connect** – Uma aplicação Connect pode ser utilizada no cenário em que deve ser estabelecida uma ligação ponto-a-ponto entre a Dynamics 365 Business Central e uma solução ou serviço de terceiros. Para mais detalhes, consulte [Connect Apps](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
+* **Add On** – Uma aplicação Add-on alarga a experiência e a funcionalidade existente da Dynamics 365 Business Central. Para mais detalhes, consulte [as aplicações Add-on](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
+* **Connect** – Uma aplicação Connect pode ser utilizada no cenário em que deve ser estabelecida uma ligação ponto-a-ponto entre a Dynamics 365 Business Central e uma solução ou serviço de terceiros. Para mais detalhes, consulte [Connect Apps](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
 ### <a name="file-upload"></a>Upload de arquivo
 
@@ -280,11 +280,11 @@ Esta página permite-lhe fornecer informações adicionais sobre a sua oferta pa
 
 ### <a name="target-release"></a>Versão de destino
 
-Indicar qual o lançamento do Microsoft Dynamics Business Central os seus objetivos de solução: **Current**, **Next major**ou Next **minor**. Esta informação permite-nos testar a sua solução adequadamente.
+Indicar qual o lançamento do Microsoft Dynamics Business Central os seus objetivos de solução: **Current** , **Next major** ou Next **minor** . Esta informação permite-nos testar a sua solução adequadamente.
 
 ### <a name="supported-editions"></a>Edições apoiadas
 
-Se a sua oferta necessitar da edição Premium do Microsoft Dynamics 365 Business Central, selecione **Premium** apenas. Caso contrário, selecione **Essentials** e **Premium**.
+Se a sua oferta necessitar da edição Premium do Microsoft Dynamics 365 Business Central, selecione **Premium** apenas. Caso contrário, selecione **Essentials** e **Premium** .
 
 ### <a name="key-usage-scenario"></a>Cenário de utilização chave
 

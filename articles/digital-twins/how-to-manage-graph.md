@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3b8dafd6d2347cf7cca4100f577476b8dfdf6c81
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 28551cb201ab964a21461d6b3f97ce439e446011
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495762"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130294"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
@@ -22,6 +22,10 @@ Uma vez que tenha uma [instância Azure Digital Twins](how-to-set-up-instance-po
 
 Este artigo centra-se na gestão das relações e do gráfico como um todo; para trabalhar com gémeos digitais individuais, ver [*Como-a- Gerir gémeos digitais.*](how-to-manage-twin.md)
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+    
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
 ## <a name="create-relationships"></a>Criar relacionamentos
@@ -34,7 +38,7 @@ Para criar uma relação, precisa de especificar:
 * O ID gémeo de origem `srcId` (na amostra de código abaixo): A identificação do gémeo de onde a relação se origina.
 * O ID gémeo alvo `targetId` (na amostra de código abaixo): A identificação do gémeo onde a relação chega.
 * Um nome de relacionamento `relName` (na amostra de código abaixo): O tipo genérico de relacionamento, algo como _._
-* Um ID de relacionamento `relId` (na amostra de código abaixo): O nome específico para esta relação, algo como _Relacionamento1_.
+* Um ID de relacionamento `relId` (na amostra de código abaixo): O nome específico para esta relação, algo como _Relacionamento1_ .
 
 A identificação da relação deve ser única dentro do gémeo de origem dada. Não precisa de ser globalmente único.
 Por exemplo, para o *twin foo,* cada identificação de relacionamento específico deve ser único. No entanto, outro *bar* gémeo pode ter uma relação de saída que corresponde à mesma identificação de uma relação *foo.*
@@ -81,9 +85,9 @@ As relações podem ser classificadas como:
 
 Não há restrição no número de relacionamentos que pode ter entre dois gémeos — pode ter tantas relações entre gémeos quanto quiser. 
 
-Isto significa que pode expressar vários tipos diferentes de relacionamentos entre dois gémeos ao mesmo tempo. Por exemplo, *a Twin A* pode ter uma relação *armazenada* e uma relação *manufaturada* com *a Twin B*.
+Isto significa que pode expressar vários tipos diferentes de relacionamentos entre dois gémeos ao mesmo tempo. Por exemplo, *a Twin A* pode ter uma relação *armazenada* e uma relação *manufaturada* com *a Twin B* .
 
-Pode até criar múltiplos casos do mesmo tipo de relação entre os mesmos dois gémeos, se desejar. Neste exemplo, *Twin A* poderia ter duas relações diferentes *armazenadas* com *Twin B*, desde que as relações tenham iDs de relacionamento diferentes.
+Pode até criar múltiplos casos do mesmo tipo de relação entre os mesmos dois gémeos, se desejar. Neste exemplo, *Twin A* poderia ter duas relações diferentes *armazenadas* com *Twin B* , desde que as relações tenham iDs de relacionamento diferentes.
 
 ## <a name="list-relationships"></a>Relações de lista
 
@@ -132,7 +136,7 @@ Pode usar as relações recuperadas para navegar para outros gémeos no seu grá
 
 ### <a name="find-incoming-relationships-to-a-digital-twin"></a>Encontre relacionamentos de entrada para um gémeo digital
 
-A Azure Digital Twins também tem uma API para encontrar todas as relações*com*um dado gémeo. Isto é frequentemente útil para a navegação inversa, ou quando elimina um gémeo.
+A Azure Digital Twins também tem uma API para encontrar todas as relações *com* um dado gémeo. Isto é frequentemente útil para a navegação inversa, ou quando elimina um gémeo.
 
 A amostra de código anterior focava-se em encontrar relações de saída de um gémeo. O exemplo a seguir é estruturado da mesma forma, mas encontra relações *de entrada* com o gémeo.
 

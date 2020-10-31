@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 425ee90306de3961c64766f42bd28f668fc9396e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4962116b683d648f8f2d229b5113d2c8a01e15f8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077953"
+ms.locfileid: "93131008"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -22,6 +22,10 @@ Este artigo centra-se na gestão de gémeos digitais; para trabalhar com relacio
 
 > [!TIP]
 > Todas as funções SDK vêm em versões sincronizadas e assíncronos.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## <a name="create-a-digital-twin"></a>Criar um gémeo digital
 

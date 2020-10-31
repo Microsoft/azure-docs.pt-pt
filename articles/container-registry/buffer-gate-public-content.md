@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: c7beddda0d344f6b7606f3e2d3624bee39009c66
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043517"
+ms.locfileid: "93130855"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Gerir conteúdos públicos com registo de contentores Azure
 
@@ -21,7 +21,7 @@ Este artigo é uma visão geral de práticas e fluxos de trabalho para usar um r
 
 O seu ambiente pode ter dependências de conteúdos públicos, tais como imagens de contentores públicos, [gráficos helm,](https://helm.sh/)políticas [de Agente de Política Aberta](https://www.openpolicyagent.org/) (OPA) ou outros artefactos. Por exemplo, você pode executar [nginx](https://hub.docker.com/_/nginx) para encaminhamento de serviço ou `docker build FROM alpine` puxando imagens diretamente de Docker Hub ou de outro registro público. 
 
-Sem controlos adequados, ter dependências de conteúdos de registo público pode introduzir riscos para o desenvolvimento da sua imagem e fluxos de trabalho de implantação. Para mitigar os riscos, mantenha as cópias locais de conteúdo público sempre que possível. Para mais detalhes, consulte o [blog Open Container Initiative](https://opencontainers.org/posts/blog). 
+Sem controlos adequados, ter dependências de conteúdos de registo público pode introduzir riscos para o desenvolvimento da sua imagem e fluxos de trabalho de implantação. Para mitigar os riscos, mantenha as cópias locais de conteúdo público sempre que possível. Para mais detalhes, consulte o [blog Open Container Initiative](https://opencontainers.org/posts/blog/2020-10-30-consuming-public-content/). 
 
 ## <a name="authenticate-with-docker-hub"></a>Autenticar com Docker Hub
 
@@ -33,8 +33,6 @@ Como primeiro passo, se atualmente retirar imagens públicas do Docker Hub como 
 > Ao estimar o seu número de pedidos de puxar, tenha em conta que ao utilizar serviços de fornecedor de nuvem ou trabalhar atrás de um NAT corporativo, vários utilizadores serão apresentados ao Docker Hub em conjunto como um subconjunto de endereços IP.  Adicionar a autenticação paga do Docker aos pedidos feitos ao Docker Hub evitará possíveis perturbações no serviço devido ao estrangulamento do limite de taxa.
 >
 > Para mais detalhes, consulte [os preços e subscrições](https://www.docker.com/pricing) do Docker e os [Termos de Serviço do Docker.](https://www.docker.com/legal/docker-terms-service)
-
-
 
 Para exemplos e cenários de autenticação, consulte [o limite da taxa de descarregamento](https://docs.docker.com/docker-hub/download-rate-limit/).
 
@@ -72,7 +70,7 @@ Para começar a gerir cópias de imagens públicas, pode criar um registo de con
 
 Como um passo único recomendado, [importar](container-registry-import-images.md) imagens base e outros conteúdos públicos para o seu registo de contentores Azure. O comando [de importação az acr](/cli/azure/acr#az_acr_import) no Azure CLI suporta a importação de imagens de registos públicos como Docker Hub e Microsoft Container Registry e de outros registos privados de contentores. 
 
-`az acr import` não requer uma instalação local do Docker. Você pode executá-lo com uma instalação local do Azure CLI ou diretamente em Azure Cloud Shell suportando qualquer tipo de imagens de SO, imagens multi-arquitetura ou artefactos OCI, como gráficos Helm.
+`az acr import` não requer uma instalação local do Docker. Pode executá-lo com uma instalação local do Azure CLI ou diretamente em Azure Cloud Shell. Suporta imagens de qualquer tipo de SO, imagens multi-arquitetura ou artefactos OCI, como gráficos Helm.
 
 Exemplo:
 
@@ -82,7 +80,7 @@ az acr import \
   --source docker.io/library/hello-world:latest \
   --image hello-world:latest \
   --username <Docker Hub username> \
-  --password <Docker Hub password>
+  --password <Docker Hub token>
 ```
 
 Dependendo das necessidades da sua organização, pode importar para um registo dedicado ou um repositório num registo partilhado.
@@ -93,7 +91,7 @@ Os desenvolvedores de imagens de aplicações devem garantir que o seu código r
 
 Expandindo a importação de imagens, crie uma [tarefa de registo de contentores Azure](container-registry-tasks-overview.md) para automatizar as construções de imagem de aplicação quando as imagens base são atualizadas. Uma tarefa de construção automatizada pode rastrear as [atualizações de imagem base](container-registry-tasks-base-images.md) e [as atualizações de códigos de origem](container-registry-tasks-overview.md#trigger-task-on-source-code-update).
 
-Para um exemplo detalhado, consulte [como consumir e manter o conteúdo público com as tarefas de registo de contentores Azure](https://github.com/SteveLasker/azure-docs/blob/consuming-public-content/articles/container-registry/container-registry-consuming-public-content.md). 
+Para um exemplo detalhado, consulte [como consumir e manter o conteúdo público com as tarefas de registo de contentores Azure](tasks-consume-public-content.md). 
 
 > [!NOTE]
 > Uma única tarefa pré-configurada pode reconstruir automaticamente todas as imagens de aplicação que referenciam uma imagem base dependente. 
@@ -101,4 +99,5 @@ Para um exemplo detalhado, consulte [como consumir e manter o conteúdo público
 ## <a name="next-steps"></a>Passos seguintes
  
 * Saiba mais sobre [as tarefas ACR](container-registry-tasks-overview.md) para construir, executar, empurrar e remendar imagens de contentores em Azure.
+* Veja [como consumir e manter o conteúdo público com as Tarefas de Registo de Contentores Azure](tasks-consume-public-content.md) para um fluxo de trabalho de gating automatizado para atualizar imagens base para o seu ambiente. 
 * Consulte os [tutoriais ACR Tasks](container-registry-tutorial-quick-task.md) para mais exemplos para automatizar construções e atualizações de imagem.

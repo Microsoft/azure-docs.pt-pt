@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84196428"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129733"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Utilização de dados de referência para procuras no Stream Analytics
 
-Os dados de referência (também conhecidos como tabela de procuração) são um conjunto de dados finito que estático ou muda lentamente na natureza, usado para realizar uma procura ou para aumentar os seus fluxos de dados. Por exemplo, num cenário IoT, você poderia armazenar metadados sobre sensores (que não mudam frequentemente) em dados de referência e a juntá-lo com fluxos de dados IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para obter um processamento de fluxo de baixa latência. Para utilizar dados de referência no seu trabalho Azure Stream Analytics, utilizará geralmente um [Data De Referência Para Se Associar](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) à sua consulta. 
+Os dados de referência (também conhecidos como tabela de procuração) são um conjunto de dados finito que estático ou muda lentamente na natureza, usado para realizar uma procura ou para aumentar os seus fluxos de dados. Por exemplo, num cenário IoT, você poderia armazenar metadados sobre sensores (que não mudam frequentemente) em dados de referência e a juntá-lo com fluxos de dados IoT em tempo real. O Azure Stream Analytics carrega dados de referência na memória para obter um processamento de fluxo de baixa latência. Para utilizar dados de referência no seu trabalho Azure Stream Analytics, utilizará geralmente um [Data De Referência Para Se Associar](/stream-analytics-query/reference-data-join-azure-stream-analytics) à sua consulta. 
 
 ## <a name="example"></a>Exemplo  
 Você pode ter um fluxo em tempo real de eventos gerados quando os carros passam por uma portagem. A cabine de portagem pode capturar a placa em tempo real e juntar-se a um conjunto de dados estático que tem detalhes de registo para identificar matrículas que tenham expirado.  
@@ -96,7 +96,7 @@ Com a opção de consulta delta, o Stream Analytics executa inicialmente a consu
 
 Para configurar os seus dados de referência sql Database, primeiro precisa de criar a entrada **de Dados de Referência.** A tabela abaixo explica cada propriedade que terá de fornecer enquanto cria a entrada de dados de referência com a sua descrição. Para obter mais informações, consulte [utilizar dados de referência de uma base de dados SQL para um trabalho de Azure Stream Analytics](sql-reference-data.md).
 
-Pode utilizar [a Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) como uma entrada de dados de referência. Tem de [configurar o ponto final público em SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e, em seguida, configurar manualmente as seguintes definições no Azure Stream Analytics. A máquina virtual Azure que executa o SQL Server com uma base de dados anexada também é suportada configurando manualmente as definições abaixo.
+Pode utilizar [a Azure SQL Managed Instance](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) como uma entrada de dados de referência. Tem de [configurar o ponto final público em SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md) e, em seguida, configurar manualmente as seguintes definições no Azure Stream Analytics. A máquina virtual Azure que executa o SQL Server com uma base de dados anexada também é suportada configurando manualmente as definições abaixo.
 
 |**Nome da propriedade**|**Descrição**  |
 |---------|---------|
@@ -146,6 +146,6 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.get.started]: ./stream-analytics-real-time-fraud-detection.md
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

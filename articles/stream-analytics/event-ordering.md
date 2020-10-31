@@ -7,22 +7,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80567a211f08d6322c80b6645f8b70ec7df64b59
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87901696"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130668"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurar políticas de encomendas de eventos para Azure Stream Analytics
 
-Este artigo descreve como configurar e usar políticas de eventos de chegada tardia e fora de ordem no Azure Stream Analytics. Estas políticas são aplicadas apenas quando utiliza a cláusula [TIMETAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) na sua consulta, e são apenas aplicadas para fontes de entrada na nuvem.
+Este artigo descreve como configurar e usar políticas de eventos de chegada tardia e fora de ordem no Azure Stream Analytics. Estas políticas são aplicadas apenas quando utiliza a cláusula [TIMETAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics) na sua consulta, e são apenas aplicadas para fontes de entrada na nuvem.
 
 ## <a name="event-time-and-arrival-time"></a>Hora do evento e hora de chegada
 
 O seu trabalho stream Analytics pode processar eventos com base na hora do *evento* ou *na hora de chegada.* **O tempo de evento/aplicação** é o tempo de carregamento presente na carga útil do evento (quando o evento foi gerado). **A hora de chegada** é a data de chegada quando o evento foi recebido na fonte de entrada (Event Hubs/IoT Hub/Blob armazenamento). 
 
-Por predefinição, o Stream Analytics processa os eventos até à *hora de chegada,* mas pode optar por processar eventos por *tempo de evento,* utilizando a cláusula [TIMETAMP BY](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) na sua consulta. As políticas de chegada tardia e fora de encomenda só são aplicáveis se processar eventos por hora do evento. Considere os requisitos de latência e correção para o seu cenário quando configurar estas definições. 
+Por predefinição, o Stream Analytics processa os eventos até à *hora de chegada,* mas pode optar por processar eventos por *tempo de evento,* utilizando a cláusula [TIMETAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics) na sua consulta. As políticas de chegada tardia e fora de encomenda só são aplicáveis se processar eventos por hora do evento. Considere os requisitos de latência e correção para o seu cenário quando configurar estas definições. 
 
 ## <a name="what-is-late-arrival-policy"></a>O que é a política de chegada tardia?
 
@@ -79,8 +79,8 @@ Esta mensagem para informá-lo de que pelo menos uma divisória na sua entrada e
 ## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>Por que vejo um atraso de 5 segundos, mesmo quando a minha política de chegada tardia está definida para 0?
 Isto acontece quando há uma partição de entrada que nunca recebeu qualquer entrada. Pode verificar as métricas de entrada por partição para validar este comportamento. 
 
-Quando uma partição não tem dados para mais do que o limiar de chegada tardio configurado, a análise de fluxo avança o tempo de aplicação como explicado na secção de considerações de encomenda de eventos. Isto requer a hora estimada de chegada. Se a partição nunca teve dados, a análise do fluxo estima a hora de chegada como *hora local - 5 segundos*. Devido a estas divisórias que nunca tiveram dados poderiam mostrar um atraso de 5 segundos.  
+Quando uma partição não tem dados para mais do que o limiar de chegada tardio configurado, a análise de fluxo avança o tempo de aplicação como explicado na secção de considerações de encomenda de eventos. Isto requer a hora estimada de chegada. Se a partição nunca teve dados, a análise do fluxo estima a hora de chegada como *hora local - 5 segundos* . Devido a estas divisórias que nunca tiveram dados poderiam mostrar um atraso de 5 segundos.  
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Considerações de processamento de tempo](stream-analytics-time-handling.md)
-* [Métricas disponíveis em Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)
+* [Métricas disponíveis em Stream Analytics](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)
