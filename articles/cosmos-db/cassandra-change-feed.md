@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 11/25/2019
 ms.author: thvankra
-ms.openlocfilehash: 16110c8f48330d60d4d0b6a2affb870ffa5e349c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 5252993c560b30836c65bf2d395173513993c307
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482677"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092403"
 ---
 # <a name="change-feed-in-the-azure-cosmos-db-api-for-cassandra"></a>Mude o feed na API DB AZure Cosmos para Cassandra
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 [O](change-feed.md) suporte de feed de mudança no Azure Cosmos DB API para Cassandra está disponível através dos predicados de consulta na Língua Desafetação de Cassandra (CQL). Utilizando estas condições predicados, pode consultar a API de alimentação de alteração. As aplicações podem obter as alterações feitas a uma tabela usando a chave primária (também conhecida como chave de partição) como é exigido no CQL. Em seguida, pode tomar outras ações com base nos resultados. As alterações nas linhas da tabela são capturadas na ordem do seu tempo de modificação e na ordem de classificação por tecla de partição.
 

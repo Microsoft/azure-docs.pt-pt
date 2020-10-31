@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5129b4fffafb6918f655263cac2f5564635acf36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbec4033d093d83925d1682eb7882587e0dc6ca5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303975"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093644"
 ---
 # <a name="upper-azure-cosmos-db"></a>UPPER (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devolve uma expressão de corda após converter dados de caracteres minúsculos para maiúsculas.  
 
 A função do sistema SUPERIOR não utiliza o índice. Se pretender fazer comparações frequentes de casos insensíveis, a função do sistema UPPER pode consumir uma quantidade significativa de RU's. Se for esse o caso, em vez de utilizar a função do sistema UPPER para normalizar os dados de cada vez para comparações, pode normalizar o invólucro após a inserção. Em seguida, uma consulta como SELECT * FROM c WHERE UPPER (c.name) = 'BOB' simplesmente torna-se SELECT * FROM c WHERE c.name = 'BOB'.

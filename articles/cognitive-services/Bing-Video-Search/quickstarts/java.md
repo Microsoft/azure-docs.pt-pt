@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/22/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: b03dd9140ef49d34ba0303742aa4961a9f313cc9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b042c125d3a7327d3e59424809a7dc7e9339e8fc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87323371"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094206"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Quickstart: Procure vídeos utilizando a API e Java de pesquisa de vídeo Bing
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação Java envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. Embora esta aplicação esteja escrita em Java, a API é um serviço Web RESTful compatível com a maioria das linguagens de programação. 
 
@@ -251,6 +256,6 @@ No método principal da sua aplicação, ligue `SearchVideos` com o seu termo de
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Veja também 
+## <a name="see-also"></a>Ver também 
 
  [O que é a API de Pesquisa de Vídeos do Bing?](../overview.md)

@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e07e12e82d96b591db324673f4c24b9074128065
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330376"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092998"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
 
@@ -110,17 +110,17 @@ O módulo de script execute python contém o código Python de amostra que pode 
 
 1. Adicione o módulo **de script de Python executar** ao seu oleoduto.
 
-2. Adicione e conecte no **Dataset1** quaisquer conjuntos de dados do designer que pretende utilizar para entrada. Consulte este conjunto de dados no seu script Python como **DataFrame1**.
+2. Adicione e conecte no **Dataset1** quaisquer conjuntos de dados do designer que pretende utilizar para entrada. Consulte este conjunto de dados no seu script Python como **DataFrame1** .
 
     A utilização de um conjunto de dados é opcional. Use-os se quiser gerar dados utilizando python, ou use o código Python para importar os dados diretamente para o módulo.
 
-    Este módulo suporta a adição de um segundo conjunto de dados no **Dataset2**. Consulte o segundo conjunto de dados no seu script Python como **DataFrame2**.
+    Este módulo suporta a adição de um segundo conjunto de dados no **Dataset2** . Consulte o segundo conjunto de dados no seu script Python como **DataFrame2** .
 
     Os conjuntos de dados armazenados no Azure Machine Learning são automaticamente convertidos para quadros de dados de pandas quando carregados com este módulo.
 
     ![Execute o mapa de entrada python](media/module/python-module.png)
 
-4. Para incluir novos pacotes ou código Python, ligue o ficheiro com fecho que contém estes recursos personalizados à porta **do pacote script.** Ou se o seu script for maior que 16 KB, use a porta **script Bundle** para evitar erros como *o CommandLine excede o limite de 16597 caracteres*. 
+4. Para incluir novos pacotes ou código Python, ligue o ficheiro com fecho que contém estes recursos personalizados à porta **do pacote script.** Ou se o seu script for maior que 16 KB, use a porta **script Bundle** para evitar erros como *o CommandLine excede o limite de 16597 caracteres* . 
 
     
     1. Embrulhe o script e outros recursos personalizados para um ficheiro zip.
@@ -129,7 +129,10 @@ O módulo de script execute python contém o código Python de amostra que pode 
     1. Ligue o módulo de conjunto de dados à porta do Pacote de **Scripts** do módulo **executo R Script.**
     
     Qualquer ficheiro contido no arquivo com fecho de correr carregado pode ser utilizado durante a execução do gasoduto. Se o arquivo incluir uma estrutura de diretório, a estrutura é preservada.
-    
+ 
+    > [!WARNING]
+    > **Não** utilize **a aplicação** como o nome da pasta ou do seu script, uma vez que **a aplicação** é uma palavra reservada para serviços incorporados. Mas pode usar outros espaços de nome `app123` como.
+   
     Segue-se um exemplo de pacote de scripts, que contém um ficheiro de script python e um ficheiro txt:
       
     > [!div class="mx-imgBorder"]
@@ -194,9 +197,9 @@ Os resultados de quaisquer cálculos pelo código Python incorporado devem ser f
 
 O módulo devolve dois conjuntos de dados:  
   
-+ **Resultados Dataset 1**, definido pelo primeiro quadro de dados de pandas devolvidos num script Python.
++ **Resultados Dataset 1** , definido pelo primeiro quadro de dados de pandas devolvidos num script Python.
 
-+ **Resultado Dataset 2**, definido pelo segundo quadro de dados de pandas devolvidos em um script Python.
++ **Resultado Dataset 2** , definido pelo segundo quadro de dados de pandas devolvidos em um script Python.
 
 ## <a name="preinstalled-python-packages"></a>Pacotes Python pré-instalados
 Os pacotes pré-instalados são:

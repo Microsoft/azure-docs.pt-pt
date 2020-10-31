@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 10/07/2020
-ms.openlocfilehash: 589114fa004c8b4479e1a14c5a99161dd972c5bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73d31fff362807937cbd87b8e1313cf601909802
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092182"
 ---
 # <a name="ddl-operations-in-azure-cosmos-db-cassandra-api-from-spark"></a>Operações DDL em Azure Cosmos DB Cassandra API da Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Este artigo detalha as operações de keyspace e tabela DDL contra a Azure Cosmos DB Cassandra API da Spark.
 

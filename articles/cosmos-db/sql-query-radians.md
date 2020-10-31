@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 7831ef4bbd65bce7329b1ecf0f602b110a16834b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf65daa1a765030efce5d1310a792df473571a5e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302241"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091842"
 ---
 # <a name="radians-azure-cosmos-db"></a>RADIANS (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Retorna os radianos quando uma expressão numérica, em graus, é inserida.  
   
 ## <a name="syntax"></a>Sintaxe

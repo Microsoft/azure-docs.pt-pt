@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743901"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092811"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Como auditar as operações do avião de controlo da Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Plano de Controlo em Azure Cosmos DB é um serviço RESTful que lhe permite realizar um conjunto diversificado de operações na conta Azure Cosmos. Expõe um modelo de recursos públicos (por exemplo: base de dados, conta) e várias operações aos utilizadores finais para realizar ações no modelo de recursos. As operações do avião de controlo incluem alterações na conta ou contentor Azure Cosmos. Por exemplo, operações como criar uma conta Azure Cosmos, adicionar uma região, atualizar o rendimento, a região falhar, adicionar um VNet etc. são algumas das operações do avião de controlo. Este artigo explica como auditar as operações do avião de controlo em Azure Cosmos DB. Pode executar as operações do avião de controlo nas contas da Azure Cosmos utilizando o portal Azure CLI, PowerShell ou Azure, enquanto para contentores, utilize o Azure CLI ou o PowerShell.
 
@@ -170,29 +171,29 @@ A propriedade *ResourceDetails* contém todo o corpo de recursos como uma carga 
 Seguem-se alguns exemplos para obter registos de diagnóstico para operações de planos de controlo:
 
 ```kusto
-AzureDiagnostics 
-| where Category startswith "ControlPlane"
+AzureDiagnostics 
+| where Category startswith "ControlPlane"
 | where OperationName contains "Update"
-| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
 | where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
-| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 Consulta para obter a atividadeId e o chamador que iniciou a operação de eliminação do recipiente:

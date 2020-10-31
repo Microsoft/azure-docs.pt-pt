@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: c43abc6c87b88e9fc4a15d4ca5d5506389a8a81a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6bcfb9057739277c1f57b5ebd98b99877f759e9b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83849625"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094103"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Quickstart: Procure vídeos utilizando a API e PHP de pesquisa de vídeo Bing
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Use este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Vídeo Bing. Esta simples aplicação PHP envia uma consulta de pesquisa de vídeo HTTP para a API e exibe a resposta JSON. O código de exemplo está escrito para funcionar em PHP 5.6.
 
@@ -46,8 +51,8 @@ A [API da Pesquisa de Vídeos do Bing](https://docs.microsoft.com/rest/api/cogni
 // ;extension=php_openssl.dll
 
 // **********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+// **_ Update or verify the following values. _*_
+// _*********************************************
 
 // Replace the accessKey string value with your valid access key.
 $accessKey = 'enter key here';
@@ -214,6 +219,6 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Veja também 
+## <a name="see-also"></a>Ver também 
 
  [O que é a API de Pesquisa de Vídeos do Bing?](../overview.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: 9a70dcbabea9bc55703a5e9875df05b534eb372a
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 07d9ae0d7cdf8e823bb59cb376d40cdf846bb2cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674741"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092760"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorizar a saúde do espaço de trabalho log Analytics no Azure Monitor
 Para manter o desempenho e disponibilidade do seu espaço de trabalho Log Analytics no Azure Monitor, é necessário ser capaz de detetar proativamente quaisquer problemas que surjam. Este artigo descreve como monitorizar a saúde do seu espaço de trabalho Log Analytics utilizando dados na tabela [Operação.](https://docs.microsoft.com/azure/azure-monitor/reference/tables/operation) Esta tabela está incluída em todos os espaços de trabalho do Log Analytics e contém erros e avisos que ocorrem no seu espaço de trabalho. Deve rever regularmente estes dados e criar alertas para ser notificado proativamente quando houver incidentes importantes no seu espaço de trabalho.
@@ -60,8 +60,8 @@ As operações de ingestão são questões que ocorreram durante a ingestão de 
 | Metadados. | Erro | Erro de configuração detetado. | |
 | Recolha de dados | Erro   | Os dados foram retirados porque o pedido foi criado mais cedo do que o número de dias definidos. | [Gerir a utilização e os custos com Registos do Azure Monitor](manage-cost-storage.md#alert-when-daily-cap-reached)
 | Recolha de dados | Informações    | A configuração da máquina de recolha é detetada.| |
-| Recolha de dados | Informações    | A recolha de dados começou devido ao novo dia. | [Gerir a utilização e os custos com Registos do Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Recolha de dados | Aviso | A recolha de dados parou devido ao limite diário atingido.| [Gerir a utilização e os custos com Registos do Azure Monitor](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Recolha de dados | Informações    | A recolha de dados começou devido ao novo dia. | [Gerir a utilização e os custos com Registos do Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
+| Recolha de dados | Aviso | A recolha de dados parou devido ao limite diário atingido.| [Gerir a utilização e os custos com Registos do Azure Monitor](/azure/azure-monitor/platform/manage-cost-storage#alert-when-daily-cap-reached) |
 | Processamento de dados | Erro   | Formato JSON inválido. | [Envie dados de registo para O Monitor de Azure com a API do Colecionador de Dados HTTP (pré-visualização pública)](data-collector-api.md#request-body) | 
 | Processamento de dados | Aviso | O valor foi aparado até ao tamanho máximo permitido. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Processamento de dados | Aviso | Valor de campo aparado à medida que o limite de tamanho atingido. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) | 

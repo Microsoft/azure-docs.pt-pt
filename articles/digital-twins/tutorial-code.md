@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: dd7c5da84d6330e0214404f55aad9487c71b0a29
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 47b7eaacc8aba3655223eb1f0cde4a5516e370fd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792434"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091604"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Tutorial: Codificação com as APIs de Gémeos Digitais Azure
 
@@ -22,7 +22,7 @@ ms.locfileid: "92792434"
 > * Criar projeto
 > * Começar com o código do projeto   
 > * Amostra de código completa
-> * Limpar os recursos
+> * Limpar recursos
 > * Passos seguintes
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -260,7 +260,7 @@ A partir de agora, o tutorial irá embrulhar todas as chamadas para métodos de 
 
 Agora que fez o upload de um modelo para Azure Digital Twins, pode usar esta definição de modelo para criar **gémeos digitais.** [Gémeos digitais](concepts-twins-graph.md) são exemplos de um modelo, e representam as entidades dentro do seu ambiente de negócios — coisas como sensores numa quinta, quartos num edifício ou luzes num carro. Esta secção cria alguns gémeos digitais com base no modelo que carregou anteriormente.
 
-Adicione estas novas `using` declarações no topo, uma vez que esta amostra de código utiliza o serializer incorporado .NET Json em `System.Text.Json` , e o espaço de nome do `Serialization` [Azure Digital Twins SDK para .NET (C#)](https://dev.azure.com/azure-sdk/public/_packaging?_a=package&feed=azure-sdk-for-net&view=overview&package=Azure.DigitalTwins.Core&version=1.0.0-alpha.20201020.1&protocolType=NuGet) [LINK MODIFICADO PARA PRÉ-VISUALIZAÇÃO]:
+Adicione estas novas `using` declarações no topo, uma vez que esta amostra de código utiliza o serializer incorporado .NET Json em `System.Text.Json` , e o espaço de nome do `Serialization` [Azure Digital Twins SDK para .NET (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview).
 
 ```csharp
 using System.Text.Json;
@@ -530,7 +530,7 @@ namespace minimal
     }
 }
 ```
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
  
 O caso utilizado neste tutorial pode ser reutilizado no próximo tutorial, [*Tutorial: Explore o básico com uma aplicação de cliente de amostra.*](tutorial-command-line-app.md) Se planeia continuar para o próximo tutorial, pode manter a instância Azure Digital Twins que instalou aqui.
  

@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 8bad33f593bae2679c83d59ae4567dcab4a64809
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d68fcd0e608be7aceadced3a8adf0a72efce1eb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78304230"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093797"
 ---
 # <a name="trunc-azure-cosmos-db"></a>TRUNC (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devolve um valor numérico, truncado ao valor inteiro mais próximo.  
   
 ## <a name="syntax"></a>Sintaxe

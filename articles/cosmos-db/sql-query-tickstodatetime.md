@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 89a8dba97725049b86fc6b38c09e0dd125bb48d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12d286fb5c8cf6d602d95da53ef8de376f9a49cf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88608846"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093865"
 ---
 # <a name="tickstodatetime-azure-cosmos-db"></a>TicksToDateTime (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Converte o valor de carraças especificado para uma DataTime.
   
@@ -34,7 +35,7 @@ Um valor numérico assinado, o número atual de 100 carrapatos de nanossegundo q
 
 Devolve a data e hora da UTC o valor da corda ISO 8601 no formato `YYYY-MM-DDThh:mm:ss.fffffffZ` onde:
   
-  |Formato|Descrição|
+  |Formato|Description|
   |-|-|
   |YYYY|quatro dígitos ano|
   |MM|mês de dois dígitos (01 = janeiro, etc.)|

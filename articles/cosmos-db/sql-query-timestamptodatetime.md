@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 9d4b5179ea08d5d6eca03422db7dfc7c8c4b5c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a37206187d4b042bb69c065310f3a55fd51e37
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88608839"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093848"
 ---
 # <a name="timestamptodatetime-azure-cosmos-db"></a>TimetampToDateTime (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Converte o valor do tempotamp especificado para uma DataTime.
   
@@ -34,7 +35,7 @@ Um valor numérico assinado, o número atual de milissegundos que decorreram des
 
 Devolve a data e hora da UTC o valor da corda ISO 8601 no formato `YYYY-MM-DDThh:mm:ss.fffffffZ` onde:
   
-  |Formato|Descrição|
+  |Formato|Description|
   |-|-|
   |YYYY|quatro dígitos ano|
   |MM|mês de dois dígitos (01 = janeiro, etc.)|

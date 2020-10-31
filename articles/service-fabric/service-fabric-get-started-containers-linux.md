@@ -4,12 +4,12 @@ description: Crie a sua primeira aplicação de contentor do Linux no Azure Serv
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: b9e22ada3da572d5025f56fca824089bb6e20465
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d085f8704850cdbb03e21b15b3cca7c8998b96fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563714"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092947"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Criar a sua primeira aplicação de contentor do Service Fabric no Linux
 > [!div class="op_single_selector"]
@@ -64,7 +64,7 @@ CMD ["python", "app.py"]
 Leia a [referência do Dockerfile](https://docs.docker.com/engine/reference/builder/) para obter mais informações.
 
 ## <a name="create-a-basic-web-application"></a>Criar uma aplicação Web básica
-Crie uma aplicação web Flask que escute na porta 80 e que devolva "Hello World!". No mesmo diretório, crie o ficheiro *requirements.txt*. Adicione o seguinte e guarde as alterações:
+Crie uma aplicação web Flask que escute na porta 80 e que devolva "Hello World!". No mesmo diretório, crie o ficheiro *requirements.txt* . Adicione o seguinte e guarde as alterações:
 ```
 Flask
 ```
@@ -88,7 +88,7 @@ if __name__ == "__main__":
 ```
 
 ## <a name="build-the-image"></a>Criar a imagem
-Execute o comando `docker build` para criar a imagem que executa a sua aplicação Web. Abra uma janela do PowerShell e navegue para *c:\temp\helloworldapp*. Execute o seguinte comando:
+Execute o comando `docker build` para criar a imagem que executa a sua aplicação Web. Abra uma janela do PowerShell e navegue para *c:\temp\helloworldapp* . Execute o seguinte comando:
 
 ```bash
 docker build -t helloworldapp .
@@ -156,7 +156,7 @@ docker push myregistry.azurecr.io/samples/helloworldapp
 ```
 
 ## <a name="package-the-docker-image-with-yeoman"></a>Empacotar a imagem do Docker com Yeoman
-O Service Fabric SDK para Linux inclui um gerador [Yeoman](https://yeoman.io/) que permite criar facilmente a sua aplicação e adicionar uma imagem de contentor. Vamos utilizar o Yeoman para criar uma aplicação com um único contentor do Docker, chamado *SimpleContainerApp*.
+O Service Fabric SDK para Linux inclui um gerador [Yeoman](https://yeoman.io/) que permite criar facilmente a sua aplicação e adicionar uma imagem de contentor. Vamos utilizar o Yeoman para criar uma aplicação com um único contentor do Docker, chamado *SimpleContainerApp* .
 
 Para criar uma aplicação de contentor do Service Fabric, abra uma janela de terminal e execute `yo azuresfcontainer`. 
 
@@ -209,9 +209,9 @@ A [governação de recursos](service-fabric-resource-governance.md) restringe os
 
 ## <a name="configure-docker-healthcheck"></a>Configurar HEALTHCHECK do docker 
 
-A partir da versão v6.1, o Service Fabric integra automaticamente eventos [HEALTHCHECK do docker](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o *health_status* for *bom estado de funcionamento* é apresentado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) um relatório com o estado de funcionamento **OK** e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento*. 
+A partir da versão v6.1, o Service Fabric integra automaticamente eventos [HEALTHCHECK do docker](https://docs.docker.com/engine/reference/builder/#healthcheck) no respetivo relatório de estado de funcionamento do sistema. Isto significa que, se o seu contentor tiver **HEALTHCHECK** ativado, o Service Fabric comunicará o estado de funcionamento sempre que o estado de funcionamento do contentor for alterado, conforme comunicado pelo Docker. Quando o *health_status* for *bom estado de funcionamento* é apresentado no [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) um relatório com o estado de funcionamento **OK** e é apresentado **AVISO** se o *health_status* for *mau estado de funcionamento* . 
 
-A partir da última versão da atualização do v6.4, tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser reportadas como um erro. Se esta opção estiver ativada, aparecerá um relatório de saúde **OK** quando *health_status* estiver *saudável* e **o ERROR** aparecer quando *health_status* não estiver *saudável*.
+A partir da última versão da atualização do v6.4, tem a opção de especificar que as avaliações do Docker HEALTHCHECK devem ser reportadas como um erro. Se esta opção estiver ativada, aparecerá um relatório de saúde **OK** quando *health_status* estiver *saudável* e **o ERROR** aparecer quando *health_status* não estiver *saudável* .
 
 A instrução **HEALTHCHECK** que aponta para a verificação atual que é efetuada para monitorizar o estado de funcionamento do contentor tem de estar presente no dockerfile utilizado ao gerar a imagem de contentor.
 
@@ -235,13 +235,13 @@ Pode configurar o comportamento de **HEALTHCHECK** para cada contentor, especifi
     </Policies>
 </ServiceManifestImport>
 ```
-Por *defeito, o IncludeDockerHealthStatusInSystemHealthReport* está definido como **verdadeiro**, *RestartContainerOnUnhealthyDockerHealthStatus* está definido como **falso**, e *o TreatContainerUnhealthyStatusAsError* está definido como **falso**. 
+Por *defeito, o IncludeDockerHealthStatusInSystemHealthReport* está definido como **verdadeiro** , *RestartContainerOnUnhealthyDockerHealthStatus* está definido como **falso** , e *o TreatContainerUnhealthyStatusAsError* está definido como **falso** . 
 
-Se *RestartContainerOnUnhealthyDockerHealthStatus* estiver definido como **verdadeiro**, um contentor que esteja a comunicar repetidamente um mau estado de funcionamento é reiniciado (possivelmente nos outros nós).
+Se *RestartContainerOnUnhealthyDockerHealthStatus* estiver definido como **verdadeiro** , um contentor que esteja a comunicar repetidamente um mau estado de funcionamento é reiniciado (possivelmente nos outros nós).
 
-Se *o TreatContainerUnhealthyStatusAsError* estiver definido como **verdadeiro,** aparecerão relatórios de saúde **ERROR** quando o *health_status* do recipiente não estiver *saudável*.
+Se *o TreatContainerUnhealthyStatusAsError* estiver definido como **verdadeiro,** aparecerão relatórios de saúde **ERROR** quando o *health_status* do recipiente não estiver *saudável* .
 
-Se pretender desativar a integração **HEALTHCHECK** para todo o cluster do Service Fabric, terá de definir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) para **falso**.
+Se pretender desativar a integração **HEALTHCHECK** para todo o cluster do Service Fabric, terá de definir [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md) para **falso** .
 
 ## <a name="deploy-the-application"></a>Implementar a aplicação
 Depois de criada a aplicação, pode implementá-la no cluster local com a CLI do Service Fabric.
@@ -413,7 +413,7 @@ Pode configurar o cluster do Service Fabric para remover as imagens do contentor
           },
           {
                 "name": "ContainerImagesToSkip",
-                "value": "microsoft/windowsservercore|microsoft/nanoserver|microsoft/dotnet-frameworku|..."
+                "value": "mcr.microsoft.com/windows/servercore|mcr.microsoft.com/windows/nanoserver|mcr.microsoft.com/dotnet/framework/aspnet|..."
           }
           ...
           }
@@ -442,7 +442,7 @@ O tempo de execução do Service Fabric aloca 20 minutos para transferir e extra
 
 ## <a name="set-container-retention-policy"></a>Definir a política de retenção de contentores
 
-Para ajudar a diagnosticar falhas no arranque de contentores, o Service Fabric (versão 6.1 ou superior) suporta a retenção de contentores que terminaram ou cujo arranque falhou. Esta política pode ser definida no ficheiro **ApplicationManifest.xml**, conforme mostrado no fragmento seguinte:
+Para ajudar a diagnosticar falhas no arranque de contentores, o Service Fabric (versão 6.1 ou superior) suporta a retenção de contentores que terminaram ou cujo arranque falhou. Esta política pode ser definida no ficheiro **ApplicationManifest.xml** , conforme mostrado no fragmento seguinte:
 
 ```xml
  <ContainerHostPolicies CodePackageRef="NodeService.Code" Isolation="process" ContainersRetentionCount="2"  RunInteractive="true"> 
@@ -452,7 +452,7 @@ A definição **ContainersRetentionCount** especifica o número de contentores q
 
 ## <a name="start-the-docker-daemon-with-custom-arguments"></a>Iniciar o daemon do Docker com argumentos personalizados
 
-Com a versão e posterior 6.2 do runtime do Service Fabric, pode iniciar o daemon do Docker com argumentos personalizados. Quando os argumentos personalizados são especificados, o Service Fabric não passa outros argumentos ao motor do docker, exceto o argumento `--pidfile`. Por conseguinte, `--pidfile` não deve ser passado como argumento. Além disso, o argumento deve continuar a ter o daemon do docker a escutar o pipe de nome predefinido no Windows (ou o socket de domínio unix no Linux) para o Service Fabric comunicar com o daemon. Os argumentos personalizados são especificados no manifesto do cluster na secção **Alojamento**, em **ContainerServiceArguments**. É mostrado um exemplo no seguinte fragmento: 
+Com a versão e posterior 6.2 do runtime do Service Fabric, pode iniciar o daemon do Docker com argumentos personalizados. Quando os argumentos personalizados são especificados, o Service Fabric não passa outros argumentos ao motor do docker, exceto o argumento `--pidfile`. Por conseguinte, `--pidfile` não deve ser passado como argumento. Além disso, o argumento deve continuar a ter o daemon do docker a escutar o pipe de nome predefinido no Windows (ou o socket de domínio unix no Linux) para o Service Fabric comunicar com o daemon. Os argumentos personalizados são especificados no manifesto do cluster na secção **Alojamento** , em **ContainerServiceArguments** . É mostrado um exemplo no seguinte fragmento: 
  
 
 ```json

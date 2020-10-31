@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495911"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091808"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>O pedido de serviço falhou. Estado: 403 (Proibido)
 
@@ -52,15 +52,15 @@ Note que este papel é diferente de...
 
 #### <a name="fix-issues"></a>Corrigir problemas 
 
-Se não tiver esta atribuição de funções, alguém com um papel proprietário na sua **subscrição Azure** deve executar o seguinte comando para dar ao seu utilizador Azure a função *de Proprietário de Dados Azure Digital Twins* na instância **Azure Digital Twins**. 
+Se não tiver esta atribuição de funções, alguém com um papel proprietário na sua **subscrição Azure** deve executar o seguinte comando para dar ao seu utilizador Azure a função *de Proprietário de Dados Azure Digital Twins* na instância **Azure Digital Twins** . 
 
-Se você é um Proprietário na subscrição, você pode executar este comando por si mesmo. Se não estiver, contacte um Proprietário para executar este comando em seu nome.
+Se você é um Proprietário na subscrição, você pode executar este comando por si mesmo. Se não estiver, contacte um proprietário para executar este comando em seu nome.
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-Para obter mais detalhes sobre este requisito de função e o processo de atribuição, consulte a secção de [ *permissões* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de acesso do seu utilizador de *Como-a-: Configurar uma instância e autenticação (CLI ou portal)*.
+Para obter mais detalhes sobre este requisito de função e o processo de atribuição, consulte a secção de [ *permissões*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) de acesso do seu utilizador de *Como-a-: Configurar uma instância e autenticação (CLI ou portal)* .
 
 Se já tem esta atribuição de funções *e* está a utilizar um registo de aplicações AD AZure para autenticar uma aplicação de clientes, pode continuar a solução seguinte se esta solução não resolver a questão 403.
 

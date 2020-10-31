@@ -10,14 +10,15 @@ ms.date: 08/26/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-java
-ms.openlocfilehash: 03ef816632b73f46acaf1efdf2ddec28459fc9b8
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 89d21e4464cb3c7578b68d68009065ab7848ed19
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489341"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092539"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utilizar a biblioteca Java de executor em massa para realizar operações em massa nos dados do Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este tutorial fornece instruções sobre a utilização da biblioteca Java, executora a granel da Azure Cosmos DB, para importar e atualizar documentos DB do Azure Cosmos. Para saber mais sobre a biblioteca de executores a granel e como o ajuda a alavancar a produção e armazenamento maciços, consulte o artigo [de visão geral da Biblioteca do executor a granel.](bulk-executor-overview.md) Neste tutorial, você constrói uma aplicação Java que gera documentos aleatórios e são importados a granel para um recipiente Azure Cosmos. Após a importação, irá atualizar em massa algumas propriedades de um documento. 
 

@@ -8,14 +8,15 @@ ms.devlang: javascript
 ms.topic: how-to
 ms.date: 12/26/2018
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ec7f233db34b00ad3904a0bb117b2a97c6512e34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 415fed38490000cecf1eeb916c557b8b17ea70da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322721"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094800"
 ---
 # <a name="expire-data-with-azure-cosmos-dbs-api-for-mongodb"></a>Dados de expiração com a API do Azure Cosmos DB para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 A funcionalidade Time-to-live (TTL) permite à base de dados expirar automaticamente os dados. A API da Azure Cosmos DB para a MongoDB utiliza as capacidades de TTL centrais da Cosmos DB. São suportados dois modos: definir um valor TTL predefinido em toda a coleção e definir valores TTL individuais para cada documento. A lógica que rege os índices de TTL e os valores de TTL por documento na API da Cosmos DB para a MongoDB é a [mesma que na Cosmos DB.](../cosmos-db/mongodb-indexing.md)
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 358fccec56f81ee41acc2898751b8848beaeb168
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: fc60ca462a2891cc022847e056e32239f2675f70
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905448"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094579"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Quickstart: Criar e configurar norma de proteção Azure DDoS
 
@@ -63,7 +63,7 @@ Neste arranque rápido, irá criar um plano de proteção DDoS e ligá-lo a uma 
     | Subscrição    | Selecione a sua subscrição.                                    |
     | Grupo de recursos  | Selecione **Utilizar a utilização existente** e, em seguida, selecione **MyResourceGroup** |
     | Localização        | Entre no _Leste dos EUA_                                                    |
-    | Padrão de Proteção DDos | Selecione **Ativar** . O plano que seleciona pode ser na mesma, ou subscrição diferente da rede virtual, mas ambas as subscrições devem estar associadas ao mesmo inquilino do Azure Ative Directory.|
+    | DDoS Protection Standard | Selecione **Ativar** . O plano que seleciona pode ser na mesma, ou subscrição diferente da rede virtual, mas ambas as subscrições devem estar associadas ao mesmo inquilino do Azure Ative Directory.|
 
 Não é possível mover uma rede virtual para outro grupo de recursos ou subscrição quando o DDoS Standard estiver ativado para a rede virtual. Se precisar de mover uma rede virtual com o DDoS Standard ativado, desative primeiro a DDoS Standard, mova a rede virtual e, em seguida, ative a norma DDoS. Após a mudança, os limiares de política afinados automaticamente para todos os endereços IP públicos protegidos na rede virtual são reiniciados.
 
@@ -85,9 +85,7 @@ Primeiro, verifique os detalhes do seu plano de proteção DDoS:
 
 A rede virtual _MyVnet_ deve ser listada. 
 
-Teste através de simulações
-
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Podes ficar com os teus recursos para o próximo tutorial. Se já não for necessário, elimine o grupo de recursos _MyResourceGroup._ Quando elimina o grupo de recursos, também elimina o plano de proteção DDoS e todos os seus recursos relacionados. Se não pretender utilizar este plano de proteção DDoS, deve remover recursos para evitar cargas desnecessárias.
 
@@ -109,9 +107,9 @@ Para desativar a proteção DDoS para uma rede virtual:
 
 Se pretender eliminar um plano de proteção DDoS, tem primeiro de dissociar todas as redes virtuais do mesmo. 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a visualizar e configurar a telemetria para o seu plano de proteção DDoS, continue para os tutoriais.
 
 > [!div class="nextstepaction"]
-> [Ver e configurar telemetria de proteção DDoS](telemetry-monitoring-alerting.md)
+> [Ver e configurar telemetria de proteção contra DDoS](telemetry-monitoring-alerting.md)

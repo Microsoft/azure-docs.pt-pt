@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9c4f9954977d6c5523bc70586d3b0cbb0328bcd8
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bd67f9641a644d3302e1f8bc1e53ad14a3801e47
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278031"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092845"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteger as chaves do Azure Cosmos com o Azure Key Vault 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 >[!IMPORTANT]
 > A solução recomendada para aceder às teclas DB do Azure Cosmos é utilizar uma [identidade gerida atribuída pelo sistema](managed-identity-based-authentication.md). Se o seu serviço não puder tirar partido das identidades geridas, utilize a [solução baseada em cert](certificate-based-authentication.md). Se a solução de identidade gerida e a solução baseada em cert não satisfaçam as suas necessidades, utilize a solução de cofre de tecla abaixo.
@@ -34,22 +35,22 @@ São necessários os seguintes passos para armazenar e ler as teclas de acesso D
 ## <a name="create-a-key-vault"></a>Criar um Key Vault
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/).  
-2. Selecione **Criar um > de segurança > cofre de chaves**.  
-3. Na secção **Criar cofre de chaves**, forneça as seguintes informações:  
+2. Selecione **Criar um > de segurança > cofre de chaves** .  
+3. Na secção **Criar cofre de chaves** , forneça as seguintes informações:  
    * **Nome:** Forneça um nome único para o seu Cofre de Chaves.  
    * **Assinatura:** Escolha a subscrição que vai utilizar.  
-   * Em **Grupo de Recursos**, selecione **Criar novo** e introduza um nome de grupo de recursos.  
+   * Em **Grupo de Recursos** , selecione **Criar novo** e introduza um nome de grupo de recursos.  
    * No menu pendente Localização, selecione uma localização.  
    * Deixe outras opções para os seus defeitos.  
-4. Depois de fornecer as informações acima, selecione **Criar**.  
+4. Depois de fornecer as informações acima, selecione **Criar** .  
 
 ## <a name="add-azure-cosmos-db-access-keys-to-the-key-vault"></a>Adicione as chaves de acesso DB Azure Cosmos ao Cofre de Chaves.
 1. Navegue para o Cofre chave que criou no passo anterior, abra o **separador Segredos.**  
 2. Selecione **+Gerar/Importar,** 
 
-   * Selecione **Manual** para **as opções de upload**.
+   * Selecione **Manual** para **as opções de upload** .
    * Forneça um **nome** para o seu segredo
-   * Forneça a cadeia de ligação da sua conta Cosmos DB no campo **Valor.** E, em seguida, **selecione Criar**.
+   * Forneça a cadeia de ligação da sua conta Cosmos DB no campo **Valor.** E, em seguida, **selecione Criar** .
 
    :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Criar um segredo":::
 
@@ -66,7 +67,7 @@ São necessários os seguintes passos para armazenar e ler as teclas de acesso D
    `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault’s secret identifier>")`
 
 3. **Guarde** o ficheiro, **construa** a solução.  
-4. Em seguida, implemente a aplicação para Azure. Clique no projeto e escolha **publicar.** Crie um novo perfil de serviço de aplicações (pode nomear a aplicação WebAppKeyVault1) e selecione **Publish**.   
+4. Em seguida, implemente a aplicação para Azure. Clique no projeto e escolha **publicar.** Crie um novo perfil de serviço de aplicações (pode nomear a aplicação WebAppKeyVault1) e selecione **Publish** .   
 
 5. Uma vez que a aplicação é implementada. A partir do portal Azure, navegue para a web app que implementou, e ligue a identidade de **serviço gerido** desta aplicação.  
 
@@ -82,7 +83,7 @@ Nesta secção, registe o pedido com o Azure Ative Directory e dá permissões p
 
 1. Navegue até ao portal Azure, abra o **Cofre-Chave** que criou na secção anterior.  
 
-2. Políticas **de Acesso Aberto**, selecione **+Add New** find the web app que implementou, selecione permissões e selecione **OK**.  
+2. Políticas **de Acesso Aberto** , selecione **+Add New** find the web app que implementou, selecione permissões e selecione **OK** .  
 
    :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Criar um segredo":::
 

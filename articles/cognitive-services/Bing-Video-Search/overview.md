@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 2c52f909cf3cc77b4f5e40ee9804d0c473e575c5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6f5da1d17722f89bee88a4b69177583e095eeac3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85601943"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094290"
 ---
 # <a name="what-is-the-bing-video-search-api"></a>O que é a API de Pesquisa de Vídeos do Bing?
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 A API de Pesquisa de Vídeo Bing facilita a adição de capacidades de pesquisa de vídeo aos seus serviços e aplicações. Ao enviar consultas de pesquisa de utilizadores com a API, pode obter e exibir vídeos relevantes e de alta qualidade semelhantes ao [Bing Video](https://www.bing.com/video). Utilize esta API para obter resultados de pesquisa que contenham apenas vídeos. A [API de Pesquisa Web Bing](../bing-web-search/search-the-web.md) pode devolver outros tipos de conteúdo web, incluindo páginas web, vídeos, notícias e imagens.
 
@@ -46,7 +51,7 @@ A [demonstração interativa](https://azure.microsoft.com/services/cognitive-ser
 
 Utilize o [quickstart](csharp.md) para começar rapidamente com o seu primeiro pedido de API.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * A página de referência [da API v7 de pesquisa de vídeo Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference) contém a lista de pontos finais, cabeçalhos e parâmetros de consulta utilizados para solicitar resultados de pesquisa.
 

@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 56899b7d81f17e678026b1aad7f3e2d9f8b9b0b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ec44d20b763a98683d9b947c94ad6be75180113
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260529"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092258"
 ---
 # <a name="createinsert-data-into-azure-cosmos-db-cassandra-api-from-spark"></a>Criar/inserir dados na Azure Cosmos DB Cassandra API da Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
  
 Este artigo descreve como inserir dados de amostra numa tabela em Azure Cosmos DB Cassandra API da Spark.
 

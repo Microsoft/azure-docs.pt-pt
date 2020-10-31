@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: 546b664c74980b3522fefed82c00eec414641eaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f250c15dbb30736e3e89a301fc236a848bd05da2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326631"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092063"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Dados geoespaciais de índice com Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Desenhamos o motor de base de dados da Azure Cosmos DB para ser verdadeiramente agnóstico e fornecer suporte de primeira classe para o JSON. O motor de base de dados otimizado da Azure Cosmos DB compreende de forma nativa os dados espaciais representados na norma GeoJSON.
 
-Em resumo, a geometria é projetada a partir de coordenadas geodésicas para um plano 2D então dividido progressivamente em células usando uma **árvore quadtree**. Estas células são mapeadas para 1D com base na localização da célula dentro de uma curva de **enchimento de espaço Hilbert**, que preserva a localidade dos pontos. Adicionalmente, quando os dados de localização são indexados, passa por um processo conhecido como **tessellation**, isto é, todas as células que intersectam uma localização são identificadas e armazenadas como chaves no índice DB do Azure Cosmos. No momento da consulta, argumentos como pontos e polígonos também são tessellados para extrair as gamas de ID celular relevantes, então usados para obter dados do índice.
+Em resumo, a geometria é projetada a partir de coordenadas geodésicas para um plano 2D então dividido progressivamente em células usando uma **árvore quadtree** . Estas células são mapeadas para 1D com base na localização da célula dentro de uma curva de **enchimento de espaço Hilbert** , que preserva a localidade dos pontos. Adicionalmente, quando os dados de localização são indexados, passa por um processo conhecido como **tessellation** , isto é, todas as células que intersectam uma localização são identificadas e armazenadas como chaves no índice DB do Azure Cosmos. No momento da consulta, argumentos como pontos e polígonos também são tessellados para extrair as gamas de ID celular relevantes, então usados para obter dados do índice.
 
 Se especificar uma política de indexação que inclua índice espacial para /* (todos os caminhos), todos os dados encontrados dentro do recipiente são indexados para consultas espaciais eficientes.
 
@@ -111,10 +112,10 @@ Com o tipo de dados **de geometria,** semelhante ao tipo de dados de geografia, 
 
 A caixa de delimitação é constituída pelas seguintes propriedades:
 
-- **xmin**: a coordenada x indexada mínima
-- **ymin**: a coordenada y indexada mínima
-- **xmax**: a coordenada x indexada máxima
-- **ymax**: a coordenada y indexada máxima
+- **xmin** : a coordenada x indexada mínima
+- **ymin** : a coordenada y indexada mínima
+- **xmax** : a coordenada x indexada máxima
+- **ymax** : a coordenada y indexada máxima
 
 Uma caixa de delimitação é necessária porque os dados geométricos ocupam um plano que pode ser infinito. Índices espaciais, no entanto, requerem um espaço finito. Para o tipo de dados **de geografia,** a Terra é o limite e você não precisa definir uma caixa limite.
 
@@ -159,7 +160,7 @@ Aqui está um exemplo de política de indexação que indexa dados **de geometri
 A política de indexação acima tem uma caixa de **limites** de (-10, 10) para coordenadas x e (-20, 20) para coordenadas y. O contentor com a política de indexação acima irá indexar todos os Pontos, Polígonos, MultiPolígonos e LineStrings que estão inteiramente dentro desta região.
 
 > [!NOTE]
-> Se tentar adicionar uma política de indexação com uma **caixa de delimitação** a um recipiente com `geography` tipo de dados, falhará. Deve modificar o **GeoespacialConfig** do recipiente para ser `geometry` antes de adicionar uma caixa de **delimitação**. Pode adicionar dados e modificar o restante da sua política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o recipiente.
+> Se tentar adicionar uma política de indexação com uma **caixa de delimitação** a um recipiente com `geography` tipo de dados, falhará. Deve modificar o **GeoespacialConfig** do recipiente para ser `geometry` antes de adicionar uma caixa de **delimitação** . Pode adicionar dados e modificar o restante da sua política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o recipiente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d88d52f67274d14836520494580e9208ce4eecbe
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 95396f28fd835091258bccbfdb0a0c0eafebea91
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284502"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093559"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Modos de conectividade Azure Cosmos DL SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A forma como um cliente se conecta à Azure Cosmos DB tem implicações importantes no desempenho, especialmente para a latência observada do lado do cliente. A Azure Cosmos DB oferece um modelo de programação RESTful simples e aberto sobre HTTPS chamado modo gateway. Além disso, oferece um protocolo TCP eficiente, que também é RESTful no seu modelo de comunicação e utiliza TLS para autenticação inicial e encriptação de tráfego, chamado modo direto.
 
@@ -34,7 +35,7 @@ Os dois modos de conectividade disponíveis são:
      
 :::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Os modos de conectividade Azure Cosmos DB" border="false":::
 
-Estes modos de conectividade condicionam essencialmente a rota que os pedidos do plano de dados - leituras e escritas de documentos - levam da sua máquina cliente para divisórias no back-end Azure Cosmos DB. O modo direto é a opção preferida para o melhor desempenho - permite ao seu cliente abrir ligações TCP diretamente às divisórias no back-end Azure Cosmos e enviar pedidos *diretamente*sem intermediário. Em contraste, no modo Gateway, os pedidos feitos pelo seu cliente são encaminhados para um servidor chamado "Gateway" na extremidade frontal do Azure Cosmos DB, que por sua vez os fãs apagam os seus pedidos para a(s) partição(s) apropriada no DB DB Azure Cosmos.
+Estes modos de conectividade condicionam essencialmente a rota que os pedidos do plano de dados - leituras e escritas de documentos - levam da sua máquina cliente para divisórias no back-end Azure Cosmos DB. O modo direto é a opção preferida para o melhor desempenho - permite ao seu cliente abrir ligações TCP diretamente às divisórias no back-end Azure Cosmos e enviar pedidos *diretamente* sem intermediário. Em contraste, no modo Gateway, os pedidos feitos pelo seu cliente são encaminhados para um servidor chamado "Gateway" na extremidade frontal do Azure Cosmos DB, que por sua vez os fãs apagam os seus pedidos para a(s) partição(s) apropriada no DB DB Azure Cosmos.
 
 ## <a name="service-port-ranges"></a>Gamas porta de serviço
 

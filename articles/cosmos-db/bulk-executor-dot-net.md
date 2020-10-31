@@ -10,14 +10,15 @@ ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 31baad997733c46cf3e9aa8dc92ac0613468f72f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7b97d702fffa7e65e24b8367892599b7bde5b669
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489392"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092624"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilize o executor a granel .NET library para realizar operações a granel em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!NOTE]
 > Esta biblioteca de executor a granel descrita neste artigo é mantida para aplicações utilizando a versão .NET SDK 2.x. Para novas aplicações, pode utilizar o **suporte a granel** que está disponível diretamente com a versão [.NET SDK 3.x](tutorial-sql-api-dotnet-bulk-import.md) e não necessita de qualquer biblioteca externa. 

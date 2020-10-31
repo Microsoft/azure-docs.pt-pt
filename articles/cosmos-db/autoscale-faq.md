@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277971"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092692"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Perguntas frequentes sobre a produção de autoescala abastada na Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Com a produção de autoescala, a Azure Cosmos DB irá gerir e escalar automaticamente o RU/s da sua base de dados ou contentor com base na utilização. Este artigo responde a perguntas comumente sobre autoescala.
 
@@ -108,9 +109,9 @@ Quando envia um pedido para aumentar o max RU/s, `Tmax` dependendo do máximo RU
 #### <a name="lowering-the-max-rus"></a>Baixando o máximo RU/s
 Quando baixar o máximo RU/s, o valor mínimo a que pode fixá-lo é: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)` , arredondado para os 1000 RU/s mais próximos. 
 
-Exemplo #1: Suponha que tem um recipiente de autoescalação com RU/s máximo de 20.000 RU/s (balanças entre 2000 - 20.000 RU/s) e 50 GB de armazenamento. O valor mínimo mais baixo a que se pode definir max RU/s é: MAX(4000, 20.000 / 10, **50 * 100**) = 5000 RU/s (balanças entre 500 - 5000 RU/s).
+Exemplo #1: Suponha que tem um recipiente de autoescalação com RU/s máximo de 20.000 RU/s (balanças entre 2000 - 20.000 RU/s) e 50 GB de armazenamento. O valor mínimo mais baixo a que se pode definir max RU/s é: MAX(4000, 20.000 / 10, **50 * 100** ) = 5000 RU/s (balanças entre 500 - 5000 RU/s).
 
-Exemplo #2: Suponha que tem um recipiente de autoescalação com RU/s máximo de 100.000 RU/s e 100 GB de armazenamento. Agora, você escala max RU/s até 150.000 RU/s (escalas entre 15.000 - 150.000 RU/s). O valor mínimo mais baixo que pode agora definir max RU/s é: MAX (4000, **150.000 / 10**, 100 * 100) = 15.000 RU/s (balanças entre 1500 - 15.000 RU/s). 
+Exemplo #2: Suponha que tem um recipiente de autoescalação com RU/s máximo de 100.000 RU/s e 100 GB de armazenamento. Agora, você escala max RU/s até 150.000 RU/s (escalas entre 15.000 - 150.000 RU/s). O valor mínimo mais baixo que pode agora definir max RU/s é: MAX (4000, **150.000 / 10** , 100 * 100) = 15.000 RU/s (balanças entre 1500 - 15.000 RU/s). 
 
 Para uma base de dados de produção partilhada, quando baixar o máximo RU/s, o valor mínimo a que pode defini-lo é: `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))` , arredondado para os 1000 RU/s mais próximos.  
 

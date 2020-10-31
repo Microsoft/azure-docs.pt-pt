@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb97f9ee822c808057139bd25b2e4f43c48a2e48
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ec4ec5b3ea522200562d05d1891f46e69c9e5ca8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490514"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092165"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configure firewall IP em Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Para proteger os dados armazenados na sua conta, a Azure Cosmos DB suporta um modelo de autorização baseado em segredo que utiliza um forte Código de Autenticação de Mensagens (HMAC) baseado em Hash. Além disso, o Azure Cosmos DB suporta controlos de acesso baseados em IP para suporte a firewall de entrada. Este modelo é semelhante às regras de firewall de um sistema de base de dados tradicional e fornece um nível adicional de segurança à sua conta. Com firewalls, pode configurar a sua conta Azure Cosmos para estar acessível apenas a partir de um conjunto aprovado de máquinas e/ou serviços na nuvem. O acesso aos dados armazenados na sua base de dados Azure Cosmos a partir destes conjuntos de máquinas e serviços aprovados continuará a exigir que o chamador apresente um token de autorização válido.
 
@@ -34,7 +35,7 @@ Pode proteger os dados armazenados na sua conta DB Azure Cosmos utilizando firew
 
 ## <a name="configure-an-ip-firewall-by-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configure uma firewall IP utilizando o portal Azure
 
-Para definir a política de controlo de acesso IP no portal Azure, vá à página de conta DB do Azure Cosmos e selecione **Firewall e redes virtuais** no menu de navegação. Altere o **acesso do Valor** para as redes **Selecionadas**e, em seguida, selecione **Guardar**.
+Para definir a política de controlo de acesso IP no portal Azure, vá à página de conta DB do Azure Cosmos e selecione **Firewall e redes virtuais** no menu de navegação. Altere o **acesso do Valor** para as redes **Selecionadas** e, em seguida, selecione **Guardar** .
 
 :::image type="content" source="./media/how-to-configure-firewall/azure-portal-firewall.png" alt-text="Screenshot mostrando como abrir a página firewall no portal Azure":::
 
@@ -47,7 +48,7 @@ Quando o controlo de acesso IP é ligado, o portal Azure fornece a capacidade de
 
 Quando ativa uma política de controlo de acesso IP programáticamente, precisa de adicionar o endereço IP do portal Azure à propriedade **ipRangeFilter** para manter o acesso. Os endereços IP do portal são:
 
-|Region|Endereço IP|
+|Região|Endereço IP|
 |------|----------|
 |Alemanha|51.4.229.218|
 |China|139.217.8.252|
@@ -75,7 +76,7 @@ Para simplificar o desenvolvimento, o portal Azure ajuda-o a identificar e adici
 
 O portal deteta automaticamente o endereço IP do cliente. Pode ser o endereço IP do cliente da sua máquina, ou o endereço IP do seu portal de rede. Certifique-se de remover este endereço IP antes de levar as suas cargas de trabalho para a produção.
 
-Para adicionar o seu IP atual à lista de IPs, **selecione Adicione o meu IP atual**. Em seguida, selecione **Guardar**.
+Para adicionar o seu IP atual à lista de IPs, **selecione Adicione o meu IP atual** . Em seguida, selecione **Guardar** .
 
 :::image type="content" source="./media/how-to-configure-firewall/enable-current-ip.png" alt-text="Screenshot mostrando como abrir a página firewall no portal Azure":::
 

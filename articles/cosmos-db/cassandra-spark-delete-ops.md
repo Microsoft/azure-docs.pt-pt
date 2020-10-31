@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: how-to
 ms.date: 09/24/2018
-ms.openlocfilehash: 8f15ad8c1edfa64268ec699c8195a7831d98482b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74581e1f9ff817809325c0a3c95fba1866697480
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85260547"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092114"
 ---
 # <a name="delete-data-in-azure-cosmos-db-cassandra-api-tables-from-spark"></a>Eliminar dados em Azure Cosmos DB Cassandra API tabelas da Spark
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Este artigo descreve como apagar dados nas tabelas AZure Cosmos DB Cassandra API da Spark.
 

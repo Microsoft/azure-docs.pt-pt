@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047680"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091740"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins: Registo de diagnósticos
 
@@ -26,13 +26,13 @@ Eis como ativar as definições de diagnóstico para a sua instância Azure Digi
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para a sua instância Azure Digital Twins. Pode encontrá-lo digitando o seu nome na barra de pesquisa do portal. 
 
-2. Selecione **as definições** de diagnóstico do menu e, em seguida, **adicione a definição de diagnóstico**.
+2. Selecione **as definições** de diagnóstico do menu e, em seguida, **adicione a definição de diagnóstico** .
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot mostrando a página e botão de definições de diagnóstico para adicionar":::
 
 3. Na página que se segue, preencha os seguintes valores:
-     * **Nome de definição de**diagnóstico : Dê um nome às definições de diagnóstico.
-     * **Detalhes da categoria**: Escolha quais as operações que pretende monitorizar e verifique as caixas para permitir diagnósticos para essas operações. As operações que as definições de diagnóstico podem reportar são:
+     * **Nome de definição de** diagnóstico : Dê um nome às definições de diagnóstico.
+     * **Detalhes da categoria** : Escolha quais as operações que pretende monitorizar e verifique as caixas para permitir diagnósticos para essas operações. As operações que as definições de diagnóstico podem reportar são:
         - DigitalTwinsOperação
         - EventRoutesOperação
         - ModelosOperação
@@ -40,7 +40,7 @@ Eis como ativar as definições de diagnóstico para a sua instância Azure Digi
         - AllMetrics
         
         Para mais detalhes sobre estas opções, consulte a secção [*de detalhes*](#category-details) da categoria abaixo.
-     * **Detalhes do destino**: Escolha para onde pretende enviar os registos. Pode selecionar qualquer combinação das três opções:
+     * **Detalhes do destino** : Escolha para onde pretende enviar os registos. Pode selecionar qualquer combinação das três opções:
         - Enviar para o Log Analytics
         - Arquivar numa conta de armazenamento
         - Transmitir em fluxo para um hub de eventos
@@ -57,7 +57,7 @@ As novas definições fazem efeito em cerca de 10 minutos. Depois disso, os regi
 
 Aqui estão mais detalhes sobre as categorias de registo que podem ser selecionadas em **detalhes de categoria** ao configurar configurações de diagnóstico.
 
-| Categoria do registo | Descrição |
+| Categoria do registo | Description |
 | --- | --- |
 | ADTModelsOperação | Registar todas as chamadas da API relativas a Modelos |
 | ADTQueryOperação | Registar todas as chamadas da API relativas a consultas |
@@ -132,7 +132,7 @@ Abaixo estão os corpos JSON exemplo para este tipo de registos.
   "time": "2020-03-14T21:11:14.9918922Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/digitaltwins/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "DigitalTwinOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -142,7 +142,7 @@ Abaixo estão os corpos JSON exemplo para este tipo de registos.
   "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-05-31-preview"
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31"
 }
 ```
 
@@ -153,7 +153,7 @@ Abaixo estão os corpos JSON exemplo para este tipo de registos.
   "time": "2020-10-29T21:12:24.2337302Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/models/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "ModelsOperation",
   "resultType": "Success",
   "resultSignature": "201",
@@ -163,7 +163,7 @@ Abaixo estão os corpos JSON exemplo para este tipo de registos.
   "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-10-31",
 }
 ```
 
@@ -174,7 +174,7 @@ Abaixo estão os corpos JSON exemplo para este tipo de registos.
   "time": "2020-12-04T21:11:44.1690031Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/query/action",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "QueryOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -184,7 +184,7 @@ Abaixo estão os corpos JSON exemplo para este tipo de registos.
   "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-10-31",
 }
 ```
 

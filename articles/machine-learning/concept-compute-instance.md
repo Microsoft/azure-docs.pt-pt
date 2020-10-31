@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d840fe5b6fde72149893a15ab9096d3880c1c8ea
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d4ae18b335453f3e1d3512951675afe10c804c8d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425671"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094426"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -26,11 +26,13 @@ Use uma instância computacional como o seu ambiente de desenvolvimento totalmen
 
 Para a formação de modelos de produção, utilize um [cluster de cálculo Azure Machine Learning](how-to-create-attach-compute-cluster.md) com capacidades de escala de vários nós. Para a implementação do modelo de produção, utilize [o cluster de serviçoS Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
 
+Para que a funcionalidade do Jupyter funcione, certifique-se de que a comunicação da tomada web não está desativada. Certifique-se de que a sua rede permite ligações websocket a *.instances.azureml.net e *.instances.azureml.ms.
+
 ## <a name="why-use-a-compute-instance"></a>Por que usar uma instância computacional?
 
 Um caso compute é uma estação de trabalho totalmente gerida baseada em nuvem otimizada para o seu ambiente de desenvolvimento de aprendizagem automática. Proporciona os seguintes benefícios:
 
-|Principais vantagens|Descrição|
+|Principais vantagens|Description|
 |----|----|
 |Produtividade|Pode construir e implementar modelos utilizando cadernos integrados e as seguintes ferramentas no estúdio Azure Machine Learning:<br/>- Jupyter<br/>- JupyterLab<br/>- RStudio (pré-visualização)<br/>A instância compute está totalmente integrada com o espaço de trabalho e estúdio Azure Machine Learning. Pode partilhar cadernos e dados com outros cientistas de dados no espaço de trabalho.<br/> Também pode utilizar [o Código VS](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) com instâncias computacional.
 |Gerido & seguro|Reduza a sua pegada de segurança e adicione o cumprimento dos requisitos de segurança da empresa. As instâncias computacional fornecem políticas de gestão robustas e configurações seguras de rede, tais como:<br/><br/>- Autoprovisionamento a partir de modelos de gestor de recursos ou SDK de aprendizagem automática Azure<br/>- [Controlo de acesso baseado em funções Azure (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Suporte de rede virtual](how-to-enable-virtual-network.md#compute-instance)<br/>- Política SSH para permitir/desativar o acesso ao SSH<br/>TLS 1.2 habilitado |
@@ -100,7 +102,7 @@ Pode utilizar o `/tmp` diretório na instância de cálculo para os seus dados t
 
 ## <a name="managing-a-compute-instance"></a>Gerir uma instância computacional
 
-No seu espaço de trabalho no estúdio Azure Machine Learning, selecione **Compute**e **selecione Compute Instance** no topo.
+No seu espaço de trabalho no estúdio Azure Machine Learning, selecione **Compute** e **selecione Compute Instance** no topo.
 
 ![Gerir uma instância computacional](./media/concept-compute-instance/manage-compute-instance.png)
 
