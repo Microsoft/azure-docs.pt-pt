@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0bbb0da0ce39aab9fba843dda99b45ea59881ce2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2fb8b24d5d44ced8f9e363008354acf5bc2fde40
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490548"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081880"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>Como é que a Azure Cosmos DB fornece alta disponibilidade
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 A Azure Cosmos DB proporciona alta disponibilidade de duas formas primárias. Primeiro, a Azure Cosmos DB replica dados em regiões configuradas numa conta cosmos. Em segundo lugar, a Azure Cosmos DB mantém 4 réplicas de dados dentro de uma região.
 
@@ -131,7 +132,7 @@ As Zonas de Disponibilidade podem ser ativadas através de:
 
 * [CLI do Azure](manage-with-cli.md#add-or-remove-regions)
 
-* [Modelos do Azure Resource Manager](./manage-with-templates.md)
+* [Modelos de gestor de recursos Azure](./manage-with-templates.md)
 
 ## <a name="building-highly-available-applications"></a>Construir aplicações altamente disponíveis
 

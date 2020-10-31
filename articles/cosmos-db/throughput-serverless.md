@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0adb346a693beaa905438cfdc1249c1646c28811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d16343864d9602d644b31d34a2b66e39211b6ece
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88608863"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079344"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Como escolher entre produção provisão e sem servidor
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 A Azure Cosmos DB está disponível em dois modos de capacidade diferentes: [produção a provisionada](set-throughput.md) e [sem servidor](serverless.md). Pode executar exatamente as mesmas operações de base de dados em ambos os modos, mas a forma como é cobrado para estas operações é radicalmente diferente. O vídeo a seguir explica as diferenças fundamentais entre estes modos e como se encaixam em diferentes tipos de cargas de trabalho:
 
@@ -46,16 +47,16 @@ Em algumas situações, pode não ser claro se o rendimento previsto ou sem serv
 
 Se a sua carga de trabalho necessitar de explodir acima de 5.000 RU por segundo, a produção a provisionada deve ser escolhida porque os recipientes sem servidor não podem rebentar acima deste limite. Caso contrário, pode comparar o custo de ambos os modos com base no seu consumo esperado.
 
-**Exemplo 1**: espera-se que uma carga de trabalho rebente até um máximo de 10.000 RU/s e consuma um total de 20.000.000 RUs durante um mês.
+**Exemplo 1** : espera-se que uma carga de trabalho rebente até um máximo de 10.000 RU/s e consuma um total de 20.000.000 RUs durante um mês.
 
 - Apenas o modo de produção a provisionado pode entregar uma produção de 10.000 RU/s
 
-**Exemplo 2**: espera-se que uma carga de trabalho rebente até um máximo de 500 RU/s e consuma um total de 20.000.000 RUs durante um mês.
+**Exemplo 2** : espera-se que uma carga de trabalho rebente até um máximo de 500 RU/s e consuma um total de 20.000.000 RUs durante um mês.
 
 - No modo de produção a provisionado, você providenciaria um recipiente com 500 RU/s por um custo mensal de: $0.008 * 5 * 730 = **$29,20**
 - No modo sem servidor, pagaria pelas RUs consumidas: $0,25 * 20 = **$5,00**
 
-**Exemplo 3**: espera-se que uma carga de trabalho rebente até um máximo de 500 RU/s e consuma um total de 250.000.000 RUs durante um mês.
+**Exemplo 3** : espera-se que uma carga de trabalho rebente até um máximo de 500 RU/s e consuma um total de 250.000.000 RUs durante um mês.
 
 - No modo de produção a provisionado, você providenciaria um recipiente com 500 RU/s por um custo mensal de: $0.008 * 5 * 730 = **$29,20**
 - No modo sem servidor, pagaria pelos RUs consumidos: $0,25 * 250 = **$62,50**

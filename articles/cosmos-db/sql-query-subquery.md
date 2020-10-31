@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16be1b91d007ca2dbc88405cfc55ff519f51ee41
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74870569"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081541"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Exemplos sub-22 sql para Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Uma subquery é uma consulta aninhada dentro de outra consulta. Uma subquery também é chamada de consulta interna ou seleção interna. A afirmação que contém um subquery é tipicamente chamada de consulta externa.
 
@@ -23,16 +24,16 @@ Este artigo descreve subqueries SQL e seus casos de uso comum em Azure Cosmos DB
 
 Existem dois tipos principais de subqueries:
 
-* **Correlacionado**: Uma subconserção que faz referências a valores da consulta exterior. A subquery é avaliada uma vez para cada linha que a consulta exterior processa.
+* **Correlacionado** : Uma subconserção que faz referências a valores da consulta exterior. A subquery é avaliada uma vez para cada linha que a consulta exterior processa.
 * **Não correlacionado:** uma subquery que é independente da consulta exterior. Pode ser executado por si só sem depender da consulta exterior.
 
 > [!NOTE]
 > AZure Cosmos DB suporta apenas subqueries correlacionados.
 
 Os subqueries podem ser classificados com base no número de linhas e colunas que retornam. Existem três tipos:
-* **Tabela**: Devolve várias linhas e várias colunas.
-* **Multi-valor**: Devolve várias linhas e uma única coluna.
-* **Scalar**: Devolve uma única linha e uma única coluna.
+* **Tabela** : Devolve várias linhas e várias colunas.
+* **Multi-valor** : Devolve várias linhas e uma única coluna.
+* **Scalar** : Devolve uma única linha e uma única coluna.
 
 As consultas SQL em Azure Cosmos DB devolvem sempre uma única coluna (seja um valor simples ou um documento complexo). Portanto, apenas subqueries multi-valor e scalar são aplicáveis em Azure Cosmos DB. Pode utilizar um subquery de vários valores apenas na cláusula FROM como expressão relacional. Pode utilizar um sublote escala como expressão escalar na cláusula SELECT ou WHERE, ou como expressão relacional na cláusula FROM.
 
@@ -124,7 +125,7 @@ Muitas vezes é necessário fazer referência a dados estáticos que raramente m
 
 Por exemplo, considere este conjunto de dados de referência:
 
-| **Unidade** | **Nome**            | **Multiplicador** | **Unidade base** |
+| **Unidade** | **Name**            | **Multiplicador** | **Unidade base** |
 | -------- | ------------------- | -------------- | ------------- |
 | ng       | Nanograma            | 1.00E-09       | Grama          |
 | μg       | Micrograma           | 1.00E-06       | Grama          |

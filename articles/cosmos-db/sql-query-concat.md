@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: c8a0941376ed74d7f8cb819d78df43eb9f0b7bd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b3401e8de4987670f74a02286cb66eb7a9dfb29
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302615"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081625"
 ---
 # <a name="concat-azure-cosmos-db"></a>CONCAT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devolve uma corda que é o resultado da concatenação de dois ou mais valores de corda.  
   
 ## <a name="syntax"></a>Sintaxe

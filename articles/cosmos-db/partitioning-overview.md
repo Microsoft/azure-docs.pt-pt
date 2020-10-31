@@ -6,20 +6,21 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 353abe5ac55e49e01f6a99f72307b8525a72fc00
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281125"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080837"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Criação de partições e dimensionamento horizontal no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-A Azure Cosmos DB utiliza divisórias para escalar contentores individuais numa base de dados para atender às necessidades de desempenho da sua aplicação. Na partilha, os itens num recipiente são divididos em subconjuntos distintos *chamados divisórias lógicas*. As divisórias lógicas são formadas com base no valor de uma chave de *partição* que está associada a cada item num recipiente. Todos os itens numa partição lógica têm o mesmo valor chave de partição.
+A Azure Cosmos DB utiliza divisórias para escalar contentores individuais numa base de dados para atender às necessidades de desempenho da sua aplicação. Na partilha, os itens num recipiente são divididos em subconjuntos distintos *chamados divisórias lógicas* . As divisórias lógicas são formadas com base no valor de uma chave de *partição* que está associada a cada item num recipiente. Todos os itens numa partição lógica têm o mesmo valor chave de partição.
 
 Por exemplo, um recipiente contém itens. Cada item tem um valor único para a `UserID` propriedade. Se `UserID` servir como chave de partição para os itens no recipiente e existirem 1.000 `UserID` valores únicos, 1.000 divisórias lógicas são criadas para o recipiente.
 
-Além de uma chave de partição que determina a partição lógica do item, cada item num recipiente tem um *ID de item* (único dentro de uma partição lógica). Combinar a chave de partição e o *ID* do item cria o *índice*do item, que identifica exclusivamente o item. [Escolher uma chave de partição](#choose-partitionkey) é uma decisão importante que irá afetar o desempenho da sua aplicação.
+Além de uma chave de partição que determina a partição lógica do item, cada item num recipiente tem um *ID de item* (único dentro de uma partição lógica). Combinar a chave de partição e o *ID* do item cria o *índice* do item, que identifica exclusivamente o item. [Escolher uma chave de partição](#choose-partitionkey) é uma decisão importante que irá afetar o desempenho da sua aplicação.
 
 Este artigo explica a relação entre divisórias lógicas e físicas. Também discute as melhores práticas para a partição e dá uma visão aprofundada de como a escala horizontal funciona em Azure Cosmos DB. Não é necessário compreender estes detalhes internos para selecionar a sua chave de partição, mas cobrimo-los para que tenha clareza sobre como funciona a Azure Cosmos DB.
 
@@ -77,7 +78,7 @@ A imagem a seguir mostra como as divisórias lógicas são mapeadas para divisó
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Escolher uma chave de partição
 
-Uma chave de partição tem dois componentes: **caminho chave de partição** e o valor chave da **partição**. Por exemplo, considere um item { "userId" : "Andrew", "worksFor": "Microsoft" } se escolher "userId" como chave de partição, os dois componentes chave de partição são os dois componentes chave de partição:
+Uma chave de partição tem dois componentes: **caminho chave de partição** e o valor chave da **partição** . Por exemplo, considere um item { "userId" : "Andrew", "worksFor": "Microsoft" } se escolher "userId" como chave de partição, os dois componentes chave de partição são os dois componentes chave de partição:
 
 * O caminho da chave da partição (por exemplo: "/userId"). O caminho chave da partição aceita caracteres alfanuméricos e sublinhados(_). Também pode utilizar objetos aninhados utilizando a notação de trajetória padrão(/).
 
@@ -115,7 +116,7 @@ Se o seu recipiente pode crescer para mais do que algumas divisórias físicas, 
 
 Se o seu recipiente tem uma propriedade que tem uma ampla gama de valores possíveis, é provável que seja uma ótima escolha chave de partição. Um possível exemplo de tal propriedade é o *ID do item.* Para pequenos recipientes pesados de leitura ou recipientes pesados de qualquer tamanho, o *iD* do item é naturalmente uma ótima escolha para a chave de partição.
 
-O *ID do item da* propriedade do sistema existe em todos os itens do seu recipiente. Pode ter outras propriedades que representam uma identificação lógica do seu item. Em muitos casos, estas são também grandes escolhas chave de partição pelas mesmas razões que o *iD do item*.
+O *ID do item da* propriedade do sistema existe em todos os itens do seu recipiente. Pode ter outras propriedades que representam uma identificação lógica do seu item. Em muitos casos, estas são também grandes escolhas chave de partição pelas mesmas razões que o *iD do item* .
 
 O *ID do item* é uma ótima escolha chave de partição pelas seguintes razões:
 
@@ -125,7 +126,7 @@ O *ID do item* é uma ótima escolha chave de partição pelas seguintes razões
 
 Algumas coisas a ter em conta ao selecionar o *ID* do item como chave de partição incluem:
 
-* Se o *item ID* for a chave de partição, tornar-se-á um identificador único em todo o seu recipiente. Não poderá ter itens que tenham um *ID de item*duplicado.
+* Se o *item ID* for a chave de partição, tornar-se-á um identificador único em todo o seu recipiente. Não poderá ter itens que tenham um *ID de item* duplicado.
 * Se tiver um recipiente de leitura pesado que tenha [muitas divisórias físicas,](partitioning-overview.md#physical-partitions)as consultas serão mais eficientes se tiverem um filtro de igualdade com o *ID do artigo.*
 * Não é possível executar procedimentos armazenados ou gatilhos através de múltiplas divisórias lógicas.
 

@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 493064bc22b1144df6878d71c99e50fd7c15ba1d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1390f5db6e0f0370788bef60d5a2cafee1e8a96d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482235"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080656"
 ---
 # <a name="use-azure-policy-to-implement-governance-and-controls-for-azure-cosmos-db-resources"></a>Utilizar a Política Azure para implementar a governação e os controlos dos recursos DB da Azure Cosmos
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 [A Azure Policy](../governance/policy/overview.md) ajuda a impor normas de governação organizacional, avaliar o cumprimento dos recursos e implementar a remediação automática. Os casos de uso comum incluem segurança, gestão de custos e consistência de configuração.
 
@@ -24,7 +25,7 @@ A Azure Policy fornece definições políticas incorporadas. Pode criar definiç
 
 ## <a name="assign-a-built-in-policy-definition"></a>Atribuir uma definição de política incorporada
 
-As definições de política descrevem as condições de conformidade dos recursos e o efeito a ter em conta se uma condição for satisfeita. As _atribuições de políticas_ são criadas a partir de _definições_políticas. Você pode usar definições de política incorporadas ou personalizadas para os seus recursos DB Azure Cosmos. As atribuições de política são procuradas por um grupo de gestão Azure, uma subscrição do Azure ou um grupo de recursos e são aplicadas aos recursos dentro do âmbito selecionado. Opcionalmente, pode excluir recursos específicos do âmbito de aplicação.
+As definições de política descrevem as condições de conformidade dos recursos e o efeito a ter em conta se uma condição for satisfeita. As _atribuições de políticas_ são criadas a partir de _definições_ políticas. Você pode usar definições de política incorporadas ou personalizadas para os seus recursos DB Azure Cosmos. As atribuições de política são procuradas por um grupo de gestão Azure, uma subscrição do Azure ou um grupo de recursos e são aplicadas aos recursos dentro do âmbito selecionado. Opcionalmente, pode excluir recursos específicos do âmbito de aplicação.
 
 Pode criar atribuições de política com o [portal Azure](../governance/policy/assign-policy-portal.md), [Azure PowerShell,](../governance/policy/assign-policy-powershell.md) [Azure CLI](../governance/policy/assign-policy-azurecli.md)ou [modelo ARM](../governance/policy/assign-policy-template.md).
 
@@ -39,7 +40,7 @@ Na etapa para selecionar uma definição de política, insira `Cosmos DB` no cam
 
 ## <a name="create-a-custom-policy-definition"></a>Criar uma definição de política personalizada
 
-Para cenários específicos que não sejam abordados por políticas incorporadas, pode criar [uma definição de política personalizada.](../governance/policy/tutorials/create-custom-policy-definition.md) Mais tarde, cria uma _atribuição_ de Política a partir da sua _definição_de política personalizada.
+Para cenários específicos que não sejam abordados por políticas incorporadas, pode criar [uma definição de política personalizada.](../governance/policy/tutorials/create-custom-policy-definition.md) Mais tarde, cria uma _atribuição_ de Política a partir da sua _definição_ de política personalizada.
 
 ### <a name="property-types-and-property-aliases-in-policy-rules"></a>Tipos de propriedade e pseudónimos de propriedade nas regras políticas
 

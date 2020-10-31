@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e907a3ec2e2521524cdf23e1403ae38a19275aa6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c7c002b57f2220ac0a9fba43a8081b2a4ed800e7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071324"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081064"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacidade de uma instância da Gestão de API do Azure
 
@@ -42,7 +42,7 @@ Para seguir os passos deste artigo, você deve ter:
 
 ## <a name="what-is-capacity"></a>O que é capacidade
 
-![Métrica de capacidade](./media/api-management-capacity/capacity-ingredients.png)
+![Diagrama que explica a métrica da capacidade.](./media/api-management-capacity/capacity-ingredients.png)
 
 **A capacidade** é um indicador de carga num caso de Gestão de API. Reflete o uso de recursos (CPU, memória) e os comprimentos das filas de rede. O uso da CPU e da memória revela o consumo de recursos por:
 
@@ -52,7 +52,7 @@ Para seguir os passos deste artigo, você deve ter:
 
 A **capacidade** total é uma média dos seus próprios valores de cada unidade de um caso de Gestão de API.
 
-Embora a **métrica da capacidade** seja projetada para resolver problemas com a sua instância de Gestão de API, existem casos em que os problemas não se refletem em alterações na **métrica**da capacidade .
+Embora a **métrica da capacidade** seja projetada para resolver problemas com a sua instância de Gestão de API, existem casos em que os problemas não se refletem em alterações na **métrica** da capacidade .
 
 ## <a name="capacity-metric-behavior"></a>Comportamento métrico da capacidade
 
@@ -78,7 +78,7 @@ A **baixa capacidade métrica** não significa necessariamente que o seu caso de
 ![Métrica de capacidade](./media/api-management-capacity/capacity-metric.png)  
 
 1. Navegue para o seu caso APIM no [portal Azure](https://portal.azure.com/).
-2. Selecione **Métricas**.
+2. Selecione **Métricas** .
 3. A partir da secção roxa, selecione a métrica de **capacidade** das métricas disponíveis e deixe a agregação **padrão de Avg.**
 
     > [!TIP]
@@ -99,7 +99,7 @@ A **baixa capacidade métrica** não significa necessariamente que o seu caso de
 
 + Olhando para uma tendência de longo prazo e média.
 + Ignorando picos repentinos que provavelmente não estão relacionados com qualquer aumento de carga (ver secção "Comportamento métrico da capacidade" para explicação).
-+ Atualização ou dimensionamento do seu caso, quando o valor da **capacidade**exceder 60% ou 70% por um período de tempo mais longo (por exemplo, 30 minutos). Valores diferentes podem funcionar melhor para o seu serviço ou cenário.
++ Atualização ou dimensionamento do seu caso, quando o valor da **capacidade** exceder 60% ou 70% por um período de tempo mais longo (por exemplo, 30 minutos). Valores diferentes podem funcionar melhor para o seu serviço ou cenário.
 
 >[!TIP]  
 > Se conseguir estimar previamente o seu tráfego, teste a sua instância APIM em cargas de trabalho que espera. Pode aumentar gradualmente a carga de pedido no seu inquilino e monitorizar o valor da métrica da capacidade correspondente à sua carga máxima. Siga os passos da secção anterior para utilizar o portal Azure para entender a quantidade de capacidade utilizada em qualquer momento.

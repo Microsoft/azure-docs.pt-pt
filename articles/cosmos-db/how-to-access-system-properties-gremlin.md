@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/10/2019
 author: SnehaGunda
 ms.author: sngun
-ms.openlocfilehash: c03e4db30d590df21a8ceb3c483ece4b59e548d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61814082ebe9828a08da1e8786890b500c239082
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397322"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081846"
 ---
 # <a name="system-document-properties"></a>Propriedades de documento do sistema
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 A Azure Cosmos DB tem [propriedades do sistema](/rest/api/cosmos-db/databases) tais ```_ts``` ```_self``` como, , , e ```_attachments``` em todos os ```_rid``` ```_etag``` documentos. Além disso, o motor do Gremlin adiciona as propriedades ```inVPartition``` e ```outVPartition``` nas margens. Por padrão, estas propriedades estão disponíveis para traversal. No entanto, é possível incluir propriedades específicas, ou todas elas, em Gremlin traversal.
 
@@ -34,7 +35,7 @@ g.withStrategies(ProjectionStrategy.build().IncludeSystemProperties('_etag').cre
 
 Se a recolha tiver expiração de documento ativada e os documentos tiverem ```ttl``` propriedade definida sobre eles, então esta propriedade estará disponível em Gremlin traversal como um vértice regular ou propriedade de borda. ```ProjectionStrategy``` não é necessário para permitir a exposição de propriedades de tempo para viver.
 
-O vértice criado com o percurso abaixo será eliminado automaticamente em **123 segundos**.
+O vértice criado com o percurso abaixo será eliminado automaticamente em **123 segundos** .
 
 ```
 g.addV('vertex-one').property('ttl', 123)

@@ -9,19 +9,20 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: 4e9df3343a89097b192c51d3b9f093805afe6b87
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1f3f5a35beeac6c683aeb6db16a417b897755666
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477356"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079772"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Como utilizar o Armazenamento de tabelas do Azure ou a API de Tabelas do Azure Cosmos DB a partir de Java
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Este artigo mostra-lhe como criar tabelas, armazenar os seus dados e realizar operações CRUD nos dados. Escolha o serviço Azure Table ou a API da Tabela DB AZure Cosmos. Os exemplos são escritos em Java e utilizam [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java). Os cenários abrangidos incluem a **criação**, a **listagem** e a **eliminação** de tabelas, bem como a **inserção**, a **consulta**, a **modificação** e a **eliminação** de entidades numa tabela. Para obter mais informações sobre as tabelas, veja a secção [Passos seguintes](#next-steps).
+Este artigo mostra-lhe como criar tabelas, armazenar os seus dados e realizar operações CRUD nos dados. Escolha o serviço Azure Table ou a API da Tabela DB AZure Cosmos. Os exemplos são escritos em Java e utilizam [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java). Os cenários abrangidos incluem a **criação** , a **listagem** e a **eliminação** de tabelas, bem como a **inserção** , a **consulta** , a **modificação** e a **eliminação** de entidades numa tabela. Para obter mais informações sobre as tabelas, veja a secção [Passos seguintes](#next-steps).
 
 > [!NOTE]
 > Está disponível um SDK para os programadores que utilizem o Armazenamento do Azure em dispositivos Android. Para obter mais informações, veja o [SDK do Armazenamento do Azure para Android][Azure Storage SDK for Android].
@@ -62,7 +63,7 @@ Pode ligar-se à conta de armazenamento Azure ou à conta AZure Cosmos DB Table 
 
 ### <a name="add-an-azure-storage-connection-string"></a>Adicionar uma cadeia de ligação do Armazenamento do Azure
 
-Os clientes do Armazenamento do Azure utilizam uma cadeia de ligação de armazenamento para armazenar pontos finais e credenciais para aceder a serviços de gestão de dados. Se estiver a executar numa aplicação cliente, tem de fornecer a cadeia de ligação de armazenamento no formato seguinte, com o nome da conta de armazenamento e a Chave de acesso primária dessa conta indicada no [portal do Azure](https://portal.azure.com) nos valores **AccountName** e **AccountKey**. 
+Os clientes do Armazenamento do Azure utilizam uma cadeia de ligação de armazenamento para armazenar pontos finais e credenciais para aceder a serviços de gestão de dados. Se estiver a executar numa aplicação cliente, tem de fornecer a cadeia de ligação de armazenamento no formato seguinte, com o nome da conta de armazenamento e a Chave de acesso primária dessa conta indicada no [portal do Azure](https://portal.azure.com) nos valores **AccountName** e **AccountKey** . 
 
 Este exemplo mostra como pode declarar um campo estático para conter a cadeia de ligação:
 
@@ -76,7 +77,7 @@ public static final String storageConnectionString =
 
 ### <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Adicionar uma cadeia de ligação da API de Tabela do Azure Cosmos DB
 
-As contas do Azure Cosmos DB utilizam uma cadeia de ligação para armazenar o ponto final da tabela e as suas credenciais. Se estiver a executar numa aplicação cliente, tem de fornecer a cadeia de ligação do Azure Cosmos DB no formato seguinte, com o nome da conta do Azure Cosmos DB e a Chave de acesso primária dessa conta indicada no [portal do Azure](https://portal.azure.com) nos valores **AccountName** e **AccountKey**. 
+As contas do Azure Cosmos DB utilizam uma cadeia de ligação para armazenar o ponto final da tabela e as suas credenciais. Se estiver a executar numa aplicação cliente, tem de fornecer a cadeia de ligação do Azure Cosmos DB no formato seguinte, com o nome da conta do Azure Cosmos DB e a Chave de acesso primária dessa conta indicada no [portal do Azure](https://portal.azure.com) nos valores **AccountName** e **AccountKey** . 
 
 Este exemplo mostra como pode declarar um campo estático para conter a cadeia de ligação do Azure Cosmos DB:
 
@@ -88,7 +89,7 @@ public static final String storageConnectionString =
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-Numa aplicação que esteja a ser executada numa função no Azure, pode armazenar essa cadeia no ficheiro de configuração do serviço, *ServiceConfiguration.cscfg*, e pode aceder à mesma com uma chamada para o método **RoleEnvironment.getConfigurationSettings**. Eis um exemplo da obtenção da cadeia de ligação a partir de um elemento **Setting** (Definição) denominado *StorageConnectionString* no ficheiro de configuração do serviço:
+Numa aplicação que esteja a ser executada numa função no Azure, pode armazenar essa cadeia no ficheiro de configuração do serviço, *ServiceConfiguration.cscfg* , e pode aceder à mesma com uma chamada para o método **RoleEnvironment.getConfigurationSettings** . Eis um exemplo da obtenção da cadeia de ligação a partir de um elemento **Setting** (Definição) denominado *StorageConnectionString* no ficheiro de configuração do serviço:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -434,7 +435,7 @@ catch (Exception e)
 
 ## <a name="modify-an-entity"></a>Modificar uma entidade
 
-Para modificar uma entidade, obtenha-a a partir do serviço Tabela, faça alterações ao objeto da entidade e guarde-as novamente no serviço Tabela com uma operação de substituição ou intercalação. O código seguinte altera o número de telefone de um cliente existente. Em vez de chamar **TableOperation.insert**, como fizemos para inserir, este código chama **TableOperation.replace**. O método **CloudTable.execute** chama o serviço Tabela e a entidade é substituída, a não ser que tenha sido alterada por outra aplicação desde o momento em que esta aplicação foi obtida. Quando isso acontece, é emitida uma exceção e a entidade tem de ter obtida, modificada e guardada outra vez. Este padrão de repetição de simultaneidade otimista é comum nos sistemas de armazenamento distribuído.
+Para modificar uma entidade, obtenha-a a partir do serviço Tabela, faça alterações ao objeto da entidade e guarde-as novamente no serviço Tabela com uma operação de substituição ou intercalação. O código seguinte altera o número de telefone de um cliente existente. Em vez de chamar **TableOperation.insert** , como fizemos para inserir, este código chama **TableOperation.replace** . O método **CloudTable.execute** chama o serviço Tabela e a entidade é substituída, a não ser que tenha sido alterada por outra aplicação desde o momento em que esta aplicação foi obtida. Quando isso acontece, é emitida uma exceção e a entidade tem de ter obtida, modificada e guardada outra vez. Este padrão de repetição de simultaneidade otimista é comum nos sistemas de armazenamento distribuído.
 
 ```java
 try
@@ -518,7 +519,7 @@ catch (Exception e)
 
 ## <a name="insert-or-replace-an-entity"></a>Inserir ou Substituir uma entidade
 
-Em muitos casos, poderá querer adicionar uma entidade a uma tabela sem saber se já existe nessa tabela. Uma operação de inserção ou substituição permite-lhe fazer um único pedido, que irá inserir a entidade se não existir ou substituir a existente se o fizer. Continuando com os exemplos anteriores, o seguinte código insere ou substitui a entidade para "Walter Harp". Depois de criar uma entidade nova, este código chama o método **TableOperation.insertOrReplace**. Em seguida, este código chama **a execução** no objeto **Cloud Table** com a tabela e a inserção ou substituição da operação da tabela como parâmetros. Para atualizar apenas uma parte de uma entidade, é possível, em alternativa, utilizar o método **TableOperation.insertOrMerge**. A inserção ou substituição não é suportada no emulador de armazenamento local, pelo que este código só funciona quando se utiliza uma conta no serviço de tabela. Pode aprender mais sobre inserir ou substituir e inserir ou fundir-se nesta [Tabelas Azure: Introdução upsert e projeção de consultas][Tabelas Azure: Introdução upsert e projeção de consultas].
+Em muitos casos, poderá querer adicionar uma entidade a uma tabela sem saber se já existe nessa tabela. Uma operação de inserção ou substituição permite-lhe fazer um único pedido, que irá inserir a entidade se não existir ou substituir a existente se o fizer. Continuando com os exemplos anteriores, o seguinte código insere ou substitui a entidade para "Walter Harp". Depois de criar uma entidade nova, este código chama o método **TableOperation.insertOrReplace** . Em seguida, este código chama **a execução** no objeto **Cloud Table** com a tabela e a inserção ou substituição da operação da tabela como parâmetros. Para atualizar apenas uma parte de uma entidade, é possível, em alternativa, utilizar o método **TableOperation.insertOrMerge** . A inserção ou substituição não é suportada no emulador de armazenamento local, pelo que este código só funciona quando se utiliza uma conta no serviço de tabela. Pode aprender mais sobre inserir ou substituir e inserir ou fundir-se nesta [Tabelas Azure: Introdução upsert e projeção de consultas][Tabelas Azure: Introdução upsert e projeção de consultas].
 
 ```java
 try

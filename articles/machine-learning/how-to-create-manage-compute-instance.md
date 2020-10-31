@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f0dfa137e42d60246ce8f5281f002d5ca567c2ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ac134e6a371ea85a20094e688adc57da8550a03d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427532"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078990"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerir um exemplo de cálculo de aprendizagem automática Azure
 
@@ -206,7 +206,7 @@ Nos exemplos abaixo, o nome da instância computacional é **exemplo**
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-No seu espaço de trabalho no estúdio Azure Machine Learning, selecione **Compute**e **selecione Compute Instance** no topo.
+No seu espaço de trabalho no estúdio Azure Machine Learning, selecione **Compute** e **selecione Compute Instance** no topo.
 
 ![Gerir uma instância computacional](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -256,7 +256,9 @@ Pode instalar pacotes diretamente no Jupyter Notebook ou no RStudio:
 * Python: Adicione código de instalação e execute numa célula Jupyter Notebook.
 
 Ou pode instalar a partir de uma janela do terminal. Instale pacotes Python no ambiente **Python 3.6 - AzureML.**  Instale as embalagens R no ambiente **R.**
-As funções mágicas %pip e %conda instalam automaticamente pacotes no núcleo atualmente em funcionamento na sessão de cadernos Jupyter.
+
+> [!NOTE]
+> Para a gestão de pacotes dentro de um caderno, utilize funções mágicas **%pip** ou **%conda** para instalar automaticamente pacotes no **núcleo atualmente em funcionamento** , em vez de **!pip** ou **!conda,** que se refere a todas as embalagens (incluindo pacotes fora do núcleo atualmente em funcionamento)
 
 ## <a name="add-new-kernels"></a>Adicione novos núcleos
 

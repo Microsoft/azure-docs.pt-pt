@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 55a4e50e3a85eccb9517cf682b67268e633abecc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928098"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081234"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Pontuação de segurança no Centro de Segurança do Azure
 
@@ -190,7 +190,7 @@ Embora a iniciativa de segurança padrão do Security Center se baseie nas melho
     <td class="tg-lboi"; width=55%>- As portas de gestão das máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time<br>- As máquinas virtuais devem ser associadas a um Grupo de Segurança de Rede<br>- As portas de gestão devem ser fechadas nas suas máquinas virtuais</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar atualizações do sistema (pontuação máxima 6)</p></strong>As atualizações do sistema proporcionam às organizações a capacidade de manter a eficiência operacional, reduzir as vulnerabilidades de segurança e proporcionar um ambiente mais estável para os utilizadores finais. Não aplicar atualizações deixa vulnerabilidades não remadas e resulta em ambientes que são suscetíveis a ataques. Estas vulnerabilidades podem ser exploradas e levar à perda de dados, exfiltração de dados, ransomware e abuso de recursos. Para implementar atualizações do sistema, pode utilizar a <a href="/azure/automation/automation-update-management">solução 'Gestão de Atualização' para gerir patches e atualizações</a> para as suas máquinas virtuais. A gestão de atualização é o processo de controlo da implementação e manutenção de lançamentos de software.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Aplicar atualizações do sistema (pontuação máxima 6)</p></strong>As atualizações do sistema proporcionam às organizações a capacidade de manter a eficiência operacional, reduzir as vulnerabilidades de segurança e proporcionar um ambiente mais estável para os utilizadores finais. Não aplicar atualizações deixa vulnerabilidades não remadas e resulta em ambientes que são suscetíveis a ataques. Estas vulnerabilidades podem ser exploradas e levar à perda de dados, exfiltração de dados, ransomware e abuso de recursos. Para implementar atualizações do sistema, pode utilizar a <a href="/azure/automation/update-management/overview">solução 'Gestão de Atualização' para gerir patches e atualizações</a> para as suas máquinas virtuais. A gestão de atualização é o processo de controlo da implementação e manutenção de lançamentos de software.</td>
     <td class="tg-lboi"; width=55%>- Os problemas de saúde dos agentes de monitorização devem ser resolvidos nas suas máquinas<br>- O agente de monitorização deve ser instalado em conjuntos de escala de máquina virtual<br>- O agente de monitorização deve ser instalado nas suas máquinas<br>- A versão OS deve ser atualizada para as suas funções de serviço na nuvem<br>- As atualizações do sistema em conjuntos de escala de máquinas virtuais devem ser instaladas<br>- As atualizações do sistema devem ser instaladas nas suas máquinas<br>- As suas máquinas devem ser reiniciadas para aplicar atualizações do sistema<br>- Os Serviços Kubernetes devem ser atualizados para uma versão não vulnerável de Kubernetes<br>- O agente de monitorização deve ser instalado nas suas máquinas virtuais<br>- O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)<br>- O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)</td>
   </tr>
   <tr>

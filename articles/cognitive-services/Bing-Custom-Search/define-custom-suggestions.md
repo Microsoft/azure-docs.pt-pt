@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072811"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080979"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configure a sua experiência autosuggest personalizada
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Custom Autosuggest devolve uma lista de cadeias de consulta de pesquisa sugeridas que são relevantes para a sua experiência de pesquisa. As cadeias de consulta sugeridas baseiam-se numa cadeia de consulta parcial que o utilizador fornece na caixa de pesquisa. A lista conterá um máximo de 10 sugestões. 
 
@@ -36,7 +41,7 @@ Para ativar as sugestões de Bing, altere as **sugestões Automáticas de Bing**
 
 ## <a name="add-your-own-suggestions"></a>Adicione as suas próprias sugestões
 
-Para adicionar as suas próprias sugestões de cadeia de consulta, adicione-as à lista de acordo com **sugestões definidas pelo Utilizador**. Depois de adicionar uma sugestão na lista, prima a tecla de entrada ou clique no **+** ícone. Pode especificar a sugestão em qualquer idioma. Pode adicionar um máximo de 5.000 sugestões de cordas de consulta.
+Para adicionar as suas próprias sugestões de cadeia de consulta, adicione-as à lista de acordo com **sugestões definidas pelo Utilizador** . Depois de adicionar uma sugestão na lista, prima a tecla de entrada ou clique no **+** ícone. Pode especificar a sugestão em qualquer idioma. Pode adicionar um máximo de 5.000 sugestões de cordas de consulta.
 
 ## <a name="upload-suggestions"></a>Sugestões de upload
 
@@ -48,7 +53,7 @@ Para remover uma sugestão de cadeia de consulta, clique no ícone de remover ao
 
 ## <a name="block-suggestions"></a>Sugestões de blocos
 
-Se incluir sugestões de Bing, pode adicionar uma lista de cadeias de consulta de pesquisa que não quer que bing regresse. Para adicionar cadeias de consulta bloqueadas, clique em **Mostrar sugestões bloqueadas**. Adicione o fio de consulta à lista e pressione a tecla de entrada ou clique no **+** ícone. Pode adicionar um máximo de 50 cadeias de consulta bloqueadas.
+Se incluir sugestões de Bing, pode adicionar uma lista de cadeias de consulta de pesquisa que não quer que bing regresse. Para adicionar cadeias de consulta bloqueadas, clique em **Mostrar sugestões bloqueadas** . Adicione o fio de consulta à lista e pressione a tecla de entrada ou clique no **+** ícone. Pode adicionar um máximo de 50 cadeias de consulta bloqueadas.
 
 
 
@@ -60,7 +65,7 @@ Se incluir sugestões de Bing, pode adicionar uma lista de cadeias de consulta d
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>Permitir a Autosuggest em UI hospedado
 
-Para ativar sugestões de cadeias de consulta para a UI hospedada, clique em **UI anfitrião**. Desloque-se para baixo para a secção **de Configuração Adicional.** Em **pesquisa na Web**, selecione **On** for **Enable autosuggest**. Para ativar o Autosuggest, tem de selecionar um layout que inclua uma caixa de pesquisa.
+Para ativar sugestões de cadeias de consulta para a UI hospedada, clique em **UI anfitrião** . Desloque-se para baixo para a secção **de Configuração Adicional.** Em **pesquisa na Web** , selecione **On** for **Enable autosuggest** . Para ativar o Autosuggest, tem de selecionar um layout que inclua uma caixa de pesquisa.
 
 
 ## <a name="calling-the-autosuggest-api"></a>Chamando a API autosuggest

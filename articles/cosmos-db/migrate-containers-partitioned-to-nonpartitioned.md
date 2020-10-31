@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 01e61abacac63d698456c3ab25826f9799d2837e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ffd1ff6d18769998dd3a168992566a376ea1cd27
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482286"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080078"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar recipientes não divididos para recipientes divididos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A Azure Cosmos DB suporta a criação de recipientes sem uma chave de partição. Atualmente pode criar recipientes não divididos utilizando Azure CLI e Azure Cosmos DB SDKs (.Net, Java, NodeJs) que têm uma versão inferior ou igual a 2,x. Não é possível criar recipientes não divididos utilizando o portal Azure. No entanto, estes recipientes não divididos não são elásticos e têm uma capacidade de armazenamento fixa de 20 GB e limite de produção de 10K RU/s.
 

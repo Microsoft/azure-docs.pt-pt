@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 697e5484c007c095201344fb4829a92eb642a6e3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 91ffcac98b2b919a8fc131d235e699aad4fa215d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014856"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078905"
 ---
 # <a name="manage-analysis-services"></a>Gerir o Analysis Services
 Uma vez criado um servidor de Serviços de Análise em Azure, pode haver algumas tarefas de administração e gestão que você precisa realizar imediatamente ou em algum momento na estrada. Por exemplo, executar o processamento para os dados de atualização, controlar quem pode aceder aos modelos no seu servidor ou monitorizar a saúde do seu servidor. Algumas tarefas de gestão só podem ser executadas no portal Azure, outras no SQL Server Management Studio (SSMS), e algumas tarefas podem ser feitas em qualquer uma delas.
@@ -20,12 +20,12 @@ Uma vez criado um servidor de Serviços de Análise em Azure, pode haver algumas
 ## <a name="azure-portal"></a>Portal do Azure
 [O portal Azure](https://portal.azure.com/) é onde pode criar e eliminar servidores, monitorizar os recursos do servidor, alterar o tamanho e gerir quem tem acesso aos seus servidores.  Se tiver alguns problemas, também pode apresentar um pedido de apoio.
 
-![Obter o nome do servidor no Azure](./media/analysis-services-manage/aas-manage-portal.png)
+![Screenshot que mostra o portal Azure onde pode criar e eliminar servidores, monitorizar os recursos do servidor, alterar o tamanho e gerir quem tem acesso aos seus servidores.](./media/analysis-services-manage/aas-manage-portal.png)
 
-## <a name="sql-server-management-studio"></a>O SQL Server Management Studio
+## <a name="sql-server-management-studio"></a>SQL Server Management Studio
 Ligar-se ao seu servidor em Azure é como ligar-se a uma instância de servidor na sua própria organização. A partir de SSMS, pode executar muitas das mesmas tarefas, tais como processar dados ou criar um script de processamento, gerir funções e usar o PowerShell.
   
-![O SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
+![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
 ### <a name="download-and-install-ssms"></a>Transferir e instalar o SSMS
 Para obter todas as funcionalidades mais recentes e a experiência mais suave ao ligar-se ao servidor Azure Analysis Services, certifique-se de que está a utilizar a versão mais recente do SSMS. 
@@ -36,10 +36,10 @@ Para obter todas as funcionalidades mais recentes e a experiência mais suave ao
 ### <a name="to-connect-with-ssms"></a>Para ligar com sSMS
  Quando utilizar o SSMS, antes de ligar ao seu servidor pela primeira vez, certifique-se de que o seu nome de utilizador está incluído no grupo de Administração de Serviços de Análise. Para saber mais, consulte [os administradores do Servidor e os utilizadores de bases de dados](#server-administrators-and-database-users) mais tarde neste artigo.
 
-1. Antes de se ligar, tem de obter o nome do servidor. No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor**, copie o nome do servidor.
+1. Antes de se ligar, tem de obter o nome do servidor. No **portal do Azure** > servidor > **Descrição geral** > **Nome do servidor** , copie o nome do servidor.
    
     ![Obter o nome do servidor no Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
-2. No SSMS > **Object Explorer**, clique em **Ligar** > **Analysis Services**.
+2. No SSMS > **Object Explorer** , clique em **Ligar** > **Analysis Services** .
 3. Na caixa de diálogo **'Ligar ao Servidor',** colar no nome do servidor e, em seguida, na **Autenticação),** escolha um dos seguintes tipos de autenticação:   
     > [!NOTE]
     > Recomenda-se o tipo de autenticação, **Diretório Ativo - Universal com suporte MFA.**

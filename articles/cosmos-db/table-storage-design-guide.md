@@ -8,14 +8,15 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 94aa699d8daab7e5e7ff4ae82e5d09ab1475c07e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 709b83ad3e71a932202cebb9c9cb6187feae4ed7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477594"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080010"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de conceção de tabela do armazenamento de Tabelas do Azure: Tabelas dimensionáveis e com bom desempenho
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -137,7 +138,7 @@ No armazenamento de mesa, um nó individual presta uma ou mais divisórias compl
 Para obter mais informações sobre os detalhes internos do armazenamento da mesa, e em particular a forma como gere as divisórias, consulte [o Microsoft Azure Storage: Um serviço de armazenamento em nuvem altamente disponível com forte consistência](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Transações de grupos de entidades
-No armazenamento de mesas, as transações de grupos de entidades (EGTs) são o único mecanismo incorporado para a realização de atualizações atómicas em várias entidades. Os EGTs são também referidos como *transações de lote*. As EGTs só podem operar em entidades armazenadas na mesma partição (partilhando a mesma chave de partição numa tabela específica), por isso, sempre que precisar de comportamento transacional atómico entre várias entidades, certifique-se de que essas entidades estão na mesma divisão. Esta é frequentemente uma razão para manter vários tipos de entidades na mesma tabela (e partição), e não usar várias tabelas para diferentes tipos de entidades. Um único EGT pode operar no máximo 100 entidades.  Se submeter vários EGTs simultâneos para processamento, é importante garantir que esses EGTs não operam em entidades que são comuns em todos os EGTs. Caso contrário, arrisca-se a atrasar o processamento.
+No armazenamento de mesas, as transações de grupos de entidades (EGTs) são o único mecanismo incorporado para a realização de atualizações atómicas em várias entidades. Os EGTs são também referidos como *transações de lote* . As EGTs só podem operar em entidades armazenadas na mesma partição (partilhando a mesma chave de partição numa tabela específica), por isso, sempre que precisar de comportamento transacional atómico entre várias entidades, certifique-se de que essas entidades estão na mesma divisão. Esta é frequentemente uma razão para manter vários tipos de entidades na mesma tabela (e partição), e não usar várias tabelas para diferentes tipos de entidades. Um único EGT pode operar no máximo 100 entidades.  Se submeter vários EGTs simultâneos para processamento, é importante garantir que esses EGTs não operam em entidades que são comuns em todos os EGTs. Caso contrário, arrisca-se a atrasar o processamento.
 
 Os EGTs também introduzem uma potencial compensação para que possa avaliar no seu design. A utilização de mais divisórias aumenta a escalabilidade da sua aplicação, porque o Azure tem mais oportunidades para pedidos de equilíbrio de carga em nós. Mas isso pode limitar a capacidade da sua aplicação de realizar transações atómicas e manter uma forte consistência para os seus dados. Além disso, existem alvos específicos de escalabilidade ao nível de uma partição que podem limitar o rendimento das transações que se pode esperar de um único nó.
 
@@ -210,7 +211,7 @@ Aqui estão algumas diretrizes gerais para a conceção de consultas de armazena
 * Uma tomografia de *mesa* não inclui o , e `PartitionKey` é ineficiente porque procura todas as divisórias que compõem a sua mesa para quaisquer entidades correspondentes. Executa uma verificação de mesa independentemente de o filtro utilizar ou não o `RowKey` . Por exemplo: `$filter=LastName eq 'Jones'`.  
 * Consultas de armazenamento de mesa Azure que devolvem várias entidades classificam-nas `PartitionKey` e `RowKey` encomendam. Para evitar recorrer às entidades do cliente, escolha uma `RowKey` que defina a ordem de classificação mais comum. Os resultados de consulta devolvidos pela Azure Table API em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [as diferenças entre a Tabela API no Azure Cosmos DB e o armazenamento da tabela Azure](table-api-faq.md#table-api-vs-table-storage).
 
-Usar um "**ou**" para especificar um filtro com base `RowKey` em valores resulta numa varredura de partição, e não é tratado como uma consulta de alcance. Por isso, evite consultas que utilizem filtros como: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')` .  
+Usar um " **ou** " para especificar um filtro com base `RowKey` em valores resulta numa varredura de partição, e não é tratado como uma consulta de alcance. Por isso, evite consultas que utilizem filtros como: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')` .  
 
 Por exemplo, o código do lado do cliente que utiliza a Biblioteca do Cliente de Armazenamento para executar consultas eficientes, consulte:  
 
@@ -252,7 +253,7 @@ Os resultados da consulta de armazenamento de mesas ordenados em ordem ascendent
 > [!NOTE]
 > Os resultados de consulta devolvidos pela Azure Table API em Azure Cosmos DB não são classificados por chave de partição ou chave de linha. Para obter uma lista detalhada das diferenças de características, consulte [as diferenças entre a Tabela API no Azure Cosmos DB e o armazenamento da tabela Azure](table-api-faq.md#table-api-vs-table-storage).
 
-As teclas no armazenamento da mesa são valores de corda. Para garantir que os valores numéricos se classificam corretamente, deve convertê-los num comprimento fixo e remá-los com zeros. Por exemplo, se o valor de identificação do empregado que usa como valor inteiro, deve converter o `RowKey` ID do empregado **123** a **00000123**. 
+As teclas no armazenamento da mesa são valores de corda. Para garantir que os valores numéricos se classificam corretamente, deve convertê-los num comprimento fixo e remá-los com zeros. Por exemplo, se o valor de identificação do empregado que usa como valor inteiro, deve converter o `RowKey` ID do empregado **123** a **00000123** . 
 
 Muitas aplicações têm requisitos para usar dados classificados em diferentes ordens: por exemplo, classificar os colaboradores pelo nome, ou aderir à data. Os seguintes padrões na secção [Os padrões de design](#table-design-patterns) da tabela abordam como alternar ordens de classificação para as suas entidades:  
 
@@ -494,7 +495,7 @@ Os dois critérios de filtro a seguir (um olhando para cima por ID do empregado,
 
 Se consultar uma série de entidades de colaboradores, pode especificar um intervalo classificado na ordem de identificação do empregado ou um intervalo ordenado por encomenda de endereço de e-mail. Consulta para entidades com o prefixo apropriado no `RowKey` .  
 
-* Para encontrar todos os colaboradores do departamento de Vendas com um ID de empregado na gama **000100** a **000199**, classificados em ordem de ID dos funcionários, utilize: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
+* Para encontrar todos os colaboradores do departamento de Vendas com um ID de empregado na gama **000100** a **000199** , classificados em ordem de ID dos funcionários, utilize: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
 * Para encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail que comece com "a", classificado em ordem de endereço de e-mail, use: $filter=(PartitionKey eq 'email_Sales') e (RowKey ge 'a') e (RowKey lt 'b')  
 
 Note que a sintaxe do filtro utilizada nos exemplos anteriores é da API DE ARMAZENAMENTO DE MESA. Para mais informações, consulte [as entidades de Consulta.](/rest/api/storageservices/Query-Entities)  
@@ -709,7 +710,7 @@ $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000123') e (RowKey lt 'emp
 #### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Deve utilizar um carácter separador adequado que facilite a análise do `RowKey` valor: por exemplo, **000123_2012**.  
+* Deve utilizar um carácter separador adequado que facilite a análise do `RowKey` valor: por exemplo, **000123_2012** .  
 * Também está a armazenar esta entidade na mesma divisão que outras entidades que contêm dados relacionados para o mesmo funcionário. Isto significa que pode usar EGTs para manter uma forte consistência.
 * Deve considerar a frequência com que irá consultar os dados para determinar se este padrão é apropriado. Por exemplo, se aceder aos dados de revisão com pouca frequência, e os principais dados dos colaboradores frequentemente, deverá mantê-los como entidades separadas.  
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-ms.openlocfilehash: bc27b1fea97471e9ca1991467902e666c1451605
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 12a282b1f53dde570f5f6647a45df82808b20350
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675551"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080860"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-salesforce-sandbox"></a>Tutorial: Azure Ative Directory integração única (SSO) com Salesforce Sandbox
 
@@ -149,35 +149,35 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Clique na **Configuração** no **ícone de definições** no canto superior direito da página.
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Screenshot que mostra o ícone "Definições" no superior direito selecionado e "Configuração" selecionado a partir do drop-down.](./media/salesforce-sandbox-tutorial/configure1.png)
 
 3. Desloque-se para baixo para as **DEFINIÇÕES** no painel de navegação esquerdo, clique em **Identidade** para expandir a secção relacionada. Em seguida, clique em **Definições Sign-On únicas** .
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Screenshot que mostra o menu "Definições" no painel esquerdo, com "Definições de Sign-On únicas" selecionadas no menu "Identidade".](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 4. Na página **'Definições Sign-On única',** clique no botão **Editar.**
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Screenshot que mostra a página "Configurações Sign-On única" com o botão "Editar" selecionado.](./media/salesforce-sandbox-tutorial/configure3.png)
 
 5. Selecione **SAML Ativado** e, em seguida, clique em **Guardar** .
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Screenshot que mostra a página "Configurações Sign-On únicas" com a caixa de verificação "S A M L Enabled" selecionada e o botão "Guardar" selecionado.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 6. Para configurar as definições de inscrição única do SAML, clique em **Novo A partir do Ficheiro de Metadados** .
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Screenshot que mostra a página "Configurações Sign-On única" com o botão "Novo do Ficheiro de Metadados" selecionado.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 7. Clique **em Escolher Ficheiro** para carregar o ficheiro XML dos metadados que descarregou a partir do portal Azure e clique em **Criar** .
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Screenshot que mostra a página "Configurações de Sign-On única" com os botões "Escolha o Ficheiro" e "Criar" selecionados.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 8. Na página **'Definições Sign-On Único SAML',** os campos povoam-se automaticamente e clicam em guardar.
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/salesforcexml.png)
+    ![Screenshot que mostra a página "Configurações Sign-On única" com campos povoados e o botão "Guardar" selecionado.](./media/salesforce-sandbox-tutorial/salesforcexml.png)
 
 9. Na página **'Definições Sign-On única',** clique no botão **Desembaratos de Transferência** para descarregar o ficheiro de metadados do fornecedor de serviços. Utilize este ficheiro na secção **de Configuração BÁSICA SAML** no portal Azure para configurar os URLs necessários, conforme explicado acima.
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/configure4.png)
+    ![Screenshot que mostra a página "Configurações Sign-On única" com o botão "Transferir metadados" selecionado.](./media/salesforce-sandbox-tutorial/configure4.png)
 
 10. Se desejar configurar a aplicação no modo iniciado pela **SP,** seguem-se os pré-requisitos para tal:
 
@@ -202,31 +202,31 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 13. Clique na **Configuração** no **ícone de definições** no canto superior direito da página.
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/configure1.png)
+    ![Screenshot que mostra o ícone "Definições" no superior direito selecionado e "Configuração" selecionado a partir do menu suspenso.](./media/salesforce-sandbox-tutorial/configure1.png)
 
 14. Desloque-se para baixo para as **DEFINIÇÕES** no painel de navegação esquerdo, clique em **Identidade** para expandir a secção relacionada. Em seguida, clique em **Definições Sign-On únicas** .
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
+    ![Screenshot que mostra o menu "Definições" no painel de navegação esquerdo, com "Definições de Sign-On únicas" selecionadas no menu "Identidade".](./media/salesforce-sandbox-tutorial/sf-admin-sso.png)
 
 15. Na página **'Definições Sign-On única',** clique no botão **Editar.**
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/configure3.png)
+    ![Screenshot que mostra a página "Configurações Sign-On única" com o botão "Editar" selecionado.](./media/salesforce-sandbox-tutorial/configure3.png)
 
 16. Selecione **SAML Ativado** e, em seguida, clique em **Guardar** .
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
+    ![Screenshot que mostra a página "Configurações Sign-On únicas" com a caixa "S A M L Enabled" verificada e o botão "Guardar" selecionado.](./media/salesforce-sandbox-tutorial/sf-enable-saml.png)
 
 17. Para configurar as definições de inscrição única do SAML, clique em **Novo A partir do Ficheiro de Metadados** .
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+    ![Screenshot que mostra a página "Configurações Sign-On única" e o botão "Novo do Ficheiro de Metadados" selecionado.](./media/salesforce-sandbox-tutorial/sf-admin-sso-new.png)
 
 18. Clique **em Escolher O Ficheiro** para carregar o ficheiro XML dos metadados e clique em **Criar** .
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/xmlchoose.png)
+    ![Screenshot que mostra a página "Configurações Sign-On única" com o botão "Escolha Ficheiro" e o botão "Criar" selecionado.](./media/salesforce-sandbox-tutorial/xmlchoose.png)
 
 19. Na página **de Definições de Sign-On Única SAML,** os campos povoam-se automaticamente, digita o nome da configuração (por exemplo: *SPSSOWAAD_Test),* na caixa de texto **'Nome'** e clique em guardar.
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
+    ![Screenshot que mostra a página "Configurações Sign-On única" com campos povoados, um nome de exemplo na caixa de texto "Nome" e o botão "Guardar" selecionado.](./media/salesforce-sandbox-tutorial/sf-saml-config.png)
 
 20. Para ativar o seu domínio na Salesforce Sandbox, execute os seguintes passos:
 
@@ -235,11 +235,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 21. No painel de navegação à esquerda na Salesforce Sandbox, clique em **Definições da Empresa** para expandir a secção relacionada e, em seguida, clique em **My Domain** .
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
+    ![Screenshot que mostra as "Configurações da Empresa" e "Meu Domínio" selecionadas a partir do painel de navegação esquerdo.](./media/salesforce-sandbox-tutorial/sf-my-domain.png)
 
 22. Na secção Configuração de **Autenticação,** clique em **Editar** .
 
-    ![Configurar Sign-On Individuais](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
+    ![Screenshot que mostra a secção "Configuração de autenticação", com o botão "Editar" selecionado.](./media/salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 23. Na secção Configuração de **Autenticação,** como **Serviço de Autenticação** , selecione o nome da Definição de Sign-On Única SAML que definiu durante a configuração SSO na Caixa de Areia Salesforce e clique em **Guardar** .
 

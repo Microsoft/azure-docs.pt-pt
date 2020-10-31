@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0fb783a6ad65ce17bff14b72e8d94d284769779f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475163"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080724"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Sugestões de desempenho para o Azure Cosmos DB e SDK de .NET v2
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [SDK .NET v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -44,14 +45,14 @@ Recomendamos o processamento do anfitrião Windows 64 bits para um melhor desemp
 
 - Para aplicações executáveis, pode alterar o processamento do anfitrião definindo o alvo da [plataforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) para **x64** na janela Propriedades do **Projeto,** no separador **Construir.**
 
-- Para projetos de teste baseados em VSTest, pode alterar o processamento do hospedeiro selecionando a Arquitetura do Processador Padrão de Definições de **Teste**de Teste  >  **Test Settings**  >  **como X64** no menu Visual Studio **Test.**
+- Para projetos de teste baseados em VSTest, pode alterar o processamento do hospedeiro selecionando a Arquitetura do Processador Padrão de Definições de **Teste** de Teste  >  **Test Settings**  >  **como X64** no menu Visual Studio **Test.**
 
-- Para aplicações web de ASP.NET implementadas localmente, pode alterar o processamento de anfitriões selecionando **Utilize a versão de 64 bits do IIS Express para sites e projetos** no âmbito de **Projetos**Web  >  **de Opções de**  >  **Ferramentas e Soluções.**  >  **Web Projects**
+- Para aplicações web de ASP.NET implementadas localmente, pode alterar o processamento de anfitriões selecionando **Utilize a versão de 64 bits do IIS Express para sites e projetos** no âmbito de **Projetos** Web  >  **de Opções de**  >  **Ferramentas e Soluções.**  >  **Web Projects**
 
 - Para ASP.NET aplicações web implementadas no Azure, pode alterar o processamento do anfitrião selecionando a plataforma **de 64 bits** nas **definições de Aplicação** no portal Azure.
 
 > [!NOTE] 
-> Por predefinição, novos projetos do Visual Studio estão definidos para **Qualquer CPU**. Recomendamos que desemalte o seu projeto para **x64** para que não mude para **x86**. Um projeto definido para **Qualquer CPU** pode facilmente mudar para **x86** se for adicionada uma dependência apenas x86.<br/>
+> Por predefinição, novos projetos do Visual Studio estão definidos para **Qualquer CPU** . Recomendamos que desemalte o seu projeto para **x64** para que não mude para **x86** . Um projeto definido para **Qualquer CPU** pode facilmente mudar para **x86** se for adicionada uma dependência apenas x86.<br/>
 > ServiceInterop.dll precisa estar na pasta da qual o SDK DLL está a ser executado. Isto só deve ser uma preocupação se copiar manualmente DLLs ou tiver sistemas de construção/implementação personalizados.
     
 **Ligue a recolha de lixo do lado do servidor (GC)**
@@ -135,7 +136,7 @@ SQL .NET SDK 1.9.0 e posterior suporte consultas paralelas, que permitem consult
 - `MaxDegreeOfParallelism` controla o número máximo de divisórias que podem ser consultadas em paralelo. 
 - `MaxBufferedItemCount` controla o número de resultados pré-recáveis.
 
-**_Grau de sintonização do paralelismo_*_
+**_Grau de sintonização do paralelismo_* _
 
 A consulta paralela funciona consultando várias divisórias em paralelo. Mas os dados de uma partição individual são recolhidos em série no que diz respeito à consulta. A fixação `MaxDegreeOfParallelism` em [SDK V2](sql-api-sdk-dotnet.md) para o número de divisórias tem a melhor hipótese de alcançar a consulta mais performante, desde que todas as outras condições do sistema permaneçam as mesmas. Se não souber o número de divisórias, pode definir o grau de paralelismo para um número elevado. O sistema escolherá o mínimo (número de divisórias, entrada fornecida pelo utilizador) como o grau de paralelismo.
 
@@ -147,7 +148,7 @@ A consulta paralela é projetada para pré-obter resultados enquanto o lote atua
 
 A pré-busca funciona da mesma forma, independentemente do grau de paralelismo, e há um único tampão para os dados de todas as divisórias.  
 
-_*Implementar recuos em intervalos De novo**
+_ *Implementar recuos em intervalos De novo**
 
 Durante os testes de desempenho, deverá aumentar a carga até que uma pequena taxa de pedidos seja acelerada. Se os pedidos forem acelerados, a aplicação do cliente deve recuar no acelerador para o intervalo de retagem especificado pelo servidor. Respeitar o recuo garante que passa o mínimo de tempo à espera entre as retrações. 
 

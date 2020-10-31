@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 361b27ce84417b30fe58ac7651f70f8c72f8a16a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a4e8ec75d6610e19f241d2047518c3a43132a6e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627377"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079024"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior 
 
@@ -55,7 +55,7 @@ Este artigo fornece-lhe orientações de resolução de problemas sobre como res
 
 Este comando apresenta uma caixa de diálogo que lhe fornece detalhes sobre o estado de união.
 
-![Local de trabalho Junte-se a Janelas](./media/troubleshoot-hybrid-join-windows-legacy/01.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/01.png" alt-text="Screenshot do Workplace Join for Windows dialog box. Texto que inclui um endereço de e-mail afirma que um determinado dispositivo é associado a um local de trabalho." border="false":::
 
 ## <a name="step-2-evaluate-the-hybrid-azure-ad-join-status"></a>Passo 2: Avaliar o estatuto de ad azure híbrido 
 
@@ -65,18 +65,18 @@ Se o dispositivo não foi híbrido Azure AD, pode tentar fazer a ad AD híbrida,
 
 - Um FS AD mal configurado ou problemas de Ad ou Rede Azure
 
-    ![Local de trabalho Junte-se a Janelas](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/02.png" alt-text="Screenshot do Workplace Join for Windows dialog box. Texto que inclui um endereço de e-mail afirma que um determinado dispositivo é associado a um local de trabalho." border="false":::
     
    - Autoworkplace.exe é incapaz de autenticar silenciosamente com Azure AD ou AD FS. Isto pode ser causado por falta ou configuração errada AD FS (para domínios federados) ou falta ou configuração errada Azure AD Sem Emenda Sign-On (para domínios geridos) ou problemas de rede. 
    - Pode ser que a autenticação multi-factor (MFA) esteja ativada/configurada para o utilizador e a WIAORMULTIAUTHN não esteja configurada no servidor AD FS. 
-   - Outra possibilidade é que a página home realm discovery (HRD) esteja à espera da interação do utilizador, o que impede ** queautoworkplace.exe** solicitem silenciosamente um token.
+   - Outra possibilidade é que a página home realm discovery (HRD) esteja à espera da interação do utilizador, o que impede **queautoworkplace.exe** solicitem silenciosamente um token.
    - Pode ser que os URLs AD FS e Azure AD estejam desaparecidos na zona intranet do IE no cliente.
    - Problemas de conectividade de rede podem estar a impedir **autoworkplace.exe** de chegar em AD FS ou nos URLs AD Azure. 
    - **Autoworkplace.exe** requer que o cliente tenha linha de visão direta do cliente para o controlador de domínio AD da organização, o que significa que a adada híbrida Azure só tem sucesso quando o cliente está ligado à intranet da organização.
    - A sua organização utiliza o Azure AD Seamless Single Sign-On `https://autologon.microsoftazuread-sso.com` ou não está presente nas `https://aadg.windows.net.nsatc.net` definições intranet do dispositivo e **permite que as atualizações para a barra de estado via script** não estejam ativadas para a zona Intranet.
 - Não está inscrito como utilizador de domínio
 
-   ![Local de trabalho Junte-se a Janelas](./media/troubleshoot-hybrid-join-windows-legacy/03.png)
+   :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/03.png" alt-text="Screenshot do Workplace Join for Windows dialog box. Texto que inclui um endereço de e-mail afirma que um determinado dispositivo é associado a um local de trabalho." border="false":::
 
    Existem algumas razões diferentes para que isto possa ocorrer:
 
@@ -84,11 +84,11 @@ Se o dispositivo não foi híbrido Azure AD, pode tentar fazer a ad AD híbrida,
    - O cliente não é capaz de se ligar a um controlador de domínio.    
 - Foi alcançada uma quota
 
-    ![Local de trabalho Junte-se a Janelas](./media/troubleshoot-hybrid-join-windows-legacy/04.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/04.png" alt-text="Screenshot do Workplace Join for Windows dialog box. Texto que inclui um endereço de e-mail afirma que um determinado dispositivo é associado a um local de trabalho." border="false":::
 
 - O serviço não responde 
 
-    ![Local de trabalho Junte-se a Janelas](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
+    :::image type="content" source="./media/troubleshoot-hybrid-join-windows-legacy/05.png" alt-text="Screenshot do Workplace Join for Windows dialog box. Texto que inclui um endereço de e-mail afirma que um determinado dispositivo é associado a um local de trabalho." border="false":::
 
 Também pode encontrar as informações de estado no registo do evento em: **Aplicações e Serviços Log\Microsoft-Workplace Join**
   
@@ -97,7 +97,7 @@ Também pode encontrar as informações de estado no registo do evento em: **Apl
 - O seu computador não está ligado à rede interna da sua organização ou a uma VPN com uma ligação ao controlador de domínio AD no local.
 - Está ligado ao seu computador com uma conta de computador local. 
 - Problemas de configuração do serviço: 
-   - O servidor AD FS não foi configurado para suportar **WIAORMULTIAUTHN**. 
+   - O servidor AD FS não foi configurado para suportar **WIAORMULTIAUTHN** . 
    - A floresta do seu computador não tem nenhum objeto de Ponto de Ligação de Serviço que indique o seu nome de domínio verificado em Azure AD 
    - Ou se o seu domínio for gerido, então o SSO sem emenda não foi configurado ou funcionando.
    - Um utilizador atingiu o limite dos dispositivos. 

@@ -9,14 +9,15 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: 708a7139aec7b8d3fe9e5f08df2c5e93b99d0668
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b714c2c1c9524741d2dc0b7e8ff3ed082cadd106
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476795"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079178"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Problemas de resolução de problemas quando utiliza Azure Cosmos DB Java SDK v4 com contas API SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [SDK v4 de Java](troubleshoot-java-sdk-v4-sql.md)
@@ -182,7 +183,7 @@ log4j.rootLogger=INFO, A1
 
 log4j.category.com.azure.cosmos=DEBUG
 #log4j.category.io.netty=INFO
-#log4j.category.io.reactivex=INFO
+#log4j.category.io.projectreactor=INFO
 # A1 is set to be a ConsoleAppender.
 log4j.appender.A1=org.apache.log4j.ConsoleAppender
 

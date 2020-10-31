@@ -1,18 +1,18 @@
 ---
-title: Pré-visualização - Adicione uma piscina de nó de ponto a um cluster Azure Kubernetes Service (AKS)
+title: Adicionar um conjunto de nós spot a um cluster do Azure Kubernetes Service (AKS)
 description: Saiba como adicionar uma piscina de nó de ponto a um cluster Azure Kubernetes Service (AKS).
 services: container-service
 ms.service: container-service
 ms.topic: article
-ms.date: 02/25/2020
-ms.openlocfilehash: dbb003c287a18810c2c14c4f2ea401fa55cca427
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/19/2020
+ms.openlocfilehash: 5fd97560c3a6e41b49beb957c7b8d79369799c21
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87987295"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078956"
 ---
-# <a name="preview---add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Pré-visualização - Adicione uma piscina de nó de ponto a um cluster Azure Kubernetes Service (AKS)
+# <a name="add-a-spot-node-pool-to-an-azure-kubernetes-service-aks-cluster"></a>Adicionar um conjunto de nós spot a um cluster do Azure Kubernetes Service (AKS)
 
 Uma piscina de nó de pontos é uma piscina de nó apoiada por um [conjunto de escala de máquina virtual spot][vmss-spot]. A utilização de VMs spot para nós com o seu cluster AKS permite-lhe tirar partido da capacidade não utilizado em Azure com uma poupança significativa de custos. A quantidade de capacidade disponível não utetilizada variará com base em muitos fatores, incluindo o tamanho do nó, região e hora do dia.
 
@@ -24,49 +24,13 @@ Neste artigo, você adiciona uma piscina de nó de ponto secundário a um cluste
 
 Este artigo pressupõe uma compreensão básica dos conceitos kubernetes e Azure Load Balancer. Para obter mais informações, consulte [os conceitos fundamentais da Kubernetes para o Serviço Azure Kubernetes (AKS)][kubernetes-concepts].
 
-Esta funcionalidade encontra-se em pré-visualização.
-
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Quando criar um cluster para utilizar uma piscina de nó de ponto, esse cluster também deve usar conjuntos de balança de máquina virtual para piscinas de nó e o balançador de carga *SKU padrão.* Também deve adicionar uma piscina adicional de nó depois de criar o seu cluster para usar uma piscina de nó de ponto. A adição de um conjunto adicional de nós é coberta num passo posterior, mas primeiro precisa de ativar uma funcionalidade de pré-visualização.
+Quando criar um cluster para utilizar uma piscina de nó de ponto, esse cluster também deve usar conjuntos de balança de máquina virtual para piscinas de nó e o balançador de carga *SKU padrão.* Também deve adicionar uma piscina adicional de nó depois de criar o seu cluster para usar uma piscina de nó de ponto. A adição de uma piscina adicional de nó é coberta num passo posterior.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-### <a name="register-spotpoolpreview-preview-feature"></a>Funcionalidade de pré-visualização do spotpoolpreview
-
-Para criar um cluster AKS que utilize um conjunto de nós spot, você deve ativar a bandeira de funcionalidade *spotpoolpreview* na sua subscrição. Esta funcionalidade fornece o mais recente conjunto de melhorias de serviço ao configurar um cluster.
-
-Registe a bandeira de *características spotpoolpreview* utilizando o comando [de registo de recurso az,][az-feature-register] como mostra o seguinte exemplo:
-
-```azurecli-interactive
-az feature register --namespace "Microsoft.ContainerService" --name "spotpoolpreview"
-```
-
-Demora alguns minutos para que o estado seja *apresentado.* Pode verificar o estado de registo utilizando o comando [da lista de recursos az:][az-feature-list]
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/spotpoolpreview')].{Name:name,State:properties.state}"
-```
-
-Quando estiver pronto, reaprovi o registo do fornecedor de recursos *Microsoft.ContainerService* utilizando o comando [de registo do fornecedor az:][az-provider-register]
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
-
-### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview
-
-Para criar um cluster AKS que utilize uma piscina de nó de ponto, você precisa da versão de extensão CLI *de pré-visualização aks* 0.4.32 ou superior. Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
- 
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+Este artigo requer que esteja a executar a versão 2.14 ou posterior do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
 ### <a name="limitations"></a>Limitações
 
@@ -78,7 +42,7 @@ Aplicam-se as seguintes limitações quando cria e gere clusters AKS com uma pis
 * Uma piscina de nó de pontos deve utilizar conjuntos de balança de máquina virtual.
 * Não é possível alterar scaleSetPriority ou SpotMaxPrice após a criação.
 * Ao configurar o SpotMaxPrice, o valor deve ser de -1 ou um valor positivo com até cinco casas decimais.
-* Uma piscina de nó de pontos terá a etiqueta *kubernetes.azure.com/scalesetpriority:spot,* a mancha *kubernetes.azure.com/scalesetpriority=spot:NoSchedule*, e as cápsulas do sistema terão anti-afinidade.
+* Uma piscina de nó de pontos terá a etiqueta *kubernetes.azure.com/scalesetpriority:spot,* a mancha *kubernetes.azure.com/scalesetpriority=spot:NoSchedule* , e as cápsulas do sistema terão anti-afinidade.
 * Deve adicionar uma [tolerância correspondente][spot-toleration] para agendar cargas de trabalho numa piscina de nó no local.
 
 ## <a name="add-a-spot-node-pool-to-an-aks-cluster"></a>Adicionar um conjunto de nós spot a um cluster do AKS
@@ -100,7 +64,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-Por padrão, cria uma piscina de nó com *prioridade* de *Regular* no seu cluster AKS quando cria um cluster com várias piscinas de nós. O comando acima adiciona uma piscina de nó auxiliar a um cluster AKS existente com *uma prioridade* do *Spot*. A *prioridade* do *Spot* faz da piscina de nós uma piscina de nó de ponto. O parâmetro *da política de despejo* é definido para *Eliminar* no exemplo acima, que é o valor padrão. Quando define a [política de despejo][eviction-policy] para *Eliminar,* os nós no conjunto de escala subjacente do conjunto de nós são apagados quando são despejados. Também pode definir a política de despejo para *Deallocate.* Quando se define a política de despejo para *Deallocate,* os nós na escala subjacente são definidos para o estado de paragem após o despejo. Os nós na contagem de estado de negociação parada contra a sua quota de computação e podem causar problemas com a escala de cluster ou a atualização. Os valores *prioritários* e *de política de despejo* só podem ser definidos durante a criação de agrupamentos de nó. Estes valores não podem ser atualizados mais tarde.
+Por padrão, cria uma piscina de nó com *prioridade* de *Regular* no seu cluster AKS quando cria um cluster com várias piscinas de nós. O comando acima adiciona uma piscina de nó auxiliar a um cluster AKS existente com *uma prioridade* do *Spot* . A *prioridade* do *Spot* faz da piscina de nós uma piscina de nó de ponto. O parâmetro *da política de despejo* é definido para *Eliminar* no exemplo acima, que é o valor padrão. Quando define a [política de despejo][eviction-policy] para *Eliminar,* os nós no conjunto de escala subjacente do conjunto de nós são apagados quando são despejados. Também pode definir a política de despejo para *Deallocate.* Quando se define a política de despejo para *Deallocate,* os nós na escala subjacente são definidos para o estado de paragem após o despejo. Os nós na contagem de estado de negociação parada contra a sua quota de computação e podem causar problemas com a escala de cluster ou a atualização. Os valores *prioritários* e *de política de despejo* só podem ser definidos durante a criação de agrupamentos de nó. Estes valores não podem ser atualizados mais tarde.
 
 O comando também permite o [autoescalador][cluster-autoscaler]do cluster, que é recomendado para ser utilizado com piscinas de nó no local. Com base nas cargas de trabalho que estão a funcionar no seu cluster, o cluster autoscaler escala e escala o número de nós na piscina de nós. Para piscinas de nó pontuais, o autoscaler do cluster aumentará o número de nós após um despejo se ainda forem necessários nós adicionais. Se alterar o número máximo de nós que um conjunto de nós pode ter, também precisa de ajustar o `maxCount` valor associado ao autoescalador do cluster. Se não utilizar um autoescalador de cluster, após o despejo, o pool de spot irá eventualmente diminuir para zero e exigirá uma operação manual para receber quaisquer nós de spot adicionais.
 
@@ -115,7 +79,7 @@ Para verificar se a piscina do nó foi adicionada como uma piscina de nó de pon
 az aks nodepool show --resource-group myResourceGroup --cluster-name myAKSCluster --name spotnodepool
 ```
 
-Confirmar *escalaSetPrioridade* é *Spot*.
+Confirmar *escalaSetPrioridade* é *Spot* .
 
 Para agendar uma vagem para correr num nó de ponto, adicione uma tolerância que corresponda à mancha aplicada ao nó de ponto. O exemplo a seguir mostra uma parte de um ficheiro yaml que define uma tolerância que corresponde a uma *mancha kubernetes.azure.com/scalesetpriority=spot:NoSchedule* usada no passo anterior.
 
@@ -148,14 +112,8 @@ Neste artigo, você aprendeu a adicionar uma piscina de nó de ponto a um cluste
 <!-- LINKS - Internal -->
 [aks-support-policies]: support-policies.md
 [aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-group-deploy-create]: /cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create
+[azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
-[az-provider-register]: /cli/azure/provider#az-provider-register
-[az-template-deploy]: ../azure-resource-manager/templates/deploy-cli.md#deployment-scope
 [cluster-autoscaler]: cluster-autoscaler.md
 [eviction-policy]: ../virtual-machine-scale-sets/use-spot.md#eviction-policy
 [kubernetes-concepts]: concepts-clusters-workloads.md

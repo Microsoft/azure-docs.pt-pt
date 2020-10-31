@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: d5683fb64c9b5df027ff8b0f50cec49e9bce5808
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0e9010ba79e4253d7569a0bba79fa05423e1a1ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475129"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081761"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB consulta folhas de batota
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 As **folhas de fraude de consulta Azure Cosmos DB** ajudam-no a escrever rapidamente consultas para os seus dados, exibindo consultas comuns de base de dados, operações, funções e operadores em folhas de referência PDF fáceis de imprimir. As folhas de batota incluem informações de referência para as APIs SQL, MongoDB, Table e Gremlin. 
 

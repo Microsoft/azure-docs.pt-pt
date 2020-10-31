@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb06d101170685bea5ff231612e9ffbf8df467da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476999"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079296"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Custo Total de Propriedade (TCO) com Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Azure Cosmos DB foi concebido com a funcionalidade detalhada de multi-inquilinos e governação de recursos. Este design permite ao Azure Cosmos DB operar a um custo significativamente mais baixo e ajuda os utilizadores a poupar. Atualmente, o Azure Cosmos DB suporta mais de 280 cargas de trabalho de clientes num único computador com a densidade continuamente a aumentar e milhares de cargas de trabalho de clientes num cluster. Faz o balanceamento de carga das réplicas das cargas de trabalho dos clientes em diferentes computadores num cluster e em vários clusters num datacenter. Para saber mais, consulte [Azure Cosmos DB: Empurrando a fronteira das bases de dados distribuídas globalmente.](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/) Devido à governação de recursos, ao arrendamento e à integração nativa com o resto da infraestrutura Azure, a Azure Cosmos DB é, em média, 4 a 6 vezes mais barata do que a MongoDB, Cassandra ou outros OSS NoSQL a funcionar em IaaS e até 10 vezes mais barato do que os motores de base de dados que estão a funcionar no local. Consulte o artigo sobre [o custo total de (não) propriedade de um serviço de nuvem de base de dados NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 

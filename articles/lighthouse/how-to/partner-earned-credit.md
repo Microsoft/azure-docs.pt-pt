@@ -1,14 +1,14 @@
 ---
 title: Ligue o seu parceiro de ID para acompanhar o seu impacto em recursos delegados
 description: Saiba como associar o seu parceiro ID a receber o parceiro de crédito adquirido (PEC) sobre os recursos do cliente que gere através do Farol Azure.
-ms.date: 10/13/2020
+ms.date: 10/30/2020
 ms.topic: how-to
-ms.openlocfilehash: 95483cfabb7632182a7c23ae4963f2d38a2bd2c3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: fcbcc70e380116b8e9f9b1c1e365dee1adb87a99
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019919"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080282"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Ligue o seu parceiro de ID para acompanhar o seu impacto em recursos delegados 
 
@@ -42,7 +42,9 @@ Uma vez que a conta tenha sido [ligada ao seu ID MPN Associado](../../cost-manag
 
 Pode [ver detalhes do PEC no portal Azure](/partner-center/partner-earned-credit-explanation#azure-cost-management) e confirmar quais os custos que receberam o benefício do PEC. Lembre-se que o PEC só se aplica aos clientes da CSP que assinaram o MCA e estão ao abrigo do plano Azure.
 
-Se seguiu os passos acima, e não vê a associação, abra um pedido de apoio no portal Azure.
+Se seguiu os passos acima, e não vê a associação esperada, abra um pedido de apoio no portal Azure.
+
+Também pode utilizar o [Partner Center SDK](/partner-center/develop/get-invoice-unbilled-consumption-lineitems) e filtrar `rateOfPartnerEarnedCredit` para automatizar a verificação do PEC para uma subscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 

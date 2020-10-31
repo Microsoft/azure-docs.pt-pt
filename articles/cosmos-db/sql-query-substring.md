@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d4462fc407093b23510bddfae4d9f55d68f8c0fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cb96270d1db970230e3abb528b58b7341d652f0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303703"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081489"
 ---
 # <a name="substring-azure-cosmos-db"></a>SUBSTRING (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devolve parte de uma expressão de corda a partir da posição de base de caracteres especificado e continua até ao comprimento especificado, ou até à extremidade da cadeia.  
   
 ## <a name="syntax"></a>Sintaxe
@@ -29,7 +31,7 @@ SUBSTRING(<str_expr>, <num_expr1>, <num_expr2>)
    É uma expressão de corda.
   
 *num_expr1*  
-   É uma expressão numérica para denotar o personagem inicial. Um valor de 0 é o primeiro personagem de *str_expr*.
+   É uma expressão numérica para denotar o personagem inicial. Um valor de 0 é o primeiro personagem de *str_expr* .
   
 *num_expr2*  
    É uma expressão numérica para denotar o número máximo de caracteres de *str_expr* a ser devolvido. Um valor de 0 ou menos resulta em corda vazia.
