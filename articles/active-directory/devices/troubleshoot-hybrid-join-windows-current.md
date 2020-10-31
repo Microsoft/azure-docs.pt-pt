@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e235bf90568a1382a5ecee3ff4d2283aaa32f10b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433658"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083221"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Resolver problemas de dispositivos associados ao Azure Active Directory híbrido
 
@@ -99,7 +99,7 @@ Este campo indica se o dispositivo está ou não ligado a um Ative Directory no 
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined : NO
 
-Este campo indica se o dispositivo está registado no Azure AD como um dispositivo pessoal (marcado como *Workplace Joined*). Este valor deve ser **NO** para um computador de domínio que também é híbrido Azure AD. Se o valor for **SIM,** foi adicionada uma conta de trabalho ou escola antes da conclusão da ad azure híbrida. Neste caso, a conta é ignorada quando se utiliza a versão 1607 ou posterior do Windows 10.
+Este campo indica se o dispositivo está registado no Azure AD como um dispositivo pessoal (marcado como *Workplace Joined* ). Este valor deve ser **NO** para um computador de domínio que também é híbrido Azure AD. Se o valor for **SIM,** foi adicionada uma conta de trabalho ou escola antes da conclusão da ad azure híbrida. Neste caso, a conta é ignorada quando se utiliza a versão 1607 ou posterior do Windows 10.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined : SIM
 
@@ -132,12 +132,12 @@ O campo 'Fase de Erro' denota a fase da falha de junção enquanto o 'Código de
 
 Utilize registos do Visualizador de Eventos para localizar o código de fase e erro para as falhas de junção.
 
-1. Abra os registos de eventos **de registo do dispositivo do utilizador** no visualizador do evento. Localizado sob **aplicações e serviços registam o**registo do dispositivo do  >  **Microsoft**  >  **Windows**  >  **utilizador** do Microsoft Windows
+1. Abra os registos de eventos **de registo do dispositivo do utilizador** no visualizador do evento. Localizado sob **aplicações e serviços registam o** registo do dispositivo do  >  **Microsoft**  >  **Windows**  >  **utilizador** do Microsoft Windows
 2. Procure eventos com os seguintes eventosIDs 304, 305, 307.
 
-![Evento de registo de falhas](./media/troubleshoot-hybrid-join-windows-current/1.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="Screenshot do espectador do evento. É selecionado um evento com O I D 304, e as suas informações são exibidas, com o código de erro e a fase realçadas." border="false":::
 
-![Evento de registo de falhas](./media/troubleshoot-hybrid-join-windows-current/2.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Screenshot do espectador do evento. É selecionado um evento com O I D 304, e as suas informações são exibidas, com o código de erro e a fase realçadas." border="false":::
 
 ### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>Passo 4: Verificar possíveis causas e resoluções das listas abaixo
 
@@ -207,10 +207,10 @@ Procure "DRS Discovery Test" na secção 'Dados de Diagnóstico' da saída do es
 
 Utilize registos do Visualizador de Eventos para localizar a fase e o código de erro para as falhas de junção.
 
-1. Abra os registos de eventos **de registo do dispositivo do utilizador** no visualizador do evento. Localizado sob **aplicações e serviços registam o**registo do dispositivo do  >  **Microsoft**  >  **Windows**  >  **utilizador** do Microsoft Windows
+1. Abra os registos de eventos **de registo do dispositivo do utilizador** no visualizador do evento. Localizado sob **aplicações e serviços registam o** registo do dispositivo do  >  **Microsoft**  >  **Windows**  >  **utilizador** do Microsoft Windows
 2. Procure eventos com os seguintes eventosIDs 201
 
-![Evento de registo de falhas](./media/troubleshoot-hybrid-join-windows-current/5.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Screenshot do espectador do evento. É selecionado um evento com O I D 304, e as suas informações são exibidas, com o código de erro e a fase realçadas." border="false":::
 
 ###### <a name="network-errors"></a>Erros de rede
 
@@ -252,10 +252,10 @@ Razões para falhar:
 
 Utilize registos do Visualizador de Eventos para localizar o código de erro, o código do suberror, o código de erro do servidor e a mensagem de erro do servidor.
 
-1. Abra os registos de eventos **de registo do dispositivo do utilizador** no visualizador do evento. Localizado sob **aplicações e serviços registam o**registo do dispositivo do  >  **Microsoft**  >  **Windows**  >  **utilizador** do Microsoft Windows
+1. Abra os registos de eventos **de registo do dispositivo do utilizador** no visualizador do evento. Localizado sob **aplicações e serviços registam o** registo do dispositivo do  >  **Microsoft**  >  **Windows**  >  **utilizador** do Microsoft Windows
 2. Procure eventos com o seguinte eventoID 305
 
-![Evento de registo de falhas](./media/troubleshoot-hybrid-join-windows-current/3.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Screenshot do espectador do evento. É selecionado um evento com O I D 304, e as suas informações são exibidas, com o código de erro e a fase realçadas." border="false":::
 
 ##### <a name="configuration-errors"></a>Erros de configuração
 
@@ -327,10 +327,10 @@ O campo 'Tipo de Registo' denota o tipo de junção realizada.
 
 Utilize registos do Visualizador de Eventos para localizar a fase e o código de erro para as falhas de junção.
 
-1. Abra os registos de eventos **de registo do dispositivo do utilizador** no visualizador do evento. Localizado sob **aplicações e serviços registam o**registo do dispositivo do  >  **Microsoft**  >  **Windows**  >  **utilizador** do Microsoft Windows
+1. Abra os registos de eventos **de registo do dispositivo do utilizador** no visualizador do evento. Localizado sob **aplicações e serviços registam o** registo do dispositivo do  >  **Microsoft**  >  **Windows**  >  **utilizador** do Microsoft Windows
 2. Procure eventos com os seguintes eventosIDs 204
 
-![Evento de registo de falhas](./media/troubleshoot-hybrid-join-windows-current/4.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Screenshot do espectador do evento. É selecionado um evento com O I D 304, e as suas informações são exibidas, com o código de erro e a fase realçadas." border="false":::
 
 ##### <a name="http-errors-returned-from-drs-server"></a>ERROS HTTP devolvidos do servidor DRS
 
@@ -373,13 +373,13 @@ Utilize registos do Visualizador de Eventos para localizar a fase e o código de
 
 ##### <a name="federated-join-server-errors"></a>Federado juntam-se a erros de servidor
 
-| Código de erro do servidor | Mensagem de erro do servidor | Possíveis razões | Resolução |
+| Código de erro do servidor | Mensagem de erro do servidor | Motivos possíveis | Resolução |
 | --- | --- | --- | --- |
 | Diretório | O seu pedido foi temporariamente estrangulado. Por favor, tente depois de 300 segundos. | Erro esperado. Possivelmente devido a fazer vários pedidos de registo em rápida sucessão. | Recandidutar após o período de arrefecimento |
 
 ##### <a name="sync-join-server-errors"></a>Sync juntar-se a erros do servidor
 
-| Código de erro do servidor | Mensagem de erro do servidor | Possíveis razões | Resolução |
+| Código de erro do servidor | Mensagem de erro do servidor | Motivos possíveis | Resolução |
 | --- | --- | --- | --- |
 | Diretório | AADSTS90002: Inquilino <UUID> não encontrado. Este erro pode ocorrer se não houver subscrições ativas para o arrendatário. Consulte o administrador de subscrição. | ID do inquilino em objeto SCP está incorreto | Certifique-se de que o objeto SCP está configurado com o ID do inquilino Azure AD correto e com assinaturas ativas e presentes no arrendatário. |
 | Diretório | O objeto do dispositivo pelo ID dado não é encontrado. | Erro esperado para sincronização. O objeto do dispositivo não sincronizou de AD a AZure AD | Aguarde que a sincronização do Azure AD Connect esteja concluída e a próxima tentativa de junção após a conclusão da sincronização resolverá o problema |
@@ -389,12 +389,12 @@ Utilize registos do Visualizador de Eventos para localizar a fase e o código de
 
 Descarregue o ficheiro Auth.zip a partir de [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Desaperte os ficheiros e rebatize os ficheiros incluídos **start-auth.txt** e **stop-auth.txt** para **start-auth.cmd** e **stop-auth.cmd**.
-1. A partir de um pedido de comando elevado, executar **start-auth.cmd**.
+1. Desaperte os ficheiros e rebatize os ficheiros incluídos **start-auth.txt** e **stop-auth.txt** para **start-auth.cmd** e **stop-auth.cmd** .
+1. A partir de um pedido de comando elevado, executar **start-auth.cmd** .
 1. Utilize a Conta Switch para alternar para outra sessão com o utilizador problemático.
 1. Reproduza o problema.
 1. Utilize a Conta Switch para alternar de volta para a sessão de administração que executa o rastreio.
-1. A partir de um pedido de comando elevado, executar **stop-auth.cmd**.
+1. A partir de um pedido de comando elevado, executar **stop-auth.cmd** .
 1. Zip e envie a pasta **Authlogs** da pasta de onde os scripts foram executados.
 
 ## <a name="troubleshoot-post-join-issues"></a>Problemas pós-adere

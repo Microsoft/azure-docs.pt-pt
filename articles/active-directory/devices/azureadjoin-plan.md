@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de383bfa9f943cd5644d35ed83db8a80ec8017bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a559b29502adb1c507b1543463d84eb3bd15d5a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653218"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083291"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planeie a sua Azure AD aderir à implementação
 
@@ -91,7 +91,7 @@ Não é possível utilizar cartões inteligentes ou autenticação baseada em ce
 Se criar utilizadores no seu:
 
 - **No local, Ative Directory,** é necessário sincronizá-los para Azure AD utilizando [o Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
-- **Azure AD**, não é necessária uma configuração adicional.
+- **Azure AD** , não é necessária uma configuração adicional.
 
 As UPNs no local que são diferentes das UPNs AD Azure não são suportadas em dispositivos aderidos Azure AD. Se os seus utilizadores utilizarem uma UPN no local, deverá planear mudar para a utilização da sua UPN primária em Azure AD.
 
@@ -199,11 +199,11 @@ Aqui está uma comparação destas três abordagens
  
 | Elemento | Configuração de self-service | Windows Autopilot | Inscrição em massa |
 | --- | --- | --- | --- |
-| Requerem interação do utilizador para configurar | Sim | Sim | Não |
-| Exigir esforço de TI | Não | Sim | Sim |
+| Requerem interação do utilizador para configurar | Yes | Yes | No |
+| Exigir esforço de TI | No | Yes | Sim |
 | Fluxos aplicáveis | Definições de & OOBE | Apenas OOBE | Apenas OOBE |
 | Direitos de administrador local para o utilizador primário | Sim, por defeito. | Configurável | Não |
-| Requera suporte ao OEM do dispositivo | Não | Sim | Não |
+| Requera suporte ao OEM do dispositivo | No | Yes | No |
 | Versões suportadas | 1511+ | 1709+ | 1703+ |
  
 Escolha a sua abordagem de implantação ou abordagens, revendo o quadro acima e revendo as seguintes considerações para a adoção de qualquer uma das abordagens:  
@@ -245,11 +245,11 @@ Antes de configurar as suas definições de mobilidade, poderá ter de adicionar
 
 **Para adicionar um provedor de MDM:**
 
-1. Na **página Azure Ative Directory**, na secção **Gerir,** clique `Mobility (MDM and MAM)` em . 
-1. Clique **na aplicação Adicionar**.
+1. Na **página Azure Ative Directory** , na secção **Gerir,** clique `Mobility (MDM and MAM)` em . 
+1. Clique **na aplicação Adicionar** .
 1. Selecione o seu fornecedor DEM na lista.
 
-   ![Adicionar uma aplicação](./media/azureadjoin-plan/04.png)
+   :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Screenshot do Diretório Ativo Azure Adicione uma página de aplicação. Vários fornecedores M D M estão listados." border="false":::
 
 Selecione o seu fornecedor DEM para configurar as definições relacionadas. 
 
@@ -261,8 +261,8 @@ Selecione **Some** ou **All** com base no âmbito da sua implementação.
 
 Com base no seu âmbito, um dos seguintes acontece: 
 
-- **O utilizador está no âmbito do MDM**: Se tiver uma subscrição Azure AD Premium, a inscrição de MDM é automatizada juntamente com a ad Azure. Todos os utilizadores com âmbito de aplicação devem ter uma licença adequada para o seu MDM. Se a inscrição no MDM falhar neste cenário, a adada Azure também será revertida.
-- **O utilizador não está no âmbito do MDM**: Se os utilizadores não estiverem no âmbito do MDM, a Azure AD junta-se a conclusões sem qualquer inscrição de MDM. Isto resulta num dispositivo não gerido.
+- **O utilizador está no âmbito do MDM** : Se tiver uma subscrição Azure AD Premium, a inscrição de MDM é automatizada juntamente com a ad Azure. Todos os utilizadores com âmbito de aplicação devem ter uma licença adequada para o seu MDM. Se a inscrição no MDM falhar neste cenário, a adada Azure também será revertida.
+- **O utilizador não está no âmbito do MDM** : Se os utilizadores não estiverem no âmbito do MDM, a Azure AD junta-se a conclusões sem qualquer inscrição de MDM. Isto resulta num dispositivo não gerido.
 
 ### <a name="mdm-urls"></a>URLs MDM
 
@@ -272,7 +272,7 @@ Existem três URLs que estão relacionados com a sua configuração de MDM:
 - URL de deteção da MDM 
 - URL de conformidade da MDM
 
-![Adicionar uma aplicação](./media/azureadjoin-plan/06.png)
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Screenshot do Diretório Ativo Azure Adicione uma página de aplicação. Vários fornecedores M D M estão listados." border="false":::
 
 Cada URL tem um valor predefinido. Se estes campos estiverem vazios, contacte o seu fornecedor de MDM para mais informações.
 
@@ -284,7 +284,7 @@ O MAM não se aplica à aderimento da Azure AD.
 
 Se pretender ativar o roaming do Estado para a Azure AD para que os utilizadores possam sincronizar as suas definições através dos dispositivos, consulte [Enable Enterprise State Roaming in Azure Ative Directory](enterprise-state-roaming-enable.md). 
 
-**Recomendação**: Ative esta definição mesmo para dispositivos híbridos Azure AD.
+**Recomendação** : Ative esta definição mesmo para dispositivos híbridos Azure AD.
 
 ## <a name="configure-conditional-access"></a>Configure acesso condicional
 

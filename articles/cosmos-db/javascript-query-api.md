@@ -8,14 +8,15 @@ ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: f16498f0661ba918acd42b7964b649d0bbdf5841
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 116253e783595cf0e169c6a5774944dfd89f890e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495881"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082951"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Consulta JavaScript API em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Além de emitir consultas utilizando o SQL API em Azure Cosmos DB, o [Cosmos DB server-side SDK](https://github.com/Azure/azure-cosmosdb-js-server/) fornece uma interface JavaScript para realizar consultas otimizadas em Procedimentos e Gatilhos Armazenados cosmos. Não é preciso estar atento ao idioma SQL para utilizar esta interface JavaScript. A consulta JavaScript API permite-lhe construir programáticamente consultas, passando funções predicados em sequência de chamadas de função, com uma sintaxe familiar à matriz incorporada do ECMAScript5 e às populares bibliotecas JavaScript como Lodash. As consultas são analisadas pelo tempo de execução javaScript e executadas de forma eficiente usando índices DB Azure Cosmos.
 

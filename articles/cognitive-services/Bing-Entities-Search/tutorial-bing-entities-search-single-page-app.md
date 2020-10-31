@@ -11,18 +11,23 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 58bbda6d3b02042c6e512e03e108cd69fbd7ed51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fa09ee40ca646be6ee104c7b2d4428c92934337
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277330"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084634"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+
 A API de Pesquisa de Entidades do Bing permite-lhe procurar informações sobre *entidades* e *locais* na Web. Pode pedir um destes dois tipos de resultados, ou ambos, numa dada consulta. As definições dos locais e das entidades são indicadas abaixo.
 
-| Resultado | Descrição |
+| Resultado | Description |
 |-|-|
 |Entidades|Pessoas famosas, sítios conhecidos e coisas que podem ser encontradas por nome|
 |Realiza|Restaurantes, hotéis e outros negócios locais que podem ser encontrados por nome *ou* por tipo (restaurantes italianos)|
@@ -63,8 +68,8 @@ Para acompanhar o tutorial, precisa de chaves de subscrição para a API de Pesq
 
 * Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * Assim que tiver a sua assinatura Azure:
-  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso Bing Search "  target="_blank"> Crie um recurso de Pesquisa Bing no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
-  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Criar um recurso de Visão De Computador "  target="_blank"> Crie um recurso Bing Maps no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso Bing Search "  target="_blank"> Crie um recurso de Pesquisa Bing no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso** .
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Criar um recurso de Visão De Computador "  target="_blank"> Crie um recurso Bing Maps no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso** .
 
 ## <a name="app-components"></a>Componentes da aplicação
 
@@ -142,7 +147,7 @@ A tag `<body>` HTML inclui o atributo `onload` que chama `getSearchSubscriptionK
 
 O formulário HTML inclui os controlos seguintes:
 
-| Controlo | Descrição |
+| Controlo | Description |
 |-|-|
 |`where`|Um menu pendente para selecionar o mercado (localização e idioma) utilizado para a pesquisa.|
 |`query`|O campo de texto no qual introduzir os termos da pesquisa.|
@@ -442,7 +447,7 @@ function renderSearchResults(results) {
 
 ## <a name="rendering-result-items"></a>Compor os itens dos resultados
 
-O nosso código JavaScript tem um objeto, `searchItemRenderers`, que contém *compositores*, que são funções que geram o HTML para cada tipo de resultado da pesquisa.
+O nosso código JavaScript tem um objeto, `searchItemRenderers`, que contém *compositores* , que são funções que geram o HTML para cada tipo de resultado da pesquisa.
 
 ```javascript
 searchItemRenderers = { 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: f33cf20b76655a893fe7eebd9e6e6569d35de98f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d518461f8526a742a59d92140e2cf323e8bfc16
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005943"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082560"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Cláusula SELECT em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Cada consulta consiste numa `SELECT` cláusula e cláusulas opcionais [de E](sql-query-from.md) [ONDE,](sql-query-where.md) de acordo com os padrões ANSI SQL. Tipicamente, a fonte na `FROM` cláusula é enumerada, e a `WHERE` cláusula aplica um filtro na fonte para recuperar um subconjunto de itens JSON. A `SELECT` cláusula projeta então os valores JSON solicitados na lista selecionada.
 
@@ -101,4 +102,4 @@ Os resultados são:
 
 - [Introdução](sql-query-getting-started.md)
 - [Amostras de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Cláusula ONDE](sql-query-where.md)
+- [Cláusula WHERE](sql-query-where.md)

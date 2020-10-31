@@ -4,12 +4,12 @@ description: Não ver dados em Azure Application Insights? Tente aqui.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 05/21/2020
-ms.openlocfilehash: 2bf9b50c9b378d8624c311af5935b8cd0a28a31a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c053796dd887722d1d767229621c0a1ae004b5c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757984"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083172"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-netnet-core"></a>Resolução de problemas sem dados - Insights de aplicação para .NET/.NET Core
 
@@ -65,7 +65,7 @@ Correção:
 ## <a name="i-get-an-error-instrumentation-key-cannot-be-empty"></a><a name="emptykey"></a>Tenho um erro: "A chave de instrumentação não pode estar vazia"
 Parece que algo correu mal enquanto instalava Insights de Aplicação ou talvez um adaptador de registo.
 
-No Solution Explorer, clique com o botão direito do seu projeto e escolha **Insights de Aplicação > Configure Application Insights**. Receberá um diálogo que o convida a iniciar sessão no Azure e a criar um recurso Application Insights ou a reutilizar um existente.
+No Solution Explorer, clique com o botão direito do seu projeto e escolha **Insights de Aplicação > Configure Application Insights** . Receberá um diálogo que o convida a iniciar sessão no Azure e a criar um recurso Application Insights ou a reutilizar um existente.
 
 ## <a name="nuget-packages-are-missing-on-my-build-server"></a><a name="NuGetBuild"></a> "Pacotes NuGet(s) estão em falta" no meu servidor de construção
 *Tudo se constrói bem quando estou a depurar a minha máquina de desenvolvimento, mas tenho um erro do NuGet no servidor de construção.*
@@ -128,7 +128,7 @@ Correção:
   ![Screenshot que mostra executar a sua aplicação em modo de depuramento no Estúdio Visual.](./media/asp-net-troubleshoot-no-data/output-window.png)
 * No portal Application Insights, abrir [a Pesquisa de Diagnóstico](./diagnostic-search.md). Os dados geralmente aparecem aqui primeiro.
 * Clique no botão Refresh. A lâmina refresca-se periodicamente, mas também pode fazê-lo manualmente. O intervalo de atualização é maior para intervalos de tempo maiores.
-* Verifique se as teclas de instrumentação coincidem. Na lâmina principal da sua aplicação no portal Application Insights, no **drop-down Essentials,** veja a **tecla instrumentação**. Em seguida, no seu projeto no Visual Studio, abra ApplicationInsights.config e encontre o `<instrumentationkey>` . Verifique se as duas chaves são iguais. Se não:  
+* Verifique se as teclas de instrumentação coincidem. Na lâmina principal da sua aplicação no portal Application Insights, no **drop-down Essentials,** veja a **tecla instrumentação** . Em seguida, no seu projeto no Visual Studio, abra ApplicationInsights.config e encontre o `<instrumentationkey>` . Verifique se as duas chaves são iguais. Se não:  
   * No portal, clique em Application Insights e procure o recurso da aplicação com a chave certa; ou
   * No Visual Studio Solution Explorer, clique com o botão direito no projeto e escolha Application Insights, Configure. Reinicie a aplicação para enviar telemetria para o recurso certo.
   * Se não encontrar as teclas correspondentes, verifique se está a usar as mesmas credenciais de inscrição no Visual Studio do que no portal.
@@ -239,14 +239,14 @@ PerfView.exe collect -MaxCollectSec:300 -NoGui /onlyProviders=*Microsoft-Applica
 ```
 
 Pode modificar estes parâmetros conforme necessário:
-- **MaxCollectSec**. Desacorra este parâmetro para evitar que o PerfView entre a funcionar indefinidamente e afete o desempenho do seu servidor.
+- **MaxCollectSec** . Desacorra este parâmetro para evitar que o PerfView entre a funcionar indefinidamente e afete o desempenho do seu servidor.
 - **Apenas Os Protetores.** Desabroque este parâmetro apenas para recolher registos do SDK. Pode personalizar esta lista com base nas suas investigações específicas. 
 - **NoGui.** Desabrote este parâmetro para recolher registos sem o GUI.
 
 
 Para mais informações,
 - [Registo de traços de desempenho com PerfView](https://github.com/dotnet/roslyn/wiki/Recording-performance-traces-with-PerfView).
-- [Fontes de evento de insights de aplicação](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/Samples/ETW)
+- [Fontes de evento de insights de aplicação](https://github.com/microsoft/ApplicationInsights-dotnet/tree/develop/examples/ETW)
 
 ## <a name="collect-logs-with-dotnet-trace"></a>Recolher troncos com traços de dotnet
 

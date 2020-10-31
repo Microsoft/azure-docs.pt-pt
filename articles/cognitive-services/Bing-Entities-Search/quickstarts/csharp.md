@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f2197732a332e860af421f46d1049c2388043c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 52efd103bf510e7cca8a1e4a1d682948b498d64c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221235"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084855"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Quickstart: Enviar um pedido de pesquisa à API de Pesquisa de Entidade Bing usando C #
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Utilize este quickstart para fazer a sua primeira chamada para a API de Pesquisa de Entidade Bing e veja a resposta JSON. Esta simples aplicação C# envia uma consulta de pesquisa de notícias para a API, e exibe a resposta. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingEntitySearchv7.cs).
 
@@ -39,8 +44,8 @@ Embora esta aplicação esteja escrita em C#, a API é um serviço Web RESTful c
 1. Crie uma nova solução de consola C# no Visual Studio. 
 1. Adicione o [Newtonsoft.Jsno](https://www.nuget.org/packages/Newtonsoft.Json/) pacote NuGet.
     1. Clique com o botão direito no seu projeto no **Solution Explorer.**
-    2. **Selecione Gerir pacotes nuget**.
-    3. Procure e selecione *Newtonsoft.Jse, em*seguida, instale o pacote.
+    2. **Selecione Gerir pacotes nuget** .
+    3. Procure e selecione *Newtonsoft.Jse, em* seguida, instale o pacote.
 1. Em seguida, adicione os seguintes espaços de nome no ficheiro de código principal:
     
     ```csharp

@@ -10,20 +10,25 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 5ffd9f05bb429ba611a08d7985dbc9d509a9df0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b4e4eb84cecf2f68c50f0a40630cc2e6f34554f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66390172"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084211"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Suporte linguístico e regional para Bing Spell Check API
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Estes idiomas são suportados pela API de Verificação ortográfica de Bing (apenas no `spell` modo).
 
 Por favor, note que para trabalhar com qualquer outra língua que `en-US` não, o `mkt` deve ser definido e deve ser definido como foi descrito na referência Spell Check `Accept-Language` `setLang` [API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
-| Idioma    | Código do idioma |
+| Linguagem    | Código do idioma |
 |:----------- |:-------------:|
 | Árabe      | `ar`          |
 | Chinês (República Popular da China)     | `zh-CN`          |
@@ -66,7 +71,7 @@ Por favor, note que para trabalhar com qualquer outra língua que `en-US` não, 
 | Sueco     | `sv`          |
 | Turco     | `tr`          |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Página de Documentação dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/)
 - [Página de Produto dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)

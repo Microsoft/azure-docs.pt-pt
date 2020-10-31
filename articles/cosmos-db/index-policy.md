@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d0ee7dc8890c228617eaeee8b1cdc72d2230458e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489239"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082968"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 No Azure Cosmos DB, cada contentor tem uma política de indexação que determina como os itens do contentor devem ser indexados. A política de indexação predefinida para os contentores recém-criados indexa todas as propriedades de cada item e aplica índices de intervalo a qualquer cadeia ou número. Tal permite que obtenha um alto desempenho de consulta sem precisar de pensar na indexação e na gestão do índice antecipadamente.
 
-Em algumas situações, poderá querer substituir este comportamento automático para se adequar melhor aos requisitos. Pode personalizar a política de indexação de um recipiente definindo o seu *modo de indexação,* e incluir ou excluir *caminhos de propriedade*.
+Em algumas situações, poderá querer substituir este comportamento automático para se adequar melhor aos requisitos. Pode personalizar a política de indexação de um recipiente definindo o seu *modo de indexação,* e incluir ou excluir *caminhos de propriedade* .
 
 > [!NOTE]
 > O método de atualização das políticas de indexação descritas neste artigo aplica-se apenas à API SQL (Core) da Azure Cosmos DB. Saiba mais sobre a indexação na [API da Azure Cosmos para a MongoDB](mongodb-indexing.md)
@@ -26,11 +27,11 @@ Em algumas situações, poderá querer substituir este comportamento automático
 
 AZure Cosmos DB suporta dois modos de indexação:
 
-- **Consistente**: O índice é atualizado sincronizadamente à medida que cria, atualiza ou apaga itens. Isto significa que a consistência das suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
-- **Nenhum**: A indexação é desativada no recipiente. Isto é comumente usado quando um recipiente é usado como uma loja de valor-chave pura sem a necessidade de índices secundários. Também pode ser usado para melhorar o desempenho das operações a granel. Após a conclusão das operações a granel, o modo de índice pode ser definido como Consistente e depois monitorizado utilizando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) até estar concluído.
+- **Consistente** : O índice é atualizado sincronizadamente à medida que cria, atualiza ou apaga itens. Isto significa que a consistência das suas consultas de leitura será a [consistência configurada para a conta](consistency-levels.md).
+- **Nenhum** : A indexação é desativada no recipiente. Isto é comumente usado quando um recipiente é usado como uma loja de valor-chave pura sem a necessidade de índices secundários. Também pode ser usado para melhorar o desempenho das operações a granel. Após a conclusão das operações a granel, o modo de índice pode ser definido como Consistente e depois monitorizado utilizando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) até estar concluído.
 
 > [!NOTE]
-> AZure Cosmos DB também suporta um modo de indexação preguiçoso. A indexação em diferido executa atualizações ao índice com um nível de prioridade muito menor quando o motor não está a realizar qualquer outro trabalho. Tal poderá levar a resultados de consulta **inconsistentes ou incompletos**. Se planear consultar um contentor do Cosmos, não deverá selecionar a indexação em diferido. Em junho de 2020, introduzimos uma alteração que já não permite definir novos contentores para o modo de indexação preguiçoso. Se a sua conta DB Azure Cosmos já tiver pelo menos um recipiente com indexação preguiçosa, esta conta está automaticamente isenta da alteração. Também pode solicitar uma isenção contactando o [suporte Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se estiver a utilizar uma conta Azure Cosmos em modo [sem servidor](serverless.md) que não suporta indexação preguiçosa).
+> AZure Cosmos DB também suporta um modo de indexação preguiçoso. A indexação em diferido executa atualizações ao índice com um nível de prioridade muito menor quando o motor não está a realizar qualquer outro trabalho. Tal poderá levar a resultados de consulta **inconsistentes ou incompletos** . Se planear consultar um contentor do Cosmos, não deverá selecionar a indexação em diferido. Em junho de 2020, introduzimos uma alteração que já não permite definir novos contentores para o modo de indexação preguiçoso. Se a sua conta DB Azure Cosmos já tiver pelo menos um recipiente com indexação preguiçosa, esta conta está automaticamente isenta da alteração. Também pode solicitar uma isenção contactando o [suporte Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se estiver a utilizar uma conta Azure Cosmos em modo [sem servidor](serverless.md) que não suporta indexação preguiçosa).
 
 Por predefinição, a política de indexação está definida para `automatic` . É conseguido colocando a `automatic` propriedade na política de indexação para `true` . Configurar esta propriedade para `true` permitir que a Azure CosmosDB indexe automaticamente os documentos à medida que estão escritos.
 

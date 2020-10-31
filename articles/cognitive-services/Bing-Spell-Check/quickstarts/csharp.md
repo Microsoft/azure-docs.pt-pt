@@ -11,14 +11,19 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d11430ab02b37d066fb74dcc1b67833577471fd3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 060b648a0d1ee963b44c25e45a7de2888f662335
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323046"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084141"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Quickstart: Verifique a ortografia com a API e C de Verificação ortográfica de Bing Spell #
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Utilize este arranque rápido para fazer a sua primeira chamada para a API Bing Spell Check REST. Este simples pedido C# envia um pedido à API e devolve uma lista de correções sugeridas. 
 
@@ -32,7 +37,7 @@ Embora esta aplicação esteja escrita em C#, a API é um serviço Web RESTful c
    Para instalar este pacote no estúdio Visual:
 
      1. No **Solution Explorer,** clique à direita no ficheiro Solução.
-     1. **Selecione Gerir pacotes nuget para solução**.
+     1. **Selecione Gerir pacotes nuget para solução** .
      1. Procure *Newtonsoft.Js* e instale o pacote.
 
 * Se estiver a utilizar o Linux/MacOS, pode executar esta aplicação utilizando [o Mono.](https://www.mono-project.com/)

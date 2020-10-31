@@ -1,5 +1,6 @@
 ---
-title: 'Quickstart: Modificar as contas de aplicações da plataforma da Microsoft Rio Azure'
+title: 'Quickstart: Alterar os tipos de conta suportados por uma aplicação Rio Azure'
+titleSuffix: Microsoft identity platform
 description: Neste arranque rápido, configura uma aplicação registada na plataforma de identidade da Microsoft para alterar quem, ou que contas, pode aceder à aplicação.
 services: active-directory
 author: rwike77
@@ -8,71 +9,54 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 05/08/2019
+ms.date: 10/27/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: d143bde9c22bc726f00b5c209d1b7fbc131905b0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.reviewer: marsma, aragra, lenalepa, sureshja
+ms.openlocfilehash: 2382eedcc14f683d354b88bf2eb8d53b2af40dbd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91258018"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083274"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Quickstart: Modificar as contas suportadas por uma aplicação
 
-Quando registar uma aplicação na plataforma de identidade da Microsoft, poderá querer que a mesma seja acedida apenas pelos utilizadores da sua organização. Em alternativa, também pode querer que a aplicação seja acedida pelos utilizadores em organizações externas, ou por utilizadores em organizações externas e utilizadores que não fazem necessariamente parte de uma organização (contas pessoais).
+Quando registou a sua aplicação na plataforma de identidade da Microsoft, especificou quem- quais os tipos de conta - que podem aceder à sua aplicação. Por exemplo, você pode ter especificado contas apenas na sua organização, que é uma aplicação *de inquilino único.* Ou, você pode ter especificado contas em qualquer organização (incluindo a sua), que é uma app *multi-inquilino.*
 
-Neste início rápido, vai aprender a modificar a configuração da sua aplicação para alterar quem ou que contas podem aceder à mesma.
+Neste arranque rápido, aprende-se a modificar a configuração da sua aplicação para alterar quem, ou que tipos de contas, podem aceder à aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Conclusão do [Quickstart: Registar uma aplicação com a plataforma de identidade microsoft](quickstart-register-app.md)
 
-## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Iniciar sessão no portal do Azure e selecionar a aplicação
-
-Antes de poder configurar a aplicação, siga estes passos:
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com) com uma conta profissional ou escolar ou uma conta pessoal da Microsoft.
-1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **registos de Aplicações**.
-1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
-1. Siga os passos para [alterar o registo de aplicação para suportar diferentes contas](#change-the-application-registration-to-support-different-accounts).
-1. Se tiver uma aplicação de página única, [ative a concessão implícita de OAuth 2.0](#enable-oauth-20-implicit-grant-for-single-page-applications).
-
 ## <a name="change-the-application-registration-to-support-different-accounts"></a>Alterar o registo de aplicação para suportar diferentes contas
 
-Se estiver a escrever uma aplicação e pretende disponibilizá-la aos seus clientes ou parceiros fora da sua organização, tem de atualizar a definição da mesma no portal do Azure.
+Para especificar uma definição diferente para os tipos de conta suportados por um registo de aplicações existente:
 
-> [!IMPORTANT]
-> O Azure AD precisa que o URI do ID da Aplicação das aplicações multi-inquilino seja globalmente exclusivo. O URI do ID da Aplicação é uma das formas através das quais as aplicações são identificadas nas mensagens de protocolo. Relativamente às aplicações de inquilino único, basta que o URI do ID da Aplicação seja exclusivo nesse inquilino. Nas aplicações multi-inquilinos, tem de ser globalmente exclusivo, para que o Azure AD consiga encontrar a aplicação em todos os inquilinos. Para aplicar a exclusividade global, o URI do ID da App tem de ter um nome de anfitrião que corresponda a um domínio verificado do inquilino do Azure AD. Por exemplo, se o nome do inquilino for contoso.onmicrosoft.com, `https://contoso.onmicrosoft.com/myapp` seria um URI de ID da Aplicação válido. Se o seu inquilino tiver o domínio verificado contoso.com, `https://contoso.com/myapp` também seria um URI de ID da Aplicação válido. Se o URI não seguir este padrão, a definição da aplicação como multi-inquilinos falha.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+1. Procure e selecione **Azure Active Directory** .
+1. Em **Manage** , selecione **registos de Aplicações** e, em seguida, selecione a sua candidatura.
+1. Agora, especifique quem pode usar a aplicação, por vezes referida como o *público de inscrição* .
 
-### <a name="to-change-who-can-access-your-application"></a>Para alterar quem pode aceder à sua aplicação
+    | Tipos de conta suportados | Description |
+    |-------------------------|-------------|
+    | **Contas apenas neste diretório organizacional** | Selecione esta opção se estiver a construir uma aplicação para uso apenas pelos utilizadores (ou hóspedes) no *seu* inquilino.<br><br>Muitas vezes chamado de aplicação *line-of-business* (LOB), esta é uma aplicação **de inquilino único** na plataforma de identidade da Microsoft. |
+    | **Contas em qualquer diretório organizacional** | Selecione esta opção se quiser que os utilizadores de *qualquer* inquilino AZure AD possam usar a sua aplicação. Esta opção é apropriada se, por exemplo, estiver a construir uma aplicação de software-as-a-service (SaaS) que pretende fornecer a várias organizações.<br><br>Isto é conhecido como uma aplicação **multi-inquilino** na plataforma de identidade da Microsoft. |
+1. Selecione **Guardar** .
 
-1. Na página **Descrição geral** da aplicação, selecione a secção **Autenticação** e altere o valor selecionado em **Tipos de conta suportados**.
-    * Selecione **Contas apenas neste diretório** se estiver a criar uma aplicação de linha de negócio (LOB). Esta opção não está disponível se a aplicação não estiver registada num diretório.
-    * Selecione **Contas em qualquer diretório organizacional** se quiser visar todos os clientes comerciais ou pedagógicos.
-    * Selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais** para visar o maior conjunto de clientes.
-1. Selecione **Guardar**.
+### <a name="why-changing-to-multi-tenant-can-fail"></a>Por que mudar para multi-inquilino pode falhar
 
-## <a name="enable-oauth-20-implicit-grant-for-single-page-applications"></a>Ativar a concessão implícita de OAuth 2.0 para aplicações de página única
+Mudar um registo de aplicações de um único para multi-inquilino pode por vezes falhar devido a colisões de nomes ID URI (App ID URI). Um exemplo app ID URI é `https://contoso.onmicrosoft.com/myapp` .
 
-Geralmente, as aplicações de página única (SPAs) são estruturadas com um front-end altamente baseado em JavaScript que é executado no browser e que chama o back-end da API Web da aplicação para realizar a respetiva lógica de negócio. Relativamente às SPAs alojadas no Azure AD, é utilizada a Concessão Implícita de OAuth 2.0 para autenticar o utilizador no Azure AD e obter um token que pode ser utilizado para proteger as chamadas do cliente JavaScript da aplicação para a respetiva API Web de back-end.
+O URI do ID da Aplicação é uma das formas através das quais as aplicações são identificadas nas mensagens de protocolo. Para uma aplicação de inquilino único, a App ID URI só precisa de ser única dentro desse inquilino. Para uma aplicação multi-inquilino, deve ser globalmente única para que a Azure AD possa encontrar a app em todos os inquilinos. A singularidade global é aplicada exigindo que o nome de anfitrião do ID URI da App corresponda a um dos domínios de [editor verificados](howto-configure-publisher-domain.md)do inquilino da Azure AD.
 
-Depois de o utilizador conceder o consentimento, este mesmo protocolo de autenticação pode ser utilizado para obter tokens para proteger as chamadas entre o cliente e os outros recursos da API Web configurados para a aplicação. Para saber mais sobre a concessão de autorização implícita e decidir se é adequada para o cenário da sua aplicação, obtenha informações sobre o fluxo de concessão implícita de OAuth 2.0 no Azure AD [v1.0](../azuread-dev/v1-oauth2-implicit-grant-flow.md) e [v2.0](v2-oauth2-implicit-grant-flow.md).
+Por exemplo, se o nome do seu inquilino for *contoso.onmicrosoft.com,* então `https://contoso.onmicrosoft.com/myapp` é um ID URI de aplicação válido. Se o seu inquilino tiver um domínio verificado de *contoso.com,* então um ID URI de aplicação válido também seria `https://contoso.com/myapp` . Se o ID URI da app não seguir o segundo padrão, a `https://contoso.com/myapp` conversão do registo da aplicação para multi-inquilino falha.
 
-Por predefinição, a concessão implícita de OAuth 2.0 está desativada nas aplicações. Pode ativar a concessão implícita de OAuth 2.0 para a sua aplicação ao seguir os passos descritos abaixo.
-
-### <a name="to-enable-oauth-20-implicit-grant"></a>Para permitir a concessão implícita de OAuth 2.0
-
-1. No painel de navegação à esquerda, selecione o serviço **de Diretório Ativo Azure** e, em seguida, selecione **registos de Aplicações**.
-1. Encontre e selecione a aplicação que quer configurar. Depois de selecionar a aplicação, verá a página **Descrição Geral** da aplicação ou a página de registo principal.
-1. Na página **Descrição geral** da aplicação, selecione a secção **Autenticação**.
-1. Em **Definições avançadas**, localize a secção **Concessão implícita**.
-1. Selecione **Tokens de ID**, **Tokens de acesso** ou ambos.
-1. Selecione **Guardar**.
+Para obter mais informações sobre a configuração de um domínio de editor verificado, consulte [configurar um domínio verificado](quickstart-modify-supported-accounts.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Diretrizes de imagem corporativa para aplicações](howto-add-branding-in-azure-ad-apps.md)
+> [Como: Converter a sua app em multi-inquilino](howto-convert-app-to-be-multi-tenant.md)

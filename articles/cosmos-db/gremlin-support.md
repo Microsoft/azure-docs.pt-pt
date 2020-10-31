@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 10/13/2020
 ms.author: sngun
-ms.openlocfilehash: f435185d0f00d8f64425e3f2b7081e0ee9a393ce
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c1af35b754362a230e77c7a3326de8ddb8a09d62
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276211"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083002"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support-and-compatibility-with-tinkerpop-features"></a>Suporte e compatibilidade de gráficos Azure Cosmos DB Gremlin com características do TinkerPop
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB suporta a linguagem transversal gráfica [de Apache Tinkerpop,](https://tinkerpop.apache.org) conhecida como [Gremlin.](https://tinkerpop.apache.org/docs/3.3.2/reference/#graph-traversal-steps) Pode utilizar a linguagem Gremlin para criar entidades de gráfico (vértices e limites), modificar propriedades nessas entidades, efetuar consultas e transversais e eliminar entidades.
 
@@ -119,7 +120,7 @@ Cada propriedade pode armazenar múltiplos valores numa matriz.
 
 Vamos observar os passos do Gremlin suportados pelo Azure Cosmos DB. Para obter referências completas do Gremlin, veja [Referências do TinkerPop](https://tinkerpop.apache.org/docs/3.3.2/reference).
 
-| passo | Descrição | Documentação do TinkerPop 3.2 |
+| passo | Description | Documentação do TinkerPop 3.2 |
 | --- | --- | --- |
 | `addE` | Adiciona um limite entre dois vértices | [passo addE](https://tinkerpop.apache.org/docs/3.3.2/reference/#addedge-step) |
 | `addV` | Adiciona um vértice ao gráfico | [passo addV](https://tinkerpop.apache.org/docs/3.3.2/reference/#addvertex-step) |
@@ -167,47 +168,47 @@ O motor otimizado para escrita fornecido pelo Azure Cosmos DB suporta a indexaç
 
 ## <a name="behavior-differences"></a>Diferenças de comportamento
 
-* O motor Azure Cosmos DB Graph ***funciona*** primeiro transversal enquanto o TinkerPop Gremlin é o primeiro de profundidade. Este comportamento consegue um melhor desempenho em sistema horizontalmente escalável como o Cosmos DB.
+* O motor Azure Cosmos DB Graph funciona * **primeira largura -** transversal enquanto TinkerPop Gremlin é o primeiro de profundidade. Este comportamento consegue um melhor desempenho em sistema horizontalmente escalável como o Cosmos DB.
 
 ## <a name="unsupported-features"></a>Funcionalidades não suportadas
 
-* ***[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** é uma especificação agnóstica de linguagem de programação para percursos em gráfico. Cosmos DB Graph ainda não o suporta. Use `GremlinClient.SubmitAsync()` e passe transversalmente como uma cadeia de texto.
+_ * **[Gremlin Bytecode](https://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)** _ é uma especificação agnóstica da linguagem de programação para os traversais de gráficos. Cosmos DB Graph ainda não o suporta. Use `GremlinClient.SubmitAsync()` e passe transversalmente como uma cadeia de texto.
 
-* ***`property(set, 'xyz', 1)`*** definir cardinalidade não é apoiado hoje. Em vez disso, utilize `property(list, 'xyz', 1)`. Para saber mais, consulte [as propriedades da Vertex com o TinkerPop.](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties)
+_ **`property(set, 'xyz', 1)`** _ set cardinality is supportd today. Em vez disso, utilize `property(list, 'xyz', 1)`. Para saber mais, consulte [as propriedades da Vertex com o TinkerPop.](http://tinkerpop.apache.org/docs/current/reference/#vertex-properties)
 
-* O *** `match()` passo*** não está disponível. Este passo fornece capacidades de consulta declarativas.
+_ O **`match()` passo** * não está disponível atualmente. Este passo fornece capacidades de consulta declarativas.
 
-* ***Os objetos como propriedades*** em vértices ou bordas não são suportados. As propriedades apenas podem ser matrizes ou tipos primitivos.
+_ * **Os objetos como propriedades** - em vértices ou bordas não são suportados. As propriedades apenas podem ser matrizes ou tipos primitivos.
 
-* ***Triagem por propriedades*** `order().by(<array property>)` de matriz não é apoiado. A ordenação é suportada apenas por tipos primitivos.
+_ * **Ordenar por propriedades de matriz** _ não é `order().by(<array property>)` suportado. A ordenação é suportada apenas por tipos primitivos.
 
-* ***Os tipos json não primitivos*** não são suportados. Utilizar, `string` `number` ou `true` / `false` tipos. `null` os valores não são suportados. 
+_ * **Os tipos JSON não primitivos** não são suportados. Utilizar, `string` `number` ou `true` / `false` tipos. `null` os valores não são suportados. 
 
-* O serializer ***GraphSONv3*** não está suportado atualmente. Utilize `GraphSONv2` aulas de Serializer, Reader e Writer na configuração de ligação. Os resultados devolvidos pela API AZURE Cosmos DB Gremlin não têm o mesmo formato que o formato GraphSON. 
+_ * O serializer **GraphSONv3** _ não está atualmente suportado. Utilize `GraphSONv2` aulas de Serializer, Reader e Writer na configuração de ligação. Os resultados devolvidos pela API AZURE Cosmos DB Gremlin não têm o mesmo formato que o formato GraphSON. 
 
-* **As expressões e funções lambda** não são suportadas atualmente. Isto inclui o `.map{<expression>}` , o , e as `.by{<expression>}` `.filter{<expression>}` funções. Para saber mais, e para aprender a reescrevê-los usando os passos de Gremlin, consulte [Uma Nota sobre Lambdas.](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)
+_ **As expressões e funções lambda** não são suportadas atualmente. Isto inclui o `.map{<expression>}` , o , e as `.by{<expression>}` `.filter{<expression>}` funções. Para saber mais, e para aprender a reescrevê-los usando os passos de Gremlin, consulte [Uma Nota sobre Lambdas.](http://tinkerpop.apache.org/docs/current/reference/#a-note-on-lambdas)
 
-* ***As transações*** não são suportadas por causa da natureza distribuída do sistema.  Configure o modelo de consistência adequado na conta gremlin para "ler os seus próprios escritos" e usar a concordância otimista para resolver escritos contraditórios.
+* ***As transações** não são suportadas por causa da natureza distribuída do sistema.  Configure o modelo de consistência adequado na conta gremlin para "ler os seus próprios escritos" e usar a concordância otimista para resolver escritos contraditórios.
 
 ## <a name="known-limitations"></a>Limitações conhecidas
 
-* **Utilização de índices para consultas gremlin com `.V()` passos intermédios**: Atualmente, apenas a primeira `.V()` chamada de um traversal fará uso do índice para resolver quaisquer filtros ou predicados ligados ao mesmo. As chamadas subsequentes não consultarão o índice, o que poderá aumentar a latência e o custo da consulta.
+_ **Utilização de índice para consultas gremlin com `.V()` passos intermédios** : Atualmente, apenas a primeira `.V()` chamada de um traversal utilizará o índice para resolver quaisquer filtros ou predicados ligados ao mesmo. As chamadas subsequentes não consultarão o índice, o que poderá aumentar a latência e o custo da consulta.
     
-    Assumindo a indexação padrão, uma consulta típica de Gremlin que começa com o `.V()` passo usaria parâmetros nos seus passos de filtragem anexados, tais como `.has()` ou para `.where()` otimizar o custo e desempenho da consulta. Por exemplo:
+    Assuming default indexing, a typical read Gremlin query that starts with the `.V()` step would use parameters in its attached filtering steps, such as `.has()` or `.where()` to optimize the cost and performance of the query. For example:
 
     ```java
     g.V().has('category', 'A')
     ```
 
-    No entanto, quando mais de um `.V()` passo é incluído na consulta gremlin, a resolução dos dados para a consulta pode não ser a melhor. Tome como exemplo a seguinte consulta:
+    However, when more than one `.V()` step is included in the Gremlin query, the resolution of the data for the query might not be optimal. Take the following query as an example:
 
     ```java
     g.V().has('category', 'A').as('a').V().has('category', 'B').as('b').select('a', 'b')
     ```
 
-    Esta consulta devolverá dois grupos de vértices com base na sua propriedade chamada `category` . Neste caso, apenas a primeira chamada, `g.V().has('category', 'A')` fará uso do índice para resolver os vértices com base nos valores das suas propriedades.
+    This query will return two groups of vertices based on their property called `category`. In this case, only the first call, `g.V().has('category', 'A')` will make use of the index to resolve the vertices based on the values of their properties.
 
-    Uma solução alternativa para esta consulta é utilizar passos subtraversais como `.map()` e `union()` . Isto é exemplificado abaixo:
+    A workaround for this query is to use subtraversal steps such as `.map()` and `union()`. This is exemplified below:
 
     ```java
     // Query workaround using .map()
@@ -217,7 +218,7 @@ O motor otimizado para escrita fornecido pelo Azure Cosmos DB suporta a indexaç
     g.V().has('category', 'A').fold().union(unfold(), __.V().has('category', 'B'))
     ```
 
-    Pode rever o desempenho das consultas utilizando o [ `executionProfile()` passo Gremlin](graph-execution-profile.md).
+    You can review the performance of the queries by using the [Gremlin `executionProfile()` step](graph-execution-profile.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
