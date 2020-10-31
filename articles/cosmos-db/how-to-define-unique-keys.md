@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b814100097897aff6047b8b6d6cc0e8ebaa409ba
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279551"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101532"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Defina chaves únicas para um recipiente Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo apresenta as diferentes formas de definir [chaves únicas](unique-keys.md) ao criar um recipiente Azure Cosmos. Atualmente é possível realizar esta operação, quer utilizando o portal Azure, quer através de um dos SDKs.
 
@@ -26,7 +27,7 @@ Este artigo apresenta as diferentes formas de definir [chaves únicas](unique-ke
 
 1. Abra o painel **do Data Explorer** e selecione o recipiente em que pretende trabalhar.
 
-1. Clique em **Novo Recipiente**.
+1. Clique em **Novo Recipiente** .
 
 1. No diálogo **'Adicionar recipiente',** clique em **+ Adicione uma tecla única** para adicionar uma entrada única na chave.
 

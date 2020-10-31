@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebc1f66e68d4cf37546e7d33a9b723385330395c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74873425"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100869"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL constantes de consulta  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Uma constante, também conhecida como um valor literal ou escalão, é um símbolo que representa um valor de dados específico. O formato de uma constante depende do tipo de dados do valor que representa.  
   
@@ -23,11 +24,11 @@ ms.locfileid: "74873425"
 |-|-|  
 |**Indefinido**|Valor único: **indefinido**|  
 |**Null**|Valor único: **nulo**|  
-|**Booleano**|Valores: **falso,** **verdadeiro**.|  
+|**Rio Boolean**|Valores: **falso,** **verdadeiro** .|  
 |**Number**|Um número de ponto flutuante de dupla precisão, padrão IEEE 754.|  
 |**String**|Uma sequência de caracteres Unicode zero ou mais. As cordas devem ser fechadas em ações simples ou duplas.|  
-|**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido**.|  
-|**Objeto**|Um conjunto não ordenado de pares de nomes/valor zero ou mais. O nome é uma cadeia Unicode, o valor pode ser de qualquer tipo de dados escalar, exceto **Indefined**.|  
+|**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido** .|  
+|**Objeto**|Um conjunto não ordenado de pares de nomes/valor zero ou mais. O nome é uma cadeia Unicode, o valor pode ser de qualquer tipo de dados escalar, exceto **Indefined** .|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Syntax
   
@@ -67,7 +68,7 @@ ms.locfileid: "74873425"
   
 * `<null_constant>; null`  
   
-  Representa um valor **nulo** do tipo **Nulo**.  
+  Representa um valor **nulo** do tipo **Nulo** .  
   
 * `<boolean_constant>`  
   
@@ -112,8 +113,8 @@ ms.locfileid: "74873425"
 |\b|backspace|U+0008|  
 |\f|forma de alimentação|U+000C|  
 |\n|alimentação de linha|U+000A|  
-|\r|retorno de transporte|U+000D|  
-|\t|separador|U+0009|  
+|\r| símbolo de retorno|U+000D|  
+|\t| tabulação|U+0009|  
 |\uXXXX|Um caracteres Unicode definido por 4 dígitos hexadémicos.|U+XXXX|  
 
 ## <a name="next-steps"></a>Passos seguintes

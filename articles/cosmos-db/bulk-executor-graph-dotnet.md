@@ -9,14 +9,15 @@ ms.date: 05/28/2019
 ms.author: jasonh
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d113189d1361122305f92bc86c46346e1e700f4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb611c77abe5bf9067bfdbabd1e2c5d2ee90ac23
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489375"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100495"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Utilização do executor a granel de gráficos .NET library para realizar operações a granel em Azure Cosmos DB Gremlin API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Este tutorial fornece instruções sobre a utilização do executor a granel da Azure CosmosDB .NET library para importar e atualizar objetos gráficos num recipiente API Azure Cosmos DB Gremlin. Este processo faz uso da classe Graph na biblioteca de [executores](./bulk-executor-overview.md) a granel para criar objetos Vertex e Edge programáticamente para, em seguida, inserir vários deles por pedido de rede. Este comportamento é configurável através da biblioteca do executor a granel para fazer o melhor uso da base de dados e dos recursos de memória locais.
 
@@ -78,7 +79,7 @@ Para obter mais informações sobre os parâmetros da biblioteca do executor a g
 
 O payload tem de ser instanciado em objetos `GremlinVertex` e `GremlinEdge`. Eis como estes objetos podem ser criados:
 
-**Vértices**:
+**Vértices** :
 ```csharp
 // Creating a vertex
 GremlinVertex v = new GremlinVertex(
@@ -92,7 +93,7 @@ v.AddProperty("customProperty", "value");
 v.AddProperty("partitioningKey", "value");
 ```
 
-**Arestas**:
+**Arestas** :
 ```csharp
 // Creating an edge
 GremlinEdge e = new GremlinEdge(
@@ -117,7 +118,7 @@ e.AddProperty("customProperty", "value");
 ### <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2019 com a carga de trabalho de desenvolvimento Azure. Pode começar com a [Edição Comunitária do Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) gratuitamente.
 * Uma subscrição do Azure. Pode criar uma [conta do Azure gratuita aqui](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Em alternativa, pode criar uma conta de base de dados cosmos com [Try Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure.
-* Uma base de dados da API Gremlin do Azure Cosmos DB com uma **coleção ilimitada**. Este guia mostra como começar a utilizar a [API Gremlin do Azure Cosmos DB em .NET](./create-graph-dotnet.md).
+* Uma base de dados da API Gremlin do Azure Cosmos DB com uma **coleção ilimitada** . Este guia mostra como começar a utilizar a [API Gremlin do Azure Cosmos DB em .NET](./create-graph-dotnet.md).
 * Git. Para obter mais informações, veja a página[Git Downloads](https://git-scm.com/downloads) (Transferências do Git).
 
 ### <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
@@ -129,7 +130,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 Este repositório contém o exemplo GraphBulkExecutor com os seguintes ficheiros:
 
-Ficheiro|Descrição
+Ficheiro|Description
 ---|---
 `App.config`|É aqui que é especificada a aplicação e os parâmetros específicos da mesma. Este ficheiro deve ser modificado primeiro para ligar à base de dados e às coleções de destino.
 `Program.cs`| Este ficheiro contém a lógica por trás da criação da `DocumentClient` coleção, manuseamento das limpezas e envio dos pedidos do executor a granel.
@@ -141,7 +142,7 @@ Definições|Descrição
 ---|---
 `EndPointUrl`|Este é o **ponto final do SDK .NET** que está disponível no painel Descrição Geral da sua conta de base de dados da API Gremlin do Azure Cosmos DB. Tem o formato `https://your-graph-database-account.documents.azure.com:443/`.
 `AuthorizationKey`|Esta é a chave Primária ou Secundária que aparece na sua conta do Azure Cosmos DB. Saiba mais sobre a proteção do acesso a dados do Azure Cosmos DB em [Securing Access to Azure Cosmos DB data](./secure-access-to-data.md#primary-keys) (Proteger o Acesso a dados do Azure Cosmos DB)
-`DatabaseName`, `CollectionName`|Estes são os **nomes da base de dados e da coleção de destino**. Se `ShouldCleanupOnStart` estiver definido como `true`, estes valores, juntamente com `CollectionThroughput`, serão utilizados para remover essa base de dados e essa coleção e criar uma base de dados e uma coleção nova. Do mesmo modo, se `ShouldCleanupOnFinish` estiver definido como `true`, serão utilizados para eliminar a base de dados assim que a ingestão terminar. Tenha em conta que a coleção de destino tem de ser uma **coleção ilimitada**.
+`DatabaseName`, `CollectionName`|Estes são os **nomes da base de dados e da coleção de destino** . Se `ShouldCleanupOnStart` estiver definido como `true`, estes valores, juntamente com `CollectionThroughput`, serão utilizados para remover essa base de dados e essa coleção e criar uma base de dados e uma coleção nova. Do mesmo modo, se `ShouldCleanupOnFinish` estiver definido como `true`, serão utilizados para eliminar a base de dados assim que a ingestão terminar. Tenha em conta que a coleção de destino tem de ser uma **coleção ilimitada** .
 `CollectionThroughput`|É utilizado para criar uma coleção nova se a opção `ShouldCleanupOnStart` estiver definida como `true`.
 `ShouldCleanupOnStart`|Remove a conta da base de dados e as coleções antes de o programa ser executado e, depois, criar uma conta e uma coleção com os valores `DatabaseName`, `CollectionName` e `CollectionThroughput`.
 `ShouldCleanupOnFinish`|Remove a conta da base de dados e as coleções com `DatabaseName` e `CollectionName` especificados depois de o programa ser executado.

@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 06/05/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 481f1353e16fecd0e413152db89a4ae54824a0f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e184d85e3daee41f530334aa0034fc98f40a8766
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89019288"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099229"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Tutorial: Consultar o Azure Cosmos DB através da API de Tabela
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 A [API de Tabela](table-introduction.md) do Azure Cosmos DB suporta as consultas OData e [LINQ](/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) relativamente a dados de chave/valor (tabela).  
 
@@ -51,7 +52,7 @@ Uma vez que as propriedades PartitionKey e RowKey formam a chave primária de um
 https://<mytableendpoint>/People(PartitionKey='Harp',RowKey='Walter')  
 ```
 
-**Results**
+**Resultados**
 
 | PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |
@@ -78,7 +79,7 @@ https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and
 
 Para obter mais informações sobre como criar expressões de filtro para vários tipos de dados, veja [Consultar Tabelas e Entidades](/rest/api/storageservices/querying-tables-and-entities).
 
-**Results**
+**Resultados**
 
 | PartitionKey | RowKey | E-mail | PhoneNumber |
 | --- | --- | --- | --- |

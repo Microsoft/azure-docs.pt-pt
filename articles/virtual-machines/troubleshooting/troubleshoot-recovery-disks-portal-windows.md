@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
-ms.openlocfilehash: 9b51205fe67bfe5be46491b0238e987fc14f6737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b7fc4a120f5a4b513e1852fc6e2cf5ab68e9631
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074355"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101260"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Resolução de problemas de um VM do Windows, fixando o disco DE Aa a um VM de recuperação utilizando o portal Azure
 Se a sua máquina virtual Do Windows (VM) em Azure encontrar um erro de arranque ou disco, poderá ter de executar etapas de resolução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicação falhada que impede o VM de ser capaz de arrancar com sucesso. Este artigo detalha como utilizar o portal Azure para ligar o seu disco rígido virtual a outro VM do Windows para corrigir eventuais erros e, em seguida, recriar o seu VM original. 
@@ -40,9 +40,9 @@ O processo de resolução de problemas é o seguinte:
 Um instantâneo é uma cópia completa e só de leitura de um disco rígido virtual (VHD). Recomendamos que desligue o VM de forma limpa antes de tirar uma foto, para limpar quaisquer processos em curso. Para tirar uma foto de um disco de so, siga estes passos:
 
 1. Ir para o [portal Azure.](https://portal.azure.com) Selecione **máquinas virtuais** da barra lateral e, em seguida, selecione o VM que tem problemas.
-1. No painel esquerdo, selecione **Discos**e, em seguida, selecione o nome do disco OS.
+1. No painel esquerdo, selecione **Discos** e, em seguida, selecione o nome do disco OS.
     ![Imagem sobre o nome do disco oss](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
-1. Na página **geral** do disco SO e, em seguida, selecione **Criar instantâneo**.
+1. Na página **geral** do disco SO e, em seguida, selecione **Criar instantâneo** .
 1. Crie uma imagem instantânea no mesmo local que o disco de so.
 
 ## <a name="create-a-disk-from-the-snapshot"></a>Criar um disco a partir do instantâneo
@@ -86,7 +86,7 @@ Para criar um disco a partir do instantâneo, siga estes passos:
 ## <a name="attach-the-disk-to-another-vm"></a>Fixe o disco a outro VM
 Para os próximos passos, utilize outro VM para efeitos de resolução de problemas. Depois de fixar o disco ao VM de resolução de problemas, pode navegar e editar o conteúdo do disco. Este processo permite-lhe corrigir quaisquer erros de configuração ou rever ficheiros adicionais de aplicação ou registo de sistema. Para fixar o disco a outro VM, siga estes passos:
 
-1. Selecione o seu grupo de recursos a partir do portal e, em seguida, selecione o seu VM de resolução de problemas. Selecione **Discos,** **selecione Editar**e, em seguida, clique em **Adicionar disco de dados**:
+1. Selecione o seu grupo de recursos a partir do portal e, em seguida, selecione o seu VM de resolução de problemas. Selecione **Discos,** **selecione Editar** e, em seguida, clique em **Adicionar disco de dados** :
 
     ![Anexar o disco existente no portal](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
@@ -96,11 +96,11 @@ Para os próximos passos, utilize outro VM para efeitos de resolução de proble
 ## <a name="mount-the-attached-data-disk-to-the-vm"></a>Monte o disco de dados anexado ao VM
 
 1. Abra uma ligação de ambiente de trabalho remoto ao VM de resolução de problemas. 
-2. No VM de resolução de problemas, Open **Server Manager,** selecione **Os Serviços de Ficheiros e Armazenamento**. 
+2. No VM de resolução de problemas, Open **Server Manager,** selecione **Os Serviços de Ficheiros e Armazenamento** . 
 
     ![Selecione serviços de arquivo e armazenamento dentro do Gestor do Servidor](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-3. O disco de dados é automaticamente detetado e anexado. Para ver uma lista dos discos ligados, selecione **Discos**. Pode selecionar o seu disco de dados para visualizar informações de volume, incluindo a letra de unidade. O exemplo a seguir mostra o disco de dados anexado e utilizando **F:**
+3. O disco de dados é automaticamente detetado e anexado. Para ver uma lista dos discos ligados, selecione **Discos** . Pode selecionar o seu disco de dados para visualizar informações de volume, incluindo a letra de unidade. O exemplo a seguir mostra o disco de dados anexado e utilizando **F:**
 
     ![Informações de disco anexadas e de volume no Gestor do Servidor](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
 
@@ -110,7 +110,7 @@ Com o disco rígido virtual existente montado, pode agora executar quaisquer pas
 ## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Desmonte e desprete o disco rígido virtual original
 Assim que os seus erros forem resolvidos, retire o disco rígido virtual existente do seu VM de resolução de problemas. Não é possível utilizar o seu disco rígido virtual com qualquer outro VM até que o contrato de arrendamento que liga o disco rígido virtual ao VM de resolução de problemas seja lançado.
 
-1. Da sessão RDP ao seu VM, abra o **Server Manager,** em seguida, selecione **Serviços de Arquivo e Armazenamento**:
+1. Da sessão RDP ao seu VM, abra o **Server Manager,** em seguida, selecione **Serviços de Arquivo e Armazenamento** :
 
     ![Selecione serviços de arquivo e armazenamento no gestor do servidor](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
@@ -118,19 +118,19 @@ Assim que os seus erros forem resolvidos, retire o disco rígido virtual existen
 
     ![Desa couuser o disco de dados como offline no Gestor do Servidor](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
-3. Agora desprenda o disco rígido virtual do VM. Selecione o seu VM no portal Azure e clique em **Discos**. 
-4. **Selecione Editar,** selecione o disco DE que anexou e, em seguida, clique em **Separar**:
+3. Agora desprenda o disco rígido virtual do VM. Selecione o seu VM no portal Azure e clique em **Discos** . 
+4. Selecione **Editar,** selecione o disco DE que anexou e clique em **Apagar** :
 
     ![Desprender o disco rígido virtual existente](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
-    Aguarde até que o VM tenha desligado com sucesso o disco de dados antes de continuar.
+    Aguarde até que o VM tenha sido eliminado com sucesso no VM ie., desprender o disco de dados antes de continuar.
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Troque o disco DE pelo VM
 
 O portal Azure suporta agora a alteração do disco DE do VM. Para tal, siga estes passos:
 
 1. Ir para o [portal Azure.](https://portal.azure.com) Selecione **máquinas virtuais** da barra lateral e, em seguida, selecione o VM que tem problemas.
-1. No painel esquerdo, selecione **Discos**e, em seguida, selecione **o disco Swap OS**.
+1. No painel esquerdo, selecione **Discos** e, em seguida, selecione **o disco Swap OS** .
         ![A imagem sobre o disco Swap OS no portal Azure](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
 1. Escolha o novo disco que reparou e, em seguida, digite o nome do VM para confirmar a alteração. Se não vir o disco na lista, aguarde 10 ~ 15 minutos depois de retirar o disco do VM de resolução de problemas. Certifique-se também de que o disco está no mesmo local que o VM.

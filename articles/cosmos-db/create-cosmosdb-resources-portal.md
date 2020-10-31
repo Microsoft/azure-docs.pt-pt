@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 97bb7db434322609630d97b7eff84e08da72c11c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 127b491da3e01e88c90e689e7dbcc9052ae4392f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486655"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099753"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>Quickstart: Criar uma conta Azure Cosmos, base de dados, contentor e itens a partir do portal Azure
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](create-cosmosdb-resources-portal.md)
@@ -40,12 +41,12 @@ Uma subscrição da Azure ou conta de teste gratuita da Azure Cosmos DB
 <a id="create-account"></a>
 ## <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
-Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azure Cosmos DB. Procure e selecione **Azure Cosmos DB**.
+Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azure Cosmos DB. Procure e selecione **Azure Cosmos DB** .
 
    :::image type="content" source="./media/create-cosmosdb-resources-portal/find-nosql-cosmosdb-marketplace.png" alt-text="O painel Bases de dados do portal do Azure":::
 
-1. Selecione **Adicionar**.
-1. Na página **Criar Conta do Azure Cosmos DB**, introduza as definições básicas da nova conta do Azure Cosmos DB. 
+1. Selecione **Adicionar** .
+1. Na página **Criar Conta do Azure Cosmos DB** , introduza as definições básicas da nova conta do Azure Cosmos DB. 
 
     |Definição|Valor|Descrição |
     |---|---|---|
@@ -65,16 +66,16 @@ Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azu
 > Pode ter até uma conta DB Azure Cosmos de nível gratuito por subscrição Azure e deve optar pela criação da conta. Se não vir a opção de aplicar o desconto de nível livre, isto significa que outra conta na subscrição já foi ativada com nível gratuito.
 
 > [!NOTE]
-> As seguintes opções não estão disponíveis se selecionar **Serverless** como **o modo Capacidade**:
+> As seguintes opções não estão disponíveis se selecionar **Serverless** como **o modo Capacidade** :
 > - Aplicar Desconto de Escalão Gratuito
 > - Georredundância
 > - Escritas de várias regiões
    
    :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail.png" alt-text="O painel Bases de dados do portal do Azure":::
 
-1. Selecione **Rever + criar**. Pode ignorar as secções **Rede** e **Etiquetas**.
+1. Selecione **Rever + criar** . Pode ignorar as secções **Rede** e **Etiquetas** .
 
-1. Reveja as definições da conta e, em seguida, selecione **Criar**. A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída**. 
+1. Reveja as definições da conta e, em seguida, selecione **Criar** . A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída** . 
 
     :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-account-deployment-successful.png" alt-text="O painel Bases de dados do portal do Azure":::
 
@@ -87,7 +88,7 @@ Aceda ao [portal do Azure](https://portal.azure.com/) para criar um conta do Azu
 
 Pode utilizar o Data Explorer no portal Azure para criar uma base de dados e um recipiente. 
 
-1.  Selecione Data **Explorer** a partir da navegação à esquerda na sua página de conta DB Azure Cosmos e, em seguida, selecione **Novo Recipiente**. 
+1.  Selecione Data **Explorer** a partir da navegação à esquerda na sua página de conta DB Azure Cosmos e, em seguida, selecione **Novo Recipiente** . 
     
     Pode ser necessário rolar para a direita para ver a janela **do Recipiente Adicionar.**
     
@@ -105,13 +106,13 @@ Pode utilizar o Data Explorer no portal Azure para criar uma base de dados e um 
     
     Não adicione **chaves únicas** para este exemplo. As teclas únicas permitem adicionar uma camada de integridade de dados à base de dados, garantindo a singularidade de um ou mais valores por chave de partição. Para mais informações, consulte [as teclas Únicas em Azure Cosmos DB](unique-keys.md).
     
-1.  Selecione **OK**. O Data Explorer apresenta a nova base de dados e o recipiente que criou.
+1.  Selecione **OK** . O Data Explorer apresenta a nova base de dados e o recipiente que criou.
 
 ## <a name="add-data-to-your-database"></a>Adicione dados à sua base de dados
 
 Adicione dados à sua nova base de dados utilizando o Data Explorer.
 
-1. No **Data Explorer,** expanda a base **de dados ToDoList** e expanda o recipiente **de Itens.** Em seguida, selecione **Itens**e, em seguida, selecione **Novo Item**. 
+1. No **Data Explorer,** expanda a base **de dados ToDoList** e expanda o recipiente **de Itens.** Em seguida, selecione **Itens** e, em seguida, selecione **Novo Item** . 
    
    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-new-document.png" alt-text="O painel Bases de dados do portal do Azure":::
    
@@ -127,7 +128,7 @@ Adicione dados à sua nova base de dados utilizando o Data Explorer.
      }
      ```
 
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
    
    :::image type="content" source="./media/create-sql-api-dotnet/azure-cosmosdb-save-document.png" alt-text="O painel Bases de dados do portal do Azure":::
    
@@ -137,14 +138,14 @@ Adicione dados à sua nova base de dados utilizando o Data Explorer.
 
 [!INCLUDE [cosmos-db-create-sql-api-query-data](../../includes/cosmos-db-create-sql-api-query-data.md)] 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 Se pretender eliminar apenas a base de dados e utilizar a conta Azure Cosmos no futuro, pode eliminar a base de dados com os seguintes passos:
 
 * Cheguei à sua conta do Azure Cosmos.
-* Abra o **Data Explorer,** clique na base de dados que pretende eliminar e selecione **Eliminar Base de Dados**.
+* Abra o **Data Explorer,** clique na base de dados que pretende eliminar e selecione **Eliminar Base de Dados** .
 * Introduza o nome de ID/base de dados da base de dados para confirmar a operação de eliminação. 
 
 ## <a name="next-steps"></a>Passos seguintes

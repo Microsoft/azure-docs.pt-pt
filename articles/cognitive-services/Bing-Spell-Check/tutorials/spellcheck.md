@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: b87a2cd3e6edc6a47de77f475c40d30ce1606e01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316618"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099866"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilar um cliente de Verificação Ortográfica de página Web
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Neste tutorial, vamos compilar uma página Web que permite que os utilizadores consultem a API de Verificação de Ortografia do Bing. O código fonte desta aplicação está disponível no [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingSpellCheckApp.html).
 
@@ -123,7 +128,7 @@ Primeiro, a função de programa auxiliar getSubscriptionKeyLocalStorage tenta o
     }
 ```
 
-A função auxiliar getSubscriptionKey assume um parâmetro, **invalidate**. Se **invalidate** for **true**, getSubscriptionKey elimina o cookie que contém a chave de API de Verificação de Ortografia do Bing. Se **invalidate** for **true**, getSubscriptionKey devolve o valor da chave de API de Verificação de Ortografia do Bing.
+A função auxiliar getSubscriptionKey assume um parâmetro, **invalidate** . Se **invalidate** for **true** , getSubscriptionKey elimina o cookie que contém a chave de API de Verificação de Ortografia do Bing. Se **invalidate** for **true** , getSubscriptionKey devolve o valor da chave de API de Verificação de Ortografia do Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -237,7 +242,7 @@ Processe também possíveis eventos de erro a partir do objeto XMLHttpRequest.
     });
 ```
 
-Envie o pedido. Feche a função bingSpellCheck, a tag **script** e a tag **head**.
+Envie o pedido. Feche a função bingSpellCheck, a tag **script** e a tag **head** .
 
 ```html
     request.send();
@@ -271,7 +276,7 @@ Crie um formulário HTML com um campo de texto. Manuseie o `onsubmit` evento e l
 </form>
 ```
 
-Adicione a tag **div** de HTML que utilizamos para apresentar os resultados. O JavaScript que definimos anteriormente refere-se a esta tag **div**.
+Adicione a tag **div** de HTML que utilizamos para apresentar os resultados. O JavaScript que definimos anteriormente refere-se a esta tag **div** .
 
 ```html
 <h2>Results</h2>
@@ -288,7 +293,7 @@ Guarde o ficheiro.
 
 ## <a name="display-results"></a>Apresentar os resultados
 
-Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave de subscrição da API de Verificação de Ortografia do Bing. Introduza uma consulta (por exemplo, "Hollo, wlrd!") na caixa de texto **Verificação Ortográfica** e prima **Enter**. Em seguida, a página Web apresenta os resultados da consulta.
+Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave de subscrição da API de Verificação de Ortografia do Bing. Introduza uma consulta (por exemplo, "Hollo, wlrd!") na caixa de texto **Verificação Ortográfica** e prima **Enter** . Em seguida, a página Web apresenta os resultados da consulta.
 
 ```json
 {

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: c030c1548a931bc749ad799a5aa88813c35d19cd
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 250a06d81f929d0e3d3befa1e7494db13044fc97
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997029"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101277"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorizar o seu serviço de armazenamento com o Azure Monitor para armazenamento
 
@@ -48,7 +48,7 @@ Para visualizar a utilização e disponibilidade das suas contas de armazenament
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Selecione **Monitor** a partir do painel esquerdo no portal Azure, e na secção **Insights,** selecione **Contas de Armazenamento**.
+2. Selecione **Monitor** a partir do painel esquerdo no portal Azure, e na secção **Insights,** selecione **Contas de Armazenamento** .
 
     ![Vista de contas de armazenamento múltiplas](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -64,10 +64,10 @@ No livro **de resumo** para a subscrição selecionada, a tabela apresenta métr
 
 O contador de azulejos ao abrigo das listas de down-down revira o número total de contas de armazenamento na subscrição e reflete quantos do total são selecionados. Existe codificação de cores condicional ou massas de calor para colunas no livro que reportam métricas ou erros de transação. A cor mais profunda tem o valor mais elevado e uma cor mais clara baseia-se nos valores mais baixos. Para as colunas baseadas em erro, o valor está em vermelho e para as colunas baseadas em métrica, o valor está em azul.
 
-Selecione um valor nas colunas **Disponibilidade**, **Latência E2E**, **Latência do Servidor**e tipo de erro **de transação/Erros** direciona-o para um relatório adaptado ao tipo específico de métricas de armazenamento que correspondem à coluna selecionada para essa conta de armazenamento. Para obter mais informações sobre os livros de trabalho de cada categoria, consulte a secção [de livros de armazenamento detalhado abaixo.](#detailed-storage-workbooks) 
+Selecione um valor nas colunas **Disponibilidade** , **Latência E2E** , **Latência do Servidor** e tipo de erro **de transação/Erros** direciona-o para um relatório adaptado ao tipo específico de métricas de armazenamento que correspondem à coluna selecionada para essa conta de armazenamento. Para obter mais informações sobre os livros de trabalho de cada categoria, consulte a secção [de livros de armazenamento detalhado abaixo.](#detailed-storage-workbooks) 
 
 >[!NOTE]
->Para obter mais informações sobre quais os erros que podem ser mostrados no relatório, consulte o [esquema do Tipo de Resposta](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) e procure tipos de resposta como **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Dependendo das contas de armazenamento selecionadas, se houver mais de três tipos de erros relatados, todos os outros erros são representados na categoria de **Outros**.
+>Para obter mais informações sobre quais os erros que podem ser mostrados no relatório, consulte o [esquema do Tipo de Resposta](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) e procure tipos de resposta como **ServerOtherError** , **ClientOtherError** , **ClientThrottlingError** . Dependendo das contas de armazenamento selecionadas, se houver mais de três tipos de erros relatados, todos os outros erros são representados na categoria de **Outros** .
 
 O limiar **de disponibilidade** predefinido é:
 
@@ -94,7 +94,7 @@ Para aceder ao Azure Monitor para VMs diretamente a partir de uma conta de armaz
 
 2. A partir da lista, escolha uma conta de armazenamento. Na secção de Monitorização, escolha Insights.
 
-    ![Página geral de conta de armazenamento selecionada](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Screenshot que mostra a página do livro de resumo para a conta de armazenamento.](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 No **livro de visão** geral para a conta de armazenamento, mostra várias métricas de desempenho de armazenamento que o ajudam a avaliar rapidamente:
 
@@ -104,13 +104,13 @@ No **livro de visão** geral para a conta de armazenamento, mostra várias métr
 
 * Azulejos métricos e de estado que destacam a disponibilidade do serviço, a contagem total de transações para o serviço de armazenamento, latência E2E e latência do servidor.
 
-Selecionar qualquer um dos botões para **falhas,** **desempenho,** **disponibilidade**e **capacidade** abre o respetivo livro. 
+Selecionar qualquer um dos botões para **falhas,** **desempenho,** **disponibilidade** e **capacidade** abre o respetivo livro. 
 
 ![Página geral de conta de armazenamento selecionada](./media/storage-insights-overview/storage-account-capacity-01.png)
 
 ## <a name="detailed-storage-workbooks"></a>Livros de armazenamento detalhados
 
-Quer tenha selecionado um valor nas colunas Disponibilidade , **Latência** **E2E,** **Latência do Servidor,** e **tipo de erro de transação/Erros** do livro de **visão geral** de **vários armazenamentos,** ou selecionando qualquer um dos botões para Falhas, **Performance,** **Disponibilidade**e **Capacidade** a partir do livro de **visão** geral de uma conta de armazenamento específica, cada um fornece um conjunto de informações interativas relacionadas com armazenamento adaptadas a essa categoria.  
+Quer tenha selecionado um valor nas colunas Disponibilidade , **Latência** **E2E,** **Latência do Servidor,** e **tipo de erro de transação/Erros** do livro de **visão geral** de **vários armazenamentos,** ou selecionando qualquer um dos botões para Falhas, **Performance,** **Disponibilidade** e **Capacidade** a partir do livro de **visão** geral de uma conta de armazenamento específica, cada um fornece um conjunto de informações interativas relacionadas com armazenamento adaptadas a essa categoria.  
 
 * **A disponibilidade** abre o livro **de disponibilidade.** Mostra o estado atual de saúde do serviço de Armazenamento Azure, uma tabela que mostra o estado de saúde disponível de cada objeto categorizado pelo serviço de dados definido na conta de armazenamento com uma linha de tendência que representa o intervalo de tempo selecionado, e um gráfico de tendência de disponibilidade para cada serviço de dados na conta.  
 
@@ -157,7 +157,7 @@ Pode configurar a **conta** geral de multi-subscrição e armazenamento **para**
 
 1. Selecione **Monitor** a partir do portal e, em seguida, selecione Contas de **Armazenamento** a partir do painel de esquerda.
 
-2. No **livro de visão** geral, a partir da barra de comando selecione **Edit**.
+2. No **livro de visão** geral, a partir da barra de comando selecione **Edit** .
 
 3. Selecione a partir da lista de **subscrições** de uma ou mais subscrições a que pretende por defeito. Lembre-se, o livro suporta selecionar até um total de 10 subscrições.  
 
@@ -174,7 +174,7 @@ No nosso exemplo, estamos a trabalhar com o livro de capacidade de multi-subscri
 * Remover uma métrica
 * Alterar a renderização de cores
 
-Pode efetuar as mesmas alterações em qualquer uma das falhas pré-construídas, **Desempenho,** **Disponibilidade**e **Failures** **Capacitação.**
+Pode efetuar as mesmas alterações em qualquer uma das falhas pré-construídas, **Desempenho,** **Disponibilidade** e **Failures** **Capacitação.**
 
 1. Selecione **Monitor** a partir do portal e, em seguida, selecione Contas de **Armazenamento** a partir do painel de esquerda.
 
@@ -190,7 +190,7 @@ Pode efetuar as mesmas alterações em qualquer uma das falhas pré-construídas
 
     ![Editar definições de colunas](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. No painel de **definições** da coluna Editar, selecione sob a secção **Colunas** **microsoft.storage/storageaccounts-Capacidade-Capacidade-Use-Capacidade Timeline$/ Conta utilizada Timeline$**, e sob a lista de **renderizador de colunas** de retirada selecione **Hidden**.
+5. No painel de **definições** da coluna Editar, selecione sob a secção **Colunas** **microsoft.storage/storageaccounts-Capacidade-Capacidade-Use-Capacidade Timeline$/ Conta utilizada Timeline$** , e sob a lista de **renderizador de colunas** de retirada selecione **Hidden** .
 
 6. **Selecione Guardar e quase** para cometer a sua alteração.
 
@@ -198,7 +198,7 @@ Agora vamos mudar o tema de cor para as métricas de capacidade no relatório pa
 
 1. Selecione **Definições de colunas** na grelha de métricas.
 
-2. No painel de **definições** da coluna Editar, selecione sob a secção **colunas** **microsoft.storage/storageaccounts-Capacity-UsedCapacity$ `|` microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$ `|` microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$ `|` microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$microsoft.storage/storageaccounts/tableacs-capacity-capacity- `|` ** Sob a lista de drop-down **Paleta de cores**, selecione **Verde**.
+2. No painel de **definições** da coluna Editar, selecione sob a secção **colunas** **microsoft.storage/storageaccounts-Capacity-UsedCapacity$ `|` microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$ `|` microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$ `|` microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$microsoft.storage/storageaccounts/tableacs-capacity-capacity- `|`** Sob a lista de drop-down **Paleta de cores** , selecione **Verde** .
 
 3. **Selecione Guardar e quase** para cometer a sua alteração.
 
@@ -214,13 +214,13 @@ Neste exemplo, estamos a trabalhar com o livro de capacidade da conta de armazen
 
 3. No livro de trabalhos, selecione **Disponibilidade** para mudar para o livro de disponibilidade e, em seguida, selecione **Editar** na barra de comando. 
 
-4. Desloque-se até à parte inferior da página e no lado esquerdo ao lado da **grelha Disponibilidade por API,** selecione **Editar**.
+4. Desloque-se até à parte inferior da página e no lado esquerdo ao lado da **grelha Disponibilidade por API,** selecione **Editar** .
 
     ![Editar disponibilidade por definições de grelha de nome API](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
 
-5. Selecione **as definições de coluna** e, em seguida, no painel de definições da coluna **Editar,** sob a secção **Colunas** selecione **Disponibilidade (%) (Limiares + Formatados)**.
+5. Selecione **as definições de coluna** e, em seguida, no painel de definições da coluna **Editar,** sob a secção **Colunas** selecione **Disponibilidade (%) (Limiares + Formatados)** .
 
-6. Altere o valor para o estado de saúde **critical** de **90** para **85** e, em seguida, clique em **Guardar e Fechar**.
+6. Altere o valor para o estado de saúde **critical** de **90** para **85** e, em seguida, clique em **Guardar e Fechar** .
 
     ![Modifique o valor limiar de disponibilidade para estado crítico](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 

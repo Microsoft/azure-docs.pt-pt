@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 2700b18797db3805a081b549605369e73889867b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d4815f4be3c8ef1a2c262d6715756776a537eac1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476982"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101056"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live [TTL] no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Com **o Time to Live** ou TTL, o Azure Cosmos DB fornece a capacidade de eliminar automaticamente os itens de um recipiente após um determinado período de tempo. Por predefinição, pode definir a hora para viver ao nível do recipiente e sobrepor o valor numa base por item. Depois de definir o TTL num recipiente ou a um nível de item, a Azure Cosmos DB removerá automaticamente estes itens após o período de tempo, desde a última modificação. O tempo de vida do valor é configurado em segundos. Quando configurar a TTL, o sistema eliminará automaticamente os itens caducados com base no valor TTL, sem necessidade de uma operação de eliminação que seja explicitamente emitida pela aplicação do cliente. O valor máximo para TTL é 2147483647.
 

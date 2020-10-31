@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8add203fabf867e22dbfe98b2bc9c632e62018b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567150"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100529"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é Azure Cosmos DB Analytical Store (Preview)?
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
 > A loja analítica Azure Cosmos DB está atualmente em pré-visualização. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -153,7 +154,7 @@ Aqui está um mapa de todos os tipos de dados de propriedade e suas representaç
 |Int32  | ".int32"  |123|
 |Int64  | ".int64"  |255486129307|
 |Nulo   | ".nulo"   | nulo|
-|Cadeia|    ".string" | "ABC"|
+|String|    ".string" | "ABC"|
 |Timestamp |    ".timetamp" |  Tempo de carregamento (0,0)|
 |DateTime   |".data"    | ISODate ("2020-08-21T07:43:07.375Z")|
 |ObjectId   |".objectId"    | ObjectId("5f3f7b59330ec25c132623a2")|

@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 43d8237d859249317d7b581e25ed9a2b34d39d00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46bbc0ff2a99f84c1f01dc12c569e08b545eab0f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303805"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101362"
 ---
 # <a name="is_object-azure-cosmos-db"></a>IS_OBJECT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devolve um valor Boolean que indica se o tipo de expressão especificada é um objeto JSON.  
   
 ## <a name="syntax"></a>Sintaxe

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 0eec1538814b93c024fe6a5aa34ee73c4c09184c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2f711ad269a4ea07cfbb1603b592b184779dcfdb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740424"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100750"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Compreender as alterações na alteração Root CA para Azure Database para o servidor Single PostgreSQL
 
@@ -104,7 +104,7 @@ Se não atualizar o certificado de raiz antes de 15 de fevereiro de 2021 (02/15/
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-postgresql"></a>4. Qual é o impacto se utilizar o Serviço de Aplicações com Base de Dados Azure para PostgreSQL?
 Para os serviços de aplicações Azure, conectando-se à Base de Dados Azure para PostgreSQL, podemos ter dois cenários possíveis e depende de como você está usando SSL com a sua aplicação.
 *   Este novo certificado foi adicionado ao Serviço de Aplicações a nível da plataforma. Se estiver a utilizar os certificados SSL incluídos na plataforma Do Serviço de Aplicações na sua aplicação, então não é necessária qualquer ação.
-*   Se estiver explicitamente a incluir o caminho para o ficheiro SSL cert no seu código, então terá de descarregar o novo certificado e atualizar o código para utilizar o novo certificado. Um bom exemplo deste cenário é quando utiliza recipientes personalizados no Serviço de Aplicações como partilhado na documentação do [Serviço de Aplicações](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md)
+*   Se estiver explicitamente a incluir o caminho para o ficheiro SSL cert no seu código, então terá de descarregar o novo certificado e atualizar o código para utilizar o novo certificado. Um bom exemplo deste cenário é quando utiliza recipientes personalizados no Serviço de Aplicações como partilhado na documentação do [Serviço de Aplicações](/azure/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress)
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-postgresql"></a>5. Qual é o impacto se utilizar os Serviços Azure Kubernetes (AKS) com a Base de Dados Azure para PostgreSQL?
 Se estiver a tentar ligar-se à Base de Dados Azure para PostgreSQL utilizando os Serviços Azure Kubernetes (AKS), é semelhante ao acesso a partir de um ambiente de hospedagem dedicado aos clientes. Consulte os passos [aqui.](../aks/ingress-own-tls.md)
@@ -115,7 +115,7 @@ Para o conector que utiliza o Tempo de Execução da Integração Azure, os cert
 Para o conector que utiliza o Tempo de Execução de Integração Auto-hospedado, onde inclui explicitamente o caminho para o ficheiro cert SSL na sua cadeia de ligação, terá de descarregar o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) e atualizar o fio de ligação para o utilizar.
 
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. Preciso de planear um tempo de inatividade de manutenção do servidor de bases de dados para esta mudança?
-Não. Uma vez que a mudança aqui está apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta alteração.
+N.º Uma vez que a mudança aqui está apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta alteração.
 
 ### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. E se eu não conseguir um tempo de paragem programado para esta mudança antes de 15 de fevereiro de 2021 (02/15/2021)?
 Uma vez que os clientes utilizados para a ligação ao servidor precisam de estar a atualizar as informações do certificado tal como descrito na secção de correção [aqui,](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)não precisamos de um tempo de inatividade para o servidor neste caso.
@@ -133,7 +133,7 @@ Uma vez que esta atualização é uma alteração do lado do cliente, se o clien
 Para verificar se está a utilizar a ligação SSL para ligar ao servidor, consulte a [verificação SSL](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity).
 
 ### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. É necessária alguma ação se já tiver o DigiCertGlobalRootG2 no meu ficheiro de certificado?
-Não. Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2** .
+N.º Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2** .
 
 ### <a name="14-what-is-you-are-using-docker-image-of-pgbouncer-sidecar-provided-by-microsoft"></a>14. O que está a usar a imagem de estivador do sidecar pgBouncer fornecido pela Microsoft?
 Uma nova imagem de estivador que suporta [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) e [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) é publicada abaixo [aqui](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (Última etiqueta). Você pode puxar esta nova imagem para evitar qualquer interrupção na conectividade a partir de 15 de fevereiro de 2021. 

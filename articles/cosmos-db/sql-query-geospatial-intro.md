@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: b874ad4ce566cfca3b0dbd28bdfe48bf30272121
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 10882a0f4daf5c0d9aa1d4aeb53b2f14f9d1dea0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482830"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100835"
 ---
 # <a name="geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Dados de localização Geospatial e GeoJSON em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo é uma introdução à funcionalidade geoespacial em Azure Cosmos DB. Atualmente, armazenar e aceder a dados geoespaciais é suportado apenas pelas contas Azure Cosmos DB SQL API. Depois de ler a nossa documentação sobre a indexação geoespacial, poderá responder às seguintes perguntas:
 

@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: ca1ca258296f5ac8f1fb7120d2965ccacf74b5d5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: be93df10614e32fb14e5ca7497461f0f2d6fc93e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409396"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099721"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Início Rápido: Criar, consultar e percorrer uma base de dados de grafos do Azure Cosmos DB com a consola do Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
@@ -52,11 +53,11 @@ Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/downloa
 ## <a name="connect-to-your-app-servicegraph"></a><a id="ConnectAppService"></a>Conecte-se ao seu serviço de aplicações/Gráfico
 
 1. Antes de iniciar a Consola Gremlin, crie ou modifique o ficheiro de configuração remote-secure.yaml no diretório `apache-tinkerpop-gremlin-console-3.2.5/conf`.
-2. Preencha as configurações de *anfitrião*, *porta*, *nome de utilizador*, *palavra-passe*, *connectionPool* e *serializador*, conforme definido na seguinte tabela:
+2. Preencha as configurações de *anfitrião* , *porta* , *nome de utilizador* , *palavra-passe* , *connectionPool* e *serializador* , conforme definido na seguinte tabela:
 
     Definição|Valor sugerido|Descrição
     ---|---|---
-    anfitriões|[*nome da conta*. **gremlin**.cosmos.azure.com]|Veja a captura de ecrã abaixo. Este é o valor **Gremlin URI** na página geral do portal Azure, em parênteses quadrados, com o trailing :443/ removido. Nota:*Certifique-se*de usar o valor Gremlin, e **não** o URI que termina com [nome de conta .documents.azure.com] o que provavelmente resultaria numa exceção "Host não respondeu em tempo útil" ao tentar executar consultas gremlin mais tarde. 
+    anfitriões|[ *nome da conta* . **gremlin** .cosmos.azure.com]|Veja a captura de ecrã abaixo. Este é o valor **Gremlin URI** na página geral do portal Azure, em parênteses quadrados, com o trailing :443/ removido. Nota: *Certifique-se* de usar o valor Gremlin, e **não** o URI que termina com [nome de conta .documents.azure.com] o que provavelmente resultaria numa exceção "Host não respondeu em tempo útil" ao tentar executar consultas gremlin mais tarde. 
     porta|443|Defina como 443.
     nome de utilizador|*O seu nome de utilizador*|O recurso do formulário `/dbs/<db>/colls/<coll>`, em que `<db>` é o nome da base de dados e `<coll>` é o nome da coleção.
     palavra-passe|*A chave primária*| Veja a segunda captura de ecrã abaixo. Esta é a chave primária, que pode ser obtida na página Chaves do portal do Azure, na caixa Chave Primária. Utilize o botão de copiar, no lado esquerdo da caixa, para copiar o valor.
@@ -98,7 +99,7 @@ Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/downloa
    > [!NOTE]
    > Se não executar o comando `:remote console`, mas quiser redirecionar todos os comandos da consola para o servidor remoto, deve incluir o prefixo `:>` no comando. Por exemplo, deve executar o comando como `:> g.V().count()`. Este prefixo faz parte do comando e é importante ao utilizar a consola do Gremlin com o Azure Cosmos DB. Omitir este prefixo ensina a consola a executar o comando localmente, muitas vezes num grafo dentro da memória. A utilização deste prefixo `:>` diz à consola para executar um comando remoto, neste caso no Azure Cosmos DB (o emulador do localhost ou uma instância do Azure).
 
-Ótimo! Agora que concluímos a configuração, comecemos a executar alguns comandos da consola.
+Excelente! Agora que concluímos a configuração, comecemos a executar alguns comandos da consola.
 
 Vamos tentar um comando de contagem() simples. Escreva o seguinte na consola, na linha de comandos:
 
@@ -108,7 +109,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>Criar vértices e margens
 
-Vamos começar por adicionar cinco vértices de pessoas, para *Thomas*, *Mary Kay*, *Robin*, *Ben* e *Jack*.
+Vamos começar por adicionar cinco vértices de pessoas, para *Thomas* , *Mary Kay* , *Robin* , *Ben* e *Jack* .
 
 Entrada (Thomas):
 
@@ -214,7 +215,7 @@ Resultado:
 
 ## <a name="update-a-vertex"></a>Atualizar um vértice
 
-Vamos atualizar o vértice *Thomas* com uma nova idade de *45*.
+Vamos atualizar o vértice *Thomas* com uma nova idade de *45* .
 
 Entrada:
 ```java

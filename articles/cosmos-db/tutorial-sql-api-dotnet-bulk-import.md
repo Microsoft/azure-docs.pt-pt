@@ -8,14 +8,15 @@ ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cfab8ba88c7da84efb3f6aed6f95bb100507f8da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e80a67890dcf76d115464ea62c0729aedd444667
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981940"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099237"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Dados de importação a granel para a conta Azure Cosmos DL API através da utilização da conta .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este tutorial mostra como construir uma aplicação de consola .NET que otimiza a produção (RU/s) necessária para importar dados para a Azure Cosmos DB. Neste artigo, você vai ler dados de uma fonte de dados de amostra e importá-lo em um recipiente Azure Cosmos.
 Este tutorial utiliza a [versão 3.0+](https://www.nuget.org/packages/Microsoft.Azure.Cosmos) do Azure Cosmos DB .NET SDK, que pode ser direcionado para .NET Framework ou .NET Core.
@@ -44,7 +45,7 @@ Antes de seguir as instruções deste artigo, certifique-se de que dispõe dos s
 
 ## <a name="step-2-set-up-your-net-project"></a>Passo 2: Configurar o seu projeto .NET
 
-Abra o pedido de comando do Windows ou uma janela do terminal a partir do computador local. Executará todos os comandos nas próximas secções a partir do comando ou terminal. Executar o seguinte comando dotnet novo para criar uma nova app com o nome *granão-importação-demonstração*. O `--langVersion` parâmetro define a propriedade *LangVersion* no ficheiro do projeto criado.
+Abra o pedido de comando do Windows ou uma janela do terminal a partir do computador local. Executará todos os comandos nas próximas secções a partir do comando ou terminal. Executar o seguinte comando dotnet novo para criar uma nova app com o nome *granão-importação-demonstração* . O `--langVersion` parâmetro define a propriedade *LangVersion* no ficheiro do projeto criado.
 
    ```bash
    dotnet new console –langVersion:8 -n bulk-import-demo

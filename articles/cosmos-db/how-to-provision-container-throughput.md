@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: a6855a1c730c33a835e5033041ee7978be28fc6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4caf43cb972b44dd1482b9e6e467e41cae294708
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278665"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100104"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Produção padrão de provisão (manual) num recipiente Azure Cosmos - SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo explica como providenciar a produção padrão (manual) num recipiente em Azure Cosmos DB SQL API. Pode provistirá a produção num único contentor, ou [provisão de produção numa base de dados](how-to-provision-database-throughput.md) e partilhá-la entre os contentores da base de dados. Você pode providenciar produção em um recipiente usando o portal Azure CLI, ou Azure Cosmos DB SDKs.
 
@@ -27,13 +28,13 @@ Se estiver a utilizar uma API diferente, consulte [a API para a MongoDB,](how-to
 
 1. [Crie uma nova conta Azure Cosmos,](create-sql-api-dotnet.md#create-account)ou selecione uma conta Azure Cosmos existente.
 
-1. Abra o painel **do Explorador de Dados** e selecione **Novo Recipiente**. Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **do Explorador de Dados** e selecione **Novo Recipiente** . Em seguida, forneça os seguintes detalhes:
 
    * Indique se está a criar uma nova base de dados ou a utilizar uma existente.
    * Introduza uma identificação do contentor.
    * Introduza um valor chave de partição (por exemplo, `/ItemID` ).
    * Introduza uma produção que pretende prever (por exemplo, 1000 RUs).
-   * Selecione **OK**.
+   * Selecione **OK** .
 
     :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Screenshot do Data Explorer, com nova coleção em destaque":::
 

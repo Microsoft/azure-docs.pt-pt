@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88757902"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098761"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sem servidor (Pré-visualização)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB sem servidor está atualmente em pré-visualização. Esta versão de pré-visualização é fornecida sem um Acordo de Nível de Serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -32,9 +33,9 @@ Ao utilizar o Azure Cosmos DB, todas as operações de base de dados têm um cus
 
 Azure Cosmos DB sem servidores melhor se encaixa em cenários onde você espera:
 
-- **Tráfego de**luz : Porque a capacidade de provisionamento nestas situações não é necessária e pode ser proibitiva em termos de custos
-- **Burstability moderada**: Porque os recipientes sem servidor podem entregar até 5.000 Unidades de Pedido por segundo
-- **Desempenho moderado**: Porque os recipientes sem servidor têm [características de desempenho específicas](#performance)
+- **Tráfego de** luz : Porque a capacidade de provisionamento nestas situações não é necessária e pode ser proibitiva em termos de custos
+- **Burstability moderada** : Porque os recipientes sem servidor podem entregar até 5.000 Unidades de Pedido por segundo
+- **Desempenho moderado** : Porque os recipientes sem servidor têm [características de desempenho específicas](#performance)
 
 Por estas razões, a Azure Cosmos DB sem servidor deve ser considerada para os seguintes tipos de carga de trabalho:
 
@@ -81,9 +82,9 @@ Pode encontrar o mesmo gráfico quando utilizar o Azure Monitor, como descrito [
 
 Os recursos sem servidor produzem características de desempenho específicas que são diferentes das que os recursos de produção a forrados fornecem:
 
-- **Disponibilidade**: Após a oferta sem servidor ficar geralmente disponível, a disponibilidade de recipientes sem servidor será coberta por um Acordo de Nível de Serviço (SLA) de 99,9% quando as Zonas de Disponibilidade (redundância de zona) não forem utilizadas. O SLA é de 99,99% quando as Zonas de Disponibilidade são utilizadas.
-- **Latência**: Após a oferta sem servidor tornar-se geralmente disponível, a latência de recipientes sem servidor será coberta por um Objetivo de Nível de Serviço (SLO) de 10 milissegundos ou menos para leituras pontuais e 30 milissegundos ou menos para escritas. Uma operação de leitura de ponto consiste em obter um único item pelo seu valor de ID e chave de partição.
-- **Burstability**: Após a oferta sem servidor ficar geralmente disponível, a capacidade de explosão de contentores sem servidor será coberta por um Objetivo de Nível de Serviço (SLO) de 95%. Isto significa que a capacidade máxima de explosão pode ser alcançada pelo menos 95% das vezes.
+- **Disponibilidade** : Após a oferta sem servidor ficar geralmente disponível, a disponibilidade de recipientes sem servidor será coberta por um Acordo de Nível de Serviço (SLA) de 99,9% quando as Zonas de Disponibilidade (redundância de zona) não forem utilizadas. O SLA é de 99,99% quando as Zonas de Disponibilidade são utilizadas.
+- **Latência** : Após a oferta sem servidor tornar-se geralmente disponível, a latência de recipientes sem servidor será coberta por um Objetivo de Nível de Serviço (SLO) de 10 milissegundos ou menos para leituras pontuais e 30 milissegundos ou menos para escritas. Uma operação de leitura de ponto consiste em obter um único item pelo seu valor de ID e chave de partição.
+- **Burstability** : Após a oferta sem servidor ficar geralmente disponível, a capacidade de explosão de contentores sem servidor será coberta por um Objetivo de Nível de Serviço (SLO) de 95%. Isto significa que a capacidade máxima de explosão pode ser alcançada pelo menos 95% das vezes.
 
 > [!NOTE]
 > Como qualquer pré-visualização do Azure Cosmos, o servidor DB do Azure Cosmos está excluído dos Acordos de Nível de Serviço (SLA). As características de desempenho acima mencionadas são fornecidas como uma pré-visualização do que esta oferta irá entregar quando geralmente disponível.

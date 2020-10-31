@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3edaf55c8acb4def4f074c0d8f96eb399d98b6ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7370642f5a325867c901d7ebd362e6dfa68e098f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491092"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101515"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gerir políticas de resolução de conflitos em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Com as gravações multi-regiões, quando vários clientes escrevem para o mesmo item, podem ocorrer conflitos. Quando um conflito ocorre, você pode resolver o conflito usando diferentes políticas de resolução de conflitos. Este artigo descreve como gerir as políticas de resolução de conflitos.
 
@@ -134,10 +135,10 @@ Estes exemplos mostram como configurar um contentor com uma política de resolu�
 
 Os procedimentos personalizados de resolução de conflitos devem ser implementados utilizando a assinatura de função abaixo mostrada. O nome da função não necessita de corresponder ao nome utilizado ao registar o procedimento armazenado com o recipiente, mas sim simplifica o nome. Aqui está uma descrição dos parâmetros que devem ser implementados para este procedimento armazenado.
 
-- **incomingItem**: O item que está a ser inserido ou atualizado no compromisso que está a gerar os conflitos. É nulo para apagar operações.
-- **existingItem**: O item atualmente comprometido. Este valor não é nulo numa atualização e nulo para uma inserção ou eliminação.
-- **isTombstone**: Boolean indicando se o incomingItem está em conflito com um item previamente eliminado. Quando verdadeiro, o existingItem também é nulo.
-- **conflituosaItems**: Matriz da versão comprometida de todos os itens no recipiente que estão em conflito com a entradaItem em ID ou quaisquer outras propriedades de índice únicas.
+- **incomingItem** : O item que está a ser inserido ou atualizado no compromisso que está a gerar os conflitos. É nulo para apagar operações.
+- **existingItem** : O item atualmente comprometido. Este valor não é nulo numa atualização e nulo para uma inserção ou eliminação.
+- **isTombstone** : Boolean indicando se o incomingItem está em conflito com um item previamente eliminado. Quando verdadeiro, o existingItem também é nulo.
+- **conflituosaItems** : Matriz da versão comprometida de todos os itens no recipiente que estão em conflito com a entradaItem em ID ou quaisquer outras propriedades de índice únicas.
 
 > [!IMPORTANT]
 > Tal como em qualquer procedimento armazenado, um procedimento personalizado de resolução de conflitos pode aceder a quaisquer dados com a mesma chave de partição e pode executar qualquer inserção, atualização ou eliminação de operação para resolver conflitos.

@@ -10,21 +10,26 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: f00ffee47e3eb6366d632d8b6ee9beb01f048442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38191c55afb87151b238069a75a6c86acd8904df
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76983117"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100546"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Ligue para o seu caso de Pesquisa Personalizada Bing a partir do Portal
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Depois de configurar a sua experiência de pesquisa personalizada, pode testá-la dentro do [portal](https://customsearch.ai)Bing Custom Search . 
 
 ![uma imagem do portal de pesquisa personalizado Bing](media/portal-search-screen.png)
 ## <a name="create-a-search-query"></a>Criar uma consulta de pesquisa 
 
-Depois de ter assinado no [portal](https://customsearch.ai)Bing Custom Search, selecione o seu caso de pesquisa e clique no separador **'Produção'.** Em **Endpoints**, selecione um ponto final da API (por exemplo, Web API). A sua subscrição determina quais os pontos finais apresentados.
+Depois de ter assinado no [portal](https://customsearch.ai)Bing Custom Search, selecione o seu caso de pesquisa e clique no separador **'Produção'.** Em **Endpoints** , selecione um ponto final da API (por exemplo, Web API). A sua subscrição determina quais os pontos finais apresentados.
 
 Para criar uma consulta de pesquisa, introduza os valores de parâmetro para o seu ponto final. Note que os parâmetros apresentados no portal podem ser alterados dependendo do ponto final que escolher. Consulte a [referência API de Pesquisa Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a subscrição que a sua instância de pesquisa utiliza, adicione a chave de subscrição adequada e atualize os parâmetros de mercado e/ou idioma apropriados.
 
@@ -44,7 +49,7 @@ Clicar **em Parâmetros Adicionais** revela os seguintes parâmetros:
 |---------|---------|
 |Pesquisa segura     | Um filtro utilizado para filtrar páginas web para conteúdo adulto. Disponível apenas para os pontos finais web, imagem, vídeo e ui hospedados. Note que bing Custom Video Search suporta apenas dois valores: `moderate` e `strict` .        |
 |Idioma da Interface de Utilizador    | O idioma utilizado para as cordas de interface do utilizador. Por exemplo, se ativar imagens e vídeos em UI hospedado, os separadores **de imagem** e **vídeo** utilizam o idioma especificado.        |
-|Contagem     | O número de resultados de pesquisa para retorno na resposta. Disponível apenas para pontos finais Web, Image e Video.         |
+|de palavras     | O número de resultados de pesquisa para retorno na resposta. Disponível apenas para pontos finais Web, Image e Video.         |
 |Desvio    | O número de resultados de pesquisa a saltar antes de devolver os resultados. Disponível apenas para pontos finais Web, Image e Video.        |
     
 Depois de especificar todas as opções necessárias, clique em **Call** para ver a resposta JSON no painel certo. Se selecionar o ponto final do UI hospedado, pode testar a experiência de pesquisa no painel inferior.

@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: e12bae14ede90a3b93a69d963981f097818e65ab
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7dc81581846f8abdae81fa3552d9fa4645f32a05
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480229"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101311"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo utilizador
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-O Azure Cosmos DB fornece uma execução transacional de linguagem integrada de JavaScript. Ao utilizar o API SQL em Azure Cosmos DB, pode escrever **procedimentos armazenados,** **gatilhos**e **funções definidas pelo utilizador (UDFs)** na língua JavaScript. Pode escrever a lógica em JavaScript, executada dentro do motor de base de dados. Pode criar e executar gatilhos, procedimentos armazenados e UDFs utilizando o [portal Azure,](https://portal.azure.com/)a [API integrada de linguagem JavaScript em Azure Cosmos DB](javascript-query-api.md) ou os [SDKs clientes API do Cosmos DB SQL](how-to-use-stored-procedures-triggers-udfs.md).
+O Azure Cosmos DB fornece uma execução transacional de linguagem integrada de JavaScript. Ao utilizar o API SQL em Azure Cosmos DB, pode escrever **procedimentos armazenados,** **gatilhos** e **funções definidas pelo utilizador (UDFs)** na língua JavaScript. Pode escrever a lógica em JavaScript, executada dentro do motor de base de dados. Pode criar e executar gatilhos, procedimentos armazenados e UDFs utilizando o [portal Azure,](https://portal.azure.com/)a [API integrada de linguagem JavaScript em Azure Cosmos DB](javascript-query-api.md) ou os [SDKs clientes API do Cosmos DB SQL](how-to-use-stored-procedures-triggers-udfs.md).
 
 ## <a name="benefits-of-using-server-side-programming"></a>Benefícios da utilização da programação do lado do servidor
 
@@ -41,7 +42,7 @@ A escrita de procedimentos armazenados, gatilhos e funções definidas pelo util
 
 ## <a name="transactions"></a>Transações
 
-A transação numa base de dados típica pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação fornece **garantias de propriedade ACID.** ACID é um acrónimo bem conhecido que significa: **uma**tomica, onsistency **C,** **i**solação, e **urability D.** 
+A transação numa base de dados típica pode ser definida como uma sequência de operações realizadas como uma única unidade lógica de trabalho. Cada transação fornece **garantias de propriedade ACID.** ACID é um acrónimo bem conhecido que significa: **uma** tomica, onsistency **C,** **i** solação, e **urability D.** 
 
 * A atomicidade garante que todas as operações realizadas dentro de uma transação são tratadas como uma única unidade, e ou todas são comprometidas ou nenhuma delas são. 
 

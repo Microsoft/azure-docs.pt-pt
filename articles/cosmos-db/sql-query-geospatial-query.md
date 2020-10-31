@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: tisande
-ms.openlocfilehash: bbfc31e810e2c11cde4907c9d5120b66195191af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ee221acb9ff045716e3a8015b20b467ab6d0b10
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84764983"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098557"
 ---
 # <a name="querying-geospatial-data-with-azure-cosmos-db"></a>Consulta de dados geoespaciais com Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo abrangerá como consultar dados geoespaciais em Azure Cosmos DB usando SQL e LINQ. Atualmente, armazenar e aceder a dados geoespaciais é suportado apenas pelas contas Azure Cosmos DB SQL API. A Azure Cosmos DB suporta as seguintes funções de Open Geospatial Consortium (OGC) para consulta geoespacial. Para obter mais informações sobre o conjunto completo de funções incorporadas no idioma SQL, consulte [as funções do sistema de consulta em Azure Cosmos DB](sql-query-system-functions.md).
 
@@ -39,7 +40,7 @@ As funções espaciais podem ser usadas para realizar consultas de proximidade c
     WHERE ST_DISTANCE(f.location, {"type": "Point", "coordinates":[31.9, -4.8]}) < 30000
 ```
 
-**Results**
+**Resultados**
 
 ```json
     [{
@@ -64,7 +65,7 @@ Os argumentos do `ST_WITHIN` polígono podem conter apenas um único anel, ou se
     })
 ```
 
-**Results**
+**Resultados**
 
 ```json
     [{
@@ -87,7 +88,7 @@ A Azure Cosmos DB também suporta a realização de consultas inversas, ou seja,
     WHERE ST_WITHIN({"type": "Point", "coordinates":[31.9, -4.8]}, a.location)
 ```
 
-**Results**
+**Resultados**
 
 ```json
     [{
@@ -107,7 +108,7 @@ A Azure Cosmos DB também suporta a realização de consultas inversas, ou seja,
     SELECT ST_ISVALID({ "type": "Point", "coordinates": [31.9, -132.8] })
 ```
 
-**Results**
+**Resultados**
 
 ```json
     [{
@@ -125,7 +126,7 @@ Estas funções também podem ser usadas para validar polígonos. Por exemplo, a
         ]]})
 ```
 
-**Results**
+**Resultados**
 
 ```json
     [{

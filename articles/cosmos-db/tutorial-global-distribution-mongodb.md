@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e167ccf1717c539dc676d85a19eb6eacc3ec0bda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89826eab7b1686ae695a2716a03b2f5d03da277f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89021124"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099261"
 ---
 # <a name="set-up-global-distributed-database-using-azure-cosmos-dbs-api-for-mongodb"></a>Configurar base de dados distribuída global usando a API da Azure Cosmos para a MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Neste artigo, mostramos como usar o portal Azure para configurar uma base de dados distribuída global e conectá-la usando a API da Azure Cosmos DB para o MongoDB.
 
@@ -65,14 +66,14 @@ Resultados de exemplo:
 
 ## <a name="connecting-to-a-preferred-region"></a>Ligação a uma região preferida 
 
-A API da Azure Cosmos DB para o MongoDB permite-lhe especificar a preferência de leitura da sua coleção para uma base de dados distribuída globalmente. Para leituras de baixa latência e elevada disponibilidade global, recomendamos a definição da preferência de leitura da coleção como *mais próxima*. Está configurada uma preferência de leitura de *mais próxima* para ler a partir da região mais próxima.
+A API da Azure Cosmos DB para o MongoDB permite-lhe especificar a preferência de leitura da sua coleção para uma base de dados distribuída globalmente. Para leituras de baixa latência e elevada disponibilidade global, recomendamos a definição da preferência de leitura da coleção como *mais próxima* . Está configurada uma preferência de leitura de *mais próxima* para ler a partir da região mais próxima.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);
 collection = collection.WithReadPreference(new ReadPreference(ReadPreferenceMode.Nearest));
 ```
 
-Para aplicações com uma região de leitura/escrita primária e uma região secundária para cenários de recuperação após desastre (DR), recomendamos a definição da preferência de leitura da coleção como *secundária preferida*. Está configurada uma preferência de leitura de *secundária preferida* para ler a partir da região secundária quando a região primária não estiver disponível.
+Para aplicações com uma região de leitura/escrita primária e uma região secundária para cenários de recuperação após desastre (DR), recomendamos a definição da preferência de leitura da coleção como *secundária preferida* . Está configurada uma preferência de leitura de *secundária preferida* para ler a partir da região secundária quando a região primária não estiver disponível.
 
 ```csharp
 var collection = database.GetCollection<BsonDocument>(collectionName);

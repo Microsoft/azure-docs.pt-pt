@@ -9,14 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: b450d8463c09647b8f87547afe9d714c4b8659c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd2d27addb6860e49ac12eb36d8b625b8bf92001
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82858555"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100410"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Migrar os seus dados para a conta da API cassandra no Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Como desenvolvedor, pode ter cargas de trabalho de Cassandra existentes que estão a funcionar no local ou na nuvem, e talvez queira migrar para Azure. Você pode migrar tais cargas de trabalho para uma conta Cassandra API em Azure Cosmos DB. Este tutorial fornece instruções sobre diferentes opções disponíveis para migrar dados de Apache Cassandra para a conta API cassandra em Azure Cosmos DB.
 
@@ -103,9 +104,9 @@ Utilize os seguintes passos para migrar dados para a conta da API de Cassandra c
 
 A migração de dados utilizando trabalhos spark é uma opção recomendada se tiver dados que residam num cluster existente em máquinas virtuais Azure ou em qualquer outra nuvem. Esta opção requer que a Spark seja configurada como intermediário por uma vez ou ingestão regular. Você pode acelerar esta migração usando a conectividade Azure ExpressRoute entre as instalações e Azure. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não são necessários, pode apagar o grupo de recursos, a conta Azure Cosmos e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual, selecione **Delete**e, em seguida, confirme o nome do grupo de recursos para eliminar.
+Quando já não são necessários, pode apagar o grupo de recursos, a conta Azure Cosmos e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual, selecione **Delete** e, em seguida, confirme o nome do grupo de recursos para eliminar.
 
 ## <a name="next-steps"></a>Passos seguintes
 

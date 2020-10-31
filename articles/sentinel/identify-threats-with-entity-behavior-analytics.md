@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 6597baa67bcd2e26f3b8aeaa98c1776b5fc47430
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0486c9d2eb6c651b507f4b0a44f4a6fc2b018f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997147"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100665"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificar ameaças avançadas com a Análise de Comportamento de Utilizador e Entidade (UEBA) em Azure Sentinel
 
@@ -62,9 +62,41 @@ Cada atividade é pontuada com "Resultado Prioritário de Investigação" – qu
 
 Veja como a análise de comportamento é usada na [Microsoft Cloud App Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) para um exemplo de como isto funciona.
 
+## <a name="entities-in-azure-sentinel"></a>Entidades em Azure Sentinel
 
+### <a name="entity-identifiers"></a>Identificadores de entidades
 
-## <a name="entity-pages"></a>Páginas de entidade
+Quando os alertas são enviados para o Azure Sentinel, incluem elementos de dados que o Azure Sentinel identifica e classifica como entidades, tais como contas de utilizador, anfitriões, endereços IP e outros. Por vezes, esta identificação pode ser um desafio, caso o alerta não contenha informação suficiente sobre a entidade.
+
+Por exemplo, as contas de utilizador podem ser identificadas de uma forma: utilizando o identificador numérico de uma conta AZure AD (GUID), ou o seu nome principal de utilizador (UPN) ou, em alternativa, utilizando uma combinação do seu nome de utilizador e do seu nome de domínio NT. Diferentes fontes de dados podem identificar o mesmo utilizador de diferentes formas. Assim, sempre que possível, a Azure Sentinel funde esses identificadores numa única entidade, para que possa ser devidamente identificado.
+
+Pode acontecer, no entanto, que um dos seus fornecedores de recursos cria um alerta no qual uma entidade não está suficientemente identificada - por exemplo, um nome de utilizador sem o contexto do nome de domínio. Nesse caso, a entidade utilizadora não pode ser fundida com outros casos da mesma conta de utilizador, que seriam identificados como uma entidade separada, e essas duas entidades permaneceriam separadas em vez de unificadas.
+
+De forma a minimizar o risco de isso acontecer, deve verificar se todos os seus fornecedores de alerta identificam adequadamente as entidades nos alertas que produzem. Além disso, sincronizar as entidades de conta de utilizador com o Azure Ative Directory pode criar um diretório unificador, que poderá fundir entidades de conta de utilizador.
+
+Os seguintes tipos de entidades estão atualmente identificados no Azure Sentinel:
+
+- Conta de utilizador (Conta)
+- Anfitrião
+- Endereço IP (IP)
+- Software maligno
+- Ficheiro
+- Processo
+- Aplicação em nuvem (CloudApplication)
+- Nome de domínio (DNS)
+- Recurso do Azure
+- Arquivo (FileHash)
+- Chave do registo
+- Valor de registo
+- Grupo de segurança
+- URL
+- Dispositivo IoT
+- Mailbox
+- Aglomerado de correio
+- Mensagem de correio
+- Correio de submissão
+
+### <a name="entity-pages"></a>Páginas de entidade
 
 Quando encontra qualquer entidade (atualmente limitada a utilizadores e anfitriões) numa pesquisa, um alerta ou uma investigação, pode selecionar a entidade e ser levado para uma página de **entidade,** uma folha de dados cheia de informações úteis sobre essa entidade. Os tipos de informação que irá encontrar nesta página incluem factos básicos sobre a entidade, uma cronologia de eventos notáveis relacionados com esta entidade e insights sobre o comportamento da entidade.
  
@@ -85,7 +117,7 @@ Pode escolher o intervalo de **tempo** entre várias opções predefinidas (como
 
 Os seguintes tipos de itens estão incluídos na linha do tempo:
 
-- Alertas - quaisquer alertas em que a entidade seja definida como uma **entidade mapeada**. Tenha em atenção que se a sua organização criou [alertas personalizados utilizando regras de análise,](./tutorial-detect-threats-custom.md)deve certificar-se de que o mapeamento da entidade das regras é feito corretamente.
+- Alertas - quaisquer alertas em que a entidade seja definida como uma **entidade mapeada** . Tenha em atenção que se a sua organização criou [alertas personalizados utilizando regras de análise,](./tutorial-detect-threats-custom.md)deve certificar-se de que o mapeamento da entidade das regras é feito corretamente.
 
 - Marcadores - quaisquer marcadores que incluam a entidade específica mostrada na página.
 

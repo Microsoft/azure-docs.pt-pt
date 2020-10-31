@@ -9,14 +9,15 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 902980d7c145d5150214b7d4f4433e5da344e30b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb057637ff546356cde6e0ef107fe784fed2e610
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570047"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099883"
 ---
 # <a name="tutorial-create-a-cassandra-api-account-in-azure-cosmos-db-by-using-a-java-application-to-store-keyvalue-data"></a>Tutorial: Criar uma conta API cassandra em Azure Cosmos DB utilizando uma aplicação Java para armazenar dados chave/valor
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Como desenvolvedor, pode ter aplicações que usam pares chave/valor. Pode utilizar uma conta API da Cassandra na Azure Cosmos DB para armazenar os dados chave/valor. Este tutorial descreve como usar uma aplicação Java para criar uma conta API Cassandra em Azure Cosmos DB, adicionar uma base de dados (também chamada de espaço-chave) e adicionar uma tabela. A aplicação Java utiliza o [controlador Java](https://github.com/datastax/java-driver) para criar uma base de dados de utilizadores que contenha detalhes como iD do utilizador, nome de utilizador e cidade do utilizador.  
 
@@ -42,21 +43,21 @@ Este tutorial abrange as seguintes tarefas:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/). 
 
-2. Selecione **Criar uma**base de  >  **dados de**recursos  >  **Azure Cosmos DB**. 
+2. Selecione **Criar uma** base de  >  **dados de** recursos  >  **Azure Cosmos DB** . 
 
 3. No painel de **conta Novo,** insira as definições para a nova conta Azure Cosmos. 
 
    |Definição   |Valor sugerido  |Descrição  |
    |---------|---------|---------|
    |ID   |   Introduza um nome exclusivo    | Insira um nome único para identificar esta conta Azure Cosmos. <br/><br/>Uma vez que cassandra.cosmosdb.azure.com é anexado ao ID que indica para criar o seu ponto de contacto, utilize um ID exclusivo, mas identificável.         |
-   |API    |  Cassandra   |  A API determina o tipo de conta a criar. <br/> Selecione **Cassandra**, porque neste artigo você vai criar uma base de dados de colunas largas que pode ser consultada usando a sintaxe da Língua Desídua de Cassandra (CQL).  |
+   |API    |  Cassandra   |  A API determina o tipo de conta a criar. <br/> Selecione **Cassandra** , porque neste artigo você vai criar uma base de dados de colunas largas que pode ser consultada usando a sintaxe da Língua Desídua de Cassandra (CQL).  |
    |Subscrição    |  A sua subscrição        |  Selecione a subscrição Azure que pretende utilizar para esta conta Azure Cosmos.        |
    |Grupo de Recursos   | Introduza um nome    |  Selecione **Criar Novo** e, em seguida, introduza um novo nome de grupo de recursos para a sua conta. Para simplicidade, pode utilizar o mesmo nome do ID.    |
    |Localização    |  Selecione a região mais próxima dos seus utilizadores    |  Selecione a localização geográfica para hospedar a sua conta Azure Cosmos. Utilize a localização mais próxima dos seus utilizadores, para lhes dar o acesso mais rápido aos dados.    |
 
    :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="Criar conta com o portal":::
 
-4. Selecione **Criar**. <br/>A criação da conta demora alguns minutos. Após a criação do recurso, pode ver a notificação **da Implementação no** lado direito do portal.
+4. Selecione **Criar** . <br/>A criação da conta demora alguns minutos. Após a criação do recurso, pode ver a notificação **da Implementação no** lado direito do portal.
 
 ## <a name="get-the-connection-details-of-your-account"></a>Obter os detalhes de ligação da conta  
 
@@ -66,7 +67,7 @@ Obtenha a informação do fio de ligação do portal Azure e copie-as no ficheir
 
 2. Abra o painel **de cordas de ligação.**  
 
-3. Copie os valores de **PONTO DE CONTACTO**, **PORTA**, **NOME DE UTILIZADOR** e ** PALAVRA-PASSE PRINCIPAL** para utilizá-los nos passos seguintes.
+3. Copie os valores de **PONTO DE CONTACTO** , **PORTA** , **NOME DE UTILIZADOR** e **PALAVRA-PASSE PRINCIPAL** para utilizá-los nos passos seguintes.
 
 ## <a name="create-the-project-and-the-dependencies"></a>Criar o projeto e as dependências 
 

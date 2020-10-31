@@ -8,14 +8,15 @@ ms.reviewer: sngun
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: e1e6f977d47d98e7c9f5300dc8165ee44a531499
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 693984ceaef1a71ebfbe4122c18a45a563c9c101
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91564872"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100444"
 ---
 # <a name="tutorial-query-data-from-a-cassandra-api-account-in-azure-cosmos-db"></a>Tutorial: Dados de consulta de uma conta da API de Cassandra em Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Como desenvolvedor, pode ter aplicações que usam pares chave/valor. Pode utilizar uma conta API da Cassandra na Azure Cosmos DB para armazenar e consultar os dados chave/valor. Este tutorial mostra como consultar os dados dos utilizadores a partir de uma conta API cassandra em Azure Cosmos DB usando uma aplicação Java. A aplicação Java utiliza o [controlador Java](https://github.com/datastax/java-driver) e consulta os dados do utilizador, tais como iD do utilizador, nome de utilizador e cidade utilizadora. 
 
@@ -104,9 +105,9 @@ Utilize os seguintes passos para consultar dados da sua conta de API para Cassan
 
 2. Agora, no portal do Azure, abra o **Data Explorer** e verifique se a tabela de utilizador foi eliminada.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando já não são necessários, pode apagar o grupo de recursos, a conta Azure Cosmos e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual, selecione **Delete**e, em seguida, confirme o nome do grupo de recursos para eliminar.
+Quando já não são necessários, pode apagar o grupo de recursos, a conta Azure Cosmos e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual, selecione **Delete** e, em seguida, confirme o nome do grupo de recursos para eliminar.
 
 ## <a name="next-steps"></a>Passos seguintes
 

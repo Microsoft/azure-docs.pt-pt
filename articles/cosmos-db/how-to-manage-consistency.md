@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/10/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2b3433d969611fabe1b12a8dcabfe6e50066a8c1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4be2b8cdd987b6357df283f0791593c51417dfc7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491194"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101502"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Gerir níveis de consistência no Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo explica como gerir os níveis de consistência no Azure Cosmos DB. Aprende-se a configurar o nível de consistência padrão, a sobrepor-se à consistência padrão, a gerir manualmente fichas de sessão e a compreender a métrica probabilisticamente limitada (PBS).
 
@@ -26,7 +27,7 @@ O [nível de consistência padrão](consistency-levels.md) é o nível de consis
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-Para visualizar ou modificar o nível de consistência predefinido, inscreva-se no portal Azure. Encontre a sua conta Azure Cosmos e abra o **painel de consistência padrão.** Selecione o nível de consistência que deseja como novo padrão e, em seguida, **selecione Guardar**. O portal Azure também fornece uma visualização de diferentes níveis de consistência com notas musicais. 
+Para visualizar ou modificar o nível de consistência predefinido, inscreva-se no portal Azure. Encontre a sua conta Azure Cosmos e abra o **painel de consistência padrão.** Selecione o nível de consistência que deseja como novo padrão e, em seguida, **selecione Guardar** . O portal Azure também fornece uma visualização de diferentes níveis de consistência com notas musicais. 
 
 :::image type="content" source="./media/how-to-manage-consistency/consistency-settings.png" alt-text="Menu de consistência no portal Azure":::
 
@@ -279,7 +280,7 @@ item = client.ReadItem(doc_link, options)
 
 ## <a name="monitor-probabilistically-bounded-staleness-pbs-metric"></a>Monitorizar a métrica de Estagnação Limitada Probabilisticamente (PBS)
 
-Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer limites de estagnação no que diz respeito à história e tempo da versão. A métrica [**Probabilisticamente Limitada (PBS)**](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de estagnação e mostra-a como uma métrica. Para ver a métrica pbs, vá à sua conta Azure Cosmos no portal Azure. Abra o painel **métrica** e selecione o **separador Consistência.** Veja o gráfico denominado **Probabilidade de leituras fortemente consistentes com base na sua carga de trabalho (ver PBS)**.
+Quão eventual é a consistência eventual? Para o caso médio, podemos oferecer limites de estagnação no que diz respeito à história e tempo da versão. A métrica [**Probabilisticamente Limitada (PBS)**](https://pbs.cs.berkeley.edu/) tenta quantificar a probabilidade de estagnação e mostra-a como uma métrica. Para ver a métrica pbs, vá à sua conta Azure Cosmos no portal Azure. Abra o painel **métrica** e selecione o **separador Consistência.** Veja o gráfico denominado **Probabilidade de leituras fortemente consistentes com base na sua carga de trabalho (ver PBS)** .
 
 :::image type="content" source="./media/how-to-manage-consistency/pbs-metric.png" alt-text="Menu de consistência no portal Azure":::
 

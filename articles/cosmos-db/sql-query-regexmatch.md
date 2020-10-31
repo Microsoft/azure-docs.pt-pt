@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 620ffcb379f9fa1402e422c13bcadf8da4047409
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 16004ece7877358be54ba67c2f72eb3210f16fb0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284693"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098132"
 ---
 # <a name="regexmatch-azure-cosmos-db"></a>REGEXMATCH (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Fornece capacidades de expressão regulares. Expressões regulares são uma notação concisa e flexível para encontrar padrões de texto. A Azure Cosmos DB utiliza [expressões regulares compatíveis com PERL (PCRE)](http://www.pcre.org/). 
 
@@ -39,7 +40,7 @@ Pode aprender sobre [sintaxe para criar expressões regulares em Perl.](https://
 
 A Azure Cosmos DB suporta os seguintes quatro modificadores:
 
-| Modificador | Descrição |
+| Modificador | Description |
 | ------ | ----------- |
 | `m` | Trate a expressão da corda para ser procurada como múltiplas linhas. Sem esta opção, "^" e "$" combinarão no início ou no fim da corda e não em cada linha individual. |
 | `s` | Permita que "." corresponda a qualquer personagem, incluindo um personagem newline. | 

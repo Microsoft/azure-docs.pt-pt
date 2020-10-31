@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 95337f88133c9493250e9197654288dc0af59ed1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 35c0b5529cd9ada612caf4884683fbeaacb25b33
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486145"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100138"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configure várias regiões escreve nas suas aplicações que usam Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Uma vez criada uma conta com múltiplas regiões de escrita ativadas, deve escoar duas alterações na sua aplicação à ConnectionPolicy para o DocumentClient para permitir as gravações multi-regiões e capacidades multi-homing em Azure Cosmos DB. Dentro da ConnectionPolicy, deite UseMultipleWriteLocations para verdadeiro e passe o nome da região onde a aplicação é implantada para SetCurrentLocation. Isto irá povoar a propriedade PreferredLocations com base na geo-proximidade a partir da localização passada. Se uma nova região for posteriormente adicionada à conta, a aplicação não terá de ser atualizada ou redistribuída, irá automaticamente detetar a região mais próxima e irá alocar-se automaticamente a ela caso ocorra um evento regional.
 

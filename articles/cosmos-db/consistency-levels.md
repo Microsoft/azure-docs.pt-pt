@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 742ff2e6cff4569b5b7eeb131cd4394277b6c3cd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547083"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100461"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Níveis de consistência no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 As bases de dados distribuídas que dependem da replicação para a elevada disponibilidade, baixa latência, ou ambas, devem fazer uma troca fundamental entre a consistência da leitura, disponibilidade, latência e produção tal como definida pelo [teorema paclc.](https://en.wikipedia.org/wiki/PACELC_theorem) A linearizabilidade do modelo de consistência forte é o padrão dourado da programabilidade de dados. Mas adiciona um preço elevado de latências de escrita mais altas devido a dados que têm que replicar e comprometer-se em grandes distâncias. Uma forte consistência também pode sofrer de uma disponibilidade reduzida (durante falhas) porque os dados não podem replicar-se e comprometer-se em todas as regiões. A eventual consistência oferece maior disponibilidade e melhor desempenho, mas é mais difícil programar aplicações porque os dados podem não ser completamente consistentes em todas as regiões.
 

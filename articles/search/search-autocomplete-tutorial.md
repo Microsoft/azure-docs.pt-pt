@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951405"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098455"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar autocompleto e sugestões a aplicativos clientes
 
-O search-as-you-type é uma técnica comum para melhorar a produtividade das consultas iniciadas pelo utilizador. Na Pesquisa Cognitiva Azure, esta experiência é suportada através de *autocomplete,* que termina um termo ou frase com base na entrada parcial (completando "micro" com "microsoft"). Outro formulário são *as sugestões*: uma pequena lista de documentos correspondentes (devolvendo títulos de livro com um ID para que possa ligar a uma página de detalhes). Tanto o autocompleto como as sugestões são baseadas numa correspondência no índice. O serviço não oferece consultas que devolvam zero resultados.
+O search-as-you-type é uma técnica comum para melhorar a produtividade das consultas iniciadas pelo utilizador. Na Pesquisa Cognitiva Azure, esta experiência é suportada através de *autocomplete,* que termina um termo ou frase com base na entrada parcial (completando "micro" com "microsoft"). Outro formulário são *as sugestões* : uma pequena lista de documentos correspondentes (devolvendo títulos de livro com um ID para que possa ligar a uma página de detalhes). Tanto o autocompleto como as sugestões são baseadas numa correspondência no índice. O serviço não oferece consultas que devolvam zero resultados.
 
 Para implementar estas experiências na Azure Cognitive Search, você precisará:
 
@@ -67,7 +67,7 @@ As respostas são moldadas pelos parâmetros do pedido. Para concluir automatica
 
 Para sugestões, deve aperfeiçoar ainda mais a resposta para evitar duplicados ou o que parece ser resultados não relacionados. Para controlar os resultados, inclua mais parâmetros sobre o pedido. Os seguintes parâmetros aplicam-se tanto a autocompletos como a sugestões, mas são talvez mais necessários para sugestões, especialmente quando um sugestivo inclui vários campos.
 
-| Parâmetro | Usage |
+| Parâmetro | Utilização |
 |-----------|-------|
 | **$select** | Se tiver **várias fontesFields** num sugestivo, utilize **$select** para escolher qual o campo que contribui com valores `$select=GameTitle` (). |
 | **searchFields** | Restrinja a consulta a campos específicos. |
@@ -131,7 +131,7 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ### <a name="enable-highlighting"></a>Permitir o destaque
 
-O destaque aplica o estilo de letra aos caracteres no resultado que corresponde à entrada. Por exemplo, se a entrada parcial for "micro", o resultado apareceria como **micro**macio, **micro**âmbito, e assim por diante. O destaque baseia-se nos parâmetros HighlightPreTag e HighlightPostTag, definidos em linha com a função Sugestão.
+O destaque aplica o estilo de letra aos caracteres no resultado que corresponde à entrada. Por exemplo, se a entrada parcial for "micro", o resultado apareceria como **micro** macio, **micro** âmbito, e assim por diante. O destaque baseia-se nos parâmetros HighlightPreTag e HighlightPostTag, definidos em linha com a função Sugestão.
 
 ```javascript
 source: "/home/suggest?highlights=true&fuzzy=true&",
@@ -181,7 +181,7 @@ A função Suggest aceita dois parâmetros que determinam se são devolvidos det
 
 ## <a name="autocomplete"></a>Preenchimento Automático
 
-Até agora, o código UX de pesquisa tem sido centrado em sugestões. O próximo bloco de código mostra autocompleto, utilizando a função XDSoft jQuery UI Autocomplete, passando num pedido de autocomplete de pesquisa cognitiva Azure. Tal como acontece com as sugestões, numa aplicação C#, o código que suporta a interação do utilizador vai em **index.cshtml**.
+Até agora, o código UX de pesquisa tem sido centrado em sugestões. O próximo bloco de código mostra autocompleto, utilizando a função XDSoft jQuery UI Autocomplete, passando num pedido de autocomplete de pesquisa cognitiva Azure. Tal como acontece com as sugestões, numa aplicação C#, o código que suporta a interação do utilizador vai em **index.cshtml** .
 
 ```javascript
 $(function () {
@@ -253,4 +253,4 @@ Siga estes links para instruções ou códigos de ponta a ponta que demonstrem a
 
 + [Tutorial: Crie a sua primeira aplicação em C# (lição 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [Amostra de código C#: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# e JavaScript com amostra de código REST lado a lado](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)
++ [C# e JavaScript com amostra de código REST lado a lado](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

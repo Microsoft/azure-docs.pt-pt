@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: c44f7218734af4bc3144137356b85e8845208f6f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 546187b49e1186d665fe32b3f8d632a0281bffa4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409379"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099679"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construir uma aplicação Node.js utilizando a conta API API da Azure Cosmos DB Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
@@ -95,7 +96,7 @@ Esta aplicação de consola utiliza o controlador [gremlin Node.jsde ](https://w
 
     ```
 
-  As configurações estão todas em *config.js, *que editamos na [secção seguinte.](#update-your-connection-string)
+  As configurações estão todas em *config.js,* que editamos na [secção seguinte.](#update-your-connection-string)
 
 * São definidas diversas funções para executar diferentes operações do Gremlin. Esta é uma delas:
 
@@ -151,13 +152,13 @@ Esta aplicação de consola utiliza o controlador [gremlin Node.jsde ](https://w
 
 1. Abra o ficheiro *config.js.* 
 
-2. Em *config.js*, preencha a `config.endpoint` chave com o valor **gremlin Endpoint** a partir da página **geral** da sua conta Cosmos DB no portal Azure. 
+2. Em *config.js* , preencha a `config.endpoint` chave com o valor **gremlin Endpoint** a partir da página **geral** da sua conta Cosmos DB no portal Azure. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
     :::image type="content" source="./media/create-graph-nodejs/gremlin-uri.png" alt-text="Ver e copiar uma chave de acesso no portal Azure, página geral":::
 
-3. Em *config.js*, preencha o valor config.primaryKey com o valor **da Chave Primária** a partir da página **Keys** da sua conta Cosmos DB no portal Azure. 
+3. Em *config.js* , preencha o valor config.primaryKey com o valor **da Chave Primária** a partir da página **Keys** da sua conta Cosmos DB no portal Azure. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
@@ -165,7 +166,7 @@ Esta aplicação de consola utiliza o controlador [gremlin Node.jsde ](https://w
 
 4. Insira o nome da base de dados e o nome de gráfico (contentor) para o valor de config.database e config.collection. 
 
-Aqui está um exemplo de como deve ser o seu ficheiro * deconfig.js* concluído:
+Aqui está um exemplo de como deve ser o seu ficheiro *deconfig.js* concluído:
 
 ```javascript
 var config = {}
@@ -191,9 +192,9 @@ module.exports = config;
 
 Agora, pode voltar ao Data Explorer no portal do Azure para ver, consultar, alterar e trabalhar os dados do gráfico novo.
 
-No Data Explorer, a nova base de dados é apresentada no painel **Gráficos**. Expanda a base de dados, seguido do contentor e, em seguida, selecione **Gráfico**.
+No Data Explorer, a nova base de dados é apresentada no painel **Gráficos** . Expanda a base de dados, seguido do contentor e, em seguida, selecione **Gráfico** .
 
-Os dados gerados pela aplicação de exemplo são apresentados no painel seguinte dentro do separador **Gráfico** quando selecionar **Aplicar Filtro**.
+Os dados gerados pela aplicação de exemplo são apresentados no painel seguinte dentro do separador **Gráfico** quando selecionar **Aplicar Filtro** .
 
 Experimente concluir `g.V()` com `.has('firstName', 'Thomas')`, para testar o filtro. Tenha em atenção que o valor é sensível às maiúsculas e minúsculas.
 

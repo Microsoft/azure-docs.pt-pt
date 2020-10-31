@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: dech
 ms.custom: devx-track-js
-ms.openlocfilehash: b1e0f8c301d40ff10dbf977731d457a31b096328
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1115d7bb0d6857aa39f246743df54a6cf3fd3676
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478002"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098666"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutorial: Criar uma aplicação de consola Node.js com o SDK de JavaScript para gerir os dados da API SQL do Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -93,7 +94,7 @@ Agora que a sua aplicação existe, tem de se certificar de que pode falar com a
 
    :::image type="content" source="media/sql-api-nodejs-get-started/node-js-tutorial-keys.png" alt-text="Captura de ecrã para obter chaves do portal do Azure":::
 
-O JavaScript SDK utiliza o *recipiente* e *o item*genéricos de termos . Os contentores podem ser uma coleção, um grafo ou uma tabela. Os itens podem ser um documento, um vértice/aresta ou uma linha e são o conteúdo dentro dos contentores. No corte de código anterior, o `module.exports = config;` código é utilizado para exportar o objeto config, para que possa fazê-lo referenciar dentro do ficheiro *app.js.*
+O JavaScript SDK utiliza o *recipiente* e *o item* genéricos de termos . Os contentores podem ser uma coleção, um grafo ou uma tabela. Os itens podem ser um documento, um vértice/aresta ou uma linha e são o conteúdo dentro dos contentores. No corte de código anterior, o `module.exports = config;` código é utilizado para exportar o objeto config, para que possa fazê-lo referenciar dentro do ficheiro *app.js.*
 
 ## <a name="create-a-database-and-a-container"></a>Criar uma base de dados e um contentor
 
@@ -118,12 +119,12 @@ O JavaScript SDK utiliza o *recipiente* e *o item*genéricos de termos . Os cont
 
 ## <a name="connect-to-the-azure-cosmos-account"></a>Ligue-se à conta Azure Cosmos
 
-No ficheiro *app.js, * copie e cole o seguinte código para utilizar o ponto final e a chave previamente guardados para criar um novo objeto CosmosClient.
+No ficheiro *app.js,* copie e cole o seguinte código para utilizar o ponto final e a chave previamente guardados para criar um novo objeto CosmosClient.
 
 :::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js" id="CreateClientObjectDatabaseContainer":::
 
 > [!Note]
-> Se ligar ao **Emulador Cosmos DB, desative**a verificação de TLS para o seu processo de nódulo:
+> Se ligar ao **Emulador Cosmos DB, desative** a verificação de TLS para o seu processo de nódulo:
 >   ```javascript
 >   process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 >   const client = new CosmosClient({ endpoint, key });
@@ -214,9 +215,9 @@ Em seguida, no seu terminal, localize o ficheiro ```app.js``` e execute o comand
 node app.js 
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando estes recursos já não forem necessários, pode eliminar o grupo de recursos, a conta DB da Azure Cosmos e todos os recursos conexos. Para tal, selecione o grupo de recursos que utilizou para a conta DB Azure Cosmos, selecione **Delete**e, em seguida, confirme o nome do grupo de recursos para eliminar.
+Quando estes recursos já não forem necessários, pode eliminar o grupo de recursos, a conta DB da Azure Cosmos e todos os recursos conexos. Para tal, selecione o grupo de recursos que utilizou para a conta DB Azure Cosmos, selecione **Delete** e, em seguida, confirme o nome do grupo de recursos para eliminar.
 
 ## <a name="next-steps"></a>Passos seguintes
 

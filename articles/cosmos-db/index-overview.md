@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: fcb6e004c86289e2efa89a988b362e76145a9538
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: acb0396ece32c568a4d8c384bebcbabd7480eb09
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490429"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101464"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB — Descrição geral
+# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB – Descrição geral
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB é uma base de dados de esquemas agnósticos que lhe permite iterar a sua aplicação sem ter de lidar com esquemas ou gestão de índices. Por padrão, a Azure Cosmos DB indexa automaticamente todas as propriedades para todos os itens do seu [contentor](account-databases-containers-items.md#azure-cosmos-containers) sem ter de definir qualquer esquema ou configurar índices secundários.
 

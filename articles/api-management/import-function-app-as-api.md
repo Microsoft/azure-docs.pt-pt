@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: be8a8f35ece946d1be907b2ca13a640bebbb4ee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e53d0aa8d76d32127d5fde4eaf5dbe7a455dc3aa
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627028"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100784"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importar uma Aplicação de Funções do Azure como uma API na Gestão de API do Azure
 
@@ -38,7 +38,7 @@ Vai aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Concluir o início rápido [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
-* Certifique-se de que tem uma aplicação de Funções do Azure na sua subscrição. Para obter mais informações, veja [Criar uma Function App do Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Ela deve conter Funções com o acionador HTTP e a definição de nível de autorização definida como *Anónimo* ou *Função*.
+* Certifique-se de que tem uma aplicação de Funções do Azure na sua subscrição. Para obter mais informações, veja [Criar uma Function App do Azure](../azure-functions/functions-create-first-azure-function.md#create-a-function-app). Ela deve conter Funções com o acionador HTTP e a definição de nível de autorização definida como *Anónimo* ou *Função* .
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -48,61 +48,61 @@ Siga os passos abaixo para criar uma nova API a partir de uma Function App do Az
 
 1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** no menu.
 
-2. Na lista **Adicionar uma nova API**, selecione **Aplicação de Funções**.
+2. Na lista **Adicionar uma nova API** , selecione **Aplicação de Funções** .
 
-    ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-01.png)
+    ![Screenshot que mostra o azulejo da App de Função.](./media/import-function-app-as-api/add-01.png)
 
 3. Clique em **Procurar** para selecionar as Funções a importar.
 
-    ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-02.png)
+    ![Screenshot que realça o botão Navegar.](./media/import-function-app-as-api/add-02.png)
 
 4. Clique na secção **Function App** à sua escolha na lista de Function Apps disponíveis.
 
-    ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-03.png)
+    ![Screenshot que realça a secção 'App' de funções.](./media/import-function-app-as-api/add-03.png)
 
-5. Encontre a Function App da qual pretende importar Funções, clique na mesma e prima **Selecionar**.
+5. Encontre a Function App da qual pretende importar Funções, clique na mesma e prima **Selecionar** .
 
-    ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-04.png)
+    ![Screenshot que realça a App de Função que pretende importar Funções e o botão Select.](./media/import-function-app-as-api/add-04.png)
 
-6. Selecione as Funções que pretende importar e clique em **Selecionar**.
+6. Selecione as Funções que pretende importar e clique em **Selecionar** .
 
-    ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-05.png)
+    ![Screenshot que realça as Funções a importar e o botão Select.](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > Pode importar apenas as Funções que são baseadas no acionador HTTP e ter a definição do nível de autorização definido como *Anónimo* ou *Função*.
+    > Pode importar apenas as Funções que são baseadas no acionador HTTP e ter a definição do nível de autorização definido como *Anónimo* ou *Função* .
 
 7. Mude para a vista **Completa** e atribua o **Produto** à sua nova API. Se necessário, especifique outros campos durante a criação ou configufique-os mais tarde, indo ao **separador Definições.** As definições são explicadas no Import e publicam o seu primeiro tutorial [da API.](import-and-publish.md#import-and-publish-a-backend-api)
-8. Clique em **Criar**.
+8. Clique em **Criar** .
 
 ## <a name="append-azure-function-app-to-an-existing-api"></a><a name="append-azure-function-app-to-api"></a> Anexar uma Function App do Azure como uma API existente
 
 Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
-1. Na sua instância de serviço de **Gestão de API do Azure**, selecione **APIs** no menu à esquerda.
+1. Na sua instância de serviço de **Gestão de API do Azure** , selecione **APIs** no menu à esquerda.
 
 2. Escolha a API para a qual pretende importar uma Function App do Azure. Clique em **...** e selecione **Importar** no menu de contexto.
 
-    ![Anexar a partir da Function App](./media/import-function-app-as-api/append-01.png)
+    ![Screenshot que destaca a opção menu Import.](./media/import-function-app-as-api/append-01.png)
 
-3. Clique no mosaico **Function App**.
+3. Clique no mosaico **Function App** .
 
-    ![Anexar a partir da Function App](./media/import-function-app-as-api/append-02.png)
+    ![Screenshot que realça o azulejo da App de Função.](./media/import-function-app-as-api/append-02.png)
 
-4. Na janela de pop-up, clique em **Procurar**.
+4. Na janela de pop-up, clique em **Procurar** .
 
-    ![Anexar a partir da Function App](./media/import-function-app-as-api/append-03.png)
+    ![Screenshot que mostra o botão Browse.](./media/import-function-app-as-api/append-03.png)
 
 5. Clique na secção **Function App** à sua escolha na lista de Function Apps disponíveis.
 
-    ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-03.png)
+    ![Screenshot que destaca a lista de Apps de Função.](./media/import-function-app-as-api/add-03.png)
 
-6. Encontre a Function App da qual pretende importar Funções, clique na mesma e prima **Selecionar**.
+6. Encontre a Function App da qual pretende importar Funções, clique na mesma e prima **Selecionar** .
 
-    ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-04.png)
+    ![Screenshot que realça a App de Função a partir daí que pretende importar funções.](./media/import-function-app-as-api/add-04.png)
 
-7. Selecione as Funções que pretende importar e clique em **Selecionar**.
+7. Selecione as Funções que pretende importar e clique em **Selecionar** .
 
-    ![Adicionar a partir da Function App](./media/import-function-app-as-api/add-05.png)
+    ![Screenshot que destaca os functnios que você gostaria de importar.](./media/import-function-app-as-api/add-05.png)
 
 8. Clique **em Importar.**
 
@@ -112,8 +112,8 @@ Siga os passos abaixo para anexar a Function App do Azure a uma API existente.
 
 A importação de uma Function App do Azure gera automaticamente:
 
-* Chave de anfitrião dentro da App de funções com o nome apim-{*o nome da instância de serviço API Management Azure },*
-* Valor nomeado dentro da instância de Gestão API Azure com o nome {*o nome da aplicação de função Azure*}-chave, que contém a chave de anfitrião criada.
+* Chave de anfitrião dentro da App de funções com o nome apim-{ *o nome da instância de serviço API Management Azure },*
+* Valor nomeado dentro da instância de Gestão API Azure com o nome { *o nome da aplicação de função Azure* }-chave, que contém a chave de anfitrião criada.
 
 Para as APIs criadas após o dia 4 de abril de 2019, a chave de anfitrião é passada em pedidos HTTP da API Management para a App de Função num cabeçalho. As APIs mais antigas passam a chave hospedeira como [parâmetro de consulta.](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization) Este comportamento pode ser alterado através da `PATCH Backend` [chamada REST API](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) na entidade *Backend* associada à App de Função.
 
@@ -128,11 +128,11 @@ Para as APIs criadas após o dia 4 de abril de 2019, a chave de anfitrião é pa
 
 2. Selecione **definições da Aplicação de Funções** na descrição geral.
 
-    ![Adicionar a partir da Function App](./media/import-function-app-as-api/keys-02-a.png)
+    ![Screenshot que realça a opção de definições de Aplicações de Função.](./media/import-function-app-as-api/keys-02-a.png)
 
-3. A chave encontra-se na secção **Chaves de Anfitrião**.
+3. A chave encontra-se na secção **Chaves de Anfitrião** .
 
-    ![Adicionar a partir da Function App](./media/import-function-app-as-api/keys-02-b.png)
+    ![Screenshot que realça a secção 'Chaves do Anfitrião'.](./media/import-function-app-as-api/keys-02-b.png)
 
 ### <a name="access-the-named-value-in-azure-api-management"></a>Aceda ao valor nomeado na Gestão de API do Azure
 
@@ -146,7 +146,7 @@ Pode chamar operações diretamente a partir do portal do Azure. Utilizar o port
 
 1. Selecione a API que criou na secção anterior.
 
-2. Selecione o separador **Teste**.
+2. Selecione o separador **Teste** .
 
 3. Selecione uma operação.
 

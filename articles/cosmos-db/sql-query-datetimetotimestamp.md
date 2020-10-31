@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 673e6a8cb86986ff24e3ee55589d13e8a9e4fdc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6de48583cbc3a7e41d6da5e7ed29abf07bba3112
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88608827"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100308"
 ---
 # <a name="datetimetotimestamp-azure-cosmos-db"></a>DataTimeToTimestamp (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Converte o Tempo de Data especificado para um tempotando.
   
@@ -29,7 +30,7 @@ DateTimeToTimestamp (<DateTime>)
 *DateTime*  
    Utc data e hora ISO 8601 valor de cadeia no formato `YYYY-MM-DDThh:mm:ss.fffffffZ` onde:
   
-  |Formato|Descrição|
+  |Formato|Description|
   |-|-|
   |YYYY|quatro dígitos ano|
   |MM|mês de dois dígitos (01 = janeiro, etc.)|

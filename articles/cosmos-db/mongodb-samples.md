@@ -9,14 +9,16 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: devx-track-js
-ms.openlocfilehash: 93e80c3ecba7544a8e31eca1b4df443c41523579
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c2117c535cca679d3a7a3b75491bf60ab9567ceb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488406"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098217"
 ---
 # <a name="build-an-app-using-nodejs-and-azure-cosmos-dbs-api-for-mongodb"></a>Construa uma app utilizando a API da Node.js e da Azure Cosmos para a MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](./sql-api-get-started.md)
@@ -116,7 +118,7 @@ Para utilizar este exemplo, tem de:
     });
     ```
     
-    **Opcional**: se estiver a utilizar o **controlador do MongoDB Node.js 2.2**, substitua o seguinte fragmento de código:
+    **Opcional** : se estiver a utilizar o **controlador do MongoDB Node.js 2.2** , substitua o seguinte fragmento de código:
 
     Original:
 

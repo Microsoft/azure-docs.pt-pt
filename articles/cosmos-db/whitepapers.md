@@ -7,14 +7,15 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: adbbdf39875e67552de2f797b94eae89e0aba409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b4beba04bf90e61ac959c90d3559d8cef2db4db
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74869787"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099135"
 ---
 # <a name="azure-cosmos-db-whitepapers"></a>Azure Cosmos DB whitepapers
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Os whitepapers permitem-lhe explorar conceitos DB do Azure Cosmos a um nível mais profundo. Este artigo fornece-lhe uma lista de papels brancos disponíveis para Azure Cosmos DB.
 

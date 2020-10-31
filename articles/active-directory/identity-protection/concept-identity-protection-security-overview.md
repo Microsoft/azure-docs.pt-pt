@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db61a3f9034908043695bc7db3a16551bf4659c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95c589289d77597be2550673944c8fa21902e0fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86024082"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098472"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Descrição geral de segurança do Azure Active Directory Identity Protection
 
@@ -27,7 +27,7 @@ A "visão geral da segurança" está amplamente dividida em duas secções:
 - As tendências, à esquerda, fornecem uma linha temporal de risco na sua organização.
 - Os azulejos, à direita, destacam as principais questões em curso na sua organização e sugerem como tomar medidas rapidamente.
 
-![Descrição geral da segurança](./media/concept-identity-protection-security-overview/01.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/01.png" alt-text="Screenshot do portal Azure Visão geral da segurança. Os gráficos dos bares mostram a contagem de riscos ao longo do tempo. Os azulejos resumem a informação sobre os utilizadores e as entradas." border="false":::
   
 ## <a name="trends"></a>Tendências
 
@@ -45,7 +45,7 @@ Este gráfico mostra o número de inserções de risco detetadas durante o perí
 
 O azulejo "utilizadores de alto risco" mostra a mais recente contagem de utilizadores com elevada probabilidade de compromisso de identidade. Estas devem ser uma prioridade para a investigação. Um clique no azulejo "utilizadores de alto risco" irá redirecionar para uma visão filtrada do relatório "Utilizadores arriscados" que mostra apenas utilizadores com um nível de risco elevado. Utilizando este relatório, pode aprender mais e remediar estes utilizadores com uma palavra-passe reposta.
 
-![Descrição geral da segurança](./media/concept-identity-protection-security-overview/02.png)
+:::image type="content" source="./media/concept-identity-protection-security-overview/02.png" alt-text="Screenshot do portal Azure Visão geral da segurança. Os gráficos dos bares mostram a contagem de riscos ao longo do tempo. Os azulejos resumem a informação sobre os utilizadores e as entradas." border="false":::
 
 ### <a name="medium-risk-users"></a>Utilizadores de risco médio
 O azulejo "utilizadores de risco médio" mostra a contagem mais recente de utilizadores com probabilidade média de compromisso de identidade. Um clique no azulejo 'utilizadores de risco médio' irá redirecionar para uma visão filtrada do relatório "Utilizadores arriscados" que mostra apenas utilizadores com um nível de risco de médio nível. Utilizando este relatório, pode investigar e remediar mais estes utilizadores.

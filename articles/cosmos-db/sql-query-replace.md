@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 758ac13530752df481d27e7e253f025f5c8d6430
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb3afd2524949b1209ac42542a012b74559234d5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302207"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098115"
 ---
 # <a name="replace-azure-cosmos-db"></a>SUBSTITUIR (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Substitui todas as ocorrências de um valor de corda especificado por outro valor de cadeia.  
   
 ## <a name="syntax"></a>Sintaxe
@@ -32,7 +34,7 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
    É a expressão de corda para ser encontrada.  
   
 *str_expr3*  
-   É a expressão de corda para substituir as ocorrências de *str_expr2* em *str_expr1*.  
+   É a expressão de corda para substituir as ocorrências de *str_expr2* em *str_expr1* .  
   
 ## <a name="return-types"></a>Tipos de retorno
   

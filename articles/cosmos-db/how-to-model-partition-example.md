@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 92d15337f511f534c23ff97d274b344714812a5e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277993"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100257"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e criar partições de dados no Azure Cosmos DB com um exemplo do mundo real
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo baseia-se em vários conceitos de DB da Azure Cosmos, como [modelação de dados,](modeling-data.md) [partição,](partitioning-overview.md)e [produção antejada](request-units.md) para demonstrar como lidar com um exercício de design de dados no mundo real.
 
@@ -291,7 +292,7 @@ Também modificamos comentários e itens para adicionar o nome de utilizador do 
 
 O que queremos alcançar é que cada vez que adicionamos um comentário ou um like, também incrementamos o `commentCount` ou o no post `likeCount` correspondente. Como o nosso `posts` recipiente é dividido `postId` por, o novo item (comentário ou similar) e o seu posto correspondente sentam-se na mesma partição lógica. Como resultado, podemos usar um [procedimento armazenado](stored-procedures-triggers-udfs.md) para executar esta operação.
 
-Agora, ao criar um comentário **([C3]**), em vez de apenas adicionar um novo item no `posts` recipiente chamamos o seguinte procedimento armazenado nesse recipiente:
+Agora, ao criar um comentário **([C3]** ), em vez de apenas adicionar um novo item no `posts` recipiente chamamos o seguinte procedimento armazenado nesse recipiente:
 
 ```javascript
 function createComment(postId, comment) {
@@ -405,7 +406,7 @@ Exatamente a mesma situação ao listar os gostos.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Certificar-se de que todos os pedidos são escaláveis
 
-Olhando para as nossas melhorias globais de desempenho, ainda existem dois pedidos que ainda não otimizamos totalmente: **[Q3]** e **[Q6]**. São os pedidos que envolvem consultas que não filtram a chave de partição dos contentores que visam.
+Olhando para as nossas melhorias globais de desempenho, ainda existem dois pedidos que ainda não otimizamos totalmente: **[Q3]** e **[Q6]** . São os pedidos que envolvem consultas que não filtram a chave de partição dos contentores que visam.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Listar os posts de um utilizador em formato curto
 

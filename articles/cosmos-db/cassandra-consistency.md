@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 155e1ed5b089c16887c845c94f36c9c6d9f0af6e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f640ad85fd34dd5a4803e7dd96f1c0283f0c859a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284613"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100435"
 ---
 # <a name="apache-cassandra-and-azure-cosmos-db-consistency-levels"></a>Apache Cassandra e Azure Cosmos DB níveis de consistência
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Ao contrário de Azure Cosmos DB, Apache Cassandra não fornece garantias de consistência definidas de forma precisa. Em vez disso, a Apache Cassandra proporciona um nível de consistência de escrita e um nível de consistência de leitura, para permitir a alta disponibilidade, consistência e compensações de latência. Ao utilizar a API Cassandra da Azure Cosmos DB:
 
@@ -22,7 +23,7 @@ Ao contrário de Azure Cosmos DB, Apache Cassandra não fornece garantias de con
 
 * A Azure Cosmos DB irá mapear dinamicamente o nível de consistência de leitura especificado pelo condutor do cliente Cassandra para um dos níveis de consistência DB do Azure Cosmos configurados dinamicamente num pedido de leitura.
 
-## <a name="mapping-consistency-levels"></a>Mapeamento dos níveis de consistência
+## <a name="mapping-consistency-levels"></a>Mapear os níveis de consistência
 
 A tabela a seguir ilustra como os níveis de consistência nativas de Cassandra são mapeados para os níveis de consistência do Azure Cosmos DB ao utilizar a API de Cassandra:  
 
@@ -38,4 +39,4 @@ Saiba mais sobre os níveis de distribuição e consistência globais para a Azu
 
 * [Descrição geral da distribuição global](distribute-data-globally.md)
 * [Visão geral do nível de consistência](consistency-levels.md)
-* [Elevada disponibilidade](high-availability.md)
+* [Alta disponibilidade](high-availability.md)

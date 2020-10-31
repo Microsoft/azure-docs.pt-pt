@@ -7,16 +7,17 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 87d33308932ecd7c523c6fbe287648d4afc21ef0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a5df84a83cbeca424b66fe104d6457132cb6381e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485805"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098846"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Como escrever procedimentos armazenados, gatilhos e funções definidas pelo utilizador em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-O Azure Cosmos DB fornece a execução transacional integrada à linguagem do JavaScript que permite escrever **procedimentos armazenados,** **gatilhos**e **funções definidas pelo utilizador (UDFs)**. Ao utilizar o API SQL em Azure Cosmos DB, pode definir os procedimentos, gatilhos e UDFs armazenados em linguagem JavaScript. Pode escrever a sua lógica no JavaScript e executá-la dentro do motor da base de dados. Pode criar e executar gatilhos, procedimentos armazenados e UDFs utilizando o [portal Azure,](https://portal.azure.com/)a [API integrada de linguagem JavaScript em Azure Cosmos DB](javascript-query-api.md) e os [SDKs clientes API do Cosmos DB SQL](sql-api-dotnet-samples.md). 
+O Azure Cosmos DB fornece a execução transacional integrada à linguagem do JavaScript que permite escrever **procedimentos armazenados,** **gatilhos** e **funções definidas pelo utilizador (UDFs)** . Ao utilizar o API SQL em Azure Cosmos DB, pode definir os procedimentos, gatilhos e UDFs armazenados em linguagem JavaScript. Pode escrever a sua lógica no JavaScript e executá-la dentro do motor da base de dados. Pode criar e executar gatilhos, procedimentos armazenados e UDFs utilizando o [portal Azure,](https://portal.azure.com/)a [API integrada de linguagem JavaScript em Azure Cosmos DB](javascript-query-api.md) e os [SDKs clientes API do Cosmos DB SQL](sql-api-dotnet-samples.md). 
 
 Para chamar um procedimento armazenado, gatilho e função definida pelo utilizador, tem de registá-lo. Para obter mais informações, consulte [Como trabalhar com procedimentos armazenados, gatilhos, funções definidas pelo utilizador em Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
 

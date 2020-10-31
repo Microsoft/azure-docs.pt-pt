@@ -11,14 +11,19 @@ ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 2bdd51218c098dcd778d9a72a98fe42b96357b4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b750554ec231cddd0403c89a33f2af4349ff188
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91328722"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099002"
 ---
 # <a name="tutorial-single-page-video-search-app"></a>Tutorial: aplicação de página única da Pesquisa de Vídeos
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 A API de Pesquisa de Vídeos do Bing permite-lhe pesquisar na Web e obter resultados de vídeos relevantes para uma consulta de pesquisa. Neste tutorial, vamos compilar uma aplicação Web de página única que utiliza a API de Pesquisa do Bing para apresentar resultados da pesquisa na página. A aplicação inclui componentes HTML, CSS e JavaScript.
 
 <!-- Remove until it can be replaced with a sanitized version.
@@ -307,9 +312,9 @@ Os resultados da pesquisa são devolvidos como o objeto `value` de nível superi
 }
 ```
 
-A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de resultados relacionados, cada um no seu próprio objeto de nível superior. A saber:
+A API de Pesquisa de Notícias do Bing devolve até quatro tipos diferentes de resultados relacionados, cada um no seu próprio objeto de nível superior. São:
 
-|Relação|Descrição|
+|Relação|Description|
 |-|-|
 |`pivotSuggestions`|Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas".|
 |`queryExpansions`|Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".|
@@ -320,7 +325,7 @@ Conforme vimos anteriormente em `renderSearchResults()`, só convertermos as sug
 
 ## <a name="rendering-result-items"></a>Compor os itens dos resultados
 
-No código JavaScript, o objeto `searchItemRenderers` pode conter *compositores*, funções que geram o HTML de cada tipo de resultado da pesquisa. A página da pesquisa de vídeo só utiliza `videos`. Relativamente aos diversos tipos de compositores, veja os outros tutoriais.
+No código JavaScript, o objeto `searchItemRenderers` pode conter *compositores* , funções que geram o HTML de cada tipo de resultado da pesquisa. A página da pesquisa de vídeo só utiliza `videos`. Relativamente aos diversos tipos de compositores, veja os outros tutoriais.
 
 ```javascript
 searchItemRenderers = {

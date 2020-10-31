@@ -4,12 +4,12 @@ description: Utilize comandos de registo de contentores Azure para construir, em
 ms.topic: quickstart
 ms.date: 09/25/2020
 ms.custom: contperfq1
-ms.openlocfilehash: 4ea3f1bb86bcf3f6583cc438b2a27429f5b69d14
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 1b4dcc05747ceae52c649c366c3faf437e77b560
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027691"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098931"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>Quickstart: Construa e execute uma imagem de contentor usando tarefas de registo de contentores Azure
 
@@ -17,11 +17,11 @@ Neste arranque rápido, você usa [comandos de registo de contentores Azure][con
 
 Após este arranque rápido, explore funcionalidades mais avançadas de Tarefas ACR utilizando os [tutoriais.](container-registry-tutorial-quick-task.md) As tarefas ACR podem automatizar as construções de imagem com base em códigos comprometedores ou atualizações de imagem base, ou testar vários contentores, em paralelo, entre outros cenários. 
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-account] antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Pode utilizar o Azure Cloud Shell ou uma instalação local da CLI do Azure para concluir este início rápido. Se quiser usá-lo localmente, recomenda-se a versão 2.0.58 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+    
+- Este arranque rápido requer a versão 2.0.58 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 

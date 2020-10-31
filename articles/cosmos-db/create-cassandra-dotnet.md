@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7389136d5f08c7efd0c0443387744ce4c5816f00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13706b900c64b1d0aa5ce03fc95442e8dfc41051
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91627402"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099832"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com .NET SDK e Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -97,7 +98,7 @@ Este passo é opcional. Se estiver interessado em saber de que forma o código c
 * Insira entidades de utilizador utilizando o objeto de IMapper com uma nova sessão que liga ao keyspace do perfil.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Efetue uma consulta para obter as informações de todos os utilizadores.
@@ -119,7 +120,7 @@ Este passo é opcional. Se estiver interessado em saber de que forma o código c
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. As informações da cadeia de ligação permitem à aplicação comunicar com a base de dados alojada.
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de Ligação**.
+1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de Ligação** .
 
 1. Utilize o :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: botão no lado direito do ecrã para copiar o valor USERNAME.
 
@@ -149,7 +150,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     
 ## <a name="run-the-net-app"></a>Executar a aplicação .NET
 
-1. No Estúdio Visual, selecione **Tools**  >  **NuGet Package Manager**Package Manager  >  **Consola**.
+1. No Estúdio Visual, selecione **Tools**  >  **NuGet Package Manager** Package Manager  >  **Consola** .
 
 2. Na linha de comandos, utilize o comando seguinte para instalar o pacote NuGet do controlador do .NET. 
 

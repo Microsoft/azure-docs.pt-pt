@@ -11,14 +11,19 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cea88c2e20c9e96c5ad5504815886b2cc771e44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89297795"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100563"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing Web Search API estrutura de resposta e tipos de resposta  
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Quando envia bing Web Procurar um pedido de pesquisa, ele devolve um [`SearchResponse`](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) objeto no corpo de resposta. O objeto inclui um campo para cada resposta que Bing determinou ser relevante para a consulta. Este exemplo ilustra um objeto de resposta se Bing devolveu todas as respostas:
 
@@ -304,7 +309,7 @@ Uma expressão matemática pode conter os seguintes símbolos:
 
 Uma expressão matemática pode conter as seguintes constantes:
 
-|Símbolo|Descrição|
+|Símbolo|Description|
 |------------|-----------------|
 |Pi|3.14159...|
 |Grau|Grau|
@@ -314,7 +319,7 @@ Uma expressão matemática pode conter as seguintes constantes:
 
 Uma expressão matemática pode conter as seguintes funções:
 
-|Símbolo|Descrição|
+|Símbolo|Description|
 |------------|-----------------|
 |Ordenar|Raiz quadrada|
 |Pecado[x], Cos[x], Tan[x]<br />CSC[x], Sec[x], Berço[x]|Funções trigonométricas (com argumentos em radians)|
@@ -435,7 +440,7 @@ Se Bing determinar que o utilizador pode ter pretendido procurar algo diferente,
 
 As respostas da API de Pesquisa Web de Bing podem conter os seguintes cabeçalhos:
 
-| Cabeçalho | Descrição |
+| Cabeçalho | Description |
 |-|-|
 |`X-MSEdge-ClientID`|O ID único que Bing atribuiu ao utilizador|
 |`BingAPIs-Market`|O mercado que foi usado para satisfazer o pedido|
@@ -480,6 +485,6 @@ O seguinte mostra como Bing usa a sugestão ortográfica.
 
 * Reveja a documentação de estrangulamento do pedido de [revisão.](throttling-requests.md)  
 
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Ver também  
 
 * [Bing Web Search API referência](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

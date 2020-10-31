@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4c754455e2a686274eab8b1f77713b8983251a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74871147"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100801"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junta-se ao Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Numa base de dados relacional, as juntas entre as tabelas são o corolário lógico para a conceção de esquemas normalizados. Em contraste, a API SQL utiliza o modelo de dados desnormalizado de itens isentos de esquemas, que é o equivalente lógico de uma *união auto-união*.
+Numa base de dados relacional, as juntas entre as tabelas são o corolário lógico para a conceção de esquemas normalizados. Em contraste, a API SQL utiliza o modelo de dados desnormalizado de itens isentos de esquemas, que é o equivalente lógico de uma *união auto-união* .
 
 As juntas interiores resultam num produto transversal completo dos conjuntos que participam na junção. O resultado de uma junção N-way é um conjunto de tuples de elemento N, onde cada valor no tuple está associado com o conjunto pseudónimo que participa na junção e pode ser acedido referindo esse pseudónimo em outras cláusulas.
 

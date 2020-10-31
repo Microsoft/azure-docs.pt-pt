@@ -9,14 +9,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: devx-track-python
-ms.openlocfilehash: a0545ea61879b30349403e019ead69ba14f75cb9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 58f22a335f4c619a6348e9e127e60f5a79f658b2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486502"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099662"
 ---
 # <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Construa uma app Python utilizando a API da Azure Cosmos DB para a MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -99,7 +100,7 @@ Os seguintes snippets são todos retirados do ficheiro *app.py* e usam a cadeia 
 
 3. Em seguida, desaprote a variável ambiente para a aplicação Flask com `set FLASK_APP=app.py` , `$env:FLASK_APP = app.py` para editores PowerShell, ou `export FLASK_APP=app.py` se estiver a usar um Mac. 
 
-4. Execute a aplicação com `flask run` e navegue para *http: \/ /127.0.0.1:5000/*.
+4. Execute a aplicação com `flask run` e navegue para *http: \/ /127.0.0.1:5000/* .
 
 5. Adicione e remova tarefas e veja-as adicionadas e alteradas na coleção.
 
@@ -113,15 +114,15 @@ Se quiser testar o código contra uma conta DB Azure Cosmos ao vivo, vá ao port
 
 Para testar o código na conta DB do Azure Cosmos ao vivo, obtenha a informação da sua ligação. Em seguida, copie-as para a aplicação.
 
-1. Na sua conta DB Azure Cosmos no portal Azure, na navegação esquerda selecione **Connection String**e, em seguida, selecione **'Ler-escrever Chaves'.** Utilizará os botões de cópia no lado direito do ecrã para copiar o nome de utilizador, a cadeia de ligação e a palavra-passe. 
+1. Na sua conta DB Azure Cosmos no portal Azure, na navegação esquerda selecione **Connection String** e, em seguida, selecione **'Ler-escrever Chaves'.** Utilizará os botões de cópia no lado direito do ecrã para copiar o nome de utilizador, a cadeia de ligação e a palavra-passe. 
 
 2. Abra o ficheiro *app.py* no diretório de raiz.
 
-3. Copie o valor de **nome de utilizador** a partir do portal (com o botão Copiar) e faça deste o valor de **nome** no ficheiro *app.py*.
+3. Copie o valor de **nome de utilizador** a partir do portal (com o botão Copiar) e faça deste o valor de **nome** no ficheiro *app.py* .
 
 4. Em seguida, copie o valor da sua cadeia de **ligação** a partir do portal e faça-o o valor do **MongoClient** no seu ficheiro *app.py.*
 
-5. Por fim, copie o valor de **palavra-passe** a partir do portal e faça deste o valor de **palavra-passe** no ficheiro *app.py*.
+5. Por fim, copie o valor de **palavra-passe** a partir do portal e faça deste o valor de **palavra-passe** no ficheiro *app.py* .
 
 Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. Pode executá-la tal como fez anteriormente.
 
@@ -152,7 +153,7 @@ Se não quiser criar um garfo deste repo, também pode selecionar o botão **Imp
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

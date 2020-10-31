@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma aplicação Python - Azure Cache para Redis'
+title: 'Quickstart: Use Azure Cache para Redis em Python'
 description: Neste quickstart, você aprende a criar uma App Python que usa Azure Cache para Redis.
 author: yegu-ms
 ms.author: yegu
@@ -11,14 +11,14 @@ ms.custom:
 - seo-python-october2019
 - devx-track-python
 ms.date: 11/05/2019
-ms.openlocfilehash: aed9be394076b4ef10b8354552d69771ae659eea
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 79add54478e9cd52ffd3041d5f85bf588929b44f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87845329"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099441"
 ---
-# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Quickstart: Criar uma aplicação Python que usa Azure Cache para Redis
+# <a name="quickstart-use-azure-cache-for-redis-in-python"></a>Quickstart: Use Azure Cache para Redis em Python
 
 Neste artigo, incorpora o Azure Cache for Redis numa aplicação Python para ter acesso a uma cache segura e dedicada que esteja acessível a partir de qualquer aplicação dentro do Azure.
 
@@ -42,7 +42,7 @@ O exemplo seguinte utilizou *o pip3* para python 3 para instalar *redis-py* no W
 
 ## <a name="read-and-write-to-the-cache"></a>Ler e escrever na cache
 
-Executar Python a partir da linha de comando e testar o seu cache utilizando o seguinte código. Substitua `<Your Host Name>` e `<Your Access Key>` pelos valores da sua Cache Azure para a instância Redis. O seu nome de anfitrião é do formulário * \<DNS name> .redis.cache.windows.net*.
+Executar Python a partir da linha de comando e testar o seu cache utilizando o seguinte código. Substitua `<Your Host Name>` e `<Your Access Key>` pelos valores da sua Cache Azure para a instância Redis. O seu nome de anfitrião é do formulário *\<DNS name> .redis.cache.windows.net* .
 
 ```python
 >>> import redis
@@ -59,7 +59,7 @@ b'bar'
 
 ## <a name="create-a-python-sample-app"></a>Criar uma aplicação de amostra python
 
-Crie um novo ficheiro de texto, adicione o seguinte script e guarde o ficheiro como *PythonApplication1.py*. Substitua `<Your Host Name>` e `<Your Access Key>` pelos valores da sua Cache Azure para a instância Redis. O seu nome de anfitrião é do formulário * \<DNS name> .redis.cache.windows.net*.
+Crie um novo ficheiro de texto, adicione o seguinte script e guarde o ficheiro como *PythonApplication1.py* . Substitua `<Your Host Name>` e `<Your Access Key>` pelos valores da sua Cache Azure para a instância Redis. O seu nome de anfitrião é do formulário *\<DNS name> .redis.cache.windows.net* .
 
 ```python
 import redis
@@ -100,8 +100,8 @@ Para eliminar o grupo de recursos e a sua Cache Redis para a instância Azure:
 
 1. A partir do [portal Azure,](https://portal.azure.com)procure e selecione **grupos de Recursos.**
 1. Na caixa de texto **Filter por nome,** insira o nome do grupo de recursos que contém a sua instância de cache e, em seguida, selecione-o a partir dos resultados da pesquisa. 
-1. Na sua página de grupo de recursos, selecione **Eliminar o grupo de recursos**.
-1. Digite o nome do grupo de recursos e, em seguida, **selecione Delete**.
+1. Na sua página de grupo de recursos, selecione **Eliminar o grupo de recursos** .
+1. Digite o nome do grupo de recursos e, em seguida, **selecione Delete** .
    
    ![Elimine o seu grupo de recursos para Azure Cache para Redis](./media/cache-python-get-started/delete-your-resource-group-for-azure-cache-for-redis.png)
 

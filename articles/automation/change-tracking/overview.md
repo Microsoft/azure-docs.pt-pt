@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 35b1b07bd4d9eef555be26e1c24356b7c352bf38
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670730"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100699"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Alterar rastreio e visão geral do inventário
 
@@ -93,7 +93,7 @@ Para rastrear alterações em ficheiros tanto no Windows como no Linux, o Change
 
 ## <a name="tracking-file-content-changes"></a>Alterações no conteúdo do ficheiro de rastreio
 
-Alterar o Tracking e o Inventário permite-lhe visualizar o conteúdo de um ficheiro Windows ou Linux. Para cada alteração a um ficheiro, o Change Tracking and Inventory armazena o conteúdo do ficheiro numa [conta de Armazenamento Azure](/storage/common/storage-account-create). Quando está a seguir um ficheiro, pode ver o seu conteúdo antes ou depois de uma alteração. O conteúdo do ficheiro pode ser visto dentro ou lado a lado.
+Alterar o Tracking e o Inventário permite-lhe visualizar o conteúdo de um ficheiro Windows ou Linux. Para cada alteração a um ficheiro, o Change Tracking and Inventory armazena o conteúdo do ficheiro numa [conta de Armazenamento Azure](/azure/storage/common/storage-account-create). Quando está a seguir um ficheiro, pode ver o seu conteúdo antes ou depois de uma alteração. O conteúdo do ficheiro pode ser visto dentro ou lado a lado.
 
 ![Ver alterações num ficheiro](./media/overview/view-file-changes.png)
 
@@ -175,7 +175,7 @@ Para otimizar o desempenho, o agente Log Analytics apenas rastreia as alteraçõ
 
 Uma capacidade chave do Change Tracking and Inventory está a alertar para as alterações ao estado de configuração do seu ambiente híbrido. Muitas ações úteis estão disponíveis para desencadear em resposta a alertas. Por exemplo, ações em funções Azure, livros de automação, webhooks e similares. Alertar sobre as alterações ao ficheiro **c:\windows\system32\drivers\etc\hosts** para uma máquina é uma boa aplicação de alertas para os dados de Change Tracking e Inventory. Há muitos mais cenários para alertar também, incluindo os cenários de consulta definidos na tabela seguinte.
 
-|Consulta  |Descrição  |
+|Consulta  |Description  |
 |---------|---------|
 |ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Ficheiros" e FileSystemPath contém " c: \\ sistema de \\ janelas32 \\ controladores \\ "|Útil para rastrear alterações em ficheiros críticos do sistema.|
 |ConfiguraçãoChange <br>&#124; onde FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c: \\ \\ windows system32 \\ drivers etc \\ \\ hosts"|Útil para rastrear modificações em ficheiros de configuração de chaves.|

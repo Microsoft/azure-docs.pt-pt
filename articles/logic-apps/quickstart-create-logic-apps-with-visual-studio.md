@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/07/2020
-ms.openlocfilehash: cdc4dfe23cce7c2f58e4c9b44f2cea46e2337e00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/27/2020
+ms.openlocfilehash: 1301af3bd17ce44720d77aa1b812b78bbe57ffc9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322449"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101396"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Quickstart: Criar tarefas, processos e fluxos de trabalho automatizados com o Azure Logic Apps – Visual Studio
 
@@ -20,7 +20,7 @@ Com [a Azure Logic Apps](../logic-apps/logic-apps-overview.md) e o Visual Studio
 
 Se é novo no Azure Logic Apps e apenas quer os conceitos básicos, experimente o [quickstart para criar uma aplicação lógica no portal Azure.](../logic-apps/quickstart-create-first-logic-app-workflow.md) O Logic App Designer funciona da mesma forma tanto no portal Azure como no Visual Studio.
 
-Neste arranque rápido, cria-se a mesma aplicação lógica com o Visual Studio que o quickstart do portal Azure. Esta aplicação lógica monitoriza o feed RSS de um site e envia e-mail para cada novo item nesse feed. A sua aplicação lógica acabada parece com este fluxo de trabalho de alto nível:
+Neste arranque rápido, cria-se a mesma aplicação lógica com o Visual Studio que o quickstart do portal Azure. Também pode aprender a [criar uma aplicação de exemplo no Código do Estúdio Visual,](quickstart-create-logic-apps-visual-studio-code.md)e [criar e gerir aplicações lógicas através da Interface Azure Command-Line (Azure CLI)](quickstart-logic-apps-azure-cli.md). Esta aplicação lógica monitoriza o feed RSS de um site e envia e-mail para cada novo item nesse feed. A sua aplicação lógica acabada parece com este fluxo de trabalho de alto nível:
 
 ![Screenshot que mostra o fluxo de trabalho de alto nível de uma aplicação lógica acabada.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
@@ -37,7 +37,7 @@ Neste arranque rápido, cria-se a mesma aplicação lógica com o Visual Studio 
     > [!IMPORTANT]
     > Quando instalar o Visual Studio 2019 ou 2017, certifique-se de que seleciona a carga de trabalho de desenvolvimento do **Azure.**
 
-  * [Microsoft Azure SDK para .NET (2.9.1 ou mais tarde)](https://azure.microsoft.com/downloads/). Saiba mais sobre o [SDK do Azure para .NET](/dotnet/azure/dotnet-tools?view=azure-dotnet).
+  * [Microsoft Azure SDK para .NET (2.9.1 ou mais tarde)](https://azure.microsoft.com/downloads/). Saiba mais sobre o [SDK do Azure para .NET](/dotnet/azure/dotnet-tools?tabs=vs).
 
   * [Azure PowerShell](https://github.com/Azure/azure-powershell#installation)
 
@@ -96,11 +96,11 @@ Para começar, crie um [Projeto do Grupo de Recursos do Azure](../azure-resource
 
 1. Inicie o Visual Studio. Inscreva-se na sua conta Azure.
 
-1. No menu **Ficheiro**, selecione **Novo** > **Projeto**. (Teclado: Ctrl + Shift + N)
+1. No menu **Ficheiro** , selecione **Novo** > **Projeto** . (Teclado: Ctrl + Shift + N)
 
    ![No menu "Ficheiro", selecione "Novo" > "Projeto"](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
-1. Em **Instalado**, selecione **Visual C#** ou **Visual Basic**. Selecione **Cloud**  >  **Azure Resource Group**. Atribua um nome ao projeto, por exemplo:
+1. Em **Instalado** , selecione **Visual C#** ou **Visual Basic** . Selecione **Cloud**  >  **Azure Resource Group** . Atribua um nome ao projeto, por exemplo:
 
    ![Criar projeto do Grupo de Recursos do Azure](./media/quickstart-create-logic-apps-with-visual-studio/create-azure-cloud-service-project.png)
 
@@ -111,11 +111,11 @@ Para começar, crie um [Projeto do Grupo de Recursos do Azure](../azure-resource
 
    Se estiver a utilizar o Visual Studio 2019, siga estes passos:
 
-   1. Na **nova** caixa de projetos, selecione o projeto **Azure Resource Group** para Visual C# ou Visual Basic. Selecione **Seguinte**.
+   1. Na **nova** caixa de projetos, selecione o projeto **Azure Resource Group** para Visual C# ou Visual Basic. Selecione **Seguinte** .
 
-   1. Forneça um nome para o grupo de recursos Azure que pretende utilizar e outras informações do projeto. Selecione **Criar**.
+   1. Forneça um nome para o grupo de recursos Azure que pretende utilizar e outras informações do projeto. Selecione **Criar** .
 
-1. A partir da lista de modelos, selecione o modelo **de Aplicação Lógica.** Selecione **OK**.
+1. A partir da lista de modelos, selecione o modelo **de Aplicação Lógica.** Selecione **OK** .
 
    ![Selecionar o modelo Aplicação Lógica](./media/quickstart-create-logic-apps-with-visual-studio/select-logic-app-template.png)
 
@@ -127,7 +127,7 @@ Para começar, crie um [Projeto do Grupo de Recursos do Azure](../azure-resource
 
 Quando tiver o seu projeto Azure Resource Group, crie a sua aplicação lógica com o modelo **de App Blank Logic.**
 
-1. No Solution Explorer, abra o **LogicApp.jsno** menu de atalho do ficheiro. Selecione **Abrir com o Estruturador da Aplicação Lógica**. (Teclado: CTRL + L)
+1. No Solution Explorer, abra o **LogicApp.jsno** menu de atalho do ficheiro. Selecione **Abrir com o Estruturador da Aplicação Lógica** . (Teclado: CTRL + L)
 
    ![Abrir o ficheiro .json da aplicação lógica com o Estruturador da Aplicação Lógica](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -140,15 +140,15 @@ Quando tiver o seu projeto Azure Resource Group, crie a sua aplicação lógica 
 
    ![Selecionar a subscrição do Azure, o grupo de recursos e a localização dos recursos](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
-   | Definição | Valor de exemplo | Descrição |
+   | Definição | Valor de exemplo | Description |
    | ------- | ------------- | ----------- |
    | Conta de utilizador | Fabrikam <br> sophia-owen@fabrikam.com | A conta que usou quando se inscreveu no Visual Studio |
    | **Subscrição** | "Pay As You Go" <br> (sophia-owen@fabrikam.com) | O nome da sua subscrição do Azure e a conta associada |
    | **Grupo de Recursos** | MyLogicApp-RG <br> (E.U.A. Oeste) | O grupo de recursos Azure e localização para armazenar e implementar os recursos da sua aplicação lógica |
-   | **Localização** | **O mesmo que o Grupo de Recursos** | O tipo de localização e localização específica para a implementação da sua aplicação lógica. O tipo de localização é uma região de Azure ou um ambiente de serviço de integração existente [(ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>Para este arranque rápido, mantenha o tipo de localização definido para **Região** e a localização definida para **o Mesmo grupo de recursos**. <p>**Nota:** Depois de criar o seu projeto de grupo de recursos, pode [alterar o tipo de localização e a localização,](manage-logic-apps-with-visual-studio.md#change-location)mas diferentes tipos de localização afetam a sua aplicação lógica de várias maneiras. |
+   | **Localização** | **O mesmo que o Grupo de Recursos** | O tipo de localização e localização específica para a implementação da sua aplicação lógica. O tipo de localização é uma região de Azure ou um ambiente de serviço de integração existente [(ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>Para este arranque rápido, mantenha o tipo de localização definido para **Região** e a localização definida para **o Mesmo grupo de recursos** . <p>**Nota:** Depois de criar o seu projeto de grupo de recursos, pode [alterar o tipo de localização e a localização,](manage-logic-apps-with-visual-studio.md#change-location)mas diferentes tipos de localização afetam a sua aplicação lógica de várias maneiras. |
    ||||
 
-1. O Logic Apps Designer abre uma página que mostra um vídeo de introdução e gatilhos comumente usados. Percorra o vídeo e desencadeie para **Modelos**e selecione **Blank Logic App**.
+1. O Logic Apps Designer abre uma página que mostra um vídeo de introdução e gatilhos comumente usados. Percorra o vídeo e desencadeie para **Modelos** e selecione **Blank Logic App** .
 
    ![Selecionar "Aplicação Lógica em Branco"](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 
@@ -156,7 +156,7 @@ Quando tiver o seu projeto Azure Resource Group, crie a sua aplicação lógica 
 
 Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app-concepts) RSS que dispara quando um novo item de alimentação aparece. Cada aplicação lógica começa com um gatilho, que dispara quando critérios específicos são cumpridos. Sempre que o acionador é acionado, o motor do Logic Apps cria uma instância da aplicação lógica que executa o fluxo de trabalho.
 
-1. No Logic App Designer, sob a caixa de pesquisa, selecione **All**. Na caixa de pesquisa, insira "rss". A partir da lista de gatilhos, selecione este gatilho: **Quando um item de alimentação é publicado**
+1. No Logic App Designer, sob a caixa de pesquisa, selecione **All** . Na caixa de pesquisa, insira "rss". A partir da lista de gatilhos, selecione este gatilho: **Quando um item de alimentação é publicado**
 
    ![Criar a sua aplicação lógica com a adição de um acionador e ações](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -172,11 +172,11 @@ Em seguida, adicione um [gatilho](../logic-apps/logic-apps-overview.md#logic-app
 
 Antes de poder executar e testar a sua aplicação lógica, implemente a aplicação para o Azure a partir do Visual Studio.
 
-1. No Solution Explorer, no menu de atalho do seu projeto, selecione **Implementar**  >  **Novo**. Se tal lhe for pedido, inicie sessão com a sua conta do Azure.
+1. No Solution Explorer, no menu de atalho do seu projeto, selecione **Implementar**  >  **Novo** . Se tal lhe for pedido, inicie sessão com a sua conta do Azure.
 
    ![Criar a implementação da aplicação lógica](./media/quickstart-create-logic-apps-with-visual-studio/create-logic-app-deployment.png)
 
-1. Para esta implementação, mantenha a subscrição padrão do Azure, grupo de recursos e outras definições. Selecione **Implementar**.
+1. Para esta implementação, mantenha a subscrição padrão do Azure, grupo de recursos e outras definições. Selecione **Implementar** .
 
    ![Implementar a aplicação lógica no grupo de recursos do Azure](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-deployment.png)
 
@@ -206,13 +206,13 @@ Quando tiver um projeto do Grupo de Recursos Azure existente, pode adicionar uma
 
 1. No Solution Explorer, abra o `<logic-app-name>.json` ficheiro.
 
-1. No menu **Ver,** selecione **Outros Contornos**  >  **JSON do**Windows .
+1. No menu **Ver,** selecione **Outros Contornos**  >  **JSON do** Windows .
 
-1. Para adicionar um recurso ao ficheiro do modelo, **selecione Adicionar Recurso** na parte superior da janela contorno JSON. Ou na janela contorno do JSON, abra o menu de atalho **de recursos** e selecione Adicionar **Novo Recurso**.
+1. Para adicionar um recurso ao ficheiro do modelo, **selecione Adicionar Recurso** na parte superior da janela contorno JSON. Ou na janela contorno do JSON, abra o menu de atalho **de recursos** e selecione Adicionar **Novo Recurso** .
 
    ![Janela de contorno JSON](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
 
-1. Na caixa de diálogo **De Recurso Adicionar,** na caixa de pesquisa, encontre `logic app` e selecione **a Aplicação Lógica**. Nomeie a sua aplicação lógica e selecione **Adicionar**.
+1. Na caixa de diálogo **De Recurso Adicionar,** na caixa de pesquisa, encontre `logic app` e selecione **a Aplicação Lógica** . Nomeie a sua aplicação lógica e selecione **Adicionar** .
 
    ![Adicionar recurso](./media/quickstart-create-logic-apps-with-visual-studio/add-logic-app-resource.png)
 
@@ -224,7 +224,7 @@ Quando terminar a sua aplicação lógica, elimine o grupo de recursos que cont�
 
 1. No menu do portal Azure, selecione **grupos de Recursos,** ou procure e selecione **grupos** de Recursos a partir de qualquer página. Selecione o grupo de recursos da sua aplicação lógica.
 
-1. Na página **'Vista Geral',** selecione **Eliminar o grupo de recursos**. Introduza o nome do grupo de recursos como confirmação e selecione **Delete**.
+1. Na página **'Vista Geral',** selecione **Eliminar o grupo de recursos** . Introduza o nome do grupo de recursos como confirmação e selecione **Delete** .
 
    !["Grupos de recursos" > "Descrição geral" > "Eliminar grupo de recursos"](./media/quickstart-create-logic-apps-with-visual-studio/clean-up-resources.png)
 

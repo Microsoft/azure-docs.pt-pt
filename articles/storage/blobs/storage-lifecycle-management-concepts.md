@@ -1,24 +1,24 @@
 ---
-title: Gestão do ciclo de vida do Azure Storage
-description: Aprenda a criar regras de política de ciclo de vida para transitar dados de envelhecimento dos níveis Hot to Cool e Archive.
+title: Otimizar os custos automatizando os níveis de acesso ao armazenamento Azure Blob
+description: Crie regras automatizadas para mover dados entre os níveis quentes, frescos e de arquivo.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/15/2020
+ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: ee04ad28d6b52e63becd2991d77b453cd411f683
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309805"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100074"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>Gerir o ciclo de vida do Armazenamento de Blobs do Azure
+# <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Otimizar os custos automatizando os níveis de acesso ao armazenamento Azure Blob
 
-Os conjuntos de dados têm ciclos de vida únicos. No início do ciclo de vida, as pessoas acedem frequentemente a alguns dados. Mas a necessidade de acesso diminui drasticamente à medida que os dados envelhecem. Alguns dados permanecem inativos na nuvem e raramente são acedidos uma vez armazenados. Alguns dados expiram dias ou meses após a criação, enquanto outros conjuntos de dados são lidos e modificados ativamente ao longo da sua vida útil. A gestão do ciclo de vida de armazenamento Azure Blob oferece uma política rica e baseada em regras para contas de armazenamento GPv2 e Blob. Utilize a política para transitar os seus dados para os níveis de acesso apropriados ou expire no final do ciclo de vida dos dados.
+Os conjuntos de dados têm ciclos de vida únicos. No início do ciclo de vida, as pessoas acedem frequentemente a alguns dados. Mas a necessidade de acesso diminui drasticamente à medida que os dados envelhecem. Alguns dados permanecem inativos na nuvem e raramente são acedidos uma vez armazenados. Alguns dados expiram dias ou meses após a criação, enquanto outros conjuntos de dados são lidos e modificados ativamente ao longo da sua vida útil. A gestão do ciclo de vida Azure Blob Storage oferece uma política rica e baseada em regras para contas de armazenamento de GPv2 e blob. Utilize a política para transitar os seus dados para os níveis de acesso apropriados ou expire no final do ciclo de vida dos dados.
 
 A política de gestão do ciclo de vida permite-lhe:
 
@@ -31,12 +31,13 @@ A política de gestão do ciclo de vida permite-lhe:
 Considere um cenário em que os dados tenham acesso frequente durante as fases iniciais do ciclo de vida, mas apenas ocasionalmente após duas semanas. Para além do primeiro mês, o conjunto de dados raramente é acedido. Neste cenário, o armazenamento quente é o melhor durante as fases iniciais. O armazenamento fresco é mais adequado para acessos ocasionais. O armazenamento de arquivo é a melhor opção de nível após a idade dos dados ao longo de um mês. Ao ajustar os níveis de armazenamento em relação à idade dos dados, pode conceber as opções de armazenamento menos dispendiosas para as suas necessidades. Para alcançar esta transição, as regras de política de gestão do ciclo de vida estão disponíveis para mover dados de envelhecimento para níveis mais frios.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 >[!NOTE]
 >Se precisar de dados para se manter legível, por exemplo, quando utilizado pelo StorSimple, não descreva uma política para mover as bolhas para o nível Archive.
 
 ## <a name="availability-and-pricing"></a>Disponibilidade e preços
 
-A funcionalidade de gestão do ciclo de vida está disponível em todas as regiões Azure para as contas de Fins Gerais v2 (GPv2), contas de armazenamento Blob, contas de armazenamento Premium Block Blob e contas Azure Data Lake Storage Gen2. No portal Azure, pode atualizar uma conta de Final geral (GPv1) existente para uma conta GPv2. Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md).
+A funcionalidade de gestão do ciclo de vida está disponível em todas as regiões Azure para as contas de Fins Gerais v2 (GPv2), contas de armazenamento de bolhas, contas de armazenamento Premium Block Blob e contas Azure Data Lake Storage Gen2. No portal Azure, pode atualizar uma conta de Final geral (GPv1) existente para uma conta GPv2. Para obter mais informações sobre contas de armazenamento, consulte [a visão geral da conta de armazenamento Azure](../common/storage-account-overview.md).
 
 A função de gestão do ciclo de vida é gratuita. Os clientes são cobrados o custo regular de operação para as chamadas [API de Nível Blob.](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) A operação de eliminação é gratuita. Para obter mais informações sobre preços, consulte [os preços do Block Blob](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
@@ -73,7 +74,7 @@ Há duas formas de adicionar uma política através do portal Azure.
 
 1. Selecione o separador **Lista Ver.**
 
-1. **Selecione Adicione uma regra** e nomeie a sua regra no formulário **Detalhes.** Também pode definir o **âmbito de regras,** **tipo Blob**e valores **do subtipo Blob.** O exemplo a seguir define o âmbito para filtrar as bolhas. Isto faz com que o **separador conjunto do filtro** seja adicionado.
+1. **Selecione Adicione uma regra** e nomeie a sua regra no formulário **Detalhes.** Também pode definir o **âmbito de regras,** **tipo Blob** e valores **do subtipo Blob.** O exemplo a seguir define o âmbito para filtrar as bolhas. Isto faz com que o **separador conjunto do filtro** seja adicionado.
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Gestão de ciclo de vida adicionar uma página de detalhes de regras no portal Azure":::
 
@@ -136,7 +137,7 @@ Há duas formas de adicionar uma política através do portal Azure.
    }
    ```
 
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
 
 1. Para mais informações sobre este exemplo do JSON, consulte as secções [De Política](#policy) e [Regras.](#rules)
 
@@ -316,12 +317,12 @@ Os filtros incluem:
 
 | Nome do filtro | Tipo de filtro | Notas | é necessário |
 |-------------|-------------|-------|-------------|
-| blobTypes   | Uma matriz de valores de enum predefinidos. | O lançamento atual suporta `blockBlob` e `appendBlob` . Apenas a eliminação é suportada para `appendBlob` , o nível definido não é suportado. | Sim |
-| prefixOSatch | Uma série de cordas para prefixos a combinar. Cada regra pode definir até 10 prefixos. Uma corda de prefixo deve começar com um nome de recipiente. Por exemplo, se quiser combinar todas as bolhas `https://myaccount.blob.core.windows.net/container1/foo/...` por uma regra, o prefixoMatch é `container1/foo` . | Se não definir prefixoSatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | Não |
-| blobIndexMatch | Uma matriz de valores dicionários que consistem na chave de etiqueta do Índice Blob e condições de valor a combinar. Cada regra pode definir até 10 condições de etiqueta de índice blob. Por exemplo, se quiser combinar todas as bolhas com `Project = Contoso` uma `https://myaccount.blob.core.windows.net/` regra, o blobIndexMatch é `{"name": "Project","op": "==","value": "Contoso"}` . | Se não definir blobIndexMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | Não |
+| blobTypes   | Uma matriz de valores de enum predefinidos. | O lançamento atual suporta `blockBlob` e `appendBlob` . Apenas a eliminação é suportada para `appendBlob` , o nível definido não é suportado. | Yes |
+| prefixOSatch | Uma série de cordas para prefixos a combinar. Cada regra pode definir até 10 prefixos. Uma corda de prefixo deve começar com um nome de recipiente. Por exemplo, se quiser combinar todas as bolhas `https://myaccount.blob.core.windows.net/container1/foo/...` por uma regra, o prefixoMatch é `container1/foo` . | Se não definir prefixoSatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | No |
+| blobIndexMatch | Uma matriz de valores dicionários que consistem na chave de etiqueta do Índice Blob e condições de valor a combinar. Cada regra pode definir até 10 condições de etiqueta de índice blob. Por exemplo, se quiser combinar todas as bolhas com `Project = Contoso` uma `https://myaccount.blob.core.windows.net/` regra, o blobIndexMatch é `{"name": "Project","op": "==","value": "Contoso"}` . | Se não definir blobIndexMatch, a regra aplica-se a todas as bolhas dentro da conta de armazenamento. | No |
 
 > [!NOTE]
-> O Blob Index está em pré-visualização pública, e está disponível nas regiões central do **Canadá,** **Canadá Oriental,** **France Central**e **França Sul.** Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure blob com Índice blob (Preview)](storage-manage-find-blobs.md).
+> O Blob Index está em pré-visualização pública, e está disponível nas regiões central do **Canadá,** **Canadá Oriental,** **France Central** e **França Sul.** Para saber mais sobre esta funcionalidade juntamente com questões e limitações conhecidas, consulte [Gerir e encontrar dados sobre o Armazenamento de Blob Azure blob com Índice blob (Preview)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Ações de regra
 
@@ -341,7 +342,7 @@ A gestão do ciclo de vida suporta o tiering e a eliminação de bolhas, versõe
 
 As condições de execução baseiam-se na idade. As bolhas de base utilizam o último tempo modificado, as versões blob usam o tempo de criação da versão, e os instantâneos blob usam o tempo de criação do instantâneo para rastrear a idade.
 
-| Condição de execução de ação               | Valor da condição                          | Descrição                                                                      |
+| Condição de execução de ação               | Valor da condição                          | Description                                                                      |
 |------------------------------------|------------------------------------------|----------------------------------------------------------------------------------|
 | dias Após aModificaçãoGreaterThan   | Valor inteiro indicando a idade em dias | A condição para as ações de blob base                                              |
 | dias Após ACreationGreaterThan       | Valor inteiro indicando a idade em dias | A condição para a versão blob e ações de snapshot blob                         |
@@ -539,7 +540,7 @@ Alguns dados só devem ser expirados se explicitamente marcados para eliminaçã
 
 ### <a name="manage-versions"></a>Gerir versões
 
-Para dados que são modificados e acedidos regularmente ao longo da sua vida útil, pode permitir que a versão de armazenamento Blob mantenha automaticamente as versões anteriores de um objeto. Pode criar uma política para tier ou eliminar versões anteriores. A era da versão é determinada avaliando o tempo de criação da versão. Esta regra de política tem versões anteriores dentro do contentor `activedata` que são 90 dias ou mais após a criação da versão para arrefecer o nível, e elimina versões anteriores com 365 dias ou mais.
+Para dados que são modificados e acedidos regularmente ao longo da sua vida útil, pode permitir que a versão de armazenamento de blob mantenha automaticamente as versões anteriores de um objeto. Pode criar uma política para tier ou eliminar versões anteriores. A era da versão é determinada avaliando o tempo de criação da versão. Esta regra de política tem versões anteriores dentro do contentor `activedata` que são 90 dias ou mais após a criação da versão para arrefecer o nível, e elimina versões anteriores com 365 dias ou mais.
 
 ```json
 {

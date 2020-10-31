@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 549e1808a3b449f7d29b968cde76ef29391880b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489018"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100621"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Temas conhecidos em Azure Digital Twins
 
@@ -32,7 +32,7 @@ Isto pode ser resolvido repetindo o `az login` comando em Cloud Shell e completa
 
 Em alternativa, pode abrir o painel Cloud Shell no portal Azure e completar o seu trabalho cloud Shell a partir daí:
 
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vista do portal Azure com o ícone 'Cloud Shell' em destaque, e a Cloud Shell aparecendo na parte inferior da janela do portal":::
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Vista do portal Azure com o ícone 'Cloud Shell' em destaque, e a Cloud Shell aparecendo na parte inferior da janela do portal" lightbox="media/includes/portal-cloud-shell.png":::
 
 Finalmente, outra solução é [instalar o CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) na sua máquina para que possa executar os comandos Azure CLI localmente. O CLI local não vive esta questão.
 
@@ -66,9 +66,9 @@ Para os utilizadores que iniciam sessão com uma conta pessoal da [Microsoft (MS
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problema com a autenticação interativa do navegador
 
-Ao escrever código de autenticação nas suas aplicações Azure Digital Twins utilizando a versão **1.2.0** da biblioteca ** [Azure.Identity,](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true) **poderá experimentar problemas com o método [InteractiveBrowserCredential.](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true)
+Ao escrever código de autenticação nas suas aplicações Azure Digital Twins utilizando a versão **1.2.0** da biblioteca **[Azure.Identity,](/dotnet/api/azure.identity?view=azure-dotnet&preserve-view=true)** poderá experimentar problemas com o método [InteractiveBrowserCredential.](/dotnet/api/azure.identity.interactivebrowsercredential?view=azure-dotnet&preserve-view=true)
 
-Esta não é a última versão da biblioteca. A versão mais recente é **1.2.2**.
+Esta não é a última versão da biblioteca. A versão mais recente é **1.2.2** .
 
 O método afetado é utilizado nos seguintes artigos: 
 * [*Tutorial: Código de uma aplicação de cliente*](tutorial-code.md)
@@ -79,7 +79,7 @@ O problema inclui uma resposta de erro de "Azure.Identity.AuthenticationFailedEx
 
 ### <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 
-Para resolver, atualize as suas aplicações para utilizar a `Azure.Identity` versão **1.2.2**. Com esta versão da biblioteca, o navegador deve carregar e autenticar como esperado.
+Para resolver, atualize as suas aplicações para utilizar a `Azure.Identity` versão **1.2.2** . Com esta versão da biblioteca, o navegador deve carregar e autenticar como esperado.
 
 ### <a name="possible-causes"></a>Possíveis causas
 

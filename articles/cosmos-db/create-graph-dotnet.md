@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 02/21/2020
 ms.author: jasonh
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0b81bf951df6db0da7ed049c435a319f6ee33b8a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 816a16b34c16b2ccc95cbe57aec482b8d3e13fc6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479056"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099769"
 ---
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construir uma aplicação .NET Framework ou Core utilizando a conta API API AZure Cosmos DB Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
@@ -104,7 +105,7 @@ Os seguintes fragmentos são retirados do ficheiro Program.cs.
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação.
 
-1. A partir do [portal do Azure](https://portal.azure.com/), navegue até à sua conta da base de dados de gráficos. No separador **Descrição geral**, pode ver dois pontos finais- 
+1. A partir do [portal do Azure](https://portal.azure.com/), navegue até à sua conta da base de dados de gráficos. No separador **Descrição geral** , pode ver dois pontos finais- 
  
    **.NET SDK URI** - Este valor é utilizado quando se liga à conta de gráfico utilizando a biblioteca Microsoft.Azure.Graphs. 
 
@@ -141,7 +142,7 @@ Clique em CTRL + F5 para executar a aplicação. A aplicação irá imprimir os 
 
 Agora, pode voltar ao Data Explorer no portal do Azure e procurar e consultar os dados do gráfico novo.
 
-1. No Data Explorer, a nova base de dados é apresentada no painel Gráficos. Expanda a base de dados e os nós do contentor e, em seguida, clique em **Gráfico**.
+1. No Data Explorer, a nova base de dados é apresentada no painel Gráficos. Expanda a base de dados e os nós do contentor e, em seguida, clique em **Gráfico** .
 
 2. Clique no botão **Aplicar Filtro** para utilizar a consulta predefinida para ver todos os vértices no gráfico. Os dados gerados pela aplicação de exemplo são apresentados no painel Gráficos.
 
@@ -166,7 +167,7 @@ Agora, pode voltar ao Data Explorer no portal do Azure e procurar e consultar os
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

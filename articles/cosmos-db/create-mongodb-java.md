@@ -9,14 +9,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: a831921ec3b3fa755496c08c02665b1c0fe99557
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2dcd72f9231726d5a2f473dbbfa4d8fd81e64b97
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475962"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098984"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Quickstart: Criar uma app de consolas com a Java e a API MongoDB em Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -41,7 +42,7 @@ Neste quickstart, você cria e gere uma conta Azure Cosmos DB para MongoDB API a
 
 ## <a name="add-a-collection"></a>Adicionar uma coleção
 
-Nomeie a sua nova base de **dados db**e o seu novo **colôm de**recolha.
+Nomeie a sua nova base de **dados db** e o seu novo **colôm de** recolha.
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-mongodb-create-collection.md)] 
 
@@ -111,7 +112,7 @@ Esta aplicação de consola utiliza o [controlador MongoDB Java.](https://docs.m
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação.
 
-1. Na sua conta DB Azure Cosmos, selecione **Quick Start**, selecione **Java**e, em seguida, copie a cadeia de ligação para a sua área de transferência.
+1. Na sua conta DB Azure Cosmos, selecione **Quick Start** , selecione **Java** e, em seguida, copie a cadeia de ligação para a sua área de transferência.
 
 2. Abra o ficheiro *Program.java,* substitua o argumento do construtor MongoClientURI pela cadeia de ligação. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
     
@@ -127,7 +128,7 @@ Agora pode utilizar [o Robomongo](mongodb-robomongo.md)  /  [Studio 3T](mongodb-
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

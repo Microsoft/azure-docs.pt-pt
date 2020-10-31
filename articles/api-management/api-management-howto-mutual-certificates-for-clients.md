@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 19e0d741d959eba704f26e7e8f7b5d311aa77775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e5522c162e08f0257bd6f20b058bf8bb858cff3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904872"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099351"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Como proteger APIs com a autenticação de certificado de cliente na Gestão de API
 
@@ -93,9 +93,8 @@ O exemplo a seguir mostra como verificar a impressão digital de um certificado 
 
 > [!TIP]
 > A emissão de impasse do certificado do cliente descrita neste [artigo](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) pode manifestar-se de várias formas, por exemplo, os pedidos de congelamento, os pedidos resultam em `403 Forbidden` código de estado após o tempo de saída, é `context.Request.Certificate` `null` . Este problema geralmente afeta `POST` e solicita com comprimento de conteúdo de `PUT` aproximadamente 60KB ou maior.
-> Para evitar que este problema ocorra, ligue a definição de "Negociar o certificado do cliente" para os nomes de anfitriões desejados na lâmina "Domínios personalizados", como mostrado abaixo. Esta funcionalidade não está disponível no nível de Consumo.
+> Para evitar que este problema ocorra, ligue a definição de "Negociar o certificado do cliente" para os nomes de anfitriões pretendidos na lâmina "Domínios personalizados", como mostra a primeira imagem deste documento. Esta funcionalidade não está disponível no nível de Consumo.
 
-![Negociar certificado de cliente](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

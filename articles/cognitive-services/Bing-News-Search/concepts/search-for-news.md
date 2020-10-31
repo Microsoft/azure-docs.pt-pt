@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fa12febe99e77efde45bcd2d538de78f618e641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e14f13d0e9fba407a983fb182d25c77593e4d3c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710597"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098404"
 ---
 # <a name="search-for-news-with-the-bing-news-search-api"></a>Pesquisa de notícias com a API de Pesquisa de Notícias Bing
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 A API de Pesquisa de Imagem Bing facilita a integração das capacidades de pesquisa de notícias cognitivas de Bing nas suas aplicações.
 
@@ -27,7 +32,7 @@ Embora a API de Pesquisa de Notícias Bing encontre e devolva artigos de notíci
 
 Se disponibilizar uma caixa de pesquisa na qual o utilizador introduz o seu termo de pesquisa, utilize a [API de Sugestão Automática do Bing](../../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API devolve cadeias de consulta sugerida com base em termos de pesquisa parcial à medida que o utilizador escreve.
 
-Depois de o utilizador introduzir o seu termo de pesquisa, o URL codifica-o antes de definir o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Por exemplo, se o utilizador introduzir *sailing dinghies*, defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
+Depois de o utilizador introduzir o seu termo de pesquisa, o URL codifica-o antes de definir o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query). Por exemplo, se o utilizador introduzir *sailing dinghies* , defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
 
 ## <a name="get-general-news"></a>Receba notícias gerais
 
@@ -155,7 +160,7 @@ Host: api.cognitive.microsoft.com
 
 Não inclua o parâmetro de consulta [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category).
 
-A resposta para obter títulos de notícias é quase a mesma que para obter as principais notícias do dia. Se o artigo for um título, o campo `headline` será definido como **true**.
+A resposta para obter títulos de notícias é quase a mesma que para obter as principais notícias do dia. Se o artigo for um título, o campo `headline` será definido como **true** .
 
 Por predefinição, a resposta inclui até 12 títulos de artigos. Para alterar o número de títulos de artigos a devolver, especifique o parâmetro de consulta [headlineCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#headlinecount). A resposta também inclui até quatro artigos sem título por categoria de notícias.
 

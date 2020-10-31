@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 03/24/2020
 ms.author: aahi
-ms.openlocfilehash: b8287250df4e278d4904e31121ed7d2df208e1c9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 313b216fd3e279e473790f7b82e17243b6df6846
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "80238860"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100019"
 ---
 # <a name="quickstart-create-your-first-bing-custom-search-instance"></a>Início Rápido: criar a sua primeira instância de Pesquisa Personalizada do Bing
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Para utilizar a Pesquisa Personalizada do Bing, tem de criar uma instância de pesquisa personalizada que define a vista ou o setor da Web. Este caso contém os domínios públicos, websites e páginas web que pretende pesquisar, juntamente com quaisquer ajustes de classificação que possa desejar. 
 
@@ -35,9 +40,9 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
 
 1. Clique em **Iniciar** a página do [portal Bing Custom Search](https://customsearch.ai) e inicie sôs-se na sua conta Microsoft.
 
-2. Clique em **New Instance**e insira um nome descritivo. Pode alterar o nome do seu caso a qualquer momento.
+2. Clique em **New Instance** e insira um nome descritivo. Pode alterar o nome do seu caso a qualquer momento.
  
-3. No separador **Ativo** em **Experiência de Pesquisa**, introduza o URL de um ou mais sites que pretende incluir na sua pesquisa. 
+3. No separador **Ativo** em **Experiência de Pesquisa** , introduza o URL de um ou mais sites que pretende incluir na sua pesquisa. 
 
     > [!NOTE]
     > As instâncias de Pesquisa Personalizada bing apenas devolvem resultados para domínios e páginas web que são públicas e foram indexadas por Bing.
@@ -46,7 +51,7 @@ Para criar uma instância de Pesquisa Personalizada do Bing:
 
 5. Clique em **Publicar** para publicar as suas alterações no ambiente de produção e atualizar os pontos finais da instância.
 
-6.  Clique no **separador Produção** em **Pontos finais**e copie o **ID de Configuração Personalizada**. Precisa deste ID para ligar para a API de Pesquisa Personalizada, anexando-a ao `customconfig=` parâmetro de consulta nas suas chamadas.
+6.  Clique no **separador Produção** em **Pontos finais** e copie o **ID de Configuração Personalizada** . Precisa deste ID para ligar para a API de Pesquisa Personalizada, anexando-a ao `customconfig=` parâmetro de consulta nas suas chamadas.
 
 
 ## <a name="next-steps"></a>Passos seguintes

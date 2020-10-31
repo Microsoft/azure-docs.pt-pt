@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 76d614264124e1ce4138663b702ff6d899b3aa4e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d12ab39474f1df139bf2f9064d43f5ab7ecda16b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74873323"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100274"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devolve o valor exponencial da expressão numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxe

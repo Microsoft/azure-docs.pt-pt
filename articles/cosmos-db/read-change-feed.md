@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 0252af90a6afb5b2a59620afaa61702f208991e7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b9a9af2178cc6130393cd9e74cb5b6b1f79dbf88
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785260"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100376"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Leitura do feed de alterações do Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Pode trabalhar com o feed de mudança de DB Azure Cosmos utilizando um modelo de push ou um modelo de puxar. Com um modelo push, o processador de feed de mudança empurra o trabalho para um cliente que tem lógica de negócio para processar este trabalho. No entanto, a complexidade na verificação do trabalho e do estado de armazenamento do último trabalho processado é tratada dentro do processador de feed de alteração.
 
@@ -27,7 +28,7 @@ Ao ler o feed de mudança de DB do Azure Cosmos, recomendamos a utilização de 
 - Carregamento equilibrando vários clientes consumindo mudanças. Por exemplo, se um cliente não consegue acompanhar as alterações de processamento e outro tem capacidade disponível.
 - [Erros de manuseamento](change-feed-processor.md#error-handling). Por exemplo, rectição automática de alterações falhadas que não foram processadas corretamente após uma exceção não manipulada no código ou um problema de rede transitório.
 
-A maioria dos cenários que usam o feed de mudança de DB Azure Cosmos usará uma das opções do modelo push. No entanto, existem alguns cenários em que poderá querer o controlo adicional de baixo nível do modelo de puxar. Estes incluem:
+A maioria dos cenários que usam o feed de mudança de DB Azure Cosmos usará uma das opções do modelo push. No entanto, existem alguns cenários em que poderá querer o controlo adicional de baixo nível do modelo de puxar. Estas incluem:
 
 - Alterações de leitura a partir de uma chave de partição particular
 - Controlando o ritmo em que o seu cliente recebe alterações para o processamento

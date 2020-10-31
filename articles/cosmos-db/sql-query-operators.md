@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2f79e2ca751ce9c1016f32effeca532d6ffe7fb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498842"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101243"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo detalha os vários operadores apoiados pela Azure Cosmos DB.
 
@@ -21,11 +22,11 @@ Este artigo detalha os vários operadores apoiados pela Azure Cosmos DB.
 
 O quadro seguinte mostra o resultado de comparações de igualdade no API SQL entre dois tipos de JSON.
 
-| **Op** | **Indefinido** | **Null** | **Booleano** | **Number** | **String** | **Objeto** | **Matriz** |
+| **Op** | **Indefinido** | **Null** | **Rio Boolean** | **Number** | **String** | **Objeto** | **Matriz** |
 |---|---|---|---|---|---|---|---|
 | **Indefinido** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido |
 | **Null** | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido |
-| **Booleano** | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido | Indefinido |
+| **Rio Boolean** | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido | Indefinido |
 | **Number** | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido | Indefinido |
 | **String** | Indefinido | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido | Indefinido |
 | **Objeto** | Indefinido | Indefinido | Indefinido | Indefinido | Indefinido | **Ok** | Indefinido |

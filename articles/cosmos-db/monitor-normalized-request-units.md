@@ -6,14 +6,15 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 06/25/2020
-ms.openlocfilehash: 183b161039b86ce824fd0bfde82cf291d54024fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc47f2f7a0f1586b197d14015fe2167293c806c6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91801482"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099356"
 ---
 # <a name="how-to-monitor-normalized-rus-for-an-azure-cosmos-container-or-an-account"></a>Como monitorizar RU/s normalizados para um contentor Azure Cosmos ou uma conta
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Azure Monitor for Azure Cosmos DB fornece uma visão métrica para monitorizar a sua conta e criar dashboards. As métricas DB do Azure Cosmos são recolhidas por padrão, esta funcionalidade não requer que você ative ou configure nada explicitamente.
 
@@ -23,7 +24,7 @@ A métrica **de consumo RU normalizada** é usada para ver quão bem saturadas s
 
 Quando o consumo normalizado de RU/s atinge 100% para a gama de chaves de partição dada, e se um cliente ainda fizer pedidos nesse intervalo de tempo de 1 segundo para essa gama específica de chaves de partição - recebe um erro limitado de taxa. O cliente deve respeitar o tempo de espera sugerido e voltar a tentar o pedido. O SDK facilita a vida a esta situação, reformulando os tempos pré-configurados, esperando adequadamente.  Não é necessário que veja o erro de limitação da taxa RU apenas porque o RU normalizado atingiu os 100%. Isto porque o RU normalizado é um único valor que representa o uso máximo em todas as gamas de chaves de partição, uma gama de chaves de partição pode estar ocupada, mas as outras gamas de chaves de partição podem servir os pedidos sem problemas. Por exemplo, uma única operação, como um procedimento armazenado que consome todos os RU/s numa gama de chaves de partição, conduzirá a um curto pico no consumo ru/s normalizado. Nesses casos, não haverá erros de limitação de taxas imediatas se a taxa de pedido for baixa ou se forem feitos pedidos a outras divisórias em diferentes intervalos de chaves de partição. 
 
-As métricas do Azure Monitor ajudam-no a encontrar as operações por código de estado para a API SQL utilizando a métrica **Total de Pedidos.** Posteriormente, pode filtrar estes pedidos pelo código de estado 429 e dividi-los por **Operação Tipo**.  
+As métricas do Azure Monitor ajudam-no a encontrar as operações por código de estado para a API SQL utilizando a métrica **Total de Pedidos.** Posteriormente, pode filtrar estes pedidos pelo código de estado 429 e dividi-los por **Operação Tipo** .  
 
 Para encontrar os pedidos que são limitados, a maneira recomendada é obter esta informação através de registos de diagnóstico.
 
@@ -37,11 +38,11 @@ Em resumo, a métrica **de consumo de RU normalizada** é usada para ver qual a 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Selecione **Monitor** da barra de navegação à esquerda e selecione **Métricas**.
+2. Selecione **Monitor** da barra de navegação à esquerda e selecione **Métricas** .
 
    :::image type="content" source="./media/monitor-normalized-request-units/monitor-metrics-blade.png" alt-text="Painel de métricas no Monitor Azure":::
 
-3. A partir do painel **métrica >** **Selecione um recurso** > escolha a **subscrição**necessária e o **grupo de recursos**. Para o **tipo de recurso**, selecione contas **DB Azure Cosmos**, escolha uma das suas contas Azure Cosmos existentes e selecione **Apply**.
+3. A partir do painel **métrica >** **Selecione um recurso** > escolha a **subscrição** necessária e o **grupo de recursos** . Para o **tipo de recurso** , selecione contas **DB Azure Cosmos** , escolha uma das suas contas Azure Cosmos existentes e selecione **Apply** .
 
    :::image type="content" source="./media/monitor-normalized-request-units/select-cosmos-db-account.png" alt-text="Painel de métricas no Monitor Azure":::
 
@@ -53,7 +54,7 @@ Em resumo, a métrica **de consumo de RU normalizada** é usada para ver qual a 
 
 ### <a name="filters-for-normalized-request-unit-consumption"></a>Filtros para consumo de unidade de pedido normalizado
 
-Também pode filtrar métricas e o gráfico apresentado por um Nome de **Coleção**específico, **DataName,** **PartitionKeyRangeID**e **Região.** Para filtrar as métricas, **selecione Adicionar filtro** e escolha o imóvel necessário, como o **CollectionName** e o valor correspondente em que está interessado. O gráfico apresenta então as unidades de consumo RU normalizadas consumidas para o recipiente durante o período selecionado.  
+Também pode filtrar métricas e o gráfico apresentado por um Nome de **Coleção** específico, **DataName,** **PartitionKeyRangeID** e **Região.** Para filtrar as métricas, **selecione Adicionar filtro** e escolha o imóvel necessário, como o **CollectionName** e o valor correspondente em que está interessado. O gráfico apresenta então as unidades de consumo RU normalizadas consumidas para o recipiente durante o período selecionado.  
 
 Pode agrupar métricas utilizando a opção **de divisão De aplicar.**  
 

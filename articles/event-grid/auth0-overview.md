@@ -3,12 +3,12 @@ title: Tópicos parceiros Auth0 com Azure Event Grid
 description: Envie eventos de Auth0 para Azure com a Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 411d8f8eb53e4bc3fa8c8dda04bdcf12c74db768
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 340403111c094540ba7e66faf71ebf3cfe24fe7d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103352"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101294"
 ---
 # <a name="auth0-partner-topics"></a>Tópicos parceiros Auth0
 ![Logotipo Auth0](./media/auth0-overview/auth0-logo.png)
@@ -43,7 +43,7 @@ Combinar procedimentos de monitorização de segurança e resposta a incidentes 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Visão geral dos tópicos do parceiro](partner-topics-overview.md)
+- [Visão geral dos tópicos do parceiro](partner-events-overview.md)
 - [Como usar o tópico parceiro Auth0](auth0-how-to.md)
 - [Documentação Auth0](https://auth0.com/docs/azure-tutorial)
 - [Torne-se um parceiro de Grade de Eventos](partner-onboarding-overview.md)

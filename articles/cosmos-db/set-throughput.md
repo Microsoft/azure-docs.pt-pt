@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367130"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098778"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Azure Cosmos DB permite-lhe definir o rendimento previsto nas suas bases de dados e contentores. Existem dois tipos de produção a provisionada, standard (manual) ou autoescala. Este artigo apresenta uma visão geral de como funciona o rendimento previsto. 
 
@@ -79,11 +80,11 @@ Se as suas cargas de trabalho envolverem a eliminação e recriação de todas a
 Pode combinar os dois modelos. É permitido o fornecimento de produção na base de dados e no contentor. O exemplo a seguir mostra como prever a produção normalizada (manual) prevista numa base de dados da Azure Cosmos e num contentor:
 
 * Pode criar uma base de dados Azure Cosmos chamada *Z* com produção padrão (manual) de *RUs "K".* 
-* Em seguida, crie cinco recipientes chamados *A,* *B,* *C,* *D*e *E* dentro da base de dados. Ao criar o contentor B, certifique-se de que permite a **produção dedicada a esta** opção de contentor e configure explicitamente as RUs *"P"* de produção prevista neste recipiente. Só pode configurar a produção partilhada e dedicada quando estiver a criar a base de dados e o contentor. 
+* Em seguida, crie cinco recipientes chamados *A,* *B,* *C,* *D* e *E* dentro da base de dados. Ao criar o contentor B, certifique-se de que permite a **produção dedicada a esta** opção de contentor e configure explicitamente as RUs *"P"* de produção prevista neste recipiente. Só pode configurar a produção partilhada e dedicada quando estiver a criar a base de dados e o contentor. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partição física que acolhe uma ou mais divisórias lógicas de um recipiente":::
 
-* A produção de RUs *"K"* é partilhada nos quatro contentores *A,* *C,* *D*e *E*. A quantidade exata de produção disponível para *A,* *C,* *D*ou *E* varia. Não há SLAs para a produção de cada contentor.
+* A produção de RUs *"K"* é partilhada nos quatro contentores *A,* *C,* *D* e *E* . A quantidade exata de produção disponível para *A,* *C,* *D* ou *E* varia. Não há SLAs para a produção de cada contentor.
 * O contentor chamado *B* tem a garantia de obter sempre a produção de RUs *"P".* É apoiado por SLAs.
 
 > [!NOTE]

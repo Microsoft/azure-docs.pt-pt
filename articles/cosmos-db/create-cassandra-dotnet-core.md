@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 46826319cdd2ba55d469704a09656b61c96ce798
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: f228386d8cf0e708080b7f6c5f6cef7258b2eafb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743162"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099985"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Quickstart: Construa uma app Cassandra com .NET Core e Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -132,7 +133,7 @@ Este passo é opcional. Se estiver interessado em saber de que forma o código c
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação. As informações da cadeia de ligação permitem à aplicação comunicar com a base de dados alojada.
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de Ligação**.
+1. No [portal do Azure](https://portal.azure.com/), clique em **Cadeia de Ligação** .
 
 1. Utilize o :::image type="icon" source="./media/create-cassandra-dotnet/copy.png"::: botão no lado direito do ecrã para copiar o valor USERNAME.
 
@@ -166,7 +167,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
     
 ## <a name="run-the-net-core-app"></a>Executar a aplicação .NET Core
 
-1. No Estúdio Visual, selecione **Tools**  >  **NuGet Package Manager**Package Manager  >  **Consola**.
+1. No Estúdio Visual, selecione **Tools**  >  **NuGet Package Manager** Package Manager  >  **Consola** .
 
 2. Na linha de comandos, utilize o comando seguinte para instalar o pacote NuGet do controlador do .NET. 
 

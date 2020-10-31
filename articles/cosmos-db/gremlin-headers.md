@@ -7,14 +7,16 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00394e60ad1cf86bfd75a86a0b6630505c7d7356
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490582"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100393"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Cabeçalhos de resposta do servidor Azure Cosmos DB Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 Este artigo aborda os cabeçalhos devolvidos pelo servidor do Gremlin no Cosmos DB ao chamador mediante a execução do pedido. Estes cabeçalhos são úteis para resolver problemas de desempenho de pedidos, ao criar aplicações que se integram nativamente no serviço Cosmos DB e ao simplificar o suporte ao cliente.
 
 Tenha em mente que, tendo em conta estes cabeçalhos, está a limitar a portabilidade da sua aplicação a outras implementações da Gremlin. Em troca, está a ganhar uma integração mais apertada com a Cosmos DB Gremlin. Estes cabeçalhos não são um padrão TinkerPop.

@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 01/22/2019
 ms.author: jasonh
 ms.custom: devx-track-python
-ms.openlocfilehash: 624aa946df5e637c98a11ada3b455c50dec896f5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: cc73fcd076bde23bed19a71641cb50e36a40820b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409345"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099696"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Quickstart: Criar uma base de dados de gráficos em Azure Cosmos DB usando Python e o portal Azure
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
@@ -72,7 +73,7 @@ Agora, vamos trabalhar com código. Vamos clonar uma aplicação API do Gremlin 
 
 ## <a name="review-the-code"></a>Rever o código
 
-Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Os snippets são todos retirados do ficheiro *connect.py* na pasta *C:\git-samples\azure-cosmos-db-graph-python-start-starter- \\ * fold. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-information). 
+Este passo é opcional. Se estiver interessado em aprender de que forma os recursos da base de dados são criados no código, pode consultar os seguintes fragmentos. Os snippets são todos retirados do ficheiro *connect.py* na pasta *C:\git-samples\azure-cosmos-db-graph-python-start-starter- \\* fold. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-information). 
 
 * O Gremlin `client` é rubricado na linha 104 em *connect.py:*
 
@@ -94,7 +95,7 @@ Este passo é opcional. Se estiver interessado em aprender de que forma os recur
 
 Agora, regresse ao portal do Azure para obter as informações da ligação e copie-as para a aplicação. Estas definições permitem à aplicação comunicar com a base de dados alojada.
 
-1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Keys**. 
+1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Keys** . 
 
     Copie a primeira parte do valor do URI.
 
@@ -170,7 +171,7 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 
 Depois de inserir os vértices e bordas, pode agora voltar ao Data Explorer e ver os vértices adicionados ao gráfico e adicionar pontos de dados adicionais.
 
-1. Na sua conta DB Azure Cosmos no portal Azure, selecione **Data Explorer,** expanda **o gráfico de amostras,** selecione **Graph**, e, em seguida, selecione **Apply Filter**. 
+1. Na sua conta DB Azure Cosmos no portal Azure, selecione **Data Explorer,** expanda **o gráfico de amostras,** selecione **Graph** , e, em seguida, selecione **Apply Filter** . 
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-expanded.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 
@@ -182,7 +183,7 @@ Depois de inserir os vértices e bordas, pode agora voltar ao Data Explorer e ve
 
    :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 
-4. Introduza uma etiqueta de *pessoa*.
+4. Introduza uma etiqueta de *pessoa* .
 
 5. **Selecione Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave de id.
 
@@ -196,11 +197,11 @@ Depois de inserir os vértices e bordas, pode agora voltar ao Data Explorer e ve
     > [!NOTE]
     > Neste guia de introdução, criámos uma coleção não particionada. No entanto, se criar uma coleção particionada mediante a especificação de uma chave de partição durante a criação da coleção, terá de incluir a chave da partição como uma chave em cada vértice novo. 
 
-6. Selecione **OK**. Poderá ter de expandir o ecrã para ver **OK**, na parte inferior.
+6. Selecione **OK** . Poderá ter de expandir o ecrã para ver **OK** , na parte inferior.
 
 7. Selecione **Novo Vertex** novamente e adicione um novo utilizador adicional. 
 
-8. Introduza uma etiqueta de *pessoa*.
+8. Introduza uma etiqueta de *pessoa* .
 
 9. **Selecione Adicionar propriedade** para adicionar cada uma das seguintes propriedades:
 
@@ -211,17 +212,17 @@ Depois de inserir os vértices e bordas, pode agora voltar ao Data Explorer e ve
     género|masculino| 
     escola|MIT| 
 
-10. Selecione **OK**. 
+10. Selecione **OK** . 
 
-11. Selecione o botão **'Aplicar filtro'** com o filtro predefinido `g.V()` para visualizar todos os valores do gráfico. Todos os utilizadores aparecem agora na lista **Resultados**. 
+11. Selecione o botão **'Aplicar filtro'** com o filtro predefinido `g.V()` para visualizar todos os valores do gráfico. Todos os utilizadores aparecem agora na lista **Resultados** . 
 
     À medida que adiciona mais dados, pode utilizar filtros para limitar os resultados. Por predefinição, o Data Explorer utiliza o `g.V()` para obter todos os vértices num gráfico. Pode alterá-lo para uma [consulta de gráfico](tutorial-query-graph.md) diferente, como `g.V().count()`, para devolver uma contagem de todos os vértices no gráfico no formato JSON. Se tiver mudado o filtro, volte a alterar o filtro `g.V()` e selecione **Apply Filter** para exibir todos os resultados novamente.
 
-12. Agora, podemos ligar rakesh e ashley. Certifique-se de que a **ashley** está selecionada na lista **de Resultados** e, em seguida, selecione o botão de edição ao lado **dos Alvos** no lado inferior direito. Poderá ter de alargar a janela para ver a área **Propriedades**.
+12. Agora, podemos ligar rakesh e ashley. Certifique-se de que a **ashley** está selecionada na lista **de Resultados** e, em seguida, selecione o botão de edição ao lado **dos Alvos** no lado inferior direito. Poderá ter de alargar a janela para ver a área **Propriedades** .
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 
-13. Na **caixa-alvo** *rakesh*, e no tipo de caixa **de etiqueta Edge** *sabe*, e, em seguida, selecione a verificação.
+13. Na **caixa-alvo** *rakesh* , e no tipo de caixa **de etiqueta Edge** *sabe* , e, em seguida, selecione a verificação.
 
     :::image type="content" source="./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 

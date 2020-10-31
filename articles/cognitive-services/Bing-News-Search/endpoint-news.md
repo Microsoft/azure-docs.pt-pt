@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: dc7d16fe809e3e324f384b0d9e088dd7e6ab261c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8c724925a12535c561b035296e374691f3fb2689
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74111479"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098353"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Bing News Search API pontos finais
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 A **API de Pesquisa de Notícias** devolve artigos de notícias, páginas Web, imagens, vídeos e [entidades.](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) As entidades contêm informações sumárias sobre uma pessoa, lugar ou tópico.
 
@@ -39,7 +44,7 @@ Retorna artigos de notícias com base numa consulta de pesquisa. Se a consulta d
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Devolve as principais notícias por categoria. Você pode especificamente solicitar os principais artigos de negócios, esportes ou entretenimento usando `category=business` `category=sports` , ou `category=entertainment` . O `category` parâmetro só pode ser utilizado com o `/news` URL. Existem alguns requisitos formais para especificar categorias; refere-se `category` à documentação do [parâmetro de consulta.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) Envie uma consulta por url codificando o seu termo de pesquisa e anexando-o ao `q=""` parâmetro. Para disponibilidade, consulte [países/regiões e mercados apoiados.](language-support.md#supported-markets-for-news-endpoint)
+Devolve as principais notícias por categoria. Você pode especificamente solicitar os principais artigos de negócios, esportes ou entretenimento usando `category=business` `category=sports` , ou `category=entertainment` .  O `category` parâmetro só pode ser utilizado com o `/news` URL. Existem alguns requisitos formais para especificar categorias; refere-se `category` à documentação do [parâmetro de consulta.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) Envie uma consulta por url codificando o seu termo de pesquisa e anexando-o ao `q=""` parâmetro. Para disponibilidade, consulte [países/regiões e mercados apoiados.](language-support.md#supported-markets-for-news-endpoint)
 
 ### <a name="trending-news-topics"></a>Tópicos de notícias de tendência 
 

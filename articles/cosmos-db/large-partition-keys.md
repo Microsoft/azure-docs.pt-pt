@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1de6aa5450a42bbc8fe35b220e810726f7dd2cda
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a93bf4fe92cc7b2240a7411b093a7bab5a1a275e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488440"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098829"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Criar recipientes com chave de partição grande
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 AZure Cosmos DB usa um esquema de partição baseado em haxixe para alcançar a escala horizontal de dados. Todos os recipientes Azure Cosmos criados antes de 3 de maio de 2019 usam uma função de haxixe que calcula o haxixe com base nos primeiros 100 bytes da chave de partição. Se existem várias teclas de partição que têm os mesmos primeiros 100 bytes, então essas divisórias lógicas são consideradas como a mesma partição lógica pelo serviço. Isto pode levar a que questões como a quota de tamanho de partição sejam incorretas, e índices únicos sendo aplicados através das teclas de partição. As chaves de partição grandes são introduzidas para resolver este problema. A Azure Cosmos DB suporta agora grandes chaves de partição com valores até 2 KB.
 

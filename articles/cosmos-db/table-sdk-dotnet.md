@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bc984e330085430db10298380dfdc9767f1aa770
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea5f3fca18e6a5781bf46112134ae4efc7159106
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261945"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101209"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: Baixar e lançar notas
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
@@ -27,10 +28,10 @@ ms.locfileid: "91261945"
 
 |   |   |
 |---|---|
-|**Download SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
+|**Transferência de SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)|
 |**Início rápido**|[Azure Cosmos DB: Construa uma app com .NET e a Tabela API](create-table-dotnet.md)|
 |**Tutorial**|[Azure Cosmos DB: Desenvolver com a API de Tabelas em .NET](tutorial-develop-table-dotnet.md)|
-|**Quadro atual suportado**|[Quadro Microsoft .NET 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
+|**Framework suportado atualmente**|[Quadro Microsoft .NET 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
 > O .NET Framework SDK [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table) está em modo de manutenção e será deprecado em breve. Por favor, atualize para a nova biblioteca .NET Standard [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) para continuar a obter as funcionalidades mais recentes suportadas pela Tabela API.
@@ -85,7 +86,7 @@ A `Microsoft.Azure.CosmosDB.Table` biblioteca está atualmente disponível apena
 
 O pacote [de pré-visualização WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) foi depreciado. O WindowsAzure.Storage-PremiumTable SDK será retirado no dia 15 de novembro de 2018, altura em que os pedidos para o SDK reformado não serão permitidos.
 
-| Versão | Data de Lançamento | Data de Extinção |
+| Versão | Data da versão: | Data de Extinção |
 | --- | --- | --- |
 | [2.1.2](#2.1.2) |16 de setembro de 2019| |
 | [2.1.0](#2.1.0) |22 de janeiro de 2019|01 de abril de 2020 |

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/28/2019
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 5d1251813486d4b7406f89ac9c09c49f985fa205
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 211fc85f97069fcf3251048a074d625e777f8e7d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90055287"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100478"
 ---
 # <a name="azure-cosmos-db-bulk-executor-library-overview"></a>Descrição geral da biblioteca de executor em massa do Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
  
 O Azure Cosmos DB é um serviço de base de dados rápido, flexível e distribuído globalmente concebido para aumentar horizontalmente de forma elástica de forma a suportar: 
 

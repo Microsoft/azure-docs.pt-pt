@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: overview
 ms.service: digital-twins
-ms.openlocfilehash: 7ff1e2f00b20344fc19d797ed5bafdfbc2113b66
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f0c19130312db4e6ef500a0750f40359931d48d2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044671"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099118"
 ---
 # <a name="what-is-azure-digital-twins"></a>O que é o Azure Digital Twins?
 
@@ -52,7 +52,7 @@ Aqui está uma visão de como a visualização da amostra parece:
 
 A Azure Digital Twins fornece um sistema de **eventos** rico para manter esse gráfico atual com processamento de dados e lógica de negócio. Pode ligar recursos de computação externos, como [as Funções Azure,](../azure-functions/functions-overview.md)para impulsionar este processamento de dados de forma flexível e personalizada.
 
-Também pode extrair insights do ambiente de execução ao vivo, utilizando a poderosa **consulta API**da Azure Digital Twins. A API permite-lhe consultar com condições de pesquisa ricas, incluindo valores de propriedade, relacionamentos, propriedades de relacionamento, informação de modelo, e muito mais. Você também pode combinar consultas, reunindo uma ampla gama de insights sobre o seu ambiente e respondendo a questões personalizadas que são importantes para você.
+Também pode extrair insights do ambiente de execução ao vivo, utilizando a poderosa **consulta API** da Azure Digital Twins. A API permite-lhe consultar com condições de pesquisa ricas, incluindo valores de propriedade, relacionamentos, propriedades de relacionamento, informação de modelo, e muito mais. Você também pode combinar consultas, reunindo uma ampla gama de insights sobre o seu ambiente e respondendo a questões personalizadas que são importantes para você.
 
 ### <a name="input-from-iot-and-business-systems"></a>Entrada de IoT e sistemas de negócios
 
@@ -64,7 +64,7 @@ Também pode conduzir a Azure Digital Twins a partir de outras fontes de dados, 
 
 ### <a name="output-to-tsi-storage-and-analytics"></a>Saída para TSI, armazenamento e análise
 
-Os dados do seu modelo Azure Digital Twins podem ser encaminhados para os serviços Azure a jusante para análise ou armazenamento adicional. Isto é fornecido através de **rotas de eventos**, que usam [Event Hub,](../event-hubs/event-hubs-about.md) [Event Grid](../event-grid/overview.md)ou [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para conduzir os fluxos de dados pretendidos.
+Os dados do seu modelo Azure Digital Twins podem ser encaminhados para os serviços Azure a jusante para análise ou armazenamento adicional. Isto é fornecido através de **rotas de eventos** , que usam [Event Hub,](../event-hubs/event-hubs-about.md) [Event Grid](../event-grid/overview.md)ou [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para conduzir os fluxos de dados pretendidos.
 
 Algumas coisas que você pode fazer com as rotas do evento incluem:
 * Armazenar dados da Azure Digital Twins no [Lago de Dados Azure](../storage/blobs/data-lake-storage-introduction.md)
@@ -90,18 +90,14 @@ O diagrama que se segue mostra onde a Azure Digital Twins se encontra no context
 
 :::image type="content" source="media/overview/solution-context.png" alt-text="Screenshot da aplicação de amostra de explorador de Azure Digital Twins, mostrando um gráfico de nóles representando gémeos digitais" border="false" lightbox="media/overview/solution-context.png":::
 
-## <a name="service-limits-in-public-preview"></a>Limites de serviço na visualização pública
+## <a name="service-limits"></a>Limites do serviço
 
-> [!IMPORTANT]
-> A Azure Digital Twins está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [*termos de utilização suplementares para pré-visualizações do Microsoft Azure*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Para obter uma lista dos limites das Gémeas Digitais Azure durante a pré-visualização pública, consulte [*Referência: Limites de serviço de pré-visualização do público*](reference-service-limits.md).
+Para obter uma lista dos limites dos Gémeos Digitais Azure, consulte [*Referência: Limites de serviço*](reference-service-limits.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se já trabalhou com o lançamento anterior da Azure Digital Twins, saiba o que mudou:
-* [*Visão geral: Diferenças em relação ao lançamento anterior*](overview-differences.md)
+Se já trabalhou com o primeiro lançamento de pré-visualização da Azure Digital Twins (outubro de 2018), saiba o que mudou:
+* [*Visão geral: Diferenças desde o primeiro lançamento*](overview-differences.md)
 
 Ou, vá em frente e mergulhe em trabalhar com a Azure Digital Twins com o primeiro tutorial:
 

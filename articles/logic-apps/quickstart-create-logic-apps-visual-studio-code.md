@@ -6,13 +6,13 @@ ms.suite: integration
 ms.reviewer: jonfan, deli, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/25/2020
-ms.openlocfilehash: fa103c39b540c41536e4f231692b4602afe01a3e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/28/2020
+ms.openlocfilehash: 0b777fdef344ce1a60ed00ee46eeaa8cee23b8c0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91361216"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099193"
 ---
 # <a name="quickstart-create-and-manage-logic-app-workflow-definitions-by-using-visual-studio-code"></a>Quickstart: Criar e gerir as definições do fluxo de trabalho das aplicações lógicas com o Visual Studio Code
 
@@ -20,7 +20,7 @@ Com [apps Azure Logic](../logic-apps/logic-apps-overview.md) e Visual Studio Cod
 
 Embora possa executar essas mesmas tarefas no [portal Azure](https://portal.azure.com) e no Visual Studio, pode começar mais rapidamente no Código do Estúdio Visual quando já está familiarizado com as definições de aplicações lógicas e quer trabalhar diretamente em código. Por exemplo, pode desativar, ativar, eliminar e atualizar aplicações lógicas já criadas. Além disso, pode trabalhar em aplicações lógicas e contas de integração a partir de qualquer plataforma de desenvolvimento onde o Código do Estúdio Visual é executado, como Linux, Windows e Mac.
 
-Para este artigo, pode criar a mesma aplicação lógica a partir deste [quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), que se foca mais nos conceitos básicos. No Código do Estúdio Visual, a aplicação lógica parece este exemplo:
+Para este artigo, pode criar a mesma aplicação lógica a partir deste [quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), que se foca mais nos conceitos básicos. Também pode [aprender a criar a aplicação de exemplo no Visual Studio,](quickstart-create-logic-apps-with-visual-studio.md)e aprender a criar e gerir [aplicações através da Interface Azure Command-Line (Azure CLI)](quickstart-logic-apps-azure-cli.md). No Código do Estúdio Visual, a aplicação lógica parece este exemplo:
 
 ![Exemplo de definição de fluxo de trabalho de aplicativos de lógica](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
@@ -58,23 +58,23 @@ Antes de começar, certifique-se de que dispõe destes itens:
 
    ![Selecione ícone Azure na barra de ferramentas Visual Studio Code](./media/quickstart-create-logic-apps-visual-studio-code/open-extensions-visual-studio-code.png)
 
-1. Na janela Azure, em **Aplicações Lógicas,** selecione **Iniciar súm em Azure**. Quando a página de sôs-in da Microsoft o solicitar, inscreva-se na sua conta Azure.
+1. Na janela Azure, em **Aplicações Lógicas,** selecione **Iniciar súm em Azure** . Quando a página de sôs-in da Microsoft o solicitar, inscreva-se na sua conta Azure.
 
    ![Selecione "Iniciar sação no Azure"](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-azure-visual-studio-code.png)
 
-   1. Se o sôs-sinal demorar mais do que o habitual, o Código do Estúdio Visual pede-lhe para iniciar singagem através de um website de autenticação da Microsoft, fornecendo-lhe um código de dispositivo. Para iniciar s dia de saúde com o código, selecione **Use Device Code**.
+   1. Se o sôs-sinal demorar mais do que o habitual, o Código do Estúdio Visual pede-lhe para iniciar singagem através de um website de autenticação da Microsoft, fornecendo-lhe um código de dispositivo. Para iniciar s dia de saúde com o código, selecione **Use Device Code** .
 
       ![Continue com o código do dispositivo em vez](./media/quickstart-create-logic-apps-visual-studio-code/use-device-code-prompt.png)
 
-   1. Para copiar o código, **selecione Copy & Open**.
+   1. Para copiar o código, **selecione Copy & Open** .
 
       ![Código de cópia para a azure iniciar sedura](./media/quickstart-create-logic-apps-visual-studio-code/sign-in-prompt-authentication.png)
 
-   1. Para abrir uma nova janela do navegador e continuar no site de autenticação, selecione **Open Link**.
+   1. Para abrir uma nova janela do navegador e continuar no site de autenticação, selecione **Open Link** .
 
       ![Confirme a abertura de um navegador e vá para o site de autenticação](./media/quickstart-create-logic-apps-visual-studio-code/confirm-open-link.png)
 
-   1. Na página **'Iniciar sú' na página da sua conta,** insira o seu código de autenticação e selecione **Seguinte**.
+   1. Na página **'Iniciar sú' na página da sua conta,** insira o seu código de autenticação e selecione **Seguinte** .
 
       ![Introduza o código de autenticação para o Azure iniciar sação](./media/quickstart-create-logic-apps-visual-studio-code/authentication-code-azure-sign-in.png)
 
@@ -101,7 +101,7 @@ Antes de começar, certifique-se de que dispõe destes itens:
 
 1. Se ainda não se inscreveu na sua conta Azure e subscrição a partir do Código do Estúdio Visual, siga os [passos anteriores para iniciar seduca.](#access-azure)
 
-1. No código Visual Studio, em **Aplicações Lógicas,** abra o menu de atalho da sua subscrição e selecione **Create Logic App**.
+1. No código Visual Studio, em **Aplicações Lógicas,** abra o menu de atalho da sua subscrição e selecione **Create Logic App** .
 
    ![A partir do menu de subscrição, selecione "Create Logic App"](./media/quickstart-create-logic-apps-visual-studio-code/create-logic-app-visual-studio-code.png)
 
@@ -194,7 +194,7 @@ Antes de começar, certifique-se de que dispõe destes itens:
 
 1. Quando terminar, guarde a definição de fluxo de trabalho da sua aplicação lógica. (Menu de arquivo > Guardar ou pressionar Ctrl+S)
 
-1. Quando lhe for solicitado que faça o upload da sua aplicação lógica para a sua subscrição Azure, selecione **Upload**.
+1. Quando lhe for solicitado que faça o upload da sua aplicação lógica para a sua subscrição Azure, selecione **Upload** .
 
    Este passo publica a sua aplicação lógica para o [portal Azure](https://portal.azure.com), que e faz a sua lógica ao vivo e a funcionar em Azure.
 
@@ -204,7 +204,7 @@ Antes de começar, certifique-se de que dispõe destes itens:
 
 No Código do Estúdio Visual, pode abrir a sua aplicação lógica na vista de design apenas para leitura. Embora não possa editar a sua aplicação lógica no designer, pode verificar visualmente o fluxo de trabalho da sua aplicação lógica utilizando a vista do designer.
 
-Na janela Azure, em **Aplicações Lógicas,** abra o menu de atalho da sua aplicação lógica e selecione **Open in Designer**.
+Na janela Azure, em **Aplicações Lógicas,** abra o menu de atalho da sua aplicação lógica e selecione **Open in Designer** .
 
 O designer só de leitura abre numa janela separada e mostra o fluxo de trabalho da sua aplicação lógica, por exemplo:
 
@@ -230,11 +230,11 @@ No Código do Estúdio Visual, se editar uma aplicação lógica publicada e gua
 
 1. Na janela Azure, no âmbito das **Logic Apps,** expanda a subscrição do Azure para que possa ver todas as aplicações lógicas nessa subscrição.
 
-   1. Para desativar a aplicação lógica que pretende, abra o menu da aplicação lógica e selecione **Disable**.
+   1. Para desativar a aplicação lógica que pretende, abra o menu da aplicação lógica e selecione **Disable** .
 
       ![Desativar a sua aplicação lógica](./media/quickstart-create-logic-apps-visual-studio-code/disable-published-logic-app.png)
 
-   1. Quando estiver pronto para reativar a sua aplicação lógica, abra o menu da aplicação lógica e selecione **Enable**.
+   1. Quando estiver pronto para reativar a sua aplicação lógica, abra o menu da aplicação lógica e selecione **Enable** .
 
       ![Ativar a sua aplicação lógica](./media/quickstart-create-logic-apps-visual-studio-code/enable-published-logic-app.png)
 
@@ -251,7 +251,7 @@ No Código do Estúdio Visual, pode abrir e editar a definição de fluxo de tra
 
 1. Na janela Azure, em **Aplicações Lógicas,** expanda a subscrição do Azure e selecione a aplicação lógica que pretende.
 
-1. Abra o menu da sua aplicação lógica e selecione **Open in Editor**. Ou, ao lado do nome da sua aplicação lógica, selecione o ícone de edição.
+1. Abra o menu da sua aplicação lógica e selecione **Open in Editor** . Ou, ao lado do nome da sua aplicação lógica, selecione o ícone de edição.
 
    ![Editor aberto para app lógica existente](./media/quickstart-create-logic-apps-visual-studio-code/open-editor-existing-logic-app.png)
 
@@ -263,7 +263,7 @@ No Código do Estúdio Visual, pode abrir e editar a definição de fluxo de tra
 
 1. Quando tiver terminado, guarde as alterações. (Menu de arquivo > Guardar ou pressionar Ctrl+S)
 
-1. Quando for solicitado para fazer o upload das suas alterações e *substituir* a sua aplicação lógica existente no portal Azure, selecione **Upload**.
+1. Quando for solicitado para fazer o upload das suas alterações e *substituir* a sua aplicação lógica existente no portal Azure, selecione **Upload** .
 
    Este passo publica as suas atualizações para a sua aplicação lógica no [portal Azure.](https://portal.azure.com)
 
@@ -286,19 +286,19 @@ No Código do Estúdio Visual, pode abrir e rever as versões anteriores para a 
 
 1. Para ver uma versão anterior, selecione qualquer passo:
 
-   * Para visualizar a definição JSON, em **Versões,** selecione o número da versão para essa definição. Ou, abra o menu de atalho dessa versão e selecione **Open in Editor**.
+   * Para visualizar a definição JSON, em **Versões,** selecione o número da versão para essa definição. Ou, abra o menu de atalho dessa versão e selecione **Open in Editor** .
 
      Um novo ficheiro abre no seu computador local e mostra a definição JSON da versão.
 
-   * Para ver a versão na vista do designer apenas para leitura, abra o menu de atalho da versão e selecione **Open in Designer**.
+   * Para ver a versão na vista do designer apenas para leitura, abra o menu de atalho da versão e selecione **Open in Designer** .
 
 1. Para promover uma versão anterior à versão atual, siga estes passos:
 
-   1. Em **Versões,** abra o menu de atalho da versão anterior e selecione **Promover**.
+   1. Em **Versões,** abra o menu de atalho da versão anterior e selecione **Promover** .
 
       ![Promover versão anterior](./media/quickstart-create-logic-apps-visual-studio-code/promote-earlier-version.png)
 
-   1. Para continuar depois do Código do Estúdio Visual pedir-lhe confirmação, selecione **Sim**.
+   1. Para continuar depois do Código do Estúdio Visual pedir-lhe confirmação, selecione **Sim** .
 
       ![Confirmar a promoção da versão anterior](./media/quickstart-create-logic-apps-visual-studio-code/confirm-promote-version.png)
 
