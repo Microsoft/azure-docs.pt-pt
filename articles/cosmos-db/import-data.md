@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: dech
-ms.openlocfilehash: 8613d3b02d396f16008ee771cdff25fe8b2e2f10
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7084458d8d3fbae45819fc29daa502423c919bbf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490650"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101617"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Tutorial: Utilizar a ferramenta de Migração de dados para migrar os dados para o Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este tutorial fornece instruções sobre como utilizar a ferramenta de Migração de Dados do Azure Cosmos DB, que pode importar dados de várias origens para contentores e tabelas do Azure Cosmos. Pode importar a partir de ficheiros JSON, ficheiros CSV, SQL, MongoDB, Armazenamento de Tabelas do Azure, Amazon DynamoDB e até de coleções de APIs de SQL do Azure Cosmos DB. Migra esses dados para coleções e tabelas para serem utilizados com o Azure Cosmos DB. A ferramenta de Migração de Dados também pode ser utilizada ao migrar de uma coleção de uma partição individual para uma coleção de várias partições para a API de SQL.
 
@@ -68,8 +69,8 @@ Embora a ferramenta de importação inclua uma interface gráfica (dtui.exe), ta
 
 O código de origem da ferramenta de migração está disponível no GitHub [neste repositório](https://github.com/azure/azure-documentdb-datamigrationtool). Pode transferir e compilar a solução localmente ou [transferir um binário previamente compilado](https://aka.ms/csdmtool) e, em seguida, executar:
 
-* **Dtui.exe**: versão de interface gráfica da ferramenta
-* **Dt.exe**: versão de linha de comandos da ferramenta
+* **Dtui.exe** : versão de interface gráfica da ferramenta
+* **Dt.exe** : versão de linha de comandos da ferramenta
 
 ## <a name="select-data-source"></a>Selecionar origem de dados
 
@@ -371,7 +372,7 @@ A cadeia de ligação da conta do Azure Cosmos DB pode ser obtida a partir da p�
 > [!NOTE]
 > Utilize o comando Verificar para garantir que a instância do Azure Cosmos DB especificada no campo de cadeia de ligação pode ser acedida.
 
-Para importar para uma única coleção, introduza o nome da coleção da qual importar os dados e clique no botão Adicionar. Para importar para mais de uma coleção, introduza cada nome de recolha individualmente ou utilize a seguinte sintaxe para especificar mais do que uma coleção: *collection_prefix*[índice inicial - índice final]. Ao especificar mais do que uma coleção utilizando a sintaxe acima mencionada, tenha em mente as seguintes orientações:
+Para importar para uma única coleção, introduza o nome da coleção da qual importar os dados e clique no botão Adicionar. Para importar para mais de uma coleção, introduza cada nome de recolha individualmente ou utilize a seguinte sintaxe para especificar mais do que uma coleção: *collection_prefix* [índice inicial - índice final]. Ao especificar mais do que uma coleção utilizando a sintaxe acima mencionada, tenha em mente as seguintes orientações:
 
 1. São suportados apenas padrões de nome de intervalo de números inteiros. Por exemplo, especificar a coleção [0-3] cria as seguintes coleções: collection0, collection1, collection2, collection3.
 2. Pode utilizar uma sintaxe abreviada: collection[3] cria o mesmo conjunto de coleções mencionado no passo 1.
@@ -430,7 +431,7 @@ Pode recuperar a cadeia de ligação para a conta DB do Azure Cosmos a partir da
 > [!NOTE]
 > Utilize o comando Verificar para garantir que a instância do Azure Cosmos DB especificada no campo de cadeia de ligação pode ser acedida.
 
-Para importar para uma única coleção, insira o nome da coleção para importar dados e, em seguida, clique no botão Adicionar. Para importar para mais de uma coleção, insira cada nome de coleção individualmente. Também pode utilizar a seguinte sintaxe para especificar mais do que uma coleção: *collection_prefix*[índice inicial - índice final]. Ao especificar mais do que uma coleção através da sintaxe acima mencionada, tenha em mente as seguintes orientações:
+Para importar para uma única coleção, insira o nome da coleção para importar dados e, em seguida, clique no botão Adicionar. Para importar para mais de uma coleção, insira cada nome de coleção individualmente. Também pode utilizar a seguinte sintaxe para especificar mais do que uma coleção: *collection_prefix* [índice inicial - índice final]. Ao especificar mais do que uma coleção através da sintaxe acima mencionada, tenha em mente as seguintes orientações:
 
 1. São suportados apenas padrões de nome de intervalo de números inteiros. Por exemplo, especificar a coleção [0-3] cria as seguintes coleções: collection0, collection1, collection2, collection3.
 2. Pode utilizar uma sintaxe abreviada: collection[3] cria o mesmo conjunto de coleções mencionado no passo 1.
@@ -524,7 +525,7 @@ No ecrã de configuração Avançada, especifique a localização do ficheiro de
 
     :::image type="content" source="./media/import-data/summarycommand.png" alt-text="Captura de ecrã das opções de origem de ficheiro JSON - ferramentas de migração de bases de dados":::
 
-2. Quando estiver satisfeito com as opções de origem e destino, clique em **Importar**. O tempo decorrido, a contagem de itens transferidos e as informações das falhas (se não tiver fornecido um nome de ficheiro na configuração Avançada) são atualizados enquanto a importação está em curso. Depois de concluída, pode exportar os resultados (por exemplo, para lidar com eventuais falhas de importação).
+2. Quando estiver satisfeito com as opções de origem e destino, clique em **Importar** . O tempo decorrido, a contagem de itens transferidos e as informações das falhas (se não tiver fornecido um nome de ficheiro na configuração Avançada) são atualizados enquanto a importação está em curso. Depois de concluída, pode exportar os resultados (por exemplo, para lidar com eventuais falhas de importação).
 
     :::image type="content" source="./media/import-data/viewresults.png" alt-text="Captura de ecrã das opções de origem de ficheiro JSON - ferramentas de migração de bases de dados":::
 

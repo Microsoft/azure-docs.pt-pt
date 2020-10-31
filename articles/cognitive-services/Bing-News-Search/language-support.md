@@ -10,14 +10,19 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: d15058126f43fff328acfc563ffd081164a69a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc28cdbca7d2566318a3158399c1d44fd8d2ccd9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84710563"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101726"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Suporte linguístico e regional para a API de Pesquisa de Notícias Bing
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 A API Bing News Search suporta inúmeros países/regiões, muitos com mais de uma língua. Especificar um país/região com uma consulta serve principalmente para refinar os resultados da pesquisa com base em interesses nesse país/região. Além disso, os resultados podem conter ligações com Bing, e estas ligações podem localizar a experiência do utilizador Bing de acordo com o país/região ou idioma especificado.
 
@@ -31,7 +36,7 @@ Para o `/news/search` ponto final, a tabela a seguir lista os valores de código
 
 Para obter uma lista de códigos de país/região que pode especificar no `cc` parâmetro de consulta, consulte [Códigos de País](#countrycodes).  
 
-|Pais/região|Idioma|Código de mercado|  
+|Pais/região|Linguagem|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Áustria|Alemão|de-AT|
@@ -47,7 +52,7 @@ Para obter uma lista de códigos de país/região que pode especificar no `cc` p
 |Nova Zelândia|Inglês|en-NZ|
 |República das Filipinas|Inglês|en-PH|
 |Singapura|Inglês|en-SG|
-|Estados Unidos da América|Inglês|pt-PT|
+|Estados Unidos da América|Inglês|en-PT|
 |Inglês|geral|en-WW|
 |Inglês|geral|en-XA|
 |África do Sul|Inglês|en-ZA|
@@ -80,13 +85,13 @@ Para o `/news` ponto final, a tabela a seguir lista os valores de código de mer
 
 Para obter uma lista de códigos de país/região que pode especificar no `cc` parâmetro de consulta, consulte [Códigos de País](#countrycodes).  
 
-|Pais/região|Idioma|Código de mercado|  
+|Pais/região|Linguagem|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Dinamarquês|da-DK|
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos da América|Inglês|pt-PT|
+|Estados Unidos da América|Inglês|en-PT|
 |Inglês|geral|en-WW|
 |Chile|Espanhol|es-CL|
 |México|Espanhol|es-MX|
@@ -103,12 +108,12 @@ Para o `/news/trendingtopics` ponto final, a tabela a seguir lista os valores de
 
 Para obter uma lista de códigos de país/região que pode especificar no `cc` parâmetro de consulta, consulte [Códigos de País](#countrycodes).  
 
-|Pais/região|Idioma|Código de mercado|  
+|Pais/região|Linguagem|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Alemanha|Alemão|de-DE|
 |Austrália|Inglês|en-AU|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos da América|Inglês|pt-PT|
+|Estados Unidos da América|Inglês|en-PT|
 |Canadá|Inglês|en-CA|
 |Índia|Inglês|en-IN|
 |França|Francês|fr-FR|

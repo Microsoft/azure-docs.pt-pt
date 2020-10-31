@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23074dcd7ee888d6d9d8bf288cf0fda66dc0ceec
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319762"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122848"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividade de início de sessão no portal do Azure Active Directory
 
@@ -62,9 +62,9 @@ No menu do [portal Azure,](https://portal.azure.com) selecione **Azure Ative Dir
 
 ![Selecione Azure Ative Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-Em **Monitorização**, selecione **Iniciar sing-ins** para abrir o [relatório de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+Em **Monitorização** , selecione **Iniciar sing-ins** para abrir o [relatório de inscrições](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
-![Atividade de inscrição](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Atividade de início de sessão")
+![A screenshot mostra os insusimentos selecionados no menu de monitorização.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Atividade de início de sessão")
 
 Pode levar até duas horas para alguns registos de inscrição aparecerem no portal.
 
@@ -80,19 +80,19 @@ Um registo de inícios de sessão tem uma vista de listas predefinidas que mostr
 - O estado da deteção de risco
 - O estado do requisito de autenticação multifator (MFA)
 
-![Atividade de inscrição](./media/concept-sign-ins/sign-in-activity.png "Atividade de início de sessão")
+![A screenshot mostra as entradas online do Office 365 SharePoint.](./media/concept-sign-ins/sign-in-activity.png "Atividade de início de sessão")
 
 Pode personalizar a vista de lista ao clicar em **Colunas** na barra de ferramentas.
 
-![Atividade de inscrição](./media/concept-sign-ins/19.png "Atividade de início de sessão")
+![A screenshot mostra a opção Colunas na página 'Iniciar s-ins'.](./media/concept-sign-ins/19.png "Atividade de início de sessão")
 
 O diálogo **Colunas** dá-lhe acesso aos atributos selecionáveis. Num relatório de inscrição, não se pode ter campos que tenham mais do que um valor para um dado pedido de inscrição como coluna. Isto é, por exemplo, verdade para detalhes de autenticação, dados de acesso condicional e localização da rede.   
 
-![Atividade de inscrição](./media/concept-sign-ins/columns.png "Atividade de início de sessão")
+![A screenshot mostra a caixa de diálogo colunas onde pode selecionar atributos.](./media/concept-sign-ins/columns.png "Atividade de início de sessão")
 
 Selecione um item na vista da lista para obter informações mais detalhadas.
 
-![Atividade de inscrição](./media/concept-sign-ins/basic-sign-in.png "Atividade de início de sessão")
+![A screenshot mostra uma visão detalhada da informação.](./media/concept-sign-ins/basic-sign-in.png "Atividade de início de sessão")
 
 > [!NOTE]
 > Os clientes podem agora resolver as políticas de Acesso Condicional através de todos os relatórios de inscrição. Ao clicar no separador **Acesso Condicional** para obter um registo de inscrição, os clientes podem rever o estado de Acesso Condicional e mergulhar nos detalhes das políticas que se aplicam ao registo e o resultado de cada política.
@@ -104,7 +104,7 @@ Selecione um item na vista da lista para obter informações mais detalhadas.
 
 Primeiro, reduzindo os dados reportados a um nível que funcione para si. Em segundo lugar, filtrar os dados de inscrição utilizando o campo de datas como filtro predefinido. A Azure AD fornece-lhe uma ampla gama de filtros adicionais que pode definir:
 
-![Atividade de inscrição](./media/concept-sign-ins/04.png "Atividade de início de sessão")
+![A screenshot mostra a opção adicionar filtros.](./media/concept-sign-ins/04.png "Atividade de início de sessão")
 
 **ID do pedido** - A identificação do pedido que lhe interessa.
 
@@ -143,7 +143,7 @@ A **Localização** - A localização da ligação foi iniciada a partir de:
 ![Filtro de aplicativo de cliente](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Nome|Autenticação moderna|Descrição|
+|Name|Autenticação moderna|Description|
 |---|:-:|---|
 |SMTP autenticado| |Usado pelos clientes POP e IMAP para enviar mensagens de correio e-mail.|
 |Autodiscover| |Utilizado pelos clientes Outlook e EAS para encontrar e conectar-se a caixas de correio em Exchange Online.|
@@ -177,11 +177,11 @@ A **Localização** - A localização da ligação foi iniciada a partir de:
 
 **Acesso condicional** - O estado das regras de acesso condicional aplicadas
 
-- **Não aplicada**: Nenhuma política aplicada ao utilizador e à aplicação durante a entrada.
+- **Não aplicada** : Nenhuma política aplicada ao utilizador e à aplicação durante a entrada.
 
-- **Sucesso**: Uma ou mais políticas de acesso condicional aplicadas ao utilizador e à aplicação (mas não necessariamente às outras condições) durante a entrada. 
+- **Sucesso** : Uma ou mais políticas de acesso condicional aplicadas ao utilizador e à aplicação (mas não necessariamente às outras condições) durante a entrada. 
 
-- **Falha**: A inscrição satisfez o estado de utilização e aplicação de pelo menos uma política de acesso condicional e os controlos de concessão não estão satisfeitos ou definidos para bloquear o acesso.
+- **Falha** : A inscrição satisfez o estado de utilização e aplicação de pelo menos uma política de acesso condicional e os controlos de concessão não estão satisfeitos ou definidos para bloquear o acesso.
 
 
 
@@ -214,7 +214,7 @@ A Azure AD e o portal Azure fornecem-lhe pontos de entrada adicionais para os da
 
 O gráfico de inscrição do utilizador na página geral de **proteção** de identidade mostra agregações semanais de insinumentos. O padrão para o período de tempo é de 30 dias.
 
-![Atividade de inscrição](./media/concept-sign-ins/06.png "Atividade de início de sessão")
+![A screenshot mostra um gráfico de Inscrições ao longo de um mês.](./media/concept-sign-ins/06.png "Atividade de início de sessão")
 
 Quando clica num dia no gráfico de início de sessão, obtém uma descrição geral das atividades de início de sessão para este dia.
 
@@ -242,9 +242,9 @@ Ao clicar num item, obtém mais detalhes sobre a operação de início de sessã
 > [!NOTE]
 > Os endereços IP são emitidos de forma a que não exista uma ligação definitiva entre um endereço IP e onde o computador com esse endereço esteja fisicamente localizado. O mapeamento de endereços IP é complicado pelo facto de os fornecedores móveis e VPNs emitirem endereços IP a partir de piscinas centrais que muitas vezes estão muito longe de onde o dispositivo cliente é realmente usado. Atualmente nos relatórios AD AZure, converter o endereço IP para uma localização física é um melhor esforço com base em vestígios, dados de registo, análises inversas e outras informações.
 
-Na página **Utilizadores**, pode obter uma descrição geral completa de todos os inícios de sessão dos utilizadores ao clicar em **Inícios de sessão** na secção **Atividade**.
+Na página **Utilizadores** , pode obter uma descrição geral completa de todos os inícios de sessão dos utilizadores ao clicar em **Inícios de sessão** na secção **Atividade** .
 
-![Atividade de inscrição](./media/concept-sign-ins/08.png "Atividade de início de sessão")
+![A screenshot mostra a secção De Atividades onde pode selecionar ins.](./media/concept-sign-ins/08.png "Atividade de início de sessão")
 
 ## <a name="usage-of-managed-applications"></a>Utilização de aplicações geridas
 
@@ -254,13 +254,13 @@ Com uma vista centrada em aplicações dos seus dados de início de sessão, pod
 * Quais são as três principais aplicações na sua organização?
 * Como está a minha nova aplicação?
 
-O ponto de entrada nestes dados é o top 3 de aplicações na sua organização. Os dados estão contidos no relatório dos últimos 30 dias na secção **Visão Geral** ao abrigo das **aplicações da Enterprise**.
+O ponto de entrada nestes dados é o top 3 de aplicações na sua organização. Os dados estão contidos no relatório dos últimos 30 dias na secção **Visão Geral** ao abrigo das **aplicações da Enterprise** .
 
-![Atividade de inscrição](./media/concept-sign-ins/10.png "Atividade de início de sessão")
+![A screenshot mostra onde pode selecionar o Resumo.](./media/concept-sign-ins/10.png "Atividade de início de sessão")
 
 Os gráficos de utilização da aplicação são agregações semanais de inscrições para as suas três principais aplicações num determinado período de tempo. A predefinição do período de tempo é 30 dias.
 
-![Atividade de inscrição](./media/concept-sign-ins/graph-chart.png "Atividade de início de sessão")
+![A screenshot mostra o uso da App por um período de um mês.](./media/concept-sign-ins/graph-chart.png "Atividade de início de sessão")
 
 Se quiser, pode colocar o foco numa aplicação específica.
 

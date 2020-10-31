@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f3402864e2ba873ce63acb6cedcd3f2ea018f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231134"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123137"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlets do Azure AD PowerShell para relatórios
 
@@ -59,7 +59,7 @@ Obtém acesso aos registos de auditoria utilizando o cmdlet 'Get-AzureADAuditDir
 
 A imagem que se segue mostra um exemplo para este comando. 
 
-![O botão "Resumo de Dados"](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![A screenshot mostra o resultado do comando Get-Azure A D Audit Directory Logs.](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
@@ -81,7 +81,7 @@ Obtém acesso aos registos de entrada utilizando o cmdlet 'Get-AzureADAuditSignI
 
 A imagem que se segue mostra um exemplo para este comando. 
 
-![O botão "Resumo de Dados"](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![A screenshot mostra o resultado do Get-Azure o comando de sinal de auditoria D em registos.](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 

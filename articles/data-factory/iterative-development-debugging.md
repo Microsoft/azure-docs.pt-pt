@@ -1,7 +1,7 @@
 ---
 title: Desenvolvimento iterativo e depuração na Azure Data Factory
 description: Aprenda a desenvolver e depurar os oleodutos da Data Factory iterativamente no ADF UX
-ms.date: 09/11/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -9,12 +9,12 @@ documentationcenter: ''
 ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
-ms.openlocfilehash: e4c66055184b2ef0113aa0e25c02ad8635feddb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031012"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102077"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Desenvolvimento iterativo e de depuração com o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,7 +25,7 @@ Para uma introdução de oito minutos e demonstração desta funcionalidade, vej
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Iterative-development-and-debugging-with-Azure-Data-Factory/player]
 
-## <a name="debugging-a-pipeline"></a>Depurar um oleoduto
+## <a name="debugging-a-pipeline"></a>Depurar um pipeline
 
 Como autor é que usa a tela do pipeline, pode testar as suas atividades utilizando a capacidade **de Debug.** Quando faz testes, não tem de publicar as suas alterações na fábrica de dados antes de selecionar **o Debug.** Esta funcionalidade é útil em cenários em que pretende certificar-se de que as alterações funcionam como esperado antes de atualizar o fluxo de trabalho da fábrica de dados.
 
@@ -44,7 +44,7 @@ Depois de um teste ter sucesso, adicione mais atividades ao seu oleoduto e conti
 
 ### <a name="setting-breakpoints"></a>Definição de pontos de rutura
 
-A Azure Data Factory permite-lhe depurar um oleoduto até chegar a uma determinada atividade na tela do gasoduto. Coloque um ponto de rutura na atividade até à qual pretende testar e selecione **Debug**. A Data Factory garante que o teste funciona apenas até à atividade do ponto de rutura na tela do gasoduto. Esta funcionalidade *Debug Até* que a funcionalidade seja útil quando não pretende testar todo o pipeline, mas apenas um subconjunto de atividades dentro do oleoduto.
+A Azure Data Factory permite-lhe depurar um oleoduto até chegar a uma determinada atividade na tela do gasoduto. Coloque um ponto de rutura na atividade até à qual pretende testar e selecione **Debug** . A Data Factory garante que o teste funciona apenas até à atividade do ponto de rutura na tela do gasoduto. Esta funcionalidade *Debug Até* que a funcionalidade seja útil quando não pretende testar todo o pipeline, mas apenas um subconjunto de atividades dentro do oleoduto.
 
 ![Pontos de rutura na tela do gasoduto](media/iterative-development-debugging/iterative-development-3.png)
 
@@ -79,11 +79,14 @@ Pode monitorizar sessões de depurar fluxo de dados ativos através de uma fábr
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Depurar um oleoduto com uma atividade de fluxo de dados
 
-Ao executar um depurg executado com um fluxo de dados, você tem duas opções sobre quais computar a utilizar. Pode utilizar um cluster de depuração existente ou criar um novo cluster just-in-time para os fluxos de dados.
+Ao executar um gasoduto de depuragem executado com um fluxo de dados, você tem duas opções sobre quais computar a utilizar. Pode utilizar um cluster de depuração existente ou criar um novo cluster just-in-time para os fluxos de dados.
 
-A utilização de uma sessão de depuração existente reduzirá consideravelmente o tempo de arranque do fluxo de dados, uma vez que o cluster já está em funcionamento, mas não é recomendado para cargas de trabalho complexas ou paralelas, uma vez que pode falhar quando vários trabalhos são executados ao mesmo tempo. 
+A utilização de uma sessão de depuração existente reduzirá consideravelmente o tempo de arranque do fluxo de dados, uma vez que o cluster já está em funcionamento, mas não é recomendado para cargas de trabalho complexas ou paralelas, uma vez que pode falhar quando vários trabalhos são executados ao mesmo tempo.
 
-A utilização do tempo de funcionação da atividade criará um novo cluster utilizando as definições especificadas no tempo de integração de cada atividade de fluxo de dados. Isto permite que cada trabalho seja isolado e deve ser utilizado para cargas de trabalho complexas ou testes de desempenho.
+A utilização do tempo de funcionação da atividade criará um novo cluster utilizando as definições especificadas no tempo de integração de cada atividade de fluxo de dados. Isto permite que cada trabalho seja isolado e deve ser utilizado para cargas de trabalho complexas ou testes de desempenho. Também pode controlar o TTL no Azure IR para que os recursos de cluster utilizados para depuração ainda estejam disponíveis para esse período de tempo para atender pedidos de emprego adicionais.
+
+> [!NOTE]
+> Se tiver um pipeline com fluxos de dados a executar em paralelo, escolha "Use Activity Runtime" para que a Data Factory possa utilizar o Tempo de Execução de Integração que selecionou na sua atividade de fluxo de dados. Isto permitirá que os fluxos de dados sejam executados em vários clusters e podem acomodar as suas execuções paralelas de fluxo de dados.
 
 ![Executar um oleoduto com um fluxo de dados](media/iterative-development-debugging/iterative-development-dataflow.png)
 

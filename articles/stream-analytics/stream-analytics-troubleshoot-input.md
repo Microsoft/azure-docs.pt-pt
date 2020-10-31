@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 760c98ce9464e4d40f01256a973e07d9084c6dfe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87448881"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123290"
 ---
 # <a name="troubleshoot-input-connections"></a>Resolver problemas em ligações de entrada
 
@@ -25,13 +25,13 @@ Este artigo descreve problemas comuns com as ligações de entrada do Azure Stre
 
 2.  Examine os seus dados de entrada.
 
-    1. Utilize o botão [**'Dados de Amostra'**](stream-analytics-sample-data-input.md) para cada entrada. Descarregue os dados da amostra de entrada.
+    1. Utilize o botão [**'Dados de Amostra'**](./stream-analytics-test-query.md) para cada entrada. Descarregue os dados da amostra de entrada.
         
-    1. Inspecione os dados da amostra para compreender os tipos de esquemas e [dados](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Inspecione os dados da amostra para compreender os tipos de esquemas e [dados](/stream-analytics-query/data-types-azure-stream-analytics).
     
     1. Consulte as [métricas do Event Hub](../event-hubs/event-hubs-metrics-azure-monitor.md) para garantir que os eventos estão a ser enviados. As métricas de mensagens devem ser superiores a zero se os Centros de Eventos estiverem a receber mensagens.
 
-3.  Certifique-se de que selecionou um intervalo de tempo na pré-visualização da entrada. **Escolha Selecionar o intervalo de tempo**e, em seguida, introduzir uma duração da amostra antes de testar a sua consulta.
+3.  Certifique-se de que selecionou um intervalo de tempo na pré-visualização da entrada. **Escolha Selecionar o intervalo de tempo** e, em seguida, introduzir uma duração da amostra antes de testar a sua consulta.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Eventos de entrada mal formados provocam erros de desserialização 
 
@@ -71,7 +71,7 @@ AzureStreamAnalytics_c4b65e4a-f572-4cfc-b4e2-cf237f43c6f0_1.
 
 Para adicionar um novo grupo de consumidores na sua instância Event Hubs, siga estes passos:
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Localize o seu Centro de Eventos.
 
@@ -79,7 +79,7 @@ Para adicionar um novo grupo de consumidores na sua instância Event Hubs, siga 
 
 4. Selecione o Centro de Eventos pelo nome.
 
-5. Na página **De Exemplo de Centros de Eventos,** sob a rubrica **Entidades,** selecione **Grupos de Consumidores**. Está listado um grupo de consumidores com **nome $Default.**
+5. Na página **De Exemplo de Centros de Eventos,** sob a rubrica **Entidades,** selecione **Grupos de Consumidores** . Está listado um grupo de consumidores com **nome $Default.**
 
 6. Selecione **+ Grupo de Consumidores** para adicionar um novo grupo de consumidores. 
 
@@ -163,16 +163,16 @@ SELECT foo FROM DataTwo
 
 ## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>Leitores por partição excedem limite do IoT Hub
 
-Os trabalhos de Stream Analytics usam o [ponto de final compatível com o Centro](../iot-hub/iot-hub-devguide-messages-read-builtin.md) de Eventos do IoT Hub para conectar e ler eventos a partir do IoT Hub. Se a sua leitura por partição exceder os limites do IoT Hub, pode utilizar as [soluções para](#readers-per-partition-exceeds-event-hubs-limit) o Event Hub resolvê-lo. Pode criar um grupo de consumidores para o ponto final incorporado através da sessão de ponto final do portal IoT Hub ou através do [IoT Hub SDK](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
+Os trabalhos de Stream Analytics usam o [ponto de final compatível com o Centro](../iot-hub/iot-hub-devguide-messages-read-builtin.md) de Eventos do IoT Hub para conectar e ler eventos a partir do IoT Hub. Se a sua leitura por partição exceder os limites do IoT Hub, pode utilizar as [soluções para](#readers-per-partition-exceeds-event-hubs-limit) o Event Hub resolvê-lo. Pode criar um grupo de consumidores para o ponto final incorporado através da sessão de ponto final do portal IoT Hub ou através do [IoT Hub SDK](/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência de API do REST de gestão do Azure Stream Analytics](/rest/api/streamanalytics/)

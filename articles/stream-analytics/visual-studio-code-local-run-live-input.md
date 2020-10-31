@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: how-to
-ms.openlocfilehash: 944c1a8cc4606c5e614f17cd0590331826527a7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd4966ee75e9dc0ff401823e4291f8d299c8893c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892190"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122899"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Teste Stream Analytics consulta localmente contra entrada de transmissão ao vivo usando Código de Estúdio Visual
 
-Pode utilizar ferramentas de análise Azure Stream para Código de Estúdio Visual para testar os seus trabalhos stream Analytics localmente contra a entrada em direto. A entrada pode vir de uma fonte como Azure Event Hubs ou Azure IoT Hub. Os resultados de saída são enviados como ficheiros JSON para uma pasta no seu projeto chamada **LocalRunOutputs**.
+Pode utilizar ferramentas de análise Azure Stream para Código de Estúdio Visual para testar os seus trabalhos stream Analytics localmente contra a entrada em direto. A entrada pode vir de uma fonte como Azure Event Hubs ou Azure IoT Hub. Os resultados de saída são enviados como ficheiros JSON para uma pasta no seu projeto chamada **LocalRunOutputs** .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -29,7 +29,7 @@ Pode utilizar ferramentas de análise Azure Stream para Código de Estúdio Visu
 
    ![Adicionar entrada da pasta Entradas](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
-   Também pode selecionar **Ctrl+Shift+P** para abrir a paleta de comando e introduzir **ASA: Adicionar Entrada**.
+   Também pode selecionar **Ctrl+Shift+P** para abrir a paleta de comando e introduzir **ASA: Adicionar Entrada** .
 
    ![Adicionar entrada Stream Analytics no Código do Estúdio Visual](./media/quick-create-visual-studio-code/add-input.png)
 
@@ -37,7 +37,7 @@ Pode utilizar ferramentas de análise Azure Stream para Código de Estúdio Visu
 
    ![Selecione o hub IoT como a opção de entrada](./media/quick-create-visual-studio-code/iot-hub.png)
 
-3. Se adicionar a entrada da paleta de comando, escolha o script de consulta stream Analytics que utilizará a entrada. Deve ser automaticamente povoado com o caminho do ficheiro para **myASAproj.asaql**.
+3. Se adicionar a entrada da paleta de comando, escolha o script de consulta stream Analytics que utilizará a entrada. Deve ser automaticamente povoado com o caminho do ficheiro para **myASAproj.asaql** .
 
    ![Selecione um script Stream Analytics no Código do Estúdio Visual](./media/quick-create-visual-studio-code/asa-script.png)
 
@@ -65,7 +65,7 @@ Volte ao seu editor de consulta e selecione **Executar localmente.** Em seguida,
 
 O resultado é mostrado na janela certa e refrescado a cada 3 segundos. Pode selecionar **Executar** para testar novamente. Também pode selecionar **Abrir na pasta** para ver os ficheiros de resultados no File Explorer e abri-los com o Código do Estúdio Visual ou uma ferramenta como o Excel. Note que os ficheiros de resultados só estão disponíveis no formato JSON.
 
-O tempo padrão para o trabalho começar a criar saída está definido para **Agora**. Pode personalizar o tempo selecionando o botão **de início de saída** na janela de resultados.
+O tempo padrão para o trabalho começar a criar saída está definido para **Agora** . Pode personalizar o tempo selecionando o botão **de início de saída** na janela de resultados.
 
 ![Ver resultado de execução local](./media/vscode-local-run-live-input/vscode-livetesting.gif)
 
@@ -73,4 +73,4 @@ O tempo padrão para o trabalho começar a criar saída está definido para **Ag
 
 * [Explore os trabalhos do Azure Stream Analytics com o Código do Estúdio Visual (pré-visualização)](visual-studio-code-explore-jobs.md)
 
-* [Configurar os gasodutos CI/CD utilizando o pacote npm](setup-cicd-vs-code.md)
+* [Configurar os gasodutos CI/CD utilizando o pacote npm](./cicd-overview.md)

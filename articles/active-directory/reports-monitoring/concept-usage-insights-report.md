@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74008272"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122746"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Relatório de utilização e insights no portal Azure Ative Directory
 
@@ -42,10 +42,10 @@ Para aceder aos dados a partir do relatório de utilização e insights, é nece
 ## <a name="access-the-usage-and-insights-report"></a>Aceda ao relatório de utilização e insights
 
 1. Navegue até ao [portal Azure.](https://portal.azure.com)
-2. Selecione o diretório certo, em seguida, selecione **Azure Ative Directory** e escolha **aplicações Enterprise**.
+2. Selecione o diretório certo, em seguida, selecione **Azure Ative Directory** e escolha **aplicações Enterprise** .
 3. A partir da secção **De Atividade,** selecione **Usage & insights** para abrir o relatório. 
 
-![Relatório de Utilização e Informações](./media/concept-usage-insights-report/main-menu.png)
+![A screenshot mostra o uso & insights selecionados a partir da secção Atividade.](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Use o relatório
@@ -58,7 +58,7 @@ Também pode definir o foco numa aplicação específica. Selecione **a atividad
 
 Quando seleciona um dia no gráfico de utilização da aplicação, obtém uma lista detalhada das atividades de inscrição para a aplicação.  
 
-![Relatório de Utilização e Informações](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![O Screenshot mostra o uso & insights para a atividade da Aplicação, onde pode selecionar uma atividade de visualização de gama e visualização de s-in para diferentes aplicações.](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

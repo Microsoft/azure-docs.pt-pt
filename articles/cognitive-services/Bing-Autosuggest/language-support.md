@@ -10,18 +10,23 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fe2e78501024983544b399762fb936d86e5c9d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6971dafc7e3157b3de62284b400ebdc6ddc19c0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60547341"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101906"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Suporte linguístico e regional para a API Bing Autosuggest
 
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+
 As seguintes listas são as línguas suportadas pela Bing Autosuggest API.
 
-| Idioma    | Código do idioma |
+| Linguagem    | Código do idioma |
 |:----------- |:-------------:|
 | Árabe      | `ar`          |
 | Chinês (República Popular da China)     | `zh-CN`          |
@@ -64,7 +69,7 @@ As seguintes listas são as línguas suportadas pela Bing Autosuggest API.
 | Sueco     | `sv`          |
 | Turco     | `tr`          |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Página de documentação de serviços cognitivos Azure](https://docs.microsoft.com/azure/cognitive-services/)
 - [Página de produto de serviços cognitivos Azure](https://azure.microsoft.com/services/cognitive-services/)

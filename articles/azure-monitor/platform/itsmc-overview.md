@@ -1,25 +1,26 @@
 ---
-title: Conector de Gestão de Serviços de TI em Azure Log Analytics / Microsoft Docs
-description: Este artigo fornece uma visão geral do It Service Management Connector (ITSMC) e informações sobre como usar esta solução para monitorizar e gerir centralmente os itens de trabalho itsm em Azure Log Analytics, e resolver quaisquer problemas rapidamente.
+title: Conector de gestão de serviços de TI em Log Analytics
+description: Este artigo fornece uma visão geral do Connector de Gestão de Serviços de TI (ITSMC) e informações sobre a sua utilização para monitorizar e gerir artigos de trabalho ITSM em Log Analytics e resolver problemas rapidamente.
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 1da7221b511cb07e5000f09e4015fc8bd4a0a928
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.custom: references_regions
+ms.openlocfilehash: ecafc0c81a6614a914d8cad3d2c35fd04544b8f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043313"
+ms.locfileid: "93102025"
 ---
-# <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Ligar o Azure às ferramentas do ITSM com o Conector de Gestão de Serviços de TI
+# <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
-![Símbolo do conector de gestão de serviço de TI](media/itsmc-overview/itsmc-symbol.png)
+:::image type="icon" source="media/itsmc-overview/itsmc-symbol.png":::
 
-O Conector de Gestão de Serviços de TI (ITSMC) permite ligar o Azure a um produto/serviço de Gestão de Serviços de TI (ITSM) suportado.
+O It Service Management Connector (ITSMC) permite-lhe ligar o Azure a um produto ou serviço de Gestão de Serviços de TI suportado (ITSM).
 
-Serviços Azure como o Log Analytics e o Azure Monitor fornecem ferramentas para detetar, analisar e resolver problemas com os seus recursos Azure e não-Azure. No entanto, os artigos de trabalho relacionados com um problema residem normalmente num produto/serviço ITSM. O conector ITSM fornece uma ligação bidis entre as ferramentas Azure e ITSM para ajudá-lo a resolver problemas mais rapidamente.
+Serviços Azure como o Azure Log Analytics e o Azure Monitor fornecem ferramentas para detetar, analisar e resolver problemas com os seus recursos Azure e não-Azure. Mas os itens de trabalho relacionados com um problema normalmente residem num produto ou serviço ITSM. O ITSMC fornece uma ligação bidis entre as ferramentas Azure e ITSM para ajudá-lo a resolver problemas mais rapidamente.
 
 A ITSMC suporta ligações com as seguintes ferramentas ITSM:
 
@@ -30,164 +31,164 @@ A ITSMC suporta ligações com as seguintes ferramentas ITSM:
 
 Com o ITSMC, pode:
 
--  Crie itens de trabalho na ferramenta ITSM, com base nos seus alertas Azure (alertas métricos, alertas de Registo de Atividade e alertas de Log Analytics).
+-  Crie itens de trabalho na sua ferramenta ITSM, com base nos seus alertas Azure (alertas métricos, alertas de registo de atividade e alertas de Log Analytics).
 -  Opcionalmente, pode sincronizar o seu incidente e alterar os dados de pedido da sua ferramenta ITSM para um espaço de trabalho Azure Log Analytics.
 
-Leia mais sobre os [termos legais e a política de privacidade.](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9)
+Para obter informações sobre os termos legais e a política de privacidade, consulte [a Declaração de Privacidade da Microsoft.](https://go.microsoft.com/fwLink/?LinkID=522330&clcid=0x9)
 
-Pode começar a utilizar o conector ITSM utilizando os seguintes passos:
+Pode começar a utilizar o ITSMC completando os seguintes passos:
 
-1.  [Adicione a solução de conector ITSM](#adding-the-it-service-management-connector-solution)
-2.  Criar uma ligação ITSM
-3.  [Utilize a ligação](#using-the-solution)
+1.  [Adicione ITSMC.](#add-it-service-management-connector)
+2.  [Criar uma ligação ITSM.](#create-an-itsm-connection)
+3.  [Use a ligação.](#use-itsmc)
 
 
-##  <a name="adding-the-it-service-management-connector-solution"></a>Adicionar a Solução de Conector de Gestão de Serviços de TI
+##  <a name="add-it-service-management-connector"></a>Adicionar conector de gestão de serviços de TI
 
-Antes de poder criar uma ligação, tem de adicionar a Solução de Conector ITSM.
+Antes de criar uma ligação, tem de adicionar ITSMC.
 
-1. No portal Azure, clique **+ Novo** ícone.
+1. No portal Azure, selecione **Criar um recurso** :
 
-   ![Novo recurso Azure](media/itsmc-overview/azure-add-new-resource.png)
+   ![Screenshot que mostra o item do menu de recursos Criar.](media/itsmc-overview/azure-add-new-resource.png)
 
-2. Procure o **Conector de Gestão de Serviços de TI** no Mercado e clique em **Criar** .
+2. Procure por **It Service Management Connector** no Azure Marketplace. Selecione **Criar:**
 
-   ![Adicionar solução ITSMC](media/itsmc-overview/add-itsmc-solution.png)
+   ![Screenshot que mostra o botão Criar no Azure Marketplace.](media/itsmc-overview/add-itsmc-solution.png)
 
-3. Na secção **espaço de trabalho OMS,** selecione o espaço de trabalho Azure Log Analytics onde pretende instalar a solução.
+3. Na secção **espaço de trabalho OMS,** selecione o espaço de trabalho Azure Log Analytics onde pretende instalar o ITSMC.
    >[!NOTE]
-   > * Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, os espaços de trabalho da OMS são agora referidos como espaços de trabalho Log Analytics.
-   > * O CONECTOR ITSM só pode ser instalado em espaços de trabalho log Analytics nas seguintes regiões: East US, West US2, South Central US, West Central US, US Gov Arizona, US Gov Virginia, Central Canada, West Europe, South UK, Southeast Asia, East Japan, Central India, Southeast Australia.
+   > * Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, os espaços de trabalho da OMS são agora referidos como *espaços de trabalho Log Analytics* .
+   > * ITSMC só pode ser instalado em espaços de trabalho Log Analytics nas seguintes regiões: Leste dos EUA, West US 2, South Central US, West Central US, US Gov Arizona, US Gov Virginia, Canada Central, West Europe, South UK, Southeast Asia, Japan East, Central India, e Australia Southeast.
 
-4. Na secção Definições do **Espaço de Trabalho OMS,** selecione o Grupo de Recursos onde pretende criar o recurso de solução.
 
-   ![Espaço de trabalho ITSMC](media/itsmc-overview/itsmc-solution-workspace.png)
+4. Na secção **espaço de trabalho Log Analytics,** selecione o grupo de recursos onde pretende criar o recurso ITSMC:
+
+   ![Screenshot que mostra a secção do espaço de trabalho Log Analytics.](media/itsmc-overview/itsmc-solution-workspace.png)
    >[!NOTE]
-   >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, os espaços de trabalho da OMS são agora referidos como espaços de trabalho Log Analytics.
+   >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, os espaços de trabalho da OMS são agora referidos como *espaços de trabalho Log Analytics* .
 
-5. Clique em **OK** .
+5. Selecione **OK** .
 
-Quando o recurso de solução é implantado, aparece uma notificação no topo direito da janela.
+Quando o recurso ITSMC é implantado, aparece uma notificação no canto superior direito da janela.
 
 
-## <a name="creating-an-itsm--connection"></a>Criação de uma ligação ITSM
+## <a name="create-an-itsm-connection"></a>Criar uma ligação ITSM
 
-Depois de ter instalado a solução, pode criar uma ligação.
+Depois de instalar o ITSMC, pode criar uma ligação.
 
-Para criar uma ligação, terá de preparar a sua ferramenta ITSM para permitir a ligação a partir da solução ITSM Connector.  
+Para criar uma ligação, terá de preparar a sua ferramenta ITSM para permitir a ligação a partir do ITSMC.  
 
-Dependendo do produto ITSM a que está a ligar, utilize os seguintes passos:
+Com base no produto ITSM a que está a ligar, selecione um dos seguintes links para instruções:
 
-- [Gestor de Serviços do Centro de Sistema (SCSM)](./itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
+- [Gestor de serviços do Centro de Sistema](./itsmc-connections.md#connect-system-center-service-manager-to-it-service-management-connector-in-azure)
 - [ServiceNow](./itsmc-connections.md#connect-servicenow-to-it-service-management-connector-in-azure)
 - [Provance](./itsmc-connections.md#connect-provance-to-it-service-management-connector-in-azure)  
 - [Cherwell](./itsmc-connections.md#connect-cherwell-to-it-service-management-connector-in-azure)
 
-Depois de ter preparado as suas ferramentas ITSM, siga os passos abaixo para criar uma ligação:
+Depois de ter preparado as suas ferramentas ITSM, complete estes passos para criar uma ligação:
 
-1. Ir a **Todos os Recursos,** procurar **ServiçoDesk (YourWorkspaceName)** .
-2. Em **FONTES DE DADOS DO ESPAÇO DE TRABALHO** no painel esquerdo, clique em **ItsM Connections** .
-   ![Ligações ITSM](media/itsmc-overview/itsm-connections.png)
+1. Em **Todos os recursos,** procure **o ServiceDesk(o *seu nome de espaço de trabalho)*** :
 
+   ![Screenshot que mostra recursos recentes no portal Azure.](media/itsmc-overview/itsm-connections.png)
+
+1. Em **Fontes de Dados** do Espaço de Trabalho no painel esquerdo, selecione **ItsM Connections** :
+
+   ![Screenshot que mostra o item do menu ITSM Connections.](media/itsmc-overview/add-new-itsm-connection.png)
    Esta página apresenta a lista de ligações.
-3. Clique **em Adicionar Ligação** .
+1. Selecione **Adicionar Ligação** .
 
-   ![Adicionar ligação ITSM](media/itsmc-overview/add-new-itsm-connection.png)
-
-4. Especifique as definições de ligação descritas na [configuração da ligação ITSMC com o seu artigo de produtos/serviços ITSM](./itsmc-connections.md).
+4. Especifique as definições de ligação descritas na [configuração da ligação ITSMC com os seus produtos/serviços ITSM](./itsmc-connections.md).
 
    > [!NOTE]
    >
-   > Por predefinição, o ITSMC atualiza os dados de configuração da ligação uma vez em cada 24 horas. Para atualizar os dados da sua ligação instantaneamente para quaisquer edições ou atualizações de modelos que escote, clique no botão **Sync** na lâmina da sua ligação.
+   > Por predefinição, o ITSMC atualiza os dados de configuração da ligação uma vez a cada 24 horas. Para atualizar os dados da sua ligação instantaneamente para refletir quaisquer edições ou atualizações de modelos que escote, selecione o botão **Sync** na lâmina da sua ligação:
+   >
+   > ![Screenshot que mostra o botão Sync na lâmina de ligação.](media/itsmc-overview/itsmc-connections-refresh.png)
 
-   ![Atualização de conexão](media/itsmc-overview/itsmc-connections-refresh.png)
 
-
-## <a name="using-the-solution"></a>Utilizar a solução
-   Ao utilizar a solução ITSM Connector, pode criar itens de trabalho a partir de alertas Azure, alertas de Log Analytics e registos de registos do Log Analytics.
+## <a name="use-itsmc"></a>Utilizar o ITSMC
+   Pode utilizar o ITSMC para criar itens de trabalho a partir de alertas Azure, alertas de Log Analytics e registos de registos do Log Analytics.
 
 ## <a name="template-definitions"></a>Definições de modelo
-   Existem tipos de Itens de Trabalho que podem usar modelos que são definidos pela ferramenta ITSM.
-A utilização de modelos permite ao cliente definir campos que serão povoados automaticamente de acordo com valores fixos que são definidos como parte do grupo de ação. A definição dos modelos é feita na ferramenta ITSM.
+   Existem tipos de artigos de trabalho que podem usar modelos que são definidos pela ferramenta ITSM.
+Ao utilizar modelos, pode definir campos que serão automaticamente povoados de acordo com valores fixos que são definidos como parte do grupo de ação. Define modelos na ferramenta ITSM.
       
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Crie itens de trabalho ITSM a partir de alertas Azure
 
-Assim que tiver a sua ligação ITSM criada, pode criar artigos de trabalho na sua ferramenta ITSM com base em alertas Azure, utilizando a **Ação ITSM** em **Grupos de Ação** .
+Depois de criar a sua ligação ITSM, pode criar itens de trabalho na sua ferramenta ITSM com base em alertas Azure. Para criar os itens de trabalho, você usará a ação ITSM em grupos de ação.
 
-Os Grupos de Ação fornecem uma forma modular e reutilizável de desencadear ações para os seus Alertas Azure. Pode utilizar grupos de ação com alertas métricos, alertas de registo de atividade e alertas Azure Log Analytics no portal Azure.
+Os grupos de ação fornecem uma forma modular e reutilizável de desencadear ações para os seus alertas Azure. Pode utilizar grupos de ação com alertas métricos, alertas de registo de atividades e alertas Azure Log Analytics no portal Azure.
 
 > [!NOTE]
-> Uma vez criada a ligação ITSM, é necessário esperar 30 min após o conector criado para o processo de sincronização terminar
+> Depois de criar a ligação ITSM, tem de esperar 30 minutos para que o processo de sincronização termine.
 > 
 
-Utilize o seguinte procedimento:
+Utilize o seguinte procedimento para criar artigos de trabalho:
 
-1. No portal Azure, clique em **Alertas.**
-2. No painel superior, clique em **Gerir Ações.** Aparece a janela **do grupo de ação Add.**
+1. No portal Azure, selecione  **Alertas** .
+2. No menu no topo do ecrã, selecione **Gerir as ações** :
 
-    [![Grupos de ação](media/itsmc-overview/action-groups-selection.png)](media/itsmc-overview/action-groups-selection-big.png)
+    ![Screenshot que mostra o item do menu de ações Manage.](media/itsmc-overview/action-groups-selection-big.png)
 
-3. Selecione o Grupo **de Subscrição** e **Recursos** onde pretende criar o seu grupo de ação. Forneça o nome e o nome **do grupo** de **ação** para o seu grupo de ação. Clique em **Seguinte: Notificações** .
+   Aparece a janela **do grupo de ação Create.**
 
-    ![Detalhe de grupos de ação](media/itsmc-overview/action-groups-details.png)
+3. Selecione o grupo **de Subscrição** e **Recursos** onde pretende criar o seu grupo de ação. Forneça um **nome de grupo de ação** e nome de **exibição** para o seu grupo de ação. Selecione **Seguinte: Notificações** .
 
-4. Na lista de notificações clique no **Ninho: Ações** .
-5. Na lista de Ações, selecione **ITSM** do menu suspenso para **o Tipo** de Ação . Forneça um **Nome** para a ação e clique na caneta que representa **detalhes de Edição.**
-6. Selecione a **Subscrição** onde está localizado o seu espaço de trabalho Log Analytics. Selecione o nome **De Ligação** (o nome ITSM Connector) seguido do nome do espaço de trabalho. Por exemplo, "MyITSMMConnector (MyWorkspace)."
+    ![Screenshot que mostra a janela do grupo de ação Create.](media/itsmc-overview/action-groups-details.png)
 
-    ![Detalhes da ação itsm](media/itsmc-overview/itsm-action-configuration.png)
+4. Na lista de notificações, selecione **Seguinte: Ações** .
+5. Na lista de ações, selecione **ITSM** na lista **de Tipo de Ação.** Forneça um **nome** para a ação. Selecione o botão de caneta que representa **Editar detalhes.**
+6. Na lista **de Subscrição,** selecione a subscrição na qual o seu espaço de trabalho Log Analytics está localizado. Na lista **'Ligação',** selecione o nome do conector ITSM. Será seguido pelo seu nome de espaço de trabalho. Por exemplo, MyITSMConnector (MyWorkspace).
 
-7. Selecione o item de **trabalho** do menu suspenso.
+7. Selecione um tipo **de item de trabalho.**
 
-8. Se pretender preencher os campos de caixa com valores fixos, deve selecionar a caixa de verificação de "Use Custom Template" caso contrário, optar por utilizar um [modelo](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente a partir do dropdown e preencher os campos de modelo com valores fixos.
+8. Se pretender preencher campos fora da caixa com valores fixos, selecione **Use Custom Template** . Caso contrário, escolha um [modelo](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente na lista **de modelos** e introduza os valores fixos nos campos de modelo.
 
-9. Ao selecionar a caixa de verificação **Criar itens de trabalho individuais para cada Item de configuração** cada item de configuração terá o seu próprio item de trabalho. Ou seja, haverá um item de trabalho por item de configuração e será atualizado de acordo com os alertas que serão criados.
-Se descosistada a caixa de verificação **Criar itens de trabalho individuais para cada Configuração Item** cada alerta criará um novo item de trabalho, o que significa que pode haver mais de 1 alerta por item de configuração.
+9. Se selecionar **Criar itens de trabalho individuais para cada Item de Configuração,** cada item de configuração terá o seu próprio item de trabalho. Haverá um item de trabalho por item de configuração. Será atualizado de acordo com os alertas que serão criados.
 
-10. Clique em **OK** .
+   Se limpar os itens de trabalho individuais para cada caixa de **verificação de pontos de configuração,** cada alerta criará um novo item de trabalho. Pode haver mais de um alerta por item de configuração.
 
-Ao criar/editar uma regra de alerta Azure, utilize um grupo action, que tem uma ação ITSM. Quando o alerta dispara, o item de trabalho é criado/atualizado na ferramenta ITSM.
+   ![Screenshot que mostra a janela do bilhete ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+
+10. Selecione **OK** .
+
+Quando criar ou editar uma regra de alerta Azure, utilize um grupo de ação, que tenha uma ação ITSM. Quando o alerta é acionada, o item de trabalho é criado ou atualizado na ferramenta ITSM.
 
 > [!NOTE]
 >
-> Para obter informações sobre os preços da ITSM Action, consulte [a página de preços dos](https://azure.microsoft.com/pricing/details/monitor/) Grupos de Ação.
-
-> [!NOTE]
+>- Para obter informações sobre o preço da ação ITSM, consulte a [página de preços dos](https://azure.microsoft.com/pricing/details/monitor/) grupos de ação.
 >
-> O campo de descrição curta na definição de regra de alerta é limitado a 40 caracteres quando é enviado usando ação ITSM.
+>
+>- O campo de descrição curta na definição de regra de alerta é limitado a 40 caracteres quando o envia utilizando a ação ITSM.
 
 
 ## <a name="visualize-and-analyze-the-incident-and-change-request-data"></a>Visualizar e analisar o incidente e alterar os dados do pedido
 
-Com base na sua configuração ao configurar uma ligação, o conector ITSM pode sincronizar até 120 dias de dados de pedido de Incidente e Alteração. O esquema de registo de registo destes dados é fornecido na [secção seguinte](#additional-information).
+Dependendo da configuração quando configurar uma ligação, o ITSMC pode sincronizar até 120 dias de incidente e alterar dados de pedido. O esquema de registo de registo destes dados é fornecido na [secção seguinte](#additional-information) deste artigo.
 
-Os dados de pedido de incidente e alteração podem ser visualizados utilizando o painel de instrumentos itsm connector na solução.
+Pode visualizar o incidente e alterar os dados do pedido utilizando o painel ITSMC:
 
-![Screenshot que mostra o painel de conector ITSM.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
+![Screenshot que mostra o painel ITSMC.](media/itsmc-overview/itsmc-overview-sample-log-analytics.png)
 
-O painel também fornece informações sobre o estado do conector que podem ser usadas como ponto de partida para analisar quaisquer problemas com as ligações.
+O painel também fornece informações sobre o estado do conector, que pode usar como ponto de partida para analisar problemas com as ligações.
 
-Também pode visualizar os incidentes sincronizados com os computadores impactados, dentro da solução 'Mapa de Serviço'.
+Também pode visualizar os incidentes sincronizados com os computadores afetados no Mapa de Serviço.
 
-O Mapa de Serviços descobre automaticamente os componentes da aplicação nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. Permite-lhe visualizar os seus servidores, como os concebe: sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra as ligações entre os servidores, processos e portas em qualquer arquitetura com ligação TCP, e não requer qualquer configuração para além da instalação de um agente. [Saiba mais](../insights/service-map.md).
+O Mapa de Serviços descobre automaticamente os componentes da aplicação nos sistemas Windows e Linux e mapeia a comunicação entre os serviços. Permite-lhe visualizar os seus servidores como pensa neles: como sistemas interligados que fornecem serviços críticos. O Mapa de Serviços mostra ligações entre servidores, processos e portas em qualquer arquitetura ligada à TCP. Para além da instalação de um agente, não é necessária qualquer configuração. Para obter mais informações, consulte [o Mapa de Serviços.](../insights/service-map.md)
 
-Se estiver a utilizar a solução 'Mapa de Serviços', pode visualizar os itens de balcão de assistência criados nas soluções ITSM, como mostra o seguinte exemplo:
+Se estiver a utilizar o Mapa de Serviços, pode ver os itens de balcão de atendimento criados em soluções ITSM, como mostrado aqui:
 
-![Rastreio de Log Analytics](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
-
-Mais informações: [Mapa de Serviços](../insights/service-map.md)
+![Screenshot que mostra o ecrã Log Analytics.](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
 
 ## <a name="additional-information"></a>Informações adicionais
 
-### <a name="data-synced-from-itsm-product"></a>Dados sincronizados com o produto ITSM
-Incidentes e pedidos de alteração são sincronizados do seu produto ITSM para o seu espaço de trabalho Log Analytics com base na configuração da ligação.
+### <a name="data-synced-from-your-itsm-product"></a>Dados sincronizados com o seu produto ITSM
+Incidentes e pedidos de alteração são sincronizados do seu produto ITSM para o seu espaço de trabalho Log Analytics, com base na configuração da ligação.
 
-As seguintes informações mostram exemplos de dados recolhidos pela ITSMC:
+Esta secção mostra alguns exemplos de dados recolhidos pelo ITSMC.
 
-> [!NOTE]
->
-> Dependendo do tipo de artigo de trabalho importado para o Log Analytics, **ServiceDesk_CL** contém os seguintes campos:
+Os campos em **ServiceDesk_CL** variam dependendo do tipo de artigo de trabalho que importa para o Log Analytics. Aqui está uma lista de campos para dois tipos de artigos de trabalho:
 
 **Artigo de trabalho:** **Incidentes**  
 ServiceDeskWorkItemType_s="Incidente"
@@ -298,28 +299,28 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Resolução de problemas ligações ITSM
-1. Se a ligação falhar da UI da fonte ligada com um **Erro na mensagem de ligação de poupança,** tome os seguintes passos:
-   - Para ligações ServiceNow, Cherwell e Provance,  
-   - certifique-se de que inseriu corretamente o nome de utilizador, palavra-passe, identificação do cliente e segredo do cliente para cada uma das ligações.  
-   - verifique se tem privilégios suficientes no produto ITSM correspondente para escoar a ligação.  
-   - Para ligações de Gestor de Serviço,  
-   - certifique-se de que a aplicação Web é implementada com sucesso e a ligação híbrida é criada. Para verificar se a ligação está estabelecida com sucesso com a máquina de Service Manager nas instalações, visite o URL da aplicação Web conforme detalhado na documentação para a realização da [ligação híbrida](./itsmc-connections.md#configure-the-hybrid-connection).  
+- Se uma ligação falhar a partir da UI da fonte ligada e receber um **Erro na mensagem de ligação de poupança,** tome os seguintes passos:
+   - Para as ligações ServiceNow, Cherwell e Provance:  
+     - Certifique-se de que inseriu corretamente o nome de utilizador, palavra-passe, identificação do cliente e segredo do cliente para cada uma das ligações.  
+     - Certifique-se de que tem privilégios suficientes no produto ITSM correspondente para esogir a ligação.  
+   - Para ligações ao Gestor de Serviços:  
+     - Certifique-se de que a aplicação web está implantada com sucesso e que a ligação híbrida é criada. Para verificar se a ligação está estabelecida com sucesso com o computador Do Gestor de Serviços no local, aceda ao URL da aplicação web, conforme descrito na documentação para eprodução da [ligação híbrida](./itsmc-connections.md#configure-the-hybrid-connection).  
 
-2. Se os dados do ServiceNow não estiverem a ser sincronizados com o Log Analytics, certifique-se de que a instância ServiceNow não está a dormir. ServiceNow Dev Instances às vezes dorme quando ocioso por um longo período. Caso contrário, informe o assunto.
-3. Se o Log Analytics alertar o fogo mas os itens de trabalho não forem criados em produtos ou itens de configuração ITSM não forem criados/ligados a itens de trabalho ou a qualquer outra informação genérica, procure nos seguintes locais:
-   -  ITSMC: A solução mostra um resumo de ligações/artigos de trabalho/computadores, etc. Clique no azulejo que mostra o **Estado do Conector,** que o leva a **registar pesquisa**  com a consulta relevante. Veja os registos de registos com LogType_S como ERROR para obter mais informações.
-   - **Registar Página de pesquisa:** ver os erros/informações relacionadas usando a consulta `*` ServiceDeskLog_CL `*` .
+- Se os dados do ServiceNow não estiverem a ser sincronizados com o Log Analytics, certifique-se de que a instância Do ServiceNow não está a dormir. Os casos de dev do ServiceNow às vezes dormem quando estão inativos por muito tempo. Se não é isso que está a acontecer, reporte o problema.
+- Se o Log Analytics alertar o fogo mas os itens de trabalho não forem criados no produto ITSM, se os itens de configuração não forem criados/ligados a itens de trabalho, ou para outras informações, consulte estes recursos:
+   -  ITSMC: A solução mostra um resumo de ligações, itens de trabalho, computadores e muito mais. Selecione o azulejo que tem a etiqueta **de Estado do Conector.** Ao fazê-lo, leva-o a **registar a pesquisa** com a consulta relevante. Veja os registos com um `LogType_S` de `ERROR` mais informações.
+   - **Registar Página de Pesquisa:** Ver os erros e informações relacionadas diretamente utilizando a consulta `*ServiceDeskLog_CL*` .
 
-## <a name="troubleshoot-service-manager-web-app-deployment"></a>Implementação de Aplicativo Web do Gestor de Serviços de Resolução de Problemas
-1.  Em caso de problemas com a implementação de aplicações web, certifique-se de que tem permissões suficientes na subscrição mencionada para criar/implementar recursos.
-2.  Se obter uma **referência de "Objeto não definida como uma instância de um objeto"** quando executar o [script](itsmc-service-manager-script.md), certifique-se de que introduziu valores válidos na secção **de Configuração do Utilizador.**
-3.  Se não criar o espaço de nome de retransmissão de ônibus de serviço, certifique-se de que o fornecedor de recursos necessário está registado na subscrição. Se não estiver registado, crie manualmente o espaço de nome do retransmissor de autocarros a partir do portal Azure. Também pode criá-lo ao [criar a ligação híbrida](./itsmc-connections.md#configure-the-hybrid-connection) a partir do portal Azure.
+## <a name="troubleshoot-service-manager-web-app-deployment"></a>Implementação de aplicativos web do Gestor de Serviço de Resolução de Problemas
+-   Se tiver problemas com a implementação de aplicações web, certifique-se de que tem permissões para criar/implementar recursos na subscrição.
+-   Se obtém uma **referência de Objeto não definida como uma instância de um** erro de objeto quando executar o [script](itsmc-service-manager-script.md), certifique-se de que introduziu valores válidos na secção configuração do **utilizador.**
+-   Se não criar o espaço de nome de retransmissão de ônibus de serviço, certifique-se de que o fornecedor de recursos necessário está registado na subscrição. Se não estiver registado, crie manualmente o espaço de nome do retransmissor de autocarro de serviço a partir do portal Azure. Também pode criá-lo quando [criar a ligação híbrida](./itsmc-connections.md#configure-the-hybrid-connection) no portal Azure.
 
 
 ## <a name="contact-us"></a>Contacte-nos
 
-Para quaisquer consultas ou feedback sobre o Conector de Gestão de Serviços de TI, contacte-nos em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com) .
+Se tiver dúvidas ou feedback sobre o Conector de Gestão de Serviços de TI, contacte-nos em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com) .
 
 ## <a name="next-steps"></a>Passos seguintes
-[Adicione produtos/serviços ITSM ao It Service Management Connector](./itsmc-connections.md).
+[Adicione produtos/serviços ITSM ao Conector de Gestão de Serviços de TI](./itsmc-connections.md)
 

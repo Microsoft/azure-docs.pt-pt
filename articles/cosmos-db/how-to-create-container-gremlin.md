@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 55dabccf5a5ab9e81ff0644056002f3beb644fa9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f7e9de1f23ec46af08fe96b5db3170fac9a7eb2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491160"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101634"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-gremlin-api"></a>Criar um recipiente em Azure Cosmos DB Gremlin API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Este artigo explica as diferentes formas de criar um recipiente na Azure Cosmos DB Gremlin API. Mostra como criar um recipiente utilizando o portal Azure, Azure CLI, PowerShell ou SDKs suportados. Este artigo demonstra como criar um recipiente, especificar a chave de partição e a produção de provisão.
 
@@ -30,14 +31,14 @@ Este artigo explica as diferentes formas de criar um recipiente na Azure Cosmos 
 
 1. [Crie uma nova conta Azure Cosmos,](create-graph-dotnet.md#create-a-database-account)ou selecione uma conta existente.
 
-1. Abra o painel **do Data Explorer** e selecione Novo **Gráfico**. Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **do Data Explorer** e selecione Novo **Gráfico** . Em seguida, forneça os seguintes detalhes:
 
    * Indique se está a criar uma nova base de dados ou a utilizar uma existente.
    * Introduza um ID de gráfico.
-   * Selecione a capacidade de armazenamento **Ilimitada**.
+   * Selecione a capacidade de armazenamento **Ilimitada** .
    * Introduza uma chave de partição para vértices.
    * Introduza uma produção a ser a provisionada (por exemplo, 1000 RUs).
-   * Selecione **OK**.
+   * Selecione **OK** .
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Screenshot de Gremlin API, Adicionar caixa de diálogo de gráfico":::
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: c063fec3eac962d22ead12e0ca11f4b9fc155b5d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: bc630fc5ea9407c284e2e2e879c349a83302cd9f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910156"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122628"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Resolução de problemas Saídas Azure Stream Analytics
 
@@ -71,7 +71,7 @@ Para ver os detalhes de saída, selecione o trabalho de streaming no portal Azur
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Aviso de violação chave com saída da Base de Dados Azure SQL
 
-Quando configura uma base de dados Azure SQL como saída para um trabalho stream Analytics, insere registos na tabela de destino. Em geral, o Azure Stream Analytics garante [pelo menos uma vez](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) a entrega ao lavatório de saída. Você ainda pode [obter exatamente uma vez entrega]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) para uma saída SQL quando uma mesa SQL tem uma restrição única definida.
+Quando configura uma base de dados Azure SQL como saída para um trabalho stream Analytics, insere registos na tabela de destino. Em geral, o Azure Stream Analytics garante [pelo menos uma vez](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) a entrega ao lavatório de saída. Você ainda pode [obter exatamente uma vez entrega]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) para uma saída SQL quando uma mesa SQL tem uma restrição única definida.
 
 Quando configurar restrições únicas na tabela SQL, o Azure Stream Analytics remove registos duplicados. Divide os dados em lotes e insere novamente os lotes até que seja encontrado um único registo duplicado. O processo de divisão e inserção ignora os duplicados um de cada vez. Para um trabalho de streaming que tem muitas linhas duplicadas, o processo é ineficiente e demorado. Se vir várias mensagens de aviso de violação chave no seu registo de Atividade durante a hora anterior, é provável que a sua saída SQL esteja a abrandar todo o trabalho.
 
@@ -95,9 +95,9 @@ Quando um trabalho stream Analytics com saída SQL recebe o primeiro lote de eve
 
 Durante estes passos, a saída SQL pode experimentar os seguintes tipos de erros:
 
-* [Erros transitórios](/azure/azure-sql/database/troubleshoot-common-errors-issues#transient-fault-error-messages-40197-40613-and-others) que são novamente julgados usando uma estratégia de recuo exponencial. O intervalo mínimo de retagem depende do código de erro individual, mas os intervalos são tipicamente inferiores a 60 segundos. O limite superior pode ser no máximo cinco minutos. 
+* [Erros transitórios](../azure-sql/database/troubleshoot-common-errors-issues.md#transient-fault-error-messages-40197-40613-and-others) que são novamente julgados usando uma estratégia de recuo exponencial. O intervalo mínimo de retagem depende do código de erro individual, mas os intervalos são tipicamente inferiores a 60 segundos. O limite superior pode ser no máximo cinco minutos. 
 
-   [Falhas de login](/azure/azure-sql/database/troubleshoot-common-errors-issues#unable-to-log-in-to-the-server-errors-18456-40531) e [problemas de firewall](/azure/azure-sql/database/troubleshoot-common-errors-issues#cannot-connect-to-server-due-to-firewall-issues) são novamente experimentados pelo menos 5 minutos após a tentativa anterior e são novamente julgados até que tenham sucesso.
+   [Falhas de login](../azure-sql/database/troubleshoot-common-errors-issues.md#unable-to-log-in-to-the-server-errors-18456-40531) e [problemas de firewall](../azure-sql/database/troubleshoot-common-errors-issues.md#cannot-connect-to-server-due-to-firewall-issues) são novamente experimentados pelo menos 5 minutos após a tentativa anterior e são novamente julgados até que tenham sucesso.
 
 * Os erros de dados, tais como erros de casting e violações de restrições de esquemas, são tratados com a política de erro de saída. Estes erros são tratados redando os lotes de divisão binária até que o registo individual que causa o erro seja manuseado por salto ou reagem. A violação da restrição de chave única primária é [sempre tratada.](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output)
 
@@ -107,16 +107,16 @@ Uma vez que o tempo limite seja superior a 15 minutos, o tamanho máximo do lote
 
 ## <a name="column-names-are-lowercase-in-azure-stream-analytics-10"></a>Os nomes das colunas são minúsculos em Azure Stream Analytics (1.0)
 
-Ao utilizar o nível de compatibilidade original (1.0), o Azure Stream Analytics altera os nomes das colunas para minúsculas. Este comportamento foi corrigido em níveis de compatibilidade posteriores. Para preservar o caso, passe para o nível de compatibilidade 1.1 ou posterior. Para obter mais informações, consulte [o nível de compatibilidade para trabalhos stream analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+Ao utilizar o nível de compatibilidade original (1.0), o Azure Stream Analytics altera os nomes das colunas para minúsculas. Este comportamento foi corrigido em níveis de compatibilidade posteriores. Para preservar o caso, passe para o nível de compatibilidade 1.1 ou posterior. Para obter mais informações, consulte [o nível de compatibilidade para trabalhos stream analytics](./stream-analytics-compatibility-level.md).
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência de idioma de consulta de azure stream](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência de Azure Stream Analytics REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência de idioma de consulta de azure stream](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência de Azure Stream Analytics REST API](/rest/api/streamanalytics/)

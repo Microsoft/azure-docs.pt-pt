@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: e772701396f172eaab906f99463bd9019728b531
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa75a553ffc131f4827aa045849f1317d894ddc5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938034"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123155"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatizar construções, testes e implementações de um trabalho Azure Stream Analytics utilizando ferramentas CI/CD
 
@@ -21,11 +21,11 @@ Pode utilizar o pacote Azure Stream Analytics CI/CD npm para construir, testar e
 
 ## <a name="installation"></a>Instalação
 
-Pode [descarregar o pacote](https://www.npmjs.com/package/azure-streamanalytics-cicd) diretamente ou instalá-lo [globalmente](https://docs.npmjs.com/downloading-and-installing-packages-globally) usando o `npm install -g azure-streamanalytics-cicd` comando. Recomendamos a utilização do comando, que também pode ser utilizado numa tarefa de script PowerShell ou Azure CLI de um gasoduto de construção em **Gasodutos Azure**.
+Pode [descarregar o pacote](https://www.npmjs.com/package/azure-streamanalytics-cicd) diretamente ou instalá-lo [globalmente](https://docs.npmjs.com/downloading-and-installing-packages-globally) usando o `npm install -g azure-streamanalytics-cicd` comando. Recomendamos a utilização do comando, que também pode ser utilizado numa tarefa de script PowerShell ou Azure CLI de um gasoduto de construção em **Gasodutos Azure** .
 
 ## <a name="build-the-project"></a>Compilar o projeto
 
-O pacote **asa-streamanalytics-cicd** npm fornece as ferramentas para gerar modelos de Gestor de Recursos Azure de [projetos](quick-create-vs-code.md) de Stream Analytics Visual Studio Code ou [projetos de Estúdio Visual](stream-analytics-quick-create-vs.md). Também pode utilizar o pacote npm no Windows, macOS e Linux sem instalar o Visual Studio Code ou o Visual Studio.
+O pacote **asa-streamanalytics-cicd** npm fornece as ferramentas para gerar modelos de Gestor de Recursos Azure de [projetos](./quick-create-visual-studio-code.md) de Stream Analytics Visual Studio Code ou [projetos de Estúdio Visual](stream-analytics-quick-create-vs.md). Também pode utilizar o pacote npm no Windows, macOS e Linux sem instalar o Visual Studio Code ou o Visual Studio.
 
 Depois de instalar o pacote, utilize o seguinte comando para construir os seus projetos Stream Analytics.
 
@@ -122,7 +122,7 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 | Parâmetro | Descrição |
 |---|---|
 | `-project` | O caminho do **asaproj.jsem** arquivo para o seu projeto Visual Studio Code ou **[O nome do seu projeto].asaproj** para o projeto Visual Studio. |
-| `-testConfigPath` | O caminho do ficheiro de configuração de teste. Se não for especificado, o ficheiro será pesquisado em **\teste** sob o diretório atual do **asaproj.jsem** ficheiro, com o nome do ficheiro predefinido **testConfig.jsem**. Um novo ficheiro será criado se não existir. |
+| `-testConfigPath` | O caminho do ficheiro de configuração de teste. Se não for especificado, o ficheiro será pesquisado em **\teste** sob o diretório atual do **asaproj.jsem** ficheiro, com o nome do ficheiro predefinido **testConfig.jsem** . Um novo ficheiro será criado se não existir. |
 
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -137,9 +137,9 @@ azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob
 ```
 ---
 
-Se o ficheiro de configuração de teste estiver vazio, o seguinte conteúdo será escrito no ficheiro. Caso contrário, é adicionado um caso de teste à matriz de **TestCases**. As configurações de entrada necessárias são preenchidas automaticamente de acordo com os ficheiros de configuração de entrada, se existirem. Caso contrário, os valores predefinidos são configurados. **FilePath** de cada entrada e saída esperada deve ser especificado antes de executar o teste. Pode modificar a configuração manualmente.
+Se o ficheiro de configuração de teste estiver vazio, o seguinte conteúdo será escrito no ficheiro. Caso contrário, é adicionado um caso de teste à matriz de **TestCases** . As configurações de entrada necessárias são preenchidas automaticamente de acordo com os ficheiros de configuração de entrada, se existirem. Caso contrário, os valores predefinidos são configurados. **FilePath** de cada entrada e saída esperada deve ser especificado antes de executar o teste. Pode modificar a configuração manualmente.
 
-Se pretender que a validação do teste ignore uma determinada saída, desa um campo **necessário** dessa saída esperada para **falso**.
+Se pretender que a validação do teste ignore uma determinada saída, desa um campo **necessário** dessa saída esperada para **falso** .
 
 ```json
 {
@@ -179,11 +179,11 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 | Parâmetro | Descrição |
 |---|---|
 | `-project` | O caminho do **asaproj.jsem** arquivo para o seu projeto Visual Studio Code ou **[O nome do seu projeto].asaproj** para o projeto Visual Studio. |
-| `-testConfigPath` | O caminho para o ficheiro de configuração de teste. Se não for especificado, o ficheiro será pesquisado em **\teste** sob o diretório atual do **asaproj.jsem** ficheiro, com o nome do ficheiro predefinido **testConfig.jsem**.
+| `-testConfigPath` | O caminho para o ficheiro de configuração de teste. Se não for especificado, o ficheiro será pesquisado em **\teste** sob o diretório atual do **asaproj.jsem** ficheiro, com o nome do ficheiro predefinido **testConfig.jsem** .
 | `-outputPath` | O caminho da pasta de saída do resultado do teste. Se não for especificado, os ficheiros de resultados de saída serão colocados no diretório atual. |
 | `-customCodeZipFilePath` | O caminho do ficheiro postal para código personalizado, como um UDF ou um desserializador, se forem utilizados. |
 
-Quando todos os testes estiverem terminados, um resumo dos resultados do teste no formato JSON é gerado na pasta de saída. O ficheiro de resumo é nomeado **testResultSummary.jsem**.
+Quando todos os testes estiverem terminados, um resumo dos resultados do teste no formato JSON é gerado na pasta de saída. O ficheiro de resumo é nomeado **testResultSummary.jsem** .
 
 ```json
 {

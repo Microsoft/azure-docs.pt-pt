@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: aed0c83bfa61f6afdbdcca3c10dbd5fac3f823d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b41677d1e4f3ba3889472a3fb9bd6c6a9db4c0a8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458183"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123375"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>Paralelização de consulta de alavancagem em Azure Stream Analytics
 Este artigo mostra-lhe como aproveitar a paralelização no Azure Stream Analytics. Aprende-se a escalar os trabalhos do Stream Analytics configurando divisórias de entrada e ajustando a definição de consulta analítica.
@@ -22,7 +22,7 @@ Como pré-requisito, pode querer estar familiarizado com a noção de Unidade de
 Uma definição de trabalho stream Analytics inclui pelo menos uma entrada de streaming, uma consulta e uma saída. As entradas são de onde o trabalho lê o fluxo de dados. A consulta é usada para transformar o fluxo de entrada de dados, e a saída é para onde o trabalho envia os resultados do trabalho.
 
 ## <a name="partitions-in-inputs-and-outputs"></a>Divisórias em entradas e saídas
-A partilha permite dividir os dados em subconjuntos com base numa [chave de partição](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#partitions). Se a sua entrada (por exemplo, Centros de Eventos) for dividida por uma chave, é altamente recomendado especificar esta chave de partição ao adicionar a entrada ao seu trabalho stream Analytics. Escalar um trabalho stream Analytics tira partido das divisórias na entrada e na saída. Um trabalho stream Analytics pode consumir e escrever diferentes divisórias em paralelo, o que aumenta a produção. 
+A partilha permite dividir os dados em subconjuntos com base numa [chave de partição](../event-hubs/event-hubs-scalability.md#partitions). Se a sua entrada (por exemplo, Centros de Eventos) for dividida por uma chave, é altamente recomendado especificar esta chave de partição ao adicionar a entrada ao seu trabalho stream Analytics. Escalar um trabalho stream Analytics tira partido das divisórias na entrada e na saída. Um trabalho stream Analytics pode consumir e escrever diferentes divisórias em paralelo, o que aumenta a produção. 
 
 ### <a name="inputs"></a>Entradas
 Toda a entrada Azure Stream Analytics pode tirar partido da partição:
@@ -41,14 +41,14 @@ Quando trabalha com o Stream Analytics, pode aproveitar a partilha nas saídas:
 -   Centros de Eventos (necessidade de definir explicitamente a chave de partição)
 -   IoT Hub (necessidade de definir explicitamente a chave de partição)
 -   Service Bus
-- SQL e Azure Synapse Analytics com partição opcional: ver mais informações sobre a [página de Base de Dados Azure SQL](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-sql-output-perf).
+- SQL e Azure Synapse Analytics com partição opcional: ver mais informações sobre a [página de Base de Dados Azure SQL](./stream-analytics-sql-output-perf.md).
 
 O Power BI não suporta a divisão. No entanto, ainda pode dividir a entrada como descrito [nesta secção](#multi-step-query-with-different-partition-by-values) 
 
 Para obter mais informações sobre divisórias, consulte os seguintes artigos:
 
 * [Descrição geral das funcionalidades dos Hubs de Eventos](../event-hubs/event-hubs-features.md#partitions)
-* [Criação de partições de dados](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)
+* [Criação de partições de dados](/azure/architecture/best-practices/data-partitioning)
 
 
 ## <a name="embarrassingly-parallel-jobs"></a>Trabalhos embaraçosos paralelos
@@ -89,7 +89,7 @@ Consulta:
     WHERE TollBoothId > 100
 ```
 
-Esta consulta é um filtro simples. Portanto, não precisamos nos preocupar em dividir a entrada que está sendo enviada para o centro de eventos. Note que os postos de trabalho com nível de compatibilidade antes do 1.2 devem incluir a cláusula **PARTITION BY PartitionId,** pelo que preenche a exigência #2 anterior. Para a saída, precisamos configurar a saída do centro de eventos no trabalho para ter a chave de partição definida para **PartitionId**. Uma última verificação é para garantir que o número de divisórias de entrada seja igual ao número de divisórias de saída.
+Esta consulta é um filtro simples. Portanto, não precisamos nos preocupar em dividir a entrada que está sendo enviada para o centro de eventos. Note que os postos de trabalho com nível de compatibilidade antes do 1.2 devem incluir a cláusula **PARTITION BY PartitionId,** pelo que preenche a exigência #2 anterior. Para a saída, precisamos configurar a saída do centro de eventos no trabalho para ter a chave de partição definida para **PartitionId** . Uma última verificação é para garantir que o número de divisórias de entrada seja igual ao número de divisórias de saída.
 
 ### <a name="query-with-a-grouping-key"></a>Consulta com uma chave de agrupamento
 
@@ -233,7 +233,7 @@ Para utilizar mais SUs para a consulta, tanto o fluxo de dados de entrada como a
     GROUP BY TumblingWindow(minute, 3), TollBoothId, PartitionId
 ```
 
-Quando uma consulta é dividida, os eventos de entrada são processados e agregados em grupos de partição separados. Os eventos de saída também são gerados para cada um dos grupos. A partição pode causar alguns resultados inesperados quando o campo **GROUP BY** não é a chave de partição no fluxo de dados de entrada. Por exemplo, o campo **TollBoothId** na consulta anterior não é a chave de partição do **Input1**. O resultado é que os dados da TollBooth #1 podem ser espalhados em várias divisórias.
+Quando uma consulta é dividida, os eventos de entrada são processados e agregados em grupos de partição separados. Os eventos de saída também são gerados para cada um dos grupos. A partição pode causar alguns resultados inesperados quando o campo **GROUP BY** não é a chave de partição no fluxo de dados de entrada. Por exemplo, o campo **TollBoothId** na consulta anterior não é a chave de partição do **Input1** . O resultado é que os dados da TollBooth #1 podem ser espalhados em várias divisórias.
 
 Cada uma das divisórias **Input1** será processada separadamente pela Stream Analytics. Como resultado, vários registos da contagem de carros para a mesma portagem na mesma janela Tumbling serão criados. Se a chave de partição de entrada não puder ser alterada, este problema pode ser corrigido adicionando um passo de não partição aos valores agregados entre divisórias, como no exemplo seguinte:
 
@@ -279,7 +279,7 @@ A solução [Event Hub](https://github.com/Azure-Samples/streaming-at-scale/tree
 |    5 m.   |   18 |  P4   |
 |    10 K  |   36 |  P6   |
 
-[O Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  suporta a escrita em paralelo, chamada Partição Herdada, mas não é ativada por defeito. No entanto, permitir a partilha herdada, juntamente com uma consulta totalmente paralela, pode não ser suficiente para obter posições mais elevadas. Os produção de escrita SQL dependem significativamente da configuração da sua base de dados e do esquema de tabela. O artigo [SQL Output Performance](./stream-analytics-sql-output-perf.md) tem mais detalhes sobre os parâmetros que podem maximizar o seu rendimento de escrita. Como indicado na saída Azure Stream Analytics para o artigo [base de dados Azure SQL,](./stream-analytics-sql-output-perf.md#azure-stream-analytics) esta solução não escala linearmente como um gasoduto totalmente paralelo para além de 8 divisórias e pode necessitar de repartição antes da saída SQL (ver [INTO).](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) Os SKUs premium são necessários para manter altas taxas de IO, juntamente com a sobrecarga de backups de registos que acontecem a cada poucos minutos.
+[O Azure SQL](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-azuresql)  suporta a escrita em paralelo, chamada Partição Herdada, mas não é ativada por defeito. No entanto, permitir a partilha herdada, juntamente com uma consulta totalmente paralela, pode não ser suficiente para obter posições mais elevadas. Os produção de escrita SQL dependem significativamente da configuração da sua base de dados e do esquema de tabela. O artigo [SQL Output Performance](./stream-analytics-sql-output-perf.md) tem mais detalhes sobre os parâmetros que podem maximizar o seu rendimento de escrita. Como indicado na saída Azure Stream Analytics para o artigo [base de dados Azure SQL,](./stream-analytics-sql-output-perf.md#azure-stream-analytics) esta solução não escala linearmente como um gasoduto totalmente paralelo para além de 8 divisórias e pode necessitar de repartição antes da saída SQL (ver [INTO).](/stream-analytics-query/into-azure-stream-analytics#into-shard-count) Os SKUs premium são necessários para manter altas taxas de IO, juntamente com a sobrecarga de backups de registos que acontecem a cada poucos minutos.
 
 #### <a name="cosmos-db"></a>BD do Cosmos
 |Taxa de ingestão (eventos por segundo) | Unidades de streaming | Recursos de Saída  |
@@ -311,17 +311,17 @@ Todas as [amostras de streaming na Scale Azure](https://github.com/Azure-Samples
 
 ### <a name="identifying-bottlenecks"></a>Identificar estrangulamentos
 
-Utilize o painel métrica no seu trabalho Azure Stream Analytics para identificar estrangulamentos no seu oleoduto. **Reveja os eventos de entrada/saída** para produção e ["Atraso de marca de água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **eventos retrospados** para ver se o trabalho está a acompanhar a taxa de entrada. Para as métricas do Event Hub, procure **pedidos de aceleração** e ajuste as Unidades limiares em conformidade. Para as métricas da Cosmos DB, reveja **max consumiu RU/s por intervalo de chaves de partição** sob a produção para garantir que as suas gamas de chaves de partição são consumidas uniformemente. Para Azure SQL DB, monitorize **Log IO** e **CPU**.
+Utilize o painel métrica no seu trabalho Azure Stream Analytics para identificar estrangulamentos no seu oleoduto. **Reveja os eventos de entrada/saída** para produção e ["Atraso de marca de água"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) ou **eventos retrospados** para ver se o trabalho está a acompanhar a taxa de entrada. Para as métricas do Event Hub, procure **pedidos de aceleração** e ajuste as Unidades limiares em conformidade. Para as métricas da Cosmos DB, reveja **max consumiu RU/s por intervalo de chaves de partição** sob a produção para garantir que as suas gamas de chaves de partição são consumidas uniformemente. Para Azure SQL DB, monitorize **Log IO** e **CPU** .
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência de API do REST de gestão do Azure Stream Analytics](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -334,10 +334,9 @@ Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de pe
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/
