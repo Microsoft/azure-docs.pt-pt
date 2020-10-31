@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 09/01/2020
+ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 167c2f091d4d8a7d7d5c32009b484125d7275796
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282356"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125177"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro de mercado comercial e atribuição de uso do cliente
 
@@ -33,15 +33,18 @@ A atribuição de utilização do cliente suporta três opções de implementaç
 >- A atribuição de utilização do cliente destina-se a novas implementações e NÃO suporta a marcação de recursos existentes que já foram implementados.
 >
 >- A atribuição de utilização do cliente é necessária para ofertas [da Azure Application](./partner-center-portal/create-new-azure-apps-offer.md) publicadas no Azure Marketplace.
+>
+>- Nem todos os serviços da Azure são compatíveis com a atribuição de utilização do cliente. Os Azure Kubernetes Services (AKS) e vM Scale Sets conheceram hoje problemas que causam sub-reportagem do uso.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-guids"></a>Criar GUIDs
 
-Um GUID é um identificador de referência único que tem 32 dígitos hexadémicos. Para criar GUIDs para rastreio, deve utilizar um gerador GUID. A equipa de Armazenamento Azure criou um [formulário de gerador GUID](https://aka.ms/StoragePartners) que lhe enviará um GUID do formato correto e pode ser reutilizado através dos diferentes sistemas de rastreio.
+Um GUID é um identificador de referência único que tem 32 dígitos hexadémicos. Para criar GUIDs para rastreio, deve utilizar um gerador GUID, por exemplo através do PowerShell.
 
-> [!NOTE]
-> É altamente recomendável que utilize [o formulário de gerador GUID do Azure Storage](https://aka.ms/StoragePartners) para criar o seu GUID. Para mais informações, consulte as nossas [FAQ.](#faq)
+```powershell
+[guid]::NewGuid()]
+```
 
 Recomendamos que crie um GUID único para cada canal de oferta e distribuição para cada produto. Pode optar por utilizar um único GUID para os múltiplos canais de distribuição do produto se não quiser que o relatório seja dividido.
 
@@ -67,19 +70,19 @@ Depois de adicionar um GUID ao seu modelo ou ao agente do utilizador, e registar
 
 1. Inscreva-se como [editor de mercado comercial.](https://aka.ms/JoinMarketplace)
 
-   * Os parceiros são obrigados a [ter um perfil no Partner Center.](become-publisher.md) Você é encorajado a listar a oferta no Azure Marketplace ou AppSource.
+   * Os parceiros são obrigados a [ter um perfil no Partner Center.](./partner-center-portal/create-account.md) Você é encorajado a listar a oferta no Azure Marketplace ou AppSource.
    * Os parceiros podem registar vários GUIDs.
    * Os parceiros podem registar GUIDs para modelos e ofertas de soluções não-marketplace.
 
-1. No canto superior direito, selecione o ícone de engrenagem de definições e, em seguida, selecione **as definições do Desenvolvedor**.
+1. No canto superior direito, selecione o ícone de engrenagem de definições e, em seguida, selecione **as definições do Desenvolvedor** .
 
-1. Na **página de definições**de conta, selecione **Add Tracking GUID.**
+1. Na **página de definições** de conta, selecione **Add Tracking GUID.**
 
 1. Na caixa **GUID,** insira o seu tracking GUID. Introduza apenas o GUID sem o `pid-` prefixo. Na caixa **Descrição,** insira o nome ou descrição da sua oferta.
 
 1. Para registar mais do que um GUID, **selecione Add Tracking GUID** novamente. Caixas adicionais aparecem na página.
 
-1. Selecione **Guardar**.
+1. Selecione **Guardar** .
 
 ## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Resource Manager
 Muitas soluções parceiras são implementadas usando modelos de Gestor de Recursos Azure. Se tiver um modelo de Gestor de Recursos disponível no Azure Marketplace, no GitHub ou como um Quickstart, o processo para modificar o seu modelo para permitir a atribuição de utilização do cliente é diretamente para a frente.
@@ -97,9 +100,9 @@ Para adicionar um identificador globalmente único (GUID), faça uma única modi
 
 1. Abra o modelo de Gestor de Recursos.
 
-1. Adicione um novo recurso do tipo [Microsoft.Resources/implementações](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) no ficheiro de modelo principal. O recurso tem de estar no **mainTemplate.jsapenas em** ficheiros ou **azuredeploy.js,** e não em modelos aninhados ou ligados.
+1. Adicione um novo recurso do tipo [Microsoft.Resources/implementações](/azure/templates/microsoft.resources/deployments) no ficheiro de modelo principal. O recurso tem de estar no **mainTemplate.jsapenas em** ficheiros ou **azuredeploy.js,** e não em modelos aninhados ou ligados.
 
-1. Introduza o valor GUID após o `pid-` prefixo como o nome do recurso. Por exemplo, se o GUID for eb7927c8-dd66-43e1-b0cf-c346a422063, o nome de recurso será _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_.
+1. Introduza o valor GUID após o `pid-` prefixo como o nome do recurso. Por exemplo, se o GUID for eb7927c8-dd66-43e1-b0cf-c346a422063, o nome de recurso será _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_ .
 
 1. Verifique se o modelo é de eventuais erros.
 
@@ -132,7 +135,7 @@ O recurso precisa de ser adicionado no **mainTemplate.jsapenas em** ficheiros ou
 
 ## <a name="use-the-resource-manager-apis"></a>Utilize as APIs do Gestor de Recursos
 
-Em alguns casos, você pode preferir fazer chamadas diretamente contra as APIs do Gestor de Recursos REST para implantar serviços Azure. [O Azure suporta vários SDKs](https://docs.microsoft.com/azure/?pivot=sdkstools) para ativar estas chamadas. Pode utilizar um dos SDKs ou ligar diretamente para as APIs REST para mobilizar recursos.
+Em alguns casos, você pode preferir fazer chamadas diretamente contra as APIs do Gestor de Recursos REST para implantar serviços Azure. [O Azure suporta vários SDKs](../index.yml?pivot=sdkstools) para ativar estas chamadas. Pode utilizar um dos SDKs ou ligar diretamente para as APIs REST para mobilizar recursos.
 
 Se estiver a utilizar um modelo de Gestor de Recursos, deverá marcar a sua solução seguindo as instruções descritas anteriormente. Se não estiver a usar um modelo de Gestor de Recursos e a fazer chamadas diretas de API, ainda pode marcar a sua implementação para associar o uso dos recursos Azure.
 
@@ -156,7 +159,7 @@ Para Python, use o atributo **config.** Só pode adicionar o atributo a um UserA
 
 #### <a name="example-the-net-sdk"></a>Exemplo: O .NET SDK
 
-Para .NET, certifique-se de definir o agente do utilizador. A biblioteca [Microsoft.Azure.Management.Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) pode ser utilizada para definir o agente do utilizador com o seguinte código (exemplo em C#):
+Para .NET, certifique-se de definir o agente do utilizador. A biblioteca [Microsoft.Azure.Management.Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) pode ser utilizada para definir o agente do utilizador com o seguinte código (exemplo em C#):
 
 ```csharp
 
@@ -183,7 +186,7 @@ Quando utilizar o CLI Azure para anexar o seu GUID, desaprote o **AZURE_HTTP_USE
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Para mais informações, consulte [Azure SDK for Go](https://docs.microsoft.com/azure/developer/go/).
+Para mais informações, consulte [Azure SDK for Go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Utilizar Terraform
 

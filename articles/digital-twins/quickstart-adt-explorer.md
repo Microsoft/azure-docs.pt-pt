@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 925a5000f9778689660765ef715dd8760d5340a2
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 9d3c9d03c4297af0b9155c2d528e27221b42bc9e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495971"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124844"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -37,34 +37,32 @@ Você precisará de uma subscrição Azure para completar este arranque rápido.
 
 Também vai precisar de **Node.js** na sua máquina. Pode obter a versão mais recente neste link: [Node.js](https://nodejs.org/).
 
-Por fim, também terá de descarregar a amostra para utilizar durante o arranque rápido: a aplicação de amostra **do ADT Explorer.** Esta amostra contém a aplicação que utiliza no arranque rápido para carregar e explorar um cenário Azure Digital Twins, bem como os ficheiros de cenário de amostra. Para obter a amostra, navegue aqui: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina. Isto irá descarregar um . Pasta ZIP para a sua máquina _** comoAzure_Digital_Twins__ADT__explorer.zip**_. Desaperte a pasta e extraa os ficheiros.
+Por fim, também terá de descarregar a amostra para utilizar durante o arranque rápido: a aplicação de amostra **do ADT Explorer.** Esta amostra contém a aplicação que utiliza no arranque rápido para carregar e explorar um cenário Azure Digital Twins, bem como os ficheiros de cenário de amostra. Para obter a amostra, navegue aqui: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina. Isto irá descarregar um . Pasta ZIP para a sua máquina _**comoAzure_Digital_Twins__ADT__explorer.zip**_ . Desaperte a pasta e extraa os ficheiros.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurar gémeos digitais Azure e ADT Explorer
 
-O primeiro passo para trabalhar com a Azure Digital Twins é criar uma **instância Azure Digital Twins**. Depois de criar uma instância do serviço, poderá preenorá-lo com os dados de exemplo mais tarde no arranque rápido.
+O primeiro passo para trabalhar com a Azure Digital Twins é criar uma **instância Azure Digital Twins** . Depois de criar uma instância do serviço, poderá preenorá-lo com os dados de exemplo mais tarde no arranque rápido.
 
-Também irá configurar permissões para o ADT Explorer funcionar no seu computador e aceder à sua instância Azure Digital Twins. Isto permitir-lhe-á utilizar a aplicação da amostra para explorar o seu exemplo e os seus dados.
+Também irá configurar permissões para o ADT Explorer funcionar no seu computador e aceder à sua instância Azure Digital Twins, incluindo a criação de um registo de **aplicações** Azure Ative (Azure AD) para que possa utilizar. Depois disso, pode utilizar a aplicação da amostra para explorar o seu exemplo e os seus dados.
 
 ### <a name="set-up-azure-digital-twins-instance-and-app-registration"></a>Configurar a instância Azure Digital Twins e o registo de aplicações
 
-Em primeiro lugar, **crie uma instância Azure Digital Twins** e a autenticação necessária para poder trabalhar com ela. Para isso, siga as instruções em [*Como-a-: Configurar uma instância e autenticação*](how-to-set-up-instance-portal.md). Dependendo da sua experiência preferida, o artigo de configuração é oferecido para o [portal Azure,](how-to-set-up-instance-portal.md) [CLI,](how-to-set-up-instance-cli.md)ou [amostra de script de implementação automatizada da Cloud Shell](how-to-set-up-instance-scripted.md). Todas as versões das instruções também contêm passos para verificar se completou cada passo com sucesso e estão prontos para passar a usar a sua nova instância.
-* Depois de configurar o seu exemplo Azure Digital Twins, você precisará do nome de **_anfitrião_** do caso[(encontre no portal).](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-Para autenticar a aplicação ADT Explorer, também terá de configurar um **registo de aplicações.** Siga as instruções em [*Como-a: Crie um registo de aplicações*](how-to-create-app-registration.md) para configurar isto. 
-* Uma vez que você tem um registro de aplicação, você precisará do ID de **_Aplicação (cliente)_** do registo e **_diretório (inquilino)_** [(encontre-os no portal).](how-to-create-app-registration.md#collect-client-id-and-tenant-id)
+[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
 
 ### <a name="set-adt-explorer-permissions"></a>Definir permissões do Explorador ADT
 
 Em seguida, prepare a instância Azure Digital Twins que criou para trabalhar com o ADT Explorer, que é uma aplicação web hospedada localmente. Visite a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) da App no portal Azure e selecione o nome do registo da sua **aplicação** que criou na secção anterior da lista.
 
-Selecione *autenticação* no menu do registo e *acerte + Adicione uma plataforma*.
+Selecione *autenticação* no menu do registo e *acerte + Adicione uma plataforma* .
 
 :::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
 
-Na página *de plataformas configurar* que se segue, selecione *Web*.
+Na página *de plataformas configurar* que se segue, selecione *Web* .
 Preencha os detalhes da configuração da seguinte forma:
-* **Redirecionar URIs**: Adicione um URI de redirecionamento de *http://localhost:3000* .
-* **Subvenção implícita**: Verifique a caixa para *fichas de acesso*.
+* **Redirecionar URIs** : Adicione um URI de redirecionamento de *http://localhost:3000* .
+* **Subvenção implícita** : Verifique a caixa para *fichas de acesso* .
 
 *Acerte o Configure* para terminar.
 
@@ -76,7 +74,7 @@ Preencha os detalhes da configuração da seguinte forma:
     :::column-end:::
 :::row-end:::
 
-Agora tem uma configuração web configurada que o ADT Explorer irá utilizar. O separador autenticação no portal Azure deve refletir isso. Depois de verificar as secções abaixo, *acerte Save*.
+Agora tem uma configuração web configurada que o ADT Explorer irá utilizar. O separador autenticação no portal Azure deve refletir isso. Depois de verificar as secções abaixo, *acerte Save* .
 
 :::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados.":::
 
@@ -84,7 +82,7 @@ Agora tem uma configuração web configurada que o ADT Explorer irá utilizar. O
 
 Em seguida, execute a aplicação ADT Explorer e configuure-a para a sua instância Azure Digital Twins.
 
-Navegue para a pasta _**Azure_Digital_Twins__ADT__explorer**_ descarregada e desapertado. Abra um pedido de comando no local da pasta *Azure_Digital_Twins__ADT__explorer/cliente/src*.
+Navegue para a pasta _**Azure_Digital_Twins__ADT__explorer**_ descarregada e desapertado. Abra um pedido de comando no local da pasta *Azure_Digital_Twins__ADT__explorer/cliente/src* .
 
 Corra `npm install` para descarregar todas as dependências necessárias.
 
@@ -107,7 +105,7 @@ Insira as informações importantes que recolheu anteriormente na secção [Pré
 > Pode revisitar/editar estas informações a qualquer momento selecionando o mesmo ícone para puxar novamente a caixa 'Iniciar' Vai manter os valores que passaste.
 
 > [!TIP]
-> Se for mostrada uma `SignalRService.subscribe` mensagem de erro quando ligar, certifique-se de que o URL das gémeas digitais Azure começa com *https://*.
+> Se for mostrada uma `SignalRService.subscribe` mensagem de erro quando ligar, certifique-se de que o URL das gémeas digitais Azure começa com *https://* .
 
 Se vir uma janela pop-up *solicitada pela Microsoft,* conceda o consentimento para esta aplicação e aceite continuar.
 
@@ -119,7 +117,7 @@ Em seguida, importará o cenário da amostra e gráfico para o ADT Explorer. O c
 
 O primeiro passo numa solução Azure Digital Twins é definir o vocabulário para o seu ambiente. Isto é feito através da criação de [**modelos personalizados**](concepts-models.md), que descrevem os tipos de entidade que existem no seu ambiente. 
 
-Cada modelo é escrito numa língua semelhante a JSON-LD chamada **Linguagem de Definição Digital Twin (DTDL)** e descreve um único tipo de entidade em termos das suas *propriedades,* *telemetria,* *relacionamentos*e *componentes.* Mais tarde, utilizará estes modelos como base para gémeos digitais que representam casos específicos deste tipo.
+Cada modelo é escrito numa língua semelhante a JSON-LD chamada **Linguagem de Definição Digital Twin (DTDL)** e descreve um único tipo de entidade em termos das suas *propriedades,* *telemetria,* *relacionamentos* e *componentes.* Mais tarde, utilizará estes modelos como base para gémeos digitais que representam casos específicos deste tipo.
 
 Normalmente, ao criar um modelo, completará três passos:
 1. Escreva a definição do modelo (no arranque rápido, já feito como parte da solução de amostra)
@@ -137,7 +135,7 @@ Na caixa *MODEL VIEW,* bata no ícone *Upload a Model.*
 :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
 1. Na caixa de seletor de ficheiros que aparece, navegue para a pasta *Azure_Digital_Twins__ADT__explorer/cliente/exemplos* no repositório descarregado.
-2. Selecione *Room.js* e *Floor.js*e bata OK. (Pode fazer o upload de modelos adicionais se quiser, mas não serão utilizados neste arranque rápido.)
+2. Selecione *Room.js* e *Floor.js* e bata OK. (Pode fazer o upload de modelos adicionais se quiser, mas não serão utilizados neste arranque rápido.)
 3. Siga o diálogo popup pedindo-lhe para assinar na sua conta Azure.
 
 >[!NOTE]
@@ -174,11 +172,11 @@ Na caixa *GRAPH VIEW,* bata no ícone *Import Graph.*
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-Na caixa de seletor de ficheiros, navegue na pasta*Azure_Digital_Twins__ADT__explorer/cliente/exemplos* e escolha o ficheiro _**buildingScenario.xlsx**_ folha de cálculo. Este ficheiro contém uma descrição do gráfico da amostra. Bata bem.
+Na caixa de seletor de ficheiros, navegue na pasta *Azure_Digital_Twins__ADT__explorer/cliente/exemplos* e escolha o ficheiro _**buildingScenario.xlsx**_ folha de cálculo. Este ficheiro contém uma descrição do gráfico da amostra. Bata bem.
 
 Após alguns segundos, o ADT Explorer abrirá uma vista *de Importação* exibindo uma pré-visualização do gráfico que vai ser carregado.
 
-Para confirmar o upload do gráfico, bata no ícone *Guardar* no canto superior direito do *GRAPH VIEW*:
+Para confirmar o upload do gráfico, bata no ícone *Guardar* no canto superior direito do *GRAPH VIEW* :
 
 :::row:::
     :::column:::
@@ -188,7 +186,7 @@ Para confirmar o upload do gráfico, bata no ícone *Guardar* no canto superior 
     :::column-end:::
 :::row-end:::
 
-O ADT Explorer irá agora utilizar o ficheiro carregado para criar os gémeos e relações entre eles. Um diálogo parece mostrar que está terminado. Bater *perto*.
+O ADT Explorer irá agora utilizar o ficheiro carregado para criar os gémeos e relações entre eles. Um diálogo parece mostrar que está terminado. Bater *perto* .
 
 :::row:::
     :::column:::
@@ -230,7 +228,7 @@ Aqui estão as propriedades do *Quarto0:*
     :::column-end:::
 :::row-end:::
 
-Note que *o Quarto0* tem uma temperatura de **70**.
+Note que *o Quarto0* tem uma temperatura de **70** .
 
 Aqui estão as propriedades da *Sala1:*
 
@@ -242,7 +240,7 @@ Aqui estão as propriedades da *Sala1:*
     :::column-end:::
 :::row-end:::
 
-Note que *a Sala1* tem uma temperatura de **80**.
+Note que *a Sala1* tem uma temperatura de **80** .
 
 ### <a name="query-the-graph"></a>Consultar o gráfico
 
@@ -250,7 +248,7 @@ Uma das principais características da Azure Digital Twins é a capacidade [de c
 
 Uma forma de consultar os gémeos no seu gráfico é pelas suas *propriedades.* A consulta com base em propriedades pode ajudar a responder a uma variedade de questões, incluindo descobrir mais outliers no seu ambiente que possam precisar de atenção.
 
-Nesta secção, você fará uma pergunta para responder à seguinte pergunta: _ **Quais são todos os gémeos no meu ambiente com uma temperatura superior a 75?**_
+Nesta secção, você fará uma pergunta para responder à seguinte pergunta: _**Quais são todos os gémeos no meu ambiente com uma temperatura superior a 75?**_
 
 Para ver a resposta, execute a seguinte consulta na caixa *QUERY EXPLORER:*
 
@@ -258,20 +256,20 @@ Para ver a resposta, execute a seguinte consulta na caixa *QUERY EXPLORER:*
 SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
 ```
 
-Lembre-se de ver as propriedades gémeas anteriormente que *o Quarto0* tem uma temperatura de **70** e *a Sala1* tem uma temperatura de **80**. Como resultado, apenas _**a Sala 1**_ aparece nos resultados aqui.
+Lembre-se de ver as propriedades gémeas anteriormente que *o Quarto0* tem uma temperatura de **70** e *a Sala1* tem uma temperatura de **80** . Como resultado, apenas _**a Sala 1**_ aparece nos resultados aqui.
     
 :::image type="content" source="media/quickstart-adt-explorer/result-query-property-before.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/result-query-property-before.png":::
 
 >[!TIP]
-> Outros operadores de comparação *<* *>* (, *=* , , , ou *!=*) também são apoiados na consulta acima. Você pode tentar ligar estes valores diferentes, ou diferentes propriedades gémeas na consulta para experimentar responder às suas próprias perguntas.
+> Outros operadores de comparação *<* *>* (, *=* , , , ou *!=* ) também são apoiados na consulta acima. Você pode tentar ligar estes valores diferentes, ou diferentes propriedades gémeas na consulta para experimentar responder às suas próprias perguntas.
 
 ## <a name="edit-data-in-the-graph"></a>Editar dados no gráfico
 
-Pode utilizar o ADT Explorer para editar as propriedades dos gémeos representados no seu gráfico. Nesta secção, ** _vamos elevar a temperatura da_ Sala 0 para 76**.
+Pode utilizar o ADT Explorer para editar as propriedades dos gémeos representados no seu gráfico. Nesta secção, **_vamos elevar a temperatura da_ Sala 0 para 76** .
 
 Para isso, selecione *Room0,* elevando a sua lista de propriedades na caixa *PROPERTY EXPLORER.*
 
-As propriedades desta lista são editáveis. Selecione o valor de temperatura de **70** para permitir a inserimento de um novo valor. Introduza **76**, e bata no ícone *Guardar* para atualizar a temperatura para **76**.
+As propriedades desta lista são editáveis. Selecione o valor de temperatura de **70** para permitir a inserimento de um novo valor. Introduza **76** , e bata no ícone *Guardar* para atualizar a temperatura para **76** .
 
 :::row:::
     :::column:::
@@ -281,11 +279,11 @@ As propriedades desta lista são editáveis. Selecione o valor de temperatura de
     :::column-end:::
 :::row-end:::
 
-Após uma poupança bem sucedida, verá uma janela *de Patch Information* exibindo o código de correção que foi usado nos bastidores com as [APIs](how-to-use-apis-sdks.md) de Gémeos Digitais Azure para fazer a atualização. Bater *perto*.
+Após uma poupança bem sucedida, verá uma janela *de Patch Information* exibindo o código de correção que foi usado nos bastidores com as [APIs](how-to-use-apis-sdks.md) de Gémeos Digitais Azure para fazer a atualização. Bater *perto* .
 
 ### <a name="query-to-see-the-result"></a>Consulta para ver o resultado
 
-Para verificar se o gráfico registou com sucesso a sua atualização à temperatura da *Sala0,* re-executar a consulta de anteriormente para **obter todos os gémeos no ambiente com uma temperatura superior a 75**:
+Para verificar se o gráfico registou com sucesso a sua atualização à temperatura da *Sala0,* re-executar a consulta de anteriormente para **obter todos os gémeos no ambiente com uma temperatura superior a 75** :
 
 ```SQL
 SELECT * FROM DigitalTwins T WHERE T.Temperature > 75
@@ -308,7 +306,7 @@ A intenção deste exercício é demonstrar como pode usar o gráfico Azure Digi
 
 Embora neste arranque rápido, tenha feito a atualização de temperatura manualmente, é comum na Azure Digital Twins ligar gémeos digitais a dispositivos IoT reais para que recebam atualizações automaticamente, com base em dados de telemetria. Isto permite-lhe construir um gráfico ao vivo que reflita sempre o estado real do seu ambiente, e usar consultas para obter informações sobre o que está a acontecer no seu ambiente em tempo real.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para embrulhar o trabalho para este arranque rápido, primeiro termine a aplicação de consola de execução. Isto irá desligar a ligação à aplicação ADT Explorer no navegador, e deixará de ser capaz de ver dados ao vivo no navegador. Pode fechar o separador do navegador.
 
@@ -322,7 +320,7 @@ Em seguida, elimine o registo de aplicações Azure Ative Directory que criou pa
 az ad app delete --id <your-application-ID>
 ```
 
-Por fim, elimine a pasta de amostra de projeto que descarregou para a sua máquina local_**(Azure_Digital_Twins__ADT__explorer).**_ Pode ter de eliminar as versões com fecho e desapertado.
+Por fim, elimine a pasta de amostra de projeto que descarregou para a sua máquina local _**(Azure_Digital_Twins__ADT__explorer).**_ Pode ter de eliminar as versões com fecho e desapertado.
 
 ## <a name="next-steps"></a>Passos seguintes 
 

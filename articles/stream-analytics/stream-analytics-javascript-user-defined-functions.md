@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc, devx-track-js
 ms.date: 06/16/2020
-ms.openlocfilehash: 7df244ee024b0d67ba678e296b882fbb08c3e16b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aac85fdab157d581285af91c4c818258a5f1790b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317723"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124786"
 ---
 # <a name="javascript-user-defined-functions-in-azure-stream-analytics"></a>Funções definidas pelo utilizador JavaScript no Azure Stream Analytics
  
-O Azure Stream Analytics suporta as funções definidas pelo utilizador escritas no JavaScript. Com o rico conjunto de **métodos**de String , **RegExp,** **Math,** **Array**e **Date** que o JavaScript fornece, transformações complexas de dados com trabalhos stream Analytics tornam-se mais fáceis de criar.
+O Azure Stream Analytics suporta as funções definidas pelo utilizador escritas no JavaScript. Com o rico conjunto de **métodos** de String , **RegExp,** **Math,** **Array** e **Date** que o JavaScript fornece, transformações complexas de dados com trabalhos stream Analytics tornam-se mais fáceis de criar.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -41,7 +41,7 @@ Embora funções como **Date.GetDate()** ou **Math.random()** não estejam bloqu
 > [!NOTE]
 > Estes passos funcionam nos trabalhos do Stream Analytics configurados para correr na nuvem. Se o seu trabalho stream Analytics estiver configurado para funcionar no Azure IoT Edge, em vez disso use o Visual Studio e [escreva a função definida pelo utilizador utilizando C#](stream-analytics-edge-csharp-udf.md).
 
-Para criar uma função definida pelo utilizador JavaScript no seu trabalho stream Analytics, selecione **Funções** em **Job Topology**. Em seguida, selecione **JavaScript UDF** a partir do menu de entrega **+Add.** 
+Para criar uma função definida pelo utilizador JavaScript no seu trabalho stream Analytics, selecione **Funções** em **Job Topology** . Em seguida, selecione **JavaScript UDF** a partir do menu de entrega **+Add.** 
 
 ![Adicionar JavaScript UDF](./media/javascript/stream-analytics-jsudf-add.png)
 
@@ -55,13 +55,13 @@ Em seguida, deve fornecer as seguintes propriedades e selecionar **Guardar.**
 
 ## <a name="test-and-troubleshoot-javascript-udfs"></a>Teste e resolução de problemas JavaScript UDFs 
 
-Pode testar e depurar a sua lógica DeSconseção UDF JavaScript em qualquer browser. Depurar e testar a lógica destas funções definidas pelo utilizador não é atualmente suportado no portal Stream Analytics. Uma vez que a função funcione como esperado, pode adicioná-la ao trabalho stream Analytics como mencionado acima e, em seguida, invocá-la diretamente da sua consulta. Pode testar a sua lógica de consulta com o JavaScript UDF utilizando [ferramentas stream analytics para o Estúdio Visual](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install).
+Pode testar e depurar a sua lógica DeSconseção UDF JavaScript em qualquer browser. Depurar e testar a lógica destas funções definidas pelo utilizador não é atualmente suportado no portal Stream Analytics. Uma vez que a função funcione como esperado, pode adicioná-la ao trabalho stream Analytics como mencionado acima e, em seguida, invocá-la diretamente da sua consulta. Pode testar a sua lógica de consulta com o JavaScript UDF utilizando [ferramentas stream analytics para o Estúdio Visual](./stream-analytics-tools-for-visual-studio-install.md).
 
-Os erros de runtime do JavaScript são considerados fatais e são apresentados no Registo de atividades. Para obter o registo, no portal do Azure, aceda à sua tarefa e selecione **Registo de atividades**.
+Os erros de runtime do JavaScript são considerados fatais e são apresentados no Registo de atividades. Para obter o registo, no portal do Azure, aceda à sua tarefa e selecione **Registo de atividades** .
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chamar uma função definida pelo utilizador do JavaScript numa consulta
 
-Pode facilmente invocar a sua função JavaScript na sua consulta utilizando o pseudónimo de função prefixado com **udf**. Aqui está um exemplo de um UDF JavaScript que converte valores hexamalis para inteiros sendo invocados numa consulta stream Analytics.
+Pode facilmente invocar a sua função JavaScript na sua consulta utilizando o pseudónimo de função prefixado com **udf** . Aqui está um exemplo de um UDF JavaScript que converte valores hexamalis para inteiros sendo invocados numa consulta stream Analytics.
 
 ```SQL
     SELECT
@@ -188,5 +188,5 @@ FROM
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [UDF de aprendizagem automática](https://docs.microsoft.com/azure/stream-analytics/machine-learning-udf)
-* [UDF em C#](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf-methods)
+* [UDF de aprendizagem automática](./machine-learning-udf.md)
+* [UDF em C#](./stream-analytics-edge-csharp-udf-methods.md)

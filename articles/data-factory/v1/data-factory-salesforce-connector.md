@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba95ba57bb57b1b2e9ecde3ad27f6bb5fbca66cb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79281135"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124888"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Mover dados da Salesforce utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -49,9 +49,9 @@ Pode também receber o erro "REQUEST_LIMIT_EXCEEDED" em ambos os cenários. Cons
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move dados da Salesforce utilizando diferentes ferramentas/APIs.
 
-A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
+A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard** . Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio** , **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API** . Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -68,11 +68,11 @@ A tabela seguinte fornece descrições para elementos JSON específicos do servi
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **Salesforce**. |Sim |
-| ambienteUrl | Especifique o URL da instância Salesforce. <br><br> - Predefinido é "https: \/ /login.salesforce.com". <br> - Para copiar dados da caixa de areia, especifique https://test.salesforce.com " " <br> - Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domain].my.salesforce.com". |Não |
-| nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
-| palavra-passe |Especifique uma palavra-passe para a conta de utilizador. |Sim |
-| securityToken |Especifique um sinal de segurança para a conta de utilizador. Consulte [obter um sinal de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como reiniciar/obter um sinal de segurança. Para conhecer os tokens de segurança em geral, consulte [a Segurança e a API.](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) |Sim |
+| tipo |A propriedade tipo deve ser definida para: **Salesforce** . |Yes |
+| ambienteUrl | Especifique o URL da instância Salesforce. <br><br> - Predefinido é "https: \/ /login.salesforce.com". <br> - Para copiar dados da caixa de areia, especifique https://test.salesforce.com " " <br> - Para copiar dados do domínio personalizado, especifique, por exemplo, "https://[domain].my.salesforce.com". |No |
+| nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Yes |
+| palavra-passe |Especifique uma palavra-passe para a conta de utilizador. |Yes |
+| securityToken |Especifique um sinal de segurança para a conta de utilizador. Consulte [obter um sinal de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para obter instruções sobre como reiniciar/obter um sinal de segurança. Para conhecer os tokens de segurança em geral, consulte [a Segurança e a API.](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) |Yes |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (Azure SQL, Azure blob, Azure table, e assim por diante).
@@ -86,7 +86,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 > [!IMPORTANT]
 > A parte "__c" do Nome API é necessária para qualquer objeto personalizado.
 
-![Data Factory - Conexão Salesforce - Nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![A screenshot mostra o detalhe de definição de objeto personalizado onde você pode ver os nomes A P I dos objetos personalizados.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para obter uma lista completa de secções e propriedades disponíveis para definir atividades, consulte o artigo [Criar oleodutos.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e várias políticas estão disponíveis para todos os tipos de atividades.
@@ -102,14 +102,14 @@ Na atividade de cópia, quando a fonte é do tipo **RelationalSource** (que incl
 > [!IMPORTANT]
 > A parte "__c" do Nome API é necessária para qualquer objeto personalizado.
 
-![Data Factory - Conexão Salesforce - Nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![A screenshot mostra os Campos Personalizados & Relacionamentos onde você pode ver os nomes A P I dos objetos personalizados.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## <a name="query-tips"></a>Dicas de consulta
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recuperação de dados utilizando a cláusula na coluna DateTime
 Quando especificar a consulta SOQL ou SQL, preste atenção à diferença do formato DateTime. Por exemplo:
 
 * **Amostra SOQL:**`$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
-* **Amostra SQL**:
+* **Amostra SQL** :
     * **Utilização do assistente de cópia para especificar a consulta:**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
     * **Utilizando a edição JSON para especificar a consulta (carre de fuga corretamente):**`$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
@@ -119,8 +119,8 @@ Pode obter dados dos relatórios da Salesforce especificando a consulta como `{c
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Recuperação de registos apagados do Caixote do Reciclagem da Salesforce
 Para consultar os registos suaves eliminados do Salesforce Recycle Bin, pode especificar **"IsDeleted = 1"** na sua consulta. Por exemplo,
 
-* Para consultar apenas os registos eliminados, especifique "selecione * de MyTable__c **onde é dedeleted= 1**"
-* Para consultar todos os registos, incluindo os existentes e os eliminados, especifique "selecione * a partir de MyTable__c **onde é descaído = 0 ou IsDeleted = 1**"
+* Para consultar apenas os registos eliminados, especifique "selecione * de MyTable__c **onde é dedeleted= 1** "
+* Para consultar todos os registos, incluindo os existentes e os eliminados, especifique "selecione * a partir de MyTable__c **onde é descaído = 0 ou IsDeleted = 1** "
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Exemplo JSON: Copiar dados da Salesforce para Azure Blob
 O exemplo a seguir fornece definições JSON de amostra que pode usar para criar um oleoduto utilizando o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou [a Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Mostram como copiar dados da Salesforce para o Azure Blob Storage. No entanto, os dados podem ser copiados para qualquer um dos lavatórios [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) indicados utilizando a Atividade de Cópia na Fábrica de Dados Azure.
@@ -197,7 +197,7 @@ A definição **externa** à **verdadeira** informa o serviço Data Factory de q
 > [!IMPORTANT]
 > A parte "__c" do Nome API é necessária para qualquer objeto personalizado.
 
-![Data Factory - Conexão Salesforce - Nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![A screenshot mostra o detalhe de definição de objeto personalizado onde você pode ver singular Label, Plural Label, Object Name, e A P I Name.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Conjunto de dados de saída de blob Azure**
 
@@ -225,7 +225,7 @@ Os dados são escritos para uma nova bolha a cada hora (frequência: hora, inter
 
 **Pipeline com Atividade de Cópia**
 
-O pipeline contém Copy Activity, que está configurado para utilizar os conjuntos de dados de entrada e saída, e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **RelationalSource,** e o tipo **de pia** é definido para **BlobSink**.
+O pipeline contém Copy Activity, que está configurado para utilizar os conjuntos de dados de entrada e saída, e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **RelationalSource,** e o tipo **de pia** é definido para **BlobSink** .
 
 Consulte [as propriedades do tipo RelationalSource](#copy-activity-properties) para a lista de propriedades suportadas pela RelationalSource.
 
@@ -278,7 +278,7 @@ Consulte [as propriedades do tipo RelationalSource](#copy-activity-properties) p
 > [!IMPORTANT]
 > A parte "__c" do Nome API é necessária para qualquer objeto personalizado.
 
-![Data Factory - Conexão Salesforce - Nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![A screenshot mostra os Campos Personalizados & Relacionamentos com os nomes A P I chamados.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 
 ### <a name="type-mapping-for-salesforce"></a>Mapeamento de tipo para Salesforce

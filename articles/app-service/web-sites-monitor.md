@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c4e9a66e6bd6b94d8397429769d7718b3e9c555d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b201ebb5ad8ab9d98a76a29831fa12d6174e47cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148117"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125211"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorize aplicativos no Azure App Service
 [O Azure App Service](./overview.md) fornece funcionalidades de monitorização incorporadas para aplicações web, móveis e API no [portal Azure.](https://portal.azure.com)
@@ -27,11 +27,11 @@ As aplicações que estão hospedadas no Serviço de Aplicações estão sujeita
 
 Se a aplicação estiver hospedada num plano *Gratuito* ou *Partilhado,* os limites dos recursos que a app pode usar são definidos por quotas.
 
-Se a aplicação estiver hospedada num plano *Básico,* *Standard*ou *Premium,* os limites dos recursos que podem utilizar são definidos pelo *tamanho* (Pequeno, Médio, Grande) e contagem de *instâncias* (1, 2, 3, e assim por diante) do plano de Serviço de Aplicações.
+Se a aplicação estiver hospedada num plano *Básico,* *Standard* ou *Premium,* os limites dos recursos que podem utilizar são definidos pelo *tamanho* (Pequeno, Médio, Grande) e contagem de *instâncias* (1, 2, 3, e assim por diante) do plano de Serviço de Aplicações.
 
 As quotas para aplicações gratuitas ou partilhadas são:
 
-| Quota | Descrição |
+| Quota | Description |
 | --- | --- |
 | **CPU (Curto)** | A quantidade de CPU permitida para esta aplicação num intervalo de 5 minutos. Esta quota repõe a cada cinco minutos. |
 | **CPU (Dia)** | A quantidade total de CPU permitida para esta aplicação em um dia. Esta quota repõe-se a cada 24 horas à meia-noite utc. |
@@ -39,13 +39,13 @@ As quotas para aplicações gratuitas ou partilhadas são:
 | **Largura de banda** | A quantidade total de largura de banda de saída permitida para esta aplicação em um dia. Esta quota repõe-se a cada 24 horas à meia-noite utc. |
 | **Filesystem** | A quantidade total de armazenamento permitida. |
 
-A única quota aplicável às aplicações que estão hospedadas em *Basic,* *Standard*e *Premium* é o Filesystem.
+A única quota aplicável às aplicações que estão hospedadas em *Basic,* *Standard* e *Premium* é o Filesystem.
 
 Para obter mais informações sobre as quotas, limites e funcionalidades específicas disponíveis para os vários SKUs do Serviço de Aplicações, consulte [os limites do serviço de subscrição Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### <a name="quota-enforcement"></a>Execução de quotas
 
-Se uma aplicação exceder o *CPU (curto)*, *CPU (Dia)* ou quota de largura de *banda,* a aplicação é interrompida até que a quota seja reposta. Durante este tempo, todos os pedidos de entrada resultam num erro HTTP 403.
+Se uma aplicação exceder o *CPU (curto)* , *CPU (Dia)* ou quota de largura de *banda,* a aplicação é interrompida até que a quota seja reposta. Durante este tempo, todos os pedidos de entrada resultam num erro HTTP 403.
 
 ![403 mensagem de erro][http403]
 
@@ -87,6 +87,7 @@ Para uma aplicação, as métricas disponíveis são:
 | **Coleções de lixo da Gen 1** | O número de vezes que os objetos de geração 1 são lixo recolhidos desde o início do processo de aplicação. Os GCs de maior geração incluem todos os GCs de menor geração.|
 | **Coleções de lixo gen 2** | O número de vezes que a geração 2 objetos são lixo recolhidos desde o início do processo de aplicação.|
 | **N.º de Identificadores** | O número total de pegas atualmente abertas pelo processo da aplicação.|
+| **Estado do Controlo de Saúde** | O estado de saúde médio em todos os casos da aplicação no Plano de Serviço de Aplicações.|
 | **Http 2xx** | A contagem de pedidos que resultam num código de estado HTTP ≥ 200, mas < 300. |
 | **Http 3xx** | A contagem de pedidos que resultam num código de estado HTTP ≥ 300 mas < 400. |
 | **Http 401** | A contagem de pedidos que resultam em código de estado HTTP 401. |
@@ -113,7 +114,7 @@ Para uma aplicação, as métricas disponíveis são:
 Para um plano de Serviço de Aplicações, as métricas disponíveis são:
 
 > [!NOTE]
-> As métricas do plano de aplicação estão disponíveis apenas para planos nos níveis *Básico,* *Standard*e *Premium.*
+> As métricas do plano de aplicação estão disponíveis apenas para planos nos níveis *Básico,* *Standard* e *Premium.*
 > 
 
 | Métrica | Descrição |
@@ -130,9 +131,9 @@ Para um plano de Serviço de Aplicações, as métricas disponíveis são:
 
 Existem duas métricas que refletem o uso do CPU:
 
-**TEMPO CPU**: Útil para aplicações hospedadas em planos gratuitos ou partilhados, porque uma das suas quotas é definida em minutos de CPU utilizados pela app.
+**TEMPO CPU** : Útil para aplicações hospedadas em planos gratuitos ou partilhados, porque uma das suas quotas é definida em minutos de CPU utilizados pela app.
 
-**Percentagem de CPU**: Útil para aplicações hospedadas em planos Básicos, Standard e Premium, porque podem ser dimensionadas. A percentagem de CPU é uma boa indicação da utilização global em todos os casos.
+**Percentagem de CPU** : Útil para aplicações hospedadas em planos Básicos, Standard e Premium, porque podem ser dimensionadas. A percentagem de CPU é uma boa indicação da utilização global em todos os casos.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Política de granularidade e retenção de métricas
 As métricas para um plano de serviço de aplicações e aplicações são registadas e agregadas pelo serviço e [mantidas de acordo com estas regras.](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics)
@@ -142,7 +143,7 @@ Para rever o estado das várias quotas e métricas que afetam uma app, vá ao [p
 
 ![Tabela de quotas no portal Azure][quotas]
 
-Para encontrar quotas, selecione **Definições**  >  **Quotas**. Na tabela, pode rever: 
+Para encontrar quotas, selecione **Definições**  >  **Quotas** . Na tabela, pode rever: 
 1. O nome da quota.
 1. O seu intervalo de reset.
 1. O seu limite atual.

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3154447e4df64b9b335beae99cfd208d1a21efc4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47afaea03e58cf6a24382727c6fc7193fde5abe4
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044418"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123817"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rode as credenciais de login para entradas e saídas de um Trabalho de Análise de Fluxo
 
@@ -25,12 +25,12 @@ Nesta secção, vamos acompanhá-lo através de credenciais regeneradoras para B
 
 ### <a name="blob-storagetable-storage"></a>Armazenamento de bolhas/armazenamento de mesa
 1. Inscreva-se no portal Azure > navegue na conta de armazenamento que utilizou como entrada/saída para o trabalho stream Analytics.    
-2. A partir da secção de definições, abra **as teclas de acesso**. Entre as duas teclas predefinidos (key1, key2), escolha a que não é usada pelo seu trabalho e regenera-a:  
+2. A partir da secção de definições, abra **as teclas de acesso** . Entre as duas teclas predefinidos (key1, key2), escolha a que não é usada pelo seu trabalho e regenera-a:  
    ![Chaves regeneradas para conta de armazenamento](media/stream-analytics-login-credentials-inputs-outputs/regenerate-storage-keys.png)
 3. Copie a chave recém-gerada.    
 4. A partir do portal Azure, navegue no seu trabalho stream Analytics > selecione **Stop** e espere que o trabalho pare.    
 5. Localize a entrada/saída de armazenamento blob/mesa para a qual deseja atualizar as credenciais.    
-6. Encontre o campo **Chave de Conta de Armazenamento** e cole a sua chave recém-gerada > clique em **Guardar**.    
+6. Encontre o campo **Chave de Conta de Armazenamento** e cole a sua chave recém-gerada > clique em **Guardar** .    
 7. Um teste de ligação iniciar-se-á automaticamente quando guardar as suas alterações, pode vê-lo a partir do separador notificações. Existem duas notificações: uma corresponde à poupança da atualização e outra corresponde ao teste da ligação:  
    ![Notificações após a edição da chave](media/stream-analytics-login-credentials-inputs-outputs/edited-key-notifications.png)
 8. Comece a iniciar o seu trabalho a partir da última secção [de tempo parado.](#start-your-job-from-the-last-stopped-time)
@@ -43,7 +43,7 @@ Nesta secção, vamos acompanhá-lo através de credenciais regeneradoras para B
 3. Copie a chave recém-gerada.    
 4. A partir do portal Azure, navegue no seu trabalho stream Analytics > selecione **Stop** e espere que o trabalho pare.    
 5. Localize a entrada/saída dos centros de eventos para as quais pretende atualizar as credenciais.    
-6. Encontre o campo **'Chave política do centro de eventos'** e cole a sua chave recém-gerada > clique em **Guardar**.    
+6. Encontre o campo **'Chave política do centro de eventos'** e cole a sua chave recém-gerada > clique em **Guardar** .    
 7. Um teste de ligação iniciar-se-á automaticamente quando guardar as alterações, certifique-se de que passou com sucesso.    
 8. Comece a iniciar o seu trabalho a partir da última secção [de tempo parado.](#start-your-job-from-the-last-stopped-time)
 
@@ -52,7 +52,7 @@ Nesta secção, vamos acompanhá-lo através de credenciais regeneradoras para B
 Tem de se ligar à Base de Dados SQL para atualizar as credenciais de login de um utilizador existente. Pode atualizar credenciais utilizando o portal Azure ou uma ferramenta do lado do cliente, como o SQL Server Management Studio. Esta secção demonstra o processo de atualização de credenciais utilizando o portal Azure.
 
 1. Inscreva-se no portal Azure > navegue na base de dados SQL que utilizou como saída para o trabalho de Stream Analytics.    
-2. A partir do Explorador de **Dados,** faça login/conecte-se à sua base de dados > selecione o tipo de autorização como autenticação do **servidor SQL** > digite nos seus dados **de Login** e **palavra-passe** > Select **Ok**.  
+2. A partir do Explorador de **Dados,** faça login/conecte-se à sua base de dados > selecione o tipo de autorização como autenticação do **servidor SQL** > digite nos seus dados **de Login** e **palavra-passe** > Select **Ok** .  
    ![Credenciais regeneração para base de dados SQL](media/stream-analytics-login-credentials-inputs-outputs/regenerate-sql-credentials.png)
 
 3. No separador de consulta, altere a palavra-passe de um dos seus utilizadores executando a seguinte consulta (certifique-se de que substitui `<user_name>` pelo seu nome de utilizador e pela sua nova `<new_password>` senha):  
@@ -77,12 +77,12 @@ Tem de se ligar à Base de Dados SQL para atualizar as credenciais de login de u
 ## <a name="start-your-job-from-the-last-stopped-time"></a>Comece o seu trabalho desde a última paragem.
 
 1. Navegue para o painel de **visão geral** do trabalho > selecione **Comece** a iniciar o trabalho.    
-2. Selecione **Quando a última vez parou** > clique em **Iniciar**. Note que a opção "Quando a última paragem" só aparece se já executou o trabalho e teve alguma saída gerada. O trabalho é reiniciado com base no tempo do último valor de saída.
+2. Selecione **Quando a última vez parou** > clique em **Iniciar** . Note que a opção "Quando a última paragem" só aparece se já executou o trabalho e teve alguma saída gerada. O trabalho é reiniciado com base no tempo do último valor de saída.
    ![Inicie o trabalho stream analytics](media/stream-analytics-login-credentials-inputs-outputs/start-stream-analytics-job.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência de API do REST de gestão do Azure Stream Analytics](/rest/api/streamanalytics/)

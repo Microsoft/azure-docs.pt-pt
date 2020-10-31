@@ -5,16 +5,16 @@ author: tamram
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/28/2020
+ms.date: 10/30/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 19d70642a6c76239f62b2fd6f7e713430a7adfbb
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 53033226702ea1033fe4ae94f60c62cacbae6596
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043101"
+ms.locfileid: "93124973"
 ---
 # <a name="create-a-blockblobstorage-account"></a>Criar uma conta BlockBlobStorage
 
@@ -116,10 +116,7 @@ Para criar uma conta BlockBlobStorage no portal Azure, siga estes passos:
 
 8. Escolha o separador **Avançado.**
 
-9. Se pretender otimizar a sua conta de armazenamento para análise de dados, em seguida, desapasça o **espaço de nome hierárquico** para **Ativado** . Caso contrário, deixe esta opção definida para o seu valor padrão. Ativar esta definição com a sua conta BlockBlobStorage dá-lhe o nível premium para o [armazenamento de data lake.](premium-tier-for-data-lake-storage.md)  Para saber mais sobre o armazenamento do data lake, consulte [Introdução ao Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
-
-   > [!NOTE]
-   > A característica hierárquica do espaço de nome numa conta de armazenamento de blob de bloco está em pré-visualização pública. Para obter informações sobre a disponibilidade regional, consulte [disponibilidade regional.](premium-tier-for-data-lake-storage.md#regional-availability)
+9. Se pretender otimizar a sua conta de armazenamento para análise de dados, em seguida, desapasça o **espaço de nome hierárquico** para **Ativado** . Caso contrário, deixe esta opção definida para o seu valor predefinido. Ativar esta definição com a sua conta BlockBlobStorage dá-lhe o nível premium para o [armazenamento de data lake.](premium-tier-for-data-lake-storage.md)  Para saber mais sobre o armazenamento do data lake, consulte [Introdução ao Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
 8. Selecione **Review + criar** para rever as definições da conta de armazenamento.
 
@@ -162,9 +159,6 @@ Para criar uma conta BlockBlobStorage no portal Azure, siga estes passos:
    ```
    Se pretender otimizar a sua conta de armazenamento para análise de dados, adicione `-EnableHierarchicalNamespace $True` ao comando. Ativar esta definição com a sua conta BlockBlobStorage dá-lhe o nível premium para o [armazenamento de data lake.](premium-tier-for-data-lake-storage.md)  Para saber mais sobre o armazenamento do data lake, consulte [Introdução ao Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
 
-   > [!NOTE]
-   > A característica hierárquica do espaço de nome numa conta de armazenamento de blob de bloco está em pré-visualização pública. Para obter informações sobre a disponibilidade regional, consulte [disponibilidade regional.](premium-tier-for-data-lake-storage.md#regional-availability)
-
 ## <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para criar uma conta blob de bloco utilizando o CLI Azure, tem primeiro de instalar o Azure CLI v. 2.0.46 ou uma versão posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
@@ -195,10 +189,7 @@ Para criar uma conta blob de bloco utilizando o CLI Azure, tem primeiro de insta
    ```
 
    Se pretender otimizar a sua conta de armazenamento para análise de dados, adicione `--hierarchical-namespace true` ao comando. Ativar esta definição com a sua conta BlockBlobStorage dá-lhe o nível premium para o [armazenamento de data lake.](premium-tier-for-data-lake-storage.md)  Para saber mais sobre o armazenamento do data lake, consulte [Introdução ao Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
-   
-   > [!NOTE]
-   > A característica hierárquica do espaço de nome numa conta de armazenamento de blob de bloco está em pré-visualização pública. Para obter informações sobre a disponibilidade regional, consulte [disponibilidade regional.](premium-tier-for-data-lake-storage.md#regional-availability)
-   
+
 ---
 
 ## <a name="next-steps"></a>Passos seguintes

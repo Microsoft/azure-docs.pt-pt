@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 7b96bc456d2dc0e3f1a1110f36b61be4accfbd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12c4b9f4a3757a3974e4aff7699d0265bfd7840
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488512"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124378"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Escalar um trabalho Azure Stream Analytics para aumentar a produção
 Este artigo mostra-lhe como sintonizar uma consulta stream Analytics para aumentar a produção para trabalhos de Streaming Analytics. Pode utilizar o seguinte guia para escalar o seu trabalho para lidar com cargas mais elevadas e tirar partido de mais recursos do sistema (como mais largura de banda, mais recursos de CPU, mais memória).
@@ -42,7 +42,7 @@ Se a sua consulta não for embaraçosamente paralela, pode seguir os seguintes p
 2.  Se conseguires atingir a carga prevista em prazo de produção, estás feito. Em alternativa, pode optar por medir o mesmo trabalho a funcionar a 3 SU e 1 SU, para descobrir o número mínimo de SU que funciona para o seu cenário.
 3.  Se não conseguir alcançar a produção desejada, tente dividir a sua consulta em vários passos, se possível, se já não tiver vários passos, e aloque até 6 SU para cada passo na consulta. Por exemplo, se tiver 3 passos, aloque 18 SU na opção "Escala".
 4.  Ao executar tal trabalho, a Stream Analytics coloca cada passo no seu próprio nó com 6 recursos de SU dedicados. 
-5.  Se ainda não atingiu o seu alvo de carga, pode tentar utilizar a **PARTIÇÃO** partindo dos passos mais próximos da entrada. Para o operador **group by** que pode não ser naturalmente partitionável, pode utilizar o padrão agregado local/global para executar um GRUPO dividido **por** seguido por um grupo não dividido **BY**. Por exemplo, se quiser contar quantos carros passam por cada portagem a cada 3 minutos, e o volume dos dados está para além do que pode ser manuseado por 6 SU.
+5.  Se ainda não atingiu o seu alvo de carga, pode tentar utilizar a **PARTIÇÃO** partindo dos passos mais próximos da entrada. Para o operador **group by** que pode não ser naturalmente partitionável, pode utilizar o padrão agregado local/global para executar um GRUPO dividido **por** seguido por um grupo não dividido **BY** . Por exemplo, se quiser contar quantos carros passam por cada portagem a cada 3 minutos, e o volume dos dados está para além do que pode ser manuseado por 6 SU.
 
 Consulta:
 
@@ -78,13 +78,13 @@ Para certos casos de utilização do ISV, em que é mais rentável processar dad
 
 
 ## <a name="get-help"></a>Obter ajuda
-Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência de API do REST de gestão do Azure Stream Analytics](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -97,10 +97,9 @@ Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de pe
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

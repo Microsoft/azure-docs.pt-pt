@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3bfc03dd7a04bea7e69aa1b62cef267a81b650f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba216e41672e1d19e552b3f82a2ea65da7d3a435
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86037618"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124582"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Começar a usar Azure Stream Analytics: Deteção de fraude em tempo real
 
@@ -41,13 +41,13 @@ Antes de começar, certifique-se de que tem o seguinte:
 * A aplicação de gerador de call-event, [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip), que pode ser descarregada a partir do Microsoft Download Center. Desaperte este pacote numa pasta no seu computador. Se quiser ver o código fonte e executar a aplicação num depurar, pode obter o código fonte da aplicação do [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator). 
 
     >[!NOTE]
-    >O Windows pode bloquear o ficheiro .zip descarregado. Se não conseguir desapertá-lo, clique com o botão direito no ficheiro e selecione **Propriedades**. Se vir a mensagem "Este ficheiro veio de outro computador e pode estar bloqueado para ajudar a proteger este computador", selecione a opção **Desbloqueio** e clique em **Aplicar**.
+    >O Windows pode bloquear o ficheiro .zip descarregado. Se não conseguir desapertá-lo, clique com o botão direito no ficheiro e selecione **Propriedades** . Se vir a mensagem "Este ficheiro veio de outro computador e pode estar bloqueado para ajudar a proteger este computador", selecione a opção **Desbloqueio** e clique em **Aplicar** .
 
-Se quiser examinar os resultados do trabalho do Streaming Analytics, também precisa de uma ferramenta para visualizar o conteúdo de um recipiente de armazenamento Azure Blob. Se utilizar o Visual Studio, pode utilizar [ferramentas Azure para Estúdio Visual](https://docs.microsoft.com/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) ou [Visual Studio Cloud Explorer](https://docs.microsoft.com/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Em alternativa, pode instalar ferramentas autónomas como [o Azure Storage Explorer](https://storageexplorer.com/) ou o [Cerulean.](https://www.cerebrata.com/products/cerulean/features/azure-storage) 
+Se quiser examinar os resultados do trabalho do Streaming Analytics, também precisa de uma ferramenta para visualizar o conteúdo de um recipiente de armazenamento Azure Blob. Se utilizar o Visual Studio, pode utilizar [ferramentas Azure para Estúdio Visual](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) ou [Visual Studio Cloud Explorer](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer). Em alternativa, pode instalar ferramentas autónomas como [o Azure Storage Explorer](https://storageexplorer.com/) ou o [Cerulean.](https://www.cerebrata.com/products/cerulean/features/azure-storage) 
 
 ## <a name="create-an-azure-event-hubs-to-ingest-events"></a>Criar um Azure Event Hubs para ingerir eventos
 
-Para analisar um fluxo de dados, *ingeri-lo* em Azure. Uma forma típica de ingerir dados é usar [o Azure Event Hubs,](../event-hubs/event-hubs-what-is-event-hubs.md)que permite ingerir milhões de eventos por segundo e depois processar e armazenar a informação do evento. Para este tutorial, irá criar um centro de eventos e, em seguida, pedir à aplicação do gerador de call-event que envie dados de chamadas para esse centro de eventos.
+Para analisar um fluxo de dados, *ingeri-lo* em Azure. Uma forma típica de ingerir dados é usar [o Azure Event Hubs,](../event-hubs/event-hubs-about.md)que permite ingerir milhões de eventos por segundo e depois processar e armazenar a informação do evento. Para este tutorial, irá criar um centro de eventos e, em seguida, pedir à aplicação do gerador de call-event que envie dados de chamadas para esse centro de eventos.
 
 >[!NOTE]
 >Para obter uma versão mais detalhada deste procedimento, consulte Criar um espaço de nomes de Centros de [Eventos e um centro de eventos utilizando o portal Azure](../event-hubs/event-hubs-create.md). 
@@ -67,13 +67,13 @@ Neste procedimento, você primeiro cria um espaço de nome de centro de eventos,
 
 4. No painel De espaço para **nomes Create,** introduza um nome de espaço de nome como `<yourname>-eh-ns-demo` . Você pode usar qualquer nome para o espaço de nome, mas o nome deve ser válido para um URL e deve ser único em Azure. 
     
-5. Selecione uma subscrição e crie ou escolha um grupo de recursos e, em seguida, clique em **Criar**.
+5. Selecione uma subscrição e crie ou escolha um grupo de recursos e, em seguida, clique em **Criar** .
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-namespace-new-portal.png" alt="Create event hub namespace in Azure portal" width="300px"/>
 
 6. Quando o espaço de nome terminar de ser implementado, encontre o espaço de nome do centro de eventos na sua lista de recursos Azure. 
 
-7. Clique no novo espaço de nome, e no painel de espaços com nome, clique no **Centro de Eventos**.
+7. Clique no novo espaço de nome, e no painel de espaços com nome, clique no **Centro de Eventos** .
 
    ![O botão Add Event Hub para criar um novo centro de eventos](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-button-new-portal.png)    
  
@@ -81,7 +81,7 @@ Neste procedimento, você primeiro cria um espaço de nome de centro de eventos,
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-eventhub-new-portal.png" alt="Name event hub in Azure portal" width="400px"/>
     
-9. Clique em **Criar**.
+9. Clique em **Criar** .
 
 ### <a name="grant-access-to-the-event-hub-and-get-a-connection-string"></a>Conceder acesso ao hub de eventos e obter uma cadeia de ligação
 
@@ -89,16 +89,16 @@ Antes de um processo poder enviar dados para um centro de eventos, o centro de e
 
 1. No painel de nomes do evento, clique em **'Event Hubs'** e, em seguida, clique no nome do seu novo centro de eventos.
 
-2. No painel de hub do evento, clique nas **políticas de acesso compartilhados** e, em seguida, clique em ** + &nbsp; Adicionar**.
+2. No painel de hub do evento, clique nas **políticas de acesso compartilhados** e, em seguida, clique em **+ &nbsp; Adicionar** .
 
     > [!NOTE]
     > Certifique-se de que está a trabalhar com o centro de eventos, não com o espaço de nomes do centro de eventos.
 
-3. Adicione uma política nomeada `asa-policy-manage-demo` e para **Reclamação**, selecione **Gerir**.
+3. Adicione uma política nomeada `asa-policy-manage-demo` e para **Reclamação** , selecione **Gerir** .
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-shared-access-policy-manage-new-portal.png" alt="Create shared access policy for Stream Analytics" width="300px"/>
  
-4. Clique em **Criar**.
+4. Clique em **Criar** .
 
 5. Depois de implementada a política, clique na lista de políticas de acesso partilhado.
 
@@ -178,7 +178,7 @@ Agora que tem uma série de eventos de chamadas, pode configurar um trabalho de 
 
 ### <a name="create-the-job"></a>Criar o trabalho 
 
-1. No portal Azure, clique em **Criar um trabalho**de Internet de  >  **Coisas**  >  **Stream Analytics**.
+1. No portal Azure, clique em **Criar um trabalho** de Internet de  >  **Coisas**  >  **Stream Analytics** .
 
 2. Nomeie o trabalho `asa_frauddetection_job_demo` , especifique uma subscrição, grupo de recursos e localização.
 
@@ -186,7 +186,7 @@ Agora que tem uma série de eventos de chamadas, pode configurar um trabalho de 
 
     <br/><img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-job-new-portal.png" alt="Create Stream Analytics job in portal" width="300px"/>
 
-3. Clique em **Criar**.
+3. Clique em **Criar** .
 
     O trabalho é criado e o portal apresenta detalhes do trabalho. Nada está a correr ainda — tens de configurar o trabalho antes de poder ser iniciado.
 
@@ -197,7 +197,7 @@ Agora que tem uma série de eventos de chamadas, pode configurar um trabalho de 
 
    ![Caixa de entrada sob Topologia no painel de trabalho streaming Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-input-box-new-portal.png)
  
-3. Clique **em Adicionar entrada de fluxo** e selecione Event **Hub**. Em seguida, preencha a nova página de entrada com as seguintes informações:
+3. Clique **em Adicionar entrada de fluxo** e selecione Event **Hub** . Em seguida, preencha a nova página de entrada com as seguintes informações:
 
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
@@ -211,7 +211,7 @@ Agora que tem uma série de eventos de chamadas, pode configurar um trabalho de 
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sa-input-new-portal.png" alt="Create Stream Analytics input in portal" width="300px"/>
 
 
-4. Clique em **Criar**.
+4. Clique em **Criar** .
 
 ## <a name="create-queries-to-transform-real-time-data"></a>Criar consultas para transformar dados em tempo real
 
@@ -221,7 +221,7 @@ Uma simples consulta pode apenas ler todos os dados que chegam. No entanto, muit
 
 As consultas que cria aqui apenas mostrarão os dados transformados para o ecrã. Numa secção posterior, irá configurar um lavatório de saída e uma consulta que escreve os dados transformados para aquele lavatório.
 
-Para saber mais sobre o idioma, consulte a [Referência de Idioma Azure Stream Analytics.](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+Para saber mais sobre o idioma, consulte a [Referência de Idioma Azure Stream Analytics.](/stream-analytics-query/stream-analytics-query-language-reference)
 
 ### <a name="get-sample-data-for-testing-queries"></a>Obtenha dados de amostra para testes de consultas
 
@@ -230,12 +230,12 @@ A aplicação TelcoGenerator está a enviar registos de chamadas para o centro d
 1. Certifique-se de que a aplicação TelcoGenerator está a executar e a produzir registos de chamadas.
 2. No portal, volte ao painel de trabalho do Streaming Analytics. (Se fechou o painel, procure `asa_frauddetection_job_demo` no painel de todos os **recursos.)**
 3. Clique na **caixa de consulta.** O Azure lista as entradas e saídas configuradas para o trabalho e permite criar uma consulta que lhe permite transformar o fluxo de entrada à medida que é enviado para a saída.
-4. No **painel de consultas,** clique nos pontos ao lado da `CallStream` entrada e, em seguida, selecione **os dados da amostra a partir da entrada**.
+4. No **painel de consultas,** clique nos pontos ao lado da `CallStream` entrada e, em seguida, selecione **os dados da amostra a partir da entrada** .
 
    ![Opções de menu para utilizar dados de amostra para a entrada de emprego em Streaming Analytics, com "Dados de amostra da entrada" selecionados](./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-sample-data-from-input.png)
 
 
-5. Desa esta hora a 3 e, em seguida, clique **em OK**. **Minutes** 
+5. Desa esta hora a 3 e, em seguida, clique **em OK** . **Minutes** 
     
    ![Opções para fluxo de entrada de amostragem com 3 minutos selecionados](./media/stream-analytics-real-time-fraud-detection/stream-analytics-input-create-sample-data.png)
 
@@ -263,7 +263,7 @@ Se quiser arquivar todos os eventos, pode utilizar uma consulta de passagem para
 
     Nesta consulta, `CallStream` é o pseudónimo que especificou quando criou a entrada. Se usou um pseudónimo diferente, use esse nome.
 
-2. Clique **em Teste**.
+2. Clique **em Teste** .
 
     O trabalho Stream Analytics executa a consulta com os dados da amostra e mostra a saída na parte inferior da janela. Os resultados indicam que o Centro de Eventos e o trabalho de Streaming Analytics estão configurados corretamente. (Como notado, mais tarde irá criar um lavatório de saída para o qual a consulta pode escrever dados.)
 
@@ -291,7 +291,7 @@ Em muitos casos, a sua análise não precisa de todas as colunas do fluxo de ent
 
 Suponha que queira contar o número de chamadas recebidas por região. Nos dados de streaming, quando pretende executar funções agregadas como a contagem, é necessário segmentar o fluxo em unidades temporais (uma vez que o fluxo de dados em si é efetivamente infinito). Fá-lo utilizando uma [função de janela](stream-analytics-window-functions.md)Streaming Analytics. Em seguida, pode trabalhar com os dados dentro dessa janela como uma unidade.
 
-Para esta transformação, você quer uma sequência de janelas temporais que não se sobrepõem - cada janela terá um conjunto discreto de dados que você pode agrupar e agregar. Este tipo de janela é referido como uma *janela de tumbling*. Dentro da janela Tumbling, você pode obter uma contagem das chamadas recebidas agrupadas por `SwitchNum` , que representa o país/região de onde a chamada originou. 
+Para esta transformação, você quer uma sequência de janelas temporais que não se sobrepõem - cada janela terá um conjunto discreto de dados que você pode agrupar e agregar. Este tipo de janela é referido como uma *janela de tumbling* . Dentro da janela Tumbling, você pode obter uma contagem das chamadas recebidas agrupadas por `SwitchNum` , que representa o país/região de onde a chamada originou. 
 
 1. Altere a consulta no editor de código para o seguinte:
 
@@ -303,11 +303,11 @@ Para esta transformação, você quer uma sequência de janelas temporais que n�
     GROUP BY TUMBLINGWINDOW(s, 5), SwitchNum
     ```
 
-    Esta consulta utiliza a `Timestamp By` palavra-chave na `FROM` cláusula para especificar qual o campo de tempos no fluxo de entrada para definir a janela Tumbling. Neste caso, a janela divide os dados em segmentos pelo `CallRecTime` campo em cada registo. (Se não for especificado nenhum campo, a operação de janela utiliza o tempo que cada evento chega ao centro do evento. Consulte "Tempo de chegada vs tempo de aplicação" em [Stream Analytics Consulta de Idioma .](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 
+    Esta consulta utiliza a `Timestamp By` palavra-chave na `FROM` cláusula para especificar qual o campo de tempos no fluxo de entrada para definir a janela Tumbling. Neste caso, a janela divide os dados em segmentos pelo `CallRecTime` campo em cada registo. (Se não for especificado nenhum campo, a operação de janela utiliza o tempo que cada evento chega ao centro do evento. Consulte "Tempo de chegada vs tempo de aplicação" em [Stream Analytics Consulta de Idioma .](/stream-analytics-query/stream-analytics-query-language-reference) 
 
     A projeção inclui `System.Timestamp` , que devolve um tempotando para o final de cada janela. 
 
-    Para especificar que pretende utilizar uma janela de Tumbling, utilize a função [TUMBLINGWINDOW](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) na `GROUP BY` cláusula. Na função, especifique uma unidade de tempo (em qualquer lugar de um microsegundo a um dia) e um tamanho de janela (quantas unidades). Neste exemplo, a janela Tumbling consiste em intervalos de 5 segundos, para que você obtenha uma contagem por país/região por cada 5 segundos de chamadas.
+    Para especificar que pretende utilizar uma janela de Tumbling, utilize a função [TUMBLINGWINDOW](/stream-analytics-query/tumbling-window-azure-stream-analytics) na `GROUP BY` cláusula. Na função, especifique uma unidade de tempo (em qualquer lugar de um microsegundo a um dia) e um tamanho de janela (quantas unidades). Neste exemplo, a janela Tumbling consiste em intervalos de 5 segundos, para que você obtenha uma contagem por país/região por cada 5 segundos de chamadas.
 
 2. Clique em **Testar** novamente. Nos resultados, note que os intervalos de tempo em **WindowEnd** estão em incrementos de 5 segundos.
 
@@ -359,7 +359,7 @@ Se tiver uma conta de armazenamento de bolhas existente, pode usá-la. Para este
 
 ### <a name="create-an-azure-blob-storage-account"></a>Criar uma conta de armazenamento Azure Blob
 
-1. A partir do canto superior esquerdo do portal Azure, selecione **Criar uma**conta de  >  **armazenamento**  >  **de**recursos . Preencha a página de trabalho da conta de armazenamento com **o nome** definido para "asaehstorage", **localização** definida para "East US", **grupo de recursos** definido para "asa-eh-ns-rg" (hospedar a conta de armazenamento no mesmo grupo de recursos que o trabalho de Streaming para maior desempenho). As restantes definições podem ser mantidas nos respetivos valores predefinidos.  
+1. A partir do canto superior esquerdo do portal Azure, selecione **Criar uma** conta de  >  **armazenamento**  >  **de** recursos . Preencha a página de trabalho da conta de armazenamento com **o nome** definido para "asaehstorage", **localização** definida para "East US", **grupo de recursos** definido para "asa-eh-ns-rg" (hospedar a conta de armazenamento no mesmo grupo de recursos que o trabalho de Streaming para maior desempenho). As restantes definições podem ser mantidas nos respetivos valores predefinidos.  
 
    ![Criar conta de armazenamento no portal Azure](./media/stream-analytics-real-time-fraud-detection/stream-analytics-storage-account-create.png)
 
@@ -367,7 +367,7 @@ Se tiver uma conta de armazenamento de bolhas existente, pode usá-la. Para este
 
 3. Na secção **De Topologia de Trabalho,** clique na caixa **de saída.**
 
-4. No painel **outputs,** clique em **Adicionar** e selecione **o armazenamento blob**. Em seguida, preencha a nova página de saída com as seguintes informações:
+4. No painel **outputs,** clique em **Adicionar** e selecione **o armazenamento blob** . Em seguida, preencha a nova página de saída com as seguintes informações:
 
    |**Definição**  |**Valor sugerido**  |**Descrição**  |
    |---------|---------|---------|
@@ -379,7 +379,7 @@ Se tiver uma conta de armazenamento de bolhas existente, pode usá-la. Para este
     <br/>
     <img src="./media/stream-analytics-real-time-fraud-detection/stream-analytics-create-output-blob-storage-new-console.png" alt="Create blob output for Stream Analytics job" width="300px"/>
     
-5. Clique em **Guardar**. 
+5. Clique em **Guardar** . 
 
 
 ## <a name="start-the-streaming-analytics-job"></a>Inicie o trabalho de Streaming Analytics
@@ -388,7 +388,7 @@ O trabalho está agora configurado. Especificou uma entrada (o centro do evento)
 
 1. Certifique-se de que a aplicação TelcoGenerator está em funcionamento.
 
-2. No painel de trabalho, clique em **Iniciar**. No painel **de trabalho Iniciar,** para a hora de início da saída de Trabalho, selecione **Agora**. 
+2. No painel de trabalho, clique em **Iniciar** . No painel **de trabalho Iniciar,** para a hora de início da saída de Trabalho, selecione **Agora** . 
 
    ![Inicie o trabalho stream analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-start.png)
 
@@ -405,9 +405,9 @@ Quando examina o conteúdo de um ficheiro no armazenamento de bolhas, vê algo c
    ![Armazenamento de blob Azure com saída streaming Analytics](./media/stream-analytics-real-time-fraud-detection/stream-analytics-sa-job-blob-storage-view.png)
  
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Existem artigos adicionais que continuam com o cenário de deteção de fraudes e usam os recursos que criou neste tutorial. Se quiser continuar, consulte as sugestões nos **próximos passos**.
+Existem artigos adicionais que continuam com o cenário de deteção de fraudes e usam os recursos que criou neste tutorial. Se quiser continuar, consulte as sugestões nos **próximos passos** .
 
 No entanto, se já acabou e não precisa dos recursos que criou, pode eliminá-los para que não incorre em acusações desnecessárias do Azure. Nesse caso, sugerimos que faça o seguinte:
 
@@ -420,7 +420,7 @@ No entanto, se já acabou e não precisa dos recursos que criou, pode eliminá-l
 
 ## <a name="get-support"></a>Obter suporte
 
-Para obter mais assistência, experimente a [página de perguntas do Microsoft Q&A para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, experimente a [página de perguntas do Microsoft Q&A para o Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -432,5 +432,5 @@ Para obter mais informações sobre o Stream Analytics em geral, consulte estes 
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência de API do REST de gestão do Azure Stream Analytics](/rest/api/streamanalytics/)

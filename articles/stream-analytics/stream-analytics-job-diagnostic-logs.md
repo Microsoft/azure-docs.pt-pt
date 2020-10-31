@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: 18270a2f435428824714067749fc18ce2addc535
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913046"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124022"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Resolução de problemas Azure Stream Analytics usando registos de recursos
 
@@ -48,7 +48,7 @@ Os registos de atividade estão ligados por padrão e dão informações de alto
 
    ![Resumo da operação de registo de atividades do Stream Analytics](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Desloque-se até à secção **propriedades** do JSON, que fornece detalhes do erro que causou a operação falhada. Neste exemplo, a falha deveu-se a um erro de tempo de execução de valores de latitudes limitados. A discrepância nos dados que são tratados por um trabalho stream Analytics causa um erro de dados. Pode aprender sobre [diferentes erros de dados de entrada e saída e por que ocorrem](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+4. Desloque-se até à secção **propriedades** do JSON, que fornece detalhes do erro que causou a operação falhada. Neste exemplo, a falha deveu-se a um erro de tempo de execução de valores de latitudes limitados. A discrepância nos dados que são tratados por um trabalho stream Analytics causa um erro de dados. Pode aprender sobre [diferentes erros de dados de entrada e saída e por que ocorrem](./data-errors.md).
 
    ![Detalhes de erro json](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -111,7 +111,7 @@ Os registos de execução têm informações sobre os eventos que ocorreram dura
 
 ### <a name="data-errors"></a>Erros de dados
 
-Qualquer erro que ocorra durante o processamento de dados está nesta categoria de registos. Estes registos são criados com mais frequência durante as operações de leitura, serialização e escrita de dados. Estes registos não incluem erros de conectividade. Os erros de conectividade são tratados como eventos genéricos. Pode saber mais sobre a causa de vários erros de dados de [entrada e saída diferentes](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+Qualquer erro que ocorra durante o processamento de dados está nesta categoria de registos. Estes registos são criados com mais frequência durante as operações de leitura, serialização e escrita de dados. Estes registos não incluem erros de conectividade. Os erros de conectividade são tratados como eventos genéricos. Pode saber mais sobre a causa de vários erros de dados de [entrada e saída diferentes](./data-errors.md).
 
 Nome | Descrição
 ------- | -------
@@ -143,5 +143,5 @@ ID de Correlação | GUID que identifica exclusivamente a execução do trabalho
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Erros de dados do Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
-* [Referência linguística de consulta de stream analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Erros de dados do Stream Analytics](./data-errors.md)
+* [Referência linguística de consulta de stream analytics](/stream-analytics-query/stream-analytics-query-language-reference)

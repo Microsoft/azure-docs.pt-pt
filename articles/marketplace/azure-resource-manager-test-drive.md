@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1af2793bc32c1f3cdbdcd016562b761e05427073
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735607"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125143"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Unidade de teste do Gestor de Recursos Azure
 
 Utilize este tipo se tiver uma oferta no Azure Marketplace ou appSource mas quiser construir um test drive apenas com recursos Azure. Um modelo Azure Resource Manager (ARM) é um recipiente codificado de recursos Azure que projeta para melhor representar a sua solução. O test drive pega no modelo ARM fornecido e implementa todos os recursos necessários para um grupo de recursos. Esta é a única opção de test drive para máquina virtual ou aplicação Azure.
 
-Se não está familiarizado com o que é um modelo ARM, leia [O que é Azure Resource Manager?](../azure-resource-manager/resource-group-overview.md) [Understand the structure and syntax of ARM templates](../azure-resource-manager/resource-group-authoring-templates.md)
+Se não está familiarizado com o que é um modelo ARM, leia [O que é Azure Resource Manager?](../azure-resource-manager/management/overview.md) [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/template-syntax.md)
 
 Para obter informações sobre um test drive de aplicações **hospedados** ou **lógicos,** veja [o que é um test drive?](what-is-test-drive.md)
 
@@ -34,7 +34,7 @@ Um modelo de implementação contém todos os recursos Azure que compõem a sua 
 
   - **Frio** – Este tipo de ocorrência representa o número total de casos que podem ser implantados por região. As instâncias frias requerem que todo o modelo do Gestor de Recursos de Test Drive implemente quando um cliente solicita o test drive, por isso as instâncias *de frio* são muito mais lentas a carregar do que as instâncias *hot.* A troca é que só tem de pagar a duração do test drive, *nem* sempre está a funcionar na sua subscrição Azure como numa instância *Hot.*
 
-- **Test drive Modelo de Gestor de Recursos Azure** – Carreque o .zip contendo o seu modelo de Gestor de Recursos Azure. Saiba mais sobre a criação de um modelo de Gestor de Recursos Azure no artigo de arranque rápido [Criar e implementar modelos de Gestor de Recursos Azure utilizando o portal Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+- **Test drive Modelo de Gestor de Recursos Azure** – Carreque o .zip contendo o seu modelo de Gestor de Recursos Azure. Saiba mais sobre a criação de um modelo de Gestor de Recursos Azure no artigo de arranque rápido [Criar e implementar modelos de Gestor de Recursos Azure utilizando o portal Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
     > Para publicar com sucesso, é importante validar a formatação do modelo ARM. Duas formas de o fazer são (1) utilizando uma [ferramenta API online](https://docs.microsoft.com/rest/api/resources/deployments/validate) ou (2) com uma [implementação de teste](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).
@@ -73,12 +73,12 @@ Pode utilizar qualquer nome válido para os seus parâmetros; a unidade de teste
 
 ### <a name="accepted-parameter-metadata-types"></a>Tipos de metadados de parâmetros aceites
 
-| Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor da amostra    |
+| Tipo de metadados   | Tipo de parâmetro  | Description     | Valor da amostra    |
 |---|---|---|---|
-| **baseuri**     | cadeia          | Base URI do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
-| **nome de utilizador**    | cadeia          | Novo nome de utilizador aleatório.| administrador68876      |
+| **baseuri**     | string          | Base URI do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **nome de utilizador**    | string          | Novo nome de utilizador aleatório.| administrador68876      |
 | **palavra-passe**    | cadeia segura    | Nova senha aleatória | Lp!ACS \^ 2kh     |
-| **id sessão**   | cadeia          | ID de sessão de test drive único (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **id sessão**   | string          | ID de sessão de test drive único (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
 
 #### <a name="baseuri"></a>baseuri
 

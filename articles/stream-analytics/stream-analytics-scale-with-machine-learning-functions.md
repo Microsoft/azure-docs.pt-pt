@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/16/2020
-ms.openlocfilehash: d2fe8445d41f88852c6c9d4db84f4e1b03183a2e
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: feeb709f67a0e75f5980ec0520b95feb7edd5960
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92015537"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124412"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>Escalar o seu trabalho stream analytics com funções Azure Machine Learning Studio (clássico)
 
@@ -40,7 +40,7 @@ Determine a *tolerância* de latência para o seu trabalho stream Analytics. Aum
 
 Aumentar o tamanho do lote permite ao trabalho stream Analytics processar **mais eventos** com o **mesmo número** de pedidos de serviço web Studio (clássico). O aumento da latência do serviço web Studio (clássico) é geralmente sublinear ao aumento do tamanho do lote. 
 
-É importante considerar o tamanho de lote mais eficiente para um serviço web Studio (clássico) em qualquer situação. O tamanho predefinido do lote para pedidos de serviço web é de 1000. Pode alterar este tamanho predefinido utilizando a [API stream Analytics REST](https://docs.microsoft.com/previous-versions/azure/mt653706(v=azure.100) "API REST do Stream Analytics") ou o [cliente PowerShell para Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
+É importante considerar o tamanho de lote mais eficiente para um serviço web Studio (clássico) em qualquer situação. O tamanho predefinido do lote para pedidos de serviço web é de 1000. Pode alterar este tamanho predefinido utilizando a [API stream Analytics REST](/previous-versions/azure/mt653706(v=azure.100) "API REST do Stream Analytics") ou o [cliente PowerShell para Stream Analytics](stream-analytics-monitor-and-manage-jobs-use-powershell.md).
 
 Uma vez decidido o tamanho do lote, pode definir o número de unidades de streaming (SUs), com base no número de eventos que a função precisa de processar por segundo. Para obter mais informações sobre unidades de streaming, consulte [os trabalhos de escala stream Analytics](stream-analytics-scale-jobs.md).
 
@@ -52,7 +52,7 @@ Para processar 200.000 eventos por segundo, o trabalho stream Analytics precisa 
 
 ![Scale Stream Analytics com Estúdio (clássico) Funções dois exemplos de trabalho](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Scale Stream Analytics com Estúdio (clássico) Funções dois exemplos de trabalho")
 
-Em geral, ***B*** para o tamanho do lote, ***L*** para a latência do serviço web no tamanho do lote B em milissegundos, o resultado de um trabalho stream Analytics com ***SUs N*** é:
+Em geral, * *_B_* _ para o tamanho do lote, _*_L_*_ para a latência do serviço web no tamanho do lote B em milissegundos, a produção de um trabalho stream Analytics com _*_N_*_ SUs é:
 
 ![Scale Stream Analytics com Fórmula de Funções de Estúdio (clássico)](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-02.png "Scale Stream Analytics com Fórmula de Funções de Estúdio (clássico)")
 
@@ -63,7 +63,7 @@ Para obter mais informações sobre este cenário, reveja o [artigo de Escala pa
 ## <a name="example--sentiment-analysis"></a>Exemplo – Análise de Sentimentos
 O exemplo a seguir inclui um trabalho stream Analytics com a função de análise de sentimento Studio (clássico), como descrito no [tutorial de integração de machine learning (clássico) stream Analytics Machine Learning Studio ( clássico).](stream-analytics-machine-learning-integration-tutorial.md)
 
-A consulta é uma consulta simples e totalmente dividida seguida pela função de **sentimento,** como mostra o exemplo seguinte:
+A consulta é uma consulta simples e totalmente dividida seguida pela função _ *sentiment* * , como mostra o seguinte exemplo:
 
 ```SQL
     WITH subquery AS (
@@ -88,7 +88,7 @@ Se a taxa de entrada de eventos aumentar em 100x, então o trabalho stream Analy
 
 Com a primeira opção, a **latência** do emprego aumenta.
 
-Com a segunda opção, terá de providenciar mais SUs para ter pedidos de serviço web mais simultâneos (clássicos) do Studio (clássico). Este maior número de SUs, aumenta o **custo**do emprego.
+Com a segunda opção, terá de providenciar mais SUs para ter pedidos de serviço web mais simultâneos (clássicos) do Studio (clássico). Este maior número de SUs, aumenta o **custo** do emprego.
 
 Vejamos a escala usando as seguintes medidas de latência para cada tamanho do lote:
 
@@ -99,7 +99,7 @@ Vejamos a escala usando as seguintes medidas de latência para cada tamanho do l
 | 300 ms | Lotes de 10.000 eventos |
 | 500 ms | Lotes de 25.000 eventos |
 
-1. Utilizando a primeira opção **(não** fornecendo mais SUs). O tamanho do lote pode ser aumentado para **25.000**. Aumentar o tamanho do lote desta forma permitirá ao trabalho processar 1.000.000 eventos com 20 ligações simultâneas ao serviço web Studio (clássico) (com uma latência de 500 ms por chamada). Assim, a latência adicional do trabalho stream Analytics devido aos pedidos de função de sentimento contra os pedidos de serviço web do Studio (clássico) seria aumentada de **200 para** **500 ms**. No entanto, o tamanho do lote **não pode** ser aumentado infinitamente, uma vez que os serviços web do Studio (clássico) requerem que o tamanho da carga útil de um pedido seja 4 MB ou menor, e o serviço web solicita tempo de operação após 100 segundos de funcionamento.
+1. Utilizando a primeira opção **(não** fornecendo mais SUs). O tamanho do lote pode ser aumentado para **25.000** . Aumentar o tamanho do lote desta forma permitirá ao trabalho processar 1.000.000 eventos com 20 ligações simultâneas ao serviço web Studio (clássico) (com uma latência de 500 ms por chamada). Assim, a latência adicional do trabalho stream Analytics devido aos pedidos de função de sentimento contra os pedidos de serviço web do Studio (clássico) seria aumentada de **200 para** **500 ms** . No entanto, o tamanho do lote **não pode** ser aumentado infinitamente, uma vez que os serviços web do Studio (clássico) requerem que o tamanho da carga útil de um pedido seja 4 MB ou menor, e o serviço web solicita tempo de operação após 100 segundos de funcionamento.
 1. Utilizando a segunda opção, o tamanho do lote é deixado a 1000, com latência de serviço web de 200 ms, cada 20 ligações simultâneas ao serviço web seria capaz de processar 1000 * 20 * 5 eventos = 100.000 por segundo. Assim, para processar 1.000.000 eventos por segundo, o trabalho precisaria de 60 SUs. Em comparação com a primeira opção, o trabalho stream Analytics faria mais pedidos de lote de serviço web, gerando, por sua vez, um custo acrescido.
 
 Abaixo está uma tabela para a produção do trabalho stream Analytics para diferentes SUs e tamanhos de lote (em número de eventos por segundo).
@@ -126,9 +126,9 @@ Na área monitor de um trabalho stream analytics, foram adicionadas três métri
 
 Os são definidos da seguinte forma:
 
-**PEDIDOS DE FUNÇÃO**: O número de pedidos de função.
+**PEDIDOS DE FUNÇÃO** : O número de pedidos de função.
 
-**EVENTOS DE FUNÇÃO**: Os números dos pedidos de função.
+**EVENTOS DE FUNÇÃO** : Os números dos pedidos de função.
 
 **PEDIDOS DE FUNÇÃO FALHADO :** O número de pedidos de função falhados.
 
@@ -140,12 +140,12 @@ Para escalar um trabalho stream analytics com funções studio (clássicas), con
 2. A latência tolerada para o trabalho de Stream Analytics em execução (e, portanto, o tamanho do lote dos pedidos de serviço web studio (clássico).
 3. As SUs stream analytics a forquisiadas e o número de pedidos de serviço web studio (clássicos) (os custos adicionais relacionados com a função).
 
-Uma consulta stream analytics totalmente dividida foi usada como um exemplo. Se for necessária uma consulta mais complexa, o [Microsoft Q&Página de perguntas para o Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html) é um ótimo recurso para obter ajuda adicional da equipa do Stream Analytics.
+Uma consulta stream analytics totalmente dividida foi usada como um exemplo. Se for necessária uma consulta mais complexa, o [Microsoft Q&Página de perguntas para o Azure Stream Analytics](/answers/topics/azure-stream-analytics.html) é um ótimo recurso para obter ajuda adicional da equipa do Stream Analytics.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para saber mais sobre stream analytics, consulte:
 
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência de API do REST de gestão do Azure Stream Analytics](/rest/api/streamanalytics/)
