@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 24adbfe38a3d43a83307fb8726849f7c73def3f3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ecbafe0d3f39b1bd6f7c494695ea17e067f0c79e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284798"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129283"
 ---
 ## <a name="generalize-the-image"></a>Generalizar a imagem
 
@@ -20,7 +20,7 @@ Todas as imagens no Mercado Azure devem ser reutilizáveis de forma genérica. P
 
 ### <a name="for-windows"></a>Para Windows
 
-Os discos WINDOWS OS são generalizados com a ferramenta [sysprep.](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) Se atualizar ou reconfigurar o SO, terá de voltar a executar sysprep.
+Os discos WINDOWS OS são generalizados com a ferramenta [sysprep.](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) Se atualizar ou reconfigurar o SO, terá de voltar a executar sysprep.
 
 > [!WARNING]
 > Depois de executar o sysprep, desligue o VM até ser implantado porque as atualizações podem ser executadas automaticamente. Esta paralisação evitará que atualizações subsequentes esveçam alterações específicas do sistema operativo ou dos serviços instalados. Para obter mais informações sobre a execução do sysprep, consulte [passos para generalizar um VHD](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
@@ -41,13 +41,13 @@ O processo seguinte generaliza um Linux VM e reimplanta-o como um VM separado. P
 ### <a name="take-a-snapshot-of-the-vm-disk"></a>Tire uma foto do disco VM
 
 1. Inicie sessão no [portal do Azure](https://ms.portal.azure.com/).
-2. A partir da parte superior esquerda, **selecione Criar um recurso**e, em seguida, procurar e selecionar **Snapshot**.
-3. Na lâmina Snapshot,  **selecione Criar**.
+2. A partir da parte superior esquerda, **selecione Criar um recurso** e, em seguida, procurar e selecionar **Snapshot** .
+3. Na lâmina Snapshot,  **selecione Criar** .
 4. Insira um **nome** para a foto.
 5. Selecione um grupo de recursos existente ou insira o nome para um novo.
-6. Para **o disco Source**, selecione o disco gerido para o instantâneo.
+6. Para **o disco Source** , selecione o disco gerido para o instantâneo.
 7. Selecione o **tipo de Conta** a utilizar para armazenar o instantâneo. Utilize **o HDD standard** a menos que precise de ser armazenado num SSD de alto desempenho.
-8. Selecione **Criar**.
+8. Selecione **Criar** .
 
 #### <a name="extract-the-vhd"></a>Extrair o VHD
 

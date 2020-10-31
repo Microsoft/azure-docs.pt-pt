@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/18/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: 84e3ced20b828087cd3f2b9e7534826debf1706a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f0c5363cfec42ba78ee6c41a1970211518b74a71
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279982"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127540"
 ---
 # <a name="common-query-patterns-in-azure-stream-analytics"></a>Padrões de consulta comuns em Azure Stream Analytics
 
@@ -56,7 +56,7 @@ Várias declarações **SELECT** podem ser usadas para obter dados de produção
 
 **Saída de Alerta de Saída:**
 
-| Criação | Hora | Contagem |
+| Criação | Hora | de palavras |
 | --- | --- | --- |
 | Make2 |2015-01-01T00:00:10.0000000Z |3 |
 
@@ -85,7 +85,7 @@ HAVING
     [Count] >= 3
 ```
 
-A cláusula **INTO** diz ao Stream Analytics qual das saídas para escrever os dados. O primeiro **SELECT** define uma consulta de passagem que recebe dados da entrada e envia-os para a saída **denominada ArchiveOutput**. A segunda consulta faz uma simples agregação e filtragem antes de enviar os resultados para uma saída do sistema de alerta a jusante chamada **AlertOutput**.
+A cláusula **INTO** diz ao Stream Analytics qual das saídas para escrever os dados. O primeiro **SELECT** define uma consulta de passagem que recebe dados da entrada e envia-os para a saída **denominada ArchiveOutput** . A segunda consulta faz uma simples agregação e filtragem antes de enviar os resultados para uma saída do sistema de alerta a jusante chamada **AlertOutput** .
 
 Note que a cláusula **COM** pode ser usada para definir vários blocos de sub-consulta. Esta opção tem o benefício de abrir menos leitores à fonte de entrada.
 
@@ -113,7 +113,7 @@ GROUP BY
 HAVING [Count] >= 3
 ```
 
-Para mais informações, consulte a cláusula [ **COM.** ](/stream-analytics-query/with-azure-stream-analytics)
+Para mais informações, consulte a cláusula [ **COM.**](/stream-analytics-query/with-azure-stream-analytics)
 
 ## <a name="simple-pass-through-query"></a>Consulta simples de passagem
 
@@ -283,7 +283,7 @@ FROM
 
 O primeiro passo na consulta encontra o carimbo máximo em janelas de 10 minutos, que é o carimbo de tempo do último evento para aquela janela. O segundo passo junta-se aos resultados da primeira consulta com o fluxo original para encontrar o evento que corresponde aos selos da última vez em cada janela. 
 
-**DATEDIFF** é uma função específica da data que compara e devolve a diferença de tempo entre dois campos DateTime, para mais informações, consulte [as funções da data](https://docs.microsoft.com/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
+**DATEDIFF** é uma função específica da data que compara e devolve a diferença de tempo entre dois campos DateTime, para mais informações, consulte [as funções da data](/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
 
 Para obter mais informações sobre a junção de fluxos, consulte [**a JOIN**](/stream-analytics-query/join-azure-stream-analytics).
 
@@ -340,7 +340,7 @@ Em caso de eventos irregulares ou em falta, uma saída de intervalo regular pode
 | "2014-01-01T06:01:30" |5 |
 | "2014-01-01T06:01:35" |6 |
 
-**Saída (primeiras 10 linhas)**:
+**Saída (primeiras 10 linhas)** :
 
 | Window_end | Last_event. Hora | Last_event. Valor |
 | --- | --- | --- |
@@ -415,14 +415,14 @@ A duração de um evento pode ser calculada olhando para o último evento Inicia
 
 **Entrada:**  
 
-| Utilizador | Funcionalidade | Evento | Hora |
+| Utilizador | Destaque | Evento | Hora |
 | --- | --- | --- | --- |
 | user@location.com |RightMenu |Iniciar |2015-01-01T00:00:01.0000000Z |
 | user@location.com |RightMenu |Fim |2015-01-01T00:00:08.0000000Z |
 
 **Saída:**  
 
-| Utilizador | Funcionalidade | Duração |
+| Utilizador | Destaque | Duração |
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
@@ -476,7 +476,7 @@ GROUP BY
 ```
 
 **COUNT (DISTINCT Make)** devolve a contagem de valores distintos na coluna **Fazer** dentro de uma janela de tempo.
-Para obter mais informações, consulte a [função agregada **COUNT** ](/stream-analytics-query/count-azure-stream-analytics).
+Para obter mais informações, consulte a [função agregada **COUNT**](/stream-analytics-query/count-azure-stream-analytics).
 
 ## <a name="retrieve-the-first-event-in-a-window"></a>Recupere o primeiro evento numa janela
 
@@ -728,7 +728,7 @@ Por exemplo, o relógio do dispositivo *para TollID* 2 está cinco segundos atr�
 
 **Saída:**
 
-| TollID | Contagem |
+| TollID | de palavras |
 | --- | --- |
 | 1 | 2 |
 | 2 | 2 |
@@ -837,7 +837,7 @@ From
 
 A Função Definida pelo Utilizador calculará o valor *bigint* do HexValue em cada evento consumido.
 
-Para mais informações, consulte [JavaScript](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) e [C.](/azure/stream-analytics/stream-analytics-edge-csharp-udf).
+Para mais informações, consulte [JavaScript](./stream-analytics-javascript-user-defined-functions.md) e [C.](./stream-analytics-edge-csharp-udf.md).
 
 ## <a name="advanced-pattern-matching-with-match_recognize"></a>Padrão avançado combinando com MATCH_RECOGNIZE
 
@@ -881,7 +881,7 @@ MATCH_RECOGNIZE (
 
 Esta consulta corresponde a pelo menos dois eventos de falha consecutivas e gera um alarme quando as condições estão reunidas.
 **O PADRÃO** define a expressão regular a ser utilizada na correspondência, neste caso, qualquer número de operações bem sucedidas seguidas de pelo menos duas falhas consecutivas.
-O sucesso e o fracasso são definidos utilizando Return_Code valor e uma vez que a condição é satisfeita, as medidas são **projetadas** com *ATM_id*, a primeira operação de aviso e primeiro tempo de aviso.
+O sucesso e o fracasso são definidos utilizando Return_Code valor e uma vez que a condição é satisfeita, as medidas são **projetadas** com *ATM_id* , a primeira operação de aviso e primeiro tempo de aviso.
 
 Para mais informações, consulte [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 
@@ -932,11 +932,11 @@ Para obter mais informações, consulte os cenários de [agregação geoespacial
 
 ## <a name="get-help"></a>Obter ajuda
 
-Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
 * [Tarefas de escala do Azure Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referência de API do REST de gestão do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência de API do REST de gestão do Azure Stream Analytics](/rest/api/streamanalytics/)

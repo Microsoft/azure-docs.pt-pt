@@ -10,13 +10,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sashan
 ms.reviewer: ''
-ms.date: 07/29/2020
-ms.openlocfilehash: 7a80f6ef918ac42f43eee2ccc8acae09c5008129
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.date: 10/30/2020
+ms.openlocfilehash: 53e62d790514bd3fb5bef93788fa78944db28c2c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748893"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127744"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Copie uma cópia transaccionalmente consistente de uma base de dados na Base de Dados Azure SQL
 
@@ -29,7 +29,7 @@ A Azure SQL Database fornece vários métodos para criar uma cópia de uma base 
 Uma cópia de base de dados é uma imagem transaccionalmente consistente da base de dados de origem a partir de um ponto no tempo após o pedido de cópia ser iniciado. Pode selecionar o mesmo servidor ou um servidor diferente para a cópia. Também pode optar por manter o tamanho de redundância de backup, nível de serviço e tamanho de cálculo da base de dados de origem, ou utilizar um tamanho de armazenamento de backup diferente e/ou tamanho de cálculo dentro do mesmo ou de um nível de serviço diferente. Após a cópia estar completa, torna-se uma base de dados totalmente funcional e independente. Os logins, utilizadores e permissões na base de dados copiada são geridos independentemente da base de dados de origem. A cópia é criada utilizando a tecnologia de geo-replicação. Após a conclusão da propagação da réplica, a ligação da georreplicação será encerrada automaticamente. Todos os requisitos para utilizar a georreplicação se aplicam à operação da cópia da base de dados. Consulte [a visão geral da replicação de geo-replicação ativa](active-geo-replication-overview.md) para obter mais detalhes.
 
 > [!NOTE]
-> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível apenas na região do Sudeste Asiático Azure. Na pré-visualização, se a base de dados de origem for criada com redundância de armazenamento de backup redundante local ou redundante, a cópia da base de dados para um servidor numa região de Azure diferente não é suportada. 
+> Azure SQL Database Configurable Backup Storage Despedimento está atualmente disponível em pré-visualização pública no Brasil Sul e geralmente disponível apenas na região do Sudeste Asiático Azure. Na pré-visualização, se a base de dados de origem for criada com redundância de armazenamento de backup redundante local ou redundante, a cópia da base de dados para um servidor numa região de Azure diferente não é suportada. 
 
 ## <a name="logins-in-the-database-copy"></a>Logins na cópia da base de dados
 

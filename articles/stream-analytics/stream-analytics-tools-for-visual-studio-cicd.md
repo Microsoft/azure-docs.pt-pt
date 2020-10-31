@@ -7,23 +7,23 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 175abe54ce5476bece309bbfaf7858cd2e214f52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187664"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127438"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Utilize o pacote Azure Stream Analytics CI/CD NuGet para integração e desenvolvimento 
 Este artigo descreve como utilizar o pacote Azure Stream Analytics CI/CD NuGet para configurar um processo de integração e implementação contínua.
 
-Utilize a versão 2.3.0000.0 ou superior às [ferramentas Stream Analytics para](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) o Estúdio Visual obter suporte para MSBuild.
+Utilize a versão 2.3.0000.0 ou superior às [ferramentas Stream Analytics para](./stream-analytics-quick-create-vs.md) o Estúdio Visual obter suporte para MSBuild.
 
 Um pacote NuGet está disponível: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Fornece as ferramentas de msBuild, run local e de implementação que suportam o processo de integração e implementação contínua de [projetos do Stream Analytics Visual Studio](stream-analytics-vs-tools.md). 
 > [!NOTE]
 > O pacote NuGet só pode ser utilizado com a versão 2.3.0000.0 ou acima do Stream Analytics Tools for Visual Studio. Se tiver projetos criados em versões anteriores de ferramentas Visual Studio, basta abri-los com a versão 2.3.0000.0 ou superior e guardar. Então as novas capacidades estão ativadas. 
 
-Para obter mais informações, consulte [as ferramentas Stream Analytics para o Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Para obter mais informações, consulte [as ferramentas Stream Analytics para o Visual Studio](./stream-analytics-quick-create-vs.md).
 
 ## <a name="msbuild"></a>MSBuild
 Tal como a experiência padrão do Visual Studio MSBuild, para construir um projeto tem duas opções. Pode clicar com o botão direito no projeto e, em seguida, escolher **Construir.** Também pode utilizar **o MSBuild** no pacote NuGet a partir da linha de comando.
@@ -52,7 +52,7 @@ Os parâmetros padrão no parameters.jsno ficheiro são das definições do seu 
       "value": null
     },
 ```
-Saiba mais sobre como [implementar com um ficheiro de modelo do Gestor de Recursos e Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Saiba mais sobre como [usar um objeto como parâmetro num modelo de Gestor de Recursos.](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters)
+Saiba mais sobre como [implementar com um ficheiro de modelo do Gestor de Recursos e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Saiba mais sobre como [usar um objeto como parâmetro num modelo de Gestor de Recursos.](/azure/architecture/building-blocks/extending-templates/objects-as-parameters)
 
 Para utilizar a Identidade Gerida para a Azure Data Lake Store Gen1 como pia de saída, precisa de fornecer acesso ao principal do serviço usando o PowerShell antes de se deslocar para a Azure. Saiba mais sobre como [implementar a ADLS Gen1 com identidade gerida com o modelo de Gestor de Recursos.](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment)
 
@@ -60,7 +60,7 @@ Para utilizar a Identidade Gerida para a Azure Data Lake Store Gen1 como pia de 
 ## <a name="command-line-tool"></a>Ferramenta de linha de comando
 
 ### <a name="build-the-project"></a>Compilar o projeto
-O pacote NuGet tem uma ferramenta de linha de comando chamada **SA.exe**. Suporta a construção de projetos e testes locais numa máquina arbitrária, que pode utilizar no seu processo de integração contínua e entrega contínua. 
+O pacote NuGet tem uma ferramenta de linha de comando chamada **SA.exe** . Suporta a construção de projetos e testes locais numa máquina arbitrária, que pode utilizar no seu processo de integração contínua e entrega contínua. 
 
 Os ficheiros de implantação são colocados por defeito no diretório atual. Pode especificar o caminho de saída utilizando o seguinte parâmetro -OutputPath:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4941d326359a51ff6a75385a74a8bcdabfa075
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032389"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129002"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar a opção de publicação
 
@@ -49,14 +49,14 @@ A tabela seguinte mostra as opções de publicação para os tipos de oferta no 
 
 ## <a name="choose-a-listing-option"></a>Escolha uma opção de listagem
 
-As opções de listagem disponíveis oferecem um envolvimento diferenciado do cliente, ao mesmo tempo que lhe dá acesso à partilha de chumbo e [benefícios comerciais do mercado.](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits) Note as opções de listagem que correspondem à opção de publicação:
+As opções de listagem disponíveis oferecem um envolvimento diferenciado do cliente, ao mesmo tempo que lhe dá acesso à partilha de chumbo e [benefícios comerciais do mercado.](./gtm-your-marketplace-benefits.md) Note as opções de listagem que correspondem à opção de publicação:
 
 | **Opção de publicação**    | **Descrição**  |
 | :------------------- | :-------------------|
 | **Lista** | Simples listagem da sua aplicação ou serviço que permite a um utilizador comercial do mercado solicitar-lhe a ligação com o cliente através das opções de listagem **Contacte-me.** |
-| **Avaliação** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da experiência experimental da sua solução, permitindo aos potenciais utilizadores utilizarem a sua experiência de saaS, IaaS ou Microsoft na aplicação sem custos limitados antes de comprarem. As opções de listagem utilizadas para a opção de publicação de ensaio são **free trial** ou **test drive**. |
-| **BYOL** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da sua solução e concluir a transação financeira separadamente. Os tipos de oferta BYOL são ideais para migrações em nuvem. A opção de listagem é **Get it Now**.
-| **Transação** | As ofertas transactais são vendidas através do mercado comercial. A Microsoft é responsável pela faturação e cobranças. A opção de listagem é **Get it Now**.|
+| **Avaliação** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da experiência experimental da sua solução, permitindo aos potenciais utilizadores utilizarem a sua experiência de saaS, IaaS ou Microsoft na aplicação sem custos limitados antes de comprarem. As opções de listagem utilizadas para a opção de publicação de ensaio são **free trial** ou **test drive** . |
+| **BYOL** | Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da sua solução e concluir a transação financeira separadamente. Os tipos de oferta BYOL são ideais para migrações em nuvem. A opção de listagem é **Get it Now** .
+| **Transação** | As ofertas transactais são vendidas através do mercado comercial. A Microsoft é responsável pela faturação e cobranças. A opção de listagem é **Get it Now** .|
 
 > [!Note]
 > Ao utilizar a opção de publicação Da Transact, é importante compreender os preços, faturação, faturação e considerações de pagamento antes de selecionar um tipo de oferta e criar a sua oferta. Para saber mais, reveja o artigo [Capacidades de transação comercial.](./marketplace-commercial-transaction-capabilities-and-considerations.md)
@@ -80,10 +80,10 @@ As ofertas da SaaS podem ser publicadas no Azure Marketplace ou no AppSource. Se
 
 | Faturação medido | Plano público | Plano privado | Disponível em: |
 |---|---|---|---|
-| Sim             | Sim         | Não           | Azure Marketplace e portal Azure |
-| Sim             | Sim         | Sim          | Azure Marketplace e portal Azure* |
-| Sim             | Não          | Sim          | Apenas portal Azure |
-| Não              | Não          | Sim          | Apenas portal Azure |
+| Yes             | Yes         | No           | Azure Marketplace e portal Azure |
+| Yes             | Yes         | Yes          | Azure Marketplace e portal Azure* |
+| Yes             | No          | Yes          | Apenas portal Azure |
+| No              | No          | Yes          | Apenas portal Azure |
 
 &#42; O plano privado da oferta só estará disponível através do portal Azure
 

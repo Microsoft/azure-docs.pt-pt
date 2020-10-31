@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: c84367a5e3ab57090f59196e8474c14cba87f32b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e90c023fa74711246c2e6e69eb576695e86a457
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250152"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128509"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
 
@@ -41,7 +41,7 @@ Os seguintes passos demonstram como criar um novo repositório e clonar os fiche
 Assim que o seu projeto for criado, copie o URL no seu navegador para o novo repositório. Usa este URL no Código do Estúdio Visual para clonar o repositório git.
 
 1. Prima **F1** para abrir o comando na Paleta de Comando.
-1. Cole o URL no _Git: Clone_ prompt e prima **Enter**.
+1. Cole o URL no _Git: Clone_ prompt e prima **Enter** .
 
    :::image type="content" source="media/add-api/vscode-git-0.png" alt-text="Criar um novo repositório a partir de baunilha-básico":::
 
@@ -51,7 +51,7 @@ Assim que o seu projeto for criado, copie o URL no seu navegador para o novo rep
 
 Em seguida, você cria um projeto Azure Functions como API da aplicação. 
 
-1. Dentro do projeto _my-vanilla-api,_ crie uma sub-pasta chamada **api**.
+1. Dentro do projeto _my-vanilla-api,_ crie uma sub-pasta chamada **api** .
 1. Prima **F1** para abrir a Paleta de Comando
 1. Funções do Tipo **Azure: Criar novo projeto...**
 1. Prima **Enter**
@@ -63,10 +63,10 @@ Em seguida, você cria um projeto Azure Functions como API da aplicação.
 
 1. Fornecer as seguintes informações nas instruções:
 
-    - _Selecione um idioma_: Escolha **JavaScript**
-    - _Selecione um modelo para a primeira função do seu projeto_: Escolha **o gatilho HTTP**
-    - _Fornecer um nome de função_: Insira **GetMessage**
-    - _Nível de autorização_: Escolha **Anónimo,** que permite a qualquer pessoa ligar para o ponto final da sua função.
+    - _Selecione um idioma_ : Escolha **JavaScript**
+    - _Selecione um modelo para a primeira função do seu projeto_ : Escolha **o gatilho HTTP**
+    - _Fornecer um nome de função_ : Insira **GetMessage**
+    - _Nível de autorização_ : Escolha **Anónimo,** que permite a qualquer pessoa ligar para o ponto final da sua função.
         - Para saber mais sobre os níveis de autorização, consulte [as teclas de Autorização](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys).
 
 O Visual Studio Code gera um projeto Azure Functions com uma função http desencadeada.
@@ -195,7 +195,7 @@ Quando implementados para o Azure, os pedidos à API são automaticamente encami
 
 1. Prima **F5** para iniciar o projeto API.
 
-1. Prima **F1** e escolha **Live Server: Abra com o Servidor Ao Vivo**.
+1. Prima **F1** e escolha **Live Server: Abra com o Servidor Ao Vivo** .
 
     Deve agora ver a mensagem da API na página web.
 
@@ -219,7 +219,7 @@ Utilizando o Código do Estúdio Visual, comprometa e empurre as suas alteraçõ
 ## <a name="create-a-static-web-app"></a>Criar uma aplicação Web estática
 
 1. Navegue até ao [portal Azure](https://portal.azure.com)
-1. Clique em **Criar um Recurso**.
+1. Clique em **Criar um Recurso** .
 1. Pesquisa por **Aplicação Web Estática**
 1. Clique **em Aplicativo Web Estático (pré-visualização)**
 1. Clique em **Criar**
@@ -235,15 +235,15 @@ Em seguida, adicione as definições específicas da aplicação.
 1. Selecione a sua _Organização_ Preferida
 1. Selecione **my-vanilla-api** do _repositório_ drop-down
 1. Selecione **mestre** do _ramo_ drop-down
-1. Clique no botão **Seguinte: Compilar>** para editar a configuração de compilação
+1. Clique no botão **Seguinte: Compilar >** para editar a configuração de compilação
 
 Em seguida, adicione os seguintes detalhes de construção.
 
 1. **/** Insira para a localização da _App._
 1. Introduza **a Api** na caixa _de localização da Api._
 1. Limpe o valor predefinido da localização do artefacto da _App,_ deixando a caixa vazia.
-1. Clique em **Rever + criar**.
-1. Clique no botão **Criar**.
+1. Clique em **Rever + criar** .
+1. Clique no botão **Criar** .
 
     Uma vez que clica no botão _Criar,_ o Azure faz duas coisas. Em primeiro lugar, os serviços de nuvem subjacentes são criados para suportar a app. Em seguida, um processo de fundo começa a construir e implementar a aplicação.
 
@@ -257,7 +257,7 @@ Em seguida, adicione os seguintes detalhes de construção.
 
     :::image type="content" source="media/add-api/static-app-url-from-portal.png" alt-text="Criar um novo repositório a partir de baunilha-básico":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não quiser manter esta aplicação para posterior utilização, pode utilizar os seguintes passos para eliminar a App Web Estática Azure e os seus recursos relacionados.
 
@@ -268,7 +268,7 @@ Se não quiser manter esta aplicação para posterior utilização, pode utiliza
 1. Na página _myResourceGroup,_ certifique-se de que os recursos listados são os que pretende eliminar.
 1. Selecione **Eliminar**
 1. Digite **myResourceGroup** na caixa de texto
-1. Selecione **Eliminar**.
+1. Selecione **Eliminar** .
 
 ## <a name="next-steps"></a>Próximos passos
 

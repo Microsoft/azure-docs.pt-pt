@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: 51de1ab26318a02381ed95f00eadcc4e892f2f57
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 87f27f316914f3efce5a750f50471c65dceca84e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371635"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127846"
 ---
 # <a name="partner-center-submission-api-to-onboard-azure-apps-in-partner-center"></a>Parceiro Center submissão API para apps Azure a bordo no Partner Center
 
@@ -29,9 +29,9 @@ Existem alguns ativos programáticos que você precisa para usar o Centro Parcei
 
 Antes de começar a escrever código para ligar para a API de submissão do Centro Parceiro, certifique-se de que completou os seguintes pré-requisitos.
 
-- Você (ou sua organização) deve ter um diretório AD Azure e você deve ter permissão [de administrador global](../../active-directory/roles/permissions-reference.md) para o diretório. Se já utiliza o Microsoft 365 ou outros serviços empresariais da Microsoft, já tem o diretório AD AZure. Caso contrário, pode [criar um novo AD Azure no Partner Center](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) sem custos adicionais.
+- Você (ou sua organização) deve ter um diretório AD Azure e você deve ter permissão [de administrador global](../../active-directory/roles/permissions-reference.md) para o diretório. Se já utiliza o Microsoft 365 ou outros serviços empresariais da Microsoft, já tem o diretório AD AZure. Caso contrário, pode [criar um novo AD Azure no Partner Center](/windows/uwp/publish/associate-azure-ad-with-partner-center#create-a-brand-new-azure-ad-to-associate-with-your-partner-center-account) sem custos adicionais.
 
-- Deve [associar uma aplicação AD da Azure à sua conta partner Center](https://docs.microsoft.com/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) e obter a identificação do seu inquilino, identificação do cliente e chave. Precisa destes valores para obter um token de acesso AD Azure, que utilizará em chamadas para a API de submissão da Microsoft Store.
+- Deve [associar uma aplicação AD da Azure à sua conta partner Center](/windows/uwp/monetize/create-and-manage-submissions-using-windows-store-services#associate-an-azure-ad-application-with-your-windows-partner-center-account) e obter a identificação do seu inquilino, identificação do cliente e chave. Precisa destes valores para obter um token de acesso AD Azure, que utilizará em chamadas para a API de submissão da Microsoft Store.
 
 #### <a name="how-to-associate-an-azure-ad-application-with-your-partner-center-account"></a>Como associar uma aplicação AD AZure com a sua conta Partner Center
 
@@ -40,16 +40,16 @@ Para utilizar a API de submissão da Microsoft Store, deve associar uma aplicaç
 >[!Note]
 >Só precisas de executar esta tarefa uma vez. Depois de ter a identificação do inquilino, identificação do cliente e chave, pode reutilizá-los sempre que precisar para criar um novo token de acesso AD Azure.
 
-1. No Partner Center, [associe a conta partner center da sua organização com o diretório AD da sua organização.](https://docs.microsoft.com/windows/uwp/publish/associate-azure-ad-with-partner-center)
-1. Em seguida, a partir da página **de Utilizadores** na secção de **definições** de Conta do Partner Center, [adicione a aplicação AD Azure](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) que representa a app ou serviço que utilizará para aceder às submissões para a sua conta Partner Center. Certifique-se de atribuir esta aplicação à função **Manager.** Se a aplicação ainda não existir no seu diretório AD Azure, pode [criar uma nova aplicação AD AZure no Partner Center](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
+1. No Partner Center, [associe a conta partner center da sua organização com o diretório AD da sua organização.](/windows/uwp/publish/associate-azure-ad-with-partner-center)
+1. Em seguida, a partir da página **de Utilizadores** na secção de **definições** de Conta do Partner Center, [adicione a aplicação AD Azure](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#add-azure-ad-applications-to-your-partner-center-account) que representa a app ou serviço que utilizará para aceder às submissões para a sua conta Partner Center. Certifique-se de atribuir esta aplicação à função **Manager.** Se a aplicação ainda não existir no seu diretório AD Azure, pode [criar uma nova aplicação AD AZure no Partner Center](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#create-a-new-azure-ad-application-account-in-your-organizations-directory-and-add-it-to-your-partner-center-account).
 1. Volte à página **do Utilizadores,** clique no nome da sua aplicação AD Azure para ir às definições da aplicação e copie os valores de ID e **Identificação** do Cliente do **Inquilino.**
-1. Clique **Em Adicionar nova tecla**. No ecrã seguinte, copie o valor **chave.** Não poderá aceder a esta informação novamente depois de sair desta página. Para obter mais informações, consulte [gerir as teclas para uma aplicação AD Azure](https://docs.microsoft.com/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
+1. Clique **Em Adicionar nova tecla** . No ecrã seguinte, copie o valor **chave.** Não poderá aceder a esta informação novamente depois de sair desta página. Para obter mais informações, consulte [gerir as teclas para uma aplicação AD Azure](/windows/uwp/publish/add-users-groups-and-azure-ad-applications#manage-keys).
 
 ### <a name="step-2-obtain-an-azure-ad-access-token"></a>Passo 2: Obter um token de acesso AD Azure
 
 Antes de ligar para qualquer um dos métodos da API de submissão do Centro Parceiro, deve primeiro obter um sinal de acesso AD Azure que passe para o cabeçalho de **autorização** de cada método na API. Depois de obter um token de acesso, tem 60 minutos para usá-lo antes de expirar. Após o fim do token, pode refrescar o token para que possa continuar a usá-lo em futuras chamadas para a API.
 
-Para obter o token de acesso, siga as instruções em [Serviço para Chamadas de Serviço Usando credenciais](https://azure.microsoft.com/documentation/articles/active-directory-protocols-oauth-service-to-service/) de cliente para enviar um para o ponto `HTTP POST` `https://login.microsoftonline.com/<tenant_id>/oauth2/token` final. Aqui está um pedido de amostra:
+Para obter o token de acesso, siga as instruções em [Serviço para Chamadas de Serviço Usando credenciais](../../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) de cliente para enviar um para o ponto `HTTP POST` `https://login.microsoftonline.com/<tenant_id>/oauth2/token` final. Aqui está um pedido de amostra:
 
 JSONCopy
 ```Json

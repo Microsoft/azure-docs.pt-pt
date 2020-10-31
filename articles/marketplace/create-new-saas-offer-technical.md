@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 78a81a2d392363ac45979fd28138f838653a2358
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84e1508dec4d4a5802f7a2ac8c0e6ada5a8044c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381180"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128696"
 ---
 # <a name="how-to-add-technical-details-for-your-saas-offer"></a>Como adicionar detalhes técnicos para a sua oferta SaaS
 
@@ -38,7 +38,7 @@ No separador **de configuração Técnica,** definirá os detalhes técnicos que
 
 - **ID do inquilino do Azure Ative Directory** (obrigatório) – Para encontrar o ID do inquilino para a sua aplicação Azure Ative Directory (Azure AD), vá à lâmina [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App em Azure Ative Directory. Na coluna **'Mostrar' o nome,** selecione a aplicação. Em seguida, procure o número de ID do **Diretório (inquilino)** listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **ID de aplicação do Azure Ative Directory** (obrigatório) – Para encontrar o ID da sua [aplicação,](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)aceda à lâmina [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no Azure Ative Directory. Na coluna **'Mostrar' o nome,** selecione a aplicação. Em seguida, procure o número de ID de aplicação (cliente) listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **ID de aplicação do Azure Ative Directory** (obrigatório) – Para encontrar o ID da sua [aplicação,](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)aceda à lâmina [de registos](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) da App no Azure Ative Directory. Na coluna **'Mostrar' o nome,** selecione a aplicação. Em seguida, procure o número de ID de aplicação (cliente) listado (por exemplo, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
 **Selecione Guardar o rascunho** antes de continuar para o separador seguinte: Planview.
 

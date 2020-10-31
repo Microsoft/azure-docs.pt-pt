@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 837a57ee6ce836fb781f5bf5d5362d7c56cba31e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746204"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127829"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integração de Gateway de Aplicação com pontos finais de serviço
 Existem três variações do Serviço de Aplicações que requerem uma configuração ligeiramente diferente da integração com o Azure Application Gateway. As variações incluem o Serviço regular de Aplicações - também conhecido como multi-inquilino, Internal Load Balancer (ILB) App Service Environment (ASE) e ASE Externo. Este artigo irá percorrer como configurá-lo com o App Service (multi-inquilino) e discutir considerações sobre iLB, e ASE Externo.
@@ -27,7 +27,7 @@ Existem três variações do Serviço de Aplicações que requerem uma configura
 ## <a name="integration-with-app-service-multi-tenant"></a>Integração com Serviço de Aplicações (multi-inquilino)
 O App Service (multi-inquilino) tem um ponto final virado para a internet pública. Utilizando [pontos finais](../../virtual-network/virtual-network-service-endpoints-overview.md) de serviço, pode permitir o tráfego apenas a partir de uma sub-rede específica dentro de uma Rede Virtual Azure e bloquear tudo o resto. No cenário seguinte, usaremos esta funcionalidade para garantir que uma instância do Serviço de Aplicações apenas pode receber tráfego de uma instância específica do Gateway de aplicações.
 
-![Integração de Gateway de Aplicações com Serviço de Aplicações](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
+![O diagrama mostra a Internet a fluir para um Gateway de aplicações numa Rede Virtual Azure e fluindo de lá através de um ícone de firewall para instâncias de aplicações no Serviço de Aplicações.](./media/app-gateway-with-service-endpoints/service-endpoints-appgw.png)
 
 Existem duas partes para esta configuração além de criar o Serviço de Aplicações e o Gateway de Aplicações. A primeira parte é permitir pontos finais de serviço na sub-rede da Rede Virtual onde o Gateway de aplicação é implantado. Os pontos finais de serviço garantirão que todo o tráfego de rede que sai da sub-rede em direção ao Serviço de Aplicações será marcado com o ID específico da sub-rede. A segunda parte é definir uma restrição de acesso da aplicação web específica para garantir que apenas o tráfego marcado com este ID específico da sub-rede é permitido. Pode configugá-lo utilizando diferentes ferramentas, dependendo da preferência.
 
@@ -40,7 +40,7 @@ Com o portal Azure, segue quatro passos para a disposição e configuração da 
 
 Agora pode aceder ao Serviço de Aplicações através do Application Gateway, mas se tentar aceder diretamente ao Serviço de Aplicações, deverá receber um erro 403 HTTP indicando que o site está parado.
 
-![Integração de Gateway de Aplicações com Serviço de Aplicações](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
+![A screenshot mostra o texto de um Error 403 - Esta aplicação web está parada.](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
 
 ## <a name="using-azure-resource-manager-template"></a>Com o modelo do Azure Resource Manager
 O [modelo de implementação do Gestor de Recursos][template-app-gateway-app-service-complete] irá prever um cenário completo. O cenário consiste numa instância do Serviço de Aplicações bloqueada com pontos finais de serviço e restrição de acesso para receber apenas tráfego a partir do Gateway de Aplicações. O modelo inclui muitos Smart Defaults e postfixes únicos adicionados aos nomes de recursos para que seja simples. Para os anular, terá de clonar o repo ou descarregar o modelo e editá-lo. 

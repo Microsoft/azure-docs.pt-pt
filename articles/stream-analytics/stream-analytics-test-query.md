@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fda153d4c48ced17d1a9ba5f060b435b161542e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89612158"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127642"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Teste um trabalho de Azure Stream Analytics no portal
 
@@ -23,13 +23,13 @@ No Azure Stream Analytics, pode testar a sua consulta sem iniciar ou parar o seu
 
 O Azure Stream Analytics recolhe automaticamente eventos a partir das suas entradas de streaming. Pode executar consultas na amostra predefinida ou definir um prazo específico para a amostra.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 
 2. Localize e selecione o seu trabalho stream analytics existente.
 
 3. Na página de trabalho stream Analytics, sob o título **Job Topology,** selecione **Consulta** para abrir a janela do editor de consulta. 
 
-4. Para ver uma lista de amostras de eventos de entrada, selecione a entrada com o ícone do ficheiro e os eventos da amostra aparecerão automaticamente na **pré-visualização de Entrada**.
+4. Para ver uma lista de amostras de eventos de entrada, selecione a entrada com o ícone do ficheiro e os eventos da amostra aparecerão automaticamente na **pré-visualização de Entrada** .
 
    a. O tipo de serialização dos seus dados é automaticamente detetado se o seu JSON ou CSV. Pode alterá-lo manualmente também para JSON, CSV, AVRO alterando a opção no menu suspenso.
     
@@ -45,11 +45,11 @@ O Azure Stream Analytics recolhe automaticamente eventos a partir das suas entra
 
    ![Entrada da amostra Azure Stream Analytics em formato bruto](./media/stream-analytics-test-query/asa-sample-raw.png)
 
-5. Para testar a sua consulta com os dados de entrada, selecione **a consulta de teste**. Os resultados aparecem no separador resultados do **Teste.** Também pode selecionar **Baixar os resultados** para descarregar os resultados.
+5. Para testar a sua consulta com os dados de entrada, selecione **a consulta de teste** . Os resultados aparecem no separador resultados do **Teste.** Também pode selecionar **Baixar os resultados** para descarregar os resultados.
 
    ![Resultados da consulta da amostra Azure Stream Analytics](./media/stream-analytics-test-query/asa-test-query.png)
 
-6. Para testar a sua consulta com um intervalo de tempo específico de eventos de entrada, **selecione Selecione o intervalo de tempo**.
+6. Para testar a sua consulta com um intervalo de tempo específico de eventos de entrada, **selecione Selecione o intervalo de tempo** .
    
    ![Intervalo de tempo Azure Stream Analytics para eventos de amostras de entrada](./media/stream-analytics-test-query/asa-select-time-range.png)
 
@@ -71,7 +71,7 @@ O Azure Stream Analytics recolhe automaticamente eventos a partir das suas entra
 
 Em vez de utilizar dados ao vivo, pode utilizar dados de amostras de um ficheiro local para testar a sua consulta Azure Stream Analytics.
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
    
 2. Localize o seu trabalho stream analytics existente e selecione-o.
 
@@ -79,11 +79,11 @@ Em vez de utilizar dados ao vivo, pode utilizar dados de amostras de um ficheiro
 
 4. Para testar a sua consulta com um ficheiro local, selecione **Enviar a informação** da amostra no **separador de pré-visualização de Entrada.** 
 
-   ![Ficheiro de amostra de upload Azure Stream Analytics](./media/stream-analytics-test-query/asa-upload-sample-file.png)
+   ![A screenshot mostra a opção de entrada da amostra de upload.](./media/stream-analytics-test-query/asa-upload-sample-file.png)
 
-5. Faça o upload do seu arquivo local para testar a consulta. Só é possível fazer o upload de ficheiros com os formatos JSON, CSV ou AVRO. Selecione **OK**.
+5. Faça o upload do seu arquivo local para testar a consulta. Só é possível fazer o upload de ficheiros com os formatos JSON, CSV ou AVRO. Selecione **OK** .
 
-   ![Ficheiro de amostra de upload Azure Stream Analytics](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
+   ![A screenshot mostra a caixa de diálogo de dados da amostra de upload onde pode selecionar um ficheiro.](./media/stream-analytics-test-query/asa-upload-sample-json-file.png)
 
 6. Assim que fizer o upload do ficheiro, também pode ver o conteúdo do ficheiro no formulário como uma tabela ou no seu formato cru. Se selecionar **Reset,** os dados da amostra voltarão aos dados de entrada de entrada explicados na secção anterior. Pode fazer o upload de qualquer outro ficheiro para testar a consulta a qualquer momento.
 
@@ -113,9 +113,9 @@ Em vez de utilizar dados ao vivo, pode utilizar dados de amostras de um ficheiro
 5.  A aprendizagem automática não é suportada.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Construa uma solução IoT utilizando o Stream Analytics:](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics)este tutorial irá guiá-lo a construir uma solução de ponta a ponta com um gerador de dados que simulará o tráfego numa cabine de portagens.
+* [Construa uma solução IoT utilizando o Stream Analytics:](./stream-analytics-build-an-iot-solution-using-stream-analytics.md)este tutorial irá guiá-lo a construir uma solução de ponta a ponta com um gerador de dados que simulará o tráfego numa cabine de portagens.
 
-* [Referência do idioma de consulta do Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Referência do idioma de consulta do Azure Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [Exemplos de consulta para padrões comuns de utilização do Stream Analytics](stream-analytics-stream-analytics-query-patterns.md)
 

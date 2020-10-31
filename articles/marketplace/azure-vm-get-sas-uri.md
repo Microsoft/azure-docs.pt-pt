@@ -7,12 +7,12 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 10/19/2020
-ms.openlocfilehash: b927e90c60110d6922649b75b6549528a2a9a40f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ead367568762d4b76de7164feb56b7a31cd53e0d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284768"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129121"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Como gerar um SAS URI para uma imagem VM
 
@@ -39,7 +39,7 @@ Existem duas ferramentas comuns usadas para criar um endereço SAS (URL):
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Janela da conta de armazenamento.":::
 
-3. No **Recipiente,** clique com o botão direito no ficheiro VHD e selecione **Obter Assinatura de Acesso à Partilha**.
+3. No **Recipiente,** clique com o botão direito no ficheiro VHD e selecione **Obter Assinatura de Acesso à Partilha** .
 4. Na caixa de diálogo **assinatura de acesso partilhado,** complete os seguintes campos:
 
     1. Hora de início – Data de início da permissão para acesso vHD. Forneça uma data que seja um dia antes da data atual.
@@ -49,7 +49,7 @@ Existem duas ferramentas comuns usadas para criar um endereço SAS (URL):
 
     ![Caixa de diálogo de assinatura de acesso partilhado.](media/vm/create-sas-uri-storage-explorer.png)
 
-5. Para criar o SAS URI associado para este VHD, selecione **Create**.
+5. Para criar o SAS URI associado para este VHD, selecione **Create** .
 6. Copie o URI e guarde-o num ficheiro de texto num local seguro. Este SAS URI gerado destina-se ao acesso ao nível do contentor. Para torná-lo específico, edite o ficheiro de texto para adicionar o nome VHD.
 7. Insira o seu nome VHD após a corda vhds no SAS URI (inclua um corte para a frente). O SAS URI final deve ser assim:
 
@@ -59,7 +59,7 @@ Existem duas ferramentas comuns usadas para criar um endereço SAS (URL):
 
 ### <a name="using-tool-2-azure-cli"></a>Ferramenta 2: Azure CLI
 
-1. Descarregue e instale [o Microsoft Azure CL](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)I. As versões estão disponíveis para Windows, macOS e vários distros do Linux.
+1. Descarregue e instale [o Microsoft Azure CL](/cli/azure/install-azure-cli)I. As versões estão disponíveis para Windows, macOS e vários distros do Linux.
 2. Crie um ficheiro PowerShell (extensão de ficheiro.ps1), copie no seguinte código e guarde-o localmente.
 
     ```JSON
@@ -81,8 +81,8 @@ Existem duas ferramentas comuns usadas para criar um endereço SAS (URL):
 1. Guarde as alterações.
 2. Utilizando um dos seguintes métodos, execute este script com privilégios administrativos para criar uma cadeia de conexão SAS para acesso ao nível do contentor:
 
-    - Executar o guião a partir da consola. No Windows, clique com o botão direito no script e selecione **Executar como administrador**.
-    - Execute o script a partir de um editor de scripts PowerShell, como [o Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Este ecrã mostra a criação de uma cadeia de conexão SAS dentro deste editor:
+    - Executar o guião a partir da consola. No Windows, clique com o botão direito no script e selecione **Executar como administrador** .
+    - Execute o script a partir de um editor de scripts PowerShell, como [o Windows PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise). Este ecrã mostra a criação de uma cadeia de conexão SAS dentro deste editor:
 
     [![criação de uma cadeia de conexão SAS dentro do editor PowerShell](media/vm/create-sas-uri-power-shell-ise.png)](media/vm/create-sas-uri-power-shell-ise.png#lightbox)
 

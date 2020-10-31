@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 46a5f4036be2d670689f7e936a31dc63e0690ddc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de2b12bca10382d7e885626222fe463af27f9953
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302388"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128780"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Publicar e rastrear gasodutos de aprendizagem de máquinas
 
@@ -87,7 +87,7 @@ response = requests.post(published_pipeline1.endpoint,
 
 O `json` argumento do pedido DOM deve conter, para a `ParameterAssignments` chave, um dicionário que contenha os parâmetros do gasoduto e os seus valores. Além disso, o `json` argumento pode conter as seguintes teclas:
 
-| Chave | Descrição |
+| Chave | Description |
 | --- | --- | 
 | `ExperimentName` | O nome da experiência associada a este ponto final |
 | `Description` | Texto freeform descrevendo o ponto final | 
@@ -95,9 +95,148 @@ O `json` argumento do pedido DOM deve conter, para a `ParameterAssignments` chav
 | `DataSetDefinitionValueAssignments` | Dicionário utilizado para alterar conjuntos de dados sem requalificação (ver discussão abaixo) | 
 | `DataPathAssignments` | Dicionário utilizado para alterar datapaths sem requalificação (ver discussão abaixo) | 
 
+### <a name="run-a-published-pipeline-using-c"></a>Executar um oleoduto publicado usando C # 
+
+O seguinte código mostra como chamar um gasoduto assíncronamente de C#. O corte parcial do código apenas mostra a estrutura de chamada e não faz parte de uma amostra da Microsoft. Não mostra aulas completas ou manipulação de erros. 
+
+```csharp
+[DataContract]
+public class SubmitPipelineRunRequest
+{
+    [DataMember]
+    public string ExperimentName { get; set; }
+
+    [DataMember]
+    public string Description { get; set; }
+
+    [DataMember(IsRequired = false)]
+    public IDictionary<string, string> ParameterAssignments { get; set; }
+}
+
+// ... in its own class and method ... 
+const string RestEndpoint = "your-pipeline-endpoint";
+
+using (HttpClient client = new HttpClient())
+{
+    var submitPipelineRunRequest = new SubmitPipelineRunRequest()
+    {
+        ExperimentName = "YourExperimentName", 
+        Description = "Asynchronous C# REST api call", 
+        ParameterAssignments = new Dictionary<string, string>
+        {
+            {
+                // Replace with your pipeline parameter keys and values
+                "your-pipeline-parameter", "default-value"
+            }
+        }
+    };
+
+    string auth_key = "your-auth-key"; 
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth_key);
+
+    // submit the job
+    var requestPayload = JsonConvert.SerializeObject(submitPipelineRunRequest);
+    var httpContent = new StringContent(requestPayload, Encoding.UTF8, "application/json");
+    var submitResponse = await client.PostAsync(RestEndpoint, httpContent).ConfigureAwait(false);
+    if (!submitResponse.IsSuccessStatusCode)
+    {
+        await WriteFailedResponse(submitResponse); // ... method not shown ...
+        return;
+    }
+
+    var result = await submitResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+    var obj = JObject.Parse(result);
+    // ... use `obj` dictionary to access results
+}
+```
+
+### <a name="run-a-published-pipeline-using-java"></a>Executar um oleoduto publicado usando Java
+
+O código que se segue mostra uma chamada para um gasoduto que requer autenticação (ver [Configurar a autenticação para os recursos de aprendizagem automática Azure e fluxos de trabalho).](how-to-setup-authentication.md) Se o seu oleoduto for implantado publicamente, não precisa das chamadas que `authKey` produzem. O corte parcial do código não mostra a classe Java e a placa de tratamento de exceções. O código utiliza `Optional.flatMap` para acorrentar funções que podem devolver um vazio `Optional` . O uso de `flatMap` encurtamentos e clarifica o código, mas note que `getRequestBody()` engole exceções.
+
+```java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Optional;
+// JSON library
+import com.google.gson.Gson;
+
+String scoringUri = "scoring-endpoint";
+String tenantId = "your-tenant-id";
+String clientId = "your-client-id";
+String clientSecret = "your-client-secret";
+String resourceManagerUrl = "https://management.azure.com";
+String dataToBeScored = "{ \"ExperimentName\" : \"My_Pipeline\", \"ParameterAssignments\" : { \"pipeline_arg\" : \"20\" }}";
+
+HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
+
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+Optional<String> authBody = getRequestBody(client, tokenAuthenticationRequest);
+Optional<String> authKey = authBody.flatMap(body -> Optional.of(gson.fromJson(body, AuthenticationBody.class).access_token);;
+Optional<HttpRequest> scoringRequest = authKey.flatMap(key -> Optional.of(scoringRequest(key, scoringUri, dataToBeScored)));
+Optional<String> scoringResult = scoringRequest.flatMap(req -> getRequestBody(client, req));
+// ... etc (`scoringResult.orElse()`) ... 
+
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl)
+{
+    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
+    String clientIdParam = String.format("client_id=%s", clientId);
+    String resourceParam = String.format("resource=%s", resourceManagerUrl);
+    String clientSecretParam = String.format("client_secret=%s", clientSecret);
+
+    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
+
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(authUrl))
+        .POST(HttpRequest.BodyPublishers.ofString(bodyString))
+        .build();
+    return request;
+}
+
+static HttpRequest scoringRequest(String authKey, String scoringUri, String dataToBeScored)
+{
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(scoringUri))
+        .header("Authorization", String.format("Token %s", authKey))
+        .POST(HttpRequest.BodyPublishers.ofString(dataToBeScored))
+        .build();
+    return request;
+
+}
+
+static Optional<String> getRequestBody(HttpClient client, HttpRequest request) {
+    try {
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        if (response.statusCode() != 200) {
+            System.out.println(String.format("Unexpected server response %d", response.statusCode()));
+            return Optional.empty();
+        }
+        return Optional.of(response.body());
+    }catch(Exception x)
+    {
+        System.out.println(x.toString());
+        return Optional.empty();
+    }
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
+}
+```
+
 ### <a name="changing-datasets-and-datapaths-without-retraining"></a>Alteração de conjuntos de dados e datapats sem reconversão
 
-Pode querer treinar e inferir diferentes conjuntos de dados e datapats. Por exemplo, pode desejar treinar num conjunto de dados mais pequeno e escasso, mas inferência no conjunto de dados completo. Troque os conjuntos de dados com `DataSetDefinitionValueAssignments` a chave no argumento do `json` pedido. Muda-se os caminhos de dados com `DataPathAssignments` . A técnica para ambos é semelhante:
+Pode querer treinar e inferir diferentes conjuntos de dados e datapats. Por exemplo, pode desejar treinar num conjunto de dados mais pequeno, mas inferência no conjunto de dados completo. Troque os conjuntos de dados com `DataSetDefinitionValueAssignments` a chave no argumento do `json` pedido. Muda-se os caminhos de dados com `DataPathAssignments` . A técnica para ambos é semelhante:
 
 1. No seu script de definição de pipeline, crie um `PipelineParameter` para o conjunto de dados. Criar a `DatasetConsumptionConfig` ou `DataPath` a partir `PipelineParameter` do:
 
@@ -155,7 +294,7 @@ Os cadernos [que mostram dataset e PipelineParameter](https://github.com/Azure/M
 
 ## <a name="create-a-versioned-pipeline-endpoint"></a>Criar um ponto final de pipeline em versão
 
-Pode criar um Pipeline Endpoint com vários oleodutos publicados por trás. Isto dá-lhe um ponto final de REST fixo à medida que se emite e atualiza os seus gasodutos ML.
+Pode criar um Pipeline Endpoint com vários oleodutos publicados por trás. Esta técnica dá-lhe um ponto final de REST fixo à medida que se itera e atualiza os seus gasodutos ML.
 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
@@ -201,9 +340,9 @@ Também pode executar um oleoduto publicado a partir do estúdio:
 
 1. [Veja o seu espaço de trabalho.](how-to-manage-workspace.md#view)
 
-1. À esquerda, selecione **Endpoints**.
+1. À esquerda, selecione **Endpoints** .
 
-1. Por cima, selecione **os pontos finais do Pipeline**.
+1. Por cima, selecione **os pontos finais do Pipeline** .
  ![lista de oleodutos publicados machine learning](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
 
 1. Selecione um gasoduto específico para executar, consumir ou rever os resultados de execuções anteriores do ponto final do gasoduto.

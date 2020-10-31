@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: 467b8506eb0cafc61731a69804c70b8080ab21c2
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 649abf6d07a95c7f20f6416f7d3155f8d115782b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042441"
+ms.locfileid: "93127574"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Fluxo de dados como entrada no Stream Analytics
 
@@ -38,7 +38,7 @@ Pode utilizar o [portal Azure,](stream-analytics-quick-create-portal.md) [Visual
 
 A Azure Event Hubs fornece investidores de eventos altamente escaláveis. Um centro de eventos pode recolher milhões de eventos por segundo para que possa processar e analisar as quantidades massivas de dados produzidos pelos seus dispositivos e aplicações conectados. Em conjunto, os Event Hubs e stream Analytics fornecem uma solução de ponta a ponta para análises em tempo real. O Event Hubs permite-lhe alimentar eventos em Azure em tempo real, e os trabalhos do Stream Analytics podem processar esses eventos em tempo real. Por exemplo, pode enviar cliques web, leituras de sensores ou eventos de registo on-line para Os Centros de Eventos. Em seguida, pode criar trabalhos stream Analytics para usar os Centros de Eventos como fluxos de dados de entrada para filtragem, agregação e correlação em tempo real.
 
-`EventEnqueuedUtcTime` é o tempo de chegada de um evento num centro de eventos e é o horário padrão de eventos vindos de Event Hubs para Stream Analytics. Para processar os dados como um stream utilizando um timetamp na carga útil do evento, deve utilizar a palavra-chave [TIMETAMP BY.](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)
+`EventEnqueuedUtcTime` é o tempo de chegada de um evento num centro de eventos e é o horário padrão de eventos vindos de Event Hubs para Stream Analytics. Para processar os dados como um stream utilizando um timetamp na carga útil do evento, deve utilizar a palavra-chave [TIMETAMP BY.](/stream-analytics-query/timestamp-by-azure-stream-analytics)
 
 ### <a name="event-hubs-consumer-groups"></a>Grupos de consumidores de centros de eventos
 
@@ -56,7 +56,7 @@ A tabela seguinte explica cada propriedade na página **de entrada Nova** no por
 | **Nome do Hub de Eventos** | O nome do centro de eventos para usar como entrada. |
 | **Nome da política do Hub de Eventos** | A política de acesso partilhado que dá acesso ao Centro de Eventos. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. Esta opção é preenchida automaticamente, a menos que selecione a opção para fornecer manualmente as definições do Centro de Eventos.|
 | **Grupo de consumidores Event Hub** (recomendado) | É altamente recomendado utilizar um grupo de consumidores distinto para cada trabalho stream Analytics. Esta cadeia identifica o grupo de consumidores para usar para ingerir dados do centro de eventos. Se nenhum grupo de consumidores for especificado, o trabalho stream Analytics utiliza o grupo de consumidores $Default.  |
-| **Chave de partição** | Este é um campo opcional que só está disponível se o seu trabalho estiver configurado para utilizar o nível de [compatibilidade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 ou superior. Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade aqui. Isto é usado para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY neste imóvel. Se este trabalho utilizar o nível de compatibilidade 1.2 ou superior, este campo não é de "PartitionId". |
+| **Chave de partição** | Este é um campo opcional que só está disponível se o seu trabalho estiver configurado para utilizar o nível de [compatibilidade](./stream-analytics-compatibility-level.md) 1.2 ou superior. Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade aqui. Isto é usado para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY neste imóvel. Se este trabalho utilizar o nível de compatibilidade 1.2 ou superior, este campo não é de "PartitionId". |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro, ou [Outro (Protobuf, XML, proprietário...)](custom-deserializer.md)do fluxo de dados de entrada.  Certifique-se de que o formato JSON está alinhado com a especificação e não inclui a liderança 0 para números decimais. |
 | **Encoding** (Codificação) | UtF-8 é atualmente o único formato de codificação suportado. |
 | **Tipo de compressão de eventos** | O tipo de compressão utilizado para ler o fluxo de dados de entrada, como Nenhum (padrão), GZip ou Deflate. |
@@ -80,14 +80,14 @@ FROM Input
 ```
 
 > [!NOTE]
-> Ao utilizar o Event Hub como ponto final para rotas IoT Hub, pode aceder aos metadados IoT Hub utilizando a [função GetMetadataPropertyValue](https://docs.microsoft.com/stream-analytics-query/getmetadatapropertyvalue).
+> Ao utilizar o Event Hub como ponto final para rotas IoT Hub, pode aceder aos metadados IoT Hub utilizando a [função GetMetadataPropertyValue](/stream-analytics-query/getmetadatapropertyvalue).
 > 
 
 ## <a name="stream-data-from-iot-hub"></a>Dados de fluxo do IoT Hub
 
 Azure IoT Hub é um evento altamente escalável de publicação-subscrição ou otimizado para cenários IoT.
 
-O horário padrão de eventos provenientes de um Hub IoT em Stream Analytics é o tempotampido que o evento chegou ao IoT Hub, que é `EventEnqueuedUtcTime` . Para processar os dados como um stream utilizando um timetamp na carga útil do evento, deve utilizar a palavra-chave [TIMETAMP BY.](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)
+O horário padrão de eventos provenientes de um Hub IoT em Stream Analytics é o tempotampido que o evento chegou ao IoT Hub, que é `EventEnqueuedUtcTime` . Para processar os dados como um stream utilizando um timetamp na carga útil do evento, deve utilizar a palavra-chave [TIMETAMP BY.](/stream-analytics-query/timestamp-by-azure-stream-analytics)
 
 ### <a name="iot-hub-consumer-groups"></a>Grupos de consumidores Iot Hub
 
@@ -106,7 +106,7 @@ A tabela seguinte explica cada propriedade na página **de entrada Nova** no por
 | **Nome da política de acesso partilhado** | A política de acesso partilhado que dá acesso ao IoT Hub. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. |
 | **Chave de política de acesso compartilhado** | A chave de acesso partilhada usada para autorizar o acesso ao IoT Hub.  Esta opção é automaticamente preenchida a menos que selecione a opção para fornecer manualmente as definições do Iot Hub. |
 | **Grupo de consumidores** | É altamente recomendável que utilize um grupo de consumidores diferente para cada trabalho stream Analytics. O grupo de consumidores é utilizado para ingerir dados do IoT Hub. O Stream Analytics utiliza o grupo de consumidores $Default, a menos que especifique o contrário.  |
-| **Chave de partição** | Este é um campo opcional que só está disponível se o seu trabalho estiver configurado para utilizar o nível de [compatibilidade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 ou superior. Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade aqui. Isto é usado para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY neste imóvel. Se este trabalho utilizar o nível de compatibilidade 1.2 ou superior, este campo não é de "PartitionId". |
+| **Chave de partição** | Este é um campo opcional que só está disponível se o seu trabalho estiver configurado para utilizar o nível de [compatibilidade](./stream-analytics-compatibility-level.md) 1.2 ou superior. Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade aqui. Isto é usado para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY neste imóvel. Se este trabalho utilizar o nível de compatibilidade 1.2 ou superior, este campo não é de "PartitionId". |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro, ou [Outro (Protobuf, XML, proprietário...)](custom-deserializer.md)do fluxo de dados de entrada.  Certifique-se de que o formato JSON está alinhado com a especificação e não inclui a liderança 0 para números decimais. |
 | **Encoding** (Codificação) | UtF-8 é atualmente o único formato de codificação suportado. |
 | **Tipo de compressão de eventos** | O tipo de compressão utilizado para ler o fluxo de dados de entrada, como Nenhum (padrão), GZip ou Deflate. |
@@ -137,7 +137,7 @@ Se uma bolha for enviada para um recipiente de conta de armazenamento às 13:00,
 
 Se um trabalho do Azure Stream Analytics for iniciado a ser utilizado *agora* às 13:00, e uma bolha for enviada para o contentor da conta de armazenamento às 13:01, o Azure Stream Analytics irá recolher a bolha. O tempotabo atribuído a cada bolha baseia-se apenas `BlobLastModifiedTime` em . A pasta em que se encontra a bolha não tem qualquer relação com o tempotando atribuído. Por exemplo, se houver uma bolha *2019/10-01/b1.txt* com um `BlobLastModifiedTime` de 2019-11-11, então o tempotando atribuído a esta bolha é 2019-11-11.
 
-Para processar os dados como um stream utilizando um timetamp na carga útil do evento, deve utilizar a palavra-chave [TIMETAMP BY.](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) Um trabalho stream Analytics retira dados do armazenamento Azure Blob ou da entrada ADLS Gen2 a cada segundo se o ficheiro blob estiver disponível. Se o ficheiro blob não estiver disponível, existe um recuo exponencial com um atraso máximo de 90 segundos.
+Para processar os dados como um stream utilizando um timetamp na carga útil do evento, deve utilizar a palavra-chave [TIMETAMP BY.](/stream-analytics-query/stream-analytics-query-language-reference) Um trabalho stream Analytics retira dados do armazenamento Azure Blob ou da entrada ADLS Gen2 a cada segundo se o ficheiro blob estiver disponível. Se o ficheiro blob não estiver disponível, existe um recuo exponencial com um atraso máximo de 90 segundos.
 
 As entradas formatadas por CSV requerem uma linha de cabeçalho para definir campos para o conjunto de dados, e todos os campos de linha de cabeçalho devem ser únicos.
 
@@ -157,10 +157,10 @@ A tabela seguinte explica cada propriedade na página **de entrada Nova** no por
 | **Conta de armazenamento** | O nome da conta de armazenamento onde estão os ficheiros blob. |
 | **Chave da conta de armazenamento** | A chave secreta associada à conta de armazenamento. Esta opção é preenchida automaticamente a menos que selecione a opção de fornecer as definições manualmente. |
 | **Container** (Contentor) | Os recipientes fornecem um agrupamento lógico para bolhas. Pode escolher o recipiente **existente** ou  **criar um novo** recipiente para criar um novo recipiente.|
-| **Padrão de caminho** (opcional) | O caminho do ficheiro utilizado para localizar as bolhas dentro do recipiente especificado. Se quiser ler bolhas da raiz do recipiente, não descreva um padrão de caminho. Dentro do caminho, pode especificar uma ou mais instâncias das seguintes três variáveis: `{date}` `{time}` , ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O `*` personagem não é um valor permitido para o prefixo do caminho. Apenas <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">são permitidos caracteres blob Azure</a> válidos. Não inclua nomes de contentores ou nomes de ficheiros. |
+| **Padrão de caminho** (opcional) | O caminho do ficheiro utilizado para localizar as bolhas dentro do recipiente especificado. Se quiser ler bolhas da raiz do recipiente, não descreva um padrão de caminho. Dentro do caminho, pode especificar uma ou mais instâncias das seguintes três variáveis: `{date}` `{time}` , ou `{partition}`<br/><br/>Exemplo 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Exemplo 2: `cluster1/logs/{date}`<br/><br/>O `*` personagem não é um valor permitido para o prefixo do caminho. Apenas <a HREF="/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata">são permitidos caracteres blob Azure</a> válidos. Não inclua nomes de contentores ou nomes de ficheiros. |
 | **Formato de data** (opcional) | Se utilizar a variável de data no caminho, o formato de data em que os ficheiros são organizados. Exemplo: `YYYY/MM/DD` <br/><br/> Quando a entrada blob tem `{date}` ou `{time}` no seu caminho, as pastas são vistas em ordem de tempo ascendente.|
 | **Formato de tempo** (opcional) |  Se utilizar a variável de tempo no caminho, o formato de tempo em que os ficheiros são organizados. Atualmente, o único valor suportado é `HH` de horas. |
-| **Chave de partição** | Este é um campo opcional que só está disponível se o seu trabalho estiver configurado para utilizar o nível de [compatibilidade](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1.2 ou superior. Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade aqui. Isto é usado para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY neste imóvel. Se este trabalho utilizar o nível de compatibilidade 1.2 ou superior, este campo não é de "PartitionId". |
+| **Chave de partição** | Este é um campo opcional que só está disponível se o seu trabalho estiver configurado para utilizar o nível de [compatibilidade](./stream-analytics-compatibility-level.md) 1.2 ou superior. Se a sua entrada for dividida por uma propriedade, pode adicionar o nome desta propriedade aqui. Isto é usado para melhorar o desempenho da sua consulta se inclui uma cláusula PARTITION BY ou GROUP BY neste imóvel. Se este trabalho utilizar o nível de compatibilidade 1.2 ou superior, este campo não é de "PartitionId". |
 | **Contagem de divisórias de entrada** | Este campo só está presente quando {partition} está presente no padrão do caminho. O valor desta propriedade é um inteiro >=1. Onde quer que {partition} apareça no pathPattern, será utilizado um número entre 0 e o valor deste campo -1. |
 | **Formato de serialização de eventos** | O formato de serialização (JSON, CSV, Avro, ou [Outro (Protobuf, XML, proprietário...)](custom-deserializer.md)do fluxo de dados de entrada.  Certifique-se de que o formato JSON está alinhado com a especificação e não inclui a liderança 0 para números decimais. |
 | **Encoding** (Codificação) | Para cSV e JSON, UTF-8 é atualmente o único formato de codificação suportado. |
@@ -194,5 +194,5 @@ FROM Input
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

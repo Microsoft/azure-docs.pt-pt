@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: ca5bdf606b51b4019bd9e655d172733074febd39
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: bd5e05f38d34199d9012c52ca3fdad33af231aad
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078020"
+ms.locfileid: "93127990"
 ---
 # <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Quickstart: Criar uma cache de nível Enterprise (pré-visualização)
 
@@ -29,7 +29,7 @@ Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie 
 
 1. Na página **Nova,** selecione **Bases de Dados** e, em seguida, selecione **Azure Cache para Redis** .
    
-   ![Selecione Azure Cache para Redis](media/cache-create/new-cache-menu.png)
+   :::image type="content" source="media/cache-create/new-cache-menu.png" alt-text="Selecione Azure Cache para Redis":::
    
 1. Na página **New Redis Cache,** configufique as definições para o seu novo cache.
    
@@ -41,10 +41,7 @@ Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie 
    | **Localização** | Desça e selecione um local. | Os níveis de empresa estão disponíveis em regiões de Azure limitadas durante a pré-visualização. |
    | **Tipo cache** | Desça e selecione um nível *Enterprise* ou *Enterprise Flash* e um tamanho. |  O nível determina o tamanho, desempenho e funcionalidades que estão disponíveis para a cache. |
    
-   ![Básicos de nível da empresa](media/cache-create/enterprise-tier-basics.png) 
-
-   > [!NOTE] 
-   > Certifique-se de verificar a caixa em "Termos" antes de prosseguir.
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Selecione Azure Cache para Redis" antes de prosseguir.
    >
 
 1. Selecione **Seguinte: Networking** e saltar.
@@ -53,11 +50,11 @@ Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie 
    > A opção de ligação privada está a ser lançada e pode não estar disponível imediatamente na sua região.
    >
 
-1. Selecione **Seguinte: Avançado** .
+1. Selecione **Seguinte: Política avançada** e definida **de clustering** para a **Enterprise** .
    
    Pode manter as definições predefinidos ou alterá-las conforme apropriado. Ao **ligar, permita o acesso apenas através do TLS,** tem de utilizar o TLS para aceder à nova cache a partir da sua aplicação.
 
-   ![Nível de empresa avançado](media/cache-create/enterprise-tier-advanced.png) 
+   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Selecione Azure Cache para Redis":::
 
    > [!NOTE] 
    > Os Módulos Redis ainda não estão suportados no nível Enterprise Flash. Se planeia utilizar um Módulo Redis, não se esqueça de escolher uma cache de nível Enterprise.
@@ -67,7 +64,7 @@ Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie 
 
 1. Selecione **Seguinte: Rever + criar** .
 
-   ![Resumo do nível da empresa](media/cache-create/enterprise-tier-summary.png) 
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Selecione Azure Cache para Redis":::
 
 1. Reveja as definições e clique em **Criar** .
    
