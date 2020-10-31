@@ -6,24 +6,30 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7f177a7801e18bcdb2c2d6ef737f0c790cf6b1d1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057761"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075794"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Aceder ao Armazenamento do Microsoft Azure como uma partilha de rede de um contentor no Serviço de Aplicações
+# <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Access Azure Storage (pré-visualização) como uma partilha de rede a partir de um contentor no Serviço de Aplicações
 
 ::: zone pivot="container-windows"
 
 Este guia mostra como anexar os Ficheiros de Armazenamento Azure como uma partilha de rede a um contentor de janelas no Serviço de Aplicações. Apenas [a Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) e Premium Files [Shares](../storage/files/storage-how-to-create-premium-fileshare.md) são suportadas. Os benefícios incluem conteúdo seguro, portabilidade do conteúdo, acesso a várias aplicações e múltiplos métodos de transferência.
+
+> [!NOTE]
+>O Azure Storage in App Service está **em pré-visualização** e **não é suportado** para **cenários de produção** .
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
 Este guia mostra como ligar o Azure Storage a um Serviço de Aplicações para contentores Linux. Os benefícios incluem conteúdo seguro, portabilidade do conteúdo, armazenamento persistente, acesso a várias aplicações e múltiplos métodos de transferência.
+
+> [!NOTE]
+>O Azure Storage in App Service está **em pré-visualização** para o Serviço de Aplicações em Linux e Web App para Contentores. Não é **apoiado** para cenários de **produção.**
 
 ::: zone-end
 
@@ -53,7 +59,6 @@ Este guia mostra como ligar o Azure Storage a um Serviço de Aplicações para c
 
 ::: zone pivot="container-windows"
 
-- O Azure Storage in App Service está **em pré-visualização** e **não é suportado** para **cenários de produção**.
 - A Azure Storage in App Service não é atualmente **suportada** para trazer os seus próprios cenários de código (aplicações windows não contentorizadas).
 - O Azure Storage in App Service **não suporta** a utilização da configuração de Firewall de **Armazenamento** devido a limitações de infraestrutura.
 - O Azure Storage com Serviço de Aplicações permite especificar **até cinco** pontos de montagem por aplicação.
@@ -63,7 +68,6 @@ Este guia mostra como ligar o Azure Storage a um Serviço de Aplicações para c
 
 ::: zone pivot="container-linux"
 
-- O Azure Storage in App Service está **em pré-visualização** para o Serviço de Aplicações em Linux e Web App para Contentores. Não é **apoiado** para cenários de **produção.**
 - O Azure Storage in App Service suporta a montagem **de recipientes Azure Files** (Ler/ Escrever) e **recipientes Azure Blob** (Read Only)
 - O Azure Storage in App Service permite especificar **até cinco** pontos de montagem por aplicação.
 - O Azure Storage montado numa aplicação não é acessível através de pontos finais ftp/FTPs do Serviço de Aplicações. Utilize [o Explorador de Armazenamento Azure](https://azure.microsoft.com/features/storage-explorer/).

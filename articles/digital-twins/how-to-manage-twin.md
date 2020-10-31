@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 425ee90306de3961c64766f42bd28f668fc9396e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494783"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077953"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -35,14 +35,19 @@ Para criar um gémeo digital, é necessário fornecer:
 * O iD desejado para o gémeo digital
 * O [modelo](concepts-models.md) que quer usar
 
-Opcionalmente, pode fornecer valores iniciais para todas as propriedades do twin digital. 
+Opcionalmente, pode fornecer valores iniciais para todas as propriedades do twin digital. As propriedades são tratadas como opcionais e podem ser definidas mais tarde, mas **não aparecerão como parte de um gémeo até estarem definidas.**
 
-O modelo e os valores iniciais da propriedade são fornecidos através do `initData` parâmetro, que é uma cadeia JSON contendo os dados relevantes. Para obter mais informações sobre a estruturação deste objeto, continue para a secção seguinte.
+>[!NOTE]
+>Embora as propriedades gémeas não tenham de ser inicializadas, quaisquer componentes no **gémeo** precisam de ser [definidos](concepts-models.md#elements-of-a-model) quando o gémeo é criado. Podem ser objetos vazios, mas os próprios componentes devem existir.
+
+O modelo e quaisquer valores de propriedade iniciais são fornecidos através do `initData` parâmetro, que é uma cadeia JSON contendo os dados relevantes. Para obter mais informações sobre a estruturação deste objeto, continue para a secção seguinte.
 
 > [!TIP]
 > Após a criação ou atualização de um gémeo, pode haver uma latência de até 10 segundos antes de as alterações se refletirem em [consultas](how-to-query-graph.md). A `GetDigitalTwin` API (descrita [mais tarde neste artigo)](#get-data-for-a-digital-twin)não experimenta este atraso, por isso, se precisar de uma resposta imediata, use a chamada da API em vez de consultar os seus gémeos recém-criados. 
 
 ### <a name="initialize-model-and-properties"></a>Inicializar modelo e propriedades
+
+Pode inicializar as propriedades de um gémeo no momento em que o gémeo é criado. 
 
 A API de criação gémea aceita um objeto que é serializado numa descrição válida do JSON das propriedades gémeas. Ver [*Conceitos: Gémeos digitais e o gráfico gémeo*](concepts-twins-graph.md) para uma descrição do formato JSON para um gémeo. 
 
@@ -110,7 +115,7 @@ Apenas as propriedades que foram definidas pelo menos uma vez são devolvidas qu
 
 Para recuperar vários gémeos utilizando uma única chamada de API, consulte os exemplos de consulta da API em [*Como-a-: Consultar o gráfico gémeo*](how-to-query-graph.md).
 
-Considere o seguinte modelo (escrito em [Linguagem de Definição de Gémeos Digitais (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)que define uma *Lua*:
+Considere o seguinte modelo (escrito em [Linguagem de Definição de Gémeos Digitais (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)que define uma *Lua* :
 
 ```json
 {
@@ -133,7 +138,7 @@ Considere o seguinte modelo (escrito em [Linguagem de Definição de Gémeos Dig
     ]
 }
 ```
-O resultado de chamar `object result = await client.GetDigitalTwinAsync("my-moon");` um gémeo do tipo *Lua*pode ser assim:
+O resultado de chamar `object result = await client.GetDigitalTwinAsync("my-moon");` um gémeo do tipo *Lua* pode ser assim:
 
 ```json
 {
@@ -164,7 +169,7 @@ O resultado de chamar `object result = await client.GetDigitalTwinAsync("my-moon
 As propriedades definidas do gémeo digital são devolvidas como propriedades de alto nível no twin digital. Os metadados ou informações do sistema que não fazem parte da definição DTDL são devolvidos com um `$` prefixo. As propriedades dos metadados incluem:
 * A identificação do gémeo digital neste exemplo de Azure Digital Twins, como `$dtId` .
 * `$etag`, um campo HTTP padrão atribuído pelo servidor web.
-* Outras propriedades numa `$metadata` secção. Estes incluem:
+* Outras propriedades numa `$metadata` secção. Estas incluem:
     - O DTMI do modelo do gémeo digital.
     - Estado de sincronização para cada propriedade escrita. Isto é mais útil para dispositivos, onde é possível que o serviço e o dispositivo tenham estatutos divergentes (por exemplo, quando um dispositivo está offline). Atualmente, esta propriedade aplica-se apenas a dispositivos físicos ligados ao IoT Hub. Com os dados na secção de metadados, é possível compreender o estado total de uma propriedade, bem como os últimos timetamps modificados. Para obter mais informações sobre o estado de sincronização, consulte [este tutorial do IoT Hub](../iot-hub/tutorial-device-twins.md) sobre o estado do dispositivo sincronizado.
     - Metadados específicos do serviço, como do IoT Hub ou da Azure Digital Twins. 
@@ -276,8 +281,8 @@ Por exemplo, considere o seguinte documento JSON Patch que substitui o campo de 
 Esta operação só será bem sucedida se o gémeo digital for modificado pelo patch em conformidade com o novo modelo. 
 
 Considere o exemplo seguinte:
-1. Imagine um gémeo digital com um modelo de *foo_old.* *foo_old* define uma *massa*de propriedade necessária.
-2. O novo modelo *foo_new* define uma massa de propriedade, e adiciona uma nova *temperatura*de propriedade necessária.
+1. Imagine um gémeo digital com um modelo de *foo_old.* *foo_old* define uma *massa* de propriedade necessária.
+2. O novo modelo *foo_new* define uma massa de propriedade, e adiciona uma nova *temperatura* de propriedade necessária.
 3. Após o patch, o gémeo digital deve ter uma propriedade de massa e temperatura. 
 
 O patch para esta situação precisa atualizar tanto o modelo como a propriedade de temperatura do gémeo, como este:

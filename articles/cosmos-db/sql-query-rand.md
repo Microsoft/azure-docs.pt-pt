@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: ff098da778221868b0eddc17c426d2bf36eec0fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e287f119a67c8bb00a309833e2ad6fe0d88975a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88794331"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076100"
 ---
 # <a name="rand-azure-cosmos-db"></a>RAND (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devolve um valor numérico gerado aleatoriamente a partir de [0,1).
  
 ## <a name="syntax"></a>Syntax

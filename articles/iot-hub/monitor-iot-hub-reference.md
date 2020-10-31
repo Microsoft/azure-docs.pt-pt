@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 8cace120dc823f42f2b2e01e4234ea8d5ace7a69
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 03941c3abe833deb218844cc60e2f04556fccc22
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042944"
+ms.locfileid: "93078208"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Referência de dados do Azure IoT Hub
 
@@ -689,4 +689,4 @@ Para obter uma referência de todos os registos do Monitor Azure / Tabelas de Az
 ## <a name="see-also"></a>Consulte também
 
 * Consulte [o Monitor Azure IoT Hub](monitor-iot-hub.md) para obter uma descrição da monitorização do Azure IoT Hub.
-* Consulte [os recursos de Monitor Azure com o Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) para obter informações sobre a monitorização dos recursos do Azure.
+* Consulte [os recursos de Monitor Azure com o Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) para obter informações sobre a monitorização dos recursos do Azure.

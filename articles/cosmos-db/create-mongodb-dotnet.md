@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0cb5091b9b7d36c70454a65213113d34b29d76c2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 510ff971c5d5924f2266dc93035f42e545906761
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478954"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076242"
 ---
 # <a name="quickstart-build-a-net-web-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Quickstart: Construa uma aplicação web .NET utilizando a API da Azure Cosmos para a MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -131,25 +132,25 @@ Crie uma tarefa e insira-a na coleção
 
 Agora, regresse ao portal do Azure para obter as informações da cadeia de ligação e copie-as para a aplicação.
 
-1. No [portal Azure](https://portal.azure.com/), na sua conta Cosmos, na navegação esquerda clique em **Connection String**e, em seguida, clique em **'Ler-escrever Teclas'** Vai utilizar os botões de copiar no lado direito do ecrã para copiar o Nome de Utilizador, a Palavra-passe e o Anfitrião para o ficheiro Dal.cs no próximo passo.
+1. No [portal Azure](https://portal.azure.com/), na sua conta Cosmos, na navegação esquerda clique em **Connection String** e, em seguida, clique em **'Ler-escrever Teclas'** Vai utilizar os botões de copiar no lado direito do ecrã para copiar o Nome de Utilizador, a Palavra-passe e o Anfitrião para o ficheiro Dal.cs no próximo passo.
 
-2. Abra o ficheiro **Dal.cs** no diretório **DAL**. 
+2. Abra o ficheiro **Dal.cs** no diretório **DAL** . 
 
-3. Copie o valor de **nome de utilizador** a partir do portal (com o botão Copiar) e faça deste o valor de **nome de utilizador** no ficheiro **Dal.cs**. 
+3. Copie o valor de **nome de utilizador** a partir do portal (com o botão Copiar) e faça deste o valor de **nome de utilizador** no ficheiro **Dal.cs** . 
 
-4. Em seguida, copie o valor de **anfitrião** do portal e faça do mesmo o valor de **anfitrião** no ficheiro **Dal.cs**. 
+4. Em seguida, copie o valor de **anfitrião** do portal e faça do mesmo o valor de **anfitrião** no ficheiro **Dal.cs** . 
 
-5. Por fim, copie o valor de **palavra-passe** do portal e faça do mesmo o valor de **palavra-passe** no ficheiro **Dal.cs**. 
+5. Por fim, copie o valor de **palavra-passe** do portal e faça do mesmo o valor de **palavra-passe** no ficheiro **Dal.cs** . 
 
 Atualizou agora a sua aplicação com todas as informações que precisa para comunicar com a Cosmos DB. 
     
 ## <a name="run-the-web-app"></a>Executar a aplicação Web
 
-1. No Visual Studio, clique com o botão direito do rato no projeto no **Explorador de Soluções** e clique em **Gerir Pacotes NuGet**. 
+1. No Visual Studio, clique com o botão direito do rato no projeto no **Explorador de Soluções** e clique em **Gerir Pacotes NuGet** . 
 
-2. Na caixa **Procurar** do NuGet, escreva *MongoDB.Driver*.
+2. Na caixa **Procurar** do NuGet, escreva *MongoDB.Driver* .
 
-3. A partir dos resultados, instale a biblioteca **MongoDB.Driver**. Esta ação instala o pacote MongoDB.Driver, bem como todas as dependências do mesmo.
+3. A partir dos resultados, instale a biblioteca **MongoDB.Driver** . Esta ação instala o pacote MongoDB.Driver, bem como todas as dependências do mesmo.
 
 4. Clique em CTRL + F5 para executar a aplicação. A aplicação é apresentada no browser. 
 
@@ -159,7 +160,7 @@ Atualizou agora a sua aplicação com todas as informações que precisa para co
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

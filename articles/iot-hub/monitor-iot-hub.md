@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: a8f9c46487422deb4513768dff04f559af952f7b
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 577ec9e01310787dacb45a03e1efae128cbab872
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926262"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078225"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitorar hub Azure IoT
 
@@ -85,7 +85,7 @@ Para obter uma lista das métricas da plataforma recolhidas para o Azure IoT Hub
 
 Para as métricas da plataforma IoT Hub que são recolhidas em unidades de contagem, algumas agregações podem não estar disponíveis ou utilizáveis. Para saber mais, consulte [agregações suportadas na referência de dados do Monitor Azure IoT Hub](monitor-iot-hub-reference.md#supported-aggregations).
 
-Algumas métricas do IoT Hub, como [as métricas de encaminhamento,](monitor-iot-hub-reference.md#routing-metrics)são multidimensionais. Para estas métricas, pode aplicar [filtros](/azure-monitor/platform/metrics-charts#apply-filters-to-charts) e [dividir-se](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) nos seus gráficos com base numa dimensão.
+Algumas métricas do IoT Hub, como [as métricas de encaminhamento,](monitor-iot-hub-reference.md#routing-metrics)são multidimensionais. Para estas métricas, pode aplicar [filtros](/azure/azure-monitor/platform/metrics-charts#apply-filters-to-charts) e [dividir-se](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) nos seus gráficos com base numa dimensão.
 
 ## <a name="analyzing-logs"></a>Análise de registos
 

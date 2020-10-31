@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 6b1e2d6e9d5d06410596a40f16869d7c1a0f094e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b7d880183ac5f920bbed1a85d7660db6a8f21462
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490701"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078480"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Encontre a taxa da unidade de pedido para operações executadas na Azure Cosmos DB API para a MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Azure Cosmos DB suporta muitas APIs, tais como SQL, MongoDB, Cassandra, Gremlin e Table. Cada API tem o seu próprio conjunto de operações de base de dados. Estas operações vão desde leituras simples de pontos e escritas a consultas complexas. Cada operação de base de dados consome recursos do sistema com base na complexidade da operação.
 
@@ -33,9 +34,9 @@ A carga RU é exposta por um [comando de base de dados](https://docs.mongodb.com
 
 1. Vá ao painel **do Data Explorer** e, em seguida, selecione o recipiente em que pretende trabalhar.
 
-1. Selecione **Nova Consulta**.
+1. Selecione **Nova Consulta** .
 
-1. Introduza uma consulta válida e, em seguida, selecione **Executar Consulta**.
+1. Introduza uma consulta válida e, em seguida, selecione **Executar Consulta** .
 
 1. Selecione **Estatísticas de Consulta** para mostrar o custo de pedido real para o pedido que executou.
 

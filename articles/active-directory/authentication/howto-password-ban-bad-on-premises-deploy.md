@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3aee10c0682feeea7c74133f908452d1c5595f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968604"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077732"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planear e implementar no local Azure Ative Directory Password Protection
 
@@ -125,7 +125,7 @@ Os seguintes requisitos aplicam-se ao serviço de procuração de senhas Azure A
     * .NET 4.7 já deve ser instalado num Servidor Windows totalmente atualizado. Se necessário, faça o download e executar o instalador encontrado no [instalador offline .NET Framework 4.7 para o Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Todas as máquinas que acolhem o serviço de procuração de proteção de senhas Azure AD devem ser configuradas para conceder aos controladores de domínio a capacidade de iniciar sessão no serviço de procuração. Esta capacidade é controlada através da atribuição de privilégios "Aceder a este computador a partir da rede".
 * Todas as máquinas que acolhem o serviço de procuração de proteção de senhas Azure AD devem ser configuradas para permitir o tráfego de saída TLS 1.2 HTTP.
-* Uma conta *de Administrador Global* para registar o serviço de procuração de senha azure AD e floresta com Azure AD.
+* Uma conta *de administrador* global ou administrador *de segurança* para registar o serviço de procuração de senha azure AD e floresta com Azure AD.
 * O acesso à rede deve ser ativado para o conjunto de portas e URLs especificados nos [procedimentos de configuração do ambiente Proxy de aplicação](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Microsoft Azure AD Connect Agent Updater pré-requisitos
@@ -142,8 +142,8 @@ O serviço Microsoft Azure AD Connect Agent Updater está instalado lado a lado 
 
 Existem dois instaladores necessários para uma implementação de Proteção de Senha Ad Ad no local:
 
-* Agente Azure AD Password Protection DC* (AzureADPasswordProtectionDCAgentSetup.msi*)
-* Azure AD Password Protection proxy* (AzureADPasswordProtectionProxySetup.exe*)
+* Agente Azure AD Password Protection DC *(AzureADPasswordProtectionDCAgentSetup.msi* )
+* Azure AD Password Protection proxy *(AzureADPasswordProtectionProxySetup.exe* )
 
 Descarregue ambos os instaladores do [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -155,9 +155,11 @@ Na secção seguinte, instale os agentes Azure AD Password Protection DC em cont
 
 Escolha um ou mais servidores para hospedar o serviço de procuração de senha azure AD. Aplicam-se as seguintes considerações para o(s) servidor(s):
 
-* Cada um desses serviços só pode fornecer políticas de senha para uma única floresta. A máquina hospedeira deve ser unida a um domínio naquela floresta. Os domínios de raiz e de criança são ambos suportados. Precisa de conectividade de rede entre pelo menos um DC em cada domínio da floresta e a máquina de proteção de senhas.
+* Cada um desses serviços só pode fornecer políticas de senha para uma única floresta. A máquina hospedeira deve ser unida a qualquer domínio naquela floresta.
+* Ele suporta instalar o serviço proxy em domínios de raiz ou criança, ou uma combinação desses.
+* Precisa de conectividade de rede entre pelo menos um DC em cada domínio da floresta e um servidor de procuração de proteção de palavras-passe.
 * Pode executar o serviço de procuração de senha Ad AD Azure num controlador de domínio para testes, mas esse controlador de domínio requer então conectividade à Internet. Esta conectividade pode ser uma preocupação de segurança. Recomendamos esta configuração apenas para testes.
-* Recomendamos pelo menos dois servidores de proteção de senhas Azure AD para redundância, conforme indicado na secção anterior em [considerações de elevada disponibilidade](#high-availability-considerations).
+* Recomendamos pelo menos dois servidores de proteção de senhas Azure AD por floresta para redundância, como indicado na secção anterior sobre [considerações de elevada disponibilidade](#high-availability-considerations).
 * Não é suportado para executar o serviço de procuração de senha Azure AD num controlador de domínio apenas de leitura.
 
 Para instalar o serviço de procuração de proteção de senha azure AD, complete os seguintes passos:
@@ -191,11 +193,11 @@ Para instalar o serviço de procuração de proteção de senha azure AD, comple
     Get-Service AzureADPasswordProtectionProxy | fl
     ```
 
-    O resultado deve mostrar um **Estado** de *Execução*.
+    O resultado deve mostrar um **Estado** de *Execução* .
 
 1. O serviço de procuração está a funcionar na máquina, mas não tem credenciais para comunicar com a Azure AD. Registe o servidor de procuração de proteção de passwords Azure AD com Azure AD utilizando o `Register-AzureADPasswordProtectionProxy` cmdlet.
 
-    Este cmdlet requer credenciais de administrador global para o seu inquilino Azure. Também precisa de privilégios de administrador de domínio ative directory no domínio das raízes da floresta. Este cmdlet também deve ser executado usando uma conta com privilégios de administrador local:
+    Este cmdlet requer credenciais *de Administrador Global* ou Administrador de *Segurança* para o seu inquilino Azure. Este cmdlet também deve ser executado usando uma conta com privilégios de administrador local.
 
     Após este comando ter sucesso uma vez para um serviço de procuração de senha Azure AD, invocações adicionais do mesmo são bem sucedidas, mas são desnecessárias.
 
@@ -233,7 +235,7 @@ Para instalar o serviço de procuração de proteção de senha azure AD, comple
         >
         > Também pode ver o MFA exigido se o Registo do Dispositivo Azure (que é utilizado sob as capas pela Azure AD Password Protection) tiver sido configurado para exigir globalmente MFA. Para contornar este requisito, poderá utilizar uma conta diferente que suporte o MFA com um dos dois modos de autenticação anteriores, ou poderá também relaxar temporariamente o requisito de MFA de Registo do Dispositivo Azure.
         >
-        > Para escoar esta alteração, procure e selecione **O Diretório Ativo Azure** no portal Azure, selecione **dispositivos > Configurações do Dispositivo**. Definir **Requerem que o Multi-Factor Auth se junte aos dispositivos** para *o Nº*. Certifique-se de reconfigurar esta definição de volta para *Sim* uma vez que o registo esteja completo.
+        > Para escoar esta alteração, procure e selecione **O Diretório Ativo Azure** no portal Azure, selecione **dispositivos > Configurações do Dispositivo** . Definir **Requerem que o Multi-Factor Auth se junte aos dispositivos** para *o Nº* . Certifique-se de reconfigurar esta definição de volta para *Sim* uma vez que o registo esteja completo.
         >
         > Recomendamos que os requisitos de MFA sejam ignorados apenas para fins de teste.
 
@@ -246,7 +248,9 @@ Para instalar o serviço de procuração de proteção de senha azure AD, comple
     > [!NOTE]
     > Se vários servidores de proteção de passwords Azure AD forem instalados no seu ambiente, não importa que servidor proxy usa para registar a floresta.
 
-    O cmdlet requer credenciais de administrador global para o seu inquilino Azure. Também deve executar este cmdlet usando uma conta com privilégios de administrador local. Também requer no local privilégios de Administrador de Empresas de Direção Ativa. Este passo é executado uma vez por floresta.
+    O cmdlet requer credenciais *de Administrador Global* ou Administrador de *Segurança* para o seu inquilino Azure. Também requer no local privilégios de Administrador de Empresas de Direção Ativa. Também deve executar este cmdlet usando uma conta com privilégios de administrador local. A conta Azure que é utilizada para registar a floresta pode ser diferente da conta ative directy no local.
+    
+    Este passo é executado uma vez por floresta.
 
     O `Register-AzureADPasswordProtectionForest` cmdlet suporta os seguintes três modos de autenticação. Os dois primeiros modos suportam a autenticação multi-factor Azure, mas o terceiro modo não.
 
@@ -282,7 +286,7 @@ Para instalar o serviço de procuração de proteção de senha azure AD, comple
         >
         > Também pode ver o MFA exigido se o Registo do Dispositivo Azure (que é utilizado sob as capas pela Azure AD Password Protection) tiver sido configurado para exigir globalmente MFA. Para contornar este requisito, poderá utilizar uma conta diferente que suporte o MFA com um dos dois modos de autenticação anteriores, ou poderá também relaxar temporariamente o requisito de MFA de Registo do Dispositivo Azure.
         >
-        > Para escoar esta alteração, procure e selecione **O Diretório Ativo Azure** no portal Azure, selecione **dispositivos > Configurações do Dispositivo**. Definir **Requerem que o Multi-Factor Auth se junte aos dispositivos** para *o Nº*. Certifique-se de reconfigurar esta definição de volta para *Sim* uma vez que o registo esteja completo.
+        > Para escoar esta alteração, procure e selecione **O Diretório Ativo Azure** no portal Azure, selecione **dispositivos > Configurações do Dispositivo** . Definir **Requerem que o Multi-Factor Auth se junte aos dispositivos** para *o Nº* . Certifique-se de reconfigurar esta definição de volta para *Sim* uma vez que o registo esteja completo.
         >
         > Recomendamos que os requisitos de MFA sejam ignorados apenas para fins de teste.
 

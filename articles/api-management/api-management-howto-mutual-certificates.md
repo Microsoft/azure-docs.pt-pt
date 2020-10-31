@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 419de27ad87b113de62dacb0dc384702420afbd6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 980d3ca52016c65301ea72e4e669c4bafea4c053
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071120"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077205"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Como proteger serviços de back-end com a autenticação de certificados de cliente na Gestão de API do Azure
 
@@ -43,15 +43,15 @@ Siga os passos abaixo para fazer o upload de um novo certificado de cliente. Se 
 
 1. Navegue para a sua instância de serviço de Gestão AZure no portal Azure.
 2. Selecione **Certificados** do menu.
-3. Clique no botão **+ Adicionar**.
-    ![Adicionar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+3. Clique no botão **+ Adicionar** .
+    ![Screenshot que realça o botão + Adicionar.](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. Procure o certificado, forneça o seu ID e senha.
-5. Clique em **Criar**.
+5. Clique em **Criar** .
 
 > [!NOTE]
 > O certificado deve estar em formato **.pfx.** Certificados auto-assinados são permitidos.
 
-Uma vez que o certificado é carregado, ele aparece nos **Certificados**.  Se tiver muitos certificados, tome nota da impressão digital do certificado pretendido para [configurar uma API para utilizar um certificado de cliente para autenticação gateway][Configure an API to use a client certificate for gateway authentication].
+Uma vez que o certificado é carregado, ele aparece nos **Certificados** .  Se tiver muitos certificados, tome nota da impressão digital do certificado pretendido para [configurar uma API para utilizar um certificado de cliente para autenticação gateway][Configure an API to use a client certificate for gateway authentication].
 
 > [!NOTE]
 > Para desativar a validação da cadeia de certificados quando utilizar, por exemplo, um certificado auto-assinado, siga os passos descritos neste [artigo](api-management-faq.md#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end)de FAQ .
@@ -73,9 +73,9 @@ Se o certificado for utilizado por uma API, é apresentado um ecrã de aviso. Pa
 
 2. No **separador Design,** clique num ícone de lápis da secção **Backend.**
 3. Altere as **credenciais Gateway** para **o Certificado do Cliente** e selecione o seu certificado a partir do dropdown.
-    ![Ativar certificados de cliente](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
+    ![Screenshot que mostra onde alterar as credenciais de gateway e selecione o seu certificado.](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. Clique em **Guardar**.
+4. Clique em **Guardar** .
 
 > [!WARNING]
 > Esta alteração é eficaz imediatamente, e as chamadas para operações dessa API usarão o certificado para autenticar no servidor back-end.

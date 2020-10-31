@@ -12,14 +12,19 @@ ms.topic: quickstart
 ms.date: 02/27/2020
 ms.author: aahi
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 384a8ccefb5273186a24f54aced41a31f176c5be
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a85a953cfa16ebe1103540b77d6e076e0bd721c0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88934774"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075777"
 ---
 # <a name="quickstart-use-the-bing-custom-search-client-library"></a>Quickstart: Use a biblioteca de clientes Bing Custom Search
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 ::: zone pivot="programming-language-csharp"
 

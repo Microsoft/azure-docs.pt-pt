@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: a6d394fec6e7cf0a230f61ad05c236a1f84dad9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea9cd9cf064b9c07016bc5e166cc4ec4c041b146
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68854026"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078548"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Usando marcadores de decoração para destacar texto
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Bing suporta o destaque do sucesso, que marca termos de consulta (ou outros termos que Bing considera relevantes) nas cadeias de exibição de algumas respostas. Por exemplo, um resultado de página web `name` , e campos podem conter termos de consulta `displayUrl` `snippet` marcados. 
 
@@ -51,7 +56,7 @@ Se o pedido não especificar decorações, o `expression` campo conterá `log10(
 
 Se `textDecorations` for `true` , Bing pode incluir os seguintes marcadores nas cadeias de respostas do visor. Se não houver uma etiqueta HTML equivalente, a célula de mesa está vazia.
 
-|Unicode|HTML|Descrição
+|Unicode|HTML|Description
 |-|-|-
 |U+E000|\<b>|Marca o início do termo de consulta (destaque de sucesso)
 |U+E001|\</b>|Marca o fim do termo de consulta

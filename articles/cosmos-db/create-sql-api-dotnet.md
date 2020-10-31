@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/21/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: cf432910c42716de151aa2e0d36c21bff18d3ed9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: aceb26604d67f42cdbbe1395e3a4b08675d70ea1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482899"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078531"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>Quickstart: Construa uma aplicação de consola .NET para gerir os recursos API API da Azure Cosmos DB SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -49,7 +50,7 @@ Esta secção acompanha-o através da criação de uma conta Azure Cosmos e da c
 
 ### <a name="create-an-azure-cosmos-account"></a><a id="create-account"></a>Criar uma conta do Azure Cosmos
 
-Se utilizar o [Try Azure Cosmos DB para](https://azure.microsoft.com/try/cosmosdb/) opção gratuita para criar uma conta Azure Cosmos, deve criar uma conta DB Azure Cosmos do tipo **SQL API**. Uma conta de teste DB da Azure Cosmos já foi criada para si. Não precisa de criar a conta explicitamente, para que possa saltar esta secção e passar para a secção seguinte.
+Se utilizar o [Try Azure Cosmos DB para](https://azure.microsoft.com/try/cosmosdb/) opção gratuita para criar uma conta Azure Cosmos, deve criar uma conta DB Azure Cosmos do tipo **SQL API** . Uma conta de teste DB da Azure Cosmos já foi criada para si. Não precisa de criar a conta explicitamente, para que possa saltar esta secção e passar para a secção seguinte.
 
 Se tiver a sua própria subscrição Azure ou tiver uma subscrição gratuita, deverá criar uma conta Azure Cosmos explicitamente. O seguinte código criará uma conta Azure Cosmos com consistência da sessão. A conta é replicada em `South Central US` e `North Central US` .  
 
@@ -475,7 +476,7 @@ End of demo, press any key to exit.
 
 Pode validar que os dados são criados assinando no portal Azure e ver os itens necessários na sua conta Azure Cosmos. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não é necessário, pode utilizar o Azure CLI ou o Azure PowerShell para remover a conta Azure Cosmos e o grupo de recursos correspondente. O seguinte comando mostra como eliminar o grupo de recursos utilizando o Azure CLI:
 

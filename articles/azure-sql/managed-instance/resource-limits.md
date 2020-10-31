@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 34f71dfeb0b4e5f94d953137fd45777bf14baa4e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 11c3de703a4b37318b7b99f60d74190fe8ec8610
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790768"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077375"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Descrição geral dos limites de recursos do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -65,14 +65,14 @@ Sql Managed Instance tem dois níveis de serviço: [Final geral](../database/ser
 > [!Important]
 > Business Critical o nível de serviço fornece uma cópia adicional incorporada da SQL Managed Instance (réplica secundária) que pode ser usada para carga de trabalho apenas de leitura. Se conseguir separar consultas de leitura-escrita e consultas de leitura/analítica/reporte, está a receber o dobro dos vCores e da memória pelo mesmo preço. A réplica secundária pode ficar alguns segundos atrás da instância primária, por isso é projetada para descarregar cargas de trabalho de reporte/analítico que não precisam do estado exato dos dados atuais. Na tabela abaixo, **as consultas apenas de leitura** são as consultas que são executadas em réplicas secundárias.
 
-| **Funcionalidade** | **Fins Gerais** | **Crítico para a Empresa** |
+| **Destaque** | **Fins Gerais** | **Crítico para a Empresa** |
 | --- | --- | --- |
 | Número de vCores\* | Gen4: 8, 16, 24<br/>Gen5: 4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5: 4, 8, 16, 24, 32, 40, 64, 80 <br/>\*O mesmo número de vCores é dedicado a consultas apenas de leitura. |
 | Memória máxima | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore)<br/>Adicione mais vCores para obter mais memória. | Gen4: 56 GB - 168 GB (7GB/vCore)<br/>Gen5: 20.4 GB - 408 GB (5.1GB/vCore) para consultas de leitura-escrita<br/>+ mais 20,4 GB - 408 GB (5.1GB/vCore) para consultas só de leitura.<br/>Adicione mais vCores para obter mais memória. |
 | Tamanho máximo de armazenamento de instância (reservado) | - 2 TB para 4 vCores (apenas Gen5)<br/>- 8 TB para outros tamanhos | Gen4: 1 TB <br/> Gen5: <br/>- 1 TB para 4, 8, 16 vCores<br/>- 2 TB para 24 vCores<br/>- 4 TB para 32, 40, 64, 80 vCores |
 | Tamanho máx. da base de dados | Até ao tamanho da instância atualmente disponível (máx. 2 TB - 8 TB dependendo do número de vCores). | Até ao tamanho da instância atualmente disponível (máx. 1 TB - 4 TB dependendo do número de vCores). |
 | Tamanho max tempDB | Limitado a 24 GB/vCore (96 - 1.920 GB) e atualmente disponível tamanho de armazenamento de instância.<br/>Adicione mais vCores para obter mais espaço TempDB.<br/> O tamanho do ficheiro de registo está limitado a 120 GB.| Até o tamanho de armazenamento de instância atualmente disponível. |
-| Número máximo de bases de dados por exemplo | 100, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. | 100, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. |
+| Número máximo de bases de dados por exemplo | 100 bases de dados dos utilizadores, a menos que tenha sido atingido o limite de tamanho de armazenamento de instância. | 100 bases de dados dos utilizadores, a menos que tenha sido atingido o limite de tamanho de armazenamento de instância. |
 | Número máximo de ficheiros de base de dados por exemplo | Até 280, a menos que o tamanho do armazenamento de instância ou o limite [de espaço de armazenamento do disco Azure Premium](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files) tenha sido atingido. | 32.767 ficheiros por base de dados, a menos que o limite de tamanho de armazenamento de instância tenha sido atingido. |
 | Tamanho máximo do ficheiro de dados | Limitado ao tamanho de armazenamento de instâncias atualmente disponível (max 2 TB - 8 TB) e [espaço de atribuição de armazenamento de disco Azure Premium](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Limitado ao tamanho de armazenamento de instâncias atualmente disponível (até 1 TB - 4 TB). |
 | Tamanho do ficheiro de registo máximo | Limitado a 2 TB e atualmente disponível tamanho de armazenamento de instância. | Limitado a 2 TB e atualmente disponível tamanho de armazenamento de instância. |

@@ -11,16 +11,21 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: ad2ac118908f1c1f77ea204ae2400913ac0807cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8523792de5e43cedd35594f8eec8b6517bf69fa
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86147403"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078735"
 ---
 # <a name="add-analytics-to-the-bing-search-apis"></a>Adicione análise às APIs de Pesquisa de Bing
 
-Bing Statistics fornece análise para as APIs de pesquisa de Bing. Estas análises incluem volume de chamadas, cadeias de consulta superior, distribuição geográfica, e muito mais. Pode ativar as Estatísticas Bing no [portal Azure](https://ms.portal.azure.com) navegando para o seu recurso Azure e clicando em **Enable Bing Statistics**.
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+
+Bing Statistics fornece análise para as APIs de pesquisa de Bing. Estas análises incluem volume de chamadas, cadeias de consulta superior, distribuição geográfica, e muito mais. Pode ativar as Estatísticas Bing no [portal Azure](https://ms.portal.azure.com) navegando para o seu recurso Azure e clicando em **Enable Bing Statistics** .
 
 > [!IMPORTANT]
 > * A Bing Statistics não está disponível com recursos no `F0` nível de preços gratuitos.
@@ -44,18 +49,18 @@ Bing atualiza dados de análise a cada 24 horas e mantém até 13 meses de hist�
 
 Por predefinição, os gráficos e gráficos exibem todas as métricas e dados a que tem acesso. Pode filtrar os dados apresentados nos gráficos e gráficos selecionando os recursos, mercados, pontos finais e período de reporte em que está interessado. Pode alterar os seguintes filtros:
 
-- **ID de recurso**: O ID de recurso único que identifica a sua subscrição Azure. A lista contém vários IDs se subscrever mais de um nível de API de pesquisa de Bing. Por predefinição, todos os recursos são selecionados.  
+- **ID de recurso** : O ID de recurso único que identifica a sua subscrição Azure. A lista contém vários IDs se subscrever mais de um nível de API de pesquisa de Bing. Por predefinição, todos os recursos são selecionados.  
   
-- **Mercados**: Os mercados de onde vêm os resultados. Por exemplo, en-us (inglês, Estados Unidos). Por padrão, todos os mercados são selecionados. O `en-WW` mercado é o mercado que a Bing utiliza se a chamada não especificar um mercado e a Bing não conseguir determinar o mercado do utilizador.  
+- **Mercados** : Os mercados de onde vêm os resultados. Por exemplo, en-us (inglês, Estados Unidos). Por padrão, todos os mercados são selecionados. O `en-WW` mercado é o mercado que a Bing utiliza se a chamada não especificar um mercado e a Bing não conseguir determinar o mercado do utilizador.  
   
-- **Pontos finais**: Os pontos finais da API de Pesquisa Bing. A lista contém todos os pontos finais para os quais tem uma subscrição paga. Por predefinição, todos os pontos finais são selecionados.  
+- **Pontos finais** : Os pontos finais da API de Pesquisa Bing. A lista contém todos os pontos finais para os quais tem uma subscrição paga. Por predefinição, todos os pontos finais são selecionados.  
 
-- **Prazo**: O período de reporte. Pode especificar:
-  - **Tudo**: Inclui dados até 13 meses  
-  - **Últimas 24 horas**: Inclui análises das últimas 24 horas  
-  - **Semana passada**: Inclui análises dos 7 dias anteriores  
-  - **Mês passado**: Inclui análises dos 30 dias anteriores  
-  - **Uma gama de datas personalizadas**: Inclui análises a partir da gama de datas especificadas, se disponível  
+- **Prazo** : O período de reporte. Pode especificar:
+  - **Tudo** : Inclui dados até 13 meses  
+  - **Últimas 24 horas** : Inclui análises das últimas 24 horas  
+  - **Semana passada** : Inclui análises dos 7 dias anteriores  
+  - **Mês passado** : Inclui análises dos 30 dias anteriores  
+  - **Uma gama de datas personalizadas** : Inclui análises a partir da gama de datas especificadas, se disponível  
 
 ## <a name="charts-and-graphs"></a>Gráficos e gráficos
 
@@ -67,12 +72,12 @@ For example, if you don't include the User-Agent header in your calls, the dashb
 
 Seguem-se possíveis métricas e restrições de ponto final.
 
-- **Volume de chamadas**: Mostra o número de chamadas efetuadas durante o período de reporte. Se o período de reporte for por um dia, o gráfico mostra o número de chamadas feitas por hora. Caso contrário, o gráfico mostra o número de chamadas efetuadas por dia do período de reporte.  
+- **Volume de chamadas** : Mostra o número de chamadas efetuadas durante o período de reporte. Se o período de reporte for por um dia, o gráfico mostra o número de chamadas feitas por hora. Caso contrário, o gráfico mostra o número de chamadas efetuadas por dia do período de reporte.  
   
   > [!NOTE]
   > O volume de chamadas pode diferir dos relatórios de faturação, que geralmente inclui apenas chamadas bem sucedidas.
 
-- **Principais consultas**: Mostra as principais consultas e o número de ocorrências de cada consulta durante o período de reporte. Pode configurar o número de consultas mostradas. Por exemplo, pode mostrar o top 25, 50 ou 75 consultas. As principais consultas não estão disponíveis para os seguintes pontos finais:  
+- **Principais consultas** : Mostra as principais consultas e o número de ocorrências de cada consulta durante o período de reporte. Pode configurar o número de consultas mostradas. Por exemplo, pode mostrar o top 25, 50 ou 75 consultas. As principais consultas não estão disponíveis para os seguintes pontos finais:  
 
   - /imagens/tendência
   - /imagens/detalhes
@@ -86,19 +91,19 @@ Seguem-se possíveis métricas e restrições de ponto final.
   > [!NOTE]  
   > Alguns termos de consulta podem ser suprimidos para remover informações confidenciais, tais como e-mails, números de telefone, SSN, etc.
 
-- **Distribuição Geográfica**: Os mercados de origem dos resultados da pesquisa. Por exemplo, `en-us` (inglês, Estados Unidos). Bing utiliza o `mkt` parâmetro de consulta para determinar o mercado, se especificado. Caso contrário, bing utiliza sinais como o endereço IP do chamador para determinar o mercado.
+- **Distribuição Geográfica** : Os mercados de origem dos resultados da pesquisa. Por exemplo, `en-us` (inglês, Estados Unidos). Bing utiliza o `mkt` parâmetro de consulta para determinar o mercado, se especificado. Caso contrário, bing utiliza sinais como o endereço IP do chamador para determinar o mercado.
 
-- **Distribuição do Código de Resposta**: Os códigos de estado HTTP de todas as chamadas durante o período de reporte.
+- **Distribuição do Código de Resposta** : Os códigos de estado HTTP de todas as chamadas durante o período de reporte.
 
-- **Call Origin Distribution**: Os tipos de navegadores utilizados pelos utilizadores. Por exemplo, Microsoft Edge, Chrome, Safari e FireFox. As chamadas feitas de fora de um navegador (como bots, Carteiro ou usando caracóis de uma aplicação de consola) estão agrupadas nas Bibliotecas. A origem é determinada utilizando o valor do cabeçalho User-Agent do pedido. Se o pedido não incluir o cabeçalho User-Agent, Bing tenta obter a origem de outros sinais.  
+- **Call Origin Distribution** : Os tipos de navegadores utilizados pelos utilizadores. Por exemplo, Microsoft Edge, Chrome, Safari e FireFox. As chamadas feitas de fora de um navegador (como bots, Carteiro ou usando caracóis de uma aplicação de consola) estão agrupadas nas Bibliotecas. A origem é determinada utilizando o valor do cabeçalho User-Agent do pedido. Se o pedido não incluir o cabeçalho User-Agent, Bing tenta obter a origem de outros sinais.  
 
-- **Distribuição de Pesquisa Segura**: Distribuição de valores de pesquisa seguros. Por exemplo, fora, moderado ou rigoroso. O `safeSearch` parâmetro de consulta contém o valor, se especificado. Caso contrário, Bing predefini o valor a moderado.  
+- **Distribuição de Pesquisa Segura** : Distribuição de valores de pesquisa seguros. Por exemplo, fora, moderado ou rigoroso. O `safeSearch` parâmetro de consulta contém o valor, se especificado. Caso contrário, Bing predefini o valor a moderado.  
 
-- **Respostas Distribuição Solicitada**: A API de Pesquisa Web responde ao que solicitou no `responseFilter` parâmetro de consulta.  
+- **Respostas Distribuição Solicitada** : A API de Pesquisa Web responde ao que solicitou no `responseFilter` parâmetro de consulta.  
 
-- **Respostas Distribuição Devolvida**: As respostas que a API de Pesquisa Web devolveu na resposta.
+- **Respostas Distribuição Devolvida** : As respostas que a API de Pesquisa Web devolveu na resposta.
 
-- **Distribuição do Servidor de Resposta**: O servidor de aplicações que serviu os seus pedidos de API. Os valores possíveis são Bing.com (para o tráfego servido a partir de dispositivos de secretária e portátil) e Bing.com-mobile (para o tráfego servido a partir de dispositivos móveis). O servidor é determinado usando o valor do cabeçalho User-Agent do pedido. Se o pedido não incluir o cabeçalho User-Agent, Bing tenta obter o servidor de outros sinais.
+- **Distribuição do Servidor de Resposta** : O servidor de aplicações que serviu os seus pedidos de API. Os valores possíveis são Bing.com (para o tráfego servido a partir de dispositivos de secretária e portátil) e Bing.com-mobile (para o tráfego servido a partir de dispositivos móveis). O servidor é determinado usando o valor do cabeçalho User-Agent do pedido. Se o pedido não incluir o cabeçalho User-Agent, Bing tenta obter o servidor de outros sinais.
 
 ## <a name="next-steps"></a>Passos seguintes
 

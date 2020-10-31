@@ -9,29 +9,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 10/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4dab75a4e95a7561bc86176816cb402c10de781e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503781"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077426"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Vidas de token configuradas na plataforma de identidade da Microsoft (pré-visualização)
 
-Pode especificar a vida útil de um símbolo emitido pela plataforma de identidade Microsoft. Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização. No entanto, atualmente, não apoiamos a configuração das vidas simbólicas para [os diretores de serviços de identidade geridos.](../managed-identities-azure-resources/overview.md)
-
 > [!IMPORTANT]
-> Depois de 30 de janeiro de 2021, os inquilinos deixarão de poder configurar a atualização e a duração da sessão e o Azure Ative Directory deixará de honrar a configuração de atualização e sinal de sessão existente nas políticas após essa data. Ainda pode configurar o acesso às vidas simbólicas após a reforma.
-> Implementamos capacidades de [gestão de sessão de autenticação](../conditional-access/howto-conditional-access-session-lifetime.md)   no Acesso Condicionado AZURE AD. Pode utilizar esta nova funcionalidade para configurar as vidas de token de atualização, definindo o sinal na frequência. O Acesso Condicional é uma funcionalidade Azure AD Premium P1 e pode avaliar se o prémio é adequado para a sua organação na [página de preços premium.](https://azure.microsoft.com/en-us/pricing/details/active-directory/) 
-> 
-> Para os inquilinos que não utilizem a gestão da sessão de autenticação no Acesso Condicional após a data da reforma, podem esperar que a Azure AD honre a configuração padrão descrita na secção seguinte.
+> Depois de 30 de janeiro de 2021, os inquilinos deixarão de poder configurar a atualização e a duração da sessão e o Azure Ative Directory deixará de honrar a configuração de atualização e sessão em políticas após essa data.
+>
+> Se precisar de continuar a definir o período de tempo antes de um utilizador ser convidado a iniciar novamente o súmis, configurar a frequência de inscrição no Acesso Condicional. Para saber mais sobre o Acesso Condicional, visite a página de preços da [AD Azure.](https://azure.microsoft.com/en-us/pricing/details/active-directory/)
+>
+> Para os inquilinos que não queiram utilizar o Acesso Condicional após a data da reforma, podem esperar que a Azure AD honre a configuração padrão delineada na secção seguinte.
 
 ## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Propriedades de vida simbólicas configuráveis após a reforma
-A configuração de token de atualização e sessão é afetada pelas seguintes propriedades e pelos seus valores respectivamente definidos. Após a retirada da configuração de token de atualização e sessão, a Azure AD apenas honrará o valor padrão descrito abaixo, independentemente de as políticas terem valores personalizados configurados valores personalizados configurados.  
+A configuração de token de atualização e sessão é afetada pelas seguintes propriedades e pelos seus valores respectivamente definidos. Após a retirada da configuração de token de atualização e sessão, a Azure AD apenas honrará o valor padrão descrito abaixo, independentemente de as políticas terem valores personalizados configurados valores personalizados configurados. Ainda pode configurar o acesso às vidas simbólicas após a reforma. 
 
 |Propriedade   |Cadeia de propriedade política    |Afeta |Predefinição |
 |----------|-----------|------------|------------|
@@ -41,13 +40,34 @@ A configuração de token de atualização e sessão é afetada pelas seguintes 
 |Single-Factor Session Token Max Age  |MaxAgeSessionSingleFactor |Fichas de sessão (persistentes e não permanentes)  |Até revogação |
 |Sessão multi-factor Token Max Age  |MaxAgeSessionMultiFactor  |Fichas de sessão (persistentes e não permanentes)  |180 dias |
 
-Pode utilizar o [cmdlet Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) para identificar políticas de vida simbólicas cujos valores de propriedade diferem dos incumprimentos da AD Azure.
+## <a name="identify-configuration-in-scope-of-retirement"></a>Identificar configuração no âmbito da reforma
 
-Para entender melhor como as suas políticas são usadas no seu inquilino, pode utilizar o [cmdlet Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) para identificar quais as aplicações e os principais serviços que estão ligados às suas políticas. 
+Para começar, faça os seguintes passos:
 
-Se o seu inquilino tiver políticas que definam valores personalizados para propriedades de configuração de atualização e sessão, a Microsoft recomenda que atualize essas políticas no âmbito de valores que reflitam os padrão acima descritos. Se não forem feitas alterações, o Azure AD honrará automaticamente os valores predefinidos.  
+1. Descarregue o mais recente lançamento do [Módulo Público Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Executar o `Connect` comando para iniciar seduca na sua conta de administração Azure. Executar este comando cada vez que começar uma nova sessão.
+
+    ```powershell
+    Connect-AzureAD -Confirm
+    ```
+
+1. Para ver todas as políticas que foram criadas na sua organização, gere o [cmdlet Get-AzureADPolicy.](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true)  Quaisquer resultados com valores de propriedade definidos que diferem dos incumprimentos acima indicados estão no âmbito da reforma.
+
+    ```powershell
+    Get-AzureADPolicy -All
+    ```
+
+1. Para ver quais aplicações e principais serviços estão ligados a uma política específica que identificou executar o seguinte [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) cmdlet, substituindo **1a37dad8-5da7-4cc8-87c7-efbc0326cf20** por qualquer um dos seus ids de política. Em seguida, pode decidir se configurar a frequência de acesso condicional ou permanecer com as predefinições Azure AD.
+
+    ```powershell
+    Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
+    ```
+
+Se o seu inquilino tiver políticas que definam valores personalizados para as propriedades de configuração de atualização e sessão, a Microsoft recomenda que atualize essas políticas para valores que reflitam os padrão acima descritos. Se não forem feitas alterações, o Azure AD honrará automaticamente os valores predefinidos.  
 
 ## <a name="overview"></a>Descrição geral
+
+Pode especificar a vida útil de um símbolo emitido pela plataforma de identidade Microsoft. Pode definir durações de tokens para todas as aplicações existentes na sua organização, para uma aplicação multi-inquilino (com várias organizações) ou para um principal de serviço específico na sua organização. No entanto, atualmente, não apoiamos a configuração das vidas simbólicas para [os diretores de serviços de identidade geridos.](../managed-identities-azure-resources/overview.md)
 
 Em Azure AD, um objeto de política representa um conjunto de regras que são aplicadas em aplicações individuais ou em todas as aplicações de uma organização. Cada tipo de política tem uma estrutura única, com um conjunto de propriedades que são aplicadas a objetos aos quais são atribuídos.
 
@@ -77,7 +97,7 @@ A confirmação do assunto NotOnOrAfter especificada no `<SubjectConfirmationDat
 
 ### <a name="refresh-tokens"></a>Fichas de atualização
 
-Quando um cliente adquire um token de acesso para aceder a um recurso protegido, o cliente também recebe um token de atualização. O token refresh é usado para obter novos pares de token de acesso/atualização quando o token de acesso atual expirar. Um token de atualização está ligado a uma combinação de utilizador e cliente. Um token de atualização pode ser [revogado a qualquer momento](access-tokens.md#token-revocation), e a validade do token é verificada sempre que o token é usado.  Os tokens refresh não são revogados quando usados para obter novos tokens de acesso - é melhor prática, no entanto, apagar de forma segura o velho token quando se consegue um novo. 
+Quando um cliente adquire um token de acesso para aceder a um recurso protegido, o cliente também recebe um token de atualização. O token refresh é usado para obter novos pares de token de acesso/atualização quando o token de acesso atual expirar. Um token de atualização está ligado a uma combinação de utilizador e cliente. Um token de atualização pode ser [revogado a qualquer momento](access-tokens.md#token-revocation), e a validade do token é verificada sempre que o token é usado.  Os tokens refresh não são revogados quando usados para obter novos tokens de acesso - é melhor prática, no entanto, apagar de forma segura o velho token quando se consegue um novo.
 
 É importante fazer uma distinção entre clientes confidenciais e clientes públicos, pois isso tem impacto no tempo de utilização de tokens de atualização. Para obter mais informações sobre diferentes tipos de clientes, consulte [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 

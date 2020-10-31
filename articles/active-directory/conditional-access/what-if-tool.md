@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bebd32d2773ca86638de221d305079bb262e3e5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91631431"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077647"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Resolver problemas com a ferramenta What If no Acesso Condicional
 
-[O Acesso Condicional](./overview.md) é uma capacidade do Azure Ative Directory (Azure AD) que lhe permite controlar a forma como os utilizadores autorizados acedem às suas aplicações na nuvem. Como sabe o que esperar das políticas de Acesso Condicional no seu ambiente? Para responder a esta pergunta, pode utilizar a **ferramenta Acesso Condicional E se for a ferramenta**.
+[O Acesso Condicional](./overview.md) é uma capacidade do Azure Ative Directory (Azure AD) que lhe permite controlar a forma como os utilizadores autorizados acedem às suas aplicações na nuvem. Como sabe o que esperar das políticas de Acesso Condicional no seu ambiente? Para responder a esta pergunta, pode utilizar a **ferramenta Acesso Condicional E se for a ferramenta** .
 
 Este artigo explica como pode utilizar esta ferramenta para testar as suas políticas de Acesso Condicional.
 
@@ -32,7 +32,7 @@ A ferramenta **What If** fornece uma forma de determinar rapidamente as polític
 
 ## <a name="how-it-works"></a>Como funciona
 
-Na **ferramenta Acesso Condicional E se a ferramenta**, primeiro precisa de configurar as definições do cenário de início de sposição que pretende simular. Estas definições incluem:
+Na **ferramenta Acesso Condicional E se a ferramenta** , primeiro precisa de configurar as definições do cenário de início de sposição que pretende simular. Estas definições incluem:
 
 - O utilizador que pretende testar 
 - As aplicações na nuvem que o utilizador tentaria aceder
@@ -46,9 +46,9 @@ Quando a avaliação tiver terminado, a ferramenta gera um relatório das polít
 
 Pode encontrar a ferramenta **E Se** na página Acesso Condicional **[- Políticas](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** no portal Azure.
 
-Para iniciar a ferramenta, na barra de ferramentas no topo da lista de políticas, clique em **E Se**.
+Para iniciar a ferramenta, na barra de ferramentas no topo da lista de políticas, clique em **E Se** .
 
-![Hipótese](./media/what-if-tool/01.png)
+:::image type="content" source="./media/what-if-tool/01.png" alt-text="Screenshot do Acesso Condicional - Página de políticas no portal Azure. Na barra de ferramentas, o E se o item for realçado." border="false":::
 
 Antes de poder fazer uma avaliação, tem de configurar as definições.
 
@@ -56,7 +56,7 @@ Antes de poder fazer uma avaliação, tem de configurar as definições.
 
 Esta secção fornece-lhe informações sobre as definições de simulação executadas.
 
-![Hipótese](./media/what-if-tool/02.png)
+:::image type="content" source="./media/what-if-tool/02.png" alt-text="Screenshot do Acesso Condicional - Página de políticas no portal Azure. Na barra de ferramentas, o E se o item for realçado." border="false":::
 
 ### <a name="user"></a>Utilizador
 
@@ -64,7 +64,7 @@ Só é possível selecionar um utilizador. Este é o único campo necessário.
 
 ### <a name="cloud-apps"></a>Aplicações na cloud
 
-O padrão desta definição é **Todas as aplicações em nuvem**. A definição predefinida realiza uma avaliação de todas as políticas disponíveis no seu ambiente. Pode reduzir o âmbito de aplicações que afetam aplicações específicas na nuvem.
+O padrão desta definição é **Todas as aplicações em nuvem** . A definição predefinida realiza uma avaliação de todas as políticas disponíveis no seu ambiente. Pode reduzir o âmbito de aplicações que afetam aplicações específicas na nuvem.
 
 ### <a name="ip-address"></a>Endereço IP
 
@@ -72,12 +72,12 @@ O endereço IP é um único endereço IPv4 para imitar a [condição de localiza
 
 ### <a name="device-platforms"></a>Plataformas de dispositivos
 
-Esta definição imita a condição das plataformas do [dispositivo](concept-conditional-access-conditions.md#device-platforms) e representa o equivalente a todas as **plataformas (incluindo não suportadas)**. 
+Esta definição imita a condição das plataformas do [dispositivo](concept-conditional-access-conditions.md#device-platforms) e representa o equivalente a todas as **plataformas (incluindo não suportadas)** . 
 
 ### <a name="client-apps"></a>Aplicações do cliente
 
 Esta definição imita a condição de aplicações do [cliente.](concept-conditional-access-conditions.md#client-apps)
-Por padrão, esta definição causa uma avaliação de todas as políticas com aplicações **do Navegador** ou Mobile e clientes de desktop individualmente ou ambos **selecionados.** Também deteta políticas que impõem **o Exchange ActiveSync (EAS)**. Pode reduzir esta definição selecionando:
+Por padrão, esta definição causa uma avaliação de todas as políticas com aplicações **do Navegador** ou Mobile e clientes de desktop individualmente ou ambos **selecionados.** Também deteta políticas que impõem **o Exchange ActiveSync (EAS)** . Pode reduzir esta definição selecionando:
 
 - **Navegador** para avaliar todas as políticas tendo pelo menos **o Browser** selecionado. 
 - **Aplicativos móveis e clientes de desktop** para avaliar todas as políticas com pelo menos **aplicações móveis e clientes de desktop selecionados.** 
@@ -88,9 +88,9 @@ Esta definição imita a [condição de risco de inscrição](concept-conditiona
 
 ## <a name="evaluation"></a>Avaliação 
 
-Inicia-se uma avaliação clicando **em E Se**. O resultado da avaliação fornece-lhe um relatório que consiste em: 
+Inicia-se uma avaliação clicando **em E Se** . O resultado da avaliação fornece-lhe um relatório que consiste em: 
 
-![Hipótese](./media/what-if-tool/03.png)
+:::image type="content" source="./media/what-if-tool/03.png" alt-text="Screenshot do Acesso Condicional - Página de políticas no portal Azure. Na barra de ferramentas, o E se o item for realçado." border="false":::
 
 - Um indicador se as políticas clássicas existem no seu ambiente
 - Políticas aplicáveis ao seu utilizador

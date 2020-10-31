@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use Azure Cache para Redis com aplicações .NET Core'
+title: 'Quickstart: Use Azure Cache para Redis em .NET Core'
 description: Neste quickstart, aprenda a aceder a Azure Cache para Redis nas suas aplicações .NET Core
 author: yegu-ms
 ms.author: yegu
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 12466f64daa699925e4e184536b2d50c5fb89847
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 945d4a3d2bba84bf8f5973fd8dec092c66794c11
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547729"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077086"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Quickstart: Use Azure Cache para Redis com uma aplicação .NET Core
+# <a name="quickstart-use-azure-cache-for-redis-in-net-core"></a>Quickstart: Use Azure Cache para Redis em .NET Core
 
 Neste quickstart, incorpora o Azure Cache para Redis numa aplicação .NET Core para ter acesso a uma cache segura e dedicada que esteja acessível a partir de qualquer aplicação dentro do Azure. Utilize especificamente o cliente [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) com código C# numa aplicação de consola .NET Core.
 
@@ -283,7 +283,7 @@ dotnet run
 ![Aplicação de consola concluída](./media/cache-dotnet-core-quickstart/cache-console-app-complete.png)
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se avançar para o próximo tutorial, pode manter os recursos que criou neste início rápido e reutilizá-los.
 

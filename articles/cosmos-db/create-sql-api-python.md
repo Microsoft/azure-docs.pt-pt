@@ -13,14 +13,15 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: aa23f6d5d7b81e93145fd7db3fb5b45e46918d21
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c74da5e612609ce6a0525b24e5868059f06da179
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487590"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078786"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma aplicação Python utilizando uma conta API API API AZure Cosmos DB SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -57,7 +58,7 @@ Neste quickstart, você cria e gere uma conta API API AZURE Cosmos DB SQL a part
 
 Pode agora utilizar a ferramenta Data Explorer no portal Azure para criar uma base de dados e um recipiente. 
 
-1. Selecione **data explorer**  >  **novo recipiente**. 
+1. Selecione **data explorer**  >  **novo recipiente** . 
     
     A área **do Recipiente Adicionar** é apresentada na extrema direita, pode ser necessário deslocar-se para a frente para o ver.
 
@@ -67,14 +68,14 @@ Pode agora utilizar a ferramenta Data Explorer no portal Azure para criar uma ba
 
     |Definição|Valor sugerido|Descrição
     |---|---|---|
-    |**ID da Base de Dados**|Tarefas|Designe a nova base de dados como *Tarefas*. Os nomes da base de dados devem conter de 1 a 255 caracteres, não podendo conter `/, \\, #, ?` , ou um espaço de fuga. Consulte a opção **de produção da base de dados Provision,** que lhe permite partilhar o produto que está previsto na base de dados em todos os contentores da base de dados. Esta opção também ajuda na poupança de custos. |
+    |**ID da Base de Dados**|Tarefas|Designe a nova base de dados como *Tarefas* . Os nomes da base de dados devem conter de 1 a 255 caracteres, não podendo conter `/, \\, #, ?` , ou um espaço de fuga. Consulte a opção **de produção da base de dados Provision,** que lhe permite partilhar o produto que está previsto na base de dados em todos os contentores da base de dados. Esta opção também ajuda na poupança de custos. |
     |**Débito**|400|Deixe a produção a 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar verticalmente o débito mais tarde.| 
     |**ID do Contentor**|Itens|*Insira os Itens* como o nome do seu novo recipiente. Os IDs dos contentores têm os mesmos requisitos em termos de carateres que os nomes das bases de dados.|
     |**Chave de partição**| /categoria| A amostra descrita neste artigo *utiliza/categoria* como chave de partição.|
     
     Além das definições anteriores, pode opcionalmente adicionar **teclas Únicas** para o recipiente. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política chave única ao criar um recipiente, garante a singularidade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
     
-    Selecione **OK**. O Data Explorer mostra a base de dados e o contentor novos.
+    Selecione **OK** . O Data Explorer mostra a base de dados e o contentor novos.
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
@@ -121,11 +122,11 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 2. No Código do Estúdio Visual, abra o ficheiro *cosmos_get_started.py* em *\git-samples\azure-cosmos-db-python-start-start-start.*
 
-3. Copie o seu valor **URI** a partir do portal (utilizando o botão de cópia) e faça com que o valor da variável **ponto final** em *cosmos_get_started.py*. 
+3. Copie o seu valor **URI** a partir do portal (utilizando o botão de cópia) e faça com que o valor da variável **ponto final** em *cosmos_get_started.py* . 
 
     `endpoint = 'https://FILLME.documents.azure.com',`
 
-4. Em seguida, copie o seu valor **PRINCIPAL DO** portal e faça dele o valor da **chave** em *cosmos_get_started.py*. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
+4. Em seguida, copie o seu valor **PRINCIPAL DO** portal e faça dele o valor da **chave** em *cosmos_get_started.py* . Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB. 
 
     `key = 'FILLME'`
 
@@ -163,7 +164,7 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
    
 ## <a name="run-the-app"></a>Executar a aplicação
 
-1. No Código do **View**Estúdio Visual, selecione  >  **'View Command Palette'.** 
+1. No Código do **View** Estúdio Visual, selecione  >  **'View Command Palette'.** 
 
 2. Na linha de comandos, introduza **Python: Selecione o Interpretador** e, em seguida, selecione a versão do Python a utilizar.
 
@@ -191,7 +192,7 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
     python cosmos_get_started.py
     ```
 
-7. Para confirmar que os novos itens foram criados e guardados, no portal Azure, selecione **Data Explorer**  >  **AzureSampleFamilyDatabase**  >  **Itens**. Veja os itens que foram criados. Por exemplo, aqui está uma amostra do documento JSON para a família Andersen:
+7. Para confirmar que os novos itens foram criados e guardados, no portal Azure, selecione **Data Explorer**  >  **AzureSampleFamilyDatabase**  >  **Itens** . Veja os itens que foram criados. Por exemplo, aqui está uma amostra do documento JSON para a família Andersen:
    
    ```json
    {
@@ -227,7 +228,7 @@ Os seguintes cortes são todos retirados do ficheiro *cosmos_get_started.py.*
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

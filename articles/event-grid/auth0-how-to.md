@@ -3,12 +3,12 @@ title: Como enviar eventos de Auth0 para Azure usando a Azure Event Grid
 description: Como terminar eventos de Auth0 a Azure serviços com Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 6cd440075c6400b58c23f879b53da26abe4f9e75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a66a60cb926b933a6b0628a67506d0d52ab7a905
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103285"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077868"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Integre a grelha de eventos do Azure com a Auth0
 
@@ -67,7 +67,7 @@ Subscrever o tópico de parceiro Auth0 permite-lhe dizer à Grade de Eventos ond
 1. Na lâmina Tópico parceiro para a sua integração Auth0, selecione + Subscrição de eventos no topo.
 1. Na página de subscrição de eventos create:
     1. Insira um nome para a subscrição do evento.
-    1. Selecione o serviço Azure ou WebHook criado para o tipo Endpoint.
+    1. Selecione o serviço Azure ou Webhook que criou para o tipo Endpoint.
     1. Siga as instruções para o serviço em particular.
     1. Clique em Criar.
 
@@ -90,5 +90,5 @@ Os eventos Auth0 são entregues ao Azure através de um mecanismo de streaming. 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Tópico parceiro Auth0](auth0-overview.md)
-- [Visão geral dos tópicos do parceiro](partner-topics-overview.md)
+- [Visão geral dos tópicos do parceiro](partner-events-overview.md)
 - [Torne-se um parceiro de Grade de Eventos](partner-onboarding-overview.md)

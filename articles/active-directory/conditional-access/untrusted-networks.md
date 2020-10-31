@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab9d544cc205d2971b2097110d8c36c5d85fa1fd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e4c020a9be7683bf045dbcc747dad3cb45058dd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144999"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077681"
 ---
 # <a name="how-to-require-mfa-for-access-from-untrusted-networks-with-conditional-access"></a>Como: Exigir MFA para acesso a partir de redes não fidedquipantes com Acesso Condicional   
 
@@ -54,11 +54,11 @@ Em vez de tentar definir quais são todos os locais que não são de confiança,
 
 - Incluir qualquer localização 
 
-   ![Acesso Condicional](./media/untrusted-networks/02.png)
+   :::image type="content" source="./media/untrusted-networks/02.png" alt-text="Screenshot do painel Azure A D Localizações, com configuração definida para Sim, o separador Incluir visível, e a opção de localização selecionada e destacada." border="false":::
 
 - Excluir todos os locais fidedignos 
 
-   ![Acesso Condicional](./media/untrusted-networks/01.png)
+   :::image type="content" source="./media/untrusted-networks/01.png" alt-text="Screenshot do painel Azure A D Localizações, com configuração definida para Sim, o separador Incluir visível, e a opção de localização selecionada e destacada." border="false":::
 
 ## <a name="policy-deployment"></a>Implementação da Política
 

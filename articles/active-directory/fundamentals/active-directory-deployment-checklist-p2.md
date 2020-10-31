@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/20/2020
+ms.date: 10/29/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64f78dadc0eb1570018320aa77a390f94adf708a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7aebe6fafea7cbbb0b37469a13262529b568e342
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371907"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077970"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guia de implementação de funcionalidades do Azure Active Directory
 
@@ -33,9 +33,9 @@ Muitas das recomendações deste guia podem ser implementadas com Azure AD Free 
 Informações adicionais sobre o licenciamento podem ser encontradas nas seguintes páginas:
 
 * [Licenciamento Azure AD](https://azure.microsoft.com/pricing/details/active-directory/)
-* [Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
+* [Microsoft 365 Empresarial](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
-* [Orientação de licenciamento Azure AD B2B](../external-identities/licensing-guidance.md)
+* [Preços das identidades externas da Azure AD](../external-identities/external-identities-pricing.md)
 
 ## <a name="phase-1-build-a-foundation-of-security"></a>Fase 1: Construir uma base de segurança
 
@@ -70,7 +70,7 @@ Em seguida, adicionamos à fundação estabelecida na fase 1, importando os noss
 | [Implementar writeback de palavra-passe](../authentication/tutorial-enable-sspr-writeback.md) | Permitir que as alterações de palavra-passe na nuvem sejam escritas de volta para um ambiente de Diretório Ativo do Windows Server no local. | Azure AD Premium P1 |
 | [Implementar Azure Ad Connect Health](../hybrid/whatis-azure-ad-connect.md#what-is-azure-ad-connect-health) | Ativar a monitorização das principais estatísticas de saúde dos seus servidores AD Connect Azure, servidores AD FS e controladores de domínio. | Azure AD Premium P1 |
 | [Atribuir licenças aos utilizadores por membro do grupo no Azure Ative Directory](../enterprise-users/licensing-groups-assign.md) | Economize tempo e esforço criando grupos de licenciamento que permitem ou desativam funcionalidades por grupo em vez de definir por utilizador. | |
-| [Crie um plano para o acesso do utilizador convidado](../external-identities/what-is-b2b.md) | Colabore com os utilizadores convidados, deixando-os entrar nas suas apps e serviços com o seu próprio trabalho, escola ou identidades sociais. | [Orientação de licenciamento Azure AD B2B](../external-identities/licensing-guidance.md) |
+| [Crie um plano para o acesso do utilizador convidado](../external-identities/what-is-b2b.md) | Colabore com os utilizadores convidados, deixando-os entrar nas suas apps e serviços com o seu próprio trabalho, escola ou identidades sociais. | [Preços das identidades externas da Azure AD](../external-identities/external-identities-pricing.md) |
 | [Decida sobre a estratégia de gestão de dispositivos](../devices/overview.md) | Decida o que a sua organização permite em relação aos dispositivos. Registrando vs junção, Bring Your Own Device vs empresa fornecido. | |
 | [Implementar o Windows Hello for Business na sua organização](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Prepare-se para autenticação sem palavras-passe usando o Windows Hello | |
 | [Implementar métodos de autenticação sem palavras-passe para os seus utilizadores](../authentication/concept-authentication-passwordless.md) | Forneça aos seus utilizadores métodos convenientes de autenticação sem palavras-passe | Azure AD Premium P1 |

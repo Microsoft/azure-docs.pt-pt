@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: jasonh
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: ad00fcc0c7b871210b29400821808b6729d953f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dd992478365faf23f46ad839c3887485cb6b09b7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409413"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076491"
 ---
 # <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>Quickstart: Construir uma base de dados de gráficos com o Java SDK e o API API AZure Cosmos DB Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
@@ -100,7 +101,7 @@ Esta aplicação de consola Java utiliza uma base de dados [API gremlin](graph-i
 
 Agora, regresse ao portal do Azure para obter as informações da ligação e copie-as para a aplicação. Estas definições permitem à aplicação comunicar com a base de dados alojada.
 
-1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Keys**. 
+1. Na sua conta DB Azure Cosmos no [portal Azure,](https://portal.azure.com/)selecione **Keys** . 
 
     Copie a primeira parte do valor do URI.
 
@@ -167,11 +168,11 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 
 Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e adicionar mais pontos de dados.
 
-1. Na sua conta DB Azure Cosmos no portal Azure, selecione **Data Explorer,** expanda **o gráfico de amostras,** selecione **Graph**, e, em seguida, selecione **Apply Filter**. 
+1. Na sua conta DB Azure Cosmos no portal Azure, selecione **Data Explorer,** expanda **o gráfico de amostras,** selecione **Graph** , e, em seguida, selecione **Apply Filter** . 
 
    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 
-2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e repare que o utilizador está ligado a robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
+2. Na lista **Resultados** , repare nos utilizadores novos que são adicionados ao gráfico. Selecione **ben** e repare que o utilizador está ligado a robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
 
    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-graph-explorer-new.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 
@@ -179,7 +180,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
    :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 
-4. Na caixa da etiqueta, introduza *person*.
+4. Na caixa da etiqueta, introduza *person* .
 
 5. **Selecione Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave de id.
 
@@ -192,11 +193,11 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
     > [!NOTE]
     > Neste guia de introdução, criará uma coleção não particionada. No entanto, se criar uma coleção particionada mediante a especificação de uma chave de partição durante a criação da coleção, terá de incluir a chave da partição como uma chave em cada vértice novo. 
 
-6. Selecione **OK**. Poderá ter de expandir o ecrã para ver **OK**, na parte inferior.
+6. Selecione **OK** . Poderá ter de expandir o ecrã para ver **OK** , na parte inferior.
 
 7. Selecione **Novo Vertex** novamente e adicione um novo utilizador adicional. 
 
-8. Introduza uma etiqueta de *pessoa*.
+8. Introduza uma etiqueta de *pessoa* .
 
 9. **Selecione Adicionar propriedade** para adicionar cada uma das seguintes propriedades:
 
@@ -206,9 +207,9 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
     género|masculino| 
     escola|MIT| 
 
-10. Selecione **OK**. 
+10. Selecione **OK** . 
 
-11. Selecione o botão **'Aplicar filtro'** com o filtro predefinido `g.V()` para visualizar todos os valores do gráfico. Todos os utilizadores aparecem agora na lista **Resultados**. 
+11. Selecione o botão **'Aplicar filtro'** com o filtro predefinido `g.V()` para visualizar todos os valores do gráfico. Todos os utilizadores aparecem agora na lista **Resultados** . 
 
     À medida que adiciona mais dados, pode utilizar filtros para limitar os resultados. Por predefinição, o Data Explorer utiliza o `g.V()` para obter todos os vértices num gráfico. Pode alterá-lo para uma [consulta de gráfico](tutorial-query-graph.md) diferente, como `g.V().count()`, para devolver uma contagem de todos os vértices no gráfico no formato JSON. Se tiver mudado o filtro, volte a alterar o filtro `g.V()` e selecione **Apply Filter** para exibir todos os resultados novamente.
 
@@ -216,7 +217,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
     :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 
-13. Na caixa **Target** *introduza rakesh*, e na caixa de **etiquetas Edge** insira *sabe*- e, em seguida, selecione a caixa de verificação.
+13. Na caixa **Target** *introduza rakesh* , e na caixa de **etiquetas Edge** insira *sabe* - e, em seguida, selecione a caixa de verificação.
 
     :::image type="content" source="./media/create-graph-java/azure-cosmosdb-data-explorer-set-target.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 

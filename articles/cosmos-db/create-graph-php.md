@@ -8,14 +8,15 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
 ms.author: jasonh
-ms.openlocfilehash: e8848ee0a1fe5755316b59432c465b3836a0bab1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b8ec8fa383215553c9987476c2f1dc6a05f823e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409362"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93076474"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Quickstart: Criar uma base de dados de gráficos em Azure Cosmos DB usando PHP e o portal Azure
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Consola do Gremlin](create-graph-gremlin-console.md)
@@ -102,7 +103,7 @@ Este passo é opcional. Se estiver interessado em aprender de que forma os recur
 
 Agora, regresse ao portal do Azure para obter as informações da ligação e copie-as para a aplicação. Estas definições permitem à aplicação comunicar com a base de dados alojada.
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **Chaves**. 
+1. No [portal do Azure](https://portal.azure.com/), clique em **Chaves** . 
 
     Copie a primeira parte do valor do URI.
 
@@ -191,11 +192,11 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 
 Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e adicionar mais pontos de dados.
 
-1. Clique em **Data Explorer**, expanda **sample-graph**, clique em **Gráfico** e clique em **Aplicar Filtro**. 
+1. Clique em **Data Explorer** , expanda **sample-graph** , clique em **Gráfico** e clique em **Aplicar Filtro** . 
 
    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 
-2. Na lista **Resultados**, repare nos utilizadores novos que são adicionados ao gráfico. Selecione **Ben** e note que estão ligados ao Robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
+2. Na lista **Resultados** , repare nos utilizadores novos que são adicionados ao gráfico. Selecione **Ben** e note que estão ligados ao Robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
 
    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 
@@ -203,7 +204,7 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 
-4. Introduza uma etiqueta de *pessoa*.
+4. Introduza uma etiqueta de *pessoa* .
 
 5. Clique **em Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave **de identificação.**
 
@@ -216,11 +217,11 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
     > [!NOTE]
     > Neste guia de introdução, criará uma coleção não particionada. No entanto, se criar uma coleção particionada mediante a especificação de uma chave de partição durante a criação da coleção, terá de incluir a chave da partição como uma chave em cada vértice novo. 
 
-6. Clique em **OK**. Poderá ter de expandir o ecrã para ver **OK**, na parte inferior.
+6. Clique em **OK** . Poderá ter de expandir o ecrã para ver **OK** , na parte inferior.
 
 7. Clique em **Vértice Novo** novamente e adicione outro utilizador. 
 
-8. Introduza uma etiqueta de *pessoa*.
+8. Introduza uma etiqueta de *pessoa* .
 
 9. Clique em **Adicionar propriedade** para adicionar cada uma das seguintes propriedades:
     
@@ -230,17 +231,17 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
     **Género** | masculino | 
     **escola** | MIT | 
 
-10. Clique em **OK**. 
+10. Clique em **OK** . 
 
-11. Clique no botão **Aplicar Filtro** com o filtro `g.V()` predefinido para apresentar todos os valores no gráfico. Todos os utilizadores aparecem agora na lista **Resultados**. 
+11. Clique no botão **Aplicar Filtro** com o filtro `g.V()` predefinido para apresentar todos os valores no gráfico. Todos os utilizadores aparecem agora na lista **Resultados** . 
 
     À medida que adiciona mais dados, pode utilizar filtros para limitar os resultados. Por predefinição, o Data Explorer utiliza o `g.V()` para obter todos os vértices num gráfico. Pode alterá-lo para uma [consulta de gráfico](tutorial-query-graph.md) diferente, como `g.V().count()`, para devolver uma contagem de todos os vértices no gráfico no formato JSON. Se tiver alterado o filtro, altere o filtro de volta para `g.V()` e clique em **Aplicar Filtro** para apresentar todos os resultados novamente.
 
-12. Agora, pode ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados** e clique no botão Editar junto a **Destinos**, no canto inferior direito. Poderá ter de alargar a janela para ver a área **Propriedades**.
+12. Agora, pode ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados** e clique no botão Editar junto a **Destinos** , no canto inferior direito. Poderá ter de alargar a janela para ver a área **Propriedades** .
 
     :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 
-13. Na caixa **Destino**, escreva *rakesh*, na caixa **Etiqueta da extremidade**, escreva *Conhece* e clique no visto.
+13. Na caixa **Destino** , escreva *rakesh* , na caixa **Etiqueta da extremidade** , escreva *Conhece* e clique no visto.
 
     :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
 

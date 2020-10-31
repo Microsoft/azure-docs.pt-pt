@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: d8c1237b1bf4fac743ad5e70fee857337d9624c4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 9d0694a76bca832887d30601711894b953fe22e1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490667"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078446"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-sql-api"></a>Encontre a taxa unitária de pedido para operações executadas na Azure Cosmos DB SQL API
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB suporta muitas APIs, tais como SQL, MongoDB, Cassandra, Gremlin e Table. Cada API tem o seu próprio conjunto de operações de base de dados. Estas operações vão desde leituras simples de pontos e escritas a consultas complexas. Cada operação de base de dados consome recursos do sistema com base na complexidade da operação.
 
@@ -33,9 +34,9 @@ Atualmente, só pode medir este consumo utilizando o portal Azure ou inspecionan
 
 1. Vá ao painel **do Data Explorer** e, em seguida, selecione o recipiente em que pretende trabalhar.
 
-1. Selecione **Nova Consulta SQL**.
+1. Selecione **Nova Consulta SQL** .
 
-1. Introduza uma consulta válida e, em seguida, selecione **Executar Consulta**.
+1. Introduza uma consulta válida e, em seguida, selecione **Executar Consulta** .
 
 1. Selecione **Estatísticas de Consulta** para mostrar o custo de pedido real para o pedido que executou.
 

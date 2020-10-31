@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95e80907220a58243844b80d81dc187f8dc4c8bc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85609457"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078701"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Upgrade de Bing Web Search API v5 para v7
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Este guia de atualização identifica as alterações entre a versão 5 e a versão 7 da API de Pesquisa Web Bing. Utilize este guia para o ajudar a identificar as partes da sua aplicação que necessita de atualizar para utilizar a versão 7.
 
@@ -26,7 +31,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 ### <a name="endpoints"></a>Pontos Finais
 
-- O número de versão do ponto final passou de v5 para v7. Por exemplo, https: \/ \/ api.cognitive.microsoft.com/bing/**v7.0**/search.
+- O número de versão do ponto final passou de v5 para v7. Por exemplo, https: \/ \/ api.cognitive.microsoft.com/bing/ **v7.0** /search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Objetos de resposta a erros e códigos de erro
 
@@ -39,7 +44,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 - Substituiu os códigos de erro v5 pelos seguintes `code` valores e `subCode` valores possíveis.
 
-|Código|SubCódes|Descrição
+|Código|SubCódes|Description
 |-|-|-
 |ServerError|InesperadoError<br/>Recurso<br/>Não ÉDopliizado|Bing devolve ServerError sempre que ocorrer qualquer uma das condições de subcodições. A resposta incluirá estes erros se o código de estado HTTP for 500.
 |InáduloRequest|ParâmetroSMissing<br/>ParâmetroInvalvalue<br/>HttpNotAllowed<br/>Bloqueado|Bing devolve InvalidRequest sempre que qualquer parte do pedido não seja válida. Por exemplo, falta um parâmetro necessário ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro for httpNotAllowed, o código de estado HTTP 410.
@@ -81,7 +86,7 @@ Bloqueado|InvalidRequest.Bloqueado
 
 - Adicionei o parâmetro de consulta [answerCount.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) Utilize este parâmetro para especificar o número de respostas que pretende que a resposta inclua. As respostas são escolhidas com base no ranking. Por exemplo, se definir este parâmetro para três (3), a resposta inclui as três melhores respostas classificadas.  
 
-- Acrescentou o parâmetro de consulta [de promoção.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) Utilize este parâmetro juntamente com `answerCount` para incluir explicitamente um ou mais tipos de resposta, independentemente do seu ranking. Por exemplo, para promover vídeos e imagens na resposta, definiria promover *para vídeos, imagens*. A lista de respostas que pretende promover não conta contra o `answerCount` limite. Por exemplo, se `answerCount` for 2 e `promote` estiver definido para *vídeos, imagens,* a resposta pode incluir páginas web, notícias, vídeos e imagens.
+- Acrescentou o parâmetro de consulta [de promoção.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) Utilize este parâmetro juntamente com `answerCount` para incluir explicitamente um ou mais tipos de resposta, independentemente do seu ranking. Por exemplo, para promover vídeos e imagens na resposta, definiria promover *para vídeos, imagens* . A lista de respostas que pretende promover não conta contra o `answerCount` limite. Por exemplo, se `answerCount` for 2 e `promote` estiver definido para *vídeos, imagens,* a resposta pode incluir páginas web, notícias, vídeos e imagens.
 
 ### <a name="object-changes"></a>Alterações de objetos
 
