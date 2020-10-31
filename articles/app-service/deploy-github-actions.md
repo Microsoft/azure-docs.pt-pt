@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 638dfc63b6a37bae3905703bbd5ecabaa94d2020
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6c768df964d46364a8ca501c078dbecaf1aaa21f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783084"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095565"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Implementar para o Serviço de Aplicações usando ações do GitHub
 
@@ -75,7 +75,10 @@ Um perfil de publicação é uma credencial de nível de aplicação. Configura 
 
 1. Guarde o ficheiro transferido. Vais usar o conteúdo do ficheiro para criar um segredo do GitHub.
 
-# <a name="service-principal"></a>[Diretor de serviços](#tab/userlevel)
+> [!NOTE]
+> A partir de outubro de 2020, as aplicações web do Linux precisarão da definição da aplicação `WEBSITE_WEBDEPLOY_USE_SCM` definida para antes de descarregar o perfil de `true` **publicação.** Este requisito será removido no futuro.
+
+# <a name="service-principal"></a>[Service principal (Principal de serviço)](#tab/userlevel)
 
 Pode criar um [principal de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) com o comando [ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac&preserve-view=true) no [Azure CLI](/cli/azure/). Executar este comando com [Azure Cloud Shell](https://shell.azure.com/) no portal Azure ou selecionando o botão **Try it.**
 
@@ -119,7 +122,7 @@ Ao configurar o seu fluxo de trabalho GitHub, utilize a ação `AZURE_WEBAPP_PUB
     publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
 ```
 
-# <a name="service-principal"></a>[Diretor de serviços](#tab/userlevel)
+# <a name="service-principal"></a>[Service principal (Principal de serviço)](#tab/userlevel)
 
 No [GitHub,](https://github.com/)navegue no seu repositório, selecione **Definições > Segredos > Adicione um novo segredo** .
 
@@ -490,7 +493,7 @@ jobs:
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 ```
 
-# <a name="service-principal"></a>[Diretor de serviços](#tab/userlevel)
+# <a name="service-principal"></a>[Service principal (Principal de serviço)](#tab/userlevel)
 
 ### <a name="net-core"></a>.NET Core 
 

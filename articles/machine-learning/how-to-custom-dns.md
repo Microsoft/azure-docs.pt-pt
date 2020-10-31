@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1d215c9564d89e5bd410e68839807f5c2c752356
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b16c8873a1778b907b288486c204d74ee31683cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828637"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097962"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Como utilizar o seu espaço de trabalho com um servidor DNS personalizado
 
@@ -46,7 +46,7 @@ A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN)
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* Se criar uma instância computacional, também deve adicionar uma entrada para `<instance-name>.<region>.instances.azureml.ms` .
+* Se criar uma instância computacional, também deve adicionar uma entrada `<instance-name>.<region>.instances.azureml.ms` para com IP privado de ponto final privado do espaço de trabalho. Por favor, note que a instância compute pode ser acedida apenas a partir da rede virtual.
 
 Para encontrar os endereços IP internos para as FQDNs no VNet, utilize um dos seguintes métodos:
 
@@ -68,7 +68,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
-1. No [portal Azure,](https://portal.azure.com)selecione o seu __espaço de trabalho__Azure Machine Learning .
+1. No [portal Azure,](https://portal.azure.com)selecione o seu __espaço de trabalho__ Azure Machine Learning .
 1. Na secção __Definições,__ selecione __ligações de ponto final privado .__
 1. Selecione o link na coluna __de ponto final privado__ que é visualizada.
 1. Uma lista dos nomes de domínio totalmente qualificados (FQDN) e endereços IP para o ponto final privado do espaço de trabalho estão na parte inferior da página.
@@ -92,7 +92,7 @@ A informação devolvida de todos os métodos é a mesma; uma lista do FQDN e en
 > * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 > * `<workspace-GUID>.workspace.<region>.aether.ms`
-> * Se tiver uma instância computacional, `<instance-name>.<region>.instances.azureml.ms` use, onde `<instance-name>` está o nome da sua instância de computação.
+> * Se tiver uma instância computacional, `<instance-name>.<region>.instances.azureml.ms` use, onde `<instance-name>` está o nome da sua instância de computação. Por favor, utilize o endereço IP privado do ponto final privado do espaço de trabalho. Por favor, note que a instância compute pode ser acedida apenas a partir da rede virtual.
 >
 > Para todos estes endereços IP, utilize o mesmo endereço que as `*.api.azureml.ms` entradas devolvidas das etapas anteriores.
 

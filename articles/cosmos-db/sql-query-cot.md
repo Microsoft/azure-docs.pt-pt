@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 25c907644f58ee40ea08e5636d68dc0e84564a28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 862899b6abd7f6d10da0c3b01205457553bad903
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78299492"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095871"
 ---
 # <a name="cot-azure-cosmos-db"></a>COT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Devolve a cotangente trigonométrica do ângulo especificado, em radianos, na expressão numérica especificada.  
   
 ## <a name="syntax"></a>Sintaxe

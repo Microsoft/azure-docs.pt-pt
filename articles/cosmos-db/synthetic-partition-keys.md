@@ -6,14 +6,15 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: a50de7154bd768f5cc4c25062ec3ce05c0f37328
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6868859247fc430ee96581ae85fb7077af04999
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279855"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098030"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Criar uma chave de partição sintética
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 É a melhor prática ter uma chave de partição com muitos valores distintos, como centenas ou milhares. O objetivo é distribuir os seus dados e carga de trabalho uniformemente através dos itens associados a estes valores-chave de partição. Se tal propriedade não existir nos seus dados, pode construir uma *chave de partição sintética.* Este documento descreve várias técnicas básicas para gerar uma chave de partição sintética para o seu recipiente Cosmos.
 

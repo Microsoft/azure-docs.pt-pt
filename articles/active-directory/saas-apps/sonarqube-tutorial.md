@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/18/2019
+ms.date: 09/29/2020
 ms.author: jeedes
-ms.openlocfilehash: d872c50174ba2fe7dfa321ac568e51fdaa80affc
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 455c15ec97d5621b51a4d8af87cc3a2968dd65dd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514746"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095980"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Sonarqube
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar Sonarqube com Azure Ative Director
 * Controlo em Azure AD que tem acesso a Sonarqube.
 * Permita que os seus utilizadores sejam automaticamente inscritos na Sonarqube com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,18 +46,18 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 Para configurar a integração da Sonarqube no AD Azure, é necessário adicionar o Sonarqube da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
-1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
-1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações** .
+1. Para adicionar nova aplicação, selecione **Nova aplicação** .
 1. Na secção Adicionar a partir da secção **da galeria,** **digite Sonarqube** na caixa de pesquisa.
 1. Selecione **Sonarqube** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-sonarqube"></a>Configurar e testar Azure AD único sinal de inscrição para Sonarqube
+## <a name="configure-and-test-azure-ad-sso-for-sonarqube"></a>Configurar e testar Azure AD SSO para sonarqube
 
-Configure e teste Azure AD SSO com Sonarqube usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em Sonarqube.
+Configure e teste Azure AD SSO com Sonarqube usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador AZure AD e o utilizador relacionado em Sonarqube.
 
-Para configurar e testar o Azure AD SSO com a Sonarqube, complete os seguintes blocos de construção:
+Para configurar e testar a Azure AD SSO com a Sonarqube, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
@@ -72,8 +70,8 @@ Para configurar e testar o Azure AD SSO com a Sonarqube, complete os seguintes b
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Sonarqube,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
-1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No portal Azure, na página de integração da aplicação **Sonarqube,** encontre a secção **Gerir** e selecione um único sinal de **sação** .
+1. Na página de método **de inscrição** única, selecione **SAML** .
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -102,49 +100,49 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome** , introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar**.
+   1. Clique em **Criar** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permitindo o acesso ao Sonarqube.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
-1. Na lista de candidaturas, selecione **Sonarqube**.
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** .
+1. Na lista de candidaturas, selecione **Sonarqube** .
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-sonarqube-sso"></a>Configurar sonarqube SSO
 
 1. Abra uma nova janela do navegador web e inscreva-se no site da empresa Sonarqube como administrador.
 
-2. Instale o plugin SAML no mercado de sonarqube.
+1. Clique na **Configuração > de Administração > Segurança** e vá ao **Plugin SAML** executar os seguintes passos.
 
-3. No topo esquerdo da página, clique em **ADMIN** e, em seguida, navegue para **SAML**.
+1. Copie os seguintes dados dos metadados IdP e cole-os nos campos de texto correspondentes no plugin SonarQube.
+    1. IdP Entity ID
+    2. URL de Inicio de Sessão
+    3. Certificado X.509 
+1. Guarde todos os detalhes.
+    ![IDP de plugin saml](./media/sonarqube-tutorial/sso-idp-metadata.png)
 
-4. Na página **SAML,** execute os seguintes passos:
+1. Na página **SAML,** execute os seguintes passos:
 
     ![Configuração do sonarqube](./media/sonarqube-tutorial/config01.png)
 
-    a. Alternar a opção **Ativada** para **sim**.
+    a. Alternar a opção **Ativada** para **sim** .
 
-    b. Na caixa de texto **de identificação de aplicação,** insira o nome como **sonarqube**.
+    b. Na caixa de texto **de identificação de aplicação,** insira o nome como **sonarqube** .
 
-    c. Na caixa de texto **do Nome do Fornecedor,** insira o nome como **SAML**.
+    c. Na caixa de texto **do Nome do Fornecedor,** insira o nome como **SAML** .
 
     d. Na caixa de texto **do Fornecedor ID,** cole o valor do **Identificador AD Azure,** que copiou do portal Azure.
 
@@ -158,7 +156,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, permiti
 
     i. Na **caixa de texto do utilizador SAML,** introduza o valor `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` .
 
-    j. Clique em **Guardar**.
+    j. Clique em **Guardar** .
 
 ### <a name="create-sonarqube-test-user"></a>Criar utilizador de teste sonarqube
 
@@ -166,16 +164,14 @@ Nesta secção, cria-se um utilizador chamado B.Simon em Sonarqube. Trabalhe com
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo sonarqube no Painel de Acesso, deverá ser automaticamente inscrito no Sonarqube para o qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+1. Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o URL de entrada de sonarqube onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+2. Vá diretamente ao URL de inscrição do Sonarqube e inicie o fluxo de login a partir daí.
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo sonarqube no Painel de Acesso, este irá redirecionar para o URL de inscrição de Sonarqube. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimente Sonarqube com Azure AD](https://aad.portal.azure.com/)
+* Uma vez configurado o Sonarqube, pode impor controlos de sessão, o que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

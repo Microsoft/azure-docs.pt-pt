@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 87663c18ddaa5da6740a0f54aa5f2812cbb06af8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd88f8d6a0f5271da97d6f2f95eecb60bf94ed78
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88227388"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095810"
 ---
 # <a name="datetimepart-azure-cosmos-db"></a>DateTimePart (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Devolve o valor da DataTimePart especificada entre o Tempo de Data especificado.
   
@@ -31,7 +32,7 @@ DateTimePart (<DateTimePart> , <DateTime>)
 
 | DateTimePart | abreviaturas        |
 | ------------ | -------------------- |
-| Anual         | "ano", "yyyy", "yy" |
+| Ano         | "ano", "yyyy", "yy" |
 | Mensal        | "mês", "mm", "m"   |
 | Dia          | "dia", "dd", "d"     |
 | Hora         | "hora", "hh"         |

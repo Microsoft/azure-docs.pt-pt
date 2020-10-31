@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/28/2017
-ms.openlocfilehash: 0387b4363a438ac48142d97b2a829faf38f1895d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2f00b859321986b9de7c15462c72049bf49ee2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87036663"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096908"
 ---
 # <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Monitorize e gere os trabalhos do Stream Analytics com cmdlets Azure PowerShell
 Aprenda a monitorizar e gerir os recursos stream Analytics com cmdlets Azure PowerShell e scripts powershell que executam tarefas básicas de Stream Analytics.
@@ -553,10 +553,10 @@ Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de pe
 
 [msdn-switch-azuremode]: https://msdn.microsoft.com/library/dn722470.aspx
 [powershell-install]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
-[msdn-rest-api-create-stream-analytics-job]: https://msdn.microsoft.com/library/dn834994.aspx
-[msdn-rest-api-create-stream-analytics-input]: https://msdn.microsoft.com/library/dn835010.aspx
-[msdn-rest-api-create-stream-analytics-output]: https://msdn.microsoft.com/library/dn835015.aspx
-[msdn-rest-api-create-stream-analytics-transformation]: https://msdn.microsoft.com/library/dn835007.aspx
+[msdn-rest-api-create-stream-analytics-job]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal
+[msdn-rest-api-create-stream-analytics-input]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs
+[msdn-rest-api-create-stream-analytics-output]: https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs
+[msdn-rest-api-create-stream-analytics-transformation]: https://docs.microsoft.com/cli/azure/ext/stream-analytics/stream-analytics/transformation
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md

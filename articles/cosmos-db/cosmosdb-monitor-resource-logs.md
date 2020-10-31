@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.author: sngun
-ms.openlocfilehash: 319713cd631b87d9f97af0db3d4a7b3af1c580ec
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 18850fafd1f6cb084c9e5fdb9a24e9c4fd8bb4cc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926126"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097571"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorize os dados do DB da Azure Cosmos utilizando configurações de diagnóstico em Azure
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 As definições de diagnóstico em Azure são usadas para recolher registos de recursos. Os registos de recursos Azure são emitidos por um recurso e fornecem dados ricos e frequentes sobre o funcionamento desse recurso. Estes registos são capturados por pedido e também são referidos como "registos de data plane". Alguns exemplos das operações do plano de dados incluem eliminar, inserir e lerFeed. O conteúdo destes registos varia consoá-lo por tipo de recurso.
 

@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 2e2c9e8f2bf0d4760bf030fb19a90737cdb54525
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47bf8a3a2ffe66e295fcb9d8a2a02891812c6813
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605134"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095786"
 ---
 # <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Converte o Tempo de Data especificado para carraças. Um único carrapato representa cem nanossegundos ou um décimo-milionésimo de segundo. 
 

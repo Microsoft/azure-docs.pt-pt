@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: aecc64c5fa923bc29d34efd3969c2c12f30153c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 351a9742e9d839a8e217fdea35cad922acc3339f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87320107"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095677"
 ---
 # <a name="handling-review-feedback-for-azure-application-offers"></a>Lidar com comentários de revisão para ofertas de aplicações da Azure
 
@@ -39,11 +39,11 @@ Utilize o seguinte procedimento para rever as questões documentadas no pedido d
     [![Puxe a página inicial do pedido](./media/pr-home-page-thumb.png)](./media/pr-home-page.png)
     <br/> *Clique nesta imagem para expandir.*
 
-1. (Opcional) No lado direito da janela, na secção **Políticas,** selecione a mensagem de assunto (neste exemplo: **Validação de Políticas falhou**) para investigar os detalhes de baixo nível do problema, incluindo os ficheiros de registo associados. Os erros são normalmente apresentados na parte inferior dos ficheiros de registo.
+1. (Opcional) No lado direito da janela, na secção **Políticas,** selecione a mensagem de assunto (neste exemplo: **Validação de Políticas falhou** ) para investigar os detalhes de baixo nível do problema, incluindo os ficheiros de registo associados. Os erros são normalmente apresentados na parte inferior dos ficheiros de registo.
 
 1. No menu do lado esquerdo da página inicial, selecione **Ficheiros** para exibir os ficheiros da lista que compõem os ativos técnicos desta oferta. Os revisores da Microsoft deveriam ter adicionado comentários descrevendo os problemas críticos descobertos. No exemplo seguinte, foram descobertas duas questões.
 
-    [![Puxe a página inicial do pedido](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
+    [![Screenshot que destaca ficheiros e os dois problemas que foram descobertos.](./media/pr-files-page-thumb.png)](./media/pr-files-page.png)
     <br/> *Clique nesta imagem para expandir.*
 
 1. Selecione cada nó de comentário na árvore esquerda para navegar para o comentário no contexto do código circundante. Corrija o seu código fonte no projeto da sua equipa para corrigir o problema descrito pelo comentário.

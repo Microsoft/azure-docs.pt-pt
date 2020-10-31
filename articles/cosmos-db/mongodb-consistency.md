@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 19dcc0f7605ae771e2ff826299413eaa073f212b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 37c128a42ca68134b770b32c940d59834261ce44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284614"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096585"
 ---
 # <a name="consistency-levels-for-azure-cosmos-db-and-the-api-for-mongodb"></a>Níveis de consistência para Azure Cosmos DB e a API para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Ao contrário do Azure Cosmos DB, o MongoDB nativo não fornece garantias de consistência definidas com precisão. Em vez disso, a MongoDB nativa permite que os utilizadores confivelem as seguintes garantias de consistência: uma preocupação de escrita, uma preocupação de leitura, e a diretiva isMaster - para direcionar as operações de leitura para réplicas primárias ou secundárias para atingir o nível de consistência desejado.
 
@@ -31,7 +32,7 @@ Ao usar a API da Azure Cosmos DB para a MongoDB:
 
 * Você pode anotar uma região específica associada à sua conta Azure Cosmos como "Primária" tornando a região como a primeira região writable. 
 
-## <a name="mapping-consistency-levels"></a>Mapeamento dos níveis de consistência
+## <a name="mapping-consistency-levels"></a>Mapear os níveis de consistência
 
 A tabela a seguir ilustra como as preocupações nativas de escrita/leitura da MongoDB são mapeadas para os níveis de consistência do Azure Cosmos ao utilizar a API da Azure Cosmos para a MongoDB:
 
@@ -47,4 +48,4 @@ Saiba mais sobre os níveis de distribuição e consistência globais para a Azu
 
 * [Descrição geral da distribuição global](distribute-data-globally.md)
 * [Visão geral do nível de consistência](consistency-levels.md)
-* [Elevada disponibilidade](high-availability.md)
+* [Alta disponibilidade](high-availability.md)

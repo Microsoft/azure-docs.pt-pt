@@ -9,14 +9,15 @@ ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: fb8d1cd2e3b481969059883919b9dc888955307e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f7b7b8c7b1106bd3c0a6732867946c42df8438c1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478121"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097282"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Tutorial: Construa uma Node.js aplicação web utilizando o JavaScript SDK para gerir uma conta API SQL em Azure Cosmos DB 
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -64,7 +65,7 @@ Agora, vamos aprender a criar um projeto básico Olá, Mundo Node.js com a arqui
 
 1. Navegue para o diretório no qual pretende armazenar a nova aplicação.
 
-1. Utilizar o Express generator para gerar uma nova aplicação designada **todo**.
+1. Utilizar o Express generator para gerar uma nova aplicação designada **todo** .
 
    ```bash
    express todo
@@ -93,7 +94,7 @@ Agora, vamos aprender a criar um projeto básico Olá, Mundo Node.js com a arqui
 
 O ficheiro **package.json** é um dos ficheiros criados na raiz do projeto. Este ficheiro contém uma lista de módulos adicionais que são necessários para a sua aplicação Node.js. Quando implementar esta aplicação no Azure, este ficheiro servirá para determinar quais os módulos que devem estar instalados no Azure para suportar a sua aplicação. Instale mais dois pacotes para este tutorial.
 
-1. Instale o módulo ** \@ azul/cosmos** através da npm. 
+1. Instale o módulo **\@ azul/cosmos** através da npm. 
 
    ```bash
    npm install @azure/cosmos
@@ -105,7 +106,7 @@ Agora que já concluiu a configuração inicial, vai escrever o código de que a
 ### <a name="create-the-model"></a>Criar o modelo
 1. Na raiz do seu diretório de projeto, crie um novo diretório chamado **modelos.**  
 
-2. No diretório **modelos**, crie um novo ficheiro designado **taskDao.js**. Este ficheiro contém código necessário para criar a base de dados e o recipiente. Também define métodos para ler, atualizar, criar e encontrar tarefas em Azure Cosmos DB. 
+2. No diretório **modelos** , crie um novo ficheiro designado **taskDao.js** . Este ficheiro contém código necessário para criar a base de dados e o recipiente. Também define métodos para ler, atualizar, criar e encontrar tarefas em Azure Cosmos DB. 
 
 3. Copie o seguinte código no ficheiro **taskDao.js:**
 
@@ -184,13 +185,13 @@ Agora que já concluiu a configuração inicial, vai escrever o código de que a
 
     module.exports = TaskDao
    ```
-4. Guarde e feche o ficheiro **taskDao.js**.  
+4. Guarde e feche o ficheiro **taskDao.js** .  
 
 ### <a name="create-the-controller"></a>Criar o controlador
 
-1. No diretório **rotas** do seu projeto, crie um novo ficheiro designado **tasklist.js**.  
+1. No diretório **rotas** do seu projeto, crie um novo ficheiro designado **tasklist.js** .  
 
-2. Adicione o seguinte código ao **tasklist.js**. Este código carrega os módulos CosmosClient e async, que são utilizados por **tasklist.js**. Este código também define a classe **TaskList**, que é transmitida como uma instância do objeto **TaskDao** que definimos anteriormente:
+2. Adicione o seguinte código ao **tasklist.js** . Este código carrega os módulos CosmosClient e async, que são utilizados por **tasklist.js** . Este código também define a classe **TaskList** , que é transmitida como uma instância do objeto **TaskDao** que definimos anteriormente:
    
    ```javascript
     const TaskDao = require("../models/TaskDao");
@@ -245,13 +246,13 @@ Agora que já concluiu a configuração inicial, vai escrever o código de que a
     module.exports = TaskList;
    ```
 
-3. Guarde e feche o ficheiro **tasklist.js**.
+3. Guarde e feche o ficheiro **tasklist.js** .
 
 ### <a name="add-configjs"></a>Adicionar config.js
 
-1. Na raiz do diretório do projeto, crie um ficheiro novo designado **config.js**. 
+1. Na raiz do diretório do projeto, crie um ficheiro novo designado **config.js** . 
 
-2. Adicione o seguinte código ao ficheiro **config.js**. Este código define os parâmetros e os valores da configuração necessários para a nossa aplicação.
+2. Adicione o seguinte código ao ficheiro **config.js** . Este código define os parâmetros e os valores da configuração necessários para a nossa aplicação.
    
    ```javascript
    const config = {};
@@ -272,15 +273,15 @@ Agora que já concluiu a configuração inicial, vai escrever o código de que a
    module.exports = config;
    ```
 
-3. No ficheiro **config.js, ** atualize os valores do HOST e AUTH_KEY utilizando os valores encontrados na página Chaves da sua conta DB Azure Cosmos no [portal Azure](https://portal.azure.com). 
+3. No ficheiro **config.js,** atualize os valores do HOST e AUTH_KEY utilizando os valores encontrados na página Chaves da sua conta DB Azure Cosmos no [portal Azure](https://portal.azure.com). 
 
-4. Guarde e feche o ficheiro **config.js**.
+4. Guarde e feche o ficheiro **config.js** .
 
 ### <a name="modify-appjs"></a>Modificar app.js
 
-1. No diretório do projeto, abra o ficheiro **app.js**. Este ficheiro foi criado anteriormente, aquando da criação da aplicação Web Express.  
+1. No diretório do projeto, abra o ficheiro **app.js** . Este ficheiro foi criado anteriormente, aquando da criação da aplicação Web Express.  
 
-2. Adicione o seguinte código ao ficheiro **app.js**. Este código define o ficheiro de configuração a utilizar e carrega os valores para algumas variáveis que utilizará nas próximas secções. 
+2. Adicione o seguinte código ao ficheiro **app.js** . Este código define o ficheiro de configuração a utilizar e carrega os valores para algumas variáveis que utilizará nas próximas secções. 
    
    ```javascript
     const CosmosClient = require('@azure/cosmos').CosmosClient
@@ -355,13 +356,13 @@ Agora que já concluiu a configuração inicial, vai escrever o código de que a
     module.exports = app
    ```
 
-3. Por fim, guarde e feche o ficheiro **app.js**.
+3. Por fim, guarde e feche o ficheiro **app.js** .
 
 ## <a name="build-a-user-interface"></a><a name="_Toc395783181"></a>Construir uma interface de utilizador
 
 Agora vamos construir a interface do utilizador para que um utilizador possa interagir com a aplicação. A aplicação Express que criámos nas secções anteriores utiliza o **Jade** como motor de vista.
 
-1. O ficheiro **layout.jade** no diretório **vistas** é utilizado como um modelo global para outros ficheiros **.jade**. Neste passo, irá modificá-lo para utilizar o Twitter Bootstrap, que é um conjunto de ferramentas utilizado para criar um site.  
+1. O ficheiro **layout.jade** no diretório **vistas** é utilizado como um modelo global para outros ficheiros **.jade** . Neste passo, irá modificá-lo para utilizar o Twitter Bootstrap, que é um conjunto de ferramentas utilizado para criar um site.  
 
 2. Abra o ficheiro **layout.jade** encontrado na pasta **views** e substitua o conteúdo pelo seguinte código:
 
@@ -381,9 +382,9 @@ Agora vamos construir a interface do utilizador para que um utilizador possa int
        script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
    ```
 
-    Este código diz ao motor **Jade** para renderizar algum HTML para a nossa aplicação, e cria um **bloco** chamado **conteúdo** onde podemos fornecer o layout para as nossas páginas de conteúdo. Guarde e feche o ficheiro **layout.jade**.
+    Este código diz ao motor **Jade** para renderizar algum HTML para a nossa aplicação, e cria um **bloco** chamado **conteúdo** onde podemos fornecer o layout para as nossas páginas de conteúdo. Guarde e feche o ficheiro **layout.jade** .
 
-3. Agora, abra o ficheiro **index.jade**, a vista que será utilizada pela nossa aplicação, e substitua o conteúdo do ficheiro pelo seguinte código:
+3. Agora, abra o ficheiro **index.jade** , a vista que será utilizada pela nossa aplicação, e substitua o conteúdo do ficheiro pelo seguinte código:
 
    ```html
    extends layout
@@ -427,7 +428,7 @@ Agora vamos construir a interface do utilizador para que um utilizador possa int
           button.btn(type="submit") Add item
    ```
 
-Este código expande o modelo e fornece o conteúdo para o marcador de posição **conteúdo** que vimos anteriormente no ficheiro **layout.jade**. Neste esquema, criámos dois formulários HTML.
+Este código expande o modelo e fornece o conteúdo para o marcador de posição **conteúdo** que vimos anteriormente no ficheiro **layout.jade** . Neste esquema, criámos dois formulários HTML.
 
 O primeiro formulário contém uma tabela para os dados e um botão que nos permite atualizar os itens mediante a publicação no método **/completeTask** do controlador.
     
@@ -444,13 +445,13 @@ Agora que construiu a aplicação, pode executá-la localmente usando os seguint
     > [!TIP]
     > Se receber um erro sobre o travessão no ficheiro layout.jade ou no ficheiro index.jade, certifique-se de que as duas primeiras linhas em ambos os ficheiros são justificadas à esquerda, sem espaços. Se houver espaços antes das duas primeiras linhas, remova-as, guarde ambos os ficheiros e, em seguida, refresque a janela do seu navegador. 
 
-2. Utilize os campos Item, Item e Categoria para introduzir uma nova tarefa e, em seguida, selecione **Adicionar Item**. Cria um documento no Azure Cosmos DB com essas propriedades. 
+2. Utilize os campos Item, Item e Categoria para introduzir uma nova tarefa e, em seguida, selecione **Adicionar Item** . Cria um documento no Azure Cosmos DB com essas propriedades. 
 
 3. A página deverá ser atualizada para mostrar o item criado recentemente na ToDo List.
    
     :::image type="content" source="./media/sql-api-nodejs-application/cosmos-db-node-js-added-task.png" alt-text="Saiba Node.js - Captura de ecrã da aplicação Olá, Mundo numa janela do browser":::
 
-4. Para completar uma tarefa, selecione a caixa de verificação na coluna Complete e, em seguida, selecione **Tarefas de Atualização**. Este procedimento atualiza o documento já criado e retira-o da vista.
+4. Para completar uma tarefa, selecione a caixa de verificação na coluna Complete e, em seguida, selecione **Tarefas de Atualização** . Este procedimento atualiza o documento já criado e retira-o da vista.
 
 5. Para parar a aplicação, prima CTRL+C na janela do terminal e, em seguida, selecione **Y** para terminar a tarefa de lote.
 
@@ -474,9 +475,9 @@ Depois de a sua aplicação ter sucesso localmente, pode implantá-la para Azure
 
 4. Em alguns segundos, a aplicação Web é publicada e iniciada num browser.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
-Quando estes recursos já não forem necessários, pode eliminar o grupo de recursos, a conta DB da Azure Cosmos e todos os recursos conexos. Para tal, selecione o grupo de recursos que utilizou para a conta DB Azure Cosmos, selecione **Delete**e, em seguida, confirme o nome do grupo de recursos para eliminar.
+Quando estes recursos já não forem necessários, pode eliminar o grupo de recursos, a conta DB da Azure Cosmos e todos os recursos conexos. Para tal, selecione o grupo de recursos que utilizou para a conta DB Azure Cosmos, selecione **Delete** e, em seguida, confirme o nome do grupo de recursos para eliminar.
 
 ## <a name="next-steps"></a><a name="_Toc395637775"></a>Passos seguintes
 

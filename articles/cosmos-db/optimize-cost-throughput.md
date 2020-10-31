@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475469"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097469"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Otimizar o débito aprovisionado no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Ao oferecer um modelo de produção a provisionado, a Azure Cosmos DB oferece um desempenho previsível em qualquer escala. Reservar ou aussentando a produção antes do tempo elimina o "efeito de vizinho barulhento" no seu desempenho. Você especifica a quantidade exata de produção que você precisa e Azure Cosmos DB garante a produção configurada, apoiada pela SLA.
 

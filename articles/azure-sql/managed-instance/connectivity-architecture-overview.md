@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5ebe0bcf1e491166c5fc61597904056307f9679c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461724"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098013"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Arquitetura de conectividade do Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 - **Delegação da sub-rede:** A sub-rede SQL Managed Instance precisa de ser delegada no `Microsoft.Sql/managedInstances` fornecedor de recursos.
 - **Grupo de segurança de rede (NSG):** Um NSG precisa de ser associado com a sub-rede SQL Managed Instance. Pode utilizar um NSG para controlar o acesso ao ponto final de dados da SQL Managed Instance filtrando o tráfego na porta 1433 e nas portas 11000-11999 quando o SQL Managed Instance está configurado para ligações de redirecionamento. O serviço irá automaticamente providenciar e manter [as regras](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) atuais necessárias para permitir um fluxo ininterrupto de tráfego de gestão.
 - **Tabela de rota definida pelo utilizador (UDR):** Uma tabela UDR precisa de ser associada à sub-rede SQL Managed Instance. Pode adicionar entradas à tabela de rotas para encaminhar o tráfego que possui intervalos de IP privados no local como destino através do gateway da rede virtual ou da aplicação virtual de rede (NVA). O serviço será automaticamente aprovisionado e manterá as [entradas](#user-defined-routes-with-service-aided-subnet-configuration) atuais exigidas para permitir o fluxo do tráfego de gestão ininterrupto.
-- **Endereços IP suficientes:** A sub-rede SQL Managed Instance deve ter pelo menos 16 endereços IP. O mínimo recomendado é de 32 endereços IP. Para obter mais informações, consulte [determine o tamanho da sub-rede para sql Managed Instance](vnet-subnet-determine-size.md). Pode implementar casos geridos [na rede existente](vnet-existing-add-subnet.md) depois de a configurar para satisfazer os [requisitos de networking para a SQL Managed Instance](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](virtual-network-subnet-create-arm-template.md).
+- **Endereços IP suficientes:** A sub-rede SQL Managed Instance deve ter pelo menos 32 endereços IP. Para obter mais informações, consulte [determine o tamanho da sub-rede para sql Managed Instance](vnet-subnet-determine-size.md). Pode implementar casos geridos [na rede existente](vnet-existing-add-subnet.md) depois de a configurar para satisfazer os [requisitos de networking para a SQL Managed Instance](#network-requirements). Caso contrário, crie uma [nova rede e sub-rede](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
 > Quando cria um caso gerido, é aplicada uma política de intenções de rede na sub-rede para evitar alterações não conformes na configuração da rede. Após a remoção da última instância da sub-rede, a política de intenções de rede também é removida.
@@ -301,20 +301,22 @@ Implementar a SQL Managed Instance numa sub-rede dedicada dentro da rede virtual
 
 \* MI SUBNET refere-se ao intervalo de endereço IP para a sub-rede no formulário x.x.x.x/y. Pode encontrar esta informação no portal Azure, em propriedades da sub-rede.
 
+\** Se o endereço de destino for para um dos serviços da Azure, a Azure encaminha o tráfego diretamente para o serviço através da rede de espinha dorsal da Azure, em vez de encaminhar o tráfego para a Internet. O tráfego entre os serviços do Azure não atravessa a Internet, independentemente da região do Azure na qual a rede virtual existe ou da região em que uma instância do serviço Azure está implementada. Para mais detalhes consulte a [página de documentação da UDR](../../virtual-network/virtual-networks-udr-overview.md).
+
 Além disso, pode adicionar entradas à tabela de rotas para o tráfego de rotas que tem no local gamas IP privadas como destino através do gateway de rede virtual ou do aparelho de rede virtual (NVA).
 
 Se a rede virtual incluir um DNS personalizado, o servidor DNS personalizado deve ser capaz de resolver registos DNS públicos. A utilização de funcionalidades adicionais como a autenticação AD AZure pode requerer a resolução de FQDNs adicionais. Para obter mais informações, consulte [Configurar um DNS personalizado.](custom-dns-configure.md)
 
 ### <a name="networking-constraints"></a>Restrições de rede
 
-**O TLS 1.2 é aplicado nas ligações de saída**: Em janeiro de 2020, a Microsoft impôs TLS 1.2 para tráfego intra-serviço em todos os serviços Azure. Para a Azure SQL Managed Instance, isto resultou na aplicação do TLS 1.2 nas ligações de saída utilizadas para replicação e ligações de servidores ligados ao SQL Server. Se estiver a utilizar versões do SQL Server com mais de 2016 com a SQL Managed Instance, certifique-se de que foram [aplicadas atualizações específicas TLS 1.2.](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)
+**O TLS 1.2 é aplicado nas ligações de saída** : Em janeiro de 2020, a Microsoft impôs TLS 1.2 para tráfego intra-serviço em todos os serviços Azure. Para a Azure SQL Managed Instance, isto resultou na aplicação do TLS 1.2 nas ligações de saída utilizadas para replicação e ligações de servidores ligados ao SQL Server. Se estiver a utilizar versões do SQL Server com mais de 2016 com a SQL Managed Instance, certifique-se de que foram [aplicadas atualizações específicas TLS 1.2.](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)
 
 As seguintes funcionalidades de rede virtual não são atualmente suportadas com a SQL Managed Instance:
 
-- **Microsoft peering**: Habilitar [a Microsoft a espreitar](../../expressroute/expressroute-faqs.md#microsoft-peering) os circuitos ExpressRoute espreitei-o direta ou transitivamente com uma rede virtual onde o SQL Managed Instance reside afeta o fluxo de tráfego entre os componentes da SQL Managed Instance dentro da rede virtual e os serviços de que depende, causando problemas de disponibilidade. Espera-se que as implementações de SqL Managed Instance para rede virtual com o microsoft já ativado falhem.
-- **Observação global da rede virtual**: A conectividade de rede virtual que espreita [as](../../virtual-network/virtual-network-peering-overview.md) regiões de Azure não funciona para as Instâncias Geridas SQL colocadas em sub-redes criadas antes de 22/9/2020.
-- **AzurePlatformDNS**: A utilização da [etiqueta de serviço](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear a resolução de DNS da plataforma tornaria a SQL Managed Instance indisponível. Embora a SQL Managed Instance suporte DNS definido pelo cliente para resolução de DNS dentro do motor, existe uma dependência da plataforma DNS para operações da plataforma.
-- **Gateway NAT**: A utilização [da Rede Virtual Azure NAT](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico tornaria a SQL Managed Instance indisponível. O serviço SQL Managed Instance está atualmente limitado ao uso de balanceador de carga básico que não proporciona coexistência de fluxos de entrada e saída com a Rede Virtual NAT.
+- **Microsoft peering** : Habilitar [a Microsoft a espreitar](../../expressroute/expressroute-faqs.md#microsoft-peering) os circuitos ExpressRoute espreitei-o direta ou transitivamente com uma rede virtual onde o SQL Managed Instance reside afeta o fluxo de tráfego entre os componentes da SQL Managed Instance dentro da rede virtual e os serviços de que depende, causando problemas de disponibilidade. Espera-se que as implementações de SqL Managed Instance para rede virtual com o microsoft já ativado falhem.
+- **Observação global da rede virtual** : A conectividade de rede virtual que espreita [as](../../virtual-network/virtual-network-peering-overview.md) regiões de Azure não funciona para as Instâncias Geridas SQL colocadas em sub-redes criadas antes de 22/9/2020.
+- **AzurePlatformDNS** : A utilização da [etiqueta de serviço](../../virtual-network/service-tags-overview.md) AzurePlatformDNS para bloquear a resolução de DNS da plataforma tornaria a SQL Managed Instance indisponível. Embora a SQL Managed Instance suporte DNS definido pelo cliente para resolução de DNS dentro do motor, existe uma dependência da plataforma DNS para operações da plataforma.
+- **Gateway NAT** : A utilização [da Rede Virtual Azure NAT](../../virtual-network/nat-overview.md) para controlar a conectividade de saída com um endereço IP público específico tornaria a SQL Managed Instance indisponível. O serviço SQL Managed Instance está atualmente limitado ao uso de balanceador de carga básico que não proporciona coexistência de fluxos de entrada e saída com a Rede Virtual NAT.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[Precatado] Requisitos de rede sem configuração de sub-rede ajudada pelo serviço
 

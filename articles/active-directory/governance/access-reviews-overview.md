@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 09/08/2020
+ms.date: 10/29/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3f52b8d4e56ec854f93940ea77f09c3dff1d362e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594344"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096007"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>O que são as revisões de acesso do Azure AD?
 
@@ -81,7 +81,7 @@ O seu diretório necessita de pelo menos tantas licenças Azure AD Premium P2 co
 
 As licenças Azure AD Premium P2 **não** são necessárias para utilizadores com as funções de Administrador Global ou Administrador de Utilizador que configuram revisões de acesso, configuram definições ou aplicam as decisões das avaliações.
 
-Por cada licença Azure AD Premium P2 paga que atribua a um dos utilizadores da sua própria organização, pode utilizar o Azure AD business-to-business (B2B) para convidar até cinco utilizadores convidados ao abrigo do Subsídio de Utilizador Externo. Estes utilizadores convidados também podem utilizar funcionalidades Azure AD Premium P2. Para obter mais informações, consulte [a orientação de licenciamento de colaboração Azure AD B2B](../external-identities/licensing-guidance.md).
+O acesso do utilizador azure AD é baseado num modelo de faturação mensal de utilizadores ativos (MAU), que substitui o modelo de faturação de rácio de 1:5. Para obter mais informações, consulte [os preços das identidades externas da Azure AD.](../external-identities/external-identities-pricing.md)
 
 Para obter mais informações sobre licenças, consulte [atribuir ou remover licenças utilizando o portal Azure Ative Directory](../fundamentals/license-users-groups.md).
 

@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 329c4b40f11b36de80581d4a1396813bc8de5c73
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478155"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097333"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Indo social com Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Viver numa sociedade massivamente interligada significa que, em algum momento da vida, você se torna parte de uma **rede social**. Usa as redes sociais para manter contacto com amigos, colegas, familiares ou, por vezes, para partilhar a sua paixão com pessoas com interesses comuns.
+Viver numa sociedade massivamente interligada significa que, em algum momento da vida, você se torna parte de uma **rede social** . Usa as redes sociais para manter contacto com amigos, colegas, familiares ou, por vezes, para partilhar a sua paixão com pessoas com interesses comuns.
 
 Como engenheiros ou desenvolvedores, pode ter-se perguntado como é que estas redes armazenam e interligam os seus dados. Ou pode até ter sido incumbido de criar ou arquiteto uma nova rede social para um nicho de mercado específico. É aí que surge a questão significativa: como é que todos estes dados são armazenados?
 
@@ -238,7 +239,7 @@ Outra opção disponível é utilizar os [Serviços Cognitivos Azure](https://ww
 
 ## <a name="a-planet-scale-social-experience"></a>Uma experiência social à escala planetário
 
-Há um último, mas não menos importante, artigo importante que devo abordar: **escalabilidade**. Quando se projeta uma arquitetura, cada componente deve escalar por si só. Eventualmente, terá de processar mais dados, ou terá uma maior cobertura geográfica. Felizmente, realizar ambas as tarefas é uma **experiência chave na mão** com a Cosmos DB.
+Há um último, mas não menos importante, artigo importante que devo abordar: **escalabilidade** . Quando se projeta uma arquitetura, cada componente deve escalar por si só. Eventualmente, terá de processar mais dados, ou terá uma maior cobertura geográfica. Felizmente, realizar ambas as tarefas é uma **experiência chave na mão** com a Cosmos DB.
 
 Cosmos DB suporta divisórias dinâmicas fora da caixa. Cria automaticamente divisórias com base numa determinada **chave de partição,** que é definida como um atributo nos seus documentos. A definição da chave de partição correta deve ser feita no momento do desenho. Para mais informações, consulte [Partitioning in Azure Cosmos DB](partitioning-overview.md).
 

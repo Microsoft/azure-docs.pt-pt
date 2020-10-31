@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b2aab6579f9cc78e44454407f1f4ddeed605086b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485006"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096109"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a Tabela API em Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 A Azure Cosmos DB Table API está disponível no [portal Azure](https://portal.azure.com) Primeiro tem de se inscrever para uma subscrição do Azure. Depois de se ter inscrito, pode adicionar uma conta API de Mesa DB da Azure Cosmos à sua subscrição Azure e, em seguida, adicionar tabelas à sua conta. Pode encontrar as línguas suportadas e os rápidos-arranques associados na [Introdução à AZure Cosmos DB Table API](table-introduction.md).
 
@@ -195,7 +196,7 @@ Sim, a Azure Cosmos DB Table API fornece indexação automática de todos os atr
 
 Sim, pode alterar a política de indexação fornecendo a definição de índice. É necessário codificar e escapar corretamente às definições.
 
-Para os non-.NET SDKs, a política de indexação só pode ser definida no portal do **Data Explorer,** navegar para a tabela específica que pretende alterar e, em seguida, ir para a Política de Indexação **de Definições &**->, fazer a alteração desejada e, em seguida, **Guardar**.
+Para os non-.NET SDKs, a política de indexação só pode ser definida no portal do **Data Explorer,** navegar para a tabela específica que pretende alterar e, em seguida, ir para a Política de Indexação **de Definições &** ->, fazer a alteração desejada e, em seguida, **Guardar** .
 
 A partir do .NET SDK pode ser submetido no ficheiro app.config:
 

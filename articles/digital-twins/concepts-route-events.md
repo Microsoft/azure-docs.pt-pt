@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f124eb24dcdc9e6437c803d1066d6ca86d5c32ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9c7b08b92fad07cddbdb2783f2d68cdb9be034a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440812"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097078"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotas eventos dentro e fora de Azure Digital Twins
 
 As gémeas Azure Digital usam rotas de **eventos** para enviar dados aos consumidores fora do serviço. 
 
-Durante a pré-visualização, existem dois casos importantes para o envio de dados da Azure Digital Twins:
+Existem dois casos importantes para o envio de dados da Azure Digital Twins:
 * Envio de dados de um gémeo no gráfico Azure Digital Twins para outro. Por exemplo, quando uma propriedade com um gémeo digital muda, pode querer notificar e atualizar outro gémeo digital em conformidade.
 * Envio de dados para serviços de dados a jusante para armazenamento ou tratamento adicional (também conhecido como *saída de dados).* Por exemplo,
   - Um hospital pode querer enviar dados de eventos da Azure Digital Twins para [a Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), para registar dados de séries de tempo de eventos relacionados com lavagem de mãos para análise a granel.
@@ -38,7 +38,7 @@ Alvos típicos a jusante para rotas de eventos são recursos como TSI, Azure Map
 
 ### <a name="event-routes-for-internal-digital-twin-events"></a>Rotas de eventos para eventos digitais gémeos internos
 
-Durante o lançamento atual, as rotas do evento também são usadas para lidar com eventos dentro do gráfico gémeo e enviar dados de twin digital para twin digital. Isto é feito através da ligação de rotas de eventos através da Grade de Eventos para calcular recursos, tais como [Azure Functions](../azure-functions/functions-overview.md). Estas funções definem então como os gémeos devem receber e responder aos eventos. 
+As rotas do evento também são usadas para lidar com eventos dentro do gráfico gémeo e enviar dados de gémeos digitais para gémeos digitais. Isto é feito através da ligação de rotas de eventos através da Grade de Eventos para calcular recursos, tais como [Azure Functions](../azure-functions/functions-overview.md). Estas funções definem então como os gémeos devem receber e responder aos eventos. 
 
 Quando um recurso compute quer modificar o gráfico gémeo com base num evento que recebeu através da rota do evento, é útil que saiba qual o gémeo que quer modificar com antecedência. 
 
@@ -50,7 +50,7 @@ Para percorrer o processo de criação de uma função Azure para processar even
 
 ## <a name="create-an-endpoint"></a>Criar um ponto final
 
-Para definir uma rota de eventos, os desenvolvedores primeiro devem definir pontos finais. Um **ponto final** é um destino fora da Azure Digital Twins que suporta uma ligação de rota. Os destinos suportados na versão atual de pré-visualização são:
+Para definir uma rota de eventos, os desenvolvedores primeiro devem definir pontos finais. Um **ponto final** é um destino fora da Azure Digital Twins que suporta uma ligação de rota. Os destinos suportados incluem:
 * Tópicos personalizados da Grelha de Eventos
 * Hub de Eventos
 * Service Bus
@@ -73,7 +73,7 @@ As APIs de ponta que estão disponíveis no plano de controlo são:
  
 Para criar uma rota de eventos, pode utilizar o plano de dados Azure Digital Twins [**APIs,**](how-to-manage-routes-apis-cli.md#create-an-event-route) [**comandos CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)ou o [**portal Azure**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Aqui está um exemplo de criação de uma rota de evento dentro de uma aplicação de cliente, usando a chamada `CreateEventRoute` [.NET (C#) SDK:](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview) 
+Aqui está um exemplo de criação de uma rota de evento dentro de uma aplicação de cliente, usando a chamada `CreateEventRoute` [.NET (C#) SDK:](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: e7c4842494c144f5cd64d46f53f7a99266064680
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3569ae130813eb0aaf14ec3d8d4e5cfac3e98c6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993645"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095652"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Rescisão de TLS com certificados Key Vault
 
@@ -49,6 +49,9 @@ A integração do Gateway de Aplicação com o Key Vault requer um processo de c
 
    Em seguida, importa um certificado existente ou cria um novo no seu cofre chave. O certificado será utilizado por aplicações que passam pelo gateway de aplicações. Neste passo, também pode usar um segredo de cofre chave que é armazenado como um ficheiro PFX codificado sem palavra-passe, base-64 codificado. Recomendamos a utilização de um tipo de certificado devido à capacidade de auto-mente que está disponível com objetos tipo certificado no cofre da chave. Depois de criar um certificado ou um segredo, define as políticas de acesso no cofre chave para permitir que a identidade *tenha* acesso ao segredo.
    
+   > [!IMPORTANT]
+   > O Gateway de Aplicação atualmente requer o Key Vault para permitir o acesso de todas as redes de forma a alavancar a integração. Não suporta a integração do Key Vault quando o Key Vault está definido para permitir apenas o acesso a pontos finais privados e selecionar o acesso das redes. O suporte para redes privadas e selecionadas está em obras para integração completa do Key Vault com o Application Gateway. 
+
    > [!NOTE]
    > Se implementar o gateway de aplicação através de um modelo ARM, quer utilizando o Azure CLI ou o PowerShell, quer através de uma aplicação Azure implantada a partir do portal Azure, o certificado SSL é armazenado no cofre de chaves como um ficheiro PFX codificado com base64. Tem de completar os passos no [Cofre da Chave Azure para passar o valor do parâmetro seguro durante a implantação](../azure-resource-manager/templates/key-vault-parameter.md). 
    >

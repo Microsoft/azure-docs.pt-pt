@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 0167dc0b1cbf8cf3b95995645ef24548a05c4343
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5264fb44f8088ae8f942abf95bc8c0ef6d917413
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538651"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096143"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidor usando funções Azure Cosmos DB e Azure
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A computação sem servidor tem tudo a ver com a capacidade de se focar em peças lógicas individuais que são repetíveis e apátridas. Estas peças não requerem gestão de infraestruturas e consomem recursos apenas durante os segundos, ou milissegundos, que correm. No cerne do movimento de computação sem servidor estão as funções, que são disponibilizadas no ecossistema Azure por [Azure Functions](https://azure.microsoft.com/services/functions). Para saber mais sobre outros ambientes de execução sem servidor em Azure, consulte sem servidor na página [Azure.](https://azure.microsoft.com/solutions/serverless/) 
 

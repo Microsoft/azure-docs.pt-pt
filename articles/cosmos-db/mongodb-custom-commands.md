@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: 39f116139d68f2382085dbbab5e862d0c621ad2e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 68f7c9331423fa4ef350bd7915ad85e3152c6885
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282465"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096551"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilize comandos de extensão MongoDB para gerir os dados armazenados na API da Azure Cosmos para o MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 O documento que se segue contém os comandos de ação personalizados específicos da API da Azure Cosmos DB para o MongoDB. Estes comandos podem ser utilizados para criar e obter recursos de base de dados específicos do [modelo de capacidade DB do Azure Cosmos.](account-databases-containers-items.md)
 
@@ -211,7 +212,7 @@ O comando de extensão de coleção criar uma nova coleção MongoDB. O nome da 
 
 A tabela a seguir descreve os parâmetros dentro do comando:
 
-| **Campo** | **Tipo** | **Necessário** | **Descrição** |
+| **Campo** | **Tipo** | **Obrigatório** | **Descrição** |
 |---------|---------|---------|---------|
 | `customAction` | `string` | Necessário | Nome do comando personalizado. Deve ser "CreateCollection".|
 | `collection` | `string` | Necessário | O nome da coleção. Não são permitidos caracteres ou espaços especiais.|

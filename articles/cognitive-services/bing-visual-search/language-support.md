@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f32c7a97036319dcae610fd0baa2dad48763d8ae
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68883553"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094936"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Suporte linguístico e regional para a API de Pesquisa Visual de Bing
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Bing Visual Search API suporta mais de três dezenas de países/regiões, muitos com mais de uma língua. Cada pedido deve incluir o país/região do utilizador e a linguagem de eleição. Conhecer o mercado do utilizador ajuda a Bing a devolver os resultados apropriados. Se não especificar um país/região e uma língua, bing faz o melhor esforço para determinar o país/região e a língua do utilizador. Como os resultados podem conter ligações com Bing, conhecer o país/região e a língua pode fornecer uma experiência de utilizador Bing localizada preferencial se o utilizador clicar nos links Bing.
 
@@ -78,7 +83,7 @@ Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de
 
 ## <a name="markets"></a>Mercados
 
-|Pais/região|Idioma|Código de Mercado|
+|Pais/região|Linguagem|Código de Mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -117,5 +122,5 @@ Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de
 |Taiwan|Chinês Tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos da América|Inglês|pt-PT|
+|Estados Unidos da América|Inglês|en-PT|
 |Estados Unidos da América|Espanhol|es-EUA|

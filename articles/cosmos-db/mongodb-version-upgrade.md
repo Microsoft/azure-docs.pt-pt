@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
-ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb12fc909b5165cbc759bbb7c531864cde16bb88
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409668"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096313"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Atualize a versão do protocolo de arame MongoDB da sua API da Azure Cosmos para a conta MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Este artigo descreve como atualizar a versão do protocolo de fio da sua API da Azure Cosmos para a conta MongoDB. Depois de atualizar a versão do protocolo de fio, pode utilizar a mais recente funcionalidade na API da Azure Cosmos DB para o MongoDB. O processo de atualização não interrompe a disponibilidade da sua conta e não consome RU/s nem diminui a capacidade da base de dados em qualquer momento. Nenhum dado ou índice existente será afetado por este processo.
 
@@ -37,7 +38,7 @@ Seguem-se as novas funcionalidades incluídas na versão 3.6:
 
 ### <a name="changes-from-version-32"></a>Alterações da versão 3.2
 
-- **Pedido Os erros do RequestRateIsLarge foram removidos**. Os pedidos da aplicação do cliente não devolverão mais 16500 erros. Em vez disso, os pedidos serão retomados até completarem ou cumprirem o tempo limite.
+- **Pedido Os erros do RequestRateIsLarge foram removidos** . Os pedidos da aplicação do cliente não devolverão mais 16500 erros. Em vez disso, os pedidos serão retomados até completarem ou cumprirem o tempo limite.
 - Por pedido, o tempo limite está definido para 60 segundos.
 - As coleções MongoDB criadas na nova versão do protocolo de fio só terão a `_id` propriedade indexada por padrão.
 
@@ -49,7 +50,7 @@ Para a atualização para a versão 3.6, o sufixo de ponto final da conta de bas
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-Tem de substituir o ponto final existente nas suas aplicações e controladores que se conectam com esta conta de base de dados. **Apenas as ligações que estiverem a utilizar o novo ponto final terão acesso às funcionalidades da versão 3.6 do MongoDB**. O ponto final anterior deve ter o sufixo `.documents.azure.com` .
+Tem de substituir o ponto final existente nas suas aplicações e controladores que se conectam com esta conta de base de dados. **Apenas as ligações que estiverem a utilizar o novo ponto final terão acesso às funcionalidades da versão 3.6 do MongoDB** . O ponto final anterior deve ter o sufixo `.documents.azure.com` .
 
 >[!Note]
 > Este ponto final pode ter ligeiras diferenças se a sua conta foi criada numa Nuvem Soberana, Governamental ou Restrita.

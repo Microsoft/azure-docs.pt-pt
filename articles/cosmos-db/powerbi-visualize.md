@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: a7e5443869efd7f37153b47e4d9c3eaa39f9c41d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c6da4eef15f8f0946e17e910fa39aee1f34fccf0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475282"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096381"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizar dados do Azure Cosmos DB com o conector do Power BI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 [Power BI](https://powerbi.microsoft.com/) é um serviço online onde pode criar e partilhar dashboards e relatórios. O Power BI Desktop é uma ferramenta de criação de relatórios que lhe permite obter dados de várias origens de dados. O Azure Cosmos DB é uma das origens de dados que pode utilizar com o Power BI Desktop. Pode ligar o Power BI Desktop à conta do Azure Cosmos DB com o conector do Azure Cosmos DB para Power BI.  Depois de importar os dados do Azure Cosmos DB para o Power BI, pode transformá-los, criar relatórios e publicar os relatórios no Power BI.   
 
@@ -78,17 +79,17 @@ Você vai recuperar os dados do vulcão da conta DB Azure Cosmos e visualizar da
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbireportview.png" alt-text="Power BI Desktop Report View - Conector Power BI":::
 
-3. Selecione a fita **Home** e, em seguida, clique em **Obter Dados**.  A janela **Get Data** deve aparecer.
+3. Selecione a fita **Home** e, em seguida, clique em **Obter Dados** .  A janela **Get Data** deve aparecer.
 
-4. Clique em **Azure,** selecione **Azure Cosmos DB (Beta)** e, em seguida, clique em **Connect**. 
+4. Clique em **Azure,** selecione **Azure Cosmos DB (Beta)** e, em seguida, clique em **Connect** . 
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbigetdata.png" alt-text="Power BI Desktop Report View - Conector Power BI":::
 
-5. Na página **do Conector de Pré-visualização,** clique **em Continuar**. Aparece a janela **DB de Azure Cosmos.**
+5. Na página **do Conector de Pré-visualização,** clique **em Continuar** . Aparece a janela **DB de Azure Cosmos.**
 
-6. Especifique o URL de ponto final da conta Azure Cosmos DB que gostaria de recuperar os dados a partir da indicação abaixo e, em seguida, clique **em OK**. Para utilizar a sua própria conta, pode recuperar o URL da caixa URI na lâmina **keys** do portal Azure. Opcionalmente, pode fornecer o nome da base de dados, o nome da recolha ou utilizar o navegador para selecionar a base de dados e a recolha para identificar de onde os dados provêm.
+6. Especifique o URL de ponto final da conta Azure Cosmos DB que gostaria de recuperar os dados a partir da indicação abaixo e, em seguida, clique **em OK** . Para utilizar a sua própria conta, pode recuperar o URL da caixa URI na lâmina **keys** do portal Azure. Opcionalmente, pode fornecer o nome da base de dados, o nome da recolha ou utilizar o navegador para selecionar a base de dados e a recolha para identificar de onde os dados provêm.
    
-7. Se estiver a ligar-se a este ponto final pela primeira vez, é-lhe solicitada a chave da conta. Para a sua própria conta, recupere a chave da caixa **chave primária** na lâmina de **chaves apenas de leitura** do portal Azure. Introduza a tecla apropriada e, em seguida, clique em **Connect**.
+7. Se estiver a ligar-se a este ponto final pela primeira vez, é-lhe solicitada a chave da conta. Para a sua própria conta, recupere a chave da caixa **chave primária** na lâmina de **chaves apenas de leitura** do portal Azure. Introduza a tecla apropriada e, em seguida, clique em **Connect** .
    
    Recomendamos que utilize a chave apenas de leitura quando se couem relatórios. Isto evita a exposição desnecessária da chave primária a potenciais riscos de segurança. A chave apenas de leitura está disponível a partir da lâmina **Keys** do portal Azure. 
     
@@ -98,7 +99,7 @@ Você vai recuperar os dados do vulcão da conta DB Azure Cosmos e visualizar da
 
 10. Agora, selecione uma coleção que contenha os dados para recuperar, selecione **vulcão1** (o nome da sua recolha pode ser diferente).
     
-    O painel de pré-visualização mostra uma lista de itens **de gravação.**  Um documento é representado como um tipo **de Record** em Power BI. Da mesma forma, um bloco JSON aninhado dentro de um documento também é um **Record**.
+    O painel de pré-visualização mostra uma lista de itens **de gravação.**  Um documento é representado como um tipo **de Record** em Power BI. Da mesma forma, um bloco JSON aninhado dentro de um documento também é um **Record** .
     
     :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbinavigator.png" alt-text="Power BI Desktop Report View - Conector Power BI":::
 
@@ -109,7 +110,7 @@ Você vai recuperar os dados do vulcão da conta DB Azure Cosmos e visualizar da
 
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditor.png" alt-text="Power BI Desktop Report View - Conector Power BI":::
 
-1. Clique no expansor no lado direito do cabeçalho da coluna **Document.**  O menu de contexto com uma lista de campos será apresentado.  Selecione os campos de que necessita para o seu relatório, por exemplo, Nome do Vulcão, País, Região, Localização, Elevação, Tipo, Estado e Última Erupção. Desmarque o nome da coluna original como caixa **de prefixo** e, em seguida, clique em **OK**.
+1. Clique no expansor no lado direito do cabeçalho da coluna **Document.**  O menu de contexto com uma lista de campos será apresentado.  Selecione os campos de que necessita para o seu relatório, por exemplo, Nome do Vulcão, País, Região, Localização, Elevação, Tipo, Estado e Última Erupção. Desmarque o nome da coluna original como caixa **de prefixo** e, em seguida, clique em **OK** .
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbiqueryeditorexpander.png" alt-text="Power BI Desktop Report View - Conector Power BI":::
 
@@ -119,7 +120,7 @@ Você vai recuperar os dados do vulcão da conta DB Azure Cosmos e visualizar da
 
 1. No nosso exemplo, a propriedade Localização é um bloco GeoJSON em um documento.  Como pode ver, a localização é representada como um tipo **de record** no Power BI Desktop.  
 
-1. Clique no expansor no lado direito do cabeçalho da coluna Document.Location.  O menu de contexto com tipos e coordenadas campos aparecem.  Vamos selecionar o campo de coordenadas, garantir que o nome da coluna original, uma vez que **o prefixo** não está selecionado, e clique **em OK**.
+1. Clique no expansor no lado direito do cabeçalho da coluna Document.Location.  O menu de contexto com tipos e coordenadas campos aparecem.  Vamos selecionar o campo de coordenadas, garantir que o nome da coluna original, uma vez que **o prefixo** não está selecionado, e clique **em OK** .
    
    :::image type="content" source="./media/powerbi-visualize/power_bi_connector_pbilocationrecord.png" alt-text="Power BI Desktop Report View - Conector Power BI":::
 
@@ -133,7 +134,7 @@ Você vai recuperar os dados do vulcão da conta DB Azure Cosmos e visualizar da
 
 1. Forneça um nome para a nova coluna, por exemplo, LatLong.
 
-1. Em seguida, especifique a fórmula personalizada para a nova coluna.  Por exemplo, concatenaremos os valores de Latitude e Longitude separados por uma vírgula, como mostrado abaixo, utilizando a seguinte fórmula: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Clique em **OK**.
+1. Em seguida, especifique a fórmula personalizada para a nova coluna.  Por exemplo, concatenaremos os valores de Latitude e Longitude separados por uma vírgula, como mostrado abaixo, utilizando a seguinte fórmula: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})` . Clique em **OK** .
    
    Para obter mais informações sobre expressões de análise de dados (DAX) incluindo funções DAX, visite [o DAX Basics no Power BI Desktop](/power-bi/desktop-quickstart-learn-dax-basics).
    

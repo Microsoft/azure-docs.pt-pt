@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49cdb423e8fd2e70175d4ac71f6dcd07b459f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056521"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097741"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para empregos Azure Stream Analytics
 
@@ -33,13 +33,13 @@ Quando se cria um novo trabalho stream Analytics, é uma boa prática criá-lo u
 
 ## <a name="set-the-compatibility-level"></a>Definir o nível de compatibilidade
 
-Pode definir o nível de compatibilidade para um trabalho stream Analytics no portal Azure ou utilizando a [chamada de API de emprego de criação](/rest/api/streamanalytics/stream-analytics-job).
+Pode definir o nível de compatibilidade para um trabalho stream Analytics no portal Azure ou utilizando a [chamada de API de emprego de criação](/azure/stream-analytics/stream-analytics-quick-create-portal).
 
 Para atualizar o nível de compatibilidade do trabalho no portal Azure:
 
 1. Utilize o [portal Azure](https://portal.azure.com) para localizar o seu trabalho stream Analytics.
 2. **Pare** o trabalho antes de atualizar o nível de compatibilidade. Não pode atualizar o nível de compatibilidade se o seu trabalho estiver em funcionamento.
-3. No título **Configure,** selecione **o nível de compatibilidade**.
+3. No título **Configure,** selecione **o nível de compatibilidade** .
 4. Escolha o valor de nível de compatibilidade que deseja.
 5. **Selecione Guarde** na parte inferior da página.
 
@@ -53,7 +53,7 @@ Introduzem-se as seguintes grandes alterações no nível de compatibilidade 1.2
 
 ###  <a name="amqp-messaging-protocol"></a>Protocolo de mensagens AMQP
 
-**1.2 nível**: A azure Stream Analytics utiliza o protocolo de mensagens [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) para escrever para Service Bus Queues and Topics. A AMQP permite-lhe construir aplicações híbridas e inter-plataforma usando um protocolo padrão aberto.
+**1.2 nível** : A azure Stream Analytics utiliza o protocolo de mensagens [Advanced Message Queueing Protocol (AMQP)](../service-bus-messaging/service-bus-amqp-overview.md) para escrever para Service Bus Queues and Topics. A AMQP permite-lhe construir aplicações híbridas e inter-plataforma usando um protocolo padrão aberto.
 
 ### <a name="geospatial-functions"></a>Funções geoespaciais
 
@@ -79,7 +79,7 @@ Para obter mais informações, consulte [Atualizações de funcionalidades geoes
 
 **1.2 nível:** A integração nativa da API a granel com a saída cosmosDB maximiza a produção e lida eficientemente com pedidos de estrangulamento. Para obter mais informações, consulte [a saída Azure Stream Analytics para a página DB do Azure Cosmos](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 
-O comportamento de upsert é *inserir ou substituir*.
+O comportamento de upsert é *inserir ou substituir* .
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DataTimeOffset ao escrever para a saída SQL
 

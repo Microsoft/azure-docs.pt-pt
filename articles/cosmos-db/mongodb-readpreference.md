@@ -9,14 +9,15 @@ ms.devlang: nodejs
 ms.topic: how-to
 ms.date: 02/26/2019
 ms.custom: devx-track-js
-ms.openlocfilehash: e86c48695c732b27f5032c1e3780cc24c8d3dc39
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3d21aadd8174bf933e55320c8596c57274140582
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482269"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096398"
 ---
 # <a name="how-to-globally-distribute-reads-using-azure-cosmos-dbs-api-for-mongodb"></a>Como distribuir globalmente leituras usando AZure Cosmos DB's API para MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Este artigo mostra como distribuir globalmente as operações de leitura com as definições [de Preferência de Leitura mongoDB](https://docs.mongodb.com/manual/core/read-preference/) usando a API da Azure Cosmos DB para a MongoDB.
 
@@ -145,7 +146,7 @@ Além do modo Leitura Preferência, o protocolo MongoDB permite a utilização d
       }
 ```
 
-Assim, a MongoClient pode usar a `region` etiqueta juntamente com o nome da região para direcionar as operações de leitura para regiões específicas. Para as contas cosmos, os nomes da região podem ser encontrados no portal Azure à esquerda sob **os dados de Replica De Definições->a nível global**. Esta configuração é útil para alcançar **o isolamento da leitura** - casos em que a aplicação do cliente quer dirigir operações de leitura apenas para uma região específica. Esta configuração é ideal para cenários de tipo não-produção/analítico, que funcionam em segundo plano e não são serviços críticos de produção.
+Assim, a MongoClient pode usar a `region` etiqueta juntamente com o nome da região para direcionar as operações de leitura para regiões específicas. Para as contas cosmos, os nomes da região podem ser encontrados no portal Azure à esquerda sob **os dados de Replica De Definições->a nível global** . Esta configuração é útil para alcançar **o isolamento da leitura** - casos em que a aplicação do cliente quer dirigir operações de leitura apenas para uma região específica. Esta configuração é ideal para cenários de tipo não-produção/analítico, que funcionam em segundo plano e não são serviços críticos de produção.
 
 O seguinte corte da aplicação da amostra mostra como configurar a Preferência de Leitura com etiquetas em NodeJS:
 
@@ -162,12 +163,12 @@ Consulte os repos de aplicação da amostra correspondentes para outras platafor
 
 Neste artigo, aprendeu a distribuir globalmente operações de leitura usando a Read Preference com a API da Azure Cosmos DB para a MongoDB.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não vai continuar a utilizar esta aplicação, elimine todos os recursos criados por este artigo no portal Azure com os seguintes passos:
 
 1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome de recurso que criou. 
-2. Na página do grupo de recursos, clique em **Eliminar**, escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
+2. Na página do grupo de recursos, clique em **Eliminar** , escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar** .
 
 ## <a name="next-steps"></a>Passos seguintes
 

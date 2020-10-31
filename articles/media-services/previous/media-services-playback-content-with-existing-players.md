@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: bd09b734f1ac5ac3c98b6c0c717a48de19b0106f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2036fa056932f9bbd2f14b4005fa54321b1a382
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261075"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095718"
 ---
 # <a name="playing-your-content-with-existing-players"></a>Reproduzir o conteúdo com os leitores existentes
 
@@ -51,11 +51,11 @@ Utilize [o Azure Media Player](https://aka.ms/azuremediaplayer) para reproduzir 
 
 #### <a name="playready-with-token"></a>PlayReady com Token
 
-[https://sltoken.azurewebsites.net](https://sltoken.azurewebsites.net)
+[http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html](http://reference.dashif.org/dash.js/nightly/samples/dash-if-reference-player/index.html)
 
 ### <a name="dash-players"></a>Jogadores do DASH
 
-[https://dashplayer.azurewebsites.net](https://dashplayer.azurewebsites.net)
+"https://dashplayer.azurewebsites.net"
 
 [https://dashif.org](https://dashif.org)
 

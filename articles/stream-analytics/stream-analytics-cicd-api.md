@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: ed11488f397704be782a092d6cdc6463449cc71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18817a426bacc1ddf144c1d64b611c55245cc21e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039080"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097792"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementar CI/CD para stream analytics em IoT Edge usando APIs
 
@@ -136,7 +136,7 @@ Exemplo do corpo de pedido em JSON:
 } 
 ```
  
-Para mais informações, consulte a documentação da [API.](/rest/api/streamanalytics/stream-analytics-job)  
+Para mais informações, consulte a documentação da [API.](/rest/api/streamanalytics/)  
  
 ## <a name="publish-edge-package"></a>Publicar pacote Edge 
  

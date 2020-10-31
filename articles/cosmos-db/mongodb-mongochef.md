@@ -8,14 +8,15 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 6c9ea401a4a62f617b5acf6f96c60532d929ff1c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a02aaadf8c774557eb182acf041b6f19337a0de8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167973"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096521"
 ---
 # <a name="connect-to-an-azure-cosmos-account-using-studio-3t"></a>Ligue-se a uma conta Azure Cosmos usando o Studio 3T
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Para ligar a API de um API da Azure Cosmos para MongoDB usando o Studio 3T, você deve:
 
@@ -42,20 +43,20 @@ Para adicionar a sua conta Azure Cosmos ao gestor de conexão Studio 3T, utilize
 5. Na janela **New Connection,** no separador **SSL,** verifique o **protocolo Use SSL para ligar a** caixa de verificação e o botão de rádio de **certificados SSL auto-assinado do servidor Aceitar.**
 
     :::image type="content" source="./media/mongodb-mongochef/ConnectionManagerSSLTab.png" alt-text="Screenshot da página de cadeia de ligação":::
-6. Clique no botão **'Ligação de Teste'** para validar as informações de ligação, clique em **OK** para voltar à janela Nova Ligação e, em seguida, clique em **Guardar**.
+6. Clique no botão **'Ligação de Teste'** para validar as informações de ligação, clique em **OK** para voltar à janela Nova Ligação e, em seguida, clique em **Guardar** .
 
     :::image type="content" source="./media/mongodb-mongochef/TestConnectionResults.png" alt-text="Screenshot da página de cadeia de ligação":::
 
 ## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Use o Studio 3T para criar uma base de dados, recolha e documentos
 Para criar uma base de dados, recolha e documentos utilizando o Studio 3T, execute os seguintes passos:
 
-1. Em **Connection Manager**, realce a ligação e clique em **Connect**.
+1. Em **Connection Manager** , realce a ligação e clique em **Connect** .
 
     :::image type="content" source="./media/mongodb-mongochef/ConnectToAccount.png" alt-text="Screenshot da página de cadeia de ligação":::
-2. Clique com o botão direito no anfitrião e escolha **Add Database**.  Forneça um nome de base de dados e clique **em OK**.
+2. Clique com o botão direito no anfitrião e escolha **Add Database** .  Forneça um nome de base de dados e clique **em OK** .
 
     :::image type="content" source="./media/mongodb-mongochef/AddDatabase1.png" alt-text="Screenshot da página de cadeia de ligação":::
-3. Clique com o botão direito na base de dados e escolha **Adicionar Coleção**.  Forneça um nome de coleção e clique em **Criar.**
+3. Clique com o botão direito na base de dados e escolha **Adicionar Coleção** .  Forneça um nome de coleção e clique em **Criar.**
 
     :::image type="content" source="./media/mongodb-mongochef/AddCollection.png" alt-text="Screenshot da página de cadeia de ligação":::
 4. Clique no item do menu **Coleção** e, em seguida, clique em **Adicionar Documento.**

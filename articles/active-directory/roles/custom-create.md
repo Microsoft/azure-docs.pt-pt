@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 254ab7a10eb9779706ee31e5a16d51fe03b7122b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1aa5671a73c8a4de945a2013d8678d7f0f74625e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377782"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097996"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir um papel personalizado no Azure Ative Directory
 
@@ -31,11 +31,11 @@ As funções personalizadas podem ser criadas no [separador Funções e administ
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Criar uma nova função personalizada para garantir o acesso à gestão de registos de aplicações
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
-1. Selecione **Azure Ative Directory**  >  **Roles and administrators**  >  **New custom role**.
+1. Selecione **Azure Ative Directory**  >  **Roles and administrators**  >  **New custom role** .
 
    ![Criar ou editar funções a partir da página Funções e administradores](./media/custom-create/new-custom-role.png)
 
-1. No **separador Básicos,** forneça um nome e descrição para a função e, em seguida, clique em **Seguinte**.
+1. No **separador Básicos,** forneça um nome e descrição para a função e, em seguida, clique em **Seguinte** .
 
    ![fornecer um nome e descrição para um papel personalizado no separador Básicos](./media/custom-create/basics-tab.png)
 
@@ -44,7 +44,7 @@ As funções personalizadas podem ser criadas no [separador Funções e administ
 
       ![Selecione as permissões para uma função personalizada no separador Permissões](./media/custom-create/permissions-tab.png)
 
-   1. Em seguida, introduza "básico" na barra de pesquisa, selecione a `microsoft.directory/applications/basic/update` permissão e, em seguida, clique em **Seguinte**.
+   1. Em seguida, introduza "básico" na barra de pesquisa, selecione a `microsoft.directory/applications/basic/update` permissão e, em seguida, clique em **Seguinte** .
 1. No **separador 'Rever +' criar,** rever as permissões e selecionar **Criar.**
 
 O seu papel personalizado aparecerá na lista de funções disponíveis para atribuir.
@@ -169,7 +169,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 Tal como as funções incorporadas, as funções personalizadas são atribuídas por padrão no âmbito padrão da organização para conceder permissões de acesso em todos os registos de aplicações da sua organização. Mas, ao contrário das funções incorporadas, as funções personalizadas também podem ser atribuídas no âmbito de um único recurso AD Azure. Isto permite-lhe dar ao utilizador a permissão para atualizar credenciais e propriedades básicas de uma única aplicação sem ter de criar uma segunda função personalizada.
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com permissões de desenvolvedores de aplicações na organização Azure AD.
-1. Selecione **Registos de aplicações**.
+1. Selecione **Registos de aplicações** .
 1. Selecione o registo da aplicação a que está a conceder acesso à gestão. Poderá ter de selecionar **todas as aplicações** para ver a lista completa de registos de aplicações na sua organização AZure AD.
 
     ![Selecione o registo da aplicação como uma margem de recurso para uma atribuição de funções](./media/custom-create/appreg-all-apps.png)
@@ -183,4 +183,4 @@ Tal como as funções incorporadas, as funções personalizadas são atribuídas
 
 - Sinta-se livre para compartilhar conosco no fórum de [funções administrativas Azure AD.](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032)
 - Para obter mais informações sobre funções e atribuição de funções de Administrador, consulte [as funções de administrador de atribuição](permissions-reference.md).
-- Para obter permissões de utilizador predefinidos, consulte uma [comparação entre as permissões de utilizador e de hóspedes predefinidos](/azure/active-directory/fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context).
+- Para obter permissões de utilizador predefinidos, consulte uma [comparação entre as permissões de utilizador e de hóspedes predefinidos](/azure/active-directory/fundamentals/users-default-permissions).

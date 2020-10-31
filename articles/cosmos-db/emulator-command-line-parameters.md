@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: f8bcadf25ac8e001657f2be012f99ddb507e672d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb6d1cb684f4c2e3f563d5690c804d64c97ff70c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445180"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096739"
 ---
 # <a name="command-line-and-powershell-reference-for-azure-cosmos-db-emulator"></a>Linha de comando e referência PowerShell para emulador DB Azure Cosmos
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O emulador Azure Cosmos proporciona um ambiente local que imita o serviço DB Azure Cosmos para fins de desenvolvimento local. Depois [de instalar o emulador,](local-emulator.md)pode controlar o emulador com linha de comando e comandos PowerShell. Este artigo descreve como usar a linha de comando e os comandos PowerShell para iniciar e parar o emulador, configurar opções e executar outras operações. Tem que executar os comandos a partir do local de instalação.
 
@@ -135,11 +136,11 @@ Se tentar criar um recipiente após a exceção da contagem atual de divisórias
 
 Para alterar o número de contentores disponíveis no Emulador Azure Cosmos, executar os seguintes passos:
 
-1. Elimine todos os dados do emulador Azure Cosmos locais clicando à direita no ícone **emulador Azure Cosmos DB** na bandeja do sistema e, em seguida, clicando em **Dados de Reset...**.
+1. Elimine todos os dados do emulador Azure Cosmos locais clicando à direita no ícone **emulador Azure Cosmos DB** na bandeja do sistema e, em seguida, clicando em **Dados de Reset...** .
 
 1. Elimine todos os dados do emulador nesta pasta `%LOCALAPPDATA%\CosmosDBEmulator` .
 
-1. Saia de todas as instâncias abertas, ao clicar com o botão direito do rato no ícone do**Emulador do Azure Cosmos DB** no tabuleiro do sistema e, em seguida, clique em **Sair**. Pode demorar um minuto para que todas as instâncias possam sair.
+1. Saia de todas as instâncias abertas, ao clicar com o botão direito do rato no ícone do **Emulador do Azure Cosmos DB** no tabuleiro do sistema e, em seguida, clique em **Sair** . Pode demorar um minuto para que todas as instâncias possam sair.
 
 1. Instale a versão mais recente do [Emulador Azure Cosmos](https://aka.ms/cosmosdb-emulator).
 

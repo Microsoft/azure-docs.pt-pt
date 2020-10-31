@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 923c69c12ca8cb7ceb9b570121f661e4c4e6e7f6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 18764e0cd77ab9726e88ab28da98109ee12fcf58
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91298037"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096840"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-go"></a>Quickstart: Obtenha insights de imagem usando a API de Pesquisa Visual Bing e Go
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Utilize este quickstart para fazer a sua primeira chamada para a API de Pesquisa Visual Bing utilizando a linguagem de programação Go. Um pedido de CORREIO envia uma imagem para o ponto final da API. Os resultados incluem URLs e informações descritivas sobre imagens semelhantes à imagem carregada.
 
@@ -257,7 +262,7 @@ A `Unmarshall` função extrai informações do texto JSON devolvido pela API de
 > [!NOTE]
 > Francesco Giordano contribuiu com o código para este exemplo.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Os resultados identificam imagens semelhantes à imagem contida no corpo DOM. Os campos úteis são `WebSearchUrl` `Name` e.
 

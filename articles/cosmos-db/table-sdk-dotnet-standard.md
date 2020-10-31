@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bf8563274d7aa677249335612d0156d6a5ecbd95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eee59d906da46e315ede52796bd89c7827833ede
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018455"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095735"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET Standard API: Baixar e lançar notas
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 > [!div class="op_single_selector"]
 > 
 > * [.NET](table-sdk-dotnet.md)
@@ -27,11 +28,11 @@ ms.locfileid: "89018455"
 
 |   |   |
 |---|---|
-|**Download SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
+|**Transferência de SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)|
 |**Amostra**|[Amostra API da tabela cosmos DB .NET](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started)|
 |**Início rápido**|[Início rápido](create-table-dotnet.md)|
 |**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
-|**Quadro atual suportado**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
+|**Framework suportado atualmente**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
 |**Emissão do Relatório**|[Emissão do Relatório](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
 ## <a name="release-notes-for-200-series"></a>Notas de lançamento para série 2.0.0
@@ -100,12 +101,12 @@ A Microsoft fornece a notificação com pelo menos **12 meses** de antecedência
 Esta biblioteca padrão .NET [Microsoft.Azure.cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) substituirá a biblioteca.NET Framework Library [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
 
 ### <a name="200-series"></a>Série 2.0.0
-| Versão | Data de Lançamento | Data de Extinção |
+| Versão | Data da versão: | Data de Extinção |
 | --- | --- | --- |
 | [2.0.0-pré-visualização](#2.0.0-preview) |Auguest 22, 2019 |--- |
 
 ### <a name="100-series"></a>Série 1.0.0
-| Versão | Data de Lançamento | Data de Extinção |
+| Versão | Data da versão: | Data de Extinção |
 | --- | --- | --- |
 | [1.0.5](#1.0.5) |13 de setembro de 2019 |--- |
 | [1.0.5-pré-visualização](#1.0.5-preview) |Auguest 20, 2019 |--- |

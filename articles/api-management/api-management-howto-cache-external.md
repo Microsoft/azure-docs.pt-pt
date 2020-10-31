@@ -11,12 +11,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: cfb7dd7a3831d90235b25af9598cfbc137ffcb3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6288a10e111e42629abf5e09b84a6a7791dcfe95
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904960"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095939"
 ---
 # <a name="use-an-external-redis-compatible-cache-in-azure-api-management"></a>Utilize uma cache externa compatível com Redis na Gestão API da Azure
 
@@ -60,41 +60,41 @@ Para caches, os gateways auto-hospedados dependem exclusivamente de caches exter
 
 Siga os passos abaixo para adicionar uma Cache Azure externa para Redis na Gestão API Azure.
 
-![Traga o seu próprio cache para a APIM](media/api-management-howto-cache-external/add-external-cache.png)
+![Screenshot que mostra como adicionar um Cache Azure externo para Redis na Azure API Management.](media/api-management-howto-cache-external/add-external-cache.png)
 
 > [!NOTE]
 > A **utilização da** definição especifica uma região Azure ou um local de gateway auto-hospedado que utilizará a cache configurada. Os caches configurados como **Padrão** serão ultrapassados por caches com uma região ou valor de localização específico.
 >
-> Por exemplo, se a API Management estiver hospedada nas regiões leste dos EUA, Sudeste Asiático e Europa Ocidental e existirem dois caches configurados, um para **o Default** e outro para o **Sudeste Asiático**, a API Management no **Sudeste Asiático** utilizará a sua própria cache, enquanto as outras duas regiões utilizarão a entrada de cache **padrão.**
+> Por exemplo, se a API Management estiver hospedada nas regiões leste dos EUA, Sudeste Asiático e Europa Ocidental e existirem dois caches configurados, um para **o Default** e outro para o **Sudeste Asiático** , a API Management no **Sudeste Asiático** utilizará a sua própria cache, enquanto as outras duas regiões utilizarão a entrada de cache **padrão.**
 
 ### <a name="add-an-azure-cache-for-redis-from-the-same-subscription"></a>Adicione um Cache Azure para Redis da mesma subscrição
 
 1. Navegue pela sua instância de Gestão de API no portal Azure.
 2. Selecione o **separador cache externo** do menu à esquerda.
-3. Clique no botão **+ Adicionar**.
+3. Clique no botão **+ Adicionar** .
 4. Selecione a sua cache no campo de dropdown **de instância cache.**
 5. Selecione **Predefinição** ou especifique a região desejada no campo **Utilização a partir do** campo de dropdown.
-6. Clique em **Guardar**.
+6. Clique em **Guardar** .
 
 ### <a name="add-an-azure-cache-for-redis-hosted-outside-of-the-current-azure-subscription-or-azure-in-general"></a>Adicione uma Cache Azure para Redis hospedado fora da subscrição atual do Azure ou Azure em geral
 
 1. Navegue pela sua instância de Gestão de API no portal Azure.
 2. Selecione o **separador cache externo** do menu à esquerda.
-3. Clique no botão **+ Adicionar**.
+3. Clique no botão **+ Adicionar** .
 4. Selecione **Custom** no campo de dropdown **de instância cache.**
 5. Selecione **Predefinição** ou especifique a região desejada no campo **Utilização a partir do** campo de dropdown.
 6. Forneça a sua cache Azure para a cadeia de ligação Redis no campo **de cordas Connection.**
-7. Clique em **Guardar**.
+7. Clique em **Guardar** .
 
 ### <a name="add-a-redis-cache-to-a-self-hosted-gateway"></a>Adicione uma cache Redis a um portal auto-hospedado
 
 1. Navegue pela sua instância de Gestão de API no portal Azure.
 2. Selecione o **separador cache externo** do menu à esquerda.
-3. Clique no botão **+ Adicionar**.
+3. Clique no botão **+ Adicionar** .
 4. Selecione **Custom** no campo de dropdown **de instância cache.**
 5. Especifique a localização de gateway auto-hospedada desejada ou o **Padrão** no **campo de utilização a partir do** campo dropdown.
 6. Forneça a sua cadeia de ligação de cache Redis no campo **de cordas Connection.**
-7. Clique em **Guardar**.
+7. Clique em **Guardar** .
 
 ## <a name="use-the-external-cache"></a>Use a cache externa
 

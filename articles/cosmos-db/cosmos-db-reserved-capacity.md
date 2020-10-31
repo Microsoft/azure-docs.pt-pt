@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 90717f329cc366dbb951b24da0ffc1b65881a865
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 27725b1a3dd6059010ce67977c39891a012c037e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487522"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097639"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Otimizar o custo com a capacidade de reserva no Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 A capacidade reservada do Azure Cosmos DB ajuda-o a poupar dinheiro ao consolidar uma reserva de recursos do Azure Cosmos DB durante um ou três anos. Com a capacidade reservada do Azure Cosmos DB, pode obter um desconto no débito aprovisionado dos recursos do Cosmos DB. Exemplos de recursos incluem bases de dados e contentores (tabelas, coleções e grafos).
 
@@ -38,7 +39,7 @@ Calculamos recomendações de compra com base no seu padrão de utilização hor
 
 2. Selecione **Todos os**  >  **serviços Reservas**  >  **Adicionar.**
 
-3. A partir do painel **de reservas de compras,** escolha **Azure Cosmos DB**.
+3. A partir do painel **de reservas de compras,** escolha **Azure Cosmos DB** .
 
 4. Selecione o separador **Recomendado** para visualizar reservas recomendadas:
 

@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 882ba7f0b8f896c51e340fe921e53b27dd07ff8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 263c38e330bad00833bd31bc8a43208c3784bcf4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262468"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097486"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Migrar dados da Oracle para a Azure Cosmos DB Cassandra Conta API usando Blitzz
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Cassandra API em Azure Cosmos DB tornou-se uma ótima escolha para cargas de trabalho empresariais que estão funcionando na Oracle por uma variedade de razões tais como:
 
@@ -100,7 +101,7 @@ Esta secção descreve os passos necessários para configurar blitzz e migra dad
 
    Deve diminuir a produção após a migração estar completa. Com base na quantidade de dados armazenados e RUs necessários para cada operação, pode estimar a produção necessária após a migração de dados. Para saber mais sobre como estimar as RUs necessárias, consulte a [provisão sobre contentores e bases de dados](set-throughput.md) e [estimar RU/s utilizando os artigos de planeamento de capacidades do Azure Cosmos DB.](estimate-ru-with-capacity-planner.md)
 
-1. Obtenha o **Ponto de Contacto, a Porta, o Nome**de Utilizador e a **Palavra-Passe Primária** da sua conta Azure Cosmos a partir do painel de cordas de **ligação.** Utilizará estes valores no ficheiro de configuração.
+1. Obtenha o **Ponto de Contacto, a Porta, o Nome** de Utilizador e a **Palavra-Passe Primária** da sua conta Azure Cosmos a partir do painel de cordas de **ligação.** Utilizará estes valores no ficheiro de configuração.
 
 1. A partir do terminal CLI, configurar a configuração da base de dados de destino. Abra o ficheiro de configuração usando **`vi conf/conn/cosmosdb.yml`** o comando e adicione uma lista separada de vírgula de URI anfitrião, número de porta, nome de utilizador, senha e outros parâmetros necessários. Segue-se um exemplo de conteúdo no ficheiro de configuração:
 

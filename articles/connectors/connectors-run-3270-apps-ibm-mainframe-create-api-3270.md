@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 41e3f1ff430293ebc7b3828a0fd7090923fc209c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae99e3fa287cc9012e317142cc1e6aef36ce90d6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87281485"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095004"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integrar aplicações orientadas para ecrãs do 3270 em mainframes da IBM com o Azure através do Azure Logic Apps e do conector do IBM 3270
 
@@ -61,7 +61,7 @@ O único pré-requisito é [o Microsoft .NET Framework 4.6.1](https://aka.ms/net
   
   Depois de descarregar e instalar esta ferramenta, siga estes passos para ligar ao seu anfitrião:
 
-  1. Abra a Ferramenta de Design 3270. No menu **Sessão,** selecione **Host Sessions**.
+  1. Abra a Ferramenta de Design 3270. No menu **Sessão,** selecione **Host Sessions** .
   
   1. Forneça as informações do seu servidor de anfitriões TN3270.
 
@@ -77,11 +77,11 @@ O único pré-requisito é [o Microsoft .NET Framework 4.6.1](https://aka.ms/net
 
 Numa aplicação orientada para ecrãs 3270, os ecrãs e campos de dados são exclusivos dos seus cenários, pelo que o conector 3270 necessita desta informação sobre a sua app, que pode fornecer como metadados. Estes metadados descrevem informações que ajudam a sua aplicação lógica a identificar e reconhecer ecrãs, descreve como navegar entre ecrãs, onde inserir dados e onde esperar resultados. Para especificar e gerar estes metadados, utiliza a Ferramenta de Design 3270, que o acompanha através *destes modos específicos, ou fases,* conforme descrito mais tarde em mais detalhes:
 
-* **Captura**: Neste modo, grava os ecrãs necessários para completar uma tarefa específica com a sua aplicação mainframe, por exemplo, obtendo um saldo bancário.
+* **Captura** : Neste modo, grava os ecrãs necessários para completar uma tarefa específica com a sua aplicação mainframe, por exemplo, obtendo um saldo bancário.
 
-* **Navegação**: Neste modo, especifique o plano ou o caminho para como navegar através dos ecrãs da sua aplicação mainframe para a tarefa específica.
+* **Navegação** : Neste modo, especifique o plano ou o caminho para como navegar através dos ecrãs da sua aplicação mainframe para a tarefa específica.
 
-* **Métodos**: Neste modo, define-se o método, por `GetBalance` exemplo, que descreve o caminho de navegação do ecrã. Também escolha os campos em cada ecrã que se tornam os parâmetros de entrada e saída do método.
+* **Métodos** : Neste modo, define-se o método, por `GetBalance` exemplo, que descreve o caminho de navegação do ecrã. Também escolha os campos em cada ecrã que se tornam os parâmetros de entrada e saída do método.
 
 ### <a name="unsupported-elements"></a>Elementos não suportados
 
@@ -100,23 +100,23 @@ Neste modo, marca-se um item em cada ecrã 3270 que identifica exclusivamente es
 
 1. Se ainda não o fez, abra a Ferramenta de Design 3270. Na barra de ferramentas, escolha **Capture** para que entre no modo Captura.
 
-1. Para começar a gravar, prima a tecla F5 ou a partir do menu **'Gravação',** selecione **Iniciar a gravação**. 
+1. Para começar a gravar, prima a tecla F5 ou a partir do menu **'Gravação',** selecione **Iniciar a gravação** . 
 
-1. No menu **'Sessão',** selecione **Connect**.
+1. No menu **'Sessão',** selecione **Connect** .
 
 1. No painel **Captura,** a partir do primeiro ecrã da sua aplicação, passe pela sua aplicação para a tarefa específica que está a gravar.
 
 1. Depois de terminar a tarefa, inscreva-se na sua aplicação como costuma fazer.
 
-1. No menu **'Sessão',** **selecione Disconnect**.
+1. No menu **'Sessão',** **selecione Disconnect** .
 
-1. Para parar de gravar, prima as teclas Shift + F5 ou do menu **'Gravação',** selecione **Stop Recording**.
+1. Para parar de gravar, prima as teclas Shift + F5 ou do menu **'Gravação',** selecione **Stop Recording** .
 
    Depois de capturar os ecrãs para uma tarefa, a ferramenta do designer mostra as miniaturas que representam esses ecrãs. Algumas notas sobre estas miniaturas:
 
    * Incluído com os seus ecrãs capturados, tem um ecrã chamado "Vazio".
 
-     Quando ligar pela primeira vez ao [CICS,](https://www.ibm.com/it-infrastructure/z/cics)tem de enviar a tecla "Limpar" antes de introduzir o nome da transação que pretende executar. O ecrã onde envia a tecla "Clear" não tem *quaisquer atributos*de reconhecimento , como um título de ecrã, que pode adicionar utilizando o editor de Reconhecimento de Ecrã. Para representar este ecrã, as miniaturas incluem um ecrã chamado "Vazio". Pode utilizar este ecrã para representar o ecrã onde introduz o nome de transação.
+     Quando ligar pela primeira vez ao [CICS,](https://www.ibm.com/it-infrastructure/z/cics)tem de enviar a tecla "Limpar" antes de introduzir o nome da transação que pretende executar. O ecrã onde envia a tecla "Clear" não tem *quaisquer atributos* de reconhecimento , como um título de ecrã, que pode adicionar utilizando o editor de Reconhecimento de Ecrã. Para representar este ecrã, as miniaturas incluem um ecrã chamado "Vazio". Pode utilizar este ecrã para representar o ecrã onde introduz o nome de transação.
 
    * Por predefinição, o nome de um ecrã capturado utiliza a primeira palavra no ecrã. Se esse nome já existir, a ferramenta de design anexa o nome com um sublinhado e um número, por exemplo, "WBGB" e "WBGB_1".
 
@@ -138,7 +138,7 @@ Depois de terminar de selecionar os campos de reconhecimento, passe para o modo 
 
 Para que o conector navegue e distinga entre ecrãs, normalmente encontra texto único num ecrã que pode usar como identificador entre os ecrãs capturados. Para ecrãs repetidos, pode precisar de mais métodos de identificação. Por exemplo, suponha que tenha dois ecrãs que pareçam iguais, exceto um ecrã devolve um valor válido, enquanto o outro ecrã devolve uma mensagem de erro.
 
-Na ferramenta de design, pode adicionar *atributos de reconhecimento*, por exemplo, um título de ecrã como "Obter saldo de conta", utilizando o editor de Reconhecimento de Ecrã. Se tiver um caminho forcado e ambos os ramos devolverem o mesmo ecrã mas com resultados diferentes, precisa de outros atributos de reconhecimento. No tempo de execução, o conector utiliza estes atributos para determinar o ramo e o garfo atuais. Aqui estão as condições que pode utilizar:
+Na ferramenta de design, pode adicionar *atributos de reconhecimento* , por exemplo, um título de ecrã como "Obter saldo de conta", utilizando o editor de Reconhecimento de Ecrã. Se tiver um caminho forcado e ambos os ramos devolverem o mesmo ecrã mas com resultados diferentes, precisa de outros atributos de reconhecimento. No tempo de execução, o conector utiliza estes atributos para determinar o ramo e o garfo atuais. Aqui estão as condições que pode utilizar:
 
 * Valor específico: Este valor corresponde à cadeia especificada no local especificado.
 * NÃO um valor específico: Este valor não corresponde à cadeia especificada no local especificado.
@@ -182,7 +182,7 @@ Neste modo, define o fluxo ou passos para navegar através dos ecrãs da sua apl
 
 1. In **Escolha O Nome do Novo Plano,** insira um nome para o seu plano. Na lista **Tipo,** selecione o tipo de plano:
 
-   | Tipo de plano | Descrição |
+   | Tipo de plano | Description |
    |-----------|-------------|
    | **Processo** | Para planos autónomos ou combinados |
    | **Ligar** | Para planos de conexão |
@@ -195,7 +195,7 @@ Neste modo, define o fluxo ou passos para navegar através dos ecrãs da sua apl
 
 1. Organize os ecrãs na ordem que descreve a tarefa que está a definir.
 
-1. Para definir o caminho de fluxo entre telas, incluindo garfos e juntas, na barra de ferramentas da ferramenta de design, escolha **Flow**.
+1. Para definir o caminho de fluxo entre telas, incluindo garfos e juntas, na barra de ferramentas da ferramenta de design, escolha **Flow** .
 
 1. Escolha o primeiro ecrã no fluxo. Arraste e desenhe uma ligação para o ecrã seguinte no fluxo.
 
@@ -269,9 +269,9 @@ Neste modo, define-se um método associado ao seu plano de navegação. Para cad
    1. No painel **captura,** no ecrã emulador 3270, escolha todo o campo, não apenas o texto dentro do campo, que pretende como primeira entrada.
 
       > [!TIP]
-      > Para exibir todos os campos e certifique-se de que seleciona o campo completo, no menu **Ver,** selecione **Todos os Campos**.
+      > Para exibir todos os campos e certifique-se de que seleciona o campo completo, no menu **Ver,** selecione **Todos os Campos** .
 
-   1. Na barra de ferramentas da ferramenta de design, escolha **Campo de Entrada**. 
+   1. Na barra de ferramentas da ferramenta de design, escolha **Campo de Entrada** . 
 
    Para adicionar mais parâmetros de entrada, repita os passos anteriores para cada parâmetro.
 
@@ -280,9 +280,9 @@ Neste modo, define-se um método associado ao seu plano de navegação. Para cad
    1. No painel **captura,** no ecrã emulador 3270, escolha todo o campo, não apenas o texto dentro do campo, que pretende como primeira saída.
 
       > [!TIP]
-      > Para exibir todos os campos e certifique-se de que seleciona o campo completo, no menu **Ver,** selecione **Todos os Campos**.
+      > Para exibir todos os campos e certifique-se de que seleciona o campo completo, no menu **Ver,** selecione **Todos os Campos** .
 
-   1. Na barra de ferramentas da ferramenta de design, escolha **Campo de Saída**.
+   1. Na barra de ferramentas da ferramenta de design, escolha **Campo de Saída** .
 
    Para adicionar mais parâmetros de saída, repita os passos anteriores para cada parâmetro.
 
@@ -291,8 +291,8 @@ Neste modo, define-se um método associado ao seu plano de navegação. Para cad
    | Nome da propriedade | Valores possíveis | 
    |---------------|-----------------|
    | **Tipo de Dados** | Byte, Hora da Data, Decimal, Int, Longo, Curto, Corda |
-   | **Técnica de enchimento de campo** | Os parâmetros suportam estes tipos de enchimento, preenchendo com espaços em branco, se necessário: <p><p>- **Tipo**: Introduza os caracteres sequencialmente no campo. <p>- **Preenchimento**: Substitua o conteúdo do campo por caracteres, preenchendo com balas de feste. <p>- **Apagar OType**: Limpe o campo e introduza os caracteres sequencialmente no campo. |
-   | **Cadeia de formato** | Alguns tipos de dados de parâmetros utilizam uma cadeia de formato, que informa o conector 3270 como converter o texto do ecrã num tipo de dados .NET: <p><p>- **DataTime**: A cadeia de formato DateTime segue as cordas do [formato de data e hora .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). Por exemplo, a data `06/30/2019` utiliza a cadeia de formato `MM/dd/yyyy` . <p>- **Decimal**: A cadeia de formato decimal utiliza a [cláusula de imagem COBOL](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Por exemplo, o número `100.35` utiliza a cadeia de formato `999V99` . |
+   | **Técnica de enchimento de campo** | Os parâmetros suportam estes tipos de enchimento, preenchendo com espaços em branco, se necessário: <p><p>- **Tipo** : Introduza os caracteres sequencialmente no campo. <p>- **Preenchimento** : Substitua o conteúdo do campo por caracteres, preenchendo com balas de feste. <p>- **Apagar OType** : Limpe o campo e introduza os caracteres sequencialmente no campo. |
+   | **Cadeia de formato** | Alguns tipos de dados de parâmetros utilizam uma cadeia de formato, que informa o conector 3270 como converter o texto do ecrã num tipo de dados .NET: <p><p>- **DataTime** : A cadeia de formato DateTime segue as cordas do [formato de data e hora .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). Por exemplo, a data `06/30/2019` utiliza a cadeia de formato `MM/dd/yyyy` . <p>- **Decimal** : A cadeia de formato decimal utiliza a [cláusula de imagem COBOL](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_73/rzasb/picture.htm). Por exemplo, o número `100.35` utiliza a cadeia de formato `999V99` . |
    |||
 
 ## <a name="save-and-view-metadata"></a>Guardar e ver metadados
@@ -310,14 +310,14 @@ No entanto, se tentar guardar alterações no ficheiro RAP da amostra ou gerar u
 
 ## <a name="test-your-method"></a>Teste o seu método
 
-1. Para executar o seu método contra o hospedeiro ao vivo, ainda no modo Métodos, prima a tecla F5 ou a partir da barra de ferramentas da ferramenta de design, escolha **Executar**.
+1. Para executar o seu método contra o hospedeiro ao vivo, ainda no modo Métodos, prima a tecla F5 ou a partir da barra de ferramentas da ferramenta de design, escolha **Executar** .
 
    > [!TIP]
-   > Pode alterar os modos a qualquer momento. No menu **Ficheiro,** selecione **Modo**e, em seguida, selecione o modo que deseja.
+   > Pode alterar os modos a qualquer momento. No menu **Ficheiro,** selecione **Modo** e, em seguida, selecione o modo que deseja.
 
-1. Insira os valores dos seus parâmetros e escolha **OK**.
+1. Insira os valores dos seus parâmetros e escolha **OK** .
 
-1. Para continuar até ao próximo ecrã, escolha **Next**.
+1. Para continuar até ao próximo ecrã, escolha **Next** .
 
 1. Quando terminar, escolha **'Feito',** que mostra os valores dos parâmetros de saída.
 
@@ -333,7 +333,7 @@ Quando estiver pronto, gere o ficheiro HIDX para que possa fazer o upload para a
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e encontre a sua conta de integração.
 
-1. Adicione o seu ficheiro HIDX como um mapa à sua conta de [integração, seguindo estes passos semelhantes para adicionar mapas](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md), mas quando selecionar o tipo de mapa, selecione **HIDX**.
+1. Adicione o seu ficheiro HIDX como um mapa à sua conta de [integração, seguindo estes passos semelhantes para adicionar mapas](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md), mas quando selecionar o tipo de mapa, selecione **HIDX** .
 
 Mais tarde neste tópico, quando adiciona uma ação IBM 3270 à sua aplicação lógica pela primeira vez, é solicitado que crie uma ligação entre a sua aplicação lógica e o servidor anfitrião, fornecendo informações de ligação, como os nomes da sua conta de integração e servidor anfitrião. Depois de criar a ligação, pode selecionar o seu ficheiro HIDX previamente adicionado, o método a executar e os parâmetros a utilizar.
 
@@ -347,29 +347,29 @@ Quando terminar todos estes passos, pode utilizar a ação que cria na sua aplic
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e abra a sua aplicação lógica no Logic App Designer, se não abrir já.
 
-1. Sob o último passo onde pretende adicionar uma ação, escolha **Novo passo**, e selecione Adicione **uma ação**. 
+1. Sob o último passo onde pretende adicionar uma ação, escolha **Novo passo** , e selecione Adicione **uma ação** . 
 
 1. Sob a caixa de pesquisa, escolha **Enterprise.** Na caixa de pesquisa, introduza o "3270" como filtro. Da lista de ações, selecione esta ação: **Executa um programa de computador principal sobre uma ligação TN3270**
 
    ![Selecione 3270 ação](./media/connectors-create-api-3270/select-3270-action.png)
 
    Para adicionar uma ação entre os degraus, mova o ponteiro sobre a seta entre os degraus. 
-   Escolha o sinal de mais **+** () que aparece e, em seguida, selecione **Adicione uma ação**.
+   Escolha o sinal de mais **+** () que aparece e, em seguida, selecione **Adicione uma ação** .
 
-1. Se ainda não existir qualquer ligação, forneça as informações necessárias para a sua ligação e escolha **Criar**.
+1. Se ainda não existir qualquer ligação, forneça as informações necessárias para a sua ligação e escolha **Criar** .
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome de conexão** | Sim | <*nome de conexão*> | O nome para a sua ligação |
-   | **ID de conta de integração** | Sim | <*integração-nome de conta*> | O nome da sua conta de integração |
-   | **Url de conta de integração SAS** | Sim | <*integração-conta-SAS-URL*> | O URL de Assinatura de Acesso Partilhado (SAS) da sua conta de integração, que pode gerar a partir das definições da sua conta de integração no portal Azure. <p>1. No menu da sua conta de integração, em **Definições,** selecione **URL de callback**. <br>2. No painel direito, copie o valor **URL de retorno de chamada gerado.** |
-   | **Servidor** | Sim | <*Nome do servidor TN3270*> | O nome do servidor do seu serviço TN3270 |
-   | **Porta** | Não | <*TN3270-server-porta*> | A porta utilizada pelo seu servidor TN3270. Se ficar em branco, o conector utiliza `23` como valor predefinido. |
-   | **Tipo de Dispositivo** | Não | <*Modelo terminal IBM*> | O nome ou número do modelo para o terminal IBM para imitar. Se ficar em branco, o conector utiliza valores predefinidos. |
-   | **Página de Códigos** | Não | <*número de página de código*> | O número da página de código para o anfitrião. Se ficar em branco, o conector utiliza `37` como valor predefinido. |
-   | **Nome da unidade lógica** | Não | <*nome lógico-unidade*> | O nome específico da unidade lógica a solicitar ao anfitrião |
-   | **Ativar o SSL?** | Não | Dentro ou fora | Ligue ou desligue a encriptação TLS. |
-   | **Validar o certificado ssl do anfitrião?** | Não | Dentro ou fora | Ligue ou desligue a validação para o certificado do servidor. |
+   | **Nome de conexão** | Yes | <*nome de conexão*> | O nome para a sua ligação |
+   | **ID de conta de integração** | Yes | <*integração-nome de conta*> | O nome da sua conta de integração |
+   | **Url de conta de integração SAS** | Yes | <*integração-conta-SAS-URL*> | O URL de Assinatura de Acesso Partilhado (SAS) da sua conta de integração, que pode gerar a partir das definições da sua conta de integração no portal Azure. <p>1. No menu da sua conta de integração, em **Definições,** selecione **URL de callback** . <br>2. No painel direito, copie o valor **URL de retorno de chamada gerado.** |
+   | **Servidor** | Yes | <*Nome do servidor TN3270*> | O nome do servidor do seu serviço TN3270 |
+   | **Porta** | No | <*TN3270-server-porta*> | A porta utilizada pelo seu servidor TN3270. Se ficar em branco, o conector utiliza `23` como valor predefinido. |
+   | **Tipo de Dispositivo** | No | <*Modelo terminal IBM*> | O nome ou número do modelo para o terminal IBM para imitar. Se ficar em branco, o conector utiliza valores predefinidos. |
+   | **Página de Códigos** | No | <*número de página de código*> | O número da página de código para o anfitrião. Se ficar em branco, o conector utiliza `37` como valor predefinido. |
+   | **Nome da unidade lógica** | No | <*nome lógico-unidade*> | O nome específico da unidade lógica a solicitar ao anfitrião |
+   | **Ativar o SSL?** | No | Dentro ou fora | Ligue ou desligue a encriptação TLS. |
+   | **Validar o certificado ssl do anfitrião?** | No | Dentro ou fora | Ligue ou desligue a validação para o certificado do servidor. |
    ||||
 
    Por exemplo:
@@ -380,8 +380,8 @@ Quando terminar todos estes passos, pode utilizar a ação que cria na sua aplic
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Nome Hidx** | Sim | <*HIDX-file-name*> | Selecione o ficheiro 3270 HIDX que pretende utilizar. |
-   | **Nome do método** | Sim | <*nome-método*> | Selecione o método no ficheiro HIDX que pretende utilizar. Depois de selecionar um método, aparece a nova lista **de parâmetros Add** para que possa selecionar parâmetros para utilizar com este método. |
+   | **Nome Hidx** | Yes | <*HIDX-file-name*> | Selecione o ficheiro 3270 HIDX que pretende utilizar. |
+   | **Nome do método** | Yes | <*nome-método*> | Selecione o método no ficheiro HIDX que pretende utilizar. Depois de selecionar um método, aparece a nova lista **de parâmetros Add** para que possa selecionar parâmetros para utilizar com este método. |
    ||||
 
    Por exemplo:

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: 5b1edb5bbd3ac6fa415f24670c98cd99ffb74fc6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 460f47ce453f183821ec0f49c38865c44b15ba9f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488508"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096721"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Estimativa RU/s usando o planejador de capacidades DB Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Configurar as suas bases de dados e contentores Azure Cosmos com a quantidade certa de produção prevista, ou [Unidades de Pedido (RU/s)](request-units.md), pois a sua carga de trabalho é essencial para otimizar o custo e o desempenho. Este artigo descreve como usar o planejador de [capacidades](https://cosmos.azure.com/capacitycalculator/) DB da Azure Cosmos para obter uma estimativa do RU/s necessário e do custo da sua carga de trabalho. 
 
@@ -39,7 +40,7 @@ Para obter uma estimativa rápida da sua carga de trabalho utilizando o modo bá
 |Leituras/seg por região|Número de leituras esperadas por segundo. |
 |Escritos/seg por região|Número de escritos esperado por segundo. |
 
-Depois de preencher os dados necessários, **selecione Calcular**. O **separador Estimativa de Custos** mostra o custo total de armazenamento e produção a provisionada. Pode expandir o link 'Detalhes do **Espetáculo'** neste separador para obter a desagregação da produção necessária para pedidos de leitura e escrita. Sempre que alterar o valor de qualquer campo, **selecione Calcular** para re-calcular o custo estimado. 
+Depois de preencher os dados necessários, **selecione Calcular** . O **separador Estimativa de Custos** mostra o custo total de armazenamento e produção a provisionada. Pode expandir o link 'Detalhes do **Espetáculo'** neste separador para obter a desagregação da produção necessária para pedidos de leitura e escrita. Sempre que alterar o valor de qualquer campo, **selecione Calcular** para re-calcular o custo estimado. 
 
 :::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Modo básico de planejador de capacidade":::
 

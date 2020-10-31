@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: d9be654b014b00a9d906210f484c2620e688838d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 331b2ffde8d034ba94f5b1adcae5efa223f57594
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84169139"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095123"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envio de consultas de pesquisa para a API de Pesquisa Visual Bing
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Este artigo descreve os parâmetros e atributos dos pedidos enviados para a API de Pesquisa Visual Bing, bem como o objeto de resposta. 
 
@@ -73,18 +78,18 @@ Os pedidos só podem ser enviados como HTTP POST.
 
 Os parâmetros seguintes são os parâmetros de consulta que o pedido deve especificar. No mínimo, deve incluir o `mkt` parâmetro de consulta:
 
-| Nome | Valor | Tipo | Necessário |
+| Name | Valor | Tipo | Necessário |
 | --- | --- | --- | --- |
-| <a name="cc"></a>cc  | Um código de dois caracteres que representa de onde vêm os resultados.<br /><br /> Se definir este parâmetro, também tem de especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing utiliza o primeiro idioma suportado que encontra na lista de idiomas e combina-o com o código de país que especificou, de modo a determinar o mercado do qual devolver resultados. Se a lista de idiomas não incluir um idioma suportado, o Bing encontra o idioma e o mercado mais parecidos que suportem o pedido. Em vez do mercado especificado, o Bing também poderá utilizar um mercado agregado ou predefinido para os resultados.<br /><br /> Deve utilizar este parâmetro de consulta e o parâmetro `Accept-Language` apenas se indicar vários idiomas; caso contrário, utilize os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Este parâmetro e o parâmetro de consulta [mkt](#mkt) são mutuamente exclusivos &mdash; não os especifique a ambos. | Cadeia | Não       |
-| <a name="mkt"></a>mkt   | O mercado de onde os resultados provêm. <br /><br /> **NOTA:** Deve sempre especificar o mercado, se for conhecido. Desta forma, ajuda o Bing a encaminhar o pedido e a devolver a resposta adequada e ideal.<br /><br /> Este parâmetro e o parâmetro de consulta [cc](#cc) são mutuamente exclusivos &mdash; não os especifique a ambos. | Cadeia | Sim      |
-| <a name="safesearch"></a>safeSearch | Um filtro para conteúdo adulto. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Desativado &mdash; devolve páginas Web com conteúdos em textos ou imagens para adultos.<br /><br/></li><li>Moderado &mdash; devolve páginas Web com conteúdos para adultos em texto, mas não em imagens.<br /><br/></li><li>Estrito &mdash; não devolve páginas Web com conteúdos em textos ou imagens para adultos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** se o pedido vier de um mercado no qual a política de conteúdos para adultos do Bing exija que `safeSearch` esteja Estrito, o Bing ignora o valor `safeSearch` e utiliza Estrito.<br/><br/>**NOTA:** Se utilizar o `site:` operador de consulta, existe a possibilidade de a resposta conter conteúdo adulto, independentemente do parâmetro de `safeSearch` consulta definido. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos.  | Cadeia | Não       |
-| <a name="setlang"></a>setLang  | O idioma a utilizar nas cadeias da interface de utilizador. Especifique o idioma utilizando o código linguístico ISO 639-1 de duas letras. Por exemplo, o código de idioma de inglês é EN. A predefinição é EN (inglês).<br /><br /> Embora seja opcional, deve indicar sempre o idioma. Normalmente, `setLang` é definido como o mesmo idioma especificado por `mkt`, a não ser que o utilizador queira que as cadeias da interface de utilizador sejam apresentadas noutro idioma.<br /><br /> Este parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Além disso, todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado. | Cadeia | Não   |
+| <a name="cc"></a>cc  | Um código de dois caracteres que representa de onde vêm os resultados.<br /><br /> Se definir este parâmetro, também tem de especificar o cabeçalho [Accept-Language](#acceptlanguage). O Bing utiliza o primeiro idioma suportado que encontra na lista de idiomas e combina-o com o código de país que especificou, de modo a determinar o mercado do qual devolver resultados. Se a lista de idiomas não incluir um idioma suportado, o Bing encontra o idioma e o mercado mais parecidos que suportem o pedido. Em vez do mercado especificado, o Bing também poderá utilizar um mercado agregado ou predefinido para os resultados.<br /><br /> Deve utilizar este parâmetro de consulta e o parâmetro `Accept-Language` apenas se indicar vários idiomas; caso contrário, utilize os parâmetros de consulta `mkt` e `setLang`.<br /><br /> Este parâmetro e o parâmetro de consulta [mkt](#mkt) são mutuamente exclusivos &mdash; não os especifique a ambos. | String | No       |
+| <a name="mkt"></a>mkt   | O mercado de onde os resultados provêm. <br /><br /> **NOTA:** Deve sempre especificar o mercado, se for conhecido. Desta forma, ajuda o Bing a encaminhar o pedido e a devolver a resposta adequada e ideal.<br /><br /> Este parâmetro e o parâmetro de consulta [cc](#cc) são mutuamente exclusivos &mdash; não os especifique a ambos. | String | Yes      |
+| <a name="safesearch"></a>safeSearch | Um filtro para conteúdo adulto. Os valores seguintes são os possíveis valores do filtro, não sensíveis a maiúsculas e minúsculas.<br /><ul><li>Desativado &mdash; devolve páginas Web com conteúdos em textos ou imagens para adultos.<br /><br/></li><li>Moderado &mdash; devolve páginas Web com conteúdos para adultos em texto, mas não em imagens.<br /><br/></li><li>Estrito &mdash; não devolve páginas Web com conteúdos em textos ou imagens para adultos.</li></ul><br /> A predefinição é Moderado.<br /><br /> **NOTA:** se o pedido vier de um mercado no qual a política de conteúdos para adultos do Bing exija que `safeSearch` esteja Estrito, o Bing ignora o valor `safeSearch` e utiliza Estrito.<br/><br/>**NOTA:** Se utilizar o `site:` operador de consulta, existe a possibilidade de a resposta conter conteúdo adulto, independentemente do parâmetro de `safeSearch` consulta definido. Utilize `site:` apenas se tiver conhecimento do conteúdo do site e se o seu cenário suportar a possibilidade de conteúdos para adultos.  | String | No       |
+| <a name="setlang"></a>setLang  | O idioma a utilizar nas cadeias da interface de utilizador. Especifique o idioma utilizando o código linguístico ISO 639-1 de duas letras. Por exemplo, o código de idioma de inglês é EN. A predefinição é EN (inglês).<br /><br /> Embora seja opcional, deve indicar sempre o idioma. Normalmente, `setLang` é definido como o mesmo idioma especificado por `mkt`, a não ser que o utilizador queira que as cadeias da interface de utilizador sejam apresentadas noutro idioma.<br /><br /> Este parâmetro e o cabeçalho [Accept-Language](#acceptlanguage) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Além disso, todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado. | String | No   |
 
 ## <a name="headers"></a>Cabeçalhos
 
 Os cabeçalhos seguintes são os cabeçalhos que o pedido deve especificar. Os `Content-Type` `Ocp-Apim-Subscription-Key` cabeçalhos e cabeçalhos são os únicos cabeçalhos necessários, mas também deve incluir `User-Agent` , e `X-MSEdge-ClientID` `X-MSEdge-ClientIP` `X-Search-Location` .
 
-| Cabeçalho | Descrição |
+| Cabeçalho | Description |
 | --- | --- |
 | <a name="acceptlanguage"></a>Accept-Language  | Cabeçalho de pedido opcional.<br /><br /> Uma lista separada por vírgulas dos idiomas que vão ser utilizados nas cadeias da interface de utilizador. A lista está em ordem decrescente de preferência. Para obter mais informações, incluindo o formato esperado, veja [RFC2616](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Este cabeçalho e o parâmetro de consulta [setLang](#setlang) são mutuamente exclusivos &mdash; não os especifique a ambos.<br /><br /> Se definir este cabeçalho, também tem de especificar o parâmetro de consulta [cc](#cc). Para determinar o mercado do qual devolver resultados, o Bing utiliza o primeiro idioma suportado que encontra na lista e combina-o com o valor do parâmetro `cc`. Se a lista não incluir um idioma suportado, o Bing encontra o idioma e o mercado mais parecidos que suportem o pedido ou utiliza um mercado agregado ou predefinido para devolver os resultados. Para determinar o mercado que o Bing usou, veja o `BingAPIs-Market` cabeçalho.<br /><br /> Utilize este cabeçalho o parâmetro de consulta `cc` apenas se especificar vários idiomas. Caso contrário, utilize os parâmetros de consulta [mkt](#mkt) e [setLang](#setlang).<br /><br /> As cadeias da interface de utilizador são cadeias utilizadas como etiquetas na interface de utilizador. Os objetos de resposta JSON têm poucas cadeias de interface de utilizador. Todas as ligações para propriedades de Bing.com nos objetos de resposta aplicam o idioma especificado.  |
 | <a name="contenttype"></a>Content-Type  |     |
@@ -148,7 +153,7 @@ Se fizer o upload de uma imagem local, o seguinte corte mostra os dados do formu
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Content-Type: image/jpeg
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -175,7 +180,7 @@ Content-Disposition: form-data; name="image"; filename="image"
 Content-Type: image/jpeg
 
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -465,7 +470,7 @@ Se a imagem contiver uma entidade reconhecida, como uma pessoa culturalmente con
 }
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [O que é a API de Pesquisa Visual do Bing?](../overview.md)
 - [Tutorial: Criar uma aplicação web de pesquisa visual de uma página](../tutorial-bing-visual-search-single-page-app.md)

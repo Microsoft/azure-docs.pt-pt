@@ -6,14 +6,15 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: f6a348ceb30806259035cb71bb4165b736949272
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 30f139c92fe426369c609dabd826a7bff1617e72
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480076"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098047"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 Azure Synapse Link for Azure Cosmos DB cria uma integração apertada entre Azure Cosmos DB e Azure Synapse Analytics. Permite que os clientes corram quase análises em tempo real sobre os seus dados operacionais com isolamento total do desempenho das suas cargas de trabalho transacionais e sem um gasoduto ETL. Este artigo responde a perguntas mais frequentes sobre o Synapse Link para o Azure Cosmos DB.
 
@@ -98,9 +99,9 @@ Os dados no arquivo analítico são particionados com base na criação de parti
 
 Atualmente não é possível transformar os itens de dados quando são automaticamente propagados da loja transacional para a loja analítica. Se tiver cenários bloqueados por esta limitação, envie um e-mail à equipa DB da [Azure Cosmos](mailto:cosmosdbsynapselink@microsoft.com).
 
-### <a name="is-analytical-store-supported-by-terraform"></a>A loja analítica é suportada pela Terraform?
+### <a name="is-analytical-store-supported-by-terraform"></a>O Terraform suporta o arquivo analítico?
 
-Atualmente a Terraform não suporta recipientes de lojas analíticas. Verifique os [Problemas do Terraform GitHub](https://github.com/hashicorp/terraform/issues) para obter mais informações.
+Atualmente, o Terraform não suporta contentores do arquivo analítico. Veja [Problemas do GitHub do Terraform](https://github.com/hashicorp/terraform/issues) para obter mais informações.
 
 ## <a name="analytical-time-to-live-ttl"></a>Tempo analítico para viver (TTL)
 

@@ -10,14 +10,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7037804f1a0984cee2d1756adf80bfe2eec3918
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68881912"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095532"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Suporte linguístico e regional para a API de Pesquisa de Imagem de Bing
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 A API de Pesquisa de Imagem Bing suporta mais de três dezenas de países/regiões, muitos com mais de uma língua. Especificar um país/região com uma consulta serve principalmente para refinar os resultados da pesquisa com base em interesses nesse país/região. Além disso, os resultados podem conter ligações com Bing, e estas ligações podem localizar a experiência do utilizador Bing de acordo com o país/regiões ou idiomas especificados.
 
@@ -76,7 +81,7 @@ Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de
 
 ## <a name="markets"></a>Mercados
 
-|Pais/região|Idioma|Código de Mercado|
+|Pais/região|Linguagem|Código de Mercado|
 |-------|--------|-----------|
 |Argentina|Espanhol|es-AR|
 |Austrália|Inglês|en-AU|
@@ -115,7 +120,7 @@ Em alternativa, pode especificar o país/região utilizando o `cc` parâmetro de
 |Taiwan|Chinês Tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos da América|Inglês|pt-PT|
+|Estados Unidos da América|Inglês|en-PT|
 |Estados Unidos da América|Espanhol|es-EUA|
 
 ## <a name="next-steps"></a>Passos seguintes

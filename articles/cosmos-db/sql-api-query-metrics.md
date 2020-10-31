@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 38f21ec32d14261c7f1bb5e285180d9721b9dca7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fedcdd55a465f5c09c331a0fa917811c349b15b1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477832"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097231"
 ---
 # <a name="tuning-query-performance-with-azure-cosmos-db"></a>Otimização do desempenho de consulta com o Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A Azure Cosmos DB fornece um [API SQL para consulta de dados,](./sql-query-getting-started.md)sem necessidade de esquema ou índices secundários. Este artigo fornece as seguintes informações para os desenvolvedores:
 
@@ -238,7 +239,7 @@ IReadOnlyDictionary<string, QueryMetrics> metrics = result.QueryMetrics;
 
 ```
 
-| Métrica | Unidade | Descrição | 
+| Métrica | Unidade | Description | 
 | ------ | -----| ----------- |
 | `totalExecutionTimeInMs` | milissegundos | Tempo de execução de consulta | 
 | `queryCompileTimeInMs` | milissegundos | Tempo de compilação de consultas  | 
@@ -260,7 +261,7 @@ Os SDKs do cliente podem internamente fazer múltiplas operações de consulta p
 
 Aqui estão algumas consultas de amostra, e como interpretar algumas das métricas devolvidas da execução de consultas: 
 
-| Consulta | Métrica da amostra | Descrição | 
+| Consulta | Métrica da amostra | Description | 
 | ------ | -----| ----------- |
 | `SELECT TOP 100 * FROM c` | `"RetrievedDocumentCount": 101` | O número de documentos recuperados é 100+1 para corresponder à cláusula TOP. O tempo de consulta é maioritariamente gasto `WriteOutputTime` e uma vez que é um `DocumentLoadTime` scan. | 
 | `SELECT TOP 500 * FROM c` | `"RetrievedDocumentCount": 501` | RecuperadoDoConmentCount é agora mais alto (500+1 para corresponder à cláusula TOP). | 

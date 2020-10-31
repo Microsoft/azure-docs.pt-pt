@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: anfeldma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2d82b7f618757fbf77072bd7147595eec3083885
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 91e89eaf215468f171974e5f3fd383691fdd6ebe
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487641"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096987"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Quickstart: Construa uma app toda com Xamarin usando a conta API API da Azure Cosmos DB SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -89,11 +90,11 @@ Agora vamos clonar a aplicação Xamarin SQL API do GitHub, rever o código, obt
 
 Regresse ao portal do Azure para obter as informações de chaves da API e copie-as para a aplicação.
 
-1. No [portal do Azure](https://portal.azure.com/), na sua conta da API de SQL do Azure Cosmos DB, na navegação da esquerda, clique em **Chaves** e em **Chaves de leitura/escrita**. Vai utilizar os botões de copiar no lado direito do ecrã para copiar o URI e a Chave Primária para o ficheiro APIKeys.cs no próximo passo.
+1. No [portal do Azure](https://portal.azure.com/), na sua conta da API de SQL do Azure Cosmos DB, na navegação da esquerda, clique em **Chaves** e em **Chaves de leitura/escrita** . Vai utilizar os botões de copiar no lado direito do ecrã para copiar o URI e a Chave Primária para o ficheiro APIKeys.cs no próximo passo.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
-2. Em Visual Studio, abra **ToDoItems.Core/Helpers/APIKeys.cs**.
+2. Em Visual Studio, abra **ToDoItems.Core/Helpers/APIKeys.cs** .
 
 3. No Portal Azure, utilizando o botão de cópia, copie o valor **URI** e faça dele o valor da `CosmosEndpointUrl` variável em APIKeys.cs.
 
@@ -191,7 +192,7 @@ Os seguintes passos demonstram como executar a aplicação com o depurador do Vi
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
-4. Para concluir um item de afazer no iOS, deslize-o para a esquerda > toque no botão **Concluir**. Para concluir um item de afazer no Android, prima-o > toque no botão de conclusão.
+4. Para concluir um item de afazer no iOS, deslize-o para a esquerda > toque no botão **Concluir** . Para concluir um item de afazer no Android, prima-o > toque no botão de conclusão.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
@@ -199,7 +200,7 @@ Os seguintes passos demonstram como executar a aplicação com o depurador do Vi
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
-6. Para adicionar um item de afazer > toque no botão **Adicionar**, no canto superior direito do ecrã principal > é apresentada uma página de edição em branco nova.
+6. Para adicionar um item de afazer > toque no botão **Adicionar** , no canto superior direito do ecrã principal > é apresentada uma página de edição em branco nova.
 
     :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Aplicação de lista de tarefas em execução no iOS":::
 
@@ -207,7 +208,7 @@ Os seguintes passos demonstram como executar a aplicação com o depurador do Vi
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

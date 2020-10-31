@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37dc60fd14eb26ab4c8f5a867b97369a066b743b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f08efc8a10c50dcfcc6da884396dea88695dbb2a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362761"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096024"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -38,6 +38,19 @@ A Azure AD recebe melhorias continuadamente. Para se manter atualizado com os de
 Esta página é atualizada mensalmente, por isso revisite-a regularmente. Se procura itens com mais de seis meses, pode encontrá-los no [Archive for What's new in Azure Ative Directory](whats-new-archive.md).
 
 ---
+## <a name="october-2020"></a>Outubro de 2020
+
+### <a name="azure-ad-on-premises-hybrid-agents-impacted-by-azure-tls-certificate-changes"></a>Agentes híbridos Azure AD impactados por alterações no certificado Azure TLS
+
+**Tipo:** Plano de mudança  
+**Categoria de serviço:** N/A  
+**Capacidade do produto:** Plataforma
+
+A Microsoft está a atualizar os serviços da Azure para utilizar certificados TLS de um conjunto diferente de Autoridades de Certificados De Raiz (CAs). Esta atualização deve-se ao facto de os certificados ac atuais não cumprirem um dos requisitos de Base do Fórum CA/Browser. Esta alteração terá impacto nos agentes híbridos AD AD instalados no local que têm ambientes endurecidos com uma lista fixa de certificados de raiz e terão de ser atualizados para confiar nos novos emitentes de certificados.
+
+Esta alteração resultará em interrupção do serviço se não tomar medidas imediatamente. Estes agentes incluem [conectores Proxy de aplicação](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AppProxy) para acesso remoto a instalações, agentes [de autenticação passthrough](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) que permitem que os seus utilizadores inscrevam-se em aplicações usando as mesmas palavras-passe, e agentes [de pré-visualização de Provisionamento](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) em Nuvem que executam sincronização AD a AZure AD. 
+
+Se tiver um ambiente com regras de firewall definido para permitir chamadas de saída apenas para download específico da Lista de Revogação de Certificados (CRL), terá de permitir os urls CRL e OCSP seguintes. Para obter informações completas sobre a alteração e os URLs CRL e OCSP para permitir o acesso, consulte as alterações do  [certificado Azure TLS](../../security/fundamentals/tls-certificate-changes.md).
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -1223,9 +1236,9 @@ Para mais informações, consulte [a gestão de unidades administrativas no Dire
 
 **Capacidade do produto:** Controlo de Acessos
 
-**Administrador de impressora**: Os utilizadores com esta função podem registar impressoras e gerir todos os aspetos de todas as configurações da impressora na solução De Impressão Universal da Microsoft, incluindo as definições do Conector de Impressão Universal. Podem consentir com todos os pedidos de autorização de impressão delegados. Os administradores da impressora também têm acesso a relatórios de impressão. 
+**Administrador de impressora** : Os utilizadores com esta função podem registar impressoras e gerir todos os aspetos de todas as configurações da impressora na solução De Impressão Universal da Microsoft, incluindo as definições do Conector de Impressão Universal. Podem consentir com todos os pedidos de autorização de impressão delegados. Os administradores da impressora também têm acesso a relatórios de impressão. 
 
-**Técnico de impressora**: Os utilizadores com esta função podem registar impressoras e gerir o estado da impressora na solução de Impressão Universal da Microsoft. Também podem ler todas as informações do conector. As tarefas-chave que um Técnico de Impressora não pode fazer são definir permissões do utilizador em impressoras e partilhar impressoras. [Saiba mais.](../roles/permissions-reference.md#printer-administrator)
+**Técnico de impressora** : Os utilizadores com esta função podem registar impressoras e gerir o estado da impressora na solução de Impressão Universal da Microsoft. Também podem ler todas as informações do conector. As tarefas-chave que um Técnico de Impressora não pode fazer são definir permissões do utilizador em impressoras e partilhar impressoras. [Saiba mais.](../roles/permissions-reference.md#printer-administrator)
 
 ---
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: f078ab217a5c4911fbd132338883504897db899f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a771ac1a831bc7994f28ba15139b66be346af02
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044605"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097772"
 ---
 # <a name="stop-or-delete-your-azure-stream-analytics-job"></a>Pare ou elimine o seu trabalho Azure Stream Analytics
 
@@ -40,7 +40,7 @@ Quando se para um emprego, os recursos são desprovisionados e para de processar
 >[!WARNING] 
 >Um trabalho stream Analytics não pode ser recuperado uma vez que tenha sido eliminado.
 
-1. Inicie sessão no Portal do Azure. 
+1. Inicie sessão no portal do Azure. 
 
 2. Localize o seu trabalho stream analytics existente e selecione-o.
 
@@ -61,4 +61,4 @@ Para impedir uma tarefa utilizando o método Azure SDK para .NET, utilize o [mé
 
 ## <a name="stop-or-delete-a-job-using-rest-api"></a>Parar ou excluir um trabalho usando REST API
 
-Para impedir um trabalho utilizando a API REST, consulte o método [Stop.](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#stop) Para eliminar um trabalho utilizando a API REST, consulte o método [Eliminar.](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job#delete)
+Para impedir um trabalho utilizando a API REST, consulte o método [Stop.](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#stop) Para eliminar um trabalho utilizando a API REST, consulte o método [Eliminar.](https://docs.microsoft.com/powershell/module/azurerm.streamanalytics/stop-azurermstreamanalyticsjob#delete)

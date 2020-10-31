@@ -9,14 +9,15 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487386"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096483"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gerir a indexação na API da Azure Cosmos para a MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 A API da Azure Cosmos DB para a MongoDB tira partido das capacidades de gestão de índices fundamentais da Azure Cosmos DB. Este artigo centra-se em como adicionar índices usando a API da Azure Cosmos DB para a MongoDB. Também pode ler uma [visão geral da indexação em Azure Cosmos DB](index-overview.md) que é relevante em todas as APIs.
 
