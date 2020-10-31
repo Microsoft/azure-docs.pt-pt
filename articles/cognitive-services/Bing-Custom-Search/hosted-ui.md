@@ -11,14 +11,19 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 4a63a54f5ad4d1bcccecb1d1a4892ef55c238b92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0033f4919e4e4e5e56e4057e00c393ae7be1ca44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319185"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090567"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a sua experiência de IU alojada
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Bing Custom Search fornece um UI hospedado que você pode facilmente integrar nas suas páginas web e aplicações web como um snippet de código JavaScript. Utilizando o portal Bing Custom Search, pode configurar as opções de layout, cor e pesquisa da UI.
 
@@ -32,7 +37,7 @@ Para configurar um UI hospedado para as suas aplicações web, siga estes passos
   
 2. Selecione a sua instância de Pesquisa Personalizada Bing.
 
-3. Clique no separador **IU Alojada**.  
+3. Clique no separador **IU Alojada** .  
   
 4. Selecione um esquema.
 
@@ -40,7 +45,7 @@ Para configurar um UI hospedado para as suas aplicações web, siga estes passos
     - Apenas resultados: Exibe apenas resultados de pesquisa, sem uma caixa de pesquisa. Ao utilizar este layout, deve fornecer a consulta de pesquisa `&q=<query string>` (). Adicione o parâmetro de consulta ao URL de pedido no snippet JavaScript ou na ligação de ponto final HTML.
     - Pop-over: Fornece uma caixa de pesquisa e exibe os resultados da pesquisa numa sobreposição deslizante.
 
-5. Selecione um tema de cores. Pode personalizar as cores para se adaptar à sua aplicação clicando no **tema Personalizar**. Para alterar uma cor, introduza o valor RGB HEX da cor (por exemplo, `#366eb8` ), ou clique na pré-visualização da cor.
+5. Selecione um tema de cores. Pode personalizar as cores para se adaptar à sua aplicação clicando no **tema Personalizar** . Para alterar uma cor, introduza o valor RGB HEX da cor (por exemplo, `#366eb8` ), ou clique na pré-visualização da cor.
 
    Pode visualizar as alterações no lado direito do portal. Clicar **em Reset para o predefinido** reverterá as suas alterações às cores predefinidas para o tema selecionado.
 
@@ -91,7 +96,7 @@ Para obter informações adicionais, incluindo o seu ID de Configuração Person
 
 ## <a name="configuration-options"></a>Opções de configuração
 
-Pode configurar o comportamento da UI hospedada clicando em **Configurações Adicionais**e fornecendo valores. Estas definições são opcionais. Para ver o efeito de aplicá-los ou removê-los, consulte o painel de pré-visualização à direita. 
+Pode configurar o comportamento da UI hospedada clicando em **Configurações Adicionais** e fornecendo valores. Estas definições são opcionais. Para ver o efeito de aplicá-los ou removê-los, consulte o painel de pré-visualização à direita. 
 
 ### <a name="web-search-configurations"></a>Configurações de pesquisa web
 
@@ -100,7 +105,7 @@ Pode configurar o comportamento da UI hospedada clicando em **Configurações Ad
 - Resultados da Web por página: Número de resultados de pesquisa web a exibir de cada vez (o máximo é de 50 resultados por página).
 - Legenda da imagem: Determina se as imagens são exibidas com resultados de pesquisa.
 
-As seguintes configurações são mostradas se clicar **em Mostrar configurações avançadas**:
+As seguintes configurações são mostradas se clicar **em Mostrar configurações avançadas** :
 
 - Realce as palavras: Determina se os resultados são apresentados com termos de pesquisa em negrito.
 - Link target: Determine se a página web abre em um novo separador de navegador (Blank) ou no mesmo separador de navegador (self) quando o utilizador clica num resultado de pesquisa.
@@ -110,7 +115,7 @@ As seguintes configurações são mostradas se clicar **em Mostrar configuraçõ
 - Resultados da imagem ativados: Determina se a procura de imagem está ativada (verá um separador Imagens no topo da página).
 - Resultados da imagem por página: Número de resultados de pesquisa de imagem a exibir de cada vez (o máximo é de 150 resultados por página).
 
-A configuração a seguir é mostrada se clicar **em Mostrar configurações avançadas**.  
+A configuração a seguir é mostrada se clicar **em Mostrar configurações avançadas** .  
   
 - Ativar filtros: Adiciona filtros que o utilizador pode utilizar para filtrar as imagens que o Bing devolve. Por exemplo, o utilizador pode filtrar os resultados apenas para GIFs animados.
 
@@ -119,7 +124,7 @@ A configuração a seguir é mostrada se clicar **em Mostrar configurações ava
 - Resultados de vídeo ativados: Determina se a procura de vídeo está ativada (verá um separador Vídeos no topo da página).
 - Resultados do vídeo por página: Número de resultados de pesquisa de vídeo a visualizar de cada vez (o máximo é de 150 resultados por página).
 
-A configuração a seguir é mostrada se clicar **em Mostrar configurações avançadas**.  
+A configuração a seguir é mostrada se clicar **em Mostrar configurações avançadas** .  
   
 - Ativar filtros: Adiciona filtros que o utilizador pode utilizar para filtrar os vídeos que o Bing devolve. Por exemplo, o utilizador pode filtrar os resultados de vídeos com uma resolução ou vídeos específicos descobertos nas últimas 24 horas.
 
@@ -128,7 +133,7 @@ A configuração a seguir é mostrada se clicar **em Mostrar configurações ava
 - Título da página: Texto apresentado na área do título da página de resultados de pesquisa (não para layout pop-over).
 - Tema da barra de ferramentas: Determina a cor de fundo da área do título da página de resultados da pesquisa.
 
-As seguintes configurações são mostradas se clicar **em Mostrar configurações avançadas**.  
+As seguintes configurações são mostradas se clicar **em Mostrar configurações avançadas** .  
 
 |Coluna1  |Coluna2  |
 |---------|---------|

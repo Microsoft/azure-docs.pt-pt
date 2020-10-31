@@ -9,20 +9,21 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: devx-track-js
-ms.openlocfilehash: 25e5d583b2ae94277b155e8e03d61a308a88ec8d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b4ed27e1515e898a71fb503bb0f260c608ef9f6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91322755"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090210"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>Quickstart: Utilize Node.js para ligar e consultar dados da conta API API da Azure Cosmos DB SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > - [.NET V3](create-sql-api-dotnet.md)
 > - [.NET V4](create-sql-api-dotnet-V4.md)
 > - [SDK v4 de Java](create-sql-api-java.md)
-> * [Dados da primavera v3](create-sql-api-spring-data.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > - [Node.js](create-sql-api-nodejs.md)
 > - [Python](create-sql-api-python.md)
 > - [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -57,7 +58,7 @@ A opção "experimente a Azure Cosmos DB gratuitamente" não requer uma subscri�
 
 Pode agora utilizar a ferramenta Data Explorer no portal Azure para criar uma base de dados e um recipiente.
 
-1. Selecione **data explorer**  >  **novo recipiente**.
+1. Selecione **data explorer**  >  **novo recipiente** .
 
    A área **do Recipiente Adicionar** é apresentada na extrema direita, pode ser necessário deslocar-se para a frente para o ver.
 
@@ -67,14 +68,14 @@ Pode agora utilizar a ferramenta Data Explorer no portal Azure para criar uma ba
 
    | Definição           | Valor sugerido | Descrição                                                                                                                                                                                                                                                                                                                                                                           |
    | ----------------- | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-   | **ID da Base de Dados**   | Tarefas           | Designe a nova base de dados como _Tarefas_. Os nomes da base de dados devem conter de 1 a 255 caracteres, não podendo conter `/, \\, #, ?` , ou um espaço de fuga. Consulte a opção **de produção da base de dados Provision,** que lhe permite partilhar o produto que está previsto na base de dados em todos os contentores da base de dados. Esta opção também ajuda na poupança de custos. |
+   | **ID da Base de Dados**   | Tarefas           | Designe a nova base de dados como _Tarefas_ . Os nomes da base de dados devem conter de 1 a 255 caracteres, não podendo conter `/, \\, #, ?` , ou um espaço de fuga. Consulte a opção **de produção da base de dados Provision,** que lhe permite partilhar o produto que está previsto na base de dados em todos os contentores da base de dados. Esta opção também ajuda na poupança de custos. |
    | **Débito**    | 400             | Deixe a produção a 400 unidades de pedido por segundo (RU/s). Se pretender reduzir a latência, pode aumentar verticalmente o débito mais tarde.                                                                                                                                                                                                                                                    |
    | **ID do Contentor**  | Itens           | _Insira os Itens_ como o nome do seu novo recipiente. Os IDs dos contentores têm os mesmos requisitos em termos de carateres que os nomes das bases de dados.                                                                                                                                                                                                                                                               |
    | **Chave de partição** | /categoria       | A amostra descrita neste artigo _utiliza/categoria_ como chave de partição.                                                                                                                                                                                                                                                                                                           |
 
    Além das definições anteriores, pode opcionalmente adicionar **teclas Únicas** para o recipiente. Vamos deixar o campo vazio neste exemplo. As chaves exclusivas oferecem aos programadores a capacidade de adicionar uma camada de integridade dos dados na base de dados. Ao criar uma política chave única ao criar um recipiente, garante a singularidade de um ou mais valores por chave de partição. Para saber mais, consulte o artigo [Chaves exclusivas no Azure Cosmos DB](unique-keys.md).
 
-   Selecione **OK**. O Data Explorer mostra a base de dados e o contentor novos.
+   Selecione **OK** . O Data Explorer mostra a base de dados e o contentor novos.
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
@@ -98,7 +99,7 @@ Agora vamos clonar uma aplicação Node.js do GitHub, definir a cadeia de ligaç
 
 Este passo é opcional. Se estiver interessado em saber como os recursos da base de dados Azure Cosmos são criados no código, pode rever os seguintes excertos. Caso contrário, pode avançar diretamente para [Update your connection string (Atualizar a cadeia de ligação)](#update-your-connection-string).
 
-Se estiver familiarizado com a versão anterior do SQL JavaScript SDK, poderá estar habituado a ver a _recolha_ e _o documento_dos termos. Como o Azure Cosmos DB suporta [vários modelos API](introduction.md), [a versão 2.0+ do JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) utiliza o _recipiente_de termos genéricos , que pode ser uma coleção, gráfico ou tabela, e _item_ para descrever o conteúdo do recipiente.
+Se estiver familiarizado com a versão anterior do SQL JavaScript SDK, poderá estar habituado a ver a _recolha_ e _o documento_ dos termos. Como o Azure Cosmos DB suporta [vários modelos API](introduction.md), [a versão 2.0+ do JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) utiliza o _recipiente_ de termos genéricos , que pode ser uma coleção, gráfico ou tabela, e _item_ para descrever o conteúdo do recipiente.
 
 O Cosmos DB JavaScript SDK chama-se @azure/cosmos " " e pode ser instalado a partir de npm...
 
@@ -181,11 +182,11 @@ Agora volte ao portal Azure para obter os detalhes da cadeia de ligação da sua
 
 2. Em Abrir o ficheiro _config.js._
 
-3. Copie o seu valor URI a partir do portal (utilizando o botão de cópia) e faça com que o valor da tecla de ponto final _config.js_.
+3. Copie o seu valor URI a partir do portal (utilizando o botão de cópia) e faça com que o valor da tecla de ponto final _config.js_ .
 
    `endpoint: "<Your Azure Cosmos account URI>"`
 
-4. Em seguida, copie o seu valor PRINCIPAL do portal e faça dele o valor do `config.key` _ inconfig.js_. Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB.
+4. Em seguida, copie o seu valor PRINCIPAL do portal e faça dele o valor do `config.key` _inconfig.js_ . Atualizou agora a sua aplicação com todas as informações necessárias para comunicar com o Azure Cosmos DB.
 
    `key: "<Your Azure Cosmos account key>"`
 

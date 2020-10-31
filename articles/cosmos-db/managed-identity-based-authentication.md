@@ -8,14 +8,15 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07bfaabf051a016ca9617245ba8628ef6c7e80c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 918033f736a28534cd36a4637b41d0a6b3b4cdc7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566623"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088578"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Utilize identidades geridas atribuídas ao sistema para aceder aos dados do Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Neste artigo, irá configurar uma solução *agnóstica de rotação robusta e chave* para aceder às teclas DB da Azure Cosmos utilizando [identidades geridas.](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) O exemplo neste artigo utiliza funções Azure, mas pode utilizar qualquer serviço que suporte identidades geridas. 
 
@@ -29,11 +30,11 @@ Neste passo, irá atribuir uma identidade gerida pelo sistema à sua aplicação
 
 1. No [portal Azure,](https://portal.azure.com/)abra o painel **Azure Function** e vá para a sua aplicação de função. 
 
-1. Abra o **separador identidade**da  >  **Identity** Plataforma: 
+1. Abra o **separador identidade** da  >  **Identity** Plataforma: 
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Screenshot mostrando funcionalidades da Plataforma e opções de identidade para a aplicação de função.":::
 
-1. No **separador Identidade,** **ligue** o **estado** de identidade do sistema e selecione **Guardar**. O **painel de identidade** deve olhar da seguinte forma:  
+1. No **separador Identidade,** **ligue** o **estado** de identidade do sistema e selecione **Guardar** . O **painel de identidade** deve olhar da seguinte forma:  
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Screenshot mostrando funcionalidades da Plataforma e opções de identidade para a aplicação de função.":::
 
@@ -41,7 +42,7 @@ Neste passo, irá atribuir uma identidade gerida pelo sistema à sua aplicação
 
 Neste passo, atribuirá um papel à identidade gerida atribuída pelo sistema da aplicação de funções. A Azure Cosmos DB tem múltiplos papéis incorporados que pode atribuir à identidade gerida. Para esta solução, utilizará as seguintes duas funções:
 
-|Papel incorporado  |Descrição  |
+|Papel incorporado  |Description  |
 |---------|---------|
 |[Colaborador de Conta DocumentDB](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Pode gerir as contas de DB da Azure Cosmos. Permite a recuperação de teclas de leitura/escrita. |
 |[Papel do leitor de conta de cosm de Cosmos DB](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Pode ler os dados da conta DB da Azure Cosmos. Permite a recuperação das chaves de leitura. |
@@ -60,19 +61,19 @@ Neste cenário, a aplicação de função irá ler a temperatura do aquário e, 
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot mostrando funcionalidades da Plataforma e opções de identidade para a aplicação de função.":::
 
-1. Selecione **+ Adicionar** > **Adicionar atribuição de função**.
+1. Selecione **+ Adicionar** > **Adicionar atribuição de função** .
 
 1. O painel **de atribuição de funções Add** abre à direita:
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot mostrando funcionalidades da Plataforma e opções de identidade para a aplicação de função.":::
 
-   * **Função**: Selecione **Colaborador de Conta DocumentDB**
-   * **Atribua acesso a:** Sob a **subsecção de identidade gerida atribuída pelo sistema Select,** selecione **App de Função**.
-   * **Selecione**: O painel será preenchido com todas as aplicações de função na sua subscrição que tenham uma **Identidade do Sistema Gerido.** Neste caso, selecione a aplicação de função **FishTankTemperatureService:** 
+   * **Função** : Selecione **Colaborador de Conta DocumentDB**
+   * **Atribua acesso a:** Sob a **subsecção de identidade gerida atribuída pelo sistema Select,** selecione **App de Função** .
+   * **Selecione** : O painel será preenchido com todas as aplicações de função na sua subscrição que tenham uma **Identidade do Sistema Gerido.** Neste caso, selecione a aplicação de função **FishTankTemperatureService:** 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot mostrando funcionalidades da Plataforma e opções de identidade para a aplicação de função.":::
 
-1. Depois de ter selecionado a aplicação de função, **selecione Save**.
+1. Depois de ter selecionado a aplicação de função, **selecione Save** .
 
 ### <a name="assign-the-role-using-azure-cli"></a>Atribuir o papel usando O Azure CLI
 

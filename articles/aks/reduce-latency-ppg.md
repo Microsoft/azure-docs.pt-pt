@@ -4,62 +4,31 @@ description: Aprenda a usar grupos de colocação de proximidade para reduzir a 
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 10/19/2020
 author: jluk
-ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a96489495abe3bfbed3030b3e08ff121c5c7cddf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986717"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090802"
 ---
-# <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Reduzir a latência com grupos de colocação de proximidade (Pré-visualização)
+# <a name="reduce-latency-with-proximity-placement-groups"></a>Reduzir a latência com grupos de colocação de proximidade
 
 > [!Note]
 > Ao utilizar grupos de colocação de proximidade em AKS, a colocação só se aplica aos nós do agente. O nó ao nó e a vagem hospedeira correspondente à latência do casulo é melhorada. A colocação não afeta a colocação do plano de controlo de um cluster.
 
 Ao implementar a sua aplicação no Azure, espalhar instâncias da Máquina Virtual (VM) em regiões ou zonas de disponibilidade cria latência de rede, o que pode afetar o desempenho global da sua aplicação. Um grupo de colocação de proximidade é um agrupamento lógico usado para garantir que os recursos de computação Azure estão fisicamente localizados perto uns dos outros. Algumas aplicações como jogos, simulações de engenharia e negociação de alta frequência (HFT) requerem baixa latência e tarefas que se completam rapidamente. Para cenários de computação de alto desempenho (HPC), como estes, considere usar [grupos de colocação](../virtual-machines/linux/co-location.md#proximity-placement-groups) de proximidade (PPG) para as piscinas de nó do seu cluster.
 
-## <a name="limitations"></a>Limitações
+## <a name="before-you-begin"></a>Antes de começar
+
+Este artigo requer que esteja a executar a versão 2.14 ou posterior do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
+
+### <a name="limitations"></a>Limitações
 
 * Um grupo de colocação de proximidade pode mapear para no máximo uma zona de disponibilidade.
 * Uma piscina de nó deve usar conjuntos de balança de máquina virtual para associar um grupo de colocação de proximidade.
 * Uma piscina de nó pode associar um grupo de colocação de proximidade na piscina de nó criar apenas tempo.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="before-you-begin"></a>Antes de começar
-
-Deve ter os seguintes recursos instalados:
-
-- A extensão aks-preview 0.4.53
-
-### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>Configurar a funcionalidade de pré-visualização para grupos de colocação de proximidade
-
-> [!IMPORTANT]
-> Ao utilizar grupos de colocação de proximidade com piscinas de nó AKS, a colocação aplica-se apenas aos nós do agente. O nó ao nó e a vagem hospedeira correspondente à latência do casulo é melhorada. A colocação não afeta a colocação do plano de controlo de um cluster.
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "ProximityPlacementGroupPreview"
-```
-
-Pode levar vários minutos para a inscrição. Utilize o comando abaixo para verificar se a funcionalidade está registada:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/ProximityPlacementGroupPreview')].{Name:name,State:properties.state}"
-```
-
-Durante a pré-visualização, você precisa da extensão CLI *de pré-visualização aks* para usar grupos de colocação de proximidade. Utilize o comando [de adicionar extensão az][az-extension-add] e, em seguida, verifique se há atualizações disponíveis utilizando o comando de atualização de [extensão az:][az-extension-update]
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## <a name="node-pools-and-proximity-placement-groups"></a>Piscinas de nó e grupos de colocação de proximidade
 

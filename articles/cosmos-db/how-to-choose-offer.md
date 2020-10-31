@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: f7fd40c48f94b4337c5ec342499203f83763299b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909935"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089645"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Como escolher entre produção padrão (manual) e autoescala aussida 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 A Azure Cosmos DB suporta dois tipos ou ofertas de produção a provisionada: standard (manual) e autoescala. Ambos os tipos de produção são adequados para cargas de trabalho críticas da missão que requerem alto desempenho e escala, e são apoiados pelo mesmo Azure Cosmos DLAs em produção, disponibilidade, latência e consistência.
 
@@ -26,7 +27,7 @@ Quando utilizar a produção provisitada, define a produção, medida nas unidad
 
 A tabela a seguir mostra uma comparação de alto nível entre a norma (manual) e a autoescala.
 
-|Descrição|Padrão (manual)|Dimensionamento Automático|
+|Description|Padrão (manual)|Dimensionamento Automático|
 |-------------|------|-------|
 |Mais adequado para|Cargas de trabalho com tráfego constante ou previsível|Cargas de trabalho com tráfego variável ou imprevisível. Consulte [as caixas de autoescala.](provision-throughput-autoscale.md#use-cases-of-autoscale)|
 |Como funciona|Você disponibiliza uma quantidade definida de RU/s que é estática ao longo do `T` tempo, a menos que altere manualmente. A cada segundo, pode utilizar até à `T` produção de RU/s. <br/><br/>Por exemplo, se definir a norma (manual) 400 RU/s, a produção permanecerá a 400 RU/s.|Você define o máximo, ou máximo RU/s `Tmax` que você não quer que o sistema exceda. O sistema escala automaticamente a produção `T` de tal forma que . `0.1* Tmax <= T <= Tmax` . <br/><br/>Por exemplo, se definir um máximo de RU/s de 4000 RU/s, o sistema irá escalar entre 400 - 4000 RU/s.|

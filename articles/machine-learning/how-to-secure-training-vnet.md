@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 232260ada4d810127584e675480f91d0213e3953
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425095"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091502"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Garantir um ambiente de formação Azure Machine Learning com redes virtuais
 
@@ -60,8 +60,9 @@ Para utilizar um [ __alvo de computação__ Azure Machine Learning gerido](conce
 > * Verifique se as suas políticas de segurança ou bloqueios na subscrição da rede virtual ou no grupo de recursos restringem permissões para gerir a rede virtual. Se planeia proteger a rede virtual restringindo o tráfego, deixe algumas portas abertas para o serviço de computação. Para mais informações, consulte a secção [de portas necessárias.](#mlcports)
 > * Se vai colocar várias instâncias de computação ou clusters numa rede virtual, poderá ter de solicitar um aumento de quota para um ou mais dos seus recursos.
 > * Se a conta de armazenamento Azure para o espaço de trabalho também estiver protegida numa rede virtual, devem estar na mesma rede virtual que o azure machine learning ou cluster. 
-> * Para que a funcionalidade do Jupyter funcione, certifique-se de que a comunicação da tomada web não está desativada. Certifique-se de que a sua rede permite ligações websocket a *.instances.azureml.net e *.instances.azureml.ms.
-
+> * Para que a funcionalidade do Jupyter funcione, certifique-se de que a comunicação da tomada web não está desativada. Certifique-se de que a sua rede permite ligações websocket a *.instances.azureml.net e *.instances.azureml.ms. 
+> * Quando a instância de computação é implantada num espaço de trabalho de ligação privada, só pode ser acedida a partir de uma rede virtual. Se estiver a utilizar o ficheiro DNS ou hostis personalizado, por favor adicione uma entrada `<instance-name>.<region>.instances.azureml.ms` com o endereço IP privado do ponto final privado do espaço de trabalho. Para mais informações consulte o artigo [DNS personalizado.](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns)
+    
 > [!TIP]
 > A instância ou cluster do cálculo machine learning aloca automaticamente recursos adicionais de rede __no grupo de recursos que contém a rede virtual.__ Para cada instância de cálculo ou cluster, o serviço aloca os seguintes recursos:
 > 
@@ -79,7 +80,7 @@ Se planeia proteger a rede virtual restringindo o tráfego de rede de/para a int
 
 O serviço Batch adiciona grupos de segurança de rede (NSGs) ao nível das interfaces de rede (NICs) que estão ligadas aos VMs. Estes NSGs configuram automaticamente regras de entrada e saída para permitir o tráfego seguinte:
 
-- Tráfego TCP de entrada nos portos 29876 e 29877 a partir de uma etiqueta de __serviço__ de __BatchNodeManagement__.
+- Tráfego TCP de entrada nos portos 29876 e 29877 a partir de uma etiqueta de __serviço__ de __BatchNodeManagement__ .
 
     ![Uma regra de entrada que usa a etiqueta de serviço BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -89,7 +90,7 @@ O serviço Batch adiciona grupos de segurança de rede (NSGs) ao nível das inte
 
 - Tráfego de saída em qualquer porta para a Internet.
 
-- Para o porputação, o tráfego TCP no porto 44224 a partir de uma etiqueta de __serviço__ da __AzureMachineLearning__.
+- Para o porputação, o tráfego TCP no porto 44224 a partir de uma etiqueta de __serviço__ da __AzureMachineLearning__ .
 
 > [!IMPORTANT]
 > Tenha cuidado se modificar ou adicionar regras de entrada ou saída em NSGs configurados pelo Batch. Se um NSG bloqueia a comunicação aos nós de computação, o serviço de computação define o estado dos nós de computação para inutilizável.
@@ -111,8 +112,8 @@ Se não quiser utilizar as regras de saída predefinidos e pretender limitar o a
 - Negar a ligação à Internet de saída utilizando as regras NSG.
 
 - Para uma __instância de computação__ ou um __cluster de cálculo,__ limite o tráfego de saída para os seguintes itens:
-   - Armazenamento Azure, utilizando __a Etiqueta__ de Serviço de __Armazenamento.RegionName__. Onde `{RegionName}` está o nome de uma região de Azure.
-   - Registo do Contentor Azure, utilizando __a etiqueta__ de serviço da __AzureContainerRegistry.RegionName__. Onde `{RegionName}` está o nome de uma região de Azure.
+   - Armazenamento Azure, utilizando __a Etiqueta__ de Serviço de __Armazenamento.RegionName__ . Onde `{RegionName}` está o nome de uma região de Azure.
+   - Registo do Contentor Azure, utilizando __a etiqueta__ de serviço da __AzureContainerRegistry.RegionName__ . Onde `{RegionName}` está o nome de uma região de Azure.
    - Azure Machine Learning, utilizando __a etiqueta__ de serviço da __AzureMachineLearning__
    - Gestor de Recursos Azure, utilizando __a Tag__ de Serviço da __AzureResourceManager__
    - Diretório Ativo Azure, utilizando __a Tag__ de Serviço da __AzureActiveDirectory__
@@ -122,7 +123,7 @@ A configuração da regra NSG no portal Azure é mostrada na seguinte imagem:
 [![As regras nSG de saída para o Cálculo de Aprendizagem automática](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> Se planeia utilizar imagens padrão do Docker fornecidas pela Microsoft e permitir dependências geridas pelo utilizador, também deve utilizar as __seguintes Tags de Serviço__:
+> Se planeia utilizar imagens padrão do Docker fornecidas pela Microsoft e permitir dependências geridas pelo utilizador, também deve utilizar as __seguintes Tags de Serviço__ :
 >
 > * __MicrosoftContainerRegistry__
 > * __AzureFrontDoor.FirstParty__
@@ -176,7 +177,7 @@ Há duas maneiras de conseguir isto:
         > * [Gamas IP Azure e tags de serviço para o Governo Azure](https://www.microsoft.com/download/details.aspx?id=57063)
         > * [Gamas Azure IP e tags de serviço para Azure China](https://www.microsoft.com//download/details.aspx?id=57062)
     
-    Quando adicionar os UDRs, defina a rota para cada prefixo de endereço IP do lote relacionado e defina __o tipo de próximo lúpulo__ para a __Internet__. A imagem a seguir mostra um exemplo desta UDR no portal Azure:
+    Quando adicionar os UDRs, defina a rota para cada prefixo de endereço IP do lote relacionado e defina __o tipo de próximo lúpulo__ para a __Internet__ . A imagem a seguir mostra um exemplo desta UDR no portal Azure:
 
     ![Exemplo de um UDR para um prefixo de endereço](./media/how-to-enable-virtual-network/user-defined-route.png)
 
@@ -252,7 +253,7 @@ Quando o processo de criação termina, treina o seu modelo usando o cluster num
 
 Se estiver a utilizar cadernos numa instância do Azure Compute, tem de se certificar de que o seu caderno está a funcionar num recurso computacional por trás da mesma rede virtual e sub-redes que os seus dados. 
 
-Tem de configurar a sua Instância computacional para estar na mesma rede virtual durante a criação em **Configurações Avançadas**  >  **Configurar rede virtual**. Não é possível adicionar uma Instância de Computação existente a uma rede virtual.
+Tem de configurar a sua Instância computacional para estar na mesma rede virtual durante a criação em **Configurações Avançadas**  >  **Configurar rede virtual** . Não é possível adicionar uma Instância de Computação existente a uma rede virtual.
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
@@ -285,21 +286,21 @@ Crie um cluster VM ou HDInsight utilizando o portal Azure ou o CLI Azure, e colo
 
 Permitir que o Azure Machine Learning comunique com a porta SSH no VM ou cluster, configurar uma entrada de origem para o grupo de segurança da rede. A porta SSH é normalmente a porta 22. Para permitir o tráfego a partir desta fonte, faça as seguintes ações:
 
-1. Na __Source__ lista de drop-down Source, selecione __Tag de Serviço__.
+1. Na __Source__ lista de drop-down Source, selecione __Tag de Serviço__ .
 
-1. Na lista de drop-down de __marca de serviço Source,__ selecione __AzureMachineLearning__.
+1. Na lista de drop-down de __marca de serviço Source,__ selecione __AzureMachineLearning__ .
 
     ![Regras de entrada para fazer experimentação num cluster VM ou HDInsight dentro de uma rede virtual](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
 1. Na lista de pontos de entrega da __porta Source,__ selecione __*__ .
 
-1. Na lista de drop-down do __Destino,__ selecione __Any__.
+1. Na lista de drop-down do __Destino,__ selecione __Any__ .
 
-1. Na lista de pontos de entrega das __gamas destination,__ selecione __22__.
+1. Na lista de pontos de entrega das __gamas destination,__ selecione __22__ .
 
-1. Ao abrigo __do Protocolo__, selecione __Qualquer__.
+1. Ao abrigo __do Protocolo__ , selecione __Qualquer__ .
 
-1. Em __Ação__, __selecione Permitir__.
+1. Em __Ação__ , __selecione Permitir__ .
 
 Mantenha as regras de saída padrão para o grupo de segurança da rede. Para obter mais informações, consulte as regras de segurança em [grupos de segurança.](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)
 

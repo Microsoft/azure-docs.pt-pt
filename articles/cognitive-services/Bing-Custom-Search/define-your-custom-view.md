@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86183210"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090822"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure a sua experiência de Pesquisa Personalizada Bing
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 Uma instância de Pesquisa Personalizada permite-lhe adaptar a experiência de pesquisa para incluir conteúdo apenas a partir de websites que os seus utilizadores se preocupam. Em vez de realizar uma pesquisa em toda a web, Bing procura apenas as fatias da web que lhe interessam. Para criar a sua vista personalizada da Web, utilize a Pesquisa Personalizada do portal [Bing](https://customsearch.ai).
 
@@ -25,7 +30,7 @@ O portal permite criar um caso de pesquisa que especifica as fatias da web: dom�
 
 Utilize o seguinte ao definir as suas fatias da web:
 
-| Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
+| Nome da fatia | Description                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Domínio     | Uma fatia de domínio inclui todos os conteúdos encontrados dentro de um domínio de internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que Bing também procure os subdomínios do domínio. Por exemplo, se `microsoft.com` especificar, Bing também devolve resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
 | Sub-página    | Uma fatia de sub-página inclui todo o conteúdo encontrado na sub-página e caminhos abaixo dela. Pode especificar um máximo de duas sub-páginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
@@ -82,9 +87,9 @@ Estas APIs são semelhantes às APIs de pesquisa de [imagem de Bing](../Bing-Ima
 
 Pode testar a sua instância de pesquisa utilizando o painel de pré-visualização no lado direito do portal para submeter consultas de pesquisa e ver os resultados. 
 
-1. Abaixo da caixa de pesquisa, selecione **My Instance**. Pode comparar os resultados da sua experiência de pesquisa com bing, selecionando **Bing**. 
+1. Abaixo da caixa de pesquisa, selecione **My Instance** . Pode comparar os resultados da sua experiência de pesquisa com bing, selecionando **Bing** . 
 2. Selecione um filtro de pesquisa seguro e qual o mercado a procurar (ver [Parâmetros de Consulta).](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
-3. Introduza uma consulta e prima insira ou clique no ícone de pesquisa para ver os resultados da configuração atual. Pode alterar o seu tipo de pesquisa que executa clicando **em Web,** **Image**ou **Video** para obter resultados correspondentes. 
+3. Introduza uma consulta e prima insira ou clique no ícone de pesquisa para ver os resultados da configuração atual. Pode alterar o seu tipo de pesquisa que executa clicando **em Web,** **Image** ou **Video** para obter resultados correspondentes. 
 
 <a name="adjustrank"></a>
 
@@ -92,7 +97,7 @@ Pode testar a sua instância de pesquisa utilizando o painel de pré-visualizaç
 
 O portal permite-lhe ajustar o ranking de pesquisa de conteúdos a partir de domínios específicos, sub-páginas e páginas web. Depois de enviar uma consulta de pesquisa no painel de pré-visualização, cada resultado de pesquisa contém uma lista de ajustes que pode fazer para ele:  
 
-| Ajustamento | Descrição |
+| Ajustamento | Description |
 |------------|-------------|
 | Bloquear      | Move o domínio, sub-página ou página web para a lista bloqueada. Bing excluirá o conteúdo do site selecionado de aparecer nos resultados da pesquisa.                    |
 | Impulsionar      | Aumenta o conteúdo do domínio ou sub-página para ser mais elevado nos resultados da pesquisa.                                                                                        |
@@ -120,7 +125,7 @@ Pode fixar uma página web no topo de duas maneiras:
 
 * No **separador Pinned,** introduza o URL da página web para fixar na parte superior e a sua consulta correspondente.
 
-* No painel **de pré-visualização,** introduza uma consulta de pesquisa e clique em procurar. Encontre a página web que deseja fixar para a sua consulta e clique em **Pin para cima**. a página web e a consulta serão adicionadas à lista **Pinned.**
+* No painel **de pré-visualização,** introduza uma consulta de pesquisa e clique em procurar. Encontre a página web que deseja fixar para a sua consulta e clique em **Pin para cima** . a página web e a consulta serão adicionadas à lista **Pinned.**
 
 ### <a name="specify-the-pins-match-condition"></a>Especifique a condição de correspondência do pino
 

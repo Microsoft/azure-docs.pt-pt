@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: c37224a3a455abcf3de62998cb65e1d66a1bb0f2
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910717"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088884"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>CI/CD para gestão de API usando modelos de Gestor de Recursos Azure
 
@@ -43,7 +43,7 @@ Neste exemplo, existem dois ambientes de implantação: *Desenvolvimento* e *Pro
 
 A chave nesta abordagem proposta é manter todas as configurações de Gestão da API nos [modelos do Gestor de Recursos Azure](../azure-resource-manager/resource-group-authoring-templates.md). A organização deve manter estes modelos num sistema de controlo de fontes como o Git. Como ilustrado na imagem, um repositório de editores contém todas as configurações da instância de Gestão da API de Produção numa coleção de modelos:
 
-|Modelo  |Descrição  |
+|Modelo  |Description  |
 |---------|---------|
 |Modelo de serviço     | Configurações de nível de serviço da instância de Gestão da API, tais como o nível de preços e domínios personalizados.         |
 |Modelos compartilhados     |  Recursos partilhados ao longo de uma instância de Gestão da API, tais como grupos, produtos e madeireiros.    |
@@ -67,7 +67,8 @@ Os desenvolvedores de API enfrentam desafios ao trabalhar com modelos de Gestor 
 
 * Os editores da API podem validar o pedido de puxar e certificar-se de que as alterações são seguras e conformes. Por exemplo, podem verificar se apenas HTTPS é permitido comunicar com a API. A maioria das validações pode ser automatizada como um passo no gasoduto CI/CD.
 
-* Após a aprovação e fusão das alterações com sucesso, os editores da API podem optar por as implementar na instância de Produção, quer no horário, quer a pedido. Podem automatizar a implantação dos modelos utilizando [ações GitHub](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/devops/pipelines/), [Azure PowerShell,](../azure-resource-manager/templates/deploy-powershell.md) [Azure CLI,](../azure-resource-manager/templates/deploy-cli.md)ou outras ferramentas.
+* Uma vez aprovadas e fundidas com sucesso, os editores da API podem optar por as implementar na instância de Produção, quer no horário, quer a pedido. A implementação dos modelos pode ser automatizada utilizando [ações GitHub,](https://github.com/Azure/apimanagement-devops-samples) [Azure Pipelines,](/azure/devops/pipelines) [Azure PowerShell,](../azure-resource-manager/templates/deploy-powershell.md) [Azure CLI,](../azure-resource-manager/templates/deploy-cli.md)ou outras ferramentas.
+
 
 Com esta abordagem, uma organização pode automatizar a implementação de alterações da API em instâncias de Gestão de API, e é fácil promover mudanças de um ambiente para outro. Como diferentes equipas de desenvolvimento da API trabalharão em diferentes conjuntos de modelos e ficheiros API, evita interferências entre diferentes equipas.
 

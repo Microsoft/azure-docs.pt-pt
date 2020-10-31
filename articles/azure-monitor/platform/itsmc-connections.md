@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: c40f1762ea7c87ea73ec20e47b0398e0d3e364b4
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 69c8f9f01241100a81ddd1707dbd226e6bf56c2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677164"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089020"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
 Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](./itsmc-overview.md)
@@ -36,7 +36,7 @@ As secções seguintes fornecem detalhes sobre como ligar o seu produto System C
 
 Assegurar que os seguintes pré-requisitos sejam cumpridos:
 
-- ITSMC instalado. Mais informações: [Adicionar a Solução de Conector de Gestão de Serviços de TI](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Mais informações: [Adicionar a Solução de Conector de Gestão de Serviços de TI](./itsmc-overview.md#add-it-service-management-connector).
 - A aplicação Web do Gestor de Serviços (web app) está implantada e configurada. A informação sobre a aplicação Web está [aqui.](#create-and-deploy-service-manager-web-app-service)
 - Ligação híbrida criada e configurada. Mais informações: [Configurar a Ligação Híbrida](#configure-the-hybrid-connection).
 - Versões suportadas do Service Manager: 2012 R2 ou 2016.
@@ -184,7 +184,7 @@ As seguintes secções fornecem detalhes sobre como ligar o seu produto ServiceN
 
 ### <a name="prerequisites"></a>Pré-requisitos
 Assegurar que os seguintes pré-requisitos sejam cumpridos:
-- ITSMC instalado. Mais informações: [Adicionar a Solução de Conector de Gestão de Serviços de TI](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Mais informações: [Adicionar a Solução de Conector de Gestão de Serviços de TI](./itsmc-overview.md#add-it-service-management-connector).
 - Versões suportadas pelo ServiceNow: Orlando, Nova Iorque, Madrid, Londres, Kingston, Jacarta, Istambul, Helsínquia, Genebra.
 > [!NOTE]
 > A ITSMC suporta apenas a oferta oficial do SaaS do Service Now. As implementações privadas do Serviço Agora não são suportadas. 
@@ -316,7 +316,7 @@ As seguintes secções fornecem detalhes sobre como ligar o seu produto Provance
 Assegurar que os seguintes pré-requisitos sejam cumpridos:
 
 
-- ITSMC instalado. Mais informações: [Adicionar a Solução de Conector de Gestão de Serviços de TI](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Mais informações: [Adicionar a Solução de Conector de Gestão de Serviços de TI](./itsmc-overview.md#add-it-service-management-connector).
 - A App Provance deve ser registada no Azure AD - e o ID do cliente está disponível. Para obter informações [detalhadas, consulte como configurar a autenticação ativa do diretório](../../app-service/configure-authentication-provider-aad.md).
 
 - Função de utilizador: Administrador.
@@ -373,7 +373,7 @@ As seguintes secções fornecem detalhes sobre como ligar o seu produto Cherwell
 
 Assegurar que os seguintes pré-requisitos sejam cumpridos:
 
-- ITSMC instalado. Mais informações: [Adicionar a Solução de Conector de Gestão de Serviços de TI](./itsmc-overview.md#adding-the-it-service-management-connector-solution).
+- ITSMC instalado. Mais informações: [Adicionar a Solução de Conector de Gestão de Serviços de TI](./itsmc-overview.md#add-it-service-management-connector).
 - Identificação do cliente gerada. Mais informações: [Gere a identificação do cliente para a Cherwell.](#generate-client-id-for-cherwell)
 - Função de utilizador: Administrador.
 

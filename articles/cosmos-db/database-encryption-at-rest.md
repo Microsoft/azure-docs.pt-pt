@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.custom: seodec18
-ms.openlocfilehash: ceb2b8812b52b1ca2030a0fd0006c9388630c05e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: abe4bb3a53e3177857cb8041fd255ec916985054
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487488"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089870"
 ---
 # <a name="data-encryption-in-azure-cosmos-db"></a>Encriptação de dados no Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 A encriptação em repouso é uma frase que geralmente se refere à encriptação de dados em dispositivos de armazenamento nãovoláteis, tais como unidades de estado sólido (SSDs) e discos rígidos (HDDs). A Cosmos DB armazena as suas bases de dados primárias em SSDs. Os seus anexos e backups de mídia são armazenados no armazenamento Azure Blob, que é geralmente apoiado por HDDs. Com a libertação de encriptação em repouso para a Cosmos DB, todas as suas bases de dados, anexos de mídia e backups estão encriptados. Os seus dados estão agora encriptados em trânsito (sobre a rede) e em repouso (armazenamento nãovolátelido), dando-lhe encriptação de ponta a ponta.
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 4c485bf6b9eb34e68e399c24e51286428f47586f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf8da4379a7770e44e86663c02cc7a57da9d3452
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261907"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089785"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Ativar cadernos para contas DB do Azure Cosmos (pré-visualização)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
 > Os cadernos incorporados para a Azure Cosmos DB estão atualmente disponíveis nas seguintes regiões de Azure: Austrália Oriental, Leste dos EUA, Leste dos EUA 2, Norte da Europa, South Central EUA, Sudeste Asiático, Reino Unido Sul, Europa Ocidental e EUA Ocidental 2. Para utilizar cadernos, [crie uma nova conta com cadernos](#enable-notebooks-in-a-new-cosmos-account) ou permita [cadernos numa conta existente](#enable-notebooks-in-an-existing-cosmos-account) numa dessas regiões.
@@ -23,13 +24,13 @@ Os cadernos Jupyter incorporados em Azure Cosmos DB permitem-lhe analisar e visu
 ## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Ativar cadernos numa nova conta cosmos
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Selecione **Criar uma**base de  >  **dados de**recursos  >  **Azure Cosmos DB**.
-1. Na página **'Conta DB Create Azure Cosmos',** selecione **Cadernos**. 
+1. Selecione **Criar uma** base de  >  **dados de** recursos  >  **Azure Cosmos DB** .
+1. Na página **'Conta DB Create Azure Cosmos',** selecione **Cadernos** . 
  
     :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
 
-1. Selecione **Rever + criar**. Pode saltar a opção **Rede** e **Tags.** 
-1. Reveja as definições da conta e, em seguida, selecione **Criar**. A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída**. 
+1. Selecione **Rever + criar** . Pode saltar a opção **Rede** e **Tags.** 
+1. Reveja as definições da conta e, em seguida, selecione **Criar** . A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída** . 
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
 
@@ -57,7 +58,7 @@ Também pode ativar os cadernos nas contas existentes. Este passo só tem de ser
 
 Para verificar se pode utilizar cadernos, selecione um dos cadernos em Cadernos de Amostra. Isto irá guardar uma cópia do caderno para o seu espaço de trabalho e abri-lo.
 
-Neste exemplo, usaremos **GettingStarted.ipynb**. 
+Neste exemplo, usaremos **GettingStarted.ipynb** . 
 
 :::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
 

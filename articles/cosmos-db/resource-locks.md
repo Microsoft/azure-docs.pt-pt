@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: mjbrown
-ms.openlocfilehash: b23fb22a99705e1bf37de7a7982513ff692d8f6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6db7bbf03b023a80032a4ed15f2f4f82dd2b0b98
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91771054"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088374"
 ---
 # <a name="prevent-azure-cosmos-db-resources-from-being-deleted-or-changed"></a>Evite que os recursos DB da Azure Cosmos sejam apagados ou alterados
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Como administrador, poderá ter de bloquear uma conta, base de dados ou contentor da Azure Cosmos para evitar que outros utilizadores da sua organização apaguem ou modifiquem acidentalmente recursos críticos. Pode definir o nível do bloqueio para CanNotDelete ou ReadOnly.
 

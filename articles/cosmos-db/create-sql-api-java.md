@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: 4678ab34de169a8406f0d73b63906152ef1185f0
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4b62b591c408f663fd28d5077af924f785ee66c8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281911"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090414"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>Quickstart: Construa uma app Java para gerir dados da Azure Cosmos DB SQL API
-
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -43,7 +43,7 @@ Neste quickstart, você cria e gere uma conta API API AZURE Cosmos DB SQL a part
 
 ## <a name="introductory-notes"></a>Notas introdutórias
 
-*A estrutura de uma conta de Cosmos DB.* Independentemente da API ou da linguagem de programação, uma *conta* Cosmos DB contém zero ou mais *bases de dados,* uma base *de dados* (DB) contém zero ou mais *contentores*, e um *recipiente* contém zero ou mais itens, como mostra o diagrama abaixo:
+*A estrutura de uma conta de Cosmos DB.* Independentemente da API ou da linguagem de programação, uma *conta* Cosmos DB contém zero ou mais *bases de dados,* uma base *de dados* (DB) contém zero ou mais *contentores* , e um *recipiente* contém zero ou mais itens, como mostra o diagrama abaixo:
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entidades de conta Azure Cosmos" border="false":::
 
@@ -51,7 +51,7 @@ Pode ler mais sobre bases de dados, contentores e itens [aqui.](account-database
 
 A produção prevista é medida nas Unidades de Pedido *(RUs)* que têm um preço monetário e constituem um fator determinante substancial no custo de exploração da conta. A produção a provisionada pode ser selecionada em granularidade por contentor ou granularidade por base de dados, no entanto, a especificação de produção ao nível do contentor é normalmente preferível. Pode ler mais sobre o fornecimento de produção [aqui.](set-throughput.md)
 
-À medida que os itens são inseridos num recipiente Cosmos DB, a base de dados cresce horizontalmente adicionando mais armazenamento e cálculo para lidar com pedidos. A capacidade de armazenamento e computação são adicionadas em *unidades discretas conhecidas como divisórias,* e deve escolher um campo nos seus documentos para ser a chave de partição que mapeia cada documento para uma partição. A forma como as divisórias são geridas é que cada divisória é atribuída a uma fatia aproximadamente igual fora da gama de valores-chave de partição; por isso, é aconselhável escolher uma chave de partição que seja relativamente aleatória ou distribuída uniformemente. Caso contrário, algumas divisórias verão substancialmente mais pedidos (*partição quente*), enquanto outras divisórias vêem substancialmente menos pedidos (*partição fria),* e isso deve ser evitado. Pode aprender mais sobre a partilha [aqui.](partitioning-overview.md)
+À medida que os itens são inseridos num recipiente Cosmos DB, a base de dados cresce horizontalmente adicionando mais armazenamento e cálculo para lidar com pedidos. A capacidade de armazenamento e computação são adicionadas em *unidades discretas conhecidas como divisórias,* e deve escolher um campo nos seus documentos para ser a chave de partição que mapeia cada documento para uma partição. A forma como as divisórias são geridas é que cada divisória é atribuída a uma fatia aproximadamente igual fora da gama de valores-chave de partição; por isso, é aconselhável escolher uma chave de partição que seja relativamente aleatória ou distribuída uniformemente. Caso contrário, algumas divisórias verão substancialmente mais pedidos ( *partição quente* ), enquanto outras divisórias vêem substancialmente menos pedidos ( *partição fria),* e isso deve ser evitado. Pode aprender mais sobre a partilha [aqui.](partitioning-overview.md)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de base de dados
 
@@ -183,7 +183,7 @@ Agora, regresse ao portal do Azure para obter as informações da cadeia de liga
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

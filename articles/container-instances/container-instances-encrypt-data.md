@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: 1c45999dbb354e8c2d550be82cdf37a6694d2dbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825669"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091360"
 ---
 # <a name="encrypt-deployment-data"></a>Encriptar dados de implementação
 
@@ -33,7 +33,7 @@ Pode confiar nas teclas geridas pela Microsoft para a encriptação dos dados do
 
 O resto do documento cobre os passos necessários para encriptar os seus dados de implementação do ACI com a sua chave (chave gerida pelo cliente). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="encrypt-data-with-a-customer-managed-key"></a>Criptografe os dados com uma chave gerida pelo cliente
 
@@ -73,7 +73,7 @@ Para as propriedades do seu cofre chave, utilize as seguintes diretrizes:
 
 ### <a name="generate-a-new-key"></a>Gerar uma nova chave 
 
-Assim que o seu cofre chave for criado, navegue para o recurso no portal Azure. No menu de navegação à esquerda da lâmina de recurso, em Definições, clique em **Teclas**. Na vista para "Keys", clique em "Gerar/Importar" para gerar uma nova chave. Use qualquer nome único para esta chave, e quaisquer outras preferências com base nos seus requisitos. 
+Assim que o seu cofre chave for criado, navegue para o recurso no portal Azure. No menu de navegação à esquerda da lâmina de recurso, em Definições, clique em **Teclas** . Na vista para "Keys", clique em "Gerar/Importar" para gerar uma nova chave. Use qualquer nome único para esta chave, e quaisquer outras preferências com base nos seus requisitos. 
 
 ![Gerar uma nova chave](./media/container-instances-encrypt-data/generate-key.png)
 
@@ -81,10 +81,10 @@ Assim que o seu cofre chave for criado, navegue para o recurso no portal Azure. 
 
 Crie uma nova política de acesso para permitir que o serviço ACI aceda à sua Chave.
 
-* Uma vez gerada a sua chave, de volta à sua lâmina de recurso de cofre chave, em Definições, clique em **Políticas de Acesso**.
-* Na página "Políticas de Acesso" para o seu cofre de chaves, clique em **Adicionar Política de Acesso**.
+* Uma vez gerada a sua chave, de volta à sua lâmina de recurso de cofre chave, em Definições, clique em **Políticas de Acesso** .
+* Na página "Políticas de Acesso" para o seu cofre de chaves, clique em **Adicionar Política de Acesso** .
 * Descreva as *permissões-chave* para incluir permissões de chaves **de chaves de obter** e **desembrulhar** ![ chaves](./media/container-instances-encrypt-data/set-key-permissions.png)
-* Para *Select Principal*, selecione serviço de instância de **contentores Azure**
+* Para *Select Principal* , selecione serviço de instância de **contentores Azure**
 * Clique em **Adicionar** na parte inferior 
 
 A política de acesso deve agora aparecer nas políticas de acesso do seu cofre principal.

@@ -6,14 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 08f8095670b48fcefccb0a9adf477b83ce2537d3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485040"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089241"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginação em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Em Azure Cosmos DB, as consultas podem ter várias páginas de resultados. Este documento explica critérios que o motor de consulta da Azure Cosmos DB utiliza para decidir se a consulta divide os resultados em várias páginas. Pode utilizar, opcionalmente, fichas de continuação para gerir resultados de consulta que se estendem por várias páginas.
 
@@ -23,7 +24,7 @@ Por vezes, os resultados da consulta serão divididos em várias páginas. Os re
 
 Pode especificar o número máximo de itens devolvidos por uma consulta, definindo o `MaxItemCount` . O `MaxItemCount` é especificado por pedido e diz ao motor de consulta que irá devolver esse número de itens ou menos. Pode definir `MaxItemCount` `-1` se não quiser colocar um limite no número de resultados por execução de consultas.
 
-Além disso, existem outras razões para que o motor de consulta possa precisar de dividir os resultados da consulta em várias páginas. Estes incluem:
+Além disso, existem outras razões para que o motor de consulta possa precisar de dividir os resultados da consulta em várias páginas. Estas incluem:
 
 - O contentor foi estrangulado e não havia RUs disponíveis para devolver mais resultados de consulta
 - A resposta da execução de consulta era muito grande
@@ -45,12 +46,13 @@ Aqui estão alguns exemplos para processar resultados de consultas com várias p
 
 ## <a name="continuation-tokens"></a>Fichas de continuação
 
-No .NET SDK e Java SDK, pode utilizar opcionalmente fichas de continuação como um marcador para o progresso da sua consulta. As execuções de consulta DB do Azure Cosmos são apátridas no lado do servidor e podem ser retomadas a qualquer momento usando o token de continuação. As fichas de continuação não são suportadas no Node.js SDK ou Python SDK.
+No .NET SDK e Java SDK, pode utilizar opcionalmente fichas de continuação como um marcador para o progresso da sua consulta. As execuções de consulta DB do Azure Cosmos são apátridas no lado do servidor e podem ser retomadas a qualquer momento usando o token de continuação. As fichas de continuação não são suportadas no Node.js SDK. Para o Python SDK, é suportado para consultas de partição única, e o PK deve ser especificado no objeto de opções porque não é suficiente tê-lo na própria consulta.
 
 Aqui estão alguns exemplos para a utilização de fichas de continuação:
 
 - [SDK do .NET](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
 - [SDK Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 Se a consulta devolver um token de continuação, então há resultados de consulta adicionais.
 
