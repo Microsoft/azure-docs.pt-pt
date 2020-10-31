@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17b2ab53c0154a29f9084f9dd999a53bcf477b72
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715986"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075131"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Problemas de resolução de ficheiros Azure no Windows (SMB)
 
-Este artigo lista problemas comuns relacionados com os Ficheiros Azure do Microsoft quando se conecta a partir de clientes Windows. Fornece igualmente possíveis causas e resoluções para estes problemas. Além das etapas de resolução de problemas neste artigo, também pode utilizar [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   para garantir que o ambiente do cliente windows tem requisitos corretos. A AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo e ajuda a configurar o seu ambiente para obter o melhor desempenho.
+Este artigo lista problemas comuns relacionados com os Ficheiros Azure do Microsoft quando se conecta a partir de clientes Windows. Fornece igualmente possíveis causas e resoluções para estes problemas. Além das etapas de resolução de problemas neste artigo, também pode utilizar [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) para garantir que o ambiente do cliente windows tem requisitos corretos. A AzFileDiagnostics automatiza a deteção da maioria dos sintomas mencionados neste artigo e ajuda a configurar o seu ambiente para obter o melhor desempenho.
 
 > [!IMPORTANT]
 > O conteúdo deste artigo aplica-se apenas às ações da SMB. Para mais informações sobre as ações da NFS, consulte [as ações de ficheiro Troubleshoot Azure NFS](storage-troubleshooting-files-nfs.md).
@@ -45,7 +45,7 @@ Caso estejam configuradas regras de firewall ou de rede virtual (VNET) na conta 
 
 ### <a name="solution-for-cause-2"></a>Solução para o motivo 2
 
-Verifique se as regras de firewall ou de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtual estão a causar o problema, altere temporariamente a definição da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verifique se as regras de firewall ou de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtual estão a causar o problema, altere temporariamente a definição da conta de armazenamento para **Permitir o acesso de todas as redes** . Para saber mais, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>Causa 3: As permissões de nível de partilha estão incorretas quando se utiliza a autenticação baseada na identidade
 
@@ -167,7 +167,7 @@ Código de erro: 403
 
 ### <a name="solution-for-cause-1"></a>Solução para o motivo 1
 
-Verifique se as regras de firewall ou de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtual estão a causar o problema, altere temporariamente a definição da conta de armazenamento para **Permitir o acesso de todas as redes**. Para saber mais, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verifique se as regras de firewall ou de rede virtual estão configuradas corretamente na conta de armazenamento. Para testar se as regras de firewall ou de rede virtual estão a causar o problema, altere temporariamente a definição da conta de armazenamento para **Permitir o acesso de todas as redes** . Para saber mais, veja [Configurar firewalls e redes virtuais do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Causa 2: A sua conta de utilizador não tem acesso à conta de armazenamento
 
@@ -177,23 +177,82 @@ Navegue na conta de armazenamento onde está localizada a partilha de ficheiros 
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Não consigo eliminar um ficheiro ou um diretório numa partilha de ficheiros do Azure
-Quando tentar apagar um ficheiro, poderá receber o seguinte erro:
+Um dos principais propósitos de uma partilha de ficheiros é que vários utilizadores e aplicações podem simultaneamente interagir com ficheiros e diretórios na partilha. Para ajudar nesta interação, as ações de ficheiros fornecem várias formas de mediar o acesso a ficheiros e diretórios.
 
-O recurso especificado está marcado para eliminação por um cliente SMB.
+Quando abre um ficheiro a partir de uma partilha de ficheiros Azure montada sobre a SMB, o seu sistema de aplicação/funcionamento solicita uma pega de ficheiro, que é uma referência ao ficheiro. Entre outras coisas, a sua aplicação especifica um modo de partilha de ficheiros quando solicita uma pega de ficheiro, que especifica o nível de exclusividade do seu acesso ao ficheiro aplicado pelos Ficheiros Azure: 
 
-### <a name="cause"></a>Causa
-Este problema ocorre normalmente se o ficheiro ou o diretório tão abertos mentem. 
+- `None`: tem acesso exclusivo. 
+- `Read`: outros podem ler o ficheiro enquanto o tem aberto.
+- `Write`: outros podem escrever para o ficheiro enquanto o tem aberto. 
+- `ReadWrite`: uma combinação dos `Read` modos e `Write` partilha.
+- `Delete`: outros podem apagar o ficheiro enquanto o tem aberto. 
 
-### <a name="solution"></a>Solução
+Embora como um protocolo apátrida, o protocolo FileREST não tenha um conceito de alças de ficheiros, fornece um mecanismo semelhante para mediar o acesso a ficheiros e pastas que o seu script, aplicação ou serviço podem usar: locações de ficheiros. Quando um ficheiro é alugado, é tratado como equivalente a uma pega de ficheiro com um modo de partilha de ficheiros de `None` . 
 
-Se os clientes SMB encerrarem todas as pegas abertas e o problema continuar a ocorrer, execute o seguinte:
+Embora as alças de ficheiros e os contratos de arrendamento sirvam um propósito importante, por vezes as alças de ficheiros e os locados podem ser órfãos. Quando isto acontece, isto pode causar problemas na modificação ou eliminação de ficheiros. Pode ver mensagens de erro como:
 
-- Utilize o [cmdlet Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell para visualizar as pegas abertas.
+- O processo não pode aceder ao ficheiro, porque está a ser utilizado por outro processo.
+- A ação não pode ser concluída porque o ficheiro está aberto noutro programa.
+- O documento está bloqueado para edição por outro utilizador.
+- O recurso especificado está marcado para eliminação por um cliente SMB.
 
-- Utilize o [cmdlet Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell para fechar as pegas abertas. 
+A resolução para esta questão depende se esta questão está a ser causada por um cabo de ficheiro órfão ou pelo arrendamento. 
+
+### <a name="cause-1"></a>Motivo 1
+Uma pega de ficheiro está a impedir que um ficheiro/diretório seja modificado ou eliminado. Pode utilizar o [cmdlet Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell para visualizar as pegas abertas. 
+
+Se todos os clientes SMB tiverem fechado as suas pegas abertas num ficheiro/diretório e o problema continuar a ocorrer, pode forçar a fechar uma pega de ficheiro.
+
+### <a name="solution-1"></a>Solução 1
+Para forçar o fecho de uma pega de ficheiro, utilize o [cmdlet Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell. 
 
 > [!Note]  
 > Os Get-AzStorageFileHandle e Close-AzStorageFileHandle cmdlets estão incluídos na versão 2.4 ou posterior do módulo Az PowerShell. Para instalar o mais recente módulo Az PowerShell, consulte [instalar o módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+### <a name="cause-2"></a>Motivo 2
+Uma locação de ficheiros é impedir que um ficheiro seja modificado ou eliminado. Pode verificar se um ficheiro tem uma locação de ficheiros com o seguinte PowerShell, `<resource-group>` `<storage-account>` substituindo, e pelos `<file-share>` `<path-to-file>` valores adequados para o seu ambiente:
+
+```PowerShell
+# Set variables 
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$fileShareName = "<file-share>"
+$fileForLease = "<path-to-file>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName
+
+# Get reference to file
+$file = Get-AzStorageFile `
+        -Context $storageAccount.Context `
+        -ShareName $fileShareName `
+        -Path $fileForLease
+
+$fileClient = $file.ShareFileClient
+
+# Check if the file has a file lease
+$fileClient.GetProperties().Value
+```
+
+Se um ficheiro tiver uma locação, o objeto devolvido deve conter as seguintes propriedades:
+
+```Output
+LeaseDuration         : Infinite
+LeaseState            : Leased
+LeaseStatus           : Locked
+```
+
+### <a name="solution-2"></a>Solução 2
+Para remover um contrato de arrendamento de um ficheiro, pode libertar o contrato de arrendamento ou quebrar o contrato de arrendamento. Para liberar o arrendamento, você precisa do LeaseId do arrendamento, que você define quando você cria o arrendamento. Você não precisa do LeaseId para quebrar o arrendamento.
+
+O exemplo a seguir mostra como quebrar o contrato de arrendamento para o ficheiro indicado na causa 2 (este exemplo continua com as variáveis PowerShell da causa 2):
+
+```PowerShell
+$leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($fileClient)
+$leaseClient.Break() | Out-Null
+```
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Cópia lenta de ficheiros para e de Ficheiros do Azure no Windows

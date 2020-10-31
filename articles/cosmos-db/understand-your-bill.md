@@ -7,23 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476404"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073830"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a fatura do Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Como um serviço de base de dados totalmente gerido na nuvem, a Azure Cosmos DB simplifica a faturação cobrando apenas para as suas operações de base de dados e armazenamento consumido. Não existem taxas adicionais de licença, hardware, custos de utilidade ou custos de instalação em comparação com as alternativas no local ou alternativas hospedadas pelo IaaS. Quando se considera as capacidades multi-regiões da Azure Cosmos DB, o serviço de base de dados proporciona uma redução substancial dos custos em comparação com as soluções existentes no local ou iaaS.
 
-- **Operações de base de dados**: A forma como é cobrado pelas suas operações de base de dados depende do tipo de conta Azure Cosmos que está a utilizar.
+- **Operações de base de dados** : A forma como é cobrado pelas suas operações de base de dados depende do tipo de conta Azure Cosmos que está a utilizar.
 
-  - **Produção prevista**: É cobrado de hora em hora para o rendimento máximo previsto para uma determinada hora, em incrementos de 100 RU/s.
-  - **Serverless**: É cobrado por hora a quantidade total de Unidades de Pedido consumidas pelas suas operações de base de dados.
+  - **Produção prevista** : É cobrado de hora em hora para o rendimento máximo previsto para uma determinada hora, em incrementos de 100 RU/s.
+  - **Serverless** : É cobrado por hora a quantidade total de Unidades de Pedido consumidas pelas suas operações de base de dados.
 
-- **Armazenamento**: É faturada uma taxa fixa para a quantidade total de armazenamento (em BB) consumida pelos seus dados e índices durante uma hora.
+- **Armazenamento** : É faturada uma taxa fixa para a quantidade total de armazenamento (em BB) consumida pelos seus dados e índices durante uma hora.
 
 Consulte [a página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/) para obter as últimas informações sobre preços.
 
@@ -284,7 +285,7 @@ A sua fatura total (sem capacidade reservada) seria (assumindo 30 dias ou 720 ho
 
 |**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**|**Valor cobrado (à hora)**| **Valor Faturado (mensal)**|
 |----|----|----|----|----|
-|E.U.A Leste|$0.008 |50 K|$4|$2.880 |
+|E.U.A. Leste|$0.008 |50 K|$4|$2.880 |
 |Leste do Japão|$0,009 |50 K| $4,50 |$3.240 |
 |Total|||$8,50|$6.120 |
 
@@ -298,7 +299,7 @@ O que você efetivamente comprou é um crédito de $8 por hora, por 100 K RU/seg
 
 |**Região**| **Preço por hora por 100 RU/s**|**Unidades (RU/s)**| **Valor cobrado (à hora)**| **Valor Faturado (mensal)**|
 |----|----|----|----|----|
-|E.U.A Leste|$0.008 |50 K|$4|$2.880 |
+|E.U.A. Leste|$0.008 |50 K|$4|$2.880 |
 |Leste do Japão|$0,009 |50 K| $4,50 |$3.240 |
 |||Pay as you go|$8,50|$6120|
 |Capacidade Reservada Adquirida|$0.0064 (20% de desconto) |100 RU/seg ou $8 capacidade pré-comprada |-$8|-$5.760 |

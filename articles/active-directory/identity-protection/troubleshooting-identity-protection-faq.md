@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b8fdabc3f4f33627936eead9dda57e67c7b0da8
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 42b1c0ef42454b085c5d4dbcdc14162b2c829c6a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040504"
+ms.locfileid: "93074819"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes proteção de identidade no Diretório Ativo Azure
 
@@ -36,9 +36,6 @@ Toggling **Show datas como** oculta a coluna RISK LAST **UPDATE.** Para ler a co
 
 **Dispensar todos os eventos** na clássica Proteção de Identidade define o estado das deteções de risco para **Fechado (resolvido)** .
 
-## <a name="risky-sign-ins-report-known-issues"></a>Relatório de entradas de risco conhecidos
-
-**A resolução** de uma deteção de risco define o estado para **os Utilizadores aprovados em MFA impulsionados pela política baseada no risco** .
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

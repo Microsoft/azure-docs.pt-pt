@@ -6,14 +6,15 @@ ms.topic: how-to
 author: kanshiG
 ms.author: govindk
 ms.date: 04/07/2020
-ms.openlocfilehash: 9c266e42804a12403e446bf024e93fe879497570
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec6a9db63504958640137fcd0fcfc904eb01afa5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91803267"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074734"
 ---
 # <a name="how-to-monitor-the-server-side-latency-for-operations-in-an-azure-cosmos-db-container-or-account"></a>Como monitorizar a latência do lado do servidor para operações num contentor ou conta DB da Azure Cosmos
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 O Azure Monitor for Azure Cosmos DB fornece uma visão métrica para monitorizar a sua conta e criar dashboards. As métricas DB do Azure Cosmos são recolhidas por padrão, esta funcionalidade não requer que você ative ou configure nada explicitamente. A métrica de latência do lado do servidor é usada para visualizar a latência do lado do servidor de uma operação. A Azure Cosmos DB fornece SLA de menos de 10 ms para operações de leitura/escrita de pontos com conectividade direta. Para as operações de leitura e escrita pontuais, as AEA são calculadas conforme detalhado no [documento SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_3/).
 
@@ -29,11 +30,11 @@ Pode consultar o registo de diagnóstico para ver o tamanho dos dados devolvidos
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. Selecione **Monitor** da barra de navegação à esquerda e selecione **Métricas**.
+1. Selecione **Monitor** da barra de navegação à esquerda e selecione **Métricas** .
 
    :::image type="content" source="./media/monitor-server-side-latency/monitor-metrics-blade.png" alt-text="Painel de métricas no Monitor Azure":::
 
-1. A partir do painel **métrica >** **Selecione um recurso** > escolha a **subscrição**necessária e o **grupo de recursos**. Para o **tipo de recurso**, selecione contas **DB Azure Cosmos**, escolha uma das suas contas Azure Cosmos existentes e selecione **Apply**.
+1. A partir do painel **métrica >** **Selecione um recurso** > escolha a **subscrição** necessária e o **grupo de recursos** . Para o **tipo de recurso** , selecione contas **DB Azure Cosmos** , escolha uma das suas contas Azure Cosmos existentes e selecione **Apply** .
    
    :::image type="content" source="./media/monitor-server-side-latency/select-cosmos-db-account.png" alt-text="Painel de métricas no Monitor Azure":::
 
@@ -43,9 +44,9 @@ Pode consultar o registo de diagnóstico para ver o tamanho dos dados devolvidos
 
 ## <a name="filters-for-server-side-latency"></a>Filtros para latência do lado do servidor
 
-Também pode filtrar métricas e obter os gráficos apresentados por um **Nome de Coleção**específico, **ConnectionMode,** **DatabaseName,** **OperationType**, **Region**, e **PublicAPIType**. 
+Também pode filtrar métricas e obter os gráficos apresentados por um **Nome de Coleção** específico, **ConnectionMode,** **DatabaseName,** **OperationType** , **Region** , e **PublicAPIType** . 
 
-Para filtrar as métricas, **selecione Adicionar filtro** e escolha a propriedade necessária, como **PublicAPIType,** e selecione o valor **sql**. Adicione outro filtro para **o OperationType**. Em seguida, o gráfico apresenta a latência do lado do servidor para diferentes operações durante o período selecionado. As operações executadas através do procedimento armazenado não são registadas, pelo que não estão disponíveis ao abrigo da métrica OperationType.
+Para filtrar as métricas, **selecione Adicionar filtro** e escolha a propriedade necessária, como **PublicAPIType,** e selecione o valor **sql** . Adicione outro filtro para **o OperationType** . Em seguida, o gráfico apresenta a latência do lado do servidor para diferentes operações durante o período selecionado. As operações executadas através do procedimento armazenado não são registadas, pelo que não estão disponíveis ao abrigo da métrica OperationType.
 
 As métricas **de latência do lado do servidor** para cada operação são apresentadas como mostrado na seguinte imagem:
 

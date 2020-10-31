@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: 4f5e88e7201c4097e2f8d654b8780ea12816b15d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c7d47b0bb167b3211b3859a47b0c8e11876b1614
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485108"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075406"
 ---
 # <a name="linq-to-sql-translation"></a>Tradução LINQ para SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O fornecedor de consulta DB Azure Cosmos realiza um melhor mapeamento de esforço de uma consulta LINQ em uma consulta Cosmos DB SQL. Se pretender obter a consulta SQL que é traduzida a partir de LINQ, utilize o `ToString()` método no `IQueryable` objeto gerado. A seguinte descrição pressupõe uma familiaridade básica com [o LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
@@ -79,19 +80,19 @@ using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
 
 O fornecedor LINQ incluído com o SQL .NET SDK suporta os seguintes operadores:
 
-- **Selecione**: As projeções traduzem-se em [SELECT](sql-query-select.md), incluindo a construção de objetos.
+- **Selecione** : As projeções traduzem-se em [SELECT](sql-query-select.md), incluindo a construção de objetos.
 - **Onde:** Os filtros traduzem-se para [ONDE,](sql-query-where.md)e apoiam a tradução `&&` `||` entre, e `!` para os operadores SQL
-- **SelectMany**: Permite desenrolar os arrays à cláusula [JOIN.](sql-query-join.md) Utilize para acorrentar ou nidificar expressões de matrizes.
-- **OrderBy** e **OrderByDescending**: Traduza para [ENCOMENDA BY](sql-query-order-by.md) com ASC ou DESC.
-- **Count**, **Sum**, **Min,** **Max,** e **Average** [Async,](sql-query-aggregates.md)e seus equivalentes async **CountAsync**, **SumAsync,** **MinAsync,** **MaxAsync,** e **AverageAsync.**
-- **CompareTo**: Traduz para comparações de alcance. Normalmente usados para cordas, uma vez que não são comparáveis em .NET.
-- **Saltar** e **Tomar**: Traduz para [OFFSET e LIMIT](sql-query-offset-limit.md) para limitar os resultados de uma consulta e fazer paginação.
-- **Funções matemáticas**: Suporta a tradução de .NET , , , , , , , , , , , , , , `Abs` `Acos` , e `Asin` `Atan` para `Ceiling` `Cos` `Exp` as `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` `Truncate` [funções matemáticas incorporadas equivalentes](sql-query-mathematical-functions.md).
-- **Funções de corda**: Suporta a tradução de .NET , , , , , , , `Concat` , , , , `Contains` , , `Count` e para `EndsWith` as `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` `TrimStart` funções de cordas [incorporadas equivalentes](sql-query-string-functions.md).
-- **Funções de matriz**: Suporta a tradução de .NET `Concat` , e para as `Contains` `Count` [funções equivalentes de matriz incorporada .](sql-query-array-functions.md)
-- **Funções de Extensão Geoespacial**: Suporta a tradução a partir de métodos de `Distance` `IsValid` `IsValidDetailed` canhoto, e `Within` para as [funções geoespaciais incorporadas equivalentes](sql-query-geospatial-query.md).
+- **SelectMany** : Permite desenrolar os arrays à cláusula [JOIN.](sql-query-join.md) Utilize para acorrentar ou nidificar expressões de matrizes.
+- **OrderBy** e **OrderByDescending** : Traduza para [ENCOMENDA BY](sql-query-order-by.md) com ASC ou DESC.
+- **Count** , **Sum** , **Min,** **Max,** e **Average** [Async,](sql-query-aggregates.md)e seus equivalentes async **CountAsync** , **SumAsync,** **MinAsync,** **MaxAsync,** e **AverageAsync.**
+- **CompareTo** : Traduz para comparações de alcance. Normalmente usados para cordas, uma vez que não são comparáveis em .NET.
+- **Saltar** e **Tomar** : Traduz para [OFFSET e LIMIT](sql-query-offset-limit.md) para limitar os resultados de uma consulta e fazer paginação.
+- **Funções matemáticas** : Suporta a tradução de .NET , , , , , , , , , , , , , , `Abs` `Acos` , e `Asin` `Atan` para `Ceiling` `Cos` `Exp` as `Floor` `Log` `Log10` `Pow` `Round` `Sign` `Sin` `Sqrt` `Tan` `Truncate` [funções matemáticas incorporadas equivalentes](sql-query-mathematical-functions.md).
+- **Funções de corda** : Suporta a tradução de .NET , , , , , , , `Concat` , , , , `Contains` , , `Count` e para `EndsWith` as `IndexOf` `Replace` `Reverse` `StartsWith` `SubString` `ToLower` `ToUpper` `TrimEnd` `TrimStart` funções de cordas [incorporadas equivalentes](sql-query-string-functions.md).
+- **Funções de matriz** : Suporta a tradução de .NET `Concat` , e para as `Contains` `Count` [funções equivalentes de matriz incorporada .](sql-query-array-functions.md)
+- **Funções de Extensão Geoespacial** : Suporta a tradução a partir de métodos de `Distance` `IsValid` `IsValidDetailed` canhoto, e `Within` para as [funções geoespaciais incorporadas equivalentes](sql-query-geospatial-query.md).
 - **Função-Definição de função Função:** Suporta a tradução do método do encaixe `UserDefinedFunctionProvider.Invoke` para a [função definida pelo utilizador](sql-query-udfs.md)correspondente .
-- **Diversos**: Suporta a tradução de `Coalesce` [operadores condicional.](sql-query-operators.md) Pode traduzir `Contains` para String CONTAINS, ARRAY_CONTAINS ou IN, dependendo do contexto.
+- **Diversos** : Suporta a tradução de `Coalesce` [operadores condicional.](sql-query-operators.md) Pode traduzir `Contains` para String CONTAINS, ARRAY_CONTAINS ou IN, dependendo do contexto.
 
 ## <a name="examples"></a>Exemplos
 

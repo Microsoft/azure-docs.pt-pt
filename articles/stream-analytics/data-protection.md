@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746400"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074255"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Proteção de dados em Azure Stream Analytics 
 
@@ -59,7 +59,7 @@ Para ajudá-lo a cumprir as suas obrigações de conformidade em qualquer indús
 
 Utilize os seguintes passos para configurar a sua conta de armazenamento para ativos de dados privados. Esta configuração é feita a partir do seu trabalho stream Analytics, não da sua conta de armazenamento.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure. 
 
@@ -73,6 +73,27 @@ Utilize os seguintes passos para configurar a sua conta de armazenamento para at
 
    ![Definições privadas de conta de armazenamento de dados](./media/data-protection/storage-account-create.png)
 
+## <a name="private-data-assets-that-are-stored"></a>Ativos de dados privados que são armazenados
+
+Quaisquer dados privados que sejam necessários para serem persistidos pelo Stream Analytics são armazenados na sua conta de armazenamento. Exemplos de ativos de dados privados incluem: 
+
+* Consultas que autorizou e as suas configurações relacionadas  
+
+* Funções definidas pelo utilizador 
+
+* Pontos de verificação necessários pelo tempo de funcionamento do Stream Analytics
+
+* Instantâneos de dados de referência 
+
+Os detalhes de ligação dos seus recursos, que são utilizados pelo seu trabalho stream Analytics, também estão armazenados. Criptografe a sua conta de armazenamento para proteger todos os seus dados. 
+
+Para ajudá-lo a cumprir as suas obrigações de conformidade em qualquer indústria ou ambiente regulamentado, pode ler mais sobre [as ofertas de conformidade da Microsoft.](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 
+
+## <a name="enables-data-residency"></a>Permite residência de dados 
+Pode utilizar esta funcionalidade para impor quaisquer requisitos de residência de dados que possa ter fornecendo uma conta de armazenamento em conformidade.
+
+## <a name="known-issues"></a>Problemas conhecidos
+Existe um problema conhecido em que um trabalho que utiliza a chave gerida pelo cliente encontra falhas ao usar a identidade gerida para autenticar quaisquer entradas ou saídas. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: a955f035933955b88200e49e343f7dd0c257c89b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e807cde2d99cf23d459b395444d642e46ada32ab
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816359"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93071458"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Quickstart: Configurar a máquina virtual da Ciência de Dados para windows
 
@@ -36,18 +36,18 @@ Para criar um exemplo DSVM:
 1. Deve ser redirecionado para a lâmina "Criar uma máquina virtual".
 
 1. Preencha o separador **Básicos:**
-      * **Subscrição**: Se tiver mais de uma subscrição, selecione aquela em que a máquina será criada e faturada. Tem de ter privilégios de criação de recursos para esta subscrição.
-      * **Grupo de recursos**: Criar um novo grupo ou utilizar um existente.
-      * **Nome da máquina virtual**: Introduza o nome da máquina virtual. É assim que vai aparecer no seu portal Azure.
-      * **Localização**: Selecione o datacenter que é mais apropriado. Para um acesso mais rápido à rede, é o datacenter que tem a maioria dos seus dados ou está mais próximo da sua localização física. Saiba mais sobre [as Regiões Azure.](https://azure.microsoft.com/global-infrastructure/regions/)
-      * **Imagem**: Deixe o valor predefinido.
-      * **Tamanho**: Isto deve povoar automaticamente com um tamanho adequado para cargas de trabalho gerais. Leia mais sobre [os tamanhos do Windows VM em Azure](../../virtual-machines/windows/sizes.md).
-      * **Nome de utilizador**: Introduza o nome de utilizador do administrador. Este é o nome de utilizador que irá utilizar para iniciar sessão na sua máquina virtual, e não precisa de ser o mesmo que o seu nome de utilizador Azure.
-      * **Palavra-passe**: Introduza a palavra-passe que utilizará para iniciar sessão na sua máquina virtual.    
-1. Selecione **Rever + criar**.
+      * **Subscrição** : Se tiver mais de uma subscrição, selecione aquela em que a máquina será criada e faturada. Tem de ter privilégios de criação de recursos para esta subscrição.
+      * **Grupo de recursos** : Criar um novo grupo ou utilizar um existente.
+      * **Nome da máquina virtual** : Introduza o nome da máquina virtual. É assim que vai aparecer no seu portal Azure.
+      * **Localização** : Selecione o datacenter que é mais apropriado. Para um acesso mais rápido à rede, é o datacenter que tem a maioria dos seus dados ou está mais próximo da sua localização física. Saiba mais sobre [as Regiões Azure.](https://azure.microsoft.com/global-infrastructure/regions/)
+      * **Imagem** : Deixe o valor predefinido.
+      * **Tamanho** : Isto deve povoar automaticamente com um tamanho adequado para cargas de trabalho gerais. Leia mais sobre [os tamanhos do Windows VM em Azure](../../virtual-machines/windows/sizes.md).
+      * **Nome de utilizador** : Introduza o nome de utilizador do administrador. Este é o nome de utilizador que irá utilizar para iniciar sessão na sua máquina virtual, e não precisa de ser o mesmo que o seu nome de utilizador Azure.
+      * **Palavra-passe** : Introduza a palavra-passe que utilizará para iniciar sessão na sua máquina virtual.    
+1. Selecione **Rever + criar** .
 1. **Review+criar**
    * Verifique se toda a informação que introduziu está correta. 
-   * Selecione **Criar**.
+   * Selecione **Criar** .
 
 
 > [!NOTE]
@@ -56,7 +56,7 @@ Para criar um exemplo DSVM:
 
 ## <a name="access-the-dsvm"></a>Aceda ao DSVM
 
-Depois de o VM ser criado e provisionado, siga os passos listados para [ligar à sua máquina virtual baseada em Azure.](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md) Use as credenciais de conta de administração que configuraste no passo **Básico** de criar uma máquina virtual. 
+Depois de o VM ser criado e provisionado, siga os passos listados para [ligar à sua máquina virtual baseada em Azure.](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) Use as credenciais de conta de administração que configuraste no passo **Básico** de criar uma máquina virtual. 
 
 Está pronto para começar a usar as ferramentas instaladas e configuradas no VM. Muitas das ferramentas podem ser acedidas através de telhas de menu **Iniciar** e ícones de ambiente de trabalho.
 

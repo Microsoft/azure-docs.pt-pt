@@ -8,14 +8,15 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: aa0586ab2a0ff21e3187bba070dd4be7ef325288
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6d2f39eae94b217ad1f95a6a559aa3e1044d10da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784682"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072693"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar modelo de puxar feed em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Com o modelo de pull de feed de mudança, você pode consumir o Azure Cosmos DB mudar de feed ao seu próprio ritmo. Como já pode fazer com o [processador change feed](change-feed-processor.md), pode utilizar o modelo de pull de feed de alteração para paralelizar o processamento de alterações em vários consumidores de feed de alterações múltiplas.
 
@@ -39,14 +40,14 @@ Deve considerar a utilização do modelo de puxar nestes cenários:
 
 Aqui estão algumas diferenças fundamentais entre o processador de alimentação de alteração e o modelo de puxar:
 
-|Funcionalidade  | Processador do feed de alterações| Modelo de puxar |
+|Destaque  | Processador do feed de alterações| Modelo de puxar |
 | --- | --- | --- |
 | Acompanhar o ponto atual no processamento do feed de alteração | Locação (armazenada num recipiente DB Azure Cosmos) | Ficha de continuação (armazenada na memória ou persistiu manualmente) |
 | Capacidade de reproduzir alterações passadas | Sim, com o modelo push | Sim, com o modelo pull|
 | Sondagem para futuras mudanças | Verifica automaticamente as alterações com base nas especificadas do utilizador `WithPollInterval` | Manual |
 | Comportamento onde não há novas alterações | Aguardar `WithPollInterval` e rever verificação automática | Deve pegar a exceção e verificar manualmente |
 | Mudanças de processo a partir de todo o contentor | Sim, e automaticamente paralizada através de múltiplos fios/máquina consumindo a partir do mesmo recipiente| Sim, e manualmente paralelo usando FeedTokens |
-| O processo muda a partir de apenas uma chave de partição | Não suportado | Sim|
+| O processo muda a partir de apenas uma chave de partição | Não suportado | Yes|
 | Nível de suporte | Disponível em Geral | Pré-visualizar |
 
 > [!NOTE]

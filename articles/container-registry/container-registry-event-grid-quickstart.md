@@ -4,12 +4,12 @@ description: Neste arranque rápido, você ativa eventos de Grade de Evento para
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3e9e9a7d6016f53225c1b2f31fb8eef91e202c7a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6058fceb873e2b26da2d30dadba456e2a625f3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736850"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074221"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Quickstart: Enviar eventos do registo privado de contentores para a Grade de Eventos
 
@@ -19,11 +19,11 @@ Depois de completar os passos deste artigo, os eventos enviados do seu registo d
 
 ![Navegador web tornando a aplicação web da amostra com três eventos recebidos][sample-app-01]
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita][azure-account] antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Os comandos Azure CLI neste artigo são formatados para a concha **bash.** Se estiver a utilizar uma concha diferente, como PowerShell ou Command Prompt, poderá ter de ajustar caracteres de continuação de linha ou linhas de atribuição variáveis em conformidade. Este artigo utiliza variáveis para minimizar a quantidade de edição de comando necessária.
+- Os comandos Azure CLI neste artigo são formatados para a concha **bash.** Se estiver a utilizar uma concha diferente, como PowerShell ou Command Prompt, poderá ter de ajustar caracteres de continuação de linha ou linhas de atribuição variáveis em conformidade. Este artigo utiliza variáveis para minimizar a quantidade de edição de comando necessária.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -202,7 +202,7 @@ A imagem que se segue mostra a aplicação da amostra com os três eventos, e o 
 
 Parabéns! Se vir os `ImagePushed` eventos e `ImageDeleted` eventos, o seu registo está a enviar eventos para a Grade de Eventos, e a Grade de Eventos está a encaminhar esses eventos para o ponto final da sua aplicação web.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Uma vez terminado os recursos que criou neste arranque rápido, pode eliminá-los todos com o seguinte comando Azure CLI. Quando elimina um grupo de recursos, todos os recursos que contém são permanentemente eliminados.
 

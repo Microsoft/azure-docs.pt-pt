@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 3f787840422e61d6f43081d991ffc3ef28da6976
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a25cd2c0a9205dc184640e95f122c770b29cf24a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486536"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073252"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticação baseada em certificados para uma identidade AD Azure para aceder a chaves a partir de uma conta DB da Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A autenticação baseada em certificados permite que a aplicação cliente seja autenticada através da utilização do Azure Active Directory (AAD) com um certificado de cliente. Pode executar a autenticação baseada em certificados num computador onde precisa de uma identidade, como um computador no local ou uma máquina virtual no Azure. A sua aplicação pode então ler as teclas DB do Azure Cosmos sem ter as chaves diretamente na aplicação. Este artigo descreve como criar uma aplicação AD Azure de amostra, configurgá-la para autenticação baseada em certificados, assinar no Azure usando a nova identidade da aplicação e, em seguida, recuperar as chaves da sua conta Azure Cosmos. Este artigo utiliza a Azure PowerShell para configurar as identidades e fornece uma aplicação de amostra C# que autentica e acede às chaves da sua conta Azure Cosmos.  
 
@@ -107,7 +108,7 @@ O comando acima resulta na saída semelhante à imagem abaixo:
 
 1. Navegue na sua conta Azure Cosmos, abra a lâmina **de controlo de acesso (IAM).**
 
-1. Selecione **adicionar** e **adicionar a atribuição de função**. Adicione a amostraApp que criou no passo anterior com o papel **de Contribuinte,** tal como mostrado na seguinte imagem:
+1. Selecione **adicionar** e **adicionar a atribuição de função** . Adicione a amostraApp que criou no passo anterior com o papel **de Contribuinte,** tal como mostrado na seguinte imagem:
 
    :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Novo registo de candidaturas no Ative Directory":::
 
@@ -123,9 +124,9 @@ No registo da app Azure para a aplicação do cliente:
 
 1. Abra o painel de **diretório ativo** Azure, vá ao painel **de registos** da App e abra a aplicação de amostra que criou no passo anterior. 
 
-1. Selecione **Certificados & segredos** e, em seguida, **faça upload do certificado**. Navegue no ficheiro de certificado que criou no passo anterior para carregar.
+1. Selecione **Certificados & segredos** e, em seguida, **faça upload do certificado** . Navegue no ficheiro de certificado que criou no passo anterior para carregar.
 
-1. Selecione **Adicionar**. Após o upload do certificado, a impressão digital, a data de início e os valores de validade são apresentados.
+1. Selecione **Adicionar** . Após o upload do certificado, a impressão digital, a data de início e os valores de validade são apresentados.
 
 ## <a name="access-the-keys-from-powershell"></a>Aceda às chaves da PowerShell
 

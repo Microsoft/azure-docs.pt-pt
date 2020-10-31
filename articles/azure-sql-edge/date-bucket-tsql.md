@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 896caae2dfd79c4678ffb34c531fb56835e9bd66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d81419721e94a2e181f094c0e0e64b1b23544a8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886838"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073524"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
 
@@ -41,16 +41,19 @@ A parte da *data* que é usada com o parâmetro 'número'. Por exemplo: Ano, mê
   
 |*dataPart*|Abreviaturas|  
 |---|---|
-|**dia**|**dd**, **d**|  
-|**semana**|**wk**, **ww**|  
+|**dia**|**dd** , **d**|  
+|**semana**|**wk** , **ww**| 
+|**month**|**mm,** **m**|
+|**trimestre**|**qq** , **q**|  
+|**ano**|**yy** , **yyy**|  
 |**hora**|**hh**|  
-|**minute**|**mi**, **n**|  
-|**second**|**ss**, **ss**|  
+|**minute**|**mi** , **n**|  
+|**second**|**ss** , **ss**|  
 |**milissegundo**|**ms**|  
 
 *número*
 
-O número inteiro que decide a largura do balde combinado com o argumento *da dataPart.* Isto representa a largura dos baldes dataPart a partir da hora de origem. **`This argument cannot be a negative integer value`**. 
+O número inteiro que decide a largura do balde combinado com o argumento *da dataPart.* Isto representa a largura dos baldes dataPart a partir da hora de origem. **`This argument cannot be a negative integer value`** . 
 
 *data*
 
@@ -61,9 +64,9 @@ Uma expressão que pode resolver um dos seguintes valores:
 + **datatimeoffoff**
 + **datetime2**
 + **hora pequena**
-+ **Hora**
++ **hora**
 
-Para *data*, `DATE_BUCKET` aceitará uma expressão de coluna, expressão ou variável definida pelo utilizador se resolverem qualquer um dos tipos de dados acima mencionados.
+Para *data* , `DATE_BUCKET` aceitará uma expressão de coluna, expressão ou variável definida pelo utilizador se resolverem qualquer um dos tipos de dados acima mencionados.
 
 **Origem** 
 
@@ -74,7 +77,7 @@ Uma expressão opcional que pode resolver um dos seguintes valores:
 + **datatimeoffoff**
 + **datetime2**
 + **hora pequena**
-+ **Hora**
++ **hora**
 
 O tipo de dados `Origin` para deve coincidir com o tipo de dados do `Date` parâmetro. 
 
@@ -247,7 +250,7 @@ ShippedDateBucket           SumOrderQuantity SumUnitPrice
 
 #### <a name="specifying-scalar-system-function-as-date"></a>Especificando a função do sistema escalar como data
 
-Este exemplo especifica `SYSDATETIME` para *data*. O valor exato devolvido depende do dia e hora da execução da declaração:
+Este exemplo especifica `SYSDATETIME` para *data* . O valor exato devolvido depende do dia e hora da execução da declaração:
   
 ```sql
 SELECT Date_Bucket(wk, 10, SYSDATETIME());  
@@ -264,7 +267,7 @@ Aqui está o conjunto de resultados.
 
 #### <a name="specifying-scalar-subqueries-and-scalar-functions-as-number-and-date"></a>Especificando subqueries escalar e funções escalares como número e data
 
-Este exemplo utiliza subqueries escalares, `MAX(OrderDate)` como argumentos para o *número* e *data*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` serve como um argumento artificial para o parâmetro do número, para mostrar como selecionar um argumento *numer numer* de uma lista de valores.
+Este exemplo utiliza subqueries escalares, `MAX(OrderDate)` como argumentos para o *número* e *data* . `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` serve como um argumento artificial para o parâmetro do número, para mostrar como selecionar um argumento *numer numer* de uma lista de valores.
   
 ```sql
 SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100),  
@@ -281,7 +284,7 @@ SELECT Date_Bucket(week,(10/2), SYSDATETIME());
 
 #### <a name="specifying-an-aggregate-window-function-as-number"></a>Especificando uma função de janela agregada como número
 
-Este exemplo utiliza uma função de janela agregada como argumento para *o número*.
+Este exemplo utiliza uma função de janela agregada como argumento para *o número* .
   
 ```sql
 Select 
@@ -303,6 +306,6 @@ declare @origin datetime2 = '2019-01-01 00:00:00'
 Select DATE_BUCKET(hh, 2, @date, @origin)
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [CAST e CONVERT &#40;&#41;Transact-SQL ](/sql/t-sql/functions/cast-and-convert-transact-sql/)

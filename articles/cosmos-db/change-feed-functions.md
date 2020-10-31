@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: e452f03721551adada69a36b1ce69e57f1111f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83a422bbdc4e33ecd955451bb3c1e305cee2b2f4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85834068"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072846"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquiteturas baseadas em eventos sem servidor com funções Azure Cosmos DB e Azure
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 As Funções Azure fornecem a forma mais simples de se ligar ao [feed de alteração](change-feed.md). Pode criar pequenas Funções Azure reativas que serão automaticamente ativadas em cada novo evento no feed de mudança do seu contentor Azure Cosmos.
 
@@ -29,8 +30,8 @@ Com o [gatilho de Funções Azure para Cosmos DB,](../azure-functions/functions-
 
 Para implementar um fluxo baseado em eventos sem servidor, você precisa:
 
-* **O recipiente monitorizado**: O recipiente monitorizado é o recipiente Azure Cosmos que está a ser monitorizado e armazena os dados a partir dos quais o feed de alteração é gerado. Quaisquer inserções, atualizações ao recipiente monitorizado refletem-se na alteração do revestimento do recipiente.
-* **O recipiente de locação**: O recipiente de locação mantém o estado em várias instâncias dinâmicas de função Azure sem servidor e permite um dimensionamento dinâmico. Este recipiente de locação pode ser criado manualmente ou automaticamente pelo gatilho Azure Functions para Cosmos DB. Para criar automaticamente o recipiente de locação, deite a bandeira *CreateLeaseCollectionIfNotExists* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Os recipientes de locação divididos são obrigados a ter uma `/id` definição chave de partição.
+* **O recipiente monitorizado** : O recipiente monitorizado é o recipiente Azure Cosmos que está a ser monitorizado e armazena os dados a partir dos quais o feed de alteração é gerado. Quaisquer inserções, atualizações ao recipiente monitorizado refletem-se na alteração do revestimento do recipiente.
+* **O recipiente de locação** : O recipiente de locação mantém o estado em várias instâncias dinâmicas de função Azure sem servidor e permite um dimensionamento dinâmico. Este recipiente de locação pode ser criado manualmente ou automaticamente pelo gatilho Azure Functions para Cosmos DB. Para criar automaticamente o recipiente de locação, deite a bandeira *CreateLeaseCollectionIfNotExists* na [configuração](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration). Os recipientes de locação divididos são obrigados a ter uma `/id` definição chave de partição.
 
 ## <a name="create-your-azure-functions-trigger-for-cosmos-db"></a>Crie o seu gatilho de Funções Azure para Cosmos DB
 

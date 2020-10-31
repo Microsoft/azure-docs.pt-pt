@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: tutorial
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 5283916194d407cebd30ef072907c56ded1c6cb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f93ec39e7a2e3b5829c0d6205404c6c5c4af6189
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85848942"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074323"
 ---
 # <a name="query-data-by-using-azure-cosmos-dbs-api-for-mongodb"></a>Dados de consulta utilizando a API da Azure Cosmos DB para a MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 A [API da Azure Cosmos DB para a MongoDB](mongodb-introduction.md) apoia [as consultas do MongoDB.](https://docs.mongodb.com/manual/tutorial/query-documents/) 
 
@@ -68,7 +69,7 @@ Tendo em conta o documento de família de exemplo acima, a seguinte consulta dev
 db.families.find({ id: "WakefieldFamily"})
 ```
 
-**Results**
+**Resultados**
 
 ```json
 {
@@ -122,7 +123,7 @@ A seguinte consulta devolve todos os elementos subordinados na família.
 db.families.find( { id: "WakefieldFamily" }, { children: true } )
 ``` 
 
-**Results**
+**Resultados**
 
 ```json
 {
@@ -158,7 +159,7 @@ A consulta seguinte devolve todas as famílias que estão registadas.
 db.families.find( { "isRegistered" : true })
 ``` 
 
-**Results**
+**Resultados**
 
 Nenhum documento será devolvido. 
 
@@ -172,7 +173,7 @@ A consulta seguinte devolve todas as famílias que não estão registadas.
 db.families.find( { "isRegistered" : false })
 ``` 
 
-**Results**
+**Resultados**
 
 ```json
 {
@@ -221,7 +222,7 @@ A consulta seguinte devolve todas as famílias que não estão registadas e o es
 db.families.find( { "isRegistered" : false, "address.state" : "NY" })
 ``` 
 
-**Results**
+**Resultados**
 
 ```json
 {
@@ -270,7 +271,7 @@ A consulta seguinte devolve todas as famílias em que as classificações de ele
 db.families.find( { children : { $elemMatch: { grade : 8 }} } )
 ```
 
-**Results**
+**Resultados**
 
 ```json
 {
@@ -319,7 +320,7 @@ A consulta seguinte devolve todas as famílias em que a matriz de elementos subo
 db.Family.find( {children: { $size:3} } )
 ```
 
-**Results**
+**Resultados**
 
 Não serão devolvidos resultados, porque não há famílias com mais de dois subordinados. Esta consulta só será concluída com êxito e devolve o documento completo se o parâmetro for 2.
 

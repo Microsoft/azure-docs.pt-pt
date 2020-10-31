@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962354"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074187"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de configuração e gestão para aplicações web em Azure
 
@@ -63,13 +63,15 @@ Para definir o fuso horário do servidor para a sua aplicação web:
 2. Nas **definições da App,** adicione esta definição:
     * Chave = WEBSITE_TIME_ZONE
     * Valor = *O fuso horário que deseja*
-3. Selecione **Guardar**.
+3. Selecione **Guardar** .
 
-Para os serviços de Aplicação que funcionam no Windows, consulte a coluna **Timezone** no artigo ["Fusos horários predefinidos"](/windows-hardware/manufacture/desktop/default-time-zones) para obter valores aceites. Para os serviços de Aplicação que funcionam no Linux, desaprote o nome da [base de dados TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) como o valor do fuso horário. Aqui está um exemplo do nome da base de dados TZ: America/Adak.
+Para os serviços de Aplicação que funcionam no Windows, consulte a saída do `tzutil /L` comando Windows. Utilize o valor da segunda linha de cada entrada. Por exemplo: "Tempo Padrão de Tonga". Alguns destes valores também estão listados na coluna **Timezone** em [Fusos Horários Predefinidos](/windows-hardware/manufacture/desktop/default-time-zones).
+
+Para os serviços de Aplicação que funcionam no Linux, desaprova um valor a partir da base de [dados IANA TZ.](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) Por exemplo: "América/Adak".
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Porque é que os meus Contínuos WebJobs às vezes falham?
 
-Por padrão, as aplicações web são descarregadas se estiverem inativas por um período de tempo definido. Isto permite que o sistema conserva recursos. Nos planos Basic e Standard, pode ligar a definição **Always On** para manter a aplicação web carregada a toda a hora. Se a sua aplicação web executar WebJobs contínuos, deve ligar **Always On**, ou os WebJobs podem não funcionar de forma fiável. Para obter mais informações, consulte [Criar um WebJob em execução contínua.](webjobs-create.md#CreateContinuous)
+Por padrão, as aplicações web são descarregadas se estiverem inativas por um período de tempo definido. Isto permite que o sistema conserva recursos. Nos planos Basic e Standard, pode ligar a definição **Always On** para manter a aplicação web carregada a toda a hora. Se a sua aplicação web executar WebJobs contínuos, deve ligar **Always On** , ou os WebJobs podem não funcionar de forma fiável. Para obter mais informações, consulte [Criar um WebJob em execução contínua.](webjobs-create.md#CreateContinuous)
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Como consigo o endereço IP de saída para a minha aplicação web?
 
@@ -129,7 +131,7 @@ Para rever os registos da WebJob:
 2. Selecione o WebJob.
 3. Selecione o botão **de saída toggle.**
 4. Para descarregar o ficheiro de saída, selecione o link **Descarregar.**
-5. Para execuções individuais, **selecione Individual Invoke**.
+5. Para execuções individuais, **selecione Individual Invoke** .
 6. Selecione o botão **de saída toggle.**
 7. Selecione o link de descarregamento.
 
@@ -183,8 +185,8 @@ Tem duas opções para capturar um vestígio de F12:
 ### <a name="f12-console-output"></a>Saída da consola F12
 
 1. Selecione o **separador Consola.**
-2. Para cada separador que contenha mais de zero itens, selecione o separador **(Erro**, **Aviso**ou **Informação).** Se o separador não for selecionado, o ícone do separador é cinzento ou preto quando afasta o cursor.
-3. Clique com o botão direito na área da mensagem do painel e, em seguida, selecione **Copiar tudo**.
+2. Para cada separador que contenha mais de zero itens, selecione o separador **(Erro** , **Aviso** ou **Informação).** Se o separador não for selecionado, o ícone do separador é cinzento ou preto quando afasta o cursor.
+3. Clique com o botão direito na área da mensagem do painel e, em seguida, selecione **Copiar tudo** .
 4. Cole o texto copiado num ficheiro e guarde o ficheiro.
 
 Para visualizar um ficheiro HAR, pode utilizar o [espectador HAR](http://www.softwareishard.com/har/viewer/).
@@ -282,7 +284,7 @@ Para documentação detalhada para autenticação e autorização no Serviço de
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Como redirecionar o domínio padrão *.azurewebsites.net para o domínio personalizado da minha aplicação web Azure?
 
-Quando cria um novo website utilizando aplicações web em Azure, um nome de *site*padrão .azurewebsites.net domínio é atribuído ao seu site. Se adicionar um nome de anfitrião personalizado ao seu site e não quiser que os utilizadores possam aceder ao seu domínio padrão *.azurewebsites.net, pode redirecionar o URL predefinido. Para aprender a redirecionar todo o tráfego do domínio padrão do seu website para o seu domínio personalizado, consulte [redirecionar o domínio padrão para o seu domínio personalizado em aplicações web Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Quando cria um novo website utilizando aplicações web em Azure, um nome de *site* padrão .azurewebsites.net domínio é atribuído ao seu site. Se adicionar um nome de anfitrião personalizado ao seu site e não quiser que os utilizadores possam aceder ao seu domínio padrão *.azurewebsites.net, pode redirecionar o URL predefinido. Para aprender a redirecionar todo o tráfego do domínio padrão do seu website para o seu domínio personalizado, consulte [redirecionar o domínio padrão para o seu domínio personalizado em aplicações web Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Como determino qual versão da versão .NET está instalada no Serviço de Aplicações?
 

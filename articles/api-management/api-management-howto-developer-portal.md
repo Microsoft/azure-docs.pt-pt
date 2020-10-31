@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 30a6a73768db7b073258487435ddbe6c0daccf16
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317830"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074802"
 ---
 # <a name="overview-of-the-developer-portal"></a>Visão geral do portal do desenvolvedor
 
@@ -90,11 +90,11 @@ Pode ter um portal gerido e vários portais auto-hospedados. O conteúdo de todo
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>O portal suporta modelos e/ou é compatível com o Kit de Recursos de DevOps de Gestão de API?
 
-Não.
+N.º
 
 ### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>O conteúdo do portal é guardado com a funcionalidade de backup/restauro na Gestão da API?
 
-Não.
+N.º
 
 ### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>Preciso de permitir a conectividade adicional do VNet para as dependências do portal geridas?
 
@@ -126,7 +126,7 @@ A consola interativa faz um pedido de API do lado do cliente do navegador. Resol
 
 Pode verificar o estado da política CORS na secção **de visão geral** do Portal do seu serviço de Gestão API no portal Azure. Uma caixa de aviso indica uma política ausente ou mal configurada.
 
-![Portal de desenvolvimento de gestão da API](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![Screenshot que mostra onde pode verificar o estado da sua política CORS.](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
 Aplique automaticamente a política CORS clicando no botão **Enable CORS.**
 
@@ -196,7 +196,7 @@ A falha de chamada também pode ser causada por um certificado TLS/SSL, que é a
 | Apple Safari                | Sim<sup>1</sup> |
 | Google Chrome               | Sim<sup>1</sup> |
 | Microsoft Edge              | Sim<sup>1</sup> |
-| Microsoft Internet Explorer | Não              |
+| Microsoft Internet Explorer | No              |
 | Mozilla Firefox             | Sim<sup>1</sup> |
 
  <small><sup>1</sup> Suportado nas duas versões de produção mais recentes.</small>

@@ -2,13 +2,13 @@
 title: Conceitos de grelha de eventos Azure
 description: Descreve o Azure Event Grid e respetivos conceitos. Define vários componentes-chave da Grade de Eventos.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 003139374a056da6ddc22dd1453d28761ff58871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 6cfb8b3aaf16a0080b9864ce5198b8a7232e8bc8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86116493"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075114"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Conceitos em Azure Event Grid
 
@@ -37,11 +37,11 @@ Para obter informações sobre a implementação de qualquer uma das fontes supo
 
 O tópico da grelha de eventos fornece um ponto final onde a fonte envia eventos. A editora cria o tópico da grelha de eventos e decide se uma fonte de evento precisa de um tópico ou mais de um tópico. Um tópico é usado para uma coleção de eventos relacionados. Para responder a determinados tipos de eventos, os subscritores decidem quais os tópicos a subscrever.
 
-Os tópicos do sistema são tópicos integrados fornecidos por serviços Azure, tais como Azure Storage, Azure Event Hubs e Azure Service Bus. Pode criar tópicos de sistema na sua subscrição Azure e subscrevê-los. Para mais informações, consulte [a visão geral dos tópicos do sistema.](system-topics.md) 
+**Os tópicos do sistema** são tópicos integrados fornecidos por serviços Azure, tais como Azure Storage, Azure Event Hubs e Azure Service Bus. Pode criar tópicos de sistema na sua subscrição Azure e subscrevê-los. Para mais informações, consulte [a visão geral dos tópicos do sistema.](system-topics.md) 
 
-Tópicos personalizados são tópicos de terceiros e da aplicação. Quando cria ou lhe é atribuído acesso a um tópico personalizado, verá esse tópico personalizado na sua subscrição. Para mais informações, consulte [tópicos personalizados.](custom-topics.md)
+**Os tópicos personalizados** são a aplicação e tópicos de terceiros. Quando cria ou lhe é atribuído acesso a um tópico personalizado, verá esse tópico personalizado na sua subscrição. Para mais informações, consulte [tópicos personalizados.](custom-topics.md) Ao desenhar a sua aplicação, tem flexibilidade ao decidir quantos tópicos criar. Para grandes soluções, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere uma aplicação que envia eventos relacionados com a modificação de contas de utilizador e com o processamento de encomendas. É pouco provável que qualquer processador de eventos queira as duas categorias de eventos. Crie dois tópicos personalizados e deixe que os processadores de eventos subscrevam aquele que for do seu interesse. Para pequenas soluções, você pode preferir enviar todos os eventos para um único tópico. Os subscritores do evento podem filtrar os tipos de eventos que quiserem.
 
-Ao desenhar a sua aplicação, tem flexibilidade ao decidir quantos tópicos criar. Para grandes soluções, crie um tópico personalizado para cada categoria de eventos relacionados. Por exemplo, considere uma aplicação que envia eventos relacionados com a modificação de contas de utilizador e com o processamento de encomendas. É pouco provável que qualquer processador de eventos queira as duas categorias de eventos. Crie dois tópicos personalizados e deixe que os processadores de eventos subscrevam aquele que for do seu interesse. Para pequenas soluções, você pode preferir enviar todos os eventos para um único tópico. Os subscritores do evento podem filtrar os tipos de eventos que quiserem.
+Há outro tipo de tópico: **tema parceiro.** A funcionalidade [Eventos Parceiros](partner-events-overview.md) permite a um fornecedor de SaaS de terceiros publicar eventos dos seus serviços para os disponibilizar aos consumidores que possam subscrever esses eventos. O provedor do SaaS expõe um tipo de tópico, um **tópico parceiro,** que os assinantes usam para consumir eventos. Também oferece um modelo de pub-sub limpo, separando preocupações e propriedade de recursos que são usados por editores de eventos e subscritores.
 
 ## <a name="event-subscriptions"></a>Subscrições de eventos
 

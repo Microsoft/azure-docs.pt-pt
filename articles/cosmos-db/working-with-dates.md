@@ -7,14 +7,15 @@ ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a876c5ba9c289f0edbbfdf8727e9957e7937b781
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c9df71763c610f9773949ef618de7840ae752d82
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476251"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073575"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhar com datas em Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 A Azure Cosmos DB oferece flexibilidade de esquemas e indexação rica através de um modelo de dados [JSON](https://www.json.org) nativo. Todos os recursos DB da Azure Cosmos, incluindo bases de dados, contentores, documentos e procedimentos armazenados são modelados e armazenados como documentos JSON. Como requisito para ser portátil, JSON (e Azure Cosmos DB) suporta apenas um pequeno conjunto de tipos básicos: String, Number, Boolean, Array, Object e Null. No entanto, o JSON é flexível e permite que os desenvolvedores e quadros representem tipos mais complexos usando estes primitivos e compondo-os como objetos ou matrizes.
 
