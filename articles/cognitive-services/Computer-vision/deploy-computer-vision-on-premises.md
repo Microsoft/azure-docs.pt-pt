@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/30/2020
 ms.author: aahi
-ms.openlocfilehash: 9a8e0dde8b24c39180a584c26af725ab82ea0176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e77b5ea2bbd5bae79295a5680fa6e143efa5e99
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907102"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131535"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Use o recipiente de visão de computador com Kubernetes e Helm
 
@@ -30,7 +30,7 @@ Os seguintes pré-requisitos antes da utilização de recipientes de visão comp
 | Conta do Azure | Se não tiver uma subscrição do Azure, crie uma [conta gratuita][free-azure-account] antes de começar. |
 | Kubernetes CLI | O [CLI de Kubernetes][kubernetes-cli] é necessário para gerir as credenciais partilhadas do registo do contentor. Kubernetes também é necessário antes de Helm, que é o gestor de pacotes Kubernetes. |
 | Helm CLI | Instale o [Helm CLI,][helm-install]que é utilizado para instalar um cartão de leme (definição de embalagem de recipiente). |
-| Recurso de Visão Computacional |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure **Computer Vision** e a chave API associada o ponto final URI. Ambos os valores estão disponíveis nas páginas 'Visão Geral' e Chaves para o recurso e são obrigados a iniciar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final, conforme fornecido na página **'Vista Geral',**|
+| Recurso de Visão Computacional |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure **Computer Vision** e a chave API associada o ponto final URI. Ambos os valores estão disponíveis nas páginas 'Visão Geral' e Chaves para o recurso e são obrigados a iniciar o contentor.<br><br>**{API_KEY}** : Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}** : O ponto final, conforme fornecido na página **'Vista Geral',**|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -46,56 +46,15 @@ Os seguintes pré-requisitos antes da utilização de recipientes de visão comp
 
 Espera-se que o computador anfitrião tenha um cluster Kubernetes disponível. Veja este tutorial sobre [a implementação de um cluster Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) para uma compreensão conceptual de como implantar um cluster Kubernetes num computador anfitrião. Pode encontrar mais informações sobre implementações na [documentação de Kubernetes.](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/)
 
-### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Partilhar credenciais de Docker com o cluster Kubernetes
-
-Para permitir que o cluster Kubernetes seja `docker pull` configurado a partir do registo do `containerpreview.azurecr.io` contentor, é necessário transferir as credenciais de estivador para o cluster. Execute o [`kubectl create`][kubectl-create] comando abaixo para criar um *segredo de registo de estivadores* com base nas credenciais fornecidas a partir do pré-requisito de acesso ao registo do contentor.
-
-A partir da sua interface de linha de comando de eleição, executar o seguinte comando. Certifique-se de que substitui as `<username>` `<password>` credenciais de `<email-address>` registo de contentores e de contentores.
-
-```console
-kubectl create secret docker-registry containerpreview \
-    --docker-server=containerpreview.azurecr.io \
-    --docker-username=<username> \
-    --docker-password=<password> \
-    --docker-email=<email-address>
-```
-
-> [!NOTE]
-> Se já tiver acesso ao registo do `containerpreview.azurecr.io` contentor, pode criar um segredo de Kubernetes usando a bandeira genérica. Considere o seguinte comando que executa contra a configuração do Docker JSON.
-> ```console
->  kubectl create secret generic containerpreview \
->      --from-file=.dockerconfigjson=~/.docker/config.json \
->      --type=kubernetes.io/dockerconfigjson
-> ```
-
-A seguinte saída é impressa na consola quando o segredo foi criado com sucesso.
-
-```console
-secret "containerpreview" created
-```
-
-Para verificar se o segredo foi criado, execute o [`kubectl get`][kubectl-get] com a `secrets` bandeira.
-
-```console
-kubectl get secrets
-```
-
-Executando as `kubectl get secrets` impressões digitais todos os segredos configurados.
-
-```console
-NAME                  TYPE                                  DATA      AGE
-containerpreview      kubernetes.io/dockerconfigjson        1         30s
-```
-
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configurar valores de gráfico de leme para implantação
 
-Comece por criar uma pasta chamada *leitura*. Em seguida, cole o seguinte conteúdo YAML num novo ficheiro chamado `chart.yaml` :
+Comece por criar uma pasta chamada *leitura* . Em seguida, cole o seguinte conteúdo YAML num novo ficheiro chamado `chart.yaml` :
 
 ```yaml
 apiVersion: v2
 name: read
 version: 1.0.0
-description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
+description: A Helm chart to deploy the Read OCR container to a Kubernetes cluster
 dependencies:
 - name: rabbitmq
   condition: read.image.args.rabbitmq.enabled
@@ -111,15 +70,13 @@ Para configurar os valores predefinidos do gráfico Helm, copie e cole o YAML se
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
-
 read:
   enabled: true
   image:
     name: cognitive-services-read
-    registry:  containerpreview.azurecr.io/
-    repository: microsoft/cognitive-services-read
-    tag: latest
-    pullSecret: containerpreview # Or an existing secret
+    registry:  mcr.microsoft.com/
+    repository: azure-cognitive-services/vision/read
+    tag: 3.1-preview
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -227,11 +184,11 @@ O modelo especifica um serviço de balançador de carga e a implantação do seu
 
 ### <a name="the-kubernetes-package-helm-chart"></a>O pacote Kubernetes (gráfico helm)
 
-O *gráfico Helm* contém a configuração de que estivar a imagem(s) para puxar do registo do `containerpreview.azurecr.io` contentor.
+O *gráfico Helm* contém a configuração de que estivar a imagem(s) para puxar do registo do `mcr.microsoft.com` contentor.
 
 > Um [gráfico Helm][helm-charts] é uma coleção de ficheiros que descrevem um conjunto relacionado de recursos Kubernetes. Um único gráfico pode ser usado para implementar algo simples, como um casulo memcached, ou algo complexo, como uma pilha completa de aplicativos web com servidores HTTP, bases de dados, caches, e assim por diante.
 
-Os *gráficos helm* fornecidos retiram as imagens do serviço de visão computacional e o serviço correspondente do registo do `containerpreview.azurecr.io` contentor.
+Os *gráficos helm* fornecidos retiram as imagens do serviço de visão computacional e o serviço correspondente do registo do `mcr.microsoft.com` contentor.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Instale o gráfico Helm no cluster Kubernetes
 

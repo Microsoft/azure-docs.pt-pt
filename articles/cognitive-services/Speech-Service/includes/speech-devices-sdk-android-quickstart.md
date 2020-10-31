@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
 ms.author: trbye
-ms.openlocfilehash: dc027d034c50b49044f4a350fe4d239c18060fc7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5e83650bc9861f982c4905e26fbb674abbd4de97
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88226382"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93135953"
 ---
 Neste arranque rápido, você vai aprender a usar o SDK de Dispositivos de Fala para Android para construir um produto ativado por discurso ou usá-lo como um dispositivo [de transcrição de conversação.](../conversation-transcription-service.md)
 
@@ -35,7 +35,7 @@ Antes de começar a usar o SDK dos Dispositivos de Fala, terá de:
 
 - Se planeia utilizar o serviço Desemação para identificar intenções (ou ações) de declarações de utilizadores, precisará de uma subscrição do [Serviço de Compreensão de Línguas (LUIS).](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) Para saber mais sobre o LUIS e o reconhecimento de intenções, consulte [Reconhecer as intenções da fala com LUIS, C.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 
-  Pode [criar um modelo LUIS simples](https://docs.microsoft.com/azure/cognitive-services/luis/) ou utilizar o modelo LUIS de amostra, LUIS-example.js. O modelo LUIS da amostra está disponível no site de [descarregamento SDK dos Dispositivos de Fala.](https://aka.ms/sdsdk-luis) Para fazer o upload do ficheiro JSON do seu modelo para o [portal LUIS](https://www.luis.ai/home), selecione Import **new app**e, em seguida, selecione o ficheiro JSON.
+  Pode [criar um modelo LUIS simples](https://docs.microsoft.com/azure/cognitive-services/luis/) ou utilizar o modelo LUIS de amostra, LUIS-example.js. O modelo LUIS da amostra está disponível no site de [descarregamento SDK dos Dispositivos de Fala.](https://aka.ms/sdsdk-luis) Para fazer o upload do ficheiro JSON do seu modelo para o [portal LUIS](https://www.luis.ai/home), selecione Import **new app** e, em seguida, selecione o ficheiro JSON.
 
 - Instale [o Android Studio](https://developer.android.com/studio/) e o [Vysor](https://vysor.io/download/) no seu PC.
 
@@ -45,24 +45,24 @@ Antes de começar a usar o SDK dos Dispositivos de Fala, terá de:
 
    ![Vysor](../media/speech-devices-sdk/qsg-3.png)
 
-1. O seu dispositivo deve ser listado em **Escolha um dispositivo**. Selecione o botão **Ver** ao lado do dispositivo.
+1. O seu dispositivo deve ser listado em **Escolha um dispositivo** . Selecione o botão **Ver** ao lado do dispositivo.
 
-1. Ligue à sua rede sem fios selecionando o ícone da pasta e, em seguida, selecione **Definições**  >  **WLAN**.
+1. Ligue à sua rede sem fios selecionando o ícone da pasta e, em seguida, selecione **Definições**  >  **WLAN** .
 
    ![Vysor WLAN](../media/speech-devices-sdk/qsg-4.png)
 
    > [!NOTE]
-   > Se a sua empresa tiver políticas de ligação de dispositivos ao seu sistema Wi-Fi, tem de obter o endereço MAC e contactar o seu departamento de TI sobre como ligá-lo ao Wi-Fi da sua empresa.
+   > Se a sua empresa tiver políticas de ligação de dispositivos ao seu sistema de Wi-Fi, tem de obter o endereço MAC e contactar o seu departamento de TI sobre como ligá-lo ao Wi-Fi da sua empresa.
    >
    > Para encontrar o endereço MAC do kit dev, selecione o ícone da pasta de ficheiros no ambiente de trabalho do kit dev.
    >
    > ![Pasta de ficheiro Vysor](../media/speech-devices-sdk/qsg-10.png)
    >
-   > Selecione **Definições**. Procure por "endereço mac", e, em seguida, selecione **o endereço Mac**Advanced  >  **WLAN**. Anote o endereço MAC que aparece perto da parte inferior da caixa de diálogo.
+   > Selecione **Definições** . Procure por "endereço mac", e, em seguida, selecione **o endereço Mac** Advanced  >  **WLAN** . Anote o endereço MAC que aparece perto da parte inferior da caixa de diálogo.
    >
    > ![Endereço Vysor MAC](../media/speech-devices-sdk/qsg-11.png)
    >
-   > Algumas empresas podem ter um limite de tempo para saber quanto tempo um dispositivo pode estar ligado ao seu sistema Wi-Fi. Poderá ter de prolongar o registo do dev com o seu sistema Wi-Fi após um número específico de dias.
+   > Algumas empresas podem ter um limite de tempo para saber quanto tempo um dispositivo pode estar ligado ao seu sistema Wi-Fi. Poderá ter de alargar o registo do dev com o seu sistema de Wi-Fi após um número específico de dias.
 
 ## <a name="run-the-sample-application"></a>Executar o exemplo de aplicação
 
@@ -78,7 +78,7 @@ Para validar a configuração do seu kit de desenvolvimento, construa e instale 
 
 1. Configurar gradle para referência ao Discurso SDK. Os seguintes ficheiros podem ser encontrados nos **Scripts Gradle** no Android Studio.
 
-    Atualize o **build.gradle (Project:exemplo)**, o bloco de todos os projetos deve coincidir abaixo, adicionando as linhas maven.
+    Atualize o **build.gradle (Project:exemplo)** , o bloco de todos os projetos deve coincidir abaixo, adicionando as linhas maven.
 
     ```xml
     allprojects {
@@ -96,7 +96,7 @@ Para validar a configuração do seu kit de desenvolvimento, construa e instale 
     Atualize a **build.gradle (Módulo:app)** adicionando esta linha à secção de dependências. 
     
     ```xml
-    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.13.0'
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.14.0'
     ```
     
 1. Adicione a chave de subscrição de discurso ao código fonte. Se quiser tentar o reconhecimento de intenções, adicione também a chave de subscrição do [serviço de Compreensão linguística](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) e o ID da aplicação.

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 47c4fbada4bb4e7019cb2fa619d97bbb38843dd8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3bea474ae61ba4a0213d880934d9536d6ad71796
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085110"
+ms.locfileid: "93131637"
 ---
 # <a name="azure-cache-for-redis"></a>Cache do Azure para Redis
 A Azure Cache for Redis fornece uma loja de dados na memória com base no software [Redis.](https://redis.io/) O Redis melhora o desempenho e a escalabilidade de uma aplicação que utiliza fortemente as lojas de dados de backend. É capaz de processar grandes volumes de pedidos, mantendo dados frequentemente acedidos na memória do servidor que podem ser escritos e lidos rapidamente. A Redis traz uma solução crítica de baixa latência e armazenamento de dados de alto rendimento para aplicações modernas.
@@ -48,7 +48,7 @@ Azure Cache for Redis está disponível nos seguintes níveis:
 | Standard | Uma cache OSS Redis em funcionamento em dois VMs numa configuração replicada. |
 | Premium | Caches OSS Redis de alto desempenho. Este nível oferece maior produção, menor latência, melhor disponibilidade e mais funcionalidades. Caches premium são implantados em VMs mais potentes em comparação com os de caches básicos ou standard. |
 | Grandes Empresas | Caches de alto desempenho alimentados pelo software Redis Enterprise da Redis Labs. Este nível suporta módulos Redis, incluindo RediSearch, RedisBloom e RedisTimeSeries. Além disso, oferece uma disponibilidade ainda maior do que o nível Premium. |
-| Grandes Empresas | Caches grandes e rentáveis alimentados pelo software Redis Enterprise da Redis Labs. Este nível estende o armazenamento de dados redis a memória não volátil, que é mais barata que a DRAM, num VM. Reduz o custo geral da memória por GB. |
+| Flash da Empresa | Caches grandes e rentáveis alimentados pelo software Redis Enterprise da Redis Labs. Este nível estende o armazenamento de dados redis a memória não volátil, que é mais barata que a DRAM, num VM. Reduz o custo geral da memória por GB. |
 
 ### <a name="feature-comparison"></a>Comparação de funcionalidades
 A [Cache Azure para o Preço redis](https://azure.microsoft.com/pricing/details/cache/) fornece uma comparação detalhada de cada nível. A tabela seguinte ajuda a descrever algumas das funcionalidades suportadas pelo escalão:

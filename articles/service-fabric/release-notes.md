@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 9bfca7def313fc701798ff96d0ed4b18ca13ef60
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 01574407801c0a6b0a5e0ddc438af4d3965dc090
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313880"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131552"
 ---
 # <a name="service-fabric-releases"></a>Lançamentos de tecido de serviço
 
@@ -23,6 +23,28 @@ ms.locfileid: "92313880"
 Este artigo fornece mais informações sobre as mais recentes versões e atualizações para o tempo de execução do Tecido de Serviço e SDKs.
 
 ## <a name="whats-new-in-service-fabric"></a>Quais as novidades no Tecido de Serviço
+
+### <a name="service-fabric-72"></a>Tecido de Serviço 7.2 
+Estamos entusiasmados por anunciar que o lançamento 7.2 do tempo de execução do Service Fabric começou a ser lançado para as várias regiões do Azure, juntamente com as atualizações de ferramentas e SDK. As atualizações para .NET SDK, Java SDK e Service Fabric estão disponíveis através do Instalador de Plataforma Web, pacotes NuGet e repositórios Maven.
+## <a name="what-is-new-in-service-fabric-7"></a>O que é o novo tecido em serviço 7.?
+Esta versão está carregada com funcionalidades e melhorias principais. Algumas das principais funcionalidades são destacadas abaixo:
+## <a name="key-announcements-in-72"></a>Principais anúncios em 7.2
+- **Pré-visualização** : [**Os clusters geridos por tecido de serviço**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) estão agora em visualização pública. Os clusters geridos pela Service Fabric visam simplificar a implementação e gestão do cluster, encapsulando os recursos subjacentes que compõem um cluster de Tecido de Serviço num único recurso ARM. Para mais detalhes, consulte, [a visão geral do cluster gerido pelo Service Fabric.](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster)
+- **Pré-visualização** : [**Apoiar serviços apátridas com uma série de casos superiores ao número de nós**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) está agora em pré-visualização pública. Uma política de colocação permite a criação de múltiplos casos apátridas de uma partição num nó.
+- [**FabricObserver (FO) 3.0**](https://aka.ms/sf/fabricobserver) já está disponível.
+    - Agora pode executar FabricObserver em clusters Linux e Windows.
+    - Agora pode construir plugins observadores personalizados. Consulte [plugins readme](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Plugins.md) e o [projeto de plugin](https://github.com/microsoft/service-fabric-observer/tree/master/SampleObserverPlugin) de amostra para detalhes e código.
+    - Pode agora alterar qualquer definição de observador através da atualização dos parâmetros de aplicação. Isto significa que já não precisa de recolocar o FO para modificar as definições específicas do observador. Por favor, veja a [amostra.](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Using.md#parameterUpdates)
+- [**Suporte para imagens de contentores Ubuntu 18.04 OneBox**](https://hub.docker.com/_/microsoft-service-fabric-onebox).
+- **Pré-visualização** : [ **KeyVault Reference for Service Fabric applications suporta **apenas segredos versados** . Segredos sem versões não são suportados.**](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)
+- A SF SDK exige que a mais recente atualização VS 2019 16.7.6 ou 16.8 Preview 4 possa criar novos projetos .Net Framework apátridas/stateful/actors. Se não tiver a mais recente atualização VS, depois de criar o projeto de serviço, utilize o gestor de pacotes para instalar o Microsoft.ServiceFabric.Services (versão 4.2.x) para projetos stateful/apátridas e Microsoft.ServiceFabric.Actors (versão 4.2.x) para projetos de atores de nuget.org.
+- **RunToCompletion** : Service Fabric suporta conceito de corrida até à conclusão para executáveis de hóspedes. Com esta atualização assim que a réplica for concluída, serão lançados os recursos de cluster atribuídos a esta réplica.
+- [**O apoio à governação dos recursos foi reforçado:**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance)permitindo pedidos e limitações especificações para os recursos de cpu e memória.
+
+### <a name="service-fabric-72-releases"></a>Lançamentos de Tecido de Serviço 7.2
+| Data da versão | Libertar | Mais informações |
+|---|---|---|
+| 21 de outubro de 2020 | [Tecido de Serviço Azure 7.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-release/ba-p/1805653)  | [Notas de versão](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72-releasenotes.md)|
 
 ### <a name="service-fabric-71"></a>Tecido de Serviço 7.1
 Devido à atual crise COVID-19, e tendo em conta os desafios enfrentados pelos nossos clientes, estamos a disponibilizar 7.1, mas não atualizaremos automaticamente os clusters definidos para receber atualizações automáticas. Estamos a fazer uma pausa nas atualizações automáticas até novo aviso para garantir que os clientes podem aplicar upgrades quando mais adequados para eles, para evitar perturbações inesperadas.
@@ -50,14 +72,14 @@ Estamos entusiasmados por anunciar o próximo lançamento da Service Fabric. Est
 
 ### <a name="improve-application-life-cycle-experience"></a>Melhorar a experiência do ciclo de vida da aplicação
 
-- **[Pré-visualização:Pedido de drenagem](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)**: Durante a manutenção planeada do serviço, tais como atualizações de serviço ou desativação de nó, gostaria de permitir que os serviços drene graciosamente as ligações. Esta função adiciona uma duração de atraso de proximidade de instância na configuração do serviço. Durante as operações planeadas, a SF removerá o endereço do Serviço da descoberta e, em seguida, esperará esta duração antes de desligar o serviço.
+- **[Pré-visualização:Pedido de drenagem](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)** : Durante a manutenção planeada do serviço, tais como atualizações de serviço ou desativação de nó, gostaria de permitir que os serviços drene graciosamente as ligações. Esta função adiciona uma duração de atraso de proximidade de instância na configuração do serviço. Durante as operações planeadas, a SF removerá o endereço do Serviço da descoberta e, em seguida, esperará esta duração antes de desligar o serviço.
 - **[Deteção e equilíbrio automáticos do subclusão:](./cluster-resource-manager-subclustering.md)** A subclustering acontece quando os serviços com diferentes restrições de colocação têm uma [métrica](./service-fabric-cluster-resource-manager-metrics.md)de carga comum . Se a carga nos diferentes conjuntos de nós diferir significativamente, o Service Fabric Cluster Resource Manager acredita que o cluster está desequilibrado, mesmo quando tem o melhor equilíbrio possível devido às restrições de colocação. Como resultado, tenta reequilibrar o cluster, potencialmente causando movimentos de serviço desnecessários (uma vez que o "desequilíbrio" não pode ser substancialmente melhorado). A partir desta versão, o Cluster Resource Manager tentará agora detetar automaticamente este tipo de configurações e compreender quando o desequilíbrio pode ser corrigido através do movimento, e quando em vez disso deve deixar as coisas em paz, uma vez que não é possível fazer nenhuma melhoria substancial.  
 - [**Custo de Movimento Diferente para réplicas secundárias**](./service-fabric-cluster-resource-manager-movement-cost.md): Introduzimos um novo valor de custo de movimento VeryHigh que proporciona flexibilidade adicional em alguns cenários para definir se um custo de movimento separado deve ser usado para réplicas secundárias.
 - Mecanismo [**de sonda Liveness**](./probes-codepackage.md) ativado para aplicações contentorizadas. A Liveness Probe ajuda a anunciar a vivacidade da aplicação contentorizada e quando não respondem em tempo útil, resultará num recomeço.
 - [**Executar até a conclusão/uma vez para serviços**](./run-to-completion.md)**
 
 ### <a name="image-store-improvements"></a>Melhorias da Loja de Imagens
- - O Tecido de Serviço 7.1 utiliza **transporte personalizado para garantir a transferência de ficheiros entre nós por padrão**. A dependência da partilha de ficheiros SMB é removida da versão 7.1. As ações de ficheiro SMB seguras ainda existem em nós que contêm réplica do Serviço de Loja de Imagens para a escolha do cliente de excluir o padrão e para upgrade e downgrade para versão antiga.
+ - O Tecido de Serviço 7.1 utiliza **transporte personalizado para garantir a transferência de ficheiros entre nós por padrão** . A dependência da partilha de ficheiros SMB é removida da versão 7.1. As ações de ficheiro SMB seguras ainda existem em nós que contêm réplica do Serviço de Loja de Imagens para a escolha do cliente de excluir o padrão e para upgrade e downgrade para versão antiga.
        
  ### <a name="reliable-collections-improvements"></a>Melhorias fiáveis das coleções
 
@@ -86,15 +108,15 @@ Também atualizaremos as nossas datas de lançamento planeadas para indicar que 
 Este é o mais recente lançamento do Service Fabric e está carregado com funcionalidades e melhorias principais.
 
 ### <a name="key-announcements"></a>Principais anúncios
- - [**Suporte keyVaultReference para segredos de aplicação (Preview)**](./service-fabric-keyvault-references.md): Aplicações de tecido de serviço que tenham ativado [identidades geridas](./concepts-managed-identity.md) podem agora referenciar diretamente um URL secreto key Vault como uma variável ambiental, parâmetro de aplicação ou credencial de repositório de contentores. O Service Fabric resolverá automaticamente o segredo utilizando a identidade gerida da aplicação. 
+ - [**Suporte keyVaultReference para segredos de aplicação (Preview)**](./service-fabric-keyvault-references.md): Aplicações de tecido de serviço que tenham ativado [identidades geridas](./concepts-managed-identity.md) podem agora referenciar diretamente um URL secreto key Vault como uma variável ambiental, parâmetro de aplicação ou credencial de repositório de contentores. O Service Fabric resolverá automaticamente o segredo utilizando a identidade gerida da aplicação. 
      
-- **Segurança melhorada para serviços apátridas**: Para garantir a disponibilidade durante uma atualização de aplicações, introduzimos novas configurações para definir o [número mínimo de casos para serviços apátridas](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) a considerar disponíveis. Anteriormente este valor era 1 para todos os serviços e não era mutável. Com esta nova verificação de segurança por serviço, pode garantir que os seus serviços retêm um número mínimo de casos durante as atualizações de aplicações, atualizações de clusters e outras manutenção que dependem das verificações de saúde e segurança da Service Fabric.
+- **Segurança melhorada para serviços apátridas** : Para garantir a disponibilidade durante uma atualização de aplicações, introduzimos novas configurações para definir o [número mínimo de casos para serviços apátridas](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) a considerar disponíveis. Anteriormente este valor era 1 para todos os serviços e não era mutável. Com esta nova verificação de segurança por serviço, pode garantir que os seus serviços retêm um número mínimo de casos durante as atualizações de aplicações, atualizações de clusters e outras manutenção que dependem das verificações de saúde e segurança da Service Fabric.
   
-- [**Limites de Recursos para Serviços ao Utilizador**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): Os utilizadores podem estabelecer limites de recursos para os serviços do utilizador num nó para evitar cenários como o esgotamento de recursos dos serviços do sistema Service Fabric. 
+- [**Limites de Recursos para Serviços ao Utilizador**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): Os utilizadores podem estabelecer limites de recursos para os serviços do utilizador num nó para evitar cenários como o esgotamento de recursos dos serviços do sistema Service Fabric. 
   
 - [**Custo de movimento de serviço muito alto**](./service-fabric-cluster-resource-manager-movement-cost.md) para um tipo de réplica. As réplicas com custo de movimento muito elevado só serão movidas se houver uma violação de restrição no cluster que não possa ser corrigida de outra forma. Consulte o documento vinculado para obter informações adicionais sobre quando a utilização de um custo de movimento "Muito Elevado" é razoável e para considerações adicionais.
   
--  **Verificações adicionais de segurança do cluster**: Nesta versão, introduzimos uma verificação de segurança do nó de sementes configurável. Isto permite-lhe personalizar quantos nós de sementes devem estar disponíveis durante o ciclo de vida do cluster e cenários de gestão. As operações que levariam o cluster abaixo do valor configurado estão bloqueadas. Hoje em dia, o valor padrão é sempre um quórum dos nós de sementes, por exemplo, se tiver 7 nós de sementes, uma operação que o levaria abaixo de 5 nós de sementes seria bloqueado por padrão. Com esta alteração, você poderia fazer o valor mínimo de segurança 6, o que permitiria que apenas um nó de sementes para baixo de cada vez.
+-  **Verificações adicionais de segurança do cluster** : Nesta versão, introduzimos uma verificação de segurança do nó de sementes configurável. Isto permite-lhe personalizar quantos nós de sementes devem estar disponíveis durante o ciclo de vida do cluster e cenários de gestão. As operações que levariam o cluster abaixo do valor configurado estão bloqueadas. Hoje em dia, o valor padrão é sempre um quórum dos nós de sementes, por exemplo, se tiver 7 nós de sementes, uma operação que o levaria abaixo de 5 nós de sementes seria bloqueado por padrão. Com esta alteração, você poderia fazer o valor mínimo de segurança 6, o que permitiria que apenas um nó de sementes para baixo de cada vez.
    
 - Suporte adicional para [**a gestão do serviço de backup e restauro no Service Fabric Explorer**](./service-fabric-backuprestoreservice-quickstart-azurecluster.md). Isto torna possível as seguintes atividades diretamente do SFX: descobrir o serviço de backup e restaurar, criar uma política de backup, permitir backups automáticos, fazer backups adhoc, desencadear operações de restauro e navegar nas cópias de segurança existentes.
 
@@ -130,7 +152,7 @@ Eis as novidades no Service Fabric 6.5:
 
 - Adicionou [eventos de ciclo de vida de réplica](service-fabric-diagnostics-event-generation-operational.md#replica-events) para serviços estatais.
 
-- [Melhor visibilidade do estado do nó de sementes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), incluindo avisos de nível de aglomerado se um nó de sementes não for saudável *(Para baixo*, *removido* ou *desconhecido).*
+- [Melhor visibilidade do estado do nó de sementes](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), incluindo avisos de nível de aglomerado se um nó de sementes não for saudável *(Para baixo* , *removido* ou *desconhecido).*
 
 - [Ferramenta de recuperação de desastres de aplicação de tecido](https://github.com/Microsoft/Service-Fabric-AppDRTool) de serviço permite que os serviços estatais do Service Fabric recuperem rapidamente quando o cluster primário encontra um desastre. Os dados do cluster primário são continuamente sincronizados na aplicação de espera secundária utilizando cópias de segurança periódicas e restauro.
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710656"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131501"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Criar uma oferta da aplicação Power BI
 
@@ -23,8 +23,8 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
-3. Na página 'Vista Geral', selecione **+ Nova oferta**Power BI Service  >  **App**.
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
+3. Na página 'Vista Geral', selecione **+ Nova oferta** Power BI Service  >  **App** .
 
    ![Ilustra o menu de navegação à esquerda.](./media/new-offer-power-bi-app.png)
 
@@ -36,16 +36,16 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 
 ## <a name="new-offer"></a>Nova oferta
 
-Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
+Introduza um **ID de oferta** . Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
 - Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir **aqui o test-offer-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-- O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
+- O ID da Oferta não pode ser alterado depois de selecionar **Criar** .
 
 Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
 - Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
-- O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar**.
+- O pseudónimo Oferta não pode ser alterado depois de selecionar **Criar** .
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -55,10 +55,10 @@ Esta página mostra uma representação visual dos passos necessários para publ
 
 Inclui links para realizar operações nesta oferta com base na seleção que faz. Por exemplo:
 
-- Se a oferta for um rascunho - [Eliminar oferta de rascunho](update-existing-offer.md#delete-a-draft-offer)
+- Se a oferta for um rascunho - Eliminar oferta de rascunho
 - Se a oferta for ao vivo - [Pare de vender a oferta](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Se a oferta estiver em pré-visualização - [Go-live](publishing-status.md#publisher-approval)
-- Se ainda não concluiu a publicação - [Cancele a publicação](update-existing-offer.md#cancel-publishing)
+- Se a oferta estiver em pré-visualização - [Go-live](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Se ainda não tiver concluído a assinatura do editor - [Cancele a publicação.](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configuração de oferta
 
@@ -97,7 +97,7 @@ Esta página permite definir as categorias e indústrias usadas para agrupar a s
 Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável** .
 
 Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md)
 
@@ -119,7 +119,7 @@ Os clientes devem aceitar estes termos antes de poderem experimentar a sua ofert
 
 Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto inclui o nome da oferta, descrição, imagens, e assim por diante.
 
-### <a name="language"></a>Idioma
+### <a name="language"></a>Linguagem
 
 Selecione o idioma no qual a sua oferta será listada. Atualmente, **inglês (Estados Unidos)** é a única opção disponível.
 
@@ -143,10 +143,10 @@ Aqui está um exemplo de como as informações de oferta aparecem no Microsoft A
 7. Política de privacidade
 8. Nome da oferta
 9. Resumo
-10. Descrição
+10. Description
 11. Screenshots/vídeos
 
-### <a name="name"></a>Nome
+### <a name="name"></a>Name
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -160,7 +160,7 @@ O nome:
 
 Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -234,7 +234,7 @@ Para saber mais sobre a criação de listas de ofertas, consulte [Offer listing 
 
 ## <a name="technical-configuration"></a>Configuração técnica
 
-Promova a sua aplicação no Serviço Power BI para a produção e forneça a ligação de instalador de aplicações Power BI que permite aos clientes instalarem a sua aplicação. Para obter mais informações, consulte [as aplicações publicar com dashboards e relatórios no Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).
+Promova a sua aplicação no Serviço Power BI para a produção e forneça a ligação de instalador de aplicações Power BI que permite aos clientes instalarem a sua aplicação. Para obter mais informações, consulte [as aplicações publicar com dashboards e relatórios no Power BI](/power-bi/service-create-distribute-apps).
 
 ## <a name="supplemental-content"></a>Conteúdo suplementar
 
@@ -248,7 +248,7 @@ Opcionalmente, adicione instruções (até 3.000 caracteres) para ajudar a equip
 
 Depois de ter completado todas as secções necessárias da oferta, pode submeter a sua oferta para rever e publicar.
 
-No canto superior direito do portal, selecione **'Rever e publicar**.
+No canto superior direito do portal, selecione **'Rever e publicar** .
 
 Na página de comentários pode:
 
@@ -258,6 +258,6 @@ Na página de comentários pode:
   - **Completo** - A secção tem todos os dados necessários e não há erros. Todas as secções da oferta devem estar completas antes de poder submeter a oferta.
 - Forneça instruções de teste à equipa de certificação para garantir que a sua aplicação é testada corretamente. Além disso, forneça quaisquer notas suplementares que sejam úteis para entender a sua oferta.
 
-Para submeter a oferta de publicação, **selecione Publicar**.
+Para submeter a oferta de publicação, **selecione Publicar** .
 
-Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.
+Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live** .

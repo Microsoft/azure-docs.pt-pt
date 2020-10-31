@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: 613ee87064cc3b0bbbae8b8ac2e31a5ed60d39f2
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: eae4aece79cd387aaa7e708591ca31442eaa05c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92097206"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136262"
 ---
 Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python. Se só quer que o nome do pacote seja iniciado por conta própria, `pip install azure-cognitiveservices-speech` corra.
 
@@ -20,25 +20,20 @@ Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/spee
 - O pacote Python Speech SDK está disponível para estes sistemas operativos:
   - Janelas: x64 e x86
   - Mac: macOS X versão 10.12 ou mais tarde
-  - Linux: Ubuntu 16.04/18.04, Debian 9, RHEL 7/8, CentOS 7/8 em x64
+  - Linux; ver a lista de [distribuições apoiadas do Linux e arquiteturas-alvo.](~/articles/cognitive-services/speech-service/speech-sdk.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - As plataformas de Linux suportadas exigirão a instalação de certas bibliotecas `libssl` (para suporte de camadas de tomadas seguras e `libasound2` para suporte sonoro). Consulte a sua distribuição abaixo para obter os comandos necessários para instalar as versões corretas destas bibliotecas.
 
-  - Em Ubuntu, executar os seguintes comandos para instalar os pacotes necessários:
+  - Em Ubuntu/Debian, executar os seguintes comandos para instalar os pacotes necessários:
 
     ```sh
     sudo apt-get update
     sudo apt-get install build-essential libssl1.0.0 libasound2
     ```
 
-  - Em Debian 9, executar os seguintes comandos para instalar os pacotes necessários:
-
-    ```sh
-    sudo apt-get update
-    sudo apt-get install build-essential libssl1.0.2 libasound2
-    ```
+    Se o libssl1.0.0 não estiver disponível, instale libssl1.0.x (onde x seja superior a 0) ou libssl1.1.
 
   - No RHEL/CentOS, executar os seguintes comandos para instalar os pacotes necessários:
 
@@ -79,7 +74,7 @@ import azure.cognitiveservices.speech as speechsdk
 1. Descarregue e instale a versão mais recente suportada do [Python](https://www.python.org/downloads/) para a sua plataforma, de 3.5 a 3.8.
    - Os utilizadores do Windows certifiquem-se de selecionar "Adicionar Python ao seu PATH" durante o processo de instalação.
 1. Transfira e instale o [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Abra o Código do Estúdio Visual e instale a extensão Python. Selecione **File**  >  **extensões de preferências**de  >  **ficheiros** no menu. Procure **por Python** e clique **em Instalar.**
+1. Abra o Código do Estúdio Visual e instale a extensão Python. Selecione **File**  >  **extensões de preferências** de  >  **ficheiros** no menu. Procure **por Python** e clique **em Instalar.**
 
    ![Instale a extensão Python](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 

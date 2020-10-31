@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 06/03/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 19e441334395f600c3adaa867660345164537f96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a9e4c8f3dd9e4cf291388bc102ae9a73d8de6dd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88799456"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131569"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Inscreva-se nas suas contas utilizando a aplicação Microsoft Authenticator
 
@@ -59,7 +59,7 @@ Depois de iniciar a sômin do telefone, pode iniciar sôms usando apenas a aplic
 
 1. Inscreva-se na sua conta de trabalho ou escola.
 
-    Depois de escrever o seu nome de utilizador, aparece um **sinal de Aprovação no** ecrã mostrando-lhe um número de dois dígitos e pedindo-lhe para iniciar sing-in através da aplicação Microsoft Authenticator. Se não quiser utilizar este sinal no método, pode selecionar **Use a sua palavra-passe**e iniciar sôs-lhe a palavra-passe.
+    Depois de escrever o seu nome de utilizador, aparece um **sinal de Aprovação no** ecrã mostrando-lhe um número de dois dígitos e pedindo-lhe para iniciar sing-in através da aplicação Microsoft Authenticator. Se não quiser utilizar este sinal no método, pode selecionar **Use a sua palavra-passe** e iniciar sôs-lhe a palavra-passe.
 
     ![Aprovar caixa de entrada no computador](media/user-help-auth-app-sign-in/microsoft-auth-app-sign-in.png)
 
@@ -111,7 +111,7 @@ Para os passos necessários para iniciar singing no seu trabalho ou escola ou na
 | O registo telefónico substitui a verificação em duas etapas? Devo desligá-lo? | O acesso ao telefone é um tipo de verificação de dois passos onde ambos os passos acontecem no dispositivo móvel. Deve manter a verificação de dois passos ligada para ajudar a fornecer segurança adicional para a sua conta. |
 | Se eu mantiver a verificação em duas etapas ligada para a minha conta, tenho de aprovar duas notificações? | N.º A inscrição na sua conta Microsoft utilizando o seu telemóvel também conta como verificação em duas etapas, pelo que não é necessária uma segunda aprovação. |
 | E se eu perder o meu telemóvel ou não o tiver comigo? Como acendo à minha conta? | Pode sempre selecionar a palavra-passe Utilizar uma palavra-passe na página de iniciar sôm para voltar a utilizar a sua palavra-passe. No entanto, se utilizar a verificação em duas etapas, ainda terá de usar um segundo método para verificar a sua identidade.<br><br>**Importante**<br>Encorajamo-lo vivamente a certificar-se de que tem mais de um método de verificação atualizado e associado à sua conta.<br><br>Pode gerir os seus métodos de verificação de contas pessoais a partir da sua página [de definições](https://account.live.com/proofs/manage) de Segurança. Para contas de trabalho ou escola, pode ir à página adicional de [verificação](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) de segurança da sua organização ou à página **de segurança da sua conta** se o seu administrador tiver ligado informações de segurança. Para obter mais informações sobre informações de segurança, consulte [a informação de segurança (pré-visualização) visão geral](./security-info-setup-signin.md).<br><br>Se não conseguir gerir os seus métodos de verificação, deve contactar o seu administrador. |
-| Como posso parar de usar esta funcionalidade e voltar a usar a minha senha? | Para contas pessoais, selecione a **palavra-passe Use uma palavra-passe em vez de** fazer o sação. A sua escolha mais recente é lembrada e oferecida por defeito na próxima vez que iniciar sedições. Se alguma vez quiser voltar a utilizar o s-in do telefone, selecione a **aplicação Use a app em vez disso,** ligue durante o sôm.<br><br>Para contas de trabalho ou escola, deve não registar o dispositivo a partir da página **Definições** da aplicação Microsoft Authenticator ou desativar o dispositivo a partir dos **Dispositivos &** área de atividade do seu perfil. Para obter mais informações sobre a desativação do seu dispositivo a partir do seu perfil, consulte [atualizar o seu perfil e informações de conta a partir do portal My Apps.](my-apps-portal-end-user-update-profile.md#view-your-organization-related-profile-information) |
+| Como posso parar de usar esta funcionalidade e voltar a usar a minha senha? | Para contas pessoais, selecione a **palavra-passe Use uma palavra-passe em vez de** fazer o sação. A sua escolha mais recente é lembrada e oferecida por defeito na próxima vez que iniciar sedições. Se alguma vez quiser voltar a utilizar o s-in do telefone, selecione a **aplicação Use a app em vez disso,** ligue durante o sôm.<br><br>Para contas de trabalho ou escola, deve não registar o dispositivo a partir da página **Definições** da aplicação Microsoft Authenticator ou desativar o dispositivo a partir dos **Dispositivos &** área de atividade do seu perfil. Para obter mais informações sobre a desativação do seu dispositivo a partir do seu perfil, consulte [atualizar o seu perfil e informações de conta a partir do portal My Apps.](./my-account-portal-devices-page.md#disable-a-device) |
 | Por que não posso usar mais do que uma conta de trabalho ou escola para iniciar sôm- insusição telefónica? | Um telefone deve estar registado numa única conta de trabalho ou escola. Se pretender iniciar sposição telefónica para um trabalho diferente ou conta escolar, tem de não registar a sua conta a partir deste dispositivo através da página **Definições.** |
 | Posso entrar no meu computador usando o meu telefone? | Para o seu computador, recomendamos iniciar sessão utilizando o Windows Hello no Windows 10. O Windows Hello permite-lhe usar o seu rosto, impressão digital ou PIN para iniciar sôm. |
 

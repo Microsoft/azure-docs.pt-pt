@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c70d976a05cbeed058243829d0658693341636e9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88607411"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131212"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integre a sua listagem de marketplace comercial com o Azure Ative Directory
 
@@ -33,12 +33,12 @@ As várias [opções de listagem de](determine-your-listing-type.md) mercado com
 
 | Tipo de oferta    | Azure AD SSO necessário para contactar-me?  | Azure AD SSO necessário para julgamento? | Azure AD SSO necessário para test drive?  | Azure AD SSO necessário para a Transact |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-| Máquina Virtual | N/D | Não | Não | Não |
+| Máquina Virtual | N/D | No | No | No |
 | Azure Apps (modelo de solução)  | N/D | N/D | N/D | N/D |
-| Aplicativos geridos  | N/D | N/D | N/D | Não |
-| SaaS  | Não | Sim | Sim | Sim |
-| Contentores  | N/D | N/D | N/D | Não |
-| Serviços de Consultoria  | Não | N/D | N/D | N/D |
+| Aplicativos geridos  | N/D | N/D | N/D | No |
+| SaaS  | No | Yes | Yes | Yes |
+| Contentores  | N/D | N/D | N/D | No |
+| Serviços de Consultoria  | No | N/D | N/D | N/D |
 
 Para obter mais informações sobre os requisitos técnicos da SaaS, consulte [a Azure AD e as ofertas transacionáveis da SaaS no mercado comercial.](./azure-ad-saas.md)
 
@@ -80,7 +80,7 @@ Se você é novo em usar Azure AD federado único sinal, tome estes passos:
 
 Utilize a Azure AD para apoiar uma das seguintes ações:
 
-- Adicione os utilizadores convidados ao seu diretório utilizando [o Azure AD B2B](../active-directory/b2b/what-is-b2b.md).
+- Adicione os utilizadores convidados ao seu diretório utilizando [o Azure AD B2B](../active-directory/external-identities/what-is-b2b.md).
 - Configurar manualmente os ensaios para os clientes utilizando a opção de publicação **Contacte-me.**
 - Desenvolver um test drive por cliente.
 - Construa uma app de demonstração de amostras multi-inquilino que usa SSO.

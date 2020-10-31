@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: a7a77cc18ddc1ab8664d49aa3c2ac049a683ed3d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c28b4edab1e1033bf9ac7df6b1249b549bb4fe1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710639"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131518"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Criar uma oferta do Dynamics 365 for Operations
 
@@ -26,8 +26,8 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
-3. Na página 'Vista Geral', selecione **+ Nova oferta**  >  **Dynamics 365 para operações**.
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
+3. Na página 'Vista Geral', selecione **+ Nova oferta**  >  **Dynamics 365 para operações** .
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-dynamics-365-operations.png)
 
@@ -36,12 +36,12 @@ Antes de iniciar, [crie uma conta de Mercado Comercial no Partner Center](create
 
 ## <a name="new-offer"></a>Nova oferta
 
-Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
+Introduza um **ID de oferta** . Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
 - O ID da oferta combinado com o ID da Editora deve ter menos de 40 caracteres de comprimento.
 - Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços. Por exemplo, se o seu ID editor for testpublisherid e introduzir **test-offer-1** aqui, o endereço web da oferta será `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
+- O ID da Oferta não pode ser alterado depois de selecionar **Criar** .
 
 Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
@@ -93,7 +93,7 @@ Esta página permite definir as categorias e indústrias usadas para agrupar a s
 Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável** .
 
 Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md)
 
@@ -145,7 +145,7 @@ O nome que introduzir aqui será mostrado aos clientes como o título da sua lis
 
 Forneça uma breve descrição da sua oferta, até 100 caracteres. Esta descrição pode ser usada em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Descrição
+### <a name="description"></a>Description
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -227,7 +227,7 @@ Esta página dá-lhe opções sobre onde e como disponibilizar a sua oferta.
 
 Esta secção permite especificar os mercados em que a sua oferta deve estar disponível. Para tal, **selecione os mercados editar,** que irão exibir a janela popup **de seleção de mercado.**
 
-Por padrão, não são selecionados mercados. Selecione pelo menos um mercado para publicar a sua oferta. **Clique em Selecionar tudo** para disponibilizar a sua oferta em todos os mercados possíveis ou selecione os mercados específicos que pretende adicionar. Uma vez terminado, **selecione Save**.
+Por padrão, não são selecionados mercados. Selecione pelo menos um mercado para publicar a sua oferta. **Clique em Selecionar tudo** para disponibilizar a sua oferta em todos os mercados possíveis ou selecione os mercados específicos que pretende adicionar. Uma vez terminado, **selecione Save** .
 
 As suas seleções aqui aplicam-se apenas a novas aquisições; se alguém já tiver a sua app num determinado mercado, e mais tarde remover esse mercado, as pessoas que já têm a oferta nesse mercado podem continuar a usá-la, mas nenhum cliente novo nesse mercado poderá receber a sua oferta.
 
@@ -238,7 +238,7 @@ Tenha em mente que, mesmo que selecione todos os mercados, leis locais e restri�
 
 ### <a name="preview-audience"></a>Audiência de pré-visualização
 
-Antes de publicar a sua oferta ao vivo para a oferta de mercado mais ampla, primeiro terá de a disponibilizar a um público de **pré-visualização**limitado. Introduza uma **tecla Oculta** (qualquer fio utilizando apenas letras minúsculas e/ou números) aqui. Os membros do seu público de pré-visualização podem usar esta chave de ocultação como um símbolo para visualizar uma pré-visualização da sua oferta no mercado.
+Antes de publicar a sua oferta ao vivo para a oferta de mercado mais ampla, primeiro terá de a disponibilizar a um público de **pré-visualização** limitado. Introduza uma **tecla Oculta** (qualquer fio utilizando apenas letras minúsculas e/ou números) aqui. Os membros do seu público de pré-visualização podem usar esta chave de ocultação como um símbolo para visualizar uma pré-visualização da sua oferta no mercado.
 
 Em seguida, quando estiver pronto para disponibilizar a sua oferta e remover a restrição de pré-visualização, terá de remover a **tecla Oculta** e publicar novamente.
 
@@ -255,7 +255,7 @@ Forneça o identificador de solução (GUID) para a sua solução.
 Para encontrar o seu identificador de solução:
 
 1. Nos Serviços de Ciclo de Vida da Microsoft Dynamics (LCS), selecione **Gestão de Soluções.**
-2. Selecione a sua solução e, em seguida, procure o **identificador de solução** na **visão geral**do pacote. Se o identificador estiver em branco, **selecione Editar** e volte a publicar o seu pacote e tente novamente.
+2. Selecione a sua solução e, em seguida, procure o **identificador de solução** na **visão geral** do pacote. Se o identificador estiver em branco, **selecione Editar** e volte a publicar o seu pacote e tente novamente.
 
 ### <a name="release-version"></a>Versão de lançamento
 
@@ -277,17 +277,17 @@ Esta página permite-lhe fornecer informações adicionais sobre a sua oferta pa
 
 ### <a name="validation-assets"></a>Ativos de validação
 
-Faça o upload de um [Relatório de Análise de Personalização (CAR)](https://docs.microsoft.com/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) nesta secção. Este relatório é gerado analisando os seus modelos de personalização e extensão, com base num conjunto predefinido de regras de boas práticas.
+Faça o upload de um [Relatório de Análise de Personalização (CAR)](/dynamics365/unified-operations/dev-itpro/dev-tools/customization-analysis-report) nesta secção. Este relatório é gerado analisando os seus modelos de personalização e extensão, com base num conjunto predefinido de regras de boas práticas.
 
 Este ficheiro deve estar em formato .xls ou .xlsx. Se tiver mais de um relatório, pode enviar um ficheiro .zip contendo todos os relatórios.
 
 ### <a name="does-solution-include-localizations"></a>A solução inclui as localizações?
 
-Selecione **Sim** se a solução permitir a utilização de normas e políticas locais (por exemplo, se acomodar as diferentes regras de folha de pagamento exigidas por diferentes países/regiões). Caso contrário, selecione **Não**.
+Selecione **Sim** se a solução permitir a utilização de normas e políticas locais (por exemplo, se acomodar as diferentes regras de folha de pagamento exigidas por diferentes países/regiões). Caso contrário, selecione **Não** .
 
 ### <a name="does-solution-enable-translations"></a>A solução permite traduções?
 
-Responder **Sim** se o texto da sua solução puder ser traduzido para outras línguas. Caso contrário, selecione **Não**.
+Responder **Sim** se o texto da sua solução puder ser traduzido para outras línguas. Caso contrário, selecione **Não** .
 
 **Selecione Guardar o projeto** antes de continuar.
 
@@ -303,7 +303,7 @@ Se é a sua primeira vez publicando esta oferta, você pode:
     - **Não foi iniciado** – A secção não foi tocada e deve ser concluída.
     - **Incompleto** – A secção tem erros que precisam de ser corrigidos ou exigem mais informações a serem fornecidas. Volte para a secção(s) e atualize-a.
     - **Completo** – A secção está completa, todos os dados necessários foram fornecidos e não há erros. Todas as secções da oferta devem estar em estado completo antes de poder submeter a oferta.
-- Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação. Para obter mais informações sobre instruções de teste e completar uma primeira publicação, consulte [a validação funcional de Finanças e Operações da AppSource Dynamics 365](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
+- Na secção **Notas para certificação,** forneça instruções de teste à equipa de certificação para garantir que a sua aplicação seja testada corretamente, além de quaisquer notas suplementares úteis para a compreensão da sua aplicação. Para obter mais informações sobre instruções de teste e completar uma primeira publicação, consulte [a validação funcional de Finanças e Operações da AppSource Dynamics 365](../dynamics-365-finance-operations-functional-validation.md).
 - Submeta a oferta de publicação selecionando Enviar por ela que **não se possa fazer uma publicação.** Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para que você reveja e aprove. Volte ao Partner Center e selecione **Go-live** para a oferta de publicar a sua oferta ao público.
 
 ## <a name="next-step"></a>Passo seguinte

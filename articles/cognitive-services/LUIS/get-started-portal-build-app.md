@@ -5,36 +5,37 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 05/19/2020
-ms.openlocfilehash: 38fffd7793e1f5bd59ac6dde4499b2eb25009b52
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 74866c65111fae9e6fb3b79d9b59819b14b03c16
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91303867"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131477"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>Quickstart: Criar uma nova app no portal LUIS
 
-Neste arranque rápido, constrói-se uma nova app no portal LUIS. Em primeiro lugar, crie as partes básicas de uma app, **intenções**e **entidades.** Em seguida, teste a aplicação fornecendo uma expressão do utilizador da amostra no painel de teste interativo para obter a intenção prevista.
+Neste arranque rápido, constrói-se uma nova app no portal LUIS. Em primeiro lugar, crie as partes básicas de uma app, **intenções** e **entidades.** Em seguida, teste a aplicação fornecendo uma expressão do utilizador da amostra no painel de teste interativo para obter a intenção prevista.
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
 ## <a name="create-an-app"></a>Criar uma aplicação
 
-1. Selecione **+ Nova aplicação para conversação** a partir da barra de ferramentas de contexto e, em seguida, selecione **+ Nova aplicação para conversação** novamente.
+Para criar uma aplicação, clique **em + Nova aplicação.** 
 
-    > [!div class="mx-imgBorder"]
-    > [![Screenshot da criação de nova app no portal LUIS](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+Na janela que aparece, insira as seguintes informações:
 
-1. Na janela pop-up, configufique a aplicação com as seguintes definições e, em seguida, selecione **Fazer**.
+|Nome  |Descrição  |
+|---------|---------|
+|Nome     | Um nome para a sua aplicação. Por exemplo, "domótica". Obrigatório.        |
+|Cultura     | A linguagem que a sua aplicação compreende e fala. Obrigatório.   |
+|Description | Uma descrição para o seu aplicativo. Opcional.
+|Recurso de previsão | O recurso de previsão que receberá consultas. Opcional. |
 
-   |Nome da definição| Valor | Objetivo|
-   |--|--|--|
-   |Name|`myEnglishApp`|Nome exclusivo da aplicação LUIS<br>obrigatório|
-   |Cultura|**Inglês**|Linguagem de expressões dos utilizadores, **en-us**<br>obrigatório|
-   |Descrição (Opcional)|`App made with LUIS Portal`|Descrição do aplicativo<br>opcional|
-   |Recurso de previsão (Opcional) |-  |Não selecione. O LUIS dá-lhe uma chave de arranque para usar gratuitamente para a autoria e 1.000 pedidos de ponto final de previsão. |
+Selecione **Done** (Concluído).
 
-   ![Screenshot de introduzir novas definições de aplicações](./media/get-started-portal-build-app/create-new-app-settings.png)
+>[!NOTE]
+>A cultura não pode ser alterada assim que a aplicação for criada.
+
 
 ## <a name="create-intents"></a>Criar intenções
 
@@ -52,22 +53,17 @@ As _duas intenções diferentes_ da aplicação alinham-se com as seguintes inte
 
 Para criar intenções, complete os seguintes passos:
 
-1. Após a criação da aplicação, está na página **Intenções** da secção **Build.** Selecione **Criar**.
+1. Após a criação da aplicação, certifique-se de que está na página **Intenções** da secção **Build.** Selecione **Criar** .
 
    [![Screenshot de selecionar 'Criar' para criar novas intenções](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
-1. Introduza o nome de `FindForm` intenção, e, em seguida, selecione **Feito**.
+1. Introduza o nome de `FindForm` intenção, e, em seguida, selecione **Feito** .
 
 ## <a name="add-an-example-utterance"></a>Adicione um exemplo de expressão
 
-Adiciona-se palavras de exemplo depois de criar intenções. As palavras exemplo são texto que um utilizador introduz num chat bot ou outra aplicação de cliente. Eles mapeiam a intenção do texto do utilizador para uma intenção LUIS.
+Adiciona-se palavras de exemplo depois de criar intenções. As palavras exemplo são texto que um utilizador introduz num chat bot ou outra aplicação de cliente. Eles mapeiam a intenção do texto do utilizador para uma intenção LUIS. Para este `FindForm` exemplo, as intenções da aplicação, exemplo, as expressões incluirão o número do formulário. A aplicação do cliente precisa do número do formulário para satisfazer o pedido do utilizador, por isso é importante incluí-lo na expressão.
 
-Para este `FindForm` exemplo, as intenções da aplicação, exemplo, as expressões incluirão o número do formulário. A aplicação do cliente precisa do número do formulário para satisfazer o pedido do utilizador, por isso é importante incluí-lo na expressão.
-
-> [!div class="mx-imgBorder"]
-> [![Screenshot de introduzir palavras de exemplo para a intenção FindForm](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
-
-Adicione as seguintes 15 palavras de exemplo à `FindForm` intenção.
+Na página **Intenções** para `FindForm` , adicione as seguintes expressões de exemplo em **Exemplo Pronunciamento,** 
 
 |#|Expressões de exemplo|
 |--|--|
@@ -106,7 +102,7 @@ Para devolver o número do formulário na resposta de previsão do tempo de exec
 
 1. Introduza o `FormNumber` nome, selecione o tipo de entidade **Regex.**
 
-1. Introduza a expressão regular, `hrf-[0-9]{6}` no campo **Regex.** Esta entrada corresponde aos caracteres `hrf-` literais, e permite exatamente seis dígitos, em seguida, selecione **Criar**.
+1. Introduza a expressão regular, `hrf-[0-9]{6}` no campo **Regex.** Esta entrada corresponde aos caracteres `hrf-` literais, e permite exatamente seis dígitos, em seguida, selecione **Criar** .
 
     > [!div class="mx-imgBorder"]
     > ![Screenshot da criação de entidade de expressão regular](./media/get-started-portal-build-app/create-regular-expression-entity.png)

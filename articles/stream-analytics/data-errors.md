@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 416e6cb29ab2816d53cb837f72233a9fe098f659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072004"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131382"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Erros de dados do Azure Stream Analytics
 
@@ -168,7 +168,7 @@ Consulte [o Troubleshoot Azure Stream Analytics utilizando registos de diagnóst
 * Causa: A diferença entre a hora de aplicação e a hora de chegada é maior do que a janela de tolerância à chegada tardia.
 * Notificação do portal fornecida: Não
 * Nível de registo de recursos: Informação
-* Impacto: Os eventos de entrada tardia são tratados de acordo com a definição "Lidar com outros eventos" na secção de Pedido de Eventos da configuração do trabalho. Para mais informações consulte as [Políticas de Manuseamento de Tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impacto: Os eventos de entrada tardia são tratados de acordo com a definição "Lidar com outros eventos" na secção de Pedido de Eventos da configuração do trabalho. Para mais informações consulte as [Políticas de Manuseamento de Tempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do registo
    * Hora da aplicação e hora de chegada. 
    * Carga real até alguns quilobytes.
@@ -184,7 +184,7 @@ Consulte [o Troubleshoot Azure Stream Analytics utilizando registos de diagnóst
 * Causa: A diferença entre a hora de aplicação e a hora de chegada é superior a 5 minutos.
 * Notificação do portal fornecida: Não
 * Nível de registo de recursos: Informação
-* Impacto: Os eventos de entrada precoce são tratados de acordo com a definição "Lidar com outros eventos" na secção de Pedido de Eventos da configuração do trabalho. Para mais informações consulte as [Políticas de Manuseamento de Tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impacto: Os eventos de entrada precoce são tratados de acordo com a definição "Lidar com outros eventos" na secção de Pedido de Eventos da configuração do trabalho. Para mais informações consulte as [Políticas de Manuseamento de Tempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do registo
    * Hora da aplicação e hora de chegada. 
    * Carga real até alguns quilobytes.
@@ -200,7 +200,7 @@ Consulte [o Troubleshoot Azure Stream Analytics utilizando registos de diagnóst
 * Causa: O evento é considerado fora de ordem de acordo com a janela de tolerância fora da ordem definida.
 * Notificação do portal fornecida: Não
 * Nível de registo de recursos: Informação
-* Impacto: Os eventos fora de ordem são tratados de acordo com a definição "Lidar com outros eventos" na secção de Encomenda de Eventos da configuração do trabalho. Para mais informações consulte as [Políticas de Manuseamento de Tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impacto: Os eventos fora de ordem são tratados de acordo com a definição "Lidar com outros eventos" na secção de Encomenda de Eventos da configuração do trabalho. Para mais informações consulte as [Políticas de Manuseamento de Tempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Detalhes do registo
    * Carga real até alguns quilobytes.
 
@@ -221,7 +221,7 @@ Existem vários erros de dados que só podem ser detetados depois de fazer uma c
 * Causa: A coluna necessária para a saída não existe. Por exemplo, uma coluna definida como Azure Table PartitionKey não existe.
 * Notificação do portal fornecida: Sim
 * Nível de registo de recursos: Aviso
-* Impacto: Todos os erros de conversão de dados de saída, incluindo a coluna requerida em falta, são tratados de acordo com a definição [da Política de Dados de Saída.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Impacto: Todos os erros de conversão de dados de saída, incluindo a coluna requerida em falta, são tratados de acordo com a definição [da Política de Dados de Saída.](./stream-analytics-output-error-policy.md)
 * Detalhes do registo
    * Nome da coluna e do identificador de registos ou parte do registo.
 
@@ -236,7 +236,7 @@ Existem vários erros de dados que só podem ser detetados depois de fazer uma c
 * Causa: O valor da coluna não está em conformidade com a saída. Por exemplo, o nome da coluna não é uma coluna de tabela Azure válida.
 * Notificação do portal fornecida: Sim
 * Nível de registo de recursos: Aviso
-* Impacto: Todos os erros de conversão de dados de saída, incluindo o nome da coluna inválida, são tratados de acordo com a definição [de Política de Dados de Saída.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Impacto: Todos os erros de conversão de dados de saída, incluindo o nome da coluna inválida, são tratados de acordo com a definição [de Política de Dados de Saída.](./stream-analytics-output-error-policy.md)
 * Detalhes do registo
    * Nome da coluna e identificador de registos ou parte do registo.
 
@@ -251,7 +251,7 @@ Existem vários erros de dados que só podem ser detetados depois de fazer uma c
 * Causa: Uma coluna não pode ser convertida para um tipo válido na saída. Por exemplo, o valor da coluna é incompatível com restrições ou tipo definido na tabela SQL.
 * Notificação do portal fornecida: Sim
 * Nível de registo de recursos: Aviso
-* Impacto: Todos os erros de conversão de dados de saída, incluindo erro de conversão do tipo, são tratados de acordo com a definição [da Política de Dados de Saída.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Impacto: Todos os erros de conversão de dados de saída, incluindo erro de conversão do tipo, são tratados de acordo com a definição [da Política de Dados de Saída.](./stream-analytics-output-error-policy.md)
 * Detalhes do registo
    * O nome da coluna.
    * Ou o identificador de registos ou parte do registo.
@@ -267,7 +267,7 @@ Existem vários erros de dados que só podem ser detetados depois de fazer uma c
 * Causa: O valor da mensagem é maior do que o tamanho de saída suportado. Por exemplo, um recorde é maior que 1 MB para uma saída do Event Hub.
 * Notificação do portal fornecida: Sim
 * Nível de registo de recursos: Aviso
-* Impacto: Todos os erros de conversão de dados de saída, incluindo o limite de tamanho excededo de registo, são tratados de acordo com a definição [da Política de Dados de Saída.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Impacto: Todos os erros de conversão de dados de saída, incluindo o limite de tamanho excededo de registo, são tratados de acordo com a definição [da Política de Dados de Saída.](./stream-analytics-output-error-policy.md)
 * Detalhes do registo
    * Ou o identificador de registos ou parte do registo.
 
@@ -282,7 +282,7 @@ Existem vários erros de dados que só podem ser detetados depois de fazer uma c
 * Causa: Um registo já contém uma coluna com o mesmo nome de uma coluna do Sistema. Por exemplo, a saída cosmosdb com uma coluna chamada ID quando a coluna ID é para uma coluna diferente.
 * Notificação do portal fornecida: Sim
 * Nível de registo de recursos: Aviso
-* Impacto: Todos os erros de conversão de dados de saída, incluindo a chave duplicada, são tratados de acordo com a definição [da Política de Dados de Saída.](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy)
+* Impacto: Todos os erros de conversão de dados de saída, incluindo a chave duplicada, são tratados de acordo com a definição [da Política de Dados de Saída.](./stream-analytics-output-error-policy.md)
 * Detalhes do registo
    * O nome da coluna.
    * Ou o identificador de registos ou parte do registo.

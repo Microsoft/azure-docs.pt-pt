@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9685081c0beacd745a83067b9d9876384933377
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651161"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131246"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>AppSource Dynamics 365 Validação funcional de Finanças e Operações
 
@@ -22,7 +22,7 @@ Para completar uma primeira publicação no [Partner Center,](https://partner.mi
 - Imagens presentes que demonstram o ambiente de [Serviços](https://lcs.dynamics.com/) de Ciclo de Vida (LCS) da solução.
 
 > [!NOTE]
-> As publicações de recertificação subsequentes não requerem demonstração. Para saber mais, consulte o [documento da Política AppSource.](https://docs.microsoft.com/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops)
+> As publicações de recertificação subsequentes não requerem demonstração. Para saber mais, consulte o [documento da Política AppSource.](/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops)
 
 ## <a name="how-to-validate"></a>Como validar
 
@@ -50,11 +50,11 @@ Para agendar uma chamada final de revisão, contacte [appsourceCRM@microsoft.com
 
 2. Tome as seguintes imagens do ambiente [LCS](https://lcs.dynamics.com/) que correspondam à oferta ou solução que pretende publicar. Devem ser suficientemente claros para que a equipa de certificação leia o texto. Guarde as imagens como ficheiros JPG. Pode fornecer [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com) permissão ao seu ambiente LCS para que possamos verificar a configuração em vez de fornecer imagens.
 
-    1. Vá à biblioteca **do**  >  Projeto**Modelador de Processos de Negócio**LCS.  >  **Project library** Tire as imagens de todos os passos do Processo. Inclua os **diagramas** e colunas **revistas,** como mostrado aqui:
+    1. Vá à biblioteca **do**  >  Projeto **Modelador de Processos de Negócio** LCS.  >  **Project library** Tire as imagens de todos os passos do Processo. Inclua os **diagramas** e colunas **revistas,** como mostrado aqui:
 
        :::image type="content" source="media/dynamics-365-finance-operations/project-library.png" alt-text="Mostra a janela da biblioteca do projeto.":::
 
-      2. Vá ao **Pacote**de  >  Solução**de Gestão de**  >  **Soluções**LCS. Veja as imagens que incluem a visão geral do pacote e os conteúdos apresentados nestes exemplos:
+      2. Vá ao **Pacote** de  >  Solução **de Gestão de**  >  **Soluções** LCS. Veja as imagens que incluem a visão geral do pacote e os conteúdos apresentados nestes exemplos:
 
     | Campo | Imagem <img src="" width="400px">|
     | --- | --- |
@@ -65,7 +65,7 @@ Para agendar uma chamada final de revisão, contacte [appsourceCRM@microsoft.com
     | <ul><li>Modelo de relatório de bi de potência</li><li>Artefacto BPM</li></ul><br>Os artefactos não são necessários na secção **Power BI.** | [![Ecrã de conteúdo do pacote três](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
     | <ul><li>Pacote de dados de processo</li><li>Contrato de licença de solução e política de privacidade</li></ul><br>As **secções de modelo ger e** power bi **report** são opcionais para incluir para ofertas de Finanças e Operações. | [![Ecrã de conteúdo de pacote quatro](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
 
-    Para saber mais sobre cada secção do portal LCS, consulte o Guia do Utilizador do [LCS.](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide)
+    Para saber mais sobre cada secção do portal LCS, consulte o Guia do Utilizador do [LCS.](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide)
 
 3. Faça upload para o Centro de Parceiros.
 
@@ -76,4 +76,4 @@ Para agendar uma chamada final de revisão, contacte [appsourceCRM@microsoft.com
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para aprender a criar uma oferta, consulte: [Criar uma oferta Dynamics 365 for Operations.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer)
+Para aprender a criar uma oferta, consulte: [Criar uma oferta Dynamics 365 for Operations.](./partner-center-portal/create-new-operations-offer.md)
