@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357221"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085178"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizar o cluster com o Service Fabric Explorer
 
@@ -83,7 +83,7 @@ A vista do nó mostra o esquema físico do cluster. Para um determinado nó, pod
 ## <a name="actions"></a>Ações
 O Service Fabric Explorer oferece uma forma rápida de invocar ações sobre nós, aplicações e serviços dentro do seu cluster.
 
-Por exemplo, para eliminar uma instância de aplicação, escolha a aplicação da árvore à esquerda e, em seguida, escolha **Ações**  >  **Eliminar Aplicação**.
+Por exemplo, para eliminar uma instância de aplicação, escolha a aplicação da árvore à esquerda e, em seguida, escolha **Ações**  >  **Eliminar Aplicação** .
 
 ![Eliminação de uma aplicação no Service Fabric Explorer][sfx-delete-application]
 
@@ -117,7 +117,7 @@ O EventStore é uma funcionalidade oferecida pela plataforma que fornece eventos
 ## <a name="image-store-viewer"></a>Visualizador da loja de imagens
 O visualizador da loja de imagens é uma funcionalidade oferecida se utilizar a Native Image Store que permite visualizar o conteúdo atual da loja de Imagens e obter informações de ficheiros e pastas, juntamente com a remoção de ficheiros/pastas.
 
-![Mapa de cluster do Explorador de tecido de serviço][sfx-imagestore]
+![Screenshot que mostra o Visualizador da Loja de Imagens.][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Cópia de Segurança e Restauro
 O Service Fabric Explorer oferece a capacidade de interagir com [a Cópia de Segurança e Restauro.](./service-fabric-reliable-services-backup-restore.md) Para ver as funcionalidades de Backup e Restauro no SFX, o modo avançado deve ser ativado.

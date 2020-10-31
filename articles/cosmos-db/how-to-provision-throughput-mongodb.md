@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 44a69581f0763972dd30a016bf0826b31657a3d4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 25eaa4a66fb4a73f976edbd30e6f82015ce84f6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284510"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086130"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-api-for-mongodb-resources"></a>Base de dados, contentores ou produção de escala automática na Azure Cosmos DB API para recursos mongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Este artigo explica como provisão para a produção em Azure Cosmos DB API para MongoDB. Pode providenciar padrão (manual) ou produção de escala automática num contentor ou numa base de dados e partilhá-la entre os recipientes dentro da base de dados. Você pode provistuar produção usando o portal Azure CLI, ou Azure Cosmos DB SDKs.
 
@@ -27,13 +28,13 @@ Se estiver a utilizar uma API diferente, consulte [a SQL API,](how-to-provision-
 
 1. [Crie uma nova conta Azure Cosmos,](create-mongodb-dotnet.md#create-a-database-account)ou selecione uma conta Azure Cosmos existente.
 
-1. Abra o painel **do Data Explorer** e selecione New **Collection**. Em seguida, forneça os seguintes detalhes:
+1. Abra o painel **do Data Explorer** e selecione New **Collection** . Em seguida, forneça os seguintes detalhes:
 
    * Indique se está a criar uma nova base de dados ou a utilizar uma existente. Selecione a opção **de produção da base de dados De provisionar** se pretender obter a produção no nível da base de dados.
    * Introduza uma identificação de coleção.
    * Introduza um valor chave de partição (por exemplo, `/ItemID` ).
    * Introduza uma produção que pretende prever (por exemplo, 1000 RUs).
-   * Selecione **OK**.
+   * Selecione **OK** .
 
     :::image type="content" source="./media/how-to-provision-throughput-mongodb/provision-database-throughput-portal-mongodb-api.png" alt-text="Screenshot do Data Explorer, ao criar uma nova coleção com produção de nível de base de dados":::
 

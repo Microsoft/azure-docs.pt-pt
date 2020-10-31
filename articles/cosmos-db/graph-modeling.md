@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: jasonh
-ms.openlocfilehash: 2176708d3b5371a9bb66a59a7c6c0af56c337e28
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 0d77c93e4103082a759df64fcafaefc1a1069de8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490633"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087388"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelação de dados de gráficos para Azure Cosmos DB Gremlin API
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 O documento a seguir destina-se a fornecer recomendações de modelação de dados de gráficos. Este passo é vital para garantir a escalabilidade e desempenho de um sistema de base de dados de gráficos à medida que os dados evoluem. Um modelo de dados eficiente é especialmente importante com gráficos em larga escala.
 
@@ -35,7 +36,7 @@ Uma solução de base de dados de gráficos pode ser aplicada da melhor forma se
 * Há **muitas relações** entre entidades.
 * Existem **requisitos de escrita e leitura tanto nas entidades como nas relações.** 
 
-Se os critérios acima referidos forem satisfeitos, é provável que uma abordagem de base de dados de gráficos proporcione vantagens para **a complexidade da consulta,** **escalabilidade do modelo de dados**e **desempenho de consulta**.
+Se os critérios acima referidos forem satisfeitos, é provável que uma abordagem de base de dados de gráficos proporcione vantagens para **a complexidade da consulta,** **escalabilidade do modelo de dados** e **desempenho de consulta** .
 
 O próximo passo é determinar se o gráfico vai ser usado para fins analíticos ou transacionais. Se o gráfico se destinar a ser utilizado para trabalhos pesados de cálculo e processamento de dados, valeria a pena explorar o [conector Cosmos DB Spark](./spark-connector.md) e a utilização da [biblioteca GraphX](https://spark.apache.org/graphx/). 
 
@@ -67,15 +68,15 @@ Seguem-se um conjunto de diretrizes para abordar a modelação de dados para uma
 
 ### <a name="modeling-vertices-and-properties"></a>Modelação de vértices e propriedades 
 
-O primeiro passo para um modelo de dados gráficos é mapear todas as entidades identificadas para um **objeto vértice**. Um a um mapeamento de todas as entidades para vértices deve ser um passo inicial e sujeito a mudança.
+O primeiro passo para um modelo de dados gráficos é mapear todas as entidades identificadas para um **objeto vértice** . Um a um mapeamento de todas as entidades para vértices deve ser um passo inicial e sujeito a mudança.
 
 Uma armadilha comum é mapear propriedades de uma única entidade como vértices separados. Considere o exemplo abaixo, onde a mesma entidade está representada de duas maneiras diferentes:
 
-* **Propriedades baseadas em vértice**: Nesta abordagem, a entidade utiliza três vértices separados e duas bordas para descrever as suas propriedades. Embora esta abordagem possa reduzir a redundância, aumenta a complexidade do modelo. Um aumento da complexidade do modelo pode resultar em latência adicional, complexidade de consulta e custo de computação. Este modelo também pode apresentar desafios na partição.
+* **Propriedades baseadas em vértice** : Nesta abordagem, a entidade utiliza três vértices separados e duas bordas para descrever as suas propriedades. Embora esta abordagem possa reduzir a redundância, aumenta a complexidade do modelo. Um aumento da complexidade do modelo pode resultar em latência adicional, complexidade de consulta e custo de computação. Este modelo também pode apresentar desafios na partição.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-1.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
 
-* **Vértices incorporados à propriedade**: Esta abordagem tira partido da lista de pares de valores-chave para representar todas as propriedades da entidade dentro de um vértice. Esta abordagem proporciona uma complexidade reduzida do modelo, o que levará a consultas mais simples e a travessias mais económicas.
+* **Vértices incorporados à propriedade** : Esta abordagem tira partido da lista de pares de valores-chave para representar todas as propriedades da entidade dentro de um vértice. Esta abordagem proporciona uma complexidade reduzida do modelo, o que levará a consultas mais simples e a travessias mais económicas.
 
 :::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
 

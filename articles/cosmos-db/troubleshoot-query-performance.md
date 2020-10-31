@@ -8,14 +8,15 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476710"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087184"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Resolver problemas de consultas ao utilizar o Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo percorre uma abordagem geral recomendada para consultas de resolução de problemas em Azure Cosmos DB. Embora não deva considerar os passos descritos neste artigo como uma defesa completa contra potenciais problemas de consulta, incluímos as dicas de desempenho mais comuns aqui. Deverá utilizar este artigo como ponto de partida para resolver problemas de consultas lentas ou dispendiosas na API do core (SQL) do Azure Cosmos DB. Também pode utilizar os [registos de diagnóstico](cosmosdb-monitor-resource-logs.md) para identificar consultas que são lentas ou que consomem um débito significativo. Se estiver a usar a API da Azure Cosmos para a MongoDB, deve utilizar [a API da Azure Cosmos para o guia de resolução de problemas da MongoDB](mongodb-troubleshoot-query.md)
 

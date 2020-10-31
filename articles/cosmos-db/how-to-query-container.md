@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3c363552d1a196bed49e1ef3448a8216b7bcae2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276121"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086062"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Consulta de um recipiente Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo explica como consultar um recipiente (coleção, gráfico ou tabela) em Azure Cosmos DB. Em particular, abrange como as consultas de partição e partição cruzada funcionam em Azure Cosmos DB.
 
@@ -57,9 +58,9 @@ O Azure Cosmos DB SDKs 1.9.0 e posteriormente suporta opções de execução de 
 
 Pode gerir a execução paralela da consulta ao otimizar os parâmetros abaixo:
 
-- **MaxConcurrency**: Define o número máximo de ligações de rede simultâneas às divisórias do contentor. Se você definir esta propriedade `-1` para, o SDK gere o grau de paralelismo. Se o  `MaxConcurrency` conjunto for , existe uma única `0` ligação de rede às divisórias do recipiente.
+- **MaxConcurrency** : Define o número máximo de ligações de rede simultâneas às divisórias do contentor. Se você definir esta propriedade `-1` para, o SDK gere o grau de paralelismo. Se o  `MaxConcurrency` conjunto for , existe uma única `0` ligação de rede às divisórias do recipiente.
 
-- **MaxBufferedItemCount**: negoceia a latência da consulta em relação à utilização da memória do lado do cliente. Se esta opção for omitida ou definida para -1, o SDK gere o número de itens tamponados durante a execução de consultas paralelas.
+- **MaxBufferedItemCount** : negoceia a latência da consulta em relação à utilização da memória do lado do cliente. Se esta opção for omitida ou definida para -1, o SDK gere o número de itens tamponados durante a execução de consultas paralelas.
 
 Devido à capacidade do Azure Cosmos DB de paralelizar consultas de partição cruzada, a latência da consulta irá geralmente escalar, assim como o sistema adiciona [divisórias físicas](partitioning-overview.md#physical-partitions). No entanto, a carga RU aumentará significativamente à medida que o número total de divisórias físicas aumenta.
 

@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: c86207af51ebd1a9442afe6fa609598ec917bf15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f19e009341ac0e9556cef36f8da6ef19cde0447f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570436"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087524"
 ---
 # <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Distribuição global de dados com Azure Cosmos DB - sob o capot
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB é um serviço fundamental em Azure, por isso é implantado em todas as regiões do Azure em todo o mundo, incluindo o público, soberano, Departamento de Defesa (DoD) e nuvens governamentais. Dentro de um centro de dados, implantamos e gerimos o Azure Cosmos DB em selos maciços de máquinas, cada um com armazenamento local dedicado. Dentro de um centro de dados, a Azure Cosmos DB é implantada em muitos clusters, cada um potencialmente executando várias gerações de hardware. As máquinas dentro de um cluster são normalmente distribuídas por 10-20 domínios de falha para uma alta disponibilidade dentro de uma região. A imagem a seguir mostra a topologia do sistema de distribuição global Cosmos DB:
 
@@ -32,13 +33,13 @@ Como mostra a seguinte imagem, os dados dentro de um contentor são distribuído
 
 :::image type="content" source="./media/global-dist-under-the-hood/distribution-of-resource-partitions.png" alt-text="Topologia do Sistema" border="false":::
 
-Uma partição física é implementada por um grupo de réplicas, chamada *réplica-set*. Cada máquina acolhe centenas de réplicas que correspondem a várias divisórias físicas dentro de um conjunto fixo de processos, como mostrado na imagem acima. As réplicas correspondentes às divisórias físicas são colocadas dinamicamente e a carga equilibrada através das máquinas dentro de um cluster e centros de dados dentro de uma região.  
+Uma partição física é implementada por um grupo de réplicas, chamada *réplica-set* . Cada máquina acolhe centenas de réplicas que correspondem a várias divisórias físicas dentro de um conjunto fixo de processos, como mostrado na imagem acima. As réplicas correspondentes às divisórias físicas são colocadas dinamicamente e a carga equilibrada através das máquinas dentro de um cluster e centros de dados dentro de uma região.  
 
 Uma réplica pertence exclusivamente a um inquilino da Azure Cosmos DB. Cada réplica acolhe uma instância do motor de base de [dados](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf)da Cosmos DB, que gere os recursos, bem como os índices associados. O motor de base de dados Cosmos opera num sistema de tipo de sequência de registo de átomos (ARS). O motor é agnóstico ao conceito de esquema, desfocando a fronteira entre a estrutura e os valores de instância dos registos. Cosmos DB alcança o agnosticismo de esquema completo indexando automaticamente tudo após a ingestão de uma forma eficiente, o que permite aos utilizadores consultar os seus dados distribuídos globalmente sem ter que lidar com schema ou gestão de índices.
 
 O motor da base de dados Cosmos é composto por componentes, incluindo a implementação de vários primitivos de coordenação, tempos de execução da linguagem, processador de consulta, e subsistemas de armazenamento e indexação responsáveis pelo armazenamento e indexação transacional de dados, respectivamente. Para proporcionar durabilidade e elevada disponibilidade, o motor de base de dados persiste nos seus dados e índice em SSDs e replica-os entre as instâncias do motor de base de dados dentro do(s) conjuntos de réplicas, respectivamente. Os inquilinos maiores correspondem a uma maior escala de produção e armazenamento e têm réplicas maiores ou mais ou ambas. Todos os componentes do sistema são totalmente assíncronos – nenhum fio bloqueia, e cada fio faz trabalho de curta duração sem incorrer em interruptores de rosca desnecessários. A limitação das taxas e a pressão de trás são canalizadas por toda a pilha desde o controlo de admissão a todos os caminhos de E/S. O motor da base de dados cosmos é projetado para explorar a concurrency de grãos finos e para fornecer alta produção enquanto opera dentro de quantidades frugal de recursos do sistema.
 
-A distribuição global da Cosmos DB baseia-se em duas abstrações fundamentais - *conjuntos de réplicas* e *conjuntos de divisórias*. Um conjunto de réplicas é um bloco de Lego modular para coordenação, e um conjunto de divisórias é uma sobreposição dinâmica de uma ou mais divisórias físicas distribuídas geograficamente. Para entender como funciona a distribuição global, precisamos de compreender estas duas principais abstrações. 
+A distribuição global da Cosmos DB baseia-se em duas abstrações fundamentais - *conjuntos de réplicas* e *conjuntos de divisórias* . Um conjunto de réplicas é um bloco de Lego modular para coordenação, e um conjunto de divisórias é uma sobreposição dinâmica de uma ou mais divisórias físicas distribuídas geograficamente. Para entender como funciona a distribuição global, precisamos de compreender estas duas principais abstrações. 
 
 ## <a name="replica-sets"></a>Conjuntos de réplicas
 
@@ -68,7 +69,7 @@ Empregamos relógios vetoriais codificados (contendo ID de região e relógios l
 
 Para as bases de dados cosmos configuradas com várias regiões de escrita, o sistema oferece uma série de políticas flexíveis de resolução automática de conflitos para os desenvolvedores escolherem, incluindo: 
 
-- **Last-Write-Wins (LWW)**, que, por padrão, utiliza uma propriedade de relógios definidos pelo sistema (que se baseia no protocolo do relógio de sincronização de tempo). Cosmos DB também permite especificar qualquer outra propriedade numérica personalizada para ser usada para resolução de conflitos.  
+- **Last-Write-Wins (LWW)** , que, por padrão, utiliza uma propriedade de relógios definidos pelo sistema (que se baseia no protocolo do relógio de sincronização de tempo). Cosmos DB também permite especificar qualquer outra propriedade numérica personalizada para ser usada para resolução de conflitos.  
 - **Política de resolução de conflitos definida pela aplicação (personalizada)** (expressa através de procedimentos de fusão), concebida para a reconciliação semântica definida pela aplicação de conflitos. Estes procedimentos são invocados após a deteção dos conflitos de escrita sob os auspícios de uma transação de base de dados no lado do servidor. O sistema fornece exatamente uma garantia única para a execução de um procedimento de fusão como parte do protocolo de compromisso. Existem [várias amostras](how-to-manage-conflicts.md) de resolução de conflitos disponíveis para você brincar.  
 
 ## <a name="consistency-models"></a>Modelos de consistência

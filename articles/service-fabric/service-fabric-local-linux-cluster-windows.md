@@ -3,12 +3,12 @@ title: Configurar o cluster Linux de Tecido de Serviço Azure no Windows
 description: Este artigo abrange como configurar clusters de Service Fabric Linux em funcionamento em máquinas de desenvolvimento Windows. Esta abordagem é útil para o desenvolvimento de plataformas cruzadas.
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: e25c6adf5e5f5101025aa883ef2ff9750c113a76
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 7b25a84e76773baea9f17430df1b7ba13aa661aa
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164113"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087082"
 ---
 # <a name="set-up-a-linux-service-fabric-cluster-on-your-windows-developer-machine"></a>Crie um cluster de tecido de serviço Linux na sua máquina de desenvolvedores Windows
 
@@ -57,7 +57,7 @@ Para instalar um contentor local do Docker e ter um cluster de tecido de serviç
     ```
 
     >[!TIP]
-    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página do [Hub do Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, consulte a página [Onebox do Tecido de Serviço](https://hub.docker.com/_/microsoft-service-fabric-onebox) no Docker Hub.
 
 
 

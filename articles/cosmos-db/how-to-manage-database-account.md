@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 5a8351b8c74f9219cf14575cc326fa8049264ed7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 4977a9ef8af75797f1e1989975688d7904f0c7b1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491126"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086453"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gerir uma conta do Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Este artigo descreve como gerir várias tarefas numa conta do Azure Cosmos com o portal do Azure, o Azure PowerShell, a CLI do Azure e os modelos do Azure Resource Manager.
 
@@ -47,7 +48,7 @@ Consulte a [conta DB da Create Azure Cosmos com modelos de Gestor de Recursos Az
 
 1. Para remover regiões, limpe uma ou mais regiões do mapa selecionando os hexágonos azuis com marcas de verificação. Ou selecione o ícone "cesto de lixo" 🗑 () ao lado da região do lado direito.
 
-1. Para guardar as suas alterações, selecione **OK**.
+1. Para guardar as suas alterações, selecione **OK** .
 
    :::image type="content" source="./media/how-to-manage-database-account/add-region.png" alt-text="Adicione ou remova o menu de regiões":::
 
@@ -147,13 +148,13 @@ A opção de failover automática permite que a Azure Cosmos DB falhe na região
 
 1. A partir da sua conta Azure Cosmos, abra o painel **de dados replicado globalmente.**
 
-2. Na parte superior do painel, selecione **Automatic Failover**.
+2. Na parte superior do painel, selecione **Automatic Failover** .
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Adicione ou remova o menu de regiões":::
 
-3. No painel **de falha automática,** certifique-se de que **a ativação automática de falha** está definida para **ON**. 
+3. No painel **de falha automática,** certifique-se de que **a ativação automática de falha** está definida para **ON** . 
 
-4. Selecione **Guardar**.
+4. Selecione **Guardar** .
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Adicione ou remova o menu de regiões":::
 
@@ -176,15 +177,15 @@ Depois de uma conta Cosmos ser configurada para o failover automático, a priori
 
 1. A partir da sua conta Azure Cosmos, abra o painel **de dados replicado globalmente.**
 
-2. Na parte superior do painel, selecione **Automatic Failover**.
+2. Na parte superior do painel, selecione **Automatic Failover** .
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Adicione ou remova o menu de regiões":::
 
-3. No painel **de falha automática,** certifique-se de que **a ativação automática de falha** está definida para **ON**.
+3. No painel **de falha automática,** certifique-se de que **a ativação automática de falha** está definida para **ON** .
 
 4. Para modificar a prioridade de failover, arraste as regiões de leitura através dos três pontos do lado esquerdo da linha que aparecem quando paira sobre elas.
 
-5. Selecione **Guardar**.
+5. Selecione **Guardar** .
 
    :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Adicione ou remova o menu de regiões":::
 
@@ -210,13 +211,13 @@ O processo de realização de um failover manual implica a alteração da regiã
 
 1. Vá à sua conta Azure Cosmos e abra o menu **de dados Replica globalmente.**
 
-2. No topo do menu, selecione **Manual Failover**.
+2. No topo do menu, selecione **Manual Failover** .
 
    :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Adicione ou remova o menu de regiões":::
 
 3. No menu **Manual Failover,** selecione a sua nova região de escrita. Selecione a caixa de verificação para indicar que compreende que esta opção altera a sua região de escrita.
 
-4. Para ativar a falha, selecione **OK**.
+4. Para ativar a falha, selecione **OK** .
 
    :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Adicione ou remova o menu de regiões":::
 

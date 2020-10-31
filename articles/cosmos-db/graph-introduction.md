@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 30e1a9e4b82971180f375a006f4825832e6179e9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 98ad02c134df919c593c87dd96a9a71d73371a1c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490616"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087422"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introdução à API de Gremlin em Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 [Azure Cosmos DB](introduction.md)   é o serviço de base de dados multi-modelo distribuído globalmente pela Microsoft para aplicações críticas de missão. É uma base de dados multi-modelo e suporta documentos, modelos de dados de valor-chave, gráfico e coluna-família. "A Azure Cosmos DB fornece um serviço de base de dados de gráficos através da API gremlin num serviço de base de dados totalmente gerido projetado para qualquer escala.  
 
@@ -110,19 +111,19 @@ Vamos utilizar um gráfico de exemplo para compreender como as consultas podem s
 
 Este gráfico tem os seguintes tipos *de vértice* (estes também são chamados de "rótulo" em Gremlin):
 
-* **People**: O gráfico tem três pessoas, Robin, Thomas e Ben
-* **Interesses**: Os seus interesses, neste exemplo, o jogo de futebol
-* **Dispositivos**: Os dispositivos que as pessoas usam
-* **Sistemas operativos**: Os sistemas operativos em que os dispositivos funcionam
-* **Local**: Os locais a partir dos quais os dispositivos são acedidos
+* **People** : O gráfico tem três pessoas, Robin, Thomas e Ben
+* **Interesses** : Os seus interesses, neste exemplo, o jogo de futebol
+* **Dispositivos** : Os dispositivos que as pessoas usam
+* **Sistemas operativos** : Os sistemas operativos em que os dispositivos funcionam
+* **Local** : Os locais a partir dos quais os dispositivos são acedidos
 
 Representamos as relações entre estas entidades através dos seguintes tipos *de borda:*
 
 * **Sabe:** Por exemplo, "Thomas conhece Robin"
-* **Interessado**: Representar os interesses das pessoas no nosso gráfico, por exemplo, "Ben está interessado no futebol"
-* **RunsOS**: Laptop executa o Windows OS
+* **Interessado** : Representar os interesses das pessoas no nosso gráfico, por exemplo, "Ben está interessado no futebol"
+* **RunsOS** : Laptop executa o Windows OS
 * **Utilizações:** Para representar o dispositivo que uma pessoa utiliza. Por exemplo, a Robin utiliza um telemóvel Motorola com o número de série 77
-* **Local**: Para representar o local a partir do qual os dispositivos são acedidos
+* **Local** : Para representar o local a partir do qual os dispositivos são acedidos
 
 A Consola Gremlin é um terminal interativo oferecido pelo Apache TinkerPop e este terminal é usado para interagir com os dados do gráfico. Para saber mais, consulte o quickstart doc sobre [como usar a consola Gremlin](create-graph-gremlin-console.md). Também pode efetuar estas operações com os controladores do Gremlin na plataforma que preferir (Java, Node.js, Python ou .NET). Os exemplos a seguir mostram como executar consultas contra estes dados gráficos utilizando a Consola Gremlin.
 

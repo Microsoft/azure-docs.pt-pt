@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791584"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087031"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Resolver problemas de latência da replicação na Base de Dados do Azure para MySQL
 
@@ -236,6 +236,9 @@ Na Base de Dados Azure para o MySQL, por padrão, a replicação é otimizada pa
 O parâmetro binlog_group_commit_sync_delay controla quantos microsegundos o registo binário se compromete antes de sincronizar o ficheiro de registo binário. O benefício deste parâmetro é que, em vez de aplicar imediatamente todas as transações comprometidas, o servidor de origem envia as atualizações de registo binário a granel. Este atraso reduz a IO na réplica e ajuda a melhorar o desempenho. 
 
 Pode ser útil definir o parâmetro binlog_group_commit_sync_delay para 1000 ou mais. Em seguida, monitorize a latência de replicação. Desconfiem este parâmetro com cautela e utilize-o apenas para cargas de trabalho de alta concordância. 
+
+> [!IMPORTANT] 
+> No servidor de réplicas, recomenda-se binlog_group_commit_sync_delay parâmetro 0. Isto é recomendado porque, ao contrário do servidor de origem, o servidor de réplica não terá alta concordância e aumentar o valor para binlog_group_commit_sync_delay no servidor de réplicas poderia inadvertidamente causar o aumento do lag de replicação.
 
 Para cargas de trabalho de baixa concordância que incluem muitas transações singleton, a definição de binlog_group_commit_sync_delay pode aumentar a latência. A latência pode aumentar porque o fio IO aguarda atualizações de registos binários a granel, mesmo que apenas algumas transações sejam cometidas. 
 

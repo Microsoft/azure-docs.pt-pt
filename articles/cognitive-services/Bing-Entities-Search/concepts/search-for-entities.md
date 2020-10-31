@@ -10,20 +10,25 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1805f6f7a61f7e0b0a6e4d5bd6931c0a7d1f1b6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 532bf806789476c1ec901c1e4ac8522451819625
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872073"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085127"
 ---
 # <a name="searching-for-entities-with-the-bing-entity-api"></a>Pesquisa de entidades com a Entidade Bing API
+
+> [!WARNING]
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
 ## <a name="suggest-search-terms-with-the-bing-autosuggest-api"></a>Sugerir termos de pesquisa com a API Bing Autosuggest
 
 Se disponibilizar uma caixa de pesquisa na qual o utilizador introduz o seu termo de pesquisa, utilize a [API de Sugestão Automática do Bing](../../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API devolve cadeias de consulta sugerida com base em termos de pesquisa parcial à medida que o utilizador escreve.
 
-Depois de o utilizador introduzir o seu termo de pesquisa, o URL codifica o termo antes de definir o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Por exemplo, se o utilizador introduzir *Marcus Appel*, defina `q` para *Marcus+Appel* ou *Marcus%20Appel*.
+Depois de o utilizador introduzir o seu termo de pesquisa, o URL codifica o termo antes de definir o parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query). Por exemplo, se o utilizador introduzir *Marcus Appel* , defina `q` para *Marcus+Appel* ou *Marcus%20Appel* .
 
 Se o termo de pesquisa tiver um erro de ortografia, a resposta da pesquisa inclui um objeto [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext). O objeto mostra a ortografia original e a ortografia corrigida que o Bing utilizou para a pesquisa.
 
@@ -189,7 +194,7 @@ Os locais incluem restaurantes, hotéis ou empresas locais. O campo [entityPrese
 > [!NOTE]
 > As respostas de Entidades suportam vários mercados, mas a resposta de Locais suporta apenas as localizações de Empresas nos E.U.A. 
 
-As consultas de entidade com reconhecimento de local como *restaurante perto de mim* requerem a localização do utilizador para fornecer resultados precisos. Os pedidos devem utilizar sempre os cabeçalhos X-Search-Location e X-MSEdge-ClientIP para especificar a localização do utilizador. Se o Bing concluir que a consulta poderia tirar partido da localização do utilizador, irá definir o campo `askUserForLocation` de [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) como **verdadeiro**. 
+As consultas de entidade com reconhecimento de local como *restaurante perto de mim* requerem a localização do utilizador para fornecer resultados precisos. Os pedidos devem utilizar sempre os cabeçalhos X-Search-Location e X-MSEdge-ClientIP para especificar a localização do utilizador. Se o Bing concluir que a consulta poderia tirar partido da localização do utilizador, irá definir o campo `askUserForLocation` de [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#querycontext) como **verdadeiro** . 
 
 ```json
 {

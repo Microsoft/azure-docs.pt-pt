@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 56fa87cfec7f50253dfce7d7c296ff7cb980aebe
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1db64ecc231a55e59321a5c94097668f3ddc91d8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482014"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085416"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Escala A produção DB do Cosmos da escala utilizando o gatilho do temporizador de funções Azure
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O desempenho de uma conta Azure Cosmos baseia-se no montante de produção provisitada expressa nas Unidades de Pedido por segundo (RU/s). O provisionamento encontra-se numa segunda granularidade e é faturado com base no RU/s mais elevado por hora. Este modelo de capacidade a provisionada permite que o serviço forneça uma produção previsível e consistente, baixa latência garantida e elevada disponibilidade. A maioria das cargas de trabalho de produção destas características. No entanto, em ambientes de desenvolvimento e testes onde a Azure Cosmos DB só é usada durante o horário de trabalho, pode aumentar a produção de manhã e reduzir a escala à noite após o horário de trabalho.
 

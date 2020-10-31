@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df25ab4b0f5593ab21336d002ad2f9f10795bdcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570559"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085739"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Use fichas de recursos DB da Azure Cosmos com o Gremlin SDK
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Este artigo explica como usar [fichas de recursos DB da Azure Cosmos](secure-access-to-data.md) para aceder à base de dados do Graph através da Gremlin SDK.
 
@@ -100,7 +101,7 @@ Com uma única conta Gremlin, pode emitir um número ilimitado de fichas. No ent
 
 ## <a name="permission"></a>Permissão
 
-Um erro comum que as aplicações encontram enquanto usam fichas de recursos é: "Permissões insuficientes fornecidas no cabeçalho de autorização para o pedido correspondente. Por favor, recaia com outro cabeçalho de autorização. Este erro é devolvido quando um gremlin tenta escrever uma borda ou um vértice, mas o sinal de recurso concede apenas permissões *de leitura.* Inspecione a sua travessia para ver se contém algum dos seguintes passos: *.addV()*, *.addE()*, *.drop()* ou *.property()*.
+Um erro comum que as aplicações encontram enquanto usam fichas de recursos é: "Permissões insuficientes fornecidas no cabeçalho de autorização para o pedido correspondente. Por favor, recaia com outro cabeçalho de autorização. Este erro é devolvido quando um gremlin tenta escrever uma borda ou um vértice, mas o sinal de recurso concede apenas permissões *de leitura.* Inspecione a sua travessia para ver se contém algum dos seguintes passos: *.addV()* , *.addE()* , *.drop()* ou *.property()* .
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Controlo de acesso baseado em funções Azure (Azure RBAC)](role-based-access-control.md) em Azure Cosmos DB

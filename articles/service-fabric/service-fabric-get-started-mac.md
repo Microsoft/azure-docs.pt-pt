@@ -4,12 +4,12 @@ description: Instale o runtime, o SDK e as ferramentas e crie um cluster de dese
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: adec05a4d8e34374fe260343c73b1ecd14ba04f1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d08046c8f29901dd9650a1edc886efa2ff226e00
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168176"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086782"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar o ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    Pode atualizar estas definições diretamente no ficheiro daemon.json no caminho de instalação do Docker. Pode modificar diretamente as definições de daemon no Docker. Selecione o **ícone de Docker**e, em seguida, selecione **Preferências** > **Daemon** > **Avançadas**.
+    Pode atualizar estas definições diretamente no ficheiro daemon.json no caminho de instalação do Docker. Pode modificar diretamente as definições de daemon no Docker. Selecione o **ícone de Docker** e, em seguida, selecione **Preferências** > **Daemon** > **Avançadas** .
     
     >[!NOTE]
     >
@@ -63,7 +63,7 @@ Para configurar um contentor do Docker local e executar um cluster do Service Fa
     ```
 
     >[!TIP]
-    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página do [Hub do Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
+    > Por predefinição, isto irá extrair a imagem com a versão mais recente do Service Fabric. Para revisões específicas, visite a página [Onebox do Tecido de Serviço](https://hub.docker.com/_/microsoft-service-fabric-onebox) no Docker Hub.
 
 
 

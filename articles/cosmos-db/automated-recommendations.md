@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 8fa2fdf23a0d71b854e043b66c0aed7e944c5f39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9eb55030c7ec52f9b2ac79fbab19944f0a3e190
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87450836"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087830"
 ---
 # <a name="automated-recommendations-for-azure-cosmos-db"></a>Recomendações automatizadas para Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Todos os serviços na nuvem, incluindo o Azure Cosmos DB, obtêm atualizações frequentes com novas funcionalidades, capacidades e melhorias. É importante que a sua aplicação acompanhe as últimas atualizações de desempenho e segurança. O portal Azure oferece recomendações personalizadas que lhe permitem maximizar o desempenho da sua aplicação. O motor consultivo da Azure Cosmos DB analisa continuamente a história de utilização dos seus recursos DB Azure Cosmos e fornece recomendações baseadas nos seus padrões de carga de trabalho. Estas recomendações correspondem a áreas como a partição, a indexação, a rede, a segurança, etc. Estas recomendações personalizadas ajudam-no a melhorar o desempenho da sua aplicação.
 

@@ -8,14 +8,16 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9350682f7c636979df4dcde0c43a3b4941ad6ebb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570611"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085773"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Pontos finais regionais para conta DB de Azure Cosmos
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 A base de dados do Azure Cosmos DB Graph é [distribuída globalmente](distribute-data-globally.md) para que as aplicações possam usar vários pontos finais de leitura. As aplicações que precisam de escrever acesso em vários locais devem permitir a capacidade [de escrita de várias regiões.](how-to-multi-master.md)
 
 Razões para escolher mais do que uma região:
@@ -28,7 +30,7 @@ O requisito **de residência de dados** é alcançado através da definição da
 
 O motor da base de dados Cosmos DB Graph está a funcionar em várias regiões, cada uma das quais contém vários clusters. Cada aglomerado tem centenas de máquinas. Cosmos DB Graph conta DNS CNAME *accountname.gremlin.cosmos.azure.com* resolve para DNS Um registo de um cluster. Um único endereço IP de um equilibrador de carga esconde a topologia interna do cluster.
 
-Um registo regional de DNS CNAME é criado para todas as regiões da conta Cosmos DB Graph. O formato do ponto final regional é *accountname-region.gremlin.cosmos.azure.com*. O segmento regional do ponto final regional é obtido removendo todos os espaços do nome da região de [Azure.](https://azure.microsoft.com/global-infrastructure/regions) Por exemplo, `"East US 2"` a região para `"contoso"` a conta global de bases de dados teria um *CONTOSO-EASTUS2.GREMLIN.COSMOS.AZURE.COM DENS CNAME*
+Um registo regional de DNS CNAME é criado para todas as regiões da conta Cosmos DB Graph. O formato do ponto final regional é *accountname-region.gremlin.cosmos.azure.com* . O segmento regional do ponto final regional é obtido removendo todos os espaços do nome da região de [Azure.](https://azure.microsoft.com/global-infrastructure/regions) Por exemplo, `"East US 2"` a região para `"contoso"` a conta global de bases de dados teria um *CONTOSO-EASTUS2.GREMLIN.COSMOS.AZURE.COM DENS CNAME*
 
 O cliente TinkerPop Gremlin foi concebido para trabalhar com um único servidor. A aplicação pode usar DNS CNAME global para ler e escrever tráfego. Os pedidos de conhecimento da região devem utilizar o ponto final regional para a leitura do tráfego. Utilize o ponto final regional para escrever tráfego apenas se uma região específica estiver configurada para aceitar escritas. 
 

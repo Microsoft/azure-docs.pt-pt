@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Use cache Azure para redis com Node.js'
+title: 'Quickstart: Use Azure Cache para Redis em Node.js'
 description: Neste arranque rápido você vai aprender a usar Azure Cache para Redis com Node.js e node_redis.
 author: yegu-ms
 ms.service: cache
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 05/21/2018
 ms.author: yegu
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
-ms.openlocfilehash: ce570475617236bb99f1bca7a07dc95e1f3285aa
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa22cffc1fc38e055c6c2bb504c311c012f31ac2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91331000"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087150"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-nodejs"></a>Quickstart: Use cache Azure para redis com Node.js
+# <a name="quickstart-use-azure-cache-for-redis-in-nodejs"></a>Quickstart: Use Azure Cache para Redis em Node.js
 
 Neste quickstart, incorpora o Azure Cache para Redis numa aplicação Node.js para ter acesso a uma cache segura e dedicada que esteja acessível a partir de qualquer aplicação dentro do Azure.
 
@@ -32,7 +32,7 @@ Para obter exemplos de utilização de outros clientes Node.js, consulte a docum
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
 
-Adicione variáveis de ambiente ao **NOME DO ANFITRIÃO** e à chave de acesso **Primária**. Vai utilizar estas variáveis do seu código em vez de incluir informações confidenciais diretamente no código.
+Adicione variáveis de ambiente ao **NOME DO ANFITRIÃO** e à chave de acesso **Primária** . Vai utilizar estas variáveis do seu código em vez de incluir informações confidenciais diretamente no código.
 
 ```
 set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
@@ -51,11 +51,11 @@ var client = redis.createClient(6380, process.env.REDISCACHEHOSTNAME,
     {auth_pass: process.env.REDISCACHEKEY, tls: {servername: process.env.REDISCACHEHOSTNAME}});
 ```
 
-Não crie uma ligação nova para cada operação no código. Em vez disso, reutilize ligações tanto quanto possível. 
+Não crie uma nova ligação para cada operação no seu código. Em vez disso, reutilize ligações tanto quanto possível. 
 
 ## <a name="create-a-new-nodejs-app"></a>Criar uma aplicação nova em Node.js
 
-Crie um novo ficheiro de script com o nome *redistest.js*. Utilize o comando `npm install redis bluebird` para instalar as embalagens necessárias.
+Crie um novo ficheiro de script com o nome *redistest.js* . Utilize o comando `npm install redis bluebird` para instalar as embalagens necessárias.
 
 Adicione o seguinte exemplo de JavaScript ao ficheiro. Este código mostra-lhe como ligar a uma Cache Azure para a instância Redis usando o nome do anfitrião da cache e variáveis de ambiente chave. O código também armazena e obtém um valor de cadeia na cache. Os comandos `PING` e `CLIENT LIST` também são executados. Para obter mais exemplos de utilização de Redis com o cliente [node_redis](https://github.com/mranney/node_redis), veja [https://redis.js.org/](https://redis.js.org/).
 
@@ -119,13 +119,13 @@ Caso contrário, se tiver concluído a aplicação de exemplo do início rápido
 > A eliminação de um grupo de recursos é irreversível e o grupo de recursos e todos os recursos contidos no mesmo serão permanentemente eliminados. Confirme que não elimina acidentalmente o grupo de recursos ou recursos errados. Se tiver criado os recursos para alojar este exemplo num grupo de recursos existente que contém os recursos que pretende manter, poderá eliminar cada recurso individualmente nos respetivos painéis em vez de eliminar o grupo de recursos.
 >
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos**.
+Inicie sessão no [Portal do Azure](https://portal.azure.com) e selecione **Grupos de recursos** .
 
-Na caixa de texto **Filter por nome,** insira o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources*. No seu grupo de recursos na lista de resultados, selecione **...** e, em seguida, **eliminar o grupo de recursos**.
+Na caixa de texto **Filter por nome,** insira o nome do seu grupo de recursos. As instruções neste artigo utilizaram um grupo de recursos denominado *TestResources* . No seu grupo de recursos na lista de resultados, selecione **...** e, em seguida, **eliminar o grupo de recursos** .
 
 ![Excluir grupo de recursos Azure](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
 
-É-lhe pedido que confirme a eliminação do grupo de recursos. Introduza o nome do seu grupo de recursos para confirmar e selecione **Delete**.
+É-lhe pedido que confirme a eliminação do grupo de recursos. Introduza o nome do seu grupo de recursos para confirmar e selecione **Delete** .
 
 Após alguns instantes, o grupo de recursos e todos os recursos contidos no mesmo são eliminados.
 
