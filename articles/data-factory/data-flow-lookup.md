@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 10/30/2020
+ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040194"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147271"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de procura no fluxo de dados de mapeamento
 
@@ -68,6 +68,10 @@ Ao testar a transformação de procura com pré-visualização de dados no modo 
 Em juntas, procura e transformação existente, se um ou ambos os fluxos de dados se encaixarem na memória do nó do trabalhador, pode otimizar o desempenho permitindo a **radiodifusão.** Por predefinição, o motor de faísca decidirá automaticamente se transmite ou não um dos lados. Para escolher manualmente qual lado transmitir, selecione **Fixo** .
 
 Não é aconselhável desativar a transmissão através da opção **Off,** a menos que as suas junções estejam a ter erros de tempo.
+
+## <a name="cached-lookup"></a>Lookup em cache
+
+Se estiver a fazer várias análises menores na mesma fonte, uma pia em cache e uma procura talvez um caso de melhor uso do que a transformação de procura. Exemplos comuns em que um lavatório de cache pode ser melhor estão à procura de um valor máximo numa loja de dados e códigos de erro correspondentes a uma base de dados de mensagens de erro. Para mais informações, saiba sobre [lavatórios](data-flow-sink.md#cache-sink) de cache e [pesquisas em cache.](concepts-data-flow-expression-builder.md#cached-lookup)
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 

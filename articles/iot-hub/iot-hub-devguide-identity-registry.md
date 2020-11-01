@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 3157eda4e2a21b0d153e7300db54f445fdb6878d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d9b0d97fa1823314f5109a1c7fc79054806c148
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547763"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146931"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Compreenda o registo de identidade no seu hub IoT
 
@@ -112,7 +112,7 @@ Propriedades: As propriedades do sistema de mensagens estão prefixadas com o `$
 
 Mensagem de notificação para o dispositivo:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 |$content tipo | application/json |
 |$iothub-enquestime |  Hora em que a notificação foi enviada |
@@ -148,7 +148,7 @@ Corpo: Esta secção está no formato JSON e representa o gémeo da identidade d
 ```
 Mensagem de notificação para módulo:
 
-| Nome | Valor |
+| Name | Valor |
 | --- | --- |
 $content tipo | application/json |
 $iothub-enquestime |  Hora em que a notificação foi enviada |
@@ -188,7 +188,7 @@ Corpo: Esta secção está em formato JSON e representa o gémeo da identidade d
 
 As identidades do dispositivo são representadas como documentos JSON com as seguintes propriedades:
 
-| Propriedade | Opções | Descrição |
+| Propriedade | Opções | Description |
 | --- | --- | --- |
 | deviceId |necessário, ler apenas sobre atualizações |Uma corda sensível a casos (até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, além de certos caracteres especiais: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
 | geraçãoId |necessário, apenas ler |Uma corda ioT gerada por um hub, sensível a casos até 128 caracteres de comprimento. Este valor é utilizado para distinguir dispositivos com o mesmo **dispositivoId,** quando estes foram eliminados e recriados. |
@@ -200,7 +200,7 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 | statusUpdateTime |read-only |Um indicador temporal, mostrando a data e a hora da última atualização do estado. |
 | ligação Estado |read-only |Um campo indicando o estado da ligação: **ligado** ou **desligado** . Este campo representa a visão do Hub IoT do estado de ligação do dispositivo. **Importante** : Este campo deve ser utilizado apenas para fins de desenvolvimento/depuragem. O estado de ligação é atualizado apenas para dispositivos que utilizem MQTT ou AMQP. Além disso, baseia-se em pings de nível de protocolo (pings MQTT, ou pings AMQP), e pode ter um atraso máximo de apenas 5 minutos. Por estas razões, pode haver falsos positivos, como dispositivos relatados como conectados, mas que estão desligados. |
 | conexãoStateUpdatedTime |read-only |Um indicador temporal, mostrando a data e a última vez que o estado de ligação foi atualizado. |
-| última Hora de Atividade |read-only |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. |
+| última Hora de Atividade |read-only |Um indicador temporal, mostrando a data e a última vez que o dispositivo ligou, recebeu ou enviou uma mensagem. Esta propriedade é eventualmente consistente, mas pode ser adiada até 5 a 10 minutos. Por esta razão, não deve ser usado em cenários de produção. |
 
 > [!NOTE]
 > O estado de ligação só pode representar a visão do Hub IoT do estado da ligação. As atualizações a este estado podem ser atrasadas, dependendo das condições e configurações da rede.
@@ -212,7 +212,7 @@ As identidades do dispositivo são representadas como documentos JSON com as seg
 
 As identidades dos módulos são representadas como documentos JSON com as seguintes propriedades:
 
-| Propriedade | Opções | Descrição |
+| Propriedade | Opções | Description |
 | --- | --- | --- |
 | deviceId |necessário, ler apenas sobre atualizações |Uma corda sensível a casos (até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, além de certos caracteres especiais: `- . + % _ # * ? ! ( ) , : = @ $ '` . |
 | moduleId |necessário, ler apenas sobre atualizações |Uma corda sensível a casos (até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, além de certos caracteres especiais: `- . + % _ # * ? ! ( ) , : = @ $ '` . |

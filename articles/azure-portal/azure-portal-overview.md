@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.topic: overview
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 24b249d1098788e518f5eda2d1b0d421d4e5e6bb
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 4a00c1dcf973098895e80d5e3d656efd4a35d0d0
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072395"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147050"
 ---
 # <a name="azure-portal-overview"></a>Descrição geral do portal do Azure
 
@@ -24,7 +24,7 @@ Este artigo introduz o portal Azure, identifica elementos de página do portal e
 
 O portal do Azure é uma consola unificada baseada na Web que constitui uma alternativa às ferramentas de linha de comandos. Com o portal do Azure, pode gerir a sua subscrição do Azure através de uma interface gráfica de utilizador. Pode criar, gerir e monitorizar tudo, desde aplicações Web simples a implementações na cloud complexas. Crie dashboards personalizados para uma vista organizada dos recursos. Configure opções de acessibilidade para uma experiência ideal.
 
-O portal Azure foi concebido para resiliência e disponibilidade contínua. Tem presença em todos os datacenteres da Azure. Esta configuração torna o portal Azure resiliente a falhas individuais do datacenter e evita abrandamentos de rede por estar perto dos utilizadores. O portal do Azure é atualizado continuamente e não requer nenhum tempo de inatividade para atividades de manutenção.
+O portal do Azure foi concebido para proporcionar resiliência e disponibilidade contínua. Tem presença em todos os datacenteres da Azure. Esta configuração torna o portal Azure resiliente a falhas individuais do datacenter e evita abrandamentos de rede por estar perto dos utilizadores. O portal do Azure é atualizado continuamente e não requer nenhum tempo de inatividade para atividades de manutenção.
 
 ## <a name="azure-portal-menu"></a>Menu do portal Azure
 
@@ -42,9 +42,9 @@ Se escolher o modo docked para o menu do portal, estará sempre visível. Pode c
 
 Como novo subscritor dos serviços Azure, a primeira coisa que vê depois de [iniciar seduca no portal](https://portal.azure.com) é a **Azure Home.** Esta página compila recursos que o ajudam a tirar o máximo proveito da sua subscrição do Azure. Incluímos links para cursos online gratuitos, documentação, serviços centrais e sites úteis para se manter atual e gerir a mudança para a sua organização. Para um acesso rápido e fácil ao trabalho em curso, também mostramos uma lista dos seus recursos mais recentemente visitados. Não é possível personalizar esta página, mas pode escolher se vê **o Azure Home** ou **o Azure Dashboard** como a sua vista padrão. A primeira vez que iniciar sôs o seu registo, há uma solicitação no topo da página onde pode guardar a sua preferência.
 
-![Screenshot mostrando seletor de visualização padrão](./media/azure-portal-overview/azure-portal-default-view.png)
+![Screenshot mostrando onde guardar a sua preferência.](./media/azure-portal-overview/azure-portal-default-view.png)
 
-Tanto o menu do portal Azure como o padrão Azure podem ser alterados nas **definições do Portal**. Se alterar a sua seleção, a alteração é imediatamente aplicada.
+Tanto o menu do portal Azure como o padrão Azure podem ser alterados nas **definições do Portal** . Se alterar a sua seleção, a alteração é imediatamente aplicada.
 
 ![Screenshot mostrando seletor de visualização padrão](./media/azure-portal-overview/azure-portal-overview-portal-settings-menu-home.png)
 
@@ -70,7 +70,7 @@ A figura abaixo rotula os elementos básicos do portal Azure, cada um dos quais 
 |2| Procura global. Utilize a barra de pesquisa para encontrar rapidamente um recurso específico, um serviço ou documentação.|
 |3|Controlos globais. Como todos os elementos globais, estas funcionalidades persistem em todo o portal e incluem: Cloud Shell, filtro de subscrição, notificações, configurações do portal, ajuda e suporte, e enviam-nos feedback.|
 |4|A sua conta. Ver informações sobre a sua conta, trocar diretórios, assinar ou iniciar sposição com uma conta diferente.|
-|5|Menu portal. O menu do portal é um elemento global que o ajuda a navegar entre serviços. Por vezes referido como barra lateral, o modo de menu do portal pode ser alterado nas **definições do Portal**.|
+|5|Menu portal. O menu do portal é um elemento global que o ajuda a navegar entre serviços. Por vezes referido como barra lateral, o modo de menu do portal pode ser alterado nas **definições do Portal** .|
 |6|Menu de recursos. Muitos serviços incluem um menu de recursos para ajudá-lo a gerir o serviço. Pode ver este elemento referido como o painel esquerdo.|
 |7|Barra de comando. Os controlos na barra de comando são contextuais ao seu foco atual.|
 |8|Painel de trabalho.  Apresenta os detalhes sobre o recurso que está atualmente em foco.|

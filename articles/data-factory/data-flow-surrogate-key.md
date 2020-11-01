@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 04/08/2020
-ms.openlocfilehash: ade2fd6011bbcdaed4ce31ce70bfb4235429bb0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: d1f8993b1adc297b1bfadba114df76a66e59afa2
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606303"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147189"
 ---
 # <a name="surrogate-key-transformation-in-mapping-data-flow"></a>Transformação chave de substituição no fluxo de dados de mapeamento 
 
@@ -31,9 +31,9 @@ Utilize a transformação da chave de substituição para adicionar um valor cha
 
 ## <a name="increment-keys-from-existing-sources"></a>Chaves incrementais de fontes existentes
 
-Para iniciar a sua sequência a partir de um valor que existe numa fonte, use uma transformação de coluna derivada após a sua transformação chave de substituição para adicionar os dois valores juntos:
+Para iniciar a sua sequência a partir de um valor que existe numa fonte, recomendamos usar um lavatório de cache para poupar esse valor e usar uma transformação de coluna derivada para adicionar os dois valores juntos. Utilize uma procura em cache para obter a saída e apdicê-la à chave gerada. Para mais informações, saiba sobre [lavatórios](data-flow-sink.md#cache-sink) de cache e [pesquisas em cache.](concepts-data-flow-expression-builder.md#cached-lookup)
 
-![SK adicionar Max](media/data-flow/sk006.png "Transformação da chave de substituição Adicionar Max")
+![Lookup de chave de substituição](media/data-flow/cached-lookup-example.png "Lookup de chave de substituição")
 
 ### <a name="increment-from-existing-maximum-value"></a>Incremento do valor máximo existente
 
@@ -41,19 +41,18 @@ Para semear o valor chave com o max anterior, existem duas técnicas que pode us
 
 #### <a name="database-sources"></a>Fontes de base de dados
 
-Utilize uma opção de consulta SQL para selecionar MAX() da sua fonte. Por exemplo `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`/
+Utilize uma opção de consulta SQL para selecionar MAX() da sua fonte. Por exemplo, `Select MAX(<surrogateKeyName>) as maxval from <sourceTable>`.
 
-![Consulta de chave de substituição](media/data-flow/sk002.png "Consulta de transformação de chave de substituição")
+![Consulta de chave de substituição](media/data-flow/surrogate-key-max-database.png "Consulta de transformação de chave de substituição")
 
 #### <a name="file-sources"></a>Fontes de arquivo
 
 Se o seu valor máximo anterior estiver num ficheiro, utilize a `max()` função na transformação agregada para obter o valor máximo anterior:
 
-![Ficheiro de chave de substituição](media/data-flow/sk008.png "Ficheiro de chave de substituição")
+![Ficheiro de chave de substituição](media/data-flow/surrogate-key-max-file.png "Ficheiro de chave de substituição")
 
-Em ambos os casos, deve juntar-se aos seus novos dados de entrada juntamente com a sua fonte que contém o valor máximo anterior.
+Em ambos os casos, terá de escrever para uma pia de cache e procurar o valor. 
 
-![Chave de substituição Aderir](media/data-flow/sk004.png "Chave de substituição Aderir")
 
 ## <a name="data-flow-script"></a>Script de fluxo de dados
 

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 10/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9087722b54a805a0c217c236263bdcb39e5456e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 027cd8eb9c855afb845b08ce6aada7ddfd44daba
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84986251"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147016"
 ---
 # <a name="list-azure-role-assignments-using-azure-cli"></a>ListE Azure atribui funções usando Azure CLI
 
@@ -163,15 +163,15 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 
 ## <a name="list-role-assignments-for-a-managed-identity"></a>Listar atribuições de funções para uma identidade gerida
 
-1. Obtenha a identificação do objeto da identidade gerida atribuída pelo sistema ou atribuída pelo utilizador.
+1. Obtenha a identificação principal da identidade gerida atribuída pelo sistema ou atribuída ao utilizador.
 
-    Para obter o ID do objeto de uma identidade gerida atribuída ao utilizador, pode utilizar [a lista de anúncios az ou](/cli/azure/ad/sp#az-ad-sp-list) a lista de [identidades az](/cli/azure/identity#az-identity-list).
+    Para obter o ID principal de uma identidade gerida atribuída ao utilizador, pode utilizar [a lista de anúncios az ou](/cli/azure/ad/sp#az-ad-sp-list) a lista de [identidades az.](/cli/azure/identity#az-identity-list)
 
     ```azurecli
     az ad sp list --display-name "{name}" --query [].objectId --output tsv
     ```
 
-    Para obter o iD do objeto de uma identidade gerida atribuída ao sistema, você pode usar [a lista de anúncios az sp](/cli/azure/ad/sp#az-ad-sp-list).
+    Para obter a identificação principal de uma identidade gerida atribuída ao sistema, você pode usar [a lista de anúncios az sp](/cli/azure/ad/sp#az-ad-sp-list).
 
     ```azurecli
     az ad sp list --display-name "{vmname}" --query [].objectId --output tsv

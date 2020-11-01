@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/27/2020
-ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.date: 10/30/2020
+ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891401"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147240"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do sumidouro no fluxo de dados de mapeamento
 
@@ -72,6 +72,23 @@ O vídeo seguinte explica uma série de diferentes opções de pia para tipos de
 **Utilizar o TempDB:** Por padrão, a Data Factory utilizará uma tabela temporária global para armazenar dados como parte do processo de carregamento. Em alternativa, pode desmarcar a opção "Use TempDB" e, em vez disso, peça à Data Factory para armazenar a tabela de detenção temporária numa base de dados do utilizador que está localizada na base de dados que está a ser utilizada para esta Pia.
 
 ![TempDB](media/data-flow/tempdb.png "TempDB")
+
+## <a name="cache-sink"></a>Pia cache
+ 
+Um *lavatório de cache* é quando um fluxo de dados escreve dados na cache Spark em vez de uma loja de dados. Ao mapear fluxos de dados, pode referenciar estes dados dentro do mesmo fluxo muitas vezes usando uma *procura de cache* . Isto é útil quando se pretende fazer referência aos dados como parte de uma expressão, mas não quer juntar explicitamente as colunas a ela. Exemplos comuns em que um lavatório de cache pode ajudar estão a procurar um valor máximo numa loja de dados e a combinar códigos de erro para uma base de dados de mensagens de erro. 
+
+Para escrever para uma pia de cache, adicione uma transformação de pia e selecione **Cache** como o tipo de pia. Ao contrário de outros tipos de pias, não precisa de selecionar um conjunto de dados ou um serviço ligado porque não está a escrever para uma loja externa. 
+
+![Selecione pia de cache](media/data-flow/select-cache-sink.png "Selecione pia de cache")
+
+Nas definições da pia, pode especificar opcionalmente as colunas-chave da pia de cache. Estas são utilizadas como condições de correspondência quando se utiliza a `lookup()` função numa procura de cache. Se especificar colunas-chave, não pode utilizar a `outputs()` função numa procura de cache. Para saber mais sobre a sintaxe de procuração de cache, consulte [as pesquisas em cache](concepts-data-flow-expression-builder.md#cached-lookup).
+
+![Cache lava as colunas-chave](media/data-flow/cache-sink-key-columns.png "Cache lava as colunas-chave")
+
+Por exemplo, se eu especificar uma única coluna-chave de `column1` um lavatório chamado `cacheExample` , a chamada teria um parâmetro que `cacheExample#lookup()` especificaria qual a linha na pia da cache para combinar. A função produz uma única coluna complexa com subcolumns para cada coluna mapeada.
+
+> [!NOTE]
+> Um lavatório de cache deve estar num fluxo de dados completamente independente de qualquer transformação que o remeta através de uma procura de cache. Um lavatório também deve ser escrito o primeiro lavatório. 
 
 ## <a name="field-mapping"></a>Mapeamento de campos
 
