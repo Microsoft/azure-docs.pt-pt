@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Experimente o Moderador de Conteúdo na web'
 titleSuffix: Azure Cognitive Services
-description: Utilize a ferramenta de Análise de Moderador de Conteúdo on-line para testar a funcionalidade básica do Moderador de Conteúdo sem ter de escrever qualquer código.
+description: Neste arranque rápido, utilizará a ferramenta online de Análise de Moderadores de Conteúdo para testar a funcionalidade básica do Moderador de Conteúdo sem ter de escrever qualquer código.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -12,12 +12,12 @@ ms.date: 09/29/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: moderador de conteúdo, moderação de conteúdo
-ms.openlocfilehash: 025c8fcf98a31d7b3380ee2530428d08428493fb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1d9315986f7a6c57c1da012b9034e4f1a3730bc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91596809"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143743"
 ---
 # <a name="quickstart-try-content-moderator-on-the-web"></a>Quickstart: Experimente o Moderador de Conteúdo na web
 
@@ -27,15 +27,14 @@ Neste arranque rápido, utilizará a ferramenta online de Análise de Moderadore
 
 - Um navegador web
 
-## <a name="set-up-the-review-tool"></a>Configurar a ferramenta 'Revisão'
-
-A ferramenta content Moderator Review é uma ferramenta baseada na web que permite aos revisores humanos ajudar o serviço cognitivo na tomada de decisões. Neste guia, irá passar pelo curto processo de configuração da ferramenta de revisão para que possa ver como funciona o serviço Desemisco de Conteúdo. Vá ao site da [ferramenta De Revisão de Moderadores](https://contentmoderator.cognitive.microsoft.com/) de Conteúdo e inscreva-se.
+## <a name="set-up-the-review-tool"></a>Configurar a ferramenta de revisão
+A ferramenta content Moderator Review é uma ferramenta baseada na web que permite aos revisores humanos ajudar o serviço cognitivo na tomada de decisões. Neste guia, irá passar pelo curto processo de configuração da ferramenta de revisão para que possa ver como funciona o serviço Desemaçamento de Conteúdos. Vá ao site da [ferramenta De Revisão de Moderadores](https://contentmoderator.cognitive.microsoft.com/) de Conteúdo e inscreva-se.
 
 ![Página inicial do moderador de conteúdo](images/homepage.PNG)
 
 ## <a name="create-a-review-team"></a>Criar uma equipa de revisão
 
-Em seguida, criar uma equipa de revisão. Num cenário de trabalho, este será o grupo de pessoas que revê manualmente as decisões de moderação do serviço. Para criar uma equipa, terá de selecionar uma **Região**e fornecer um **Nome de Equipa** e um **ID de equipa.** Se desejar convidar colegas para a equipa, pode fazê-lo inserindo os seus endereços de e-mail aqui.
+Em seguida, criar uma equipa de revisão. Num cenário de trabalho, esta equipa será o grupo de pessoas que reverão manualmente as decisões de moderação do serviço. Para criar uma equipa, terá de selecionar uma **Região** e fornecer um **Nome de Equipa** e um **ID de equipa.** Se desejar convidar colegas para a equipa, pode fazê-lo inserindo os seus endereços de e-mail aqui.
 
 > [!NOTE]
 > **Team Name** é um nome amigável para a sua equipa de revisão. Este é o nome apresentado no portal Azure. O **Team ID** é o que é usado para identificar a sua equipa de revisão de forma programatical.
@@ -43,31 +42,35 @@ Em seguida, criar uma equipa de revisão. Num cenário de trabalho, este será o
 > [!div class="mx-imgBorder"]
 > ![Convidar membro da equipa](images/create-team.png)
 
-Se optar por encriptar dados utilizando uma chave gerida pelo cliente (CMK), será solicitado o **ID de recursos** para o seu recurso de Moderador de Conteúdo no nível de preços E0. O recurso que fornece deve ser novo. 
+Se optar por encriptar dados utilizando uma chave gerida pelo cliente (CMK), será solicitado o **ID de recursos** para o seu recurso de Moderador de Conteúdo no nível de preços E0. O recurso que fornece deve ser exclusivo desta equipa. 
 
 > [!div class="mx-imgBorder"]
 > ![Convidar membro da equipa com CMK](images/create-team-cmk.png)
 
-Se tentar reutilizar um recurso de Moderador de Conteúdo, verá este aviso: 
-
-> [!div class="mx-imgBorder"]
-> ![Falha da CMK](images/create-team-cmk-fail.png)
-
 ## <a name="upload-sample-content"></a>Carregar o conteúdo da amostra
 
-Agora está pronto para carregar o conteúdo da amostra. Selecione **Tente > imagem,** **tente > texto**ou tente > **vídeo**.
+Agora está pronto para carregar o conteúdo da amostra. Selecione **Tente > imagem,** **tente > texto** ou tente > **vídeo** .
 
-![Experimente moderação de imagem ou texto](images/tryimagesortext.png)
+> [!div class="mx-imgBorder"]
+> ![Experimente moderação de imagem ou texto](images/tryimagesortext.png)
 
-Envie o seu conteúdo para moderação. Internamente, a ferramenta de revisão irá chamar as APIs de moderação para digitalizar o seu conteúdo. Assim que a digitalização estiver concluída, verá uma mensagem informando-o de que há resultados à espera da sua revisão.
+Envie o seu conteúdo para moderação. Pode utilizar o seguinte conteúdo de texto de amostra:
 
-![Ficheiros moderados](images/submitted.png)
+```
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 4255550111
+```
+
+Internamente, a ferramenta de revisão irá chamar as APIs de moderação para digitalizar o seu conteúdo. Assim que a digitalização estiver concluída, verá uma mensagem informando-o de que há resultados à espera da sua revisão.
+
+> [!div class="mx-imgBorder"]
+> ![Ficheiros moderados](images/submitted.png)
 
 ## <a name="review-moderation-tags"></a>Rever etiquetas de moderação
 
-Reveja as etiquetas de moderação aplicadas. Pode ver quais as etiquetas que foram aplicadas ao seu conteúdo e qual era a pontuação em cada categoria. Consulte os tópicos de moderação [de Imagem,](image-moderation-api.md) [Texto](text-moderation-api.md)e [Vídeo](video-moderation-api.md) para saber mais sobre o que as diferentes etiquetas de conteúdo indicam.
+Reveja as etiquetas de moderação aplicadas. Pode ver quais as etiquetas que foram aplicadas ao seu conteúdo e qual era a pontuação em cada categoria. Consulte os artigos de moderação [de Imagem,](image-moderation-api.md) [Texto](text-moderation-api.md)e [Vídeo](video-moderation-api.md) para saber mais sobre o que as diferentes etiquetas de conteúdo indicam.
 
-![Rever resultados](images/reviewresults_text.png)
+<!-- ![Review results](images/reviewresults_text.png) -->
 
 Num projeto, você ou a sua equipa de revisão podem alterar estas etiquetas ou adicionar mais tags conforme necessário. Submeterá estas alterações com o botão **Seguinte.** Como a sua aplicação de negócio chama de APIs moderador, o conteúdo marcado irá fazer fila aqui, pronto para ser revisto pelas equipas de revisão humana. Pode rever rapidamente grandes volumes de conteúdo utilizando esta abordagem.
 

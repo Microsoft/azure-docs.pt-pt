@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
 ms.custom: devx-track-csharp, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 82cb8da1a83e5b1e5430ebecf40f5152c824f6aa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 73b09c006b11e7f57dd3833191dd381b7f42a709
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742500"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145842"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure
 
@@ -39,7 +39,7 @@ Para configurar uma identidade gerida no portal, irá primeiro criar uma aplica�
 
 4. Dentro do separador **Designado sistema,** **altere o Estado** para **ligar** . Clique em **Guardar** .
 
-    ![Identidade gerida no Serviço de Aplicações](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
+    ![Screenshot que mostra onde mudar o Estado para ligar e, em seguida, selecionar Save.](media/app-service-managed-service-identity/system-assigned-managed-identity-in-azure-portal.png)
 
 
 > [!NOTE] 
@@ -324,7 +324,7 @@ Uma aplicação com uma identidade gerida tem duas variáveis ambientais definid
 
 O **IDENTITY_ENDPOINT** é um URL local a partir do qual a sua aplicação pode solicitar tokens. Para obter um token para um recurso, faça um pedido HTTP GET para este ponto final, incluindo os seguintes parâmetros:
 
-> | Nome do parâmetro    | Em     | Descrição                                                                                                                                                                                                                                                                                                                                |
+> | Nome do parâmetro    | Em     | Description                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | recurso          | Consulta  | O recurso AZURE AD URI do recurso para o qual deve ser obtido um símbolo. Este pode ser um dos [serviços Azure que suportam a autenticação AD AZure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) ou qualquer outro recurso URI.    |
 > | api-version       | Consulta  | A versão da API simbólica a ser utilizada. Utilize "2019-08-01" ou mais tarde (a menos que utilize o Linux Consumption, que atualmente apenas oferece "2017-09-01" - ver nota acima).                                                                                                                                                                                                                                                                 |
@@ -338,7 +338,7 @@ O **IDENTITY_ENDPOINT** é um URL local a partir do qual a sua aplicação pode 
 
 Uma resposta bem sucedida de 200 OK inclui um corpo JSON com as seguintes propriedades:
 
-> | Nome da propriedade | Descrição                                                                                                                                                                                                                                        |
+> | Nome da propriedade | Description                                                                                                                                                                                                                                        |
 > |---------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | access_token  | O sinal de acesso solicitado. O serviço web de chamada pode usar este token para autenticar o serviço web recetor.                                                                                                                               |
 > | client_id     | A identificação do cliente da identidade que foi usada.                                                                                                                                                                                                       |

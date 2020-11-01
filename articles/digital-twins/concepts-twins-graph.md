@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 3bf039eb099a5735c3528c1ba5b9c440d7787c43
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c62d1a0b17fda2531a963c292fbd16aaf3a551b3
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097061"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145995"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
@@ -63,13 +63,15 @@ Aqui está um código de cliente exemplo que usa as [APIs DigitalTwins](/rest/ap
 await CreateRoom("Cafe", 70, 66);
 await CreateFloor("GroundFloor", averageTemperature=70);
 // Create relationships
-Dictionary<string, object> targetrec = new Dictionary<string, object>()
+var relationship = new BasicRelationship
 {
-    { "$targetId", "Cafe" }
+    TargetId = "Cafe",
+    Name = "contains"
 };
 try
 {
-    await client.DigitalTwins.AddEdgeAsync("GroundFloor", "contains", "GF-to-Cafe", targetrec);
+    string relId = $"GroundFloor-contains-Cafe";
+    await client.CreateOrReplaceRelationshipAsync("GroundFloor", relId, relationship);
 } catch(ErrorResponseException e)
 {
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");

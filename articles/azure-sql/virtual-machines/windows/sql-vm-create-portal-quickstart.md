@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d7d82db7fc8a39a0865e80ee7873ee849627c583
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 454dc593dca216d3805036ce78ec9986cf317d4e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791074"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145859"
 ---
 # <a name="quickstart-create-sql-server-2017-on-a-windows-virtual-machine-in-the-azure-portal"></a>Quickstart: Criar SQL Server 2017 numa máquina virtual Windows no portal Azure
 
@@ -47,7 +47,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 1. **Selecione +Adicione** para abrir a página **de opção de implementação Select SQL.** Pode ver informações adicionais selecionando **detalhes do Show** no azulejo das **máquinas virtuais SQL.**
 1. Selecione a **Licença de servidor SQL grátis: SQL Server 2017 Developer on Windows Server 2016** image from the dropdown.
 
-   ![Nova janela de procura](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
+   ![Screenshot que mostra onde seleciona a Licença de Servidor SQL Grátis: SQL Server 2017 Developer na imagem do Windows Server 2016.](./media/sql-vm-create-portal-quickstart/select-sql-2017-vm-image.png)
 
 1. Selecione **Criar** .
 
@@ -128,7 +128,7 @@ Depois de ligar à máquina virtual do SQL Server, pode iniciar o SQL Server Man
 
 O acesso ao computador permite-lhe alterar diretamente as definições do SQL Server e da máquina com base nos seus requisitos. Por exemplo, pode configurar as definições da firewall ou alterar as definições de configuração do SQL Server.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não precisar que a sua VM SQL execute continuamente, pode evitar despesas desnecessárias ao pará-la quando não estiver a utilizar. Também pode eliminar permanentemente todos os recursos associados à máquina virtual ao eliminar o seu grupo de recursos associados no portal. Isto também elimina permanentemente a máquina virtual, pelo que utilize este comando com cuidado. Para mais informações, consulte [Manage Azure resources through portal (Gerir recursos do Azure através do portal)](../../../azure-resource-manager/management/manage-resource-groups-portal.md).
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 1db412a3b83da905475749deea0432fbeae06e8f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 66d0d3ebf9d5866039bbbac3171513b37330be7a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742762"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146795"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monte volume de disco fiável de tecido de serviço altamente disponível numa aplicação de malha de tecido de serviço 
 O método comum de persistência do estado com aplicações de contentores é usar armazenamento remoto como O Azure File Storage ou base de dados como Azure Cosmos DB. Isto incorre em leitura significativa e escrever latência de rede para a loja remota.
@@ -45,6 +45,11 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
+
+>[!NOTE]
+> A partir de 2 de novembro de 2020, [os limites de taxa de descarregamento aplicam-se](https://docs.docker.com/docker-hub/download-rate-limit/) a pedidos anónimos e autenticados para Docker Hub a partir de contas do plano Docker Free e são aplicados por endereço IP. 
+> 
+> Este modelo faz uso de imagens públicas de Docker Hub. Por favor, note que pode ser limitado. Para mais detalhes, consulte [Authenticate with Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
 
 O seguinte comando implementa uma aplicação Linux utilizando o [counter.sfreliablevolume.linux.jsno modelo](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). Para implementar uma aplicação Do Windows, utilize o [counter.sfreliablevolume.windows.jsno modelo](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Tenha em atenção que imagens de contentores maiores podem demorar mais tempo a ser implantadas.
 

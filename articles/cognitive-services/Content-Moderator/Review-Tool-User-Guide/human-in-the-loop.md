@@ -10,18 +10,16 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
-ms.openlocfilehash: a23e6d46ee6e79fd7a5cabf4434c561f7d83b31b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf4d17cd2631f5bc299e392c46bd9065bb13744
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76169510"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146642"
 ---
 # <a name="content-moderator-review-tool"></a>Ferramenta de Revisão do Moderador de Conteúdo
 
-O Azure Content Moderador fornece serviços para combinar moderação de conteúdo de machine learning com avaliações humanas, e o site [da ferramenta Review](https://contentmoderator.cognitive.microsoft.com) é uma frente amigável ao utilizador que dá acesso detalhado a estes serviços.
-
-![O painel de ferramentas de revisão em um navegador](./images/0-dashboard.png)
+O Azure Content Moderador fornece serviços para combinar moderação de conteúdo de aprendizagem automática com avaliações humanas. O site [da ferramenta Review](https://contentmoderator.cognitive.microsoft.com) é uma frente fácil de usar que dá acesso detalhado a estes serviços.
 
 ## <a name="what-it-does"></a>O que faz
 
@@ -32,20 +30,27 @@ A [ferramenta Review](https://contentmoderator.cognitive.microsoft.com), quando 
 - Atribua ou agrave as avaliações de conteúdo a várias equipas de revisão, organizadas por categoria de conteúdo ou nível de experiência.
 - Utilize filtros lógicos predefinidos ou[personalizados (fluxos de trabalho)](../review-api.md#workflows)para classificar e rastrear o conteúdo, sem escrever qualquer código.
 - Utilize [conectores](./configure.md#connectors) para processar conteúdos com os serviços Microsoft PhotoDNA, Text Analytics e Face, além das APIs moderadoras de conteúdo.
-- Construa o seu próprio conector para criar fluxos de trabalho para qualquer API ou processo de negócio.
 - Obtenha métricas de desempenho chave nos seus processos de moderação de conteúdo.
 
 ## <a name="review-tool-dashboard"></a>Painel de ferramentas de revisão
 
-No **separador Dashboard,** pode ver as métricas-chave para avaliações de conteúdo efetuadas dentro da ferramenta. Consulte o número de comentários totais, completos e pendentes para conteúdo de imagem, texto e vídeo. Pode também ver a desagregação de utilizadores e equipas que completaram comentários, bem como as etiquetas de moderação que foram aplicadas.
+No **separador Dashboard,** pode ver as métricas-chave para avaliações de conteúdo efetuadas dentro da ferramenta. Consulte o número de comentários totais, completos e pendentes para conteúdo de imagem, texto e vídeo. 
 
-![Ver Dashboard](images/0-dashboard.png)
+A tabela **de comentários pendentes** mostra a desagregação de utilizadores e subtemas que têm revisões pendentes ou concluídas, bem como o tempo restante do SLA. Pode selecionar os itens na tabela para ir às suas avaliações. A caixa de pesquisa acima da tabela permite filtrar os resultados pelo nome da equipa, e o ícone **Filtro** permite filtrar por outras métricas.
+
+Mudar para o separador **de avaliações Concluídas** mostra o número total de itens processados ou preenchidos por utilizadores e subteames. Pode filtrar estes dados da mesma forma que as avaliações pendentes.
+
+Clicar no texto no canto superior direito do painel apresenta as Métricas Pessoais Diárias, que relatam o número de avaliações completas para cada tipo de conteúdo.
+
+> [!div class="mx-imgBorder"]
+> ![O painel de ferramentas de revisão em um navegador](images/0-dashboard.png)
 
 ## <a name="review-tool-credentials"></a>Rever credenciais de ferramenta
 
-Quando se inscreve na [ferramenta 'Revisão',](https://contentmoderator.cognitive.microsoft.com)será solicitado que selecione uma região Azure para si. Isto porque a [ferramenta Review](https://contentmoderator.cognitive.microsoft.com) gera uma chave de teste gratuita para os serviços de Moderador de Conteúdo Azure; necessitará desta chave para aceder a qualquer um dos serviços a partir de uma chamada REST ou do cliente SDK. Pode ver a sua chave e URL **Settings**de ponto final da API selecionando  >  **Credenciais de Definições**.
+Quando se inscreve na [ferramenta 'Revisão',](https://contentmoderator.cognitive.microsoft.com)será solicitado que selecione uma região Azure para si. Isto porque a [ferramenta Review](https://contentmoderator.cognitive.microsoft.com) gera uma chave de teste gratuita para os serviços de Moderador de Conteúdo Azure. Você precisará desta chave para aceder a qualquer um dos serviços a partir de uma chamada REST ou cliente SDK. Pode ver a sua chave e URL **Admin** de ponto final da API selecionando  >  **credenciais** de administrador .
 
-![Credenciais moderadoras de conteúdo](images/settings-6-credentials.png)
+> [!div class="mx-imgBorder"]
+> ![Credenciais moderadoras de conteúdo](images/settings-6-credentials.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

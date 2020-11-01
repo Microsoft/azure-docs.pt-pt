@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bb4e2ac525270004a698471cd44955cd25fefc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83634563"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146114"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Criar e gerir vários dashboards
 
@@ -42,7 +42,7 @@ Por exemplo, pode adicionar um **azulejo de telemetria** para a temperatura atua
 
 1. Selecione um **modelo de dispositivo**
 1. Selecione um dispositivo de **Dispositivos** para o dispositivo que pretende ver num azulejo do painel de instrumentos. Em seguida, verá uma lista das propriedades do dispositivo que podem ser usadas no azulejo.
-1. Para criar o azulejo no painel de instrumentos, clique na **Temperatura** e arraste-o para a área do painel de instrumentos. Também pode clicar na caixa de verificação ao lado **da Temperatura** e clicar em **adicionar azulejo**. A imagem que se segue mostra a seleção de um modelo e dispositivo do dispositivo do dispositivo, em seguida, criar um azulejo de telemetria de temperatura no painel de instrumentos.
+1. Para criar o azulejo no painel de instrumentos, clique na **Temperatura** e arraste-o para a área do painel de instrumentos. Também pode clicar na caixa de verificação ao lado **da Temperatura** e clicar em **adicionar azulejo** . A imagem que se segue mostra a seleção de um modelo e dispositivo do dispositivo do dispositivo, em seguida, criar um azulejo de telemetria de temperatura no painel de instrumentos.
 1. **Selecione Guarde** na parte superior esquerda para guardar as alterações no painel de instrumentos.
 
 > [!div class="mx-imgBorder"]
@@ -51,7 +51,7 @@ Por exemplo, pode adicionar um **azulejo de telemetria** para a temperatura atua
 Agora, quando vê o seu painel pessoal, vê o novo azulejo com a definição **de temperatura** para o dispositivo:
 
 > [!div class="mx-imgBorder"]
-> ![Separador do painel com detalhes para o azulejo de temperatura](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+> ![Screenshot que mostra o novo azulejo com a definição de temperaturas para o dispositivo.](media/howto-create-personal-dashboards/temperature-tile-complete.png)
 
 Você pode explorar outros tipos de azulejos na biblioteca para descobrir como personalizar ainda mais seus dashboards pessoais.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 9c7b08b92fad07cddbdb2783f2d68cdb9be034a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 91ba36a0bffab6c66020bab41ace65659ed084f7
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097078"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146318"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Rotas eventos dentro e fora de Azure Digital Twins
 
@@ -73,19 +73,19 @@ As APIs de ponta que estão disponíveis no plano de controlo são:
  
 Para criar uma rota de eventos, pode utilizar o plano de dados Azure Digital Twins [**APIs,**](how-to-manage-routes-apis-cli.md#create-an-event-route) [**comandos CLI**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)ou o [**portal Azure**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Aqui está um exemplo de criação de uma rota de evento dentro de uma aplicação de cliente, usando a chamada `CreateEventRoute` [.NET (C#) SDK:](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) 
+Aqui está um exemplo de criação de uma rota de evento dentro de uma aplicação de cliente, usando a chamada `CreateOrReplaceEventRouteAsync` [.NET (C#) SDK:](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) 
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+string eventFilter = "$eventType = 'DigitalTwinTelemetryMessages' or $eventType = 'DigitalTwinLifecycleNotification'";
+var er = new DigitalTwinsEventRoute("endpointName", eventFilter);
+await client.CreateOrReplaceEventRouteAsync("routeName", er);
 ```
 
-1. Primeiro, um `EventRoute` objeto é criado, e o construtor toma o nome de um ponto final. Este `endpointName` campo identifica um ponto final como um Event Hub, Event Grid ou Service Bus. Estes pontos finais devem ser criados na sua subscrição e anexados à Azure Digital Twins utilizando APIs do plano de controlo antes de escrutinar esta chamada de registo.
+1. Primeiro, um `DigitalTwinsEventRoute` objeto é criado, e o construtor toma o nome de um ponto final. Este `endpointName` campo identifica um ponto final como um Event Hub, Event Grid ou Service Bus. Estes pontos finais devem ser criados na sua subscrição e anexados à Azure Digital Twins utilizando APIs do plano de controlo antes de escrutinar esta chamada de registo.
 
 2. O objeto de rota do evento também tem um campo [**filtro,**](how-to-manage-routes-apis-cli.md#filter-events) que pode ser usado para restringir os tipos de eventos que seguem esta rota. Um filtro `true` permite a rota sem filtragem adicional (um filtro de `false` desativa a rota). 
 
-3. Este objeto de rota do evento é então passado para `CreateEventRoute` , juntamente com um nome para a rota.
+3. Este objeto de rota do evento é então passado para `CreateOrReplaceEventRouteAsync` , juntamente com um nome para a rota.
 
 > [!TIP]
 > Todas as funções SDK vêm em versões sincronizadas e assíncronos.

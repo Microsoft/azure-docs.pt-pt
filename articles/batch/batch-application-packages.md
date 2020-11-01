@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91277704"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Implementar aplicações para calcular os nóns com pacotes de aplicações batch
@@ -33,7 +33,7 @@ Existem restrições ao número de pedidos e pacotes de aplicações dentro de u
 
 ## <a name="understand-applications-and-application-packages"></a>Compreender aplicações e pacotes de aplicações
 
-Dentro do Azure Batch, uma *aplicação* refere-se a um conjunto de binários versados que podem ser automaticamente descarregados para os nós computacional na sua piscina. Uma aplicação contém um ou mais pacotes de *aplicações*, que representam diferentes versões da aplicação.
+Dentro do Azure Batch, uma *aplicação* refere-se a um conjunto de binários versados que podem ser automaticamente descarregados para os nós computacional na sua piscina. Uma aplicação contém um ou mais pacotes de *aplicações* , que representam diferentes versões da aplicação.
 
 Cada *pacote de aplicações* é um ficheiro .zip que contém os binários de aplicação e quaisquer ficheiros de suporte. Apenas o formato .zip é suportado.
 
@@ -69,7 +69,7 @@ Se ainda não tiver configurado uma conta de armazenamento, o portal Azure apres
 Depois de ter ligado as duas contas, o Batch pode implantar automaticamente os pacotes armazenados na conta de Armazenamento ligada aos seus nós de computação.
 
 > [!IMPORTANT]
-> Não é possível utilizar pacotes de aplicações com contas de Armazenamento Azure configuradas com [regras de firewall](../storage/common/storage-network-security.md), ou com **espaço de nome hierárquico** definido para **Ativado**.
+> Não é possível utilizar pacotes de aplicações com contas de Armazenamento Azure configuradas com [regras de firewall](../storage/common/storage-network-security.md), ou com **espaço de nome hierárquico** definido para **Ativado** .
 
 O serviço Batch utiliza o Azure Storage para armazenar os seus pacotes de aplicações como bolhas de bloqueio. Você é [cobrado normalmente](https://azure.microsoft.com/pricing/details/storage/) para os dados do bloco blob, e o tamanho de cada embalagem não pode exceder o tamanho máximo de blob de bloco. Para obter mais informações, consulte [a escalabilidade do armazenamento Azure e os objetivos de desempenho para contas de armazenamento.](../storage/blobs/scalability-targets.md) Para minimizar os custos, certifique-se de considerar o tamanho e o número dos seus pacotes de aplicação e remover periodicamente pacotes prectados.
 
@@ -81,33 +81,33 @@ Para ver as aplicações na sua conta Batch, selecione **Aplicações** no menu 
 
 A seleção desta opção de menu abre a janela **Aplicações.** Esta janela apresenta o ID de cada aplicação na sua conta e as seguintes propriedades:
 
-- **Pacotes**: Número de versões associadas a esta aplicação.
-- **Versão predefinida**: Se aplicável, a versão de aplicação que será instalada se nenhuma versão for especificada ao implementar a aplicação.
-- **Permitir atualizações**: Especifica se são permitidas atualizações e supressões de pacotes.
+- **Pacotes** : Número de versões associadas a esta aplicação.
+- **Versão predefinida** : Se aplicável, a versão de aplicação que será instalada se nenhuma versão for especificada ao implementar a aplicação.
+- **Permitir atualizações** : Especifica se são permitidas atualizações e supressões de pacotes.
 
-Para ver a estrutura de [ficheiros](files-and-directories.md) do pacote de aplicações num nó de computação, navegue para a sua conta Batch no portal Azure. Selecione **Piscinas**. em seguida, selecione a piscina que contém o nó de computação. Selecione o nó de cálculo no qual o pacote de aplicações está instalado e abra a pasta **de aplicações.**
+Para ver a estrutura de [ficheiros](files-and-directories.md) do pacote de aplicações num nó de computação, navegue para a sua conta Batch no portal Azure. Selecione **Piscinas** . em seguida, selecione a piscina que contém o nó de computação. Selecione o nó de cálculo no qual o pacote de aplicações está instalado e abra a pasta **de aplicações.**
 
 ### <a name="view-application-details"></a>Ver detalhes da aplicação
 
 Para ver os detalhes de uma aplicação, selecione-o na janela **Aplicações.** Pode configurar as seguintes definições para a sua aplicação.
 
-- **Permitir atualizações**: Indica se os pacotes de aplicações podem ser [atualizados ou eliminados](#update-or-delete-an-application-package). A predefinição é **Sim**. Se definidos para **Nº**, os pacotes de aplicações existentes não podem ser atualizados ou eliminados, mas ainda podem ser adicionadas novas versões de pacotes de aplicações.
-- **Versão predefinida**: O pacote de aplicação predefinido a utilizar quando a aplicação for implementada, se nenhuma versão for especificada.
-- **Nome do visor**: Um nome amigável que a sua solução Batch pode usar quando apresenta informações sobre a aplicação. Por exemplo, este nome pode ser usado na UI de um serviço que fornece aos seus clientes através do Batch.
+- **Permitir atualizações** : Indica se os pacotes de aplicações podem ser [atualizados ou eliminados](#update-or-delete-an-application-package). A predefinição é **Sim** . Se definidos para **Nº** , os pacotes de aplicações existentes não podem ser atualizados ou eliminados, mas ainda podem ser adicionadas novas versões de pacotes de aplicações.
+- **Versão predefinida** : O pacote de aplicação predefinido a utilizar quando a aplicação for implementada, se nenhuma versão for especificada.
+- **Nome do visor** : Um nome amigável que a sua solução Batch pode usar quando apresenta informações sobre a aplicação. Por exemplo, este nome pode ser usado na UI de um serviço que fornece aos seus clientes através do Batch.
 
 ### <a name="add-a-new-application"></a>Adicionar uma nova aplicação
 
 Para criar uma nova aplicação, adicione um pacote de aplicações e especifique um ID de aplicação único.
 
-Na sua conta Batch, selecione **Aplicações** e, em seguida, **selecione Adicionar**.
+Na sua conta Batch, selecione **Aplicações** e, em seguida, **selecione Adicionar** .
 
 :::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagrama que mostra uma visão de alto nível das aplicações e pacotes de aplicações.":::
 
 Introduza as seguintes informações:
 
-- **ID de aplicação**: O ID da sua nova aplicação.
-- **Versão**": A versão para o pacote de aplicações que está a carregar.
-- **Pacote de aplicações**: O ficheiro .zip contendo os binários de aplicação e ficheiros de suporte necessários para executar o pedido.
+- **ID de aplicação** : O ID da sua nova aplicação.
+- **Versão** ": A versão para o pacote de aplicações que está a carregar.
+- **Pacote de aplicações** : O ficheiro .zip contendo os binários de aplicação e ficheiros de suporte necessários para executar o pedido.
 
 O ID de **aplicação** e **a versão** que inseri devem seguir estes requisitos:
 
@@ -120,9 +120,9 @@ Quando estiver pronto, **selecione Submeter.** Depois de o ficheiro .zip ter sid
 
 ### <a name="add-a-new-application-package"></a>Adicione um novo pacote de aplicações
 
-Para adicionar uma versão pacote de aplicação para uma aplicação existente, selecione a aplicação na secção **aplicações** da sua conta Batch e, em seguida, selecione **Adicionar**.
+Para adicionar uma versão pacote de aplicação para uma aplicação existente, selecione a aplicação na secção **aplicações** da sua conta Batch e, em seguida, selecione **Adicionar** .
 
-Tal como fez para a nova aplicação, especifique a **versão** para o seu novo pacote, carrefique o seu ficheiro .zip no campo **pacote de aplicação** e, em seguida, selecione **Enviar por isso**.
+Tal como fez para a nova aplicação, especifique a **versão** para o seu novo pacote, carrefique o seu ficheiro .zip no campo **pacote de aplicação** e, em seguida, selecione **Enviar por isso** .
 
 ### <a name="update-or-delete-an-application-package"></a>Atualizar ou eliminar um pacote de aplicações
 
@@ -225,7 +225,7 @@ AZ_BATCH_APP_PACKAGE_blender_2_7
 
 Ao carregar um pacote de aplicações, pode especificar uma versão predefinida para implementar nos seus nós de computação. Se tiver especificado uma versão predefinida para uma aplicação, pode omitir o sufixo da versão quando referenciar a aplicação. Pode especificar a versão de aplicação predefinida no portal Azure, na janela **Aplicações,** como mostrado no [Upload e gerir aplicações](#upload-and-manage-applications).
 
-Por exemplo, se definir "2.7" como a versão padrão para *o liquidificador*de aplicações , e as suas tarefas referenciarem a seguinte variável ambiental, então os seus nós Windows executarão a versão 2.7:
+Por exemplo, se definir "2.7" como a versão padrão para *o liquidificador* de aplicações , e as suas tarefas referenciarem a seguinte variável ambiental, então os seus nós Windows executarão a versão 2.7:
 
 `AZ_BATCH_APP_PACKAGE_BLENDER`
 

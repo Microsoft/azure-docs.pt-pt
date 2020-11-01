@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3a4b7d68d7cd21ccb4b7eb8b97e0d331fb236e96
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793080"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146727"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento das VMs do SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ As secções seguintes descrevem como configurar o armazenamento para novas máq
 
 Ao forer um VM Azure utilizando uma imagem de galeria SQL Server, selecione alterar a **configuração** no separador Definições do **Servidor SQL** para abrir a página de Configuração de Armazenamento Otimizada de Desempenho. Pode deixar os valores por defeito ou modificar o tipo de configuração do disco que melhor se adequa às suas necessidades com base na sua carga de trabalho. 
 
-![Configuração de armazenamento VM do servidor SQL durante o provisionamento](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![Screenshot que realça o separador de definições do SQL Server e a opção de configuração Change.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Selecione o tipo de carga de trabalho para a qual está a implementar o seu Servidor SQL sob **a otimização do Armazenamento** . Com a opção de otimização **geral,** por padrão terá um disco de dados com 5000 IOPS máximo, e utilizará esta mesma unidade para o seu registo de dados, registo de transações e armazenamento tempDB. Selecionar o **processamento transacional** (OLTP) ou o armazenamento de dados criará um disco separado para **dados,** um disco separado para o registo de transações e utilizará sSD local para tempDB. Não existem diferenças de armazenamento entre **o processamento transacional** e o armazenamento **de dados,** mas altera a [configuração das suas listras e traça as bandeiras.](#workload-optimization-settings) A escolha do armazenamento premium define o caching para *ReadOnly* para a unidade de dados, e *nenhuma* para a unidade de registo de acordo com as [melhores práticas de desempenho do SQL Server VM](performance-guidelines-best-practices.md). 
 
@@ -103,7 +103,7 @@ Para os VMs do servidor SQL existentes, pode modificar algumas definições de a
 
 Para modificar as definições de armazenamento, **selecione Configurações de** **Configurações** . 
 
-![Configure armazenamento para o VM do servidor SQL existente](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
+![Screenshot que realça a opção Configurar e a secção de Utilização de Armazenamento.](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
 Pode modificar as definições do disco para as unidades que foram configuradas durante o processo de criação do SQL Server VM. Selecionar **A unidade de extensão** abre a página de modificação de unidade, permitindo-lhe alterar o tipo de disco, bem como adicionar discos adicionais. 
 
@@ -140,7 +140,7 @@ O Azure utiliza as seguintes definições para criar a piscina de armazenamento 
 
 O quadro a seguir descreve as três opções de tipo de carga de trabalho disponíveis e as respetivas otimizações:
 
-| Tipo de carga de trabalho | Descrição | Otimizações |
+| Tipo de carga de trabalho | Description | Otimizações |
 | --- | --- | --- |
 | **Geral** |Definição padrão que suporta a maioria das cargas de trabalho |Nenhum |
 | **Processamento transacional** |Otimiza o armazenamento para as cargas de trabalho tradicionais da base de dados OLTP |Bandeira de traço 1117<br/>Bandeira de traço 1118 |

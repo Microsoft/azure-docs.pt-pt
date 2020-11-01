@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: f8b5e344fc963d466571e75ff16f17367dc32971
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37086a925d65a80f219c8e0a3358c834a2691701
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87844852"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145655"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Acesso Azure API para FHIR com Carteiro
 
@@ -121,7 +121,7 @@ Agora que tem um sinal de acesso válido. Pode inserir um novo paciente. Mude pa
 
 Bata em "Enviar" e deve ver se o paciente foi criado com sucesso:
 
-![Paciente criado](media/tutorial-postman/postman-patient-created.png)
+![Screenshot que mostra que o paciente é criado com sucesso.](media/tutorial-postman/postman-patient-created.png)
 
 Se repetir a procura do paciente, deve agora ver o registo do paciente:
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 3727e9a83827261bf9e8a526ffedb6d3fc644afa
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b02c16c63d83fc33be5512d26eafb0ca0d6c9b98
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745984"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145893"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar uma aplicação no Service Fabric Mesh com um modelo
 
@@ -103,6 +103,11 @@ Quando o registo é criado, o resultado é semelhante ao seguinte:
 Este tutorial utiliza a aplicação de Lista de Tarefas como um exemplo.  O contentor de imagens para os serviços [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) podem ser encontrados no Hub do Docker. Consulte [a aplicação web Build a Service Fabric Mesh](service-fabric-mesh-tutorial-create-dotnetcore.md) para obter informações sobre como construir a aplicação no Visual Studio. O Service Fabric Mesh pode executar contentores do Docker do Windows ou Linux.  Se estiver a trabalhar com contentores do Linux, selecione **Mudar para contentores do Linux** no Docker.  Se estiver a trabalhar com contentores do Windows, selecione **Mudar para contentores do Windows** no Docker.
 
 Para enviar uma imagem para uma instância do ACR, primeiro tem de ter uma imagem de contentor. Se ainda não tiver quaisquer imagens de contentor locais, utilize o comando [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) para extrair as imagens do [WebFrontEnd](https://hub.docker.com/r/seabreeze/azure-mesh-todo-webfrontend/) e [ToDoService](https://hub.docker.com/r/seabreeze/azure-mesh-todo-service/) do Hub do Docker.
+
+>[!NOTE]
+> A partir de 2 de novembro de 2020, [os limites de taxa de descarregamento aplicam-se](https://docs.docker.com/docker-hub/download-rate-limit/) a pedidos anónimos e autenticados para Docker Hub a partir de contas do plano Docker Free e são aplicados por endereço IP. 
+> 
+> Estes comandos usam imagens públicas de Docker Hub. Por favor, note que pode ser limitado. Para mais detalhes, consulte [Authenticate with Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
 
 Extraia as imagens do Windows:
 

@@ -9,12 +9,12 @@ ms.date: 05/11/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: dba321d055e64d62ca91f95461c3299bee5f90d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aac7357939ab2d14949c967630840ed6d267d251
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83714224"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145740"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Capturar um rastreio de browser para resolução de problemas
 
@@ -30,39 +30,39 @@ O Google Chrome e o Microsoft Edge (Chromium) são ambos baseados no [projeto Ch
 
 1. No portal, navegue até ao degrau pouco antes do local onde o problema ocorre.
 
-1. Prima F12 ou selecione ![ Screenshot das definições do navegador ícone ](media/capture-browser-trace/chromium-icon-settings.png)  >  **Mais ferramentas**  >  **Ferramentas Desenvolvedores**.
+1. Prima F12 ou selecione ![ Screenshot que mostra o ícone de configurações do navegador.](media/capture-browser-trace/chromium-icon-settings.png) > **Mais ferramentas**  >  **Ferramentas de desenvolvimento** .
 
 1. Por padrão, o navegador mantém a informação de rastreio apenas para a página que está atualmente carregada. Desaprova as seguintes opções para que o navegador mantenha todas as informações de rastreio, mesmo que a sua repro exija ir a mais de uma página:
 
     1. Selecione o separador **'Rede'** e, em seguida, selecione **'Registar'.**
 
-          ![Screenshot de "Preserve log"](media/capture-browser-trace/chromium-network-preserve-log.png)
+          ![Screenshot que realça a opção de registo de reserva no separador Rede.](media/capture-browser-trace/chromium-network-preserve-log.png)
 
-    1. Selecione o separador **Consola,** selecione **as definições de Consola**e, em seguida, selecione Preserve **Log**. Selecione **as definições de consola** novamente para fechar o painel de definições.
+    1. Selecione o separador **Consola,** selecione **as definições de Consola** e, em seguida, selecione Preserve **Log** . Selecione **as definições de consola** novamente para fechar o painel de definições.
 
-          ![Screenshot de "Preserve Log"](media/capture-browser-trace/chromium-console-preserve-log.png)
+          ![Screenshot que realça a opção de registo de reserva no separador Consola.](media/capture-browser-trace/chromium-console-preserve-log.png)
 
-1. Selecione o separador **'Rede'** e, em seguida, selecione **Parar de registar o registo de rede** e **limpar**.
+1. Selecione o separador **'Rede'** e, em seguida, selecione **Parar de registar o registo de rede** e **limpar** .
 
     ![Screenshot de "Stop recording network log" e "Clear"](media/capture-browser-trace/chromium-stop-clear-session.png)
 
-1. Selecione **registo de rede**e, em seguida, reproduza o problema no portal.
+1. Selecione **registo de rede** e, em seguida, reproduza o problema no portal.
 
-    ![Screenshot de "Iniciar sessão de perfis"](media/capture-browser-trace/chromium-start-session.png)
+    ![Screenshot que mostra como gravar o registo de rede.](media/capture-browser-trace/chromium-start-session.png)
 
     Verá a saída da sessão semelhante à seguinte imagem.
 
-    ![Screenshot dos resultados do rastreio do navegador](media/capture-browser-trace/chromium-browser-trace-results.png)
+    ![Screenshot que mostra a saída da sessão.](media/capture-browser-trace/chromium-browser-trace-results.png)
 
 1. Depois de reproduzir o comportamento inesperado do portal, selecione **Parar de gravar o registo de rede,** em seguida, selecione Export **HAR** e guarde o ficheiro.
 
-    ![Screenshot de "Export HAR"](media/capture-browser-trace/chromium-network-export-har.png)
+    ![Screenshot que mostra como exportar HAR no separador Rede.](media/capture-browser-trace/chromium-network-export-har.png)
 
 1. Pare o gravador de passos e guarde a gravação.
 
 1. De volta ao painel de ferramentas de desenvolvimento do navegador, selecione o **separador Consola.** Clique com o botão direito numa das mensagens e, em seguida, **selecione Save as...** e guarde a saída da consola para um ficheiro de texto.
 
-    ![Screenshot da saída da consola](media/capture-browser-trace/chromium-console-select.png)
+    ![Screenshot que realça o separador Consola e o Save como... menu](media/capture-browser-trace/chromium-console-select.png)
 
 1. Embale o ficheiro HAR, a saída da consola e a gravação do ecrã num formato comprimido como .zip, e partilhe-o com o suporte da Microsoft.
 
@@ -76,11 +76,11 @@ Os passos a seguir mostram como utilizar as ferramentas de desenvolvimento no Mi
 
 1. No portal, navegue até ao degrau pouco antes do local onde o problema ocorre.
 
-1. Prima F12 ou selecione ![ Screenshot das definições do navegador ícone ](media/capture-browser-trace/edge-icon-settings.png)  >  **Mais ferramentas**  >  **Ferramentas Desenvolvedores**.
+1. Prima F12 ou selecione ![ Screenshot do ícone de configurações do navegador.](media/capture-browser-trace/edge-icon-settings.png) > **Mais ferramentas**  >  **Ferramentas de desenvolvimento** .
 
 1. Por padrão, o navegador mantém a informação de rastreio apenas para a página que está atualmente carregada. Desaprova as seguintes opções para que o navegador mantenha todas as informações de rastreio, mesmo que a sua repro exija ir a mais de uma página:
 
-    1. Selecione o separador **'Rede'** e, em seguida, limpe a opção **Limpar as entradas na navegação**.
+    1. Selecione o separador **'Rede'** e, em seguida, limpe a opção **Limpar as entradas na navegação** .
 
           ![Screenshot de "Entradas claras na navegação"](media/capture-browser-trace/edge-network-clear-entries.png)
 
@@ -88,27 +88,27 @@ Os passos a seguir mostram como utilizar as ferramentas de desenvolvimento no Mi
 
           ![Screenshot de "Preserve Log"](media/capture-browser-trace/edge-console-preserve-log.png)
 
-1. Selecione o separador **'Rede'** e, em seguida, selecione **'Stop profiling session'** e **Clear session**.
+1. Selecione o separador **'Rede'** e, em seguida, selecione **'Stop profiling session'** e **Clear session** .
 
     ![Screenshot de "Stop profiling session" e "Clear session"](media/capture-browser-trace/edge-stop-clear-session.png)
 
-1. Selecione **Iniciar a sessão de perfis**e, em seguida, reproduzir o problema no portal.
+1. Selecione **Iniciar a sessão de perfis** e, em seguida, reproduzir o problema no portal.
 
     ![Screenshot de "Iniciar sessão de perfis"](media/capture-browser-trace/edge-start-session.png)
 
     Verá a saída da sessão semelhante à seguinte imagem.
 
-    ![Screenshot dos resultados do rastreio do navegador](media/capture-browser-trace/edge-browser-trace-results.png)
+    ![Screenshot que mostra a saída para a sessão de perfis.](media/capture-browser-trace/edge-browser-trace-results.png)
 
-1. Depois de reproduzir o comportamento inesperado do portal, selecione **Stop profiling session**, em seguida, selecione Export as **HAR** e guarde o ficheiro.
+1. Depois de reproduzir o comportamento inesperado do portal, selecione **Stop profiling session** , em seguida, selecione Export as **HAR** e guarde o ficheiro.
 
     ![Screenshot de "Exportação como HAR"](media/capture-browser-trace/edge-network-export-har.png)
 
 1. Pare o gravador de passos e guarde a gravação.
 
-1. De volta ao painel de ferramentas de desenvolvimento do navegador, selecione o separador **Consola** e expanda a janela. Coloque o cursor no início da saída da consola e, em seguida, arraste e selecione todo o conteúdo da saída. Clique com o botão direito e, em seguida, selecione **Copy**e guarde a saída da consola para um ficheiro de texto.
+1. De volta ao painel de ferramentas de desenvolvimento do navegador, selecione o separador **Consola** e expanda a janela. Coloque o cursor no início da saída da consola e, em seguida, arraste e selecione todo o conteúdo da saída. Clique com o botão direito e, em seguida, selecione **Copy** e guarde a saída da consola para um ficheiro de texto.
 
-    ![Screenshot da saída da consola](media/capture-browser-trace/edge-console-select.png)
+    ![Screenshot que realça a opção do menu Copy.](media/capture-browser-trace/edge-console-select.png)
 
 1. Embale o ficheiro HAR, a saída da consola e a gravação do ecrã num formato comprimido como .zip, e partilhe-o com o suporte da Microsoft.
 
@@ -118,11 +118,11 @@ Os passos a seguir mostram como usar as ferramentas de desenvolvimento no Apple 
 
 1. Ative as ferramentas de desenvolvimento no Apple Safari:
 
-    1. Selecione **Safari**e, em seguida, selecione **Preferências**.
+    1. Selecione **Safari** e, em seguida, selecione **Preferências** .
 
         ![Screenshot das preferências do Safari](media/capture-browser-trace/safari-preferences.png)
 
-    1. Selecione o separador **Advanced** e, em seguida, selecione **o menu Mostrar Desenvolvimento na barra de menus**.
+    1. Selecione o separador **Advanced** e, em seguida, selecione **o menu Mostrar Desenvolvimento na barra de menus** .
 
         ![Screenshot das preferências avançadas do Safari](media/capture-browser-trace/safari-show-develop-menu.png)
 
@@ -132,7 +132,7 @@ Os passos a seguir mostram como usar as ferramentas de desenvolvimento no Apple 
 
 1. No portal, navegue até ao degrau pouco antes do local onde o problema ocorre.
 
-1. Selecione **Desenvolver,** em seguida, **selecione Show Web Inspetor**.
+1. Selecione **Desenvolver,** em seguida, **selecione Show Web Inspetor** .
 
     ![Screenshot de "Show Web Inspetor"](media/capture-browser-trace/safari-show-web-inspector.png)
 
@@ -140,19 +140,19 @@ Os passos a seguir mostram como usar as ferramentas de desenvolvimento no Apple 
 
     1. Selecione o separador **'Rede'** e, em seguida, selecione **'Registar'.**
 
-          ![Screenshot de "Preserve Log"](media/capture-browser-trace/safari-network-preserve-log.png)
+          ![Screenshot que mostra a opção Preservar Registo.](media/capture-browser-trace/safari-network-preserve-log.png)
 
     1. Selecione o separador **Consola** e, em seguida, selecione **'Registar'.**
 
-          ![Screenshot de "Preserve Log"](media/capture-browser-trace/safari-console-preserve-log.png)
+          ![Screenshot que mostra o Registo de Reserva no separador Consola.](media/capture-browser-trace/safari-console-preserve-log.png)
 
-1. Selecione o separador **'Rede'** e, em seguida, selecione **Itens de Rede Limpas**.
+1. Selecione o separador **'Rede'** e, em seguida, selecione **Itens de Rede Limpas** .
 
     ![Screenshot de "Itens de rede clara"](media/capture-browser-trace/safari-clear-session.png)
 
 1. Reproduza a questão no portal. Verá a saída da sessão semelhante à seguinte imagem.
 
-    ![Screenshot dos resultados do rastreio do navegador](media/capture-browser-trace/safari-browser-trace-results.png)
+    ![Screenshot que mostra a saída depois de reproduzir o problema.](media/capture-browser-trace/safari-browser-trace-results.png)
 
 1. Depois de reproduzir o comportamento inesperado do portal, selecione **Export** e guarde o ficheiro.
 
@@ -162,7 +162,7 @@ Os passos a seguir mostram como usar as ferramentas de desenvolvimento no Apple 
 
 1. De volta ao painel de ferramentas de desenvolvimento do navegador, selecione o separador **Consola** e expanda a janela. Coloque o cursor no início da saída da consola e, em seguida, arraste e selecione todo o conteúdo da saída. Utilize o Comando C para copiar a saída e guarde-a num ficheiro de texto.
 
-    ![Screenshot da saída da consola](media/capture-browser-trace/safari-console-select.png)
+    ![Screenshot que realça que pode ver e copiar a saída.](media/capture-browser-trace/safari-console-select.png)
 
 1. Embale o ficheiro HAR, a saída da consola e a gravação do ecrã num formato comprimido como .zip, e partilhe-o com o suporte da Microsoft.
 
@@ -176,15 +176,15 @@ Os passos a seguir mostram como utilizar as ferramentas de desenvolvimento no Fi
 
 1. No portal, navegue até ao degrau pouco antes do local onde o problema ocorre.
 
-1. Prima F12 ou selecione ![ Screenshot das configurações do navegador ícone ](media/capture-browser-trace/firefox-icon-settings.png)  >  **Web Developer**  >  **Toggle Tools**.
+1. Prima F12 ou selecione ![ Screenshot das configurações do navegador ícone ](media/capture-browser-trace/firefox-icon-settings.png)  >  **Web Developer**  >  **Toggle Tools** .
 
 1. Por padrão, o navegador mantém a informação de rastreio apenas para a página que está atualmente carregada. Desaprova as seguintes opções para que o navegador mantenha todas as informações de rastreio, mesmo que a sua repro exija ir a mais de uma página:
 
-    1. Selecione o separador **'Rede'** e, em seguida, **selecione Registos de Persistência**.
+    1. Selecione o separador **'Rede'** e, em seguida, **selecione Registos de Persistência** .
 
-          ![Screenshot de "Persist Logs"](media/capture-browser-trace/firefox-network-persist-logs.png)
+          ![Screenshot que realça a opção Persist Logs.](media/capture-browser-trace/firefox-network-persist-logs.png)
 
-    1. Selecione o separador **Consola,** selecione **as definições de Consola**e, em seguida, selecione **Registos de Persistência**.
+    1. Selecione o separador **Consola,** selecione **as definições de Consola** e, em seguida, selecione **Registos de Persistência** .
 
           ![Screenshot de "Persist Logs"](media/capture-browser-trace/firefox-console-persist-logs.png)
 
@@ -196,13 +196,13 @@ Os passos a seguir mostram como utilizar as ferramentas de desenvolvimento no Fi
 
     ![Screenshot dos resultados do rastreio do navegador](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. Depois de reproduzir o comportamento inesperado do portal, selecione **HAR Export/Import e,** em seguida, **Salve Tudo Como HAR**.
+1. Depois de reproduzir o comportamento inesperado do portal, selecione **HAR Export/Import e,** em seguida, **Salve Tudo Como HAR** .
 
     ![Screenshot de "Export HAR"](media/capture-browser-trace/firefox-network-export-har.png)
 
 1. Pare o registo de passos no Windows ou a gravação do ecrã no Mac e guarde a gravação.
 
-1. De volta ao painel de ferramentas de desenvolvimento do navegador, selecione o **separador Consola.** Clique com o botão direito numa das mensagens e, em seguida, selecione **Export Visible Message To**e guarde a saída da consola para um ficheiro de texto.
+1. De volta ao painel de ferramentas de desenvolvimento do navegador, selecione o **separador Consola.** Clique com o botão direito numa das mensagens e, em seguida, selecione **Export Visible Message To** e guarde a saída da consola para um ficheiro de texto.
 
     ![Screenshot da saída da consola](media/capture-browser-trace/firefox-console-select.png)
 

@@ -6,18 +6,20 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 08/21/2020
-ms.custom: contperfq1
-ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.custom: contperfq1, contperfq2
+ms.openlocfilehash: 756c87299db85e426b4793d51bea833aa694a830
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755097"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145961"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Utilizar o cliente do Apache Beeline com o Apache Hive
 
-Aprenda a usar [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) para executar consultas de Hive Apache em HDInsight.
+Este artigo descreve como usar o cliente [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) da linha de comando para criar e executar consultas apache Hive sobre uma ligação SSH.
+
+## <a name="background"></a>Fundo
 
 Beeline é um cliente da Hive que está incluído nos nós da cabeça do seu cluster HDInsight. Para ligar ao cliente Beeline instalado no seu cluster HDInsight, ou instalar a Beeline localmente, consulte [Connect to ou instale Apache Beeline](connect-install-beeline.md). A Beeline utiliza o JDBC para ligar ao HiveServer2, um serviço alojado no seu cluster HDInsight. Também pode utilizar o Beeline para aceder à Hive em HDInsight remotamente através da internet. Os exemplos seguintes fornecem as cadeias de ligação mais comuns usadas para ligar ao HDInsight da Beeline.
 
@@ -27,9 +29,7 @@ Beeline é um cliente da Hive que está incluído nos nós da cabeça do seu clu
 
 * Reparem no esquema URI para o armazenamento primário do seu cluster. Por exemplo,  `wasb://` para o Azure Storage, `abfs://` para Azure Data Lake Storage Gen2, ou `adl://` para Azure Data Lake Storage Gen1. Se a transferência segura estiver ativada para o Armazenamento Azure, o URI é `wasbs://` . Para mais informações, consulte [a transferência segura.](../../storage/common/storage-require-secure-transfer.md)
 
-* Opção 1: Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). A maioria dos passos deste documento assume que está a usar a Beeline de uma sessão de SSH para o cluster.
-
-* Opção 2: Um cliente local da Beeline.
+* Um cliente SSH. Para obter mais informações, consulte [Connect to HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). A maioria dos passos deste documento assume que está a usar a Beeline de uma sessão de SSH para o cluster. Você também pode usar um cliente Beeline local, mas esses passos não estão cobertos neste artigo.
 
 ## <a name="run-a-hive-query"></a>Executar uma consulta do Hive
 
@@ -56,7 +56,7 @@ Este exemplo baseia-se na utilização do cliente Beeline a partir de uma ligaç
     show tables;
     ```
 
-    Num novo aglomerado, apenas uma tabela é listada: **hivesmpletable**.
+    Num novo aglomerado, apenas uma tabela é listada: **hivesmpletable** .
 
 4. Utilize o seguinte comando para visualizar o esquema para o hivesmpletable:
 
@@ -109,11 +109,11 @@ Este exemplo baseia-se na utilização do cliente Beeline a partir de uma ligaç
 
     |Instrução |Descrição |
     |---|---|
-    |MESA DE LANÇAMENTO|Se a mesa existe, é apagada.|
+    |DROP TABLE|Se a mesa existe, é apagada.|
     |CRIAR TABELA EXTERNA|Cria uma mesa **externa** na Colmeia. As mesas externas armazenam apenas a definição de tabela na Colmeia. Os dados são deixados no local original.|
     |FORMATO DE LINHA|Como os dados são formatados. Neste caso, os campos em cada tronco são separados por um espaço.|
     |ARMAZENADO COMO LOCALIZAÇÃO DE FICHEIRO DE TEXTO|Onde os dados são armazenados e em que formato de ficheiro.|
-    |SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]**. Esta consulta devolve um valor de **3,** uma vez que existem três linhas que contêm este valor.|
+    |SELECIONAR|Seleciona uma contagem de todas as linhas onde a coluna **t4** contém o valor **[ERROR]** . Esta consulta devolve um valor de **3,** uma vez que existem três linhas que contêm este valor.|
     |INPUT__FILE__NAME como 'log'.|A Colmeia tenta aplicar o esquema a todos os ficheiros do diretório. Neste caso, o diretório contém ficheiros que não correspondem ao esquema. Para prevenir dados de lixo nos resultados, esta declaração diz à Hive que só deve devolver dados de ficheiros que terminam em .log.|
 
    > [!NOTE]  
@@ -157,13 +157,13 @@ Este exemplo baseia-se na utilização do cliente Beeline a partir de uma ligaç
 
 Este exemplo é uma continuação do exemplo anterior. Utilize os seguintes passos para criar um ficheiro e, em seguida, executá-lo usando Beeline.
 
-1. Utilize o seguinte comando para criar um ficheiro chamado **consulta.hql**:
+1. Utilize o seguinte comando para criar um ficheiro chamado **consulta.hql** :
 
     ```bash
     nano query.hql
     ```
 
-1. Utilize o seguinte texto como o conteúdo do ficheiro. Esta consulta cria uma nova tabela 'interna' denominada **ErrorLogs**:
+1. Utilize o seguinte texto como o conteúdo do ficheiro. Esta consulta cria uma nova tabela 'interna' denominada **ErrorLogs** :
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -181,7 +181,7 @@ Este exemplo é uma continuação do exemplo anterior. Utilize os seguintes pass
     > [!NOTE]  
     > Ao contrário das tabelas externas, deixar cair uma tabela interna também elimina os dados subjacentes.
 
-1. Para guardar o ficheiro, use **ctrl** + **X,** em seguida, insira **Y**, e finalmente **insira**.
+1. Para guardar o ficheiro, use **ctrl** + **X,** em seguida, insira **Y** , e finalmente **insira** .
 
 1. Utilize o seguinte para executar o ficheiro utilizando a Beeline:
 
@@ -192,7 +192,7 @@ Este exemplo é uma continuação do exemplo anterior. Utilize os seguintes pass
     > [!NOTE]  
     > O `-i` parâmetro inicia a Beeline e executa as declarações no `query.hql` ficheiro. Assim que a consulta terminar, chega-se ao `jdbc:hive2://headnodehost:10001/>` pedido. Também pode executar um ficheiro utilizando o `-f` parâmetro, que sai da Beeline após a conclusão da consulta.
 
-1. Para verificar se a tabela **ErrorLogs** foi criada, utilize a seguinte declaração para retornar todas as linhas de **errorLogs**:
+1. Para verificar se a tabela **ErrorLogs** foi criada, utilize a seguinte declaração para retornar todas as linhas de **errorLogs** :
 
     ```hiveql
     SELECT * from errorLogs;

@@ -10,12 +10,12 @@ ms.date: 08/01/2020
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f6a4045308aa0ae8488839b0d5ea4d476c4dc883
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 6d154d8b35c175b88e91545ddc1e78f58f9be685
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91776328"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146829"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service"></a>Quickstart: Criar uma aplicação Java no Azure App Service
 
@@ -80,7 +80,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.11.0:config
 
 1. Quando solicitado com a opção **Subscrição,** selecione o adequado `Subscription` introduzindo a impressão de número no arranque da linha.
 1. Quando solicitado com a opção **Web App,** aceite a opção difamar `<create>` pressionando a entrada.
-1. Quando solicitado com opção **SO,** selecione **janelas** entrando `2` .
+1. Quando solicitado com opção **SO,** selecione **janelas** entrando `3` .
 1. Utilize a versão Java padrão, 1.8, premindo a entrada.
 1. Finalmente, prima a entrada no último aviso para confirmar as suas seleções.
 
@@ -213,8 +213,8 @@ Propriedade | Necessário | Descrição | Versão
 `<subscriptionId>` | false | Especificar o id de assinatura. | 0.1.0+
 `<resourceGroup>` | true | Grupo de Recursos Azure para a sua Aplicação Web. | 0.1.0+
 `<appName>` | true | O nome da sua Aplicação Web. | 0.1.0+
-`<region>` | true | Especifica a região onde a sua Web App será hospedada; o valor predefinido é **westeurope**. Todas as regiões válidas na secção [Regiões Apoiadas.](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) | 0.1.0+
-`<pricingTier>` | false | O nível de preços da sua Web App. O valor predefinido é **P1V2**.| 0.1.0+
+`<region>` | true | Especifica a região onde a sua Web App será hospedada; o valor predefinido é **westeurope** . Todas as regiões válidas na secção [Regiões Apoiadas.](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) | 0.1.0+
+`<pricingTier>` | false | O nível de preços da sua Web App. O valor predefinido é **P1V2** .| 0.1.0+
 `<runtime>` | true | A configuração do ambiente de tempo de execução, pode ver o detalhe [aqui.](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) | 0.1.0+
 `<deployment>` | true | A configuração de implementação, pode ver os detalhes [aqui.](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) | 0.1.0+
 
@@ -246,7 +246,7 @@ Uma vez concluída a implementação, a sua aplicação estará pronta `http://<
 > [!div class="nextstepaction"]
 > [Dei conta de um problema.](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Nos passos anteriores, criou os recursos do Azure num grupo de recursos. Se não espera precisar destes recursos no futuro, elimine o grupo de recursos do portal ou executando o seguinte comando na Cloud Shell:
 

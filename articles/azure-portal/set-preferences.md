@@ -9,12 +9,12 @@ ms.date: 08/05/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 34750bcc2e9913b23daa3682d4fdea736f9c7a9a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367436"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145944"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gerir as definições e as preferências do portal do Azure
 
@@ -50,7 +50,7 @@ Pode alterar a página que abre por predefinição quando iniciar súb9 no porta
 
 O modo predefinido para o menu do portal controla o espaço que o menu do portal ocupa na página.
 
-![Screenshot mostrando definições do portal Azure com temas em destaque](./media/set-preferences/menu-mode.png)
+![Screenshot que mostra como definir o modo predefinido para o menu do portal.](./media/set-preferences/menu-mode.png)
 
 - Quando o menu do portal está no modo **Flyout,** está escondido até precisar. Selecione o ícone do menu para abrir ou fechar o menu.
 
@@ -68,7 +68,7 @@ Em alternativa, pode escolher um dos temas de alto contraste. Os temas de alto c
 
 As notificações são mensagens do sistema relacionadas com a sessão atual. Eles fornecem informações como o seu saldo de crédito atual, quando os recursos que acabou de criar ficam disponíveis, ou confirmam a sua última ação, por exemplo. Quando as notificações pop-up são ligadas, as mensagens são exibidas brevemente no canto superior do ecrã. 
 
-Para ativar ou desativar notificações pop-up, selecione ou limpe **As notificações pop-up**.
+Para ativar ou desativar notificações pop-up, selecione ou limpe **As notificações pop-up** .
 
 ![Screenshot mostrando as definições do portal Azure com notificações pop-up em destaque](./media/set-preferences/popup-notifications.png)
 
@@ -84,13 +84,13 @@ A definição de tempo de inatividade ajuda a proteger os recursos de acesso nã
 
 ### <a name="change-your-individual-timeout-setting-user"></a>Altere a definição de tempo limite individual (utilizador)
 
-Selecione o drop-down em **Sign me out quando estiver inativo**. Escolha a duração após a qual a sua sessão do portal Azure está assinada se estiver inativa.
+Selecione o drop-down em **Sign me out quando estiver inativo** . Escolha a duração após a qual a sua sessão do portal Azure está assinada se estiver inativa.
 
 ![Screenshot mostrando definições do portal com definições de tempo limite inativas em destaque](./media/set-preferences/inactive-signout-user.png)
 
 A alteração é guardada automaticamente. Se estiver inativo, a sessão do portal Azure será assinalada após a duração definida.
 
-Se o seu administrador tiver ativado uma política de tempo de inatividade, ainda pode definir a sua própria, desde que seja inferior à definição de nível de diretório. Selecione **Override a política de tempo de tempo de inatividade do diretório**e, em seguida, desaperte um intervalo de tempo.
+Se o seu administrador tiver ativado uma política de tempo de inatividade, ainda pode definir a sua própria, desde que seja inferior à definição de nível de diretório. Selecione **Override a política de tempo de tempo de inatividade do diretório** e, em seguida, desaperte um intervalo de tempo.
 
 ![Screenshot mostrando definições do portal com sobreposição da definição de política de tempo de inatividade do diretório realçada](./media/set-preferences/inactive-signout-override.png)
 
@@ -100,7 +100,7 @@ Os administradores na [função de Administrador Global](../active-directory/rol
 
 Se você é um Administrador Global, e deseja impor uma definição de tempo de tempo ocioso para todos os utilizadores do portal Azure, siga estes passos:
 
-1. Selecione o tempo limite **de tempo do diretório de configuração do**texto de ligação .
+1. Selecione o tempo limite **de tempo do diretório de configuração do** texto de ligação .
 
     ![Screenshot mostrando as definições do portal com texto de ligação realçado](./media/set-preferences/settings-admin.png)
 
@@ -108,7 +108,7 @@ Se você é um Administrador Global, e deseja impor uma definição de tempo de 
 
 1. Em seguida, insira as **Horas** e **Minutos** pelo tempo máximo que um utilizador pode ficar inativo antes da sua sessão ser automaticamente assinada.
 
-1. Selecione **Aplicar**.
+1. Selecione **Aplicar** .
 
     ![Screenshot mostrando página para definir tempo de inatividade de nível de diretório](./media/set-preferences/configure.png)
 
@@ -118,7 +118,7 @@ Para confirmar que a política de tempo limite de inatividade está corretamente
 
 ## <a name="restore-default-settings"></a>Restaurar predefinições
 
-Se tiver escamado as definições do portal Azure e quiser descartá-las, selecione **Restaurar as definições predefinidas**. Quaisquer alterações que tenha feito nas definições do portal serão perdidas. Esta opção não afeta as personalizações do dashboard.
+Se tiver escamado as definições do portal Azure e quiser descartá-las, selecione **Restaurar as definições predefinidas** . Quaisquer alterações que tenha feito nas definições do portal serão perdidas. Esta opção não afeta as personalizações do dashboard.
 
 ![Screenshot mostrando a restauração das definições predefinidos](./media/set-preferences/useful-links-restore-defaults.png)
 
@@ -132,7 +132,7 @@ As informações sobre as suas definições personalizadas são armazenadas no A
 
 É uma boa ideia exportar e rever as suas definições se planeia eliminá-las. A reconstrução de painéis ou a remodelação das definições podem ser morosas.
 
-Para exportar as definições do seu portal, **selecione Exporte todas as definições**.
+Para exportar as definições do seu portal, **selecione Exporte todas as definições** .
 
 ![Screenshot mostrando exportação de configurações](./media/set-preferences/useful-links-export-settings.png)
 
@@ -150,7 +150,7 @@ As informações sobre as suas definições personalizadas são armazenadas no A
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-Para eliminar as definições do seu portal, **selecione Eliminar todas as definições e dashboards privados**.
+Para eliminar as definições do seu portal, **selecione Eliminar todas as definições e dashboards privados** .
 
 ![Screenshot mostrando excluir as definições](./media/set-preferences/useful-links-delete-settings.png)
 

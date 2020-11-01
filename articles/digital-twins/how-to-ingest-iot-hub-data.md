@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1fa14c4341c449c32fd6a5f6b3274b057478c01c
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: d2606f793c7ab2e3ac29b1eb869e60a2c8e634ad
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495818"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145927"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesteia IoT Hub em Azure Digital Twins
 
@@ -117,9 +117,9 @@ A próxima amostra de código pega no ID e no valor da temperatura e usa-os para
 
 ```csharp
 //Update twin using device temperature
-var uou = new UpdateOperationsUtility();
-uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
-await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
+var updateTwinData = new JsonPatchDocument();
+updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
+await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
 ...
 ```
 
@@ -176,9 +176,9 @@ namespace IotHubtoTwins
                     log.LogInformation($"Device:{deviceId} Temperature is:{temperature}");
 
                     //Update twin using device temperature
-                    var uou = new UpdateOperationsUtility();
-                    uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
-                    await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
+                    var updateTwinData = new JsonPatchDocument();
+                    updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
+                    await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
                 }
             }
             catch (Exception e)
@@ -215,20 +215,20 @@ No [portal Azure,](https://portal.azure.com/)navegue para o seu IoT Hub que crio
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Um diagrama mostrando um gráfico de fluxo. Na tabela, um dispositivo IoT Hub envia telemetria de temperatura através do IoT Hub para uma Função Azure, que atualiza uma propriedade de temperatura num gémeo em Azure Digital Twins.":::
 
 Na página **'Criar Subscrição de** Eventos', preencha os campos da seguinte forma:
-  1. Under **Name**, nomeie a subscrição o que quiser.
+  1. Under **Name** , nomeie a subscrição o que quiser.
   2. Em **Esquema de Evento,** escolha _o Esquema de Grelha de Eventos._
   3. Nos **Tipos de Eventos,** escolha a caixa de verificação _de telemetria do dispositivo_ e desmarque outros tipos de eventos.
-  4. No **tipo de ponto final**, selecione _Azure._
-  5. Em **Endpoint**, _Escolha Selecionar uma_ ligação de ponto final para criar um ponto final.
+  4. No **tipo de ponto final** , selecione _Azure._
+  5. Em **Endpoint** , _Escolha Selecionar uma_ ligação de ponto final para criar um ponto final.
     
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Um diagrama mostrando um gráfico de fluxo. Na tabela, um dispositivo IoT Hub envia telemetria de temperatura através do IoT Hub para uma Função Azure, que atualiza uma propriedade de temperatura num gémeo em Azure Digital Twins.":::
 
 Na página _Select Azure Function_ que se abre, verifique os detalhes abaixo.
- 1. **Subscrição**: a subscrição do Azure
- 2. **Grupo de recursos**: O seu grupo de recursos
- 3. **App de função**: O nome da aplicação da sua função
- 4. **Slot**: _Produção_
- 5. **Função**: Selecione a função Azure a partir do dropdown.
+ 1. **Subscrição** : a subscrição do Azure
+ 2. **Grupo de recursos** : O seu grupo de recursos
+ 3. **App de função** : O nome da aplicação da sua função
+ 4. **Slot** : _Produção_
+ 5. **Função** : Selecione a função Azure a partir do dropdown.
 
 Guarde os seus dados selecionando o botão _Confirmar Seleção._            
       

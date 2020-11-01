@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
-ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 4919abd29ecf10c9116257750374ef53b4bd9d16
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.custom: seo-lt-2019
+ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789918"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146693"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Sempre no grupo de disponibilidade no SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -79,17 +79,17 @@ O quadro a seguir fornece uma comparação das opções disponíveis:
 |**Versão do SQL Server** |2016 + |2016 +|2016 +|2012 +|
 |**Edição do SQL Server** |Grandes Empresas |Grandes Empresas |Grandes Empresas |Enterprise, Standard|
 |**Versão do Windows Server**| 2016 + | 2016 + | 2016 + | Todos| 
-|**Cria o cluster para si**|Sim|Sim | Sim |Não|
-|**Cria o grupo de disponibilidade para si** |Sim |Não|Não|Não|
-|**Cria ouvinte e equilibrador de carga de forma independente** |Não|Não|Não|Sim|
-|**Possível criar ouvinte dNN utilizando este método?**|Não|Não|Não|Sim|
+|**Cria o cluster para si**|Yes|Yes | Yes |No|
+|**Cria o grupo de disponibilidade para si** |Yes |No|No|No|
+|**Cria ouvinte e equilibrador de carga de forma independente** |No|No|No|Yes|
+|**Possível criar ouvinte dNN utilizando este método?**|No|No|No|Yes|
 |**WSFC quórum configuratio** n|Testemunha de cloud|Testemunha de cloud|Testemunha de cloud|Todos|
-|**DR com várias regiões** |Não|Não|Não|Sim|
-|**Suporte multi-subscrição** |Sim|Sim|Sim|Sim|
-|**Apoio a um AD existente**|Sim|Sim|Sim|Sim|
-|**DR com multizona na mesma região**|Sim|Sim|Sim|Sim|
-|**AG distribuído sem AD**|Não|Não|Não|Sim|
-|**AG distribuído sem cluster** |Não|Não|Não|Sim|
+|**DR com várias regiões** |No|No|No|Yes|
+|**Suporte multi-subscrição** |Yes|Yes|Yes|Yes|
+|**Apoio a um AD existente**|Yes|Yes|Yes|Yes|
+|**DR com multizona na mesma região**|Yes|Yes|Yes|Yes|
+|**AG distribuído sem AD**|No|No|No|Yes|
+|**AG distribuído sem cluster** |No|No|No|Yes|
 ||||||
 
 

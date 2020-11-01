@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 06d114c500722259d02a940633a76d043b83064a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0832c975ecb410b97a24c975f9fc0f4799120abd
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077495"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145519"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Utilizar o serviço Gestão de API do Azure com uma rede virtual interna
 Com a Azure Virtual Networks, a Azure API Management pode gerir APIs não acessíveis na internet. Várias tecnologias VPN estão disponíveis para fazer a ligação. A API Management pode ser implementada em dois modos principais dentro de uma rede virtual:
@@ -47,7 +47,7 @@ Para executar os passos descritos neste artigo, deve ter:
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ **Um caso de Gestão AZURE API**. Para obter mais informações, consulte [Criar uma instância de Gestão API Azure.](get-started-create-service-instance.md)
++ **Um caso de Gestão AZURE API** . Para obter mais informações, consulte [Criar uma instância de Gestão API Azure.](get-started-create-service-instance.md)
 + Quando um serviço de Gestão API é implantado numa rede virtual, uma [lista de portas](./api-management-using-with-vnet.md#required-ports) é usada e precisa de ser aberta. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Criar uma Gestão de API numa rede virtual interna
@@ -56,21 +56,23 @@ O serviço de Gestão API numa rede virtual interna está alojado atrás de um [
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Ativar uma ligação de rede virtual utilizando o portal Azure
 
 1. Navegue pela sua instância de Gestão API Azure no [portal Azure](https://portal.azure.com/).
-2. Selecione **Rede virtual**.
+2. Selecione **Rede virtual** .
 3. Configurar o caso de Gestão da API a ser implantado dentro da rede virtual.
 
     ![Menu para criação de uma Azure API Management numa rede virtual interna][api-management-using-internal-vnet-menu]
 
-4. Selecione **Guardar**.
+4. Selecione **Guardar** .
 
 Após a implementação ter sucesso, deverá ver o endereço IP virtual **privado** e o endereço IP **virtual público** do seu serviço de Gestão API na lâmina geral. O endereço IP virtual **privado** é um endereço IP equilibrado de carga a partir da sub-rede delegada pela API Management sobre a qual `gateway` , e `portal` `management` `scm` pontos finais podem ser acedidos. O endereço IP virtual **público** é utilizado **apenas** para controlar o tráfego do avião até ao `management` ponto final sobre a porta 3443 e pode ser bloqueado na marca de serviço [ApiManagement.][ServiceTags]
 
 ![Painel de gestão API com uma rede virtual interna configurada][api-management-internal-vnet-dashboard]
 
 > [!NOTE]
-> A consola de teste disponível no Portal Azure não funcionará para o serviço **interno** de VNET implantado, uma vez que o Url Gateway não está registado no DNS Público. Em vez disso, deve utilizar a Consola de Teste fornecida no **portal Developer**.
+> A consola de teste disponível no Portal Azure não funcionará para o serviço **interno** de VNET implantado, uma vez que o Url Gateway não está registado no DNS Público. Em vez disso, deve utilizar a Consola de Teste fornecida no **portal Developer** .
 
-### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Ativar uma ligação de rede virtual utilizando cmdlets PowerShell
+### <a name="deploy-api-management-into-virtual-network"></a><a name="deploy-apim-internal-vnet"> </a>Implementar a Gestão da API na Rede Virtual
+
+[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

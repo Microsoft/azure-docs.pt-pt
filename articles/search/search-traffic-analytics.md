@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 03/18/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: d93ced4b45befec207494909de61d30a98d2a67e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91333737"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Recolher dados de telemetria para análise de tráfego de pesquisa
@@ -49,11 +49,11 @@ Assim que tiver um recurso Application Insights, pode seguir [instruções para 
 
 Um atalho que funciona para alguns tipos de projetos do Visual Studio reflete-se nos seguintes passos. Cria um recurso e regista a sua aplicação em apenas alguns cliques.
 
-1. Para o desenvolvimento de Estúdio Visual e ASP.NET, abra a sua solução e selecione **Project**  >  **Add Application Insights Telemetria**.
+1. Para o desenvolvimento de Estúdio Visual e ASP.NET, abra a sua solução e selecione **Project**  >  **Add Application Insights Telemetria** .
 
 1. Clique em **Get Started** (Começar).
 
-1. Registe a sua aplicação fornecendo uma conta Microsoft, subscrição Azure e um recurso Application Insights (um novo recurso é o padrão). Clique em **Registar**.
+1. Registe a sua aplicação fornecendo uma conta Microsoft, subscrição Azure e um recurso Application Insights (um novo recurso é o padrão). Clique em **Registar** .
 
 Neste momento, a sua aplicação está configurada para monitorização da aplicação, o que significa que todas as cargas de página são rastreadas com métricas padrão. Para obter mais informações sobre os passos anteriores, consulte [a telemetria do lado do servidor do Enable Application Insights](../azure-monitor/app/asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio).
 
@@ -129,12 +129,12 @@ var searchId = request.getResponseHeader('x-ms-azs-searchid');
 
 Sempre que um pedido de pesquisa é emitido por um utilizador, deve registar isso como um evento de pesquisa com o seguinte esquema num evento personalizado Application Insights. Lembre-se de registar apenas consultas de pesquisa geradas pelo utilizador.
 
-+ Nome do serviço de pesquisa **SearchService**: (string)
-+ **SearchId**: (guia) identificador único da consulta de pesquisa (vem na resposta à pesquisa)
-+ **ÍndiceName**: índice de serviço de pesquisa (cadeia) a ser consultado
-+ **QueryTerms**: (cadeia) termos de pesquisa introduzidos pelo utilizador
-+ **ResultadosCount**: (int) número de documentos que foram devolvidos (vem na resposta à pesquisa)
-+ **ScoringProfile**: (cadeia) nome do perfil de pontuação utilizado, se houver
++ Nome do serviço de pesquisa **SearchService** : (string)
++ **SearchId** : (guia) identificador único da consulta de pesquisa (vem na resposta à pesquisa)
++ **ÍndiceName** : índice de serviço de pesquisa (cadeia) a ser consultado
++ **QueryTerms** : (cadeia) termos de pesquisa introduzidos pelo utilizador
++ **ResultadosCount** : (int) número de documentos que foram devolvidos (vem na resposta à pesquisa)
++ **ScoringProfile** : (cadeia) nome do perfil de pontuação utilizado, se houver
 
 > [!NOTE]
 > Solicite a contagem de consultas geradas pelo utilizador adicionando $count=fiel à sua consulta de pesquisa. Para obter mais informações, consulte [Documentos de Pesquisa (REST)](/rest/api/searchservice/search-documents#counttrue--false).
@@ -172,10 +172,10 @@ appInsights.trackEvent("Search", {
 
 Sempre que um utilizador clica num documento, é um sinal que deve ser registado para efeitos de análise de pesquisa. Utilize eventos personalizados da Application Insights para registar estes eventos com o seguinte esquema:
 
-+ **Nome de serviço**: (string) nome do serviço de pesquisa
-+ **SearchId**: (guia) identificador único da consulta de pesquisa relacionada
-+ **DocId**: (string) identificador de documentos
-+ **Posição**: (int) classificação do documento na página de resultados de pesquisa
++ **Nome de serviço** : (string) nome do serviço de pesquisa
++ **SearchId** : (guia) identificador único da consulta de pesquisa relacionada
++ **DocId** : (string) identificador de documentos
++ **Posição** : (int) classificação do documento na página de resultados de pesquisa
 
 > [!NOTE]
 > Posição refere-se à ordem cardeal na sua candidatura. Você é livre de definir este número, desde que seja sempre o mesmo, para permitir a comparação.
@@ -209,19 +209,19 @@ appInsights.trackEvent("Click", {
 
 Depois de ter instrumentalizado a sua aplicação e verificado que a sua aplicação está corretamente ligada ao Application Insights, descarrega um modelo de relatório predefinido para analisar dados no ambiente de trabalho power BI. O relatório contém gráficos e tabelas predefinidos úteis para analisar os dados adicionais capturados para análise de tráfego de pesquisa.
 
-1. No painel de navegação esquerda do painel de pesquisa cognitiva Azure, em **Definições,** clique em **Pesquisar análises de tráfego**.
+1. No painel de navegação esquerda do painel de pesquisa cognitiva Azure, em **Definições,** clique em **Pesquisar análises de tráfego** .
 
 1. Na página **de análise de tráfego de pesquisa,** no passo 3, clique em Get Power BI **Desktop** para instalar Power BI.
 
    ![Obtenha relatórios de Power BI](./media/search-traffic-analytics/get-use-power-bi.png "Obtenha relatórios de Power BI")
 
-1. Na mesma página, clique no **relatório Download Power BI**.
+1. Na mesma página, clique no **relatório Download Power BI** .
 
 1. O relatório abre no Power BI Desktop, e é solicitado que se conecte a Application Insights e forneça credenciais. Pode encontrar informações de ligação nas páginas do portal Azure para o seu recurso Application Insights. Para obter credenciais, forneça o mesmo nome de utilizador e palavra-passe que utiliza para o acesso ao portal.
 
    ![Ligue-se ao Application Insights](./media/search-traffic-analytics/connect-to-app-insights.png "Ligue-se ao Application Insights")
 
-1. Clique **em Carregar**.
+1. Clique **em Carregar** .
 
 O relatório contém gráficos e tabelas que o ajudam a tomar decisões mais informadas para melhorar o desempenho e relevância da sua pesquisa.
 

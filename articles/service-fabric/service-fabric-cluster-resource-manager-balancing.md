@@ -5,17 +5,17 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: b6df25b525975f2d4fe6a02064e81f359a804c58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 192aca589c3b1e660667dbe8377afe7802b56f17
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416257"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146199"
 ---
 # <a name="balancing-your-service-fabric-cluster"></a>Equilibrar o seu cluster de tecido de serviço
 O Service Fabric Cluster Resource Manager suporta alterações dinâmicas de carga, reagindo a adições ou remoção de nós ou serviços. Também corrige automaticamente as violações de restrições e reequilibra proativamente o cluster. Mas com que frequência estas ações são tomadas, e o que as despoleta?
 
-Existem três categorias diferentes de trabalho que o Cluster Resource Manager realiza. A saber:
+Existem três categorias diferentes de trabalho que o Cluster Resource Manager realiza. São:
 
 1. Colocação – esta fase trata da colocação de quaisquer réplicas imponentes ou casos apátridas que estejam em falta. A colocação inclui tanto novos serviços como o manuseamento de réplicas declaradas ou casos apátridas que falharam. Apagar e largar réplicas ou casos são tratados aqui.
 2. Verificação de Restrições – esta fase verifica e corrige violações das diferentes restrições de colocação (regras) dentro do sistema. Exemplos de regras são coisas como garantir que os nós não estão sobrecapacidade e que os constrangimentos de colocação de um serviço são cumpridos.
@@ -74,12 +74,12 @@ através ClusterConfig.jspara implantações autónomas ou Template.jspara aglom
 
 Hoje, o Cluster Resource Manager só realiza uma destas ações de cada vez, sequencialmente. É por isso que nos referimos a estes temporizadores como "intervalos mínimos" e as ações que são tomadas quando os temporizadores saem como "sinalização de bandeiras". Por exemplo, o Cluster Resource Manager cuida dos pedidos pendentes para criar serviços antes de equilibrar o cluster. Como pode ver pelos intervalos de tempo especificados, o Cluster Resource Manager verifica tudo o que precisa de fazer com frequência. Normalmente, isto significa que o conjunto de alterações efetuadas durante cada passo é pequeno. Fazer pequenas alterações frequentemente permite que o Cluster Resource Manager seja responsivo quando as coisas acontecem no cluster. Os temporizadores predefinidos fornecem alguns lotes, uma vez que muitos dos mesmos tipos de eventos tendem a ocorrer simultaneamente. 
 
-Por exemplo, quando os nós falham, podem fazê-lo domínios inteiros de falhas de cada vez. Todas estas falhas são capturadas durante a próxima atualização do estado após o *PLBRefreshGap*. As correções são determinadas durante a colocação seguinte, verificação de restrições e corridas de equilíbrio. Por predefinição, o Cluster Resource Manager não está a analisar horas de alterações no cluster e a tentar resolver todas as alterações de uma só vez. Fazê-lo levaria a explosões de agitação.
+Por exemplo, quando os nós falham, podem fazê-lo domínios inteiros de falhas de cada vez. Todas estas falhas são capturadas durante a próxima atualização do estado após o *PLBRefreshGap* . As correções são determinadas durante a colocação seguinte, verificação de restrições e corridas de equilíbrio. Por predefinição, o Cluster Resource Manager não está a analisar horas de alterações no cluster e a tentar resolver todas as alterações de uma só vez. Fazê-lo levaria a explosões de agitação.
 
-O Cluster Resource Manager também precisa de algumas informações adicionais para determinar se o cluster está desequilibrado. Para isso temos duas outras peças de configuração: *BalanceThresholds* e *ActivityThresholds*.
+O Cluster Resource Manager também precisa de algumas informações adicionais para determinar se o cluster está desequilibrado. Para isso temos duas outras peças de configuração: *BalanceThresholds* e *ActivityThresholds* .
 
 ## <a name="balancing-thresholds"></a>Limiares de equilíbrio
-Um limiar de equilíbrio é o principal controlo para desencadear o reequilíbrio. O Limiar de Equilíbrio para uma métrica é uma _razão_. Se a carga para uma métrica no nó mais carregado dividido pela quantidade de carga no nó menos carregado exceder o *BalanceThreshold*da métrica, então o cluster é desequilibrado. Como resultado, o equilíbrio é desencadeado da próxima vez que o Cluster Resource Manager verificar. O *temporizador MinLoadBalancingInterval* define com que frequência o Gestor de Recursos do Cluster deve verificar se é necessário reequilibrada. Verificar não significa que algo aconteça. 
+Um limiar de equilíbrio é o principal controlo para desencadear o reequilíbrio. O Limiar de Equilíbrio para uma métrica é uma _razão_ . Se a carga para uma métrica no nó mais carregado dividido pela quantidade de carga no nó menos carregado exceder o *BalanceThreshold* da métrica, então o cluster é desequilibrado. Como resultado, o equilíbrio é desencadeado da próxima vez que o Cluster Resource Manager verificar. O *temporizador MinLoadBalancingInterval* define com que frequência o Gestor de Recursos do Cluster deve verificar se é necessário reequilibrada. Verificar não significa que algo aconteça. 
 
 Os limiares de equilíbrio são definidos numa base métrica como parte da definição do cluster. Para mais informações sobre métricas, confira [este artigo.](service-fabric-cluster-resource-manager-metrics.md)
 
@@ -189,7 +189,7 @@ Certamente pode ver onde vamos aqui: há uma corrente! Não temos realmente quat
 
 <center>
 
-![Serviços de equilíbrio juntos][Image4]
+![Diagrama que mostra como equilibrar os serviços em conjunto.][Image4]
 </center>
 
 Por causa desta cadeia, é possível que um desequilíbrio nas métricas 1-4 possa causar réplicas ou casos pertencentes aos serviços 1-3 para se deslocarem. Também sabemos que um desequilíbrio nas Métricas 1, 2 ou 3 não pode causar movimentos no Serviço4. Não faria sentido, uma vez que mover as réplicas ou instâncias pertencentes ao Service4 não pode fazer absolutamente nada para impactar o equilíbrio das Métricas 1-3.
@@ -198,7 +198,7 @@ O Cluster Resource Manager descobre automaticamente quais os serviços relaciona
 
 <center>
 
-![Serviços de equilíbrio juntos][Image5]
+![Diagrama que mostra que cluster resource Manager determina quais os serviços relacionados.][Image5]
 </center>
 
 ## <a name="next-steps"></a>Passos seguintes

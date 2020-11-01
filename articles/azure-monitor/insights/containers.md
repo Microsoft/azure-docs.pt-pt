@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326907"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145689"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solução de monitorização de contentores no Monitor Azure
 
@@ -116,7 +116,7 @@ Reveja o [artigo do Docker Engine no Windows](/virtualization/windowscontainers/
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Instalar e configurar os anfitriões dos contentores Linux
 
-Depois de ter instalado o Docker, utilize as seguintes definições para o seu anfitrião do contentor para configurar o agente para utilização com o Docker. Primeiro precisa do seu ID e chave do espaço de trabalho Log Analytics, que pode encontrar no portal Azure. No seu espaço de trabalho, clique em **Computadores De Início Rápido**para ver o  >  **Computers** **ID** do espaço de trabalho e **a chave primária.**  Copie e cole ambos no seu editor favorito.
+Depois de ter instalado o Docker, utilize as seguintes definições para o seu anfitrião do contentor para configurar o agente para utilização com o Docker. Primeiro precisa do seu ID e chave do espaço de trabalho Log Analytics, que pode encontrar no portal Azure. No seu espaço de trabalho, clique em **Computadores De Início Rápido** para ver o  >  **Computers** **ID** do espaço de trabalho e **a chave primária.**  Copie e cole ambos no seu editor favorito.
 
 **Para todos os anfitriões de contentores Linux, exceto CoreOS:**
 
@@ -476,12 +476,12 @@ Para utilizar o leme para implantar o agente Log Analytics no seu ambiente Linux
  
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
  
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
    
     Para mais informações, visite [o Container Solution Helm Chart](https://aka.ms/omscontainerhelm).
@@ -513,7 +513,7 @@ Para ativar a monitorização do computador Windows e Hiper-V, instale o Microso
 
 Pode monitorizar os recipientes do Windows em funcionamento no Service Fabric. No entanto, [apenas máquinas virtuais que executam em Azure](../learn/quick-collect-azurevm.md) e [computadores que executam o Windows no seu ambiente no local](../platform/agent-windows.md) são atualmente suportados para o Service Fabric.
 
-Pode verificar se a solução de monitorização do contentor está corretamente definida para o Windows. Para verificar se o pacote de gestão foi descarregado corretamente, procure *ContainerManagement.xxx*. Os ficheiros devem estar na pasta C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
+Pode verificar se a solução de monitorização do contentor está corretamente definida para o Windows. Para verificar se o pacote de gestão foi descarregado corretamente, procure *ContainerManagement.xxx* . Os ficheiros devem estar na pasta C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 
 ## <a name="solution-components"></a>Componentes da solução
 
@@ -574,7 +574,7 @@ Clique no **azulejo de Recipientes.** A partir daí, verá vistas organizadas po
 
 Cada área do painel é uma representação visual de uma pesquisa que é executada em dados recolhidos.
 
-![Painel de contentores](./media/containers/containers-dash01.png)
+![Screenshot que mostra um dashboard para visualizar os dados recolhidos. ](./media/containers/containers-dash01.png)
 
 ![Painel de contentores](./media/containers/containers-dash02.png)
 
@@ -599,9 +599,9 @@ Log Analytics marca um recipiente como **Falhado** se tiver saído com um códig
 2. O Log Analytics abre e exibe o estado dos seus recipientes, semelhante ao seguinte.  
    ![estado de contentores](./media/containers/containers-log-search.png)
 3. Expandir a linha Falhada e clicar + para adicionar os seus critérios à consulta. Em seguida, comente a linha Resumo na consulta.
-   ![recipientes falhados](./media/containers/containers-state-failed-select.png)  
+   ![Screenshot que mostra a linha que deve ser comentada.](./media/containers/containers-state-failed-select.png)  
 1. Executar a consulta e, em seguida, expandir uma linha nos resultados para ver o ID de imagem.  
-   ![recipientes falhados](./media/containers/containers-state-failed.png)  
+   ![Screenshot que mostra como ver o ID de imagem.](./media/containers/containers-state-failed.png)  
 1. Digite o seguinte na consulta de registo. `ContainerImageInventory | where ImageID == <ImageID>` para ver detalhes sobre a imagem, como o tamanho da imagem e o número de imagens paradas e falhadas.  
    ![recipientes falhados](./media/containers/containers-failed04.png)
 

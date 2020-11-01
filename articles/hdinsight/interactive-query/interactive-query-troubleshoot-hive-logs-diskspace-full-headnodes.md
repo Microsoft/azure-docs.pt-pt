@@ -1,32 +1,32 @@
 ---
-title: Apache Hive Logs enchendo o espaço do disco - Azure HDInsight
-description: Os troncos da Colmeia Apache estão a encher o espaço do disco nos nós da cabeça em Azure HDInsight.
+title: 'Resolução de problemas: Os registos da Colmeia Apache preenchem o espaço do disco - Azure HDInsight'
+description: Este artigo fornece passos de resolução de problemas a seguir quando os registos da Hive Apache estão a preencher o espaço do disco nos nós da cabeça em Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 10/05/2020
-ms.openlocfilehash: 5554a66927fc70f22ec552b938ae62038a04acb9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 64bf5714f5eb99df9929a47fef414a827ec680af
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533024"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145638"
 ---
-# <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Cenário: Os registos da Colmeia Apache estão a preencher o espaço do disco nos nos nóns da Cabeça em Azure HDInsight
+# <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Cenário: Os troncos da Colmeia Apache estão a encher o espaço do disco nos nos nos acenos da cabeça em Azure HDInsight
 
-Este artigo descreve etapas de resolução de problemas e possíveis resoluções para questões relacionadas com o espaço de disco insuficiente nos nós da cabeça nos clusters Azure HDInsight.
+Este artigo descreve etapas de resolução de problemas e possíveis resoluções para problemas relacionados com o espaço insuficiente do disco nos nós da cabeça nos clusters Azure HDInsight.
 
 ## <a name="issue"></a>Problema
 
-Num aglomerado Apache Hive/LLAP, troncos indesejados estão ocupando todo o espaço do disco nos nós da cabeça. Devido ao que, na sequência de problemas, poderia ser visto.
+Num aglomerado Apache Hive/LLAP, troncos indesejados estão ocupando todo o espaço do disco nos nós da cabeça. Esta condição pode causar os seguintes problemas:
 
-1. O acesso ao SSH falha por não ter espaço no nó da cabeça.
-2. Ambari dá *HTTP ERROR: 503 Serviço Indisponível* .
-3. A HiveServer2 Interactive não consegue reiniciar.
+- O acesso ao SSH falha porque não há espaço no nó da cabeça.
+- Ambari lança *HTTP ERROR: 503 Serviço Indisponível* .
+- A HiveServer2 Interactive não consegue reiniciar.
 
-Os `ambari-agent` registos mostrariam o seguinte quando o problema acontecesse.
+Os `ambari-agent` registos incluirão as seguintes entradas quando o problema acontecer:
 ```
 ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
 ```
@@ -36,17 +36,17 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>Causa
 
-Nas configurações avançadas de hive-log4j, o atual calendário de eliminação por defeito é definido para ficheiros com mais de 30 dias com base na última data modificada.
+Nas configurações avançadas do log4j da Hive, o atual crono de eliminação por defeito é eliminar ficheiros com mais de 30 dias, com base na última data modificada.
 
 ## <a name="resolution"></a>Resolução
 
-1. Navegue para o resumo do componente da Hive no portal Ambari e clique no `Configs` separador.
+1. Vá ao resumo do componente da Colmeia no portal Ambari e selecione o **separador Configs.**
 
-2. Aceda à `Advanced hive-log4j` secção dentro das definições Avançadas.
+2. Aceda à `Advanced hive-log4j` secção em **definições avançadas** .
 
-3. Desa parte `appender.RFA.strategy.action.condition.age` para uma idade à sua escolha. Exemplo para 14 dias: `appender.RFA.strategy.action.condition.age = 14D`
+3. Desa parte do `appender.RFA.strategy.action.condition.age` parâmetro para uma idade à sua escolha. Este exemplo fixará a idade para 14 dias: `appender.RFA.strategy.action.condition.age = 14D`
 
-4. Se não vir nenhuma definição relacionada, apece estas seguintes definições.
+4. Se não vir nenhuma definição relacionada, apece estas definições:
     ```
     # automatically delete hive log
     appender.RFA.strategy.action.type = Delete
@@ -57,7 +57,7 @@ Nas configurações avançadas de hive-log4j, o atual calendário de eliminaçã
     appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
     ```
 
-5. Definido `hive.root.logger` para o `INFO,RFA` seguinte. A definição predefinida é DEBUG, o que faz com que os troncos se tornem muito grandes.
+5. Definido `hive.root.logger` para , como mostrado no exemplo `INFO,RFA` seguinte. A definição predefinida é `DEBUG` , o que torna os registos grandes.
 
     ```
     # Define some default values that can be overridden by system properties
@@ -67,7 +67,7 @@ Nas configurações avançadas de hive-log4j, o atual calendário de eliminaçã
     hive.log.file=hive.log
     ```
 
-6. Guarde as configs e reinicie os componentes necessários.
+6. Guarde as configurações e reinicie os componentes necessários.
 
 ## <a name="next-steps"></a>Passos seguintes
 

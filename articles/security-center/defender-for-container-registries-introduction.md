@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 989115224489ff8fff360a34b27c338ea3e33058
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558640"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145825"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registos de contentores
 
@@ -32,6 +32,12 @@ O Centro de Segurança filtra e classifica as descobertas do scanner. Quando uma
 
 Ao notificar apenas quando há problemas, o Centro de Segurança reduz o potencial de alertas informativos indesejados.
 
+
+> [!TIP]
+> Para saber mais sobre as funcionalidades de segurança do Security Center, consulte:
+>
+> - [Centro de Segurança Azure e segurança de contentores](container-security.md)
+> - [Introdução ao Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
 
 ## <a name="when-are-images-scanned"></a>Quando as imagens são digitalizadas?
 
@@ -81,10 +87,5 @@ Sim. Se tiver uma necessidade organizacional de ignorar uma descoberta, em vez d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre as funcionalidades de segurança do Security Center, consulte:
-
-- [Centro de Segurança Azure e segurança de contentores](container-security.md)
-
-- [Introdução ao Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)
-
-
+> [!div class="nextstepaction"]
+> [Digitalize as suas imagens para obter vulnerabilidades](defender-for-container-registries-usage.md)

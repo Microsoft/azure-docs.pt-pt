@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/20/2020
 ms.author: apimpm
-ms.openlocfilehash: c498046b9088f78eda95693fa23f0a0bb3472724
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05295efec3d7651c3a77dd5ad6e2c72b57a6c5a3
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626875"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146761"
 ---
 # <a name="import-an-openapi-specification"></a>Importar uma especificação de OpenAPI
 
@@ -39,11 +39,11 @@ Complete o seguinte quickstart: [Criar uma instância de gestão API Azure](get-
 ## <a name="import-and-publish-a-back-end-api"></a><a name="create-api"> </a>Importar e publicar uma API de back-end
 
 1. Navegue para o seu serviço de Gestão API no portal Azure e selecione **APIs** no menu.
-2. Selecione **Especificação de OpenAPI** na lista **Adicionar uma API nova**.
+2. Selecione **Especificação de OpenAPI** na lista **Adicionar uma API nova** .
 
     ![Especificação OpenAPI](./media/import-api-from-oas/oas-api.png)
 3. Insira as definições de API. Pode definir os valores durante a criação ou configurá-los mais tarde, indo ao **separador Definições.** As definições são explicadas no Import e publicam o seu primeiro tutorial [da API.](import-and-publish.md#import-and-publish-a-backend-api)
-4. Selecione **Criar**.
+4. Selecione **Criar** .
 
 > [!NOTE]
 > As limitações de importação da API estão documentadas [noutro artigo.](api-management-api-import-restrictions.md)

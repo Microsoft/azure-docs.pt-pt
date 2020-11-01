@@ -11,15 +11,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
-ms.topic: tutorial
+ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0cdad245981ad02d3cdaefba447d131c775e242f
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168210"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145774"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalize o estilo das páginas do portal do desenvolvedor
 
@@ -45,7 +45,7 @@ Neste artigo, aprende-se a personalizar o estilo de elementos nas páginas do po
 
 ## <a name="customize-the-developer-portal"></a>Personalize o portal do desenvolvedor
 
-1. Selecione **Descrição geral**.
+1. Selecione **Descrição geral** .
 2. Clique no botão **portal Developer (legado)** na parte superior da janela **'Vista Geral'.**
 3. No canto superior esquerdo do ecrã, verá um ícone com dois pincéis. Coloque o cursor sobre este ícone para abrir o menu de personalização do portal.
 
@@ -53,13 +53,13 @@ Neste artigo, aprende-se a personalizar o estilo de elementos nas páginas do po
 4. Selecione **Estilos** no menu para abrir o painel de personalização de estilos.
 
     Todos os elementos que pode personalizar com **Estilos** aparecem na página
-5. Introduza "headings-color" no campo **Alterar valores de variáveis para personalizar o aspeto do portal do programador:**.
+5. Introduza "headings-color" no campo **Alterar valores de variáveis para personalizar o aspeto do portal do programador:** .
 
-    O elemento ** \@ cor de títulos** aparece na página. Esta variável controla a cor do texto.
+    O elemento **\@ cor de títulos** aparece na página. Esta variável controla a cor do texto.
 
     ![personalizar estilo](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Clique no campo para obter a variável ** \@ cor de títulos.** 
+6. Clique no campo para obter a variável **\@ cor de títulos.** 
     
     É aberto o menu pendente do selecionador de cores.
 7. No menu pendente do selecionador de cores, selecione uma nova cor.

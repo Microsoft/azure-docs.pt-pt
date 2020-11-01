@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
 ms.openlocfilehash: 7be326e0f01ed6a00244c0f5b9ed6a960b2b6e0b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "86171861"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Interoperabilidade em funcionalidades de conectividade traseira do Azure: Detalhes da configuração do teste
@@ -23,17 +23,17 @@ Este artigo descreve os detalhes de configuração da [configuração][Setup]do 
 
 ## <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>Conectividade falada VNet usando o peering VNet
 
-A seguinte figura mostra a Rede Virtual Azure a espreitar detalhes de uma rede virtual falada (VNet). Para aprender a configurar olhando entre dois VNets, consulte [Gerir o olhar da VNet][VNet-Config]. Se pretender que o VNet falado utilize os gateways que estão ligados ao hub VNet, selecione **Utilize gateways remotos**.
+A seguinte figura mostra a Rede Virtual Azure a espreitar detalhes de uma rede virtual falada (VNet). Para aprender a configurar olhando entre dois VNets, consulte [Gerir o olhar da VNet][VNet-Config]. Se pretender que o VNet falado utilize os gateways que estão ligados ao hub VNet, selecione **Utilize gateways remotos** .
 
 [![1]][1]
 
-A figura a seguir mostra os detalhes de espreitar vNet do hub VNet. Se pretender que o hub VNet permita que o VNet falado utilize os gateways do hub, selecione Permitir o **trânsito de gateway**.
+A figura a seguir mostra os detalhes de espreitar vNet do hub VNet. Se pretender que o hub VNet permita que o VNet falado utilize os gateways do hub, selecione Permitir o **trânsito de gateway** .
 
 [![2]][2]
 
 ## <a name="branch-vnet-connectivity-by-using-a-site-to-site-vpn"></a>Conectividade branch VNet utilizando uma VPN site-to-site
 
-Confifique a conectividade VPN local entre o hub e os VNets de ramo utilizando gateways VPN em Azure VPN Gateway. Por predefinição, os gateways VPN e os gateways Azure ExpressRoute utilizam um valor de sistema autónomo privado (ASN) de **65515**. Pode alterar o valor ASN no Gateway VPN. Na configuração do teste, o valor ASN do gateway VNet VPN da filial é alterado para **65516** para suportar o encaminhamento eBGP entre o hub e os VNets de ramo.
+Confifique a conectividade VPN local entre o hub e os VNets de ramo utilizando gateways VPN em Azure VPN Gateway. Por predefinição, os gateways VPN e os gateways Azure ExpressRoute utilizam um valor de sistema autónomo privado (ASN) de **65515** . Pode alterar o valor ASN no Gateway VPN. Na configuração do teste, o valor ASN do gateway VNet VPN da filial é alterado para **65516** para suportar o encaminhamento eBGP entre o hub e os VNets de ramo.
 
 
 [![3]][3]

@@ -8,19 +8,19 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 53887b7487c3f0bb70c9f8cc7cd61246fabc0b37
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970134"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145604"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Crie SDKs personalizados para gémeos digitais Azure usando o AutoRest
 
 Neste momento, os únicos SDKs de plano de dados publicados para interagir com as APIs de Gémeos Digitais Azure são para .NET (C#), JavaScript e Java. Você pode ler sobre estes SDKs, e as APIs em geral, em [*Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure*](how-to-use-apis-sdks.md). Se estiver a trabalhar noutro idioma, este artigo irá mostrar-lhe como gerar o seu próprio plano de dados SDK na linguagem à sua escolha, utilizando o AutoRest.
 
 >[!NOTE]
-> Também pode utilizar o AutoRes para gerar um plano de controlo SDK, se quiser. Para isso, complete os passos deste artigo utilizando o mais recente ficheiro **do plano** de controlo Swagger (OpenAPI) da pasta [do plano de controlo Swagger], em vez do plano de https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) dados um.
+> Também pode utilizar o AutoRes para gerar um plano de controlo SDK, se quiser. Para tal, complete os passos deste artigo utilizando o mais recente ficheiro **do plano** de controlo Swagger (OpenAPI) da pasta Do plano de controlo [Swagger](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) em vez do plano de dados um.
 
 ## <a name="set-up-your-machine"></a>Configurar a sua máquina
 
@@ -47,7 +47,7 @@ Para executar o AutoRest contra o ficheiro Azure Digital Twins Swagger, siga est
 autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Como resultado, verá uma nova pasta chamada *ADTApi* no seu diretório de trabalho. Os ficheiros SDK gerados terão o espaço de nome *ADTApi*. Você continuará a usar esse espaço de nome através do resto dos exemplos de uso neste artigo.
+Como resultado, verá uma nova pasta chamada *ADTApi* no seu diretório de trabalho. Os ficheiros SDK gerados terão o espaço de nome *ADTApi* . Você continuará a usar esse espaço de nome através do resto dos exemplos de uso neste artigo.
 
 O AutoRest suporta uma vasta gama de geradores de códigos linguísticos.
 
@@ -73,7 +73,7 @@ Para construir o SDK com sucesso, o seu projeto necessitará destas referências
 * `Microsoft.Rest.ClientRuntime`
 * `Microsoft.Rest.ClientRuntime.Azure`
 
-Para adicionar estes, abra *ferramentas > Gestor de Pacotes NuGet > gerir pacotes NuGet para solução...*.
+Para adicionar estes, abra *ferramentas > Gestor de Pacotes NuGet > gerir pacotes NuGet para solução...* .
 
 1. No painel, certifique-se de que o *separador Browse* está selecionado
 2. Procurar *microsoft.rest*
@@ -117,40 +117,25 @@ O AutoResco gera dois tipos de padrões de paging para o SDK:
 * Um para todos os APIs, exceto a API de Consulta
 * Um para a Consulta API
 
-No padrão de paging não-consulta, existem duas versões de cada chamada:
-* Uma versão para fazer a chamada inicial `DigitalTwins.ListEdges()` (como)
-* Uma versão para obter as seguintes páginas. Estas chamadas têm um sufixo de "Next" `DigitalTwins.ListEdgesNext()` (como)
+No padrão de paging não-consulta, aqui está um corte de código mostrando como recuperar uma lista de relações de saída de Azure Digital Twins:
 
-Aqui está um código que mostra como recuperar uma lista de relações de saída de Azure Digital Twins:
 ```csharp
-try
-{
-    // List to hold the results in
-    List<object> relList = new List<object>();
-    // Enumerate the IPage object returned to get the results
-    // ListAsync will throw if an error occurs
-    IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
-    relList.AddRange(relPage);
-    // If there are more pages, the NextPageLink in the page is set
-    while (relPage.NextPageLink != null)
+ try 
+ {
+     // List the relationships.
+    AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
+    Console.WriteLine($"Twin {srcId} is connected to:");
+    // Iterate through the relationships found.
+    int numberOfRelationships = 0;
+    await foreach (string rel in results)
     {
-        // Get more pages...
-        relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
-        relList.AddRange(relPage);
+         ++numberOfRelationships;
+         // Do something with each relationship found
+         Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
     }
-    Console.WriteLine($"Found {relList.Count} relationships on {id}");
-    // Do something with each object found
-    // As relationships are custom types, they are JSON.Net types
-    foreach (JObject r in relList)
-    {
-        string relId = r.Value<string>("$edgeId");
-        string relName = r.Value<string>("$relationship");
-        Console.WriteLine($"Found relationship {relId} from {id}");
-    }
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error retrieving relationships on {id}: {e.Response.StatusCode}");
+    Console.WriteLine($"Found {numberOfRelationships} relationships on {srcId}");
+} catch (RequestFailedException rex) {
+    Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
 }
 ```
 

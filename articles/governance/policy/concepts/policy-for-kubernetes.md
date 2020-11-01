@@ -3,12 +3,12 @@ title: Aprenda Azure Policy para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: bd0dc08583b126b6260999ace14d8fc13c52c1f7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1e85d7af26e52ea38c09ec0c052b5c6a2787bb80
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676703"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146301"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender o Azure Policy para clusters do Kubernetes
 
@@ -37,7 +37,7 @@ Para ativar e utilizar a Política Azure com o seu cluster Kubernetes, tome as s
    - [Motor AKS](#install-azure-policy-add-on-for-aks-engine)
 
    > [!NOTE]
-   > Para questões comuns com a instalação, consulte [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-installation-errors).
+   > Para questões comuns com a instalação, consulte [Troubleshoot - Azure Policy Add-on](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
 1. [Compreender a linguagem política do Azure para Kubernetes](#policy-language)
 

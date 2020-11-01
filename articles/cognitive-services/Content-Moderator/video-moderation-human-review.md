@@ -1,5 +1,5 @@
 ---
-title: Moderação de vídeo com revisão humana - Moderador de Conteúdo
+title: Moderação de vídeo com a ferramenta Review - Moderador de Conteúdo
 titleSuffix: Azure Cognitive Services
 description: Utilize moderação de vídeo assistida por máquina e a ferramenta Review para moderar conteúdo inadequado
 services: cognitive-services
@@ -8,97 +8,95 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81404244"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143766"
 ---
-# <a name="video-moderation-with-human-review"></a>Moderação de vídeo com revisão humana
+# <a name="video-moderation-with-the-review-tool"></a>Moderação de vídeo com a ferramenta Review
 
 Utilize a ferramenta de [moderação](video-moderation-api.md) e [revisão](Review-Tool-User-Guide/human-in-the-loop.md) de vídeo assistida por moderadores de conteúdo para moderar vídeos e transcrições para conteúdos adultos (explícitos) e picantes (sugestivos) para obter os melhores resultados para o seu negócio.
 
-## <a name="video-trained-classifier-preview"></a>Classificador treinado em vídeo (pré-visualização)
+## <a name="view-videos-under-review"></a>Ver vídeos sob análise
 
-A classificação de vídeo assistida por máquinas é conseguida com modelos treinados por imagem ou modelos treinados em vídeo. Ao contrário dos classificadores de vídeo treinados por imagem, o classificador de vídeo adulto e picante da Microsoft é treinado com vídeos. Este método resulta numa melhor qualidade de correspondência.
+No painel de instrumentos, selecione qualquer uma das filas de revisão dentro do tipo de conteúdo de vídeo. Isto iniciará uma revisão e abrirá a página de moderação de conteúdos de vídeo.
 
-## <a name="shot-detection"></a>Deteção de tiro
+> [!div class="mx-imgBorder"]
+> ![Vista detalhada da moderação de vídeo na ferramenta Review](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
-Ao des outputing os detalhes da classificação, a inteligência adicional de vídeo ajuda com mais flexibilidade na análise de vídeos. Em vez de passar apenas os quadros, o serviço de moderação de vídeo da Microsoft também fornece informações de nível de tiro. Tem agora a opção de analisar os seus vídeos ao nível do tiro e ao nível da moldura.
+### <a name="review-count"></a>Rever contagem
 
-## <a name="key-frame-detection"></a>Deteção de quadros-chave
+Utilize o slider no canto superior direito para definir o número de avaliações que gostaria de visualizar na página.
 
-Em vez de fazer fotogramas de saída a intervalos regulares, o serviço de moderação de vídeo identifica e produz apenas quadros (bons) potencialmente completos. A funcionalidade permite uma geração de quadros eficiente para análise adulta e picante ao nível do quadro.
+### <a name="view-type"></a>Tipo de visualização
 
-O seguinte extrato mostra uma resposta parcial com potenciais tiros, quadros-chave e pontuações adultas e picantes:
+Pode ver as diferentes entradas de conteúdo como azulejos ou numa visão detalhada. A **visualização De Pormenor** permitir-lhe-á ver quadros-chave e outras informações sobre o vídeo selecionado. 
 
-```json
-"fragments":[  
-  {  
-    "start":0,
-    "duration":18000
-  },
-  {  
-    "start":18000,
-    "duration":3600,
-    "interval":3600,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":false,
-          "adultScore":0.00001,
-          "racyScore":0.03077,
-          "index":5,
-          "timestamp":18000,
-          "shotIndex":0
-        }
-      ]
-    ]
-  },
-  {  
-    "start":18386372,
-    "duration":119149,
-    "interval":119149,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":true,
-          "adultScore":0.00000,
-          "racyScore":0.91902,
-          "index":5085,
-          "timestamp":18386372,
-          "shotIndex":62
-        }
-      ]
-    ]
-```
+> [!NOTE]
+> Em vez de fazer fotogramas de saída a intervalos regulares, o serviço de moderação de vídeo identifica e produz apenas quadros (bons) potencialmente completos. Esta funcionalidade permite uma geração de quadros eficiente para análise adulta e picante ao nível do quadro.
 
-## <a name="visualization-for-human-reviews"></a>Visualização para avaliações humanas
+A vista **Tiled** mostrará cada vídeo como um único azulejo. Selecione o botão de expansão acima de uma moldura de vídeo para ampliar o vídeo e esconder os outros.
 
-Para casos mais matizados, as empresas precisam de uma solução de revisão humana para renderizar o vídeo, os seus quadros e tags atribuídas por máquinas. Os moderadores humanos que analisam vídeos e quadros têm uma visão completa das ideias, mudam as etiquetas e submetem as suas decisões.
+### <a name="content-obscuring-effects"></a>Efeitos de ocultação de conteúdos
 
-![visão padrão da ferramenta de revisão de vídeo](images/video-review-default-view.png)
+Utilize o **Borrão tudo** e os alternadores **preto e branco** para definir estes efeitos de ocultação de conteúdos. Estão ligados por defeito. Na vista **Tiled,** pode alternar os efeitos individualmente para cada vídeo.
 
-## <a name="player-view-for-video-level-review"></a>Vista do jogador para revisão de nível de vídeo
+## <a name="check-video-details"></a>Ver detalhes de vídeo
 
-As decisões binárias ao nível do vídeo são possíveis com uma visão do leitor de vídeo que mostra molduras potenciais para adultos e picantes. Os revisores humanos navegam no vídeo com várias opções de velocidade para examinar as cenas. Eles confirmam as suas decisões toggling as etiquetas.
+Na vista **Detalhe,** o painel direito mostrará vários separadores que lhe dão detalhes sobre o vídeo.
 
-![vista de jogador de ferramenta de revisão de vídeo](images/video-review-player-view.PNG)
+* Selecione o separador **Notas** para adicionar notas personalizadas a vídeos.
+* Selecione o **separador Transcrição** para ver a transcrição de vídeo &mdash; o serviço extrai automaticamente uma transcrição de qualquer discurso no vídeo. Quando selecionar uma secção de texto, o leitor de vídeo saltará para essa parte do vídeo.
+* Selecione o **separador de metadados de dados de** vídeo para visualizar metadados de ficheiros de vídeo.
+* Selecione o separador **Histórico** para ver o histórico da revisão, como quando foi criado e como foi modificado.
 
-## <a name="frames-view-for-detailed-reviews"></a>Vista de quadros para avaliações detalhadas
+> [!div class="mx-imgBorder"]
+> ![Botão de etiquetas a granel de moderação de vídeo](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
-Uma análise detalhada de vídeo para análise quadro-a-quadro é possível com uma visão baseada em quadros. Os revisores humanos analisam e selecionam um ou mais quadros e alternam tags para confirmar as suas decisões. Um próximo passo opcional é a redação dos quadros ou conteúdos ofensivos.
+## <a name="apply-moderation-tags"></a>Aplicar etiquetas de moderação
 
-![vista de quadros de ferramenta de revisão de vídeo](images/video-review-frames-view-apply-tags.PNG)
+A principal tarefa de uma revisão de vídeo é aplicar ou remover etiquetas de moderação em vídeos ou partes de vídeos.
 
-## <a name="transcript-moderation"></a>Moderação de transcrições
+### <a name="bulk-tagging"></a>Marcação a granel
 
-Os vídeos normalmente têm voz sobre que precisa de moderação também para discurso ofensivo. Utiliza o serviço Azure Media Indexer para converter a fala em texto e utilizar a API de revisão do Moderador de Conteúdo para submeter a transcrição para moderação de texto dentro da ferramenta de revisão.
+A **barra de ferramentas Bulk Tags** permite adicionar tags a vários vídeos selecionados ao mesmo tempo. Selecione um ou mais vídeos e, em seguida, selecione as etiquetas que pretende aplicar e clique **em submeter** . 
 
-![vista de transcrição de ferramenta de revisão de vídeo](images/video-review-transcript-view.png)
+> [!div class="mx-imgBorder"]
+> ![Botão de etiquetas a granel de moderação de vídeo](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+
+
+### <a name="key-frame-tagging"></a>Marcação do quadro de chaves
+
+Também pode adicionar etiquetas de moderação a quadros-chave específicos. Selecione os quadros do painel de azulejos do quadro da chave e, em seguida, selecione **tags Keyframe +** para aplicar as etiquetas desejadas.
+
+> [!NOTE]
+> Se o serviço não conseguir extrair quadros-chave, o painel de azulejos do quadro da chave não mostrará **nenhum quadro disponível** e a opção de selecionar quadros-chave será acinzentada. Neste caso, só é possível aplicar tags no vídeo como um todo (utilizando as **etiquetas de vídeo +** botão).
+
+> [!div class="mx-imgBorder"]
+> ![Vista detalhada da moderação de vídeo na ferramenta Review](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+
+## <a name="put-a-review-on-hold"></a>Coloque uma revisão em espera
+
+O botão **Hold** na parte inferior do painel de vídeo permite-lhe colocar uma revisão em espera para que possa recuperá-lo e completá-lo mais tarde. Pode fazê-lo para uma revisão que requer uma consulta de outro membro da equipa ou gestor que não esteja disponível atualmente. 
+
+Pode ver os vídeos em espera clicando no botão **Hold** na parte superior do ecrã. O painel de espera aparece à direita. A partir daqui, pode selecionar várias avaliações em espera e libertá-las de volta na fila ou definir o seu tempo de validade. Após o tempo pré-configurado, as avaliações em espera são libertadas de volta à fila. **Selecione Guardar** para começar a contagem rebationá-lo a partir do tempo de validade atualmente selecionado.
+
+> [!div class="mx-imgBorder"]
+> ![Vista detalhada da moderação de vídeo na ferramenta Review](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+
+## <a name="submit-a-review"></a>Submeter uma revisão
+
+Depois de aplicar as suas etiquetas, selecione o botão **Enviar** na parte inferior do painel de vídeo. Se tiver marcado vários vídeos, pode submetê-los sob uma única revisão ou como avaliações separadas.
+
+## <a name="limbo-state"></a>Estado do limbo
+
+Depois de submeter uma revisão, o vídeo é movido para o estado **limbo,** que pode ver selecionando o botão **Limbo** na parte superior do ecrã. Os vídeos permanecem no estado do Limbo durante um período de tempo pré-configurado (que pode alterar no menu na parte inferior), ou até que sejam revistos novamente ou submetidos manualmente.
+
+Uma vez que os vídeos expirem do limbo, as suas avaliações são marcadas como completas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

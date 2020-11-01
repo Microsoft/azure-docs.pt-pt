@@ -3,16 +3,21 @@ title: Prepare servidores Windows Server 2003 para migração com a Azure Migrat
 description: Saiba como preparar servidores windows server 2003 para migração com a Azure Migrate.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: 5e33742d59972d491c1efb8d0f1453c1226d4625
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 350eab98a2b40d5ca1382bbfc24245e7cb47b48e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103947"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146846"
 ---
 # <a name="prepare-windows-server-2003-machines-for-migration"></a>Preparar máquinas windows server 2003 para migração
 
 Este artigo descreve como preparar máquinas que executam o Windows Server 2003 para migração para Azure. 
+
+
+> [!NOTE]
+> [O suporte alargado do Windows Server 2003](/troubleshoot/azure/virtual-machines/run-win-server-2003#microsoft-windows-server-2003-end-of-support) terminou em 14 de julho de 2015.  A equipa de suporte do Azure continua a ajudar na resolução de problemas que dizem respeito a executar o Windows Server 2003 no Azure. No entanto, este suporte está limitado a questões que não requerem resolução de problemas ou patches ao nível do SISTEMA. Migrar as suas aplicações para instâncias Azure que executam uma versão mais recente do Windows Server é a abordagem recomendada para garantir que está a aproveitar eficazmente a flexibilidade e fiabilidade da nuvem Azure. No entanto, se ainda optar por migrar o Seu Windows Server 2003 para Azure, pode utilizar a ferramenta Azure Migrate: Server Migration se o seu Servidor do Windows for um VM a funcionar em VMware ou Hyper-V.
+
 
 - Você pode usar migração sem agente para migrar [VMs Hiper-V](tutorial-migrate-hyper-v.md) e [VMware VMs](tutorial-migrate-vmware.md) para Azure.
 - Para se ligar aos VMs Azure após a migração, os Serviços de Integração Hiper-V devem ser instalados no VM Azure. As máquinas Windows Server 2003 não têm isto instalado por predefinição.
@@ -27,18 +32,18 @@ Antes da migração, verifique se os Serviços de Integração Hiper-V e, em seg
 
 1. Siga [estas instruções](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#turn-an-integration-service-on-or-off-using-hyper-v-manager) para verificar se está instalado.
 2. Se não estiver instalado, inscreva-se numa máquina que executa o Windows Server 2012 R2/Windows Server 2012 com a função Hyper-V.
-3. Navegue para o ficheiro de instalação em **C:\Windows\System32\vmguest.iso**e monte o ficheiro.
+3. Navegue para o ficheiro de instalação em **C:\Windows\System32\vmguest.iso** e monte o ficheiro.
 2. Copie a pasta de instalação para a máquina do Windows Server 2003 e instale serviços de integração.
 4. Após a instalação, pode deixar as definições predefinidos nos Serviços de Integração. 
 
 ## <a name="install-on-vmware-vms"></a>Instalar em VMware VMs
 
 1. Inscreva-se numa máquina que executa o Windows Server 2012 R2/Windows Server 2012 com a função Hyper-V.
-2. Navegue para o ficheiro de instalação em **C:\Windows\System32\vmguest.iso**e monte o ficheiro.
+2. Navegue para o ficheiro de instalação em **C:\Windows\System32\vmguest.iso** e monte o ficheiro.
 3. Copie a pasta de instalação para o VMware VM.
 4. A partir da linha de comando na VM, ```gpedit.msc``` corra.
-5. Abrir **configurações de configuração**do computador  >  **Windows Settings**  >  **Scripts Scripts (Iniciar/Desligar)**.
-6. No Nome do Script **De Adicionar a**  >  **Add**  >  **Script Name**Startup, digite o endereço setup.exe.
+5. Abrir **configurações de configuração** do computador  >  **Windows Settings**  >  **Scripts Scripts (Iniciar/Desligar)** .
+6. No Nome do Script **De Adicionar a**  >  **Add**  >  **Script Name** Startup, digite o endereço setup.exe.
 7. Após a migração para Azure, o script corre a primeira vez que o Azure VM começa.
 8. Reinicie manualmente o Azure VM. Há um pop-up nos diagnósticos de botas que indica que é necessário um recomeço.
 9. Depois de o script ser executado e os Serviços de Integração Hiper-V estiverem instalados no Azure VM, pode remover o script do arranque.

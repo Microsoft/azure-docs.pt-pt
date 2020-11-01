@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d4c30029a71935cd3b8817be9010ff0fd11fa61a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 56a797864b70cb1be4a1bc5d4b79c44348d43dae
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077698"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93144431"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Definir listas de controlo de acesso (ACLs) recursivamente para Azure Data Lake Storage Gen2
 
@@ -969,8 +969,6 @@ def resume_set_acl_recursive(continuation_token):
 Se quiser que o processo seja concluído ininterruptamente por erros de permissão, pode especificar isso.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-Para garantir que o processo se completa ininterruptamente, passe num objeto **AccessControlChangedOptions** e desempere a propriedade **ContinueOnFailure** desse objeto para ``true`` .
 
 Este exemplo define as entradas ACL de forma recursiva. Se este código encontrar um erro de permissão, regista essa falha e continua a execução. Este exemplo imprime os resultados (incluindo o número de falhas) na consola. 
 

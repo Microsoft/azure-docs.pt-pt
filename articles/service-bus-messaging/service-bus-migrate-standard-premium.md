@@ -4,10 +4,10 @@ description: Guia para permitir a migração dos espaços de nome padrão do Azu
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: 1ed09a077f086390c658e6650171c552b361008d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "85340751"
 ---
 # <a name="migrate-existing-azure-service-bus-standard-namespaces-to-the-premium-tier"></a>Migrar espaços de nome padrão Azure Service Bus existentes para o nível premium
@@ -21,7 +21,7 @@ Este artigo descreve como migrar os espaços de nome padrão existentes para o n
 
 Alguns dos pontos a notar:
 
-- Esta migração deve acontecer, o que significa que as aplicações existentes de remetente e recetor **não requerem alterações ao código ou configuração**. A cadeia de ligação existente apontará automaticamente para o novo espaço de nome premium.
+- Esta migração deve acontecer, o que significa que as aplicações existentes de remetente e recetor **não requerem alterações ao código ou configuração** . A cadeia de ligação existente apontará automaticamente para o novo espaço de nome premium.
 - O espaço de nome **premium** não deve ter **entidades** para que a migração tenha sucesso.
 - Todas as **entidades** do espaço de nome padrão são **copiadas** para o espaço de nome premium durante o processo de migração.
 - A migração apoia **1.000 entidades por unidade de mensagens** no nível premium. Para identificar quantas unidades de mensagens precisa, comece pelo número de entidades que tem no seu espaço de nome padrão atual.
@@ -89,10 +89,10 @@ Para migrar o seu espaço de nome padrão service bus para o prémio utilizando 
 
 A migração utilizando o portal Azure tem o mesmo fluxo lógico que migrar usando os comandos. Siga estes passos para migrar utilizando o portal Azure.
 
-1. No menu **Navegação** no painel esquerdo, **selecione Migrar para o prémio**. Clique no botão **Iniciar** para continuar para a página seguinte.
+1. No menu **Navegação** no painel esquerdo, **selecione Migrar para o prémio** . Clique no botão **Iniciar** para continuar para a página seguinte.
     ![Página de desembarque de migração][]
 
-1. **Configuração**completa .
+1. **Configuração** completa .
    ![Espaço de nome de configuração][]
    1. Crie e atribua o espaço de nome premium para migrar o espaço de nome padrão existente para.
         ![Setup namespace - crie espaço de nome premium][]

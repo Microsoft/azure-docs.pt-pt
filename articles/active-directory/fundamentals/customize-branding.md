@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "89565859"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Adicione marca à página de inscrição do Azure Ative Directory da sua organização
@@ -37,7 +37,7 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
 ### <a name="to-customize-your-branding"></a>Para personalizar a sua marca
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory**, e, em seguida, selecione **a marca da Empresa**, e, em seguida, selecione **Configure**.
+2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione **Configure** .
 
     ![Contoso - Página de marca da empresa, opção de configuração em destaque](media/customize-branding/company-branding-configure-button.png)
 
@@ -91,10 +91,10 @@ A sua marca personalizada não aparecerá imediatamente quando os seus utilizado
             Esta capacidade só está disponível no objeto de marca padrão e não em qualquer objeto específico da linguagem. Para saber mais sobre configurar e resolver problemas a opção de permanecer inscrito, consulte [o pedido de 'Permanência assinada?' para as contas AD do Azure](keep-me-signed-in.md)
         
             >[!NOTE]
-            >Algumas funcionalidades do SharePoint Online e do Office 2010 dependem da capacidade de os utilizadores poderem escolher manter a sessão iniciada. Se tiver definido esta opção como **Não**, os utilizadores poderão ver avisos adicionais e inesperados para iniciar sessão.
+            >Algumas funcionalidades do SharePoint Online e do Office 2010 dependem da capacidade de os utilizadores poderem escolher manter a sessão iniciada. Se tiver definido esta opção como **Não** , os utilizadores poderão ver avisos adicionais e inesperados para iniciar sessão.
    
 
-3. Depois de terminar de adicionar a sua marca, **selecione Save**.
+3. Depois de terminar de adicionar a sua marca, **selecione Save** .
 
     Se este processo criar a sua primeira configuração de marca personalizada, torna-se o padrão para o seu inquilino. Se tiver configurações adicionais, poderá escolher a sua configuração padrão.
     
@@ -107,13 +107,13 @@ Depois de criar a sua marca personalizada, pode voltar e mudar o que quiser.
 ### <a name="to-edit-your-custom-branding"></a>Para editar a sua marca personalizada
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory**, e, em seguida, selecione **a marca da Empresa**, e, em seguida, selecione **Configure**.
+2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione **Configure** .
 
     ![Contoso - Página de marca da empresa, com configuração padrão mostrada](media/customize-branding/company-branding-default-config.png)
 
 3. Na página **de marca Configure da empresa,** adicione, remova ou altere qualquer informação, com base nas descrições na secção de [inscrição AD do Azure](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Selecione **Guardar**.
+4. Selecione **Guardar** .
 
    Pode demorar até uma hora para que sejam apresentadas quaisquer alterações que tiver efetuado na imagem corporativa da página de início de sessão.
 
@@ -124,13 +124,13 @@ Não é possível alterar o idioma da sua configuração original a partir do se
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com uma conta de Administrador global do diretório.
 
-2. Selecione **Azure Ative Directory**, e, em seguida, selecione **a marca da Empresa**, e, em seguida, selecione Novo **idioma**.
+2. Selecione **Azure Ative Directory** , e, em seguida, selecione **a marca da Empresa** , e, em seguida, selecione Novo **idioma** .
 
     ![Contoso - Página de marca da empresa, com nova opção linguística em destaque](media/customize-branding/company-branding-new-language.png)
 
 3. Na página de **marca Configure,** selecione o seu idioma (por exemplo, francês) e adicione as suas informações traduzidas, com base nas descrições na secção de [inscrição AD do Azure](#customize-your-azure-ad-sign-in-page) deste artigo.
 
-4. Selecione **Guardar**.
+4. Selecione **Guardar** .
 
     As atualizações da página **de marca Contoso – Empresa** para mostrar a sua nova configuração francesa.
 

@@ -5,12 +5,12 @@ author: georgewallace
 ms.author: gwallace
 ms.date: 11/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: a995f30872216a8b704d3d1714bbece4bb8271f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f236292fff0d0e806e6eec32e1e058cbf67545c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840069"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93144482"
 ---
 # <a name="containerize-an-existing-net-app-for-service-fabric-mesh"></a>Colocar uma aplicação .NET existente para o Service Fabric Mesh em contentores
 
@@ -39,21 +39,27 @@ Obtenha uma cópia do projeto **eShop:**
 git clone https://github.com/MikkelHegn/ContainersSFLab.git
 ```
 
-Uma vez descarregado, em Visual Studio 2017 open **ContainersSFLab\eShopLegacyWebFormsSolution\eShopLegacyWebForms.sln**.
+Uma vez descarregado, em Visual Studio 2017 open **ContainersSFLab\eShopLegacyWebFormsSolution\eShopLegacyWebForms.sln** .
 
 ## <a name="add-container-support"></a>Adicionar suporte ao contentor
  
 Adicione suporte de orquestração de contentores a um projeto de ASP.NET ou Consola existente utilizando as ferramentas de malha de tecido de serviço da seguinte forma:
 
-No explorador de soluções Visual Studio, clique com o nome do projeto à direita (no exemplo, **eShopLegacyWebForms)** e, em seguida, escolha **Adicionar**  >  **Suporte orquestrador de contentores**.
+No explorador de soluções Visual Studio, clique com o nome do projeto à direita (no exemplo, **eShopLegacyWebForms)** e, em seguida, escolha **Adicionar**  >  **Suporte orquestrador de contentores** .
 Aparece o diálogo **de apoio do orquestrador de recipientes add.**
 
 ![Visual Studio adicionar diálogo de orquestrador de contentores](./media/service-fabric-mesh-howto-containerize-vs/add-container-orchestration-support.png)
 
-Escolha a malha de tecido de **serviço** a partir do drop-down e, em seguida, clique **em OK**.
+Escolha a malha de tecido de **serviço** a partir do drop-down e, em seguida, clique **em OK** .
+
+
+>[!NOTE]
+> A partir de 2 de novembro de 2020, [os limites de taxa de descarregamento aplicam-se](https://docs.docker.com/docker-hub/download-rate-limit/) a pedidos anónimos e autenticados para Docker Hub a partir de contas do plano Docker Free e são aplicados por endereço IP. Para mais detalhes, consulte [Authenticate with Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
+>
+> Para evitar uma taxa limitada, certifique-se de que o padrão `FROM microsoft/aspnet:4.7.2-windowsservercore-1803 AS base` no seu Dockerfile é substituído por `FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-1803 AS base`
 
 A ferramenta verifica então que o Docker está instalado, adiciona um Dockerfile ao seu projeto e puxa uma imagem de estivador para o seu projeto.  
-Um projeto de aplicação de malha de tecido de serviço é adicionado à sua solução. Contém os perfis de publicação da Malha e ficheiros de configuração. O nome do projeto é o mesmo que o nome do seu projeto, com 'Aplicação' concatenado até ao fim, por exemplo, **eShopLegacyWebFormsApplication**. 
+Um projeto de aplicação de malha de tecido de serviço é adicionado à sua solução. Contém os perfis de publicação da Malha e ficheiros de configuração. O nome do projeto é o mesmo que o nome do seu projeto, com 'Aplicação' concatenado até ao fim, por exemplo, **eShopLegacyWebFormsApplication** . 
 
 No novo projeto Mesh verá duas pastas que deve estar ciente:
 - **Recursos de aplicações** que contêm ficheiros YAML que descrevem recursos adicionais de Malha, como a rede.

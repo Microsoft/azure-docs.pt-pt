@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635376"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145718"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Construa expressões no fluxo de dados de mapeamento
 
@@ -30,15 +30,15 @@ Existem vários pontos de entrada para abrir o construtor de expressão. Todos e
 
 Em algumas transformações como [o filtro,](data-flow-filter.md)clicar numa caixa de texto de expressão azul abrirá o construtor de expressão. 
 
-![Caixa de expressão azul](media/data-flow/expressionbox.png "Construtor de Expressões")
+![Caixa de expressão azul](media/data-flow/expressionbox.png "Caixa de expressão azul")
 
 Quando se referem colunas numa condição correspondente ou em grupo, uma expressão pode extrair valores de colunas. Para criar uma expressão, **selecione coluna Computada** .
 
-![Opção de coluna computada](media/data-flow/computedcolumn.png "Construtor de Expressões")
+![Opção de coluna computada](media/data-flow/computedcolumn.png "Opção de coluna computada")
 
 Nos casos em que uma expressão ou um valor literal são entradas válidas, **selecione Adicionar conteúdo dinâmico** para construir uma expressão que avalie para um valor literal.
 
-![Adicionar opção de conteúdo dinâmico](media/data-flow/add-dynamic-content.png "Construtor de Expressões")
+![Adicionar opção de conteúdo dinâmico](media/data-flow/add-dynamic-content.png "Adicionar opção de conteúdo dinâmico")
 
 ## <a name="expression-elements"></a>Elementos de expressão
 
@@ -72,6 +72,16 @@ Quando tiver nomes de colunas que incluam caracteres ou espaços especiais, rode
 ### <a name="parameters"></a>Parâmetros
 
 Os parâmetros são valores que são passados para um fluxo de dados no tempo de execução a partir de um oleoduto. Para fazer referência a um parâmetro, clique no parâmetro a partir da visualização de **elementos de expressão** ou referencia-lo com um sinal de dólar na frente do seu nome. Por exemplo, um parâmetro chamado parâmetro1 seria referenciado por `$parameter1` . Para saber mais, consulte [os fluxos de dados de mapeamento parametrizante.](parameters-data-flow.md)
+
+### <a name="cached-lookup"></a>Lookup em cache
+
+Uma procura em cache permite-lhe fazer uma procura inline da saída de um lavatório em cache. Existem duas funções disponíveis para usar em cada pia, `lookup()` e `outputs()` . A sintaxe para referência a estas funções é `cacheSinkName#functionName()` . Para mais informações, consulte [os lavatórios de cache.](data-flow-sink.md#cache-sink)
+
+`lookup()` toma as colunas correspondentes na transformação atual como parâmetros e devolve uma coluna complexa igual à linha correspondente às colunas-chave na pia de cache. A coluna complexa devolvida contém um subcolumn para cada coluna mapeada na pia da cache. Por exemplo, se tivesse uma pia de cache de código de erro `errorCodeCache` que tivesse uma coluna-chave correspondente no código e uma coluna chamada `Message` . A chamada `errorCodeCache#lookup(errorCode).Message` devolveria a mensagem correspondente ao código passado. 
+
+`outputs()` não tem parâmetros e devolve toda a pia de cache como uma matriz de colunas complexas. Isto não pode ser chamado se as colunas-chave são especificadas na pia e só devem ser usadas se houver um pequeno número de linhas na pia de cache. Um caso de uso comum está a anexar o valor máximo de uma chave de incremento. Se uma única linha agregada em cache `CacheMaxKey` contiver uma `MaxKey` coluna, pode fazer referência ao primeiro valor chamando `CacheMaxKey#outputs()[1].MaxKey` .
+
+![Lookup em cache](media/data-flow/cached-lookup-example.png "Lookup em cache")
 
 ### <a name="locals"></a>Locais
 
