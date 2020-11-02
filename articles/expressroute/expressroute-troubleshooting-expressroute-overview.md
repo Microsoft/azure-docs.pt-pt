@@ -9,10 +9,10 @@ ms.date: 10/31/2019
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: af4ef156cccded6afe2db09628446a6ffe1ad53a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92204644"
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificar a conectividade do ExpressRoute
@@ -85,7 +85,7 @@ No portal Azure, abra a lâmina do circuito ExpressRoute. Na secção ![3][3] da
 
 No ExpressRoute Essentials, o *estado do circuito* indica o estado do circuito no lado da Microsoft. *O estado do fornecedor* indica se o circuito foi *provisionado/não a provisionado* do lado do prestador de serviços. 
 
-Para que um circuito ExpressRoute esteja operacional, o estado do *circuito* deve ser *ativado* e o *estado do Fornecedor* deve ser *previsto*.
+Para que um circuito ExpressRoute esteja operacional, o estado do *circuito* deve ser *ativado* e o *estado do Fornecedor* deve ser *previsto* .
 
 > [!NOTE]
 > Depois de configurar um circuito ExpressRoute, se o estado do *Circuito* for atingido em estado não ativado, contacte o [Microsoft Support][Support]. Por outro lado, se o *estado do Fornecedor* for atingido em estado não previsto, contacte o seu prestador de serviços.
@@ -165,7 +165,7 @@ No portal Azure, o estado de um circuito ExpressRoute pode ser verificado sob a 
 No exemplo anterior, como se nota, o espreitamento privado Azure é a provisionado, enquanto os seus pares públicos e microsoft não são a provisionados. Um contexto de observação bem-sucedido teria também as sub-redes primárias e secundárias de ponto a ponto listadas. As sub-redes /30 são utilizadas para o endereço IP de interface dos MSEEs e CEs/PE-MSEEs. Para os os seus pares que são a provisionados, a listagem também indica quem modificou pela última vez a configuração. 
 
 > [!NOTE]
-> Se ativar um estorte falhar, verifique se as subnetas primárias e secundárias atribuídas correspondem à configuração do CE/PE-MSEE ligado. Verifique também se os *VlanId*corretos, *AzureASN*e *PeerASN* são utilizados em MSEEs e se estes valores mapeiam para os utilizados no CE/PE-MSEE ligado. Se o hashing MD5 for escolhido, a chave partilhada deve ser a mesma no par MSEE e PE-MSEE/CE. A chave partilhada previamente configurada não seria apresentada por razões de segurança. Se necessitar de alterar qualquer uma destas configurações num router MSEE, consulte-se para [Criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering].  
+> Se ativar um estorte falhar, verifique se as subnetas primárias e secundárias atribuídas correspondem à configuração do CE/PE-MSEE ligado. Verifique também se os *VlanId* corretos, *AzureASN* e *PeerASN* são utilizados em MSEEs e se estes valores mapeiam para os utilizados no CE/PE-MSEE ligado. Se o hashing MD5 for escolhido, a chave partilhada deve ser a mesma no par MSEE e PE-MSEE/CE. A chave partilhada previamente configurada não seria apresentada por razões de segurança. Se necessitar de alterar qualquer uma destas configurações num router MSEE, consulte-se para [Criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering].  
 >
 
 > [!NOTE]
@@ -228,7 +228,7 @@ At line:1 char:1
 ```
 
 > [!NOTE]
-> Se ativar um estorte falhar, verifique se as subnetas primárias e secundárias atribuídas correspondem à configuração do CE/PE-MSEE ligado. Verifique também se os *VlanId*corretos, *AzureASN*e *PeerASN* são utilizados em MSEEs e se estes valores mapeiam para os utilizados no CE/PE-MSEE ligado. Se o hashing MD5 for escolhido, a chave partilhada deve ser a mesma no par MSEE e PE-MSEE/CE. A chave partilhada previamente configurada não seria apresentada por razões de segurança. Se necessitar de alterar qualquer uma destas configurações num router MSEE, consulte-se para [Criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering].  
+> Se ativar um estorte falhar, verifique se as subnetas primárias e secundárias atribuídas correspondem à configuração do CE/PE-MSEE ligado. Verifique também se os *VlanId* corretos, *AzureASN* e *PeerASN* são utilizados em MSEEs e se estes valores mapeiam para os utilizados no CE/PE-MSEE ligado. Se o hashing MD5 for escolhido, a chave partilhada deve ser a mesma no par MSEE e PE-MSEE/CE. A chave partilhada previamente configurada não seria apresentada por razões de segurança. Se necessitar de alterar qualquer uma destas configurações num router MSEE, consulte-se para [Criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering].  
 >
 >
 
@@ -278,7 +278,7 @@ Path    : 123##
 ```
 
 > [!NOTE]
-> Se o estado de um eBGP que espreita entre um MSEE e um CE/PE-MSEE estiver em Ativo ou Idle, verifique se as sub-redes de pares primárias e secundárias atribuídas correspondem à configuração no CE/PE-MSEE ligado. Verifique também se os *VlanId*corretos, *AzureAsn*e *PeerAsn* são utilizados em MSEEs e se estes valores mapeiam para os utilizados no PE-MSEE/CE ligado. Se o hashing MD5 for escolhido, a chave partilhada deve ser a mesma no par MSEE e CE/PE-MSEE. Se necessitar de alterar qualquer uma destas configurações num router MSEE, consulte-se para [Criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering].
+> Se o estado de um eBGP que espreita entre um MSEE e um CE/PE-MSEE estiver em Ativo ou Idle, verifique se as sub-redes de pares primárias e secundárias atribuídas correspondem à configuração no CE/PE-MSEE ligado. Verifique também se os *VlanId* corretos, *AzureAsn* e *PeerAsn* são utilizados em MSEEs e se estes valores mapeiam para os utilizados no PE-MSEE/CE ligado. Se o hashing MD5 for escolhido, a chave partilhada deve ser a mesma no par MSEE e CE/PE-MSEE. Se necessitar de alterar qualquer uma destas configurações num router MSEE, consulte-se para [Criar e modificar o encaminhamento para um circuito ExpressRoute][CreatePeering].
 >
 
 

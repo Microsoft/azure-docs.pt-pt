@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92202418"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Desenho para recuperação de desastres com o espreitamento privado ExpressRoute
 
 O ExpressRoute foi concebido para uma elevada disponibilidade para fornecer conectividade de rede privada de nível de transportadora aos recursos da Microsoft. Por outras palavras, não existe um único ponto de falha no caminho ExpressRoute dentro da rede microsoft. Para obter considerações de design para maximizar a disponibilidade de um circuito ExpressRoute, consulte [Design para alta disponibilidade com o ExpressRoute.][HA]
 
-No entanto, tomando o adágio popular de Murphy-*se alguma coisa pode correr mal, vai*-- em consideração, neste artigo vamos focar-nos em soluções que vão além de falhas que podem ser abordadas usando um único circuito ExpressRoute. Por outras palavras, neste artigo, analisemos as considerações de arquitetura de rede para a construção de uma robusta conectividade de rede de backend para a recuperação de desastres utilizando circuitos ExpressRoute geo redundantes.
+No entanto, tomando o adágio popular de Murphy- *se alguma coisa pode correr mal, vai* -- em consideração, neste artigo vamos focar-nos em soluções que vão além de falhas que podem ser abordadas usando um único circuito ExpressRoute. Por outras palavras, neste artigo, analisemos as considerações de arquitetura de rede para a construção de uma robusta conectividade de rede de backend para a recuperação de desastres utilizando circuitos ExpressRoute geo redundantes.
 
 >[!NOTE]
 >Os conceitos descritos neste artigo aplicam-se igualmente quando um circuito ExpressRoute é criado sob WAN virtual ou fora dele.
