@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: cefc6cc72ed8d74663464f4ac2d672369cd9d31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288669"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148257"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas em Synapse SQL
 
@@ -74,7 +74,7 @@ Para evitar uma degradação mensurável do desempenho, deve certificar-se de qu
 > [!NOTE]
 > A criação de estatísticas é registada em [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) num contexto de utilizador diferente.
 
-Quando as estatísticas automáticas forem criadas, assumirão o formulário: _WA_Sys_<id de coluna de 8 dígitos no Hex>_<id tabela de 8 dígitos em Hex>. Pode ver estatísticas já criadas executando o comando [DBCC SHOW_STATISTICS:](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+Quando as estatísticas automáticas forem criadas, assumirão o formulário: _WA_Sys_ <id de coluna de 8 dígitos no Hex>_<id tabela de 8 dígitos em Hex>. Pode ver estatísticas já criadas executando o comando [DBCC SHOW_STATISTICS:](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -245,7 +245,7 @@ Para criar um objeto de estatísticas multi-colunas, use os exemplos anteriores,
 > [!NOTE]
 > O histograma, que é utilizado para estimar o número de linhas no resultado da consulta, só está disponível para a primeira coluna listada na definição de objeto estatístico.
 
-Neste exemplo, o histograma está na * \_ categoria de produto.* As estatísticas transversais são calculadas na * \_ categoria do produto* e sub_category de * \_ produtos:*
+Neste exemplo, o histograma está na *\_ categoria de produto.* As estatísticas transversais são calculadas na *\_ categoria do produto* e sub_category de *\_ produtos:*
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Uma vez que existe uma correlação entre * \_ a categoria do produto* e a * \_ \_ subcategoria do produto,* um objeto de estatísticas multi-colunas pode ser útil se estas colunas forem acedidas ao mesmo tempo.
+Uma vez que existe uma correlação entre *\_ a categoria do produto* e a *\_ \_ subcategoria do produto,* um objeto de estatísticas multi-colunas pode ser útil se estas colunas forem acedidas ao mesmo tempo.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Criar estatísticas sobre todas as colunas numa tabela
 
@@ -443,7 +443,7 @@ Existem várias visões e funções do sistema que pode usar para encontrar info
 
 Estas opiniões do sistema fornecem informações sobre estatísticas:
 
-| Vista de catálogo | Descrição |
+| Vista de catálogo | Description |
 |:--- |:--- |
 | [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Uma linha para cada coluna. |
 | [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Uma linha para cada objeto na base de dados. |
@@ -457,7 +457,7 @@ Estas opiniões do sistema fornecem informações sobre estatísticas:
 
 Estas funções do sistema são úteis para trabalhar com estatísticas:
 
-| Função do sistema | Descrição |
+| Função do sistema | Description |
 |:--- |:--- |
 | [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Data em que o objeto estatístico foi atualizado pela última vez. |
 | [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) |Nível de resumo e informação detalhada sobre a distribuição de valores conforme entendido pelo objeto estatístico. |
@@ -616,7 +616,7 @@ Pode querer alargar o seu pipeline de dados para garantir que as estatísticas s
 Estão previstos os seguintes princípios orientadores para a atualização das suas estatísticas:
 
 - Certifique-se de que o conjunto de dados tem pelo menos um objeto estatístico atualizado. Isto atualiza informações de tamanho (contagem de linha e contagem de páginas) como parte da atualização de estatísticas.
-- Foco nas colunas que participam em se junta, GRUPO BY, ORDER BY, e Cláusulas DISTINTAS.
+- Foco nas colunas que participam em ONDE, JOIN, GROUP BY, ORDER BY e CLÁUSULAS DISTINTAS.
 - Atualize colunas "chave ascendente" como datas de transação com mais frequência porque estes valores não serão incluídos no histograma estatístico.
 - Atualize as colunas de distribuição estática com menos frequência.
 
@@ -629,12 +629,12 @@ Os exemplos que se seguem mostram-lhe como utilizar várias opções para criar 
 > [!NOTE]
 > Só pode criar estatísticas de coluna única neste momento.
 >
-> O procedimento sp_create_file_statistics será renomeado para sp_create_openrowset_statistics. A função do servidor público tem a permissão de OPERAÇÕES A GRANEL concedida enquanto a função de base de dados pública tem permissões EXECUTE em sp_create_file_statistics e sp_drop_file_statistics. Isto pode ser alterado no futuro.
+> São necessárias permissões a seguir para a execução de sp_create_openrowset_statistics e sp_drop_openrowset_statistics: ADMINISTRAR OPERAÇÕES A GRANEL ou ADMINISTRAR OPERAÇÕES A GRANEL.
 
 É utilizado o seguinte procedimento armazenado para criar estatísticas:
 
 ```sql
-sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 Argumentos: [ @stmt = ] N'statement_text' - Especifica uma declaração Transact-SQL que devolverá os valores da coluna a serem utilizados para as estatísticas. Pode utilizar o TABLESAMPLE para especificar amostras de dados a utilizar. Se o TABLESAMPLE não for especificado, o FULLSCAN será utilizado.
@@ -666,7 +666,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT year
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
         FORMAT = ''CSV'',
@@ -698,7 +698,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -712,18 +712,18 @@ FROM OPENROWSET(
 Para atualizar as estatísticas, é necessário deixar cair e criar estatísticas. É utilizado o seguinte procedimento armazenado para deixar cair as estatísticas:
 
 ```sql
-sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> O procedimento sp_drop_file_statistics será renomeado para sp_drop_openrowset_statistics. A função do servidor público tem a permissão de OPERAÇÕES A GRANEL concedida enquanto a função de base de dados pública tem permissões EXECUTE em sp_create_file_statistics e sp_drop_file_statistics. Isto pode ser alterado no futuro.
+> São necessárias permissões a seguir para a execução de sp_create_openrowset_statistics e sp_drop_openrowset_statistics: ADMINISTRAR OPERAÇÕES A GRANEL ou ADMINISTRAR OPERAÇÕES A GRANEL.
 
 Argumentos: [ @stmt = ] N'statement_text' - Especifica a mesma declaração Transact-SQL utilizada quando as estatísticas foram criadas.
 
 Para atualizar as estatísticas da coluna do ano no conjunto de dados, que se baseia no ficheiro population.csv, é necessário deixar cair e criar estatísticas:
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT payment_type
+EXEC sys.sp_drop_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -743,7 +743,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''

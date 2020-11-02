@@ -14,16 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 4587ab5e2cf36dce65cd02b167656c88cfde10a1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b769703f7e7054571a3b65a021c0123d8ae07078
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096959"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148240"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Ativar o Comportamento do Utilizador e da Entidade Analytics (UEBA) em Azure Sentinel 
 
-
+> [!IMPORTANT]
+>
+> - A funcionalidade UEBA encontra-se agora na **Disponibilidade Geral** nas seguintes geografias e regiões do Azure Sentinel:
+>    - Geografia dos Estados Unidos
+>    - Europa Região Oeste
+>    - Geografia da Austrália
+>
+> - Em todas as outras geografias e regiões, esta característica permanece por enquanto em **visualização pública** , e é fornecida sem um acordo de nível de serviço. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,7 +48,7 @@ Para ativar ou desativar esta função (estes pré-requisitos não são necessá
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Como ativar a análise de comportamento do utilizador e da entidade
 
-1. A partir do menu de navegação Azure Sentinel, selecione **Comportamento da Entidade (pré-visualização)** .
+1. A partir do menu de navegação Azure Sentinel, selecione **Comportamento da Entidade** .
 
 1. Sob o título **Ligue-o,** ligue o toggle para **On** .
 

@@ -3,12 +3,12 @@ title: Gerir laboratórios de salas de aula nos Serviços Azure Lab Microsoft Do
 description: Aprenda a criar e configurar um laboratório de sala de aula, ver todos os laboratórios de sala de aula, partilhar o link de registo com um utilizador de laboratório ou apagar um laboratório.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd05b13a34e2be1a9d6bdc011a9aa24e79bc8dd1
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251682"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148376"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gerir laboratórios de salas de aula em Azure Lab Services 
 Este artigo descreve como criar e apagar um laboratório de sala de aula. Também mostra como ver todos os laboratórios de sala de aula numa conta de laboratório. 
@@ -20,17 +20,17 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
 1. Navegue para o [site do Azure Lab Services](https://labs.azure.com). O Internet Explorer 11 ainda não está suportado. 
 1. Selecione **Iniciar sessão** e introduza as suas credenciais. Selecione ou introduza um **ID** de utilizador que seja um membro da função **de Criador** de Laboratório na conta de laboratório e introduza a palavra-passe. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
-1. Selecione **Novo laboratório**. 
+1. Selecione **Novo laboratório** . 
     
     ![Criar um laboratório de sala de aula](./media/tutorial-setup-classroom-lab/new-lab-button.png)
-1. Na janela **Novo Laboratório**, realize as ações abaixo: 
+1. Na janela **Novo Laboratório** , realize as ações abaixo: 
     1. Especifique um **nome** para o seu laboratório. 
     1. Selecione o **tamanho das máquinas virtuais necessárias** para a aula. Para obter a lista de tamanhos disponíveis, consulte a secção [tamanhos VM.](#vm-sizes) 
-    1. Selecione a **imagem da máquina virtual** que pretende usar para o laboratório de sala de aula. Se selecionar uma imagem Linux, vê uma opção para ativar a **ligação remota do ambiente de trabalho**. Para obter mais informações, consulte [Ativar a ligação ao ambiente de trabalho remoto para Linux](how-to-enable-remote-desktop-linux.md).
+    1. Selecione a **imagem da máquina virtual** que pretende usar para o laboratório de sala de aula. Se selecionar uma imagem Linux, vê uma opção para ativar a **ligação remota do ambiente de trabalho** . Para obter mais informações, consulte [Ativar a ligação ao ambiente de trabalho remoto para Linux](how-to-enable-remote-desktop-linux.md).
 
         Se se inscreveu usando credenciais de proprietário de conta de laboratório, verá uma opção para ativar mais imagens para o laboratório. Para obter mais informações, consulte [Ativar as imagens no momento da criação do laboratório.](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation)
     1. Reveja o **preço total por hora** exibido na página. 
-    1. Selecione **Guardar**.
+    1. Selecione **Guardar** .
 
         ![Screenshot que mostra a janela do "Novo Laboratório".](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
@@ -49,7 +49,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
         ![Nova janela do laboratório](./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
     4. Em seguida, selecione **Seguinte** na página **de credenciais de máquina virtual.** 
 5. Na página de políticas do **Laboratório,** faça os seguintes passos:
-    1. Introduza o número de horas atribuídas a cada utilizador **(quota para cada utilizador**) fora da hora prevista para o laboratório. 
+    1. Introduza o número de horas atribuídas a cada utilizador **(quota para cada utilizador** ) fora da hora prevista para o laboratório. 
     2. Para a opção **de encerramento automático das máquinas virtuais, especifique** se pretende que o VM seja desligado automaticamente quando o utilizador desligar. Também pode especificar quanto tempo o VM deve esperar que o utilizador se reconecte antes de desligar automaticamente.. Para obter mais informações, consulte [Ativar o encerramento automático dos VMs na desconexão](how-to-enable-shutdown-disconnect.md).
     3. Em seguida, selecione **Finish** (Concluir). 
 
@@ -60,7 +60,7 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
     ![Estado da criação do modelo VM](./media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
 8. Na página **Do Modelo,** faça os seguintes passos: Estes passos são **opcionais** para o tutorial.
 
-    1. Ligue-se à VM de modelo através da seleção de **Ligar**. Se for um VM de modelo Linux, escolha se pretende ligar usando SSH ou um ambiente de trabalho remoto GUI.  É necessária uma configuração adicional para utilizar um ambiente de trabalho remoto GUI. Consulte [ativar o ambiente de trabalho remoto gráfico para máquinas virtuais Linux](how-to-use-remote-desktop-linux-student.md) para obter mais informações.
+    1. Ligue-se à VM de modelo através da seleção de **Ligar** . Se for um VM de modelo Linux, escolha se pretende ligar usando SSH ou um ambiente de trabalho remoto GUI.  É necessária uma configuração adicional para utilizar um ambiente de trabalho remoto GUI. Consulte [ativar o ambiente de trabalho remoto gráfico para máquinas virtuais Linux](how-to-use-remote-desktop-linux-student.md) para obter mais informações.
     1. Selecione Redefinir a **palavra-passe** para redefinir a palavra-passe para o VM. 
     1. Instalar e configurar o software na sua VM de modelo. 
     1. **Parar** a VM.  
@@ -71,13 +71,13 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 
     > [!WARNING]
     > Depois de publicar, não é possível anular a publicação. 
-10. Na página do **modelo publicar,** insira o número de máquinas virtuais que pretende criar no laboratório e, em seguida, selecione **Publicar**. 
+10. Na página do **modelo publicar,** insira o número de máquinas virtuais que pretende criar no laboratório e, em seguida, selecione **Publicar** . 
 
     ![Modelo de publicação - número de VMs](./media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
 11. Vê o **estado de publicação** do modelo na página. Este processo pode demorar até uma hora. 
 
     ![Publicar modelo – progresso](./media/tutorial-setup-classroom-lab/publish-template-progress.png)
-12. Mude para a página da **piscina das máquinas virtuais** selecionando máquinas virtuais no menu esquerdo ou selecionando azulejos de máquinas virtuais. Confirme que vê máquinas virtuais que estão em estado **não atribuído.** Estas VMs ainda não estão atribuídas a estudantes. Elas devem estar no estado **Parado**. Pode iniciar uma VM de estudante, ligar à VM, parar a VM e eliminar a VM nesta página. Pode iniciá-las nesta página ou permitir que os seus estudantes iniciem as VMs. 
+12. Mude para a página da **piscina das máquinas virtuais** selecionando máquinas virtuais no menu esquerdo ou selecionando azulejos de máquinas virtuais. Confirme que vê máquinas virtuais que estão em estado **não atribuído.** Estas VMs ainda não estão atribuídas a estudantes. Elas devem estar no estado **Parado** . Pode iniciar uma VM de estudante, ligar à VM, parar a VM e eliminar a VM nesta página. Pode iniciá-las nesta página ou permitir que os seus estudantes iniciem as VMs. 
 
     ![Máquinas virtuais no estado parado](./media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -85,11 +85,11 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
     
     1. Para alterar a capacidade do laboratório (número de VMs no laboratório), selecione **a capacidade de laboratório** na barra de ferramentas.
     2. Para iniciar todos os VMs de uma só vez, **selecione Iniciar tudo** na barra de ferramentas. 
-    3. Para iniciar um VM específico, selecione a seta para baixo no **Estado**e, em seguida, selecione **Iniciar**. Também pode iniciar um VM selecionando um VM na primeira coluna e, em seguida, selecionando **Iniciar** na barra de ferramentas.                
+    3. Para iniciar um VM específico, selecione a seta para baixo no **Estado** e, em seguida, selecione **Iniciar** . Também pode iniciar um VM selecionando um VM na primeira coluna e, em seguida, selecionando **Iniciar** na barra de ferramentas.                
 
 ### <a name="vm-sizes"></a>Tamanhos de VM  
 
-| Tamanho | Núcleos | RAM | Descrição | 
+| Tamanho | Núcleos | RAM | Description | 
 | ---- | ----- | --- | ----------- | 
 | Pequeno | 2 | 3,5 GB | Este tamanho é mais adequado para linha de comando, abertura de navegador, servidores web de baixo tráfego, bases de dados pequenas a médias. |
 | Médio | 4 | 7 GB | Este tamanho é mais adequado para bases de dados relacionais, caching na memória e análise | 
@@ -103,22 +103,26 @@ Para configurar um laboratório de sala de aula numa conta do laboratório, tem 
 > [!NOTE]
 > Pode não ver alguns destes tamanhos de VM na lista ao criar um laboratório de sala de aula. A lista é povoada com base na capacidade atual da localização do laboratório. Se o criador da conta de laboratório permitir que os criadores de [laboratório escolham um local para o laboratório,](allow-lab-creator-pick-lab-location.md)pode tentar escolher um local diferente para o laboratório e ver se o tamanho do VM está disponível. 
 
-
 ## <a name="view-all-classroom-labs"></a>Ver todos os laboratórios de sala de aula
+
 1. Navegue para o [portal Azure Lab Services](https://labs.azure.com).
-2. Selecione **Iniciar sessão**. Selecione ou introduza um **ID** de utilizador que seja um membro da função **de Criador** de Laboratório na conta de laboratório e introduza a palavra-passe. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
-3. Confirme que vê todos os laboratórios na conta de laboratório selecionada. No azulejo do laboratório, vê-se o número de máquinas virtuais no laboratório e a quota para cada utilizador (fora da hora programada).
+1. Selecione **Iniciar sessão** . Selecione ou introduza um **ID** de utilizador que seja um membro da função **de Criador** de Laboratório na conta de laboratório e introduza a palavra-passe. O Azure Lab Services suporta contas organizacionais e contas Microsoft. 
+
+    [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+1. Confirme que vê todos os laboratórios na conta de laboratório selecionada. No azulejo do laboratório, vê-se o número de máquinas virtuais no laboratório e a quota para cada utilizador (fora da hora programada).
 
     ![Todos os laboratórios](./media/how-to-manage-classroom-labs/all-labs.png)
-3. Use a lista de drop-down no topo para selecionar uma conta de laboratório diferente. Vês laboratórios na conta de laboratório selecionada. 
+1. Use a lista de drop-down no topo para selecionar uma conta de laboratório diferente. Vês laboratórios na conta de laboratório selecionada. 
 
 ## <a name="delete-a-classroom-lab"></a>Apagar um laboratório de sala de aula
-1. No azulejo do laboratório, selecione três pontos (...) no canto e, em seguida, selecione **Delete**. 
+
+1. No azulejo do laboratório, selecione três pontos (...) no canto e, em seguida, selecione **Delete** . 
 
     ![Eliminar botão](./media/how-to-manage-classroom-labs/delete-button.png)
-3. Na caixa de diálogo **de laboratório Delete,** selecione **Delete** para continuar com a eliminação. 
+1. Na caixa de diálogo **de laboratório Delete,** selecione **Delete** para continuar com a eliminação. 
 
 ## <a name="switch-to-another-classroom-lab"></a>Mude para outro laboratório de sala de aula
+
 Para mudar para outro laboratório de sala de aula da corrente, selecione a lista de laboratórios na conta de laboratório no topo.
 
 ![Selecione o laboratório da lista de drop-down no topo](./media/how-to-manage-classroom-labs/switch-lab.png)

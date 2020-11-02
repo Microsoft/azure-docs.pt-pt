@@ -97,12 +97,10 @@
           items:
             - name: Como aprovisionar e gerir
               href: how-to-provision-manage.md
-            - name: Como diagnosticar e resolver problemas
-              href: how-to-diagnose-troubleshoot.md
-        - name: Entrada e armazenamento
-          items:
             - name: Como selecionar um TSID
               href: how-to-select-tsid.md
+            - name: Como diagnosticar e resolver problemas
+              href: how-to-diagnose-troubleshoot.md
         - name: Modelo
           items:
             - name: Como editar o modelo

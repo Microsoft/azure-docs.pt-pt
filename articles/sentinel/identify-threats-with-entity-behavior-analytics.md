@@ -14,14 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: ad0486c9d2eb6c651b507f4b0a44f4a6fc2b018f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d3c0ba55541baf3f31952b82a2fa357b48a5f1a9
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100665"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148359"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificar ameaças avançadas com a Análise de Comportamento de Utilizador e Entidade (UEBA) em Azure Sentinel
+
+> [!IMPORTANT]
+>
+> - As funcionalidades ueba e páginas de entidades estão agora em **Disponibilidade Geral** nas seguintes geografias e regiões do Azure Sentinel:
+>    - Geografia dos Estados Unidos
+>    - Europa Região Oeste
+>    - Geografia da Austrália
+>
+> - Em todas as outras geografias e regiões, estas características permanecem, por enquanto, em **visualização pública** , e são fornecidas sem um acordo de nível de serviço. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>O que é Analítica de Comportamento de Utilizador e Entidade (UEBA)?
 

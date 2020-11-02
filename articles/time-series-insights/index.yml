@@ -12,12 +12,12 @@ metadata:
   author: shreyasharmamsft
   ms.author: shresha
   ms.date: 07/09/2020
-  ms.openlocfilehash: 7419fed9084425f50eda4b504c2f3158873559a4
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 9a301f6e31d54238ea684e3d7c91d6a19c796427
+  ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88245694"
+  ms.lasthandoff: 11/01/2020
+  ms.locfileid: "93147067"
 landingContent:
 - title: Acerca do Azure Time Series Insights
   linkLists:
@@ -63,6 +63,8 @@ landingContent:
     links:
     - text: Aprovisionar e gerir
       url: time-series-insights-update-how-to-manage.md
+    - text: Como selecionar um TSID
+      url: how-to-select-tsid.md
     - text: Conceder acesso a dados
       url: time-series-insights-data-access.md
     - text: Criar Modelo de Série Temporal

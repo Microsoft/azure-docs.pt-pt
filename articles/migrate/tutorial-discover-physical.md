@@ -4,12 +4,12 @@ description: Saiba como descobrir servidores físicos no local com a Avaliação
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: mvc
-ms.openlocfilehash: e7cbd7939248686a251fdf56bf1a5f1acc952a3a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 83ff63392c6cbcaa6a2ea011eb60199f61844bb1
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314090"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148342"
 ---
 # <a name="tutorial-discover-physical-servers-with-server-assessment"></a>Tutorial: Descubra servidores físicos com avaliação do servidor
 
@@ -49,18 +49,18 @@ Para criar um projeto Azure Migrate e registar o aparelho Azure Migrate, precisa
 
 Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscrição. Se não for o proprietário da subscrição, trabalhe com o proprietário para atribuir as permissões da seguinte forma:
 
-1. No portal Azure, procure por "subscrições", e em **Serviços,** **selecione Subscrições**.
+1. No portal Azure, procure por "subscrições", e em **Serviços,** **selecione Subscrições** .
 
     ![Caixa de pesquisa para procurar a subscrição do Azure](./media/tutorial-discover-physical/search-subscription.png)
 
 2. Na página **Subscrições,** selecione a subscrição na qual pretende criar um projeto Azure Migrate. 
-3. Na subscrição, selecione **Access Control (IAM)**  >  **Verifique o acesso**.
+3. Na subscrição, selecione **Access Control (IAM)**  >  **Verifique o acesso** .
 4. No **Acesso ao Cheques,** procure na conta de utilizador relevante.
-5. In **Add a role assignment**, clique em **Adicionar**.
+5. In **Add a role assignment** , clique em **Adicionar** .
 
     ![Procure uma conta de utilizador para verificar o acesso e atribuir uma função](./media/tutorial-discover-physical/azure-account-access.png)
 
-6. Na **atribuição de funções Adicionar**, selecione a função Contribuinte ou Proprietário e selecione a conta (azmigrateuser no nosso exemplo). Em seguida, clique em **Guardar**.
+6. Na **atribuição de funções Adicionar** , selecione a função Contribuinte ou Proprietário e selecione a conta (azmigrateuser no nosso exemplo). Em seguida, clique em **Guardar** .
 
     ![Abre a página de atribuição de Função Adicionar para atribuir uma função à conta](./media/tutorial-discover-physical/assign-role.png)
 
@@ -75,26 +75,30 @@ Se acabou de criar uma conta gratuita do Azure, é o proprietário da sua subscr
 
 Crie uma conta que o aparelho possa utilizar para aceder aos servidores físicos.
 
-- Para os servidores do Windows, crie uma conta de utilizador local em todos os servidores do Windows que pretende incluir na descoberta. Adicione a conta de utilizador aos seguintes grupos: - Utilizadores de Gestão Remota - Utilizadores do Monitor de Desempenho - Utilizadores do Registo de Desempenho.
-- Nos servidores Linux, precisa de uma conta de superutilizador nos servidores Linux que deseja detetar. Alternadamente, desateia o acesso da seguinte forma:
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk
-    - setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk (se /usr/sbin/fdisk não estiver presente)<br/> - setcap "cap_dac_override, cap_dac_read_search, cap_fowner,cap_fsetid, cap_setuid, cap_setpcap, cap_net_bind_service, cap_net_admin, cap_sys_chroot, cap_sys_admin, cap_sys_resource, cap_audit_control, cap_setfcap=+eip" /sbin/lvm
-    - setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode chmod a+r /sys/class/dmi/id/product_uuid
+- Para os servidores do Windows, utilize uma conta de domínio para máquinas unidas a domínios e uma conta local para máquinas que não estejam unidas ao domínio. A conta de utilizador deve ser adicionada a estes grupos: Utilizadores de Gestão Remota, Utilizadores do Monitor de Desempenho e Utilizadores do Registo de Desempenho.
+- Nos servidores Linux, precisa de uma conta de superutilizador nos servidores Linux que deseja detetar. Alternadamente, pode definir uma conta não raiz com as capacidades necessárias utilizando os seguintes comandos:
+
+**Comando** | **Objetivo**
+--- | --- |
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/fdisk <br></br> setcap CAP_DAC_READ_SEARCH+eip /sbin/fdisk _(se /usr/sbin/fdisk não estiver presente)_ | Para recolher dados de configuração de disco
+setcap "cap_dac_override,cap_dac_read_search,cap_fowner,cap_fsetid,cap_setuid,<br>cap_setpcap,cap_net_bind_service cap_net_admin cap_sys_chroot cap_sys_admin<br>cap_sys_resource,cap_audit_control,cap_setfcap=+eip" /sbin/lvm | Para recolher dados de desempenho do disco
+setcap CAP_DAC_READ_SEARCH+eip /usr/sbin/dmidecode | Para recolher número de série BIOS
+chmod a+r /sys/class/dmi/id/product_uuid | Para recolher BIOS GUID
 
 
 ## <a name="set-up-a-project"></a>Criar um projeto
 
 Crie um novo projeto Azure Migrate.
 
-1. No portal do Azure > **Todos os serviços**, procure **Azure Migrate**.
-2. Em **Serviços**, selecione **Azure Migrate**.
-3. Em **Visão Geral**, selecione **Criar projeto**.
+1. No portal do Azure > **Todos os serviços** , procure **Azure Migrate** .
+2. Em **Serviços** , selecione **Azure Migrate** .
+3. Em **Visão Geral** , selecione **Criar projeto** .
 5. No **projeto Create,** selecione o seu grupo de subscrição e recursos Azure. Crie um grupo de recursos se não tiver um.
 6. Em **Detalhes do Projeto,** especifique o nome do projeto e a geografia em que pretende criar o projeto. Reveja geografias apoiadas para nuvens [públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais.](migrate-support-matrix.md#supported-geographies-azure-government)
 
    ![Caixas para nome e região do projeto](./media/tutorial-discover-physical/new-project.png)
 
-7. Selecione **Criar**.
+7. Selecione **Criar** .
 8. Aguarde alguns minutos para que o projeto do Azure Migrate seja implementado.
 
 A ferramenta **Azure Migrate: Server Assessment** é adicionada por defeito ao novo projeto.
@@ -113,7 +117,7 @@ Para configurar o aparelho:
 
 ### <a name="generate-the-azure-migrate-project-key"></a>Gere a chave do projeto Azure Migrate
 
-1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor**, selecione **Detetar**.
+1. Em **Objetivos de Migração** > **Servidores** > **Azure Migrate: Avaliação do Servidor** , selecione **Detetar** .
 2. In **Discover machines**  >  **Are your machines virtualized?** **Physical or other (AWS, GCP, Xen, etc.)**
 3. Na **tecla de projeto 1:Generate Azure Migrate,** forneça um nome para o aparelho Azure Migrate que irá configurar para a descoberta de servidores físicos ou virtuais. O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique na **chave Gerar** para iniciar a criação dos recursos Azure necessários. Por favor, não feche a página das máquinas Discover durante a criação de recursos.
@@ -122,7 +126,7 @@ Para configurar o aparelho:
 
 ### <a name="download-the-installer-script"></a>Descarregue o script do instalador
 
-Em **2: Descarregue o aparelho Azure Migrate,** clique em **Baixar**.
+Em **2: Descarregue o aparelho Azure Migrate,** clique em **Baixar** .
 
 
 ### <a name="verify-security"></a>Verificar segurança
@@ -137,13 +141,13 @@ Verifique se o ficheiro com fecho está seguro, antes de o colocar.
 3.  Verifique as versões mais recentes do aparelho e os valores do haxixe:
     - Para a nuvem pública:
 
-        **Cenário** | **Baixar*** | **Valor de hash**
+        **Cenário** | **Download** _ | _ *Valor do haxixe**
         --- | --- | ---
         Físico (85,8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140334) | ce5e6f0507936def8020eb7b3109173dad60fc51d39cd23099bc9baabe29
 
     - Para o Governo de Azure:
 
-        **Cenário** | **Baixar*** | **Valor de hash**
+        **Cenário** | **Download** _ | _ *Valor do haxixe**
         --- | --- | ---
         Físico (85,8 MB) | [Versão mais recente](https://go.microsoft.com/fwlink/?linkid=2140338) | ae132ebc574caf231bf41886891040ffa7abbe150c8b50436818b69e5862276
  
@@ -156,8 +160,8 @@ O script do instalador faz o seguinte:
 - Descarregue e instale um módulo reescrito IIS. [Saiba mais](https://www.microsoft.com/download/details.aspx?id=7435).
 - Atualiza uma chave de registo (HKLM) com detalhes de definição persistente para Azure Migrate.
 - Cria os seguintes ficheiros no caminho:
-    - **Config Ficheiros**: %Programdata%\Microsoft Azure\Config
-    - **Ficheiros de registo**: %Programdata%\Microsoft Azure\Logs
+    - **Config Ficheiros** : %Programdata%\Microsoft Azure\Config
+    - **Ficheiros de registo** : %Programdata%\Microsoft Azure\Logs
 
 Execute o guião da seguinte forma:
 
@@ -187,23 +191,23 @@ Certifique-se de que o aparelho VM pode ligar-se aos URLs Azure para nuvens [pú
 
 Coloque o aparelho pela primeira vez.
 
-1. Abra um browser em qualquer máquina que possa ligar ao aparelho e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço*IP*: 44368**.
+1. Abra um browser em qualquer máquina que possa ligar ao aparelho e abra o URL da aplicação web do aparelho: **https:// nome do aparelho ou endereço *IP* : 44368** .
 
    Em alternativa, pode abrir a aplicação a partir do ambiente de trabalho clicando no atalho da aplicação.
-2. Aceite os termos da **licença**e leia as informações de terceiros.
+2. Aceite os termos da **licença** e leia as informações de terceiros.
 1. Na aplicação web > **Configurar pré-requisitos,** faça o seguinte:
-    - **Conectividade**: A aplicação verifica se o servidor tem acesso à Internet. Se o servidor utilizar um representante:
+    - **Conectividade** : A aplicação verifica se o servidor tem acesso à Internet. Se o servidor utilizar um representante:
         - Clique em **Configurar o representante** para e especificar o endereço proxy (no formulário http://ProxyIPAddress ou na porta de http://ProxyFQDN) escuta.
         - Especifique as credenciais se o proxy precisar de autenticação.
         - Apenas é suportado o proxy HTTP.
         - Se tiver adicionado detalhes de procuração ou desativado o proxy e/ou autenticação, clique em **Guardar** para ativar novamente a verificação de conectividade.
     - **Sincronização temporal:** O tempo é verificado. O tempo do aparelho deve estar sincronizado com o tempo de internet para que a descoberta do servidor funcione corretamente.
-    - **Instalar atualizações**: A Azure Migrate Server Assessment verifica se o aparelho tem as últimas atualizações instaladas. Depois de concluída a verificação, pode clicar nos **serviços do aparelho para** ver o estado e as versões dos componentes em funcionamento no aparelho.
+    - **Instalar atualizações** : A Azure Migrate Server Assessment verifica se o aparelho tem as últimas atualizações instaladas. Depois de concluída a verificação, pode clicar nos **serviços do aparelho para** ver o estado e as versões dos componentes em funcionamento no aparelho.
 
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registe o aparelho com a Azure Migrate
 
-1. Cole a chave do **projeto Azure Migrate** copiada do portal. Se não tiver a chave, vá à Avaliação do Servidor> Descubra> Gerir os **aparelhos existentes**, selecione o nome do aparelho que forneceu no momento da geração de chaves e copie a chave correspondente.
-1. Clique em **Iniciar sessão**. Abrirá um pedido de login do Azure num novo separador de navegador. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
+1. Cole a chave do **projeto Azure Migrate** copiada do portal. Se não tiver a chave, vá à Avaliação do Servidor> Descubra> Gerir os **aparelhos existentes** , selecione o nome do aparelho que forneceu no momento da geração de chaves e copie a chave correspondente.
+1. Clique em **Iniciar sessão** . Abrirá um pedido de login do Azure num novo separador de navegador. Se não aparecer, certifique-se de ter desativado o bloqueador pop-up no navegador.
 1. No novo separador, inscreva-se utilizando o seu nome de utilizador E palavra-passe Azure.
    
    O s-in com um PIN não é suportado.
@@ -216,21 +220,21 @@ Coloque o aparelho pela primeira vez.
 
 Agora, ligue-se do aparelho aos servidores físicos a descobrir e inicie a descoberta.
 
-1. No **Passo 1: Forneça credenciais para a descoberta de servidores físicos ou virtuais do Windows e Linux**, clique em **Adicionar credenciais** para especificar um nome amigável para credenciais, adicionar **username** e **Password** para um servidor Windows ou Linux. Clique em **Guardar**.
+1. No **Passo 1: Forneça credenciais para a descoberta de servidores físicos ou virtuais do Windows e Linux** , clique em **Adicionar credenciais** para especificar um nome amigável para credenciais, adicionar **username** e **Password** para um servidor Windows ou Linux. Clique em **Guardar** .
 1. Se quiser adicionar várias credenciais de uma só vez, clique em **Adicionar mais** para guardar e adicionar mais credenciais. Várias credenciais são suportadas para a descoberta de servidores físicos.
-1. No **Passo 2:Forneça detalhes físicos ou virtuais do servidor**, clique na fonte de descoberta **Adicionar** para especificar o **endereço IP/FQDN** do servidor e o nome amigável para credenciais para se ligar ao servidor.
-1. Pode **adicionar um único item** de cada vez ou adicionar **vários itens** de uma só vez. Existe também uma opção para fornecer detalhes do servidor através **do Import CSV**.
+1. No **Passo 2:Forneça detalhes físicos ou virtuais do servidor** , clique na fonte de descoberta **Adicionar** para especificar o **endereço IP/FQDN** do servidor e o nome amigável para credenciais para se ligar ao servidor.
+1. Pode **adicionar um único item** de cada vez ou adicionar **vários itens** de uma só vez. Existe também uma opção para fornecer detalhes do servidor através **do Import CSV** .
 
 
-    - Se escolher **Adicionar um único item,** pode escolher o tipo de SO, especificar o nome amigável para credenciais, adicionar endereço **IP/FQDN** do servidor e clicar em **Guardar**.
-    - Se escolher **Adicionar vários itens,** pode adicionar vários registos ao mesmo tempo especificando **o endereço IP/FQDN** do servidor com o nome amigável para credenciais na caixa de texto. **Verifique** os registos adicionados e clique em **Guardar**.
-    - Se escolher **Import CSV** _(selecionado por padrão),_ pode descarregar um ficheiro de modelo CSV, preencher o ficheiro com o endereço **IP/FQDN** do servidor e nomear um nome amigável para credenciais. Em seguida, importa o ficheiro para o aparelho, **verifique** os registos do ficheiro e clique em **Guardar**.
+    - Se escolher **Adicionar um único item,** pode escolher o tipo de SO, especificar o nome amigável para credenciais, adicionar endereço **IP/FQDN** do servidor e clicar em **Guardar** .
+    - Se escolher **Adicionar vários itens,** pode adicionar vários registos ao mesmo tempo especificando **o endereço IP/FQDN** do servidor com o nome amigável para credenciais na caixa de texto. **Verifique** os registos adicionados e clique em **Guardar** .
+    - Se escolher **Import CSV** _(selecionado por padrão),_ pode descarregar um ficheiro de modelo CSV, preencher o ficheiro com o endereço **IP/FQDN** do servidor e nomear um nome amigável para credenciais. Em seguida, importa o ficheiro para o aparelho, **verifique** os registos do ficheiro e clique em **Guardar** .
 
 1. Ao clicar em Guardar, o aparelho tentará validar a ligação aos servidores adicionados e mostrar o **estado de Validação** na tabela contra cada servidor.
     - Se a validação falhar para um servidor, reveja o erro clicando na **Validação falhada** na coluna 'Estado' da tabela. Corrija o problema e valide novamente.
-    - Para remover um servidor, clique em **Apagar**.
+    - Para remover um servidor, clique em **Apagar** .
 1. Pode **revalidar** a conectividade aos servidores a qualquer momento antes de iniciar a descoberta.
-1. Clique em **Iniciar a descoberta**, para iniciar a descoberta dos servidores validados com sucesso. Após a descoberta ter sido iniciada com sucesso, pode verificar o estado de descoberta contra cada servidor da tabela.
+1. Clique em **Iniciar a descoberta** , para iniciar a descoberta dos servidores validados com sucesso. Após a descoberta ter sido iniciada com sucesso, pode verificar o estado de descoberta contra cada servidor da tabela.
 
 
 Isto começa a ser descoberto. Leva aproximadamente 2 minutos por servidor para que os metadados do servidor descoberto apareçam no portal Azure.
@@ -240,7 +244,7 @@ Isto começa a ser descoberto. Leva aproximadamente 2 minutos por servidor para 
 Após o fim da descoberta, pode verificar se os servidores aparecem no portal.
 
 1. Abra o dashboard do Azure Migrate.
-2. Em **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, clique no ícone que exibe a contagem para **servidores descobertos**.
+2. Em **Azure Migrate - Servidores**  >  **Azure Migrate:** Página de Avaliação do servidor, clique no ícone que exibe a contagem para **servidores descobertos** .
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Avaliar servidores físicos](tutorial-assess-physical.md) para migração para VMs Azure.
