@@ -3,33 +3,29 @@ title: Descrição Geral da Cloudyn no Azure
 description: A Cloudyn é uma solução de gestão de custos e várias clouds que o ajuda a utilizar o Azure e outros recursos da cloud.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 3acc13ca535808f14cb01d50e38f6bd4d12902fc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 74d171a4c694f6d720ec3882f97d18e43aecc63f
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684444"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543292"
 ---
 # <a name="what-is-the-cloudyn-service"></a>O que é o serviço da Cloudyn?
 
-A Cloudyn, uma subsidiária da Microsoft, permite-lhe controlar a utilização da cloud e os gastos dos seus recursos do Azure e de outros fornecedores de cloud, incluindo AWS e Google. Os relatórios do dashboard fáceis de compreender também ajudam na alocação de custos e showbacks/estornos. A Cloudyn ajuda a otimizar os gastos da cloud ao identificar recursos subutilizados que pode gerir e ajustar.
+A Cloudyn, uma subsidiária da Microsoft, permite-lhe monitorizar a utilização da cloud e os gastos dos seus recursos do Azure. Os relatórios do dashboard fáceis de compreender também ajudam na alocação de custos e showbacks/estornos. A Cloudyn ajuda a otimizar os gastos da cloud ao identificar recursos subutilizados que pode gerir e ajustar.
 
 Para ver um vídeo introdutório, veja [Introduction to Azure Cloudyn (Introdução à Azure Cloudyn)](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo/).
  
 O Azure Cost Management disponibiliza uma funcionalidade semelhante à Cloudyn. O Azure Cost Management é uma solução de gestão de custos nativa do Azure. Ajuda-o a analisar os custos, a criar e a gerir orçamentos, a exportar dados, bem como a analisar e a agir de acordo com as recomendações de otimização para economizar dinheiro. Para obter mais informações, veja [Azure Cost Management](../cost-management-billing-overview.md).
  
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
-
-Veja o vídeo [Azure Cost Management and Cloudyn](https://www.youtube.com/watch?v=15DzKPMBRxM) (Azure Cost Management e Cloudyn) para ver recomendações sobre quando deve utilizar o Azure Cost Management ou a Cloudyn, com base nas necessidades do seu negócio.
- 
->[!VIDEO https://www.youtube.com/embed/15DzKPMBRxM]
 
 ## <a name="monitor-usage-and-spending"></a>Monitorizar a utilização e os gastos
 
@@ -56,6 +52,4 @@ Se aprovisionou Instâncias Reservadas do AWS, pode melhorar a sua utilização 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que está familiarizado com a Cloudyn, o passo seguinte é registar o seu ambiente cloud e começar a explorar os seus dados.
-
-- [Registar-se com o programa de Parceiro CSP e ver dados de custos](quick-register-csp.md)
+- [Rever a utilização e os custos](tutorial-review-usage.md)

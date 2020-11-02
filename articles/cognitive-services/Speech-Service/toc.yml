@@ -39,6 +39,8 @@
           href: how-to-automatic-language-detection.md
         - name: Utilizar a API da transcrição em lotes
           href: batch-transcription.md
+        - name: Avaliar a pronúncia
+          href: how-to-pronunciation-assessment.md
     - name: Tutoriais
       items:
         - name: Reconhecer a voz armazenada no armazenamento de blobs

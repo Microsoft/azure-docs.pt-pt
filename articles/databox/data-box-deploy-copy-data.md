@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/29/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9427ec4530ac249d5b8059d04fc85f1183c0081c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ced33bb17e9c24faa127b27adacce9cab011e1d8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123896"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426261"
 ---
 ::: zone target="docs"
 
@@ -45,7 +45,7 @@ Neste tutorial, ficará a saber como:
 Antes de começar, certifique-se de que:
 
 1. Concluiu o [Tutorial: Configurar o Azure Data Box](data-box-deploy-set-up.md).
-2. Recebeu o Data Box e o estado da encomenda no portal é **Entregue**.
+2. Recebeu o Data Box e o estado da encomenda no portal é **Entregue** .
 3. Tem um computador anfitrião com os dados que pretende copiar para o Data Box. O computador anfitrião tem de
    * Executar um [sistema operativo suportado](data-box-system-requirements.md).
    * Estar ligado a uma rede de alta velocidade. Recomendamos vivamente que tenha, pelo menos, uma ligação de 10 GbE. Se uma ligação de 10 GbE não estiver disponível, utilize uma ligação de dados de 1 GbE, mas as velocidades de cópia serão afetadas.
@@ -70,15 +70,15 @@ A tabela a seguir mostra o caminho UNC para as partilhas no Data Box e o URL do 
 
 Se estiver a utilizar um computador anfitrião do Windows Server, execute estes passos para se ligar ao Data Box.
 
-1. O primeiro passo é autenticar e iniciar uma sessão. Aceda a **Ligar e copiar**. Selecione **SMB** para obter as credenciais de acesso para as partilhas associadas à sua conta de armazenamento. 
+1. O primeiro passo é autenticar e iniciar uma sessão. Aceda a **Ligar e copiar** . Selecione **SMB** para obter as credenciais de acesso para as partilhas associadas à sua conta de armazenamento. 
 
     ![Obter credenciais para partilhas SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. Na caixa de diálogo Aceder à partilha e copiar os dados, copie o **Nome de utilizador** e a **Palavra-passe** correspondentes à partilha. Selecione **OK**.
+2. Na caixa de diálogo Aceder à partilha e copiar os dados, copie o **Nome de utilizador** e a **Palavra-passe** correspondentes à partilha. Se a palavra-passe tiver carateres especiais, adicione aspas duplas antes e depois dela. Em seguida, selecione **OK** .
     
     ![Obter nome de utilizador e palavra-passe para partilhas](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Para aceder às partilhas associadas à conta de armazenamento (*utsac1* no exemplo a seguir) a partir do computador anfitrião, abra uma janela de comandos. Na linha de comandos, escreva:
+3. Para aceder às partilhas associadas à conta de armazenamento ( *utsac1* no exemplo a seguir) a partir do computador anfitrião, abra uma janela de comandos. Na linha de comandos, escreva:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -95,7 +95,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
     The command completed successfully.
     ```
 
-4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Ficheiros.
+4. Prima Windows + R. Na janela **Executar** , especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Ficheiros.
     
     ![Ligar à partilha através do Explorador de Ficheiros](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
@@ -103,7 +103,7 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
     
     ![Partilhas mostradas no Explorador de Ficheiros](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
-    **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta**. A pasta criada nas partilhas dos blobs de blocos e dos blobs de páginas representa um contentor para o qual os dados são carregados como blobs. Não pode copiar ficheiros diretamente para a pasta *raiz* na conta de armazenamento.
+    **Crie sempre uma pasta para os ficheiros que pretende copiar na partilha e, em seguida, copie os ficheiros para essa pasta** . A pasta criada nas partilhas dos blobs de blocos e dos blobs de páginas representa um contentor para o qual os dados são carregados como blobs. Não pode copiar ficheiros diretamente para a pasta *raiz* na conta de armazenamento.
     
 Se estiver a utilizar um cliente Linux, utilize o comando a seguir para montar a partilha SMB. O parâmetro “vers” abaixo é a versão do SMB compatível com o sistema anfitrião Linux. Ligue a versão apropriada no comando a seguir. Para as versões do SMB compatíveis com o Data Box, veja a secção [Sistemas de ficheiros suportados pelos clientes Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 
 
@@ -227,7 +227,7 @@ Durante o processo de cópia, em caso de erros, verá uma notificação.
 
 ![Uma notificação de erro de cópia em Ligar e Copiar](media/data-box-deploy-copy-data/view-errors-1.png)
 
-Selecione **Transferir lista de problemas**.
+Selecione **Transferir lista de problemas** .
 
 ![Transferir e ver erros em Ligar e Copiar 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
@@ -279,7 +279,7 @@ Para obter instruções passo a passo, aceda ao [Tutorial: Copiar dados para o A
 
 Para copiar dados via REST:
 
-1. Para copiar dados através do Armazenamento de blobs do Data Box via APIs REST, pode ligar-se através de *http* ou *https*.
+1. Para copiar dados através do Armazenamento de blobs do Data Box via APIs REST, pode ligar-se através de *http* ou *https* .
 2. Para copiar dados para o Armazenamento de blobs do Data Box, pode utilizar o AzCopy.
 
 Para obter instruções passo a passo, aceda ao [Tutorial: Copiar dados para o Armazenamento de blobs do Azure Data Box via APIs REST](data-box-deploy-copy-data-via-nfs.md).
@@ -288,7 +288,7 @@ Para obter instruções passo a passo, aceda ao [Tutorial: Copiar dados para o A
 
 Para copiar dados através do serviço de cópia de dados:
 
-1. Para copiar dados através do serviço de cópia de dados, tem de criar uma tarefa. Na IU da Web local do Data Box, aceda a **Gerir > Copiar dados > Criar**.
+1. Para copiar dados através do serviço de cópia de dados, tem de criar uma tarefa. Na IU da Web local do Data Box, aceda a **Gerir > Copiar dados > Criar** .
 2. Preencha os parâmetros e crie uma tarefa.
 
 Para obter instruções passo a passo, aceda ao [Tutorial: Utilizar o serviço de cópia de dados para copiar dados para o Azure Data Box](data-box-deploy-copy-data-via-copy-service.md).

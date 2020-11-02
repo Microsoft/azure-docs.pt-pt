@@ -32,6 +32,9 @@
     - name: Atribuir uma política - modelo do ARM
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: Atribuir uma política - Terraform
+      displayName: 'assign, compliance, hcl, provider'
+      href: ./assign-policy-terraform.md
 - name: Tutoriais
   items:
     - name: Criar e gerir o Azure Policy
@@ -191,7 +194,15 @@
           href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Ativar o Azure Monitor para VMs (pré-visualização)
           displayName: 'monitor, insights, log analytics, builtin'
-          href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+          href: ../../azure-monitor/insights/vminsights-enable-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Integração do Armazenamento do Azure
+      items:
+        - name: Auditar TLS com o Azure Policy
+          href: ../../storage/common/transport-layer-security-configure-minimum-version.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json#use-azure-policy-to-enforce-the-minimum-tls-version
+    - name: Integração da Firewall de Aplicações Web do Azure
+      items:
+        - name: Integrar WAF com o Azure Policy
+          href: ../../web-application-firewall/shared/waf-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Resolução de problemas
   items:
     - name: Problemas comuns
@@ -264,6 +275,16 @@
           href: /azure/templates/microsoft.authorization/policydefinitions
         - name: Definições de Iniciativas
           href: /azure/templates/microsoft.authorization/policysetdefinitions
+    - name: Recursos Terraform
+      items:
+        - name: Atribuição
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_assignment.html'
+        - name: Definição
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_definition.html'
+        - name: Iniciativa (Configurar Definição)
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_set_definition.html'
+        - name: Remediação
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_remediation.html'
 - name: Recursos
   items:
     - name: GitHub - Exemplos do Azure Policy
@@ -280,6 +301,8 @@
           href: 'https://www.azadvertizer.net/'
         - name: Visualizador de Governação do Azure
           href: 'https://github.com/julianhayward/azure-mg-sub-governance-reporting'
+        - name: Scripts do Azure Policy para Azure Monitor
+          href: 'https://github.com/JimGBritt/AzurePolicy/tree/master/AzureMonitor/Scripts'
     - name: Comentários e suporte
       items:
         - name: Perguntas e Respostas da Microsoft para o Azure Policy

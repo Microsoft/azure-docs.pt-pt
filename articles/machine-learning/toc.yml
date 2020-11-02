@@ -413,6 +413,8 @@
           href: how-to-use-automlstep-in-pipelines.md
         - name: Entender os gráficos e as métricas
           href: how-to-understand-automated-ml.md
+        - name: Utilizar modelo ONNX na aplicação .NET
+          href: how-to-use-automl-onnx-model-dotnet.md
     - name: Implementar e fornecer modelos
       items:
         - name: Onde e como implementar

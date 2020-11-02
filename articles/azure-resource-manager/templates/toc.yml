@@ -170,6 +170,10 @@
               href: ../../firewall/quick-create-multiple-ip-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Firewall Manager
               href: ../../firewall-manager/quick-secure-virtual-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Front Door
+              href: ../../frontdoor/quickstart-create-front-door-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Balanceador de carga - interno
+              href: ../../load-balancer/quickstart-load-balancer-standard-internal-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Balanceador de carga - público
               href: ../../load-balancer/quickstart-load-balancer-standard-public-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: NAT Gateway
@@ -186,6 +190,8 @@
           items:
             - name: Atestado
               href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Key Vault - chave
+              href: ../../key-vault/keys/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Key Vault - segredo
               href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Centro de Segurança

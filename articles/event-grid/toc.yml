@@ -106,7 +106,7 @@
       items:
         - name: Descrição geral dos tópicos do sistema
           href: system-topics.md
-        - name: Origens de eventos
+        - name: Origens de evento (editores)
           items:
             - name: Configuração da Aplicação Azure
               href: event-schema-app-configuration.md
@@ -138,13 +138,15 @@
               href: event-schema-azure-signalr.md
             - name: Subscrições do Azure
               href: event-schema-subscriptions.md
-    - name: Tópicos para parceiros
+    - name: Eventos de Parceiros
       items:
-        - name: Descrição geral dos tópicos para parceiros
-          href: partner-topics-overview.md
-        - name: Auth0
-          href: auth0-overview.md
-        - name: Torne-se um Parceiro do Event Grid
+        - name: Descrição Geral dos Eventos de Parceiros
+          href: partner-events-overview.md
+        - name: Origens de evento (editores)
+          items:
+            - name: Auth0
+              href: auth0-overview.md
+        - name: Descrição geral da integração de parceiros
           href: partner-onboarding-overview.md
     - name: Domínios do Evento
       href: event-domains.md
@@ -210,12 +212,16 @@
           href: create-view-manage-system-topics-cli.md
         - name: Modelo Azure Resource Manager
           href: create-view-manage-system-topics-arm.md
+    - name: Eventos de Parceiros
+      items:
+        - name: Integrar como um parceiro
+          href: onboard-partner.md
+        - name: Subscrever eventos Auth0
+          href: auth0-how-to.md
     - name: Obter chaves de acesso para tópicos ou domínios
       href: get-access-keys.md
     - name: Publicar em tópico personalizado
       href: post-to-custom-topic.md
-    - name: Subscrever eventos Auth0
-      href: auth0-how-to.md
     - name: Receber eventos num ponto final de HTTP
       href: receive-events.md
     - name: Definir a localização e a política de repetição das mensagens não entregues

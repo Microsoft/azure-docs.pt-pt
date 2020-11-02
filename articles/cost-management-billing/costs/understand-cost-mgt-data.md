@@ -3,17 +3,18 @@ title: Compreender os dados do Azure Cost Management
 description: Este artigo ajuda-o a compreender melhor os dados que estão incluídos no Azure Cost Management e com que frequência são processados, recolhidos, mostrados e fechados.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/02/2020
+ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.openlocfilehash: a9ec5fd7d6e93d4413e86b5c9433cb6c0c9b59a1
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.custom: contentperfq2
+ms.openlocfilehash: 923b03f0c7bbf8d6948a80742530db6cb9b06c25
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132317"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675900"
 ---
 # <a name="understand-cost-management-data"></a>Compreender os dados do Cost Management
 
@@ -25,28 +26,28 @@ Se tiver uma subscrição nova, não pode utilizar as funcionalidades do Cost Ma
 
 ## <a name="supported-microsoft-azure-offers"></a>Ofertas suportadas do Microsoft Azure
 
-As seguintes informações mostram as [ofertas atualmente suportadas pelo Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) no Azure Cost Management. Uma oferta do Azure é o tipo de subscrição do Azure que possui. Os dados estão disponíveis no Cost Management a partir da data **Dados disponíveis a partir de**. Se uma subscrição alterar as ofertas, os custos anteriores à data de alteração da oferta deixam de estar disponíveis.
+As seguintes informações mostram as [ofertas atualmente suportadas pelo Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/) no Azure Cost Management. Uma oferta do Azure é o tipo de subscrição do Azure que possui. Os dados estão disponíveis no Cost Management a partir da data **Dados disponíveis a partir de** . Se uma subscrição alterar as ofertas, os custos anteriores à data de alteração da oferta deixam de estar disponíveis.
 
 | **Categoria**  | **Nome da oferta** | **ID de quota** | **Número de oferta** | **Dados disponíveis a partir de** |
 | --- | --- | --- | --- | --- |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | maio de 2014<sup>1</sup> |
 | **Contrato Enterprise (EA)** | Enterprise Dev/Test                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | maio de 2014<sup>1</sup> |
-| **Contrato Enterprise (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | maio de 2014<sup>1</sup> |
-| **Contrato de Cliente da Microsoft** | [Microsoft Azure Plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/D | março de 2019<sup>3</sup> |
-| **Contrato de Cliente da Microsoft** | [Plano do Microsoft Azure para Dev/Test](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/D | março de 2019<sup>3</sup> |
+| **Contrato Enterprise (EA)** | Microsoft Azure Enterprise | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | maio de 2014<sup>1</sup> |
+| **Contrato de Cliente da Microsoft** | Plano do Microsoft Azure | EnterpriseAgreement_2014-09-01 | N/D | março de 2019<sup>3</sup> |
+| **Contrato de Cliente da Microsoft** | Plano do Microsoft Azure para Dev/Test | MSDNDevTest_2014-09-01 | N/D | março de 2019<sup>3</sup> |
 | **Contrato de Cliente Microsoft suportado por parceiros** | Plano do Microsoft Azure | CSP_2015-05-01, CSP_MG_2017-12-01 e CSPDEVTEST_2018-05-01<br><br>O ID de quota é reutilizado para o Contrato de Cliente Microsoft e subscrições de CSP de legado. Atualmente, apenas são suportadas as subscrições do Contrato de Cliente Microsoft. | N/D | Outubro de 2019 |
-| **Microsoft Developer Network (MSDN)** | [MSDN Platforms](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 de outubro de 2018<sup>2</sup> |
-| **Pay As You Go** | [Pay As You Go](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 de outubro de 2018<sup>2</sup> |
-| **Pay As You Go** | [Pay As You Go Dev/Test](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 de outubro de 2018<sup>2</sup> |
-| **Pay As You Go** | [Microsoft Partner Network](https://azure.microsoft.com/offers/ms-azr-0025p)      | MPN_2014-09-01 | MS-AZR-0025P | 2 de outubro de 2018<sup>2</sup> |
-| **Pay As You Go** | [Avaliação Gratuita](https://azure.microsoft.com/offers/ms-azr-0044p)<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 de outubro de 2018<sup>2</sup> |
-| **Pay As You Go** | [Azure no Licenciamento Open](https://azure.microsoft.com/offers/ms-azr-0111p)<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 de outubro de 2018<sup>2</sup> |
+| **Microsoft Developer Network (MSDN)** | MSDN Platforms<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 de outubro de 2018<sup>2</sup> |
+| **Pay As You Go** | "Pay As You Go"                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 de outubro de 2018<sup>2</sup> |
+| **Pay As You Go** | Pay As You Go Dev/Test         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 de outubro de 2018<sup>2</sup> |
+| **Pay As You Go** | Microsoft Partner Network      | MPN_2014-09-01 | MS-AZR-0025P | 2 de outubro de 2018<sup>2</sup> |
+| **Pay As You Go** | Avaliação Gratuita<sup>4</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | 2 de outubro de 2018<sup>2</sup> |
+| **Pay As You Go** | Azure no Licenciamento Open<sup>4</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | 2 de outubro de 2018<sup>2</sup> |
 | **Pay As You Go** | Azure Pass<sup>4</sup>                                                            | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P – MS-AZR-0125P, MS-AZR-0128P – MS-AZR-0130P | 2 de outubro de 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise – MPN](https://azure.microsoft.com/offers/ms-azr-0029p)<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 de outubro de 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Professional](https://azure.microsoft.com/offers/ms-azr-0059p)<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 de outubro de 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Test Professional](https://azure.microsoft.com/offers/ms-azr-0060p)<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 de outubro de 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p)<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2 de outubro de 2018<sup>2</sup> |
-| **Visual Studio** | [Visual Studio Enterprise: BizSpark](https://azure.microsoft.com/offers/ms-azr-0064p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 de outubro de 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise – MPN<sup>4</sup>     | MPN_2014-09-01 | MS-AZR-0029P | 2 de outubro de 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Professional<sup>4</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | 2 de outubro de 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Test Professional<sup>4</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | 2 de outubro de 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise<sup>4</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | 2 de outubro de 2018<sup>2</sup> |
+| **Visual Studio** | Visual Studio Enterprise: BizSpark<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0064P | 2 de outubro de 2018<sup>2</sup> |
 
 _<sup>**1**</sup> Para dados anteriores a maio de 2014, visite o [portal do Azure Enterprise](https://ea.azure.com)._
 
@@ -60,14 +61,14 @@ As seguintes ofertas ainda não são suportadas:
 
 | Categoria  | **Nome da oferta** | **ID de quota** | **Número de oferta** |
 | --- | --- | --- | --- |
-| **Azure Alemanha** | [Pay As You Go do Azure Alemanha](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
+| **Azure Alemanha** | Pay As You Go do Azure Alemanha | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Azure Government** | Pay As You Go do Azure Government | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P |
 | **Fornecedor de Soluções Cloud (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Fornecedor de Soluções Cloud (CSP)** | CSP do Azure Government                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Fornecedor de Soluções Cloud (CSP)** | Azure Alemanha em CSP para a Microsoft Cloud Alemanha   | CSP_2015-05-01 | MS-AZR-DE-0145P |
 | **Pay As You Go**                 | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **Pay As You Go** | [Microsoft Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **Pay As You Go**                 | [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **Pay As You Go** | Microsoft Azure for Students<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Pay As You Go**                 | Microsoft Azure Sponsorship | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Planos de Suporte** | Suporte Padrão                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Planos de Suporte** | Suporte Direto Profissional         | Default_2014-09-01 | MS-AZR-0042P |
 | **Planos de Suporte** | Suporte para Programadores                   | Default_2014-09-01 | MS-AZR-0043P |
@@ -82,7 +83,7 @@ Para obter mais informações sobre a disponibilidade dos serviços de avaliaç�
 
 ### <a name="determine-your-offer-type"></a>Determinar o tipo de oferta
 
-Se não vir os dados de uma subscrição e quiser determinar se a sua subscrição se enquadra nas ofertas suportadas, poderá validar o suporte da sua subscrição. Para validar o suporte de uma subscrição do Azure, inicie sessão no [portal do Azure](https://portal.azure.com). Em seguida, selecione **Todos os Serviços** no menu à esquerda. Na lista de serviços, selecione **Subscrições**. No menu da lista de subscrições, selecione a subscrição pretende verificar. A sua subscrição é mostrada no separador Descrição geral e pode ver a **Oferta** e o **ID de Oferta**. A imagem seguinte mostra um exemplo.
+Se não vir os dados de uma subscrição e quiser determinar se a sua subscrição se enquadra nas ofertas suportadas, poderá validar o suporte da sua subscrição. Para validar o suporte de uma subscrição do Azure, inicie sessão no portal do Azure. Em seguida, selecione **Todos os Serviços** no menu à esquerda. Na lista de serviços, selecione **Subscrições** . No menu da lista de subscrições, selecione a subscrição pretende verificar. A sua subscrição é mostrada no separador Descrição geral e pode ver a **Oferta** e o **ID de Oferta** . A imagem seguinte mostra um exemplo.
 
 ![Exemplo do separador Descrição geral da Subscrição que mostra a Oferta e o ID de Oferta](./media/understand-cost-mgt-data/offer-and-offer-id.png)
 
@@ -110,9 +111,9 @@ O Azure Cost Management recebe etiquetas como parte de cada registo de utilizaç
 
 - As etiquetas têm de ser aplicadas diretamente aos recursos e não são implicitamente herdadas do grupo de recursos principal.
 - As etiquetas de recursos são suportadas apenas para recursos implementados em grupos de recursos.
-- Alguns recursos implementados podem não suportar etiquetas ou não incluir etiquetas nos dados de utilização – veja [Suporte de etiquetas para recursos do Azure](../../azure-resource-manager/management/tag-support.md).
+- Alguns recursos implementados podem não suportar etiquetas ou não incluir etiquetas nos dados de utilização.
 - As etiquetas de recursos só são incluídas nos dados de utilização enquanto a etiqueta é aplicada – as etiquetas não são aplicadas a dados históricos.
-- As etiquetas de recursos só estão disponíveis no Cost Management depois de os dados serem atualizados – veja [Atualizações e retenção de dados de custos e utilização](#cost-and-usage-data-updates-and-retention).
+- As etiquetas de recursos só estão disponíveis no Cost Management depois de os dados serem atualizados.
 - As etiquetas de recursos só estão disponíveis no Cost Management quando o recurso estiver ativo/em execução e a produzir registos de utilização (por exemplo, quando uma VM está desalocada).
 - A gestão das etiquetas requer acesso de contribuidor a cada recurso.
 - A gestão das políticas de etiquetas requer acesso de proprietário ou de contribuidor de política a um grupo de gestão, subscrição ou grupo de recursos.
@@ -120,7 +121,7 @@ O Azure Cost Management recebe etiquetas como parte de cada registo de utilizaç
 Se não vir uma etiqueta específica no Cost Management, considere o seguinte:
 
 - A etiqueta foi aplicada diretamente no recurso?
-- A etiqueta foi aplicada há mais de 24 horas? Veja [Atualizações e retenção de dados de custos e utilização](#cost-and-usage-data-updates-and-retention)
+- A etiqueta foi aplicada há mais de 24 horas?
 - O tipo de recurso suporta etiquetas? Os seguintes tipos de recursos não suportam etiquetas nos dados de utilização a partir de 1 de dezembro de 2019. Veja [Suporte de etiquetas para recursos do Azure](../../azure-resource-manager/management/tag-support.md) para obter a lista completa do que é suportado.
     - Diretórios do Azure Active Directory B2C
     - Azure Bastion
@@ -143,7 +144,7 @@ Eis algumas sugestões para trabalhar com etiquetas:
 
 ## <a name="cost-and-usage-data-updates-and-retention"></a>Atualizações e retenção de dados de custos e utilização
 
-Os dados de custos e utilização estão normalmente disponíveis em Cost Management + Faturação no portal do Azure e em [APIs de suporte](../index.yml) dentro de 8 a 24 horas. Tenha em consideração os seguintes pontos ao rever os custos:
+Os dados de custos e utilização estão normalmente disponíveis em Cost Management + Faturação no portal do Azure e em APIs de suporte dentro de 8 a 24 horas. Tenha em consideração os seguintes pontos ao rever os custos:
 
 - Cada serviço do Azure (como Armazenamento, Computação e SQL) emite a utilização em intervalos diferentes. Pode ver os dados de alguns serviços mais cedo do que outros.
 - Os custos estimados para o atual período de faturação são atualizados seis vezes por dia.
@@ -160,7 +161,7 @@ Depois de os dados de custos e utilização ficarem disponíveis em Cost Managem
 
 ### <a name="rerated-data"></a>Dados reclassificados
 
-Quer utilize as [APIs do Cost Management](../index.yml), o Power BI ou o portal do Azure para obter dados, conte com a reclassificação dos custos do período de faturação atual e, consequentemente, com a consequente alteração, até que a faturação seja fechada.
+Quer utilize as APIs do Cost Management, o Power BI ou o portal do Azure para obter dados, conte com a reclassificação dos custos do período de faturação atual e, consequentemente, com a consequente alteração, até que a faturação seja fechada.
 
 ## <a name="cost-rounding"></a>Arredondamento dos custos
 

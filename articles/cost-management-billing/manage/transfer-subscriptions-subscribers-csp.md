@@ -6,18 +6,22 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/22/2020
 ms.author: banders
-ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132368"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460687"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir subscrições do Azure entre subscritores e CSPs
 
 Este artigo apresenta os passos de alto nível utilizados para transferir subscrições do Azure de e para parceiros Fornecedores de Soluções Cloud (CSP) e os clientes. As presentes informações destinam-se aos subscritores do Azure para os ajudar a coordenarem-se com os respetivos parceiros. As informações que os parceiros da Microsoft utilizam para o processo de transferência estão documentadas em [Aprender a transferir a subscrição do Azure de um cliente para outro parceiro](/partner-center/switch-azure-subscriptions-to-a-different-partner).
+
+Antes de iniciar um pedido de transferência, deve transferir ou exportar qualquer informação de custo e faturação que pretenda manter. As informações de faturação e utilização não são transferidas com a subscrição. Para obter mais informações acerca da exportação dos dados de gestão de custo, consulte [Criar e gerir dados exportados](../costs/tutorial-export-acm-data.md). Para obter mais informações sobre como transferir a sua fatura e dados de utilização, consulte [Transferir ou visualizar a sua fatura de faturação do Azure e dados de utilização diária](download-azure-invoice-daily-usage-date.md).
+
+Se tiver algumas reservas existentes, estas deixarão de ser aplicadas após transferir uma subscrição. Certifique-se de [cancelar todas as reservas e de as reembolsar](../reservations/exchange-and-refund-azure-reservations.md) antes de transferir uma subscrição.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Transferir subscrições EA para um parceiro CSP
 

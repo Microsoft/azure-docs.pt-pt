@@ -9,6 +9,8 @@
       href: entitlement-management-overview.md
     - name: O que são as revisões de acesso?
       href: access-reviews-overview.md
+    - name: O que é a gestão do ciclo de vida de identidades?
+      href: what-is-identity-lifecycle-management.md
 - name: Tutoriais
   expanded: true
   items:
@@ -23,6 +25,16 @@
           href: entitlement-management-delegate.md
         - name: Processo de pedido e e-mails
           href: entitlement-management-process.md
+    - name: Gestão do ciclo de vida de identidades
+      items:
+        - name: O que é o aprovisionamento?
+          href: what-is-provisioning.md
+        - name: O que é o aprovisionamento condicionado por RH?
+          href: what-is-hr-driven-provisioning.md
+        - name: O que é o aprovisionamento de aplicações?
+          href: what-is-app-provisioning.md
+        - name: O que é o aprovisionamento entre diretórios?
+          href: what-is-inter-directory-provisioning.md
     - name: Revisões de acesso
       items:
         - name: Gerir o acesso de convidado com as revisões
