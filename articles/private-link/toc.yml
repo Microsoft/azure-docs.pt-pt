@@ -37,6 +37,8 @@
       items:
         - name: Ligar a um servidor SQL - Portal
           href: tutorial-private-endpoint-sql-portal.md
+        - name: Ligar a um SQL server - PowerShell
+          href: tutorial-private-endpoint-sql-powershell.md
 - name: Conceitos
   items:
     - name: Ponto Final Privado

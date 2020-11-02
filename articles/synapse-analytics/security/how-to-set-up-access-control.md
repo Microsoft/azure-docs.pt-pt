@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341554"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186625"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização) 
 
@@ -51,8 +51,6 @@ Crie e povoe três grupos de segurança para o seu espaço de trabalho:
 - **WS1 \_ WSAdmins** – para utilizadores que precisam de controlo total sobre o espaço de trabalho
 - **WS1 \_ SparkAdmins** – para aqueles utilizadores que precisam de controlo completo sobre os aspetos de Faísca do espaço de trabalho
 - **WS1 \_ SQLAdmins** – para utilizadores que precisam de controlo total sobre os aspetos SQL do espaço de trabalho
-- Adicione **WS1 \_ WSAdmins** a **WS1 \_ SQLAdmins**
-- Adicione **WS1 \_ WSAdmins** a **WS1 \_ SparkAdmins**
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASSO 2: Prepare a sua conta De Armazenamento de Dados Lake Gen2
 
@@ -98,7 +96,7 @@ O espaço de trabalho synapse precisa de acesso a STG1 e CNT1 para que possa exe
 
 - Abra o portal do Azure
 - Navegue até WS1
-- Em **Definições**, selecione **sql ative directy administrador**
+- Em **Definições** , selecione **sql ative directy administrador**
 - Selecione **Definir administração** e escolha WS1 \_ SQLAdmins
 
 ## <a name="step-6-maintain-access-control"></a>PASSO 6: Manter o controlo de acesso

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/28/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: c797148bdc07481cb312739ef020e88963599374
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: ff7b9b0bfcdc0c06eae14ecfdccabf9e337d3649
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928775"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186684"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-the-azure-kubernetes-service"></a>Quais são as soluções para executar o Oracle WebLogic Server no Serviço Azure Kubernetes?
 
@@ -30,6 +30,8 @@ Os clusters do WebLogic Server estão totalmente habilitados a funcionar em Kube
 ## <a name="guidance-scripts-and-samples-for-wls-on-aks"></a>Orientação, scripts e amostras para WLS em AKS
 Além de certificar o Servidor WebLogic em AKS, Oracle e Microsoft em conjunto, fornece instruções detalhadas, scripts e amostras para executar o WebLogic Server em AKS. A orientação está incorporada na secção de amostra de serviço Azure Kubernetes da [documentação do Operador.](https://oracle.github.io/weblogic-kubernetes-operator/samples/simple/azure-kubernetes-service/) A orientação destina-se a tornar a produção do WebLogic Server em implementações AKS o mais fácil possível. A orientação utiliza imagens oficiais do WebLogic Server Docker fornecidas pela Oracle. O failover é alcançado através de Ficheiros Azure acedidos através de alegações de volume persistentes da Kubernetes. Os balançadores de carga Azure são suportados quando alojados utilizando um Serviço Kubernetes do tipo 'LoadBalancer'. A orientação permite um alto grau de configuração e personalização.
 
+:::image type="content" source="media/oracle-weblogic/wls-on-aks.gif" alt-text="Pode utilizar os scripts de amostra para implementar o Servidor WebLogic em AKS":::
+
 A orientação assume atualmente a implantação do domínio fora da imagem do Docker e a utilização das imagens padrão do Docker da Oracle. Adicionaremos orientação para permitir imagens personalizadas com o seu domínio dentro de uma imagem do Docker. No futuro, as integrações de serviços da Azure são possíveis através de ofertas de serviços Oracle WebLogic server em soluções Azure Virtual Machines.
 
 _Estas soluções são Bring-Your-Own-License_ . Eles assumem que você já tem as licenças apropriadas com a Oracle e estão devidamente licenciados para executar ofertas em Azure.
@@ -40,7 +42,7 @@ _Se estiver interessado em trabalhar de perto nos seus cenários de migração c
 
 As soluções para executar o Oracle WebLogic Server no Serviço Azure Kubernetes permitirão uma vasta gama de arquiteturas de implantação prontas a produção com relativa facilidade.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="Implementações complexas do Servidor WebLogic são ativadas em AKS":::
+:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="Pode utilizar os scripts de amostra para implementar o Servidor WebLogic em AKS":::
 
 Para além do que as soluções proporcionam aos clientes a flexibilidade total para personalizar ainda mais as suas implementações. É provável que, além da implementação de aplicações, os clientes integrem mais recursos Azure com as suas implementações. Os clientes são encorajados a fornecer feedback no inquérito sobre a melhoria das soluções.
 

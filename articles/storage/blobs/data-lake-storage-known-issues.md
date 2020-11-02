@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: bffe69dd5b7d3cdfcba1df3420d494dcffc33f9a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042671"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186591"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com Azure Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ As APIs blob e as APIs de armazenamento de dados podem operar nos mesmos dados.
 
 Esta secção descreve problemas e limitações com a utilização de APIs blob e APIs de armazenamento de dados para operar nos mesmos dados.
 
-* Não é possível utilizar as APIs de Armazenamento de API e Data Lake para escrever na mesma instância de um ficheiro. Se escrever para um ficheiro usando APIs de Armazenamento de Dados Lake Gen2, então os blocos desse ficheiro não serão visíveis para chamadas para a API [blob da Lista de Blocos de Obter.](https://docs.microsoft.com/rest/api/storageservices/get-block-list) A única exceção é quando se usa em excesso. Pode substituir um ficheiro/bolha utilizando a API.
+* Não é possível utilizar APIs de armazenamento de API blob e data lake para escrever para a mesma instância de um ficheiro. Se escrever para um ficheiro usando APIs de Armazenamento de Dados Lake Gen2, então os blocos desse ficheiro não serão visíveis para chamadas para a API [blob da Lista de Blocos de Obter.](https://docs.microsoft.com/rest/api/storageservices/get-block-list) A única exceção é quando se usa em excesso. Pode substituir um ficheiro/bolha utilizando a API.
 
 * Quando utilizar a operação [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) sem especificar um delimiter, os resultados incluirão tanto diretórios como blobs. Se optar por utilizar um delimiter, utilize apenas um corte para a frente `/` (). Este é o único delimiter apoiado.
 
@@ -72,7 +72,7 @@ Utilize apenas a versão mais recente do AzCopy[(AzCopy v10](https://docs.micros
 
 <a id="storage-explorer"></a>
 
-## <a name="azure-storage-explorer"></a>Explorador de Armazenamento do Azure
+## <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
 
 Utilize apenas versões `1.6.0` ou mais altas.
 

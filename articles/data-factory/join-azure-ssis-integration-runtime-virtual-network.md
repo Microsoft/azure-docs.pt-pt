@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/02/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 0e9c669f2994e896205762c5f3f4df1b5fe214ae
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e73126cfc54294a7b9d54ff62c406d5e686ac470
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637229"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186778"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Join an Azure-SSIS integration runtime to a virtual network (Associar um runtime de integração do Azure-SSIS a uma rede virtual)
 
@@ -99,7 +99,7 @@ Crie a sua rede virtual para satisfazer estes requisitos:
 
 - Certifique-se de que o grupo de recursos da rede virtual (ou o grupo de recursos dos endereços IP públicos se trouxer os seus próprios endereços IP públicos) pode criar e eliminar certos recursos da rede Azure. Para obter mais informações, consulte [Configurar o grupo de recursos.](#resource-group) 
 
-- Se personalizar o seu Azure-SSIS IR como descrito na [configuração personalizada para Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md), os seus nós Azure-SSIS IR obterão endereços IP privados de um intervalo pré-finido de 172.16.0.0 a 172.31.255.255. Por isso, certifique-se de que as gamas privadas de endereços IP das suas redes virtuais ou no local não colidem com esta gama.
+- Se personalizar o seu Azure-SSIS IR como descrito na [configuração personalizada para Azure-SSIS IR,](./how-to-configure-azure-ssis-ir-custom-setup.md)o nosso processo interno de gestão dos seus nós consumirá endereços IP privados de uma gama pré-fina de 172.16.0.0 a 172.31.255.255. Consequentemente, certifique-se de que as gamas privadas de endereços IP das suas redes virtuais ou no local não colidem com esta gama.
 
 Este diagrama mostra as ligações necessárias para o seu Azure-SSIS IR:
 
@@ -158,7 +158,7 @@ Se precisar de implementar um NSG para a sub-rede utilizada pelo seu Azure-SSIS 
 
 -   **Requisito de entrada da Azure-SSIS IR**
 
-| Direção | Protocolo de transporte | Fonte | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
+| Direção | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
 |---|---|---|---|---|---|---|
 | Entrada | TCP | BatchNodeManagement | * | VirtualNetwork | 29876, 29877 (se aderir ao IR a uma rede virtual do Gestor de Recursos) <br/><br/>10100, 20100, 30100 (se juntar o IR a uma rede virtual clássica)| O serviço Data Factory utiliza estas portas para comunicar com os nós do seu Azure-SSIS IR na rede virtual. <br/><br/> Quer crie ou não um NSG de nível sub-rede, a Data Factory configura sempre um NSG ao nível dos cartões de interface de rede (NICs) ligados às máquinas virtuais que acolhem o Azure-SSIS IR. Apenas o tráfego de entrada a partir de endereços IP da Data Factory nas portas especificadas é permitido por esse NSG de nível NIC. Mesmo que abra estas portas ao tráfego de internet ao nível da sub-rede, o tráfego de endereços IP que não são endereços IP da Data Factory está bloqueado ao nível do NIC. |
 | Entrada | TCP | Serra CorpNet | * | VirtualNetwork | 3389 | (Opcional) Esta regra só é necessária quando o apoiante da Microsoft pede ao cliente para abrir para uma resolução avançada de problemas, e pode ser fechada logo após a resolução de problemas. A tag de serviço **CorpNetSaw** permite apenas estações de trabalho de acesso segura na rede corporativa da Microsoft para utilizar o ambiente de trabalho remoto. E esta etiqueta de serviço não pode ser selecionada a partir do portal e só está disponível através do Azure PowerShell ou do Azure CLI. <br/><br/> No nível NIC NSG, a porta 3389 está aberta por defeito e permitimos que controle a porta 3389 no nível de sub-rede NSG, enquanto a Azure-SSIS IR não permitiu a saída da porta 3389 por defeito na regra de firewall do Windows firewall em cada nó DE IDS para proteção. |
@@ -166,7 +166,7 @@ Se precisar de implementar um NSG para a sub-rede utilizada pelo seu Azure-SSIS 
 
 -   **Requisito de saída da Azure-SSIS IR**
 
-| Direção | Protocolo de transporte | Fonte | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
+| Direção | Protocolo de transporte | Origem | Intervalo de portas de origem | Destino | Intervalo de portas de destino | Comentários |
 |---|---|---|---|---|---|---|
 | Saída | TCP | VirtualNetwork | * | AzureCloud | 443 | Os nós do seu Azure-SSIS IR na rede virtual utilizam esta porta para aceder aos serviços Azure, como o Azure Storage e o Azure Event Hubs. |
 | Saída | TCP | VirtualNetwork | * | Internet | 80 | (Opcional) Os nós do seu Azure-SSIS IR na rede virtual utilizam esta porta para descarregar uma lista de revogação de certificados da internet. Se bloquear este tráfego, poderá experimentar uma degradação de desempenho quando iniciar o IR e perder capacidade de verificar a lista de revogação de certificados para utilização do certificado. Se quiser reduzir ainda mais o destino a certos FQDNs, consulte a secção **Use Azure ExpressRoute ou UDR**|
@@ -338,7 +338,7 @@ Utilize o portal para configurar uma rede virtual Azure Resource Manager antes d
 
 1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, apenas estes navegadores da Web suportam a UI da Data Factory. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 1. Selecione **Mais serviços** . Filtrar e selecionar **redes virtuais.** 
 
@@ -368,7 +368,7 @@ Utilize o portal para configurar uma rede virtual clássica antes de tentar ader
 
 1. Inicie o Microsoft Edge ou o Google Chrome. Atualmente, apenas estes navegadores da Web suportam a UI da Data Factory. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com). 
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
 1. Selecione **Mais serviços** . Filtrar e selecionar **redes virtuais (clássicas)** . 
 
