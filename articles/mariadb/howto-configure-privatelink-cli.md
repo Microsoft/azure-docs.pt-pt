@@ -1,18 +1,18 @@
 ---
 title: Ligação Privada - Azure CLI - Base de Dados Azure para MariaDB
 description: Saiba como configurar link privado para Azure Database for MariaDB da Azure CLI
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb3ed4e41125131538957addce5bf935b897b581
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c7f95b2009521b054958be48e444a129b0a59ed3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537223"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242896"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Criar e gerir o Link Privado para Azure Database para MariaDB utilizando o CLI
 
@@ -133,24 +133,24 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 Ligue-se ao *myVm VM* da internet da seguinte forma:
 
-1. Na barra de pesquisa do portal, introduza *myVm* .
+1. Na barra de pesquisa do portal, introduza *myVm*.
 
-1. Selecione o botão **Ligar** . Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
+1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
-1. Selecione **Transferir Ficheiro RDP** . O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
+1. Selecione **Transferir Ficheiro RDP**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
 
 1. Abra o *ficheiro.rdp descarregado.*
 
-    1. Se lhe for pedido, selecione **Ligar** .
+    1. Se lhe for pedido, selecione **Ligar**.
 
     1. Introduza o nome de utilizador e a palavra-passe que especificou ao criar o VM.
 
         > [!NOTE]
         > Poderá ter de selecionar **Mais escolhas**  >  **Utilize uma conta diferente** , para especificar as credenciais que introduziu quando criou o VM.
 
-1. Selecione **OK** .
+1. Selecione **OK**.
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar** .
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Assim que o ambiente de trabalho em VM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.  
 
@@ -181,13 +181,13 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
     | Palavra-passe | Introduza uma palavra-passe fornecida durante a criação do servidor MariaDB. |
     ||
 
-5. Selecione **a ligação de teste** ou **OK** .
+5. Selecione **a ligação de teste** ou **OK**.
 
 6. (Opcionalmente) Pesquise bases de dados a partir do menu esquerdo e Crie ou consulte informações da base de dados MariaDB
 
 8. Feche a ligação remota do ambiente de trabalho ao myVm.
 
-## <a name="clean-up-resources"></a>Limpar os recursos 
+## <a name="clean-up-resources"></a>Limpar recursos 
 Quando já não for necessário, pode utilizar o grupo AZ para remover o grupo de recursos e todos os recursos que tem: 
 
 ```azurecli-interactive

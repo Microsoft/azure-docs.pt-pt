@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35eef6951f844ab60caec70033e41e23a7920d3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e00ecd6048239683951a2d1e60d3bcb0eb5aa68
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288312"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242437"
 ---
 # <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Ficheiros De consulta Parquet utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -155,43 +155,7 @@ ORDER BY
 
 ## <a name="type-mapping"></a>Mapeamento de tipo
 
-Os ficheiros parquet contêm descrições de tipo para cada coluna. A tabela a seguir descreve como os tipos de Parquet são mapeados para os tipos nativos SQL.
-
-| Tipo parquet | Tipo lógico parquet (anotação) | Tipo de dados SQL |
-| --- | --- | --- |
-| BOOLEANA | | bit |
-| BINÁRIO / BYTE_ARRAY | | varbinário |
-| DUPLO | | float |
-| FLUTUAR | | real |
-| INT32 | | int |
-| INT64 | | bigint |
-| INT96 | |datetime2 |
-| FIXED_LEN_BYTE_ARRAY | |binary |
-| BINÁRIO |UTF8 |varchar \* (colagem UTF8) |
-| BINÁRIO |CORDA |varchar \* (colagem UTF8) |
-| BINÁRIO |ENUM|varchar \* (colagem UTF8) |
-| BINÁRIO |UUID |uniqueidentifier |
-| BINÁRIO |DECIMAL |decimal |
-| BINÁRIO |JSON |varchar(máx) \* (colagem UTF8) |
-| BINÁRIO |Rio BSON |varbinário(máx) |
-| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVALO |varchar(máx), serializado em formato padronizado |
-| INT32 |INT(8, verdade) |smallint |
-| INT32 |INT(16, verdade) |smallint |
-| INT32 |INT(32, verdade) |int |
-| INT32 |INT(8, falso) |tinyint |
-| INT32 |INT(16, falso) |int |
-| INT32 |INT(32, falso) |bigint |
-| INT32 |DATE |date |
-| INT32 |DECIMAL |decimal |
-| INT32 |TEMPO (MILLIS)|hora |
-| INT64 |INT(64, verdade) |bigint |
-| INT64 |INT(64, falso) |decimal (20,0) |
-| INT64 |DECIMAL |decimal |
-| INT64 |TEMPO (MICROS / NANOS) |hora |
-|INT64 |TIMETAMP (MILLIS / MICROS / NANOS) |datetime2 |
-|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(máx), serializado em JSON |
-|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAPA|varchar(máx), serializado em JSON |
+Para o mapeamento do tipo Parquet para mapeamento do tipo nativo [SQL, verifique o tipo de mapeamento para Parquet](develop-openrowset.md#type-mapping-for-parquet).
 
 ## <a name="next-steps"></a>Passos seguintes
 

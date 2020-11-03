@@ -1,17 +1,17 @@
 ---
 title: Arquitetura de conectividade - Base de Dados Azure para MySQL
 description: Descreve a arquitetura de conectividade para o seu Azure Database para o servidor MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 73178a9707d35fe7337210b11e76504794bc93ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d3842675cf4b36dfaa95ed6041bf8c6f0978a53
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896389"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242879"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade em Azure Database para MySQL
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade MySQL, bem como como o tráfego é direcionado para a sua Base de Dados Azure para o caso MySQL de clientes dentro e fora de Azure.
@@ -56,8 +56,8 @@ A tabela que se segue lista os IPs primários e secundários da Base de Dados Az
 | Sul da Coreia do Sul | 52.231.200.86    |
 | E.U.A. Centro-Norte | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | Europa do Norte | 40.113.93.91, 191.235.193.75, 52.138.224.6, 52.138.224.7    |
-| África do Sul Norte  | 102.133.152.0    |
-| África do Sul | 102.133.24.0   |
+| Norte da África do Sul  | 102.133.152.0    |
+| Oeste da África do Sul | 102.133.24.0   |
 | E.U.A. Centro-Sul |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
 | Ásia Sudeste | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Centro dos Emirados Árabes Unidos | 20.37.72.64  |

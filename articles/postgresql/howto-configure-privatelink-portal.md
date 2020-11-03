@@ -1,17 +1,17 @@
 ---
 title: Link Privado - Portal Azure - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Saiba como configurar link privado para Azure Database para PostgreSQL- Servidor único a partir do portal Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: 4da1c1e142c5d70bea342fd9513061710228e61d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 98d3beef72d314f93f6a2bc580b1dd5de5735f23
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489936"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242471"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-portal"></a>Criar e gerir o Link Privado para Base de Dados de Azure para PostgreSQL - Servidor único usando o Portal
 
@@ -32,7 +32,7 @@ Nesta secção, irá criar rede virtual e a sub-rede para hospedar o VM que é u
 ### <a name="create-the-virtual-network"></a>Criar a rede virtual
 Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que é utilizado para aceder ao seu recurso De Ligação Privada.
 
-1. No lado superior esquerdo do ecrã, **selecione Criar uma**rede virtual  >  **de rede de rede de**recursos  >  **Virtual network**.
+1. No lado superior esquerdo do ecrã, **selecione Criar uma** rede virtual  >  **de rede de rede de** recursos  >  **Virtual network**.
 2. Na **Criar rede virtual,** insira ou selecione esta informação:
 
     | Definição | Valor |
@@ -40,7 +40,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | Nome | Insira *a MyVirtualNetwork*. |
     | Espaço de endereços | Insira *10.1.0.0/16*. |
     | Subscrição | Selecione a sua subscrição.|
-    | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup*e, em seguida, selecione **OK**. |
+    | Grupo de recursos | **Selecione Criar novo,** insira *o myResourceGroup* e, em seguida, selecione **OK**. |
     | Localização | Selecione **Europa Ocidental**.|
     | Sub-rede - Nome | Insira *o mySubnet.* |
     | Sub-rede - Intervalo de endereços | Insira *10.1.0.0/24*. |
@@ -49,9 +49,9 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
 
 ### <a name="create-virtual-machine"></a>Criar máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma**máquina virtual  >  **compute de**recurso  >  **Virtual Machine**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina virtual  >  **compute de** recurso  >  **Virtual Machine**.
 
-2. Na **Criar uma máquina virtual - Básicos, insira**ou selecione esta informação:
+2. Na **Criar uma máquina virtual - Básicos, insira** ou selecione esta informação:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -62,7 +62,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | Nome da máquina virtual | *Insira o myVm*. |
     | Region | Selecione **Europa Ocidental**. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
-    | Imagem | Selecione **o Centro de Dados 2019 do Windows**Server . |
+    | Imagem | Selecione **o Centro de Dados 2019 do Windows** Server . |
     | Tamanho | Deixe o **padrão DS1 v2**. |
     | **CONTA DE ADMINISTRADOR** |  |
     | Nome de utilizador | Insira um nome de utilizador à sua escolha. |
@@ -71,12 +71,12 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | **REGRAS DA PORTA DE ENTRADA** |  |
     | Portas de entrada públicas | Deixe o padrão **Nenhum**. |
     | **POUPE DINHEIRO** |  |
-    | Já tem uma licença do Windows? | Deixe o **nº**padrão . |
+    | Já tem uma licença do Windows? | Deixe o **nº** padrão . |
     |||
 
 1. Selecione **Seguinte: Discos**.
 
-1. Em **Criar uma máquina virtual – Discos**, mantenha as predefinições e selecione **Seguinte: Redes**.
+1. Em **Criar uma máquina virtual – Discos** , mantenha as predefinições e selecione **Seguinte: Redes**.
 
 1. Na **Criação de uma máquina virtual - Networking,** selecione estas informações:
 
@@ -91,9 +91,9 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     |||
 
 
-1. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração.
+1. Selecione **Rever + criar**. Acedeu à página **Rever + criar** , onde o Azure valida a sua configuração.
 
-1. Quando vir a mensagem **A validação passou**, selecione **Criar**.
+1. Quando vir a mensagem **A validação passou** , selecione **Criar**.
 
 > [!NOTE]
 > Em alguns casos, a Base de Dados Azure para PostgreSQL e a sub-rede VNet estão em diferentes subscrições. Nestes casos, deve assegurar as seguintes configurações:
@@ -103,7 +103,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
 
 Nesta secção, irá criar uma Base de Dados Azure para o servidor PostgreSQL em Azure. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma**base de  >  **dados de recursos**  >  **Azure Databases for PostgreSQL**.
+1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma** base de  >  **dados de recursos**  >  **Azure Databases for PostgreSQL**.
 
 1. Na **Base de Dados Azure para a opção de implementação PostgreSQL,** selecione **servidor único** e forneça estas informações:
 
@@ -122,7 +122,7 @@ Nesta secção, irá criar uma Base de Dados Azure para o servidor PostgreSQL em
     |||
  
 7. Selecione **OK**. 
-8. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração. 
+8. Selecione **Rever + criar**. Acedeu à página **Rever + criar** , onde o Azure valida a sua configuração. 
 9. Quando vir a mensagem de validação passada, **selecione Criar**. 
 10. Quando vir a mensagem de validação passada, selecione Criar. 
 
@@ -130,12 +130,12 @@ Nesta secção, irá criar uma Base de Dados Azure para o servidor PostgreSQL em
 
 Nesta secção, irá criar um servidor PostgreSQL e adicionar-lhe um ponto final privado. 
 
-1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma**  >  **Networking**  >  **ligação privada**de rede de recursos .
-2. No **Private Link Center - Overview,** sobre a opção de construir uma **ligação privada a um serviço**, selecione **Start**.
+1. No lado superior esquerdo do ecrã no portal Azure, **selecione Criar uma**  >  **Networking**  >  **ligação privada** de rede de recursos .
+2. No **Private Link Center - Overview,** sobre a opção de construir uma **ligação privada a um serviço** , selecione **Start**.
 
     :::image type="content" source="media/concepts-data-access-and-security-private-link/privatelink-overview.png" alt-text="Visão geral do Link Privado":::
 
-1. Na **Criação de um ponto final privado - Básicos, insira**ou selecione estas informações:
+1. Na **Criação de um ponto final privado - Básicos, insira** ou selecione estas informações:
 
     | Definição | Valor |
     | ------- | ----- |
@@ -173,10 +173,10 @@ Nesta secção, irá criar um servidor PostgreSQL e adicionar-lhe um ponto final
     > [!Note] 
     > Utilize a zona de DNS privada predefinida para o seu serviço ou forneça o nome da zona DE DNS preferida. Consulte a configuração da [zona DNS dos serviços Azure](../private-link/private-endpoint-dns.md) para obter mais detalhes.
 
-1. Selecione **Rever + criar**. Acedeu à página **Rever + criar**, onde o Azure valida a sua configuração. 
-2. Quando vir a mensagem **A validação passou**, selecione **Criar**. 
+1. Selecione **Rever + criar**. Acedeu à página **Rever + criar** , onde o Azure valida a sua configuração. 
+2. Quando vir a mensagem **A validação passou** , selecione **Criar**. 
 
-    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Visão geral do Link Privado":::
+    :::image type="content" source="media/concepts-data-access-and-security-private-link/show-postgres-private-link.png" alt-text="Link Privado criado":::
 
     > [!NOTE] 
     > O FQDN na definição de DNS do cliente não se resolve com o IP privado configurado. Terá de configurar uma zona DNS para o FQDN configurado, como mostrado [aqui.](../dns/dns-operations-recordsets-portal.md)
@@ -199,7 +199,7 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
     1. Introduza o nome de utilizador e a palavra-passe que especificou ao criar o VM.
 
         > [!NOTE]
-        > Poderá ter de selecionar **Mais escolhas**  >  **Utilize uma conta diferente**, para especificar as credenciais que introduziu quando criou o VM.
+        > Poderá ter de selecionar **Mais escolhas**  >  **Utilize uma conta diferente** , para especificar as credenciais que introduziu quando criou o VM.
 
 1. Selecione **OK**.
 
@@ -243,10 +243,10 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
 
 8. Feche a ligação remota do ambiente de trabalho ao myVm.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando terminar de usar o ponto final privado, o servidor PostgreSQL e o VM, elimine o grupo de recursos e todos os recursos que contém:
 
-1. Introduza o *myResourceGroup* na caixa **de Pesquisa** no topo do portal e selecione o *myResourceGroup*   a partir dos resultados da pesquisa.
+1. Introduza o *myResourceGroup* na caixa **de Pesquisa** no topo do portal e selecione o  *myResourceGroup*   a partir dos resultados da pesquisa.
 2. Selecione **Eliminar grupo de recursos**.
 3. Introduza o myResourceGroup para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 

@@ -1,17 +1,17 @@
 ---
 title: Encriptação de dados com chave gerida pelo cliente - Azure Database for PostgreSQL - Servidor Único
 description: Azure Database for PostgreSQL Single servidor data encrypted with a customer-managed key permite-lhe trazer a sua própria chave (BYOK) para proteção de dados em repouso. Também permite às organizações implementarem a separação de deveres na gestão das chaves e dos dados.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c07f59ae183c2d4ac920c6b3773fc6d177622ad2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 078b0fe63cf89f2736a8707ad561c798c4818317
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490191"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242420"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para encriptação de dados de servidor único postgresQL com uma chave gerida pelo cliente
 
@@ -35,9 +35,9 @@ A encriptação de dados com chaves geridas pelo cliente para a Base de Dados Az
 
 ## <a name="terminology-and-description"></a>Terminologia e descrição
 
-**Chave de encriptação de dados (DEK)**: Uma chave AES256 simétrica usada para encriptar uma divisória ou bloco de dados. Encriptar cada bloco de dados com uma chave diferente torna os ataques de análise cripto mais difícil. O acesso aos DEKs é necessário pelo fornecedor de recursos ou pela instância de aplicação que está a encriptar e desencriptar um bloco específico. Quando substituir um DEK por uma nova chave, apenas os dados do bloco associado devem ser reencri encriptados com a nova chave.
+**Chave de encriptação de dados (DEK)** : Uma chave AES256 simétrica usada para encriptar uma divisória ou bloco de dados. Encriptar cada bloco de dados com uma chave diferente torna os ataques de análise cripto mais difícil. O acesso aos DEKs é necessário pelo fornecedor de recursos ou pela instância de aplicação que está a encriptar e desencriptar um bloco específico. Quando substituir um DEK por uma nova chave, apenas os dados do bloco associado devem ser reencri encriptados com a nova chave.
 
-**Chave de encriptação (KEK)**: Uma chave de encriptação usada para encriptar os DEKs. Um KEK que nunca sai do Key Vault permite que os próprios DEKs sejam encriptados e controlados. A entidade que tem acesso à KEK pode ser diferente da entidade que requer o DEK. Uma vez que o KEK é obrigado a desencriptar os DEKs, o KEK é efetivamente um único ponto pelo qual os DEKs podem ser efetivamente eliminados pela supressão do KEK.
+**Chave de encriptação (KEK)** : Uma chave de encriptação usada para encriptar os DEKs. Um KEK que nunca sai do Key Vault permite que os próprios DEKs sejam encriptados e controlados. A entidade que tem acesso à KEK pode ser diferente da entidade que requer o DEK. Uma vez que o KEK é obrigado a desencriptar os DEKs, o KEK é efetivamente um único ponto pelo qual os DEKs podem ser efetivamente eliminados pela supressão do KEK.
 
 Os DEKs, encriptados com os KEKs, são armazenados separadamente. Apenas uma entidade com acesso ao KEK pode desencriptar estes DEKs. Para obter mais informações, consulte [a Segurança em encriptação em repouso](../security/fundamentals/encryption-atrest.md).
 
@@ -47,9 +47,9 @@ Os DEKs, encriptados com os KEKs, são armazenados separadamente. Apenas uma ent
 
 Para que um servidor PostgreSQL utilize teclas geridas pelo cliente armazenadas no Cofre de Chaves para encriptação do DEK, um administrador do Key Vault dá os seguintes direitos de acesso ao servidor:
 
-* **obter**: Para recuperar a parte pública e as propriedades da chave no cofre chave.
-* **wrapKey**: Para ser capaz de encriptar o DEK. O DEK encriptado está armazenado na Base de Dados Azure para PostgreSQL.
-* **desembrulharKey**: Para ser capaz de desencriptar o DEK. A Azure Database for PostgreSQL precisa do DEK desencriptado para encriptar/desencriptar os dados
+* **obter** : Para recuperar a parte pública e as propriedades da chave no cofre chave.
+* **wrapKey** : Para ser capaz de encriptar o DEK. O DEK encriptado está armazenado na Base de Dados Azure para PostgreSQL.
+* **desembrulharKey** : Para ser capaz de desencriptar o DEK. A Azure Database for PostgreSQL precisa do DEK desencriptado para encriptar/desencriptar os dados
 
 O administrador-chave do cofre também pode [permitir o registo de eventos de auditoria do Key Vault,](../azure-monitor/insights/key-vault-insights-overview.md)para que possam ser auditados mais tarde.
 
@@ -79,7 +79,7 @@ Quando está a utilizar a encriptação de dados utilizando uma chave gerida pel
 * Certifique-se de que o Cofre-Chave e a Base de Dados Azure para servidor Single PostgreSQL residem na mesma região, para garantir um acesso mais rápido para o invólucro DEK e desembrulhar operações.
 * Bloqueie o Azure KeyVault apenas para **o ponto final privado e redes selecionadas** e permita apenas serviços *confiáveis* da Microsoft para garantir os recursos.
 
-    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Diagrama que mostra uma visão geral de Bring Your Own Key":::
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="serviço de confiança com AKV":::
 
 Aqui estão as recomendações para configurar uma chave gerida pelo cliente:
 
