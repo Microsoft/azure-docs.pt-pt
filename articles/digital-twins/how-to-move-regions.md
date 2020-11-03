@@ -76,7 +76,7 @@ Se a amostra não for capaz de lidar com o tamanho do seu gráfico, pode exporta
 
 Para prosseguir com o ADT Explorer, primeiro descarregue o código de aplicação da amostra e confita-o para funcionar na sua máquina. 
 
-Navegue para a amostra aqui: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina _**comoAzure_Digital_Twins__ADT__explorer.zip**_ . Desaperte o ficheiro.
+Navegue para a amostra aqui: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Aperda no botão *Baixar ZIP* para descarregar um *. Ficheiro ZIP* deste código de amostra para a sua máquina _**comoAzure_Digital_Twins__ADT__explorer.zip**_. Desaperte o ficheiro.
 
 Em seguida, configurar e configurar permissões para o ADT Explorer. Para isso, siga as instruções na secção [*Configurar Gémeos Digitais Azure e ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) do arranque rápido das Gémeas Digitais Azure. Esta secção acompanha-o através dos seguintes passos:
 1. Configurar uma instância Azure Digital Twins (pode saltar esta parte já que já tem um caso)
@@ -89,7 +89,7 @@ Agora deve ter a aplicação de amostra do ADT Explorer a funcionar num browser 
 
 Para verificar a ligação, pode carregar no botão *'Executar'* para executar a consulta predefinida que exibe todos os gémeos e relacionamentos no gráfico na caixa *GRAPH EXPLORER.*
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Um botão de leitura 'Run Consulta' perto do topo da janela é realçado" lightbox="media/how-to-move-regions/run-query.png":::
 
 Pode deixar o ADT Explorer em funcionamento, uma vez que irá usá-lo novamente mais tarde neste artigo para re-carregar estes itens para o seu novo caso na região alvo.
 
@@ -101,12 +101,12 @@ Para descarregar tudo de uma só vez, certifique-se primeiro de que o gráfico c
  
 Em seguida, bata no ícone *do gráfico de exportação* na caixa *GRAPH VIEW.*
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Na caixa Graph View, destaca-se um ícone. Mostra uma seta apontando para baixo de uma nuvem." lightbox="media/how-to-move-regions/export-graph.png":::
 
-Isto permitirá um link *de descarregamento* no *GRAPH VIEW* . Selecione-o para descarregar uma representação baseada em JSON do resultado da consulta, incluindo os seus modelos, gémeos e relacionamentos. Isto deve descarregar um ficheiro *.json* para a sua máquina.
+Isto permitirá um link *de descarregamento* no *GRAPH VIEW*. Selecione-o para descarregar uma representação baseada em JSON do resultado da consulta, incluindo os seus modelos, gémeos e relacionamentos. Isto deve descarregar um ficheiro *.json* para a sua máquina.
 
 >[!NOTE]
->Se o ficheiro descarregado parecer ter uma extensão de ficheiro diferente, tente editar a extensão diretamente e mudá-la para *.json* .
+>Se o ficheiro descarregado parecer ter uma extensão de ficheiro diferente, tente editar a extensão diretamente e mudá-la para *.json*.
 
 ## <a name="move"></a>Mover
 
@@ -134,11 +134,11 @@ Caso contrário, para prosseguir, volte à janela do navegador que executa o **A
 
 Atualmente, o ADT Explorer está ligado à sua instância original do Azure Digital Twins. Mude a ligação para apontar para a sua nova instância premindo o botão *Sinal na* parte superior da janela. 
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer destacando o ícone Sign In perto do topo da janela. O ícone mostra uma silhueta simples de uma pessoa sobreposta com uma silhueta de uma chave." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Substitua o *URL ADT* para refletir a sua nova instância. Altere este valor para o que lê *https://{new instance hostname}* .
+Substitua o *URL ADT* para refletir a sua nova instância. Altere este valor para o que lê *https://{new instance hostname}*.
 
-Hit *Connect* . Pode ser-lhe pedido que faça login novamente com as suas credenciais Azure e/ou conceda este consentimento de pedido para o seu exemplo.
+Hit *Connect*. Pode ser-lhe pedido que faça login novamente com as suas credenciais Azure e/ou conceda este consentimento de pedido para o seu exemplo.
 
 ##### <a name="upload-models-twins-and-graph"></a>Upload modelos, gémeos e gráfico
 
@@ -146,9 +146,9 @@ Em seguida, faça o upload dos componentes da solução que descarregou anterior
 
 Para fazer o upload dos seus **modelos, gémeos e gráfico,** acerte o ícone *Import Graph* na caixa *GRAPH VIEW.* Esta opção irá carregar os três componentes de uma só vez (mesmo modelos que não estão atualmente a ser utilizados no gráfico).
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Na caixa Graph View, destaca-se um ícone. Mostra uma seta apontando para uma nuvem." lightbox="media/how-to-move-regions/import-graph.png":::
 
-Na caixa de seletor de ficheiros, navegue para o seu gráfico descarregado. Selecione o ficheiro *gráfico .json* e acerte *em Open* .
+Na caixa de seletor de ficheiros, navegue para o seu gráfico descarregado. Selecione o ficheiro *gráfico .json* e acerte *em Open*.
 
 Após alguns segundos, o ADT Explorer abrirá uma vista *de Importação* exibindo uma pré-visualização do gráfico que vai ser carregado.
 
@@ -156,7 +156,7 @@ Para confirmar o upload do gráfico, bata no ícone *Guardar* no canto superior 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/graph-preview-save.png":::
+        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Realçando o ícone Guardar no painel de pré-visualização do gráfico" lightbox="media/how-to-move-regions/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -166,7 +166,7 @@ O ADT Explorer irá agora enviar os seus modelos e gráficos (incluindo os géme
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Caixa de diálogo indicando o sucesso da importação de gráficos. Diz: &quot;Importar bem sucedido. 2 modelos importados. 4 gémeos importados. 2 relações importadas.»" lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -174,13 +174,13 @@ O ADT Explorer irá agora enviar os seus modelos e gráficos (incluindo os géme
     :::column-end:::
 :::row-end:::
 
-Para verificar se tudo foi carregado com sucesso, carrememe o botão *'Executar consulta'* na caixa *GRAPH EXPLORER* para executar a consulta predefinida que exibe todos os gémeos e relacionamentos no gráfico. Isto irá também refrescar a lista de modelos no *MODEL VIEW* .
+Para verificar se tudo foi carregado com sucesso, carrememe o botão *'Executar consulta'* na caixa *GRAPH EXPLORER* para executar a consulta predefinida que exibe todos os gémeos e relacionamentos no gráfico. Isto irá também refrescar a lista de modelos no *MODEL VIEW*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Destaque em torno do mesmo botão 'Run Query' de antes, perto do topo da janela" lightbox="media/how-to-move-regions/run-query.png":::
 
 Deve ver o seu gráfico com todos os seus gémeos e relacionamentos exibidos na caixa *GRAPH EXPLORER.* Também deverá ver os seus modelos listados na caixa *MODEL VIEW.*
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Uma vista do ADT Explorer mostrando 2 modelos em destaque na caixa 'Model View' e um gráfico realçado na caixa 'Graph Explorer'" lightbox="media/how-to-move-regions/post-upload.png":::
 
 Isto confirma que os seus modelos, gémeos e gráficos foram re-carregados para a nova instância na região alvo.
 
@@ -225,7 +225,7 @@ Também pode tentar executar quaisquer aplicações personalizadas ou fluxos de 
 
 ## <a name="clean-up-source-resources"></a>Limpar recursos de origem
 
-Agora que o seu novo caso é configurado na região alvo com uma cópia dos dados e ligações da instância original, pode **apagar a instância original** .
+Agora que o seu novo caso é configurado na região alvo com uma cópia dos dados e ligações da instância original, pode **apagar a instância original**.
 
 Pode fazê-lo no [portal Azure,](https://portal.azure.com)com o [CLI,](how-to-use-cli.md)ou com as APIs do [avião de controlo.](how-to-use-apis-sdks.md#overview-control-plane-apis)
 
@@ -233,4 +233,4 @@ Para eliminar o caso utilizando o portal Azure, [abra o portal](https://portal.a
 
 Premir o botão *Eliminar* e siga as instruções para terminar a eliminação.
 
-:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã.":::
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Veja os detalhes da instância Azure Digital Twins no portal Azure, no separador Visão Geral. O botão Eliminar é realçado":::

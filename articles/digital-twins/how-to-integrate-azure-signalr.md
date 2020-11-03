@@ -40,9 +40,9 @@ Irá anexar o Serviço Azure SignalR às Gémeas Digitais Azure através do cami
 
 Primeiro, descarregue as aplicações de amostras necessárias. Vai precisar de ambos os seguintes:
 * [**Amostras de ponta a ponta da Azure Digital Twins**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): Esta amostra contém um *AdtSampleApp* que contém duas funções Azure para mover dados em torno de uma instância Azure Digital Twins (pode aprender sobre este cenário com mais detalhes no [*Tutorial: Conecte uma solução de ponta a ponta).*](tutorial-end-to-end.md) Também contém uma aplicação de amostra *de DeviceSimulator* que simula um dispositivo IoT, gerando um novo valor de temperatura a cada segundo. 
-    - Navegue no link de amostra e apere no botão *Download ZIP* para transferir uma cópia da amostra para a sua máquina, como _**Azure_Digital_Twins_end_to_end_samples.zip**_ . Deszipe a pasta.
+    - Navegue no link de amostra e apere no botão *Download ZIP* para transferir uma cópia da amostra para a sua máquina, como _**Azure_Digital_Twins_end_to_end_samples.zip**_. Deszipe a pasta.
 * Amostra de [**aplicações web de integração SignalR**](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): Esta é uma amostra React web app que irá consumir dados de telemetria Azure Digital Twins a partir de um serviço Azure SignalR.
-    -  Navegue no link de amostra e apere no botão *Download ZIP* para transferir uma cópia da amostra para a sua máquina, como _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_ . Deszipe a pasta.
+    -  Navegue no link de amostra e apere no botão *Download ZIP* para transferir uma cópia da amostra para a sua máquina, como _**Azure_Digital_Twins_SignalR_integration_web_app_sample.zip**_. Deszipe a pasta.
 
 [!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
 
@@ -61,7 +61,7 @@ Primeiro, vá ao navegador onde o portal Azure é aberto e complete os seguintes
 
 1. Selecione o ícone para copiar a cadeia de ligação primária.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Screenshot do portal Azure que mostra a página Chaves para a instância SignalR. É realçado o ícone 'Copy to clipboard' ao lado da STRING DE LIGAÇÃO Primária." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
 Em seguida, inicie o Visual Studio (ou outro editor de código à sua escolha) e abra a solução de código na pasta *Azure_Digital_Twins_end_to_end_samples > ADTSampleApp.* Em seguida, faça os seguintes passos para criar as funções:
 
@@ -139,11 +139,11 @@ Em seguida, inicie o Visual Studio (ou outro editor de código à sua escolha) e
 Em seguida, publique a sua função no Azure, utilizando os passos descritos na secção publicar a secção de [ *aplicações*](tutorial-end-to-end.md#publish-the-app) do *"Connect" um tutorial de solução de ponta a ponta.* Pode publicá-lo na mesma aplicação de serviço/função que utilizou no pré-req tutorial de ponta a ponta, ou criar uma nova , mas pode querer usar a mesma para minimizar a duplicação. Além disso, termine a publicação da aplicação com os seguintes passos:
 1. Recolha o URL de **ponto final HTTP** da função *de negociação.* Para isso, aceda à página de [aplicações do](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) portal Azure e selecione a sua aplicação de função da lista. No menu de aplicações, selecione *Funções* e escolha a função *de negociação.*
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/functions-negotiate.png" alt-text="Vista do portal Azure da aplicação de função, com 'Funções' em destaque no menu. A lista de funções é mostrada na página, e a função 'negociar' também é destacada.":::
 
-    Hit *Get function URL* e copiar o valor através de **_/api_ (não inclua o último _/negociar?_ )** . Vais usar isto mais tarde.
+    Hit *Get function URL* e copiar o valor através de **_/api_ (não inclua o último _/negociar?_ )**. Vais usar isto mais tarde.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/get-function-url.png" alt-text="Vista do portal Azure da função &quot;negociar&quot;. O botão 'Obter URL de função' é realçado, e a parte do URL desde o início até '/api'":::
 
 1. Por fim, adicione a sua cadeia de **ligação** Azure SignalR de anteriormente às definições de aplicação da função, utilizando o seguinte comando Azure CLI. O comando pode ser executado em [Azure Cloud Shell,](https://shell.azure.com)ou localmente se tiver o Azure CLI [instalado na sua máquina:](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
  
@@ -153,7 +153,7 @@ Em seguida, publique a sua função no Azure, utilizando os passos descritos na 
 
     A saída deste comando imprime todas as definições de aplicações configurada para a sua função Azure. Procure `AzureSignalRConnectionString` o fundo da lista para verificar se foi adicionado.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/output-app-setting.png" alt-text="Excerto de saída numa janela de comando, mostrando um item de lista chamado 'AzureSignalRConnectionString'":::
 
 #### <a name="connect-the-function-to-event-grid"></a>Ligue a função à Grelha de Eventos
 
@@ -161,20 +161,20 @@ Em seguida, subscreva a função Azure *de transmissão* ao tópico da grelha de
 
 Para isso, irá criar uma **subscrição** de Grade de Eventos do tópico da grelha de eventos para a sua função de Azure *de difusão* como ponto final.
 
-No [portal Azure,](https://portal.azure.com/)navegue para o tópico da grelha de eventos procurando o seu nome na barra de pesquisa de topo. Selecione *+ Subscrição de Eventos* .
+No [portal Azure,](https://portal.azure.com/)navegue para o tópico da grelha de eventos procurando o seu nome na barra de pesquisa de topo. Selecione *+ Subscrição de Eventos*.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/event-subscription-1b.png" alt-text="Portal Azure: Subscrição de eventos da Grade de Eventos":::
 
 Na página *'Criar Subscrição de* Eventos', preencha os campos da seguinte forma (os campos preenchidos por predefinição não são mencionados):
 * *DETALHES DA SUBSCRIÇÃO DO*  >  EVENTO **Nome** : Dê um nome à subscrição do seu evento.
 * *DETALHES DO PONTO FINAL*  >  **Tipo ponto final** : Selecione *Azure Function* a partir das opções do menu.
 * *DETALHES DO PONTO FINAL*  >  **Ponto final** : Acerte na *ligação De ponto final* Select. Isto abrirá uma janela *de função Select Azure:*
     - Preencha a sua **Subscrição** , **Grupo de Recursos,** **Função app** e **Função** *(transmissão).* Alguns destes podem preencher automaticamente após a seleção da subscrição.
-    - Hit **Confirm Selection** .
+    - Hit **Confirm Selection**.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/create-event-subscription.png" alt-text="Vista do portal Azure de criar uma subscrição de eventos. Os campos acima são preenchidos e os botões 'Confirmar Seleção' e 'Criar' são realçados.":::
 
-De volta à página *de Subscrição de Eventos Create,* hit **Create** .
+De volta à página *de Subscrição de Eventos Create,* hit **Create**.
 
 ## <a name="configure-and-run-the-web-app"></a>Configure e execute a aplicação web
 
@@ -184,9 +184,9 @@ Nesta secção, verá o resultado em ação. Em primeiro lugar, iniciará a **ap
 
 Durante o pré-requisito tutorial de ponta a ponta, [configuraste o simulador do dispositivo](tutorial-end-to-end.md#configure-and-run-the-simulation) para enviar dados através de um Hub IoT e para a tua instância Azure Digital Twins.
 
-Agora, tudo o que tem de fazer é iniciar o projeto de simulador, localizado no *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator.sln* . Se estiver a utilizar o Visual Studio, pode abrir o projeto e executá-lo com este botão na barra de ferramentas:
+Agora, tudo o que tem de fazer é iniciar o projeto de simulador, localizado no *Azure_Digital_Twins_end_to_end_samples > DeviceSimulator > DeviceSimulator.sln*. Se estiver a utilizar o Visual Studio, pode abrir o projeto e executá-lo com este botão na barra de ferramentas:
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="O botão de arranque do Estúdio Visual (projeto DeviceSimulator)":::
 
 Uma janela da consola abrir-se-á e apresentará mensagens de telemetria de temperatura simulada. Estes estão a ser enviados através da sua instância Azure Digital Twins, onde são depois captadas pelas funções Azure e SignalR.
 
@@ -212,9 +212,9 @@ Em seguida, crie a amostra de **aplicação web de integração signalR** com es
 
 Em seguida, desaprote permissões na sua aplicação de função no portal Azure:
 1. Na página de [aplicações 'Fun'](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Web%2Fsites/kind/functionapp) do portal Azure, selecione a sua instância de aplicação de função.
-1. Desloque-se para baixo no menu de exemplos e selecione *CORS* . Na página CORS, adicione `http://localhost:3000` como uma origem permitida inserindo-a na caixa vazia. Verifique se a caixa é *ativada para ativar o controlo de acesso-permitir-credenciais* e bata *em Save* .
+1. Desloque-se para baixo no menu de exemplos e selecione *CORS*. Na página CORS, adicione `http://localhost:3000` como uma origem permitida inserindo-a na caixa vazia. Verifique se a caixa é *ativada para ativar o controlo de acesso-permitir-credenciais* e bata *em Save*.
 
-    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos.":::
+    :::image type="content" source="media/how-to-integrate-azure-signalr/cors-setting-azure-function.png" alt-text="Regulação do CORS na Função Azure":::
 
 ### <a name="see-the-results"></a>Veja os resultados
 
@@ -226,7 +226,7 @@ npm start
 
 Isto abrirá uma janela do navegador que executa a aplicação da amostra, que exibe um medidor de temperatura visual. Uma vez que a aplicação esteja em execução, deve começar a ver os valores de telemetria de temperatura do simulador do dispositivo que se propagam através do Azure Digital Twins sendo refletidos pela aplicação web em tempo real.
 
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Uma visão dos serviços da Azure num cenário de ponta a ponta. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), depois através da Grade de Evento para outra função Azure para processamento (seta C). A secção D mostra dados que fluem da mesma grelha de eventos na seta C para uma Função Azure rotulada de &quot;transmissão&quot;. A 'difusão' comunica com outra função Azure rotulada de &quot;negociar&quot;, e tanto &quot;difusão&quot; como &quot;negociar&quot; comunicam com dispositivos informáticos.":::
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Excerto da aplicação web do cliente da amostra, mostrando um medidor de temperatura visual. A temperatura refletida é de 67,52":::
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 

@@ -38,7 +38,7 @@ Uma vez no portal, comece por selecionar _Criar um recurso_ no menu de página i
 
 Procure *por Azure Digital Twins* na caixa de pesquisa e escolha o serviço **Azure Digital Twins** a partir dos resultados. Selecione o botão _Criar_ para criar uma nova instância do serviço.
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins.png" alt-text="Selecionando 'Criar' a partir da página de serviço Azure Digital Twins":::
 
 Na página *de Criar Recursos,* preencha os valores abaixo indicados:
 * **Subscrição** : A subscrição Azure que está a usar
@@ -46,15 +46,15 @@ Na página *de Criar Recursos,* preencha os valores abaixo indicados:
 * **Localização** : Uma região ativada por Gémeos Digitais Azure para a implantação. Para mais detalhes sobre o apoio regional, visite [*os produtos Azure disponíveis por região (Azure Digital Twins)*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
 * **Nome do recurso** : Um nome para a sua instância Azure Digital Twins. O nome do novo caso deve ser único na região para a sua subscrição (o que significa que se a sua subscrição tiver outra instância Azure Digital Twins na região que já está a usar o nome que escolher, será solicitado que escolha um nome diferente).
 
-:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
+:::image type="content" source= "media/how-to-set-up-instance/portal/create-azure-digital-twins-2.png" alt-text="Preenchendo os valores descritos para criar um recurso Azure Digital Twins":::
 
-Quando terminar, selecione _Review + create_ . Isto irá levá-lo a uma página de resumo, onde pode rever os detalhes de casos introduzidos e bater _Create_ . 
+Quando terminar, selecione _Review + create_. Isto irá levá-lo a uma página de resumo, onde pode rever os detalhes de casos introduzidos e bater _Create_. 
 
 ### <a name="verify-success-and-collect-important-values"></a>Verifique o sucesso e colete valores importantes
 
 Depois de empurrar *Criar,* pode visualizar o estado da implementação do seu caso nas notificações do Azure ao longo da barra de ícones do portal. A notificação indicará quando a implementação foi bem sucedida, e poderá selecionar o botão _De recurso para_ visualizar a sua instância criada.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
+:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Vista das notificações do Azure mostrando uma implementação bem sucedida e destacando o botão 'Ir para o recurso'":::
 
 Em alternativa, se a implementação falhar, a notificação indicará o porquê. Observe os conselhos da mensagem de erro e recandiduça criando o caso.
 
@@ -63,7 +63,7 @@ Em alternativa, se a implementação falhar, a notificação indicará o porquê
 
 A partir *da* página geral do caso, note o seu *nome,* *grupo de recursos* e nome *anfitrião.* Estes são todos os valores importantes que poderá necessitar enquanto continua a trabalhar com a sua instância Azure Digital Twins. Se outros utilizadores estiverem a programar contra a ocorrência, deverá partilhar estes valores com eles.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Realçando os valores importantes da página geral da instância":::
 
 Agora tens uma instância do Azure Digital Twins pronta para ir. Em seguida, você dará as permissões apropriadas do utilizador Azure para geri-lo.
 
@@ -71,9 +71,9 @@ Agora tens uma instância do Azure Digital Twins pronta para ir. Em seguida, voc
 
 [!INCLUDE [digital-twins-setup-role-assignment.md](../../includes/digital-twins-setup-role-assignment.md)]
 
-Primeiro, abra a página para a sua instância Azure Digital Twins no portal Azure. A partir do menu da instância, selecione *Access control (IAM)* . Selecione o botão  *Adicionar* sob *Adicionar uma atribuição de função* .
+Primeiro, abra a página para a sua instância Azure Digital Twins no portal Azure. A partir do menu da instância, selecione *Access control (IAM)*. Selecione o botão  *Adicionar* sob *Adicionar uma atribuição de função*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
+:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selecionando para adicionar uma atribuição de função a partir da página 'Controlo de acesso (IAM)'":::
 
 Na página seguinte *de atribuição de funções Adicionar,* preencha os valores (deve ser preenchido por um utilizador com [permissões suficientes](#prerequisites-permission-requirements) na subscrição do Azure):
 * **Função** : Selecione *Azure Digital Twins Data Owner* do menu dropdown
@@ -82,7 +82,7 @@ Na página seguinte *de atribuição de funções Adicionar,* preencha os valore
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
+        :::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-2.png" alt-text="Preenchendo os campos listados no diálogo &quot;Adicionar função&quot;":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -92,9 +92,9 @@ Quando terminar de introduzir os detalhes, acerte no botão *Guardar.*
 
 ### <a name="verify-success"></a>Verificar o sucesso
 
-Pode ver a atribuição de funções que estabeleceu no controlo de *acesso (IAM) > atribuições de Função* . O utilizador deve aparecer na lista com um papel de *Azure Digital Twins Data Owner* . 
+Pode ver a atribuição de funções que estabeleceu no controlo de *acesso (IAM) > atribuições de Função*. O utilizador deve aparecer na lista com um papel de *Azure Digital Twins Data Owner*. 
 
-:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Selecionando 'Criar um recurso' a partir da página inicial do portal Azure":::
+:::image type="content" source="media/how-to-set-up-instance/portal/verify-role-assignment.png" alt-text="Vista das atribuições de funções para uma instância Azure Digital Twins no portal Azure":::
 
 Tem agora uma instância Azure Digital Twins pronta a ser executada, e atribuiu permissões para geri-lo.
 
