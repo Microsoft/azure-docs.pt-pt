@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 62deca7ed1c34bbefed7fb76224db6ec8ab12dae
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 947a0c9a0af3c38d6c4d6f66da691d62530a69e7
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147135"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279503"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
 O coração de Azure Digital Twins é o [gráfico gémeo](concepts-twins-graph.md) que representa todo o seu ambiente. O gráfico gémeo é feito de gémeos digitais individuais ligados através de **relacionamentos.** 
 
-Uma vez que tenha uma [instância Azure Digital Twins](how-to-set-up-instance-portal.md) em funcionamento e tenha configurado código de [autenticação](how-to-authenticate-client.md) na sua aplicação de cliente, pode utilizar as [**APIs digitalTwins**](/rest/api/digital-twins/dataplane/twins) para criar, modificar e eliminar gémeos digitais e as suas relações num caso Azure Digital Twins. Também pode utilizar o [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)ou o [CLI das Gémeas Digitais Azure](how-to-use-cli.md).
+Uma vez que tenha uma [instância Azure Digital Twins](how-to-set-up-instance-portal.md) em funcionamento e tenha configurado código de [autenticação](how-to-authenticate-client.md) na sua aplicação de cliente, pode utilizar as [**APIs digitalTwins**](/rest/api/digital-twins/dataplane/twins) para criar, modificar e eliminar gémeos digitais e as suas relações num caso Azure Digital Twins. Também pode utilizar o [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou o [CLI das Gémeas Digitais Azure](how-to-use-cli.md).
 
 Este artigo centra-se na gestão das relações e do gráfico como um todo; para trabalhar com gémeos digitais individuais, ver [*Como-a- Gerir gémeos digitais.*](how-to-manage-twin.md)
 
@@ -38,7 +38,7 @@ Para criar uma relação, precisa de especificar:
 * O ID gémeo de origem `srcId` (na amostra de código abaixo): A identificação do gémeo de onde a relação se origina.
 * O ID gémeo alvo `targetId` (na amostra de código abaixo): A identificação do gémeo onde a relação chega.
 * Um nome de relacionamento `relName` (na amostra de código abaixo): O tipo genérico de relacionamento, algo como _._
-* Um ID de relacionamento `relId` (na amostra de código abaixo): O nome específico para esta relação, algo como _Relacionamento1_ .
+* Um ID de relacionamento `relId` (na amostra de código abaixo): O nome específico para esta relação, algo como _Relacionamento1_.
 
 A identificação da relação deve ser única dentro do gémeo de origem dada. Não precisa de ser globalmente único.
 Por exemplo, para o *twin foo,* cada identificação de relacionamento específico deve ser único. No entanto, outro *bar* gémeo pode ter uma relação de saída que corresponde à mesma identificação de uma relação *foo.*
@@ -85,7 +85,7 @@ As relações podem ser classificadas como:
 
 Não há restrição no número de relacionamentos que pode ter entre dois gémeos — pode ter tantas relações entre gémeos quanto quiser. 
 
-Isto significa que pode expressar vários tipos diferentes de relacionamentos entre dois gémeos ao mesmo tempo. Por exemplo, *a Twin A* pode ter uma relação *armazenada* e uma relação *manufaturada* com *a Twin B* .
+Isto significa que pode expressar vários tipos diferentes de relacionamentos entre dois gémeos ao mesmo tempo. Por exemplo, *a Twin A* pode ter uma relação *armazenada* e uma relação *manufaturada* com *a Twin B*.
 
 Pode até criar múltiplos casos do mesmo tipo de relação entre os mesmos dois gémeos, se desejar. Neste exemplo, *Twin A* poderia ter duas relações diferentes *armazenadas* com *Twin B* , desde que as relações tenham iDs de relacionamento diferentes.
 

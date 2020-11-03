@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503322"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279889"
 ---
 # <a name="secure-azure-digital-twins"></a>Secure Azure Digital Twins
 
@@ -49,7 +49,7 @@ Com identidades geridas, a plataforma Azure gere esta identidade de tempo de exe
 
 A Azure fornece **duas funções incorporadas para** autorizar o acesso ao plano de dados Azure Digital Twins [APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). Pode consultar as funções pelo nome ou por ID:
 
-| Papel incorporado | Descrição | ID | 
+| Papel incorporado | Description | ID | 
 | --- | --- | --- |
 | Proprietário de dados Azure Digital Twins | Dá acesso total sobre os recursos da Azure Digital Twins | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Leitor de dados de gémeos digitais Azure | Dá acesso apenas à leitura dos recursos da Azure Digital Twins | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
@@ -72,7 +72,7 @@ Para obter mais informações sobre como as funções incorporadas são [*defini
 Quando se refere a papéis em cenários automatizados, recomenda-se referir-se a eles pelos seus IDs em vez dos seus **nomes.** Os nomes podem mudar entre lançamentos, mas os IDs não, tornando-os uma referência mais estável na automação.
 
 > [!TIP]
-> Se estiver a assigar papéis com um cmdlet, como `New-AzRoleAssignment` ([referência),](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)pode usar o `-RoleDefinitionId` parâmetro em vez de passar um `-RoleDefinitionName` ID em vez de um nome para o papel.
+> Se estiver a assigar papéis com um cmdlet, como `New-AzRoleAssignment` ([referência),](/powershell/module/az.resources/new-azroleassignment)pode usar o `-RoleDefinitionId` parâmetro em vez de passar um `-RoleDefinitionName` ID em vez de um nome para o papel.
 
 ### <a name="permission-scopes"></a>Âmbitos de permissão
 
@@ -88,6 +88,32 @@ A lista que se segue descreve os níveis em que pode aceder aos recursos da Azur
 ### <a name="troubleshooting-permissions"></a>Permissões de resolução de problemas
 
 Se um utilizador tentar executar uma ação não permitida pela sua função, poderá receber um erro da leitura do pedido de serviço `403 (Forbidden)` . Para obter mais informações e etapas de resolução de problemas, consulte [*Resolução de Problemas: Pedido de Gémeos Digitais Azure falhou com o Estado: 403 (Proibido)*](troubleshoot-error-403.md).
+
+## <a name="service-tags"></a>Etiquetas de serviço
+
+Uma etiqueta de **serviço** representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede. Para obter mais informações sobre etiquetas de serviço, consulte  [*tags de rede Virtual*](../virtual-network/service-tags-overview.md). 
+
+Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](../virtual-network/network-security-groups-overview.md#security-rules)de rede   ou [Azure Firewall,](../firewall/service-tags.md)utilizando tags de serviço em vez de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço (neste caso, **AzureDigitalTwins)** no campo de *origem* ou destino adequado   de uma *destination*   regra, pode permitir ou negar o tráfego para o serviço correspondente. 
+
+Abaixo estão os detalhes da etiqueta de serviço **AzureDigitalTwins.**
+
+| Etiqueta | Objetivo | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com Azure Firewall? |
+| --- | --- | --- | --- | --- |
+| AzureDigitalTwins | Azure Digital Twins<br>Nota: Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para restringir o acesso aos pontos finais configurados para [as rotas do evento](concepts-route-events.md). | Entrada | No | Yes |
+
+### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>Utilização de etiquetas de serviço para aceder aos pontos finais da rota do evento 
+
+Aqui estão os passos para aceder aos pontos finais [da rota](concepts-route-events.md) do evento usando tags de serviço com Azure Digital Twins.
+
+1. Em primeiro lugar, descarregue esta referência de ficheiro JSON mostrando gamas IP Azure e tags de serviço: [*Gamas IP Azure e Tags de Serviço*](https://www.microsoft.com/download/details.aspx?id=56519). 
+
+2. Procure gamas IP "AzureDigitalTwins" no ficheiro JSON.  
+
+3. Consulte a documentação do recurso externo ligado ao ponto final (por exemplo, a Grade de [Eventos,](../event-grid/overview.md)o Centro de [Eventos,](../event-hubs/event-hubs-about.md)o [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)ou [o Azure Storage](../storage/blobs/storage-blobs-overview.md) para [eventos com letras mortas](concepts-route-events.md#dead-letter-events)) para ver como definir filtros IP para esse recurso.
+
+4. Desaprote os filtros IP nos recursos externos utilizando as gamas IP do *Passo 2*.  
+
+5. Atualize os intervalos de IP periodicamente conforme necessário. As gamas podem mudar ao longo do tempo, por isso é uma boa ideia verificar estas regularmente e refrescá-las quando necessário. A frequência destas atualizações pode variar, mas é uma boa ideia verificá-las uma vez por semana.
 
 ## <a name="encryption-of-data-at-rest"></a>Encriptação de dados em repouso
 

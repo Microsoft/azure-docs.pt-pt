@@ -3,7 +3,7 @@ title: 'Tutorial: Implementar uma app Python Django com Postgres'
 description: Crie uma aplicação web Python com uma base de dados PostgreSQL e implemente-a para a Azure. O tutorial utiliza a estrutura do Django e a aplicação está hospedada no Azure App Service no Linux.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 11/02/2020
 ms.custom:
 - mvc
 - seodec18
@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: 63fdee6036580df42f7f965244b5f888c1ec082d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f6b845ec92a4d0d5365ec0615064bfbc238fd1ba
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540759"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279714"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Tutorial: Implementar uma aplicação web Django com PostgreSQL no Azure App Service
 
@@ -99,9 +99,9 @@ cd djangoapp
 
 # <a name="download"></a>[Transferência](#tab/download)
 
-Visite [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp) , selecione **Clone** e, em seguida, selecione **Download ZIP** . 
+Visite [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp) , selecione **Clone** e, em seguida, selecione **Download ZIP**. 
 
-Desembale o ficheiro ZIP numa pasta chamada *djangoapp* . 
+Desembale o ficheiro ZIP numa pasta chamada *djangoapp*. 
 
 Em seguida, abra uma janela terminal naquela pasta *de djangoapp.*
 
@@ -111,10 +111,10 @@ A amostra do Djangoapp contém a aplicação de sondagens Django orientada por d
 
 A amostra também é modificada para funcionar num ambiente de produção como o App Service:
 
-- As definições de produção estão no ficheiro *azuresite/production.py.* Os detalhes do desenvolvimento estão em *azuresite/definições.py* .
-- A aplicação utiliza definições de produção quando a `DJANGO_ENV` variável ambiente está definida para "produção". Você cria esta variável de ambiente mais tarde no tutorial juntamente com outros usados para a configuração da base de dados PostgreSQL.
+- As definições de produção estão no ficheiro *azuresite/production.py.* As definições de desenvolvimento estão em *azuresite/definições.py*.
+- A aplicação utiliza definições de produção quando a `WEBSITE_HOSTNAME` variável ambiental é definida. O Azure App Service define automaticamente esta variável para o URL da aplicação web, tal como `msdocs-django.azurewebsites.net` .
 
-Estas alterações são específicas para configurar o Django para funcionar em qualquer ambiente de produção e não são particulares para o App Service. Para mais informações, consulte a [lista de verificação de implementação do Django.](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) Consulte também [as definições de Produção de Django em Azure](configure-language-python.md#production-settings-for-django-apps) para obter detalhes sobre algumas das alterações.
+As definições de produção são específicas para configurar o Django para funcionar em qualquer ambiente de produção e não são particulares para o App Service. Para mais informações, consulte a [lista de verificação de implementação do Django.](https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/) Consulte também [as definições de Produção de Django em Azure](configure-language-python.md#production-settings-for-django-apps) para obter detalhes sobre algumas das alterações.
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -188,7 +188,7 @@ Este comando executa as seguintes ações, que podem demorar alguns minutos:
 - Crie a aplicação De Serviço de Aplicações se não existir.
 - Ativar o registo predefinido para a aplicação, se ainda não estiver ativado.
 - Faça o upload do repositório utilizando a implementação ZIP com automatização de construção ativada.
-- Cache parâmetros comuns, como o nome do grupo de recursos e plano de Serviço de Aplicações, no ficheiro *.azure/config* . Como resultado, não precisa de especificar todos os mesmos parâmetros com comandos posteriores. Por exemplo, para recolocar a app depois de efetuar alterações, pode simplesmente voltar a funcionar `az webapp up` sem quaisquer parâmetros. Os comandos provenientes de extensões CLI, tais `az postgres up` como, no entanto, não utilizam atualmente a cache, razão pela qual precisava de especificar o grupo de recursos e a localização aqui com a utilização inicial de `az webapp up` .
+- Cache parâmetros comuns, como o nome do grupo de recursos e plano de Serviço de Aplicações, no ficheiro *.azure/config*. Como resultado, não precisa de especificar todos os mesmos parâmetros com comandos posteriores. Por exemplo, para recolocar a app depois de efetuar alterações, pode simplesmente voltar a funcionar `az webapp up` sem quaisquer parâmetros. Os comandos provenientes de extensões CLI, tais `az postgres up` como, no entanto, não utilizam atualmente a cache, razão pela qual precisava de especificar o grupo de recursos e a localização aqui com a utilização inicial de `az webapp up` .
 
 Após uma implementação bem sucedida, o comando gera saída JSON como o seguinte exemplo:
 
@@ -196,26 +196,23 @@ Após uma implementação bem sucedida, o comando gera saída JSON como o seguin
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 
-> [!NOTE]
-> Se tentar visitar o URL da aplicação neste momento, encontra o erro "DisallowedHost at/". Este erro ocorre porque ainda não configuraste a app para utilizar as definições de produção discutidas anteriormente, o que faz na secção seguinte.
-
 ### <a name="configure-environment-variables-to-connect-the-database"></a>Configure variáveis ambientais para ligar a base de dados
 
 Com o código agora implementado para o Serviço de Aplicações, o próximo passo é ligar a app à base de dados postgres em Azure.
 
-O código da aplicação espera encontrar informação sobre bases de dados em quatro variáveis ambientais denominada `DBHOST` `DBNAME` , e `DBUSER` `DBPASS` . Para utilizar as definições de produção, também necessita da `DJANGO_ENV` variável ambiente definida para `production` .
+O código da aplicação espera encontrar informação sobre bases de dados em quatro variáveis ambientais denominada `DBHOST` `DBNAME` , e `DBUSER` `DBPASS` .
 
 Para definir variáveis ambientais no Serviço de Aplicações, crie "configurações de aplicações" com o seguinte comando de [configuração de configurações de appsapp az.](/cli/azure/webapp/config/appsettings#az-webapp-config-appsettings-set)
 
 ```azurecli
-az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
+az webapp config appsettings set --settings DBHOST="<postgres-server-name>" DBNAME="pollsdb" DBUSER="<username>" DBPASS="<password>"
 ```
 
 - *\<postgres-server-name>* Substitua-o pelo nome que usou anteriormente pelo `az postgres up` comando. O código em *azuresite/production.py* anexa automaticamente `.postgres.database.azure.com` para criar o URL completo do servidor Postgres.
 - Substitua *\<username>* e *\<password>* pelas credenciais de administrador que usou com o `az postgres up` comando anterior, ou pelas que `az postgres up` geraram para si. O código em *azuresite/production.py* constrói automaticamente o nome de utilizador completo postgres `DBUSER` de `DBHOST` e, por isso, não inclua a `@server` parte. (Além disso, como já foi notado anteriormente, não deve utilizar o `$` personagem em nenhum dos valores, uma vez que tem um significado especial para variáveis ambientais Linux.)
 - O grupo de recursos e os nomes das aplicações são extraídos dos valores em cache no ficheiro *.azure/config.*
 
-No seu código Python, acede a estas definições como variáveis ambientais com declarações como `os.environ.get('DJANGO_ENV')` . Para obter mais informações, consulte [as variáveis do ambiente Access.](configure-language-python.md#access-environment-variables)
+No seu código Python, acede a estas definições como variáveis ambientais com declarações como `os.environ.get('DBHOST')` . Para obter mais informações, consulte [as variáveis do ambiente Access.](configure-language-python.md#access-environment-variables)
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -352,7 +349,7 @@ Teste a aplicação localmente com os seguintes passos:
 
 1. Vá a *http: \/ /localhost:8000* novamente e responda à pergunta para testar a app. 
 
-1. Pare o servidor Django pressionando **o Ctrl** + **C** .
+1. Pare o servidor Django pressionando **o Ctrl** + **C**.
 
 Ao correr localmente, a aplicação está a usar uma base de dados local do Sqlite3 e não interfere com a sua base de dados de produção. Também pode utilizar uma base de dados postgreSQL local, se desejar, para simular melhor o seu ambiente de produção.
 
@@ -376,7 +373,7 @@ python manage.py migrate
 
 Executar novamente o servidor de desenvolvimento com `python manage.py runserver` e testar a aplicação em *http: \/ /localhost:8000/administrador* :
 
-Pare o servidor web do Django novamente com **ctrl** + **C** .
+Pare o servidor web do Django novamente com **ctrl** + **C**.
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 
@@ -427,7 +424,7 @@ az webapp log tail
 
 Se não vir os registos da consola imediatamente, volte a consultar dentro de 30 segundos.
 
-Para parar o streaming de registo a qualquer momento, digite **Ctrl** + **C** .
+Para parar o streaming de registo a qualquer momento, digite **Ctrl** + **C**.
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/DjangoCLITutorialHelp)
 

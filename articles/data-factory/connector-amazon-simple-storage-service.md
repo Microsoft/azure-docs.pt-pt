@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/14/2020
-ms.openlocfilehash: f9907b746c1dceb0b0e847c09ea4a549138f0064
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 11/02/2020
+ms.openlocfilehash: 43d4b20564fb4d76b2cb8441c805f391d6ece68b
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047731"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280230"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Copie os dados do Serviço de Armazenamento Simples da Amazon utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -43,7 +43,7 @@ Este conector Amazon S3 é suportado para as seguintes atividades:
 Especificamente, este conector Amazon S3 suporta a cópia de ficheiros como está ou a analisar ficheiros com os [formatos de ficheiros suportados e os codecs de compressão](supported-file-formats-and-compression-codecs.md). Também pode optar por [preservar os metadados de ficheiros durante a cópia.](#preserve-metadata-during-copy) O conector utiliza [a versão 4 da assinatura AWS](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) para autenticar pedidos para S3.
 
 >[!TIP]
->Pode utilizar este conector Amazon S3 para copiar dados de *qualquer fornecedor de armazenamento compatível com S3*, como o Google Cloud [Storage](connector-google-cloud-storage.md). Especifique o URL de serviço correspondente na configuração do serviço ligado.
+>Pode utilizar este conector Amazon S3 para copiar dados de *qualquer fornecedor de armazenamento compatível com S3* , como o Google Cloud [Storage](connector-google-cloud-storage.md). Especifique o URL de serviço correspondente na configuração do serviço ligado.
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
 
@@ -65,18 +65,18 @@ As seguintes propriedades são suportadas para um serviço ligado à Amazon S3:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **AmazonS3**. | Sim |
+| tipo | A propriedade **tipo** deve ser definida para **AmazonS3**. | Yes |
+| authenticationType | Especifique o tipo de autenticação utilizado para ligar ao Amazon S3. Pode optar por utilizar as chaves de acesso para uma conta AWS Identity and Access Management (IAM) ou [credenciais de segurança temporárias.](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)<br>Os valores permitidos são: `AccessKey` (padrão) e `TemporarySecurityCredentials` . |No |
 | accessKeyId | Identificação da chave de acesso secreta. |Yes |
 | SecretAccessKey | A chave de acesso secreto em si. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Yes |
-| serviceUrl | Especifique o ponto final personalizado S3 se estiver a copiar dados de um fornecedor de armazenamento compatível com S3, para além do serviço oficial Amazon S3. Por exemplo, para copiar dados do Google Cloud Storage, especifique `https://storage.googleapis.com` . | Não |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. |Não |
-
-Este conector requer chaves de acesso para uma conta AWS Identity and Access Management (IAM) para copiar dados do Amazon S3. [As credenciais de segurança temporárias](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) não são apoiadas agora.
+| sessionToken | Aplicável ao utilizar a autenticação [temporária de credenciais de segurança.](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) Saiba como solicitar credenciais de [segurança temporárias](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_request.html#api_getsessiontoken) à AWS.<br>Nota AWS a credencial temporária expira entre 15 minutos a 36 horas com base em configurações. Certifique-se de que a sua credencial é válida quando a atividade executa, especialmente para a carga de trabalho operacionalizada - por exemplo, pode aurépi-la periodicamente e armazená-la no Cofre da Chave Azure.<br>Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |No |
+| serviceUrl | Especifique o ponto final personalizado S3 se estiver a copiar dados de um fornecedor de armazenamento compatível com S3, para além do serviço oficial Amazon S3. Por exemplo, para copiar dados do Google Cloud Storage, especifique `https://storage.googleapis.com` . | No |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. |No |
 
 >[!TIP]
 >Especifique o URL de serviço S3 personalizado se estiver a copiar dados de um armazenamento compatível com S3 que não seja o serviço oficial amazon S3.
 
-Eis um exemplo:
+**Exemplo: utilização da autenticação da chave de acesso**
 
 ```json
 {
@@ -98,6 +98,33 @@ Eis um exemplo:
 }
 ```
 
+**Exemplo: utilização de autenticação de credencial de segurança temporária**
+
+```json
+{
+    "name": "AmazonS3LinkedService",
+    "properties": {
+        "type": "AmazonS3",
+        "typeProperties": {
+            "authenticationType": "TemporarySecurityCredentials",
+            "accessKeyId": "<access key id>",
+            "secretAccessKey": {
+                "type": "SecureString",
+                "value": "<secret access key>"
+            },
+            "sessionToken": {
+                "type": "SecureString",
+                "value": "<session token>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Datasets.](concepts-datasets-linked-services.md) 
@@ -108,11 +135,11 @@ As seguintes propriedades são suportadas para o Amazon S3 `location` em configu
 
 | Propriedade   | Descrição                                                  | Obrigatório |
 | ---------- | ------------------------------------------------------------ | -------- |
-| tipo       | A propriedade **tipo** `location` em baixo num conjunto de dados deve ser definida para **AmazonS3Location**. | Sim      |
-| baldeName | O nome do balde S3.                                          | Sim      |
-| folderPath | O caminho para a pasta sob o balde dado. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique-a nas definições de origem de atividade. | Não       |
-| fileName   | O nome do ficheiro sob o caminho do balde e da pasta. Se pretender utilizar um wildcard para filtrar ficheiros, ignore esta definição e especifique-a nas definições de origem de atividade. | Não       |
-| versão | A versão do objeto S3, se a versão S3 estiver ativada. Se não for especificado, a versão mais recente será recolhida. |Não |
+| tipo       | A propriedade **tipo** `location` em baixo num conjunto de dados deve ser definida para **AmazonS3Location**. | Yes      |
+| baldeName | O nome do balde S3.                                          | Yes      |
+| folderPath | O caminho para a pasta sob o balde dado. Se pretender utilizar um wildcard para filtrar a pasta, ignore esta definição e especifique-a nas definições de origem de atividade. | No       |
+| fileName   | O nome do ficheiro sob o caminho do balde e da pasta. Se pretender utilizar um wildcard para filtrar ficheiros, ignore esta definição e especifique-a nas definições de origem de atividade. | No       |
+| versão | A versão do objeto S3, se a versão S3 estiver ativada. Se não for especificado, a versão mais recente será recolhida. |No |
 
 **Exemplo:**
 
@@ -153,21 +180,21 @@ As seguintes propriedades são suportadas para o Amazon S3 `storeSettings` em co
 
 | Propriedade                 | Descrição                                                  | Obrigatório                                                    |
 | ------------------------ | ------------------------------------------------------------ | ----------------------------------------------------------- |
-| tipo                     | A propriedade **tipo** em baixo `storeSettings` deve ser definida para **AmazonS3ReadSettings**. | Sim                                                         |
-| ***Localize os ficheiros para copiar:*** |  |  |
-| OPÇÃO 1: caminho estático<br> | Copiar a partir do balde dado ou do caminho da pasta/ficheiro especificado no conjunto de dados. Se pretender copiar todos os ficheiros de um balde ou pasta, especificar ainda `wildcardFileName` como `*` . |  |
-| OPÇÃO 2: Prefixo S3<br>- prefixo | Prefixo para o nome da chave S3 sob o balde dado configurado num conjunto de dados para filtrar ficheiros S3 de origem. As teclas S3 cujos nomes começam `bucket_in_dataset/this_prefix` por ser selecionadas. Utiliza o filtro do lado de serviço da S3, que proporciona um melhor desempenho do que um filtro wildcard. | Não |
-| OPÇÃO 3: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard sob o balde dado configurado num conjunto de dados para filtrar pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. <br>Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Não                                            |
-| OPÇÃO 3: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob o caminho do balde e da pasta (ou caminho da pasta wildcard) para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior.  Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Sim |
-| OPÇÃO 4: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Quando estiver a utilizar esta opção, não especifique um nome de ficheiro no conjunto de dados. Ver mais exemplos em [exemplos da lista de ficheiros.](#file-list-examples) |Não |
-| ***Definições adicionais:*** |  | |
-| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando **a recursiva** é definida como **verdadeira** e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são **verdadeiros** (padrão) e **falsos.**<br>Esta propriedade não se aplica quando se `fileListPath` configura. |Não |
-| eliminarFilesAfterCompletion | Indica se os ficheiros binários serão eliminados da loja de origem depois de se mudarem com sucesso para a loja de destino. A eliminação do ficheiro é por ficheiro, pelo que quando a atividade da cópia falhar, verá que alguns ficheiros já foram copiados para o destino e eliminados da fonte, enquanto outros ainda permanecem na loja de origem. <br/>Esta propriedade é válida apenas em cenário de cópia de ficheiros binários. O valor predefinido: falso. |Não |
-| modificadoDatetimeStart    | Os ficheiros são filtrados com base no atributo: última modificada. <br>Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . . O tempo é aplicado a um fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br> As propriedades podem ser **NUAS,** o que significa que nenhum filtro de atributos de ficheiro será aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tiver um valor de data, mas é `modifiedDatetimeEnd` **NU,** serão selecionados os ficheiros cujo último atributo modificado é superior ou igual ao valor da data.  Quando `modifiedDatetimeEnd` tiver um valor de data mas é `modifiedDatetimeStart` **NU,** serão selecionados os ficheiros cujo último atributo modificado é inferior ao valor da data.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | Não                                            |
-| modificadoDatetimeEnd      | O mesmo que acima.                                               | Não                                                          |
-| permitirPartitionDiscovery | Para os ficheiros que são divididos, especifique se analisar as divisórias do caminho do ficheiro e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **falsos** (padrão) e **verdadeiros.** | Não                                            |
-| partitionRootPath | Quando a descoberta da partição estiver ativada, especifique o caminho da raiz absoluta para ler as pastas partidas como colunas de dados.<br/><br/>Se não for especificado, por defeito,<br/>- Quando utiliza o caminho do ficheiro no conjunto de dados ou na lista de ficheiros na fonte, o caminho da raiz da partição é o caminho configurado no conjunto de dados.<br/>- Quando utiliza o filtro de pasta wildcard, o caminho da raiz da partição é o sub-caminho antes do primeiro wildcard.<br/>- Quando se utiliza prefixo, o caminho da raiz da partição é sub-caminho antes do último "/". <br/><br/>Por exemplo, assumindo que configura o caminho no conjunto de dados como "raiz/pasta/ano=2020/mês=08/dia=27":<br/>- Se especificar o caminho da raiz da partição como "raiz/pasta/ano=2020", a atividade da cópia gerará mais duas colunas `month` e com o valor `day` "08" e "27", respectivamente, para além das colunas dentro dos ficheiros.<br/>- Se não for especificado o caminho da raiz da partição, não será gerada nenhuma coluna extra. | Não                                            |
-| maxConcurrentConnections | O número de ligações simultâneas à loja de dados. Especifique apenas quando pretende limitar as ligações simultâneas à loja de dados. | Não                                                          |
+| tipo                     | A propriedade **tipo** em baixo `storeSettings` deve ser definida para **AmazonS3ReadSettings**. | Yes                                                         |
+| **_Localize os ficheiros para copiar:_* _ |  |  |
+| OPÇÃO 1: caminho estático<br> | Copiar a partir do balde dado ou do caminho da pasta/ficheiro especificado no conjunto de dados. Se pretender copiar todos os ficheiros de um balde ou pasta, especificar ainda `wildcardFileName` como `_` . |  |
+| OPÇÃO 2: Prefixo S3<br>- prefixo | Prefixo para o nome da chave S3 sob o balde dado configurado num conjunto de dados para filtrar ficheiros S3 de origem. As teclas S3 cujos nomes começam `bucket_in_dataset/this_prefix` por ser selecionadas. Utiliza o filtro do lado de serviço da S3, que proporciona um melhor desempenho do que um filtro wildcard. | No |
+| OPÇÃO 3: wildcard<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard sob o balde dado configurado num conjunto de dados para filtrar pastas de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior. <br>Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | No                                            |
+| OPÇÃO 3: wildcard<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob o caminho do balde e da pasta (ou caminho da pasta wildcard) para filtrar ficheiros de origem. <br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais). Use `^` para escapar se o nome da sua pasta tiver um wildcard ou este personagem de fuga no interior.  Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Yes |
+| OPÇÃO 4: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Quando estiver a utilizar esta opção, não especifique um nome de ficheiro no conjunto de dados. Ver mais exemplos em [exemplos da lista de ficheiros.](#file-list-examples) |No |
+| ***Definições adicionais:** _ |  | |
+| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando _ *recursivo* * é definido como **verdadeiro** e a pia é uma loja baseada em arquivos, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são **verdadeiros** (padrão) e **falsos.**<br>Esta propriedade não se aplica quando se `fileListPath` configura. |No |
+| eliminarFilesAfterCompletion | Indica se os ficheiros binários serão eliminados da loja de origem depois de se mudarem com sucesso para a loja de destino. A eliminação do ficheiro é por ficheiro, pelo que quando a atividade da cópia falhar, verá que alguns ficheiros já foram copiados para o destino e eliminados da fonte, enquanto outros ainda permanecem na loja de origem. <br/>Esta propriedade é válida apenas em cenário de cópia de ficheiros binários. O valor predefinido: falso. |No |
+| modificadoDatetimeStart    | Os ficheiros são filtrados com base no atributo: última modificada. <br>Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . . O tempo é aplicado a um fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br> As propriedades podem ser **NUAS,** o que significa que nenhum filtro de atributos de ficheiro será aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tiver um valor de data, mas é `modifiedDatetimeEnd` **NU,** serão selecionados os ficheiros cujo último atributo modificado é superior ou igual ao valor da data.  Quando `modifiedDatetimeEnd` tiver um valor de data mas é `modifiedDatetimeStart` **NU,** serão selecionados os ficheiros cujo último atributo modificado é inferior ao valor da data.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | No                                            |
+| modificadoDatetimeEnd      | O mesmo que acima.                                               | No                                                          |
+| permitirPartitionDiscovery | Para os ficheiros que são divididos, especifique se analisar as divisórias do caminho do ficheiro e adicioná-las como colunas de origem adicionais.<br/>Os valores permitidos são **falsos** (padrão) e **verdadeiros.** | No                                            |
+| partitionRootPath | Quando a descoberta da partição estiver ativada, especifique o caminho da raiz absoluta para ler as pastas partidas como colunas de dados.<br/><br/>Se não for especificado, por defeito,<br/>- Quando utiliza o caminho do ficheiro no conjunto de dados ou na lista de ficheiros na fonte, o caminho da raiz da partição é o caminho configurado no conjunto de dados.<br/>- Quando utiliza o filtro de pasta wildcard, o caminho da raiz da partição é o sub-caminho antes do primeiro wildcard.<br/>- Quando se utiliza prefixo, o caminho da raiz da partição é sub-caminho antes do último "/". <br/><br/>Por exemplo, assumindo que configura o caminho no conjunto de dados como "raiz/pasta/ano=2020/mês=08/dia=27":<br/>- Se especificar o caminho da raiz da partição como "raiz/pasta/ano=2020", a atividade da cópia gerará mais duas colunas `month` e com o valor `day` "08" e "27", respectivamente, para além das colunas dentro dos ficheiros.<br/>- Se não for especificado o caminho da raiz da partição, não será gerada nenhuma coluna extra. | No                                            |
+| maxConcurrentConnections | O número de ligações simultâneas à loja de dados. Especifique apenas quando pretende limitar as ligações simultâneas à loja de dados. | No                                                          |
 
 **Exemplo:**
 
@@ -256,15 +283,15 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Excluir](de
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **do tipo** do conjunto de dados deve ser definida para **AmazonS3Object**. |Sim |
+| tipo | A propriedade **do tipo** do conjunto de dados deve ser definida para **AmazonS3Object**. |Yes |
 | baldeName | O nome do balde S3. O filtro wildcard não é suportado. |Sim para a atividade Copy ou Lookup, não para a atividade GetMetadata |
-| key | O nome ou filtro wildcard da chave do objeto S3 sob o balde especificado. Só se aplica quando a propriedade do **prefixo** não é especificada. <br/><br/>O filtro wildcard é suportado tanto para a parte da pasta como para a parte do nome do ficheiro. Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais).<br/>- Exemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Exemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Veja mais exemplos nos [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). Use `^` para escapar se a sua pasta ou nome de ficheiro tiver um wildcard ou este personagem de fuga no interior. |Não |
-| prefixo | Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Só se aplica quando a propriedade **chave** não é especificada. |Não |
-| versão | A versão do objeto S3, se a versão S3 estiver ativada. Se uma versão não for especificada, a versão mais recente será recolhida. |Não |
-| modificadoDatetimeStart | Os ficheiros são filtrados com base no atributo: última modificada. Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . . O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> Tenha em atenção que ativar esta definição afetará o desempenho geral do movimento de dados quando pretender filtrar grandes quantidades de ficheiros. <br/><br/> As propriedades podem ser **NUAS,** o que significa que nenhum filtro de atributos de ficheiro será aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tiver um valor de data, mas é `modifiedDatetimeEnd` **NU,** serão selecionados os ficheiros cujo último atributo modificado é superior ou igual ao valor da data.  Quando `modifiedDatetimeEnd` tiver um valor de data mas é `modifiedDatetimeStart` NU, os ficheiros cujo último atributo modificado é inferior ao valor da data serão selecionados.| Não |
-| modificadoDatetimeEnd | Os ficheiros são filtrados com base no atributo: última modificada. Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . . O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> Tenha em atenção que ativar esta definição afetará o desempenho geral do movimento de dados quando pretender filtrar grandes quantidades de ficheiros. <br/><br/> As propriedades podem ser **NUAS,** o que significa que nenhum filtro de atributos de ficheiro será aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tiver um valor de data, mas é `modifiedDatetimeEnd` **NU,** serão selecionados os ficheiros cujo último atributo modificado é superior ou igual ao valor da data.  Quando `modifiedDatetimeEnd` tiver um valor de data mas é `modifiedDatetimeStart` **NU,** serão selecionados os ficheiros cujo último atributo modificado é inferior ao valor da data.| Não |
+| key | O nome ou filtro wildcard da chave do objeto S3 sob o balde especificado. Só se aplica quando a propriedade do **prefixo** não é especificada. <br/><br/>O filtro wildcard é suportado tanto para a parte da pasta como para a parte do nome do ficheiro. Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais).<br/>- Exemplo 1: `"key": "rootfolder/subfolder/*.csv"`<br/>- Exemplo 2: `"key": "rootfolder/subfolder/???20180427.txt"`<br/>Veja mais exemplos nos [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). Use `^` para escapar se a sua pasta ou nome de ficheiro tiver um wildcard ou este personagem de fuga no interior. |No |
+| prefixo | Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Só se aplica quando a propriedade **chave** não é especificada. |No |
+| versão | A versão do objeto S3, se a versão S3 estiver ativada. Se uma versão não for especificada, a versão mais recente será recolhida. |No |
+| modificadoDatetimeStart | Os ficheiros são filtrados com base no atributo: última modificada. Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . . O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> Tenha em atenção que ativar esta definição afetará o desempenho geral do movimento de dados quando pretender filtrar grandes quantidades de ficheiros. <br/><br/> As propriedades podem ser **NUAS,** o que significa que nenhum filtro de atributos de ficheiro será aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tiver um valor de data, mas é `modifiedDatetimeEnd` **NU,** serão selecionados os ficheiros cujo último atributo modificado é superior ou igual ao valor da data.  Quando `modifiedDatetimeEnd` tiver um valor de data mas é `modifiedDatetimeStart` NU, os ficheiros cujo último atributo modificado é inferior ao valor da data serão selecionados.| No |
+| modificadoDatetimeEnd | Os ficheiros são filtrados com base no atributo: última modificada. Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . . O tempo é aplicado ao fuso horário UTC no formato de "2018-12-01T05:00:00Z". <br/><br/> Tenha em atenção que ativar esta definição afetará o desempenho geral do movimento de dados quando pretender filtrar grandes quantidades de ficheiros. <br/><br/> As propriedades podem ser **NUAS,** o que significa que nenhum filtro de atributos de ficheiro será aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tiver um valor de data, mas é `modifiedDatetimeEnd` **NU,** serão selecionados os ficheiros cujo último atributo modificado é superior ou igual ao valor da data.  Quando `modifiedDatetimeEnd` tiver um valor de data mas é `modifiedDatetimeStart` **NU,** serão selecionados os ficheiros cujo último atributo modificado é inferior ao valor da data.| No |
 | formato | Se pretender copiar ficheiros como está entre lojas baseadas em ficheiros (cópia binária), ignore a secção de formato nas definições de conjunto de dados de entrada e saída.<br/><br/>Se pretender analisar ou gerar ficheiros com um formato específico, suportam-se os seguintes tipos de formato de ficheiro: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em **formato.** Para mais informações, consulte o [formato Texto,](supported-file-formats-and-compression-codecs-legacy.md#text-format) [formato JSON,](supported-file-formats-and-compression-codecs-legacy.md#json-format) [formato Avro,](supported-file-formats-and-compression-codecs-legacy.md#avro-format) [formato Orc](supported-file-formats-and-compression-codecs-legacy.md#orc-format)e secções [de formato Parquet.](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) |Não (apenas para cenário de cópia binária) |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Para obter mais informações, consulte [formatos de ficheiros suportados e codecs de compressão](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Os tipos suportados são **GZip,** **Deflate,** **BZip2**e **ZipDeflate**.<br/>Os níveis suportados são **ideais** e **mais rápidos.** |Não |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Para obter mais informações, consulte [formatos de ficheiros suportados e codecs de compressão](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Os tipos suportados são **GZip,** **Deflate,** **BZip2** e **ZipDeflate**.<br/>Os níveis suportados são **ideais** e **mais rápidos.** |No |
 
 >[!TIP]
 >Para copiar todos os ficheiros sob uma pasta, especifique o **balde** Para o balde e **o prefixo** para a parte da pasta.
@@ -336,9 +363,9 @@ Para obter detalhes sobre as propriedades, verifique [a atividade de Excluir](de
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de atividade copy deve ser definida como **FileSystemSource**. |Sim |
-| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando **a recursiva** é definida como **verdadeira** e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobragem vazia não será copiada ou criada na pia.<br/>Os valores permitidos são **verdadeiros** (padrão) e **falsos.** | Não |
-| maxConcurrentConnections | O número de ligações para ligar ao armazenamento de dados simultaneamente. Especifique apenas quando pretende limitar as ligações simultâneas à loja de dados. | Não |
+| tipo | A propriedade **tipo** da fonte de atividade copy deve ser definida como **FileSystemSource**. |Yes |
+| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando **a recursiva** é definida como **verdadeira** e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobragem vazia não será copiada ou criada na pia.<br/>Os valores permitidos são **verdadeiros** (padrão) e **falsos.** | No |
+| maxConcurrentConnections | O número de ligações para ligar ao armazenamento de dados simultaneamente. Especifique apenas quando pretende limitar as ligações simultâneas à loja de dados. | No |
 
 **Exemplo:**
 

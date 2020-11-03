@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: b8c8e7539b888141a22e92378d78282edd1ce6ff
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: dd6c6248fcdf30350daecaa4857a81447bbdb7a8
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208027"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280315"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de monitorização de desempenho de rede FAQ
 
@@ -34,7 +34,7 @@ Listados abaixo estão os requisitos da plataforma para as várias capacidades d
 - A capacidade do Monitor ExpressRoute da NPM suporta apenas o sistema operativo Windows server (2008 SP1 ou posterior).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Posso usar as máquinas Linux como nós de monitorização em NPM?
-A capacidade de monitorizar redes utilizando nós baseados em Linux está atualmente em pré-visualização. Contacte o seu Gestor de Contas para saber mais. Os agentes Linux fornecem capacidade de monitorização apenas para a capacidade do Monitor de Desempenho da NPM, e não estão disponíveis para as capacidades do Monitor de Conectividade de Serviço e do Monitor ExpressRoute
+A capacidade de monitorizar redes utilizando nós baseados em Linux está atualmente em pré-visualização. A acccess o agente [aqui.](../../virtual-machines/extensions/oms-linux.md) Contacte o seu Gestor de Contas para saber mais. Os agentes Linux fornecem capacidade de monitorização apenas para a capacidade do Monitor de Desempenho da NPM, e não estão disponíveis para as capacidades do Monitor de Conectividade de Serviço e do Monitor ExpressRoute
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quais são os requisitos de tamanho dos nós a utilizar para monitorização por NPM?
 Para executar a solução NPM em VMs de nó para monitorizar as redes, os nós devem ter pelo menos 500-MB de memória e um núcleo. Não é preciso usar nós separados para executar NPM. A solução pode funcionar em nós que têm outras cargas de trabalho em execução. A solução tem a capacidade de parar o processo de monitorização se utilizar mais de 5% de CPU.

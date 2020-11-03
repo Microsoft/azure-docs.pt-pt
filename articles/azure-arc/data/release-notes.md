@@ -7,18 +7,56 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 09/22/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3c20bbd3ab02cd1eccd00e2d36c14eebf2f63205
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e7312ffd4d55f0403359f8aad2d0a8433a716f77
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92360322"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280368"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de lançamento - Azure Arc habilitado serviços de dados (Pré-visualização)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="october-2020"></a>Outubro de 2020 
+
+### <a name="breaking-changes"></a>Alterações interruptivas
+
+Esta versão introduz as seguintes alterações de rutura: 
+
+* Os ficheiros de definição de recursos personalizados PostgreSQL (CRD) substituem o termo `shards` são renomeados para `workers` . Este termo corresponde `workers` ao nome do parâmetro da linha de comando.
+
+* `azdata arc postgres server delete` solicita a confirmação antes de apagar uma instância postgres.  Use `--force` para saltar o pedido.
+
+### <a name="additional-changes"></a>Alterações adicionais
+
+* Um novo parâmetro opcional foi adicionado ao `azdata arc postgres server create` chamado `--volume-claim mounts` . O valor é uma vírgula separada lista de suportes de reivindicação de volume. Um suporte de reivindicação de volume é um par de tipo de volume e nome de PVC. O tipo de volume por enquanto só permite `backup` .  No PostgreSQL, quando o tipo de volume `backup` é, o PVC é montado para `/mnt/db-backups` .  Isto permite a partilha de backups entre instâncias Postgres para que o backup de uma instância postgres possa ser restaurado em outro.
+
+* Um novo nome curto para definições de recursos personalizados PostgresSQL: 
+
+  * `pg11` 
+
+  * `pg12`
+
+* O upload de telemetria por fornece ao utilizador:
+
+   * Número de pontos enviados para Azure
+
+     ou 
+
+   * Se nenhum dado tiver sido carregado para Azure, um pedido para tentar novamente.
+
+* `azdata arc dc debug copy-logs` agora também lê a partir de `/var/opt/controller/log` pasta e recolhe registos postgres.
+
+*   Apresente um indicador de funcionamento durante as pós-saídas criando e restaurando a cópia de segurança.
+
+* `azdata arc postrgres backup list` agora inclui informações sobre o tamanho da cópia de segurança.
+
+* A propriedade do nome de administração sql Managed Instance foi adicionada à coluna direita da lâmina de visão geral no portal Azure.
+
+
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -29,16 +67,24 @@ Os serviços de dados habilitados Azure Arc são lançados para pré-visualizaç
 
 Para obter [instruções, o que são os serviços de dados habilitados a Azure Arc?](overview.md)
 
-### <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-limitations-and-issues"></a>Limitações e problemas conhecidos
 
-Aplicam-se a esta versão as seguintes questões:
+- Os nomes de exemplos geridos pela SQL não podem ser superiores a 13 caracteres
+- Não há atualização no local para o controlador de dados do Arco Azure ou casos de base de dados.
+- As imagens do contentor de serviços de dados preparados para o Arc não são assinadas.  Pode ter de configurar os nós do Kubernetes para permitir a solicitação de imagens de contentor não assinadas.  Por exemplo, se estiver a utilizar o Docker como tempo de funcionaamento do contentor, pode definir a variável ambiente DOCKER_CONTENT_TRUST=0 e reiniciar.  Outros runtimes de contentor têm opções semelhantes, como em [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
+- Não é possível criar instâncias geridas pelo SQL ou grupos de servidores de hiperescala PostgreSQL a partir do portal Azure.
+- Por enquanto, se estiver a utilizar o NFS, tem de definir `allowRunAsRoot` no seu ficheiro de perfil de `true` implementação antes de criar o controlador de dados Azure Arc.
+- Apenas a autenticação de login SQL e PostgreSQL.  Sem suporte para Azure Ative Directory ou Ative Directory.
+- A criação de um controlador de dados no OpenShift requer restrições de segurança descontraídas.  Para obter mais detalhes, veja a documentação.
+- A redução do número de _nós_ de trabalhadores de hiperescala PostgresSQL não é suportada.
+- Se estiver a utilizar o Motor de Serviço Azure Kubernetes (Motor AKS) no Azure Stack Hub com o controlador de dados Azure Arc e as instâncias de base de dados, o upgrade para uma versão mais recente de Kubernetes não é suportado. Desinstale o controlador de dados do Azure Arc e todas as instâncias da base de dados antes de atualizar o cluster Kubernetes.
+- A pré-visualização não suporta backup/restauro para o motor da versão 11 do Postgres. Só suporta backup/restauro para a versão 12 do Postgres.
+- Azure Kubernetes Service (AKS), clusters que abrangem [várias zonas de disponibilidade](../../aks/availability-zones.md) não são atualmente suportados para serviços de dados habilitados a Azure Arc. Para evitar este problema, quando criar o cluster AKS no portal Azure, se selecionar uma região onde as zonas estão disponíveis, limpe todas as zonas do controlo de seleção. Veja a imagem seguinte:
 
-* **Eliminação do grupo de servidores pós-escala PostgreSQL**: Se tiver alterado a configuração do seu grupo ou exemplo de servidor, aguarde que a operação de edição esteja concluída antes de eliminar um grupo de servidores de hiperescala PostgreSQL.
-
-* ** `azdata notebook run` pode falhar:** Para contornar este problema, corra `azdata notebook run` num ambiente virtual Python. Este problema também se manifesta numa tentativa falhada de criar um exemplo gerido pelo SQL ou um grupo de servidores de hiperescala PostgreSQL utilizando o assistente de implementação do Azure Data Studio. Neste caso, pode abrir o caderno e clicar no botão **Executar todos** os botões na parte superior do caderno.
+   :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Limpe as caixas de verificação para cada zona especificar nenhuma.":::
 
 ## <a name="next-steps"></a>Passos seguintes
-
+  
 > **Só quer experimentar as coisas?**  
 > Inicie-se rapidamente com [o Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou num Azure VM.
 
@@ -49,21 +95,3 @@ Aplicam-se a esta versão as seguintes questões:
 [Criar um exemplo gerido pelo Azure SQL em Azure Arc](create-sql-managed-instance.md) (requer a criação de um controlador de dados Azure Arc primeiro)
 
 [Criar uma base de dados Azure para o grupo de servidores de hiperescala PostgreSQL em Azure Arc](create-postgresql-hyperscale-server-group.md) (requer a criação de um controlador de dados Azure Arc primeiro)
-
-## <a name="known-limitations-and-issues"></a>Limitações e problemas conhecidos
-
-- Os nomes de exemplos geridos pela SQL não podem ser superiores a 13 caracteres
-- Não há atualização no local para o controlador de dados do Arco Azure ou casos de base de dados.
-- As imagens do contentor de serviços de dados preparados para o Arc não são assinadas.  Pode ter de configurar os nós do Kubernetes para permitir a solicitação de imagens de contentor não assinadas.  Por exemplo, se estiver a utilizar o Docker como tempo de funcionaamento do contentor, pode definir a variável ambiente DOCKER_CONTENT_TRUST=0 e reiniciar.  Outros runtimes de contentor têm opções semelhantes, como em [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
-- Não é possível criar instâncias geridas pelo SQL ou grupos de servidores de hiperescala PostgreSQL a partir do portal Azure.
-- Por enquanto, se estiver a utilizar o NFS, tem de definir o favorecmento do RunAsRoot no seu ficheiro de perfil de implementação antes de criar o controlador de dados Azure Arc.
-- Apenas a autenticação de login SQL e PostgreSQL.  Sem suporte para Azure Ative Directory ou Ative Directory.
-- A criação de um controlador de dados no OpenShift requer restrições de segurança descontraídas.  Para obter mais detalhes, veja a documentação.
-- A redução do número de _nós_ de trabalhadores da Postgres Hyperscale não é suportada.
-- Se estiver a utilizar o Motor de Serviço Azure Kubernetes (Motor AKS) no Azure Stack Hub com o controlador de dados Azure Arc e as instâncias de base de dados, o upgrade para uma versão mais recente de Kubernetes não é suportado. Desinstale o controlador de dados do Azure Arc e todas as instâncias da base de dados antes de atualizar o cluster Kubernetes.
-- A pré-visualização não suporta backup/restauro para o motor da versão 11 do Postgres. Só suporta backup/restauro para a versão 12 do Postgres.
-- Azure Kubernetes Service (AKS), clusters que abrangem [várias zonas de disponibilidade](../../aks/availability-zones.md) não são atualmente suportados para serviços de dados habilitados a Azure Arc. Para evitar este problema, quando criar o cluster AKS no portal Azure, se selecionar uma região onde as zonas estão disponíveis, limpe todas as zonas do controlo de seleção. Veja a imagem seguinte:
-
-   :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Limpe as caixas de verificação para cada zona especificar nenhuma.":::
-
-  

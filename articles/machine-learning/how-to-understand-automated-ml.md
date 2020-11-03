@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: d27c65938d10f9061961ebb585327bc77d8b2859
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d66c5001d94d0c2d28ae3c55b468fbaf45871c98
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092465"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280350"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar resultados automatizados de experiências de aprendizagem automática
 
@@ -159,7 +159,7 @@ Pode comparar o elevação do modelo construído automaticamente com o Azure Mac
 
 ### <a name="what-does-a-good-model-look-like"></a>Como é um bom modelo?
 
-Uma curva de elevação mais alta, que é a maior do que o seu modelo está acima da linha de base, indica um modelo de melhor desempenho. 
+Um modelo de melhor desempenho terá uma curva de elevação mais alta no gráfico e mais longe da linha de base. 
 
 #### <a name="example-1-a-classification-model-that-performs-poorly-compared-to-a-random-selection-model"></a>Exemplo 1: Um modelo de classificação que tem um desempenho fraco em comparação com um modelo de seleção aleatório
 ![Um modelo de classificação que faz pior do que um modelo de seleção aleatório](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
@@ -234,12 +234,12 @@ Previsto vs. Verdadeiro mostra a relação entre um valor previsto e o seu valor
 Após cada corrida, pode ver um gráfico previsto vs. verdadeiro para cada modelo de regressão. Para proteger a privacidade dos dados, os valores são ligados em conjunto e o tamanho de cada caixa é mostrado como um gráfico de barra na parte inferior da área do gráfico. Pode comparar o modelo preditivo, com a área de sombra mais clara a mostrar margens de erro, com o valor ideal de onde o modelo deve estar.
 
 ### <a name="what-does-a-good-model-look-like"></a>Como é um bom modelo?
-Este gráfico pode ser usado para medir o desempenho de um modelo à medida que quanto mais próximo da linha y=x os valores previstos são, melhor a precisão de um modelo preditivo.
+Este gráfico pode ser usado para medir o desempenho de um modelo à medida que quanto mais próximo da linha y=x os valores previstos são, melhor o desempenho de um modelo preditivo.
 
-#### <a name="example-1-a-classification-model-with-low-accuracy"></a>Exemplo 1: Um modelo de classificação com baixa precisão
+#### <a name="example-1-a-regression-model-with-low-performance"></a>Exemplo 1: Um modelo de regressão com baixo desempenho
 ![Um modelo de regressão com baixa precisão nas previsões](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-#### <a name="example-2-a-regression-model-with-high-accuracy"></a>Exemplo 2: Um modelo de regressão com elevada precisão 
+#### <a name="example-2-a-regression-model-with-high-performance"></a>Exemplo 2: Um modelo de regressão com alto desempenho
 ![Um modelo de regressão com elevada precisão nas suas previsões](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a> 
@@ -254,7 +254,7 @@ Para mostrar uma margem de erro com baixo viés, o histograma dos residuais deve
 #### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>Exemplo 1: Um modelo de regressão com parcialidade nos seus erros
 ![Modelo de regressão sa com distorção nos seus erros](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-#### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>Exemplo 2: Um modelo de regressão com distribuição mais uniforme de erros
+#### <a name="example-2-a-regression-model-with-a-more-even-distribution-of-errors"></a>Exemplo 2: Um modelo de regressão com uma distribuição mais uniforme de erros
 ![Um modelo de regressão com distribuição mais uniforme de erros](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 <a name="explain-model"></a>

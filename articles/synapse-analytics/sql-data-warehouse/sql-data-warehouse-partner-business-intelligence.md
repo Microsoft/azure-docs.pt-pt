@@ -11,19 +11,19 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 909ea33ed96225c75a2d093f5bf2f4878ea51d2e
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a21cee6806c4200a73b35afba73cf04d7ca60308
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939189"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280015"
 ---
 # <a name="azure-synapse-analytics-business-intelligence-partners"></a>Azure Synapse Analytics parceiros de inteligência empresarial
 
 Para criar a sua solução de armazém de dados, pode escolher entre diferentes tipos de ferramentas líderes do setor. Este artigo destaca os parceiros da Microsoft com soluções de business intelligence (BI) que suportam oficialmente o Azure Synapse Analytics.
 
 ## <a name="our-business-intelligence-partners"></a>Os nossos parceiros de inteligência empresarial
-| Parceiro | Descrição | Link do site/produto |
+| Parceiro | Description | Link do site/produto |
 | ------- | ----------- | -------------------- |
 | ![AtScale](./media/sql-data-warehouse-partner-business-intelligence/atscale-logo.png) |**AtScale**<br>A AtScale fornece um espaço de trabalho único, seguro e governado para dados distribuídos. O OLAP cloud da AtScale, Engenharia autónoma de dados™ e Universal Semântica Layer™ alimenta os resultados da inteligência empresarial para decisões de negócio mais rápidas e precisas. |[Página do produto](https://www.atscale.com/partners/microsoft/)<br> |
 | ![Rio Birst](./media/sql-data-warehouse-partner-business-intelligence/birst_logo.png) |**Rio Birst**<br>Birst conecta toda a organização através de uma rede de casos de BI virtualizados entrelaçados no topo de um tecido analítico comum compartilhado|[Página do produto](https://www.birst.com/)<br> |
@@ -35,6 +35,7 @@ Para criar a sua solução de armazém de dados, pode escolher entre diferentes 
 | ![LogiAnalytics](./media/sql-data-warehouse-partner-business-intelligence/logianalytics_logo.png) |**Logi Analytics**<br>Em conjunto, a Logi Analytics permite à sua organização recolher, analisar e agir imediatamente nos maiores e mais diversos conjuntos de dados do mundo. |[Página do produto](https://www.logianalytics.com/)<br>|
 | ![Looker](./media/sql-data-warehouse-partner-business-intelligence/looker_logo.png) |**Looker BI**<br>O Looker dá a todos na sua empresa a capacidade de explorar e compreender os dados que impulsionam o seu negócio. O Looker também dá ao analista de dados uma camada de modelação flexível e reutilizável para controlar e curar esses dados.  As empresas transformaram fundamentalmente a sua cultura usando o Looker como catalisador.|[Página do produto](https://looker.com/partners/microsoft-azure/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/looker.looker-analytics-platform-6_20)<br> |
 | ![Microstrategia](./media/sql-data-warehouse-partner-business-intelligence/microstrategy_logo.png) |**MicroStrategy**<br>A plataforma MicroStrategy oferece um conjunto completo de capacidades de inteligência e análise de negócios que permitem às organizações obter valor a partir dos seus dados de negócio. O poderoso motor analítico da MicroStrategy, conjuntos de ferramentas abrangentes, variedade de conectores de dados e arquitetura aberta garante que você tem tudo o que precisa para estender o acesso à análise em todas as equipas.|[Página do produto](https://www.microstrategy.com/us/product/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microstrategy.microstrategy_enterprise_platform_vm)<br> |
+| ![Análise de Modo](./media/sql-data-warehouse-partner-business-intelligence/mode-logo.png) |**Modo**<br>O modo é uma solução de análise moderna e BI que ajuda as equipas a tomar decisões através de uma análise de dados irracionalmente rápida e inesperadamente deliciosa. As equipas de dados movem-se mais rapidamente através de um fluxo de trabalho preferido que combina SQL, Python, R e análise visual, enquanto as partes interessadas trabalham ao seu lado explorando e partilhando dados por si só. Com os dados mais acessíveis a todos, encurtamos a distância das perguntas às respostas e ajudamos as empresas a tomar melhores decisões, mais rapidamente.|[Página do produto](https://mode.com/)<br> |
 | ![Qlik](./media/sql-data-warehouse-partner-business-intelligence/qlik_logo.png) |**Qlik Sense Enterprise**<br>Conduza a descoberta de insights com a aplicação de visualização de dados que qualquer um pode usar. Com o Qlik Sense, todos na sua organização podem facilmente criar visualizações flexíveis e interativas e tomar decisões significativas. |[Página do produto](https://www.qlik.com/us/products/qlik-sense/enterprise)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/qlik.qlik-sense) |
 | ![Sisense](./media/sql-data-warehouse-partner-business-intelligence/sisense_logo.png) |**Sisense**<br>O SiSense é um software de Business Intelligence completo que vem com ferramentas que uma empresa precisa para analisar e visualizar dados: uma base de dados analítica de alto desempenho, a capacidade de juntar múltiplas fontes, extração simples de dados (ETL) e visualização de dados baseado na Web. Comece a analisar e visualizar grandes conjuntos de dados com o SiSense BI e Analytics hoje. |[Página do produto](https://www.sisense.com/product/)<br> |
 | ![Tableau](./media/sql-data-warehouse-partner-business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>A análise de self-service do Tableau ajuda qualquer pessoa a ver e a compreender os seus dados, através de muitos tipos de dados, desde ficheiros planos até bases de dados. Tableau tem um conector nativo e otimizado para a piscina SYNAPSE SQL que suporta dados ao vivo e análise em memória. |[Página do produto](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|

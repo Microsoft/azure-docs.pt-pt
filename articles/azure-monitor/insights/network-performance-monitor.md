@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8dcddcd3d928758557074bf01d92e4bcc57ee1d
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403726"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279444"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução monitor de desempenho de rede em Azure
 
@@ -40,7 +40,7 @@ O NPM pode monitorizar a conectividade entre redes e aplicações em qualquer pa
 * Europa Ocidental
 * Suíça Norte
 * França Central
-* África do Sul Norte
+* Norte da África do Sul
 * Canadá Central
 * E.U.A. Oeste
 * E.U.A. Centro-Oeste
@@ -74,35 +74,41 @@ A lista de regiões apoiadas para o ExpressRoute Monitor está disponível na [d
 
 ### <a name="install-and-configure-agents"></a>Instalar e configurar agentes 
 
-Utilize os processos básicos para instalar agentes nos [computadores Connect Windows ao Azure Monitor](../platform/agent-windows.md) e [Ao Gestor de Operações de Ligação ao Azure Monitor](../platform/om-agents.md).
+Utilize os processos básicos para instalar agentes nos [computadores Connect Windows ao Azure Monitor](../platform/agent-windows.md), [Ligue os computadores Linux ao Azure Monitor (Preview)](../../virtual-machines/extensions/oms-linux.md) e Connect Operations Manager ao [Azure Monitor](../platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Onde instalar os agentes 
 
-* **Monitor de desempenho**: Instale agentes do Log Analytics em pelo menos um nó ligado a cada sub-rede a partir da qual pretende monitorizar a conectividade da rede a outras sub-redes.
+* **Monitor de desempenho** : Instale agentes do Log Analytics em pelo menos um nó ligado a cada sub-rede a partir da qual pretende monitorizar a conectividade da rede a outras sub-redes.
 
     Para monitorizar uma ligação de rede, instale agentes em ambos os pontos finais dessa ligação. Se não tiver a certeza sobre a topologia da sua rede, instale os agentes em servidores com cargas de trabalho críticas entre as quais pretende monitorizar o desempenho da rede. Por exemplo, se pretender monitorizar a ligação de rede entre um servidor web e um servidor em execução SQL, instale um agente em ambos os servidores. Os agentes monitorizam a conectividade da rede (ligações) entre os anfitriões, e não os próprios anfitriões. 
 
-* **Monitor de Conectividade de Serviço**: Instale um agente Log Analytics em cada nó a partir do qual pretende monitorizar a conectividade da rede até ao ponto final de serviço. Um exemplo é se pretender monitorizar a conectividade da rede com o Microsoft 365 a partir dos seus sites de escritórios com a etiqueta O1, O2 e O3. Instale o agente Log Analytics em pelo menos um nó cada em O1, O2 e O3. 
+* **Monitor de Conectividade de Serviço** : Instale um agente Log Analytics em cada nó a partir do qual pretende monitorizar a conectividade da rede até ao ponto final de serviço. Um exemplo é se pretender monitorizar a conectividade da rede com o Microsoft 365 a partir dos seus sites de escritórios com a etiqueta O1, O2 e O3. Instale o agente Log Analytics em pelo menos um nó cada em O1, O2 e O3. 
 
-* **Monitor ExpressRoute**: Instale pelo menos um agente Log Analytics na sua rede virtual Azure. Instale também pelo menos um agente na sua sub-rede no local, que está ligada através do espreitamento privado ExpressRoute.  
+* **Monitor ExpressRoute** : Instale pelo menos um agente Log Analytics na sua rede virtual Azure. Instale também pelo menos um agente na sua sub-rede no local, que está ligada através do espreitamento privado ExpressRoute.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Configure os agentes do Log Analytics para monitorização 
 
 O Network Performance Monitor utiliza transações sintéticas para monitorizar o desempenho da rede entre agentes de origem e de destino. Pode escolher entre TCP e ICMP como protocolo para monitorização nas capacidades do Monitor de Desempenho e do Monitor de Conectividade de Serviço. Apenas o TCP está disponível como protocolo de monitorização do ExpressRoute Monitor. Certifique-se de que a firewall permite a comunicação entre os agentes do Log Analytics utilizados para monitorizar o protocolo que escolher. 
 
-* **Protocolo TCP**: Se escolher o TCP como protocolo de monitorização, abra a porta de firewall dos agentes utilizados para o Monitor de Desempenho da Rede e o Monitor ExpressRoute para se certificar de que os agentes podem ligar-se uns aos outros. Para abrir a porta, executar o [EnableRules.ps1](https://aka.ms/npmpowershellscript) script PowerShell sem parâmetros numa janela PowerShell com privilégios administrativos.
+* **Protocolo TCP** : Se escolher o TCP como protocolo de monitorização, abra a porta de firewall dos agentes utilizados para o Monitor de Desempenho da Rede e o Monitor ExpressRoute para se certificar de que os agentes podem ligar-se uns aos outros. Para as máquinas Windows, para abrir a porta, executar o script [ powerShellEnableRules.ps1](https://aka.ms/npmpowershellscript) sem parâmetros numa janela PowerShell com privilégios administrativos.
+Para as máquinas Linux, os portNumbers devem ser utilizados manualmente. 
+* Navegue pelo caminho: /var/opt/microsoft/omsagent/npm_state . 
+* Arquivo aberto: npmdregistry
+* Alterar o valor para número de porta ```“PortNumber:<port of your choice>”```
 
-    O script cria chaves de registo necessárias pela solução. Também cria regras do Windows Firewall para permitir que os agentes criem ligações TCP entre si. As teclas de registo criadas pelo script especificam se registam os registos de depurg e o caminho para o ficheiro de registos. O script também define a porta TCP do agente utilizada para a comunicação. Os valores destas teclas são automaticamente definidos pelo script. Não mude manualmente estas chaves. A porta aberta por defeito é 8084. Pode utilizar uma porta personalizada fornecendo o parâmetro portNumber ao script. Use a mesma porta em todos os computadores onde o script é executado. 
+ Note que os números de porta utilizados devem ser os mesmos em todos os agentes utilizados num espaço de trabalho. 
+
+O script cria chaves de registo necessárias pela solução. Também cria regras do Windows Firewall para permitir que os agentes criem ligações TCP entre si. As teclas de registo criadas pelo script especificam se registam os registos de depurg e o caminho para o ficheiro de registos. O script também define a porta TCP do agente utilizada para a comunicação. Os valores destas teclas são automaticamente definidos pelo script. Não mude manualmente estas chaves. A porta aberta por defeito é 8084. Pode utilizar uma porta personalizada fornecendo o parâmetro portNumber ao script. Use a mesma porta em todos os computadores onde o script é executado. 
 
     >[!NOTE]
-    > O script configura apenas o Windows Firewall localmente. Se tiver uma firewall de rede, certifique-se de que permite o tráfego destinado à porta TCP utilizada pelo Network Performance Monitor.
+    > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
 
     >[!NOTE]
-    > Não é necessário executar o [EnableRules.ps1](https://aka.ms/npmpowershellscript ) script PowerShell para o Monitor de Conectividade de Serviço.
+    > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Connectivity Monitor.
 
     
 
-* **Protocolo ICMP**: Se escolher o ICMP como protocolo de monitorização, permita que as seguintes regras de firewall utilizem de forma fiável o ICMP:
+* **Protocolo ICMP** : Se escolher o ICMP como protocolo de monitorização, permita que as seguintes regras de firewall utilizem de forma fiável o ICMP:
     
    ```
    netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
@@ -124,15 +130,15 @@ O Network Performance Monitor utiliza transações sintéticas para monitorizar 
 
 4. Na página **Configuração,** vê a opção de instalar agentes do Log Analytics e configurar os agentes para monitorização na vista **Configurações Comuns.** Como explicado anteriormente, se instalou e configurar agentes do Log Analytics, selecione a vista **de Configuração** para configurar a capacidade que pretende utilizar. 
 
-   **Monitor de Desempenho**: Escolha o protocolo a utilizar para transações sintéticas na regra do Monitor de Desempenho **Predefinido** e selecione **Save & Continue**. Esta seleção de protocolos só é guarda para a regra de incumprimento gerada pelo sistema. Tem de escolher o protocolo sempre que criar uma regra do Monitor de Desempenho explicitamente. Pode sempre mover-se para as definições de regra **padrão** no **separador Monitor de Desempenho** (aparece depois de completar a configuração do dia-0) e alterar o protocolo mais tarde. Se não quiser a capacidade do Monitor de Desempenho, pode desativar a regra predefinida a partir das definições de regra **padrão** no **separador Monitor de Desempenho.**
+   **Monitor de Desempenho** : Escolha o protocolo a utilizar para transações sintéticas na regra do Monitor de Desempenho **Predefinido** e selecione **Save & Continue**. Esta seleção de protocolos só é guarda para a regra de incumprimento gerada pelo sistema. Tem de escolher o protocolo sempre que criar uma regra do Monitor de Desempenho explicitamente. Pode sempre mover-se para as definições de regra **padrão** no **separador Monitor de Desempenho** (aparece depois de completar a configuração do dia-0) e alterar o protocolo mais tarde. Se não quiser a capacidade do Monitor de Desempenho, pode desativar a regra predefinida a partir das definições de regra **padrão** no **separador Monitor de Desempenho.**
 
    ![Vista do Monitor de Desempenho](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Monitor de Conectividade de Serviço**: A capacidade fornece testes pré-configurados incorporados para monitorizar a conectividade da rede com o Microsoft 365 e o Dynamics 365 dos seus agentes. Escolha os serviços Microsoft 365 e Dynamics 365 que pretende monitorizar selecionando as caixas de verificação ao seu lado. Para escolher os agentes a partir dos quais pretende monitorizar, **selecione Adicionar Agentes**. Se não quiser utilizar esta capacidade ou quiser instalá-la mais tarde, não escolha nada e **selecione Save & Continue**.
+   **Monitor de Conectividade de Serviço** : A capacidade fornece testes pré-configurados incorporados para monitorizar a conectividade da rede com o Microsoft 365 e o Dynamics 365 dos seus agentes. Escolha os serviços Microsoft 365 e Dynamics 365 que pretende monitorizar selecionando as caixas de verificação ao seu lado. Para escolher os agentes a partir dos quais pretende monitorizar, **selecione Adicionar Agentes**. Se não quiser utilizar esta capacidade ou quiser instalá-la mais tarde, não escolha nada e **selecione Save & Continue**.
 
    ![Vista do Monitor de Conectividade de Serviço](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **ExpressRoute Monitor**: Selecione **Discover Now** para descobrir todos os persperos privados ExpressRoute que estão ligados às redes virtuais na subscrição Azure ligada a este espaço de trabalho Log Analytics. 
+   **ExpressRoute Monitor** : Selecione **Discover Now** para descobrir todos os persperos privados ExpressRoute que estão ligados às redes virtuais na subscrição Azure ligada a este espaço de trabalho Log Analytics. 
 
    ![Vista do Monitor ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
@@ -200,15 +206,15 @@ Depois de ativar a solução Network Performance Monitor, o azulejo da solução
 
 ### <a name="network-performance-monitor-dashboard"></a>Painel de monitorização de desempenho da rede 
 
-* **Principais Eventos de Saúde da Rede**: Esta página fornece uma lista dos mais recentes eventos de saúde e alertas no sistema e no tempo desde que os eventos têm estado ativos. Um evento ou alerta de saúde é gerado sempre que o valor da métrica escolhida (perda, latência, tempo de resposta ou utilização da largura de banda) para a regra de monitorização excede o limiar. 
+* **Principais Eventos de Saúde da Rede** : Esta página fornece uma lista dos mais recentes eventos de saúde e alertas no sistema e no tempo desde que os eventos têm estado ativos. Um evento ou alerta de saúde é gerado sempre que o valor da métrica escolhida (perda, latência, tempo de resposta ou utilização da largura de banda) para a regra de monitorização excede o limiar. 
 
-* **ExpressRoute Monitor**: Esta página fornece resumos de saúde para as várias ligações de observação ExpressRoute que a solução monitoriza. O **azulejo topologia** mostra o número de caminhos de rede através dos circuitos ExpressRoute que são monitorizados na sua rede. Selecione este azulejo para ir à vista **topologia.**
+* **ExpressRoute Monitor** : Esta página fornece resumos de saúde para as várias ligações de observação ExpressRoute que a solução monitoriza. O **azulejo topologia** mostra o número de caminhos de rede através dos circuitos ExpressRoute que são monitorizados na sua rede. Selecione este azulejo para ir à vista **topologia.**
 
-* **Monitor de Conectividade de Serviço**: Esta página fornece resumos de saúde para os diferentes testes que criou. O **azulejo topologia** mostra o número de pontos finais que são monitorizados. Selecione este azulejo para ir à vista **topologia.**
+* **Monitor de Conectividade de Serviço** : Esta página fornece resumos de saúde para os diferentes testes que criou. O **azulejo topologia** mostra o número de pontos finais que são monitorizados. Selecione este azulejo para ir à vista **topologia.**
 
-* **Monitor de Desempenho**: Esta página fornece resumos de saúde para as ligações **de rede** e ligações **de subneteta** que a solução monitoriza. O **azulejo topologia** mostra o número de caminhos de rede que são monitorizados na sua rede. Selecione este azulejo para ir à vista **topologia.** 
+* **Monitor de Desempenho** : Esta página fornece resumos de saúde para as ligações **de rede** e ligações **de subneteta** que a solução monitoriza. O **azulejo topologia** mostra o número de caminhos de rede que são monitorizados na sua rede. Selecione este azulejo para ir à vista **topologia.** 
 
-* **Consultas Comuns**: Esta página contém um conjunto de consultas de pesquisa que procuram dados de monitorização da rede bruta diretamente. Pode utilizar estas consultas como ponto de partida para criar as suas próprias consultas para relatórios personalizados. 
+* **Consultas Comuns** : Esta página contém um conjunto de consultas de pesquisa que procuram dados de monitorização da rede bruta diretamente. Pode utilizar estas consultas como ponto de partida para criar as suas próprias consultas para relatórios personalizados. 
 
    ![Painel de monitorização de desempenho da rede](media/network-performance-monitor/npm-dashboard.png)
 

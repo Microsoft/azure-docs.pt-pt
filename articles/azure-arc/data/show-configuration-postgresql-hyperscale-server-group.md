@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 716759fd6542cd473c236992ac88b69bfe5d0a66
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a268cd6b2fa3da6846554e3d1b170298abec7f18
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148019"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279406"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Mostrar a configuração de um grupo de servidores de hiperescala postgreSQL ativado por Arco
 
@@ -210,7 +210,7 @@ Spec:
       Name:  citus
       Name:  pg_stat_statements
   Scale:
-    Shards:  2
+    Workers:  2
   Scheduling:
     Default:
       Resources:
@@ -236,20 +236,50 @@ Status:
 Events:               <none>
 ```
 
+>[!NOTE]
+>Antes do lançamento de outubro de 2020, `Workers` estava `Shards` no exemplo anterior. Consulte [notas de lançamento - Azure Arc ativou serviços de dados (Pré-visualização)](release-notes.md) para obter mais informações.
+
 Vamos chamar alguns pontos específicos de interesse na descrição do `servergroup` acima mostrado. O que nos diz sobre este grupo de servidores?
 
 - É da versão 12 dos Postgres: 
-   > Tipo:         `postgresql-12`
+   > ```json
+   > Kind:         `postgresql-12`
+   > ```
 - Foi criado durante o mês de agosto de 2020:
-   > Assinalação do tempo da criação:  `2020-08-31T21:01:07Z`
+   > ```json
+   > Creation Timestamp:  `2020-08-31T21:01:07Z`
+   > ```
 - Duas extensões postgres foram criadas neste grupo de servidores: `citus` e `pg_stat_statements`
-   > Motor: Extensões:  `citus` Nome: Nome:  `pg_stat_statements`
+   > ```json
+   > Engine:
+   >    Extensions:
+   >      Name:  `citus`
+   >      Name:  `pg_stat_statements`
+   > ```
 - Usa dois nó de trabalhadores
-   > Escala: Fragmentos:  `2`
+   > ```json
+   > Scale:
+   >    Workers:  `2`
+   > ```
 - É garantido que utiliza 1 cpu/vCore e 512MB de Ram por nó. Utilizará mais de 4 cpu/vCores e 1024MB de memória:
-   > Agendamento: Padrão: Recursos: Limites: Cpu: 4 Memória: 1024Mi Pedidos: Cpu: 1 Memória: 512Mi
+   > ```json
+   > Scheduling:
+   >    Default: 
+   >      Resources:
+   >        Limits:
+   >          Cpu:     4
+   >          Memory:  1024Mi
+   >        Requests:
+   >          Cpu:     1
+   >          Memory:  512Mi
+   > ```
  - Está disponível para consultas e não tem qualquer problema. Todos os nós estão a funcionar:
-   > Estado: ... Cápsulas prontas: 3/3 Estado: Pronto
+   > ```json
+   > Status:
+   >  ...
+   >  Ready Pods:         3/3
+   >  State:              Ready
+   > ```
 
 **Com azdata:**
 
@@ -292,7 +322,7 @@ Devolve a saída abaixo num formato e conteúdo muito semelhante ao devolvido pe
       ]
     },
     "scale": {
-      "shards": 2
+      "workers": 2
     },
     "scheduling": {
       "default": {

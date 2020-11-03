@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2020
+ms.date: 10/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 4a4df1ff0561e180ca0a3fd36363ceff7da042df
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e645f4075aa1c4c027e8ea884108fdeb708467af
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92522432"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279940"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nitro-productivity-suite"></a>Tutorial: Azure Ative Directory integração única (SSO) com Nitro Productivity Suite
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar nitro Productivity Suite com Azure
 * Controlo em Azure AD que tem acesso à Suite de Produtividade Nitro.
 * Permita que os seus utilizadores sejam automaticamente inscritos na Nitro Productivity Suite com as suas contas AD Azure.
 * Gerencie as suas contas num local central: o portal Azure.
-
-Para saber mais sobre software como integração de aplicações de serviço (SaaS) com Azure AD, consulte O que é o acesso à [aplicação e um único acesso com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,15 +39,14 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Nitro Productivity Suite suporta **SSO** iniciado SP e **IDP.**
 * Nitro Productivity Suite suporta o fornecimento do utilizador **Just In Time.**
-* Depois de configurar a Nitro Productivity Suite, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o acesso condicional. Para obter mais informações, consulte [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security.](/cloud-app-security/proxy-deployment-any-app)
 
 ## <a name="add-nitro-productivity-suite-from-the-gallery"></a>Adicione a Suíte de Produtividade Nitro da galeria
 
 Para configurar a integração da Nitro Productivity Suite em Azure AD, você precisa adicionar Nitro Productivity Suite da galeria à sua lista de aplicações geridas saaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure utilizando uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
 1. No painel esquerdo, selecione **Azure Ative Directory**.
-1. Vá a **Aplicações Empresariais**e, em seguida, selecione **Todas as Aplicações**.
+1. Vá a **Aplicações Empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar uma nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **de galeria,** **escreva Nitro Productivity Suite** na caixa de pesquisa.
 1. Selecione **Nitro Productivity Suite** a partir dos resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
@@ -62,17 +59,19 @@ Configure e teste Azure AD SSO com Nitro Productivity Suite, utilizando um utili
 Para configurar e testar o Azure AD SSO com a Suite de Produtividade Nitro, complete os seguintes blocos de construção:
 
 1. [Configure Azure AD SSO](#configure-azure-ad-sso) para permitir que os seus utilizadores utilizem esta funcionalidade.
-    1. [Crie um utilizador de teste AD Azure](#create-an-azure-ad-test-user) para testar o Azure AD com B.Simon.
-    1. [Atribua ao utilizador de teste Azure AD](#assign-the-azure-ad-test-user) para permitir que a B.Simon utilize um único sinal de Ad AD.
-1. [Configure o Nitro Productivity Suite SSO](#configure-nitro-productivity-suite-sso) para configurar as definições de inscrição única no lado da aplicação.
-    1. Crie um utilizador de [teste Nitro Productivity Suite](#create-a-nitro-productivity-suite-test-user) para ter uma contraparte de B.Simon em Nitro Productivity Suite, ligada à representação AD AZure do utilizador.
+
+    a. [Crie um utilizador de teste AD Azure](#create-an-azure-ad-test-user) para testar o Azure AD com B.Simon.
+    
+    b. [Atribua ao utilizador de teste Azure AD](#assign-the-azure-ad-test-user) para permitir que a B.Simon utilize um único sinal de Ad AD.
+    
+2. Crie um utilizador de [teste Nitro Productivity Suite](#create-a-nitro-productivity-suite-test-user) para ter uma contraparte de B.Simon em Nitro Productivity Suite, ligada à representação AD AZure do utilizador.
 1. [Teste SSO](#test-sso) para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração da aplicação **Nitro Productivity Suite,** encontre a secção **Gerir.** Selecione **um único sinal de inscrição**.
+1. No portal Azure, na página de integração da aplicação **Nitro Productivity Suite,** encontre a secção **Gerir.** Selecione **um único sinal de inscrição**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. Na secção **Certificado de Assinatura SAML,** encontre **o Certificado (Base64)**. Selecione **Baixar** para descarregar o certificado e guardá-lo no seu computador.
 
@@ -103,7 +102,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     b. Na caixa de texto **URL de resposta,** copie e cole o campo **URL ACS** a partir do [portal Nitro Admin](https://admin.gonitro.com/). Deve ter o seguinte padrão: `https://gonitro-prod.eu.auth0.com/login/callback?connection=<ENVIRONMENT>`
 
-1. Selecione **Definir URLs adicionais**e executar o seguinte passo se quiser configurar a aplicação **no** modo iniciado sp:
+1. Selecione **Definir URLs adicionais** e executar o seguinte passo se quiser configurar a aplicação **no** modo iniciado sp:
 
     Na caixa de texto **URL de entrada de inscrição,** digite o URL:  `https://sso.gonitro.com/login`
 
@@ -127,7 +126,7 @@ Nesta secção, cria-se um utilizador de teste no portal Azure chamado B.Simon.
 1. A partir do painel esquerdo no portal Azure, selecione **Utilizadores do Diretório Ativo Azure**  >  **Users**  >  **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome** , introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de senha show** e, em seguida, escreva a palavra-passe para baixo.
    1. Selecione **Criar**.
@@ -139,20 +138,10 @@ Nesta secção, você permite que B.Simon use a Azure single sign-on, concedendo
 1. No portal Azure, selecione **Aplicações empresariais**  >  **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Nitro Productivity Suite**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![Screenshot da secção Gerir, com utilizadores e grupos em destaque](common/users-groups-blade.png)
-
 1. Selecione **Adicionar utilizador**. Em seguida, na caixa de diálogo **de atribuição de adicionar,** selecione **Utilizadores e grupos**.
-
-    ![Screenshot da página de Utilizadores e grupos, com o utilizador Adicionar em destaque](common/add-assign-user.png)
-
 1. Na caixa de diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de utilizadores. Em seguida, escolha **Selecione** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, na caixa de diálogo **Select Role,** selecione a função adequada para o utilizador da lista. Em seguida, escolha **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. Na caixa de diálogo **'Adicionar Atribuição',** selecione **Atribuir**.
-
-## <a name="configure-nitro-productivity-suite-sso"></a>Configurar a Suíte de Produtividade Nitro SSO
-
-Para configurar um único sign-on no lado da Suite De Produtividade Nitro, envie o Certificado descarregado **(Base64)** e URLs copiados apropriados do portal Azure para a equipa de [suporte da Nitro Productivity Suite](https://www.gonitro.com/support). A equipa de apoio garante que a ligação SSO SAML está corretamente definida em ambos os lados.
 
 ### <a name="create-a-nitro-productivity-suite-test-user"></a>Criar um utilizador de teste Nitro Productivity Suite
 
@@ -160,20 +149,21 @@ Nitro Productivity Suite suporta o fornecimento de utilizadores just-in-time, o 
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de um único sinal de acesso Azure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Ao selecionar o azulejo da Suite Nitro Productivity no Painel de Acesso, está automaticamente inscrito na Suite de Produtividade Nitro para a qual configura sSO. Para obter mais informações, consulte [iniciar sômis e inicie aplicações a partir do portal My Apps.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="sp-initiated"></a>SP iniciado:
 
-## <a name="additional-resources"></a>Recursos adicionais
+1. Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o Signo da Suite De Produtividade Nitro no URL, onde pode iniciar o fluxo de login.  
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md) (Tutoriais para integrar aplicações SaaS no Azure Active Directory)
+2. Vá diretamente ao URL de inscrição da Suite Nitro Productivity e inicie o fluxo de login a partir daí.
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+#### <a name="idp-initiated"></a>IDP iniciado:
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito na Suite de Produtividade Nitro para a qual configura o SSO 
 
-- [Experimente a Suíte de Produtividade Nitro com Azure AD](https://aad.portal.azure.com/)
+Também pode utilizar o Microsoft Access Panel para testar a aplicação em qualquer modo. Quando clicar no azulejo da Suite De Produtividade Nitro no Painel de Acesso, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito na Suite de Produtividade Nitro para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
 
-- [Proteja a Suíte de Produtividade Nitro com visibilidade e controlos avançados](/cloud-app-security/proxy-intro-aad)
+## <a name="next-steps"></a>Passos seguintes
+
+Uma vez configurado o Nitro Productivity Suite, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

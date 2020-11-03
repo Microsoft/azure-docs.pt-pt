@@ -4,17 +4,17 @@ description: Crie um exemplo gerido pelo SQL utilizando ferramentas Kubernetes
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: twright-msft
-ms.author: twright
+author: vin-yu
+ms.author: vinsonyu
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 290745f89c7978fdcbda8be566938b58167a4f5a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 2902274cfff11ac256459abd4fe0378146ee067b
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040911"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280183"
 ---
 # <a name="create-azure-sql-managed-instance-using-kubernetes-tools"></a>Criar exemplo gerido pelo Azure SQL utilizando ferramentas Kubernetes
 
