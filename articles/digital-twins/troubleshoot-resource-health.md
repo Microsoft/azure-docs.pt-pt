@@ -28,7 +28,7 @@ Para verificar a saúde do seu caso, siga estes passos:
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para a sua instância Azure Digital Twins. Pode encontrá-lo digitando o seu nome na barra de pesquisa do portal. 
 
-2. No menu do seu caso, selecione _**a saúde de recursos**_ em Suporte + *resolução de problemas* . Isto irá levá-lo à página para visualizar o histórico de saúde dos recursos. 
+2. No menu do seu caso, selecione _**a saúde de recursos**_ em Suporte + *resolução de problemas*. Isto irá levá-lo à página para visualizar o histórico de saúde dos recursos. 
 
     :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Screenshot mostrando a página 'Resource health'. Há uma secção de &quot;história da saúde&quot; que mostra um relatório diário dos últimos nove dias. Cada dia mostra um estado de 'Disponível'.":::
 
