@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: dc60d2b6cef8ad19526c5ec243ae1c43529954a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87504539"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289905"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerir o Cofre de Chaves utilizando o Azure CLI 
 
@@ -128,8 +128,8 @@ az keyvault create --name "ContosoKeyVault" --resource-group "ContosoResourceGro
 
 A saída deste comando mostra propriedades do cofre chave que criaste. As duas propriedades mais importantes são:
 
-* **nome**: No exemplo, o nome é ContosoKeyVault. Vais usar este nome para outros comandos do Key Vault.
-* **vaultUri**: No exemplo, o URI é https://contosokeyvault.vault.azure.net . As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
+* **nome** : No exemplo, o nome é ContosoKeyVault. Vais usar este nome para outros comandos do Key Vault.
+* **vaultUri** : No exemplo, o URI é https://contosokeyvault.vault.azure.net . As aplicações que utilizam o cofre através da respetiva API têm de utilizar este URI.
 
 A sua conta do Azure pode agora realizar quaisquer operações neste cofre de chaves. Até agora, ninguém mais está autorizado.
 
@@ -194,7 +194,7 @@ As aplicações que utilizam um cofre de chaves devem ser autenticadas através 
 
 Para obter um token, a aplicação deve apresentar ambos os valores ao Azure Active Directory. A configuração de uma aplicação para obter um token dependerá da aplicação. Na [aplicação de exemplo do Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), o proprietário da aplicação define estes valores no ficheiro app.config.
 
-Para etapas detalhadas sobre o registo de uma aplicação com o Azure Ative Directory deve rever os artigos [intitulados Integrando aplicações com diretório ativo Azure,](../../active-directory/develop/active-directory-integrating-applications.md) [Use portal para criar uma aplicação e um diretor de serviço azure ative que possa aceder a recursos,](../../active-directory/develop/howto-create-service-principal-portal.md)e Criar um diretor de serviço [Azure com o Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+Para etapas detalhadas sobre o registo de uma aplicação com o Azure Ative Directory deve rever os artigos [intitulados Integrando aplicações com diretório ativo Azure,](../../active-directory/develop/quickstart-register-app.md) [Use portal para criar uma aplicação e um diretor de serviço azure ative que possa aceder a recursos,](../../active-directory/develop/howto-create-service-principal-portal.md)e Criar um diretor de serviço [Azure com o Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Para registar uma candidatura no Diretório Ativo Azure:
 

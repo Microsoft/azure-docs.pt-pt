@@ -11,14 +11,14 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 20f0d6a9d87caa8e95e7f9fa0b29ff45ed1195c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: a6b453b11c892b5d81c41cac9451b07be69aa4d3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735474"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285914"
 ---
-# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Garantir um ambiente de aprendizagem automática Azure com redes virtuais
+# <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente de inferência do Azure Machine Learning com redes virtuais
 
 Neste artigo, aprende-se a garantir ambientes de inferenização com uma rede virtual em Azure Machine Learning.
 
@@ -138,7 +138,7 @@ Depois de criar o cluster AKS privado, [ligue o cluster à rede virtual](how-to-
 
 Por predefinição, as implementações AKS utilizam um [balançador de carga pública](../aks/load-balancer-standard.md). Nesta secção, aprende-se a configurar a AKS para utilizar um equilibrador de carga interno. Um equilibrador de carga interno (ou privado) é utilizado onde apenas os IPs privados são permitidos como frontend. Os balançadores de carga internos são usados para carregar o tráfego de equilíbrio dentro de uma rede virtual
 
-Um balançador de carga privado é ativado configurando a AKS para utilizar um _equilibrador de carga interno_ . 
+Um balançador de carga privado é ativado configurando a AKS para utilizar um _equilibrador de carga interno_. 
 
 #### <a name="network-contributor-role"></a>Papel de contribuinte de rede
 
@@ -217,6 +217,9 @@ except:
 az ml computetarget create aks -n myaks --load-balancer-type InternalLoadBalancer
 ```
 
+> [!IMPORTANT]
+> Utilizando o CLI, só é possível criar um cluster AKS com um equilibrador de carga interno. Não existe um comando az ml para atualizar um cluster existente para usar um equilibrador de carga interno.
+
 Para obter mais informações, consulte o [computação az ml para criar referência aks.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks)
 
 ---
@@ -260,6 +263,9 @@ Para utilizar o ACI numa rede virtual para o seu espaço de trabalho, utilize os
 
 2. Utilize o modelo utilizando [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aci.aciwebservice?view=azure-ml-py&preserve-view=true#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none--vnet-name-none--subnet-name-none-&preserve-view=true), utilize os `vnet_name` parâmetros e `subnet_name` parâmetros. Deslo sente estes parâmetros no nome e na sub-rede de rede virtuais onde permitiu a delegação.
 
+## <a name="limit-outbound-connectivity-from-the-virtual-network"></a>Limitar a conectividade de saída da rede virtual
+
+Se não quiser utilizar as regras de saída predefinidas e pretender limitar o acesso de saída da sua rede virtual, deve permitir o acesso ao Registo de Contentores Azure. Por exemplo, certifique-se de que os seus Grupos de Segurança de Rede (NSG) contêm uma regra que permite o acesso à marca de serviço __AzureContainerRegistry.RegionName__ onde '{RegionName} é o nome de uma região de Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 

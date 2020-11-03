@@ -13,34 +13,34 @@ ms.workload: iaas-sql-server
 ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d6900d0fdf656fa8309b18971691bb35587f7f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761265"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286078"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registar várias máquinas virtuais SQL em Azure com o fornecedor de recursos SQL VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Este artigo descreve como registar as suas máquinas virtuais SQL Server (VMs) a granel em Azure com o fornecedor de recursos SQL VM utilizando o `Register-SqlVMs` cmdlet PowerShell.
+Este artigo descreve como registar as suas máquinas virtuais SQL Server (VMs) a granel em Azure com o fornecedor de recursos SQL VM utilizando o `Register-SqlVMs` cmdlet PowerShell. Registar-se com o fornecedor de recursos SQL VM instala a [extensão SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md).
 
 Este artigo ensina-o a registar VMs SQL Server a granel. Em alternativa, pode registar [automaticamente todos os VMs do SqL Server](sql-vm-resource-provider-automatic-registration.md) ou [VMs individuais do SQL Server](sql-vm-resource-provider-register.md). 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O `Register-SqlVMs` cmdlet pode ser usado para registar todas as máquinas virtuais numa determinada lista de subscrições, grupos de recursos ou uma lista de máquinas virtuais específicas. O cmdlet registará as máquinas virtuais em modo de gestão _leve_ e, em seguida, gerará um [relatório e um ficheiro de registo](#output-description). 
 
 O processo de registo não tem qualquer risco, não tem tempo de inatividade e não reiniciará o SQL Server ou a máquina virtual. 
 
-Para obter mais informações sobre o fornecedor de recursos, consulte o [fornecedor de recursos SQL VM](sql-vm-resource-provider-register.md). 
+Para obter mais informações, consulte [o fornecedor de recursos SQL VM.](sql-vm-resource-provider-register.md) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para registar o seu SQL Server VM com o fornecedor de recursos, necessitará do seguinte: 
 
 - Uma [subscrição do Azure](https://azure.microsoft.com/free/) que foi [registada com o fornecedor de recursos](sql-vm-resource-provider-register.md#register-subscription-with-rp) e contém máquinas virtuais SQL Server não registadas. 
-- As credenciais do cliente utilizadas para registar as máquinas virtuais existem em qualquer uma das seguintes funções Azure: **Contribuinte máquina virtual,** **contribuinte**ou **Proprietário.** 
+- As credenciais do cliente utilizadas para registar as máquinas virtuais existem em qualquer uma das seguintes funções Azure: **Contribuinte máquina virtual,** **contribuinte** ou **Proprietário.** 
 - A versão mais recente do [Az PowerShell.](/powershell/azure/new-azureps-module-az) 
 - A versão mais recente de [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
@@ -219,7 +219,7 @@ O relatório é gerado como um `.txt` ficheiro chamado onde a hora da hora é a 
 | Número de VMs ignorados por não estarem a executar o SQL Server no Windows | Contagem de máquinas virtuais que foram ignoradas por não estarem a executar o SQL Server ou não serem uma máquina virtual do Windows. As máquinas virtuais estão listadas no `SubscriptionID, Resource Group, Virtual Machine` formato. | 
 | &nbsp; | &nbsp; |
 
-### <a name="log"></a>Registar 
+### <a name="log"></a>Registo 
 
 Os erros são registados no ficheiro de registo denominado `VMsNotRegisteredDueToError<Timestamp>.log` , onde a hora de tempo é a hora em que o script começou. Se o erro estiver no nível de subscrição, o registo contém o ID de subscrição separado em vírgula e a mensagem de erro. Se o erro estiver com o registo da máquina virtual, o registo contém o ID de subscrição, nome do grupo de recursos, nome da máquina virtual, código de erro e mensagem separada por vírgulas. 
 
@@ -227,7 +227,7 @@ Os erros são registados no ficheiro de registo denominado `VMsNotRegisteredDueT
 
 Quando registar VMs sql server com o fornecedor de recursos utilizando o script fornecido, considere o seguinte:
 
-- O registo com o fornecedor de recursos requer um agente convidado em execução no SQL Server VM. As imagens do Windows Server 2008 não têm um agente convidado, pelo que estas máquinas virtuais falharão e devem ser registadas manualmente utilizando o [modo de gestão NoAgent](sql-vm-resource-provider-register.md#management-modes).
+- O registo com o fornecedor de recursos requer um agente convidado em execução no SQL Server VM. As imagens do Windows Server 2008 não têm um agente convidado, pelo que estas máquinas virtuais falharão e devem ser registadas manualmente utilizando o [modo de gestão NoAgent](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 - Há uma lógica de reação incorporada para superar erros transparentes. Se a máquina virtual estiver registada com sucesso, então é uma operação rápida. No entanto, se o registo falhar, cada máquina virtual será novamente experimentada.  Como tal, deverá permitir um tempo significativo para concluir o processo de registo - embora o requisito de tempo real dependa do tipo e do número de erros. 
 
 ## <a name="full-script"></a>Script completo
@@ -238,7 +238,7 @@ Copie o guião completo e guarde-o como `RegisterSqLVMs.psm1` .
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, veja os seguintes artigos: 
 

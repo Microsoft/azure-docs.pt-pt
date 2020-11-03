@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: eb522e047ed8bb4929a3aba270df35322256319b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f1a26e3323e4d1db2e9b2bda9afaa2756307749b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534894"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288959"
 ---
 # <a name="troubleshoot-apache-hive-by-using-azure-hdinsight"></a>Troubleshoot Apache Hive by using Azure HDInsight (Utilizar o Azure HDInsight para resolver problemas do Apache Hive)
 
@@ -155,7 +155,7 @@ Existem duas formas de recolher os dados do Tez DAG:
   1. Vai a Ambari.
   2. Vá à vista Tez (sob o ícone de azulejos no canto superior direito).
   3. Selecione o DAG que pretende visualizar.
-  4. Selecione **Baixar os dados** .
+  4. Selecione **Baixar os dados**.
 
 ### <a name="additional-reading"></a><a name="additional-reading-end"></a>Leitura adicional
 
@@ -163,10 +163,4 @@ Existem duas formas de recolher os dados do Tez DAG:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
-
-- Obtenha respostas de especialistas da Azure através do [Apoio Comunitário Azure.](https://azure.microsoft.com/support/community/)
-
-- Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
-
-- Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

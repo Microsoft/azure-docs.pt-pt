@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: e22400016eae0642c4e25fcfd4fcaaaab22a27a8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8faf9c913ea9bab2feaf698efeb6fd5b3ca63179
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280573"
+ms.locfileid: "93289634"
 ---
 # <a name="speech-service-release-notes"></a>Notas de lançamento do Serviço de Fala
 
@@ -24,21 +24,13 @@ ms.locfileid: "93280573"
 
 **Nota** : O Discurso SDK sobre o Windows depende do Microsoft Visual C++ Redistribuable partilhado para o Visual Studio 2015, 2017 e 2019. Descarregue [aqui.](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
-**Discurso CLI (também conhecido como SPX)**<br>
-SPX é a interface da linha de comando para utilizar o serviço Azure Speech sem código de escrita. Descarregue a versão mais recente [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics)
-- `spx csr dataset upload --kind audio|language|acoustic` – criar conjuntos de dados a partir de dados locais, não apenas a partir de URLs.
-- `spx csr evaluation create|status|list|update|delete` – comparar novos modelos com a verdade de base/outros modelos.
-- `spx * list` – suporta experiência não paged (não requer -- top X --skip X).
-- `spx * --http header A=B` – suporte os cabeçalhos personalizados (adicionados para o Office para autenticação personalizada). 
-- `spx help` – texto melhorado e cor de texto de back-tick codificado (azul).
-
 **Novas funcionalidades**
 - **Linux** : Apoio adicional a Debian 10 e Ubuntu 20.04 LTS.
 - **Python/Objective-C:** Apoio adicional à `KeywordRecognizer` API. A documentação estará [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics)
 - **C++/Java/C#** : Suporte adicional para definir qualquer `HttpHeader` chave/valor através de `ServicePropertyChannel::HttpHeader` .
 - **JavaScript** : Suporte adicional para a `ConversationTranscriber` API. Leia a documentação [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript) 
-- **C++/C#** : Adicione novo `AudioDataStream FromFile` método (para ler . Ficheiros WAV) [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audiodatastream) e [aqui (C#)](
-https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream.fromfile).
+- **C++/C#** : Adicione novo `AudioDataStream FromWavFileInput` método (para ler . Ficheiros WAV) [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) e [aqui (C#)](
+https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
 -  **C++/C#/Java/Python/Objective-C/Swift** : Adicionei um `stopSpeakingAsync()` método para parar a síntese de texto-a-fala. Leia aqui a documentação de referência [(C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [aqui (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [aqui (Objectivo-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
 - **C#, C++, Java** : Adicione uma `FromDialogServiceConnector()` função à classe que pode ser usada para monitorizar eventos de `Connection` ligação e desconexão para `DialogServiceConnector` . Leia a documentação de referência [aqui (C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [aqui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection), e [aqui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
@@ -72,6 +64,16 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 
 **Testes abreviados COVID-19:** Devido ao trabalho remoto nas últimas semanas, não podíamos fazer tantos testes de verificação manual como normalmente fazemos. Não fizemos alterações que achamos que podem ter quebrado alguma coisa, e os nossos testes automatizados passaram. No caso improvável de termos perdido algo, por favor, avise-nos no [GitHub.](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen)<br>
 Mantenha-se saudável!
+
+## <a name="speech-cli-also-known-as-spx-2020-october-release"></a>Speech CLI (também conhecido como SPX): lançamento 2020-outubro
+SPX é a interface da linha de comando para utilizar o serviço Azure Speech sem código de escrita. Descarregue a versão mais recente [aqui.](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics) <br>
+
+**Novas funcionalidades**
+- `spx csr dataset upload --kind audio|language|acoustic` – criar conjuntos de dados a partir de dados locais, não apenas a partir de URLs.
+- `spx csr evaluation create|status|list|update|delete` – comparar novos modelos com a verdade de base/outros modelos.
+- `spx * list` – suporta experiência não paged (não requer -- top X --skip X).
+- `spx * --http header A=B` – suporte os cabeçalhos personalizados (adicionados para o Office para autenticação personalizada). 
+- `spx help` – texto melhorado e cor de texto de back-tick codificado (azul).
 
 
 ## <a name="text-to-speech-2020-august-release"></a>Lançamento de texto-a-discurso 2020-agosto

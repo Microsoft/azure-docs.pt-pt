@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 1ab5ae7bf9f1d13458e3bbeeec564fe642eb3303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588733"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289166"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Aceder ao Cofre de Chaves do Azure protegido por firewall
 
@@ -43,7 +43,7 @@ As aplicações cliente do Cofre de Chaves terão de aceder a pontos finais do A
 | Principal de utilizador ou serviço com uma conta escolar ou profissional com o Azure AD (por exemplo, user@contoso.com) |**Global:**<br> login.microsoftonline.com:443<br><br> **Azure China:**<br> login.chinacloudapi.cn:443<br><br>**Governo Azure US:**<br> login.microsoftonline.us:443<br><br>**Azure Alemanha:**<br> login.microsoftonline.de:443 |
 | Principal de utilizador ou serviço com uma conta escolar ou profissional, mais Serviços de Federação do Active Directory (AD FS) ou outro ponto final federado (por exemplo, user@contoso.com) |Todos os pontos finais para uma conta escolar ou profissional, mais AD FS ou outros pontos finais federados |
 
-Existem outros cenários possíveis complexos. Consulte [Fluxo de Autenticação do Azure Active Directory](../../active-directory/develop/authentication-scenarios.md), [Integrar Aplicações com o Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) e [Protocolos de Autenticação do Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx) para obter informações adicionais.  
+Existem outros cenários possíveis complexos. Consulte [Fluxo de Autenticação do Azure Active Directory](../../active-directory/develop/authentication-vs-authorization.md), [Integrar Aplicações com o Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) e [Protocolos de Autenticação do Active Directory](/previous-versions/azure/dn151124(v=azure.100)) para obter informações adicionais.  
 
 ## <a name="key-vault-management"></a>Gestão do Cofre de Chaves
 
@@ -56,7 +56,7 @@ Para a gestão do Cofre de Chaves (CRUD e definição da política de acesso), a
 
 ## <a name="key-vault-operations"></a>Operações do Cofre de Chaves
 
-Para todas as operações criptográficas e de gestão de objetos do cofre de chaves (chaves e segredos), o cliente do cofre de chaves precisa de aceder ao ponto final do cofre de chaves. O sufixo DNS do ponto final varia consoante a localização do seu cofre de chaves. O ponto final do cofre de chaves tem o formato *vault-name*.*region-specific-dns-suffix*, tal como descrito na tabela seguinte.  
+Para todas as operações criptográficas e de gestão de objetos do cofre de chaves (chaves e segredos), o cliente do cofre de chaves precisa de aceder ao ponto final do cofre de chaves. O sufixo DNS do ponto final varia consoante a localização do seu cofre de chaves. O ponto final do cofre de chaves tem o formato *vault-name*. *region-specific-dns-suffix* , tal como descrito na tabela seguinte.  
 
 | Tipo de operação | Ponto final:porta |
 | --- | --- |
@@ -74,4 +74,4 @@ A Autenticação e Identidade (Azure Active Directory) é um serviço global e p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se tiver dúvidas sobre o Key Vault, visite a página de perguntas do [Microsoft Q&A questione para o Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).
+Se tiver dúvidas sobre o Key Vault, visite a página de perguntas do [Microsoft Q&A questione para o Azure Key Vault](/answers/topics/azure-key-vault.html).

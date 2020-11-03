@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: 84224172dbfd63fee51b3a7b80f5990b04e5e228
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b8dc63030c6791779ad90500747e4e2f5c4ffeef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535030"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288974"
 ---
 # <a name="troubleshoot-apache-hadoop-yarn-by-using-azure-hdinsight"></a>Resolver Problemas do YARN do Apache Hadoop com o Azure HDInsight
 
@@ -32,7 +32,7 @@ Neste exemplo, duas filas existentes ( **padrão** e **thriftsvr** ) são altera
 | thrftsvr | 25% | 50% |
 | spark | 50% | 50% |
 
-1. Selecione o ícone **Ambari Views** e, em seguida, selecione o padrão da grelha. Em seguida, selecione **YARN Queue Manager** .
+1. Selecione o ícone **Ambari Views** e, em seguida, selecione o padrão da grelha. Em seguida, selecione **YARN Queue Manager**.
 
     ![Gestor de fila de painel Apache Ambari](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-1.png)
 2. Selecione a fila **predefinitiva.**
@@ -41,7 +41,7 @@ Neste exemplo, duas filas existentes ( **padrão** e **thriftsvr** ) são altera
 3. Para a fila **padrão,** altere a **capacidade** de 50% para 25%. Para a fila **thriftsvr,** mude a **capacidade** para 25%.
 
     ![Altere a capacidade para 25% para as filas de incumprimento e thriftsvr](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-3.png)
-4. Para criar uma nova fila, **selecione Add Queue** .
+4. Para criar uma nova fila, **selecione Add Queue**.
 
     ![Painel de instrumentos Apache Ambari YARN Adicionar Fila](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-4.png)
 
@@ -52,7 +52,7 @@ Neste exemplo, duas filas existentes ( **padrão** e **thriftsvr** ) são altera
 6. Deixe os valores **de capacidade** a 50%, e, em seguida, selecione o botão **Ações.**
 
     ![Apache Ambari YARN seleciona ação](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-6.png)  
-7. **Selecione Guardar e refrescar as filas** .
+7. **Selecione Guardar e refrescar as filas**.
 
     ![Selecione Guardar e refrescar as filas](media/hdinsight-troubleshoot-yarn/apache-yarn-create-queue-7.png)  
 
@@ -136,10 +136,4 @@ Estas alterações são visíveis imediatamente na UI do Programador YARN.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
-
-- Obtenha respostas de especialistas da Azure através do [Apoio Comunitário Azure.](https://azure.microsoft.com/support/community/)
-
-- Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
-
-- Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/20/2020
 ms.author: mbaldwin
 ms.custom: mvc, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: f8e794a51a6789ba58d9475bb1ca78a442d7e315
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9557ada8001022d460c35a091fdac7699ac5e5ec
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741378"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289382"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-virtual-machine-in-net"></a>Tutorial: Use a Azure Key Vault com uma máquina virtual em .NET
 
@@ -204,4 +204,4 @@ Quando já não forem necessários, elimine a máquina virtual e o cofre da chav
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Cofre chave Azure REST API](https://docs.microsoft.com/rest/api/keyvault/)
+> [Cofre chave Azure REST API](/rest/api/keyvault/)

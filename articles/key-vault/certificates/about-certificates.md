@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 45c0108ed87dd5264b9192f5dd69e0198bd59fc1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126778"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289784"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Acerca dos certificados do Azure Key Vault
 
@@ -44,7 +44,7 @@ Quando um certificado Key Vault é criado, pode ser recuperado do segredo endere
 
 A chave endereçada torna-se mais relevante com certificados KV não exportáveis. As operações da chave KV endereçada são mapeadas a partir do campo de teclado da política de *certificados* KV utilizada para criar o Certificado KV.  
 
- - Tipos-chave suportados: RSA, RSA-HSM, EC, EC-HSM, out (listado [aqui](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) Exportável só é permitido com RSA, CE. As chaves HSM não seriam exportáveis.
+ - Tipos-chave suportados: RSA, RSA-HSM, EC, EC-HSM, out (listado [aqui](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) Exportável só é permitido com RSA, CE. As chaves HSM não seriam exportáveis.
 
 
 ## <a name="certificate-attributes-and-tags"></a>Atributos e Etiquetas de Certificado
@@ -57,14 +57,14 @@ Os atributos do certificado são espelhados em atributos da chave endereçada e 
 
 Um certificado Key Vault tem os seguintes atributos:  
 
--   *ativado:* boolean, opcional, o padrão é **verdadeiro**. Pode ser especificado para indicar se os dados do certificado podem ser recuperados como secretos ou operáveis como uma chave. Também utilizado em conjunto com *a NBF* e *exp* quando ocorre uma operação entre *nbf* e *exp*, e só será permitido se ativado for definido como verdadeiro. As operações fora da janela *nbf* e *exp* são automaticamente proibidas.  
+-   *ativado:* boolean, opcional, o padrão é **verdadeiro**. Pode ser especificado para indicar se os dados do certificado podem ser recuperados como secretos ou operáveis como uma chave. Também utilizado em conjunto com *a NBF* e *exp* quando ocorre uma operação entre *nbf* e *exp* , e só será permitido se ativado for definido como verdadeiro. As operações fora da janela *nbf* e *exp* são automaticamente proibidas.  
 
 Existem atributos adicionais apenas de leitura que estão incluídos em resposta:
 
--   *criado*: IntDate: indica quando esta versão do certificado foi criada.  
--   *atualizado*: IntDate: indica quando esta versão do certificado foi atualizada.  
--   *exp*: IntDate: contém o valor da data de validade do certificado x509.  
--   *nbf*: IntDate: contém o valor da data do certificado x509.  
+-   *criado* : IntDate: indica quando esta versão do certificado foi criada.  
+-   *atualizado* : IntDate: indica quando esta versão do certificado foi atualizada.  
+-   *exp* : IntDate: contém o valor da data de validade do certificado x509.  
+-   *nbf* : IntDate: contém o valor da data do certificado x509.  
 
 > [!Note] 
 > Se um certificado do Key Vault expirar, a chave endereçável e o segredo deixarão de funcionar.  
@@ -82,11 +82,11 @@ Uma política de certificado contém informações sobre como criar e gerir o ci
 
 Quando um certificado Key Vault é criado de raiz, uma política precisa de ser fornecida. A política especifica como criar esta versão do certificado Key Vault ou a próxima versão do certificado Key Vault. Uma vez estabelecida uma política, não é necessária com operações de criação sucessivas para futuras versões. Há apenas um exemplo de uma apólice para todas as versões de um certificado key vault.  
 
-A um nível elevado, uma política de certificados contém as seguintes informações (as suas definições podem ser encontradas [aqui):](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)  
+A um nível elevado, uma política de certificados contém as seguintes informações (as suas definições podem ser encontradas [aqui):](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0)  
 
 -   Propriedades do certificado X509: Contém nome de sujeito, nomes alternativos sujeitos e outras propriedades usadas para criar um pedido de certificado x509.  
 -   Principais propriedades: contém o tipo de chave, comprimento da chave, exportável e reuseKeyOnRenewal. Estes campos instruem o cofre de chaves sobre como gerar uma chave. 
-     - Tipos-chave suportados: RSA, RSA-HSM, EC, EC-HSM, out (listado [aqui)](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype) 
+     - Tipos-chave suportados: RSA, RSA-HSM, EC, EC-HSM, out (listado [aqui)](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype) 
 -   Propriedades secretas: contém propriedades secretas, tais como o tipo de conteúdo de segredo endereçada para gerar o valor secreto, para recuperar o certificado como um segredo.  
 -   Ações vitalícias: contém ações vitalícias para o Certificado KV. Cada ação vitalícia contém:  
 
@@ -133,7 +133,7 @@ Antes de um emitente de certificado poder ser criado num Cofre-Chave, os passos 
 
     -   Fornece a configuração a ser usada para criar um objeto emitente do fornecedor no cofre chave  
 
-Para obter mais informações sobre a criação de objetos emitentes a partir do portal Certificados, consulte o [blog Certificados de Cofre chave](https://aka.ms/kvcertsblog)  
+Para obter mais informações sobre a criação de objetos emitentes a partir do portal Certificados, consulte o [blog Certificados de Cofre chave](/archive/blogs/kv/manage-certificates-via-azure-key-vault)  
 
 O Key Vault permite a criação de múltiplos objetos emitentes com configuração diferente do fornecedor de emitentes. Uma vez criado um objeto emitente, o seu nome pode ser referenciado numa ou em várias políticas de certificado. Referenciar o objeto emitente instrui o Key Vault a utilizar a configuração conforme especificado no objeto emitente ao solicitar o certificado x509 ao fornecedor ca durante a criação e renovação do certificado.  
 

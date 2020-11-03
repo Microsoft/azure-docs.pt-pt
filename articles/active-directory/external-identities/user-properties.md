@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441373"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285862"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração Azure Ative Directory B2B
 
@@ -28,7 +28,7 @@ Dependendo das necessidades da organização convidativa, um utilizador de colab
 - Estado 1: Autódido num caso externo de Azure AD e representado como utilizador convidado na organização convidativa. Neste caso, o utilizador B2B assina através de uma conta AZure AD que pertence ao inquilino convidado. Se a organização parceira não utilizar a Azure AD, o utilizador convidado em Azure AD ainda é criado. Os requisitos são que eles resgatam o seu convite e a Azure AD verifica o seu endereço de e-mail. Este arranjo também é chamado de arrendamento just-in-time (JIT) ou um arrendamento "viral".
 
    > [!IMPORTANT]
-   > **A partir de 31 de março de 2021, a**Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
+   > **A partir de 31 de março de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 - Estado 2: Alojado numa conta microsoft ou outra e representado como utilizador convidado na organização anfitriã. Neste caso, o utilizador convidado assina com uma conta Microsoft ou uma conta social (google.com ou similares). A identidade do utilizador convidado é criada como uma conta Microsoft no diretório da organização convidativa durante o resgate da oferta.
 
@@ -59,7 +59,7 @@ Para os utilizadores convidados no Estado 2, a **Fonte** é **a Conta Microsoft.
 
 ![Utilizador convidado do Estado 2 após a oferta de resgate](media/user-properties/after-redemption-state2.png)
 
-Para os utilizadores convidados no Estado 3 e Estado 4, a propriedade **Source** está definida para **Azure Ative Directory** ou **Windows Server Ative Directory**, conforme descrito na secção seguinte.
+Para os utilizadores convidados no Estado 3 e Estado 4, a propriedade **Source** está definida para **Azure Ative Directory** ou **Windows Server Ative Directory** , conforme descrito na secção seguinte.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Principais propriedades do utilizador de colaboração Azure AD B2B
 ### <a name="usertype"></a>UserType
@@ -70,6 +70,8 @@ Esta propriedade indica a relação do utilizador com o arrendamento do anfitri�
 
   > [!NOTE]
   > O UserType não tem qualquer relação com a forma como o utilizador se inscreve, o papel do diretório do utilizador, e assim por diante. Esta propriedade simplesmente indica a relação do utilizador com a organização anfitriã e permite que a organização aplique políticas que dependem desta propriedade.
+
+Para obter detalhes relacionados com preços, consulte [os preços do Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory).
 
 ### <a name="source"></a>Origem
 Esta propriedade indica como o utilizador assina.

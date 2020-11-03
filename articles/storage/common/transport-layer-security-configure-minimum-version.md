@@ -10,12 +10,12 @@ ms.date: 10/27/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 07f506ac46b8aa503138cec33918534ea309defc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5098d87d63d4002c4f219c5d2703ec1375599e00
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785804"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289464"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Impor uma versão mínima exigida de Segurança da Camada de Transporte (TLS) para pedidos a uma conta de armazenamento
 
@@ -42,12 +42,12 @@ Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los
 1. Inscreva-se no registo de [armazenamento Azure na pré-visualização do Azure Monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Crie um novo espaço de trabalho log Analytics na subscrição que contenha a sua conta de Armazenamento Azure. Depois de configurar o registo da sua conta de armazenamento, os registos estarão disponíveis no espaço de trabalho do Log Analytics. Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../azure-monitor/learn/quick-create-workspace.md).
 1. Navegue para a sua conta de armazenamento no portal do Azure.
-1. Na secção de Monitorização, selecione **definições de diagnóstico (pré-visualização)** .
+1. Na secção de Monitorização, selecione **definições de diagnóstico (pré-visualização)**.
 1. Selecione o serviço de Armazenamento Azure para o qual pretende registar pedidos. Por exemplo, escolha **Blob** para registar pedidos para armazenamento Blob.
-1. **Selecione Adicionar a definição de diagnóstico** .
+1. **Selecione Adicionar a definição de diagnóstico**.
 1. Forneça um nome para a definição de diagnóstico.
 1. Em **detalhes de categoria** , na secção de **registo,** escolha quais os tipos de pedidos para registar. Pode iniciar sessão de leitura, escrever e apagar pedidos. Por exemplo, escolher **StorageRead** e **StorageWrite** registará a leitura e escreverá pedidos para o serviço selecionado.
-1. Nos **detalhes do Destino** , selecione Enviar para Registar **Analítico** . Selecione a sua subscrição e o espaço de trabalho Log Analytics que criou anteriormente, como mostrado na imagem seguinte.
+1. Nos **detalhes do Destino** , selecione Enviar para Registar **Analítico**. Selecione a sua subscrição e o espaço de trabalho Log Analytics que criou anteriormente, como mostrado na imagem seguinte.
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
 
@@ -69,7 +69,7 @@ StorageBlobLogs
 
 Os resultados mostram a contagem do número de pedidos feitos com cada versão do TLS:
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/log-analytics-query-version.png" alt-text="Screenshot mostrando resultados da consulta de analítica de log para devolver a versão TLS":::
 
 ### <a name="query-logged-requests-by-caller-ip-address-and-user-agent-header"></a>Pedidos de consulta registados por endereço IP de chamada e cabeçalho do agente do utilizador
 
@@ -89,7 +89,9 @@ Quando estiver confiante de que o tráfego de clientes que usam versões mais an
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Configure a versão TLS mínima para uma conta de armazenamento
 
-Para configurar a versão TLS mínima para uma conta de armazenamento, desafie a versão **Mínima de Versão** para a conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Gestor de Recursos Azure. Para obter mais informações sobre o modelo de implementação do Gestor de Recursos Azure, consulte [a visão geral da conta de Armazenamento](storage-account-overview.md).
+Para configurar a versão TLS mínima para uma conta de armazenamento, desafie a versão **Mínima de Versão** para a conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Azure Resource Manager na nuvem pública Azure ou em nuvens do Governo Azure. Para obter mais informações sobre o modelo de implementação do Gestor de Recursos Azure, consulte [a visão geral da conta de Armazenamento](storage-account-overview.md).
+
+A propriedade **MinimumTlsVersion** não é definida por padrão e não devolve um valor até que o desafine explicitamente.  Se o valor da propriedade for **nulo,** então a conta de armazenamento permitirá pedidos enviados com a versão 1.0 ou superior da TLS.
 
 # <a name="portal"></a>[Portal](#tab/portal)
 
@@ -101,13 +103,11 @@ Para configurar a versão mínima TLS para uma conta de armazenamento existente 
 1. Selecione a **definição de configuração.**
 1. Na **versão Mínima TLS,** utilize a versão drop-down para selecionar a versão mínima de TLS necessária para aceder aos dados nesta conta de armazenamento, como mostra a seguinte imagem.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/configure-minimum-version-portal.png" alt-text="Screenshot mostrando como configurar a versão mínima do TLS no portal Azure":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 Para configurar a versão TLS mínima para uma conta de armazenamento com a PowerShell, instale [a versão 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) ou posterior da Azure PowerShell. Em seguida, configurar a propriedade **MinimumTLSVersion** para uma conta de armazenamento nova ou existente. Valores **válidos** para a MínimaVersão `TLS1_0` `TLS1_1` são, e `TLS1_2` .
-
-A propriedade **MinimumTlsVersion** não é definida por padrão quando cria uma conta de armazenamento com o PowerShell. Esta propriedade não devolve um valor até que você explicitamente defini-lo. A conta de armazenamento permite pedidos enviados com a versão 1.0 ou superior da TLS se o valor da propriedade for **nulo.**
 
 O exemplo a seguir cria uma conta de armazenamento e define a **Versão Mínima TTLS** para TLS 1.1, em seguida, atualiza a conta e define a **Versão Mínima TTLSvers para** TLS 1.2. O exemplo também recupera o valor da propriedade em cada caso. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
@@ -138,8 +138,6 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para configurar a versão TLS mínima para uma conta de armazenamento com o Azure CLI, instale a versão 2.9.0 do Azure CLI ou posterior. Para mais informações, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli). Em seguida, configurar a propriedade **mínima TlsVersion** para uma conta de armazenamento nova ou existente. Valores **válidos** para a mínima Aversão `TLS1_0` `TLS1_1` é, e `TLS1_2` .
-
-A propriedade **mínima TlsVersion** não é definida por padrão quando cria uma conta de armazenamento com a Azure CLI. Esta propriedade não devolve um valor até que você explicitamente defini-lo. A conta de armazenamento permite pedidos enviados com a versão 1.0 ou superior da TLS se o valor da propriedade for **nulo.**
 
 O exemplo a seguir cria uma conta de armazenamento e define o **mínimo de versão TTLS** para TLS 1.1. Em seguida, atualiza a conta e define a propriedade **mínima TTLSVersion** para TLS 1.2. O exemplo também recupera o valor da propriedade em cada caso. Lembre-se de substituir os valores de espaço reservado nos parênteses pelos seus próprios valores:
 
@@ -174,8 +172,8 @@ az storage account show \
 Para configurar a versão TLS mínima para uma conta de armazenamento com um modelo, crie um modelo com a propriedade **mínima TTLSVersion** definida para `TLS1_0` , ou `TLS1_1` `TLS1_2` . Os passos seguintes descrevem como criar um modelo no portal Azure.
 
 1. No portal Azure, escolha **Criar um recurso.**
-1. Em **Search the Marketplace** , **digitar a implementação do modelo** e, em seguida, premir **ENTER** .
-1. Escolha a **implementação do modelo (implementar usando modelos personalizados) (pré-visualização)** , escolha **Criar** e, em seguida, escolha **Construir o seu próprio modelo no editor** .
+1. Em **Search the Marketplace** , **digitar a implementação do modelo** e, em seguida, premir **ENTER**.
+1. Escolha a **implementação do modelo (implementar usando modelos personalizados) (pré-visualização)** , escolha **Criar** e, em seguida, escolha **Construir o seu próprio modelo no editor**.
 1. No editor de modelo, cole no JSON seguinte para criar uma nova conta e definir a versão TLS mínima para TLS 1.2. Lembre-se de substituir os espaços reservados em suportes angulares pelos seus próprios valores.
 
     ```json
@@ -246,7 +244,7 @@ A Azure Policy suporta efeitos que determinam o que acontece quando uma regra de
 Para criar uma política com efeito de Auditoria para a versão mínima TLS com o portal Azure, siga estes passos:
 
 1. No portal Azure, navegue para o serviço Azure Policy.
-1. Na secção **de Autoria,** selecione **Definições** .
+1. Na secção **de Autoria,** selecione **Definições**.
 1. **Selecione Adicionar definição de política** para criar uma nova definição de política.
 1. Para o campo **de localização Definição,** selecione o botão **Mais** para especificar onde está localizado o recurso de política de auditoria.
 1. Especifique um nome para a apólice. Pode especificar opcionalmente uma descrição e categoria.
@@ -288,7 +286,7 @@ Para atribuir a política ao portal Azure, siga estes passos:
 1. Para o campo **Scope,** selecione o âmbito da atribuição de políticas.
 1. Para o campo **de definição de Política,** selecione o botão **Mais** e, em seguida, selecione a política definida na secção anterior da lista.
 1. Forneça um nome para a atribuição de apólices. A descrição é opcional.
-1. Deixe **a aplicação da política** definida para *Ativação* . Esta definição não tem qualquer efeito sobre a política de auditoria.
+1. Deixe **a aplicação da política** definida para *Ativação*. Esta definição não tem qualquer efeito sobre a política de auditoria.
 1. Selecione **Review + criar** para criar a atribuição.
 
 ### <a name="view-compliance-report"></a>Ver relatório de conformidade
@@ -300,11 +298,11 @@ Pode levar vários minutos para que o relatório de conformidade fique disponív
 Para ver o relatório de conformidade no portal Azure, siga estes passos:
 
 1. No portal Azure, navegue para o serviço Azure Policy.
-1. Selecione **Compliance** .
+1. Selecione **Compliance**.
 1. Filtrar os resultados para o nome da atribuição de política que criou no passo anterior. O relatório mostra quantos recursos não estão em conformidade com a política.
 1. Pode aprofundar o relatório para obter mais detalhes, incluindo uma lista de contas de armazenamento que não estão em conformidade.
 
-    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
+    :::image type="content" source="media/transport-layer-security-configure-minimum-version/compliance-report-policy-portal.png" alt-text="Screenshot mostrando relatório de conformidade para a política de auditoria para a versão mínima TLS":::
 
 ## <a name="use-azure-policy-to-enforce-the-minimum-tls-version"></a>Use a Política Azure para impor a versão mínima TLS
 
@@ -340,7 +338,7 @@ Depois de criar a política com o efeito Deny e atribuí-la a um âmbito, um uti
 
 A imagem a seguir mostra o erro que ocorre se tentar criar uma conta de armazenamento com a versão mínima TLS definida para TLS 1.0 (o padrão para uma nova conta) quando uma política com um efeito Deny requer que a versão mínima TLS seja definida para TLS 1.2.
 
-:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
+:::image type="content" source="media/transport-layer-security-configure-minimum-version/deny-policy-error.png" alt-text="Screenshot mostrando o erro que ocorre ao criar uma conta de armazenamento em violação da política":::
 
 ## <a name="network-considerations"></a>Considerações de rede
 

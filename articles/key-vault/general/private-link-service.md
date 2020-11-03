@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07be83527fa781f87ed1de06fa41bd6d08ee9dc4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 74669036a40048ca21aae56856981197defe1c35
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426579"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286525"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrar o Key Vault no Azure Private Link
 
@@ -67,7 +67,7 @@ Agora poderá ver o ponto final privado configurado. Tem agora a opção de elim
 
 Se já tiver um cofre chave, pode criar uma ligação de ligação privada seguindo estes passos:
 
-1. Inicie sessão no Portal do Azure. 
+1. Inicie sessão no portal do Azure. 
 1. Na barra de pesquisa, escreva em "cofres-chave"
 1. Selecione o cofre de chaves da lista à qual pretende adicionar um ponto final privado.
 1. Selecione o separador "Networking" em Definições
@@ -243,14 +243,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Verifique se tem um recurso privado da Zona DNS. 
     1. Você deve ter um recurso privado dns Zone com o nome exato: privatelink.vaultcore.azure.net. 
-    2. Para aprender a configurar isto, consulte o seguinte link. [Zonas privadas de DNS](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    2. Para aprender a configurar isto, consulte o seguinte link. [Zonas privadas de DNS](../../dns/private-dns-privatednszone.md)
     
 * Verifique se a Zona DNS Privado não está ligada à Rede Virtual. Este pode ser o problema se ainda estiver a receber o endereço IP público devolvido. 
     1. Se o DNS da Zona Privada não estiver ligado à rede virtual, a consulta DNS originária da rede virtual devolverá o endereço IP público do cofre-chave. 
     2. Navegue para o recurso Private DNS Zone no portal Azure e clique na opção de links de rede virtual. 
     4. A rede virtual que irá executar chamadas para o cofre-chave deve estar listada. 
     5. Se não estiver lá, adicione. 
-    6. Para etapas detalhadas, consulte o seguinte documento [Link Virtual Network to Private DNS Zone](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+    6. Para etapas detalhadas, consulte o seguinte documento [Link Virtual Network to Private DNS Zone](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network)
 
 * Verifique se a Zona Privada de DNS não está a perder um registo A para o cofre da chave. 
     1. Navegue para a página Privada dns Zone. 
@@ -270,9 +270,9 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 > [!NOTE]
 > O número de cofres-chave com pontos finais privados ativados por subscrição é um limite ajustável. O limite abaixo indicado é o limite de predefinição. Se pretender solicitar um aumento limite para o seu serviço, por favor envie um e-mail para akv-privatelink@microsoft.com . Aprovaremos estes pedidos caso a caso.
 
-**Preços**: Para obter informações sobre preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
+**Preços** : Para obter informações sobre preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitações**: O Ponto Final Privado para a Azure Key Vault só está disponível nas regiões públicas de Azure.
+**Limitações** : O Ponto Final Privado para a Azure Key Vault só está disponível nas regiões públicas de Azure.
 
 **Número máximo de pontos finais privados por porta-chaves:** 64.
 

@@ -8,16 +8,16 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 66c331a79a4da7b8fb397e7d0209b24e00645783
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 20b2f74b33ae57016188ee66af29570f7ec1b529
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741713"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289263"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Azure CLI - Restringir o acesso à importação/exportação de discos geridos com ligações privadas
 
-O suporte para Links Privados com discos geridos está atualmente em pré-visualização. Pode utilizar [pontos finais privados](../../private-link/private-endpoint-overview.md) para restringir a exportação e importação de discos geridos e aceder de forma segura a dados sobre uma [Ligação Privada](../../private-link/private-link-overview.md) de clientes da sua rede virtual Azure. O ponto final privado utiliza um endereço IP a partir do espaço de endereço de rede virtual para o seu serviço de discos geridos. O tráfego de rede entre clientes na sua rede virtual e discos geridos apenas atravessa a rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública.
+Pode utilizar [pontos finais privados](../../private-link/private-endpoint-overview.md) para restringir a exportação e importação de discos geridos e aceder de forma segura a dados sobre uma [Ligação Privada](../../private-link/private-link-overview.md) de clientes da sua rede virtual Azure. O ponto final privado utiliza um endereço IP a partir do espaço de endereço de rede virtual para o seu serviço de discos geridos. O tráfego de rede entre clientes na sua rede virtual e discos geridos apenas atravessa a rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública.
 
 Para utilizar links privados para exportar/importar discos geridos, primeiro cria um recurso de acesso ao disco e liga-o a uma rede virtual na mesma subscrição, criando um ponto final privado. Em seguida, associe um disco ou uma foto com uma instância de acesso ao disco. Por fim, desloque a propriedade NetworkAccessPolicy do disco ou o instantâneo para `AllowPrivate` . Isto irá limitar o acesso à sua rede virtual. 
 

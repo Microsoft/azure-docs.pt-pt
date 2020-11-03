@@ -1,5 +1,5 @@
 ---
-title: Diagnosticar problemas de configuração de links privados no Cofre da Chave Azure
+title: Diagnosticar problemas de configuração de ligações privadas no Azure Key Vault
 description: Resolver problemas de ligações privadas comuns com Key Vault e mergulhar profundamente na configuração
 author: msfcolombo
 ms.author: fcolombo
@@ -7,14 +7,14 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998394"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289378"
 ---
-# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticar problemas de configuração de links privados no Cofre da Chave Azure
+# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticar problemas de configuração de ligações privadas no Azure Key Vault
 
 ## <a name="introduction"></a>Introdução
 
@@ -56,7 +56,7 @@ Se a aplicação, o script ou o portal estiverem a funcionar numa rede arbitrár
 
 Este guia NÃO é aplicável a soluções que são geridas pela Microsoft, onde o cofre-chave é acedido por um produto Azure que existe independentemente da Rede Virtual do cliente. Exemplos de tais cenários são Azure Storage ou Azure SQL configurados para encriptação em repouso, Azure Event Hub encriptando dados com chaves fornecidas pelo cliente, Azure Data Factory acedendo credenciais de serviço armazenadas no cofre chave, Azure Pipelines recuperando segredos do cofre chave, e outros cenários semelhantes. Nestes casos, *deve verificar se o produto suporta cofres-chave com a firewall ativada*. Este suporte é normalmente realizado com a funcionalidade [Serviços Fidedignos](overview-vnet-service-endpoints.md#trusted-services) da firewall Key Vault. No entanto, muitos produtos não estão incluídos na lista de serviços fidedignos, por uma variedade de razões. Nesse caso, alcance o suporte específico do produto.
 
-Um pequeno número de produtos Azure apoia o conceito de injeção de *vnet.* Em termos simples, o produto adiciona um dispositivo de rede à Rede Virtual do cliente, permitindo-lhe enviar pedidos como se fosse implantado na Rede Virtual. Um exemplo notável é [Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Produtos como este podem fazer pedidos para o cofre de chaves usando os links privados, e este guia de resolução de problemas pode ajudar.
+Um pequeno número de produtos Azure apoia o conceito de injeção de *vnet.* Em termos simples, o produto adiciona um dispositivo de rede à Rede Virtual do cliente, permitindo-lhe enviar pedidos como se fosse implantado na Rede Virtual. Um exemplo notável é [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). Produtos como este podem fazer pedidos para o cofre de chaves usando os links privados, e este guia de resolução de problemas pode ajudar.
 
 ## <a name="2-confirm-that-the-connection-is-approved-and-succeeded"></a>2. Confirmar que a ligação é aprovada e bem sucedida
 
@@ -65,7 +65,7 @@ Os seguintes passos validam que a ligação de ponto final privado é aprovada e
 1. Abra o portal Azure e abra o seu recurso de cofre chave.
 2. No menu esquerdo, selecione **Networking**.
 3. Clique no separador **ligações de ponto final privado.** Isto mostrará todas as ligações privadas de ponto final e respetivos estados. Se não houver ligações, ou se faltar a ligação para a sua Rede Virtual, terá de criar um novo Ponto Final Privado. Isto será coberto mais tarde.
-4. Ainda em **ligações privadas**de ponto final , encontre o que está a diagnosticar e confirme que o "Estado de ligação" é **aprovado** e que "Estado de provisionamento" é **bem sucedido**.
+4. Ainda em **ligações privadas** de ponto final , encontre o que está a diagnosticar e confirme que o "Estado de ligação" é **aprovado** e que "Estado de provisionamento" é **bem sucedido**.
     - Se a ligação estiver em estado "pendente", poderá simplesmente aprová-la.
     - Se a ligação "Rejeitada", "Falhada", "Erro", "Desligado" ou outro estado, então não é eficaz, tem de criar um novo recurso Private Endpoint.
 
@@ -278,7 +278,7 @@ Como pode ver, a resolução do nome está sob o seu controlo. Os raciocínios p
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>Consulta o `/healthstatus` ponto final do cofre chave
 
-O cofre da chave fornece o `/healthstatus` ponto final, que pode ser usado para diagnósticos. Os cabeçalhos de resposta incluem o endereço IP de origem, como visto pelo serviço de cofre chave. Pode chamar esse ponto final com o seguinte comando **(lembre-se de usar o nome de anfitrião do cofre**da chave):
+O cofre da chave fornece o `/healthstatus` ponto final, que pode ser usado para diagnósticos. Os cabeçalhos de resposta incluem o endereço IP de origem, como visto pelo serviço de cofre chave. Pode chamar esse ponto final com o seguinte comando **(lembre-se de usar o nome de anfitrião do cofre** da chave):
 
 Janelas (PowerShell):
 

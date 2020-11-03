@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: fe358e35f2d68a3e55e9d9bb4ac57a13f42085e3
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 9a52596aa0dd5fa7b9a7226d2ae57259dab08d37
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629243"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285738"
 ---
 # <a name="understanding-just-in-time-jit-vm-access"></a>Compreensão do acesso just-in-time (JIT) à VM
 
@@ -78,9 +78,9 @@ Se quiser criar funções personalizadas que possam funcionar com o JIT, precisa
 
 | Para permitir que um utilizador: | Permissões a definir|
 | --- | --- |
-| Configure ou edite uma política de JIT para um VM | *Atribua estas ações ao papel:*  <ul><li>No âmbito de uma subscrição ou grupo de recursos associado ao VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> No âmbito de uma subscrição ou grupo de recursos de VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
+|Configure ou edite uma política de JIT para um VM | *Atribua estas ações ao papel:*  <ul><li>No âmbito de uma subscrição ou grupo de recursos associado ao VM:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> No âmbito de uma subscrição ou grupo de recursos de VM: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |Solicite acesso ao JIT a um VM | *Atribuir estas ações ao utilizador:*  <ul><li>No âmbito de uma subscrição ou grupo de recursos associado ao VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>No âmbito de uma subscrição ou grupo de recursos associado ao VM:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  No âmbito de um grupo de subscrição ou de recursos ou VM:<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  No âmbito de um grupo de subscrição ou de recursos ou VM:<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
-|Leia as políticas do JIT| *Atribuir estas ações ao utilizador:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
+|Leia as políticas do JIT| *Atribuir estas ações ao utilizador:*  <ul><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/read`</li><li>`Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action`</li><li>`Microsoft.Security/policies/read`</li><li>`Microsoft.Security/pricings/read`</li><li>`Microsoft.Compute/virtualMachines/read`</li><li>`Microsoft.Network/*/read`</li>|
 |||
 
 

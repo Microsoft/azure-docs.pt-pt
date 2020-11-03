@@ -10,18 +10,18 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: cea061c1fd36bed9fa1e43c874fbca347707f78d
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: a85656909df5538f9f57e05d79ae768623d7eba6
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925872"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289606"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Criação e fusão de CSR no Cofre de Chaves
 
 O Azure Key Vault suporta o armazenamento de certificados digitais emitidos por qualquer Autoridade de Certificados à sua escolha no seu cofre principal. Apoia a criação do pedido de assinatura de certificado com o par chave público-privado que pode ser assinado por qualquer Autoridade de Certificados escolhida. Pode ser uma empresa interna ca ou ca público externo. Um pedido de assinatura de certificado (também CSR ou pedido de certificação) é uma mensagem enviada pelo utilizador a uma autoridade de certificados (CA) a fim de solicitar a emissão de um certificado digital.
 
-Para obter informações mais gerais sobre certificados, consulte [os certificados de cofre chave Azure.](/azure/key-vault/certificates/about-certificates)
+Para obter informações mais gerais sobre certificados, consulte [os certificados de cofre chave Azure.](./about-certificates.md)
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -62,18 +62,18 @@ Os seguintes passos irão ajudá-lo a criar um certificado das autoridades de ce
 ### <a name="azure-portal"></a>Portal do Azure
 
 1.  Para gerar CSR para o CA à sua escolha, navegue até ao cofre Key que pretende adicionar o certificado.
-2.  Nas páginas das propriedades do Cofre-Chave, selecione **Certificados** .
+2.  Nas páginas das propriedades do Cofre-Chave, selecione **Certificados**.
 3.  **Selecione o separador Gerar/Importar.**
 4.  No **Ecrã de Certificado escolha** os seguintes valores:
     - **Método de Criação de Certificados:** Gerar.
     - **Nome do certificado:** ContosoManualCSRCertificate.
     - **Tipo de Autoridade de Certificados (CA):** Certificado emitido por uma AC não integrada
     - **Objeto:**`"CN=www.contosoHRApp.com"`
-    - Selecione os outros valores conforme desejado. Clique em **Criar** .
+    - Selecione os outros valores conforme desejado. Clique em **Criar**.
 
     ![Propriedades de certificados](../media/certificates/create-csr-merge-csr/create-certificate.png)
 6.  Verá que o certificado foi agora adicionado na lista de Certificados. Selecione este novo certificado que tinha acabado de criar. O estado atual do certificado seria "desativado", uma vez que ainda não foi emitido pela AC.
-7. Clique no separador **Operação certificado** e selecione **Download CSR** .
+7. Clique no separador **Operação certificado** e selecione **Download CSR**.
  ![Screenshot que realça o botão Download CSR.](../media/certificates/create-csr-merge-csr/download-csr.png)
 
 8.  Leve o ficheiro .csr à AC para que o pedido seja assinado.

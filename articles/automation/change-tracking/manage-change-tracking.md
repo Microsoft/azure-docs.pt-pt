@@ -3,14 +3,14 @@ title: Gerir o Rastreio e Inventário de Mudanças na Automação Azure
 description: Este artigo diz como usar Change Tracking and Inventory para rastrear o software e as alterações de serviço da Microsoft no seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: a599bb6f07683540f5b12c6a69d6565161f89a4f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210332"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288741"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerir o Controlo de Alterações e o Inventário
 
@@ -45,7 +45,7 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
 
 5. Selecione **Definições de edição** (o símbolo da engrenagem).
 
-6. Na página de Configuração do Espaço de Trabalho, selecione **Ficheiros do Windows**e clique **em + Adicionar** para adicionar um novo ficheiro para rastrear.
+6. Na página de Configuração do Espaço de Trabalho, selecione **Ficheiros do Windows** e clique **em + Adicionar** para adicionar um novo ficheiro para rastrear.
 
 7. No ficheiro 'Adicionar o Ficheiro do Windows' para alterar o painel de rastreio, introduza as informações para o ficheiro ou pasta para rastrear e clicar **em Guardar**. A tabela a seguir define as propriedades que pode usar para a informação.
 
@@ -59,6 +59,13 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
     |Recursão     | É verdade que se a recursão for usada quando se procura que o item seja rastreado, e falso de outra forma.        |    
     |Carregar o conteúdo do ficheiro | Fiel ao upload de conteúdo de ficheiros em alterações rastreadas, e Falso de outra forma.|
 
+    Se planeia configurar a monitorização de ficheiros e pastas utilizando wildcards, considere o seguinte:
+
+    - Wildcards são necessários para rastrear vários ficheiros.
+    - Os wildcards só podem ser utilizados no último segmento de um caminho, como *C:\pasta\ficheiro* ou */etc/*.conf*
+    - Se uma variável ambiental incluir um caminho que não seja válido, a validação terá sucesso, mas o caminho falhará quando o inventário for executado.
+    - Ao definir o caminho, evite caminhos gerais como *c:*.** que resultará na passagem de demasiadas pastas.
+
 8. Certifique-se de que especifica True for **Upload file content**. Esta definição permite o rastreio do conteúdo do ficheiro para a trajetória de ficheiro indicada.
 
 ### <a name="configure-file-tracking-on-linux"></a>Configurar o rastreio de ficheiros no Linux
@@ -67,7 +74,7 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
 
 1. Selecione **Definições de edição** (o símbolo da engrenagem).
 
-2. Na página de Configuração do Espaço de Trabalho, selecione **Ficheiros Linux**e, em seguida, selecione **+ Adicione** para adicionar um novo ficheiro para rastrear.
+2. Na página de Configuração do Espaço de Trabalho, selecione **Ficheiros Linux** e, em seguida, selecione **+ Adicione** para adicionar um novo ficheiro para rastrear.
 
 3. Na página **'Adicionar Ficheiro Linux' para alterar o rastreio,** insira as informações para o ficheiro ou diretório para rastrear e, em seguida, selecione **Save**. A tabela a seguir define as propriedades que pode usar para a informação.
 
@@ -138,7 +145,7 @@ Utilize os seguintes passos para configurar o rastreio das chaves de registo nos
 
 3. **Selecione + Adicione** para adicionar uma nova chave de registo para rastrear.
 
-4. Na página 'Adicionar registo **do Windows' para alterar o rastreio,** introduza as informações para a chave a seguir e, em seguida, selecione **Guardar**. A tabela a seguir define as propriedades que pode usar para a informação.
+4. Na página 'Adicionar registo **do Windows' para alterar o rastreio,** introduza as informações para a chave a seguir e, em seguida, selecione **Guardar**. A tabela a seguir define as propriedades que pode usar para a informação. Ao especificar um caminho de registo, deve ser a chave e não um valor.
 
     |Propriedade  |Descrição  |
     |---------|---------|
@@ -151,7 +158,7 @@ Utilize os seguintes passos para configurar o rastreio das chaves de registo nos
 
 Pode fazer várias pesquisas contra os registos do Azure Monitor para alterar registos. Com a página de rastreio de Alteração aberta, clique em **Registar Analytics** para abrir a página 'Registar'. A tabela seguinte fornece pesquisas de registo de amostras para registos de alteração.
 
-|Consulta  |Descrição  |
+|Consulta  |Description  |
 |---------|---------|
 |`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Mostra os registos de inventário mais recentes dos serviços da Microsoft que foram definidos para Auto, mas foram reportados como sendo parados. Os resultados estão limitados ao registo mais recente do nome e computador especificados.    |
 |`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Mostra registos de alteração para software removido.|

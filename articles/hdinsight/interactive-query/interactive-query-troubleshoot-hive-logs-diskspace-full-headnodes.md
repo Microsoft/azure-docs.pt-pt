@@ -7,12 +7,12 @@ author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 10/05/2020
-ms.openlocfilehash: 64bf5714f5eb99df9929a47fef414a827ec680af
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 107ec012bf2ff76ee1cbe4c5f8252566a5a16127
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145638"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288936"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Cenário: Os troncos da Colmeia Apache estão a encher o espaço do disco nos nos nos acenos da cabeça em Azure HDInsight
 
@@ -23,7 +23,7 @@ Este artigo descreve etapas de resolução de problemas e possíveis resoluçõe
 Num aglomerado Apache Hive/LLAP, troncos indesejados estão ocupando todo o espaço do disco nos nós da cabeça. Esta condição pode causar os seguintes problemas:
 
 - O acesso ao SSH falha porque não há espaço no nó da cabeça.
-- Ambari lança *HTTP ERROR: 503 Serviço Indisponível* .
+- Ambari lança *HTTP ERROR: 503 Serviço Indisponível*.
 - A HiveServer2 Interactive não consegue reiniciar.
 
 Os `ambari-agent` registos incluirão as seguintes entradas quando o problema acontecer:
@@ -42,7 +42,7 @@ Nas configurações avançadas do log4j da Hive, o atual crono de eliminação p
 
 1. Vá ao resumo do componente da Colmeia no portal Ambari e selecione o **separador Configs.**
 
-2. Aceda à `Advanced hive-log4j` secção em **definições avançadas** .
+2. Aceda à `Advanced hive-log4j` secção em **definições avançadas**.
 
 3. Desa parte do `appender.RFA.strategy.action.condition.age` parâmetro para uma idade à sua escolha. Este exemplo fixará a idade para 14 dias: `appender.RFA.strategy.action.condition.age = 14D`
 
@@ -71,10 +71,4 @@ Nas configurações avançadas do log4j da Hive, o atual crono de eliminação p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
-
-* Obtenha respostas de especialistas da Azure através do [Apoio Comunitário Azure.](https://azure.microsoft.com/support/community/)
-
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente ligando a comunidade Azure aos recursos certos: respostas, suporte e especialistas.
-
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais detalhadas, [reveja como criar um pedido de suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

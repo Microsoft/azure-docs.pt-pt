@@ -6,12 +6,12 @@ ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: c101cb4eca246ee68a30ba3499981c589c564f92
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 832cb27f3056c52d22feabff0d8953b6725c1a7f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368660"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286610"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
@@ -35,7 +35,7 @@ Neste tutorial, ficará a saber como:
 
 * Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Antes de iniciar este tutorial, instale o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+* Antes de iniciar este tutorial, instale o [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
 ## <a name="create-a-service-principal-or-use-managed-identities"></a>Criar um principal serviço ou usar identidades geridas
 
@@ -56,7 +56,7 @@ Copie as credenciais **de appId** e **password** para posterior utilização.
 
 Não precisas de usar a Azure Cloud Shell. O seu pedido de comando (terminal) com o CLI Azure instalado será suficiente. 
 
-Complete as secções "Criar um grupo de recursos", "Criar cluster AKS" e "Ligar ao cluster" em [Implementar um cluster de serviço Azure Kubernetes utilizando o CLI Azure](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough). 
+Complete as secções "Criar um grupo de recursos", "Criar cluster AKS" e "Ligar ao cluster" em [Implementar um cluster de serviço Azure Kubernetes utilizando o CLI Azure](../../aks/kubernetes-walkthrough.md). 
 
 > [!NOTE] 
 > Se pretender utilizar uma identidade de vagem em vez de um principal de serviço, certifique-se de que o ativa quando criar o cluster Kubernetes, como mostra o seguinte comando:
@@ -66,7 +66,7 @@ Complete as secções "Criar um grupo de recursos", "Criar cluster AKS" e "Ligar
 > ```
 
 1. [Desfie a variável ambiente PATH](https://www.java.com/en/download/help/path.xml) para o ficheiro *kubectl.exe* que descarregou.
-1. Verifique a sua versão Kubernetes utilizando o seguinte comando, que produz a versão do cliente e do servidor. A versão do cliente é o * ficheirokubectl.exe* que instalou, e a versão do servidor é o Azure Kubernetes Services (AKS) em que o seu cluster está a funcionar.
+1. Verifique a sua versão Kubernetes utilizando o seguinte comando, que produz a versão do cliente e do servidor. A versão do cliente é o *ficheirokubectl.exe* que instalou, e a versão do servidor é o Azure Kubernetes Services (AKS) em que o seu cluster está a funcionar.
     ```azurecli
     kubectl version
     ```
@@ -74,7 +74,7 @@ Complete as secções "Criar um grupo de recursos", "Criar cluster AKS" e "Ligar
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Para exibir os metadados do cluster AKS que criou, utilize o seguinte comando. Copie o **principalId,** **clientId,** **subscriçãoId**e **nodeResourceGroup** para posterior utilização. Se o cluster ASK não foi criado com identidades geridas ativadas, o **principalid** e **clienteId** será nulo. 
+1. Para exibir os metadados do cluster AKS que criou, utilize o seguinte comando. Copie o **principalId,** **clientId,** **subscriçãoId** e **nodeResourceGroup** para posterior utilização. Se o cluster ASK não foi criado com identidades geridas ativadas, o **principalid** e **clienteId** será nulo. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -103,7 +103,7 @@ Com a interface do controlador [CSI Secrets Store,](https://github.com/Azure/sec
 
 ## <a name="create-an-azure-key-vault-and-set-your-secrets"></a>Crie um cofre de chaves Azure e desconfiem dos seus segredos
 
-Para criar o seu próprio cofre-chave e definir os seus segredos, siga as instruções em [Conjunto e recupere um segredo do Azure Key Vault utilizando o Azure CLI](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-cli).
+Para criar o seu próprio cofre-chave e definir os seus segredos, siga as instruções em [Conjunto e recupere um segredo do Azure Key Vault utilizando o Azure CLI](../secrets/quick-create-cli.md).
 
 > [!NOTE] 
 > Não precisa de usar a Azure Cloud Shell ou criar um novo grupo de recursos. Pode utilizar o grupo de recursos que criou anteriormente para o cluster Kubernetes.
@@ -114,21 +114,21 @@ Para criar o seu próprio objeto SecretProviderClass personalizado com parâmetr
 
 Na amostra, o ficheiro IML da SecretProviderClass preenche os parâmetros em falta. São necessários os seguintes parâmetros:
 
-* **utilizadorAssignedIdentityID**: # [REQUIRED] Se estiver a utilizar um principal de serviço, utilize o ID do cliente para especificar qual a identidade gerida atribuída pelo utilizador a utilizar. Se estiver a usar uma identidade atribuída ao utilizador como identidade gerida pelo VM, especifique a identificação do cliente da identidade. Se o valor estiver vazio, é por defeito utilizar a identidade atribuída ao sistema no VM 
-* **keyvaultName**: O nome do seu cofre chave
-* **objetos**: O recipiente para todo o conteúdo secreto que pretende montar
-    * **nome do objeto**: O nome do conteúdo secreto
-    * **objectType**: O tipo de objeto (segredo, chave, certificado)
-* **grupo**de recursos : O nome do grupo de recursos # [OBRIGATÓRIO para a versão < 0.0.4] o grupo de recursos do KeyVault
-* **subscriçãoId**: O ID de subscrição do seu cofre-chave # [OBRIGATÓRIO para a versão < 0.0.4] o ID de subscrição do KeyVault
-* **tenantID**: O ID do inquilino, ou iD diretório, do seu cofre chave
+* **utilizadorAssignedIdentityID** : # [REQUIRED] Se estiver a utilizar um principal de serviço, utilize o ID do cliente para especificar qual a identidade gerida atribuída pelo utilizador a utilizar. Se estiver a usar uma identidade atribuída ao utilizador como identidade gerida pelo VM, especifique a identificação do cliente da identidade. Se o valor estiver vazio, é por defeito utilizar a identidade atribuída ao sistema no VM 
+* **keyvaultName** : O nome do seu cofre chave
+* **objetos** : O recipiente para todo o conteúdo secreto que pretende montar
+    * **nome do objeto** : O nome do conteúdo secreto
+    * **objectType** : O tipo de objeto (segredo, chave, certificado)
+* **grupo** de recursos : O nome do grupo de recursos # [OBRIGATÓRIO para a versão < 0.0.4] o grupo de recursos do KeyVault
+* **subscriçãoId** : O ID de subscrição do seu cofre-chave # [OBRIGATÓRIO para a versão < 0.0.4] o ID de subscrição do KeyVault
+* **tenantID** : O ID do inquilino, ou iD diretório, do seu cofre chave
 
 Documentação de todos os campos necessários está disponível aqui: [Link](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 O modelo atualizado é mostrado no seguinte código. Descarregue-o como um ficheiro YAML e preencha os campos necessários. Neste exemplo, o cofre chave é **contosoKeyVault5**. Tem dois segredos, **o segredo1** e **o segredo2.**
 
 > [!NOTE] 
-> Se estiver a utilizar identidades geridas, desaprote o valor **da entidade usePodId** como *verdadeiro*, e desaprote o **valoridárioidídeo** do utilizador como um par de aspas **(""**). 
+> Se estiver a utilizar identidades geridas, desaprote o valor **da entidade usePodId** como *verdadeiro* , e desaprote o **valoridárioidídeo** do utilizador como um par de aspas **(""** ). 
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
@@ -210,7 +210,7 @@ az ad sp credential reset --name contosoServicePrincipal --credential-descriptio
 
 Se estiver a usar identidades geridas, atribua funções específicas ao cluster AKS que criou. 
 
-1. Para criar, listar ou ler uma identidade gerida atribuída pelo utilizador, o seu cluster AKS precisa de ser atribuído à função [de Operador de Identidade Gerida.](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) Certifique-se de que o **$clientId** é o cliente do cluster Kubernetes. Para o âmbito, estará sob o seu serviço de subscrição Azure, especificamente o grupo de recursos de nó que foi feito quando o cluster AKS foi criado. Este âmbito garantirá que apenas os recursos dentro desse grupo sejam afetados pelas funções abaixo atribuídas. 
+1. Para criar, listar ou ler uma identidade gerida atribuída pelo utilizador, o seu cluster AKS precisa de ser atribuído à função [de Operador de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-operator) Certifique-se de que o **$clientId** é o cliente do cluster Kubernetes. Para o âmbito, estará sob o seu serviço de subscrição Azure, especificamente o grupo de recursos de nó que foi feito quando o cluster AKS foi criado. Este âmbito garantirá que apenas os recursos dentro desse grupo sejam afetados pelas funções abaixo atribuídas. 
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
@@ -355,4 +355,4 @@ Verifique se o conteúdo do segredo está exposto.
 
 Para ajudar a garantir que o cofre da chave é recuperável, consulte:
 > [!div class="nextstepaction"]
-> [Ligue a eliminação suave](https://docs.microsoft.com/azure/key-vault/general/soft-delete-cli)
+> [Ligue a eliminação suave](./soft-delete-cli.md)

@@ -12,19 +12,19 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792485"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289302"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com servidor SQL em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo introduz diferenças de funcionalidades quando está a trabalhar com instâncias de cluster failover (FCI) para SQL Server em Azure Virtual Machines (VMs). 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O SQL Server em VMs Azure utiliza a funcionalidade de Clustering failover do Servidor do Windows (WSFC) para fornecer alta disponibilidade local através de redundância ao nível do servidor: uma instância de cluster de failover. Um FCI é uma única instância do SQL Server que é instalado através de nós WSFC (ou simplesmente cluster) e, possivelmente, através de várias sub-redes. Na rede, um FCI parece ser um exemplo de SQL Server a funcionar num único computador. Mas o FCI fornece failover de um nó WSFC para outro se o nó atual ficar indisponível.
 
@@ -49,10 +49,10 @@ O SQL Server em VMs Azure oferece várias opções como solução de armazenamen
 ||[Discos partilhados do Azure](../../../virtual-machines/windows/disks-shared.md)|[Ações de ficheiros premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espaços de armazenamento Direto (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Versão mínima do SO**| Todos |Windows Server 2012|Windows Server 2016|
-|**Versão mínima do SqL Server**|Todos|SQL Server 2012|SQL Server 2016|
+|**Versão mínima do SqL Server**|Todos|SQL Server 2012|SQL Server 2016|
 |**Disponibilidade de VM suportada** |Conjuntos de disponibilidade com grupos de colocação de proximidade |Conjuntos de disponibilidade e zonas de disponibilidade|Conjuntos de disponibilidade |
-|**Suporta FileStream**|Sim|Não|Sim |
-|**Cache de bolha de Azure**|Não|Não|Sim|
+|**Suporta FileStream**|Yes|No|Yes |
+|**Cache de bolha de Azure**|No|No|Yes|
 
 O resto desta secção lista os benefícios e limitações de cada opção de armazenamento disponível para O SQL Server em VMs Azure. 
 
@@ -149,7 +149,7 @@ Para obter mais detalhes sobre as opções de conectividade do cluster, consulte
 Considere as seguintes limitações para casos de cluster de failover com SQL Server em Azure Virtual Machines. 
 
 ### <a name="lightweight-resource-provider"></a>Fornecedor de recursos leves   
-Neste momento, as instâncias de cluster de failover do SQL Server em máquinas virtuais Azure são suportadas apenas com o modo de [gestão leve](sql-vm-resource-provider-register.md#management-modes) da Extensão do [Agente IAAS do SQL Server](sql-server-iaas-agent-extension-automate-management.md). Para mudar do modo de extensão total para leve, elimine o recurso **da máquina virtual SQL** para os VMs correspondentes e registe-os com o fornecedor de recursos SQL VM em modo leve. Quando estiver a eliminar o recurso da **máquina virtual SQL** utilizando o portal Azure, limpe a caixa de verificação ao lado da máquina virtual correta. 
+Neste momento, as instâncias de cluster de failover do SQL Server em máquinas virtuais Azure são suportadas apenas com o modo de [gestão leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) da Extensão do [Agente IAAS do SQL Server](sql-server-iaas-agent-extension-automate-management.md). Para mudar do modo de extensão total para leve, elimine o recurso **da máquina virtual SQL** para os VMs correspondentes e registe-os com o fornecedor de recursos SQL VM em modo leve. Quando estiver a eliminar o recurso da **máquina virtual SQL** utilizando o portal Azure, limpe a caixa de verificação ao lado da máquina virtual correta. 
 
 A extensão completa suporta funcionalidades como backup automatizado, patching e gestão avançada do portal. Estas funcionalidades não funcionarão para VMs do SQL Server depois de o agente ser reinstalado em modo de gestão leve.
 

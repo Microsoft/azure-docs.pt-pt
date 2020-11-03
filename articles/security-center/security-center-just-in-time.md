@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 6091ccbb64ec880224e861e1b8ee2bd39363385c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 9a01dabbd0a3e9d76caaead544be655b9505030d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342387"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289194"
 ---
 # <a name="secure-your-management-ports-with-just-in-time-access"></a>Proteger as portas de gestão com acesso just-in-time
 
@@ -89,9 +89,9 @@ A partir do Centro de Segurança, pode ativar e configurar o acesso JIT VM.
 
     Para cada porta (personalizada e padrão) o painel **de configuração** da porta Add oferece as seguintes opções:
 
-    - **Protocolo**- O protocolo que é permitido nesta porta quando um pedido é aprovado
-    - **IPs de origem permitida**- As gamas IP que são permitidas nesta porta quando um pedido é aprovado
-    - **Tempo máximo de pedido**- O período máximo durante o qual uma porta específica pode ser aberta
+    - **Protocolo** - O protocolo que é permitido nesta porta quando um pedido é aprovado
+    - **IPs de origem permitida** - As gamas IP que são permitidas nesta porta quando um pedido é aprovado
+    - **Tempo máximo de pedido** - O período máximo durante o qual uma porta específica pode ser aberta
 
      1. Desaça a segurança do porto às suas necessidades.
 
@@ -136,7 +136,7 @@ Pode ativar o JIT num VM a partir das páginas de máquinas virtuais Azure do po
 
 1. No menu, selecione **Configuração**.
 
-1. No **acesso just-in-time**, selecione **Ative just-in-time**. 
+1. No **acesso just-in-time** , selecione **Ative just-in-time**. 
 
     Isto permite o acesso just-in-time para o VM utilizando as seguintes definições predefinidos:
 
@@ -184,13 +184,13 @@ Os seguintes comandos PowerShell criam esta configuração JIT:
         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME";
         ports=(@{
              number=22;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"},
              @{
              number=3389;
-             protocol="\*";
-             allowedSourceAddressPrefix=@("\*");
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
              maxRequestAccessDuration="PT3H"})})
     ```
 
@@ -241,7 +241,7 @@ Cada uma destas opções é explicada num separado abaixo.
 
 Quando um VM tem um JIT ativado, tem de solicitar acesso para se ligar ao mesmo. Pode solicitar o acesso de qualquer uma das formas apoiadas, independentemente da forma como ativou o JIT.
 
-:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Configurar o acesso jit VM no Centro de Segurança Azure":::
+:::image type="content" source="./media/security-center-just-in-time/jit-request-security-center.gif" alt-text="Solicitando acesso JIT do Centro de Segurança":::
 
 1. A partir da página **de acesso VM just-in-time,** selecione o separador **Configurado.**
 

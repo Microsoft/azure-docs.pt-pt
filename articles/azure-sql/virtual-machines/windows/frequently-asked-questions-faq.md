@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3d8908739d6dda76f4c3d44540c36b36115d6f5
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786501"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289406"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Perguntas frequentes para SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -169,7 +169,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **Posso desinstalar a instância predefinida do SQL Server?**
 
-   Sim, mas há considerações a ter em conta. Em primeiro lugar, a faturação associada ao SQL Server pode continuar a ocorrer dependendo do modelo de licença para o VM. Em segundo lugar, tal como indicado na resposta anterior, existem funcionalidades que dependem da extensão do [agente iaaS do servidor SQL](sql-server-iaas-agent-extension-automate-management.md). Se desinstalar a instância padrão sem remover também a extensão IaaS, a extensão continua a procurar a instância padrão e pode gerar erros de registo de eventos. Estes erros são das duas fontes seguintes: **Microsoft SQL Server Credential Management** e **Microsoft SQL Server IaaS Agent** . Um dos erros poderá ser semelhante ao seguinte:
+   Sim, mas há considerações a ter em conta. Em primeiro lugar, a faturação associada ao SQL Server pode continuar a ocorrer dependendo do modelo de licença para o VM. Em segundo lugar, tal como indicado na resposta anterior, existem funcionalidades que dependem da extensão do [agente iaaS do servidor SQL](sql-server-iaas-agent-extension-automate-management.md). Se desinstalar a instância padrão sem remover também a extensão IaaS, a extensão continua a procurar a instância padrão e pode gerar erros de registo de eventos. Estes erros são das duas fontes seguintes: **Microsoft SQL Server Credential Management** e **Microsoft SQL Server IaaS Agent**. Um dos erros poderá ser semelhante ao seguinte:
 
       Ocorreu um erro relacionado com a rede ou específico da instância ao estabelecer uma ligação ao SQL Server. O servidor não foi encontrado ou não está acessível.
 
@@ -177,7 +177,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **Posso usar uma instância nomeada do SQL Server com a extensão IaaS?**
    
-   Sim, se a instância nomeada for a única instância no SQL Server, e se a instância por defeito original foi [desinstalada corretamente](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Se não houver uma instância padrão e existirem múltiplas instâncias nomeadas num único SQL Server VM, a extensão do agente IAAS do SQL Server não será instalada. 
+   Sim, se a instância nomeada for a única instância no SQL Server, e se a instância por defeito original foi [desinstalada corretamente](sql-server-iaas-agent-extension-automate-management.md#named-instance-support). Se não houver uma instância padrão e existirem múltiplas instâncias nomeadas num único SQL Server VM, a extensão do agente IAAS do SQL Server não será instalada.  
 
 1. **Posso remover o SQL Server e a faturação de licença associada de um SQL Server VM?**
 
@@ -210,7 +210,7 @@ Este artigo fornece respostas a algumas das questões mais comuns sobre a execu�
 
 1. **Posso atualizar a minha instância SQL Server 2008 / 2008 R2 depois de o registar com o fornecedor de recursos SQL Server VM?**
 
-   Sim. Pode utilizar qualquer suporte de configuração para atualizar a versão e edição do SQL Server e, em seguida, pode atualizar o seu modo de [extensão SQL IaaS](sql-vm-resource-provider-register.md#management-modes)) de _nenhum agente_ para _o máximo_ . Ao fazê-lo, você terá acesso a todos os benefícios da extensão SQL IaaS, como a gestão do portal, backups automatizados e patching automatizado. 
+   Se o SISTEMA for o Windows Server 2008 R2 ou mais tarde, sim. Pode utilizar qualquer suporte de configuração para atualizar a versão e edição do SQL Server e, em seguida, pode atualizar o seu modo de [extensão SQL IaaS](sql-server-iaas-agent-extension-automate-management.md#management-modes)) de _nenhum agente_ para _o máximo_. Ao fazê-lo, você terá acesso a todos os benefícios da extensão SQL IaaS, como a gestão do portal, backups automatizados e patching automatizado. Se a versão OS for o Windows Server 2008, apenas o modo NoAgent é suportado. 
 
 1. **Como posso obter atualizações de segurança alargada gratuitas para o fim de suporte das instâncias do SQL Server 2008 e do SQL Server 2008 R2?**
 

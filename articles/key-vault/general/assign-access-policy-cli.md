@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 32a323e8cc56a8c45b18737bb55ebe19d4be27c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59ba81944ecdf4f2b6322f4298e61df33f5b1da8
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381251"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289184"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Atribuir uma política de acesso ao Cofre de Chaves
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre a criação de grupos no Azure Ative Directo
 
 1. Para executar os comandos Azure CLI localmente, instale o [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
  
-    Para executar comandos diretamente na nuvem, utilize a Concha da [Nuvem Azure](/azure/cloud-shell/overview).
+    Para executar comandos diretamente na nuvem, utilize a Concha da [Nuvem Azure](../../cloud-shell/overview.md).
 
 1. Apenas CLI local: inscreva-se no Azure `az login` utilizando:
 

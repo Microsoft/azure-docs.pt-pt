@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: d9881fe91885a9a97b51da176be98a9ed6d007ba
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 3f192493dfd6bfc2fb3d5802b1dd94cd4ca3a9a9
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900763"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285221"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
 
@@ -22,7 +22,7 @@ Esta secção lista as operações para os fornecedores de recursos Azure, que s
 
 Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de operações.
 
-## <a name="all"></a>Tudo
+## <a name="all"></a>Todos
 
 | Geral |
 | --- |
@@ -629,7 +629,7 @@ Serviço Azure: [Tecido de Serviço](../service-fabric/index.yml)
 > | Microsoft.ServiceFabric/locations/operations/read | Ler quaisquer Operações por local |
 > | Microsoft.ServiceFabric/operations/read | Ler quaisquer Operações Disponíveis |
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 ### <a name="microsoftcdn"></a>Microsoft.Cdn
 
@@ -843,7 +843,6 @@ Serviço Azure: [Application Gateway](../application-gateway/index.yml), [Azure 
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/read | Obtém Azure Firewall NetworkRuleCollection |
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/write | CriaOrUpdates Azure Firewall NetworkRuleCollection |
 > | Microsoft.Network/azureFirewalls/networkRuleCollections/delete | Elimina Azure Firewall NetworkRuleCollection |
-> | Microsoft.Network/azureWebCategories/read | Recebe WebCategories Azure |
 > | Microsoft.Network/bastionHosts/read | Recebe um bastonário anfitrião |
 > | Microsoft.Network/bastionHosts/write | Criar ou atualizar um anfitrião de bastião |
 > | Microsoft.Network/bastionHosts/delete | Elimina um Hospedeiro de Bastião |
@@ -1243,8 +1242,6 @@ Serviço Azure: [Application Gateway](../application-gateway/index.yml), [Azure 
 > | Microsoft.Network/virtualHubs/bgpConnections/read | Obtém um recurso infantil de conexão Hub Bgp do Virtual Hub |
 > | Microsoft.Network/virtualHubs/bgpConnections/write | Cria ou Atualiza um recurso infantil de ligação Hub Bgp do Centro Virtual |
 > | Microsoft.Network/virtualHubs/bgpConnections/delete | Elimina um recurso infantil de ligação Hub Bgp do Virtual Hub |
-> | Microsoft.Network/virtualHubs/bgpConnections/advertisedRoutes/action | Obtém rotas publicitadas virtualrouter |
-> | Microsoft.Network/virtualHubs/bgpConnections/learnedRoutes/action | Obtém rotas de aprendeu virtualmente |
 > | Microsoft.Network/virtualHubs/hubRouteTables/read | Obtém um recurso infantil de Mesa de Rota do Centro Virtual |
 > | Microsoft.Network/virtualHubs/hubRouteTables/write | Cria ou Atualiza um recurso infantil route Table do Virtual Hub |
 > | Microsoft.Network/virtualHubs/hubRouteTables/delete | Elimina um recurso infantil da Tabela de Rota do Centro Virtual |
@@ -1332,9 +1329,6 @@ Serviço Azure: [Application Gateway](../application-gateway/index.yml), [Azure 
 > | microsoft.network/vpngateways/startpacketcapture/action | Inicie a captura de pacotes de gateway VPN com recurso de acordo |
 > | microsoft.network/vpngateways/stoppacketcapture/action | Parar a captura de pacotes de gateway VPN com sasURL |
 > | microsoft.network/vpngateways/listvpnconnectionshealth/action | Obtém saúde de conexão para todos ou um subconjunto de conexões em um VpnGateway |
-> | microsoft.network/vpnGateways/natRules/read | Obtém um recurso de regra NAT |
-> | microsoft.network/vpnGateways/natRules/write | Coloca um recurso de regra NAT |
-> | microsoft.network/vpnGateways/natRules/delete | Elimina um recurso de regra NAT |
 > | microsoft.network/vpnGateways/vpnConnections/read | Obtém uma VpnConnection. |
 > | microsoft.network/vpnGateways/vpnConnections/write | Coloca um VpnConnection. |
 > | microsoft.network/vpnGateways/vpnConnections/delete | Elimina um VpnConnection. |
@@ -1522,6 +1516,7 @@ Serviço Azure: [Armazenamento](../storage/index.yml)
 > | Microsoft.Storage/locations/usages/read | Devolve o limite e a contagem de utilização atual para os recursos na subscrição especificada |
 > | Microsoft.Storage/operations/read | Sondagem o estado de uma operação assíncronea. |
 > | Microsoft.Storage/skus/read | Lista os Skus suportados pelo Microsoft.Storage. |
+> | Microsoft.Storage/storageAcounts/updateInternalProperties/action |  |
 > | Microsoft.Storage/storageAconselhos/hnsonmigration/action | O cliente é capaz de abortar uma migração hns em curso na conta de armazenamento |
 > | Microsoft.Storage/storageAconselhos/hnsonmigration/action | O cliente é capaz de migrar para o tipo de conta hns |
 > | Microsoft.Storage/storageAcounts/restoreBlobRanges/ação | Restaurar os intervalos de blob ao estado do tempo especificado |
@@ -1572,6 +1567,7 @@ Serviço Azure: [Armazenamento](../storage/index.yml)
 > | Microsoft.Storage/storageAcounts/fileServices/shares/read | Ações de ficheiros de lista |
 > | Microsoft.Storage/storageAcounts/fileServices/shares/write | Criar ou atualizar a partilha de ficheiros |
 > | Microsoft.Storage/storageAcontas/inventárioPolias/excluir |  |
+> | Microsoft.Storage/storageAcounts/inventárioPolias/leitura |  |
 > | Microsoft.Storage/storageAcounts/inventárioPolias/leitura |  |
 > | Microsoft.Storage/storageAcontas/inventárioPolias/escrita |  |
 > | Microsoft.Storage/storageAcounts/localUsers/delete | Eliminar utilizador local |
@@ -2128,18 +2124,19 @@ Serviço Azure: [Serviço Azure SignalR](../azure-signalr/index.yml)
 > | Microsoft.SignalRService/SignalR/privateEndpointConnections/read | Leia uma ligação de ponto final privada |
 > | Microsoft.SignalRService/SignalR/privateLinkResources/read | Listar todos os recursos de ligação privada SignalR |
 > | **DataAction** | **Descrição** |
-> | Microsoft.SignalRService/SignalR/serverConnection/action | Inicie uma ligação de servidor. |
-> | Microsoft.SignalRService/SignalR/clientConnection/action | Adicione / Remova as ligações do cliente de grupos ou feche uma ligação ao cliente. |
-> | Microsoft.SignalRService/SignalR/user/action | Adicionar / Remover os utilizadores dos grupos. |
-> | Microsoft.SignalRService/SignalR/clientConnection/read | Verifique a existência da ligação. |
-> | Microsoft.SignalRService/SignalR/clientConnection/write | Envie mensagens diretamente para uma ligação ao cliente. |
-> | Microsoft.SignalRService/SignalR/group/read | Verifique a existência do grupo. |
-> | Microsoft.SignalRService/SignalR/group/write | Mensagens de transmissão para ligações ao cliente em grupo / alguns grupos. |
-> | Microsoft.SignalRService/SignalR/hub/write | Transmita mensagens a todas as ligações dos clientes ligadas a este centro. |
-> | Microsoft.SignalRService/SignalR/service/accessKey/action | Obtenha um AccessKey temporário para a assinatura de ClientTokens. |
-> | Microsoft.SignalRService/SignalR/service/clientToken/action | Obtenha um ClientToken para iniciar uma ligação com o cliente. |
-> | Microsoft.SignalRService/SignalR/user/read | Verifique a existência do utilizador e se estava em grupo. |
-> | Microsoft.SignalRService/SignalR/user/write | Envie mensagens a um utilizador, que pode ter múltiplas ligações com o cliente. |
+> | Microsoft.SignalRService/SignalR/auth/accessKey/action | Gere um AccessKey temporário para a assinatura do ClientTokens. |
+> | Microsoft.SignalRService/SignalR/auth/clientToken/action | Gere um ClientToken para iniciar uma ligação ao cliente. |
+> | Microsoft.SignalRService/SignalR/clientConnection/send/action | Envie mensagens diretamente para uma ligação ao cliente. |
+> | Microsoft.SignalRService/SignalR/clientConnection/read | Verifique a existência da ligação do cliente. |
+> | Microsoft.SignalRService/SignalR/clientConnection/write | Ligação próxima com o cliente. |
+> | Microsoft.SignalRService/SignalR/group/send/action | Mensagem transmitida ao grupo. |
+> | Microsoft.SignalRService/SignalR/group/read | Verifique a existência do grupo ou a existência do utilizador em grupo. |
+> | Microsoft.SignalRService/SignalR/group/write | Junte-se / Deixe o grupo. |
+> | Microsoft.SignalRService/SignalR/hub/send/action | Mensagens de transmissão para todas as ligações do cliente no centro. |
+> | Microsoft.SignalRService/SignalR/serverConnection/write | Inicie uma ligação de servidor. |
+> | Microsoft.SignalRService/SignalR/user/send/action | Envie mensagens ao utilizador, que poderá consistir em múltiplas ligações ao cliente. |
+> | Microsoft.SignalRService/SignalR/user/read | Verifique a existência do utilizador. |
+> | Microsoft.SignalRService/SignalR/user/write |  |
 
 ### <a name="microsoftweb"></a>microsoft.web
 
@@ -3256,6 +3253,11 @@ Serviço Azure: [Data Factory](../data-factory/index.yml)
 > | Microsoft.DataFactory/fábricas/linkedServices/read | Lê serviço linked. |
 > | Microsoft.DataFactory/fábricas/linkedServices/delete | Elimina o Serviço Linked. |
 > | Microsoft.DataFactory/fábricas/linkedServices/write | Criar ou atualizar serviço ligado |
+> | Microsoft.DataFactory/fábricas/managedVirtualNetworks/read | Ler Rede Virtual Gerida. |
+> | Microsoft.DataFactory/fábricas/managedVirtualNetworks/write | Criar ou atualizar rede virtual gerida. |
+> | Microsoft.DataFactory/fábricas/managedVirtualNetworks/managedPrivateEndpoints/read | Leia o Ponto Final Privado Gerido. |
+> | Microsoft.DataFactory/fábricas/managedVirtualNetworks/managedPrivateEndpoints/write | Criar ou atualizar o ponto final privado gerido. |
+> | Microsoft.DataFactory/fábricas/managedVirtualNetworks/managedPrivateEndpoints/delete | Excluir o ponto final privado gerido. |
 > | Microsoft.DataFactory/fábricas/operationResults/read | Obtém os resultados da operação. |
 > | Microsoft.DataFactory/fábricas/pipelineruns/read | Lê o Pipeline Runs. |
 > | Microsoft.DataFactory/fábricas/pipelineruns/cancel/action | Cancela o percurso do gasoduto especificado pelo ID de funcionação. |
@@ -3862,6 +3864,8 @@ Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQ
 > | Microsoft.Sql/instancePools/delete | Elimina uma piscina de exemplos |
 > | Microsoft.Sql/instancePools/usages/read | Obtém informações de utilização de uma piscina de exemplo |
 > | Microsoft.Sql/locations/read | Obtém os locais disponíveis para uma determinada subscrição |
+> | Microsoft.Sql/locations/administratorAzureAsyncOperation/read | Obtém o resultado das operações de administrador de azure assírias geridas. |
+> | Microsoft.Sql/locations/administratorPersults/read | Obtém o resultado das operações de administrador de instância gerida. |
 > | Microsoft.Sql/locations/auditingScoingsAzureAsyncOperation/read | Recuperar o resultado da operação de definição de política de auditoria de blob de servidor alargado |
 > | Microsoft.Sql/locations/auditingSOperationResults/read | Recuperar o resultado da política de auditoria do blob do servidor Definir operação |
 > | Microsoft.Sql/locations/capabilites/read | Obtém as capacidades para esta subscrição num dado local |
@@ -3883,6 +3887,8 @@ Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQ
 > | Microsoft.Sql/locations/extendedAuditingsettingsOperationResults/read | Recuperar o resultado da operação de definição de política de auditoria de blob de servidor alargado |
 > | Microsoft.Sql/locations/firewallRulesAzureAsyncOperation/read | Obtém o estado de uma operação de regra de firewall. |
 > | Microsoft.Sql/locations/firewallRulesOperationResults/read | Obtém o estado de uma operação de regra de firewall. |
+> | Microsoft.Sql/locations/hybridLinkAzureAsyncOperation/read | Obtém o estatuto de uma operação de ligação híbrida de longo prazo em Azure Sql Managed Instance. |
+> | Microsoft.Sql/locations/hybridLinkOperationResults/read | Obtém o estatuto de uma operação de ligação híbrida de longo prazo. |
 > | Microsoft.Sql/locations/instanceFailoverGroups/read | Devolve a lista de grupos de failover de exemplo ou obtém as propriedades para o grupo de failover de instância especificado. |
 > | Microsoft.Sql/locations/instanceFailoverGroups/write | Cria um grupo de falha de instância com os parâmetros especificados ou atualiza as propriedades ou tags para o grupo de failover de instância especificado. |
 > | Microsoft.Sql/locations/instanceFailoverGroups/delete | Elimina um grupo de falha de instância existente. |
@@ -3998,6 +4004,9 @@ Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQ
 > | Microsoft.Sql/managedInstances/encryptionProtector/revalidate/action | Atualize as propriedades para o protetor de encriptação do servidor especificado. |
 > | Microsoft.Sql/managedInstances/encryptionProtector/read | Devolve uma lista de protetores de encriptação do servidor ou obtém as propriedades para o protetor de encriptação do servidor especificado. |
 > | Microsoft.Sql/managedInstances/encryptionProtector/write | Atualize as propriedades para o protetor de encriptação do servidor especificado. |
+> | Microsoft.Sql/managedInstances/hybridLink/read | Devolva a lista de links híbridos ou obtenha as propriedades para o grupo de disponibilidade distribuído especificado. |
+> | Microsoft.Sql/managedInstances/hybridLink/write | Cria ou atualiza ligação híbrida com parâmetros especificados. |
+> | Microsoft.Sql/managedInstances/hybridLink/delete | Elimina uma ligação híbrida com um grupo de disponibilidade distribuído especificado. |
 > | Microsoft.Sql/managedInstances/inacessibleManagedDatabases/read | Obtém uma lista de bases de dados geridas inacessíveis num caso gerido |
 > | Microsoft.Sql/managedInstances/keys/read | Devolva a lista de chaves de instância geridas ou obtenha as propriedades para a chave de instância gerida especificada. |
 > | Microsoft.Sql/managedInstances/keys/write | Cria uma chave com os parâmetros especificados ou atualiza as propriedades ou tags para a chave de instância gerida especificada. |
@@ -5094,8 +5103,8 @@ Serviço Azure: [Serviços Cognitivos](../cognitive-services/index.yml)
 > | Microsoft.CognitiveServices/accounts/NewsSearch/categorysearch/action | Devoluções de notícias para uma categoria fornecida. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/search/action | Obtenha notícias relevantes para uma determinada consulta. |
 > | Microsoft.CognitiveServices/accounts/NewsSearch/trendingtopics/action | Obtenha tópicos de tendência identificados por Bing. Estes são os mesmos tópicos mostrados no banner na parte inferior da página inicial de Bing. |
-> | Microsoft.CognitiveServices/accounts/QnAMaker/root/action | QnA Maker |
-> | Microsoft.CognitiveServices/accounts/QnAMaker.v2/root/action | QnA Maker |
+> | Microsoft.CognitiveServices/accounts/QnAMaker/root/action | Criador de FAQ |
+> | Microsoft.CognitiveServices/accounts/QnAMaker.v2/root/action | Criador de FAQ |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterações/read | Faça o download de alterações a partir do tempo de execução. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterações/write | Substitua os dados de alterações. |
 > | Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointkeys/read | Obtém chaves de ponto final para um ponto final |
@@ -6541,6 +6550,9 @@ Serviço Azure: [Cofre de Chaves](../key-vault/index.yml)
 > | Microsoft.KeyVault/vaults/eventGridFilters/read | Notifica o Microsoft.KeyVault de que está a ser visualizada uma subscrição eventGrid para Key Vault |
 > | Microsoft.KeyVault/vaults/eventGridFilters/write | Notifica o Microsoft.KeyVault de que está a ser criada uma nova subscrição eventGrid para Key Vault |
 > | Microsoft.KeyVault/vaults/eventGridFilters/delete | Notifica o Microsoft.KeyVault de que uma subscrição eventGrid para Key Vault está a ser eliminada |
+> | Microsoft.KeyVault/vaults/keys/read | Enuncie as chaves num cofre especificado ou leia a versão atual de uma chave especificada. |
+> | Microsoft.KeyVault/vaults/keys/write | Crie uma nova chave ou atualize uma chave existente. |
+> | Microsoft.KeyVault/vaults/keys/versões/read | Enuse as versões de uma chave especificada ou leia a versão especificada de uma chave. |
 > | Microsoft.KeyVault/vaults/secrets/read | Veja as propriedades de um segredo, mas não o seu valor. |
 > | Microsoft.KeyVault/vaults/secrets/write | Crie um novo segredo ou atualize o valor de um segredo existente. |
 > | **DataAction** | **Descrição** |
@@ -7424,7 +7436,7 @@ Serviço Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.OffAzure/VMwareSites/vcenters/read | Obtém as propriedades de um VMware vCenter |
 > | Microsoft.OffAzure/VMwareSites/vcenters/write | Cria ou atualiza o VMware vCenter |
 
-## <a name="monitor"></a>Monitorizar
+## <a name="monitor"></a>Monitor
 
 ### <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
@@ -8283,6 +8295,7 @@ Serviço Azure: [Azure Monitor](../azure-monitor/index.yml)
 > | Microsoft.OperationalInsights/workspaces/consulta/SqlDataClassification/read | Leia os dados da tabela SqlDataClassification |
 > | Microsoft.OperationalInsights/workspaces/consulta/SQLQueryPerformance/read | Leia os dados da tabela SQLQueryPerformance |
 > | Microsoft.OperationalInsights/workspaces/consulta/SqlVulnerabilityAssessmentResult/read | Leia os dados da tabela SqlVulnerabilityAssessmentResult |
+> | Microsoft.OperationalInsights/workspaces/consulta/SqlVulnerabilityAssessmentScanStatus/read | Leia os dados da tabela SqlVulnerabilityAssessmentScanStatus |
 > | Microsoft.OperationalInsights/workspaces/consulta/StorageBlobLogs/read | Leia os dados da tabela StorageBlobLogs |
 > | Microsoft.OperationalInsights/workspaces/consulta/StorageFileLogs/read | Leia os dados da tabela StorageFileLogs |
 > | Microsoft.OperationalInsights/workspaces/consulta/StorageQueueLogs/read | Leia os dados da tabela StorageQueueLogs |
@@ -9660,7 +9673,7 @@ Serviço Azure: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/delete | Apagar uma definição de diagnóstico |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Ler uma categoria de definição de diagnóstico |
 
-## <a name="other"></a>Outros
+## <a name="other"></a>Outro
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
@@ -9718,7 +9731,7 @@ Serviço Azure: [Azure Digital Twins](../digital-twins/index.yml)
 > | Microsoft.DigitalTwins/models/write | Criar ou atualizar qualquer modelo |
 > | Microsoft.DigitalTwins/models/delete | Eliminar qualquer Modelo |
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Combine o fornecedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Funções incorporadas do Azure](built-in-roles.md)

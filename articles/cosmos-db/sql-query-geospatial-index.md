@@ -4,30 +4,28 @@ description: Dados espaciais de índice com Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/03/2020
+ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: f250c15dbb30736e3e89a301fc236a848bd05da2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 347617fb13041a8fb31c28f259aaf761baae2e53
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092063"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286305"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Dados geoespaciais de índice com Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Desenhamos o motor de base de dados da Azure Cosmos DB para ser verdadeiramente agnóstico e fornecer suporte de primeira classe para o JSON. O motor de base de dados otimizado da Azure Cosmos DB compreende de forma nativa os dados espaciais representados na norma GeoJSON.
 
-Em resumo, a geometria é projetada a partir de coordenadas geodésicas para um plano 2D então dividido progressivamente em células usando uma **árvore quadtree** . Estas células são mapeadas para 1D com base na localização da célula dentro de uma curva de **enchimento de espaço Hilbert** , que preserva a localidade dos pontos. Adicionalmente, quando os dados de localização são indexados, passa por um processo conhecido como **tessellation** , isto é, todas as células que intersectam uma localização são identificadas e armazenadas como chaves no índice DB do Azure Cosmos. No momento da consulta, argumentos como pontos e polígonos também são tessellados para extrair as gamas de ID celular relevantes, então usados para obter dados do índice.
+Em resumo, a geometria é projetada a partir de coordenadas geodésicas para um plano 2D então dividido progressivamente em células usando uma **árvore quadtree**. Estas células são mapeadas para 1D com base na localização da célula dentro de uma curva de **enchimento de espaço Hilbert** , que preserva a localidade dos pontos. Adicionalmente, quando os dados de localização são indexados, passa por um processo conhecido como **tessellation** , isto é, todas as células que intersectam uma localização são identificadas e armazenadas como chaves no índice DB do Azure Cosmos. No momento da consulta, argumentos como pontos e polígonos também são tessellados para extrair as gamas de ID celular relevantes, então usados para obter dados do índice.
 
-Se especificar uma política de indexação que inclua índice espacial para /* (todos os caminhos), todos os dados encontrados dentro do recipiente são indexados para consultas espaciais eficientes.
+Se especificar uma política de indexação que inclua um índice espacial para `/*` (todos os caminhos), então todos os dados encontrados dentro do recipiente são indexados para consultas espaciais eficientes.
 
 > [!NOTE]
-> Azure Cosmos DB suporta a indexação de pontos, LineStrings, Polígonos e MultiPolígonos
->
->
+> A Azure Cosmos DB suporta a indexação de Pontos, LineStrings, Polígonos e MultiPolígonos. Se indexar algum destes tipos, indexaremos automaticamente todos os outros tipos. Por outras palavras, se indexar os Polígonos, também indexamos Pontos, LineStrings e MultiPolygons. A indexação de um novo tipo espacial não afeta a carga ru ou o tamanho do índice de escrita, a menos que tenha dados geoJSON válidos desse tipo.
 
-## <a name="modifying-geospatial-data-type"></a>Modificação do tipo de dados geoespaciais
+## <a name="modifying-geospatial-configuration"></a>Modificação da configuração geoespacial
 
 No seu recipiente, a **Configuração Geoespacial** especifica como os dados espaciais serão indexados. Especifique uma **Configuração Geoespacial** por recipiente: geografia ou geometria.
 
@@ -160,7 +158,7 @@ Aqui está um exemplo de política de indexação que indexa dados **de geometri
 A política de indexação acima tem uma caixa de **limites** de (-10, 10) para coordenadas x e (-20, 20) para coordenadas y. O contentor com a política de indexação acima irá indexar todos os Pontos, Polígonos, MultiPolígonos e LineStrings que estão inteiramente dentro desta região.
 
 > [!NOTE]
-> Se tentar adicionar uma política de indexação com uma **caixa de delimitação** a um recipiente com `geography` tipo de dados, falhará. Deve modificar o **GeoespacialConfig** do recipiente para ser `geometry` antes de adicionar uma caixa de **delimitação** . Pode adicionar dados e modificar o restante da sua política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o recipiente.
+> Se tentar adicionar uma política de indexação com uma **caixa de delimitação** a um recipiente com `geography` tipo de dados, falhará. Deve modificar o **GeoespacialConfig** do recipiente para ser `geometry` antes de adicionar uma caixa de **delimitação**. Pode adicionar dados e modificar o restante da sua política de indexação (como os caminhos e tipos) antes ou depois de selecionar o tipo de dados geoespaciais para o recipiente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

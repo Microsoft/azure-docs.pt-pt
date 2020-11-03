@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Criar um serviço Azure SignalR - modelo ARM'
 description: Neste Quickstart, aprenda a criar um Serviço Azure SignalR utilizando um modelo de Gestor de Recursos Azure (modelo ARM).
-author: mgblythe
+author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
+ms.author: zhshang
 ms.date: 10/02/2020
-ms.openlocfilehash: f38bd6ed91788343c028ec5834ba28f4bad3ba43
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a7e8183f21ab49fe4662470d30e52977dd89153a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487828"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289923"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-signalr-service"></a>Quickstart: Use um modelo ARM para implementar o Serviço Azure SignalR
 
@@ -60,13 +60,13 @@ O modelo define um recurso Azure:
 
 Selecione o seguinte link para implementar o Serviço Azure SignalR utilizando o modelo ARM no portal Azure:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Botão para implantar o Serviço Azure SignalR para Azure utilizando um modelo ARM no portal Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Botão para implantar o Serviço Azure SignalR para Azure utilizando o modelo ARM no portal Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-signalr%2fazuredeploy.json)
 
 Na página **de Serviço Azure SignalR:**
 
 1. Se desejar, altere a **Subscrição** do padrão.
 
-2. Para **o grupo de recursos**, selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
+2. Para **o grupo de recursos** , selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
 
 3. Se criou um novo grupo de recursos, selecione uma **Região** para o grupo de recursos.
 
@@ -77,7 +77,7 @@ Na página **de Serviço Azure SignalR:**
     > [!NOTE]
     > Para o nível de preços **Free_F1,** a capacidade é limitada a 1 unidade.
 
-    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Botão para implantar o Serviço Azure SignalR para Azure utilizando um modelo ARM no portal Azure.":::
+    :::image type="content" source="./media/signalr-quickstart-azure-signalr-service-arm-template/deploy-azure-signalr-service-arm-template-portal.png" alt-text="Screenshot do modelo ARM para criar um Serviço Azure SignalR no portal Azure.":::
 
 6. Selecione **Rever + criar**.
 

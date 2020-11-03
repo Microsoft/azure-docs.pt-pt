@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: a060528d3140203541f6a13064659651c7a4f67d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a4400adeff8907e2d4ff690a83c63d32da8031bd
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488963"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289315"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -218,10 +218,10 @@ O procedimento a seguir cria uma instância de Azure Spring Cloud usando o porta
 
 1. Preencha o formulário na página Azure Spring Cloud **Create.**  Considere as seguintes orientações:
 
-   * **Subscrição**: Selecione a subscrição que pretende ser faturada para este recurso.
-   * **Grupo de recursos**: Criar um novo grupo de recursos. O nome que introduzir aqui será usado em etapas posteriores como **\<resource group name\>** .
-   * **Dados de serviço/Nome**: Especifique o **\<service instance name\>** .  O nome deve ter entre 4 e 32 caracteres de comprimento e pode conter apenas letras minúsculas, números e hífenes.  O primeiro carácter do nome de serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
-   * **Região**: Selecione a região para a sua instância de serviço.
+   * **Subscrição** : Selecione a subscrição que pretende ser faturada para este recurso.
+   * **Grupo de recursos** : Criar um novo grupo de recursos. O nome que introduzir aqui será usado em etapas posteriores como **\<resource group name\>** .
+   * **Dados de serviço/Nome** : Especifique o **\<service instance name\>** .  O nome deve ter entre 4 e 32 caracteres de comprimento e pode conter apenas letras minúsculas, números e hífenes.  O primeiro carácter do nome de serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
+   * **Região** : Selecione a região para a sua instância de serviço.
 
    ![Início do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -242,7 +242,7 @@ O procedimento a seguir constrói e implementa o projeto que criou anteriormente
 1. Crie uma aplicação no seu exemplo Azure Spring Cloud com um ponto final público atribuído. Utilize o mesmo nome de aplicação "hello-world" que especificou no *appsettings.js*.
 
    ```console
-   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public
+   az spring-cloud app create -n hello-world -s <service instance name> -g <resource group name> --is-public --runtime-version NetCore_31
    ```
 
 1. Implemente o ficheiro *.zip* para a aplicação.
@@ -387,10 +387,10 @@ O procedimento a seguir cria uma instância de Azure Spring Cloud usando o porta
     ![Adicionar ícone ASC](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
 
 5. Preencha o formulário na página Azure Spring Cloud **Create.**  Considere as seguintes orientações:
-    - **Subscrição**: Selecione a subscrição que pretende ser faturada para este recurso.
-    - **Grupo de recursos**: Criar novos grupos de recursos para novos recursos é uma boa prática. Isto será usado em etapas posteriores como **\<resource group name\>** .
-    - **Dados de serviço/Nome**: Especifique o **\<service instance name\>** .  O nome deve ter entre 4 e 32 caracteres de comprimento e pode conter apenas letras minúsculas, números e hífenes.  O primeiro carácter do nome de serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
-    - **Localização**: Selecione a região para a sua instância de serviço.
+    - **Subscrição** : Selecione a subscrição que pretende ser faturada para este recurso.
+    - **Grupo de recursos** : Criar novos grupos de recursos para novos recursos é uma boa prática. Isto será usado em etapas posteriores como **\<resource group name\>** .
+    - **Dados de serviço/Nome** : Especifique o **\<service instance name\>** .  O nome deve ter entre 4 e 32 caracteres de comprimento e pode conter apenas letras minúsculas, números e hífenes.  O primeiro carácter do nome de serviço deve ser uma letra e o último caractere deve ser uma letra ou um número.
+    - **Localização** : Selecione a região para a sua instância de serviço.
 
     ![Início do portal ASC](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
 
@@ -451,7 +451,7 @@ Para poder implementar no Azure tem de iniciar sôms com a sua conta Azure e esc
 1. Na caixa de texto **da Nuvem de primavera,** selecione a instância de Azure Spring Cloud que criou no [exemplo de Provision Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
 1. Definir **ponto de final público** para *ativar*.
 1. Na **App:** caixa de texto, selecione **Criar app...**.
-1. Introduza *a primavera de hellospring*e, em seguida, clique **em OK**.
+1. Introduza *a primavera de hellospring* e, em seguida, clique **em OK**.
 
     [![Implementar para Azure OK ](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png)](media/spring-cloud-quickstart-java/intellij-deploy-to-azure.png#lightbox)
 

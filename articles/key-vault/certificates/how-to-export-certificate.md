@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.custom: mvc, devx-track-azurecli
 ms.date: 08/11/2020
 ms.author: sebansal
-ms.openlocfilehash: 8a594d06fa84bb6e5ef502b02e1bec8244062ccb
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e7ea3ef16b60e53450436bda66ce3dde091c81c2
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233972"
+ms.locfileid: "93289561"
 ---
 # <a name="export-certificates-from-azure-key-vault"></a>Certificados de exportação do Azure Key Vault
 
@@ -23,11 +23,11 @@ Saiba como exportar certificados da Azure Key Vault. Pode exportar certificados 
 
 ## <a name="about-azure-key-vault-certificates"></a>Acerca dos certificados do Azure Key Vault
 
-O Azure Key Vault permite-lhe facilmente provisões, gestão e implementação de certificados digitais para a sua rede. Também permite comunicações seguras para aplicações. Consulte [os certificados Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates) para obter mais informações.
+O Azure Key Vault permite-lhe facilmente provisões, gestão e implementação de certificados digitais para a sua rede. Também permite comunicações seguras para aplicações. Consulte [os certificados Azure Key Vault](./about-certificates.md) para obter mais informações.
 
 ### <a name="composition-of-a-certificate"></a>Composição de um certificado
 
-Quando um certificado Key Vault é criado, uma *chave* endereçada e *secreta* são criadas com o mesmo nome. A chave do cofre permite operações chave. O segredo do Cofre chave permite a recuperação do valor do certificado como segredo. Um certificado Key Vault também contém metadados de certificados x509 públicos. Aceda à [Composição de um certificado](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) para mais informações.
+Quando um certificado Key Vault é criado, uma *chave* endereçada e *secreta* são criadas com o mesmo nome. A chave do cofre permite operações chave. O segredo do Cofre chave permite a recuperação do valor do certificado como segredo. Um certificado Key Vault também contém metadados de certificados x509 públicos. Aceda à [Composição de um certificado](./about-certificates.md#composition-of-a-certificate) para mais informações.
 
 ### <a name="exportable-and-non-exportable-keys"></a>Chaves exportáveis e não exportáveis
 
@@ -36,9 +36,9 @@ Depois de ser criado um certificado Key Vault, pode recuperá-lo do segredo ende
 - **Exportável** : A política utilizada para a criação do certificado indica que a chave é exportável.
 - **Não exportável** : A política utilizada para a criação do certificado indica que a chave não é exportável. Neste caso, a chave privada não faz parte do valor quando é recuperada como um segredo.
 
-Tipos-chave suportados: RSA, RSA-HSM, EC, EC-HSM, out (listado [aqui](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) Exportável só é permitido com RSA, CE. As chaves HSM não seriam exportáveis.
+Tipos-chave suportados: RSA, RSA-HSM, EC, EC-HSM, out (listado [aqui](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) Exportável só é permitido com RSA, CE. As chaves HSM não seriam exportáveis.
 
-Consulte [os certificados Azure Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#exportable-or-non-exportable-key) para obter mais informações.
+Consulte [os certificados Azure Key Vault](./about-certificates.md#exportable-or-non-exportable-key) para obter mais informações.
 
 ## <a name="export-stored-certificates"></a>Certificados armazenados de exportação
 
@@ -61,7 +61,7 @@ az keyvault certificate download --file
                                  [--version]
 ```
 
-Veja [exemplos e definições de parâmetros](https://docs.microsoft.com/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) para obter mais informações.
+Veja [exemplos e definições de parâmetros](/cli/azure/keyvault/certificate?view=azure-cli-latest#az-keyvault-certificate-download) para obter mais informações.
 
 Descarregar como certificado significa obter a parte pública. Se você quiser tanto a chave privada como os metadados públicos, então você pode descarregá-lo como secreto.
 
@@ -75,11 +75,11 @@ az keyvault secret download -–file {nameofcert.pfx}
                             [--version]
 ```
 
-Para obter mais informações, consulte [as definições de parâmetros.](https://docs.microsoft.com/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download)
+Para obter mais informações, consulte [as definições de parâmetros.](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-download)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Utilize este comando em Azure PowerShell para obter o certificado denominado **TestCert01** do cofre-chave chamado **ContosoKV01** . Para descarregar o certificado como um ficheiro PFX, corra a seguir ao comando. Estes comandos acedem **ao SecretId** e, em seguida, guardam o conteúdo como um ficheiro PFX.
+Utilize este comando em Azure PowerShell para obter o certificado denominado **TestCert01** do cofre-chave chamado **ContosoKV01**. Para descarregar o certificado como um ficheiro PFX, corra a seguir ao comando. Estes comandos acedem **ao SecretId** e, em seguida, guardam o conteúdo como um ficheiro PFX.
 
 ```azurepowershell
 $cert = Get-AzKeyVaultCertificate -VaultName "ContosoKV01" -Name "TestCert01"
@@ -102,13 +102,13 @@ $pfxFileByte = $x509Cert.Export($type, $password)
 ```
 
 Este comando exporta toda a cadeia de certificados com chave privada. O certificado está protegido por senha.
-Para obter mais informações sobre o comando e parâmetros **Get-AzKeyVaultCertificate,** consulte [Get-AzKeyVaultCertificate - Exemplo 2](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
+Para obter mais informações sobre o comando e parâmetros **Get-AzKeyVaultCertificate,** consulte [Get-AzKeyVaultCertificate - Exemplo 2](/powershell/module/az.keyvault/Get-AzKeyVaultCertificate?view=azps-4.4.0).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 No portal Azure, depois de criar/importar um certificado na lâmina do **Certificado,** recebe a notificação de que o certificado foi criado com sucesso. Selecione o certificado e a versão atual para ver a opção de download.
 
-Para descarregar o certificado, selecione **Baixar em formato CER** ou descarregar em formato **PFX/PEM** .
+Para descarregar o certificado, selecione **Baixar em formato CER** ou descarregar em formato **PFX/PEM**.
 
 ![Download de certificado](../media/certificates/quick-create-portal/current-version-shown.png)
 
@@ -121,4 +121,4 @@ Para mais informações, consulte os passos para [exportar certificados do Azure
 ---
 
 ## <a name="read-more"></a>Saiba mais
-* [Vários tipos e definições de arquivos de certificados](https://docs.microsoft.com/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)
+* [Vários tipos e definições de arquivos de certificados](/archive/blogs/kaushal/various-ssltls-certificate-file-typesextensions)

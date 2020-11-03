@@ -4,15 +4,15 @@ description: Saiba como gerir políticas de indexação, incluir ou excluir uma 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 96ae4162c78f66b75d8c1ef2a8cec16995a5f016
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 335eac64bd5dff5b466fd97f5b2e093f2f56ee79
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075709"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289937"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gerir políticas de indexação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ Eis alguns exemplos de políticas de indexação mostradas no [seu formato JSON]
     }
 ```
 
-Esta política de indexação é equivalente à abaixo da que define manualmente ```kind``` , e aos seus ```dataType``` ```precision``` valores padrão. Estas propriedades já não são necessárias para definir explicitamente e pode omiti-las inteiramente da sua política de indexação (como mostrado acima).
+Esta política de indexação é equivalente à abaixo da que define manualmente ```kind``` , e aos seus ```dataType``` ```precision``` valores padrão. Estas propriedades já não são necessárias para definir explicitamente e você deve omiti-las inteiramente da sua política de indexação (como mostrado acima).
 
 ```json
     {
@@ -101,7 +101,7 @@ Esta política de indexação é equivalente à abaixo da que define manualmente
     }
 ```
 
-Esta política de indexação é equivalente à abaixo da que define manualmente ```kind``` , e aos seus ```dataType``` ```precision``` valores padrão. Estas propriedades já não são necessárias para definir explicitamente e pode omiti-las inteiramente da sua política de indexação (como mostrado acima).
+Esta política de indexação é equivalente à abaixo da que define manualmente ```kind``` , e aos seus ```dataType``` ```precision``` valores padrão. Estas propriedades já não são necessárias para definir explicitamente e você deve omiti-las inteiramente da sua política de indexação (como mostrado acima).
 
 ```json
     {
@@ -143,7 +143,7 @@ Esta política de indexação é equivalente à abaixo da que define manualmente
 ```
 
 > [!NOTE]
-> É geralmente recomendado usar uma política de indexação **de opt-out** para permitir que a Azure Cosmos DB indexe proativamente qualquer nova propriedade que possa ser adicionada ao seu modelo.
+> É geralmente recomendado usar uma política de indexação **de opt-out** para permitir que a Azure Cosmos DB indexe proativamente qualquer nova propriedade que possa ser adicionada ao seu modelo de dados.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Usando um índice espacial apenas num caminho de propriedade específico
 
@@ -177,7 +177,7 @@ Esta política de indexação é equivalente à abaixo da que define manualmente
 
 ## <a name="composite-indexing-policy-examples"></a>Exemplos de política de indexação compósita
 
-Além de incluir ou excluir caminhos para propriedades individuais, também pode especificar um índice composto. Se você gostaria de realizar uma consulta que tenha uma `ORDER BY` cláusula para várias propriedades, é necessário um [índice composto](index-policy.md#composite-indexes) nessas propriedades. Além disso, os índices compostos terão um benefício de desempenho para consultas que têm um filtro e têm uma cláusula ORDER BY em diferentes propriedades.
+Além de incluir ou excluir caminhos para propriedades individuais, também pode especificar um índice composto. Se você gostaria de realizar uma consulta que tenha uma `ORDER BY` cláusula para várias propriedades, é necessário um [índice composto](index-policy.md#composite-indexes) nessas propriedades. Além disso, os índices compostos terão um benefício de desempenho para consultas que tenham um filtro múltiplo ou um filtro e uma cláusula ORDER BY.
 
 > [!NOTE]
 > Os caminhos compostos têm um implícito, uma `/?` vez que apenas o valor escalar nesse caminho é indexado. O `/*` wildcard não é suportado em caminhos compostos. Não deve especificar `/?` ou `/*` num caminho composto.
@@ -314,7 +314,7 @@ Pode definir vários índices compostos diferentes dentro da mesma política de 
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Excluindo todos os caminhos imobiliários, mas mantendo a indexação ativa
 
-Esta política pode ser utilizada em situações em que a [funcionalidade Time-to-Live (TTL)](time-to-live.md) está ativa, mas não é necessário um índice secundário (para utilizar a Azure Cosmos DB como uma loja de valor-chave pura).
+Esta política pode ser utilizada em situações em que a [funcionalidade Time-to-Live (TTL)](time-to-live.md) está ativa, mas não são necessários índices adicionais (para utilizar a Azure Cosmos DB como uma loja de valor-chave pura).
 
 ```json
     {
@@ -360,7 +360,7 @@ Os contentores Azure Cosmos armazenam a sua política de indexação como um doc
 
 1. Abra o painel **do Data Explorer** e selecione o recipiente em que pretende trabalhar.
 
-1. Clique em **Definições de & escala** .
+1. Clique em **Definições de & escala**.
 
 1. Modificar a política de indexação JSON documento (ver exemplos [abaixo)](#indexing-policy-examples)
 
@@ -374,7 +374,7 @@ Para criar um recipiente com uma política de indexação personalizada ver, [cr
 
 ## <a name="use-powershell"></a>Utilizar o PowerShell
 
-Para criar um recipiente com uma política de indexação personalizada ver, [crie um recipiente com uma política de índice personalizado usando Powershell](manage-with-powershell.md#create-container-custom-index)
+Para criar um recipiente com uma política de indexação personalizada ver, [crie um recipiente com uma política de índice personalizado usando o PowerShell](manage-with-powershell.md#create-container-custom-index)
 
 ## <a name="use-the-net-sdk"></a><a id="dotnet-sdk"></a> Utilize o .NET SDK
 

@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 4022ca97f88e2f06d3b4c1eeb103bb60d1856eda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2968fd84febdd3b98aa5d8b42cbf3fb66cad2036
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962150"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289789"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configure o seu Serviço de Aplicações ou app Azure Functions para usar o login AZure AD
 
@@ -35,13 +35,13 @@ Siga estas boas práticas ao configurar a sua app e autenticação:
 > [!NOTE]
 > A opção **Express** não está disponível para nuvens governamentais.
 
-1. No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação.
+1. No [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação.
 2. A partir da navegação à esquerda, selecione **Autenticação / Autorização**  >  **Em**.
 3. Selecione **Azure Ative Directory**  >  **Express**.
 
    Se quiser escolher um registo de aplicações existente:
 
-   1. Escolha **selecionar a aplicação AD existente**e, em seguida, clique na App **AD AZure**.
+   1. Escolha **selecionar a aplicação AD existente** e, em seguida, clique na App **AD AZure**.
    2. Escolha um registo de aplicações existente e clique **em OK.**
 
 3. Selecione **OK** para registar a aplicação Serviço de Aplicações no Diretório Ativo Azure. É criado um novo registo de aplicações.
@@ -72,21 +72,21 @@ Vai precisar das seguintes informações quando configurar a sua aplicação De 
 
 Efetue os seguintes passos:
 
-1. Inscreva-se no [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação. Note o **URL**da sua aplicação. Você vai usá-lo para configurar o seu registo de aplicativo Azure Ative Directory.
+1. Inscreva-se no [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação. Note o **URL** da sua aplicação. Você vai usá-lo para configurar o seu registo de aplicativo Azure Ative Directory.
 1. Selecione **Azure Ative Directory**  >  **App registra**  >  **novo registo**.
 1. Na página **registar uma candidatura,** insira um **Nome** para o registo da sua aplicação.
-1. In **Redirect URI**, selecione **Web** e type `<app-url>/.auth/login/aad/callback` . Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. In **Redirect URI** , selecione **Web** e type `<app-url>/.auth/login/aad/callback` . Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 1. Selecione **Criar**.
 1. Após a criação do registo da aplicação, copie o **ID da Aplicação (cliente)** e o ID do **Diretório (inquilino)** para mais tarde.
-1. Selecione **Autenticação**. Ao abrigo **da concessão implícita**, permita **que os tokens de ID** permitam iniciar ins ins de utilizador OpenID Connect a partir do Serviço de Aplicações.
+1. Selecione **Autenticação**. Ao abrigo **da concessão implícita** , permita **que os tokens de ID** permitam iniciar ins ins de utilizador OpenID Connect a partir do Serviço de Aplicações.
 1. (Opcional) **Selecione Branding**. No **URL da página inicial,** insira o URL da sua aplicação de Serviço de Aplicações e selecione **Save**.
-1. Selecione **Expor um**conjunto de  >  **API**. Para uma aplicação de inquilino único, cole no URL da sua app App Service e selecione **Save** and for multi-tenant app, pasta no URL que se baseia num dos domínios verificados pelo inquilino e, em seguida, selecione **Save.**
+1. Selecione **Expor um** conjunto de  >  **API**. Para uma aplicação de inquilino único, cole no URL da sua app App Service e selecione **Save** and for multi-tenant app, pasta no URL que se baseia num dos domínios verificados pelo inquilino e, em seguida, selecione **Save.**
 
    > [!NOTE]
    > Este valor é o **ID URI da aplicação.** Se a sua aplicação web necessitar de acesso a uma API na nuvem, precisa do **ID URI** da aplicação web quando configurar o recurso cloud App Service. Pode usar isto, por exemplo, se quiser que o serviço de cloud conceda explicitamente acesso à aplicação web.
 
 1. Selecione **Adicionar âmbito**.
-   1. No **nome Scope**, insira *user_impersonation*.
+   1. No **nome Scope** , insira *user_impersonation*.
    1. Nas caixas de texto, insira o nome do âmbito de consentimento e a descrição que pretende que os utilizadores vejam na página de consentimento. Por exemplo, insira *o Access my app*.
    1. Selecione **Adicionar âmbito**.
 1. (Opcional) Para criar um segredo de cliente, selecione **Certificados & segredos**  >  **Novo cliente Secreto**  >  **Add**. Copie o valor secreto do cliente mostrado na página. Não voltará a ser mostrado.
@@ -94,20 +94,20 @@ Efetue os seguintes passos:
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Ativar o Azure Ative Directory na sua aplicação De Serviço de Aplicações
 
-1. No [portal Azure,]procure e selecione **Serviços de Aplicações**e, em seguida, selecione a sua aplicação.
+1. No [portal Azure,]procure e selecione **Serviços de Aplicações** e, em seguida, selecione a sua aplicação.
 1. No painel esquerdo, em **Definições,** selecione **Autenticação / Autorização**  >  **Em**.
 1. (Opcional) Por predefinição, a autenticação do Serviço de Aplicações permite o acesso não autenticado à sua aplicação. Para impor a autenticação do utilizador, detenha **a ação a tomar quando o pedido não for autenticado** para **iniciar sessão com o Azure Ative Directory**.
-1. No âmbito **dos Fornecedores de Autenticação**, selecione **Azure Ative Directory**.
+1. No âmbito **dos Fornecedores de Autenticação** , selecione **Azure Ative Directory**.
 1. No **modo Gestão,** selecione **Autenticação avançada** e configurada do Serviço de Aplicações de acordo com a seguinte tabela:
 
     |Campo|Descrição|
     |-|-|
     |ID de Cliente| Utilize o ID de **Aplicação (cliente)** do registo da aplicação. |
-    |Url emitente| Use `<authentication-endpoint>/<tenant-id>/v2.0` , e *\<authentication-endpoint>* substitua-o pelo ponto final de [autenticação para o seu ambiente em nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, " para a https://login.microsoft.com Azure global), substituindo também *\<tenant-id>* pelo ID do **Diretório (inquilino)** no qual foi criado o registo da aplicação. Este valor é usado para redirecionar os utilizadores para o inquilino AZure AD correto, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de reclamação do emitente simbólico, por exemplo. Para aplicações que usam Azure AD v1 e para aplicações Azure Functions, `/v2.0` omite no URL.|
+    |Url emitente| Use `<authentication-endpoint>/<tenant-id>/v2.0` , e *\<authentication-endpoint>* substitua-o pelo ponto final de [autenticação para o seu ambiente em nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, " para a https://login.microsoftonline.com Azure global), substituindo também *\<tenant-id>* pelo ID do **Diretório (inquilino)** no qual foi criado o registo da aplicação. Este valor é usado para redirecionar os utilizadores para o inquilino AZure AD correto, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de reclamação do emitente simbólico, por exemplo. Para aplicações que usam Azure AD v1 e para aplicações Azure Functions, `/v2.0` omite no URL.|
     |Segredo do Cliente (Opcional)| Use o segredo do cliente que gerou no registo da aplicação.|
     |Audiências token permitidas| Se se trata de uma aplicação de cloud ou servidor e pretender permitir fichas de autenticação a partir de uma aplicação web, adicione aqui o **ID URI** da aplicação web. O **ID do Cliente** configurado é *sempre* implicitamente considerado como um público permitido. |
 
-2. Selecione **OK**e, em seguida, selecione **Guardar**.
+2. Selecione **OK** e, em seguida, selecione **Guardar**.
 
 Está agora pronto para usar o Azure Ative Directory para autenticação na sua aplicação de Serviço de Aplicações.
 
@@ -117,7 +117,7 @@ Pode registar clientes nativos para permitir a autenticação da Web API's hospe
 
 1. No [portal Azure,]selecione **Ative Directory**  >  **App registrs**  >  **Novo registo**.
 1. Na página **registar uma candidatura,** insira um **Nome** para o registo da sua aplicação.
-1. Em **Redirecionamento URI**, selecione **cliente público (mobile & desktop)** e digite o URL `<app-url>/.auth/login/aad/callback` . Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
+1. Em **Redirecionamento URI** , selecione **cliente público (mobile & desktop)** e digite o URL `<app-url>/.auth/login/aad/callback` . Por exemplo, `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
     > [!NOTE]
     > Para uma aplicação da Microsoft Store, utilize o [pacote SID](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#package-sid) como URI.
@@ -125,7 +125,7 @@ Pode registar clientes nativos para permitir a autenticação da Web API's hospe
 1. Após a criação do registo da aplicação, copie o valor do ID da **Aplicação (cliente).**
 1. Selecione **permissões API**  >  **Adicione uma permissão**  >  **As minhas APIs**.
 1. Selecione o registo de aplicações que criou anteriormente para a sua aplicação App Service. Se não vir o registo da aplicação, certifique-se de que adicionou o âmbito **user_impersonation** na [Criação de um registo de aplicações em Azure AD para a sua aplicação de Serviço de Aplicações.](#register)
-1. Sob **permissões delegadas**, selecione **user_impersonation**e, em seguida, selecione **Permissões de adicionar**.
+1. Sob **permissões delegadas** , selecione **user_impersonation** e, em seguida, selecione **Permissões de adicionar**.
 
 Agora configura uma aplicação de cliente nativo que pode aceder à sua aplicação de Serviço de Aplicações em nome de um utilizador.
 
@@ -147,7 +147,7 @@ Neste momento, isto permite que _qualquer_ aplicação do cliente no seu inquili
 1. [Defina uma Função de Aplicação](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) no manifesto do registo da aplicação que representa o Serviço de Aplicações ou aplicação de função que pretende proteger.
 1. No registo da aplicação que representa o cliente que precisa de ser autorizado, selecione **permissões API**  >  **Adicione uma permissão**  >  **As Minhas APIs**.
 1. Selecione o registo de aplicações que criou anteriormente. Se não vir o registo da aplicação, certifique-se de que [adicionou uma App Role](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md).
-1. Sob **permissões de aplicação**, selecione a Função de Aplicação que criou anteriormente e, em seguida, selecione **permissões Adicionar**.
+1. Sob **permissões de aplicação** , selecione a Função de Aplicação que criou anteriormente e, em seguida, selecione **permissões Adicionar**.
 1. Certifique-se de clicar no **consentimento de administração grant** para autorizar o pedido do cliente para solicitar a permissão.
 1. À semelhança do cenário anterior (antes de serem adicionadas quaisquer funções), pode agora [solicitar um token](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) de acesso para o mesmo alvo – e o token de `resource` acesso incluirá uma `roles` reclamação contendo as Funções de Aplicação que foram autorizadas para a aplicação do cliente.
 1. Dentro do código de aplicação target App Service ou Function, pode agora validar que as funções esperadas estão presentes no token (isto não é realizado por Autenticação/Autorização do Serviço de Aplicações). Para obter mais informações, consulte [as reclamações do utilizador do Access.](app-service-authentication-how-to.md#access-user-claims)

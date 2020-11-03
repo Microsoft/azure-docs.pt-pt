@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/13/2019
-ms.openlocfilehash: 92cce0751a400e17f9975d7ae3d10e6612017823
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 8bac53cd08629e8b0a9cb91e596856c0ae6b5a2f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533636"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289116"
 ---
 # <a name="unable-to-access-data-lake-storage-files-in-azure-hdinsight"></a>Não é possível aceder a ficheiros de armazenamento do Data Lake em Azure HDInsight
 
@@ -32,7 +32,7 @@ O utilizador pode ter revogado permissões do principal serviço (SP) em ficheir
 
 ### <a name="resolution"></a>Resolução
 
-1. Verifique se o SP tem permissões 'x' para atravessar ao longo do caminho. Para mais informações, consulte [permissões.](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html) Comando de amostra dfs para verificar o acesso a ficheiros/pastas na conta de armazenamento do Data Lake:
+1. Verifique se o SP tem permissões 'x' para atravessar ao longo do caminho. Para mais informações, consulte [permissões.](https://hdinsight.github.io/ClusterCRUD/ADLS/adls-create-permission-setup.html) Comando de amostra `dfs` para verificar o acesso a ficheiros/pastas na conta de armazenamento do Data Lake:
 
     ```
     hdfs dfs -ls /<path to check access>
@@ -54,13 +54,13 @@ Token Refresh failed - Received invalid http response: 500
 
 O certificado previsto para o acesso principal do Serviço pode ter expirado.
 
-1. SSH em cabeçanode. Verifique o acesso à conta de armazenamento utilizando o seguinte comando dfs:
+1. SSH em cabeçanode. Verifique o acesso à conta de armazenamento utilizando o seguinte `dfs` comando:
 
     ```
     hdfs dfs -ls /
     ```
 
-1. Confirme que a mensagem de erro é semelhante à seguinte:
+1. Confirme que a mensagem de erro é semelhante à seguinte saída:
 
     ```
     {"stderr": "-ls: Token Refresh failed - Received invalid http response: 500, text = Response{protocol=http/1.1, code=500, message=Internal Server Error, url=http://gw0-abccluster.24ajrd4341lebfgq5unsrzq0ue.fx.internal.cloudapp.net:909/api/oauthtoken}}...
@@ -161,16 +161,10 @@ Invoke-AzureRmResourceAction `
 
 ```
 
-Para a atribuição do certificado existente, crie um certificado, tenha o ficheiro .pfx e a palavra-passe pronta. Associe o certificado ao principal de serviço com o que o cluster foi criado e tenha o AppId pronto.
+Para a atribuição do certificado existente, crie um certificado, tenha o ficheiro .pfx e a palavra-passe pronta. Associe o certificado ao principal de serviço com o que o cluster foi criado, utilizando o AppId pronto.
 
 Execute o comando PowerShell depois de substituir os parâmetros pelos valores reais.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
-
-* Obtenha respostas de especialistas da Azure através do [Apoio Comunitário Azure.](https://azure.microsoft.com/support/community/)
-
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
-
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../../includes/hdinsight-troubleshooting-next-steps.md)]

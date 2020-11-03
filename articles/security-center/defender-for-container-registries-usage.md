@@ -7,18 +7,18 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a1357f263c450605025b6f1e9b7bdea47d0d4f58
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370547"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289212"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Utilize o Azure Defender para registos de contentores para digitalizar as suas imagens para obter vulnerabilidades
 
 Esta página explica como usar o scanner de vulnerabilidade incorporado para digitalizar as imagens do contentor armazenadas no registo de contentores Azure, baseado em Azure Resource Manager.
 
-Quando o Azure Defender estiver ativado **para registos de contentores,** qualquer imagem que empurre para o seu registo será imediatamente digitalizada. Além disso, qualquer imagem puxada nos últimos 30 dias também é digitalizada. 
+Quando o **Azure Defender para registos de contentor** estiver ativado, qualquer imagem que emitir para o registo será imediatamente verificada. Além disso, qualquer imagem puxada nos últimos 30 dias também é digitalizada. 
 
 Quando o scanner reporta vulnerabilidades ao Centro de Segurança, o Centro de Segurança apresenta as conclusões e informações relacionadas como recomendações. Além disso, as conclusões incluem informações relacionadas, tais como medidas de reparação, CVEs relevantes, pontuações de CVSS, e muito mais. Pode ver as vulnerabilidades identificadas para uma ou mais subscrições ou para um registo específico.
 
@@ -31,7 +31,7 @@ Quando o scanner reporta vulnerabilidades ao Centro de Segurança, o Centro de S
 |Registos e imagens suportados:|Imagens linux em registos ACR acessíveis a partir da internet pública com acesso a conchas|
 |Registos e imagens não suportados:|Imagens do Windows<br>Registos "privados"<br>Registos com acesso limitado com firewall, ponto final de serviço ou pontos finais privados, tais como Azure Private Link<br>Imagens super minimalistas como imagens [de rascunho de Docker,](https://hub.docker.com/_/scratch/) ou imagens "distroless" que contêm apenas uma aplicação e suas dependências de tempo de execução sem um gestor de pacotes, concha ou SO|
 |Funções e permissões necessárias:|**Leitor de segurança** e [papel de leitor de registo de contentores Azure](../container-registry/container-registry-roles.md)|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim ](./media/icons/yes-icon.png) nuvens comerciais<br>![Yes ](./media/icons/yes-icon.png) US Gov - Apenas a digitalização na função push é suportada atualmente. Saiba mais em [Quando as imagens são digitalizadas?](defender-for-container-registries-introduction.md#when-are-images-scanned)<br>![No ](./media/icons/no-icon.png) China Gov, Other Gov|
 |||
 
 
@@ -139,7 +139,7 @@ Pode utilizar qualquer um dos seguintes critérios:
 
 Para criar uma regra:
 
-1. A partir da página de pormenor de recomendações para **vulnerabilidades em imagens do registo de contentores Azure deve ser remediada**, selecione **Disable rule**.
+1. A partir da página de pormenor de recomendações para **vulnerabilidades em imagens do registo de contentores Azure deve ser remediada** , selecione **Disable rule**.
 1. Selecione o âmbito relevante.
 1. Defina os seus critérios.
 1. **Selecione Aplicar a regra**.
@@ -149,7 +149,7 @@ Para criar uma regra:
 1. Para ver, anular ou apagar uma regra: 
     1. **Selecione Regra de desativação**.
     1. Da lista de âmbito, as subscrições com regras ativas mostram **como regra aplicada**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Criar uma regra de desativação para as conclusões do VA no registo":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modificar ou eliminar uma regra existente":::
     1. Para visualizar ou eliminar a regra, selecione o menu de elipses ("...").
 
 

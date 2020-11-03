@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce96eb5e91ccc4cb9f69711f9e6fd8fd59ce65bc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669940"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286210"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS
 
@@ -33,7 +33,7 @@ Este artigo centra-se nas restrições de inquilinos para o Microsoft 365, mas a
 
 A solução global compreende os seguintes componentes:
 
-1. **Azure AD** : Se o `Restrict-Access-To-Tenants: <permitted tenant list>` presente, a Azure AD apenas emite fichas de segurança para os inquilinos autorizados.
+1. **Azure AD** : Se o `Restrict-Access-To-Tenants: <permitted tenant list>` cabeçalho estiver presente, a Azure AD apenas emite fichas de segurança para os inquilinos autorizados.
 
 2. **Infraestrutura de servidor de procuração no local** : Esta infraestrutura é um dispositivo proxy capaz de inspeção de Segurança da Camada de Transporte (TLS). Você deve configurar o representante para inserir o cabeçalho contendo a lista de inquilinos permitidos no tráfego destinado a Azure AD.
 
@@ -63,11 +63,11 @@ A configuração seguinte é necessária para permitir restrições de inquilino
 
 - Os clientes devem confiar na cadeia de certificados apresentada pelo representante para as comunicações TLS. Por exemplo, se forem utilizados certificados de uma [infraestrutura de chave pública interna (PKI),](/windows/desktop/seccertenroll/public-key-infrastructure) deve ser confiado o certificado interno de autoridade do certificado de emissão de certificados de origem.
 
-- Esta funcionalidade está incluída nas subscrições da Microsoft 365, mas se pretender utilizar as restrições dos inquilinos para controlar o acesso a outras aplicações SaaS, então são necessárias licenças Azure AD Premium 1.
+- As licenças Azure AD Premium 1 são necessárias para o uso de Restrições de Inquilino. 
 
 #### <a name="configuration"></a>Configuração
 
-Para cada pedido de entrada para login.microsoftonline.com, login.microsoft.com e login.windows.net, insira dois cabeçalhos HTTP: *Restrict-Access-To-Tenants* e *Restrict-Access-Context* .
+Para cada pedido de entrada para login.microsoftonline.com, login.microsoft.com e login.windows.net, insira dois cabeçalhos HTTP: *Restrict-Access-To-Tenants* e *Restrict-Access-Context*.
 
 > [!NOTE]
 > Ao configurar a interceção SSL e a injeção do cabeçalho, certifique-se de que o tráfego https://device.login.microsoftonline.com está excluído. Este URL é utilizado para a autenticação do dispositivo e a realização de quebras e inspeções TLS podem interferir com a autenticação do Certificado do Cliente, o que pode causar problemas com o registo do dispositivo e acesso condicional baseado no dispositivo.
@@ -81,7 +81,7 @@ Os cabeçalhos devem incluir os seguintes elementos:
 - Para *restringir o contexto de acesso,* use o valor de um único iD de diretório, declarando qual o inquilino que está estabelecendo as restrições do inquilino. Por exemplo, para declarar Contoso como o inquilino que definiu a política de restrições do arrendatário, o par de nome/valor parece: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  **Tens de** usar a tua própria identificação de diretório neste local.
 
 > [!TIP]
-> Pode encontrar o seu ID de diretório no [portal Azure Ative Directory](https://aad.portal.azure.com/). Inscreva-se como administrador, selecione **Azure Ative Directory** e, em seguida, selecione **Propriedades** . 
+> Pode encontrar o seu ID de diretório no [portal Azure Ative Directory](https://aad.portal.azure.com/). Inscreva-se como administrador, selecione **Azure Ative Directory** e, em seguida, selecione **Propriedades**. 
 >
 > Para validar que um iD de diretório ou nome de domínio se referem ao mesmo inquilino, utilize esse ID ou domínio no lugar <tenant> deste URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration` .  Se os resultados com o domínio e o ID forem os mesmos, referem-se ao mesmo inquilino. 
 
@@ -106,7 +106,7 @@ Enquanto a configuração das restrições de inquilinos é feita na infraestrut
 
 1. Inscreva-se no [portal Azure Ative Directory](https://aad.portal.azure.com/). Aparece o painel de administração **do Azure Ative Directory.**
 
-2. No painel esquerdo, selecione **Azure Active Directory** . Aparece a página geral do Diretório Ativo Azure.
+2. No painel esquerdo, selecione **Azure Active Directory**. Aparece a página geral do Diretório Ativo Azure.
 
 3. Na página 'Visão Geral', **selecione restrições de inquilinos.**
 

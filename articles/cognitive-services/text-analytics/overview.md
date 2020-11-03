@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: aahi
 keywords: mineração de texto, análise de sentimento, análise de texto
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 544de4adb1891c3d558a524466a076daefb42aa4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d58c501af3d90fec1eea43d13fa2383c8e847f18
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89647467"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289702"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
@@ -29,7 +29,9 @@ A API faz parte da [Azure Cognitive Services,](https://docs.microsoft.com/azure/
 
 ## <a name="sentiment-analysis"></a>Análise de sentimentos
 
-Use a análise de [sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md) e descubra o que as pessoas pensam da sua marca ou tópico, minerando o texto para obter pistas sobre sentimentos positivos ou negativos. Esta funcionalidade API devolve uma pontuação de sentimento entre 0 e 1 para cada documento, onde 1 é o mais positivo.
+Use a análise de [sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md) e descubra o que as pessoas pensam da sua marca ou tópico, minerando o texto para obter pistas sobre sentimentos positivos ou negativos. 
+
+A funcionalidade fornece rótulos de sentimento (tais como "negativo", "neutro" e "positivo") com base na pontuação de confiança mais elevada encontrada pelo serviço a nível de uma frase e de documento. Esta funcionalidade também devolve pontuações de confiança entre 0 e 1 por cada documento & frases dentro do mesmo por sentimento positivo, neutro e negativo. Também pode ser executado o serviço nas instalações [utilizando um recipiente.](how-tos/text-analytics-how-to-install-containers.md)
 
 A partir da pré-visualização v3.1, a mineração de opinião é uma característica da Análise do Sentimento. Também conhecida como Análise de Sentimento baseada em Aspetos no Processamento de Linguagem Natural (NLP), esta funcionalidade fornece mais informações granulares sobre as opiniões relacionadas com aspetos (como os atributos de produtos ou serviços) em texto.
 

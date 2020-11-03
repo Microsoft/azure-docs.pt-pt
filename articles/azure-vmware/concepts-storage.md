@@ -2,13 +2,13 @@
 title: Conceitos - Armazenamento
 description: Saiba mais sobre as principais capacidades de armazenamento em nuvens privadas Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 02378040061080d3c9abbfafb26180c9d22e9073
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: 394b755f5dc8fdbcaa6092419e9451ae1691aa67
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316822"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289258"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Conceitos de armazenamento de solução Azure VMware
 
@@ -28,7 +28,7 @@ O armazenamento local em hospedeiros de cluster é usado na loja de dados vSAN e
 
 ## <a name="data-at-rest-encryption"></a>Encriptação de dados em repouso
 
-vSAN datastores usam encriptação de dados em repouso por padrão. A solução de encriptação é baseada em KMS e suporta operações vCenter para gestão de chaves. As chaves são armazenadas encriptadas, embrulhadas por uma chave master Azure Key Vault baseada em HSM. Quando um hospedeiro é removido de um cluster por qualquer motivo, os dados sobre SSDs são invalidados imediatamente.
+vSAN datastores usam encriptação de dados em repouso por padrão. A solução de encriptação é baseada em KMS e suporta operações vCenter para gestão de chaves. As chaves são armazenadas encriptadas, embrulhadas por uma chave principal do Cofre da Chave Azure. Quando um hospedeiro é removido de um cluster por qualquer motivo, os dados sobre SSDs são invalidados imediatamente.
 
 ## <a name="scaling"></a>Dimensionamento
 

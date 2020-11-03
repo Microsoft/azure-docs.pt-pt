@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperfq1
-ms.openlocfilehash: cb310861edc2ba1ee183bc6f996cb1593457e3c7
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 839ba1f8a5215c9059cfeff6e2158165b154f1f7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91972038"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289348"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introduction to Azure managed disks (Introdução aos discos geridos do Azure)
 
@@ -27,7 +27,7 @@ Vamos ver alguns dos benefícios que ganha usando discos geridos.
 
 ### <a name="highly-durable-and-available"></a>Altamente durável e disponível
 
-Os discos geridos são projetados para uma disponibilidade de 99.999%. Os discos geridos conseguem-no fornecendo-lhe três réplicas dos seus dados, permitindo uma elevada durabilidade. Se uma ou mesmo duas réplicas experimentarem problemas, as réplicas restantes ajudam a garantir a persistência dos seus dados e a alta tolerância contra falhas. Esta arquitetura tem ajudado a Azure a oferecer consistentemente durabilidade de qualidade empresarial para infraestruturas como discos de serviço (IaaS), com uma taxa de insucesso anualizada líder no setor.
+Os discos geridos são projetados para uma disponibilidade de 99.999%. Os discos geridos tornam isso possível ao fornecer-lhe três réplicas dos seus dados que lhe proporcionam uma durabilidade elevada. Se ocorrerem problemas numa ou duas réplicas, as restantes ajudarão a garantir a persistência dos seus dados, bem como uma tolerância elevada contra falhas. Esta arquitetura tem ajudado a Azure a oferecer consistentemente durabilidade de qualidade empresarial para infraestruturas como discos de serviço (IaaS), com uma taxa de insucesso anualizada líder no setor.
 
 ### <a name="simple-and-scalable-vm-deployment"></a>Implantação de VM simples e escalável
 
@@ -59,7 +59,7 @@ Para aprender a transferir o seu vhd para Azure, consulte os artigos [CLI](linux
 
 ### <a name="private-links"></a>Links Privados
 
-O suporte private Link para discos geridos está atualmente em pré-visualização, e pode ser usado para importar ou exportar um disco gerido interno para a sua rede. As Ligações Privadas permitem-lhe gerar um URI de assinatura de acesso compartilhado (SAS) com tempo ligado para discos geridos não ligados e instantâneos que pode utilizar para exportar os dados para outras regiões para expansão regional, recuperação de desastres e análise forense. Também pode utilizar o SAS URI para carregar diretamente um VHD para um disco vazio a partir do local. Agora pode aproveitar [as Ligações Privadas](../private-link/private-link-overview.md) para restringir a exportação e importação de discos geridos para que só possa ocorrer dentro da sua rede virtual Azure. O Private Links permite-lhe garantir que os seus dados apenas viajam dentro da rede segura da espinha dorsal da Microsoft.
+O suporte private Link para discos geridos pode ser usado para importar ou exportar um disco gerido interno para a sua rede. As Ligações Privadas permitem-lhe gerar um URI de assinatura de acesso compartilhado (SAS) com tempo ligado para discos geridos não ligados e instantâneos que pode utilizar para exportar os dados para outras regiões para expansão regional, recuperação de desastres e análise forense. Também pode utilizar o SAS URI para carregar diretamente um VHD para um disco vazio a partir do local. Agora pode aproveitar [as Ligações Privadas](../private-link/private-link-overview.md) para restringir a exportação e importação de discos geridos para que só possa ocorrer dentro da sua rede virtual Azure. O Private Links permite-lhe garantir que os seus dados apenas viajam dentro da rede segura da espinha dorsal da Microsoft.
 
 Para saber como permitir links privados para importar ou exportar um disco gerido, consulte os artigos [do CLI](linux/disks-export-import-private-links-cli.md) ou [do Portal.](disks-enable-private-links-for-import-export-portal.md)
 

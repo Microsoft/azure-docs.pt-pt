@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Implementar API Azure para FHIR usando um modelo ARM'
 description: Neste quickstart, aprenda a implementar a API Azure para Recursos de Interoperabilidade de Cuidados rápidos de Saúde (FHIR®), utilizando um modelo de Gestor de Recursos Azure (modelo ARM).
-author: mgblythe
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.author: mblythe
+ms.author: cavoeg
 ms.date: 10/06/2020
-ms.openlocfilehash: 0d045aac63daf99bf67ec79438f55eedd5f200d9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c04bb82810bf55d6ac55b2697f5010896e0eb9b4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521446"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289287"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Quickstart: Use um modelo ARM para implantar API Azure para FHIR
 
@@ -69,19 +69,19 @@ Replace the line above with the following line once https://docs.microsoft.com/a
 
 Selecione o seguinte link para implementar a API Azure para FHIR utilizando o modelo ARM no portal Azure:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implemente para Azure uma API Azure para o serviço FHIR utilizando um modelo ARM no portal Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Implementar para a Azure uma API Azure para o serviço FHIR utilizando o modelo ARM no portal Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
 Na **API de Azure para** a página FHIR:
 
 1. Se desejar, altere a **Subscrição** do padrão para uma subscrição diferente.
 
-2. Para **o grupo de recursos**, selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
+2. Para **o grupo de recursos** , selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
 
 3. Se criou um novo grupo de recursos, selecione uma **Região** para o grupo de recursos.
 
 4. Introduza um novo **Nome de Serviço** e escolha a **localização** da API Azure para FHIR. A localização pode ser a mesma que ou diferente da região do grupo de recursos.
 
-    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Implemente para Azure uma API Azure para o serviço FHIR utilizando um modelo ARM no portal Azure.":::
+    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Implementar a API Azure para FHIR utilizando o modelo ARM no portal Azure.":::
 
 5. Selecione **Rever + criar**.
 
