@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: b6e33f32c6adcea12952474e3f09b45834b85c1e
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 1994cda9dbf22a81216408ee07d51f635e89cff4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164419"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285270"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Criar um FCI com uma partilha de ficheiros premium (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,7 +42,7 @@ Antes de completar as instruções deste artigo, já deve ter:
 ## <a name="mount-premium-file-share"></a>Monte partilha de arquivo premium
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). e ir para a sua conta de armazenamento.
-1. Vá a **''' Arquivar ações** em **serviço de ficheiros**e, em seguida, selecione a partilha de ficheiros premium que pretende utilizar para o seu armazenamento SQL.
+1. Vá a **''' Arquivar ações** em **serviço de ficheiros** e, em seguida, selecione a partilha de ficheiros premium que pretende utilizar para o seu armazenamento SQL.
 1. Selecione **Connect** para aumentar a cadeia de ligação para a sua partilha de ficheiros.
 1. Na lista de drop-down, selecione a letra de unidade que pretende utilizar e, em seguida, copie ambos os blocos de código para o Bloco de Notas.
 
@@ -69,11 +69,11 @@ Antes de completar as instruções deste artigo, já deve ter:
 1. [Adicione o agrupamento de falhas a cada máquina virtual](availability-group-manually-configure-prerequisites-tutorial.md#add-failover-clustering-features-to-both-sql-server-vms).
 
    Para instalar o agrupamento de falhas a partir da UI, faça o seguinte em ambas as máquinas virtuais:
-   1. No **Gestor do Servidor**, selecione **Gerir**e, em seguida, selecione **Adicionar Funções e Funcionalidades**.
+   1. No **Gestor do Servidor** , selecione **Gerir** e, em seguida, selecione **Adicionar Funções e Funcionalidades**.
    1. No assistente **de adicionar funções e funcionalidades,** selecione **Seguinte** até obter **funcionalidades selecionadas**.
-   1. Em **Funcionalidades Selecionadas**, selecione **Clustering Failover**. Inclua todas as funcionalidades necessárias e as ferramentas de gestão. 
+   1. Em **Funcionalidades Selecionadas** , selecione **Clustering Failover**. Inclua todas as funcionalidades necessárias e as ferramentas de gestão. 
    1. Selecione **adicionar funcionalidades**.
-   1. Selecione **Seguinte**e, em seguida, selecione **Finish** para instalar as funcionalidades.
+   1. Selecione **Seguinte** e, em seguida, selecione **Finish** para instalar as funcionalidades.
 
    Para instalar o agrupamento de falhas utilizando o PowerShell, execute o seguinte script a partir de uma sessão PowerShell de administrador numa das máquinas virtuais:
 
@@ -88,15 +88,25 @@ Valide o cluster na UI ou utilizando o PowerShell.
 
 Para validar o cluster utilizando a UI, faça o seguinte numa das máquinas virtuais:
 
-1. Sob **o Gestor do Servidor**, selecione **Ferramentas**e, em seguida, selecione **O Gestor de Cluster Failover**.
-1. Em **'Failover Cluster Manager',** selecione **Ação**e, em seguida, selecione **Validate Configuration**.
+1. Sob **o Gestor do Servidor** , selecione **Ferramentas** e, em seguida, selecione **O Gestor de Cluster Failover**.
+1. Em **'Failover Cluster Manager',** selecione **Ação** e, em seguida, selecione **Validate Configuration**.
 1. Selecione **Seguinte**.
 1. Em **Servidores Selecionados ou num Cluster,** insira os nomes de ambas as máquinas virtuais.
 1. Nas **opções de Teste,** selecione **Executar apenas testes que seleciono**. 
 1. Selecione **Seguinte**.
-1. Em **Seleção de Testes**, selecione todos os testes, exceto para espaços **de armazenamento** e armazenamento **direto,** como mostrado aqui:
+1. Em **Seleção de Testes** , selecione todos os testes, exceto para espaços **de armazenamento** e armazenamento **direto,** como mostrado aqui:
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Copie ambos os comandos PowerShell do portal de ligação de partilha de ficheiros"
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/cluster-validation.png" alt-text="Selecione testes de validação de clusters":::
+
+1. Selecione **Seguinte**.
+1. Em **Confirmação** , selecione **Seguinte**.
+
+O assistente **de validação de uma configuração** executa os testes de validação.
+
+Para validar o cluster utilizando o PowerShell, execute o seguinte script a partir de uma sessão PowerShell de administrador numa das máquinas virtuais:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
    ```
 
 Depois de validar o cluster, crie o cluster de failover.
@@ -139,9 +149,9 @@ Configure a solução de quórum que melhor se adapte às necessidades do seu ne
 
 ## <a name="test-cluster-failover"></a>Falha do cluster de teste
 
-Teste o fracasso do seu aglomerado. No **Failover Cluster Manager,** clique com o botão direito no seu cluster, selecione **Mais Ações**  >  **Move Core Cluster Resource**Select  >  **node**e, em seguida, selecione o outro nó do cluster. Mova o recurso de cluster do núcleo para cada nó do cluster e, em seguida, movimente-o de volta para o nó primário. Se conseguir mover o cluster com sucesso para cada nó, está pronto para instalar o SQL Server.  
+Teste o fracasso do seu aglomerado. No **Failover Cluster Manager,** clique com o botão direito no seu cluster, selecione **Mais Ações**  >  **Move Core Cluster Resource** Select  >  **node** e, em seguida, selecione o outro nó do cluster. Mova o recurso de cluster do núcleo para cada nó do cluster e, em seguida, movimente-o de volta para o nó primário. Se conseguir mover o cluster com sucesso para cada nó, está pronto para instalar o SQL Server.  
 
-:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Copie ambos os comandos PowerShell do portal de ligação de partilha de ficheiros":::
+:::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Falha no cluster de teste, movendo o recurso do núcleo para os outros nos dois":::
 
 
 ## <a name="create-sql-server-fci"></a>Criar SQL Server FCI
@@ -158,17 +168,17 @@ Depois de configurar o cluster failover, pode criar o SQL Server FCI.
 
 1. No **Centro de Instalação do Servidor SQL,** selecione **Instalação**.
 
-1. Selecione **a instalação do cluster de falha**do novo SQL Server e siga as instruções do assistente para instalar o SQL Server FCI.
+1. Selecione **a instalação do cluster de falha** do novo SQL Server e siga as instruções do assistente para instalar o SQL Server FCI.
 
    Os diretórios de dados da FCI têm de estar na parte de ficheiros premium. Insira o caminho completo da partilha, neste formato: `\\storageaccountname.file.core.windows.net\filesharename\foldername` . Aparecerá um aviso, informando-o de que especificou um servidor de ficheiros como diretório de dados. Este aviso é esperado. Certifique-se de que a conta de utilizador utilizada para aceder ao VM via RDP quando persistisse a partilha de ficheiros é a mesma que o serviço SQL Server utiliza para evitar possíveis falhas.
 
-   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Copie ambos os comandos PowerShell do portal de ligação de partilha de ficheiros":::
+   :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/use-file-share-as-data-directories.png" alt-text="Use a partilha de ficheiros como diretórios de dados SQL":::
 
 1. Depois de completar os passos no assistente, a Configuração instalará um SQL Server FCI no primeiro nó.
 
 1. Depois de configurar a INSTALAÇÃO instala o FCI no primeiro nó, ligue-o ao segundo nó utilizando RDP.
 
-1. Abra o **Centro de Instalação do Servidor SQL**e, em seguida, selecione **Instalação**.
+1. Abra o **Centro de Instalação do Servidor SQL** e, em seguida, selecione **Instalação**.
 
 1. **Selecione Adicionar nó a um cluster de falha do sql server**. Siga as instruções do assistente para instalar o SQL Server e adicione o servidor à FCI.
 
@@ -200,7 +210,7 @@ Para encaminhar o tráfego adequadamente para o nó primário atual, configufiqu
 
 - O Coordenador de Transações Distribuídas da Microsoft (MSDTC) não é suportado no Windows Server 2016 e anteriormente. 
 - O Filestream não é suportado por um cluster de failover com uma partilha de ficheiros premium. Para utilizar o fluxo de ficheiros, desloque o seu cluster utilizando os discos partilhados [Desrmessórios Diretos](failover-cluster-instance-storage-spaces-direct-manually-configure.md) ou [Azure.](failover-cluster-instance-azure-shared-disks-manually-configure.md)
-- Apenas é suportado o registo com o fornecedor de recursos SQL VM em [modo de gestão leve.](sql-vm-resource-provider-register.md#management-modes) 
+- Apenas é suportado o registo com o fornecedor de recursos SQL VM em [modo de gestão leve.](sql-server-iaas-agent-extension-automate-management.md#management-modes) 
 
 ## <a name="next-steps"></a>Passos seguintes
 

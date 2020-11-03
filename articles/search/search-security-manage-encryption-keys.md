@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: fdc0ae3fef2fb70b7372ab4fb28497ea6a6400a4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635467"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287160"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configure as chaves geridas pelo cliente para encriptação de dados na Pesquisa Cognitiva Azure
 
@@ -43,13 +43,11 @@ Se estiver a utilizar uma região diferente, ou um serviço criado antes de 1 de
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Neste exemplo são utilizadas as seguintes ferramentas e serviços. 
+Neste cenário são utilizadas as seguintes ferramentas e serviços.
 
-+ [Crie um serviço de Pesquisa Cognitiva](search-create-service-portal.md) ou encontre um [existente.](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
-
-+ [Crie um recurso Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) ou encontre um existente. Tanto o Cofre-Chave como a Procura Cognitiva devem estar na mesma subscrição. O cofre da chave deve ter **proteção de eliminação** e **purga** ativada.
-
-+ [Azure Ative Directory](../active-directory/fundamentals/active-directory-whatis.md) para registar uma aplicação e criar uma cadeia secreta usada pela sua aplicação para autenticar. Se não tiver um, [crie um novo inquilino.](../active-directory/develop/quickstart-create-new-tenant.md)
++ [Pesquisa Cognitiva Azure](search-create-service-portal.md) num [nível de faturação](search-sku-tier.md#tiers) (Básico ou superior, em qualquer região).
++ [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) na mesma subscrição que a Azure Cognitive Search. O cofre da chave deve ter **proteção de eliminação** e **purga** ativada.
++ [Diretório Ativo Azure](../active-directory/fundamentals/active-directory-whatis.md). Se não tiver um, [crie um novo inquilino.](../active-directory/develop/quickstart-create-new-tenant.md)
 
 Deve ter uma aplicação de pesquisa que possa criar o objeto encriptado. Neste código, você vai fazer referência a uma chave de cofre e informações de registo do Ative Directory. Este código pode ser uma aplicação de funcionamento, ou código protótipo, como a amostra de [código C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
@@ -68,7 +66,7 @@ Pode definir ambas as propriedades utilizando os comandos portal, PowerShell ou 
 
 1. Na página **'Visão Geral'** no **âmbito do Essencial,** **ativar a proteção para eliminar** e **purgar.**
 
-### <a name="using-powershell"></a>Com o PowerShell
+### <a name="using-powershell"></a>Utilizar o PowerShell
 
 1. Corre `Connect-AzAccount` para preparar as tuas credenciais do Azure.
 
@@ -110,7 +108,7 @@ Salte este passo se já tiver uma chave no Cofre da Chave Azure.
 
 1. [Inscreva-se no portal Azure](https://portal.azure.com) e abra a página geral do cofre da chave.
 
-1. Selecione **Teclas** à esquerda e, em seguida, **selecione + Gerar/Importar** .
+1. Selecione **Teclas** à esquerda e, em seguida, **selecione + Gerar/Importar**.
 
 1. No painel **de chaves Criar,** a partir da lista de **Opções,** escolha o método que pretende utilizar para criar uma chave. Pode **gerar** uma nova chave, **carregar** uma chave existente ou utilizar **o Restore Backup** para selecionar uma cópia de segurança de uma chave.
 
@@ -118,7 +116,7 @@ Salte este passo se já tiver uma chave no Cofre da Chave Azure.
 
 1. Selecione **Criar** para iniciar a implementação.
 
-1. Tome nota do Identificador chave – é composto pelo **valor-chave Uri** , o **nome-chave** e a **versão chave** . Necessitará do identificador para definir um índice encriptado na Pesquisa Cognitiva Azure.
+1. Tome nota do Identificador chave – é composto pelo **valor-chave Uri** , o **nome-chave** e a **versão chave**. Necessitará do identificador para definir um índice encriptado na Pesquisa Cognitiva Azure.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Criar uma nova chave de cofre":::
 
@@ -126,23 +124,23 @@ Salte este passo se já tiver uma chave no Cofre da Chave Azure.
 
 1. No [portal Azure,](https://portal.azure.com)encontre o recurso Azure Ative Directory para a sua subscrição.
 
-1. À esquerda, em **Manage,** selecione **registos de Aplicações** e, em seguida, selecione **Novo registo** .
+1. À esquerda, em **Manage,** selecione **registos de Aplicações** e, em seguida, selecione **Novo registo**.
 
-1. Dê ao registo um nome, talvez um nome semelhante ao nome do pedido de pesquisa. Selecione **Registar** .
+1. Dê ao registo um nome, talvez um nome semelhante ao nome do pedido de pesquisa. Selecione **Registar**.
 
 1. Assim que o registo da aplicação for criado, copie o ID da aplicação. Terá de fornecer este cordão à sua aplicação. 
 
    Se estiver a passar pelo [DotNetHowToEncryptionUsingCMK,](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK)cole este valor no **appsettings.jsem** ficheiro.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Criar uma nova chave de cofre":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="ID de aplicação na secção Essencial":::
 
 1. Em seguida, **selecione Certificados & segredos** à esquerda.
 
-1. Selecione **Novo segredo do cliente** . Dê ao segredo um nome de exibição e **selecione Adicionar** .
+1. Selecione **Novo segredo do cliente**. Dê ao segredo um nome de exibição e **selecione Adicionar**.
 
 1. Copie o segredo da aplicação. Se estiver a passar pela amostra, cole este valor na **appsettings.jsficheiro.**
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="Criar uma nova chave de cofre":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="Segredo da aplicação":::
 
 ## <a name="4---grant-key-access-permissions"></a>4 - Conceder permissões de acesso à chave
 
@@ -152,21 +150,21 @@ As permissões de acesso podem ser revogadas a qualquer momento. Uma vez revogad
 
 1. Ainda no portal Azure, abra a página **geral do** cofre da chave. 
 
-1. Selecione as **políticas de Acesso** à esquerda e selecione + Adicionar Política de **Acesso** .
+1. Selecione as **políticas de Acesso** à esquerda e selecione + Adicionar Política de **Acesso**.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="Criar uma nova chave de cofre":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="Adicione nova política de acesso ao cofre de chaves":::
 
 1. Escolha **Selecionar o principal** e selecione a aplicação que registou no Ative Directory. Pode procurá-la pelo nome.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Criar uma nova chave de cofre":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Selecione o principal da política de acesso ao cofre":::
 
-1. Nas **permissões chave** , escolha *Obter,* *Desembrulhar a chave* e a chave de *embrulho* .
+1. Nas **permissões chave** , escolha *Obter,* *Desembrulhar a chave* e a chave de *embrulho*.
 
-1. Em **Permissões Secretas** , selecione *Get* .
+1. Em **Permissões Secretas** , selecione *Get*.
 
-1. Nas **Permissões de Certificados** , selecione *Get* .
+1. Nas **Permissões de Certificados** , selecione *Get*.
 
-1. **Selecione Adicionar** e, em seguida, **Guardar** .
+1. **Selecione Adicionar** e, em seguida, **Guardar**.
 
 > [!Important]
 > O conteúdo encriptado em Azure Cognitive Search está configurado para utilizar uma chave Azure Key Vault específica com uma **versão** específica . Se alterar a chave ou versão, o mapa de índice ou sinónimo deve ser atualizado para utilizar a nova versão\chave **antes** de eliminar a chave anterior\versão. Se não o fizer, o índice ou o mapa de sinónimos não serão utilizáveis, pois não conseguirá desencriptar o conteúdo assim que o acesso à chave for perdido.

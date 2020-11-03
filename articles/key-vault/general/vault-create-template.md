@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282314"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285138"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Como criar uma política de acesso a cofre e cofre Azure utilizando um modelo de Gestor de Recursos
 
@@ -84,7 +84,7 @@ O modelo a seguir mostra uma forma básica de criar um cofre chave. Alguns valor
 
 ```
 
-Para obter mais informações sobre as definições do modelo do cofre de chaves, consulte [a referência do modelo key Vault ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
+Para obter mais informações sobre as definições do modelo do cofre de chaves, consulte [a referência do modelo key Vault ARM](/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
 > Se um modelo for redistribuído, quaisquer políticas de acesso existentes no cofre chave serão ultrapassadas. Recomendamos que preencha a `accessPolicies` propriedade com as políticas de acesso existentes para evitar perder o acesso ao cofre chave. 
@@ -160,7 +160,7 @@ Pode implementar políticas de acesso a um cofre de chaves existente sem recoloc
 }
 
 ```
-Para obter mais informações sobre as definições do modelo do Cofre de Chaves, consulte a [referência do modelo key Vault ARM](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+Para obter mais informações sobre as definições do modelo do Cofre de Chaves, consulte a [referência do modelo key Vault ARM](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Mais modelos de gestor de recursos de cofre de cofre
 
@@ -168,13 +168,13 @@ Existem outros modelos de Gestor de Recursos disponíveis para objetos do Cofre 
 
 | Segredos | Chaves | Certificados |
 |--|--|--|
-|<ul><li>[Início rápido](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Referência](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/D|N/D|
+|<ul><li>[Início rápido](../secrets/quick-create-template.md)<li>[Referência](/azure/templates/microsoft.keyvault/vaults/secrets)|N/D|N/D|
 
-Pode encontrar mais modelos de Cofre chave aqui: [referência do Gestor de Recursos do Cofre de Chaves](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
+Pode encontrar mais modelos de Cofre chave aqui: [referência do Gestor de Recursos do Cofre de Chaves](/azure/templates/microsoft.keyvault/allversions).
 
 ## <a name="deploy-the-templates"></a>Implementar os modelos
 
-Pode utilizar o portal Azure para implementar os modelos anteriores utilizando o seu próprio modelo na opção **de editor,** conforme descrito aqui: [Implementar recursos a partir de um modelo personalizado](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
+Pode utilizar o portal Azure para implementar os modelos anteriores utilizando o seu próprio modelo na opção **de editor,** conforme descrito aqui: [Implementar recursos a partir de um modelo personalizado](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 Também pode guardar os modelos anteriores para ficheiros e utilizar estes comandos:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [a implementação do grupo az create](/cli/azure/group/deployment#az-group-deployment-create):
 

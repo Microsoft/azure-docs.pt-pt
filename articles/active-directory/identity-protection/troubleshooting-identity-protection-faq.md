@@ -11,30 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b1c0ef42454b085c5d4dbcdc14162b2c829c6a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074819"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288362"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Perguntas frequentes proteção de identidade no Diretório Ativo Azure
 
 ## <a name="dismiss-user-risk-known-issues"></a>Descartar problemas conhecidos do risco do utilizador
 
-**Descartar o risco do utilizador** na clássica Proteção de Identidade define o ator no histórico de risco do utilizador na Proteção de Identidade para **Azure AD** .
+**Descartar o risco do utilizador** na clássica Proteção de Identidade define o ator no histórico de risco do utilizador na Proteção de Identidade para **Azure AD**.
 
 **Descartar o risco de utilização** na Proteção de Identidade define o ator no histórico de risco do utilizador na Proteção de Identidade para **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
 Existe um problema atual conhecido que causa latência no fluxo de despedimento de risco do utilizador. Se tiver uma "política de risco de utilizador", esta política deixará de se aplicar aos utilizadores dispensados poucos minutos depois de clicar em "Dispensar o risco do utilizador". No entanto, são conhecidos os atrasos com o UX a refrescar o "estado de risco" dos utilizadores dispensados. Como solução, atualize a página no nível do navegador para ver o mais recente utilizador "Estado de risco".
-
-## <a name="risky-users-report-known-issues"></a>Utilizadores arriscados reportam problemas conhecidos
-
-As consultas no campo do nome de **utilizador** são sensíveis a casos, enquanto as consultas no campo **Nome** são agnósticas.
-
-Toggling **Show datas como** oculta a coluna RISK LAST **UPDATE.** Para ler a coluna clique em **Colunas** na parte superior da lâmina do Utilizadores Arriscados.
-
-**Dispensar todos os eventos** na clássica Proteção de Identidade define o estado das deteções de risco para **Fechado (resolvido)** .
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
@@ -84,7 +76,7 @@ Todas as deteções de risco estão documentadas no artigo [O que é o risco](co
 - Além disso, fornecemos a informação aos nossos sistemas de aprendizagem automática para futuras melhorias na avaliação de riscos.
 
     > [!NOTE]
-    > Se o utilizador já estiver remediado, não clique em **Confirmar comprometido** porque move o estado de entrada e risco do utilizador para **confirmado comprometido** e nível de risco para **Alto** .
+    > Se o utilizador já estiver remediado, não clique em **Confirmar comprometido** porque move o estado de entrada e risco do utilizador para **confirmado comprometido** e nível de risco para **Alto**.
 
 **Confirmar segurança** (em sinal de entrada) – Informa a Azure AD Identity Protection que a inscrição foi realizada pelo titular da identidade e não indica um compromisso.
 

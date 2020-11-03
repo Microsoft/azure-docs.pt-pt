@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2781ef69ce85e82dab45a9f890ef5e6862949d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087988"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284495"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Use Aplicativos Lógicos para receber e-mail sobre alterações de estado dos segredos chave do cofre
 
@@ -28,7 +28,7 @@ Para uma visão geral da integração do Azure Key Vault / Azure Event Grid, con
 - Uma conta de e-mail de qualquer fornecedor de e-mail que seja suportado por Azure Logic Apps (como o Office 365 Outlook). Esta conta de e-mail é utilizada para enviar notificações de eventos. Para obter uma lista completa dos conectores suportados do Logic Apps, consulte a [Descrição geral de conectores](/connectors)
 - Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Um cofre chave na sua assinatura Azure. Pode rapidamente criar um novo cofre de chaves seguindo os passos em [set e recuperar um segredo do Azure Key Vault usando o Azure CLI](../secrets/quick-create-cli.md).
-- Rede de Eventos Registada como fornecedor de recursos, consulte os [registos dos fornecedores de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
+- Rede de Eventos Registada como fornecedor de recursos, consulte os [registos dos fornecedores de recursos](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Criar uma App Lógica através da Grelha de Eventos
 
@@ -60,7 +60,7 @@ Para criar uma subscrição da Azure Event Grid, siga estes passos:
 
 1. Construa o seu modelo de e-mail:
     - **Para:** Insira o endereço de e-mail para receber os e-mails de notificação. Neste tutorial, utilize uma conta de e-mail a que pode aceder para fazer o teste.
-    - **Assunto** e **Corpo**: escreva o texto da sua mensagem de e-mail. Selecione as propriedades JSON da ferramenta de seletor para incluir conteúdo dinâmico com base nos dados de eventos. Pode recuperar os dados do evento utilizando `@{triggerBody()?['Data']}` .
+    - **Assunto** e **Corpo** : escreva o texto da sua mensagem de e-mail. Selecione as propriedades JSON da ferramenta de seletor para incluir conteúdo dinâmico com base nos dados de eventos. Pode recuperar os dados do evento utilizando `@{triggerBody()?['Data']}` .
 
     O seu modelo de e-mail pode parecer este exemplo.
 

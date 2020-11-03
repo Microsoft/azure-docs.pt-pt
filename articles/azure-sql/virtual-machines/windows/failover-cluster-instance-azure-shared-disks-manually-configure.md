@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: dd9b84c379f368e4cb4bcf1b5122e394456cd9e8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789765"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285375"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Criar um FCI com discos partilhados Azure (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -151,12 +151,12 @@ Valide o cluster na UI ou utilizando o PowerShell.
 
 Para validar o cluster utilizando a UI, faça o seguinte numa das máquinas virtuais:
 
-1. Sob **o Gestor do Servidor** , selecione **Ferramentas** e, em seguida, selecione **O Gestor de Cluster Failover** .
-1. Em **'Failover Cluster Manager',** selecione **Ação** e, em seguida, selecione **Validate Configuration** .
-1. Selecione **Seguinte** .
+1. Sob **o Gestor do Servidor** , selecione **Ferramentas** e, em seguida, selecione **O Gestor de Cluster Failover**.
+1. Em **'Failover Cluster Manager',** selecione **Ação** e, em seguida, selecione **Validate Configuration**.
+1. Selecione **Seguinte**.
 1. Em **Servidores Selecionados ou num Cluster,** insira os nomes de ambas as máquinas virtuais.
-1. Nas **opções de Teste,** selecione **Executar apenas testes que seleciono** . 
-1. Selecione **Seguinte** .
+1. Nas **opções de Teste,** selecione **Executar apenas testes que seleciono**. 
+1. Selecione **Seguinte**.
 1. Em **Seleção de Testes** , selecione todos os testes, *exceto* **Armazenamento**
 
 ## <a name="test-cluster-failover"></a>Falha do cluster de teste
@@ -175,11 +175,11 @@ Depois de configurar o cluster failover e todos os componentes do cluster, inclu
 
 1. Localize os meios de instalação. Se a máquina virtual utilizar uma das imagens do Azure Marketplace, os meios de comunicação estão localizados em `C:\SQLServer_<version number>_Full` . 
 
-1. Selecione **Configuração** .
+1. Selecione **Configuração**.
 
-1. No **Centro de Instalação do Servidor SQL,** selecione **Instalação** .
+1. No **Centro de Instalação do Servidor SQL,** selecione **Instalação**.
 
-1. Selecione **a instalação de cluster de falha do novo sql server** . Siga as instruções do assistente para instalar o SQL Server FCI.
+1. Selecione **a instalação de cluster de falha do novo sql server**. Siga as instruções do assistente para instalar o SQL Server FCI.
 
 Os diretórios de dados da FCI têm de estar nos Discos Partilhados do Azure. 
 
@@ -187,9 +187,9 @@ Os diretórios de dados da FCI têm de estar nos Discos Partilhados do Azure.
 
 1. Depois de configurar a INSTALAÇÃO instala o FCI no primeiro nó, ligue-o ao segundo nó utilizando RDP.
 
-1. Abra o **Centro de Instalação do Servidor SQL** e, em seguida, selecione **Instalação** .
+1. Abra o **Centro de Instalação do Servidor SQL** e, em seguida, selecione **Instalação**.
 
-1. **Selecione Adicionar nó a um cluster de falha do sql server** . Siga as instruções do assistente para instalar o SQL Server e adicione o servidor à FCI.
+1. **Selecione Adicionar nó a um cluster de falha do sql server**. Siga as instruções do assistente para instalar o SQL Server e adicione o servidor à FCI.
 
    >[!NOTE]
    >Se usou uma imagem de galeria do Azure Marketplace que contém SQL Server, as ferramentas sql Server foram incluídas com a imagem. Se não usou uma dessas imagens, instale as ferramentas SQL Server separadamente. Para mais informações, consulte [o Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -217,7 +217,7 @@ Para encaminhar o tráfego adequadamente para o nó primário atual, configufiqu
 
 ## <a name="limitations"></a>Limitações
 
-- Apenas é suportado o registo com o fornecedor de recursos SQL VM em [modo de gestão leve.](sql-vm-resource-provider-register.md#management-modes)
+- Apenas é suportado o registo com o fornecedor de recursos SQL VM em [modo de gestão leve.](sql-server-iaas-agent-extension-automate-management.md#management-modes)
 
 ## <a name="next-steps"></a>Passos seguintes
 

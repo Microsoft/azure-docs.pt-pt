@@ -12,12 +12,12 @@ ms.date: 10/21/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: efb3c80c9bcd4c4285db5c318aff6c81ce8db636
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e56748df2fb69ace4e9b8d9f6908bc8013176a19
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083393"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287810"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Amostras de código da plataforma de identidade da Microsoft (ponto final v2.0)
 
@@ -55,7 +55,8 @@ As amostras que se seguem ilustram as aplicações web que assinam nos utilizado
 
 | Plataforma | Apenas sinais nos utilizadores | Sinais nos utilizadores e chamadas Microsoft Graph |
 | -------- | ------------------- | --------------------------------- |
-| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [tutorial de sinais de ASP.NET Core WebApp](https://aka.ms/aspnetcore-webapp-sign-in) | A mesma amostra na [aplicação web core ASP.NET chama](https://aka.ms/aspnetcore-webapp-call-msgraph) fase do Microsoft Graph |
+| ![Esta imagem mostra o logotipo do Núcleo ASP.NET](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [tutorial de sinais de ASP.NET Core WebApp](https://aka.ms/aspnetcore-webapp-sign-in) | A mesma amostra na [aplicação web core ASP.NET chama](https://aka.ms/aspnetcore-webapp-call-msgraph) fase do Microsoft Graph</p>Amostra avançada [Aceder à cache simbólica do utilizador registado a partir de aplicações de fundo, APIs e serviços](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) |
+| ![Esta imagem mostra o logótipo do Quadro de ASP.NET](media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | [AD FS para Azure AD aplicação de migração para desenvolvedores](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad) aprender a migrar de forma segura e segura suas aplicações integradas com Serviços da Federação de Diretório Ativo (AD FS) para Azure Ative Directory (Azure AD) | |
 | ![Esta imagem mostra o logótipo do Quadro de ASP.NET](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [ASP.NET Quickstart](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restrito-âmbitos-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
 | ![Esta imagem mostra o logótipo java](media/sample-v2-code/logo_java.png)  |                   | [ms-identidade-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![Esta imagem mostra o logótipo python](media/sample-v2-code/logo_python.png)  | [ms-identidade-python-flask-webapp-autenticação](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [ms-identidade-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
@@ -67,7 +68,8 @@ As seguintes amostras mostram aplicações de clientes públicos (aplicações d
 
 | Aplicação ao cliente | Plataforma | Fluxo/subvenção | Chama o Microsoft Graph | Chama uma API web ASP.NET Core |
 | ------------------ | -------- |  ----------| ---------- | ------------------------- |
-| Desktop (WPF)      | ![Esta imagem mostra o logótipo .NET/C#](media/sample-v2-code/logo_NET.png) | [Código de autorização](msal-authentication-flows.md#authorization-code)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-nativo-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
+| Tutorial de ambiente de trabalho (.NET Core) - Utilização opcional:</p>- a cache simbólica da plataforma transversal</p>- uI web personalizado | ![Esta imagem mostra o logótipo .NET/C#](media/sample-v2-code/logo_NETcore.png) | [Código de autorização](msal-authentication-flows.md#authorization-code)| [ms-identidade-dotnet-desktop-tutorial](https://github.com/azure-samples/ms-identity-dotnet-desktop-tutorial) | |
+| Desktop (WPF)      | ![Esta imagem mostra o logótipo .NET desktop/C#](media/sample-v2-code/logo_NET.png) | [Código de autorização](msal-authentication-flows.md#authorization-code)| [dotnet-desktop-msgraph-v2](https://github.com/azure-samples/active-directory-dotnet-desktop-msgraph-v2) | [dotnet-nativo-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi) |
 | Desktop (Consola)   | ![Imagem que mostra o logótipo .NET/C# (Desktop)](media/sample-v2-code/logo_NET.png) | [Autenticação Integrada do Windows](msal-authentication-flows.md#integrated-windows-authentication) | [dotnet-iwa-v2](https://github.com/azure-samples/active-directory-dotnet-iwa-v2) |  |
 | Desktop (Consola)   | ![Esta imagem mostra o logótipo java](media/sample-v2-code/logo_java.png) | [Autenticação Integrada do Windows](msal-authentication-flows.md#integrated-windows-authentication) |[ms-identidade-java-desktop](https://github.com/Azure-Samples/ms-identity-java-desktop/) |  |
 | Desktop (Consola)   | ![Este é o logótipo .NET/C# (Desktop)](media/sample-v2-code/logo_NETcore.png) | [Nome de utilizador/senha](msal-authentication-flows.md#usernamepassword) |[dotnetcore-up-v2](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2) |  |
@@ -141,4 +143,4 @@ Para conhecer [amostras](https://github.com/microsoftgraph/msgraph-community-sam
 
 ## <a name="see-also"></a>Ver também
 
-[Microsoft Graph API conceptual e referência](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta)
+[Microsoft Graph API conceptual e referência](/graph/use-the-api?context=graph%2fapi%2fbeta&view=graph-rest-beta&preserve-view=true)

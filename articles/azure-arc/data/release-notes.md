@@ -9,18 +9,20 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: e7312ffd4d55f0403359f8aad2d0a8433a716f77
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 2da8bd0b36b553a4b5f85b6f79987ab1a7b8d5a7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280368"
+ms.locfileid: "93286565"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de lançamento - Azure Arc habilitado serviços de dados (Pré-visualização)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="october-2020"></a>Outubro de 2020 
+
+Número da versão Azure Data CLI `azdata` ( 20.2.3. Faça o download em [https://aka.ms/azdata](https://aka.ms/azdata) .
 
 ### <a name="breaking-changes"></a>Alterações interruptivas
 
@@ -32,7 +34,7 @@ Esta versão introduz as seguintes alterações de rutura:
 
 ### <a name="additional-changes"></a>Alterações adicionais
 
-* Um novo parâmetro opcional foi adicionado ao `azdata arc postgres server create` chamado `--volume-claim mounts` . O valor é uma vírgula separada lista de suportes de reivindicação de volume. Um suporte de reivindicação de volume é um par de tipo de volume e nome de PVC. O tipo de volume por enquanto só permite `backup` .  No PostgreSQL, quando o tipo de volume `backup` é, o PVC é montado para `/mnt/db-backups` .  Isto permite a partilha de backups entre instâncias Postgres para que o backup de uma instância postgres possa ser restaurado em outro.
+* Um novo parâmetro opcional foi adicionado ao `azdata arc postgres server create` chamado `--volume-claim mounts` . O valor é uma vírgula separada lista de suportes de reivindicação de volume. Um suporte de reivindicação de volume é um par de tipo de volume e nome de PVC. O único tipo de volume atualmente suportado é `backup` .  No PostgreSQL, quando o tipo de volume `backup` é, o PVC é montado para `/mnt/db-backups` .  Isto permite a partilha de backups entre instâncias PostgresSQL para que a cópia de segurança de uma instância PostgresSQL possa ser restaurada em outro caso.
 
 * Um novo nome curto para definições de recursos personalizados PostgresSQL: 
 
@@ -56,7 +58,9 @@ Esta versão introduz as seguintes alterações de rutura:
 
 * A propriedade do nome de administração sql Managed Instance foi adicionada à coluna direita da lâmina de visão geral no portal Azure.
 
+* O Azure Data Studio suporta o número de nós de trabalho, vCore e definições de memória para um grupo de servidor. 
 
+* A pré-visualização suporta o backup/restauro para as versões 11 e 12 do Postgres.
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -69,7 +73,7 @@ Para obter [instruções, o que são os serviços de dados habilitados a Azure A
 
 ## <a name="known-limitations-and-issues"></a>Limitações e problemas conhecidos
 
-- Os nomes de exemplos geridos pela SQL não podem ser superiores a 13 caracteres
+- Os nomes de exemplo não podem ser superiores a 13 caracteres
 - Não há atualização no local para o controlador de dados do Arco Azure ou casos de base de dados.
 - As imagens do contentor de serviços de dados preparados para o Arc não são assinadas.  Pode ter de configurar os nós do Kubernetes para permitir a solicitação de imagens de contentor não assinadas.  Por exemplo, se estiver a utilizar o Docker como tempo de funcionaamento do contentor, pode definir a variável ambiente DOCKER_CONTENT_TRUST=0 e reiniciar.  Outros runtimes de contentor têm opções semelhantes, como em [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
 - Não é possível criar instâncias geridas pelo SQL ou grupos de servidores de hiperescala PostgreSQL a partir do portal Azure.
@@ -78,10 +82,20 @@ Para obter [instruções, o que são os serviços de dados habilitados a Azure A
 - A criação de um controlador de dados no OpenShift requer restrições de segurança descontraídas.  Para obter mais detalhes, veja a documentação.
 - A redução do número de _nós_ de trabalhadores de hiperescala PostgresSQL não é suportada.
 - Se estiver a utilizar o Motor de Serviço Azure Kubernetes (Motor AKS) no Azure Stack Hub com o controlador de dados Azure Arc e as instâncias de base de dados, o upgrade para uma versão mais recente de Kubernetes não é suportado. Desinstale o controlador de dados do Azure Arc e todas as instâncias da base de dados antes de atualizar o cluster Kubernetes.
-- A pré-visualização não suporta backup/restauro para o motor da versão 11 do Postgres. Só suporta backup/restauro para a versão 12 do Postgres.
+- A pré-visualização não suporta backup/restauro para o motor da versão 11 do Postgres. (Resolvido em outubro de 2020) Só suporta backup/restauro para a versão 12 do Postgres.
 - Azure Kubernetes Service (AKS), clusters que abrangem [várias zonas de disponibilidade](../../aks/availability-zones.md) não são atualmente suportados para serviços de dados habilitados a Azure Arc. Para evitar este problema, quando criar o cluster AKS no portal Azure, se selecionar uma região onde as zonas estão disponíveis, limpe todas as zonas do controlo de seleção. Veja a imagem seguinte:
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Limpe as caixas de verificação para cada zona especificar nenhuma.":::
+
+
+### <a name="known-issues-for-azure-arc-enabled-postgresql-hyperscale"></a>Problemas conhecidos para Azure Arc Enabled PostgreSQL Hyperscale   
+
+- Recriar um grupo de servidor com o nome de um grupo de servidor que foi eliminado pode falhar ou pendurar. 
+   - **Solução alternativa** Não reutilizar o mesmo nome quando recriar um grupo de servidor ou esperar pelo balanceador de carga/serviço externo do grupo de servidores previamente eliminado. Assumindo que o nome do grupo de servidor que apagou era `postgres01` e que estava hospedado num espaço de nome , antes de recriar um grupo de servidor com o `arc` mesmo nome, espere até que não `postgres01-external-svc` apareça na saída do comando kubectl `kubectl get svc -n arc` .
+ 
+- Carregar a página de visão geral e a página de configuração do Computação + Armazenamento no Azure Data Studio é lento. 
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
   

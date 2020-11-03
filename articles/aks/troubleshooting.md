@@ -4,12 +4,12 @@ description: Saiba como resolver problemas e resolver problemas comuns ao utiliz
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074418"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286778"
 ---
 # <a name="aks-troubleshooting"></a>Resolução de problemas do AKS
 
@@ -154,10 +154,10 @@ Siga os passos *antes de iniciar* os passos no doc apropriado para criar correta
 As restrições de nomeação são implementadas tanto pela plataforma Azure como pela AKS. Se um nome de recurso ou parâmetro quebrar uma destas restrições, é devolvido um erro que lhe pede que forneça uma entrada diferente. Aplicam-se as seguintes diretrizes comuns de nomeação:
 
 * Os nomes dos agrupamentos devem ser de 1-63 caracteres. Os únicos caracteres permitidos são letras, números, traços e sublinhados. O primeiro e último personagem deve ser uma letra ou um número.
-* O nome do grupo*MC_* de recursos AKS Node/MC_ combina nome de grupo de recursos e nome de recurso. A sintaxe autogerada `MC_resourceGroupName_resourceName_AzureRegion` não deve ser superior a 80 chars. Se necessário, reduza o comprimento do nome do grupo de recursos ou o nome do cluster AKS. Também pode [personalizar o nome do grupo de recursos de nó](cluster-configuration.md#custom-resource-group-name)
+* O nome do grupo *MC_* de recursos AKS Node/MC_ combina nome de grupo de recursos e nome de recurso. A sintaxe autogerada `MC_resourceGroupName_resourceName_AzureRegion` não deve ser superior a 80 chars. Se necessário, reduza o comprimento do nome do grupo de recursos ou o nome do cluster AKS. Também pode [personalizar o nome do grupo de recursos de nó](cluster-configuration.md#custom-resource-group-name)
 * O *dnsPrefix* deve começar e terminar com valores alfanuméricos e deve estar entre 1-54 caracteres. Os caracteres válidos incluem valores alfanuméricos e hífens (-). O *dnsPrefix* não pode incluir caracteres especiais como um período (.).
 * Os nomes do AKS Node Pool devem ser todos minúsculos e ser caracteres de 1-11 para piscinas de nóleiros linux e 1-6 caracteres para piscinas de nó de janelas. O nome deve começar com uma letra e os únicos caracteres permitidos são letras e números.
-* O *nome de administração-utilizador*, que define o nome de utilizador do administrador para os nós Linux, deve começar com uma letra, pode conter apenas letras, números, hífenes e sublinhados, e tem um comprimento máximo de 64 caracteres.
+* O *nome de administração-utilizador* , que define o nome de utilizador do administrador para os nós Linux, deve começar com uma letra, pode conter apenas letras, números, hífenes e sublinhados, e tem um comprimento máximo de 64 caracteres.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Estou a receber erros ao tentar criar, atualizar, escalar, eliminar ou atualizar o cluster, essa operação não é permitida à medida que outra operação está em andamento.
 
@@ -198,7 +198,7 @@ Ao restringir o tráfego de saída de um cluster AKS, são [necessárias e opcio
 
 Verifique se as suas definições não estão em conflito com nenhuma das portas de saída recomendadas ou opcionais recomendadas ou regras de FQDN/aplicação.
 
-## <a name="im-receiving-429---too-many-requests-errors"></a>Estou a receber erros de "429 - Muitos Pedidos" 
+## <a name="im-receiving-429---too-many-requests-errors"></a>Estou a receber erros de "429 - Muitos Pedidos"
 
 Quando um cluster kubernetes em Azure (AKS ou não) faz uma escala frequente para cima/para baixo ou utiliza o autoescalador de cluster (CA), essas operações podem resultar num grande número de chamadas HTTP que, por sua vez, excedem a quota de subscrição atribuída levando à falha. Os erros vão parecer
 
@@ -213,6 +213,12 @@ A recomunicação da AKS Engineering Team é garantir que está a executar a ver
 Dado que estes erros de estrangulamento são medidos ao nível da subscrição, podem ainda acontecer se:
 - Existem aplicações de terceiros a fazer pedidos GET (por exemplo. aplicações de monitorização, etc...). A recomendação é reduzir a frequência destas chamadas.
 - Há um monte de clusters AKS /nodepools no VMSS. A recomendação habitual é ter menos de 20-30 clusters numa determinada subscrição.
+
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>O estado de provisionamento do meu cluster mudou de Ready to Failed com ou sem eu realizar uma operação. O que devo fazer?
+
+Se o estado de provisionamento do seu cluster mudar de *Ready* to *Failed* com ou sem que realize qualquer operação, mas as aplicações no seu cluster continuam a funcionar, este problema pode ser resolvido automaticamente pelo serviço e as suas aplicações não devem ser afetadas.
+
+Se o estado de provisionamento do seu cluster permanecer como *Falhado* ou as aplicações no seu cluster deixarem de funcionar, [envie um pedido de apoio](https://azure.microsoft.com/support/options/#submit).
 
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Armazenamento Azure e resolução de problemas AKS
@@ -472,9 +478,6 @@ Este erro deve-se a uma condição de corrida de autoescalador de cluster a mont
 
 Nas versões Kubernetes **com mais de 1.15.0,** pode receber um erro como **Error WaitForAttach Não pode encontrar Lun para o disco**.  A solução para esta questão é esperar aproximadamente 15 minutos e voltar a tentar.
 
-<!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
-[cluster-autoscaler]: cluster-autoscaler.md
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Por que as atualizações para Kubernetes 1.16 falham ao usar etiquetas de nó com um prefixo kubernetes.io
 
@@ -487,3 +490,9 @@ Como resultado, para atenuar isto pode:
 3. Eliminar o nodepool mais antigo
 
 A AKS está a investigar a capacidade de mutar rótulos ativos num nodepool para melhorar esta mitigação.
+
+
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6bdf008c13a1466ec47134c303902a1f9d19545b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 707b6d0f8a5fa3cff89339b9b0465d96b5369a34
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072769"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287603"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
@@ -33,9 +33,9 @@ Periodicamente, lançamos uma pré-visualização pública de um novo recurso ke
 
 ## <a name="creating-and-managing-key-vaults"></a>Criar e gerir cofres-chave
 
-A gestão key Vault, semelhante a outros serviços Azure, é feita através do serviço Azure Resource Manager. O Azure Resource Manager é o serviço de implementação e gestão do Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua conta do Azure. Para mais informações, consulte [o Gestor de Recursos Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/overview)
+A gestão key Vault, semelhante a outros serviços Azure, é feita através do serviço Azure Resource Manager. O Azure Resource Manager é o serviço de implementação e gestão do Azure. Fornece uma camada de gestão que lhe permite criar, atualizar e eliminar recursos na sua conta do Azure. Para mais informações, consulte [o Gestor de Recursos Azure](../../azure-resource-manager/management/overview.md)
 
-O acesso à camada de gestão é controlado pelo [controlo de acesso baseado em funções Azure.](https://docs.microsoft.com/azure/role-based-access-control/overview) No Key Vault, a camada de gestão, também conhecida como avião de gestão ou controlo, permite-lhe criar e gerir cofres-chave e seus atributos, incluindo políticas de acesso, mas não chaves, segredos e certificados, que são geridos em plano de dados. Pode utilizar um papel pré-definido `Key Vault Contributor` para conceder acesso à gestão ao Key Vault.     
+O acesso à camada de gestão é controlado pelo [controlo de acesso baseado em funções Azure.](../../role-based-access-control/overview.md) No Key Vault, a camada de gestão, também conhecida como avião de gestão ou controlo, permite-lhe criar e gerir cofres-chave e seus atributos, incluindo políticas de acesso, mas não chaves, segredos e certificados, que são geridos em plano de dados. Pode utilizar um papel pré-definido `Key Vault Contributor` para conceder acesso à gestão ao Key Vault.     
 
 **API's e SDKs para gestão de cofres chave:**
 
@@ -45,7 +45,7 @@ O acesso à camada de gestão é controlado pelo [controlo de acesso baseado em 
 
 Consulte [as Bibliotecas do Cliente](client-libraries.md) para obter pacotes de instalação e código fonte.
 
-Para obter mais informações sobre o avião de gestão key vault, consulte [o Key Vault Management Plane](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac)
+Para obter mais informações sobre o avião de gestão key vault, consulte [o Key Vault Management Plane](./secure-your-key-vault.md#management-plane-and-azure-rbac)
 
 ## <a name="authenticate-to-key-vault-in-code"></a>Autenticar para cofre de chave em código
 
@@ -53,7 +53,7 @@ O Key Vault está a usar a autenticação AD AZure que requer o diretor de segur
 
 ### <a name="authentication-best-practices"></a>Melhores práticas de autenticação
 
-Recomenda-se a utilização de identidade gerida para aplicações implantadas no Azure. Se utilizar os serviços Azure, que não suportam a identidade gerida ou se os pedidos forem implementados no local, [o principal de serviço com um certificado](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) é uma alternativa possível. Nesse cenário, o certificado deve ser armazenado no Cofre de Chaves e rodado frequentemente. Recomenda-se o principal do serviço com segredo para ambientes de desenvolvimento e teste, e localmente ou em Cloud Shell usando o principal utilizador é recomendado.
+Recomenda-se a utilização de identidade gerida para aplicações implantadas no Azure. Se utilizar os serviços Azure, que não suportam a identidade gerida ou se os pedidos forem implementados no local, [o principal de serviço com um certificado](../../active-directory/develop/howto-create-service-principal-portal.md) é uma alternativa possível. Nesse cenário, o certificado deve ser armazenado no Cofre de Chaves e rodado frequentemente. Recomenda-se o principal do serviço com segredo para ambientes de desenvolvimento e teste, e localmente ou em Cloud Shell usando o principal utilizador é recomendado.
 
 Princípios de segurança recomendados por ambiente:
 - **Ambiente de produção:**
@@ -70,12 +70,12 @@ Para obter mais informações sobre o libarário do cliente da Identidade Azure,
 ### <a name="azure-identity-client-libraries"></a>Bibliotecas de clientes de identidade Azure
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
-|[Identidade Azure SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identidade SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Identidade Azure SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Identidade Azure SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
+|[Identidade Azure SDK .NET](/dotnet/api/overview/azure/identity-readme)|[Azure Identidade SDK Python](/python/api/overview/azure/identity-readme)|[Identidade Azure SDK Java](/java/api/overview/azure/identity-readme)|[Identidade Azure SDK JavaScript](/javascript/api/overview/azure/identity-readme)|     
 
 Para tutoriais sobre como autenticar o Key Vault em aplicações, consulte:
-- [Autenticar para Key Vault na aplicação hospedada em VM em .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
-- [Autenticar para Key Vault na aplicação hospedada em VM em Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
-- [Autenticar para cofre de chaves com serviço de aplicações](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)
+- [Autenticar para Key Vault na aplicação hospedada em VM em .NET](./tutorial-net-virtual-machine.md)
+- [Autenticar para Key Vault na aplicação hospedada em VM em Python](./tutorial-python-virtual-machine.md)
+- [Autenticar para cofre de chaves com serviço de aplicações](./tutorial-net-create-vault-azure-web-app.md)
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Gerir chaves, certificados e segredos
 
@@ -104,7 +104,7 @@ O acesso a chaves, segredos e certificados é controlado por um plano de dados. 
 
 Consulte [as Bibliotecas do Cliente](client-libraries.md) para obter pacotes de instalação e código fonte.
 
-Para obter mais informações sobre a segurança do plano de dados do Key Vault, consulte [o Key Vault Data Plane e as políticas](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) de acesso e Key Vault Data Plane e [RBAC (pré-visualização)](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-azure-rbac-preview)
+Para obter mais informações sobre a segurança do plano de dados do Key Vault, consulte [o Key Vault Data Plane e as políticas](./secure-your-key-vault.md#data-plane-and-access-policies) de acesso e Key Vault Data Plane e [RBAC (pré-visualização)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
 
 ### <a name="code-examples"></a>Exemplos de código
 
@@ -117,8 +117,8 @@ Para obter exemplos completos utilizando o Key Vault com as suas aplicações, c
 Os seguintes artigos e cenários fornecem orientações específicas para a tarefa para trabalhar com o Cofre da Chave Azure:
 
 - [Aceder ao Key Vault atrás da firewall](access-behind-firewall.md) - Para aceder a um cofre chave, a aplicação do cliente do cofre principal precisa de ser capaz de aceder a vários pontos finais para várias funcionalidades.
-- Como implementar Certificados para VMs do Key Vault - [Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows), [Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) - Uma aplicação em nuvem em execução num VM em Azure precisa de um certificado. Como é que se consegue este certificado neste VM hoje?
-- [Implementação do Certificado de Aplicação Web Azure através do Cofre de Chaves](https://docs.microsoft.com/azure/app-service/configure-ssl-certificate#import-a-certificate-from-key-vault)
+- Como implementar Certificados para VMs do Key Vault - [Windows](../../virtual-machines/extensions/key-vault-windows.md), [Linux](../../virtual-machines/extensions/key-vault-linux.md) - Uma aplicação em nuvem em execução num VM em Azure precisa de um certificado. Como é que se consegue este certificado neste VM hoje?
+- [Implementação do Certificado de Aplicação Web Azure através do Cofre de Chaves](../../app-service/configure-ssl-certificate.md#import-a-certificate-from-key-vault)
 - Atribuir uma política de acesso[(Portal CLI](assign-access-policy-cli.md)  |  [PowerShell).](assign-access-policy-powershell.md)  |  [Portal](assign-access-policy-portal.md) 
 - [Como utilizar o Key Vault soft-delete com O CLI guia-o](soft-delete-cli.md) através da utilização e ciclo de vida de um cofre de chaves e vários objetos chave do cofre com eliminação suave ativado.
 - [Como passar valores seguros (como palavras-passe) durante](../../azure-resource-manager/templates/key-vault-parameter.md) a implementação - Quando precisa de passar um valor seguro (como uma palavra-passe) como parâmetro durante a implementação, pode armazenar esse valor como segredo num Cofre de Chave Azure e fazer referência ao valor em outros modelos do Gestor de Recursos.
@@ -127,13 +127,13 @@ Os seguintes artigos e cenários fornecem orientações específicas para a tare
 
 Estes artigos são sobre outros cenários e serviços que usam ou integram com o Key Vault.
 
-- [A encriptação em repouso](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) permite a codificação (encriptação) dos dados quando estes são persistidos. As chaves de encriptação de dados são frequentemente encriptadas com uma chave de encriptação chave no Cofre da Chave Azure para limitar ainda mais o acesso.
+- [A encriptação em repouso](../../security/fundamentals/encryption-atrest.md) permite a codificação (encriptação) dos dados quando estes são persistidos. As chaves de encriptação de dados são frequentemente encriptadas com uma chave de encriptação chave no Cofre da Chave Azure para limitar ainda mais o acesso.
 - [A Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) permite-lhe gerente da sua própria chave de inquilino. Por exemplo, em vez de a Microsoft gerir a chave do seu inquilino (o padrão), pode gerir a sua própria chave de inquilino para cumprir os regulamentos específicos que se aplicam à sua organização. A gestão da sua própria chave de inquilino também é referida como Bring Your Own Key (Traga a Sua Própria Chave) ou BYOK.
 - [O Azure Private Link Service](private-link-service.md) permite-lhe aceder aos Serviços Azure (por exemplo, Azure Key Vault, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um Ponto Final Privado na sua rede virtual.
-- A integração do Key Vault com [a Grade de Eventos](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)  permite que os utilizadores sejam notificados quando o estado de um segredo armazenado no cofre da chave tiver mudado. Pode distribuir nova versão de segredos para aplicações ou rodar perto de segredos de validade para evitar interrupções.
-- Pode proteger os seus segredos [do Azure Devops](https://docs.microsoft.com/azure/devops/pipelines/release/azure-key-vault) de acesso indesejado no Key Vault.
-- [Use segredo armazenado no Cofre de Chaves em DataBricks para ligar ao Azure Storage](https://docs.microsoft.com/azure/key-vault/general/integrate-databricks-blob-storage)
-- Configure e executar o fornecedor Azure Key Vault para o [motorista CSI Secrets Store](https://docs.microsoft.com/azure/key-vault/general/key-vault-integrate-kubernetes) em Kubernetes
+- A integração do Key Vault com [a Grade de Eventos](../../event-grid/event-schema-key-vault.md)  permite que os utilizadores sejam notificados quando o estado de um segredo armazenado no cofre da chave tiver mudado. Pode distribuir nova versão de segredos para aplicações ou rodar perto de segredos de validade para evitar interrupções.
+- Pode proteger os seus segredos [do Azure Devops](/azure/devops/pipelines/release/azure-key-vault) de acesso indesejado no Key Vault.
+- [Use segredo armazenado no Cofre de Chaves em DataBricks para ligar ao Azure Storage](./integrate-databricks-blob-storage.md)
+- Configure e executar o fornecedor Azure Key Vault para o [motorista CSI Secrets Store](./key-vault-integrate-kubernetes.md) em Kubernetes
 
 ## <a name="key-vault-overviews-and-concepts"></a>Principais visões e conceitos do Cofre
 
@@ -143,5 +143,5 @@ Estes artigos são sobre outros cenários e serviços que usam ou integram com o
 
 ## <a name="social"></a>Social
 
-- [Key Vault Blog](https://aka.ms/kvblog)
+- [Key Vault Blog](/archive/blogs/kv/)
 - [Fórum do Cofre-Chave](https://aka.ms/kvforum)

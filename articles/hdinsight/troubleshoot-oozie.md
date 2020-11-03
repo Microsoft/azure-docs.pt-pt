@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 04/27/2020
-ms.openlocfilehash: f30c66839228e43f9a6fbdce9914f1ca1572c0ec
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: edbe5274de8576fccb29e1e69d260a6531d4ab05
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538940"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287401"
 ---
 # <a name="troubleshoot-apache-oozie-in-azure-hdinsight"></a>Resolução de problemas Apache Oozie em Azure HDInsight
 
@@ -30,7 +30,7 @@ Seguem-se erros específicos que poderá encontrar e como resolvê-los.
 
 ### <a name="issue"></a>Problema
 
-O estatuto de trabalho muda para **SUSPENDED** . Os detalhes para o trabalho mostram o `RunHiveScript` estado de **START_MANUAL** . A seleção da ação apresenta a seguinte mensagem de erro:
+O estatuto de trabalho muda para **SUSPENDED**. Os detalhes para o trabalho mostram o `RunHiveScript` estado de **START_MANUAL**. A seleção da ação apresenta a seguinte mensagem de erro:
 
 ```output
 JA009: Cannot initialize Cluster. Please check your configuration for map
@@ -50,7 +50,7 @@ Altere os endereços de armazenamento Blob que o trabalho utiliza.
 
 ### <a name="issue"></a>Problema
 
-O estatuto de trabalho muda para **SUSPENDED** . Os detalhes para o trabalho mostram o `RunHiveScript` estado de **START_MANUAL** . Se selecionar a ação, mostra a seguinte mensagem de erro:
+O estatuto de trabalho muda para **SUSPENDED**. Os detalhes para o trabalho mostram o `RunHiveScript` estado de **START_MANUAL**. Se selecionar a ação, mostra a seguinte mensagem de erro:
 
 ```output
 JA002: User: oozie is not allowed to impersonate <USER>
@@ -77,7 +77,7 @@ sudo adduser USERNAME users
 
 ### <a name="issue"></a>Problema
 
-O estatuto de trabalho muda para **KILLED** . Os detalhes do trabalho mostram o `RunSqoopExport` estado de **ERRO** . Se selecionar a ação, mostra a seguinte mensagem de erro:
+O estatuto de trabalho muda para **KILLED**. Os detalhes do trabalho mostram o `RunSqoopExport` estado de **ERRO**. Se selecionar a ação, mostra a seguinte mensagem de erro:
 
 ```output
 Launcher ERROR, reason: Main class [org.apache.oozie.action.hadoop.SqoopMain], exit code [1]
@@ -107,10 +107,4 @@ Por exemplo, para o exemplo de trabalho da [Use Hadoop Oozie workflows](hdinsigh
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se não viu o seu problema ou não conseguir resolver o seu problema, visite um dos seguintes canais para obter mais apoio:
-
-* Obtenha respostas de especialistas da Azure através do [Apoio Comunitário Azure.](https://azure.microsoft.com/support/community/)
-
-* Conecte-se com [@AzureSupport](https://twitter.com/azuresupport) - a conta oficial do Microsoft Azure para melhorar a experiência do cliente. Ligação da comunidade Azure aos recursos certos: respostas, apoio e especialistas.
-
-* Se precisar de mais ajuda, pode submeter um pedido de apoio do [portal Azure.](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/) Selecione **Suporte** na barra de menu ou abra o hub **de suporte Help +.** Para obter informações mais [detalhadas, reveja como criar um pedido de suporte Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). O acesso à Gestão de Subscrições e suporte à faturação está incluído na subscrição do Microsoft Azure, e o Suporte Técnico é fornecido através de um dos Planos de [Suporte Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

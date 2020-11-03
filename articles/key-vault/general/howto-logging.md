@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8a975673bec3b3579eaa699f873fe8c4b1481d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744883"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285651"
 ---
 # <a name="how-to-enable-key-vault-logging"></a>Como permitir a exploração do Cofre de Chaves
 
@@ -147,7 +147,7 @@ O que está registado:
   * Criar, modificar ou apagar estas chaves ou segredos.
   * Assinar, verificar, encriptar, desencriptar, embrulhar e desembrulhar chaves, obter segredos e listar chaves e segredos (e as suas versões).
 * Pedidos não autenticados que resultam numa resposta 401. Exemplos são pedidos que não têm um símbolo ao portador, que são mal formados ou expirados, ou que têm um token inválido.  
-* Eventos de notificação para quase expiração, política de acesso expirado e de acesso ao cofre alterado (o novo evento de versão não está registado). Os eventos são registados independentemente de existir uma subscrição de eventos criada no cofre de chaves. Para mais informações ver, [esquema de eventos da Grade de Eventos para Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
+* Eventos de notificação para quase expiração, política de acesso expirado e de acesso ao cofre alterado (o novo evento de versão não está registado). Os eventos são registados independentemente de existir uma subscrição de eventos criada no cofre de chaves. Para mais informações ver, [esquema de eventos da Grade de Eventos para Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## <a name="access-your-logs"></a>Aceder aos seus registos
 

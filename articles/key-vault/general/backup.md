@@ -10,24 +10,24 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c55c87cd8ab1b2cd1dbaf2c877eb341744d822ef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440523"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287470"
 ---
 # <a name="azure-key-vault-backup"></a>Backup do Cofre de Chaves Azure
 
 Este documento mostra-lhe como fazer o back up secrets, chaves e certificados armazenados no seu cofre de chaves. Uma cópia de segurança destina-se a fornecer-lhe uma cópia offline de todos os seus segredos no caso improvável de perder acesso ao seu cofre de chaves.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Azure Key Vault fornece automaticamente funcionalidades para o ajudar a manter a disponibilidade e a prevenir a perda de dados. Faça o reforço dos segredos apenas se tiver uma justificação crítica de negócio. O backup de segredos no cofre chave pode introduzir desafios operacionais, tais como manter vários conjuntos de registos, permissões e backups quando os segredos expiram ou giram.
 
-O Key Vault mantém a disponibilidade em cenários de desastres e falhará automaticamente sobre os pedidos a uma região emparelhada sem qualquer intervenção de um utilizador. Para mais informações, consulte [a disponibilidade e redundância do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
+O Key Vault mantém a disponibilidade em cenários de desastres e falhará automaticamente sobre os pedidos a uma região emparelhada sem qualquer intervenção de um utilizador. Para mais informações, consulte [a disponibilidade e redundância do Azure Key Vault](./disaster-recovery-guidance.md).
 
-Se pretender proteção contra a eliminação acidental ou maliciosa dos seus segredos, configuure as funcionalidades de proteção para eliminar e limpar o seu cofre. Para obter mais informações, consulte [a visão geral do Azure Key Vault.](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview)
+Se pretender proteção contra a eliminação acidental ou maliciosa dos seus segredos, configuure as funcionalidades de proteção para eliminar e limpar o seu cofre. Para obter mais informações, consulte [a visão geral do Azure Key Vault.](./soft-delete-overview.md)
 
 ## <a name="limitations"></a>Limitações
 
@@ -123,4 +123,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Ligue [o registo e a monitorização](https://docs.microsoft.com/azure/key-vault/general/logging) do Key Vault.
+Ligue [o registo e a monitorização](./logging.md) do Key Vault.

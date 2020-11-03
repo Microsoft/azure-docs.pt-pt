@@ -7,32 +7,33 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 607060851a8afa48b9570dfcb17732279a3629ee
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737846"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286676"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Utilize procedimentos armazenados em SQL de Sinapse
 
-Dicas para implementar procedimentos armazenados na piscina Synapse SQL para o desenvolvimento de soluções.
+Os pools Sinaapse SQL provisões e sem servidor permitem-lhe colocar uma lógica complexa de processamento de dados em procedimentos armazenados pela SQL. Os procedimentos armazenados são uma ótima maneira de encapsular o seu código SQL e armazená-lo perto dos seus dados no armazém de dados. Os procedimentos armazenados ajudam os desenvolvedores a modular as suas soluções, encapsulando o código em unidades manejáveis e facilitando uma maior reutilização do código. Cada procedimento armazenado também pode aceitar parâmetros para torná-los ainda mais flexíveis.
+Neste artigo encontrará algumas dicas para implementar procedimentos armazenados na piscina Synapse SQL para o desenvolvimento de soluções.
 
 ## <a name="what-to-expect"></a>O que esperar
 
-O Sinaapse SQL suporta muitas das funcionalidades T-SQL que são utilizadas no SQL Server. Mais importante ainda, existem funcionalidades específicas de escala que podes usar para maximizar o desempenho da tua solução.
+O Sinaapse SQL suporta muitas das funcionalidades T-SQL que são utilizadas no SQL Server. Mais importante ainda, existem funcionalidades específicas de escala que podes usar para maximizar o desempenho da tua solução. Neste artigo, você vai aprender sobre as funcionalidades que você pode colocar em procedimentos armazenados.
 
 > [!NOTE]
-> No corpo de procedimento pode utilizar apenas as funcionalidades suportadas na área de superfície Synapse SQL. [Reveja este artigo](overview-features.md) para identificar objetos, declaração que pode ser usada em procedimentos armazenados. Nos exemplos destes artigos são utilizadas funcionalidades genéricas que estão disponíveis tanto na área de superfície sem servidor como na superfície a provisionada.
+> No corpo de procedimento pode utilizar apenas as funcionalidades suportadas na área de superfície Synapse SQL. [Reveja este artigo](overview-features.md) para identificar objetos, declaração que pode ser usada em procedimentos armazenados. Nos exemplos destes artigos são utilizadas funcionalidades genéricas que estão disponíveis tanto na área de superfície sem servidor como na superfície a provisionada. Consulte limitações adicionais [nas piscinas Sinaapse SQL a provisionadas e sem servidor](#limitations) no final deste artigo.
 
 Para manter a escala e desempenho da piscina SQL, existem também algumas funcionalidades e funcionalidades que têm diferenças comportamentais e outras que não são suportadas.
 
 ## <a name="stored-procedures-in-synapse-sql"></a>Procedimentos armazenados em Sinapse SQL
 
-Os procedimentos armazenados são uma ótima maneira de encapsular o seu código SQL e armazená-lo perto dos seus dados no armazém de dados. Os procedimentos armazenados ajudam os desenvolvedores a modular as suas soluções, encapsulando o código em unidades manejáveis, facilitando uma maior reutilização do código. Cada procedimento armazenado também pode aceitar parâmetros para torná-los ainda mais flexíveis. No exemplo seguinte, pode ver os procedimentos que deixam cair objetos externos se existirem na base de dados:
+No exemplo seguinte, pode ver os procedimentos que deixam cair objetos externos se existirem na base de dados:
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -184,24 +185,27 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXEBONITO
 
-O SQL de Sinapse não permite que consuma o conjunto de resultados de um procedimento armazenado com uma declaração INSERT. Há uma abordagem alternativa que podes usar. Por exemplo, consulte o artigo sobre [tabelas temporárias](develop-tables-temporary.md) para a piscina Sinaapse SQL.
+A piscina Sinaapse SQL prevista não permite que você consuma o conjunto de resultados de um procedimento armazenado com uma declaração INSERT. Há uma abordagem alternativa que podes usar. Por exemplo, consulte o artigo sobre [tabelas temporárias](develop-tables-temporary.md) para a piscina Sinaapse SQL.
 
 ## <a name="limitations"></a>Limitações
 
 Existem alguns aspetos dos procedimentos armazenados transact-SQL que não são implementados em SQL synapse, tais como:
 
-* procedimentos temporários armazenados
-* procedimentos armazenados numerados
-* procedimentos armazenados alargados
-* Procedimentos armazenados do CLR
-* opção de encriptação
-* opção de replicação
-* parâmetros valorizados pela tabela
-* parâmetros apenas de leitura
-* parâmetros de incumprimento (em piscina a provisionada)
-* contextos de execução
-* declaração de retorno
+| Recurso/opção | Aprovisionado | Sem servidor |
+| --- | --- |
+| Procedimentos temporários armazenados | No | Yes |
+| Procedimentos armazenados numerados | No | No |
+| Procedimentos armazenados expandidos | No | No |
+| Procedimentos armazenados do CLR | No | No |
+| Opção de encriptação | No | Yes |
+| Opção de replicação | No | No |
+| Parâmetros de valor de tabela | No | No |
+| Parâmetros apenas de leitura | No | No |
+| Parâmetros padrão | No | Yes |
+| Contextos de execução | No | No |
+| Declaração de devolução | No | Yes |
+| INSIRA EM .. EXEC | No | Sim |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais dicas de desenvolvimento, consulte [a visão geral do desenvolvimento.](develop-overview.md)

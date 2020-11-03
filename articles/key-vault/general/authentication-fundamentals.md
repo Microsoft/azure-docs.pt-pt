@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604449"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286220"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Princípios Fundamentais da Autenticação do Key Vault
 
@@ -24,8 +24,8 @@ Como administrador, pode controlar rigorosamente quais os utilizadores e aplica�
 
 Este documento pressupõe que está familiarizado com os seguintes conceitos. Se não estiver familiarizado com nenhum destes conceitos, siga os links de ajuda antes de prosseguir.
 
-* Ligação Azure [link](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) Ative Directory
-* Ligação dos diretores de [segurança](https://docs.microsoft.com/azure/key-vault/general/authentication#app-identity-and-security-principals)
+* Ligação Azure [link](../../active-directory/fundamentals/active-directory-whatis.md) Ative Directory
+* Ligação dos diretores de [segurança](./authentication.md#app-identity-and-security-principals)
 
 ## <a name="key-vault-configuration-steps-summary"></a>Resumo dos passos de configuração do cofre da chave
 
@@ -42,8 +42,8 @@ Quando um utilizador ou aplicação faz um pedido para o cofre de chaves, o pedi
 Siga os links de documentação abaixo para entender como registar um utilizador ou aplicação no Azure Ative Directory.
 **Certifique-se de criar uma senha para o registo do utilizador e uma credencial de certificado secreto ou cliente do cliente para aplicações.**
 
-* Registar um utilizador no [link](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) Azure Ative Directory
-* Registo de uma aplicação no [link](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) Azure Ative Directory
+* Registar um utilizador no [link](../../active-directory/fundamentals/add-users-azure-active-directory.md) Azure Ative Directory
+* Registo de uma aplicação no [link](../../active-directory/develop/quickstart-register-app.md) Azure Ative Directory
 
 ## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Atribua ao seu diretor de segurança um papel no Azure Ative Directory
 
@@ -57,8 +57,8 @@ No contexto do cofre-chave, estas atribuições de funções determinam o nível
 >[!NOTE]
 > Quando atribuir uma atribuição de funções a um utilizador ao nível do inquilino do Azure Ative Directory, este conjunto de permissões irá escorrer para todas as subscrições, grupos de recursos e recursos no âmbito da atribuição. Para seguir o principal de menos privilégio pode fazer esta tarefa de papel num âmbito mais granular. Por exemplo, pode atribuir a um utilizador uma função Reader ao nível da subscrição e uma função Proprietário para um único cofre de tecla. Aceda às definições de Gestão de Acesso à Identidade (IAM) de uma subscrição, grupo de recursos ou cofre-chave para fazer uma atribuição de funções num âmbito mais granular.
 
-* Para saber mais sobre o [link](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) de funções do Azure Ative Directory
-* Para saber mais sobre a atribuição ou remoção de [atribuições](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) de funções link
+* Para saber mais sobre o [link](../../role-based-access-control/built-in-roles.md) de funções do Azure Ative Directory
+* Para saber mais sobre a atribuição ou remoção de [atribuições](../../role-based-access-control/role-assignments-portal.md) de funções link
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Configure as principais políticas de acesso ao cofre para o seu diretor de segurança
 
@@ -121,8 +121,8 @@ As atribuições de funções key Vault são um conjunto de atribuições de fun
 
 Para saber mais sobre o Key Vault RBAC, consulte os seguintes documentos:
 
-* Ligação RBAC de [link](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac) cofre chave Azure
-* Ligação Azure Key Vault [link](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) RBAC Roles (Preview)
+* Ligação RBAC de [link](./secure-your-key-vault.md#management-plane-and-azure-rbac) cofre chave Azure
+* Ligação Azure Key Vault [link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) RBAC Roles (Preview)
 
 ## <a name="configure-key-vault-firewall"></a>Configure firewall de cofre de chave
 
@@ -132,9 +132,9 @@ Para ativar a firewall do cofre de chaves, clique no separador 'Rede' no portal 
 
 * Adicione endereços IPv4 à lista de autorizações de firewall do cofre de chaves. Esta opção funciona melhor para aplicações que tenham endereços IP estáticos.
 
-* Adicione uma rede virtual à firewall do cofre da chave. Esta opção funciona melhor para os recursos Azure que têm endereços IP dinâmicos, como máquinas virtuais. Pode adicionar recursos Azure a uma rede virtual e adicionar a rede virtual à lista de autorizações de firewall do cofre chave. Esta opção utiliza um ponto final de serviço que é um endereço IP privado dentro da rede virtual. Isto fornece uma camada adicional de proteção para que nenhum tráfego entre o cofre chave e a sua rede virtual seja encaminhado através da internet pública. Para saber mais sobre o ponto final de serviço consulte a seguinte documentação. [ligação](https://docs.microsoft.com/azure/key-vault/general/network-security)
+* Adicione uma rede virtual à firewall do cofre da chave. Esta opção funciona melhor para os recursos Azure que têm endereços IP dinâmicos, como máquinas virtuais. Pode adicionar recursos Azure a uma rede virtual e adicionar a rede virtual à lista de autorizações de firewall do cofre chave. Esta opção utiliza um ponto final de serviço que é um endereço IP privado dentro da rede virtual. Isto fornece uma camada adicional de proteção para que nenhum tráfego entre o cofre chave e a sua rede virtual seja encaminhado através da internet pública. Para saber mais sobre o ponto final de serviço consulte a seguinte documentação. [ligação](./network-security.md)
 
-* Adicione uma ligação de ligação privada ao cofre da chave. Esta opção liga a sua rede virtual diretamente a um determinado caso de cofre de chaves, efetivamente trazendo o cofre da chave dentro da sua rede virtual. Para saber mais sobre a configuração de uma ligação privada de ponto final ao cofre de chaves, consulte o seguinte [link](https://docs.microsoft.com/azure/key-vault/general/private-link-service)
+* Adicione uma ligação de ligação privada ao cofre da chave. Esta opção liga a sua rede virtual diretamente a um determinado caso de cofre de chaves, efetivamente trazendo o cofre da chave dentro da sua rede virtual. Para saber mais sobre a configuração de uma ligação privada de ponto final ao cofre de chaves, consulte o seguinte [link](./private-link-service.md)
 
 ## <a name="test-your-service-principals-ability-to-access-key-vault"></a>Teste a capacidade do seu diretor de serviço de aceder ao cofre de chaves
 
@@ -142,11 +142,11 @@ Depois de seguir todos os passos acima, poderá definir e recuperar segredos do 
 
 ### <a name="authentication-process-for-users-examples"></a>Processo de autenticação para utilizadores (exemplos)
 
-* Os utilizadores podem iniciar sessão no portal Azure para utilizar o cofre de chaves. [Key Vault portal Quickstart](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+* Os utilizadores podem iniciar sessão no portal Azure para utilizar o cofre de chaves. [Key Vault portal Quickstart](./quick-create-portal.md)
 
-* O utilizador pode utilizar o Azure CLI para utilizar o cofre de chaves. [Key Vault Azure CLI Quickstart](https://docs.microsoft.com/azure/key-vault/general/quick-create-cli)
+* O utilizador pode utilizar o Azure CLI para utilizar o cofre de chaves. [Key Vault Azure CLI Quickstart](./quick-create-cli.md)
 
-* O utilizador pode utilizar o Azure PowerShell para utilizar o cofre de chaves. [Key Vault Azure PowerShell Quickstart](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)
+* O utilizador pode utilizar o Azure PowerShell para utilizar o cofre de chaves. [Key Vault Azure PowerShell Quickstart](./quick-create-powershell.md)
 
 ### <a name="azure-active-directory-authentication-process-for-applications-or-services-examples"></a>Processo de autenticação do Azure Ative Directory para aplicações ou serviços (exemplos)
 
@@ -156,7 +156,7 @@ Depois de seguir todos os passos acima, poderá definir e recuperar segredos do 
 
 * Um recurso Azure utiliza a autenticação MSI para obter um token Azure Ative Directory. 
 
-* Saiba mais sobre [o link](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) de autenticação MSI
+* Saiba mais sobre [o link](../../active-directory/managed-identities-azure-resources/overview.md) de autenticação MSI
 
 ### <a name="authentication-process-for-application-python-example"></a>Processo de autenticação para aplicação (Python Exemplo)
 
@@ -196,4 +196,4 @@ if __name__ == "__main__":
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Para saber mais detalhadamente sobre a autenticação do cofre chave, consulte o seguinte documento. [Autenticação do Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+Para saber mais detalhadamente sobre a autenticação do cofre chave, consulte o seguinte documento. [Autenticação do Key Vault](./authentication.md)

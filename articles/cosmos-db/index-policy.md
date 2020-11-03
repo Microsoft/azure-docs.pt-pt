@@ -4,21 +4,21 @@ description: Aprenda a configurar e alterar a política de indexação padrão p
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: tisande
-ms.openlocfilehash: d0ee7dc8890c228617eaeee8b1cdc72d2230458e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ede2e6b172c867a00f98c6b095381ad5a5f3a323
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082968"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285757"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Políticas de indexação no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-No Azure Cosmos DB, cada contentor tem uma política de indexação que determina como os itens do contentor devem ser indexados. A política de indexação predefinida para os contentores recém-criados indexa todas as propriedades de cada item e aplica índices de intervalo a qualquer cadeia ou número. Tal permite que obtenha um alto desempenho de consulta sem precisar de pensar na indexação e na gestão do índice antecipadamente.
+No Azure Cosmos DB, cada contentor tem uma política de indexação que determina como os itens do contentor devem ser indexados. A política de indexação predefinida para os contentores recém-criados indexa todas as propriedades de cada item e aplica índices de intervalo a qualquer cadeia ou número. Isto permite-lhe obter um bom desempenho de consulta sem ter que pensar em indexar e gestão de índices antecipadamente.
 
-Em algumas situações, poderá querer substituir este comportamento automático para se adequar melhor aos requisitos. Pode personalizar a política de indexação de um recipiente definindo o seu *modo de indexação,* e incluir ou excluir *caminhos de propriedade* .
+Em algumas situações, poderá querer substituir este comportamento automático para se adequar melhor aos requisitos. Pode personalizar a política de indexação de um recipiente definindo o seu *modo de indexação,* e incluir ou excluir *caminhos de propriedade*.
 
 > [!NOTE]
 > O método de atualização das políticas de indexação descritas neste artigo aplica-se apenas à API SQL (Core) da Azure Cosmos DB. Saiba mais sobre a indexação na [API da Azure Cosmos para a MongoDB](mongodb-indexing.md)
@@ -31,7 +31,7 @@ AZure Cosmos DB suporta dois modos de indexação:
 - **Nenhum** : A indexação é desativada no recipiente. Isto é comumente usado quando um recipiente é usado como uma loja de valor-chave pura sem a necessidade de índices secundários. Também pode ser usado para melhorar o desempenho das operações a granel. Após a conclusão das operações a granel, o modo de índice pode ser definido como Consistente e depois monitorizado utilizando o [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) até estar concluído.
 
 > [!NOTE]
-> AZure Cosmos DB também suporta um modo de indexação preguiçoso. A indexação em diferido executa atualizações ao índice com um nível de prioridade muito menor quando o motor não está a realizar qualquer outro trabalho. Tal poderá levar a resultados de consulta **inconsistentes ou incompletos** . Se planear consultar um contentor do Cosmos, não deverá selecionar a indexação em diferido. Em junho de 2020, introduzimos uma alteração que já não permite definir novos contentores para o modo de indexação preguiçoso. Se a sua conta DB Azure Cosmos já tiver pelo menos um recipiente com indexação preguiçosa, esta conta está automaticamente isenta da alteração. Também pode solicitar uma isenção contactando o [suporte Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se estiver a utilizar uma conta Azure Cosmos em modo [sem servidor](serverless.md) que não suporta indexação preguiçosa).
+> AZure Cosmos DB também suporta um modo de indexação preguiçoso. A indexação em diferido executa atualizações ao índice com um nível de prioridade muito menor quando o motor não está a realizar qualquer outro trabalho. Tal poderá levar a resultados de consulta **inconsistentes ou incompletos**. Se planear consultar um contentor do Cosmos, não deverá selecionar a indexação em diferido. Os novos recipientes não podem selecionar uma indexação preguiçosa. Pode solicitar uma isenção contactando o [suporte Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (exceto se estiver a utilizar uma conta Azure Cosmos em modo [sem servidor,](serverless.md) que não suporta uma indexação preguiçosa).
 
 Por predefinição, a política de indexação está definida para `automatic` . É conseguido colocando a `automatic` propriedade na política de indexação para `true` . Configurar esta propriedade para `true` permitir que a Azure CosmosDB indexe automaticamente os documentos à medida que estão escritos.
 
@@ -199,6 +199,7 @@ As seguintes considerações são usadas ao criar índices compostos para consul
 - Se uma propriedade tiver um filtro de alcance ( `>` , , , , ou ), `<` `<=` `>=` `!=` então esta propriedade deve ser definida por último no índice composto. Se uma consulta tiver mais de um filtro de gama, não utilizará o índice composto.
 - Ao criar um índice composto para otimizar consultas com múltiplos filtros, `ORDER` o índice composto não terá qualquer impacto nos resultados. Esta propriedade é opcional.
 - Se não definir um índice composto para uma consulta com filtros em várias propriedades, a consulta continuará a ter sucesso. No entanto, o custo RU da consulta pode ser reduzido com um índice composto.
+- As consultas com ambos os agregados (por exemplo, COUNT ou SUM) e filtros também beneficiam de índices compostos.
 
 Considere os seguintes exemplos em que um índice composto é definido no nome, idade e marca de tempo das propriedades:
 
@@ -206,6 +207,7 @@ Considere os seguintes exemplos em que um índice composto é definido no nome, 
 | ----------------------- | -------------------------------- | -------------- |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```   | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
+| ```(name ASC, age ASC)```   | ```SELECT COUNT(1) FROM c WHERE c.name = "John" AND c.age > 18```   | ```Yes```             |
 | ```(name DESC, age ASC)```    | ```SELECT * FROM c WHERE c.name = "John" AND c.age > 18``` | ```Yes```            |
 | ```(name ASC, age ASC)```     | ```SELECT * FROM c WHERE c.name != "John" AND c.age > 18``` | ```No```             |
 | ```(name ASC, age ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.name = "John" AND c.age = 18 AND c.timestamp > 123049923``` | ```Yes```            |
@@ -246,6 +248,7 @@ SELECT * FROM c WHERE c.name = "John", c.age = 18 ORDER BY c.name, c.age, c.time
 As seguintes considerações são utilizadas na criação de índices compósitos para otimizar uma consulta com um filtro e `ORDER BY` cláusula:
 
 * Se a consulta filtrar as propriedades, estas devem ser incluídas primeiro na `ORDER BY` cláusula.
+* Se a consulta filtrar várias propriedades, os filtros de igualdade devem ser as primeiras propriedades na `ORDER BY` cláusula
 * Se não definir um índice composto numa consulta com um filtro numa propriedade e uma cláusula separada `ORDER BY` usando uma propriedade diferente, a consulta continuará a ter sucesso. No entanto, o custo ru da consulta pode ser reduzido com um índice composto, particularmente se a propriedade na `ORDER BY` cláusula tiver uma cardinalidade elevada.
 * Todas as considerações para a criação de índices compósitos para `ORDER BY` consultas com múltiplas propriedades, bem como consultas com filtros em várias propriedades ainda se aplicam.
 
@@ -253,6 +256,8 @@ As seguintes considerações são utilizadas na criação de índices compósito
 | **Índice Composto**                      | **`ORDER BY`Consulta de amostras**                                  | **Suportado por Índice Composto?** |
 | ---------------------------------------- | ------------------------------------------------------------ | --------------------------------- |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" AND c.timestamp > 1589840355 ORDER BY c.name ASC, c.timestamp ASC``` | `Yes` |
+| ```(timestamp ASC, name ASC)```          | ```SELECT * FROM c WHERE c.timestamp > 1589840355 AND c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No` |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC, c.name ASC``` | `No`  |
 | ```(name ASC, timestamp ASC)```          | ```SELECT * FROM c WHERE c.name = "John" ORDER BY c.timestamp ASC``` | ```No```   |
 | ```(age ASC, name ASC, timestamp ASC)``` | ```SELECT * FROM c WHERE c.age = 18 and c.name = "John" ORDER BY c.age ASC, c.name ASC,c.timestamp ASC``` | `Yes` |
@@ -260,7 +265,7 @@ As seguintes considerações são utilizadas na criação de índices compósito
 
 ## <a name="modifying-the-indexing-policy"></a>Modificação da política de indexação
 
-A política de indexação de um contentor pode ser atualizada a qualquer momento [utilizando o portal Azure ou um dos SDKs suportados](how-to-manage-indexing-policy.md). Uma atualização da política de indexação desencadeia uma transformação do índice antigo para o novo, que é realizado online e no local (pelo que não é consumido nenhum espaço adicional de armazenamento durante a operação). O índice da velha política é eficientemente transformado para a nova política sem afetar a disponibilidade de escrita, a disponibilidade de leitura ou a produção prevista no contentor. A transformação do índice é uma operação assíncronea, e o tempo que leva para completar depende da produção prevista, do número de itens e do seu tamanho.
+A política de indexação de um contentor pode ser atualizada a qualquer momento [utilizando o portal Azure ou um dos SDKs suportados](how-to-manage-indexing-policy.md). Uma atualização da política de indexação desencadeia uma transformação do índice antigo para o novo, que é realizado online e no local (pelo que não é consumido nenhum espaço adicional de armazenamento durante a operação). A velha política de indexação é eficientemente transformada para a nova política sem afetar a disponibilidade de escrita, a disponibilidade de leitura ou a produção prevista no contentor. A transformação do índice é uma operação assíncronea, e o tempo que leva para completar depende da produção prevista, do número de itens e do seu tamanho.
 
 > [!IMPORTANT]
 > A transformação do índice é uma operação que consome [Unidades de Pedido.](request-units.md) As unidades de pedido consumidas por uma transformação de índice não são atualmente faturadas se estiver a utilizar recipientes [sem servidor.](serverless.md) Estas Unidades de Pedido serão faturadas assim que o servidor não estiver disponível.
@@ -281,14 +286,10 @@ Ao remover índices e executar imediatamente consultas que filtram nos índices 
 
 A utilização da [função Time-to-Live (TTL)](time-to-live.md) requer indexação. Isto significa que:
 
-- não é possível ativar o TTL num recipiente onde o modo de indexação é definido para Nenhum,
+- não é possível ativar o TTL num recipiente onde o modo de indexação está definido para `none` ,
 - não é possível definir o modo de indexação a Nenhum num recipiente onde o TTL é ativado.
 
-Para cenários em que não é necessário indexar nenhum caminho imobiliário, mas o TTL é necessário, pode utilizar uma política de indexação com:
-
-- um modo de indexação definido para Consistente, e
-- nenhum caminho incluído, e
-- `/*` como o único caminho excluído.
+Para cenários em que não é necessário indexar nenhuma trajetória imobiliária, mas o TTL é necessário, pode utilizar uma política de indexação com um modo de indexação definido para `consistent` , sem caminhos incluídos, e `/*` como o único caminho excluído.
 
 ## <a name="next-steps"></a>Passos seguintes
 

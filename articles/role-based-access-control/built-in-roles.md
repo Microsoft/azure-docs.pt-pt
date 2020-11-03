@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 60e9ec88fd07d8b04254c5d3917aab09d671f517
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 701c901cb9b85aeaf329846c13e6ed051ea52e63
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900870"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288505"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -24,10 +24,10 @@ Este artigo lista os papéis incorporados do Azure, que estão sempre a evoluir.
 
 A tabela seguinte fornece uma breve descrição e a identificação única de cada papel incorporado. Clique no nome da função para ver a lista de `Actions` , , e para cada `NotActions` `DataActions` `NotDataActions` papel. Para obter informações sobre o que estas ações significam e como se aplicam aos aviões de gestão e dados, consulte as definições de [funções do Understand Azure](role-definitions.md).
 
-## <a name="all"></a>Tudo
+## <a name="all"></a>Todos
 
 > [!div class="mx-tableFixed"]
-> | Papel incorporado | Descrição | ID |
+> | Papel incorporado | Description | ID |
 > | --- | --- | --- |
 > | **Geral** |  |  |
 > | [Contribuinte](#contributor) | Concede acesso total para gerir todos os recursos, mas não lhe permite atribuir funções no Azure RBAC. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -77,6 +77,12 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | **Web** |  |  |
 > | [Leitor de dados Azure Maps](#azure-maps-data-reader) | Concede acesso a ler dados relacionados com mapas a partir de uma conta de mapas Azure. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Colaborador do Serviço de Pesquisa](#search-service-contributor) | Permite-lhe gerir os serviços de Pesquisa, mas não o acesso aos mesmos. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
+> | [Leitor Signalr AccessKey](#signalr-accesskey-reader) | Leia as teclas de acesso do serviço Signalr | 04165923-9d83-45d5-8227-78b77b0a687e |
+> | [Servidor de aplicativo SignalR (pré-visualização)](#signalr-app-server-preview) | Permite que o seu servidor de aplicações aceda ao Serviço SignalR com opções de auth AAD. | 420fcaa2-552c-430f-98ca-3264be4806c7 |
+> | [Contribuinte SignalR](#signalr-contributor) | Criar, Ler, Atualizar e Eliminar recursos de serviço SignalR | 8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761 |
+> | [Contribuinte sem servidor SignalR (pré-visualização)](#signalr-serverless-contributor-preview) | Permite que o seu serviço de acesso à aplicação em modo sem servidor com opções de auth AAD. | fd53cd77-2268-407a-8f46-7e7863d0f521 |
+> | [Proprietário do serviço SignalR (pré-visualização)](#signalr-service-owner-preview) | Acesso total às APIs de DESCANSO do Serviço Azure SignalR | 7e4f1700-ea5a-4f59-8f37-079cfe29dce3 |
+> | [SignalR Service Reader (Pré-visualização)](#signalr-service-reader-preview) | Acesso apenas de leitura às APIs de DESCANSO do Serviço Azure SignalR | ddde6b66-c0df-4114-a159-3618637b3035 |
 > | [Colaborador do Plano Web](#web-plan-contributor) | Permite-lhe gerir os planos web para sites, mas não acesso aos mesmos. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0f0a4b |
 > | [Colaborador do Site](#website-contributor) | Permite-lhe gerir websites (não planos web), mas não acesso aos mesmos. | de139f84-1756-47ae-9be6-808fbbe84772 |
 > | **Contentores** |  |  |
@@ -219,7 +225,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 
 ### <a name="contributor"></a>Contribuinte
 
-Concede acesso total para gerir todos os recursos, mas não lhe permite atribuir funções no Azure RBAC. [Saber mais](rbac-and-directory-admin-roles.md)
+Concede acesso total para gerir todos os recursos, mas não lhe permite atribuir funções no Azure RBAC. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -268,7 +274,7 @@ Concede acesso total para gerir todos os recursos, mas não lhe permite atribuir
 
 ### <a name="owner"></a>Proprietário
 
-Concede acesso total à gestão de todos os recursos, incluindo a capacidade de atribuir funções no Azure RBAC. [Saber mais](rbac-and-directory-admin-roles.md)
+Concede acesso total à gestão de todos os recursos, incluindo a capacidade de atribuir funções no Azure RBAC. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -307,7 +313,7 @@ Concede acesso total à gestão de todos os recursos, incluindo a capacidade de 
 
 ### <a name="reader"></a>Leitor
 
-Ver todos os recursos, mas não lhe permite fazer quaisquer alterações. [Saber mais](rbac-and-directory-admin-roles.md)
+Ver todos os recursos, mas não lhe permite fazer quaisquer alterações. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -346,7 +352,7 @@ Ver todos os recursos, mas não lhe permite fazer quaisquer alterações. [Saber
 
 ### <a name="user-access-administrator"></a>Administrador de Acesso dos Utilizadores
 
-Permite-lhe gerir o acesso do utilizador aos recursos Azure. [Saber mais](rbac-and-directory-admin-roles.md)
+Permite-lhe gerir o acesso do utilizador aos recursos Azure. [Saiba mais](rbac-and-directory-admin-roles.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -514,7 +520,7 @@ Ver Máquinas Virtuais no portal e iniciar sessão como administrador [Saiba mai
 
 ### <a name="virtual-machine-contributor"></a>Contribuidor de Máquina Virtual
 
-Permite-lhe gerir máquinas virtuais, mas não acesso a elas, e não à rede virtual ou à conta de armazenamento a que estão ligadas. [Saber mais](../virtual-machines/linux/tutorial-govern-resources.md)
+Permite-lhe gerir máquinas virtuais, mas não acesso a elas, e não à rede virtual ou à conta de armazenamento a que estão ligadas. [Saiba mais](../virtual-machines/linux/tutorial-govern-resources.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -633,7 +639,7 @@ Permite-lhe gerir máquinas virtuais, mas não acesso a elas, e não à rede vir
 
 ### <a name="virtual-machine-user-login"></a>Início de sessão do utilizador de máquina virtual
 
-Ver Máquinas Virtuais no portal e iniciar sessão como um utilizador regular. [Saber mais](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
+Ver Máquinas Virtuais no portal e iniciar sessão como um utilizador regular. [Saiba mais](../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -680,7 +686,7 @@ Ver Máquinas Virtuais no portal e iniciar sessão como um utilizador regular. [
 }
 ```
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 
 ### <a name="cdn-endpoint-contributor"></a>Colaborador de Ponto Final cdn
@@ -791,7 +797,7 @@ Pode ver os pontos finais do CDN, mas não pode fazer alterações.
 
 ### <a name="cdn-profile-contributor"></a>Colaborador de perfil CDN
 
-Pode gerir perfis de CDN e seus pontos finais, mas não pode dar acesso a outros utilizadores. [Saber mais](../cdn/cdn-app-dev-net.md)
+Pode gerir perfis de CDN e seus pontos finais, mas não pode dar acesso a outros utilizadores. [Saiba mais](../cdn/cdn-app-dev-net.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -897,7 +903,7 @@ Pode ver perfis de CDN e seus pontos finais, mas não pode fazer alterações.
 
 ### <a name="classic-network-contributor"></a>Contribuidor de Rede Clássica
 
-Permite-lhe gerir redes clássicas, mas não acesso a elas. [Saber mais](../virtual-network/virtual-network-manage-peering.md)
+Permite-lhe gerir redes clássicas, mas não acesso a elas. [Saiba mais](../virtual-network/virtual-network-manage-peering.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -948,7 +954,7 @@ Permite-lhe gerir redes clássicas, mas não acesso a elas. [Saber mais](../virt
 
 ### <a name="dns-zone-contributor"></a>Colaborador da Zona DNS
 
-Permite gerir zonas DNS e recordes em Azure DNS, mas não permite controlar quem tem acesso a elas. [Saber mais](../dns/dns-protect-zones-recordsets.md)
+Permite gerir zonas DNS e recordes em Azure DNS, mas não permite controlar quem tem acesso a elas. [Saiba mais](../dns/dns-protect-zones-recordsets.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -1050,7 +1056,7 @@ Permite-lhe gerir as redes, mas não ter acesso a elas.
 
 ### <a name="private-dns-zone-contributor"></a>Colaborador privado da zona do DNS
 
-Permite-lhe gerir recursos privados de zona de DNS, mas não as redes virtuais a que estão ligadas. [Saber mais](../dns/dns-protect-private-zones-recordsets.md)
+Permite-lhe gerir recursos privados de zona de DNS, mas não as redes virtuais a que estão ligadas. [Saiba mais](../dns/dns-protect-private-zones-recordsets.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -1161,7 +1167,7 @@ Permite-lhe gerir perfis de Gestor de Tráfego, mas não permite que controle qu
 
 ### <a name="avere-contributor"></a>Contribuidor Avere
 
-Pode criar e gerir um cluster Avere vFXT. [Saber mais](../avere-vfxt/avere-vfxt-deploy-plan.md)
+Pode criar e gerir um cluster Avere vFXT. [Saiba mais](../avere-vfxt/avere-vfxt-deploy-plan.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -1782,7 +1788,7 @@ Os operadores clássicos da conta de armazenamento são autorizados a listar e r
 
 ### <a name="data-box-contributor"></a>Contribuinte da Caixa de Dados
 
-Permite-lhe gerir tudo no âmbito do Serviço de Caixa de Dados, exceto dar acesso a outros. [Saber mais](../databox/data-box-logs.md)
+Permite-lhe gerir tudo no âmbito do Serviço de Caixa de Dados, exceto dar acesso a outros. [Saiba mais](../databox/data-box-logs.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -1831,7 +1837,7 @@ Permite-lhe gerir tudo no âmbito do Serviço de Caixa de Dados, exceto dar aces
 
 ### <a name="data-box-reader"></a>Leitor de caixa de dados
 
-Permite-lhe gerir o Serviço de Caixa de Dados, exceto criar detalhes de encomenda ou edição e dar acesso a outros. [Saber mais](../databox/data-box-logs.md)
+Permite-lhe gerir o Serviço de Caixa de Dados, exceto criar detalhes de encomenda ou edição e dar acesso a outros. [Saiba mais](../databox/data-box-logs.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -1888,7 +1894,7 @@ Permite-lhe gerir o Serviço de Caixa de Dados, exceto criar detalhes de encomen
 
 ### <a name="data-lake-analytics-developer"></a>Desenvolvedor de Análise de Lago de Dados
 
-Permite submeter, monitorizar e gerir os seus próprios trabalhos, mas não criar ou apagar contas data lake analytics. [Saber mais](../data-lake-analytics/data-lake-analytics-manage-use-portal.md)
+Permite submeter, monitorizar e gerir os seus próprios trabalhos, mas não criar ou apagar contas data lake analytics. [Saiba mais](../data-lake-analytics/data-lake-analytics-manage-use-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2012,7 +2018,7 @@ Permite-lhe ver tudo, mas não permitirá que elimine ou crie uma conta de armaz
 
 ### <a name="storage-account-contributor"></a>Contribuidor de Conta de Armazenamento
 
-Permite a gestão das contas de armazenamento. Fornece acesso à chave da conta, que pode ser usada para aceder a dados através da autorização da Chave Partilhada. [Saber mais](../storage/common/storage-auth-aad.md)
+Permite a gestão das contas de armazenamento. Fornece acesso à chave da conta, que pode ser usada para aceder a dados através da autorização da Chave Partilhada. [Saiba mais](../storage/common/storage-auth-aad.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2067,7 +2073,7 @@ Permite a gestão das contas de armazenamento. Fornece acesso à chave da conta,
 
 ### <a name="storage-account-key-operator-service-role"></a>Papel de serviço chave de operador de conta de armazenamento
 
-Permite a listagem e regeneração das chaves de acesso à conta de armazenamento. [Saber mais](../storage/common/storage-account-keys-manage.md)
+Permite a listagem e regeneração das chaves de acesso à conta de armazenamento. [Saiba mais](../storage/common/storage-account-keys-manage.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2108,7 +2114,7 @@ Permite a listagem e regeneração das chaves de acesso à conta de armazenament
 
 ### <a name="storage-blob-data-contributor"></a>Contribuinte de Dados do Armazenamento de Blobs
 
-Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saber mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2161,7 +2167,7 @@ Leia, escreva e elimine os recipientes e bolhas de armazenamento Azure. Para sab
 
 ### <a name="storage-blob-data-owner"></a>Proprietário dos Dados do Armazenamento de Blobs
 
-Fornece acesso total aos recipientes e dados blob de armazenamento Azure, incluindo a atribuição do controlo de acesso POSIX. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saber mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Fornece acesso total aos recipientes e dados blob de armazenamento Azure, incluindo a atribuição do controlo de acesso POSIX. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2204,7 +2210,7 @@ Fornece acesso total aos recipientes e dados blob de armazenamento Azure, inclui
 
 ### <a name="storage-blob-data-reader"></a>Leitor de Dados do Armazenamento de Blobs
 
-Leia e enuncie os recipientes e bolhas de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saber mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Leia e enuncie os recipientes e bolhas de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2247,7 +2253,7 @@ Leia e enuncie os recipientes e bolhas de armazenamento Azure. Para saber quais 
 
 ### <a name="storage-blob-delegator"></a>Delegado blob de armazenamento
 
-Obtenha uma chave de delegação de utilizador, que pode ser usada para criar uma assinatura de acesso partilhado para um recipiente ou bolha que é assinado com credenciais AZure AD. Para mais informações, consulte [Criar uma delegação de utilizador SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). [Saber mais](https://docs.microsoft.com/rest/api/storageservices/get-user-delegation-key)
+Obtenha uma chave de delegação de utilizador, que pode ser usada para criar uma assinatura de acesso partilhado para um recipiente ou bolha que é assinado com credenciais AZure AD. Para mais informações, consulte [Criar uma delegação de utilizador SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas). [Saiba mais](https://docs.microsoft.com/rest/api/storageservices/get-user-delegation-key)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2286,7 +2292,7 @@ Obtenha uma chave de delegação de utilizador, que pode ser usada para criar um
 
 ### <a name="storage-file-data-smb-share-contributor"></a>Contribuinte de Partilhas SMB de Dados de Ficheiros de Armazenamento
 
-Permite ler, escrever e eliminar o acesso em ficheiros/diretórios em ações de ficheiros Azure. Esta função não tem equivalente incorporado nos servidores de ficheiros Windows. [Saber mais](../storage/files/storage-files-identity-auth-active-directory-enable.md)
+Permite ler, escrever e eliminar o acesso em ficheiros/diretórios em ações de ficheiros Azure. Esta função não tem equivalente incorporado nos servidores de ficheiros Windows. [Saiba mais](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2329,7 +2335,7 @@ Permite ler, escrever e eliminar o acesso em ficheiros/diretórios em ações de
 
 ### <a name="storage-file-data-smb-share-elevated-contributor"></a>Contribuinte Elevado de Partilhas SMB de Dados de Ficheiros de Armazenamento
 
-Permite ler, escrever, excluir e modificar ACLs em ficheiros/diretórios em ações de ficheiros Azure. Esta função equivale a uma partilha de ficheiros ACL de alteração nos servidores de ficheiros do Windows. [Saber mais](../storage/files/storage-files-identity-auth-active-directory-enable.md)
+Permite ler, escrever, excluir e modificar ACLs em ficheiros/diretórios em ações de ficheiros Azure. Esta função equivale a uma partilha de ficheiros ACL de alteração nos servidores de ficheiros do Windows. [Saiba mais](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2374,7 +2380,7 @@ Permite ler, escrever, excluir e modificar ACLs em ficheiros/diretórios em aç�
 
 ### <a name="storage-file-data-smb-share-reader"></a>Leitor de Partilhas SMB de Dados de Ficheiros de Armazenamento
 
-Permite o acesso de leitura em ficheiros/diretórios em ações de ficheiros Azure. Esta função equivale a uma partilha de ficheiros ACL de leitura em servidores de ficheiros Windows. [Saber mais](../storage/files/storage-files-identity-auth-active-directory-enable.md)
+Permite o acesso de leitura em ficheiros/diretórios em ações de ficheiros Azure. Esta função equivale a uma partilha de ficheiros ACL de leitura em servidores de ficheiros Windows. [Saiba mais](../storage/files/storage-files-identity-auth-active-directory-enable.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2413,7 +2419,7 @@ Permite o acesso de leitura em ficheiros/diretórios em ações de ficheiros Azu
 
 ### <a name="storage-queue-data-contributor"></a>Colaborador de dados de fila de armazenamento
 
-Leia, escreva e elimine as filas de armazenamento do Azure e as mensagens de fila. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saber mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Leia, escreva e elimine as filas de armazenamento do Azure e as mensagens de fila. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2462,7 +2468,7 @@ Leia, escreva e elimine as filas de armazenamento do Azure e as mensagens de fil
 
 ### <a name="storage-queue-data-message-processor"></a>Processador de mensagens de dados de fila de armazenamento
 
-Espreite, recupere e elimine uma mensagem de uma fila de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saber mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Espreite, recupere e elimine uma mensagem de uma fila de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2503,7 +2509,7 @@ Espreite, recupere e elimine uma mensagem de uma fila de armazenamento Azure. Pa
 
 ### <a name="storage-queue-data-message-sender"></a>Remetente de mensagem de dados de fila de armazenamento
 
-Adicione mensagens a uma fila de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saber mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Adicione mensagens a uma fila de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2542,7 +2548,7 @@ Adicione mensagens a uma fila de armazenamento Azure. Para saber quais as açõe
 
 ### <a name="storage-queue-data-reader"></a>Leitor de dados de fila de armazenamento
 
-Leia e enuma as filas de armazenamento do Azure e as mensagens de fila. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saber mais](../storage/common/storage-auth-aad-rbac-portal.md)
+Leia e enuma as filas de armazenamento do Azure e as mensagens de fila. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). [Saiba mais](../storage/common/storage-auth-aad-rbac-portal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2625,7 +2631,7 @@ Concede acesso a ler dados relacionados com mapas a partir de uma conta de mapas
 
 ### <a name="search-service-contributor"></a>Colaborador do Serviço de Pesquisa
 
-Permite-lhe gerir os serviços de Pesquisa, mas não o acesso aos mesmos. [Saber mais](../search/search-security-rbac.md)
+Permite-lhe gerir os serviços de Pesquisa, mas não o acesso aos mesmos. [Saiba mais](../search/search-security-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -2669,6 +2675,282 @@ Permite-lhe gerir os serviços de Pesquisa, mas não o acesso aos mesmos. [Saber
     }
   ],
   "roleName": "Search Service Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-accesskey-reader"></a>Leitor Signalr AccessKey
+
+Leia as teclas de acesso do serviço Signalr
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/*/read |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/listkeys/action | Ver o valor das teclas de acesso SignalR no portal de gestão ou através da API |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read SignalR Service Access Keys",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/04165923-9d83-45d5-8227-78b77b0a687e",
+  "name": "04165923-9d83-45d5-8227-78b77b0a687e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.SignalRService/*/read",
+        "Microsoft.SignalRService/SignalR/listkeys/action",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR AccessKey Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-app-server-preview"></a>Servidor de aplicativo SignalR (pré-visualização)
+
+Permite que o seu servidor de aplicações aceda ao Serviço SignalR com opções de auth AAD.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/accessKey/action | Gere um AccessKey temporário para a assinatura do ClientTokens. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/serverConnection/write | Inicie uma ligação de servidor. |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets your app server access SignalR Service with AAD auth options.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/420fcaa2-552c-430f-98ca-3264be4806c7",
+  "name": "420fcaa2-552c-430f-98ca-3264be4806c7",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/auth/accessKey/action",
+        "Microsoft.SignalRService/SignalR/serverConnection/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR App Server (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-contributor"></a>Contribuinte SignalR
+
+Criar, Ler, Atualizar e Eliminar recursos de serviço SignalR
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/* |  |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Criar e gerir uma implantação |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create, Read, Update, and Delete SignalR service resources",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
+  "name": "8cf5e20a-e4b2-4e9d-b3a1-5ceb692c2761",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.SignalRService/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-serverless-contributor-preview"></a>Contribuinte sem servidor SignalR (pré-visualização)
+
+Permite que o seu serviço de acesso à aplicação em modo sem servidor com opções de auth AAD.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/auth/clientToken/action | Gere um ClientToken para iniciar uma ligação ao cliente. |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets your app access service in serverless mode with AAD auth options.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/fd53cd77-2268-407a-8f46-7e7863d0f521",
+  "name": "fd53cd77-2268-407a-8f46-7e7863d0f521",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/auth/clientToken/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Serverless Contributor (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-service-owner-preview"></a>Proprietário do serviço SignalR (pré-visualização)
+
+Acesso total às APIs de DESCANSO do Serviço Azure SignalR
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/hub/send/action | Mensagens de transmissão para todas as ligações do cliente no centro. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/send/action | Mensagem transmitida ao grupo. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Verifique a existência do grupo ou a existência do utilizador em grupo. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/write | Junte-se / Deixe o grupo. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/send/action | Envie mensagens diretamente para uma ligação ao cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Verifique a existência da ligação do cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/write | Ligação próxima com o cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/send/action | Envie mensagens ao utilizador, que poderá consistir em múltiplas ligações ao cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Verifique a existência do utilizador. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/write |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access to Azure SignalR Service REST APIs",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/7e4f1700-ea5a-4f59-8f37-079cfe29dce3",
+  "name": "7e4f1700-ea5a-4f59-8f37-079cfe29dce3",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/hub/send/action",
+        "Microsoft.SignalRService/SignalR/group/send/action",
+        "Microsoft.SignalRService/SignalR/group/read",
+        "Microsoft.SignalRService/SignalR/group/write",
+        "Microsoft.SignalRService/SignalR/clientConnection/send/action",
+        "Microsoft.SignalRService/SignalR/clientConnection/read",
+        "Microsoft.SignalRService/SignalR/clientConnection/write",
+        "Microsoft.SignalRService/SignalR/user/send/action",
+        "Microsoft.SignalRService/SignalR/user/read",
+        "Microsoft.SignalRService/SignalR/user/write"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Service Owner (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="signalr-service-reader-preview"></a>SignalR Service Reader (Pré-visualização)
+
+Acesso apenas de leitura às APIs de DESCANSO do Serviço Azure SignalR
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/group/read | Verifique a existência do grupo ou a existência do utilizador em grupo. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/clientConnection/read | Verifique a existência da ligação do cliente. |
+> | [Microsoft.SignalRService](resource-provider-operations.md#microsoftsignalrservice)/SignalR/user/read | Verifique a existência do utilizador. |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read-only access to Azure SignalR Service REST APIs",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ddde6b66-c0df-4114-a159-3618637b3035",
+  "name": "ddde6b66-c0df-4114-a159-3618637b3035",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/SignalR/group/read",
+        "Microsoft.SignalRService/SignalR/clientConnection/read",
+        "Microsoft.SignalRService/SignalR/user/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "SignalR Service Reader (Preview)",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -3031,7 +3313,7 @@ acr escritor de dados de quarentena
 
 ### <a name="azure-kubernetes-service-cluster-admin-role"></a>Azure Kubernetes Service Cluster Função de Administrador
 
-Lista de ação de credencial de administrador de agrupamento. [Saber mais](../aks/control-kubeconfig-access.md)
+Lista de ação de credencial de administrador de agrupamento. [Saiba mais](../aks/control-kubeconfig-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3074,7 +3356,7 @@ Lista de ação de credencial de administrador de agrupamento. [Saber mais](../a
 
 ### <a name="azure-kubernetes-service-cluster-user-role"></a>Papel de utilizador do cluster de serviço Azure Kubernetes
 
-Listar ação credencial do utilizador do cluster. [Saber mais](../aks/control-kubeconfig-access.md)
+Listar ação credencial do utilizador do cluster. [Saiba mais](../aks/control-kubeconfig-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3158,7 +3440,7 @@ Concede acesso à leitura e escreva clusters de serviço Azure Kubernetes [Saiba
 
 ### <a name="azure-kubernetes-service-rbac-admin"></a>Azure Kubernetes Serviço RBAC Administrador
 
-Permite-lhe gerir todos os recursos em cluster/namespace, exceto atualizar ou eliminar quotas de recursos e espaços de nome. [Saber mais](../aks/manage-azure-rbac.md)
+Permite-lhe gerir todos os recursos em cluster/namespace, exceto atualizar ou eliminar quotas de recursos e espaços de nome. [Saiba mais](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3221,7 +3503,7 @@ Permite-lhe gerir todos os recursos em cluster/namespace, exceto atualizar ou el
 
 ### <a name="azure-kubernetes-service-rbac-cluster-admin"></a>Azure Kubernetes Serviço RBAC Cluster Admin
 
-Permite-lhe gerir todos os recursos do cluster. [Saber mais](../aks/manage-azure-rbac.md)
+Permite-lhe gerir todos os recursos do cluster. [Saiba mais](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3276,7 +3558,7 @@ Permite-lhe gerir todos os recursos do cluster. [Saber mais](../aks/manage-azure
 
 ### <a name="azure-kubernetes-service-rbac-reader"></a>Azure Kubernetes Service RBAC Reader
 
-Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar funções ou encadernações de funções. Esta função não permite visualizar Segredos, uma vez que a leitura dos conteúdos de Segredos permite o acesso às credenciais do ServiceAccount no espaço de nomes, o que permitiria o acesso da API como qualquer ServiceAccount no espaço de nomes (uma forma de escalada de privilégio). A aplicação desta função no âmbito do cluster dará acesso a todos os espaços de nome. [Saber mais](../aks/manage-azure-rbac.md)
+Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar funções ou encadernações de funções. Esta função não permite visualizar Segredos, uma vez que a leitura dos conteúdos de Segredos permite o acesso às credenciais do ServiceAccount no espaço de nomes, o que permitiria o acesso da API como qualquer ServiceAccount no espaço de nomes (uma forma de escalada de privilégio). A aplicação desta função no âmbito do cluster dará acesso a todos os espaços de nome. [Saiba mais](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3385,7 +3667,7 @@ Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de
 
 ### <a name="azure-kubernetes-service-rbac-writer"></a>Azure Kubernetes Service RBAC Writer
 
-Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar funções ou encadernações de papéis. No entanto, esta função permite aceder a Secrets e executar Pods como qualquer ServiceAccount no espaço de nomes, para que possa ser usado para obter os níveis de acesso API de qualquer ServiceAccount no espaço de nomes. A aplicação desta função no âmbito do cluster dará acesso a todos os espaços de nome. [Saber mais](../aks/manage-azure-rbac.md)
+Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar funções ou encadernações de papéis. No entanto, esta função permite aceder a Secrets e executar Pods como qualquer ServiceAccount no espaço de nomes, para que possa ser usado para obter os níveis de acesso API de qualquer ServiceAccount no espaço de nomes. A aplicação desta função no âmbito do cluster dará acesso a todos os espaços de nome. [Saiba mais](../aks/manage-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3499,7 +3781,7 @@ Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta f
 
 ### <a name="cosmos-db-account-reader-role"></a>Papel do leitor de conta de cosm de Cosmos DB
 
-Pode ler os dados da conta DB da Azure Cosmos. Consulte [o Contribuinte de Conta DocumentDB](#documentdb-account-contributor) para gerir as contas DB da Azure Cosmos. [Saber mais](../cosmos-db/role-based-access-control.md)
+Pode ler os dados da conta DB da Azure Cosmos. Consulte [o Contribuinte de Conta DocumentDB](#documentdb-account-contributor) para gerir as contas DB da Azure Cosmos. [Saiba mais](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3550,7 +3832,7 @@ Pode ler os dados da conta DB da Azure Cosmos. Consulte [o Contribuinte de Conta
 
 ### <a name="cosmos-db-operator"></a>Operador de DB cosmos
 
-Permite-lhe gerir as contas DB da Azure Cosmos, mas não aceder aos dados nelas. Impede o acesso às chaves da conta e às cordas de ligação. [Saber mais](../cosmos-db/role-based-access-control.md)
+Permite-lhe gerir as contas DB da Azure Cosmos, mas não aceder aos dados nelas. Impede o acesso às chaves da conta e às cordas de ligação. [Saiba mais](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3652,7 +3934,7 @@ Pode submeter pedido de restauro para uma base de dados Cosmos DB ou um recipien
 
 ### <a name="documentdb-account-contributor"></a>Colaborador de Conta DocumentDB
 
-Pode gerir as contas de DB da Azure Cosmos. Azure Cosmos DB é anteriormente conhecido como DocumentDB. [Saber mais](../cosmos-db/role-based-access-control.md)
+Pode gerir as contas de DB da Azure Cosmos. Azure Cosmos DB é anteriormente conhecido como DocumentDB. [Saiba mais](../cosmos-db/role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3758,7 +4040,7 @@ Permite-te gerir caches Redis, mas não acesso a eles.
 
 ### <a name="sql-db-contributor"></a>Colaborador do SQL DB
 
-Permite-lhe gerir bases de dados SQL, mas não acesso a elas. Além disso, não é possível gerir as suas políticas relacionadas com a segurança ou os seus servidores SQL. [Saber mais](../data-share/concepts-roles-permissions.md)
+Permite-lhe gerir bases de dados SQL, mas não acesso a elas. Além disso, não é possível gerir as suas políticas relacionadas com a segurança ou os seus servidores SQL. [Saiba mais](../data-share/concepts-roles-permissions.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3932,7 +4214,7 @@ Permite-lhe gerir as Ocorrências Geridas SQL e a configuração de rede necess�
 
 ### <a name="sql-security-manager"></a>Gestor de Segurança SQL
 
-Permite-lhe gerir as políticas relacionadas com a segurança dos servidores e bases de dados SQL, mas não o acesso aos mesmos. [Saber mais](../sql-database/sql-database-advanced-data-security.md)
+Permite-lhe gerir as políticas relacionadas com a segurança dos servidores e bases de dados SQL, mas não o acesso aos mesmos. [Saiba mais](../sql-database/sql-database-advanced-data-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -3943,7 +4225,7 @@ Permite-lhe gerir as políticas relacionadas com a segurança dos servidores e b
 > | [Microsoft.ResourceHealth](resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read | Obtém os estatutos de disponibilidade para todos os recursos no âmbito especificado |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Criar e gerir uma implantação |
 > | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
-> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/locations/administratorAzureAsyncOperation/read |  |
+> | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/locations/administratorAzureAsyncOperation/read | Obtém o resultado das operações de administrador de azure assírias geridas. |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/currentSensitivityLabels/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/recommendedSensitivityLabels/* |  |
 > | [Microsoft.Sql](resource-provider-operations.md#microsoftsql)/managedInstances/databases/schemas/tables/columns/sensitivityLabels/* |  |
@@ -4057,7 +4339,7 @@ Permite-lhe gerir as políticas relacionadas com a segurança dos servidores e b
 
 ### <a name="sql-server-contributor"></a>Colaborador do Servidor SQL
 
-Permite-lhe gerir servidores e bases de dados SQL, mas não acesso aos mesmos, e não às suas políticas relacionadas com a segurança. [Saber mais](../sql-database/sql-database-aad-authentication-configure.md)
+Permite-lhe gerir servidores e bases de dados SQL, mas não acesso aos mesmos, e não às suas políticas relacionadas com a segurança. [Saiba mais](../sql-database/sql-database-aad-authentication-configure.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4171,7 +4453,7 @@ Permite-lhe gerir servidores e bases de dados SQL, mas não acesso aos mesmos, e
 
 ### <a name="azure-event-hubs-data-owner"></a>Proprietário de dados Azure Event Hubs
 
-Permite o acesso total aos recursos do Azure Event Hubs. [Saber mais](../event-hubs/authenticate-application.md)
+Permite o acesso total aos recursos do Azure Event Hubs. [Saiba mais](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4212,7 +4494,7 @@ Permite o acesso total aos recursos do Azure Event Hubs. [Saber mais](../event-h
 
 ### <a name="azure-event-hubs-data-receiver"></a>Recetor de dados Azure Event Hubs
 
-Permite ter acesso aos recursos do Azure Event Hubs. [Saber mais](../event-hubs/authenticate-application.md)
+Permite ter acesso aos recursos do Azure Event Hubs. [Saiba mais](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4253,7 +4535,7 @@ Permite ter acesso aos recursos do Azure Event Hubs. [Saber mais](../event-hubs/
 
 ### <a name="azure-event-hubs-data-sender"></a>Ender de dados do Azure Event Hubs
 
-Permite enviar acesso aos recursos do Azure Event Hubs. [Saber mais](../event-hubs/authenticate-application.md)
+Permite enviar acesso aos recursos do Azure Event Hubs. [Saiba mais](../event-hubs/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4294,7 +4576,7 @@ Permite enviar acesso aos recursos do Azure Event Hubs. [Saber mais](../event-hu
 
 ### <a name="data-factory-contributor"></a>Contribuinte da Fábrica de Dados
 
-Criar e gerir fábricas de dados, bem como recursos infantis dentro delas. [Saber mais](../data-factory/concepts-roles-permissions.md)
+Criar e gerir fábricas de dados, bem como recursos infantis dentro delas. [Saiba mais](../data-factory/concepts-roles-permissions.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4394,7 +4676,7 @@ Pode purgar dados de análise [Saiba mais](../azure-monitor/platform/personal-da
 
 ### <a name="hdinsight-cluster-operator"></a>Operador de cluster HDInsight
 
-Permite-lhe ler e modificar configurações de cluster HDInsight. [Saber mais](../hdinsight/hdinsight-migrate-granular-access-cluster-configurations.md)
+Permite-lhe ler e modificar configurações de cluster HDInsight. [Saiba mais](../hdinsight/hdinsight-migrate-granular-access-cluster-configurations.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4492,7 +4774,7 @@ Pode ler, criar, modificar e eliminar as operações relacionadas com os serviç
 
 ### <a name="log-analytics-contributor"></a>Contribuidor do Log Analytics
 
-Log Analytics Contributor pode ler todos os dados de monitorização e editar as definições de monitorização. As definições de monitorização de edição incluem a adição da extensão VM aos VM; leitura das chaves da conta de armazenamento para poder configurar a recolha de registos do Azure Storage; criar e configurar contas de automação; adição de soluções; e configurar diagnósticos Azure em todos os recursos da Azure. [Saber mais](../azure-monitor/platform/manage-access.md)
+Log Analytics Contributor pode ler todos os dados de monitorização e editar as definições de monitorização. As definições de monitorização de edição incluem a adição da extensão VM aos VM; leitura das chaves da conta de armazenamento para poder configurar a recolha de registos do Azure Storage; criar e configurar contas de automação; adição de soluções; e configurar diagnósticos Azure em todos os recursos da Azure. [Saiba mais](../azure-monitor/platform/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4557,7 +4839,7 @@ Log Analytics Contributor pode ler todos os dados de monitorização e editar as
 
 ### <a name="log-analytics-reader"></a>Leitor do Log Analytics
 
-O Log Analytics Reader pode visualizar e pesquisar todos os dados de monitorização, bem como visualizar as definições de monitorização, incluindo visualizar a configuração dos diagnósticos Azure em todos os recursos do Azure. [Saber mais](../azure-monitor/platform/manage-access.md)
+O Log Analytics Reader pode visualizar e pesquisar todos os dados de monitorização, bem como visualizar as definições de monitorização, incluindo visualizar a configuração dos diagnósticos Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/platform/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4733,7 +5015,7 @@ Permite o acesso aos nóns de membro blockchain [Saiba mais](../blockchain/servi
 
 ### <a name="cognitive-services-contributor"></a>Colaborador dos Serviços Cognitivos
 
-Permite criar, ler, atualizar, eliminar e gerir chaves dos Serviços Cognitivos. [Saber mais](../cognitive-services/cognitive-services-virtual-networks.md)
+Permite criar, ler, atualizar, eliminar e gerir chaves dos Serviços Cognitivos. [Saiba mais](../cognitive-services/cognitive-services-virtual-networks.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4843,7 +5125,7 @@ Permite-lhe ler os dados dos Serviços Cognitivos.
 
 ### <a name="cognitive-services-user"></a>Utilizador de Serviços Cognitivos
 
-Permite-lhe ler e listar as chaves dos Serviços Cognitivos. [Saber mais](../cognitive-services/authentication.md)
+Permite-lhe ler e listar as chaves dos Serviços Cognitivos. [Saiba mais](../cognitive-services/authentication.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4964,7 +5246,7 @@ Fornece ao utilizador capacidades de conversão, gestão de sessão, renderizaç
 
 ### <a name="remote-rendering-client"></a>Cliente de renderização remota
 
-Fornece ao utilizador capacidades de gestão, renderização e diagnóstico para renderização remota Azure. [Saber mais](../remote-rendering/how-tos/authentication.md)
+Fornece ao utilizador capacidades de gestão, renderização e diagnóstico para renderização remota Azure. [Saiba mais](../remote-rendering/how-tos/authentication.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5334,7 +5616,7 @@ Acesso apenas de leitura ao serviço e APIs [Saiba mais](../api-management/api-m
 
 ### <a name="app-configuration-data-owner"></a>Proprietário de dados de configuração de aplicativos
 
-Permite o acesso total aos dados de Configuração de Aplicações. [Saber mais](../azure-app-configuration/concept-enable-rbac.md)
+Permite o acesso total aos dados de Configuração de Aplicações. [Saiba mais](../azure-app-configuration/concept-enable-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5377,7 +5659,7 @@ Permite o acesso total aos dados de Configuração de Aplicações. [Saber mais]
 
 ### <a name="app-configuration-data-reader"></a>Leitor de dados de configuração de aplicativos
 
-Permite ler o acesso aos dados de Configuração de Aplicações. [Saber mais](../azure-app-configuration/concept-enable-rbac.md)
+Permite ler o acesso aos dados de Configuração de Aplicações. [Saiba mais](../azure-app-configuration/concept-enable-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5416,7 +5698,7 @@ Permite ler o acesso aos dados de Configuração de Aplicações. [Saber mais](.
 
 ### <a name="azure-service-bus-data-owner"></a>Proprietário de dados de ônibus de serviço Azure
 
-Permite o acesso total aos recursos do Azure Service Bus. [Saber mais](../service-bus-messaging/authenticate-application.md)
+Permite o acesso total aos recursos do Azure Service Bus. [Saiba mais](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5457,7 +5739,7 @@ Permite o acesso total aos recursos do Azure Service Bus. [Saber mais](../servic
 
 ### <a name="azure-service-bus-data-receiver"></a>Recetor de dados de ônibus da Azure Service
 
-Permite ter acesso aos recursos do Azure Service Bus. [Saber mais](../service-bus-messaging/authenticate-application.md)
+Permite ter acesso aos recursos do Azure Service Bus. [Saiba mais](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5502,7 +5784,7 @@ Permite ter acesso aos recursos do Azure Service Bus. [Saber mais](../service-bu
 
 ### <a name="azure-service-bus-data-sender"></a>Remetente de dados de ônibus de serviço Azure
 
-Permite enviar acesso aos recursos do Azure Service Bus. [Saber mais](../service-bus-messaging/authenticate-application.md)
+Permite enviar acesso aos recursos do Azure Service Bus. [Saiba mais](../service-bus-messaging/authenticate-application.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5592,7 +5874,7 @@ Permite-lhe gerir as inscrições do Azure Stack.
 
 ### <a name="eventgrid-eventsubscription-contributor"></a>Colaborador de EventosGrid EventSubscription
 
-Permite-lhe gerir as operações de subscrição de eventos EventGrid. [Saber mais](../event-grid/security-authorization.md)
+Permite-lhe gerir as operações de subscrição de eventos EventGrid. [Saiba mais](../event-grid/security-authorization.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5647,7 +5929,7 @@ Permite-lhe gerir as operações de subscrição de eventos EventGrid. [Saber ma
 
 ### <a name="eventgrid-eventsubscription-reader"></a>Leitor de subscrição de eventos Com EventosGrid
 
-Permite-lhe ler subscrições de eventosGrid. [Saber mais](../event-grid/security-authorization.md)
+Permite-lhe ler subscrições de eventosGrid. [Saiba mais](../event-grid/security-authorization.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5856,7 +6138,7 @@ Função permite ao utilizador ou principal ler e escrever dados FHIR [Saiba mai
 
 ### <a name="integration-service-environment-contributor"></a>Colaborador do Ambiente do Serviço de Integração
 
-Permite-lhe gerir ambientes de serviços de integração, mas não acesso aos mesmos. [Saber mais](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+Permite-lhe gerir ambientes de serviços de integração, mas não acesso aos mesmos. [Saiba mais](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5899,7 +6181,7 @@ Permite-lhe gerir ambientes de serviços de integração, mas não acesso aos me
 
 ### <a name="integration-service-environment-developer"></a>Desenvolvedor de Ambiente de Serviço de Integração
 
-Permite que os desenvolvedores criem e atualizem fluxos de trabalho, contas de integração e conexões API em ambientes de serviços de integração. [Saber mais](../logic-apps/add-artifacts-integration-service-environment-ise.md)
+Permite que os desenvolvedores criem e atualizem fluxos de trabalho, contas de integração e conexões API em ambientes de serviços de integração. [Saiba mais](../logic-apps/add-artifacts-integration-service-environment-ise.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5995,7 +6277,7 @@ Permite-lhe gerir contas de Sistemas Inteligentes, mas não acesso a elas.
 
 ### <a name="logic-app-contributor"></a>Contribuidor de Aplicativos Lógicos
 
-Permite-lhe gerir aplicações lógicas, mas não alterar o acesso às suas. [Saber mais](../logic-apps/logic-apps-securing-a-logic-app.md)
+Permite-lhe gerir aplicações lógicas, mas não alterar o acesso às suas. [Saiba mais](../logic-apps/logic-apps-securing-a-logic-app.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6074,7 +6356,7 @@ Permite-lhe gerir aplicações lógicas, mas não alterar o acesso às suas. [Sa
 
 ### <a name="logic-app-operator"></a>Operador de aplicativos lógica
 
-Permite-lhe ler, ativar e desativar aplicações lógicas, mas não editá-las ou atualizá-las. [Saber mais](../logic-apps/logic-apps-securing-a-logic-app.md)
+Permite-lhe ler, ativar e desativar aplicações lógicas, mas não editá-las ou atualizá-las. [Saiba mais](../logic-apps/logic-apps-securing-a-logic-app.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6598,7 +6880,7 @@ Efetue qualquer ação nos certificados de um cofre chave, exceto gerir permiss�
 
 ### <a name="key-vault-contributor"></a>Contribuidor do Cofre Chave
 
-Gerencie os cofres chave, mas não lhe permite atribuir funções no Azure RBAC, e não lhe permite aceder a segredos, chaves ou certificados. [Saber mais](../key-vault/general/secure-your-key-vault.md)
+Gerencie os cofres chave, mas não lhe permite atribuir funções no Azure RBAC, e não lhe permite aceder a segredos, chaves ou certificados. [Saiba mais](../key-vault/general/secure-your-key-vault.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6971,7 +7253,7 @@ Leia conteúdo secreto. Só funciona para cofres-chave que utilizam o modelo de 
 
 ### <a name="security-admin"></a>Administrador de Segurança
 
-Ver e atualizar permissões para o Centro de Segurança. As mesmas permissões que a função de Leitor de Segurança também podem atualizar a política de segurança e rejeitar alertas e recomendações. [Saber mais](../security-center/security-center-permissions.md)
+Ver e atualizar permissões para o Centro de Segurança. As mesmas permissões que a função de Leitor de Segurança também podem atualizar a política de segurança e rejeitar alertas e recomendações. [Saiba mais](../security-center/security-center-permissions.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7128,7 +7410,7 @@ Este é um papel antigo. Por favor, use o Administrador de Segurança.
 
 ### <a name="security-reader"></a>Leitor de Segurança
 
-Ver permissões para o Centro de Segurança. Pode ver recomendações, alertas, uma política de segurança e estados de segurança, mas não pode fazer alterações. [Saber mais](../security-center/security-center-permissions.md)
+Ver permissões para o Centro de Segurança. Pode ver recomendações, alertas, uma política de segurança e estados de segurança, mas não pode fazer alterações. [Saiba mais](../security-center/security-center-permissions.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7184,7 +7466,7 @@ Ver permissões para o Centro de Segurança. Pode ver recomendações, alertas, 
 
 ### <a name="devtest-labs-user"></a>Utilizador de Laboratórios DevTest
 
-Permite ligar, iniciar, reiniciar e desligar as suas máquinas virtuais nos seus Laboratórios Azure DevTest. [Saber mais](../devtest-labs/devtest-lab-add-devtest-user.md)
+Permite ligar, iniciar, reiniciar e desligar as suas máquinas virtuais nos seus Laboratórios Azure DevTest. [Saiba mais](../devtest-labs/devtest-lab-add-devtest-user.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7287,7 +7569,7 @@ Permite ligar, iniciar, reiniciar e desligar as suas máquinas virtuais nos seus
 
 ### <a name="lab-creator"></a>Criador de Laboratório
 
-Permite criar novos laboratórios sob as suas contas do Azure Lab. [Saber mais](../lab-services/add-lab-creator.md)
+Permite criar novos laboratórios sob as suas contas do Azure Lab. [Saiba mais](../lab-services/add-lab-creator.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7336,7 +7618,7 @@ Permite criar novos laboratórios sob as suas contas do Azure Lab. [Saber mais](
 }
 ```
 
-## <a name="monitor"></a>Monitorizar
+## <a name="monitor"></a>Monitor
 
 
 ### <a name="application-insights-component-contributor"></a>Contribuinte componente de insights de aplicação
@@ -7396,7 +7678,7 @@ Pode gerir componentes de Insights de Aplicação [Saiba mais](../azure-monitor/
 
 ### <a name="application-insights-snapshot-debugger"></a>Insights de aplicação Snapshot Debugger
 
-Dá permissão ao utilizador para visualizar e descarregar instantâneos de depurg recolhidos com o Debugger Debugger Do Snapshot da Aplicação. Note que estas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Contribuinte.](#contributor) Ao atribuir aos utilizadores o papel de Debugger Snapshot Debugger do Application Insights, deve conceder a função diretamente ao utilizador. O papel não é reconhecido quando é adicionado a um papel personalizado. [Saber mais](../azure-monitor/app/snapshot-debugger.md)
+Dá permissão ao utilizador para visualizar e descarregar instantâneos de depurg recolhidos com o Debugger Debugger Do Snapshot da Aplicação. Note que estas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Contribuinte.](#contributor) Ao atribuir aos utilizadores o papel de Debugger Snapshot Debugger do Application Insights, deve conceder a função diretamente ao utilizador. O papel não é reconhecido quando é adicionado a um papel personalizado. [Saiba mais](../azure-monitor/app/snapshot-debugger.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7445,7 +7727,7 @@ Dá permissão ao utilizador para visualizar e descarregar instantâneos de depu
 
 ### <a name="monitoring-contributor"></a>Colaborador de monitorização
 
-Pode ler todos os dados de monitorização e editar as definições de monitorização. Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Saber mais](../azure-monitor/platform/roles-permissions-security.md)
+Pode ler todos os dados de monitorização e editar as definições de monitorização. Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7593,7 +7875,7 @@ Permite publicar métricas contra recursos Azure [Saiba mais](../azure-monitor/i
 
 ### <a name="monitoring-reader"></a>Leitor de Monitorização
 
-Pode ler todos os dados de monitorização (métricas, registos, etc.). Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Saber mais](../azure-monitor/platform/roles-permissions-security.md)
+Pode ler todos os dados de monitorização (métricas, registos, etc.). Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/roles-permissions-security#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7636,7 +7918,7 @@ Pode ler todos os dados de monitorização (métricas, registos, etc.). Ver tamb
 
 ### <a name="workbook-contributor"></a>Contribuinte do livro
 
-Pode salvar livros partilhados. [Saber mais](../sentinel/tutorial-monitor-your-data.md)
+Pode salvar livros partilhados. [Saiba mais](../sentinel/tutorial-monitor-your-data.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7679,7 +7961,7 @@ Pode salvar livros partilhados. [Saber mais](../sentinel/tutorial-monitor-your-d
 
 ### <a name="workbook-reader"></a>Leitor de livros de trabalho
 
-Pode ler livros. [Saber mais](../sentinel/tutorial-monitor-your-data.md)
+Pode ler livros. [Saiba mais](../sentinel/tutorial-monitor-your-data.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7721,7 +8003,7 @@ Pode ler livros. [Saber mais](../sentinel/tutorial-monitor-your-data.md)
 
 ### <a name="automation-job-operator"></a>Operador de emprego de automação
 
-Criar e Gerir Empregos utilizando livros de automação. [Saber mais](../automation/automation-role-based-access-control.md)
+Criar e Gerir Empregos utilizando livros de automação. [Saiba mais](../automation/automation-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7863,7 +8145,7 @@ Operadores de automação são capazes de iniciar, parar, suspender e retomar [e
 
 ### <a name="automation-runbook-operator"></a>Operador de runbook de automação
 
-Leia as propriedades do Runbook - para ser capaz de criar Jobs of the runbook. [Saber mais](../automation/automation-role-based-access-control.md)
+Leia as propriedades do Runbook - para ser capaz de criar Jobs of the runbook. [Saiba mais](../automation/automation-role-based-access-control.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -7912,7 +8194,7 @@ Leia as propriedades do Runbook - para ser capaz de criar Jobs of the runbook. [
 
 ### <a name="azure-connected-machine-onboarding"></a>Máquina conectada Azure a bordo
 
-Pode embarcar máquinas ligadas a Azure. [Saber mais](../azure-arc/servers/onboard-service-principal.md)
+Pode embarcar máquinas ligadas a Azure. [Saiba mais](../azure-arc/servers/onboard-service-principal.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -8055,7 +8337,7 @@ Permite ler acesso a dados de faturação [Saiba mais](../cost-management-billin
 
 ### <a name="blueprint-contributor"></a>Contribuidor de Projeto
 
-Pode gerir definições de planta, mas não atribuí-las. [Saber mais](../governance/blueprints/overview.md)
+Pode gerir definições de planta, mas não atribuí-las. [Saiba mais](../governance/blueprints/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -8102,7 +8384,7 @@ Pode gerir definições de planta, mas não atribuí-las. [Saber mais](../govern
 
 ### <a name="blueprint-operator"></a>Operador de blueprint
 
-Pode atribuir plantas publicadas existentes, mas não pode criar novas plantas. Note que isto só funciona se a atribuição for feita com uma identidade gerida atribuída pelo utilizador. [Saber mais](../governance/blueprints/overview.md)
+Pode atribuir plantas publicadas existentes, mas não pode criar novas plantas. Note que isto só funciona se a atribuição for feita com uma identidade gerida atribuída pelo utilizador. [Saiba mais](../governance/blueprints/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -8488,7 +8770,7 @@ Permite-lhe ler recursos numa aplicação gerida e solicitar acesso ao JIT.
 
 ### <a name="managed-services-registration-assignment-delete-role"></a>Atribuição de registo de serviços geridos Eliminar Função
 
-Atribuição de Registo de Serviços Geridos Eliminar Função permite que os utilizadores inquilinos gestores apaguem a atribuição de inscrição atribuída ao seu inquilino. [Saber mais](../lighthouse/how-to/remove-delegation.md)
+Atribuição de Registo de Serviços Geridos Eliminar Função permite que os utilizadores inquilinos gestores apaguem a atribuição de inscrição atribuída ao seu inquilino. [Saiba mais](../lighthouse/how-to/remove-delegation.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -8672,7 +8954,7 @@ Permite-lhe gerir as contas e aplicações de Gestão de Desempenho de Aplicaç�
 
 ### <a name="policy-insights-data-writer-preview"></a>Escritor de dados de insights de política (pré-visualização)
 
-Permite ler o acesso às políticas de recursos e escrever acesso a eventos de política de componentes de recursos. [Saber mais](../governance/policy/concepts/policy-for-kubernetes.md)
+Permite ler o acesso às políticas de recursos e escrever acesso a eventos de política de componentes de recursos. [Saiba mais](../governance/policy/concepts/policy-for-kubernetes.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -8721,7 +9003,7 @@ Permite ler o acesso às políticas de recursos e escrever acesso a eventos de p
 
 ### <a name="resource-policy-contributor"></a>Contribuidor de Política de Recursos
 
-Utilizadores com direitos de criar/modificar a política de recursos, criar bilhete de apoio e ler recursos/hierarquia. [Saber mais](../governance/policy/overview.md)
+Utilizadores com direitos de criar/modificar a política de recursos, criar bilhete de apoio e ler recursos/hierarquia. [Saiba mais](../governance/policy/overview.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -9160,7 +9442,7 @@ Permite criar e gerir pedidos de suporte [Saiba mais](../azure-portal/supportabi
 
 ### <a name="tag-contributor"></a>Colaborador da Tag
 
-Permite-lhe gerir etiquetas em entidades, sem fornecer acesso às próprias entidades. [Saber mais](../azure-resource-manager/management/tag-resources.md)
+Permite-lhe gerir etiquetas em entidades, sem fornecer acesso às próprias entidades. [Saiba mais](../azure-resource-manager/management/tag-resources.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -9211,7 +9493,7 @@ Permite-lhe gerir etiquetas em entidades, sem fornecer acesso às próprias enti
 }
 ```
 
-## <a name="other"></a>Outros
+## <a name="other"></a>Outro
 
 
 ### <a name="azure-digital-twins-data-owner"></a>Proprietário de dados Azure Digital Twins
@@ -9363,7 +9645,7 @@ Permite-lhe gerir os serviços BizTalk, mas não ter acesso aos mesmos.
 
 ### <a name="desktop-virtualization-user"></a>Utilizador de Virtualização de Desktop
 
-Permite ao utilizador utilizar as aplicações num grupo de aplicações. [Saber mais](../virtual-desktop/delegated-access-virtual-desktop.md)
+Permite ao utilizador utilizar as aplicações num grupo de aplicações. [Saiba mais](../virtual-desktop/delegated-access-virtual-desktop.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -9451,7 +9733,7 @@ Permite-lhe gerir as coleções de emprego do Scheduler, mas não ter acesso a e
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - [Combine o fornecedor de recursos ao serviço](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [Funções personalizadas do Azure](custom-roles.md)

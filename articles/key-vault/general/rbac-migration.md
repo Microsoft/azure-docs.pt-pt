@@ -9,18 +9,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e06a7a759c712b47f3a725a3c49a660226da6a09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a36bfc048a6214ccb79b793a23c21d5f8e305e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064198"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288271"
 ---
 # <a name="migrate-from-vault-access-policy-to-an-azure-role-based-access-control-preview-permission-model"></a>Migrar da política de acesso ao cofre para um modelo de controlo de acesso baseado em funções (pré-visualização)
 
 O modelo de política de acesso ao cofre é um sistema de autorização existente construído no Key Vault para fornecer acesso a chaves, segredos e certificados. Pode controlar o acesso atribuindo permissões individuais ao principal de segurança (utilizador, grupo, principal de serviço, identidade gerida) no âmbito Key Vault. 
 
-O Azure role-based access control (Azure RBAC) é um sistema de autorização construído no [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) que fornece uma gestão de acesso de granulado fino dos recursos Azure. A azure RBAC para chaves, segredos e certificados de acesso está atualmente em Visualização Pública. Com o Azure RBAC controla o acesso aos recursos através da criação de atribuições de funções, que consistem em três elementos: principal de segurança, definição de função (conjunto de permissões predefinido) e âmbito (grupo de recursos ou recursos individuais). Para obter mais informações, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview).
+O Azure role-based access control (Azure RBAC) é um sistema de autorização construído no [Azure Resource Manager](../../azure-resource-manager/management/overview.md) que fornece uma gestão de acesso de granulado fino dos recursos Azure. A azure RBAC para chaves, segredos e certificados de acesso está atualmente em Visualização Pública. Com o Azure RBAC controla o acesso aos recursos através da criação de atribuições de funções, que consistem em três elementos: principal de segurança, definição de função (conjunto de permissões predefinido) e âmbito (grupo de recursos ou recursos individuais). Para obter mais informações, consulte [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 Antes de migrar para o Azure RBAC, é importante entender os seus benefícios e limitações.
 
@@ -28,7 +28,7 @@ Benefícios principais do Azure RBAC sobre as políticas de acesso ao cofre:
 - Fornece um modelo unificado de controlo de acesso para recursos Azure - a mesma API em todos os serviços da Azure
 - Gestão centralizada de acessos para administradores - gerir todos os recursos da Azure numa só vista
 - Integrado com [Gestão de Identidade Privilegiada](../../active-directory/privileged-identity-management/pim-configure.md) para controlo de acesso baseado no tempo
-- Negar atribuições - capacidade de excluir o principal de segurança em determinado âmbito. Para obter informações, consulte [Understand Azure Deny Assignments](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments)
+- Negar atribuições - capacidade de excluir o principal de segurança em determinado âmbito. Para obter informações, consulte [Understand Azure Deny Assignments](../../role-based-access-control/deny-assignments.md)
 
 Desvantagens do RBAC:
 - Latência para atribuições de funções - pode levar vários minutos para a atribuição de funções ser aplicada. As políticas de acesso ao cofre são atribuídas instantaneamente.
@@ -36,7 +36,7 @@ Desvantagens do RBAC:
 
 ## <a name="access-policies-to-azure-roles-mapping"></a>Políticas de acesso ao mapeamento de funções Azure
 
-O Azure RBAC tem vários papéis incorporados no Azure que pode atribuir aos utilizadores, grupos, diretores de serviços e identidades geridas. Se as funções incorporadas não corresponderem às necessidades específicas da sua organização, pode criar os seus [próprios papéis personalizados Azure.](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
+O Azure RBAC tem vários papéis incorporados no Azure que pode atribuir aos utilizadores, grupos, diretores de serviços e identidades geridas. Se as funções incorporadas não corresponderem às necessidades específicas da sua organização, pode criar os seus [próprios papéis personalizados Azure.](../../role-based-access-control/custom-roles.md)
 
 Principais funções incorporadas para chaves, certificados e gestão de acesso a segredos:
 - Administrador do cofre chave (pré-visualização)
@@ -47,7 +47,7 @@ Principais funções incorporadas para chaves, certificados e gestão de acesso 
 - Key Vault Secrets Officer (pré-visualização)
 - Utilizador de segredos de cofre chave (pré-visualização)
 
-Para obter mais informações sobre os papéis incorporados existentes, consulte [as funções incorporadas do Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
+Para obter mais informações sobre os papéis incorporados existentes, consulte [as funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md)
 
 As políticas de acesso ao cofre podem ser atribuídas com permissões selecionadas individualmente ou com modelos de permissão predefinidos.
 
@@ -102,10 +102,10 @@ Em geral, é melhor ter um cofre chave por aplicação e gerir o acesso ao níve
 ## <a name="vault-access-policy-to-azure-rbac-migration-steps"></a>Política de acesso a cofres para etapas de migração do Azure RBAC
 Existem muitas diferenças entre o Azure RBAC e o modelo de permissão de política de acesso ao cofre. Para evitar interrupções durante a migração, recomenda-se abaixo os passos.
  
-1. **Identificar e atribuir funções**: identifique funções incorporadas com base na tabela de mapeamento acima e crie funções personalizadas quando necessário. Atribuir funções em âmbitos, com base em orientações de mapeamento de âmbitos. Para obter mais informações sobre como atribuir funções ao cofre-chave, consulte [Fornecer acesso ao Key Vault com um controlo de acesso baseado em funções Azure (pré-visualização)](rbac-guide.md)
-1. **Validar a atribuição de funções**: as atribuições de funções no Azure RBAC podem demorar vários minutos a propagar-se. Para orientar como verificar atribuições de funções, consulte [atribuições de funções de lista no âmbito](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-portal#list-role-assignments-for-a-user-at-a-scope)
-1. **Configure a monitorização e o alerta no cofre**da chave : é importante permitir o registo e o alerta de configuração para acesso a exceções negadas. Para mais informações, consulte [Monitoring e alerta para Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/alert)
-1. **Definir o modelo de permissão de controlo de acesso baseado em funções Azure no Key Vault**: permitir o modelo de permissão Azure RBAC invalidará todas as políticas de acesso existentes. Se um erro, o modelo de permissão pode ser reativado com todas as políticas de acesso existentes que permanecem intocadas.
+1. **Identificar e atribuir funções** : identifique funções incorporadas com base na tabela de mapeamento acima e crie funções personalizadas quando necessário. Atribuir funções em âmbitos, com base em orientações de mapeamento de âmbitos. Para obter mais informações sobre como atribuir funções ao cofre-chave, consulte [Fornecer acesso ao Key Vault com um controlo de acesso baseado em funções Azure (pré-visualização)](rbac-guide.md)
+1. **Validar a atribuição de funções** : as atribuições de funções no Azure RBAC podem demorar vários minutos a propagar-se. Para orientar como verificar atribuições de funções, consulte [atribuições de funções de lista no âmbito](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-for-a-user-at-a-scope)
+1. **Configure a monitorização e o alerta no cofre** da chave : é importante permitir o registo e o alerta de configuração para acesso a exceções negadas. Para mais informações, consulte [Monitoring e alerta para Azure Key Vault](./alert.md)
+1. **Definir o modelo de permissão de controlo de acesso baseado em funções Azure no Key Vault** : permitir o modelo de permissão Azure RBAC invalidará todas as políticas de acesso existentes. Se um erro, o modelo de permissão pode ser reativado com todas as políticas de acesso existentes que permanecem intocadas.
 
 > [!NOTE]
 > Quando o modelo de permissão do Azure RBAC estiver ativado, todos os scripts que tentam atualizar as políticas de acesso falharão. É importante atualizar esses scripts para usar o Azure RBAC.
@@ -114,8 +114,8 @@ Existem muitas diferenças entre o Azure RBAC e o modelo de permissão de polít
 -  Atribuição de funções não funcionando após vários minutos - há situações em que as atribuições de funções podem demorar mais tempo. É importante escrever uma lógica de re-tentar em código para cobrir esses casos.
 - As atribuições de funções desapareceram quando o Key Vault foi eliminado (soft-delete) e recuperado - é atualmente uma limitação de funcionalidade de eliminação suave em todos os serviços Azure. É necessário recriar todas as tarefas após a recuperação.    
 
-## <a name="learn-more"></a>Saiba mais
+## <a name="learn-more"></a>Saber mais
 
-- [Visão geral do Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
-- [Tutorial de Papéis Personalizados](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-cli)
+- [Visão geral do Azure RBAC](../../role-based-access-control/overview.md)
+- [Tutorial de Papéis Personalizados](../../role-based-access-control/tutorial-custom-role-cli.md)
 - [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md)

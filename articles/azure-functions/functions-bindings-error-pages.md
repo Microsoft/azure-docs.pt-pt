@@ -1,18 +1,18 @@
 ---
-title: Orientação de manuseamento de erros de funções Azure Functions
-description: Aprenda a lidar com erros em Funções Azure com ligações a erros de ligação específicos.
+title: Azure Funções manipulação de erros e orientação de retagem
+description: Aprenda a lidar com erros e a tentar novamente eventos em Funções Azure com ligações a erros de ligação específicos.
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 0617d55f7c67c788b1e898d963f7d509cef72d49
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: e52babd5b0612b4590f1422a941b25ba30c3f169
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096849"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284450"
 ---
-# <a name="azure-functions-error-handling"></a>Tratamento de erros de funções Azure
+# <a name="azure-functions-error-handling-and-retries"></a>Azure Functions manipulação de erros e retrações
 
 O manuseamento de erros nas Funções Azure é importante para evitar dados perdidos, eventos perdidos e monitorizar a saúde da sua aplicação.
 
@@ -20,7 +20,7 @@ Este artigo descreve estratégias gerais de manipulação de erros, juntamente c
 
 ## <a name="handling-errors"></a>Processar erros
 
-[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
+[!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-retries.md)]
 
 ## <a name="binding-error-codes"></a>Códigos de erro de ligação
 

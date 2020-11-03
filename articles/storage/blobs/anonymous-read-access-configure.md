@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 10/22/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 7248dff25af4693f7f264c8cbf42236612dddda0
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 7ea0cbfb8ddfa2991e2a362bcb321418428cb16b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931075"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288128"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar o público anónimo ler acesso a contentores e bolhas
 
@@ -51,12 +51,9 @@ A não permitir o acesso público à conta de armazenamento impede o acesso anó
 > [!IMPORTANT]
 > A não permitir o acesso do público a uma conta de armazenamento sobrepõe-se às definições de acesso público a todos os contentores dessa conta de armazenamento. Quando o acesso público for proibido para a conta de armazenamento, quaisquer futuros pedidos anónimos a essa conta falharão. Antes de alterar esta definição, certifique-se de compreender o impacto nas aplicações do cliente que podem estar a aceder a dados na sua conta de armazenamento de forma anónima. Para obter mais informações, consulte [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md).
 
-Para permitir ou proibir o acesso público a uma conta de armazenamento, configurar a propriedade **AllowBlobPublicAccess** da conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Gestor de Recursos Azure. Para mais informações, consulte [a visão geral da conta de Armazenamento.](../common/storage-account-overview.md)
+Para permitir ou proibir o acesso público a uma conta de armazenamento, configurar a propriedade **AllowBlobPublicAccess** da conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Azure Resource Manager na nuvem pública Azure ou em nuvens do Governo Azure. Para mais informações, consulte [a visão geral da conta de Armazenamento.](../common/storage-account-overview.md)
 
-> [!NOTE]
-> A propriedade **AllowBlobPublicAccess** não é definida por padrão e não devolve um valor até que o descreva explicitamente. A conta de armazenamento permite o acesso público quando o valor da propriedade é **nulo** ou quando é **verdade.**
->
-> A propriedade **AllowBlobPublicAccess** está disponível para todas as contas de armazenamento na nuvem pública de Azure e nas nuvens do Governo Azure.
+A propriedade **AllowBlobPublicAccess** não é definida por padrão e não devolve um valor até que o descreva explicitamente. A conta de armazenamento permite o acesso público quando o valor da propriedade é **nulo** ou **verdadeiro.**
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
@@ -135,8 +132,8 @@ az storage account show \
 Para permitir ou proibir o acesso público a uma conta de armazenamento com um modelo, crie um modelo com a propriedade **AllowBlobPublicAccess** definida como **verdadeira** ou **falsa**. Os passos seguintes descrevem como criar um modelo no portal Azure.
 
 1. No portal Azure, escolha **Criar um recurso.**
-1. Em **Search the Marketplace**, **digitar a implementação do modelo**e, em seguida, premir **ENTER**.
-1. Escolha a **implementação do modelo (implementar usando modelos personalizados) (pré-visualização)**, escolha **Criar**e, em seguida, escolha **Construir o seu próprio modelo no editor**.
+1. Em **Search the Marketplace** , **digitar a implementação do modelo** e, em seguida, premir **ENTER**.
+1. Escolha a **implementação do modelo (implementar usando modelos personalizados) (pré-visualização)** , escolha **Criar** e, em seguida, escolha **Construir o seu próprio modelo no editor**.
 1. No editor de modelo, cole no JSON seguinte para criar uma nova conta e definir a propriedade **AllowBlobPublicAccess** para **verdadeiro** ou **falso**. Lembre-se de substituir os espaços reservados em suportes angulares pelos seus próprios valores.
 
     ```json
@@ -207,7 +204,7 @@ Para atualizar o nível de acesso público a um ou mais contentores existentes n
 
 Quando o acesso público é proibido para a conta de armazenamento, o nível de acesso público de um contentor não pode ser definido. Se tentar definir o nível de acesso público do contentor, verá que a definição está desativada porque o acesso público é proibido para a conta.
 
-:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot mostrando como permitir ou desativar o acesso público blob para conta":::
+:::image type="content" source="media/anonymous-read-access-configure/container-public-access-blocked.png" alt-text="Screenshot mostrando que a definição do nível de acesso público do contentor é bloqueada quando o acesso público é proibido":::
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48f223a55e4a1e4db4ac7057065d67ae64fa0f2c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983260"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288473"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticação, Pedidos e Respostas
 
@@ -39,7 +39,7 @@ Aqui estão os sufixos URL usados para aceder a cada tipo de objeto
 
 O Azure Key Vault suporta pedidos e respostas formatados json. Os pedidos para o Cofre da Chave Azure são direcionados para um URL de cofre de chave Azure válido usando HTTPS com alguns parâmetros URL e json codificado pedido e corpos de resposta.
 
-Este tópico abrange especificidades para o serviço Azure Key Vault. Para obter informações gerais sobre a utilização de interfaces Azure REST, incluindo autenticação/autorização e como adquirir um token de acesso, consulte [referência API API Azure REST](https://docs.microsoft.com/rest/api/azure).
+Este tópico abrange especificidades para o serviço Azure Key Vault. Para obter informações gerais sobre a utilização de interfaces Azure REST, incluindo autenticação/autorização e como adquirir um token de acesso, consulte [referência API API Azure REST](/rest/api/azure).
 
 ## <a name="request-url"></a>URL do Pedido  
  As principais operações de gestão utilizam http DELETE, GET, PATCH, PUT e HTTP POST e operações criptográficas contra os objectos-chave existentes usam HTTP POST. Os clientes que não possam suportar verbos HTTP específicos também podem utilizar o http post utilizando o cabeçalho X-HTTP-REQUEST para especificar o verbo pretendido; pedidos que normalmente não requerem um corpo devem incluir um corpo vazio quando se utiliza HTTP POST, por exemplo, quando se utiliza o POST em vez de DELETE.  
@@ -111,7 +111,7 @@ Este tópico abrange especificidades para o serviço Azure Key Vault. Para obter
 ## <a name="authentication"></a>Autenticação  
  Todos os pedidos para a Azure Key Vault DEVEM ser autenticados. O Azure Key Vault suporta fichas de acesso do Azure Ative Directory que podem ser obtidas usando o OAuth2 [[RFC6749](https://tools.ietf.org/html/rfc6749)]. 
  
- Para obter mais informações sobre o registo da sua aplicação e autenticação para utilizar o Cofre da Chave Azure, consulte [Registar a sua aplicação de cliente com Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).
+ Para obter mais informações sobre o registo da sua aplicação e autenticação para utilizar o Cofre da Chave Azure, consulte [Registar a sua aplicação de cliente com Azure AD](/rest/api/azure/index#register-your-client-application-with-azure-ad).
  
  Os tokens de acesso devem ser enviados para o serviço utilizando o cabeçalho de autorização HTTP:  
 
@@ -133,5 +133,4 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   autorização: O endereço do serviço de autorização OAuth2 que pode ser utilizado para obter um sinal de acesso para o pedido.  
 
--   recurso: O nome do recurso `https://vault.azure.net` () a utilizar no pedido de autorização.  
-
+-   recurso: O nome do recurso `https://vault.azure.net` () a utilizar no pedido de autorização.

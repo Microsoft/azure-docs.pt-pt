@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: add94fe05eecd2fb77ba0d6d79fe6765afe3baaa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091020"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288342"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Visão geral das bolhas da página de Azure
 
@@ -24,6 +24,10 @@ O Azure Storage oferece três tipos de armazenamento de bolhas: Blobs de Bloco, 
 As bolhas de página são uma coleção de páginas de 512 bytes, que fornecem a capacidade de ler/escrever gamas arbitrárias de bytes. Assim, as bolhas de página são ideais para armazenar estruturas de dados baseadas em índices e escassas, como o SO e discos de dados para Máquinas Virtuais e Bases de Dados. Por exemplo, o Azure SQL DB utiliza bolhas de página como o armazenamento persistente subjacente para as suas bases de dados. Além disso, as bolhas de página também são frequentemente usadas para ficheiros com Range-Based atualizações.  
 
 As principais características das bolhas de página Azure são a sua interface REST, a durabilidade do armazenamento subjacente e as capacidades de migração perfeitas para Azure. Estas funcionalidades são discutidas mais detalhadamente na secção seguinte. Além disso, as bolhas de página Azure são atualmente suportadas em dois tipos de armazenamento: Armazenamento Premium e Armazenamento Standard. Premium Storage é projetado especificamente para cargas de trabalho que requerem um desempenho consistente de alto desempenho e baixa latência tornando blobs de página premium ideais para cenários de armazenamento de alto desempenho. As contas de armazenamento padrão são mais rentáveis para executar cargas de trabalho insensíveis à latência.
+
+## <a name="restrictions"></a>Restrições
+
+As bolhas de página só podem utilizar o nível de acesso **Hot,** não podem utilizar os níveis **Cool** ou **Archive.** Para obter mais informações sobre os níveis de acesso, consulte [os níveis de acesso para armazenamento Azure Blob - quente, fresco e arquivo](storage-blob-storage-tiers.md).
 
 ## <a name="sample-use-cases"></a>Exemplos de casos de utilização
 
@@ -59,7 +63,7 @@ Primeiro, faça referência a um contentor. Para criar uma bolha de página, lig
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
-Para criar uma bolha de página, criamos primeiro um objeto **CloudBlobClient,** com o URI base para aceder ao armazenamento de bolhas para a sua conta de armazenamento *(pbaccount* na figura 1) juntamente com o objeto **StorageCredentialsAccountAndKey,** como mostrado no exemplo seguinte. O exemplo mostra então a criação de uma referência a um objeto **CloudBlobContainer** e, em seguida, a criação do recipiente *(testvhds*) se já não existir. Em seguida, utilizando o objeto **CloudBlobContainer,** crie uma referência a um objeto **CloudPageBlob** especificando o nome blob da página (os4.vhd) para aceder. Para criar a bolha de página, ligue para [CloudPageBlob.Create,](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)passando no tamanho máximo para a bolha criar. O *blobSize* deve ser um múltiplo de 512 bytes.
+Para criar uma bolha de página, criamos primeiro um objeto **CloudBlobClient,** com o URI base para aceder ao armazenamento de bolhas para a sua conta de armazenamento *(pbaccount* na figura 1) juntamente com o objeto **StorageCredentialsAccountAndKey,** como mostrado no exemplo seguinte. O exemplo mostra então a criação de uma referência a um objeto **CloudBlobContainer** e, em seguida, a criação do recipiente *(testvhds* ) se já não existir. Em seguida, utilizando o objeto **CloudBlobContainer,** crie uma referência a um objeto **CloudPageBlob** especificando o nome blob da página (os4.vhd) para aceder. Para criar a bolha de página, ligue para [CloudPageBlob.Create,](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create)passando no tamanho máximo para a bolha criar. O *blobSize* deve ser um múltiplo de 512 bytes.
 
 ```csharp
 using Microsoft.Azure;

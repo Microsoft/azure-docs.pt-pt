@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 817b9bfc0af054b344ca9f770085ac022a8e6eac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb28b4b678b37f69331b2ecff6272fd7aa64d191
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381275"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287622"
 ---
 # <a name="assign-a-key-vault-access-policy-using-azure-powershell"></a>Atribua uma política de acesso ao Cofre de Chaves utilizando o Azure PowerShell
 
@@ -29,7 +29,7 @@ Para obter mais informações sobre a criação de grupos no Azure Ative Directo
 
 1. Para executar comandos localmente, instale [a Azure PowerShell](/powershell/azure/) se ainda não o fez.
 
-    Para executar comandos diretamente na nuvem, utilize a Concha da [Nuvem Azure](/azure/cloud-shell/overview).
+    Para executar comandos diretamente na nuvem, utilize a Concha da [Nuvem Azure](../../cloud-shell/overview.md).
 
 1. Apenas powershell local:
 

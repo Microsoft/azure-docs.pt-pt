@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: aa4b55cb0700a47d9235a1d526ef1b1678d6db8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333822"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285953"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e visualizar ML executar registos e métricas
 
@@ -105,7 +105,9 @@ Pode ver as métricas de um modelo treinado utilizando ```run.get_metrics()``` .
 
 Pode navegar em registos completos, incluindo métricas registadas, no [estúdio Azure Machine Learning](https://ml.azure.com).
 
-Navegue no separador **Experimentos** e selecione a sua experiência. No painel de instrumentos de experimentação, pode ver métricas e registos rastreados para cada corrida. 
+Navegue para o **separador Experimentos.** Para visualizar todas as suas corridas no seu espaço de trabalho através de Experiências, selecione o separador **Todas as execuções.** Pode perfurar em execuções para experiências específicas aplicando o filtro Experiment na barra de menu superior. 
+
+Para a vista experimento individual, selecione o separador **Todas as experiências.** No painel de instrumentos de experimentação, pode ver métricas e registos rastreados para cada corrida. 
 
 Desembre para uma corrida específica para ver as suas saídas ou registos, ou descarregue a imagem instantânea da experiência para que possa partilhar a pasta de experiências com outras.
 

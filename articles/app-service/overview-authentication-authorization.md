@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09460e4e38ea1842d58ecf3a9b3cd00a072c271e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596044"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286901"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticação e autorização no Azure App Service e Azure Functions
 
@@ -140,12 +140,15 @@ Esta opção proporciona mais flexibilidade no tratamento de pedidos anónimos. 
 
 ### <a name="allow-only-authenticated-requests"></a>Permitir apenas pedidos autenticados
 
-A opção é **iniciar sessão com \<provider> **. O Serviço de Aplicações redireciona todos os pedidos anónimos `/.auth/login/<provider>` para o fornecedor que escolher. Se o pedido anónimo vier de uma aplicação móvel nativa, a resposta devolvida é uma `HTTP 401 Unauthorized` .
+A opção é **iniciar sessão com \<provider>**. O Serviço de Aplicações redireciona todos os pedidos anónimos `/.auth/login/<provider>` para o fornecedor que escolher. Se o pedido anónimo vier de uma aplicação móvel nativa, a resposta devolvida é uma `HTTP 401 Unauthorized` .
 
 Com esta opção, não precisa de escrever nenhum código de autenticação na sua aplicação. A autorização mais fina, como a autorização específica para a função, pode ser tratada inspecionando as reclamações do utilizador (ver [pedidos do utilizador do Access).](app-service-authentication-how-to.md#access-user-claims)
 
 > [!CAUTION]
 > Restringir o acesso desta forma aplica-se a todas as chamadas para a sua app, o que pode não ser desejável para aplicações que pretendam uma página inicial disponível ao público, como em muitas aplicações de uma página única.
+
+> [!NOTE]
+> Por predefinição, qualquer utilizador do seu inquilino Azure AD pode solicitar um sinal para a sua aplicação a Azure AD. Pode [configurar a aplicação em Azure AD](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) se quiser restringir o acesso à sua aplicação a um conjunto definido de utilizadores.
 
 ## <a name="more-resources"></a>Mais recursos
 

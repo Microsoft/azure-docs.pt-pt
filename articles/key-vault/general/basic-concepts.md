@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b537fecefd0b8b00967894daa94881a084d5c8f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c1da45115303bb0a67d6ff796a40ef47c24224a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398515"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287426"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Conceitos básicos Azure Key Vault
 
@@ -23,29 +23,29 @@ Azure Key Vault é um serviço de nuvem para armazenar e aceder a segredos de fo
 
 Aqui estão outros termos importantes:
 
-- **Inquilino**: um inquilino é a organização que possui e gere uma instância específica de serviços cloud da Microsoft. É mais frequentemente usado para se referir ao conjunto de serviços Azure e Microsoft 365 para uma organização.
+- **Inquilino** : um inquilino é a organização que possui e gere uma instância específica de serviços cloud da Microsoft. É mais frequentemente usado para se referir ao conjunto de serviços Azure e Microsoft 365 para uma organização.
 
-- **Proprietário do Key Vault**: um proprietário do cofre pode criar um cofre de chaves e obter acesso total e controlo sobre o mesmo. O proprietário do cofre também pode configurar uma auditoria ao registo de quem acede a segredos e chaves. Os administradores podem controlar o ciclo de vida das chaves. Podem implementar uma nova versão da chave, fazer uma cópia de segurança e executar tarefas relacionadas.
+- **Proprietário do Key Vault** : um proprietário do cofre pode criar um cofre de chaves e obter acesso total e controlo sobre o mesmo. O proprietário do cofre também pode configurar uma auditoria ao registo de quem acede a segredos e chaves. Os administradores podem controlar o ciclo de vida das chaves. Podem implementar uma nova versão da chave, fazer uma cópia de segurança e executar tarefas relacionadas.
 
-- **Consumidor do cofre**: um consumidor do cofre pode efetuar ações nos recursos dentro do cofre de chaves quando o proprietário do cofre lhe concede acesso. As ações disponíveis dependem das permissões concedidas.
+- **Consumidor do cofre** : um consumidor do cofre pode efetuar ações nos recursos dentro do cofre de chaves quando o proprietário do cofre lhe concede acesso. As ações disponíveis dependem das permissões concedidas.
 
-- **Administradores geridos do HSM**: Os utilizadores a quem é atribuída a função de Administrador têm controlo total sobre um pool gerido do HSM. Podem criar mais atribuições de funções para delegar acesso controlado a outros utilizadores.
+- **Administradores geridos do HSM** : Os utilizadores a quem é atribuída a função de Administrador têm controlo total sobre um pool gerido do HSM. Podem criar mais atribuições de funções para delegar acesso controlado a outros utilizadores.
 
-- **Gerido HSM Crypto Officer/Utilizador**: Funções incorporadas que são normalmente atribuídas aos utilizadores ou principais de serviço que executarão operações criptográficas usando chaves em HSM Gerido. O Utilizador Crypto pode criar novas teclas, mas não consegue eliminar as teclas.
+- **Gerido HSM Crypto Officer/Utilizador** : Funções incorporadas que são normalmente atribuídas aos utilizadores ou principais de serviço que executarão operações criptográficas usando chaves em HSM Gerido. O Utilizador Crypto pode criar novas teclas, mas não consegue eliminar as teclas.
 
-- **Encriptação gerida do Serviço Crypto HSM**: Função incorporada que é normalmente atribuída a uma conta de serviço gerida (por exemplo, conta de armazenamento) para encriptação de dados em repouso com a chave gerida pelo cliente.
+- **Encriptação gerida do Serviço Crypto HSM** : Função incorporada que é normalmente atribuída a uma conta de serviço gerida (por exemplo, conta de armazenamento) para encriptação de dados em repouso com a chave gerida pelo cliente.
 
-- **Recurso**: um recurso é um item gerível que está disponível através do Azure. Exemplos comuns são máquina virtual, conta de armazenamento, aplicação web, base de dados e rede virtual. Há muitos mais.
+- **Recurso** : um recurso é um item gerível que está disponível através do Azure. Exemplos comuns são máquina virtual, conta de armazenamento, aplicação web, base de dados e rede virtual. Há muitos mais.
 
-- **Grupo de recursos**: um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização.
+- **Grupo de recursos** : um grupo de recursos é um contentor que mantém recursos relacionados para uma solução do Azure. O grupo de recursos pode incluir todos os recursos para a solução ou apenas os recursos que pretende gerir como um grupo. Decida como pretende atribuir recursos a grupos de recursos com base no que é mais adequado para a sua organização.
 
-- **Principal de segurança**: Um principal de segurança Azure é uma identidade de segurança que aplicações, serviços e ferramentas de automação criados pelo utilizador usam para aceder a recursos específicos do Azure. Pense nisso como uma "identidade de utilizador" (nome de utilizador e palavra-passe ou certificado) com uma função específica e permissões rigorosamente controladas. Um diretor de segurança só deve fazer coisas específicas, ao contrário de uma identidade geral do utilizador. Melhora a segurança se lhe conceder apenas o nível mínimo de autorização de que necessita para executar as suas tarefas de gestão. Um principal de segurança utilizado com uma aplicação ou serviço é especificamente chamado de **principal de serviço.**
+- **Principal de segurança** : Um principal de segurança Azure é uma identidade de segurança que aplicações, serviços e ferramentas de automação criados pelo utilizador usam para aceder a recursos específicos do Azure. Pense nisso como uma "identidade de utilizador" (nome de utilizador e palavra-passe ou certificado) com uma função específica e permissões rigorosamente controladas. Um diretor de segurança só deve fazer coisas específicas, ao contrário de uma identidade geral do utilizador. Melhora a segurança se lhe conceder apenas o nível mínimo de autorização de que necessita para executar as suas tarefas de gestão. Um principal de segurança utilizado com uma aplicação ou serviço é especificamente chamado de **principal de serviço.**
 
-- [Azure Active Directory (Azure AD)](../../active-directory/active-directory-whatis.md): o Azure AD é o serviço do Active Directory para um inquilino. Cada diretório tem um ou mais domínios. Um diretório pode ter várias subscrições associadas, mas apenas um inquilino.
+- [Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md): o Azure AD é o serviço do Active Directory para um inquilino. Cada diretório tem um ou mais domínios. Um diretório pode ter várias subscrições associadas, mas apenas um inquilino.
 
-- **ID do inquilino do Azure**: um ID do inquilino é uma forma exclusiva para identificar uma instância do Azure AD numa subscrição do Azure.
+- **ID do inquilino do Azure** : um ID do inquilino é uma forma exclusiva para identificar uma instância do Azure AD numa subscrição do Azure.
 
-- **Identidades geridas**: O Azure Key Vault fornece uma forma de armazenar credenciais e outros segredos de segurança, mas o seu código precisa de autenticar para o Key Vault para as recuperar. A utilização de uma identidade gerida torna a resolução deste problema mais simples, dando aos serviços Azure uma identidade gerida automaticamente em Azure AD. Pode utilizar esta identidade para autenticar no Key Vault ou em qualquer serviço que suporta a autenticação Azure AD, sem ser necessário ter credenciais no seu código. Para mais informações, consulte a imagem a seguir e a [visão geral das identidades geridas para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
+- **Identidades geridas** : O Azure Key Vault fornece uma forma de armazenar credenciais e outros segredos de segurança, mas o seu código precisa de autenticar para o Key Vault para as recuperar. A utilização de uma identidade gerida torna a resolução deste problema mais simples, dando aos serviços Azure uma identidade gerida automaticamente em Azure AD. Pode utilizar esta identidade para autenticar no Key Vault ou em qualquer serviço que suporta a autenticação Azure AD, sem ser necessário ter credenciais no seu código. Para mais informações, consulte a imagem a seguir e a [visão geral das identidades geridas para os recursos da Azure.](../../active-directory/managed-identities-azure-resources/overview.md)
 
     ![Diagrama de como as identidades geridas para os recursos da Azure funcionam](../media/key-vault-whatis/msi.png)
 
@@ -53,8 +53,8 @@ Aqui estão outros termos importantes:
 Para fazer qualquer operação com o Key Vault, primeiro tem de autenticar. Há três maneiras de autenticar o Cofre de Chaves:
 
 - [Identidades geridas para recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md): Quando implementa uma aplicação numa máquina virtual em Azure, pode atribuir uma identidade à sua máquina virtual que tenha acesso ao Key Vault. Também pode atribuir identidades a [outros recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md). O benefício desta abordagem é que a app ou serviço não está a gerir a rotação do primeiro segredo. O Azure roda automaticamente a identidade. Recomendamos esta abordagem como uma boa prática. 
-- **Principal de serviço e certificado**: Você pode usar um principal serviço e um certificado associado que tem acesso ao Key Vault. Não recomendamos esta abordagem porque o proprietário ou desenvolvedor da aplicação deve rodar o certificado.
-- **Diretor de serviço e segredo**: Embora possa usar um diretor de serviço e um segredo para autenticar para Key Vault, não o recomendamos. É difícil rodar automaticamente o segredo da bota que é usado para autenticar para o Key Vault.
+- **Principal de serviço e certificado** : Você pode usar um principal serviço e um certificado associado que tem acesso ao Key Vault. Não recomendamos esta abordagem porque o proprietário ou desenvolvedor da aplicação deve rodar o certificado.
+- **Diretor de serviço e segredo** : Embora possa usar um diretor de serviço e um segredo para autenticar para Key Vault, não o recomendamos. É difícil rodar automaticamente o segredo da bota que é usado para autenticar para o Key Vault.
 
 
 ## <a name="key-vault-roles"></a>Funções do Key Vault

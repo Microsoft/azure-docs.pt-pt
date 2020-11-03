@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c67ff71ccc7690fbf3362b423ba4b6a56091684
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 3bf65fd2cc6feb338c1cd7d0742fb3d2a4289eff
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891249"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287194"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Parceiros isv do Azure Ative Directory B2C
 
@@ -36,8 +36,10 @@ A nossa rede de parceiros ISV alarga as nossas capacidades de solução para o a
 | ![Screenshot de um logotipo do seu nome.](./media/partner-gallery/itsme-logo.png) | [o seu nome](./partner-itsme.md) é uma solução de ID digital compatível com identificação eletrónica, autenticação e fidedignidade (eiDAS) para permitir que os utilizadores assinem de forma segura sem leitores de cartões, palavras-passe, autenticação de dois fatores e múltiplos códigos PIN. |
 | ![Imagem de um logotipo do Jumio.](./media/partner-gallery/jumio-logo.png) | [O Jumio](./partner-jumio.md) é um serviço de verificação de identificação, que permite a verificação automática de ID em tempo real, salvaguardando os dados dos clientes. |
 | ![Imagem de um logótipo lexisNexis.](./media/partner-gallery/lexisnexis-logo.png) | [A LexisNexis](./partner-lexisnexis.md) é um fornecedor de perfis e validação de identidade que verifica a identificação do utilizador e fornece uma avaliação abrangente de risco com base no dispositivo do utilizador. |
+| ![Screenshot de um logotipo de identidade N8.](./media/partner-gallery/n8identity-logo.png) | [A N8 Identity](./partner-n8identity.md) é uma plataforma de governação identidade como um serviço que fornece solução para abordar a migração de contas de clientes e a administração de Pedidos de Atendimento ao Cliente (CSR) em execução no Microsoft Azure. |
 | ![Screenshot de um logotipo Onfido.](./media/partner-gallery/onfido-logo.png) | [O Onfido](./partner-onfido.md) é uma solução de verificação de ID e biometria facial que permite às empresas satisfazer em tempo real os requisitos *de Know Your Customer* e identidade.  |
 | ![Imagem de um logotipo Saviynt.](./media/partner-gallery/saviynt-logo.png) | A plataforma [saviynt](./partner-saviynt.md) cloud-native usa análises inteligentes e fornece integração de aplicações cruzadas para simplificar a modernização das TI e promover uma melhor segurança, governação e conformidade. A modernização empresarial altera a forma como as empresas analisam os pedidos de acesso, fazem avaliações de acesso, reportam análises e agilizam campanhas de certificação.  |
+| ![Imagem de um logotipo de Strata.](./media/partner-gallery/strata-logo.png) | [Strata](./partner-strata.md) protege as aplicações no local, aplicando políticas de acesso consistentes, mantendo as identidades sincronizadas, e tornando simples a transição de aplicações de sistemas de identidade antigas para a autenticação baseada em padrões e controlo de acesso fornecido pela Azure AD B2C. |
 | ![Imagem de um logotipo de Trusona.](./media/partner-gallery/trusona-logo.png) | A integração [da Trusona](./partner-trusona.md) ajuda-o a assinar de forma segura e permite a autenticação sem palavras-passe, a autenticação de vários fatores e a digitalização da licença digital.|
 | ![Screenshot de um logotipo da App Twilio Check.](./media/partner-gallery/twilio-logo.png) | [A Twilio Check App](./partner-twilio.md) fornece múltiplas soluções para permitir a autenticação de vários fatores (MFA) através de sms única senha (OTP), senha única baseada no tempo (TOTP), e notificações push, e para cumprir os requisitos sca para a Diretiva de Serviços de Pagamento 2 (PSD2).|
 | ![Screenshot que mostra um logotipo da DigitingDNA.](./media/partner-gallery/typingdna-logo.png) | [A Digitação deDNA](./partner-typingdna.md) é um fornecedor de verificação de identidade e de impermeabilização com base no padrão de dactilografia do utilizador, fornece soluções de verificação de ID que forçam a autenticação de vários fatores e ajuda a cumprir os requisitos da SCA para a Diretiva 2 dos Serviços de Pagamento (PSD2). |

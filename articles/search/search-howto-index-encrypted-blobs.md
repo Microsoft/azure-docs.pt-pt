@@ -8,22 +8,21 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 11/02/2020
+ms.openlocfilehash: f0295c27f1d193b0dcd7829a11b4aabe0edb659b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791992"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286351"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Como indexar bolhas encriptadas usando indexadores blob e skillsets em Azure Cognitive Search
 
-Este artigo mostra como usar a [Azure Cognitive Search](search-what-is-azure-search.md) para indexar documentos que foram previamente encriptados dentro [do Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) usando o Cofre da Chave [Azure](../key-vault/general/overview.md). Normalmente, um indexante não pode extrair conteúdo de ficheiros encriptados porque não tem acesso à chave de encriptação. No entanto, aproveitando a habilidade personalizada [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) seguida do [DocumentExtractionSkill,](cognitive-search-skill-document-extraction.md)pode fornecer acesso controlado à chave para desencriptar os ficheiros e, em seguida, obter conteúdo extraído dos mesmos. Isto desbloqueia a capacidade de indexar estes documentos sem nunca ter de se preocupar com o facto de os seus dados serem armazenados sem encriptação em repouso.
+Este artigo mostra-lhe como usar [a Azure Cognitive Search](search-what-is-azure-search.md) para indexar documentos que foram previamente encriptados dentro do [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) usando o Cofre da Chave [Azure](../key-vault/general/overview.md). Normalmente, um indexante não pode extrair conteúdo de ficheiros encriptados porque não tem acesso à chave de encriptação. No entanto, aproveitando a habilidade personalizada [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/master/Utils/DecryptBlobFile) seguida do [DocumentExtractionSkill,](cognitive-search-skill-document-extraction.md)pode fornecer acesso controlado à chave para desencriptar os ficheiros e, em seguida, obter conteúdo extraído dos mesmos. Isto desbloqueia a capacidade de indexar estes documentos sem comprometer o estado de encriptação dos seus documentos armazenados.
 
-Este guia utiliza o Carteiro e as APIs search REST para executar as seguintes tarefas:
+Começando com documentos inteiros previamente encriptados (texto não estruturado) como PDF, HTML, DOCX e PPTX no armazenamento Azure Blob, este guia utiliza o Carteiro e as APIs de Search REST para executar as seguintes tarefas:
 
 > [!div class="checklist"]
-> * Comece com documentos inteiros (texto não estruturado) como PDF, HTML, DOCX e PPTX no armazenamento Azure Blob que foram encriptados usando o Cofre da Chave Azure.
 > * Defina um oleoduto que desencripta os documentos e extrai texto dos mesmos.
 > * Defina um índice para armazenar a saída.
 > * Execute o oleoduto para criar e carregar o índice.
@@ -36,13 +35,10 @@ Se não tiver uma subscrição do Azure, abra uma [conta gratuita](https://azure
 Este exemplo pressupõe que já fez o upload dos seus ficheiros para o Azure Blob Storage e os encriptaram no processo. Se precisar de ajuda para obter os seus ficheiros inicialmente carregados e encriptados, consulte [este tutorial](../storage/blobs/storage-encrypt-decrypt-blobs-key-vault.md) para saber como fazê-lo.
 
 + [Armazenamento do Azure](https://azure.microsoft.com/services/storage/)
-+ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
++ [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) na mesma subscrição que a Azure Cognitive Search. O cofre da chave deve ter **proteção de eliminação** e **purga** ativada.
++ [Pesquisa Cognitiva Azure](search-create-service-portal.md) num [nível de faturação](search-sku-tier.md#tiers) (Básico ou superior, em qualquer região)
 + [Função do Azure](https://azure.microsoft.com/services/functions/)
 + [Aplicação de ambiente de trabalho Postman](https://www.getpostman.com/)
-+ [Criar](search-create-service-portal.md) ou [encontrar um serviço de pesquisa existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
-
-> [!Note]
-> Pode utilizar o serviço gratuito para este guia. Um serviço de pesquisa gratuito limita-o a três índices, três indexantes, três fontes de dados e três skillsets. Este guia cria um de cada. Antes de começar, certifique-se de ter espaço no seu serviço para aceitar os novos recursos.
 
 ## <a name="1---create-services-and-collect-credentials"></a>1 - Criar serviços e recolher credenciais
 
@@ -68,7 +64,7 @@ Operacionalmente, a habilidade DecryptBlobFile leva o símbolo DE URL e SAS para
      
        ![Keyvault adicionar política de acesso](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Políticas de acesso keyvault")
 
-    1. Sob **configuração do modelo,** selecione **Azure Data Lake Storage ou Azure Storage** .
+    1. Sob **configuração do modelo,** selecione **Azure Data Lake Storage ou Azure Storage**.
 
     1. Para o principal, selecione a instância Azure Function que implementou. Pode pesquisar através do prefixo de recursos que foi usado para criá-lo no passo 2, que tem um valor prefixo prefixo prefixo padrão da **aplicação psdbf-function.**
 
@@ -121,7 +117,7 @@ Instale e instale o Carteiro.
 1. Descarregue o [código fonte de recolha do Carteiro.](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json)
 1. Selecione **a Importação de**  >  **Ficheiros** para importar o código fonte para o Carteiro.
 1. Selecione o separador **Coleções** e, em seguida, selecione o botão **...** (elipse).
-1. Selecione **Editar** . 
+1. Selecione **Editar**. 
    
    ![Aplicativo de carteiro mostrando navegação](media/indexing-encrypted-blob-files/postman-edit-menu.jpg "Ir ao menu Editar no Carteiro")
 1. Na caixa de diálogo **Editar,** selecione o **separador Variáveis.** 
@@ -137,11 +133,11 @@ Para obter o valor `admin-key` para , use a chave api-api de pesquisa cognitiva 
 |-------------|-----------------|
 | `admin-key` | Na página **Chaves** do serviço de Pesquisa Cognitiva Azure.  |
 | `search-service-name` | O nome do serviço de Pesquisa Cognitiva Azure. A URL `https://{{search-service-name}}.search.windows.net` é. | 
-| `storage-connection-string` | Na conta de armazenamento, no separador **Chaves de Acesso,** selecione **a tecla1** Connection  >  **string** . | 
+| `storage-connection-string` | Na conta de armazenamento, no separador **Chaves de Acesso,** selecione **a tecla1** Connection  >  **string**. | 
 | `storage-container-name` | O nome do recipiente blob que tem os ficheiros encriptados a serem indexados. | 
 | `function-uri` |  Na Função Azure sob **Essencial** na página principal. | 
 | `function-code` | Na Função Azure, navegando nas **teclas App,** clicando para mostrar a chave **predefinida** e copiando o valor. | 
-| `api-version` | Sair como **2020-06-30** . |
+| `api-version` | Sair como **2020-06-30**. |
 | `datasource-name` | Deixe como **blobs-ds encriptados.** | 
 | `index-name` | Deixe como **idx criptografado.** | 
 | `skillset-name` | Deixe como **blobs-ss encriptados.** | 

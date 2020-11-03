@@ -3,12 +3,12 @@ title: Planeamento da implementação da Solução VMware Azure
 description: Este artigo descreve um fluxo de trabalho de implementação de Solução VMware Azure.  O resultado final é um ambiente pronto para a criação e migração de máquinas virtuais (VM).
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 9b6d04e1e7a60bf812ca2b1e370c5075d306c432
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517366"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287053"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planeamento da implementação da Solução VMware Azure
 
@@ -17,7 +17,7 @@ Este artigo fornece-lhe o processo de planeamento para identificar e recolher da
 Os processos deste arranque rápido resultam num ambiente pronto para a produção para a criação de máquinas virtuais (VMs) e migração. 
 
 >[!IMPORTANT]
->Antes de criar o seu recurso Azure VMware Solution, siga o como permitir que o artigo [de recursos da Azure VMware Solution](enable-azure-vmware-solution.md) envie um bilhete de suporte para que os seus nós tenham os seus nós atribuídos. Uma vez que a equipa de apoio recebe o seu pedido, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus nós. Se tiver uma nuvem privada Azure VMware Solution e quiser mais nós atribuídos, passará pelo mesmo processo. 
+>Antes de criar o seu recurso Azure VMware Solution, siga o como permitir que o artigo [de recursos da Azure VMware Solution](enable-azure-vmware-solution.md) envie um bilhete de apoio para que os seus anfitriões tenham os seus anfitriões atribuídos. Uma vez que a equipa de apoio recebe o seu pedido, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus anfitriões. Se tiver uma nuvem privada Azure VMware Solution e quiser mais anfitriões, passará pelo mesmo processo. 
 
 
 ## <a name="subscription"></a>Subscrição
@@ -39,9 +39,9 @@ Identifique a região que pretende que a Azure VMware Solution seja implementada
 
 Defina o nome de recurso que utilizará durante a implantação.  O nome do recurso é um nome amigável e descritivo no qual intitula a sua nuvem privada Azure VMware Solution.
 
-## <a name="size-nodes"></a>Nódoas de tamanho
+## <a name="size-hosts"></a>Hospedeiros de tamanho
 
-Identifique os nós de tamanho que pretende utilizar ao implementar a Solução VMware Azure.  Para obter uma lista completa, consulte a documentação [privada Azure VMware Solution e clusters.](concepts-private-clouds-clusters.md#hosts)
+Identifique os anfitriões de tamanho que pretende utilizar ao implementar a Solução VMware Azure.  Para obter uma lista completa, consulte a documentação [privada Azure VMware Solution e clusters.](concepts-private-clouds-clusters.md#hosts)
 
 ## <a name="number-of-hosts"></a>Número de anfitriões
 
@@ -79,7 +79,7 @@ Lembre-se, quaisquer segmentos IP criados devem ser únicos em todo o seu Azure 
 
 **Exemplo:** 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificar - Segmento de endereço IP" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificar - Segmento de endereço IP para cargas de trabalho de máquinas virtuais" border="false":::     
 
 ## <a name="optional-extend-networks"></a>(Opcional) Alargar redes
 
@@ -96,7 +96,7 @@ Identifique um `/29` bloco de endereços de rede CIDR necessário para o observa
 
 **Exemplo:** 10.1.0.0/29
 
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificar - Segmento de endereço IP" border="false":::
+:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificar - ExpressRoute Global Reach rede de espreitamento" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Rede Virtual Azure para anexar Solução VMware Azure
 
@@ -119,7 +119,7 @@ De qualquer forma, documente o que quer fazer neste passo.
 >[!NOTE]
 >Esta rede virtual é vista pelo seu ambiente no local e pela Azure VMware Solution, por isso certifique-se de que qualquer segmento IP que utilize nesta rede virtual e sub-redes não se sobreponha.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identificar - Segmento de endereço IP" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identidade - Rede Virtual Azure para anexar Solução VMware Azure" border="false":::
 
 ## <a name="vmware-hcx-network-segments"></a>Segmentos de rede VMware HCX
 

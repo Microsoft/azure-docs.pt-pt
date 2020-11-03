@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 1255333e9bde54fcdf76dd40a9aaa4bc68fd103e
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 7ca290b7b7df9e4e03aec78b611361ba52942523
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242131"
+ms.locfileid: "93286681"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos do Discurso CLI
 
@@ -163,7 +163,7 @@ Este comando é o equivalente a correr `spx synthesize --text Sample text to syn
 
 * Os cabeçalhos da coluna `audio.output` `text` correspondem aos argumentos da linha de comando `--audio output` `--text` e, respectivamente. Argumentos de linha de comando multi-partes como `--audio output` deve ser formatado no ficheiro sem espaços, sem traços principais, e períodos que separam cordas, por `audio.output` exemplo. Quaisquer outros argumentos existentes da linha de comando podem ser adicionados ao ficheiro como colunas adicionais usando este padrão.
 * Quando o ficheiro é formatado desta formação, não são necessários argumentos adicionais para `--foreach` .
-* Certifique-se de separar cada valor no `.tsv` separador com um **separador** .
+* Certifique-se de separar cada valor no `.tsv` separador com um **separador**.
 
 No entanto, se tiver um `.tsv` ficheiro como o seguinte exemplo, com cabeçalhos de coluna que não **correspondam aos** argumentos da linha de comando:
 
@@ -182,4 +182,4 @@ spx synthesize --foreach audio.output;text in @C:\your\path\to\text_synthesis.ts
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Complete os [rápidos](./quickstarts/speech-to-text-from-microphone.md) de reconhecimento de voz ou [síntese de fala](./quickstarts/text-to-speech.md) utilizando o SDK.
+* Complete os [rápidos](get-started-speech-to-text.md?pivots=programmer-tool-spx) de reconhecimento de voz ou [síntese de fala](get-started-text-to-speech.md?pivots=programmer-tool-spx) utilizando o Speech CLI.

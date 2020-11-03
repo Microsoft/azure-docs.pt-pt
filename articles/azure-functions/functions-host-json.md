@@ -3,12 +3,12 @@ title: host.jsem referência para Funções Azure 2.x
 description: A documentação de referência para as Funções Azure host.jsem arquivo com o tempo de execução v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: f58eefd636b2bd59d6b3656bf162f7d601f7ff85
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167661"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284500"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência host.json das Funções do Azure 2.x e posterior 
 
@@ -29,7 +29,7 @@ Também pode [sobrepor-se ou aplicar definições por ambiente](#override-hostjs
 
 ## <a name="sample-hostjson-file"></a>host.jsde amostra no arquivo
 
-A amostra que se * seguehost.jsno* ficheiro para a versão 2.x+ tem todas as opções possíveis especificadas (excluindo as que são apenas para uso interno).
+A amostra que se *seguehost.jsno* ficheiro para a versão 2.x+ tem todas as opções possíveis especificadas (excluindo as que são apenas para uso interno).
 
 ```json
 {
@@ -117,6 +117,11 @@ A amostra que se * seguehost.jsno* ficheiro para a versão 2.x+ tem todas as op�
     "managedDependency": {
         "enabled": true
     },
+    "retry": {
+      "strategy": "fixedDelay",
+      "maxRetryCount": 5,
+      "delayInterval": "00:00:05"
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -145,7 +150,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 > [!NOTE]
 > A amostragem de registo pode fazer com que algumas execuções não apareçam na lâmina do monitor Application Insights. Para evitar a amostragem de registo, adicione `excludedTypes: "Request"` ao `samplingSettings` valor.
 
-| Propriedade | Predefinição | Descrição |
+| Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | amostragemS | n/a | Ver [aplicaçõesInsights.samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Permite a recolha de métricas ao vivo. |
@@ -157,7 +162,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights.samplingSettings
 
-|Propriedade | Predefinição | Descrição |
+|Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | isEnabled | true | Permite ou desativa a amostragem. | 
 | maxTelemetryItemsPerSecond | 20 | O número-alvo de itens de telemetria registados por segundo em cada anfitrião do servidor. Se a sua aplicação for executado em muitos anfitriões, reduza este valor para permanecer dentro da sua taxa de tráfego geral. | 
@@ -167,13 +172,13 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 | amostragemPercentageDecreaseTimeout | 00:00:01 | Quando o valor percentual de amostragem muda, esta propriedade determina quão cedo os Insights de Aplicação são autorizados a baixar novamente a percentagem de amostragem para capturar menos dados. |
 | minSamplingPercentage | 0.1 | Como a percentagem de amostragem varia, esta propriedade determina a percentagem mínima de amostragem permitida. |
 | maxSamplingPercentage | 100.0 | Como a percentagem de amostragem varia, esta propriedade determina a percentagem máxima de amostragem permitida. |
-| movingAverageRatio | 1.0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Utilize um valor igual ou inferior a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
+| movingAverageRatio | 1,0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Utilize um valor igual ou inferior a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
 | Tipos excluídos | nulo | Uma lista de tipos delimitados semi-cólon que não quer ser amostrado. Os tipos reconhecidos são: `Dependency` , , , , e `Event` `Exception` `PageView` `Request` `Trace` . Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
 | incluídosTipos | nulo | Uma lista de tipos delimitados de pontos semi-cólon que pretende ser amostrado; uma lista vazia implica todos os tipos. Digite listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: `Dependency` , , , , e `Event` `Exception` `PageView` `Request` `Trace` . São amostradas as instâncias dos tipos especificados; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 
-|Propriedade | Predefinição | Descrição |
+|Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Ativa ou desativa informações de pedidos de HTTP para gatilhos HTTP: cabeçalhos de correlação de pedidos de entrada, suporte de chaves de múltiplos instrumentações, método, caminho e resposta HTTP. |
 | enableW3CDistributedTracing | true | Permite ou desativa o suporte do protocolo de rastreio distribuído W3C (e liga o esquema de correlação do legado). Ativado por padrão se `enableHttpTriggerExtendedInfoCollection` for verdade. Se `enableHttpTriggerExtendedInfoCollection` for falsa, esta bandeira aplica-se apenas aos pedidos de saída, não aos pedidos de entrada. |
@@ -183,7 +188,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 
 Para obter mais informações sobre instantâneos, consulte [instantâneos de Debug sobre exceções em aplicações .NET](../azure-monitor/app/snapshot-debugger.md) e [problemas de resolução de problemas que permitem insights de aplicação Snapshot Debugger ou visualização de instantâneos](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Propriedade | Predefinição | Descrição |
+|Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | agenteEndpoint | nulo | O ponto final utilizado para ligar ao serviço Debugger Debugger Do Application Insights Snapshot. Se for nulo, é utilizado um ponto final predefinido. |
 | capturaSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho atual da memória do processo ao verificar se há memória suficiente para tirar uma foto. O valor esperado é superior a 0 frações adequadas (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -275,7 +280,7 @@ Definições de configuração para [monitor de saúde host](https://github.com/
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |ativado|true|Especifica se a funcionalidade está ativada. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de saúde de fundo periódicos. | 
@@ -307,7 +312,7 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
 |fileLoggingMode|depuraronamente|Define o nível de registo de ficheiros ativado.  As opções `never` `always` são, `debugOnly` . . |
 |logLevel|n/a|Objeto que define a filtragem da categoria de registo para funções na aplicação. Versões 2.x e mais tarde siga o layout ASP.NET Core para filtragem da categoria de registo. Esta definição permite filtrar o início de sessão para funções específicas. Para obter mais informações, consulte [a filtragem do Registo](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) na documentação do Núcleo ASP.NET. |
@@ -330,7 +335,7 @@ Esta definição é uma criança de [registo.](#logging) Controla o registo da c
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |isEnabled|false|Ativa ou desativa a sessão de registo de consolas.| 
 
@@ -349,6 +354,28 @@ A dependência gerida é uma funcionalidade que atualmente só é suportada com 
 ## <a name="queues"></a>filas
 
 As definições de configuração podem ser encontradas nos [gatilhos e encadernações da fila de armazenamento](functions-bindings-storage-queue-output.md#host-json).  
+
+## <a name="retry"></a>retry
+
+Controla as opções [de política de re-tentar](./functions-bindings-error-pages.md#retry-policies) para todas as execuções na app.
+
+```json
+{
+    "retry": {
+        "strategy": "fixedDelay",
+        "maxRetryCount": 2,
+        "delayInterval": "00:00:03"  
+    }
+}
+```
+
+|Propriedade  |Predefinição | Description |
+|---------|---------|---------| 
+|estratégia|nulo|Obrigatório. A estratégia de repetição a utilizar. Valores válidos são `fixedDelay` ou `exponentialBackoff` .|
+|maxRetryCount|nulo|Obrigatório. O número máximo de retrós assim que é permitido por execução de função. `-1` significa voltar a tentar indefinidamente.|
+|atrasoInterval|nulo|O atraso que é usado entre as retróssias com uma `fixedDelay` estratégia.|
+|mínimoInterval|nulo|O mínimo de atraso na utilização da `exponentialBackoff` estratégia.|
+|máximoInterval|nulo|O máximo de atraso na utilização da `exponentialBackoff` estratégia.| 
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -374,7 +401,7 @@ Definições de configuração para o comportamento de bloqueio de Singleton. Pa
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período para o que os bloqueios de nível de função são tomados. As fechaduras renovam-se automaticamente.| 
 |ouvinteLockPeriod|00:01:00|O período para o que os ouvintes bloqueiam.| 

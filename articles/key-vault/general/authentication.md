@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 3ec831bada19aa8d3872440ba628ac06bc64f749
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3fdc9a9f99b239f68022067a5aedbc7e6e0d12a4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099424"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287503"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Autenticar para o Azure Key Vault
 
@@ -20,7 +20,7 @@ O Azure Key Vault permite-lhe armazenar segredos e controlar a sua distribuiçã
 
 ## <a name="app-identity-and-security-principals"></a>Principais de identidade e segurança da app
 
-A autenticação com a Key Vault funciona em conjunto com [o Azure Ative Directory (Azure AD),](/azure/active-directory/fundamentals/active-directory-whatis)que é responsável pela autenticação da identidade de qualquer **dado diretor de segurança.**
+A autenticação com a Key Vault funciona em conjunto com [o Azure Ative Directory (Azure AD),](../../active-directory/fundamentals/active-directory-whatis.md)que é responsável pela autenticação da identidade de qualquer **dado diretor de segurança.**
 
 Um principal de segurança é um objeto que representa um utilizador, grupo, serviço ou aplicação que está solicitando acesso aos recursos Azure. O Azure atribui uma **identificação** única a todos os diretores de segurança.
 
@@ -36,9 +36,9 @@ Para aplicações, existem duas formas de obter um principal de serviço:
 
     Com identidade gerida, a Azure gere internamente o principal de serviço da aplicação e autentica automaticamente a aplicação com outros serviços Azure. A identidade gerida está disponível para aplicações implantadas para uma variedade de serviços.
 
-    Para mais informações, consulte a visão geral da [identidade gerida.](/azure/active-directory/managed-identities-azure-resources/overview) Consulte também [os serviços Azure que suportam identidade gerida,](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)que se liga a artigos que descrevem como permitir a identidade gerida para serviços específicos (tais como Serviço de Aplicações, Funções Azure, Máquinas Virtuais, etc.).
+    Para mais informações, consulte a visão geral da [identidade gerida.](../../active-directory/managed-identities-azure-resources/overview.md) Consulte também [os serviços Azure que suportam identidade gerida,](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)que se liga a artigos que descrevem como permitir a identidade gerida para serviços específicos (tais como Serviço de Aplicações, Funções Azure, Máquinas Virtuais, etc.).
 
-* Se não puder utilizar a identidade gerida, em vez **disso, registe** o pedido junto do seu inquilino Azure AD, conforme descrito no [Quickstart: Registe uma aplicação com a plataforma de identidade Azure](/azure/active-directory/develop/quickstart-register-app). O registo também cria um segundo objeto de aplicação que identifica a app em todos os inquilinos.
+* Se não puder utilizar a identidade gerida, em vez **disso, registe** o pedido junto do seu inquilino Azure AD, conforme descrito no [Quickstart: Registe uma aplicação com a plataforma de identidade Azure](../../active-directory/develop/quickstart-register-app.md). O registo também cria um segundo objeto de aplicação que identifica a app em todos os inquilinos.
 
 ## <a name="authorize-a-security-principal-to-access-key-vault"></a>Autorizar um diretor de segurança a aceder ao Cofre-Chave
 
@@ -56,13 +56,13 @@ O Cofre-Chave funciona com dois níveis de autorização distintos:
  
     Para atribuir e gerir funções, consulte os seguintes artigos:
 
-    - [Portal do Azure](/azure/role-based-access-control/role-assignments-portal)
-    - [CLI do Azure](/azure/role-based-access-control/role-assignments-cli)
-    - [Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell)
+    - [Portal do Azure](../../role-based-access-control/role-assignments-portal.md)
+    - [CLI do Azure](../../role-based-access-control/role-assignments-cli.md)
+    - [Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
-    A Key Vault suporta atualmente o papel [de Contribuinte,](/azure/role-based-access-control/built-in-roles#key-vault-contributor) que permite operações de gestão em recursos key vault. Uma série de outras funções estão atualmente em pré-visualização. Também pode criar funções personalizadas, conforme descrito nas [funções personalizadas Azure](/azure/role-based-access-control/custom-roles).
+    A Key Vault suporta atualmente o papel [de Contribuinte,](../../role-based-access-control/built-in-roles.md#key-vault-contributor) que permite operações de gestão em recursos key vault. Uma série de outras funções estão atualmente em pré-visualização. Também pode criar funções personalizadas, conforme descrito nas [funções personalizadas Azure](../../role-based-access-control/custom-roles.md).
 
-    Para obter informações gerais sobre funções, consulte [O que é Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview)
+    Para obter informações gerais sobre funções, consulte [O que é Azure Role-Based Access Control (RBAC)?](../../role-based-access-control/overview.md)
 
 
 > [!IMPORTANT]
@@ -72,7 +72,7 @@ O Cofre-Chave funciona com dois níveis de autorização distintos:
 
 Por predefinição, o Key Vault permite o acesso aos recursos através de endereços IP públicos. Para uma maior segurança, também pode restringir o acesso a gamas IP específicas, pontos finais de serviço, redes virtuais ou pontos finais privados.
 
-Para obter mais informações, consulte [o Access Azure Key Vault atrás de uma firewall](/azure/key-vault/general/access-behind-firewall).
+Para obter mais informações, consulte [o Access Azure Key Vault atrás de uma firewall](./access-behind-firewall.md).
 
 
 ## <a name="the-key-vault-authentication-flow"></a>O fluxo de autenticação do Cofre-Chave
@@ -80,7 +80,7 @@ Para obter mais informações, consulte [o Access Azure Key Vault atrás de uma 
 1. Um principal pedido de serviço para autenticar com Azure AD, por exemplo:
     * Um utilizador entra no portal Azure utilizando um nome de utilizador e senha.
     * Uma aplicação invoca uma API Azure REST, apresentando uma identificação do cliente e um certificado de cliente secreto ou cliente.
-    * Um recurso Azure, como uma máquina virtual com uma identidade gerida, contacta o ponto final do [Serviço de Metadados de Instância Azure (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) PARA obter um token de acesso.
+    * Um recurso Azure, como uma máquina virtual com uma identidade gerida, contacta o ponto final do [Serviço de Metadados de Instância Azure (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) PARA obter um token de acesso.
 
 1. Se a autenticação com Azure AD for bem sucedida, o diretor de serviço recebe um token OAuth.
 
@@ -89,7 +89,7 @@ Para obter mais informações, consulte [o Access Azure Key Vault atrás de uma 
 1. Key Vault Firewall verifica os seguintes critérios. Se algum critério for cumprido, a chamada é permitida. Caso contrário, a chamada é bloqueada e uma resposta proibida é devolvida.
 
     * A firewall está desativada e o ponto final público do Key Vault é acessível a partir da internet pública.
-    * O chamador é um [serviço de confiança do cofre de chaves,](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)permitindo-lhe contornar a firewall.
+    * O chamador é um [serviço de confiança do cofre de chaves,](./overview-vnet-service-endpoints.md#trusted-services)permitindo-lhe contornar a firewall.
     * O chamador está listado na firewall por endereço IP, rede virtual ou ponto final de serviço.
     * O chamador pode chegar ao Key Vault sobre uma ligação de ligação privada configurada.    
 
@@ -109,20 +109,20 @@ A tabela a seguir liga-se a diferentes artigos que demonstram como trabalhar com
 
 | Segredos do Cofre Chave | Chaves do cofre chave | Certificados de cofre chave |
 |  --- | --- | --- |
-| [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
-| [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [Python](../secrets/quick-create-python.md) | [Python](../keys/quick-create-python.md) | [Python](../certificates/quick-create-python.md) | 
+| [.NET (SDK v4)](../secrets/quick-create-net.md) | -- | -- |
 | [.NET (SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
-| [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
-| [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
+| [Java](../secrets/quick-create-java.md) | -- | -- |
+| [JavaScript](../secrets/quick-create-node.md) | -- | -- | 
 | | | |
-| [Portal do Azure](/azure/key-vault/secrets/quick-create-portal) | [Portal do Azure](/azure/key-vault/keys/quick-create-portal) | [Portal do Azure](/azure/key-vault/certificates/quick-create-portal) |
-| [CLI do Azure](/azure/key-vault/secrets/quick-create-cli) | [CLI do Azure](/azure/key-vault/keys/quick-create-cli) | [CLI do Azure](/azure/key-vault/certificates/quick-create-cli) |
-| [Azure PowerShell](/azure/key-vault/secrets/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/keys/quick-create-powershell) | [Azure PowerShell](/azure/key-vault/certificates/quick-create-powershell) |
-| [Modelo ARM](/azure/key-vault/secrets/quick-create-net) | -- | -- |
+| [Portal do Azure](../secrets/quick-create-portal.md) | [Portal do Azure](../keys/quick-create-portal.md) | [Portal do Azure](../certificates/quick-create-portal.md) |
+| [CLI do Azure](../secrets/quick-create-cli.md) | [CLI do Azure](../keys/quick-create-cli.md) | [CLI do Azure](../certificates/quick-create-cli.md) |
+| [Azure PowerShell](../secrets/quick-create-powershell.md) | [Azure PowerShell](../keys/quick-create-powershell.md) | [Azure PowerShell](../certificates/quick-create-powershell.md) |
+| [Modelo ARM](../secrets/quick-create-net.md) | -- | -- |
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Resolução de problemas da política de acesso ao cofre chave](troubleshooting-access-issues.md)
 - [Códigos de erro da API do Cofre de Chaves](rest-error-codes.md)
 - [Guia do desenvolvedor do Cofre chave](developers-guide.md)
-- [O que é Azure Role-Based Access Control (RBAC)?](/azure/role-based-access-control/overview)
+- [O que é Azure Role-Based Access Control (RBAC)?](../../role-based-access-control/overview.md)

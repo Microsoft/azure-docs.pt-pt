@@ -1,26 +1,21 @@
 ---
-title: Como remover o acesso de um utilizador a uma aplicação Microsoft Docs
-description: Compreender como remover o acesso de um utilizador a uma aplicação
+title: Como remover o acesso de um utilizador a uma aplicação no Azure Ative Directory
+description: Compreender como remover o acesso de um utilizador a uma aplicação no Azure Ative Directory
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
-ms.date: 10/17/2018
+ms.date: 11/02/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f9626c256755e2fce81b593d95b8680f4bb55ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8544c35d77dfc32ece9b21a602f301ab15c22439
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763164"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288316"
 ---
 # <a name="how-to-remove-a-users-access-to-an-application"></a>Como remover o acesso de um utilizador a uma aplicação
 
@@ -36,23 +31,7 @@ Para desativar todas as insuposições do utilizador para uma aplicação, siga 
 
 ## <a name="i-want-to-delete-an-application-entirely"></a>Quero apagar uma aplicação inteiramente
 
-Para **eliminar uma aplicação,** siga estas instruções:
-
-1. Abra o [**portal Azure**](https://portal.azure.com/) e inscreva-se como **Administrador Global** ou **Coadministração.**
-
-2. Abra a **Extensão do Diretório Ativo Azure** clicando em **todos os serviços** no topo do menu principal de navegação à esquerda.
-
-3. Digite **"Azure Ative Directory"** na caixa de pesquisa do filtro e selecione o item **Azure Ative Directory.**
-
-4. Clique **em Aplicações Empresariais** a partir do menu de navegação à esquerda do Azure Ative.
-
-5. Clique em **Todas as Aplicações** para ver uma lista de todas as suas aplicações.
-
-   * Se não vir a aplicação deseja aparecer aqui, utilize o controlo **filter** no topo da Lista de **Todas as Aplicações** e desate a opção **'Mostrar'** a **todas as aplicações.**
-
-6. Selecione a aplicação que pretende eliminar.
-
-7. Uma vez que a aplicação é carregada, clique em **Eliminar** o ícone do painel **de visão geral** da aplicação superior.
+A [Série Quickstart em Gestão de Aplicações](delete-application-portal.md) inclui orientações sobre a eliminação de uma aplicação do seu inquilino Azure Ative Directory.
 
 ## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Quero desativar todas as futuras operações de consentimento do utilizador a qualquer aplicação
 

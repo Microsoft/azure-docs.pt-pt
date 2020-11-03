@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 3b1e71a5aadbe9e6a4fa89d4b3ec0fb6b1d9e6ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e491b89ec5e6488228dd8befed669a13842f9d15
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530459"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288557"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos finais de serviço de rede virtual para Azure Key Vault
 
@@ -54,7 +54,7 @@ Para obter mais informações, consulte [as firewalls Configure Key Vault e rede
 > Esteja atento às seguintes limitações de configuração:
 > * São permitidas regras de rede virtual no máximo 127 e 127 regras IPv4. 
 > * Não são suportadas pequenas gamas de endereços que utilizem os tamanhos do prefixo "/31" ou "/32". Em vez disso, configura estas gamas utilizando regras de endereço IP individuais.
-> * As regras da rede IP só são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (tal como definido no RFC 1918) não são permitidos nas regras de IP. As redes privadas incluem endereços **172.16-31**que começam com **10.** **192.168.** 
+> * As regras da rede IP só são permitidas para endereços IP públicos. Os intervalos de endereços IP reservados para redes privadas (tal como definido no RFC 1918) não são permitidos nas regras de IP. As redes privadas incluem endereços **172.16-31** que começam com **10.** **192.168.** 
 > * Apenas os endereços IPv4 são suportados neste momento.
 
 ## <a name="trusted-services"></a>Serviços de confiança
@@ -63,23 +63,23 @@ Aqui está uma lista de serviços fidedignos que podem aceder a um cofre chave s
 
 |Serviço de confiança|Cenários de utilização apoiados|
 | --- | --- |
-|Serviço de implementação de máquinas virtuais Azure|[Implementar certificados para VMs a partir do Key Vault gerido pelo cliente](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/).|
+|Serviço de implementação de máquinas virtuais Azure|[Implementar certificados para VMs a partir do Key Vault gerido pelo cliente](/archive/blogs/kv/updated-deploy-certificates-to-vms-from-customer-managed-key-vault).|
 |Serviço de implementação do modelo do Gestor de Recursos Azure|[Passe valores seguros durante a implantação](../../azure-resource-manager/templates/key-vault-parameter.md).|
-|Gateway de aplicação Azure v2 SKU|[Rescisão de TLS com certificados Key Vault](/azure/application-gateway/key-vault-certs)|
+|Gateway de aplicação Azure v2 SKU|[Rescisão de TLS com certificados Key Vault](../../application-gateway/key-vault-certs.md)|
 |Serviço de encriptação de volume de encriptação de disco Azure|Permitir o acesso à Chave BitLocker (Windows VM) ou DM Passphrase (Linux VM) e à Chave de Encriptação, durante a implementação da máquina virtual. Isto permite [a encriptação do disco Azure](../../security/fundamentals/encryption-overview.md).|
-|Azure Backup|Permitir a cópia de segurança e restaurar as chaves e segredos relevantes durante a cópia de segurança das Máquinas Virtuais Azure, utilizando [o Azure Backup](../../backup/backup-introduction-to-azure-backup.md).|
+|Azure Backup|Permitir a cópia de segurança e restaurar as chaves e segredos relevantes durante a cópia de segurança das Máquinas Virtuais Azure, utilizando [o Azure Backup](../../backup/backup-overview.md).|
 |Troca Online & SharePoint Online|Permitir o acesso à chave do cliente para encriptação do serviço de armazenamento Azure com [a chave do cliente.](/microsoft-365/compliance/customer-key-overview)|
-|Azure Information Protection|Permitir o acesso à chave do inquilino para [a Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
+|Azure Information Protection|Permitir o acesso à chave do inquilino para [a Azure Information Protection.](/azure/information-protection/what-is-information-protection)|
 |Serviço de Aplicações do Azure|[Implementar o Certificado de Aplicação Web Azure através do Cofre de Chaves](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
 |Base de Dados SQL do Azure|[Encriptação de dados transparente com suporte de chave própria para Azure SQL Database e Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../../azure-sql/database/transparent-data-encryption-byok-overview.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
-|Storage do Azure|[Encriptação do serviço de armazenamento utilizando chaves geridas pelo cliente no Cofre da Chave Azure](../../storage/common/storage-service-encryption-customer-managed-keys.md).|
+|Storage do Azure|[Encriptação do serviço de armazenamento utilizando chaves geridas pelo cliente no Cofre da Chave Azure](../../storage/common/customer-managed-keys-configure-key-vault.md).|
 |Azure Data Lake Store|[Encriptação de dados na Azure Data Lake Store](../../data-lake-store/data-lake-store-encryption.md) com uma chave gerida pelo cliente.|
-|Azure Databricks|[Serviço de análise rápido, fácil e colaborativo apache spark baseado em Apache Spark](../../azure-databricks/what-is-azure-databricks.md)|
-|Gestão de API do Azure|[Implementar certificados para domínio personalizado a partir do Cofre de Chaves usando MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
+|Azure Databricks|[Serviço de análise rápido, fácil e colaborativo apache spark baseado em Apache Spark](/azure/databricks/scenarios/what-is-azure-databricks)|
+|API Management do Azure|[Implementar certificados para domínio personalizado a partir do Cofre de Chaves usando MSI](../../api-management/api-management-howto-use-managed-service-identity.md#use-ssl-tls-certificate-from-azure-key-vault)|
 |Azure Data Factory|[Buscar credenciais de loja de dados no Cofre de Dados da Data Factory](https://go.microsoft.com/fwlink/?linkid=2109491)|
-|Azure Event Hubs|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
-|Service Bus do Azure|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
-|Importar/Exportar do Microsoft Azure| [Utilize chaves geridas pelo cliente no Cofre chave Azure para o serviço de importação/exportação](https://docs.microsoft.com/azure/storage/common/storage-import-export-encryption-key-portal)
+|Azure Event Hubs|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](../../event-hubs/configure-customer-managed-key.md)|
+|Service Bus do Azure|[Permitir o acesso a um cofre chave para cenário de chaves geridas pelo cliente](../../service-bus-messaging/configure-customer-managed-key.md)|
+|Importar/Exportar do Microsoft Azure| [Utilize chaves geridas pelo cliente no Cofre chave Azure para o serviço de importação/exportação](../../storage/common/storage-import-export-encryption-key-portal.md)
 |Registo de Contentores do Azure|[Encriptação do registo utilizando chaves geridas pelo cliente](../../container-registry/container-registry-customer-managed-keys.md)<br><br/>[Transferir artefactos para outro registo](../../container-registry/container-registry-transfer-images.md)
 
 > [!NOTE]
