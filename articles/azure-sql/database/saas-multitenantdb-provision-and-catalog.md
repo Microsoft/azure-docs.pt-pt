@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: eddb0c8339069025f0742e9bcbc371efbef094ee
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331945"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793335"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Provisão e catálogo de novos inquilinos numa aplicação SaaS utilizando uma base de dados Azure SQL de vários inquilinos
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -127,9 +127,9 @@ Neste tutorial, ficará a saber como:
 
 Para concluir este tutorial, devem ser cumpridos os seguintes pré-requisitos:
 
-- O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+- O Azure PowerShell está instalado. Para obter mais detalhes, veja [Introdução ao Azure PowerShell](/powershell/azure/get-started-azureps)
 
-- A aplicação Wingtip Tickets SaaS Multi-tenant Database está implementada. Para implementar em menos de cinco minutos, consulte [implementar e explorar a aplicação de Base de Dados De Multi-inquilinos Wingtip SaaS](../../sql-database/saas-multitenantdb-get-started-deploy.md)
+- A aplicação Wingtip Tickets SaaS Multi-tenant Database está implementada. Para implementar em menos de cinco minutos, consulte [implementar e explorar a aplicação de Base de Dados De Multi-inquilinos Wingtip SaaS](./saas-multitenantdb-get-started-deploy.md)
 
 - Obtenha os scripts wingtip e código fonte:
     - Os scripts de base de dados de multi-inquilinos Wingtip SaaS e código fonte de aplicação estão disponíveis no [wingtipTicketsSaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub repo.
@@ -143,12 +143,12 @@ Nesta secção, vê-se uma lista das principais ações para o provisionamento q
 
 Seguem-se elementos-chave do fluxo de trabalho de provisionamento por onde passa:
 
-- **Calcular a nova chave do inquilino**: Uma função de haxixe é usada para criar a chave do inquilino a partir do nome do inquilino.
+- **Calcular a nova chave do inquilino** : Uma função de haxixe é usada para criar a chave do inquilino a partir do nome do inquilino.
 - **Verifique se a chave do inquilino já existe:** O catálogo é verificado para garantir que a chave ainda não foi registada.
-- **Inicializar o inquilino na base de dados de inquilinos predefinidos**: A base de dados do arrendatário é atualizada para adicionar a nova informação do inquilino.
-- **Registre inquilino no catálogo**: O mapeamento entre a nova chave do inquilino e a base de dados existente dos inquilinos1 é adicionado ao catálogo.
-- **Adicione o nome do inquilino a uma mesa de extensão de catálogo**: O nome do local é adicionado à mesa dos Inquilinos no catálogo.  Esta adição mostra como a base de dados do Catálogo pode ser alargada para suportar dados adicionais específicos da aplicação.
-- **Página Open Events para o novo inquilino**: A página de eventos *Bushwillow Blues* é aberta no navegador.
+- **Inicializar o inquilino na base de dados de inquilinos predefinidos** : A base de dados do arrendatário é atualizada para adicionar a nova informação do inquilino.
+- **Registre inquilino no catálogo** : O mapeamento entre a nova chave do inquilino e a base de dados existente dos inquilinos1 é adicionado ao catálogo.
+- **Adicione o nome do inquilino a uma mesa de extensão de catálogo** : O nome do local é adicionado à mesa dos Inquilinos no catálogo.  Esta adição mostra como a base de dados do Catálogo pode ser alargada para suportar dados adicionais específicos da aplicação.
+- **Página Open Events para o novo inquilino** : A página de eventos *Bushwillow Blues* é aberta no navegador.
 
    ![Screenshot que mostra a página eventos para um novo inquilino.](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
@@ -158,10 +158,10 @@ Para entender como a app Wingtip implementa o novo provisionamento de inquilinos
 
 1. No *PowerShell ISE,* aberto... \\ Módulos de Aprendizagem \\ ProvisionTenants \\ *Demo-ProvisionTenants.ps1* e definir os seguintes parâmetros:
    - **$TenantName**  =  **Bushwillow Blues,** o nome de um novo local.
-   - **$VenueType**  =  **blues**, um dos locais pré-definidos: blues, classicmusic, dance, jazz, judo, motoring, multiusos, ópera, rockmusic, futebol (minúscula, sem espaços).
-   - **$DemoScenario**  =  **1**, providenciar um inquilino numa base de dados partilhada com outros inquilinos.
+   - **$VenueType**  =  **blues** , um dos locais pré-definidos: blues, classicmusic, dance, jazz, judo, motoring, multiusos, ópera, rockmusic, futebol (minúscula, sem espaços).
+   - **$DemoScenario**  =  **1** , providenciar um inquilino numa base de dados partilhada com outros inquilinos.
 
-2. Adicione um breakpoint colocando o seu cursor em qualquer lugar da linha 38, a linha que diz: *New-Tenant '*, e, em seguida, pressione **F9**.
+2. Adicione um breakpoint colocando o seu cursor em qualquer lugar da linha 38, a linha que diz: *New-Tenant '* , e, em seguida, pressione **F9**.
 
    ![Screenshot que destaca a linha que inclui Novo Inquilino.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
@@ -173,7 +173,7 @@ Para entender como a app Wingtip implementa o novo provisionamento de inquilinos
 
 5. Trace a execução do script usando as opções de menu **Debug,** **F10** e **F11,** para passar por cima ou para funções chamadas.
 
-Para obter mais informações sobre a depuragem dos scripts PowerShell, consulte [dicas sobre trabalhar e depurar scripts PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Para obter mais informações sobre a depuragem dos scripts PowerShell, consulte [dicas sobre trabalhar e depurar scripts PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>Provisionamento de um inquilino na sua *própria* base de dados
 
@@ -181,14 +181,14 @@ Para obter mais informações sobre a depuragem dos scripts PowerShell, consulte
 
 Seguem-se elementos-chave do fluxo de trabalho por onde passa enquanto rastreia o script:
 
-- **Calcular a nova chave do inquilino**: Uma função de haxixe é usada para criar a chave do inquilino a partir do nome do inquilino.
+- **Calcular a nova chave do inquilino** : Uma função de haxixe é usada para criar a chave do inquilino a partir do nome do inquilino.
 - **Verifique se a chave do inquilino já existe:** O catálogo é verificado para garantir que a chave ainda não foi registada.
-- **Criar uma nova base de dados de inquilinos**: A base de dados é criada copiando a base de dados *basetenantdb* utilizando um modelo de Gestor de Recursos.  O novo nome da base de dados baseia-se no nome do inquilino.
-- **Adicione base de dados ao catálogo**: A nova base de dados de inquilinos está registada como um fragmento no catálogo.
-- **Inicializar o inquilino na base de dados de inquilinos predefinidos**: A base de dados do arrendatário é atualizada para adicionar a nova informação do inquilino.
-- **Registre o inquilino no catálogo**: O mapeamento entre a nova chave do inquilino e a base de *dados sequoiasoccer* é adicionado ao catálogo.
-- **O nome do inquilino é adicionado ao catálogo**: O nome do local é adicionado à mesa de extensão dos Inquilinos no catálogo.
-- **Página Open Events para o novo inquilino**: A página *Sequoia Soccer* Events é aberta no navegador.
+- **Criar uma nova base de dados de inquilinos** : A base de dados é criada copiando a base de dados *basetenantdb* utilizando um modelo de Gestor de Recursos.  O novo nome da base de dados baseia-se no nome do inquilino.
+- **Adicione base de dados ao catálogo** : A nova base de dados de inquilinos está registada como um fragmento no catálogo.
+- **Inicializar o inquilino na base de dados de inquilinos predefinidos** : A base de dados do arrendatário é atualizada para adicionar a nova informação do inquilino.
+- **Registre o inquilino no catálogo** : O mapeamento entre a nova chave do inquilino e a base de *dados sequoiasoccer* é adicionado ao catálogo.
+- **O nome do inquilino é adicionado ao catálogo** : O nome do local é adicionado à mesa de extensão dos Inquilinos no catálogo.
+- **Página Open Events para o novo inquilino** : A página *Sequoia Soccer* Events é aberta no navegador.
 
    ![eventos](./media/saas-multitenantdb-provision-and-catalog/sequoiasoccer.png)
 
@@ -198,10 +198,10 @@ Agora, caminhe pelo processo de script ao criar um inquilino na sua própria bas
 
 1. Ainda em... \\ Módulos de Aprendizagem \\ ProvisionTenants \\ *Demo-ProvisionTenants.ps1* definir os seguintes parâmetros:
    - **$TenantName**  =  **Sequoia Soccer,** o nome de um novo local.
-   - **$VenueType**  =  **futebol**, um dos locais pré-definidos: blues, classicmusic, dance, jazz, judo, motoring, multiusos, ópera, rockmusic, futebol (minúscula, sem espaços).
-   - **$DemoScenario**  =  **2**, a provisionar um inquilino na sua própria base de dados.
+   - **$VenueType**  =  **futebol** , um dos locais pré-definidos: blues, classicmusic, dance, jazz, judo, motoring, multiusos, ópera, rockmusic, futebol (minúscula, sem espaços).
+   - **$DemoScenario**  =  **2** , a provisionar um inquilino na sua própria base de dados.
 
-2. Adicione um novo ponto de rutura colocando o seu cursor em qualquer lugar da linha 57, a linha que diz: * & &nbsp; $PSScriptRoot\New-TenantAndDatabase'* e prima **F9**.
+2. Adicione um novo ponto de rutura colocando o seu cursor em qualquer lugar da linha 57, a linha que diz: *& &nbsp; $PSScriptRoot\New-TenantAndDatabase'* e prima **F9**.
 
    ![ponto de interrupção](./media/saas-multitenantdb-provision-and-catalog/breakpoint2.png)
 
@@ -213,8 +213,8 @@ Agora, caminhe pelo processo de script ao criar um inquilino na sua própria bas
 
 Este exercício prevê um lote de 17 inquilinos. Recomenda-se que você provisa este lote de inquilinos antes de iniciar outros tutoriais de Ingressos Wingtip para que haja mais bases de dados para trabalhar.
 
-1. No *PowerShell ISE,* aberto... \\ Módulos de Aprendizagem \\ OsDemo-ProvisionTenants.ps1e alterar o parâmetro \\ * * *$DemoScenario* para 4:
-   - **$DemoScenario**  =  **4**, a provisionar um lote de inquilinos numa base de dados partilhada.
+1. No *PowerShell ISE,* aberto... \\ Módulos de Aprendizagem \\ OsDemo-ProvisionTenants.ps1e alterar o parâmetro \\ ** *$DemoScenario* para 4:
+   - **$DemoScenario**  =  **4** , a provisionar um lote de inquilinos numa base de dados partilhada.
 
 2. Prima **F5** e execute o script.
 
@@ -237,7 +237,7 @@ A lista completa dos inquilinos e a base de dados correspondente para cada um es
 - O nome do inquilino está guardado na mesa dos Inquilinos.
 - O nome da base de dados está guardado nas tabelas Shard Management.
 
-1. No SQL Server Management Studio (SSMS), ligue-se ao servidor de inquilinos no **catalog-mt. \<USER\> database.windows.net**, com Login = **programador**, e Password = **P \@ ssword1**
+1. No SQL Server Management Studio (SSMS), ligue-se ao servidor de inquilinos no **catalog-mt. \<USER\> database.windows.net** , com Login = **programador** , e Password = **P \@ ssword1**
 
     ![Diálogo de conexão SSMS](./media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 
@@ -263,9 +263,9 @@ Este tipo de serviço automatizado pode ser simples ou complexo. Por exemplo, a 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
+<!-- - Additional [tutorials that build upon the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Biblioteca de clientes da base de dados elástica](elastic-database-client-library.md)
-- [Como depurar scripts no Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [Como depurar scripts no Windows PowerShell ISE](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -277,5 +277,4 @@ Neste tutorial, ficou a saber como:
 > * Aprovisionar um lote de inquilinos adicionais
 > * Passo através dos detalhes do provisionamento dos inquilinos, e registrá-los no catálogo
 
-Experimente o [tutorial de monitorização do desempenho.](../../sql-database/saas-multitenantdb-performance-monitoring.md)
-
+Experimente o [tutorial de monitorização do desempenho.](./saas-multitenantdb-performance-monitoring.md)

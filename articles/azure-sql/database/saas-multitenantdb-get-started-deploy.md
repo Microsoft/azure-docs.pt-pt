@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/16/2018
-ms.openlocfilehash: 5363a1b7321bfcbb53b4494b51ee2ea2e7217782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4de7e428bff0feaafdec00b0c0014bbaf6acb917
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619649"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790972"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Implementar e explorar uma aplicação de multi-inquilinos com caco
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -76,7 +76,7 @@ Escolham os vossos nomes agora e escrevam-nos.
     > Para esta demonstração, não utilize grupos de recursos, servidores ou piscinas pré-existentes. Em vez disso, escolha **Criar um novo grupo de recursos.** Elimine este grupo de recursos quando tiver terminado com a aplicação para parar a faturação relacionada.
     > Não utilize esta aplicação, nem quaisquer recursos que crie, para produção. Alguns aspetos da autenticação e as definições de firewall do servidor são intencionalmente inseguros na aplicação para facilitar a demonstração.
 
-    - Para **o grupo de recursos** - Selecione Criar **novo**, e, em seguida, fornecer um **Nome** para o grupo de recursos (sensível a caso).
+    - Para **o grupo de recursos** - Selecione Criar **novo** , e, em seguida, fornecer um **Nome** para o grupo de recursos (sensível a caso).
         - Selecione uma **localização** da lista de drop-down.
     - Para **o Utilizador** - Recomendamos que escolha um valor de **utilizador** curto.
 
@@ -85,7 +85,7 @@ Escolham os vossos nomes agora e escrevam-nos.
     - Clique para concordar com os termos e condições.
     - Clique em **Comprar**.
 
-1. Monitorize o estado de implementação clicando em **Notificações**, que é o ícone da campainha à direita da caixa de pesquisa. A implementação da aplicação Wingtip demora aproximadamente cinco minutos.
+1. Monitorize o estado de implementação clicando em **Notificações** , que é o ícone da campainha à direita da caixa de pesquisa. A implementação da aplicação Wingtip demora aproximadamente cinco minutos.
 
    ![implementação concluída com êxito](./media/saas-multitenantdb-get-started-deploy/succeeded.png)
 
@@ -100,7 +100,7 @@ Enquanto a aplicação estiver a ser implementada, descarregue o código fonte d
 2. Clique **em Clone ou descarregue.**
 3. Clique **em Baixar ZIP** e guarde o ficheiro.
 4. Clique com o botão direito no ficheiro **WingtipTicketsSaaS-MultiTenantDb-master.zip** e selecione **Propriedades**.
-5. No separador **Geral,** selecione **Desbloqueie**e clique em **Aplicar**.
+5. No separador **Geral,** selecione **Desbloqueie** e clique em **Aplicar**.
 6. Clique em **OK**.
 7. Extraia os ficheiros.
 
@@ -137,7 +137,7 @@ Uma página central do Centro de **Eventos** fornece uma lista de links para os 
 
 Para controlar a distribuição de pedidos de entrada, a aplicação Wingtip utiliza [o Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md). A página de eventos para cada inquilino inclui o nome do inquilino na sua URL. Cada URL também inclui o seu valor específico do Utilizador. Cada URL obedece ao formato apresentado utilizando os seguintes passos:
 
-- http://events.wingtip-mt.&lt;user &gt; .trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user &gt; .trafficmanager.net/ *fabrikamjazzclub*
 
 1. A aplicação de eventos analisa o nome do inquilino da URL. O nome do inquilino é *fabrikamjazzclub* no exemplo anterior URL.
 2. A aplicação então tem o nome do inquilino para criar uma chave para aceder a um catálogo usando [a gestão de mapas de fragmentos.](elastic-scale-shard-map-management.md)
@@ -170,7 +170,7 @@ Fechar a sessão PowerShell para todos os empregos.
 
 A implantação inicial inclui três inquilinos de amostra na base de *dados dos Inquilinos1.* Vamos criar outro inquilino e observar os seus efeitos na aplicação implementada. Neste passo, você pressiona uma chave para criar um novo inquilino:
 
-1. Abrir... \\ Fornecimento de Módulos de Aprendizagem \\ eDemo-ProvisionTenants.ps1de catálogo no \\ * * *PowerShell ISE*.
+1. Abrir... \\ Fornecimento de Módulos de Aprendizagem \\ eDemo-ProvisionTenants.ps1de catálogo no \\ ** *PowerShell ISE*.
 2. Prima **F5** (não **F8)** para executar o script (deixe os valores predefinidos por enquanto).
 
    > [!NOTE]
@@ -193,7 +193,7 @@ Você pode optar por colocar clientes de teste gratuito, ou clientes económicos
 
 Em seguida, nós providenciaremos outro inquilino, desta vez na sua própria base de dados:
 
-1. Em ... \\ Módulos de Aprendizagem \\ Provisão e \\ * catálogoDemo-ProvisionTenants.ps1, *modificar *$TenantName* a **Salix Salsa,** *$VenueType* para **dançar** e *$Scenario* a **2**.
+1. Em ... \\ Módulos de Aprendizagem \\ Provisão e \\ *catálogoDemo-ProvisionTenants.ps1,* modificar *$TenantName* a **Salix Salsa,** *$VenueType* para **dançar** e *$Scenario* a **2**.
 
 2. Prima **F5** para voltar a executar o guião.
     - Esta **imprensa F5** fornece o novo inquilino numa base de dados separada. A base de dados e o inquilino estão registados no catálogo. Em seguida, o navegador abre para a página eventos do inquilino.
@@ -212,7 +212,7 @@ Agora olhamos para alguns dos recursos que foram implantados:
 
    ![grupo de recursos](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
-2. Clique no servidor ** &lt; de utilizador &gt; catalog-mt.** O servidor de catálogo contém duas bases de dados chamadas *tenantcatalog* e *basetenantdb*. A base *de dados basetenantdb* é uma base de dados de modelos vazia. É copiado para criar uma nova base de dados de inquilinos, seja para muitos inquilinos ou apenas para um inquilino.
+2. Clique no servidor **&lt; de utilizador &gt; catalog-mt.** O servidor de catálogo contém duas bases de dados chamadas *tenantcatalog* e *basetenantdb*. A base *de dados basetenantdb* é uma base de dados de modelos vazia. É copiado para criar uma nova base de dados de inquilinos, seja para muitos inquilinos ou apenas para um inquilino.
 
    ![servidor de catálogo](./media/saas-multitenantdb-get-started-deploy/catalog-server.png)
 
@@ -226,7 +226,7 @@ Agora olhamos para alguns dos recursos que foram implantados:
 
 Se o gerador de carga estiver em funcionamento há vários minutos, está disponível telemetria suficiente para ver as capacidades de monitorização da base de dados incorporadas no portal Azure.
 
-1. Navegue pelo servidor de ** &lt; utilizadores &gt; de inquilinos1 mt** e clique nos **inquilinos1** para ver a utilização de recursos para a base de dados que tem quatro inquilinos nele. Cada inquilino está sujeito a uma carga esporádica pesada do gerador de carga:
+1. Navegue pelo servidor de **&lt; utilizadores &gt; de inquilinos1 mt** e clique nos **inquilinos1** para ver a utilização de recursos para a base de dados que tem quatro inquilinos nele. Cada inquilino está sujeito a uma carga esporádica pesada do gerador de carga:
 
    ![monitorizar inquilinos1](./media/saas-multitenantdb-get-started-deploy/monitor-tenants1.png)
 
@@ -278,7 +278,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 [link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
-[link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
+[link-azure-get-started-powershell-41q]: /powershell/azure/get-started-azureps
 
 [link-github-wingtip-multitenantdb-55g]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB/
 
@@ -290,4 +290,3 @@ A [series of related tutorials] is available that build upon this initial deploy
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Botão para implantação para Azure."
-
