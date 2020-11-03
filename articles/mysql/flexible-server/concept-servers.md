@@ -1,17 +1,17 @@
 ---
 title: Conceitos de servidor - Base de dados Azure para MySQL Flexible Server
 description: Este tópico fornece considerações e diretrizes para trabalhar com a Base de Dados Azure para o MySQL Flexible Server
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 7217817e9add6214c2da8362a2769cad0c2cf330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939317"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240754"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Conceitos de servidor em Azure Database para MySQL Flexible Server (Pré-visualização)
 
@@ -59,6 +59,6 @@ Pode gerir a Base de Dados Azure para o MySQL Flexible Server utilizando o [port
 
 ## <a name="next-steps"></a>Passos seguintes
 
--   Saiba mais [criar servidor](./quickstart-create-server-portal.md)
+-   Saiba mais [criar servidor](./quickstart-create-server-portal.md)
 -   Saiba [mais sobre monitorização e alertas](./how-to-alert-on-metric.md)
 

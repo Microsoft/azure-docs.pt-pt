@@ -1,18 +1,18 @@
 ---
 title: Encriptação de dados - Azure CLI - para Base de Dados Azure para PostgreSQL - Servidor Único
 description: Saiba como configurar e gerir a encriptação de dados para o seu Azure Database para o servidor Single PostgreSQL utilizando o CLI Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7494135cd4912ec8e59a32592ebcca0e0a6813b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797819"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240618"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Encriptação de dados para Azure Database para servidor single PostgreSQL utilizando o Azure CLI
 
@@ -34,7 +34,7 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
    ```
 
 * Para utilizar um cofre-chave existente, deve ter as seguintes propriedades para utilizar como chave gerida pelo cliente:
-  * [Eliminação recuperável](../key-vault/general/soft-delete-overview.md)
+  * [Excluir suave](../key-vault/general/soft-delete-overview.md)
 
       ```azurecli-interactive
       az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
@@ -67,7 +67,7 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. Descreva as **permissões chave** **(Obter,** **Embrulhar,** **Desembrulhar)** para o **principal**, que é o nome do servidor servidor single PostgreSQL.
+2. Descreva as **permissões chave** **(Obter,** **Embrulhar,** **Desembrulhar)** para o **principal** , que é o nome do servidor servidor single PostgreSQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

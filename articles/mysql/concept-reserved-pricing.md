@@ -1,17 +1,17 @@
 ---
 title: Pré-pagamento para computação com capacidade reservada - Azure Database for MySQL
 description: Pré-pagamento da Base de Dados Azure para os recursos de computação MySQL com capacidade reservada
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 27cd1c9085771bd9ac2b18c37b73235d7f18ad5a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 33c2617a22945ecb11586bc282e7f9f61b6e49ca
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538090"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240907"
 ---
 # <a name="prepay-for-azure-database-for-mysql-compute-resources-with-reserved-capacity"></a>Pré-pagamento da Base de Dados Azure para os recursos de computação MySQL com capacidade reservada
 
@@ -52,7 +52,7 @@ A tabela a seguir descreve os campos necessários.
 | :------------ | :------- |
 | Subscrição   | A subscrição utilizada para pagar a Base de Dados Azure para a reserva de capacidade reservada do MySQL. O método de pagamento da subscrição é cobrado os custos iniciais da Base de Dados Azure para a reserva de capacidade reservada do MySQL. O tipo de subscrição deve ser um acordo de empresa (números de oferta: MS-AZR-0017P ou MS-AZR-0148P) ou um acordo individual com preços pay-as-you-go (números de oferta: MS-AZR-0003P ou MS-AZR-0023P). Para uma subscrição Enterprise, os custos são deduzidos do saldo de fidelização monetária da inscrição ou cobrados como utilização excedida. Para uma subscrição individual com preços pay-as-you-go, os encargos são cobrados no cartão de crédito ou no método de pagamento da fatura na subscrição.
 | Âmbito | O âmbito da reserva vCore pode abranger uma subscrição ou várias subscrições (âmbito partilhado). Se selecionar: </br></br> **Compartilhado** , o desconto de reserva vCore é aplicado à Base de Dados Azure para servidores MySQL que executam em quaisquer subscrições dentro do seu contexto de faturação. Para os clientes empresariais, o âmbito partilhado é a inscrição e inclui todas as subscrições dentro da inscrição. Para clientes Pay As You Go, o âmbito partilhado é todas as subscrições Pay As You Go criadas pelo administrador de conta.</br></br> **Subscrição única** , o desconto de reserva vCore é aplicado à Base de Dados Azure para servidores MySQL nesta subscrição. </br></br> **Grupo de recursos únicos** , o desconto de reserva é aplicado à Base de Dados Azure para servidores MySQL na subscrição selecionada e no grupo de recursos selecionado dentro dessa subscrição.
-| Região | A região de Azure que está coberta pela Base de Dados Azure para a reserva de capacidade reservada do MySQL.
+| Region | A região de Azure que está coberta pela Base de Dados Azure para a reserva de capacidade reservada do MySQL.
 | Tipo de implantação | A Base de Dados Azure para o tipo de recurso MySQL para o quais pretende comprar a reserva.
 | Nível de desempenho | O nível de serviço para a Base de Dados Azure para servidores MySQL.
 | Termo | Um ano

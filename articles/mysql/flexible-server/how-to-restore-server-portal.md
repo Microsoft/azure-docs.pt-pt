@@ -1,17 +1,17 @@
 ---
 title: Restaurar - Portal Azure - Base de Dados Azure para MySQL - Servidor Flexível
 description: Este artigo descreve como executar operações de restauro na Base de Dados Azure para o MySQL através do portal Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 1c81ddad8a11cbad361ff84caf6f7200a0c010d5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 062d53fcb122ebacd004d7dca5e11f5a883354cd
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937294"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241961"
 ---
 # <a name="point-in-time-restore-of-a-azure-database-for-mysql---flexible-server-preview"></a>Restauro pontual de uma Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -31,24 +31,24 @@ Para completar este guia, precisa:
 
 Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia de segurança mais antiga existente.
 
-1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível de onde pretende restaurar a cópia de segurança.
+1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível de onde pretende restaurar a cópia de segurança.
 
 2.  Clique **na visão geral** do painel esquerdo.
 
-3.  A partir da página geral, clique em **Restaurar**.
+3.  A partir da página geral, clique em **Restaurar** .
 
     [Espaço reservado]
 
 4.  A página de restauro será mostrada com uma opção para escolher entre **o ponto de restauro mais recente** e o ponto de restauro personalizado.
 
-5.  Selecione **o último ponto de restauro**.
+5.  Selecione **o último ponto de restauro** .
 
 
 6.  Fornecer um novo nome de servidor no campo **Restaurar para novo servidor.**
 
     :::image type="content" source="./media/concept-backup-restore/restore-blade-latest.png" alt-text="O tempo de restauro mais antigo":::
 
-8.  Clique em **OK**.
+8.  Clique em **OK** .
 
 9.  Será apresentada uma notificação de que a operação de restauro foi iniciada.
 
@@ -56,9 +56,9 @@ Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia 
 
 Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia de segurança mais antiga existente.
 
-1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível de onde pretende restaurar a cópia de segurança.
+1.  No [portal Azure,](https://portal.azure.com/)escolha o seu servidor flexível de onde pretende restaurar a cópia de segurança.
 
-2.  A partir da página geral, clique em **Restaurar**.
+2.  A partir da página geral, clique em **Restaurar** .
 
     [Espaço reservado]
 
@@ -74,7 +74,7 @@ Siga estes passos para restaurar o seu servidor flexível utilizando uma cópia 
    
     :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="O tempo de restauro mais antigo":::
  
-7.  Clique em **OK**.
+7.  Clique em **OK** .
 
 8.  Será apresentada uma notificação de que a operação de restauro foi iniciada.
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: bceffe5c53b9cbc863fd9c923ffa4718ebd50436
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 1255333e9bde54fcdf76dd40a9aaa4bc68fd103e
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893820"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242131"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conheça os fundamentos do Discurso CLI
 
@@ -72,8 +72,9 @@ Neste comando, especifica tanto a origem (linguagem a **traduzir),** como o alvo
 
 ### <a name="configuration-files-in-the-datastore"></a>Ficheiros de configuração na loja de dados
 
-O CLI do Discurso pode ler e escrever várias configurações em ficheiros de configuração, que são armazenados na loja de dados local do Speech CLI, e são nomeados dentro das chamadas CLI do Discurso usando um símbolo @. O CLI da fala tenta salvar uma nova configuração num novo `./spx/data` subdiretório que cria no atual diretório de trabalho.
-Ao procurar um valor de configuração, o CLI da fala olha para o seu diretório de trabalho atual e, em seguida, no `./spx/data` caminho.
+O comportamento do CLI do discurso pode depender de definições em ficheiros de configuração, aos quais pode consultar-se dentro das chamadas CLI do Discurso usando um símbolo @.
+O CLI da fala salva uma nova configuração num novo `./spx/data` subdiretório que cria no diretório de trabalho atual.
+Ao procurar um valor de configuração, o Speech CLI olha para o seu diretório de trabalho atual, depois na loja de dados `./spx/data` em , e depois em outras datastores, incluindo uma loja de dados apenas de leitura final no `spx` binário.
 Anteriormente, utilizou a datastore para guardar os seus `@key` `@region` valores, pelo que não precisava de os especificar com cada chamada de linha de comando.
 Também pode utilizar ficheiros de configuração para armazenar as suas próprias definições de configuração, ou até usá-los para passar URLs ou outros conteúdos dinâmicos gerados em tempo de execução.
 
@@ -162,7 +163,7 @@ Este comando é o equivalente a correr `spx synthesize --text Sample text to syn
 
 * Os cabeçalhos da coluna `audio.output` `text` correspondem aos argumentos da linha de comando `--audio output` `--text` e, respectivamente. Argumentos de linha de comando multi-partes como `--audio output` deve ser formatado no ficheiro sem espaços, sem traços principais, e períodos que separam cordas, por `audio.output` exemplo. Quaisquer outros argumentos existentes da linha de comando podem ser adicionados ao ficheiro como colunas adicionais usando este padrão.
 * Quando o ficheiro é formatado desta formação, não são necessários argumentos adicionais para `--foreach` .
-* Certifique-se de separar cada valor no `.tsv` separador com um **separador**.
+* Certifique-se de separar cada valor no `.tsv` separador com um **separador** .
 
 No entanto, se tiver um `.tsv` ficheiro como o seguinte exemplo, com cabeçalhos de coluna que não **correspondam aos** argumentos da linha de comando:
 

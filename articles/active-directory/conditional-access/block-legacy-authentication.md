@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c3107be1c36f1c15a1bcb27c5e0dcf851cfb946
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1485c2abd24022dbfa6476e3c5a530413b9cb4f2
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145543"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233802"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Como: Bloquear a autenticação do legado para Azure AD com acesso condicional   
 
@@ -60,7 +60,7 @@ Esta secção explica como configurar uma política de Acesso Condicional para b
 
 As seguintes opções são consideradas protocolos de autenticação de legados
 
-- SMTP autenticado - Usado pelos clientes POP e IMAP para enviar mensagens de correio eletrónico.
+- SMTP autenticado - Usado por clientes POP e IMAP para enviar mensagens de correio eletrónico.
 - Autodiscover - Usado pelos clientes Outlook e EAS para encontrar e ligar às caixas de correio em Exchange Online.
 - Exchange ActiveSync (EAS) - Usado para ligar a caixas de correio em Exchange Online.
 - Exchange Online PowerShell - Usado para ligar-se a Exchange Online com powerShell remoto. Se bloquear a autenticação básica para Exchange Online PowerShell, tem de utilizar o Módulo Exchange Online PowerShell para se ligar. Para obter instruções, consulte [Connect to Exchange Online PowerShell utilizando a autenticação de vários fatores.](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)
@@ -80,7 +80,7 @@ Para obter mais informações sobre estes protocolos e serviços de autenticaç�
 
 Antes de bloquear a autenticação do legado no seu diretório, tem de primeiro compreender se os seus utilizadores têm aplicações que utilizam a autenticação antiga e como isso afeta o seu diretório geral. Os registos de login AD do Azure podem ser utilizados para entender se está a utilizar a autenticação antiga.
 
-1. Navegue para o **portal**  >  **Azure Ative Directory**  >  **Ins**.
+1. Navegue para o **portal**  >  **Azure Ative Directory**  >  **Ins** .
 1. Adicione a coluna 'App' cliente se não for mostrada clicando na App do Cliente **das Colunas.**  >  **Client App**
 1. **Adicionar filtros**  >  **A App do Cliente** > selecione todos os protocolos de autenticação do legado. Selecione fora da caixa de diálogo de filtragem para aplicar as suas seleções e feche a caixa de diálogo.
 

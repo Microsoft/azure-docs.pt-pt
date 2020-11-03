@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 0ece14fb1a96ac8cc66f4d35d027b9d93d1f800e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8b66a8ea3fcc6af62c872a6df6196b97ece2f55a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792825"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240924"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
@@ -116,7 +116,7 @@ Permitir o acesso aos seguintes URLs:
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |O conector utiliza estes URLs durante o processo de registo. |
 | ctldl.windowsupdate.com | 80/HTTP |O conector utiliza este URL durante o processo de registo. |
 
-Pode permitir ligações a &ast; .msappproxy.net e &ast; .servicebus.windows.net se a sua firewall ou proxy permitir que configuure listas de autorizações DNS. Caso contrário, tem de permitir o acesso às [gamas Azure IP e Tags de Serviço - Nuvem Pública](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos IP são atualizados todas as semanas.
+Pode permitir ligações a &ast; .msappproxy.net, &ast; .servicebus.windows.net e outros URLs acima se a sua firewall ou proxy permitir que ele configuure listas de autorizações DNS. Caso contrário, tem de permitir o acesso às [gamas Azure IP e Tags de Serviço - Nuvem Pública](https://www.microsoft.com/download/details.aspx?id=56519). Os intervalos IP são atualizados todas as semanas.
 
 ## <a name="install-and-register-a-connector"></a>Instalar e registar um conector
 
@@ -206,7 +206,7 @@ Agora que preparou o seu ambiente e instalou um conector, está pronto para adic
     | **Traduzir URLs em Cabeçalhos** | Mantenha este valor como **Sim,** a menos que a sua aplicação tenha exigido o cabeçalho original do anfitrião no pedido de autenticação. |
     | **Traduzir URLs no Corpo de Aplicação** | Mantenha este valor como **Nº,** a menos que tenha ligações HTML codificadas com outras aplicações no local e não utilize domínios personalizados. Para obter mais informações, consulte [a tradução de Link com Application Proxy](application-proxy-configure-hard-coded-link-translation.md).<br><br>Desaprove este valor para **Sim** se planeia monitorizar esta aplicação com a Microsoft Cloud App Security (MCAS). Para obter mais informações, consulte a [monitorização do acesso a aplicações em tempo real com a Microsoft Cloud App Security e o Azure Ative Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md). |
 
-7. Selecione **Adicionar** .
+7. Selecione **Add** (Adicionar).
 
 ## <a name="test-the-application"></a>Testar a aplicação
 
@@ -235,7 +235,7 @@ Para testar o sinal de inscrição na aplicação:
 
 Para a resolução de problemas, consulte [problemas de procuração de aplicação de resolução de problemas e mensagens de erro](application-proxy-troubleshoot.md).
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine os recursos que criou neste tutorial.
 

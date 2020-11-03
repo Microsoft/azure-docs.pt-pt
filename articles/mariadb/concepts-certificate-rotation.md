@@ -1,17 +1,17 @@
 ---
 title: Rotação de certificado para Base de Dados Azure para MariaDB
 description: Conheça as próximas alterações das alterações ao certificado de raiz que afetarão a Base de Dados do Azure para a MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: db717394ba102fb646a4194d0be2722e17251f48
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 239aa8677d1aa4cfd1ab1a93e04c05a641611437
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087167"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241485"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Compreender as alterações na alteração do CA raiz para a Base de Dados Azure para MariaDB
 
@@ -114,7 +114,7 @@ Para o conector que utiliza o Tempo de Execução da Integração Azure, os cert
 Para o conector que utiliza o Tempo de Execução de Integração Auto-hospedado, onde inclui explicitamente o caminho para o ficheiro cert SSL na sua cadeia de ligação, terá de descarregar o [novo certificado](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) e atualizar o fio de ligação para o utilizar.
 
 ### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. Preciso de planear um tempo de inatividade de manutenção do servidor de bases de dados para esta mudança?
-N.º Uma vez que a mudança aqui está apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta alteração.
+Não. Uma vez que a mudança aqui está apenas do lado do cliente para ligar ao servidor de base de dados, não há tempo de inatividade de manutenção necessário para o servidor de base de dados para esta alteração.
 
 ### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-february-15-2021-02152021"></a>8. E se eu não conseguir um tempo de paragem programado para esta mudança antes de 15 de fevereiro de 2021 (02/15/2021)?
 Uma vez que os clientes utilizados para a ligação ao servidor precisam de estar a atualizar as informações do certificado tal como descrito na secção de correção [aqui,](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity)não precisamos de um tempo de inatividade para o servidor neste caso.
@@ -149,7 +149,7 @@ Se estiver a utilizar a [replicação de dados](concepts-data-in-replication.md)
 Para verificar se está a utilizar a ligação SSL para ligar ao servidor, consulte a [verificação SSL](howto-configure-ssl.md#verify-the-ssl-connection).
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. É necessária alguma ação se já tiver o DigiCertGlobalRootG2 no meu ficheiro de certificado?
-N.º Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2** .
+Não. Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2** .
 
 ### <a name="15-what-if-i-have-further-questions"></a>15. E se eu tiver mais perguntas?
 Se tiver dúvidas, obtenha respostas de especialistas comunitários no [Microsoft Q&A](mailto:AzureDatabaseformariadb@service.microsoft.com). Se tiver um plano de apoio e precisar de ajuda técnica, [contacte-nos](mailto:AzureDatabaseformariadb@service.microsoft.com).

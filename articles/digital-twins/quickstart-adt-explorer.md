@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 9d3c9d03c4297af0b9155c2d528e27221b42bc9e
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 466129e8435ef694821b078592a100a111a43f3a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124844"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242284"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Quickstart - Explore uma amostra do cenário Azure Digital Twins usando o ADT Explorer
 
@@ -41,48 +41,36 @@ Por fim, também terá de descarregar a amostra para utilizar durante o arranque
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurar gémeos digitais Azure e ADT Explorer
 
-O primeiro passo para trabalhar com a Azure Digital Twins é criar uma **instância Azure Digital Twins** . Depois de criar uma instância do serviço, poderá preenorá-lo com os dados de exemplo mais tarde no arranque rápido.
+O primeiro passo para trabalhar com a Azure Digital Twins é **criar uma instância Azure Digital Twins** . Depois de criar uma instância do serviço e **de configurar as suas credenciais** para autenticar com o ADT Explorer, poderá **ligar-se ao caso no ADT Explorer** e povoá-lo com os dados de exemplo mais tarde no arranque rápido.
 
-Também irá configurar permissões para o ADT Explorer funcionar no seu computador e aceder à sua instância Azure Digital Twins, incluindo a criação de um registo de **aplicações** Azure Ative (Azure AD) para que possa utilizar. Depois disso, pode utilizar a aplicação da amostra para explorar o seu exemplo e os seus dados.
+O resto desta secção leva-o por estes degraus.
 
-### <a name="set-up-azure-digital-twins-instance-and-app-registration"></a>Configurar a instância Azure Digital Twins e o registo de aplicações
+### <a name="set-up-azure-digital-twins-instance"></a>Configurar a instância Azure Digital Twins
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
-[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
+### <a name="set-up-local-azure-credentials"></a>Configurar credenciais locais do Azure
 
-### <a name="set-adt-explorer-permissions"></a>Definir permissões do Explorador ADT
+A aplicação ADT Explorer utiliza [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) (parte da `Azure.Identity` biblioteca) para autenticar os utilizadores com a instância Azure Digital Twins quando a executam na sua máquina local. Para obter mais informações sobre formas diferentes de uma aplicação de clientes poder autenticar com a Azure Digital Twins, consulte [*Como escrever código de autenticação de aplicações*](how-to-authenticate-client.md).
 
-Em seguida, prepare a instância Azure Digital Twins que criou para trabalhar com o ADT Explorer, que é uma aplicação web hospedada localmente. Visite a página [de registos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) da App no portal Azure e selecione o nome do registo da sua **aplicação** que criou na secção anterior da lista.
+Com este tipo de autenticação, o ADT Explorer procurará credenciais dentro do seu ambiente local, como um login Azure num [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) local ou no Visual Studio/Visual Studio Code. Isto significa que você deve **iniciar sessão no Azure localmente** através de um destes mecanismos para configurar credenciais para a aplicação ADT Explorer.
 
-Selecione *autenticação* no menu do registo e *acerte + Adicione uma plataforma* .
+Se já está a iniciar sessão no Azure através de uma destas formas, pode saltar para a [secção seguinte.](#run-and-configure-adt-explorer)
 
-:::image type="content" source="media/quickstart-adt-explorer/authentication-pre.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/authentication-pre.png":::
+Caso contrário, pode instalar o **Azure CLI** local com estes passos:
+1. Siga o processo [**neste link de instalação**](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para concluir a instalação que corresponde ao seu SO.
+2. Abra uma janela de consola na sua máquina.
+3. Executar `az login` e seguir as instruções de autenticação para iniciar sessão na sua conta Azure.
 
-Na página *de plataformas configurar* que se segue, selecione *Web* .
-Preencha os detalhes da configuração da seguinte forma:
-* **Redirecionar URIs** : Adicione um URI de redirecionamento de *http://localhost:3000* .
-* **Subvenção implícita** : Verifique a caixa para *fichas de acesso* .
+Depois de o fazer, o ADT Explorer deve recolher automaticamente as suas credenciais Azure quando a executar na secção seguinte.
 
-*Acerte o Configure* para terminar.
-
-:::row:::
-    :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/authentication-configure-web.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados.":::
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
-
-Agora tem uma configuração web configurada que o ADT Explorer irá utilizar. O separador autenticação no portal Azure deve refletir isso. Depois de verificar as secções abaixo, *acerte Save* .
-
-:::image type="content" source="media/quickstart-adt-explorer/authentication-post.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados.":::
+Pode fechar a janela da consola de autenticação, se quiser, ou mantê-la aberta para ser utilizada no passo seguinte.
 
 ### <a name="run-and-configure-adt-explorer"></a>Executar e configurar o Explorador ADT
 
 Em seguida, execute a aplicação ADT Explorer e configuure-a para a sua instância Azure Digital Twins.
 
-Navegue para a pasta _**Azure_Digital_Twins__ADT__explorer**_ descarregada e desapertado. Abra um pedido de comando no local da pasta *Azure_Digital_Twins__ADT__explorer/cliente/src* .
+Navegue para a pasta _**Azure_Digital_Twins__ADT__explorer**_ descarregada e desapertado. Abra uma janela da consola para a localização da pasta *Azure_Digital_Twins__ADT__explorer/cliente/src* .
 
 Corra `npm install` para descarregar todas as dependências necessárias.
 
@@ -96,10 +84,7 @@ Se *premir* o botão Sinal na parte superior da janela (mostrado na imagem abaix
 
 :::image type="content" source="media/quickstart-adt-explorer/sign-in.png" alt-text="Vista de um gráfico feito de 4 nós circulares ligados por setas. Um círculo com a marca «Piso1» é ligado por uma seta com a etiqueta «contém» a um círculo com a etiqueta «Sala1»; um círculo com a marca 'Floor0' é ligado por uma seta com a etiqueta 'contém' a um círculo com a indicação 'Sala0'. 'Floor1' e 'Floor0' não estão ligados." lightbox="media/quickstart-adt-explorer/sign-in.png":::
 
-Insira as informações importantes que recolheu anteriormente na secção [Pré-Requisitos:](#prerequisites)
-* ID da Aplicação (cliente)
-* ID do Diretório (inquilino)
-* URL de exemplo de Azure Digital Twins, no formato *https://{instance host name}*
+Introduza o *URL de exemplo de gémeos digitais Azure* que recolheu anteriormente na secção [Pré-requisitos,](#prerequisites) no formato *https://{instance host name}* .
 
 >[!NOTE]
 > Pode revisitar/editar estas informações a qualquer momento selecionando o mesmo ícone para puxar novamente a caixa 'Iniciar' Vai manter os valores que passaste.
@@ -313,12 +298,6 @@ Para embrulhar o trabalho para este arranque rápido, primeiro termine a aplica�
 Se planeia continuar com os tutoriais do Azure Digital Twins, a instância usada neste quickstart pode ser reutilizada para esses artigos, e não precisa removê-lo.
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
-
-Em seguida, elimine o registo de aplicações Azure Ative Directory que criou para a sua aplicação cliente com este comando:
-
-```azurecli-interactive
-az ad app delete --id <your-application-ID>
-```
 
 Por fim, elimine a pasta de amostra de projeto que descarregou para a sua máquina local _**(Azure_Digital_Twins__ADT__explorer).**_ Pode ter de eliminar as versões com fecho e desapertado.
 

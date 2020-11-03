@@ -1,17 +1,17 @@
 ---
 title: Link Privado - Base de Dados Azure para MariaDB
 description: Saiba como funciona o link privado para a Azure Database para a MariaDB.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 80bc77de30073b2872412f907251b1aad7e334d3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ec43fa995fc9772964db399baa0b6f8c2a7db1db
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425621"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241502"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Link privado para base de dados Azure para MariaDB
 
@@ -114,7 +114,7 @@ As seguintes situações e resultados são possíveis quando utiliza o Private L
 
 ## <a name="deny-public-access-for-azure-database-for-mariadb"></a>Negar acesso público à Base de Dados de Azure para MariaDB
 
-Se pretender confiar apenas em pontos finais privados para aceder à sua Base de Dados Azure para MariaDB, pode desativar a definição de todos os pontos finais públicos[(regras de firewall](concepts-firewall-rules.md) e [pontos finais do serviço VNet)](concepts-data-access-security-vnet.md)definindo a configuração **de Acesso à Rede Pública de Negação** no servidor de base de dados. 
+Se pretender confiar apenas em pontos finais privados para aceder à sua Base de Dados Azure para MariaDB, pode desativar a definição de todos os pontos finais públicos [(regras de firewall](concepts-firewall-rules.md) e [pontos finais do serviço VNet)](concepts-data-access-security-vnet.md)definindo a configuração **de Acesso à Rede Pública de Negação** no servidor de base de dados. 
 
 Quando esta definição é definida como *SIM,* apenas as ligações através de pontos finais privados são permitidas na sua Base de Dados Azure para MariaDB. Quando esta definição estiver definida para *NO,* os clientes podem ligar-se à sua Base de Dados Azure para MariaDB com base nas definições do seu ponto final de firewall ou de serviço VNet. Além disso, uma vez definido o valor do acesso à rede privada, os clientes não podem adicionar e/ou atualizar as "regras de firewall" e 'regras de ponto final de serviço VNet'.
 

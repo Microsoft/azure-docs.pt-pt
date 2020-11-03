@@ -1,18 +1,18 @@
 ---
 title: Encriptação de dados - Portal Azure - Base de Dados Azure para MySQL
 description: Saiba como configurar e gerir a encriptação de dados para a sua Base de Dados Azure para o MySQL utilizando o portal Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 201459f4a7d2d23b384435493d6272e569698933
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8dfc34699bb973dc1f5b74807043e9f208d64f4c
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887157"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242152"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Encriptação de dados para Azure Database para MySQL utilizando o portal Azure
 
@@ -23,7 +23,7 @@ Saiba como utilizar o portal Azure para configurar e gerir a encriptação de da
 * Você deve ter uma subscrição Azure e ser um administrador nessa subscrição.
 * No Azure Key Vault, crie um cofre chave e uma chave para usar para uma chave gerida pelo cliente.
 * O cofre-chave deve ter as seguintes propriedades para usar como chave gerida pelo cliente:
-  * [Eliminação recuperável](../key-vault/general/soft-delete-overview.md)
+  * [Excluir suave](../key-vault/general/soft-delete-overview.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
@@ -42,15 +42,15 @@ Saiba como utilizar o portal Azure para configurar e gerir a encriptação de da
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Definir as permissões certas para operações chave
 
-1. No Cofre de Chaves, selecione **Políticas de acesso**Adicionar Política de  >  **Acesso**.
+1. No Cofre de Chaves, selecione **Políticas de acesso** Adicionar Política de  >  **Acesso** .
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png" alt-text="Screenshot do Key Vault, com políticas de acesso e Política de Acesso Em destaque":::
 
-2. Selecione **permissões chave**, e selecione **Get**, **Wrap,** **Desembrulhar,** e **o Principal**, que é o nome do servidor MySQL. Se o seu servidor principal não puder ser encontrado na lista de principais existentes, tem de o registar. É-lhe pedido que registe o seu principal servidor quando tenta configurar a encriptação de dados pela primeira vez, e falha.
+2. Selecione **permissões chave** , e selecione **Get** , **Wrap,** **Desembrulhar,** e **o Principal** , que é o nome do servidor MySQL. Se o seu servidor principal não puder ser encontrado na lista de principais existentes, tem de o registar. É-lhe pedido que registe o seu principal servidor quando tenta configurar a encriptação de dados pela primeira vez, e falha.
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/access-policy-wrap-unwrap.png" alt-text="Screenshot do Key Vault, com políticas de acesso e Política de Acesso Em destaque":::
 
-3. Selecione **Guardar**.
+3. Selecione **Guardar** .
 
 ## <a name="set-data-encryption-for-azure-database-for-mysql"></a>Definir encriptação de dados para Azure Database para MySQL
 
@@ -62,7 +62,7 @@ Saiba como utilizar o portal Azure para configurar e gerir a encriptação de da
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/setting-data-encryption.png" alt-text="Screenshot do Key Vault, com políticas de acesso e Política de Acesso Em destaque":::
 
-3. Selecione **Guardar**.
+3. Selecione **Guardar** .
 
 4. Para garantir que todos os ficheiros (incluindo ficheiros temporários) estão totalmente encriptados, reinicie o servidor.
 
@@ -70,11 +70,11 @@ Saiba como utilizar o portal Azure para configurar e gerir a encriptação de da
 
 Depois de a Azure Database for MySQL ser encriptada com a chave gerida de um cliente armazenada no Key Vault, qualquer cópia recém-criada do servidor também é encriptada. Pode fazer esta nova cópia através de uma operação local ou de geo-restauro, ou através de uma operação de réplica (local/cross-region). Assim, para um servidor MySQL encriptado, pode usar os seguintes passos para criar um servidor restaurado encriptado.
 
-1. No seu servidor, selecione **Overview**  >  **Restore**.
+1. No seu servidor, selecione **Overview**  >  **Restore** .
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore.png" alt-text="Screenshot do Key Vault, com políticas de acesso e Política de Acesso Em destaque":::
 
-   Ou para um servidor ativado por replicação, na rubrica **Definições,** selecione **Replication**.
+   Ou para um servidor ativado por replicação, na rubrica **Definições,** selecione **Replication** .
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysql-replica.png" alt-text="Screenshot do Key Vault, com políticas de acesso e Política de Acesso Em destaque":::
 
@@ -82,7 +82,7 @@ Depois de a Azure Database for MySQL ser encriptada com a chave gerida de um cli
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png" alt-text="Screenshot do Key Vault, com políticas de acesso e Política de Acesso Em destaque":::
 
-3. Para tornar o servidor acessível, revalidar a chave no servidor restaurado. Selecione **a chave**de  >  **revalidato de**encriptação de dados.
+3. Para tornar o servidor acessível, revalidar a chave no servidor restaurado. Selecione **a chave** de  >  **revalidato de** encriptação de dados.
 
    > [!NOTE]
    > A primeira tentativa de revalidar falhará, porque o diretor de serviço do novo servidor precisa de ter acesso ao cofre de chaves. Para gerar o principal serviço, selecione **a tecla Revalidate,** que mostrará um erro mas gera o principal do serviço. A partir daí, consulte [estes passos](#set-the-right-permissions-for-key-operations) mais cedo neste artigo.

@@ -1,18 +1,18 @@
 ---
 title: Encriptação de dados - Azure CLI - Base de Dados Azure para MySQL
 description: Saiba como configurar e gerir a encriptação de dados para a sua Base de Dados Azure para o MySQL utilizando o CLI Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb83cd4fe7e98b1cde6dcee5d3f25fa5e35f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799824"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242097"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Encriptação de dados para Azure Database para MySQL utilizando o Azure CLI
 
@@ -35,7 +35,7 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
 
 * Para utilizar um cofre-chave existente, deve ter as seguintes propriedades para utilizar como chave gerida pelo cliente:
 
-  * [Eliminação recuperável](../key-vault/general/soft-delete-overview.md)
+  * [Excluir suave](../key-vault/general/soft-delete-overview.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
@@ -68,7 +68,7 @@ Saiba como utilizar o CLI Azure para configurar e gerir a encriptação de dados
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. Descreva as **permissões chave** **(Obter,** **Embrulhar,** **Desembrulhar)** para o **principal**, que é o nome do servidor MySQL.
+2. Descreva as **permissões chave** **(Obter,** **Embrulhar,** **Desembrulhar)** para o **principal** , que é o nome do servidor MySQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

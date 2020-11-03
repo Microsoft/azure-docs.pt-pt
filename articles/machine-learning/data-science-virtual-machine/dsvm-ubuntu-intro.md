@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 375149047d51574e14df15b6385b8c296d49a8ec
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a14f7ac212d9957e5258f75a386b8730ad5de700
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85254706"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233848"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -33,7 +33,7 @@ Aqui estão os passos para criar uma instância da Máquina Virtual de Ciência 
 1. Aceda ao [portal do Azure](https://portal.azure.com). Pode ser solicitado a assinar na sua conta Azure se ainda não tiver assinado.
 1. Encontre a listagem de máquinas virtuais digitando em "data science virtual machine" e selecionando "Data Science Virtual Machine- Ubuntu 18.04"
 
-1. Na janela seguinte, **selecione Criar**.
+1. Na janela seguinte, **selecione Criar** .
 
 1. Deve ser redirecionado para a lâmina "Criar uma máquina virtual".
    
@@ -41,28 +41,28 @@ Aqui estão os passos para criar uma instância da Máquina Virtual de Ciência 
 
     1. **Básicos:**
     
-       * **Subscrição**: Se tiver mais de uma subscrição, selecione aquela em que a máquina será criada e faturada. Tem de ter privilégios de criação de recursos para esta subscrição.
-       * **Grupo de recursos**: Criar um novo grupo ou utilizar um existente.
-       * **Nome da máquina virtual**: Introduza o nome da máquina virtual. Este nome será usado no seu portal Azure.
-       * **Região**: Selecione o datacenter que é mais apropriado. Para um acesso mais rápido à rede, é o datacenter que tem a maioria dos seus dados ou está mais próximo da sua localização física. Saiba mais sobre [as Regiões Azure.](https://azure.microsoft.com/global-infrastructure/regions/)
-       * **Imagem**: Deixe o valor predefinido.
-       * **Tamanho**: Esta opção deve autopovoar-se automaticamente com um tamanho adequado para cargas de trabalho gerais. Leia mais sobre [os tamanhos Linux VM em Azure](../../virtual-machines/linux/sizes.md).
-       * **Tipo de autenticação**: Para uma configuração mais rápida, selecione "Password". 
+       * **Subscrição** : Se tiver mais de uma subscrição, selecione aquela em que a máquina será criada e faturada. Tem de ter privilégios de criação de recursos para esta subscrição.
+       * **Grupo de recursos** : Criar um novo grupo ou utilizar um existente.
+       * **Nome da máquina virtual** : Introduza o nome da máquina virtual. Este nome será usado no seu portal Azure.
+       * **Região** : Selecione o datacenter que é mais apropriado. Para um acesso mais rápido à rede, é o datacenter que tem a maioria dos seus dados ou está mais próximo da sua localização física. Saiba mais sobre [as Regiões Azure.](https://azure.microsoft.com/global-infrastructure/regions/)
+       * **Imagem** : Deixe o valor predefinido.
+       * **Tamanho** : Esta opção deve autopovoar-se automaticamente com um tamanho adequado para cargas de trabalho gerais. Leia mais sobre [os tamanhos Linux VM em Azure](../../virtual-machines/linux/sizes.md).
+       * **Tipo de autenticação** : Para uma configuração mais rápida, selecione "Password". 
          
          > [!NOTE]
          > Se pretender utilizar o JupyterHub, certifique-se de selecionar "Password", uma vez que o JupyterHub *não* está configurado para utilizar as teclas públicas SSH.
 
-       * **Nome de utilizador**: Introduza o nome de utilizador do administrador. Utilizará este nome de utilizador para iniciar sessão na sua máquina virtual. Este nome de utilizador não precisa de ser o mesmo que o seu nome de utilizador Azure. *Não* utilize letras maiúsculas.
+       * **Nome de utilizador** : Introduza o nome de utilizador do administrador. Utilizará este nome de utilizador para iniciar sessão na sua máquina virtual. Este nome de utilizador não precisa de ser o mesmo que o seu nome de utilizador Azure. *Não* utilize letras maiúsculas.
          
          > [!IMPORTANT]
          > Se utilizar letras maiúsculas no seu nome de utilizador, o JupyterHub não funcionará e encontrará um erro de 500 servidor interno.
 
-       * **Palavra-passe**: Introduza a palavra-passe que utilizará para iniciar sessão na sua máquina virtual.    
+       * **Palavra-passe** : Introduza a palavra-passe que utilizará para iniciar sessão na sua máquina virtual.    
     
-   1. Selecione **Rever + criar**.
+   1. Selecione **Rever + criar** .
    1. **Review+criar**
       * Verifique se toda a informação que introduziu está correta. 
-      * Selecione **Criar**.
+      * Selecione **Criar** .
     
     O provisionamento deve demorar cerca de 5 minutos. O estado é apresentado no portal Azure.
 
@@ -95,19 +95,19 @@ O Linux VM já está a provisionado com o X2Go Server e pronto para aceitar liga
 1. Execute o X2Go Client. Se a janela "New Session" não aparecer automaticamente, vá a Session -> New Session.
 
 1. Na janela de configuração resultante, introduza os seguintes parâmetros de configuração:
-   * **Separador Sessão**:
-     * **Anfitrião**: Introduza o endereço IP da sua VM, que anotou anteriormente.
-     * **Iniciar sessão**: introduza o nome de utilizador na VM do Linux.
-     * **Porta SSH**: deixe-a em 22, o valor predefinido.
-     * **Tipo de Sessão**: Altere o valor para **XFCE**. Atualmente, a VM do Linux apenas suporta o ambiente de trabalho XFCE.
-   * **Separador Multimédia**: pode desativar o suporte de som e a impressão de cliente se não precisar de utilizá-los.
-   * **Pastas partilhadas**: Utilize este separador para adicionar o diretório de máquinas do cliente que gostaria de montar no VM. 
+   * **Separador Sessão** :
+     * **Anfitrião** : Introduza o endereço IP da sua VM, que anotou anteriormente.
+     * **Iniciar sessão** : introduza o nome de utilizador na VM do Linux.
+     * **Porta SSH** : deixe-a em 22, o valor predefinido.
+     * **Tipo de Sessão** : Altere o valor para **XFCE** . Atualmente, a VM do Linux apenas suporta o ambiente de trabalho XFCE.
+   * **Separador Multimédia** : pode desativar o suporte de som e a impressão de cliente se não precisar de utilizá-los.
+   * **Pastas partilhadas** : Utilize este separador para adicionar o diretório de máquinas do cliente que gostaria de montar no VM. 
 
    ![Configuração X2go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
-1. Selecione **OK**.
+1. Selecione **OK** .
 1. Clique na caixa no painel direito da janela X2Go para trazer o ecrã de login para o seu VM.
 1. Introduza a palavra-passe da sua VM.
-1. Selecione **OK**.
+1. Selecione **OK** .
 1. Talvez seja necessário conceder permissão ao X2Go para ignorar a firewall para concluir a ligação.
 1. Deverá agora ver a interface gráfica do seu Ubuntu DSVM. 
 
@@ -126,7 +126,7 @@ O Ubuntu DSVM gere [o JupyterHub,](https://github.com/jupyterhub/jupyterhub)um s
       ![Insira o login de Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
 >[!NOTE]
-> Se receber um Erro 500 nesta fase, é provável que tenha usado letras maiúsculas no seu nome de utilizador. Esta é uma interação conhecida entre Jupyter Hub e o PAMAuthenticator que usa. 
+> Se receber um Erro 500 nesta fase, é provável que tenha usado letras maiúsculas no seu nome de utilizador. Esta é uma interação conhecida entre Jupyter Hub e o PAMAuthenticator que usa. Se receber um erro de "Não pode chegar a esta página", é provável que as permissões do Grupo de Segurança da Rede precisem de ser ajustadas. No portal Azure, encontre o recurso do Grupo de Segurança da Rede dentro do seu Grupo de Recursos. Para aceder ao JupyterHub a partir da Internet pública, você deve ter porta 8000 aberta. (A imagem mostra que este VM está configurado para acesso just-in-time, o que é altamente recomendado. Consulte [as portas de gestão Secure com acesso just-in time](../../security-center/security-center-just-in-time.md).) ![Configuração do Grupo de Segurança da Rede](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Navegue nos muitos cadernos de amostras que estão disponíveis.
 

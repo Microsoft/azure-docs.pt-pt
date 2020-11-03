@@ -8,12 +8,12 @@ ms.subservice: language-understanding
 keywords: Azure, inteligência artificial, ai, processamento de linguagem natural, nlp, LUIS, azure luis, compreensão da linguagem natural, ai chatbot, chatbot maker, compreensão da linguagem natural
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-diberry-3core
-ms.openlocfilehash: c2bc607fb5a5b5b38249453a1d0fce833547191f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e389152292239076f3077e2edfb8d5be52ab815b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327298"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241383"
 ---
 # <a name="quickstart-language-understanding-luis-sdk-client-libraries-to-create-and-query-your-luis-app"></a>Quickstart: Language Understanding (LUIS) SDK bibliotecas de clientes para criar e consultar a sua app LUIS
 
@@ -21,7 +21,8 @@ Crie e questione uma aplicação de inteligência artificial Azure LUIS (IA) com
 
 A Compreensão da Linguagem (LUIS) permite-lhe aplicar o processamento de linguagem natural (NLP) ao texto de linguagem natural e conversacional de um utilizador para prever o significado geral e retirar informações relevantes e detalhadas.
 
-* A biblioteca de clientes **SDK** de autor permite-lhe criar, editar, treinar e publicar a sua aplicação LUIS. * A biblioteca de clientes **SDK de previsão** permite-lhe consultar a aplicação publicada.
+* A biblioteca de clientes **SDK** de autor permite-lhe criar, editar, treinar e publicar a sua aplicação LUIS.
+* A biblioteca de clientes **SDK** de previsão permite-lhe consultar a aplicação publicada.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [LUIS development with C# SDK](./includes/sdk-csharp.md)]
@@ -41,7 +42,7 @@ Pode eliminar a aplicação do [portal LUIS](https://www.luis.ai) e eliminar os 
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-* Autenticação na biblioteca do cliente - erros de autenticação geralmente indicam que a chave errada & ponto final foram usados. Este quickstart usa a chave de autoria e ponto final para o tempo de previsão, como uma conveniência, mas só funcionará se ainda não tiver usado a quota mensal. Se não puder utilizar a chave de autoria e o ponto final, tem de utilizar a chave de tempo de previsão e o ponto final ao aceder à biblioteca de clientes SDK em tempo de previsão.
+* Autenticação na biblioteca do cliente - erros de autenticação geralmente indicam que a chave errada & ponto final foram usados. Este quickstart usa a chave de autoria e ponto final para o tempo de previsão como uma conveniência, mas só funcionará se ainda não tiver usado a quota mensal. Se não puder utilizar a chave de autoria e o ponto final, tem de utilizar a chave de tempo de previsão e o ponto final ao aceder à biblioteca de clientes SDK em tempo de previsão.
 * Criar entidades - se tiver um erro ao criar a entidade aninhada de aprendizagem automática utilizada neste tutorial, certifique-se de que copiou o código e não alterou o código para criar uma entidade diferente.
 * Criando palavras de exemplo - se tiver um erro ao criar a expressão de exemplos escrita utilizada neste tutorial, certifique-se de que copiou o código e não alterou o código para criar um exemplo diferente.
 * Formação - se tiver um erro de formação, isto geralmente indica uma aplicação vazia (sem intenções com palavras de exemplo), ou uma app com intenções ou entidades que estão mal formadas.

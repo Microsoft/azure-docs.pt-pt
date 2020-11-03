@@ -1,17 +1,17 @@
 ---
 title: Link Privado - Portal Azure - Base de Dados Azure para MySQL
 description: Saiba como configurar link privado para Azure Database for MySQL a partir do portal Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
-ms.openlocfilehash: b6a2725c6e4d72e8e79e3e45cc60060c02d90cac
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fbc75df0b22ba452b8c91dfcb21ca13aaed557a3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545009"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242403"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-portal"></a>Criar e gerir o Link Privado para Azure Database para o MySQL utilizando o Portal
 
@@ -60,7 +60,7 @@ Nesta secção, irá criar uma Rede Virtual e a sub-rede para hospedar o VM que 
     | Grupo de recursos | Selecione **myResourceGroup** . Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
     | Nome da máquina virtual | *Insira o myVm* . |
-    | Região | Selecione **Europa Ocidental** . |
+    | Region | Selecione **Europa Ocidental** . |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura** . |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows** Server . |
     | Tamanho | Deixe o **padrão DS1 v2** . |
@@ -145,7 +145,7 @@ Nesta secção, irá criar um servidor MySQL e adicionar-lhe um ponto final priv
     | Grupo de recursos | Selecione **myResourceGroup** . Criou isto na secção anterior.|
     | **Detalhes da instância** |  |
     | Name | Introduza *myPrivateEndpoint* . Se este nome for tomado, crie um nome único. |
-    |Região|Selecione **Europa Ocidental** .|
+    |Region|Selecione **Europa Ocidental** .|
     |||
 
 5. Selecione **Seguinte: Recurso** .
@@ -245,7 +245,7 @@ Depois de criar **o myVm,** ligue-o a partir da internet da seguinte forma:
 
 8. Feche a ligação remota do ambiente de trabalho ao myVm.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando terminar de usar o ponto final privado, o servidor MySQL e o VM, elimine o grupo de recursos e todos os recursos que contém:
 
 1. Introduza o *myResourceGroup* na caixa **de Pesquisa** no topo do portal e selecione o *myResourceGroup* a partir dos resultados da pesquisa.

@@ -1,17 +1,17 @@
 ---
 title: Negar acesso à rede pública - portal Azure - Base de Dados Azure para MariaDB
 description: Saiba como configurar o Negar o Acesso à Rede Pública utilizando o portal Azure para a sua Base de Dados Azure para MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: f33dbfa0b96d7f6d85443005ff7e8b1a780c75a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3117ebfd258c72bb97432871c2ea74d30c52f669
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104389"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242195"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mariadb-using-azure-portal"></a>Negar acesso à rede pública na Base de Dados Azure para MariaDB usando o portal Azure
 

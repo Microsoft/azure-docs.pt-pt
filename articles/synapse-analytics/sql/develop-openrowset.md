@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2ef09fd81aaeca92e87be2a0fddbc9be16ebac1d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474789"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242046"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como utilizar o OPENROWSET com SQL on demand (pré-visualização)
 
@@ -95,6 +95,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , FIELDQUOTE = 'quote_characters' ]
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
+[ , HEADER_ROW = { TRUE | FALSE } ]
 ```
 
 ## <a name="arguments"></a>Argumentos
@@ -127,7 +128,7 @@ O unstructured_data_path que estabelece um caminho para os dados pode ser um cam
  Especifica um caminho dentro do seu armazenamento que aponta para a pasta ou ficheiro que pretende ler. Se o caminho aponta para um recipiente ou pasta, todos os ficheiros serão lidos a partir desse recipiente ou pasta em particular. Os ficheiros nas sub-dobradeiras não serão incluídos. 
 
  Pode utilizar wildcards para direcionar vários ficheiros ou pastas. É permitida a utilização de vários wildcards não consagrtivos.
-Abaixo está um exemplo que lê todos os *ficheiros csv* começando com a *população* de todas as pastas começando com */csv/população*:  
+Abaixo está um exemplo que lê todos os *ficheiros csv* começando com a *população* de todas as pastas começando com */csv/população* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Se especificar a unstructured_data_path ser uma pasta, uma consulta a pedido do SQL recuperará ficheiros dessa pasta. 
@@ -144,12 +145,13 @@ No exemplo abaixo, se o unstructured_data_path= `https://mystorageaccount.dfs.co
 A cláusula COM permite especificar colunas que pretende ler a partir de ficheiros.
 
 - Para os ficheiros de dados do CSV, para ler todas as colunas, forneça nomes de colunas e seus tipos de dados. Se pretender um subconjunto de colunas, utilize números ordinais para recolher as colunas dos ficheiros de dados originários por ordinal. As colunas ficarão vinculadas pela designação ordinal. 
-
-    > [!IMPORTANT]
-    > A cláusula WITH é obrigatória para ficheiros CSV.
-    >
+    > [!TIP]
+    > Também pode omitir a cláusula COM para ficheiros CSV. Os tipos de dados serão automaticamente inferidos a partir do conteúdo do ficheiro. Pode utilizar HEADER_ROW argumento para especificar a existência da linha do cabeçalho, caso em que os nomes das colunas serão lidos a partir da linha do cabeçalho. Para mais detalhes, verifique [a descoberta automática do esquema](#automatic-schema-discovery).
     
-- Para ficheiros de dados do Parquet, forneça nomes de colunas que correspondam aos nomes das colunas nos ficheiros de dados originários. As colunas ficarão ligadas pelo nome. Se a cláusula WITH for omitida, todas as colunas dos ficheiros Parquet serão devolvidas.
+- Para ficheiros de dados do Parquet, forneça nomes de colunas que correspondam aos nomes das colunas nos ficheiros de dados originários. As colunas serão ligadas pelo nome e são sensíveis ao caso. Se a cláusula WITH for omitida, todas as colunas dos ficheiros Parquet serão devolvidas.
+    > [!IMPORTANT]
+    > Os nomes das colunas nos ficheiros Parquet são sensíveis ao caso. Se especificar o nome da coluna com invólucro diferente do invólucro de nome de coluna no ficheiro Parquet, os valores NULL serão devolvidos para essa coluna.
+
 
 column_name = Nome para a coluna de saída. Se fornecido, este nome substitui o nome da coluna no ficheiro de origem.
 
@@ -170,7 +172,7 @@ WITH (
 
 FIELDTERMINATOR ='field_terminator'
 
-Especifica o exterminador de campo a utilizar. O exterminador de campo predefinido é uma vírgula ("**,**").
+Especifica o exterminador de campo a utilizar. O exterminador de campo predefinido é uma vírgula (" **,** ").
 
 ROWTERMINATOR ='row_terminator''
 
@@ -205,6 +207,10 @@ Especifica a versão parser a ser utilizada ao ler ficheiros. As versões de par
 
 A versão 1.0 do parser CSV é padrão e possui-se rica. A versão 2.0 foi construída para desempenho e não suporta todas as opções e codificações. 
 
+Detalhes da versão 1.0 do parser CSV:
+
+- As seguintes opções não são suportadas: HEADER_ROW.
+
 Detalhes da versão 2.0 do parser CSV:
 
 - Nem todos os tipos de dados são suportados.
@@ -212,22 +218,93 @@ Detalhes da versão 2.0 do parser CSV:
 - As seguintes opções não são suportadas: DATA_COMPRESSION.
 - A corda vazia citada ("") é interpretada como uma corda vazia.
 
+HEADER_ROW = { TRUE FALSO}
+
+Especifica se o ficheiro CSV contém linha de cabeçalho. O padrão é FALSO. Apoiado em PARSER_VERSION='2.0'. Se VERDADEIRO, os nomes das colunas serão lidos da primeira linha de acordo com o argumento FIRSTROW.
+
+## <a name="fast-delimited-text-parsing"></a>Análise de texto delimitada rápida
+
+Há duas versões deslimitadas de parser de texto que pode usar. A versão 1.0 do parser CSV é padrão e apresenta-se rica enquanto a versão parser 2.0 é construída para desempenho. A melhoria do desempenho no parser 2.0 provém de técnicas avançadas de análise e multi-rosca. A diferença de velocidade será maior à medida que o tamanho do ficheiro aumenta.
+
+## <a name="automatic-schema-discovery"></a>Descoberta automática de esquemas
+
+Pode facilmente consultar os ficheiros CSV e Parquet sem saber ou especificar o esquema omitindo a cláusula COM. Os nomes das colunas e os tipos de dados serão deduzidos dos ficheiros.
+
+Os ficheiros parquet contêm metadados de coluna que serão lidos, os mapeamentos de tipo podem ser encontrados em [mapeamentos de tipo para Parquet](#type-mapping-for-parquet). Verifique a [leitura dos ficheiros parquet sem especificar o esquema](#read-parquet-files-without-specifying-schema) para amostras.
+
+Para os ficheiros CSV, os nomes das colunas do CSV podem ser lidos a partir da linha do cabeçalho. Pode especificar se existe uma linha de cabeçalho utilizando HEADER_ROW argumento. Se HEADER_ROW = FALSO, serão usados nomes de colunas genéricas: C1, C2, ... CN onde n é número de colunas em arquivo. Os tipos de dados serão inferidos a partir das primeiras 100 linhas de dados. Verifique a [leitura dos ficheiros CSV sem especificar o esquema](#read-csv-files-without-specifying-schema) para amostras.
+
+> [!IMPORTANT]
+> Há casos em que o tipo de dados adequado não pode ser deduzido devido à falta de informação e o tipo de dados maior será usado em vez disso. Isto traz a sobrecarga de desempenho e é particularmente importante para as colunas de caracteres que serão inferidas como varchar(8000). No caso de ter colunas de caracteres nos seus ficheiros e utilizar inferência de esquema, para obter um desempenho ótimo, [verifique os tipos de dados inferidos](best-practices-sql-on-demand.md#check-inferred-data-types) e utilize tipos de [dados apropriados](best-practices-sql-on-demand.md#use-appropriate-data-types).
+
+### <a name="type-mapping-for-parquet"></a>Tipo de mapeamento para Parquet
+
+Os ficheiros parquet contêm descrições de tipo para cada coluna. A tabela a seguir descreve como os tipos de Parquet são mapeados para os tipos nativos SQL.
+
+| Tipo parquet | Tipo lógico parquet (anotação) | Tipo de dados SQL |
+| --- | --- | --- |
+| BOOLEANA | | bit |
+| BINÁRIO / BYTE_ARRAY | | varbinário |
+| DUPLO | | float |
+| FLUTUAR | | real |
+| INT32 | | int |
+| INT64 | | bigint |
+| INT96 | |datetime2 |
+| FIXED_LEN_BYTE_ARRAY | |binary |
+| BINÁRIO |UTF8 |varchar \* (colagem UTF8) |
+| BINÁRIO |CORDA |varchar \* (colagem UTF8) |
+| BINÁRIO |ENUM|varchar \* (colagem UTF8) |
+| BINÁRIO |UUID |uniqueidentifier |
+| BINÁRIO |DECIMAL |decimal |
+| BINÁRIO |JSON |varchar(máx) \* (colagem UTF8) |
+| BINÁRIO |Rio BSON |varbinário(máx) |
+| FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
+| BYTE_ARRAY |INTERVALO |varchar(máx), serializado em formato padronizado |
+| INT32 |INT(8, verdade) |smallint |
+| INT32 |INT(16, verdade) |smallint |
+| INT32 |INT(32, verdade) |int |
+| INT32 |INT(8, falso) |tinyint |
+| INT32 |INT(16, falso) |int |
+| INT32 |INT(32, falso) |bigint |
+| INT32 |DATE |date |
+| INT32 |DECIMAL |decimal |
+| INT32 |TEMPO (MILLIS)|hora |
+| INT64 |INT(64, verdade) |bigint |
+| INT64 |INT(64, falso) |decimal (20,0) |
+| INT64 |DECIMAL |decimal |
+| INT64 |TEMPO (MICROS / NANOS) |hora |
+|INT64 |TIMETAMP (MILLIS / MICROS / NANOS) |datetime2 |
+|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(máx), serializado em JSON |
+|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAPA|varchar(máx), serializado em JSON |
+
 ## <a name="examples"></a>Exemplos
 
-O exemplo a seguir devolve apenas duas colunas com os números ordinais 1 e 4 dos ficheiros da população*.csv. Como não há fila de cabeçalho nos ficheiros, começa a ler a partir da primeira linha:
+### <a name="read-csv-files-without-specifying-schema"></a>Ler ficheiros CSV sem especificar o esquema
+
+O exemplo a seguir lê-se no ficheiro CSV que contém linha de cabeçalho sem especificar nomes de colunas e tipos de dados: 
 
 ```sql
-SELECT * 
+SELECT 
+    *
 FROM OPENROWSET(
-        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
-        FORMAT = 'CSV',
-        FIRSTROW = 1
-    )
-WITH (
-    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
-    [population] bigint 4
-) AS [r]
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0',
+    HEADER_ROW = TRUE) as [r]
 ```
+
+O exemplo a seguir lê-se no ficheiro CSV que não contém linha de cabeçalho sem especificar nomes de colunas e tipos de dados: 
+
+```sql
+SELECT 
+    *
+FROM OPENROWSET(
+    BULK 'https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.csv',
+    FORMAT = 'CSV',
+    PARSER_VERSION = '2.0') as [r]
+```
+
+### <a name="read-parquet-files-without-specifying-schema"></a>Leia os ficheiros Parquet sem especificar o esquema
 
 O exemplo a seguir devolve todas as colunas da primeira linha a partir do conjunto de dados de recenseamento, no formato Parquet, e sem especificar os nomes das colunas e os tipos de dados: 
 
@@ -241,6 +318,42 @@ FROM
     ) AS [r]
 ```
 
+### <a name="read-specific-columns-from-csv-file"></a>Ler colunas específicas a partir do ficheiro CSV
+
+O exemplo a seguir devolve apenas duas colunas com os números ordinais 1 e 4 dos ficheiros da população*.csv. Como não há fila de cabeçalho nos ficheiros, começa a ler a partir da primeira linha:
+
+```sql
+SELECT 
+    * 
+FROM OPENROWSET(
+        BULK 'https://sqlondemandstorage.blob.core.windows.net/csv/population/population*.csv',
+        FORMAT = 'CSV',
+        FIRSTROW = 1
+    )
+WITH (
+    [country_code] VARCHAR (5) COLLATE Latin1_General_BIN2 1,
+    [population] bigint 4
+) AS [r]
+```
+
+### <a name="read-specific-columns-from-parquet-file"></a>Ler colunas específicas do arquivo Parquet
+
+O exemplo a seguir devolve apenas duas colunas da primeira linha do conjunto de dados do recenseamento, no formato Parquet: 
+
+```sql
+SELECT 
+    TOP 1 *
+FROM  
+    OPENROWSET(
+        BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet',
+        FORMAT='PARQUET'
+    )
+WITH (
+    [stateName] VARCHAR (50),
+    [population] bigint
+) AS [r]
+```
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais amostras, consulte o [quickstart de armazenamento de dados](query-data-storage.md) de consulta para aprender a usar `OPENROWSET` para ler os formatos de ficheiro [CSV,](query-single-csv-file.md) [PARQUET](query-parquet-files.md)e [JSON.](query-json-files.md) Também pode aprender a guardar os resultados da sua consulta para o Azure Storage utilizando [o CETAS](develop-tables-cetas.md).
+Para obter mais amostras, consulte o [quickstart de armazenamento de dados](query-data-storage.md) de consulta para aprender a usar `OPENROWSET` para ler os formatos de ficheiro [CSV,](query-single-csv-file.md) [PARQUET](query-parquet-files.md)e [JSON.](query-json-files.md) Verifique as [melhores práticas](best-practices-sql-on-demand.md) para obter um desempenho ideal. Também pode aprender a guardar os resultados da sua consulta para o Azure Storage utilizando [o CETAS](develop-tables-cetas.md).

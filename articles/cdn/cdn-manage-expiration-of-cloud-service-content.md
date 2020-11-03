@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: fefa19e8dfee295d34231d36df079b80d1e82768
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d8eb450d2010bf2a525a26f1c5ff48f59732ce43
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778600"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240975"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Manage expiration of web content in Azure CDN (Gerir a expiração do conteúdo Web na CDN do Azure)
 > [!div class="op_single_selector"]
@@ -73,9 +73,9 @@ O método preferido para configurar o cabeçalho de um servidor web `Cache-Contr
 
 1. De acordo com **as regras de caching personalizado,** crie duas condições de jogo:
 
-     a. Para a primeira condição de jogo, desacordo **a condição de jogo** para **Path** e `/webfolder1/*` **introduza o valor de Match** . **Desentuê-lo** para **substituir** e introduza 4 na caixa **Horas.**
+     a. Para a primeira condição de jogo, desacordo **a condição de jogo** para **Path** e `/webfolder1/*` **introduza o valor de Match** . **Desentuê-lo** para **substituir** e introduza 4 na caixa **Dias.**
 
-     b. Para a segunda condição de jogo, desacordo **a condição de jogo** para **Path** e `/webfolder1/file1.txt` **introduza o valor do Match** . **Desentuê-lo** para **substituir** e introduza 2 na caixa **Horas.**
+     b. Para a segunda condição de jogo, desacordo **a condição de jogo** para **Path** e `/webfolder1/file1.txt` **introduza o valor do Match** . **Desentuê-lo** para **substituir** e introduza 2 na caixa **Days.**
 
     ![CdN costume caching regras exemplo](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 

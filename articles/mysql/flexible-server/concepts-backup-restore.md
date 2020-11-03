@@ -1,17 +1,17 @@
 ---
 title: Backup e restauro na Base de Dados Azure para o MySQL Flexible Server
 description: Conheça os conceitos de backup e restauro com Base de Dados Azure para MySQL Flexible Server
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 44cfe9bc6cd357cc0c649cecd022d3955bb5a2ce
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2d69427f9f11a47cedeccb4b1da38b770952f029
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545876"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240771"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql-flexible-server-preview"></a>Backup e restauro na Base de Dados Azure para o MySQL Flexible Server (Pré-visualização)
 

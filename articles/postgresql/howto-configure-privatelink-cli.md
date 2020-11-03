@@ -1,18 +1,18 @@
 ---
 title: Link Privado - Azure CLI - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Saiba como configurar link privado para Azure Database para PostgreSQL- Servidor único da Azure CLI
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 780ce6bed230ebbcf2a603962afc711fb9ab7f11
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 45f5a7e66c80dff5e78e575463becd95bcc7fca1
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777933"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242182"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Criar e gerir o Link Privado para Azure Database para PostgreSQL - Servidor único usando CLI
 
@@ -189,7 +189,7 @@ Ligue-se ao *myVm VM* da internet da seguinte forma:
 
 8. Feche a ligação remota do ambiente de trabalho ao myVm.
 
-## <a name="clean-up-resources"></a>Limpar os recursos 
+## <a name="clean-up-resources"></a>Limpar recursos 
 Quando já não for necessário, pode utilizar o grupo AZ para remover o grupo de recursos e todos os recursos que tem: 
 
 ```azurecli-interactive

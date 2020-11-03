@@ -1,17 +1,17 @@
 ---
 title: Arquitetura de conectividade - Base de Dados Azure para PostgreSQL - Servidor Único
 description: Descreve a arquitetura de conectividade da sua Base de Dados Azure para PostgreSQL - Servidor Único.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 64be7f01cc9cc7ae77af5386be7a11cd16785dd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6e2bc93a589e0a3f709eb1a8956bf8ca3d8bf6b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882400"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242063"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade na Base de Dados Azure para PostgreSQL
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade PostgreSQL, bem como como o tráfego é direcionado para a sua base de dados Azure para postgresQL caso de dados de clientes dentro e fora de Azure.
@@ -56,8 +56,8 @@ A tabela que se segue lista os IPs primários e secundários da Base de Dados Az
 | Sul da Coreia do Sul | 52.231.200.86    |
 | E.U.A. Centro-Norte | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | Europa do Norte | 40.113.93.91, 191.235.193.75, 52.138.224.6, 52.138.224.7    |
-| África do Sul Norte  | 102.133.152.0    |
-| África do Sul | 102.133.24.0   |
+| Norte da África do Sul  | 102.133.152.0    |
+| Oeste da África do Sul | 102.133.24.0   |
 | E.U.A. Centro-Sul |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
 | Ásia Sudeste | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Centro dos Emirados Árabes Unidos | 20.37.72.64  |

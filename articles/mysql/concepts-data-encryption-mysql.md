@@ -1,17 +1,17 @@
 ---
 title: Encriptação de dados com chave gerida pelo cliente - Azure Database for MySQL
 description: Azure Database for MySQL data encrypted with a customer-managed key permite-lhe trazer a sua própria chave (BYOK) para proteção de dados em repouso. Também permite às organizações implementarem a separação de deveres na gestão das chaves e dos dados.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: c7b4d4cf61c1d605bd632ac6fe210171b2ebe01b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 23cf8a79c4978ccb3a65ad968b2ed5a01bb3d0ec
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544125"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242335"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente
 

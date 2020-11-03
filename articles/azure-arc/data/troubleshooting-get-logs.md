@@ -1,6 +1,6 @@
 ---
-title: Obtenha registos para resolução de problemas Azure Arc controlador de dados habilitado
-description: Obtenha registos de serviço para resolver problemas O controlador de dados ativado pelo Azure Arc.
+title: Obtenha registos para resolver problemas Serviços de dados do Azure Arc
+description: Saiba como obter ficheiros de registo de um controlador de dados para resolver problemas A azure Arc permitiu serviços de dados.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -9,14 +9,14 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 625092e0557d40051e1ffd538a496c20edc0222f
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 0c4cff7583f08fe27649cee464fcef802cddd88f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320210"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234053"
 ---
-# <a name="get-azure-arc-enabled-data-services-logs"></a>Obtenha registos de serviços de dados habilitados para a Azure Arc
+# <a name="get-logs-to-troubleshoot-azure-arc-enabled-data-services"></a>Obtenha registos para resolver problemas Serviços de dados do Azure Arc
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -24,12 +24,12 @@ ms.locfileid: "92320210"
 
 Antes de prosseguir, precisa:
 
-* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. [Instruções de instalação](./install-client-tools.md).
-* Uma conta de administrador para iniciar seduca no Azure Arc permitiu o tratamento de serviços de dados.
+* [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]. Para obter mais informações, consulte [instalar ferramentas de cliente para implantar e gerir os serviços de dados do Azure Arc.](./install-client-tools.md)
+* Uma conta de administrador para iniciar seduca no Azure Arc permitiu o tratamento de dados.
 
-## <a name="get-azure-arc-enabled-data-services-logs"></a>Obtenha registos de serviços de dados habilitados para a Azure Arc
+## <a name="get-log-files"></a>Obtenha ficheiros de registo
 
-Pode obter os registos de serviços de dados ativados pelo Azure Arc em todas as cápsulas ou cápsulas específicas para efeitos de resolução de problemas. Pode fazê-lo utilizando ferramentas padrão de Kubernetes, como o `kubectl logs` comando ou neste artigo, que irá utilizar a ferramenta, o [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] que facilita a obtê-lo de uma só vez.
+Pode obter registos de serviço em todas as cápsulas ou cápsulas específicas para efeitos de resolução de problemas. Uma maneira é usar ferramentas padrão de Kubernetes, como o `kubectl logs` comando. Neste artigo, utilizará a ferramenta, o [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] que facilita a obtê-la de uma só vez.
 
 1. Inscreva-se no controlador de dados com uma conta de administrador.
 
@@ -53,27 +53,27 @@ O controlador de dados cria os ficheiros de registo no diretório de trabalho at
 
 ## <a name="options"></a>Opções
 
-`azdata arc dc debug copy-logs` fornece as seguintes opções para gerir a saída.
+O `azdata arc dc debug copy-logs` comando fornece as seguintes opções para gerir a saída:
 
 * Desada os ficheiros de registo para um diretório diferente utilizando o `--target-folder` parâmetro.
 * Comprima os ficheiros omitindo o `--skip-compress` parâmetro.
-* Despoletem e incluam despejos de memória omitindo o `--exclude-dumps` . Este método não é recomendado a menos que o Microsoft Support tenha solicitado o despejo de memória. A tomada de uma lixeira de memória requer que a definição do controlador de dados `allowDumps` seja definida para o tempo da `true` criação do controlador de dados.
+* Despoletem e inclua despejos de memória omitindo `--exclude-dumps` . Não recomendamos este método a menos que o Microsoft Support tenha solicitado os despejos de memória. Obter uma lixeira de memória requer que a definição do controlador de dados `allowDumps` seja definida para quando o controlador de `true` dados é criado.
 * Filtrar para recolher registos apenas para uma vagem específica `--pod` () ou recipiente `--container` () pelo nome.
-* Filtrar para recolher registos para um recurso personalizado específico, passando o `--resource-kind` parâmetro e `--resource-name` parâmetro. O `resource-kind` valor do parâmetro deve ser um dos nomes de definição de recursos personalizados, que podem ser recuperados pelo comando `kubectl get customresourcedefinition` .
+* Filtrar para recolher registos para um recurso personalizado específico, passando os `--resource-kind` parâmetros e `--resource-name` parâmetros. O `resource-kind` valor do parâmetro deve ser um dos nomes de definição de recursos personalizados. Pode recuperar esses nomes utilizando o `kubectl get customresourcedefinition` comando.
 
-Com estes parâmetros, pode substituir o `<parameters>` exemplo seguinte. 
+Com estes parâmetros, pode substituir o `<parameters>` seguinte exemplo: 
 
 ```console
 azdata arc dc debug copy-logs --target-folder <desired folder> --exclude-dumps --skip-compress -resource-kind <custom resource definition name> --resource-name <resource name> --namespace <namespace name>
 ```
 
-Por exemplo
+Por exemplo:
 
 ```console
 #azdata arc dc debug copy-logs --target-folder C:\temp\logs --exclude-dumps --skip-compress --resource-kind postgresql-12 --resource-name pg1 --namespace arc
 ```
 
-Exemplo da hierarquia da pasta. A hierarquia da pasta é organizada pelo nome do casulo, depois pelo contentor e, em seguida, pela hierarquia do diretório dentro do contentor.
+A seguinte hierarquia de pastas é um exemplo. É organizado pelo nome da cápsula, depois pelo contentor, e depois pela hierarquia do diretório dentro do contentor.
 
 ```output
 <export directory>

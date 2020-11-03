@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 1e6e59ad237cdc1f23181375894512e69eba86ff
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: f73643baa92956280d67d0d931459af3a80925ee
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042177"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233753"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planear e gerir os custos para a Azure Machine Learning
 
@@ -96,7 +96,7 @@ az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 
 
 AmlCompute vem com uma [configuração de quota (ou limite).](how-to-manage-quotas.md#azure-machine-learning-compute) Esta quota é da família VM (por exemplo, série Dv2, série NCv3) e varia por região para cada subscrição. As subscrições começam com pequenos predefinidos para o fazer andar, mas use esta definição para controlar a quantidade de recursos Amlcompute disponíveis para ser fiado na sua subscrição. 
 
-Também configurar [quota de nível de espaço de trabalho pela família VM,](how-to-manage-quotas.md#workspace-level-quota)para cada espaço de trabalho dentro de uma subscrição. Ao fazê-lo, permite-lhe ter mais controlo granular sobre os custos que cada espaço de trabalho pode potencialmente incorrer e restringir certas famílias de VM. 
+Também configurar [quota de nível de espaço de trabalho pela família VM,](how-to-manage-quotas.md#workspace-level-quotas)para cada espaço de trabalho dentro de uma subscrição. Ao fazê-lo, permite-lhe ter mais controlo granular sobre os custos que cada espaço de trabalho pode potencialmente incorrer e restringir certas famílias de VM. 
 
 Para definir quotas ao nível do espaço de trabalho, comece no [portal Azure](https://portal.azure.com).  Selecione qualquer espaço de trabalho na sua subscrição e selecione **Usages + quotas** no painel esquerdo. Em seguida, selecione o **separador quotas configurar** para visualizar as quotas. Você precisa de privilégios no âmbito de subscrição para definir a quota, uma vez que é um cenário que afeta vários espaços de trabalho.
 

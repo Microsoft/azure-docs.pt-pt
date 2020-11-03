@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 422f8106ac52c85f0680d54e420d0f1b4d326910
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 185bb47677e978a3098f39024995da6399f90658
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017697"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241774"
 ---
 # <a name="outbound-proxy-azure-load-balancer"></a>Esquilibrador de carga de azure de saída
 
 Um equilibrador de carga Azure pode ser usado como um proxy para a conectividade de saída da Internet. O equilibrador de carga fornece a conectividade de saída para as instâncias de backend. 
 
-Esta configuração utiliza **tradução de endereço de rede de origem (SNAT)**. O SNAT reescreve o endereço IP do backend para o endereço IP público do seu equilibrador de carga. 
+Esta configuração utiliza **tradução de endereço de rede de origem (SNAT)** . O SNAT reescreve o endereço IP do backend para o endereço IP público do seu equilibrador de carga. 
 
 O SNAT permite **mascarar IP** da instância backend. Esta mascarada impede que fontes externas tenham um endereço direto para as instâncias de backend. 
 
@@ -52,7 +52,7 @@ A ligação em rede no anfitrião para cada instância de backend fará SNAT par
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Portas exaustivas
 
-Todas as ligações ao mesmo destino IP e porto de destino usarão uma porta SNAT. Esta ligação mantém um fluxo de **tráfego** distinto da instância de backend ou **cliente** para um **servidor**. Este processo dá ao servidor uma porta distinta para abordar o tráfego. Sem este processo, a máquina cliente desconhece de que fluxo um pacote faz parte.
+Todas as ligações ao mesmo destino IP e porto de destino usarão uma porta SNAT. Esta ligação mantém um fluxo de **tráfego** distinto da instância de backend ou **cliente** para um **servidor** . Este processo dá ao servidor uma porta distinta para abordar o tráfego. Sem este processo, a máquina cliente desconhece de que fluxo um pacote faz parte.
 
 Imagine ter vários navegadores https://www.microsoft.com indo, que é:
 
@@ -92,7 +92,7 @@ A tabela a seguir <a name="snatporttable"></a> mostra as pré-aallocations da po
 | 801-1,000 | 32 | 
 
 >[!NOTE]
-> Se tiver uma piscina de backend com um tamanho máximo de 6, cada instância pode ter 64.000/10 = 6.400 portas se definir uma regra de saída explícita. De acordo com a tabela acima, cada um terá apenas 1.024 se escolher a atribuição automática.
+> Se tiver uma piscina de backend com um tamanho máximo de 10, cada instância pode ter 64.000/10 = 6.400 portas se definir uma regra de saída explícita. De acordo com a tabela acima, cada um terá apenas 1.024 se escolher a atribuição automática.
 
 ## <a name="outbound-rules-and-virtual-network-nat"></a><a name="outboundrules"></a> Regras de saída e Nat de rede virtual
 

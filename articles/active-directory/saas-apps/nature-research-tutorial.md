@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/29/2020
 ms.author: jeedes
-ms.openlocfilehash: 58ba0819866f3eddfad8a9147c10da7b5e59362d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d68305087264d6ba2306ba4c345064693b595c94
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135284"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93234023"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-nature-research"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Nature Research
 
@@ -61,7 +61,6 @@ Para configurar e testar a Azure AD SSO com a Nature Research, execute os seguin
     1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
     1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
 1. **[Configure Nature Research SSO](#configure-nature-research-sso)** - para configurar as definições de inscrição única no lado da aplicação.
-    1. **[Create Nature Research test user](#create-nature-research-test-user)** - ter uma contrapartida de B.Simon in Nature Research que está ligada à representação AZure AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
@@ -76,15 +75,15 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Na secção **de Configuração Básica SAML,** se pretender configurar a aplicação no modo iniciado pelo **IDP,** os valores de URL de identificação e resposta já estão pré-povoados com Azure, mas é necessário introduzir o valor do Estado de Retransmissão.
 
-    Na caixa de texto **do Estado de Retransmissão,** digite o URL: `https://idp.nature.com/debug`  
+    Na caixa de texto **do Estado de Retransmissão,** digite o URL: `https://www.nature.com`  
     clique **para salvar** .
 
 1. Clique **em Definir URLs adicionais** e execute os seguintes passos se desejar configurar a aplicação no modo iniciado **sp:**
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `http://sp.nature.com/saml/login?targetUrl=https%3A%2F%2Fidp.nature.com%2Fdebug&idp=<IDP_ENTITY_ID>`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://sp.nature.com/saml/login?idp=<IDP_ENTITY_ID>`
 
     > [!NOTE]
-    > O valor de URL Sign-On não é real. Atualize o valor com o URL de Sign-On real. Contacte [a equipa de apoio ao Cliente da Nature Research](mailto:identity@springernature.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
+    > O valor de URL Sign-On não é real. `<IDP_ENTITY_ID>`é o identificador Azure AD copiado da secção De Criação de **Investigação da Natureza.** Também pode consultar os padrões indicados na secção de Configuração BÁSICA SAML no portal Azure.
 
 1. Clique em **Guardar** .
 
@@ -118,11 +117,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="configure-nature-research-sso"></a>Configure Nature Research SSO
 
-Para configurar um único sign-on no lado **da Nature Research,** você precisa enviar o **Url de Metadados da Federação de Aplicações** para a equipa de apoio à [Pesquisa da Natureza.](mailto:identity@springernature.com) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
-
-### <a name="create-nature-research-test-user"></a>Criar utilizador de teste de Pesquisa de Natureza
-
-Nesta secção, cria-se um utilizador chamado Britta Simon in Nature Research. Trabalhe com [a equipa de apoio à Nature Research](mailto:identity@springernature.com) para adicionar os utilizadores na plataforma nature research. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
+Para configurar um único sign-on no lado **da Nature Research,** você precisa enviar o **Url de Metadados da Federação de Aplicações** para a equipa de apoio à [Pesquisa da Natureza.](mailto:onlineservice@springernature.com) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
 
 ## <a name="test-sso"></a>Teste SSO 
 

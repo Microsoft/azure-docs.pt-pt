@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: e22908dc5d445f105c199e594443cd051eb4be41
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82763842e6145b3883c46bcb9ddb45b7836c3cf2
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051360"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241825"
 ---
 # <a name="load-balancer-health-probes"></a>Sondas de estado de funcionamento do Balanceador de Carga
 
@@ -44,7 +44,7 @@ As sondas de saúde suportam vários protocolos. A disponibilidade de um protoco
 
 ## <a name="probe-configuration"></a><a name="probes"></a>Configuração da sonda
 
-A configuração da sonda de saúde consiste entre os seguintes elementos:
+A configuração da sonda de saúde consiste nos seguintes elementos:
 
 - Duração do intervalo entre sondas individuais
 - Número de respostas da sonda que têm de ser observadas antes da transição da sonda para um estado diferente

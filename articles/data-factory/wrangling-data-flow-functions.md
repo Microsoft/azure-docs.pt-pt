@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3ee7761d43710e0833eb8002851e286ce5449983
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c56c52193f433571f16e4acf7bd6e7b89641b26f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636124"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233955"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funções de transformação no fluxo de dados de estrangulamento
 
@@ -25,7 +25,7 @@ O fluxo de dados de estrangulamento na Azure Data Factory permite-lhe fazer a pr
 
 Atualmente nem todas as funções power query M são suportadas para a luta de dados, apesar de estarem disponíveis durante a autoria. Ao construir os fluxos de dados de luta, será solicitado com a seguinte mensagem de erro se uma função não for suportada:
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
 
 Abaixo está uma lista de funções de Consulta de Energia M suportadas.
 
@@ -76,7 +76,7 @@ As seguintes funções M adicionam ou transformam colunas: [Table.AddColumn](/po
 
 Utilize [o Quadro.Grupo](/powerquery-m/table-group) para valores agregados.
 * Deve ser usado com uma função de agregação
-* Funções de agregação suportadas:   [Table.RowCount](/powerquery-m/table-rowcount),   [List.Sum](/powerquery-m/list-sum),   [List.Count](/powerquery-m/list-count),   [List.Average](/powerquery-m/list-average),   [List.Min](/powerquery-m/list-min),   [List.Max](/powerquery-m/list-max),   [List.StandardDeviation](/powerquery-m/list-standarddeviation),   [List.First](/powerquery-m/list-first),   [List.Last](/powerquery-m/list-last)
+* Funções de agregação suportadas:   [List.Sum](/powerquery-m/list-sum),   [List.Count](/powerquery-m/list-count),   [List.Average](/powerquery-m/list-average),   [List.Min](/powerquery-m/list-min),   [List.Max](/powerquery-m/list-max),   [List.StandardDeviation](/powerquery-m/list-standarddeviation),   [List.First](/powerquery-m/list-first),   [List.Last](/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Ordenação
 
@@ -96,7 +96,7 @@ Manter e remover a parte superior, manter o alcance (funções M correspondentes
 | Table.NestedJoin | Só fazer uma junção resultará num erro de validação. As colunas devem ser expandidas para que funcione. |
 | Table.Distinct | A remoção de linhas duplicadas não está suportada. |
 | Table.RemoveLastN | Remover as linhas inferiores não está suportada. |
-| Table.RowCount | Não suportado, mas pode ser alcançado com uma coluna de adicionar com todas as células vazias (a coluna de condição pode ser usada) e, em seguida, usando o grupo por nessa coluna. O Grupo.Grupo é apoiado. | 
+| Table.RowCount | Não suportado, mas pode ser alcançado adicionando uma coluna personalizada contendo o valor 1, em seguida, agregando essa coluna com List.Sum. O Grupo.Grupo é apoiado. | 
 | Manipulação de erros de nível de linha | Atualmente, o tratamento de erros de nível de linha não está suportado. Por exemplo, para filtrar valores não numéricos de uma coluna, uma abordagem seria transformar a coluna de texto num número. Todas as células que não se transformam estarão num estado de erro e precisam de ser filtradas. Este cenário não é possível na discussão do fluxo de dados. |
 | Table.Transpose | Não suportado |
 | Table.Pivot | Não suportado |

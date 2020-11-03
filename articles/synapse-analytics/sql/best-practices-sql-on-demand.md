@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de3e3503d63cf6dcaa98adc318d86df7700458d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476279"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241876"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Melhores práticas para SQL on-demand (pré-visualização) em Azure Synapse Analytics
 
@@ -60,17 +60,17 @@ Os tipos de dados que utiliza na sua consulta afetam o desempenho. Pode obter um
 
 - Utilize o menor tamanho de dados que acomodará o maior valor possível.
   - Se o comprimento máximo do valor do caracteres for de 30 caracteres, utilize um tipo de dado de caracteres de comprimento 30.
-  - Se todos os valores da coluna de caracteres forem de tamanho fixo, utilize **char** ou **nchar**. Caso contrário, utilize **varchar** ou **nvarchar**.
-  - Se o valor máximo da coluna inteiro for de 500, use **a pequena tonalidade** porque é o menor tipo de dados que pode acomodar este valor. Pode encontrar gamas de dados inteiros [neste artigo.](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15)
-- Se possível, utilize **varchar** e **char** em vez de **nvarchar** e **nchar**.
+  - Se todos os valores da coluna de caracteres forem de tamanho fixo, utilize **char** ou **nchar** . Caso contrário, utilize **varchar** ou **nvarchar** .
+  - Se o valor máximo da coluna inteiro for de 500, use **a pequena tonalidade** porque é o menor tipo de dados que pode acomodar este valor. Pode encontrar gamas de dados inteiros [neste artigo.](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15&preserve-view=true)
+- Se possível, utilize **varchar** e **char** em vez de **nvarchar** e **nchar** .
 - Utilize tipos de dados inteiros, se possível. As operações SORT, JOIN e GROUP BY completam-se mais rapidamente em inteiros do que em dados de caracteres.
 - Se estiver a utilizar inferência de esquema, [verifique os tipos de dados inferidos](#check-inferred-data-types).
 
 ## <a name="check-inferred-data-types"></a>Verificar tipos de dados inferidos
 
-[A inferência de Schema](query-parquet-files.md#automatic-schema-inference) ajuda-o a escrever rapidamente consultas e a explorar dados sem conhecer esquemas de ficheiros. O custo desta conveniência é que os tipos de dados inferidos são maiores do que os tipos reais de dados. Isto acontece quando não há informação suficiente nos ficheiros de origem para garantir que o tipo de dados apropriado é usado. Por exemplo, os ficheiros Parquet não contêm metadados sobre o comprimento máximo da coluna de caracteres. Assim, o SQL on-demand infere-o como varchar (8000).
+[A inferência de Schema](query-parquet-files.md#automatic-schema-inference) ajuda-o a escrever rapidamente consultas e a explorar dados sem conhecer esquemas de ficheiros. O custo desta conveniência é que os tipos de dados inferidos podem ser maiores do que os tipos reais de dados. Isto acontece quando não há informação suficiente nos ficheiros de origem para garantir que o tipo de dados apropriado é usado. Por exemplo, os ficheiros Parquet não contêm metadados sobre o comprimento máximo da coluna de caracteres. Assim, o SQL on-demand infere-o como varchar (8000).
 
-Pode utilizar [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15) para verificar os tipos de dados resultantes da sua consulta.
+Pode utilizar [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true) para verificar os tipos de dados resultantes da sua consulta.
 
 O exemplo a seguir mostra como pode otimizar tipos de dados inferidos. Este procedimento é utilizado para mostrar os tipos de dados inferidos: 
 ```sql  

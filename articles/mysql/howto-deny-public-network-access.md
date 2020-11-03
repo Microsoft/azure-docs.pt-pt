@@ -1,17 +1,17 @@
 ---
 title: Negar acesso à rede pública - portal Azure - Base de Dados Azure para o MySQL
 description: Saiba como configurar o Negar o Acesso à Rede Pública utilizando o portal Azure para a sua Base de Dados Azure para o MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: eb5c4e4c4dfb73b2f7c9dc9f2629296790790885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a98ab9ea347ba4d9ec53c80626f97b429e083cb1
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896142"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242386"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mysql-using-azure-portal"></a>Negar acesso à rede pública na base de dados Azure para o MySQL utilizando o portal Azure
 
@@ -31,7 +31,7 @@ Siga estes passos para definir o servidor MySQL Negar acesso à rede pública:
 
 1. Na página do servidor MySQL, em **Definições,** clique na **segurança de ligação** para abrir a página de configuração de segurança de ligação.
 
-1. In **Deny Public Network Access**, selecione **Sim** para permitir o acesso público ao seu servidor MySQL.
+1. In **Deny Public Network Access** , selecione **Sim** para permitir o acesso público ao seu servidor MySQL.
 
     :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access.PNG" alt-text="Base de Dados Azure para o Acesso à rede MySQL Deny":::
 

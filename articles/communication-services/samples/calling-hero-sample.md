@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 799c46ad2715e1edd3d2fba24a8350fd2608d3d8
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461146"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233938"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Começa com o grupo a chamar amostra de herói
 
@@ -50,9 +50,9 @@ Assim que configurar o nome e os dispositivos do ecrã, pode juntar-se à sessã
 
 Componentes do ecrã principal de chamada:
 
-1. **Media Gallery**: O palco principal onde os participantes são mostrados. Se um participante tiver a sua câmara ativada, o seu feed de vídeo é mostrado aqui. Cada participante tem um azulejo individual que mostra o seu nome de exibição e fluxo de vídeo (quando há um)
-2. **Cabeçalho**: É aqui que se encontram os controlos de chamada primário para alternar as definições e a barra lateral do participante, ligar o vídeo e misturar,partilhar o ecrã e deixar a chamada.
-3. **Barra lateral**: É aqui que são mostradas informações sobre os participantes e as definições quando alternadas utilizando os controlos do cabeçalho. O componente pode ser descartado utilizando o 'X' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais utilizadores a conversar. A barra lateral permite configurar as definições do microfone e da câmara.
+1. **Media Gallery** : O palco principal onde os participantes são mostrados. Se um participante tiver a sua câmara ativada, o seu feed de vídeo é mostrado aqui. Cada participante tem um azulejo individual que mostra o seu nome de exibição e fluxo de vídeo (quando há um)
+2. **Cabeçalho** : É aqui que se encontram os controlos de chamada primário para alternar as definições e a barra lateral do participante, ligar o vídeo e misturar,partilhar o ecrã e deixar a chamada.
+3. **Barra lateral** : É aqui que são mostradas informações sobre os participantes e as definições quando alternadas utilizando os controlos do cabeçalho. O componente pode ser descartado utilizando o 'X' no canto superior direito. A barra lateral dos participantes mostrará uma lista de participantes e um link para convidar mais utilizadores a conversar. A barra lateral permite configurar as definições do microfone e da câmara.
 
 Abaixo encontrará mais informações sobre pré-requisitos e passos para configurar a amostra.
 
@@ -75,7 +75,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 ## <a name="before-running-the-sample-for-the-first-time"></a>Antes de executar a amostra pela primeira vez
 
 1. Abra uma instância de PowerShell, Windows Terminal, Command Prompt ou equivalente e navegue para o diretório ao qual pretende clonar a amostra.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-calling-hero.git`
 3. Pegue o `Connection String` do portal Azure. Para obter mais informações sobre as cadeias de ligação, consulte [Criar um Azure Communication Resources](../quickstarts/create-communication-resource.md)
 4. Assim que tiver a `Connection String` ficha , adicione o fio de ligação à **chamada/appsetting.jsno** ficheiro encontrado na pasta Serviço .NET. Insira a sua cadeia de ligação na variável: `ResourceConnectionString` .
 
@@ -96,7 +96,7 @@ Pode testar a amostra localmente abrindo várias sessões de navegador com o URL
 2. Crie um novo perfil de publicação e selecione a sua subscrição Azure.
 3. Antes de publicar, adicione a sua cadeia de ligação com `Edit App Service Settings` , e preencha `ResourceConnectionString` como chave e forneça a sua cadeia de ligação (copiada a partir de appsettings.js) como o valor.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../quickstarts/create-communication-resource.md#clean-up-resources)
 

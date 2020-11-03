@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e586e9acc9510dc1aaae511fa51e5a0c3255bd8f
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 4c2900ed5ebe0df3ed827acc1a16caff3beaf4d4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026501"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241094"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância Azure Digital Twins para uma região de Azure diferente
 
@@ -43,7 +43,7 @@ Aqui estão algumas perguntas que talvez queira considerar:
 * Onde é que o meu caso **se liga a outros serviços da Azure?** Alguns pontos comuns de integração incluem...
     - Grelha de eventos, Centro de Eventos ou Ônibus de Serviço
     - Funções do Azure
-    - Logic Apps
+    - Aplicações Lógicas
     - Time Series Insights
     - Azure Maps
     - Serviço de Fornecimento de Dispositivos (DPS)
@@ -80,9 +80,8 @@ Navegue para a amostra aqui: [Azure Digital Twins (ADT) explorer](/samples/azure
 
 Em seguida, configurar e configurar permissões para o ADT Explorer. Para isso, siga as instruções na secção [*Configurar Gémeos Digitais Azure e ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) do arranque rápido das Gémeas Digitais Azure. Esta secção acompanha-o através dos seguintes passos:
 1. Configurar uma instância Azure Digital Twins (pode saltar esta parte já que já tem um caso)
-2. Crie um **registo de aplicativo AD Azure** para fornecer acesso ao seu caso
-3. Configurar permissões para o ADT Explorer funcionar na sua máquina
-4. Executar o ADT Explorer e configurá-lo para ligar ao seu caso. Você usará o **nome de anfitrião** da sua instância original Azure Digital Twins que você está movendo, e o **ID** do cliente e **o iD** do inquilino a partir do registo da app.
+2. Confiúde as credenciais locais do Azure para fornecer acesso ao seu caso
+3. Executar o ADT Explorer e configurá-lo para ligar ao seu caso. Você usará o **nome de anfitrião** da sua instância original Azure Digital Twins que você está movendo.
 
 Agora deve ter a aplicação de amostra do ADT Explorer a funcionar num browser na sua máquina. A amostra deve ser ligada à sua instância original da Azure Digital Twins.
 
@@ -137,7 +136,7 @@ Atualmente, o ADT Explorer está ligado à sua instância original do Azure Digi
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Janela do navegador mostrando uma aplicação em execução na localidade:3000. A aplicação chama-se ADT Explorer e contém caixas para um Explorador de Consultas, Visualização de Modelos, Visão de Gráfico e Explorador de Propriedades. Ainda não há dados no ecrã." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Pode reutilizar o mesmo registo de aplicações, pelo que só precisa de substituir o *URL ADT* para refletir a sua nova instância. Altere este valor para o que lê *https://{new instance hostname}* .
+Substitua o *URL ADT* para refletir a sua nova instância. Altere este valor para o que lê *https://{new instance hostname}* .
 
 Hit *Connect* . Pode ser-lhe pedido que faça login novamente com as suas credenciais Azure e/ou conceda este consentimento de pedido para o seu exemplo.
 
@@ -205,11 +204,12 @@ Caso contrário, para prosseguir, considere os recursos conectados no seu cenár
 Os recursos exatos que precisa de editar dependem do seu cenário, mas aqui estão alguns pontos de integração comuns:
 * Funções Azure. Se tiver uma função Azure cujo código inclui o nome de anfitrião da instância original, deverá atualizar este valor para o nome de anfitrião da nova instância e voltar a publicar a função.
 * Grelha de eventos, centros de eventos ou ônibus de serviço
-* Logic Apps
+* Aplicações Lógicas
 * Time Series Insights
 * Azure Maps
 * Serviço de Fornecimento de Dispositivos (DPS)
 * Aplicativos pessoais ou empresariais fora do Azure, como a **app do cliente** criada em [*Tutorial: Código uma aplicação para clientes,*](tutorial-code.md)que se conectam ao caso e ligam a APIs de Gémeos Digitais Azure
+* Os registos de aplicações AD **AZure não precisam de** ser recriados. Se estiver a utilizar um [registo de aplicações](how-to-create-app-registration.md) para ligar às APIs das Gémeas Digitais Azure, pode reutilizar o mesmo registo de aplicações com a sua nova instância.
 
 Após completar este passo, a sua nova instância na região alvo deve ser uma cópia do caso original.
 

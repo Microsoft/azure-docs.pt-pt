@@ -3,12 +3,12 @@ title: CI/CD com gasodutos e modelos Azure
 description: Descreve como configurar a integração contínua em Pipelines Azure utilizando modelos de Gestor de Recursos Azure. Mostra como usar um script PowerShell ou copiar ficheiros para um local de paragem e ser implantado a partir daí.
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653405"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233819"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrar modelos do Resource Manager com Pipelines do Azure
 
@@ -16,11 +16,11 @@ Pode integrar os modelos Azure Resource Manager (modelos ARM) com Pipelines Azur
 
 Neste artigo, aprende-se mais duas formas de implementar modelos com gasodutos Azure. Este artigo mostra como:
 
-* **Adicionar tarefa que executa um script Azure PowerShell**. Esta opção tem a vantagem de proporcionar consistência ao longo do ciclo de vida do desenvolvimento porque pode usar o mesmo script que usou ao realizar testes locais. O seu script implementa o modelo, mas também pode executar outras operações, tais como obter valores para usar como parâmetros.
+* **Adicionar tarefa que executa um script Azure PowerShell** . Esta opção tem a vantagem de proporcionar consistência ao longo do ciclo de vida do desenvolvimento porque pode usar o mesmo script que usou ao realizar testes locais. O seu script implementa o modelo, mas também pode executar outras operações, tais como obter valores para usar como parâmetros.
 
    O Visual Studio fornece o [projeto Azure Resource Group](create-visual-studio-deployment-project.md) que inclui um script PowerShell. O script encena artefactos do seu projeto para uma conta de armazenamento a que o Gestor de Recursos pode aceder. Os artefactos são itens no seu projeto, tais como modelos ligados, scripts e binários de aplicações. Se quiser continuar a utilizar o script do projeto, utilize a tarefa de script PowerShell mostrada neste artigo.
 
-* **Adicionar tarefas para copiar e implementar tarefas**. Esta opção oferece uma alternativa conveniente ao script do projeto. Configura duas tarefas no oleoduto. Uma tarefa coloca os artefactos num local acessível. A outra tarefa implementa o modelo a partir desse local.
+* **Adicionar tarefas para copiar e implementar tarefas** . Esta opção oferece uma alternativa conveniente ao script do projeto. Configura duas tarefas no oleoduto. Uma tarefa coloca os artefactos num local acessível. A outra tarefa implementa o modelo a partir desse local.
 
 ## <a name="prepare-your-project"></a>Prepare o seu projeto
 
@@ -34,11 +34,11 @@ Este artigo assume que o seu modelo ARM e a organização Azure DevOps estão pr
 
 ## <a name="create-pipeline"></a>Criar pipeline
 
-1. Se ainda não adicionou um oleoduto, tem de criar um novo oleoduto. Da sua organização Azure DevOps, selecione **Pipelines** e **New pipeline**.
+1. Se ainda não adicionou um oleoduto, tem de criar um novo oleoduto. Da sua organização Azure DevOps, selecione **Pipelines** e **New pipeline** .
 
    ![Adicione novo oleoduto](./media/add-template-to-azure-pipelines/new-pipeline.png)
 
-1. Especifique onde o seu código está armazenado. A imagem a seguir mostra a seleção de **Azure Repos Git**.
+1. Especifique onde o seu código está armazenado. A imagem a seguir mostra a seleção de **Azure Repos Git** .
 
    ![Selecione fonte de código](./media/add-template-to-azure-pipelines/select-source.png)
 
@@ -46,13 +46,13 @@ Este artigo assume que o seu modelo ARM e a organização Azure DevOps estão pr
 
    ![Selecione repositório](./media/add-template-to-azure-pipelines/select-repo.png)
 
-1. Selecione o tipo de oleoduto para criar. Pode selecionar **o pipeline Starter**.
+1. Selecione o tipo de oleoduto para criar. Pode selecionar **o pipeline Starter** .
 
    ![Selecione o oleoduto](./media/add-template-to-azure-pipelines/select-pipeline.png)
 
 Está pronto para adicionar uma tarefa Azure PowerShell ou o ficheiro de cópia e implementar tarefas.
 
-## <a name="azure-powershell-task"></a>Tarefa Azure PowerShell
+## <a name="azure-powershell-task"></a>Tarefa do Azure PowerShell
 
 Esta secção mostra como configurar a implementação contínua utilizando uma única tarefa que executa o script PowerShell no seu projeto. Se precisar de um script PowerShell que implemente um modelo, consulte [Deploy-AzTemplate.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzTemplate.ps1) ou [Deploy-AzureResourceGroup.ps1](https://github.com/Azure/azure-quickstart-templates/blob/master/Deploy-AzureResourceGroup.ps1).
 
@@ -70,7 +70,7 @@ steps:
   inputs:
     azureSubscription: 'script-connection'
     ScriptType: 'FilePath'
-    ScriptPath: './Deploy-Template.ps1'
+    ScriptPath: './Deploy-AzTemplate.ps1'
     ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
     azurePowerShellVersion: 'LatestVersion'
 ```

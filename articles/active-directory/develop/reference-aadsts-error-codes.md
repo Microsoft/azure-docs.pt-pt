@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a5cff53ee9e742e93a6183eb5d506bf8f1a08deb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130192"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241332"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro da Autenticação e autorização do Azure AD
 
@@ -60,7 +60,7 @@ Aqui está uma resposta de erro de amostra:
 
 O `error` campo tem vários valores possíveis - reveja as ligações de documentação do protocolo e as especificações de OAuth 2.0 para saber mais sobre erros específicos (por exemplo, `authorization_pending` no fluxo de código do [dispositivo](v2-oauth2-device-code.md)) e como reagir a eles.  Alguns comuns estão listados aqui:
 
-| Código de Erro         | Description        | Ação do Cliente    |
+| Código de Erro         | Descrição        | Ação do Cliente    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Erro de protocolo, como um parâmetro exigido em falta. | Corrija e reenvia o pedido.|
 | `invalid_grant`    | Parte do material de autenticação (código auth, token de atualização, token de acesso, desafio PKCE) era inválido, inparável, em falta ou de outra forma inutilizável | Tente um novo pedido para o `/authorize` ponto final para obter um novo código de autorização.  Considere rever e validar o uso da aplicação nos protocolos. |
@@ -251,7 +251,7 @@ Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebe
 | AADSTS90051 | InvalidNationalCloudId - O identificador de nuvem nacional contém um identificador de nuvem inválido. |
 | AADSTS90055 | TenantThrottlingError - Há muitos pedidos de entrada. Esta exceção é lançada para inquilinos bloqueados. |
 | AADSTS90056 | BadResourceRequest - Para resgatar o código para um token de acesso, a aplicação deve enviar um pedido de POST para o `/token` ponto final. Além disso, antes disso, deverá fornecer um código de autorização e enviá-lo no pedido DOM para o `/token` ponto final. Consulte este artigo para obter uma visão geral do fluxo de código de autorização OAuth 2.0: [.. /azuread-dev/v1-protocols-oauth-code.md](../azuread-dev/v1-protocols-oauth-code.md). Direcione o utilizador para o `/authorize` ponto final, que devolverá uma authorization_code. Ao publicar um pedido no `/token` ponto final, o utilizador obtém o token de acesso. Faça login no portal Azure e verifique **as inscrições da App > Endpoints** para confirmar que os dois pontos finais foram configurados corretamente. |
-| AADSTS90072 | PassThroughUserMfaError - A conta externa com a qual o utilizador assina não existe no arrendatário em que se inscreveu; para que o utilizador não possa satisfazer os requisitos de MFA para o inquilino. A conta deve ser adicionada como utilizador externo no inquilino primeiro. Inscreva-se e inscreva-se com uma conta de utilizador AZure AD diferente. |
+| AADSTS90072 | PassThroughUserMfaError - A conta externa com a qual o utilizador assina não existe no arrendatário em que se inscreveu; para que o utilizador não possa satisfazer os requisitos de MFA para o inquilino. Este erro também pode ocorrer se os utilizadores estiverem sincronizados, mas existe uma incompatibilidade no atributo ImmutableID (sourceAnchor) entre o Ative Directory e o Ad Azure. A conta deve ser adicionada como utilizador externo no inquilino primeiro. Inscreva-se e inscreva-se com uma conta de utilizador AZure AD diferente. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid - Ocorreu um erro quando o serviço tentou processar uma mensagem WS-Federation. A mensagem não é válida. |
 | AADSTS90082 | OrgIdWsFederationNotSupported - A política de autenticação selecionada para o pedido não é suportada atualmente. |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed - As contas de hóspedes não são permitidas para este site. |
