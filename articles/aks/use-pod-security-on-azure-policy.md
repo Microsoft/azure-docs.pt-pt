@@ -4,13 +4,12 @@ description: Saiba como proteger os casulos com a política Azure no Serviço Az
 services: container-service
 ms.topic: article
 ms.date: 09/22/2020
-author: jluk
-ms.openlocfilehash: 5178aa30c3bfec014dd10e2c4f3de182aaef7e68
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 8e437095b3d527647a453ba89adaa2ab62672177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900119"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348530"
 ---
 # <a name="secure-pods-with-azure-policy"></a>Proteger pods com o Azure Policy
 
@@ -61,7 +60,7 @@ As seguintes limitações gerais aplicam-se ao Add-on de Política Azure para os
 As seguintes limitações aplicam-se apenas ao Add-on da Política Azure para a AKS:
 
 - [A política de segurança AKS Pod (pré-visualização)](use-pod-security-policies.md) e o Add-on de Política Azure para a AKS não podem ser ambos ativados. 
-- Espaços de nome automaticamente excluídos pelo Azure Policy Add-on para avaliação: _kube-system,_ _gatekeeper-system_ e _aks-periscope_ .
+- Espaços de nome automaticamente excluídos pelo Azure Policy Add-on para avaliação: _kube-system,_ _gatekeeper-system_ e _aks-periscope_.
 
 ### <a name="recommendations"></a>Recomendações
 
@@ -150,7 +149,7 @@ If the built-in initiatives to address pod security do not match your requiremen
 > [!WARNING]
 > Os pods em espaços de nomes de administração, como o sistema kube, devem correr para que um cluster permaneça saudável, removendo um espaço de nome necessário da lista de espaços de nome excluídos por defeito pode desencadear violações de políticas devido a uma cápsula de sistema necessária.
 
-A AKS requer que as cápsulas do sistema corram num cluster para fornecer serviços críticos, como a resolução de DNS. As políticas que limitam a funcionalidade do casulo podem ter impacto na estabilidade do sistema de capacidade. Como resultado, os seguintes espaços de nome são **excluídos da avaliação de políticas durante os pedidos de admissão durante a criação, atualização e auditoria de políticas** . Isto força novos destacamentos para estes espaços de nome a serem excluídos das políticas de Azure.
+A AKS requer que as cápsulas do sistema corram num cluster para fornecer serviços críticos, como a resolução de DNS. As políticas que limitam a funcionalidade do casulo podem ter impacto na estabilidade do sistema de capacidade. Como resultado, os seguintes espaços de nome são **excluídos da avaliação de políticas durante os pedidos de admissão durante a criação, atualização e auditoria de políticas**. Isto força novos destacamentos para estes espaços de nome a serem excluídos das políticas de Azure.
 
 1. kube-sistema
 1. gatekeeper-sistema
@@ -315,7 +314,7 @@ Abaixo está um resumo das mudanças de comportamento entre a política de segur
 | [Norma de política de segurança do pod - Linha de Base/Padrão](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | O utilizador instala um recurso de base de política de segurança do pod. | A Azure Policy fornece uma [iniciativa de base incorporada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) que mapeia a política de segurança da cápsula de base.
 | [Padrão de política de segurança pod - Restrito](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | O utilizador instala um recurso restrito de política de segurança do pod. | A Azure Policy oferece uma [iniciativa restrita incorporada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) que mapeia a política restrita de segurança das cápsulas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Este artigo mostrou-lhe como aplicar uma política Azure que restringe a implementação de cápsulas privilegiadas para impedir o uso de acesso privilegiado. Há muitas políticas que podem ser aplicadas, como políticas que restringem a utilização de volumes. Para obter mais informações sobre as opções disponíveis, consulte a [Política Azure para os docs de referência de Kubernetes][kubernetes-policy-reference].
 

@@ -3,12 +3,12 @@ title: Início de sessão de resolução de problemas para o registo
 description: Sintomas, causas e resolução de problemas comuns ao iniciar sessão num registo de contentores Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148438"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348904"
 ---
 # <a name="troubleshoot-registry-login"></a>Login de registo de resolução de problemas
 
@@ -81,6 +81,7 @@ Verifique a validade das credenciais que utiliza para o seu cenário, ou foi-lhe
   * Palavra-passe - senha principal do serviço (também chamada *de segredo do cliente)*
 * Se utilizar um serviço Azure como o Serviço Azure Kubernetes ou o Azure DevOps para aceder ao registo, confirme a configuração do registo do seu serviço.
 * Se tiver corrido `az acr login` com a `--expose-token` opção, que permite o login de registo sem utilizar o daemon Docker, certifique-se de que autentica com o nome de utilizador `00000000-0000-0000-0000-000000000000` .
+* Se o seu registo estiver configurado para [acesso anónimo,](container-registry-faq.md#how-do-i-enable-anonymous-pull-access)as credenciais existentes do Docker armazenadas a partir de um login anterior do Docker podem impedir o acesso anónimo. Corra `docker logout` antes de tentar uma operação de atração anónima no registo.
 
 Links relacionados:
 
@@ -134,7 +135,7 @@ Links relacionados:
 * [FaQ do registo de contentores](container-registry-faq.md)
 * [Melhores práticas do Azure Container Registry](container-registry-best-practices.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se não resolver o seu problema aqui, consulte as seguintes opções.
 

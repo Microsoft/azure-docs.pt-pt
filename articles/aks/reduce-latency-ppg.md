@@ -5,13 +5,12 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 10/19/2020
-author: jluk
-ms.openlocfilehash: a96489495abe3bfbed3030b3e08ff121c5c7cddf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fa81e293bc5e53a852bdb404f9e6d41c4297647b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090802"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349040"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups"></a>Reduzir a latência com grupos de colocação de proximidade
 
@@ -120,7 +119,7 @@ Para eliminar o cluster, utilize o [`az group delete`][az-group-delete] comando 
 az group delete --name myResourceGroup --yes --no-wait
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba mais sobre [grupos de colocação de proximidade.][proximity-placement-groups]
 

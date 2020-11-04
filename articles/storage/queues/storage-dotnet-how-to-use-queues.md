@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b59c7d2af33efd82f27af9e13fc9c1f36ca788ee
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787470"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348598"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introdução ao Armazenamento de filas do Azure através do .NET
 
@@ -71,7 +71,7 @@ Você precisa fazer referência aos seguintes quatro pacotes no seu projeto para
 
 Pode utilizar o NuGet para obter estes pacotes. Siga estes passos:
 
-1. Clique com o botão direito no seu projeto no **Solution Explorer** e escolha **Gerir pacotes NuGet** .
+1. Clique com o botão direito no seu projeto no **Solution Explorer** e escolha **Gerir pacotes NuGet**.
 1. **Selecione Procurar**
 1. Pes faça pesquisa online por "Azure.Storage.Queues", e selecione **Instalar** para instalar a biblioteca do cliente de Armazenamento e as suas dependências. Isto também instalará as bibliotecas Azure.Storage.Common e Azure.Core, que são dependências da biblioteca de fila.
 1. Procure online por "System.Configuration.ConfigurationManager", e selecione **Instalar** para instalar o Gestor de Configurações.
@@ -86,7 +86,7 @@ Tem de fazer referência aos seguintes três pacotes do seu projeto para complet
 
 Pode utilizar o NuGet para obter estes pacotes. Siga estes passos:
 
-1. Clique com o botão direito no seu projeto no **Solution Explorer** e escolha **Gerir pacotes NuGet** .
+1. Clique com o botão direito no seu projeto no **Solution Explorer** e escolha **Gerir pacotes NuGet**.
 1. **Selecione Procurar**
 1. Procure online por "Microsoft.Azure.Storage.Queue", e selecione **Instalar** para instalar a biblioteca do cliente de Armazenamento e as suas dependências. Isto também instalará a biblioteca Microsoft.Azure.Storage.Common, que é uma dependência da biblioteca de filas.
 1. Pesse online por "Microsoft.Azure.ConfigurationManager", e selecione **Instalar** para instalar o Gestor de Configurações Azure.
@@ -113,7 +113,7 @@ O código de exemplo tem de autorizar o acesso à sua conta de armazenamento. Pa
 
 1. Navegue até ao [portal Azure.](https://portal.azure.com)
 2. Localize a sua conta de armazenamento.
-3. Na secção **Definições** da descrição geral da conta de armazenamento, selecione **Chaves de acesso** . As chaves de acesso da conta são apresentadas, bem como a cadeia de ligação completa para cada chave.
+3. Na secção **Definições** da descrição geral da conta de armazenamento, selecione **Chaves de acesso**. As chaves de acesso da conta são apresentadas, bem como a cadeia de ligação completa para cada chave.
 4. Encontre o valor da **Cadeia de ligação** em **key1** e clique no botão **Copiar** para copiar a cadeia de ligação. Irá adicionar o valor da cadeia de ligação para uma variável de ambiente no próximo passo.
 
     ![Captura de ecrã que mostra como copiar uma cadeia de ligação do portal do Azure](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)
@@ -484,7 +484,7 @@ queue.Delete();
 
 ---
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu as noções básicas do Armazenamento de filas, siga estas ligações para saber mais sobre as tarefas de armazenamento mais complexas.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 1b13bcbe17ac546030b177eea2b2bf8a290a6af6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9ec7dcc12b7452ee4bd40fab9b2bc53b5cca9be3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781571"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348813"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Recomendações de segurança para armazenamento de fila
 
@@ -63,7 +63,7 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 |-|----|--|
 | Acompanhe como os pedidos são autorizados | Habilitar o registo de armazenamento Azure para acompanhar como cada pedido feito contra o Azure Storage foi autorizado. Os registos indicam se um pedido foi feito de forma anónima, utilizando um token OAuth 2.0, utilizando a Chave Partilhada, ou utilizando uma assinatura de acesso partilhado (SAS). Para obter mais informações, consulte [o registo de análises a Azure Storage.](../common/storage-analytics-logging.md) | - |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Documentação de segurança do Azure](../../security/index.yml)
 - [Documentação de desenvolvimento segura.](../../security/develop/index.yml)

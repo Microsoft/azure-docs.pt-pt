@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 03/11/2020
-ms.openlocfilehash: 99b7891f332298024c82103322cc6b58d066f587
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 7eb610f741681be89ef44f8288ed47674c1d6440
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123239"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348581"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output"></a>Utilize identidade gerida para autenticar o seu trabalho Azure Stream Analytics para a saída de armazenamento Azure Blob
 
@@ -21,11 +21,11 @@ Este artigo mostra-lhe como ativar a Identidade Gerida para a(s) saída(s) Blob(
 
 ## <a name="create-the-stream-analytics-job-using-the-azure-portal"></a>Crie o trabalho stream Analytics usando o portal Azure
 
-1. Crie um novo trabalho stream Analytics ou abra um trabalho existente no portal Azure. A partir da barra de menu localizada no lado esquerdo do ecrã, selecione **Identidade Gerida** localizada em **Configuração** . Certifique-se de que "Use a identidade gerida atribuída ao sistema" é selecionada e, em seguida, clique no botão **Guardar** na parte inferior do ecrã.
+1. Crie um novo trabalho stream Analytics ou abra um trabalho existente no portal Azure. A partir da barra de menu localizada no lado esquerdo do ecrã, selecione **Identidade Gerida** localizada em **Configuração**. Certifique-se de que "Use a identidade gerida atribuída ao sistema" é selecionada e, em seguida, clique no botão **Guardar** na parte inferior do ecrã.
 
    ![Configurar a identidade gerida stream Analytics](./media/common/stream-analytics-enable-managed-identity.png)
 
-2. Na janela de propriedades de saída do lavatório de saída Azure Blob, selecione o modo de autenticação drop-down e escolha **Identidade Gerida** . Para obter informações sobre as outras propriedades de saída, consulte [as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md). Quando terminar, clique em **Guardar** .
+2. Na janela de propriedades de saída do lavatório de saída Azure Blob, selecione o modo de autenticação drop-down e escolha **Identidade Gerida**. Para obter informações sobre as outras propriedades de saída, consulte [as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md). Quando terminar, clique em **Guardar**.
 
    ![Configure saída de armazenamento Azure Blob](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-blob-output-blade.png)
 
@@ -33,7 +33,7 @@ Este artigo mostra-lhe como ativar a Identidade Gerida para a(s) saída(s) Blob(
 
 ## <a name="azure-resource-manager-deployment"></a>Implementação do Azure Resource Manager
 
-A utilização do Azure Resource Manager permite-lhe automatizar totalmente a implementação do seu trabalho stream Analytics. Pode implementar modelos de Gestor de Recursos utilizando a Azure PowerShell ou o [Azure CLI](/cli/azure/?view=azure-cli-latest). Os exemplos abaixo utilizam o Azure CLI.
+A utilização do Azure Resource Manager permite-lhe automatizar totalmente a implementação do seu trabalho stream Analytics. Pode implementar modelos de Gestor de Recursos utilizando a Azure PowerShell ou o [Azure CLI](/cli/azure/). Os exemplos abaixo utilizam o Azure CLI.
 
 
 1. Pode criar um recurso **Microsoft.StreamAnalytics/streamingjobs** com uma Identidade Gerida, incluindo a seguinte propriedade na secção de recursos do seu modelo de Gestor de Recursos:
@@ -168,14 +168,14 @@ A menos que precise do trabalho para criar contentores em seu nome, deve escolhe
 
 2. Selecione **Controlo de Acesso (IAM)** no lado esquerdo.
 
-3. Na secção "Adicionar uma atribuição de função" clique em **Adicionar** .
+3. Na secção "Adicionar uma atribuição de função" clique em **Adicionar**.
 
 4. No painel de atribuição de funções:
 
     1. Definir a **função** para "Storage Blob Data Contributor"
     2. Certifique-se de que o **acesso a dropdown** é definido para "Utilizador AD Azure, grupo ou principal de serviço".
     3. Digite o nome do seu trabalho stream Analytics no campo de pesquisa.
-    4. Selecione o seu trabalho stream Analytics e clique em **Guardar** .
+    4. Selecione o seu trabalho stream Analytics e clique em **Guardar**.
 
    ![Concessão de acesso a contentores](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-container-access-portal.png)
 
@@ -185,14 +185,14 @@ A menos que precise do trabalho para criar contentores em seu nome, deve escolhe
 
 2. Selecione **Controlo de Acesso (IAM)** no lado esquerdo.
 
-3. Na secção "Adicionar uma atribuição de função" clique em **Adicionar** .
+3. Na secção "Adicionar uma atribuição de função" clique em **Adicionar**.
 
 4. No painel de atribuição de funções:
 
     1. Definir a **função** para "Storage Blob Data Contributor"
     2. Certifique-se de que o **acesso a dropdown** é definido para "Utilizador AD Azure, grupo ou principal de serviço".
     3. Digite o nome do seu trabalho stream Analytics no campo de pesquisa.
-    4. Selecione o seu trabalho stream Analytics e clique em **Guardar** .
+    4. Selecione o seu trabalho stream Analytics e clique em **Guardar**.
 
    ![Acesso à conta de subvenção](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-account-access-portal.png)
 
@@ -218,9 +218,9 @@ Para dar acesso a toda a conta, executar o seguinte comando utilizando o Azure C
 
 Ao configurar as Firewalls da sua conta de armazenamento **e redes virtuais,** pode opcionalmente permitir o tráfego de rede a partir de outros serviços confiáveis da Microsoft. Quando o Stream Analytics autentica usando identidade gerida, fornece provas de que o pedido é originário de um serviço de confiança. Abaixo estão as instruções para permitir esta exceção de acesso VNET.
 
-1.  Navegue para o painel "Firewalls e redes virtuais" dentro do painel de configuração da conta de armazenamento.
-2.  Certifique-se de que a opção "Permitir que serviços fidedignos da Microsoft acedam a esta conta de armazenamento".
-3.  Se o ativou, clique em **Guardar** .
+1.    Navegue para o painel "Firewalls e redes virtuais" dentro do painel de configuração da conta de armazenamento.
+2.    Certifique-se de que a opção "Permitir que serviços fidedignos da Microsoft acedam a esta conta de armazenamento".
+3.    Se o ativou, clique em **Guardar**.
 
    ![Permitir o acesso ao VNET](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-vnet-exception.png)
 
@@ -235,7 +235,7 @@ Abaixo estão as limitações atuais desta característica:
 
 4. [A Identidade Atribuída ao Utilizador](../active-directory/managed-identities-azure-resources/overview.md) não é suportada. Isto significa que o utilizador não pode introduzir o seu próprio principal de serviço para ser utilizado pelo seu trabalho stream Analytics. O diretor de serviço deve ser gerado pela Azure Stream Analytics.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Compreender as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md)
 * [Azure Stream Analytics divisória de saída de bolha personalizada](./stream-analytics-custom-path-patterns-blob-storage-output.md)

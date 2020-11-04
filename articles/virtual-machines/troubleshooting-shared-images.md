@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 189fa12b1fc11e79ab64231a7ecd453113b8771a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336015"
+ms.locfileid: "93348921"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Resolução de problemas partilhadas galerias de imagens em Azure
 
@@ -223,8 +223,8 @@ Se se deparar com problemas ao realizar qualquer operação em galerias de image
 **Causa** : O ID de recursos do conjunto de encriptação do disco utilizado numa imagem de disco de dados utiliza um formato inválido.  
 **Solução :** Certifique-se de que o ID de recursos do conjunto de encriptação do disco segue o formato /subscrições/<subscriçãoID \> /resourceGroups/<recursosGroupName \> /providers/Microsoft.Compute/<diskEncryptionSetName \> .
 
-*O valor da galeria de parâmetrosArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId é inválido.* 
- **Causa** : O ID de recursos do conjunto de encriptação do disco utilizado na imagem do disco OS utiliza um formato inválido  
+*O valor da galeria de parâmetrosArtifactVersion.properties.publishingProfile.targetRegions.encryption.osDiskImage.diskEncryptionSetId é inválido.*  
+**Causa** : O ID de recursos do conjunto de encriptação do disco utilizado na imagem do disco OS utiliza um formato inválido  
 **Solução :** Certifique-se de que o ID de recursos do conjunto de encriptação do disco segue o formato /subscrições/<subscriçãoID \> /resourceGroups/<recursosGroupName \> /providers/Microsoft.Compute/<diskEncryptionSetName \> .
 
 *Não é possível especificar a encriptação de nova imagem de disco de dados lun [número <] com um conjunto de \> encriptação de disco na região [<região \> ] para atualizar o pedido de versão de imagem da galeria. Para atualizar esta versão, remova o novo lun. Se precisar de alterar as definições de encriptação de imagem do disco de dados, tem de criar uma nova versão de imagem de galeria com as definições corretas.*  
@@ -323,6 +323,6 @@ Utilize a bandeira **replicationStatus** de expansão para verificar se a replic
 [Limites e quotas azure](../azure-resource-manager/management/azure-subscription-service-limits.md) aplicam-se a todos os recursos de galeria de imagens partilhadas, definição de imagem e versão de imagem. Certifique-se de que está dentro dos limites das suas subscrições. 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre [galerias de imagens partilhadas.](./linux/shared-image-galleries.md)

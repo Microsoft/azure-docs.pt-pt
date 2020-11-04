@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: a800a176315dd3066a48f813c1bee84d2f1eb696
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 52c07861fcd3db5f9a53c4bd6730f89925b11ae6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781877"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348955"
 ---
 # <a name="monitoring-azure-queue-storage"></a>Monitorização do armazenamento da fila Azure
 
@@ -28,7 +28,8 @@ Quando você tem aplicações críticas e processos de negócio que dependem de 
 A página **'Visão Geral'** no portal Azure para cada recurso de armazenamento de fila inclui uma breve visão da utilização do recurso, tais como pedidos e faturação horária. Esta informação é útil, mas apenas uma pequena quantidade dos dados de monitorização está disponível. Alguns destes dados são recolhidos automaticamente e estão disponíveis para análise assim que criar o recurso. Pode ativar tipos adicionais de recolha de dados com alguma configuração.
 
 ## <a name="what-is-azure-monitor"></a>O que é o Azure Monitor?
-O armazenamento da fila Azure cria dados de monitorização utilizando [o Azure Monitor,](../../azure-monitor/overview.md)que é um serviço de monitorização de pilhas completa em Azure. O Azure Monitor fornece um conjunto completo de funcionalidades para monitorizar os seus recursos e recursos Azure em outras nuvens e no local. 
+
+O armazenamento da fila Azure cria dados de monitorização utilizando [o Azure Monitor,](../../azure-monitor/overview.md)que é um serviço de monitorização de pilhas completa em Azure. O Azure Monitor fornece um conjunto completo de funcionalidades para monitorizar os seus recursos e recursos Azure em outras nuvens e no local.
 
 Comece com o artigo [Monitorar os recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) que descreve o seguinte:
 
@@ -42,7 +43,7 @@ As seguintes secções baseiam-se neste artigo descrevendo os dados específicos
 
 ## <a name="monitoring-data"></a>Monitorizar dados
 
-O armazenamento da Azure Queue recolhe os mesmos tipos de dados de monitorização que outros recursos Azure, que são descritos na [monitorização de dados a partir de recursos Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+O armazenamento da Azure Queue recolhe os mesmos tipos de dados de monitorização que outros recursos Azure, que são descritos na [monitorização de dados a partir de recursos Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data).
 
 Consulte [a referência de dados de monitorização de armazenamento da Azure Queue](monitor-queue-storage-reference.md) para obter informações detalhadas sobre as métricas de métricas e registos criadas pelo armazenamento da Fila Azure.
 
@@ -52,9 +53,9 @@ Pode continuar a usar métricas e registos clássicos, se quiser. Na verdade, m�
 
 ## <a name="collection-and-routing"></a>Recolha e encaminhamento
 
-As métricas da plataforma e o registo de Atividade são recolhidos automaticamente, mas podem ser encaminhados para outros locais utilizando uma definição de diagnóstico. 
+As métricas da plataforma e o registo de Atividade são recolhidos automaticamente, mas podem ser encaminhados para outros locais utilizando uma definição de diagnóstico.
 
-Para recolher registos de recursos, tem de criar uma definição de diagnóstico. Quando criar a definição, escolha **a fila** como o tipo de armazenamento para o qual pretende ativar os registos. Em seguida, especifique uma das seguintes categorias de operações para as quais pretende recolher registos. 
+Para recolher registos de recursos, tem de criar uma definição de diagnóstico. Quando criar a definição, escolha **a fila** como o tipo de armazenamento para o qual pretende ativar os registos. Em seguida, especifique uma das seguintes categorias de operações para as quais pretende recolher registos.
 
 | Categoria | Descrição |
 |:---|:---|
@@ -64,7 +65,7 @@ Para recolher registos de recursos, tem de criar uma definição de diagnóstico
 
 ## <a name="creating-a-diagnostic-setting"></a>Criação de uma definição de diagnóstico
 
-Pode criar uma definição de diagnóstico utilizando o portal Azure, o PowerShell, o Azure CLI ou um modelo de Gestor de Recursos Azure. 
+Pode criar uma definição de diagnóstico utilizando o portal Azure, o PowerShell, o Azure CLI ou um modelo de Gestor de Recursos Azure.
 
 Para obter orientações gerais, consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
@@ -77,14 +78,14 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 
 2. Navegue até à sua conta de armazenamento.
 
-3. Na secção **de Monitorização,** clique nas **definições de Diagnóstico (pré-visualização)** .
+3. Na secção **de Monitorização,** clique nas **definições de Diagnóstico (pré-visualização)**.
 
    > [!div class="mx-imgBorder"]
-   > ![portal - Registos de diagnóstico](media/monitor-queue-storage/diagnostic-logs-settings-pane.png)   
+   > ![portal - Registos de diagnóstico](media/monitor-queue-storage/diagnostic-logs-settings-pane.png)
 
 4. Escolha **a fila** como o tipo de armazenamento para o qual pretende ativar os registos.
 
-5. Clique **na definição de diagnóstico de adicionar** .
+5. Clique **na definição de diagnóstico de adicionar**.
 
    > [!div class="mx-imgBorder"]
    > ![portal - Registos de recursos - adicione a definição de diagnóstico](media/monitor-queue-storage/diagnostic-logs-settings-pane-2.png)
@@ -98,32 +99,32 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 
 #### <a name="archive-logs-to-a-storage-account"></a>Registos de arquivo para uma conta de armazenamento
 
-1. Selecione o Arquivo para uma caixa de verificação **de conta de armazenamento** e, em seguida, clique no botão **Configure.**
+1. Selecione o Arquivo para uma caixa de verificação **de conta de armazenamento** e, em seguida, selecione o botão **Configure.**
 
-   > [!div class="mx-imgBorder"]   
+   > [!div class="mx-imgBorder"]
    > ![Armazenamento de arquivo de página de definições de diagnóstico](media/monitor-queue-storage/diagnostic-logs-settings-pane-archive-storage.png)
 
-2. Na lista de down-down da **conta De armazenamento,** selecione a conta de armazenamento para a que pretende arquivar os seus registos, clique no botão **OK** e, em seguida, clique no botão **Guardar.**
+2. Na lista de down-down da **conta De armazenamento,** selecione a conta de armazenamento para a que pretende arquivar os seus registos, clique no botão **OK** e, em seguida, selecione o botão **Guardar.**
 
    > [!NOTE]
-   > Antes de escolher uma conta de armazenamento como destino de exportação, consulte [os registos de recursos do Archive Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage) para entender os pré-requisitos na conta de armazenamento.
+   > Antes de escolher uma conta de armazenamento como destino de exportação, consulte [os registos de recursos do Archive Azure](/azure/azure-monitor/platform/resource-logs-collect-storage) para entender os pré-requisitos na conta de armazenamento.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Registos de streaming para Azure Event Hubs
 
-1. Selecione o Stream para uma caixa de verificação **do centro de eventos** e, em seguida, clique no botão **Configure.**
+1. Selecione o Stream para uma caixa de verificação **do centro de eventos** e, em seguida, selecione o botão **Configure.**
 
-2. No painel **de centros de eventos Selecione um painel de centros** de eventos, escolha o espaço de nome, nome e nome da política do centro de eventos para o qual pretende transmitir os seus registos. 
+2. No painel **de centros de eventos Selecione um painel de centros** de eventos, escolha o espaço de nome, nome e nome da política do centro de eventos para o qual pretende transmitir os seus registos.
 
    > [!div class="mx-imgBorder"]
    > ![Centro de evento de página de definições de diagnóstico](media/monitor-queue-storage/diagnostic-logs-settings-pane-event-hub.png)
 
-3. Clique no botão **OK** e, em seguida, clique no botão **Guardar.**
+3. Clique no botão **OK** e, em seguida, selecione o botão **Guardar.**
 
 #### <a name="send-logs-to-azure-log-analytics"></a>Enviar registos para Azure Log Analytics
 
-1. Selecione a caixa de verificação **Enviar para registar analytics,** selecione um espaço de trabalho de análise de registo e, em seguida, clique no botão Guardar e, em seguida, clique no botão **Guardar.**
+1. Selecione a caixa de verificação **Enviar para registar a verificação Analytics,** selecione um espaço de trabalho de análise de registo e, em seguida, selecione o botão **Guardar.**
 
-   > [!div class="mx-imgBorder"]   
+   > [!div class="mx-imgBorder"]
    > ![Análise de registo de página de definições de diagnóstico](media/monitor-queue-storage/diagnostic-logs-settings-pane-log-analytics.png)
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
@@ -142,7 +143,7 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 
 #### <a name="archive-logs-to-a-storage-account"></a>Registos de arquivo para uma conta de armazenamento
 
-Ativar os registos utilizando o [cmdlet de definição de](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticose de definição de energia, juntamente com o `StorageAccountId` parâmetro.
+Ativar os registos utilizando o [cmdlet de definição de](/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticose de definição de energia, juntamente com o `StorageAccountId` parâmetro.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -156,11 +157,11 @@ Eis um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-Para obter uma descrição de cada parâmetro, consulte os [registos de recursos archive Azure através do Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+Para obter uma descrição de cada parâmetro, consulte os [registos de recursos archive Azure através do Azure PowerShell](/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Registos de fluxo para um centro de eventos
 
-Ativar os registos utilizando o [cmdlet de definição de](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticos elétricos com o `EventHubAuthorizationRuleId` parâmetro.
+Ativar os registos utilizando o [cmdlet de definição de](/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticos elétricos com o `EventHubAuthorizationRuleId` parâmetro.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -170,11 +171,11 @@ Eis um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-Para obter uma descrição de cada parâmetro, consulte os dados de [fluxo para centros de evento através de cmdlets PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+Para obter uma descrição de cada parâmetro, consulte os dados de [fluxo para centros de evento através de cmdlets PowerShell](/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
 
 #### <a name="send-logs-to-log-analytics"></a>Enviar registos para o Log Analytics
 
-Ativar os registos utilizando o [cmdlet de definição de](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticos elétricos com o `WorkspaceId` parâmetro.
+Ativar os registos utilizando o [cmdlet de definição de](/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticos elétricos com o `WorkspaceId` parâmetro.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -184,11 +185,11 @@ Eis um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/queueServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-1. Primeiro, abra o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), ou se [instalou](https://docs.microsoft.com/cli/azure/install-azure-cli) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
+1. Primeiro, abra o [Azure Cloud Shell](/azure/cloud-shell/overview), ou se [instalou](/cli/azure/install-azure-cli) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
 
 2. Se a sua identidade estiver associada a mais de uma subscrição, então desa estale a sua subscrição ativa para a subscrição da conta de armazenamento para a qual pretende ativar os registos.
 
@@ -200,7 +201,7 @@ Para obter mais informações, consulte [os Registos de Recursos stream Azure pa
 
 #### <a name="archive-logs-to-a-storage-account"></a>Registos de arquivo para uma conta de armazenamento
 
-Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
+Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -214,11 +215,11 @@ Eis um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
-Para obter uma descrição de cada parâmetro, consulte os [registos de Recursos de Arquivo através do CLI Azure](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
+Para obter uma descrição de cada parâmetro, consulte os [registos de Recursos de Arquivo através do CLI Azure](/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Registos de fluxo para um centro de eventos
 
-Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
+Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -228,11 +229,11 @@ Eis um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-Para obter uma descrição de cada parâmetro, consulte os dados do [Stream para Os Centros de Eventos via Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
+Para obter uma descrição de cada parâmetro, consulte os dados do [Stream para Os Centros de Eventos via Azure CLI](/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
 
 #### <a name="send-logs-to-log-analytics"></a>Enviar registos para o Log Analytics
 
-Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
+Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -242,18 +243,17 @@ Eis um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/queueServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+ Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-Para ver um modelo do Gestor de Recursos Azure que cria uma definição de diagnóstico, consulte [a definição de Diagnóstico para armazenamento Azure](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+Para ver um modelo do Gestor de Recursos Azure que cria uma definição de diagnóstico, consulte [a definição de Diagnóstico para armazenamento Azure](/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 ---
 
-
 ## <a name="analyzing-metrics"></a>Análise de métricas
 
-Pode analisar métricas para armazenamento Azure com métricas de outros serviços Azure utilizando o Metrics Explorer. Open Metrics Explorer escolhendo **métricas** do menu **Azure Monitor.** Para obter detalhes sobre a utilização desta ferramenta, consulte [Começar com o Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
+Pode analisar métricas para armazenamento Azure com métricas de outros serviços Azure utilizando o Metrics Explorer. Open Metrics Explorer escolhendo **métricas** do menu **Azure Monitor.** Para obter detalhes sobre a utilização desta ferramenta, consulte [Começar com o Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
 Este exemplo mostra como ver **transações** ao nível da conta.
 
@@ -265,13 +265,12 @@ Para métricas que suportam dimensões, pode filtrar a métrica com o valor de d
 
 Para obter uma lista completa das dimensões que o Azure Storage suporta, consulte [as dimensões das Métricas.](monitor-queue-storage-reference.md#metrics-dimensions)
 
-As métricas para o armazenamento da fila Azure estão nestes espaços de nome: 
+As métricas para o armazenamento da fila Azure estão nestes espaços de nome:
 
 - Microsoft.Storage/storageAcontas
 - Microsoft.Storage/storageAcontas/filas Serviços
 
 Para obter uma lista de todas as métricas de suporte do Azure Monitor, que inclui o armazenamento da fila Azure, consulte [as métricas suportadas pelo Monitor Azure.](../../azure-monitor/platform/metrics-supported.md)
-
 
 ### <a name="accessing-metrics"></a>Métricas de acesso
 
@@ -284,7 +283,7 @@ Para obter uma lista de todas as métricas de suporte do Azure Monitor, que incl
 
 Pode listar a definição métrica da sua conta de armazenamento ou do serviço de armazenamento da fila. Utilize o [cmdlet Get-AzMetricDefinition.](/powershell/module/az.monitor/get-azmetricdefinition)
 
-Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou pelo ID de recursos do serviço de armazenamento de fila.  Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
+Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou pelo ID de recursos do serviço de armazenamento de fila. Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -305,7 +304,7 @@ Pode ler os valores métricos ao nível da conta da sua conta de armazenamento o
 #### <a name="list-the-account-level-metric-definition"></a>Listar a definição métrica de nível de conta
 
 Pode listar a definição métrica da sua conta de armazenamento ou do serviço de armazenamento da fila. Utilize o comando [de definições de listas de métricas az monitor.](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions)
- 
+
 Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou pelo ID de recursos do serviço de armazenamento de fila. Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
 
 ```azurecli-interactive
@@ -323,10 +322,10 @@ Pode ler os valores métricos da sua conta de armazenamento ou do serviço de ar
 ### <a name="net"></a>[.NET](#tab/azure-portal)
 
 O Azure Monitor fornece o [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) para ler definições e valores métricos. O [código de amostra](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) mostra como utilizar o SDK com diferentes parâmetros. Você precisa usar `0.18.0-preview` ou uma versão posterior para métricas de armazenamento.
- 
+
 Nestes exemplos, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou do serviço de armazenamento da Fila. Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
 
-Substitua a `<subscription-ID>` variável pelo ID da sua subscrição. Para obter orientações sobre como obter valores `<tenant-ID>` `<application-ID>` para, `<AccessKey>` e, ver [Usar o portal para criar uma aplicação AD AZure e um principal de serviço que possa aceder a recursos.](../../active-directory/develop/howto-create-service-principal-portal.md) 
+Substitua a `<subscription-ID>` variável pelo ID da sua subscrição. Para obter orientações sobre como obter valores `<tenant-ID>` `<application-ID>` para, `<AccessKey>` e, ver [Usar o portal para criar uma aplicação AD AZure e um principal de serviço que possa aceder a recursos.](../../active-directory/develop/howto-create-service-principal-portal.md)
 
 #### <a name="list-the-account-level-metric-definition"></a>Listar a definição métrica de nível de conta
 
@@ -340,7 +339,6 @@ O exemplo a seguir mostra como listar uma definição métrica ao nível da cont
         var tenantId = "<tenant-ID>";
         var applicationId = "<application-ID>";
         var accessKey = "<AccessKey>";
-
 
         MonitorManagementClient readOnlyClient = AuthenticateWithReadOnlyClient(tenantId, applicationId, accessKey, subscriptionId).Result;
         IEnumerable<MetricDefinition> metricDefinitions = await readOnlyClient.MetricDefinitions.ListAsync(resourceUri: resourceId, cancellationToken: new CancellationToken());
@@ -459,9 +457,11 @@ O exemplo a seguir mostra como ler dados métricos sobre a multidimensional de s
     }
 
 ```
+
 ### <a name="template"></a>[Modelo](#tab/template)
 
-<a name="na"></a>N/D.
+N/D.
+
 ---
 
 ## <a name="analyzing-logs"></a>Análise de registos
@@ -509,7 +509,7 @@ Eis um exemplo:
 
 ### <a name="accessing-logs-in-an-event-hub"></a>Aceder a troncos num centro de eventos
 
-Os registos enviados para um centro de eventos não são armazenados como um ficheiro, mas pode verificar se o centro de eventos recebeu a informação de registo. No portal Azure, vá ao seu centro de eventos e verifique se a contagem **de mensagens recebidas** é superior a zero. 
+Os registos enviados para um centro de eventos não são armazenados como um ficheiro, mas pode verificar se o centro de eventos recebeu a informação de registo. No portal Azure, vá ao seu centro de eventos e verifique se a contagem **de mensagens recebidas** é superior a zero.
 
 ![Registos de auditoria](media/monitor-queue-storage/event-hub-log.png)
 
@@ -521,7 +521,7 @@ Pode aceder aos registos enviados para um espaço de trabalho do Log Analytics u
 
 Para obter mais informações, consulte [Começar com o Log Analytics no Azure Monitor](../../azure-monitor/log-query/get-started-portal.md).
 
-Os dados são armazenados na tabela **StorageQueueLogs.**  
+Os dados são armazenados na tabela **StorageQueueLogs.**
 
 #### <a name="sample-kusto-queries"></a>Experimente consultas kusto
 
@@ -532,7 +532,7 @@ Aqui ficam algumas consultas que pode introduzir na barra **de pesquisa log** pa
 
 Utilize estas consultas para ajudá-lo a monitorizar as suas contas de Armazenamento Azure:
 
-* Para enumerar os 10 erros mais comuns nos últimos três dias.
+- Para enumerar os 10 erros mais comuns nos últimos três dias.
 
     ```Kusto
     StorageQueueLogs
@@ -540,7 +540,8 @@ Utilize estas consultas para ajudá-lo a monitorizar as suas contas de Armazenam
     | summarize count() by StatusText
     | top 10 by count_ desc
     ```
-* Para listar as 10 operações que causaram mais erros nos últimos três dias.
+
+- Para listar as 10 operações que causaram mais erros nos últimos três dias.
 
     ```Kusto
     StorageQueueLogs
@@ -548,7 +549,8 @@ Utilize estas consultas para ajudá-lo a monitorizar as suas contas de Armazenam
     | summarize count() by OperationName
     | top 10 by count_ desc
     ```
-* Para listar as 10 melhores operações com a maior latência de ponta a ponta nos últimos três dias.
+
+- Para listar as 10 melhores operações com a maior latência de ponta a ponta nos últimos três dias.
 
     ```Kusto
     StorageQueueLogs
@@ -556,35 +558,40 @@ Utilize estas consultas para ajudá-lo a monitorizar as suas contas de Armazenam
     | top 10 by DurationMs desc
     | project TimeGenerated, OperationName, DurationMs, ServerLatencyMs, ClientLatencyMs = DurationMs - ServerLatencyMs
     ```
-* Para listar todas as operações que causaram erros de estrangulamento do lado do servidor nos últimos três dias.
+
+- Para listar todas as operações que causaram erros de estrangulamento do lado do servidor nos últimos três dias.
 
     ```Kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d) and StatusText contains "ServerBusy"
     | project TimeGenerated, OperationName, StatusCode, StatusText
     ```
-* Para listar todos os pedidos com acesso anónimo nos últimos três dias.
+
+- Para listar todos os pedidos com acesso anónimo nos últimos três dias.
 
     ```Kusto
     StorageBlobLogs
     | where TimeGenerated > ago(3d) and AuthenticationType == "Anonymous"
     | project TimeGenerated, OperationName, AuthenticationType, Uri
     ```
-* Para criar um gráfico de operações usado nos últimos três dias.
+
+- Para criar um gráfico de operações usado nos últimos três dias.
+
     ```Kusto
     StorageQueueLogs
     | where TimeGenerated > ago(3d)
     | summarize count() by OperationName
-    | sort by count_ desc 
+    | sort by count_ desc
     | render piechart
     ```
+
 ## <a name="faq"></a>FAQ
 
 **O Azure Storage suporta métricas para Discos Geridos ou Discos Não Geridos?**
 
 Não. O Azure Compute suporta as métricas nos discos. Para obter mais informações, consulte [as métricas de discos por discos geridos e não geridos.](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para obter uma referência dos registos e métricas criados pelo armazenamento da Fila Azure, consulte [a referência de dados de monitorização de armazenamento da fila Azure](monitor-queue-storage-reference.md).
 - Para obter informações sobre a monitorização dos recursos do Azure, consulte [os recursos do Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md).

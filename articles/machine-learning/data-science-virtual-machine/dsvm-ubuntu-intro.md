@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 631717252abe956357cf8b588fa653890037bbc9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 97283a096d1b1549b2c7fa8f34a32b4bb4dca1eb
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322182"
+ms.locfileid: "93349057"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -121,12 +121,16 @@ O Ubuntu DSVM gere [o JupyterHub,](https://github.com/jupyterhub/jupyterhub)um s
 
    1. A partir da sua máquina local, abra um navegador web e navegue para https: \/ /your-vm-ip:8000, substituindo "your-vm-ip" pelo endereço IP que tomou nota anterior.
    1. O seu navegador provavelmente irá impedi-lo de abrir a página diretamente, dizendo-lhe que há um erro de certificado. O DSVM está a fornecer segurança através de um certificado auto-assinado. A maioria dos navegadores permitir-lhe-á clicar após este aviso. Muitos navegadores continuarão a fornecer algum tipo de aviso visual sobre o certificado durante a sua sessão web.
+
+      >[!NOTE]
+      > Se vir a `ERR_EMPTY_RESPONSE` mensagem de erro no seu navegador, certifique-se de que acede à máquina utilizando explicitamente o protocolo *HTTPS* e não utilizando *HTTP* ou apenas o endereço web. Se escrever o endereço web sem `https://` a linha de endereço, a maioria dos navegadores irá por defeito `http` , e verá este erro.
+
    1. Introduza o nome de utilizador e a palavra-passe que usou para criar o VM e faça o sessão. 
 
       ![Insira o login de Jupyter](./media/dsvm-ubuntu-intro/jupyter-login.png)
 
->[!NOTE]
-> Se receber um Erro 500 nesta fase, é provável que tenha usado letras maiúsculas no seu nome de utilizador. Esta é uma interação conhecida entre Jupyter Hub e o PAMAuthenticator que usa. Se receber um erro de "Não pode chegar a esta página", é provável que as permissões do Grupo de Segurança da Rede precisem de ser ajustadas. No portal Azure, encontre o recurso do Grupo de Segurança da Rede dentro do seu Grupo de Recursos. Para aceder ao JupyterHub a partir da Internet pública, você deve ter porta 8000 aberta. (A imagem mostra que este VM está configurado para acesso just-in-time, o que é altamente recomendado. Consulte [as portas de gestão Secure com acesso just-in time](../../security-center/security-center-just-in-time.md).) ![Configuração do Grupo de Segurança da Rede](./media/dsvm-ubuntu-intro/nsg-permissions.png)
+      >[!NOTE]
+      > Se receber um Erro 500 nesta fase, é provável que tenha usado letras maiúsculas no seu nome de utilizador. Esta é uma interação conhecida entre Jupyter Hub e o PAMAuthenticator que usa. Se receber um erro de "Não pode chegar a esta página", é provável que as permissões do Grupo de Segurança da Rede precisem de ser ajustadas. No portal Azure, encontre o recurso do Grupo de Segurança da Rede dentro do seu Grupo de Recursos. Para aceder ao JupyterHub a partir da Internet pública, você deve ter porta 8000 aberta. (A imagem mostra que este VM está configurado para acesso just-in-time, o que é altamente recomendado. Consulte [as portas de gestão Secure com acesso just-in time](../../security-center/security-center-just-in-time.md).) ![Configuração do Grupo de Segurança da Rede](./media/dsvm-ubuntu-intro/nsg-permissions.png)
 
    1. Navegue nos muitos cadernos de amostras que estão disponíveis.
 
@@ -138,7 +142,7 @@ Pode definir o JupyterLab como o servidor de portátil predefinido adicionando e
 c.Spawner.default_url = '/lab'
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Eis como pode continuar a sua aprendizagem e exploração:
 

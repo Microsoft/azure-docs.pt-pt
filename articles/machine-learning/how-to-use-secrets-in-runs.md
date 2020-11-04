@@ -1,7 +1,7 @@
 ---
 title: Segredos de autenticação em formação
 titleSuffix: Azure Machine Learning
-description: Aprenda a passar segredos para o treino corre de forma segura usando o Azure Key Vault fo ryour espaço de trabalho.
+description: Aprenda a passar segredos para treinos de forma segura usando o Azure Key Vault para o seu espaço de trabalho.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/09/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 60459579b277684355eaf5cb92ba2f75fb05cd28
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ce47041d888b8a7786f0f87f54e725919638e7f7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305435"
+ms.locfileid: "93349023"
 ---
 # <a name="use-authentication-credential-secrets-in-azure-machine-learning-training-runs"></a>Use segredos credenciais de autenticação em ações de formação de machine learning Azure
 
@@ -69,7 +69,7 @@ Tenha cuidado para não expor o valor secreto escrevendo ou imprimindo.
 
 Há também uma versão de lote, [get_secrets()](/python/api/azureml-core/azureml.core.run.run?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-secrets-secrets-) para aceder a múltiplos segredos ao mesmo tempo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
  * [Ver caderno de exemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/manage-azureml-service/authentication-in-azureml/authentication-in-azureml.ipynb)
  * [Conheça a segurança da empresa com a Azure Machine Learning](concept-enterprise-security.md)

@@ -1,7 +1,7 @@
 ---
 title: DevOps para um pipeline de ingestão de dados
 titleSuffix: Azure Machine Learning
-description: Saiba como aplicar práticas de DevOps para construir um pipeline de ingestão de dados para preparar dados. Utiliza Azure Data Factory e Azure Databricks.
+description: Aprenda a aplicar práticas de DevOps para construir um pipeline de ingestão de dados para preparar dados usando Azure Data Factory e Azure Databricks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 5e3774b360df6dce318d1d640903d0df2e21c856
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8f229c52b62c740c9d955f745a6922e59163b907
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320694"
+ms.locfileid: "93348564"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps para um pipeline de ingestão de dados
 
@@ -476,7 +476,7 @@ stages:
 
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Controlo de Origem no Azure Data Factory](../data-factory/source-control.md)
 * [Integração contínua e entrega na Azure Data Factory](../data-factory/continuous-integration-deployment.md)

@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 6a272294ca602e3f482156a7334084bf041f683e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1570bd9dfa62caa749d5a3983b93c2555be058ec
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307556"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348734"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurar a recuperação após desastre para as máquinas virtuais do Azure com o Azure PowerShell
 
@@ -249,6 +249,15 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
+#### <a name="fabric-and-container-creation-when-enabling-zone-to-zone-replication"></a>Criação de tecidos e contentores ao permitir a zona de replicação da zona
+
+Ao permitir a zona de replicação da zona, apenas será criado um tecido. Mas haverá dois contentores. Assumindo que a região é a Europa Ocidental, use as seguintes ordens para obter os recipientes primários e de proteção -
+
+```azurepowershell
+$primaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-container"
+$recoveryPprotectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-t-container"
+```
+
 ### <a name="create-a-replication-policy"></a>Criar uma política de replicação
 
 ```azurepowershell
@@ -285,6 +294,14 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 Write-Output $TempASRJob.State
 
 $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
+```
+
+#### <a name="protection-container-mapping-creation-when-enabling-zone-to-zone-replication"></a>Criação de mapeamento de contentores de proteção ao permitir a replicação da zona
+
+Ao permitir a zona de replicação da zona, utilize o comando abaixo para criar mapeamento de recipientes de proteção. Assumindo que a região é a Europa Ocidental, o comando será -
+
+```azurepowershell
+$protContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimprotectionContainer -Name "westeurope-westeurope-24-hour-retention-policy-s"
 ```
 
 ### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Criar um mapeamento de recipiente de proteção para falhas (replicação inversa após uma falha)
@@ -626,6 +643,6 @@ Pode desativar a replicação com o `Remove-AzRecoveryServicesAsrReplicationProt
 Remove-AzRecoveryServicesAsrReplicationProtectedItem -ReplicationProtectedItem $ReplicationProtectedItem
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte a [referência PowerShell de Recuperação do Site Azure](/powershell/module/az.RecoveryServices) para saber como pode fazer outras tarefas, tais como criar planos de recuperação e testar o failover dos planos de recuperação com o PowerShell.

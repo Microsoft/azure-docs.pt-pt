@@ -3,7 +3,7 @@ title: Descrição geral dos Serviços de Multimédia do Azure | Microsoft Docs
 description: Os Media Services do Microsoft Azure são uma plataforma baseado na nuvem extensível que permite aos programadores compilar uma gestão de multimédia dimensionável e aplicações de entrega. Este artigo apresenta uma visão geral da Azure Media Services.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
-ms.author: juliako
-ms.openlocfilehash: 0d896b0ce23116f1b87718f492d407ac094b9e6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: c6f889963e87d900040d1fe77031f943ab368837
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261160"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348751"
 ---
 # <a name="azure-media-services-overview"></a>Descrição geral dos Serviços de Multimédia do Azure
 
@@ -78,7 +78,7 @@ Para compilar soluções de Media Services, pode utilizar:
 
 ## <a name="code-samples"></a>Exemplos de código
 
-Localize vários exemplos de código na galeria **Exemplos de Código do Azure**: [exemplos de código dos Serviços de Multimédia do Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Localize vários exemplos de código na galeria **Exemplos de Código do Azure** : [exemplos de código dos Serviços de Multimédia do Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 ## <a name="concepts"></a>Conceitos
 
@@ -86,13 +86,12 @@ Para saber mais sobre os conceitos de Media Services do Azure, consulte [Conceit
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>Cenários suportados e disponibilidade dos Serviços de Multimédia em datacenters
 
-Para obter informações detalhadas, veja [Cenários do AMS e disponibilidade das funcionalidades e dos serviços em todos os datacenters](scenarios-and-availability.md).
+Para obter mais informações sobre cenários comuns do Azure, consulte [os cenários da AMS](scenarios-and-availability.md).
+Para obter informações sobre a disponibilidade regional, consulte [a disponibilidade do serviço de mídia.](availability-regions-v-2.md)
 
 ## <a name="service-level-agreement-sla"></a>Contrato de Nível de Serviço (SLA)
 
 Para obter mais informações, consulte [SLA do Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
-
-Para obter informações sobre a disponibilidade em datacenters, veja a secção [Disponibilidade](scenarios-and-availability.md#availability).
 
 ## <a name="support"></a>Suporte
 

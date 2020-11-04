@@ -3,12 +3,12 @@ title: Como criar políticas de Configuração de Convidado para o Windows
 description: Saiba como criar uma política de configuração de hóspedes Azure Policy para windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 563b178b9ba92125967c779b59a78a8e105ec744
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542867"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348887"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
 
@@ -16,15 +16,19 @@ Antes de criar definições de política personalizadas, é uma boa ideia ler a 
  
 Para aprender a criar políticas de Configuração de Hóspedes para Linux, consulte a página [Como criar políticas de Configuração de Hóspedes para Linux](./guest-configuration-create-linux.md)
 
-Ao auditar o Windows, a Configuração de Convidado utiliza um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o ficheiro de configuração. A configuração DSC define a condição em que o computador deverá estar. Se a avaliação da configuração falhar, a auditoria do efeito **políticoIfNotExists** é ativada e a máquina é considerada **incompatível** .
+Ao auditar o Windows, a Configuração de Convidado utiliza um módulo de recurso [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) para criar o ficheiro de configuração. A configuração DSC define a condição em que o computador deverá estar. Se a avaliação da configuração falhar, a auditoria do efeito **políticoIfNotExists** é ativada e a máquina é considerada **incompatível**.
 
 [A configuração do hóspede Azure Policy](../concepts/guest-configuration.md) só pode ser usada para auditar definições dentro de máquinas. A reparação de configurações dentro das máquinas ainda não está disponível.
 
 Utilize as seguintes ações para criar a sua própria configuração para validar o estado de uma máquina Azure ou não-Azure.
 
 > [!IMPORTANT]
+> Definições de política personalizadas com Configuração de Hóspedes nos ambientes do Governo Azure e da Azure China é uma funcionalidade de pré-visualização.
+>
 > A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure.
 > Para implementar a extensão em escala em todas as máquinas do Windows, atribua as seguintes definições de política: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> Não utilize segredos ou informações confidenciais em pacotes de conteúdo personalizado.
 
 ## <a name="install-the-powershell-module"></a>Instalar o módulo do PowerShell
 
@@ -92,13 +96,13 @@ Os parâmetros na Política Azure que passam valores para as atribuições de Co
 
 A função `Get-TargetResource` tem requisitos especiais para a Configuração do Hóspede que não foram necessários para a Configuração do Estado do Windows Desired.
 
-- O haxixe que é devolvido deve incluir uma propriedade chamada **Reasons** .
+- O haxixe que é devolvido deve incluir uma propriedade chamada **Reasons**.
 - A propriedade Reasons deve ser uma matriz.
-- Cada item na matriz deve ser um haxixe com as teclas chamadas **Código** e **Frase** .
+- Cada item na matriz deve ser um haxixe com as teclas chamadas **Código** e **Frase**.
 
 A propriedade Reasons é utilizada pelo serviço para normalizar a forma como a informação é apresentada quando uma máquina está fora de conformidade. Pode pensar em cada item em Reasons como uma "razão" de que o recurso não está em conformidade. A propriedade é uma matriz porque um recurso pode estar fora de conformidade por mais de uma razão.
 
-As propriedades **Código** e **Frase** são esperadas pelo serviço. Ao autorizar um recurso personalizado, desenrida o texto (tipicamente estaladudo) que pretende mostrar como a razão pela qual o recurso não está em conformidade como o valor da **Frase** . **O código** tem requisitos específicos de formatação para que a comunicação possa apresentar claramente informações sobre o recurso utilizado para fazer a auditoria. Esta solução torna a configuração do hóspede extensível. Qualquer comando pode ser executado desde que a saída possa ser devolvida como um valor de corda para a propriedade **Frase.**
+As propriedades **Código** e **Frase** são esperadas pelo serviço. Ao autorizar um recurso personalizado, desenrida o texto (tipicamente estaladudo) que pretende mostrar como a razão pela qual o recurso não está em conformidade como o valor da **Frase**. **O código** tem requisitos específicos de formatação para que a comunicação possa apresentar claramente informações sobre o recurso utilizado para fazer a auditoria. Esta solução torna a configuração do hóspede extensível. Qualquer comando pode ser executado desde que a saída possa ser devolvida como um valor de corda para a propriedade **Frase.**
 
 - **Código** (cadeia): O nome do recurso, repetido e, em seguida, um nome curto sem espaços como identificador pela razão. Estes três valores devem ser delimitados pelo cólon sem espaços.
   - Um exemplo seria `registry:registry:keynotpresent`
@@ -140,7 +144,7 @@ O nome da configuração personalizada deve ser consistente em todo o lado. O no
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Andaime um projeto de configuração de hóspedes
 
-Os desenvolvedores que gostariam de acelerar o processo de começar e trabalhar a partir do código de amostra pode instalar um projeto comunitário chamado **Guest Configuration Project** . O projeto instala um modelo para o módulo [Plaster](https://github.com/powershell/plaster) PowerShell. Esta ferramenta pode ser usada para empaar o projeto, incluindo uma configuração de trabalho e recurso de amostra, e um conjunto de testes [de Pester](https://github.com/pester/pester) para validar o projeto. O modelo também inclui corredores de tarefas para Código de Estúdio Visual para automatizar a construção e validar o pacote de Configuração de Convidados. Para mais informações, consulte o [Projeto de Configuração do Convidado do](https://github.com/microsoft/guestconfigurationproject)projeto GitHub.
+Os desenvolvedores que gostariam de acelerar o processo de começar e trabalhar a partir do código de amostra pode instalar um projeto comunitário chamado **Guest Configuration Project**. O projeto instala um modelo para o módulo [Plaster](https://github.com/powershell/plaster) PowerShell. Esta ferramenta pode ser usada para empaar o projeto, incluindo uma configuração de trabalho e recurso de amostra, e um conjunto de testes [de Pester](https://github.com/pester/pester) para validar o projeto. O modelo também inclui corredores de tarefas para Código de Estúdio Visual para automatizar a construção e validar o pacote de Configuração de Convidados. Para mais informações, consulte o [Projeto de Configuração do Convidado do](https://github.com/microsoft/guestconfigurationproject)projeto GitHub.
 
 Para obter mais informações sobre o trabalho com configurações em geral, consulte [Write, Compile e Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
@@ -325,7 +329,7 @@ Um exemplo de uma definição de política que filtra para tags é dado abaixo.
 
 A Configuração do Hóspede suporta propriedades dominantes de uma Configuração no tempo de execução. Esta funcionalidade significa que os valores no ficheiro MOF na embalagem não têm de ser considerados estáticos. Os valores de sobreposição são fornecidos através da Política Azure e não têm impacto na forma como as Configurações são da autoria ou compiladas.
 
-Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parâmetro** . Este parâmetro requer uma definição de haxixe, incluindo todos os detalhes sobre cada parâmetro e cria as secções necessárias de cada ficheiro utilizado para a definição de Política Azure.
+Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parâmetro**. Este parâmetro requer uma definição de haxixe, incluindo todos os detalhes sobre cada parâmetro e cria as secções necessárias de cada ficheiro utilizado para a definição de Política Azure.
 
 O exemplo a seguir cria uma definição de política para auditar um serviço, onde o utilizador seleciona a partir de uma lista no momento da atribuição de políticas.
 
@@ -487,9 +491,13 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida da política
 
-Se quiser lançar uma atualização da política, existem dois campos que requerem atenção.
+Se quiser lançar uma atualização da política, existem três domínios que requerem atenção.
 
-- **Versão** : Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um número de versão maior do que o que é publicado atualmente. A propriedade atualiza a versão da atribuição de Configuração de Hóspedes para que o agente reconheça o pacote atualizado.
+> [!NOTE]
+> A `version` propriedade da atribuição de Configuração de Hóspedes apenas afeta pacotes que são hospedados pela Microsoft. A melhor prática para a versão personalizada é incluir a versão no nome do ficheiro.
+
+- **Versão** : Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um número de versão maior do que o que é publicado atualmente.
+- **conteúdoUri** : Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um URI para a localização da embalagem. A inclusão de uma versão em pacote no nome do ficheiro garantirá que o valor desta propriedade muda em cada versão.
 - **contentHash** : Esta propriedade é atualizada automaticamente pelo `New-GuestConfigurationPolicy` cmdlet. É um valor haxixe do pacote criado `New-GuestConfigurationPackage` por. A propriedade deve estar correta para o `.zip` ficheiro que publica. Se apenas a propriedade **contentUri** for atualizada, a Extensão não aceitará o pacote de conteúdo.
 
 A forma mais fácil de lançar um pacote atualizado é repetir o processo descrito neste artigo e fornecer um número de versão atualizado. Este processo garante que todas as propriedades foram corretamente atualizadas.
@@ -531,7 +539,7 @@ Uma ferramenta está disponível na pré-visualização para ajudar na resoluç�
 
 Para obter mais informações sobre os cmdlets desta ferramenta, utilize o comando Get-Help em PowerShell para mostrar a orientação incorporada. Como a ferramenta está a receber atualizações frequentes, esta é a melhor maneira de obter informações mais recentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a auditoria de VMs com [configuração de hóspedes.](../concepts/guest-configuration.md)
 - Entenda como [criar políticas programáticas.](./programmatically-create.md)

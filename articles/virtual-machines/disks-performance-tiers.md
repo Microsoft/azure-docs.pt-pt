@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359684"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348700"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Níveis de desempenho para discos geridos (pré-visualização)
 
@@ -55,10 +55,6 @@ Para obter informações sobre faturação, consulte [preços de disco geridos](
 - Tem de fazer negócios com o seu VM ou separar o disco de um VM em execução antes de poder alterar o nível do disco.
 - A utilização dos níveis de desempenho P60, P70 e P80 está restrita a discos de 4.096 GiB ou superiores.
 - O nível de desempenho de um disco só pode ser desclassificado uma vez a cada 24 horas.
-
-## <a name="regional-availability"></a>Disponibilidade regional
-
-A capacidade de ajustar o nível de desempenho de um disco gerido está atualmente disponível apenas em SSDs premium nos EUA 2, South Central US, West Central US, Austrália Regiões do Sudeste da Austrália.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Criar um disco de dados vazio com um nível superior ao nível de base
 
@@ -103,7 +99,7 @@ az disk update -n $diskName -g $resourceGroupName --set tier=$performanceTier
 az disk show -n $diskName -g $resourceGroupName --query [tier] -o tsv
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Se precisar de redimensionar um disco para tirar partido dos níveis de desempenho mais elevados, consulte estes artigos:
 

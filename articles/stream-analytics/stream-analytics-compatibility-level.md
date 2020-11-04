@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 87ee8a9c57fc456ba02f97bf56db25e4c91e9398
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129818"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348938"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nível de compatibilidade para empregos Azure Stream Analytics
 
@@ -33,13 +33,13 @@ Quando se cria um novo trabalho stream Analytics, é uma boa prática criá-lo u
 
 ## <a name="set-the-compatibility-level"></a>Definir o nível de compatibilidade
 
-Pode definir o nível de compatibilidade para um trabalho stream Analytics no portal Azure ou utilizando a [chamada de API de emprego de criação](./stream-analytics-quick-create-portal.md).
+Pode definir o nível de compatibilidade para um trabalho stream Analytics no portal Azure ou utilizando a [chamada de API de emprego de criação](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel).
 
 Para atualizar o nível de compatibilidade do trabalho no portal Azure:
 
 1. Utilize o [portal Azure](https://portal.azure.com) para localizar o seu trabalho stream Analytics.
 2. **Pare** o trabalho antes de atualizar o nível de compatibilidade. Não pode atualizar o nível de compatibilidade se o seu trabalho estiver em funcionamento.
-3. No título **Configure,** selecione **o nível de compatibilidade** .
+3. No título **Configure,** selecione **o nível de compatibilidade**.
 4. Escolha o valor de nível de compatibilidade que deseja.
 5. **Selecione Guarde** na parte inferior da página.
 
@@ -79,11 +79,11 @@ Para obter mais informações, consulte [Atualizações de funcionalidades geoes
 
 **1.2 nível:** A integração nativa da API a granel com a saída cosmosDB maximiza a produção e lida eficientemente com pedidos de estrangulamento. Para obter mais informações, consulte [a saída Azure Stream Analytics para a página DB do Azure Cosmos](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
-O comportamento de upsert é *inserir ou substituir* .
+O comportamento de upsert é *inserir ou substituir*.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DataTimeOffset ao escrever para a saída SQL
 
-**Níveis anteriores:** Os tipos [de DataTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) foram ajustados para UTC.
+**Níveis anteriores:** Os tipos [de DataTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql) foram ajustados para UTC.
 
 **1.2 nível:** O DateTimeOffset já não está ajustado.
 
@@ -148,7 +148,7 @@ Introduzem-se as seguintes grandes alterações no nível de compatibilidade 1.1
 
 **Nível 1.1:** Não existe conversão automática de valores de cadeia com informação de data/hora/fuso para o tipo DATETIME. Como resultado, as informações sobre o azono e a formatação original são mantidas. No entanto, se o campo NVARCHAR(MAX) for utilizado na consulta como parte de uma expressão DATETIME (função DATEADD, por exemplo), é convertido para tipo DATETIME para executar o cálculo e perde a sua forma original.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Resolução de problemas Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
 * [Saúde do recurso stream Analytics](./stream-analytics-troubleshoot-query.md)

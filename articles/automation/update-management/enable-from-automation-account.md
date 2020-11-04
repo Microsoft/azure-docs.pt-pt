@@ -2,15 +2,15 @@
 title: Ativar a gestão da atualização de automação Azure a partir da conta Demótica
 description: Este artigo diz como ativar a Gestão de Atualização a partir de uma conta Demôm automação.
 services: automation
-ms.date: 10/26/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 9630b29def0c450ef907219895d1488d72fd78d1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 6f14516f36975d84256f9bb1bd3b4949dbf80448
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669909"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348836"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Ativar a Gestão de Atualizações a partir de uma conta de Automatização
 
@@ -23,15 +23,15 @@ Este artigo descreve como pode utilizar a sua conta Dempaça para ativar a funci
 
 * Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Conta de automatização](../index.yml) para gerir máquinas.
-* Uma [máquina virtual Azure](../../virtual-machines/windows/quick-create-portal.md), ou VM ou servidor registado com servidores ativados pelo Arc (pré-visualização). Os VMs ou servidores não-Azure precisam de ter o [agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows ou Linux instalado e reportar no espaço de trabalho ligado à Gestão de Atualização da conta de Automação. Recomendamos a instalação do agente Log Analytics para Windows ou Linux ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e, em seguida, utilizando a Política Azure para atribuir o agente Deploy Log Analytics às [máquinas de *Aría* Arco Linux ou *Windows* Azure.](../../governance/policy/samples/built-in-policies.md#monitoring) Se planeia também monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
+* Uma [máquina virtual Azure](../../virtual-machines/windows/quick-create-portal.md), ou VM ou servidor registado com servidores ativados pelo Arc. Os VMs ou servidores não-Azure precisam de ter o [agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows ou Linux instalado e reportar no espaço de trabalho ligado à Gestão de Atualização da conta de Automação. Recomendamos a instalação do agente Log Analytics para Windows ou Linux ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e depois utilizar a Política Azure para atribuir o agente Deploy Log Analytics às [máquinas de *Aríaco Linux* ou *Windows* Azure Arc incorporadas.](../../governance/policy/samples/built-in-policies.md#monitoring) Em alternativa, se planeia monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
-Inicie sessão no [Portal do Azure](https://portal.azure.com).
+Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-update-management"></a>Ativar a Gestão de Atualizações
 
-1. Na sua conta Demômes, selecione **A gestão de Atualização** sob **gestão de Atualização** .
+1. Na sua conta Demômes, selecione **A gestão de Atualização** sob **gestão de Atualização**.
 
 2. Escolha o espaço de trabalho do Log Analytics e a conta De automação e selecione **Ative** para ativar a Gestão de Atualização. A configuração leva até 15 minutos para ser concluída.
 
@@ -53,7 +53,7 @@ As máquinas que não estão no Azure precisam de ser adicionadas manualmente.
 
 1. A partir da sua conta Demômes, selecione **A gestão de Atualização** sob **gestão de Atualização.**
 
-2. **Selecione Adicionar máquina não-Azure** . Esta ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente Log Analytics para o Windows para](../../azure-monitor/platform/log-analytics-agent.md) que a máquina possa começar a reportar à Gestão de Atualização. Se está a habilitar uma máquina que é atualmente gerida pelo Diretor de Operações, não é necessário um novo agente. A informação do espaço de trabalho é adicionada à configuração dos agentes.
+2. **Selecione Adicionar máquina não-Azure**. Esta ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente Log Analytics para o Windows para](../../azure-monitor/platform/log-analytics-agent.md) que a máquina possa começar a reportar à Gestão de Atualização. Se está a habilitar uma máquina que é atualmente gerida pelo Diretor de Operações, não é necessário um novo agente. A informação do espaço de trabalho é adicionada à configuração dos agentes.
 
 ## <a name="enable-machines-in-the-workspace"></a>Ativar máquinas no espaço de trabalho
 
@@ -61,13 +61,13 @@ Máquinas ou máquinas instaladas manualmente que já reportam ao seu espaço de
 
 1. A partir da sua conta Demômes, selecione **A gestão de Atualização** sob **gestão de Atualização.**
 
-2. **Selecione Gerir máquinas** . O botão **'Gerir máquinas'** pode ficar acinzentado se tiver escolhido previamente a opção **Ativar todas as máquinas disponíveis e futuras**
+2. **Selecione Gerir máquinas**. O botão **'Gerir máquinas'** pode ficar acinzentado se tiver escolhido previamente a opção **Ativar todas as máquinas disponíveis e futuras**
 
     ![Pesquisas guardadas](media/enable-from-automation-account/managemachines.png)
 
 3. Para ativar a Gestão de Atualização de todas as máquinas disponíveis que reportem no espaço de trabalho, selecione **Ative em todas as máquinas disponíveis** na página 'Máquinas de gestão'. Esta ação desativa o controlo para adicionar máquinas individualmente e adiciona todas as máquinas que reportam ao espaço de trabalho ao grupo de computador que guardou a consulta de pesquisa `MicrosoftDefaultComputerGroup` . Quando selecionada, esta ação desativa a opção **'Gerir máquinas'.**
 
-4. Para ativar a funcionalidade para todas as máquinas e máquinas futuras disponíveis, selecione **Ative em todas as máquinas disponíveis e futuras** . Esta opção elimina a configuração de pesquisa e alcance guardada do espaço de trabalho, e permite que a funcionalidade inclua todas as máquinas Azure e não-Azure que atualmente ou no futuro, reportem ao espaço de trabalho. Quando selecionada, esta ação desativa permanentemente a opção **'Gerir máquinas',** uma vez que não existe nenhuma configuração de âmbito disponível.
+4. Para ativar a funcionalidade para todas as máquinas e máquinas futuras disponíveis, selecione **Ative em todas as máquinas disponíveis e futuras**. Esta opção elimina a configuração de pesquisa e alcance guardada do espaço de trabalho, e permite que a funcionalidade inclua todas as máquinas Azure e não-Azure que atualmente ou no futuro, reportem ao espaço de trabalho. Quando selecionada, esta ação desativa permanentemente a opção **'Gerir máquinas',** uma vez que não existe nenhuma configuração de âmbito disponível.
 
     > [!NOTE]
     > Uma vez que esta opção elimina a configuração de pesquisa e alcance guardada no Log Analytics, é importante remover quaisquer bloqueios de eliminação no espaço de trabalho do Log Analytics antes de selecionar esta opção. Caso não o faça, a opção não removerá as configurações e deve removê-las manualmente.
@@ -76,7 +76,7 @@ Máquinas ou máquinas instaladas manualmente que já reportam ao seu espaço de
 
 6. Para ativar a função para uma ou mais máquinas, selecione **Ative em máquinas selecionadas** e selecione **Adicione** ao lado de cada máquina. Esta tarefa adiciona os nomes de máquinas selecionados ao grupo de computador que guardou a consulta de pesquisa para a funcionalidade.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para utilizar a Gestão de Atualização para VMs, consulte [Gerir atualizações e patches para os seus VMs](manage-updates-for-vm.md).
 

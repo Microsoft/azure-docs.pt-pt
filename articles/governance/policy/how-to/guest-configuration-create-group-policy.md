@@ -3,12 +3,12 @@ title: Como criar definições de política de configuração de convidados a pa
 description: Saiba como converter a Política de Grupo do Windows Server 2019 Base de Segurança numa definição de política.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893378"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348649"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Como criar definições de política de configuração de convidados a partir da linha de base da Política de Grupo para Windows
 
@@ -18,10 +18,10 @@ Ao auditar o Windows, a Configuração de Convidado utiliza um módulo de recurs
 [A Azure Policy Guest Configuration](../concepts/guest-configuration.md) apenas audita as definições dentro de máquinas.
 
 > [!IMPORTANT]
-> Definições de política personalizadas com Configuração de Convidados é uma funcionalidade de pré-visualização.
->
 > A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure. Para implementar a extensão em escala em todas as máquinas do Windows, atribua as seguintes definições de política:
 > - [Implementar pré-requisitos para ativar a política de configuração do hóspede em VMs windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> 
+> Não utilize segredos ou informações confidenciais em pacotes de conteúdo personalizado.
 
 A comunidade DSC publicou o [módulo BaselineManagement](https://github.com/microsoft/BaselineManagement) para converter modelos de Política de Grupo exportados para formato DSC. Juntamente com o cmdlet GuestConfiguration, o módulo BaselineManagement cria o pacote de configuração de convidados Azure Policy para Windows a partir de conteúdo de Política de Grupo. Para obter mais informações sobre a utilização do módulo BaselineManagement, consulte o artigo [Quickstart: Converta a Política de Grupo em DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
@@ -87,78 +87,12 @@ Em seguida, convertemos o Base de Base do Servidor 2019 descarregado num Pacote 
 
 ## <a name="create-azure-policy-guest-configuration"></a>Criar configuração de convidados de política azul
 
-O próximo passo é publicar o ficheiro no Azure Blob Storage. 
-
-1. O script abaixo contém uma função que pode utilizar para automatizar esta tarefa. Note que os comandos utilizados na `publish` função requerem o `Az.Storage` módulo.
+1. O próximo passo é publicar o ficheiro no Azure Blob Storage. O comando `Publish-GuestConfigurationPackage` requer o `Az.Storage` módulo.
 
    ```azurepowershell-interactive
-    function Publish-Configuration {
-        param(
-        [Parameter(Mandatory=$true)]
-        $resourceGroup,
-        [Parameter(Mandatory=$true)]
-        $storageAccountName,
-        [Parameter(Mandatory=$true)]
-        $storageContainerName,
-        [Parameter(Mandatory=$true)]
-        $filePath,
-        [Parameter(Mandatory=$true)]
-        $blobName
-        )
-
-        # Get Storage Context
-        $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-            -Name $storageAccountName | `
-            ForEach-Object { $_.Context }
-
-        # Upload file
-        $Blob = Set-AzStorageBlobContent -Context $Context `
-            -Container $storageContainerName `
-            -File $filePath `
-            -Blob $blobName `
-            -Force
-
-        # Get url with SAS token
-        $StartTime = (Get-Date)
-        $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-        $SAS = New-AzStorageBlobSASToken -Context $Context `
-            -Container $storageContainerName `
-            -Blob $blobName `
-            -StartTime $StartTime `
-            -ExpiryTime $ExpiryTime `
-            -Permission rl `
-            -FullUri
-
-        # Output
-        return $SAS
-    }
+   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
    ```
 
-1. Crie parâmetros para definir o grupo de recursos único, a conta de armazenamento e o recipiente. 
-   
-   ```azurepowershell-interactive
-    # Replace the $resourceGroup, $storageAccount, and $storageContainer values below.
-    $resourceGroup = 'rfc_customguestconfig'
-    $storageAccount = 'guestconfiguration'
-    $storageContainer = 'content'
-    $path = 'c:\git\policyfiles\Server2019Baseline\Server2019Baseline.zip'
-    $blob = 'Server2019Baseline.zip' 
-    ```
-
-1. Utilize a função de publicação com os parâmetros atribuídos para publicar o pacote de Configuração de Convidados para o armazenamento público de blob.
-
-
-   ```azurepowershell-interactive
-   $PublishConfigurationSplat = @{
-       resourceGroup = $resourceGroup
-       storageAccountName = $storageAccount
-       storageContainerName = $storageContainer
-       filePath = $path
-       blobName = $blob
-       FullUri = $true
-   }
-   $uri = Publish-Configuration @PublishConfigurationSplat
-    ```
 1. Uma vez criado e carregado um pacote de política personalizada de Configuração de Convidados, crie a definição de política de Configuração de Convidados. Utilize o `New-GuestConfigurationPolicy` cmdlet para criar a Configuração do Convidado.
 
    ```azurepowershell-interactive
@@ -200,7 +134,7 @@ Atribuir uma definição de política com o efeito _DeployIfNotExists_ requer um
    New-AzRoleDefinition -Role $role
    ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a auditoria de VMs com [configuração de hóspedes.](../concepts/guest-configuration.md)
 - Entenda como [criar políticas programáticas.](./programmatically-create.md)

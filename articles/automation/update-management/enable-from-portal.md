@@ -5,16 +5,16 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 681c5e169acc30cc6708b56b5ba180d2729919e5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 73813ffbb6ac1839a48fc455dec5f6ad26ed0164
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222713"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348794"
 ---
 # <a name="enable-update-management-from-the-azure-portal"></a>Ativar a Gestão de Atualizações a partir do portal do Azure
 
-Este artigo descreve como pode ativar a funcionalidade [de Gestão](overview.md) de Atualização para VMs navegando no portal Azure. Para ativar os VMs Azure em escala, tem de ativar um VM existente utilizando a Gestão de Atualização.
+Este artigo descreve como pode ativar a funcionalidade [de Gestão](overview.md) de Atualização para VMs navegando no portal Azure. Para ativar os VMs Azure em escala, tem de ativar um VM Azure existente utilizando a Gestão de Atualização.
 
 O número de grupos de recursos que pode utilizar para gerir os seus VMs é limitado pelos [limites de implementação](../../azure-resource-manager/templates/cross-scope-deployment.md)do Gestor de Recursos. As implementações do Gestor de Recursos, que não devem ser confundidas com as implementações de Atualização, estão limitadas a cinco grupos de recursos por implementação. Dois destes grupos de recursos estão reservados para configurar o espaço de trabalho Log Analytics, a conta de automação e recursos conexos. Isto deixa-lhe três grupos de recursos para selecionar para gestão por Update Management. Este limite aplica-se apenas à configuração simultânea, e não ao número de grupos de recursos que podem ser geridos por uma funcionalidade de Automação.
 
@@ -35,7 +35,7 @@ Inscreva-se no Azure at https://portal.azure.com .
 
 1. No portal Azure, navegue para **máquinas Virtuais.**
 
-2. Utilize as caixas de verificação para escolher os VMs para adicionar à Gestão de Atualização. Pode adicionar máquinas para até três grupos de recursos diferentes de cada vez. Os VMs Azure podem existir em qualquer região, independentemente da localização da sua conta Automation.
+2. Na página **de máquinas Virtuais,** utilize as caixas de verificação para escolher os VMs para adicionar à Gestão de Atualização. Pode adicionar máquinas para até três grupos de recursos diferentes de cada vez. Os VMs Azure podem existir em qualquer região, independentemente da localização da sua conta Automation.
 
     ![Lista de VMs](media/enable-from-portal/vmlist.png)
 
@@ -60,7 +60,7 @@ Inscreva-se no Azure at https://portal.azure.com .
 
 8. **Selecione Ativar** para ativar a funcionalidade. Depois de ter ativado a Gestão de Atualização, pode demorar cerca de 15 minutos até poder ver a avaliação da atualização a partir deles.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para utilizar a Gestão de Atualização para VMs, consulte [Gerir atualizações e patches para os seus VMs](manage-updates-for-vm.md).
 * Para resolver os erros gerais de Gestão de Atualização, consulte [problemas de Gestão de Atualização de Resolução de Problemas](../troubleshoot/update-management.md).

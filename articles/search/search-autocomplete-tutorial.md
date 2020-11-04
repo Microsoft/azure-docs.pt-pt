@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098455"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348615"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar autocompleto e sugestões a aplicativos clientes
 
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Sugerir função
 
-Se estiver a utilizar C# e uma aplicação MVC, **HomeController.cs** ficheiro no diretório dos Controladores é onde poderá criar uma classe para resultados sugeridos. Em .NET, a função Sugerir baseia-se no [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Para obter mais informações sobre o .NET SDK, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](./search-howto-dotnet-sdk.md).
+Se estiver a utilizar C# e uma aplicação MVC, **HomeController.cs** ficheiro no diretório dos Controladores é onde poderá criar uma classe para resultados sugeridos. Em .NET, a função Sugerir baseia-se no [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Para obter mais informações sobre o .NET SDK, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](search-howto-dotnet-sdk.md).
 
 O `InitSearch` método cria um cliente índice HTTP autenticado para o serviço de Pesquisa Cognitiva Azure. As propriedades na classe [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) determinam quais os campos que são pesquisados e devolvidos nos resultados, no número de partidas e na utilização de correspondências difusas. 
 
@@ -181,7 +181,7 @@ A função Suggest aceita dois parâmetros que determinam se são devolvidos det
 
 ## <a name="autocomplete"></a>Preenchimento Automático
 
-Até agora, o código UX de pesquisa tem sido centrado em sugestões. O próximo bloco de código mostra autocompleto, utilizando a função XDSoft jQuery UI Autocomplete, passando num pedido de autocomplete de pesquisa cognitiva Azure. Tal como acontece com as sugestões, numa aplicação C#, o código que suporta a interação do utilizador vai em **index.cshtml** .
+Até agora, o código UX de pesquisa tem sido centrado em sugestões. O próximo bloco de código mostra autocompleto, utilizando a função XDSoft jQuery UI Autocomplete, passando num pedido de autocomplete de pesquisa cognitiva Azure. Tal como acontece com as sugestões, numa aplicação C#, o código que suporta a interação do utilizador vai em **index.cshtml**.
 
 ```javascript
 $(function () {
@@ -247,10 +247,9 @@ public ActionResult AutoComplete(string term)
 
 A função Autocomplete requer a entrada do termo de pesquisa. O método cria um [objeto AutoCompleteParameters](/rest/api/searchservice/autocomplete). Em seguida, o resultado é convertido em JSON, para que possa ser mostrado no cliente.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Siga estes links para instruções ou códigos de ponta a ponta que demonstrem ambas as experiências de pesquisa como você. Ambos os exemplos de código incluem implementações híbridas de sugestões e autocompleto em conjunto.
 
 + [Tutorial: Crie a sua primeira aplicação em C# (lição 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [Amostra de código C#: azure-search-dotnet-samples/create-first-app/3-add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# e JavaScript com amostra de código REST lado a lado](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

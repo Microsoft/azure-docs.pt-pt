@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: overview
 ms.date: 05/12/2020
-ms.openlocfilehash: 3bea474ae61ba4a0213d880934d9536d6ad71796
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 1b8b95ea318dd7a82d9512908838209bc5cc2995
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131637"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349108"
 ---
 # <a name="azure-cache-for-redis"></a>Cache do Azure para Redis
 A Azure Cache for Redis fornece uma loja de dados na memória com base no software [Redis.](https://redis.io/) O Redis melhora o desempenho e a escalabilidade de uma aplicação que utiliza fortemente as lojas de dados de backend. É capaz de processar grandes volumes de pedidos, mantendo dados frequentemente acedidos na memória do servidor que podem ser escritos e lidos rapidamente. A Redis traz uma solução crítica de baixa latência e armazenamento de dados de alto rendimento para aplicações modernas.
@@ -23,7 +23,7 @@ A azure Cache para Redis pode ser usado como um cache de dados ou conteúdo dist
 ## <a name="key-scenarios"></a>Cenários-chave
 Azure Cache para Redis melhora o desempenho da aplicação apoiando padrões comuns de arquitetura de aplicações. Alguns dos mais comuns incluem o seguinte:
 
-| Padrão      | Description                                        |
+| Padrão      | Descrição                                        |
 | ------------ | -------------------------------------------------- |
 | [Cache de Dados](cache-web-app-cache-aside-leaderboard.md) | As bases de dados são muitas vezes demasiado grandes para serem carregadas diretamente numa cache. É comum usar o padrão [de cache-aside](/azure/architecture/patterns/cache-aside) para carregar dados na cache apenas quando necessário. Quando o sistema faz alterações nos dados, o sistema também pode atualizar a cache, que é depois distribuída a outros clientes. Além disso, o sistema pode definir uma expiração de dados, ou usar uma política de despejo para desencadear atualizações de dados na cache.|
 | [Cache de conteúdo](cache-aspnet-output-cache-provider.md) | Muitas páginas web são geradas a partir de modelos que usam conteúdo estático, tais como cabeçalhos, rodapés, banners. Estes itens estáticos não devem mudar com frequência. A utilização de uma cache na memória proporciona acesso rápido a conteúdos estáticos em comparação com as datas de backend. Este padrão reduz o tempo de processamento e a carga do servidor, permitindo que os servidores da Web sejam mais responsivos. Pode permitir-lhe reduzir o número de servidores necessários para lidar com cargas. A Azure Cache for Redis fornece o Fornecedor de Cache de Saída Redis para suportar este padrão com ASP.NET.|
@@ -35,14 +35,11 @@ Azure Cache para Redis melhora o desempenho da aplicação apoiando padrões com
 
 Azure Cache para Redis suporta a versão 4.x do OSS Redis e, como pré-visualização, 6.0. Tomámos a decisão de saltar o Redis 5.0 para te trazer a versão mais recente. Anteriormente, a Azure Cache para Redis apenas mantinha uma única versão Redis. Irá fornecer uma nova atualização de lançamento e pelo menos uma versão estável mais antiga. Pode [escolher qual a versão que](cache-how-to-version.md) funciona melhor para a sua aplicação.
 
-> [!NOTE]
-> Redis 6.0 está em pré-visualização - [contacte-nos](mailto:azurecache@microsoft.com) se estiver interessado. Esta pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
 
 ## <a name="service-tiers"></a>Escalões de serviço
 Azure Cache for Redis está disponível nos seguintes níveis:
 
-| Escalão de serviço | Description |
+| Escalão de serviço | Descrição |
 |---|---|
 | Básico | Um cache OSS Redis a funcionar num único VM. Este nível não tem acordo de nível de serviço (SLA) e é ideal para trabalhos de desenvolvimento/teste e cargas de trabalho não críticas. |
 | Standard | Uma cache OSS Redis em funcionamento em dois VMs numa configuração replicada. |
@@ -91,9 +88,9 @@ Os níveis da Enterprise dependem da Redis Enterprise, uma versão comercial do 
 * A sua organização permite [compras no Azure Marketplace.](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-azure-marketplace#enabling-azure-marketplace-purchases)
 * Se utilizar um Marketplace privado, deve conter a oferta da Redis Labs Enterprise.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Criar uma Cache Azure para a instância Redis](quickstart-create-redis.md)
-* [Criar uma cache de nível Enterprise](quickstart-create-redis-enterprise.md)
+* [Criar uma cache de escalão Enterprise](quickstart-create-redis-enterprise.md)
 * [Use a cache Azure para Redis numa aplicação web ASP.NET](cache-web-app-howto.md)
 * [Utilize cache Azure para Redis em .NET Core](cache-dotnet-core-quickstart.md)
 * [Utilize cache Azure para redis em .NET Framework](cache-dotnet-how-to-use-azure-redis-cache.md)
