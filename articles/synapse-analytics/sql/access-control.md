@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a0fbcab194b90bbe89948fee1efb604266dbbb0f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503288"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311746"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gerir o acesso a espaços de trabalho, dados e oleodutos
 
@@ -63,8 +63,8 @@ Quando a provisionou o seu espaço de trabalho, teve de escolher uma conta [Azur
 ### <a name="step-3-configure-the-workspace-admin-list"></a>Passo 3: Configurar a lista de administradores do espaço de trabalho
 
 1. Vá ao [ **Azure Synapse Web UI**](https://web.azuresynapse.net)
-2. Ir para **gerir o**controlo de acesso   >  **Security**  >  **à** segurança
-3. Selecione **Add Admin**e selecione `Synapse_WORKSPACENAME_Admins`
+2. Ir para **gerir o** controlo de acesso   >  **Security**  >  **à** segurança
+3. Selecione **Add Admin** e selecione `Synapse_WORKSPACENAME_Admins`
 
 ### <a name="step-4-configure-sql-admin-access-for-the-workspace"></a>Passo 4: Configurar o acesso a administradores sql para o espaço de trabalho
 
@@ -94,21 +94,21 @@ Quando a provisionou o seu espaço de trabalho, teve de escolher uma conta [Azur
 O controlo de acesso aos dados subjacentes é dividido em três partes:
 
 - Acesso de avião de dados à conta de armazenamento (já configurado acima no passo 2)
-- Acesso de avião de dados às bases de dados SQL (tanto para piscinas SQL como SQL a pedido)
-- Criação de uma credencial para bases de dados a pedido do SQL sobre a conta de armazenamento
+- Acesso de avião de dados às Bases de Dados SQL (tanto para piscinas SQL dedicadas como para piscinas SQL sem servidor)
+- Criação de uma credencial para bases de dados de piscinas SQL sem servidor sobre a conta de armazenamento
 
 ## <a name="access-control-to-sql-databases"></a>Controlo de acesso às Bases de Dados SQL
 
 > [!TIP]
 > Os passos abaixo precisam de ser executados para **cada** base de dados SQL para conceder o acesso do utilizador a todas as bases de dados SQL, exceto na [secção Desincê-lo nível de servidor,](#server-level-permission) onde pode atribuir ao utilizador uma função sysadmin.
 
-### <a name="sql-on-demand"></a>SQL a pedido
+### <a name="serverless-sql-pool"></a>Piscina SQL sem servidor
 
 Nesta secção, pode encontrar exemplos sobre como dar ao utilizador uma permissão para uma determinada base de dados ou permissões completas do servidor.
 
 #### <a name="database-level-permission"></a>Permissão de nível de base de dados
 
-Para conceder acesso a um utilizador a uma **única** base de dados SQL a pedido, siga os passos neste exemplo:
+Para conceder acesso a um utilizador a uma **única** base de dados de piscinas SQL sem servidor, siga os passos neste exemplo:
 
 1. Criar LOGIN
 
@@ -140,16 +140,16 @@ Para conceder acesso a um utilizador a uma **única** base de dados SQL a pedido
 
 #### <a name="server-level-permission"></a>Permissão de nível do servidor
 
-Para conceder acesso total a um utilizador a **todas as** bases de dados a pedido do SQL, siga o passo neste exemplo:
+Para conceder acesso total a um utilizador a **todas as** bases de dados de piscinas SQL sem servidor, siga o passo neste exemplo:
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
 ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
-### <a name="sql-pools"></a>Piscinas SQL
+### <a name="dedicated-sql-pool"></a>Piscina SQL dedicada
 
-Para conceder acesso a um utilizador a uma **única** Base de Dados SQL, siga estes passos:
+Para conceder acesso a um utilizador a uma **única** base de dados SQL, siga estes passos:
 
 1. Crie o utilizador na base de dados executando o seguinte comando direcionando a base de dados desejada no seletor de contexto (dropdown para selecionar bases de dados):
 
@@ -167,18 +167,18 @@ Para conceder acesso a um utilizador a uma **única** Base de Dados SQL, siga es
 
 > [!IMPORTANT]
 > *db_datareader* e *db_datawriter* podem trabalhar para permissões de leitura/escrita se a concessão *de db_owner* permissão não for desejada.
-> Para que um utilizador da Spark leia e escreva diretamente a partir da Spark dentro/a partir de uma piscina SQL, é necessária *db_owner* permissão.
+> Para que um utilizador da Spark leia e escreva diretamente da Spark dentro/a partir de uma piscina SQL dedicada, é necessária *db_owner* permissão.
 
-Depois de criar os utilizadores, valide que o SQL a pedido pode consultar a conta de armazenamento.
+Depois de criar os utilizadores, valide que pode consultar a conta de armazenamento utilizando a piscina SQL sem servidor.
 
 ## <a name="access-control-to-workspace-pipeline-runs"></a>O controlo de acesso ao gasoduto workspace funciona
 
 ### <a name="workspace-managed-identity"></a>Identidade gerida pelo espaço de trabalho
 
 > [!IMPORTANT]
-> Para executar com sucesso os oleodutos que incluem conjuntos de dados ou atividades que refiram um pool SQL, a identidade do espaço de trabalho precisa de ter acesso diretamente à piscina SQL.
+> Para executar com sucesso oleodutos que incluam conjuntos de dados ou atividades que refiram um pool de SQL dedicado, a identidade do espaço de trabalho precisa de ter acesso diretamente à piscina SQL.
 
-Executar os seguintes comandos em cada piscina SQL para permitir que a identidade gerida pelo espaço de trabalho funcione para executar gasodutos na base de dados de piscinas SQL:
+Executar os seguintes comandos em cada piscina DE SQL dedicada para permitir que a identidade gerida pelo espaço de trabalho funcione para executar gasodutos na base de dados de piscinas SQL:
 
 ```sql
 --Create user in DB

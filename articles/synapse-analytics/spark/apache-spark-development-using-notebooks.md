@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: 02f304af10ae1907326d3f77f318a058155a4c21
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea765ae5ff93625cc6a0ed36776a8925e5fce836
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738740"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311142"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-preview-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter cadernos do Synapse Studio (pré-visualização) em Azure Synapse Analytics
 
@@ -44,11 +44,11 @@ Os cadernos são de células, que são blocos individuais de código ou texto qu
 
 Há várias formas de adicionar uma nova célula ao seu caderno.
 
-1. Expanda o botão superior esquerdo **+ célula** e selecione Adicionar célula **de código** ou adicionar célula **de texto** .
+1. Expanda o botão superior esquerdo **+ célula** e selecione Adicionar célula **de código** ou adicionar célula **de texto**.
 
     ![botão adicionar célula com célula](./media/apache-spark-development-using-notebooks/synapse-add-cell-1.png)
 
-2. Pairar sobre o espaço entre duas células e selecionar **Adicionar código** ou **adicionar texto** .
+2. Pairar sobre o espaço entre duas células e selecionar **Adicionar código** ou **adicionar texto**.
 
     ![adicionar células entre o espaço](./media/apache-spark-development-using-notebooks/synapse-add-cell-2.png)
 
@@ -71,7 +71,7 @@ Pode definir a linguagem primária para novas células adicionadas da lista de d
 
 Pode utilizar várias línguas num só caderno especificando o comando mágico da linguagem correto no início de uma célula. A tabela que se segue lista os comandos mágicos para mudar as línguas celulares.
 
-|Comando mágico |Linguagem | Descrição |  
+|Comando mágico |Linguagem | Description |  
 |---|------|-----|
 |%%pyspark| Python | Execute uma consulta **python** contra o contexto de faísca.  |
 |%%faísca| Scala | Execute uma consulta **scala** contra o Contexto de Faíscas.  |  
@@ -86,7 +86,7 @@ A imagem a seguir é um exemplo de como você pode escrever uma consulta PySpark
 
 Não é possível fazer referência a dados ou variáveis diretamente em diferentes línguas num caderno do Synapse Studio. Em Spark, uma tabela temporária pode ser referenciada através de línguas. Aqui está um exemplo de como ler um `Scala` DataFrame `PySpark` dentro e usar uma tabela de temperatura spark como uma `SparkSQL` solução alternativa.
 
-1. Na Cell 1, leia um DataFrame do conector de piscina SQL usando o Scala e crie uma tabela temporária.
+1. Na Célula 1, leia um DataFrame a partir de um conector de piscina SQL usando Scala e crie uma tabela temporária.
 
    ```scala
    %%scala
@@ -112,14 +112,14 @@ Não é possível fazer referência a dados ou variáveis diretamente em diferen
 
 Os cadernos do Azure Synapse Studio estão integrados com o editor do Mónaco para levar o IntelliSense ao editor de células ao estilo IDE. O destaque da sintaxe, o marcador de erro e as conclusões automáticas do código ajudam-no a escrever código e a identificar problemas mais rapidamente.
 
-As características do IntelliSense estão em diferentes níveis de maturidade para diferentes línguas. Use a tabela abaixo para ver o que é suportado.
+As características do IntelliSense estão em diferentes níveis de maturidade para diferentes línguas. Use a seguinte tabela para ver o que é suportado.
 
 |Idiomas| Destaque de sintaxe | Marcador de erro de sintaxe  | Conclusão do Código sintaxe | Conclusão do código variável| Conclusão do código de função do sistema| Conclusão do código de função do utilizador| Avanço Inteligente | Dobragem de código|
 |--|--|--|--|--|--|--|--|--|
-|PySpark (Python)|Sim|Sim|Sim|Sim|Sim|Sim|Sim|Sim|
-|Faísca (Scala)|Sim|Sim|Sim|Sim|-|-|-|Sim|
-|Sparksql|Sim|Sim|-|-|-|-|-|-|
-|.NET for Spark (C#)|Sim|-|-|-|-|-|-|-|
+|PySpark (Python)|Yes|Yes|Yes|Yes|Yes|Yes|Yes|Yes|
+|Faísca (Scala)|Yes|Yes|Yes|Yes|-|-|-|Yes|
+|Sparksql|Yes|Yes|-|-|-|-|-|-|
+|.NET for Spark (C#)|Yes|-|-|-|-|-|-|-|
 
 ### <a name="format-text-cell-with-toolbar-buttons"></a>Célula de texto de formato com botões de barra de ferramentas
 
@@ -142,7 +142,7 @@ Também pode utilizar [teclas de atalho no modo de comando](#shortcut-keys-under
 
 ### <a name="delete-a-cell"></a>Apagar uma célula
 
-Para eliminar uma célula, selecione as elipses (...) para aceder ao menu de ações celulares adicionais na extrema direita e, em seguida, **selecione Delete cell** . 
+Para eliminar uma célula, selecione as elipses (...) para aceder ao menu de ações celulares adicionais na extrema direita e, em seguida, **selecione Delete cell**. 
 
 Também pode utilizar [teclas de atalho no modo de comando](#shortcut-keys-under-command-mode). Pressione **D,D** para apagar a célula atual.
   
@@ -167,12 +167,12 @@ Pode executar as células de código no seu caderno individualmente ou todas de 
 
 Há várias maneiras de executar o código numa cela.
 
-1. Passe pela célula que pretende executar e selecione o botão **'Célula de Execução'** ou prima **Ctrl+Enter** .
+1. Passe pela célula que pretende executar e selecione o botão **'Célula de Execução'** ou prima **Ctrl+Enter**.
 
    ![run-cell-1](./media/apache-spark-development-using-notebooks/synapse-run-cell.png)
 
 
-2. Para aceder ao menu adicional de ações celulares na extrema-direita, selecione as elipses **(...** ). Em seguida, selecione **Executar a célula** .
+2. Para aceder ao menu adicional de ações celulares na extrema-direita, selecione as elipses **(...** ). Em seguida, selecione **Executar a célula**.
 
    ![run-cell-2](./media/apache-spark-development-using-notebooks/synapse-run-cell-2.png)
    
@@ -203,7 +203,7 @@ Um estado de execução de células passo a passo é exibido sob a célula para 
 
 ### <a name="spark-progress-indicator"></a>Indicador de progresso de faísca
 
-O caderno do Estúdio Azure Synapse é puramente baseado em Faíscas. As células de código são executadas na piscina Spark remotamente. Um indicador de progresso de emprego spark é fornecido com uma barra de progresso em tempo real parece ajudá-lo a entender o estado de execução do trabalho.
+O caderno do Estúdio Azure Synapse é puramente baseado em Faíscas. As células de código são executadas na piscina Apache Spark sem servidor remotamente. Um indicador de progresso de emprego spark é fornecido com uma barra de progresso em tempo real parece ajudá-lo a entender o estado de execução do trabalho.
 O número de tarefas por cada trabalho ou etapa ajuda-o a identificar o nível paralelo do seu trabalho de faísca. Também pode perfurar mais profundamente a UI de uma tarefa específica (ou fase) através da seleção do link no nome de trabalho (ou estágio).
 
 
@@ -211,7 +211,7 @@ O número de tarefas por cada trabalho ou etapa ajuda-o a identificar o nível p
 
 ### <a name="spark-session-config"></a>Config da sessão de faísca
 
-Pode especificar a duração do tempo limite, o número e o tamanho dos executores para dar à atual sessão de Faísca na **sessão de Configuração** . Reiniciar a sessão Spark destina-se a alterações de configuração a produzir efeito. Todas as variáveis de cadernos em cache estão limpas.
+Pode especificar a duração do tempo limite, o número e o tamanho dos executores para dar à atual sessão de Faísca na **sessão de Configuração**. Reiniciar a sessão Spark destina-se a alterações de configuração a produzir efeito. Todas as variáveis de cadernos em cache estão limpas.
 
 [![gestão de sessão](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png)](./media/apache-spark-development-using-notebooks/synapse-spark-session-management.png#lightbox)
 
@@ -294,9 +294,9 @@ Pode utilizar <code>display(df, summary = True)</code> para verificar o resumo e
 
 ### <a name="render-html-or-interactive-libraries"></a>Renderização DE HTML ou bibliotecas interativas
 
-Pode renderizar o código HTML , incluindo Javascript, CSS, D3 ou bibliotecas interativas, como **bokeh,** utilizando o **displayHTML()** .
+Pode renderizar o código HTML, incluindo JavaScript, CSS, D3 ou bibliotecas interativas, como **bokeh,** utilizando o **displayHTML()**.
 
-A imagem a seguir é um exemplo de conspiração de glifos sobre um mapa usando **bokeh** .
+A imagem a seguir é um exemplo de conspiração de glifos sobre um mapa usando **bokeh**.
 
    ![bokeh-exemplo](./media/apache-spark-development-using-notebooks/synapse-bokeh-image.png)
    

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 69eefce50cefe9f54ed931c96ccbe94b2057cae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb87afcc6edc02d241dca763aff9ecdd594e4711
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362372"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310080"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel Add-in para Azure Machine Learning Studio (clássico) serviços web
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 O Excel facilita a chamada diretamente dos serviços web sem a necessidade de escrever qualquer código.
@@ -38,7 +38,7 @@ O Excel facilita a chamada diretamente dos serviços web sem a necessidade de es
     ![Selecione serviço Web](./media/excel-add-in-for-web-services/image1.png)
 3. Isto leva-o à secção **de Previsão.**  Este livro já contém dados de amostra, mas para um livro em branco pode selecionar uma célula no Excel e clicar em **Utilizar dados de amostras.**
 4. Selecione os dados com cabeçalhos e clique no ícone de gama de dados de entrada.  Certifique-se de que a caixa "Os meus dados têm cabeçalhos" está verificada.
-5. Em **Saída**, introduza o número de célula onde deseja que a saída esteja, por exemplo , "H1" aqui.
+5. Em **Saída** , introduza o número de célula onde deseja que a saída esteja, por exemplo , "H1" aqui.
 6. Clique **em Prever**. Se selecionar a caixa de verificação "auto-prever" qualquer alteração nas áreas selecionadas (as especificadas como entrada) irá desencadear um pedido e uma atualização das células de saída sem a necessidade de premir o botão de previsão.
    
     ![Previsão de secção](./media/excel-add-in-for-web-services/image1.png)
@@ -65,7 +65,7 @@ Obtenha a chave API para o seu serviço web. Onde executa esta ação depende se
 
 **Use um novo serviço web**
 
-1. No portal [Azure Machine Learning Web Services,](https://services.azureml.net) clique em **Serviços Web**e, em seguida, selecione o seu serviço web. 
+1. No portal [Azure Machine Learning Web Services,](https://services.azureml.net) clique em **Serviços Web** e, em seguida, selecione o seu serviço web. 
 2. Clique **em Consumir**.
 3. Procure a secção **de informações básicas sobre consumo.** Copie e guarde a **Chave Primária** e o URL de Resposta **a Pedidos.**
 
@@ -79,7 +79,7 @@ Obtenha a chave API para o seu serviço web. Onde executa esta ação depende se
     ![Ir para a seleção de serviços Web](./media/excel-add-in-for-web-services/image3.png)
 5. Clique **em Adicionar Serviço Web**.
 6. Cole o URL na caixa de texto do Excel com a etiqueta **URL**.
-7. Cole a chave API/Primária na chave **API**com a etiqueta de texto .
+7. Cole a chave API/Primária na chave **API** com a etiqueta de texto .
 8. Clique em **Adicionar**.
    
     ![Chave URL e API para um serviço Web clássico.](./media/excel-add-in-for-web-services/image6.png)
@@ -88,4 +88,4 @@ Obtenha a chave API para o seu serviço web. Onde executa esta ação depende se
 ## <a name="sharing-your-workbook"></a>Partilhar O Seu Livro
 Se guardar o seu livro, a chave API/Primária para os serviços web que adicionou também é guardada. Isso significa que só deves partilhar o livro com indivíduos em quem confias.
 
-Faça qualquer pergunta na secção de comentários a seguir ou no nosso [fórum.](https://docs.microsoft.com/answers/topics/azure-machine-learning.html)
+Faça qualquer pergunta na secção de comentários a seguir ou no nosso [fórum.](/answers/topics/azure-machine-learning.html)

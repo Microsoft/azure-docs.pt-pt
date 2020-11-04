@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8a3a82e091791b39ddf36e39987590dcddea320f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 624409be4d7e2cfba37dbe16e083904766ae1389
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897494"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309666"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Recolha ficheiros de registo de gasodutos de aprendizagem automática em Application Insights para alertas e depurações
 
@@ -38,7 +38,7 @@ Ter os seus logins uma vez no local irá fornecer um histórico de exceções e 
 
 Esta secção é uma introdução específica para a utilização do OpenCensus a partir de um oleoduto de aprendizagem automática Azure. Para um tutorial detalhado, consulte os [Exportadores do Monitor OpenCensus Azure](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)
 
-Adicione um PythonScriptStep ao seu Pipeline Azure ML. Configure a sua [Configuração run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true) com a dependência do opencensus-ext-azure. Configure a `APPLICATIONINSIGHTS_CONNECTION_STRING` variável ambiental.
+Adicione um PythonScriptStep ao seu Pipeline Azure ML. Configure a sua [Configuração run](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py) com a dependência do opencensus-ext-azure. Configure a `APPLICATIONINSIGHTS_CONNECTION_STRING` variável ambiental.
 
 ```python
 from azureml.core.conda_dependencies import CondaDependencies
@@ -153,7 +153,7 @@ O resultado em Application Insights mostrará a mensagem de registo e o nível, 
 
 ### <a name="additional-helpful-queries"></a>Consultas adicionais úteis
 
-Algumas das consultas abaixo utilizam 'customDimensions.Level'. Estes níveis de gravidade correspondem ao nível com que o tronco python foi originalmente enviado. Para obter informações adicionais sobre consultas, consulte [as consultas de registo do Monitor de Azure](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Algumas das consultas abaixo utilizam 'customDimensions.Level'. Estes níveis de gravidade correspondem ao nível com que o tronco python foi originalmente enviado. Para obter informações adicionais sobre consultas, consulte [as consultas de registo do Monitor de Azure](/azure/data-explorer/kusto/query/).
 
 | Caso de utilização                                                               | Consulta                                                                                              |
 |------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
@@ -166,4 +166,4 @@ Algumas das consultas abaixo utilizam 'customDimensions.Level'. Estes níveis de
 
 Uma vez que tenha registos na sua instância De Insights de Aplicação, podem ser usados para definir [alertas do Azure Monitor](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) com base nos resultados da consulta.
 
-Também pode adicionar resultados de consultas a um [Painel Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-app-dashboards#add-logs-analytics-query) para obter informações adicionais.
+Também pode adicionar resultados de consultas a um [Painel Azure](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) para obter informações adicionais.

@@ -10,23 +10,23 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 9abfbe03a4192411a3790bb6d6e488d674c13109
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: ab3f3765a0e988c7e93cca5782b47b3f2d32aef4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897165"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312555"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerir espaços de trabalho de aprendizagem automática Azure 
 
-Neste artigo, você vai criar, visualizar e eliminar [**espaços de trabalho de aprendizagem automática Azure**](concept-workspace.md) para [Azure Machine Learning,](overview-what-is-azure-ml.md)usando o portal Azure ou o [SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true)
+Neste artigo, você vai criar, visualizar e eliminar [**espaços de trabalho de aprendizagem automática Azure**](concept-workspace.md) para [Azure Machine Learning,](overview-what-is-azure-ml.md)usando o portal Azure ou o [SDK para Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py)
 
 À medida que as suas necessidades mudam ou os requisitos para a automatização aumentam, também pode criar e eliminar espaços de trabalho [utilizando o CLI,](reference-azure-machine-learning-cli.md)ou [através da extensão do Código VS](tutorial-setup-vscode-extension.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
-* Se utilizar o Python SDK, [instale o SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+* Se utilizar o Python SDK, [instale o SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
@@ -105,7 +105,7 @@ Neste artigo, você vai criar, visualizar e eliminar [**espaços de trabalho de 
                              exist_ok=False)
    ```
 
-Para mais informações, consulte [a referência SDK do Espaço de Trabalho.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true)
+Para mais informações, consulte [a referência SDK do Espaço de Trabalho.](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py)
 
 Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenticação para recursos e fluxos de trabalho de Aprendizagem de Máquinas Azure,](how-to-setup-authentication.md)bem como a Autenticação no caderno [Azure Machine Learning.](https://aka.ms/aml-notebook-auth)
 
@@ -113,13 +113,13 @@ Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenti
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) utilizando as credenciais para a sua subscrição Azure. 
 
-1. No canto superior esquerdo do portal Azure, selecione **+ Criar um recurso** .
+1. No canto superior esquerdo do portal Azure, selecione **+ Criar um recurso**.
 
       ![Criar um novo recurso](./media/how-to-manage-workspace/create-workspace.gif)
 
-1. Utilize a barra de pesquisa para encontrar **machine learning** .
+1. Utilize a barra de pesquisa para encontrar **machine learning**.
 
-1. Selecione **Machine Learning** .
+1. Selecione **Machine Learning**.
 
 1. No painel **de aprendizagem** automática, selecione **Criar** para começar.
 
@@ -127,27 +127,27 @@ Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenti
 
    Campo|Descrição 
    ---|---
-   Nome da área de trabalho |Insira um nome único que identifique o seu espaço de trabalho. Neste exemplo, **usamos docs-ws** . Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e diferenciar dos espaços de trabalho criados por outros. O nome do espaço de trabalho é insensível a caso.
+   Nome da área de trabalho |Insira um nome único que identifique o seu espaço de trabalho. Neste exemplo, **usamos docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e diferenciar dos espaços de trabalho criados por outros. O nome do espaço de trabalho é insensível a caso.
    Subscrição |Selecione a subscrição do Azure que pretende utilizar.
-   Grupo de recursos | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, **usamos docs-aml** . Precisa de *um colaborador* ou de um *papel proprietário* para utilizar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [Gerir o acesso a um espaço de trabalho Azure Machine Learning.](how-to-assign-roles.md)
-   Região | Selecione a região Azure mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.
+   Grupo de recursos | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, **usamos docs-aml**. Precisa de *um colaborador* ou de um *papel proprietário* para utilizar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [Gerir o acesso a um espaço de trabalho Azure Machine Learning.](how-to-assign-roles.md)
+   Region | Selecione a região Azure mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.
 
     ![Configure o seu espaço de trabalho](./media/how-to-manage-workspace/create-workspace-form.png)
 
-1. Quando terminar de configurar o espaço de trabalho, selecione **Review + Create** . Opcionalmente, utilize as secções [networking](#networking) e [Advanced](#advanced) para configurar mais configurações para o espaço de trabalho.
+1. Quando terminar de configurar o espaço de trabalho, selecione **Review + Create**. Opcionalmente, utilize as secções [networking](#networking) e [Advanced](#advanced) para configurar mais configurações para o espaço de trabalho.
 
-1. Reveja as definições e escdave quaisquer alterações ou correções adicionais. Quando estiver satisfeito com as definições, **selecione Criar** .
+1. Reveja as definições e escdave quaisquer alterações ou correções adicionais. Quando estiver satisfeito com as definições, **selecione Criar**.
 
    > [!Warning] 
    > Pode levar vários minutos para criar o seu espaço de trabalho na nuvem.
 
    Quando o processo está concluído, aparece uma mensagem de sucesso de implantação. 
  
- 1. Para visualizar o novo espaço de trabalho, selecione **Ir para o recurso** .
+ 1. Para visualizar o novo espaço de trabalho, selecione **Ir para o recurso**.
  
 ---
 
-### <a name="networking"></a>Redes  
+### <a name="networking"></a>Rede  
 
 > [!IMPORTANT]  
 > Para obter mais informações sobre a utilização de um ponto final privado e rede virtual com o seu espaço de trabalho, consulte [o isolamento e privacidade da Rede.](how-to-network-security-overview.md)
@@ -155,7 +155,7 @@ Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenti
 
 # <a name="python"></a>[Python](#tab/python)
 
-A Azure Machine Learning Python SDK fornece a classe [PrivateEndpointConfig,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py&preserve-view=true) que pode ser usada com [Workspace.create()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) para criar um espaço de trabalho com um ponto final privado. Esta classe requer uma rede virtual existente.
+A Azure Machine Learning Python SDK fornece a classe [PrivateEndpointConfig,](/python/api/azureml-core/azureml.core.privateendpointconfig?preserve-view=true&view=azure-ml-py) que pode ser usada com [Workspace.create()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-&preserve-view=true) para criar um espaço de trabalho com um ponto final privado. Esta classe requer uma rede virtual existente.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -165,7 +165,7 @@ A Azure Machine Learning Python SDK fornece a classe [PrivateEndpointConfig,](ht
 
 1. No formulário __de ponto final privado Create,__ desaponte a localização, nome e rede virtual para utilizar. Se quiser utilizar o ponto final com uma Zona DNS Privada, __selecione Integre com a zona privada de DNS__ e selecione a zona utilizando o campo __Zona DNS Privada.__ Selecione __OK__ para criar o ponto final.   
 
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Seleção privada de pontos finais":::   
+   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Criação de ponto final privado":::   
 
 1. Quando terminar de configurar a rede, pode selecionar __Review + Create__ ou avançar para a configuração __avançada__ opcional.
 
@@ -180,14 +180,14 @@ A Azure Machine Learning Python SDK fornece a classe [PrivateEndpointConfig,](ht
 Quando cria um ponto final privado, é criada uma nova Zona Privada de DNS chamada __privatelink.api.azureml.ms.__ Isto contém uma ligação com a rede virtual. Se criar vários espaços de trabalho com pontos finais privados no mesmo grupo de recursos, apenas a rede virtual para o primeiro ponto final privado pode ser adicionada à zona de DNS. Para adicionar entradas para as redes virtuais utilizadas pelos espaços de trabalho adicionais/pontos finais privados, utilize os seguintes passos:
 
 1. No [portal Azure,](https://portal.azure.com)selecione o grupo de recursos que contém o espaço de trabalho. Em seguida, selecione o recurso Private DNS Zone nomeado __privatelink.api.azureml.ms__
-2. Nas __Definições__ , selecione __links de rede virtual__ .
-3. Selecione __Adicionar__ . A partir da página __de link de rede virtual Add,__ forneça um nome __link__ único e, em seguida, selecione a __rede Virtual__ a ser adicionada. Selecione __OK__ para adicionar a ligação de rede.
+2. Nas __Definições__ , selecione __links de rede virtual__.
+3. Selecione __Add__ (Adicionar). A partir da página __de link de rede virtual Add,__ forneça um nome __link__ único e, em seguida, selecione a __rede Virtual__ a ser adicionada. Selecione __OK__ para adicionar a ligação de rede.
 
-Para obter mais informações, consulte [a configuração do DNS do Ponto Final Privado Azure](/azure/private-link/private-endpoint-dns).
+Para obter mais informações, consulte [a configuração do DNS do Ponto Final Privado Azure](../private-link/private-endpoint-dns.md).
 
 ### <a name="vulnerability-scanning"></a>Análise de vulnerabilidades
 
-O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças avançada entre cargas de trabalho na cloud híbrida. Deve permitir que o Azure Security Center digitalize os seus recursos e siga as suas recomendações. Para mais informações, consulte  [a imagem do Registo de Contentores Azure pelo Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) e a [integração dos Serviços Azure Kubernetes com o Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção contra ameaças avançada entre cargas de trabalho na cloud híbrida. Deve permitir que o Azure Security Center digitalize os seus recursos e siga as suas recomendações. Para mais informações, consulte  [a imagem do Registo de Contentores Azure pelo Security Center](../security-center/defender-for-container-registries-introduction.md) e a [integração dos Serviços Azure Kubernetes com o Security Center](../security-center/defender-for-kubernetes-introduction.md).
 
 ### <a name="advanced"></a>Avançado
 
@@ -210,7 +210,7 @@ Use os seguintes passos para fornecer a sua própria chave:
 > Antes de seguir estes passos, deve primeiro realizar as seguintes ações:   
 >
 > 1. Autorize a __App de Aprendizagem automática__ (em Gestão de Identidade e Acesso) com permissões de colaboradores na sua subscrição.  
-> 1. Siga os passos em [Chaves geridas pelo cliente](/azure/cosmos-db/how-to-setup-cmk) para:
+> 1. Siga os passos em [Chaves geridas pelo cliente](../cosmos-db/how-to-setup-cmk.md) para:
 >     * Registe-se no fornecedor Azure Cosmos DB
 >     * Criar e configurar um Cofre de Chaves Azure
 >     * Gerar uma chave
@@ -238,13 +238,13 @@ from azureml.core import Workspace
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. Selecione __as teclas geridas pelo Cliente__ e, em seguida, selecione Clique para __selecionar a tecla__ .
+1. Selecione __as teclas geridas pelo Cliente__ e, em seguida, selecione Clique para __selecionar a tecla__.
 
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Seleção privada de pontos finais":::
+    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Chaves geridas pelo cliente":::
 
 1. Na __tecla Select a partir do formulário Azure Key Vault,__ selecione um Cofre de Chave Azure existente, uma chave que contém e a versão da chave. Esta chave é usada para encriptar os dados armazenados no Azure Cosmos DB. Por fim, utilize o botão __Select__ para utilizar esta tecla.
 
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Seleção privada de pontos finais":::
+   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Selecione a chave":::
 
 ---
 
@@ -320,9 +320,9 @@ Workspace.list('<subscription-id>')
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-1. No campo de pesquisa superior, **escreva Machine Learning** .  
+1. No campo de pesquisa superior, **escreva Machine Learning**.  
 
-1. Selecione **Machine Learning** .
+1. Selecione **Machine Learning**.
 
    ![Pesquisa de espaço de trabalho para aprendizagem automática Azure](./media/how-to-manage-workspace/find-workspaces.png)
 
@@ -351,7 +351,7 @@ A ação predefinida não é eliminar os recursos associados ao espaço de traba
 
 No [portal Azure,](https://portal.azure.com/) **selecione Delete**  na parte superior do espaço de trabalho que pretende eliminar.
 
-:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Seleção privada de pontos finais":::
+:::image type="content" source="./media/how-to-manage-workspace/delete-workspace.png" alt-text="Apagar espaço de trabalho":::
 
 ---
 

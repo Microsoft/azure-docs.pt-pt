@@ -1,6 +1,6 @@
 ---
 title: Tabelas temporárias
-description: Orientação essencial para a utilização de tabelas temporárias na piscina Synapse SQL, destacando os princípios das tabelas temporárias de nível de sessão.
+description: Orientação essencial para a utilização de mesas temporárias em piscinas SQL dedicadas, destacando os princípios das tabelas temporárias de nível de sessão.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,30 +10,32 @@ ms.subservice: sql-dw
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 61cc351470c0446b58d83d2d7f9c998d959c3649
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 077782099d6d61982052dc1690d545e58e928d8c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85414407"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310686"
 ---
-# <a name="temporary-tables-in-synapse-sql-pool"></a>Mesas temporárias na piscina Synapse SQL
+# <a name="temporary-tables-in-dedicated-sql-pool"></a>Mesas temporárias em piscina SQL dedicada
+
 Este artigo contém orientações essenciais para a utilização de tabelas temporárias e destaca os princípios das tabelas temporárias de nível de sessão. 
 
 A utilização das informações neste artigo pode ajudá-lo a modular o seu código, melhorando tanto a reutilização como a facilidade de manutenção.
 
 ## <a name="what-are-temporary-tables"></a>O que são mesas temporárias?
-As tabelas temporárias são úteis no processamento de dados, especialmente durante a transformação onde os resultados intermédios são transitórios. Na piscina SQL, existem mesas temporárias ao nível da sessão.  
+
+As tabelas temporárias são úteis no processamento de dados, especialmente durante a transformação onde os resultados intermédios são transitórios. Na piscina SQL dedicada, existem mesas temporárias ao nível da sessão.  
 
 As tabelas temporárias só são visíveis para a sessão em que foram criadas e são automaticamente largadas quando a sessão termina.  
 
 As tabelas temporárias oferecem um benefício de desempenho porque os seus resultados são escritos para armazenamento local e não remoto.
 
-As tabelas temporárias são úteis no processamento de dados, especialmente durante a transformação onde os resultados intermédios são transitórios. Com piscina SQL, existem mesas temporárias ao nível da sessão.  Só são visíveis para a sessão em que foram criados. Como tal, são automaticamente largados quando a sessão termina. 
+As tabelas temporárias são úteis no processamento de dados, especialmente durante a transformação onde os resultados intermédios são transitórios. Com piscina SQL dedicada, existem mesas temporárias ao nível da sessão.  Só são visíveis para a sessão em que foram criados. Como tal, são automaticamente largados quando a sessão termina. 
 
-## <a name="temporary-tables-in-sql-pool"></a>Mesas temporárias na piscina SQL
+## <a name="temporary-tables-in-dedicated-sql-pool"></a>Mesas temporárias em piscina SQL dedicada
 
-No recurso de piscina SQL, as tabelas temporárias oferecem um benefício de desempenho porque os seus resultados são escritos para armazenamento local e não remoto.
+No recurso de piscina SQL dedicado, as tabelas temporárias oferecem um benefício de desempenho porque os seus resultados são escritos para armazenamento local e não remoto.
 
 ### <a name="create-a-temporary-table"></a>Criar uma tabela temporária
 
@@ -205,7 +207,7 @@ Este procedimento armazenado deixa cair um #stats_ddl existente para garantir qu
 
 No entanto, uma vez que não existe `DROP TABLE` no final do procedimento armazenado, quando o procedimento armazenado termina, deixa a tabela criada para que possa ser lida fora do procedimento armazenado.  
 
-Na piscina SQL, ao contrário de outras bases de dados do SQL Server, é possível utilizar a tabela temporária fora do procedimento que a criou.  As mesas temporárias da piscina SQL podem ser **usadas em qualquer lugar** dentro da sessão. Esta funcionalidade pode levar a um código mais modular e manejável, como no exemplo seguinte:
+Em pool SQL dedicado, ao contrário de outras bases de dados do SQL Server, é possível utilizar a tabela temporária fora do procedimento que a criou.  Mesas temporárias de piscina SQL dedicadas podem ser **usadas em qualquer lugar** dentro da sessão. Esta funcionalidade pode levar a um código mais modular e manejável, como no exemplo seguinte:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -227,11 +229,11 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Limitações temporárias da tabela
-A piscina SQL impõe algumas limitações na implementação de tabelas temporárias.  Atualmente, apenas são suportadas as tabelas temporárias de sessão.  As Tabelas Temporárias Globais não são apoiadas.  
+Piscina DE SQL dedicada impõe um par de limitações na implementação de tabelas temporárias.  Atualmente, apenas são suportadas as tabelas temporárias de sessão.  As Tabelas Temporárias Globais não são apoiadas.  
 
 Além disso, as vistas não podem ser criadas em mesas temporárias.  As tabelas temporárias só podem ser criadas com distribuição de haxixe ou rodapé redondo.  A distribuição de mesa temporária replicada não é suportada. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre o desenvolvimento de tabelas, consulte as tabelas de Design utilizando o artigo [de recursos Synapse SQL.](sql-data-warehouse-tables-overview.md)
+Para saber mais sobre o desenvolvimento de tabelas, consulte as tabelas de Design usando o artigo [de piscina SQL dedicado.](sql-data-warehouse-tables-overview.md)
 

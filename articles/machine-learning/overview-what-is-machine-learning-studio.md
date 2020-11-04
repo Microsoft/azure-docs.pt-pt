@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495991"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310165"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio (clássico)?
 
@@ -83,7 +83,7 @@ A tabela seguinte resume as principais diferenças entre ml Studio (clássico) e
 | Funcionalidade | Estúdio ML (clássico) | Azure Machine Learning |
 |---| --- | --- |
 | Interface arrastar e largar | Experiência clássica | Experiência atualizada - [Azure Machine Learning designer](concept-designer.md)| 
-| SDKs de código | Não suportado | Totalmente integrado com [Azure Machine Learning Python](https://docs.microsoft.com/python/api/overview/azure/ml/) e [R](tutorial-1st-r-experiment.md) SDKs |
+| SDKs de código | Não suportado | Totalmente integrado com [Azure Machine Learning Python](/python/api/overview/azure/ml/) e [R](tutorial-1st-r-experiment.md) SDKs |
 | Experimentação | Escalável (limite de dados de formação de 10 GB) | Escala com alvo de computação |
 | Metas de computação de formação | Alvo de computação proprietária, suporte de CPU apenas | Ampla gama de objetivos de [computação de formação](concept-compute-target.md#train)personalizáveis. Inclui suporte de GPU e CPU | 
 | Alvos de computação de implantação | Formato de serviço web proprietário, não personalizável | Ampla gama de alvos de [computação](concept-compute-target.md#deploy)personalizável. Inclui suporte de GPU e CPU |
@@ -103,4 +103,3 @@ Visite o [estúdio,](https://ml.azure.com)ou explore as diferentes opções de a
   + [Use cadernos Jupyter em uma instância de computação para treinar & implementar modelos](tutorial-1st-experiment-sdk-setup.md)
   + [Utilize machine learning automatizado para treinar & implementar modelos](tutorial-first-experiment-automated-ml.md)  
   + [Use o designer para treinar & implementar modelos](tutorial-designer-automobile-price-train-score.md)
-

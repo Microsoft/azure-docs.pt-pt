@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4b512d0817c56bc2daabff057c8bc4aa1afa1dee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44c9dbb0eed5e8f7a868832af93a3b841f67f784
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826518"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310690"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Utilize .NET para Apache Spark com Azure Synapse Analytics
 
@@ -68,7 +68,7 @@ Engenheiros de dados, cientistas de dados, analistas de negócios e engenheiros 
 
 Quando cria um novo caderno, escolhe um núcleo linguístico que deseja expressar a sua lógica de negócio. O suporte kernel está disponível para vários idiomas, incluindo C#.
 
-Para utilizar .NET para Apache Spark no seu caderno Azure Synapse Analytics, selecione **.NET Spark (C#)** como seu núcleo e prenda o caderno a uma piscina spark existente.
+Para utilizar .NET para Apache Spark no seu caderno Azure Synapse Analytics, selecione **.NET Spark (C#)** como o seu núcleo e prenda o caderno a uma piscina Apache Spark sem servidor existente.
 
 O caderno .NET Spark baseia-se nas experiências interativas .NET e proporciona experiências interativas C# com a capacidade de utilizar .NET para Spark fora da caixa com a variável de sessão Spark `spark` já predefinida.
 

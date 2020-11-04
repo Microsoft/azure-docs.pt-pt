@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 166d598528d8fe38e2bc22b76c659326c5e0ba45
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4337d6bb108042a909250b3d87d13ab60357cfec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288788"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311123"
 ---
 # <a name="connect-to-synapse-sql-with-sql-server-management-studio-ssms"></a>Conecte-se ao SQL Synapse com o SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -26,9 +26,9 @@ ms.locfileid: "91288788"
 > 
 > 
 
-Pode utilizar [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para ligar e consultar o Synapse SQL em Azure Synapse Analytics através de recursos de piscina SQL on-demand (pré-visualização) ou SQL pool. 
+Pode utilizar [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para ligar e consultar o Synapse SQL em Azure Synapse Analytics através de um pool SQL sem servidor (pré-visualização) ou recursos dedicados do pool SQL. 
 
-### <a name="supported-tools-for-sql-on-demand-preview"></a>Ferramentas suportadas para SQL on-demand (pré-visualização)
+### <a name="supported-tools-for-serverless-sql-pool-preview"></a>Ferramentas suportadas para piscina SQL sem servidor (pré-visualização)
 
 [O Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) está totalmente suportado a partir da versão 1.18.0. O SSMS é parcialmente suportado a partir da versão 18.5, pode usá-lo apenas para ligar e consultar.
 
@@ -40,42 +40,42 @@ Pode utilizar [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-ser
 Antes de começar, certifique-se de ter os seguintes pré-requisitos:  
 
 * [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms). 
-* Para piscina SQL, você precisa de um armazém de dados existente. Para criar um, consulte [Criar uma piscina SQL.](../quickstart-create-sql-pool-portal.md) Para o SQL a pedido, um já está a provisionado no seu espaço de trabalho no momento da criação. 
+* Para uma piscina SQL dedicada, você precisa de um armazém de dados existente. Para criar um, consulte [Criar uma piscina SQL dedicada.](../quickstart-create-sql-pool-portal.md) Para a piscina SQL sem servidor, um já está a provisionado, chamado Built-in, no seu espaço de trabalho na hora da criação. 
 * O nome do Servidor SQL totalmente qualificado. Para encontrar este nome, consulte [Connect to Synapse SQL](connect-overview.md).
 
 ## <a name="connect"></a>Ligar
 
-### <a name="sql-pool"></a>Conjunto de SQL
+### <a name="dedicated-sql-pool"></a>Piscina SQL dedicada
 
-Para ligar ao Sinaapse SQL utilizando a piscina SQL, siga estes passos: 
+Para ligar ao Synapse SQL utilizando uma piscina SQL dedicada, siga estes passos: 
 
 1. Open SQL Server Management Studio (SSMS). 
-1. Na caixa de diálogo **'Ligar ao Servidor',** preencha os campos e, em seguida, selecione **Connect**: 
+1. Na caixa de diálogo **'Ligar ao Servidor',** preencha os campos e, em seguida, selecione **Connect** : 
   
     ![Ligue-se ao Servidor 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/connect-object-explorer1.png)
    
-   * **Nome do servidor**: Introduza o nome do **servidor** previamente identificado.
-   * **Autenticação**: Escolha um tipo de autenticação, como autenticação do **servidor SQL** ou **autenticação integrada do Diretório Ativo.**
-   * **Nome do utilizador** e **palavra-passe**: Introduza o nome de utilizador e a palavra-passe se a autenticação do servidor SQL tiver sido selecionada acima.
+   * **Nome do servidor** : Introduza o nome do **servidor** previamente identificado.
+   * **Autenticação** : Escolha um tipo de autenticação, como autenticação do **servidor SQL** ou **autenticação integrada do Diretório Ativo.**
+   * **Nome do utilizador** e **palavra-passe** : Introduza o nome de utilizador e a palavra-passe se a autenticação do servidor SQL tiver sido selecionada acima.
 
 1. Expanda o seu Servidor Azure SQL no **Explorador de Objetos**. Pode ver as bases de dados associadas ao servidor, como a base de dados AdventureWorksDW da amostra. Pode expandir a base de dados para ver as tabelas:
    
     ![Explore AdventureWorksDW 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/explore-tables.png)
 
 
-### <a name="sql-on-demand-preview"></a>SQL on demand (pré-visualização)
+### <a name="serverless-sql-pool-preview"></a>Piscina SQL sem servidor (pré-visualização)
 
-Para ligar ao SQL synapse utilizando SQL a pedido, siga estes passos: 
+Para ligar ao Sinaapse SQL utilizando a piscina SQL sem servidor, siga estes passos: 
 
 1. Open SQL Server Management Studio (SSMS).
-1. Na caixa de diálogo **'Ligar ao Servidor',** preencha os campos e, em seguida, selecione **Connect**: 
+1. Na caixa de diálogo **'Ligar ao Servidor',** preencha os campos e, em seguida, selecione **Connect** : 
    
     ![Ligar ao Servidor 2](./media/get-started-ssms/connect-object-explorer1.png)
    
-   * **Nome do servidor**: Introduza o nome do **servidor** previamente identificado.
-   * **Autenticação**: Escolha um tipo de autenticação, como autenticação do **servidor SQL** ou **autenticação integrada do Diretório Ativo:**
-   * **Nome do utilizador** e **palavra-passe**: Introduza o nome de utilizador e a palavra-passe se a autenticação do servidor SQL tiver sido selecionada acima.
-   * Selecione **Ligar**.
+   * **Nome do servidor** : Introduza o nome do **servidor** previamente identificado.
+   * **Autenticação** : Escolha um tipo de autenticação, como autenticação do **servidor SQL** ou **autenticação integrada do Diretório Ativo:**
+   * **Nome do utilizador** e **palavra-passe** : Introduza o nome de utilizador e a palavra-passe se a autenticação do servidor SQL tiver sido selecionada acima.
+   * Selecione **Connect** (Ligar).
 
 4. Para explorar, expanda o servidor SQL do Azure. Pode ver as bases de dados associadas ao servidor. Expanda a *demonstração* para ver o conteúdo na sua base de dados de amostras.
    
@@ -84,7 +84,7 @@ Para ligar ao SQL synapse utilizando SQL a pedido, siga estes passos:
 
 ## <a name="run-a-sample-query"></a>Executar uma consulta de exemplo
 
-### <a name="sql-pool"></a>Conjunto de SQL
+### <a name="dedicated-sql-pool"></a>Piscina SQL dedicada
 
 Agora que foi estabelecida uma ligação de base de dados, pode consultar os dados.
 
@@ -104,7 +104,7 @@ Agora que foi estabelecida uma ligação de base de dados, pode consultar os dad
    
     ![Resultados de consulta 1](../sql-data-warehouse/media/sql-data-warehouse-query-ssms/results.png)
 
-### <a name="sql-on-demand"></a>SQL a pedido
+### <a name="serverless-sql-pool"></a>Piscina SQL sem servidor
 
 Agora que estabeleceu uma ligação de base de dados, pode consultar os dados.
 

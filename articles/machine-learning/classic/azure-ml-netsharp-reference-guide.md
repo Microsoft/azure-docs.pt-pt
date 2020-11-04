@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: f3bbab14152f16515c93972e6b41ef34693e1143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f16ed3c455067ff2fa185bff023a6993ccda58c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367959"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311978"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guia para net# linguagem de especificação de rede neural para Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Net# é uma linguagem desenvolvida pela Microsoft que é usada para definir arquiteturas complexas de rede neural, tais como redes neuronais profundas ou convoluções de dimensões arbitrárias. Pode utilizar estruturas complexas para melhorar a aprendizagem de dados como imagem, vídeo ou áudio.
 
 Pode utilizar uma especificação de arquitetura Net# nestes contextos:
 
-+ Todos os módulos de rede neural no Microsoft Azure Machine Learning Studio (clássico): [Rede Neural Multiclass, Rede](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network)Neural de [Duas Classes](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)e [Regressão da Rede Neural](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Funciona a rede neural no Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)para o idioma R, e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
++ Todos os módulos de rede neural no Microsoft Azure Machine Learning Studio (clássico): [Rede Neural Multiclass, Rede](/azure/machine-learning/studio-module-reference/multiclass-neural-network)Neural de [Duas Classes](/azure/machine-learning/studio-module-reference/two-class-neural-network)e [Regressão da Rede Neural](/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Funciona a rede neural no Microsoft ML Server: [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet)para o idioma R, e [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network) para Python.
 
 
 Este artigo descreve os conceitos básicos e a sintaxe necessária para desenvolver uma rede neural personalizada usando Net#:
@@ -192,21 +192,21 @@ Os pacotes convolucionais suportam os seguintes atributos:
 
 **InputShape** define a dimensionalidade da camada de origem para os fins deste pacote convolucional. O valor deve ser uma amostra de inteiros positivos. O produto dos inteiros deve ser igual ao número de nós na camada de origem, mas, caso contrário, não precisa de corresponder à dimensionalidade declarada para a camada de origem. O comprimento deste tuple torna-se o valor **da aridade** para o feixe convolucional. Tipicamente aridade refere-se ao número de argumentos ou operands que uma função pode tomar.
 
-Para definir a forma e a localização dos núcleos, utilize os atributos **KernelShape,** **Stride,** **Estofamento,** **LowerPad**e **UpperPad:**
+Para definir a forma e a localização dos núcleos, utilize os atributos **KernelShape,** **Stride,** **Estofamento,** **LowerPad** e **UpperPad:**
 
-+ **KernelShape**: (obrigatório) Define a dimensionalidade de cada núcleo para o feixe convolucional. O valor deve ser uma amostra de inteiros positivos com um comprimento que seja igual à aridade do feixe. Cada componente deste tuple não deve ser maior do que o componente correspondente do **InputShape**.
++ **KernelShape** : (obrigatório) Define a dimensionalidade de cada núcleo para o feixe convolucional. O valor deve ser uma amostra de inteiros positivos com um comprimento que seja igual à aridade do feixe. Cada componente deste tuple não deve ser maior do que o componente correspondente do **InputShape**.
 
-+ **Passo**: (opcional) Define os tamanhos do passo deslizante da convolução (um passo para cada dimensão), que é a distância entre os nós centrais. O valor deve ser uma amostra de inteiros positivos com um comprimento que é a aridade do feixe. Cada componente deste tuple não deve ser maior do que o componente correspondente da **KernelShape**. O valor predefinido é um tuple com todos os componentes iguais a um.
++ **Passo** : (opcional) Define os tamanhos do passo deslizante da convolução (um passo para cada dimensão), que é a distância entre os nós centrais. O valor deve ser uma amostra de inteiros positivos com um comprimento que é a aridade do feixe. Cada componente deste tuple não deve ser maior do que o componente correspondente da **KernelShape**. O valor predefinido é um tuple com todos os componentes iguais a um.
 
-+ **Partilha:**(opcional) Define a partilha de peso para cada dimensão da convolução. O valor pode ser um único valor Boolean ou um tuple de valores booleanos com um comprimento que é a aridade do pacote. Um único valor Boolean é estendido para ser um tuple do comprimento correto com todos os componentes iguais ao valor especificado. O valor padrão é uma tuple que consiste em todos os valores verdadeiros.
++ **Partilha:** (opcional) Define a partilha de peso para cada dimensão da convolução. O valor pode ser um único valor Boolean ou um tuple de valores booleanos com um comprimento que é a aridade do pacote. Um único valor Boolean é estendido para ser um tuple do comprimento correto com todos os componentes iguais ao valor especificado. O valor padrão é uma tuple que consiste em todos os valores verdadeiros.
 
-+ **MapCount**: (opcional) Define o número de mapas de funcionalidades para o pacote convolucional. O valor pode ser um único inteiro positivo ou um tuple de inteiros positivos com um comprimento que é a aridade do feixe. Um único valor inteiro é estendido para ser um tuple do comprimento correto com os primeiros componentes iguais ao valor especificado e todos os restantes componentes iguais a um. O valor predefinido é um. O número total de mapas de características é o produto dos componentes do tuple. O factoring deste número total através dos componentes determina como os valores do mapa de funcionalidades são agrupados nos nós de destino.
++ **MapCount** : (opcional) Define o número de mapas de funcionalidades para o pacote convolucional. O valor pode ser um único inteiro positivo ou um tuple de inteiros positivos com um comprimento que é a aridade do feixe. Um único valor inteiro é estendido para ser um tuple do comprimento correto com os primeiros componentes iguais ao valor especificado e todos os restantes componentes iguais a um. O valor predefinido é um. O número total de mapas de características é o produto dos componentes do tuple. O factoring deste número total através dos componentes determina como os valores do mapa de funcionalidades são agrupados nos nós de destino.
 
-+ **Pesos**: (opcional) Define os pesos iniciais para o feixe. O valor deve ser um tuple de valores de ponto flutuante com um comprimento que é o número de núcleos vezes o número de pesos por núcleo, tal como definido mais tarde neste artigo. Os pesos predefinidos são gerados aleatoriamente.
++ **Pesos** : (opcional) Define os pesos iniciais para o feixe. O valor deve ser um tuple de valores de ponto flutuante com um comprimento que é o número de núcleos vezes o número de pesos por núcleo, tal como definido mais tarde neste artigo. Os pesos predefinidos são gerados aleatoriamente.
 
 Existem dois conjuntos de propriedades que controlam o acolchoamento, sendo as propriedades mutuamente exclusivas:
 
-+ **Estofamento**: (opcional) Determina se a entrada deve ser acolchoada utilizando um **esquema de enchimento predefinido**. O valor pode ser um único valor Boolean, ou pode ser um tuple de valores booleanos com um comprimento que é a aridade do pacote.
++ **Estofamento** : (opcional) Determina se a entrada deve ser acolchoada utilizando um **esquema de enchimento predefinido**. O valor pode ser um único valor Boolean, ou pode ser um tuple de valores booleanos com um comprimento que é a aridade do pacote.
 
     Um único valor Boolean é estendido para ser um tuple do comprimento correto com todos os componentes iguais ao valor especificado.
 
@@ -214,7 +214,7 @@ Existem dois conjuntos de propriedades que controlam o acolchoamento, sendo as p
 
     Se o valor para uma dimensão for Falso, os núcleos são definidos de modo a que o número de nós de cada lado que são deixados de fora seja o mesmo (até uma diferença de 1). O valor predefinido deste atributo é um tuple com todos os componentes iguais ao Falso.
 
-+ **UpperPad** e **LowerPad**: (opcional) Forneça um maior controlo sobre a quantidade de estofos a utilizar. **Importante:** Estes atributos podem ser definidos se e somente se a propriedade **de enchimento** acima ***não*** for definida. Os valores devem ser tuples de valor inteiro com comprimentos que são a aridade do feixe. Quando estes atributos são especificados, os nós "manequim" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior de cada dimensão é determinado por **LowerPad**[i] e **UpperPad**[i] respectivamente.
++ **UpperPad** e **LowerPad** : (opcional) Forneça um maior controlo sobre a quantidade de estofos a utilizar. **Importante:** Estes atributos podem ser definidos se e somente se a propriedade **de enchimento** acima não for **_not_*definida. Os valores devem ser tuples de valor inteiro com comprimentos que são a aridade do feixe. Quando estes atributos são especificados, os nós "manequim" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior de cada dimensão é determinado por _* LowerPad** [i] e **UpperPad** [i] respectivamente.
 
     Para garantir que os miolos correspondem apenas aos nóns "reais" e não aos nóns "manequim", devem ser satisfeitas as seguintes condições:
   - Cada componente do **LowerPad** deve ser estritamente inferior `KernelShape[d]/2` .
@@ -230,7 +230,7 @@ Para obter mais informações sobre redes convolucionais e suas aplicações, co
 
 ## <a name="pooling-bundles"></a>Pacotes de piscina
 
-Um **pacote de pooling** aplica geometria semelhante à conectividade convolucional, mas utiliza funções predefinidas para obter valores de nó para obter o valor do nó de destino. Assim, os feixes de agrupamento não têm estado treinável (pesos ou enviesamentos). Os pacotes de pooling suportam todos os atributos convolucionais, exceto **partilha,** **MapCount**e **Pesos.**
+Um **pacote de pooling** aplica geometria semelhante à conectividade convolucional, mas utiliza funções predefinidas para obter valores de nó para obter o valor do nó de destino. Assim, os feixes de agrupamento não têm estado treinável (pesos ou enviesamentos). Os pacotes de pooling suportam todos os atributos convolucionais, exceto **partilha,** **MapCount** e **Pesos.**
 
 Normalmente, os núcleos resumidos por unidades de agrupamento adjacentes não se sobrepõem. Se o Stride[d] for igual ao KernelShape[d] em cada dimensão, a camada obtida é a camada tradicional de agrupamento local, que é geralmente utilizada em redes neuronais convolucionais. Cada nó de destino calcula o máximo ou a média das atividades do seu núcleo na camada de origem.
 
@@ -264,11 +264,11 @@ A normalização da resposta é utilizada para ajudar a generalização nas rede
 
 ![fórmula para estrutura convolucional](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 
-Os pacotes de normalização de resposta suportam todos os atributos convolucionais, exceto **partilha,** **MapCount**e **Pesos.**
+Os pacotes de normalização de resposta suportam todos os atributos convolucionais, exceto **partilha,** **MapCount** e **Pesos.**
 
-+ Se o núcleo contiver neurónios no mesmo mapa ***que x,*** o esquema de normalização é referido como a **mesma normalização do mapa**. Para definir a mesma normalização do mapa, a primeira coordenada no **InputShape** deve ter o valor 1.
++ Se o núcleo contiver neurónios no mesmo mapa **_que x_*_, o esquema de normalização é referido como _* mesma normalização do mapa**. Para definir a mesma normalização do mapa, a primeira coordenada no **InputShape** deve ter o valor 1.
 
-+ Se o núcleo contém neurónios na mesma posição espacial que ***x,*** mas os neurónios estão em outros mapas, o esquema de normalização é chamado **através da normalização dos mapas.** Este tipo de normalização de resposta implementa uma forma de inibição lateral inspirada no tipo encontrado em neurónios reais, criando competição para grandes níveis de ativação entre as saídas de neurónios computadas em diferentes mapas. Para definir entre mapas a normalização, a primeira coordenada deve ser um número inteiro maior do que um e não maior do que o número de mapas, e o resto das coordenadas deve ter o valor 1.
++ Se o núcleo contiver neurónios na mesma posição espacial que **_x_*_, mas os neurónios estão em outros mapas, o esquema de normalização é chamado de _* através da normalização dos mapas**. Este tipo de normalização de resposta implementa uma forma de inibição lateral inspirada no tipo encontrado em neurónios reais, criando competição para grandes níveis de ativação entre as saídas de neurónios computadas em diferentes mapas. Para definir entre mapas a normalização, a primeira coordenada deve ser um número inteiro maior do que um e não maior do que o número de mapas, e o resto das coordenadas deve ter o valor 1.
 
 Como os pacotes de normalização de resposta aplicam uma função predefinida aos valores do nó de origem para determinar o valor do nó de destino, não têm estado treinável (pesos ou enviesamentos).
 
@@ -277,9 +277,9 @@ Como os pacotes de normalização de resposta aplicam uma função predefinida a
 
 Além dos quatro atributos descritos anteriormente, os pacotes de normalização de resposta também suportam os seguintes atributos:
 
-+ **Alpha**: (obrigatório) Especifica um valor de ponto flutuante que corresponde `α` à fórmula anterior.
-+ **Beta**: (obrigatório) Especifica um valor de ponto flutuante que corresponde `β` à fórmula anterior.
-+ **Offset**: (opcional) Especifica um valor de ponto flutuante que corresponde `k` à fórmula anterior. Falha em 1.
++ **Alpha** : (obrigatório) Especifica um valor de ponto flutuante que corresponde `α` à fórmula anterior.
++ **Beta** : (obrigatório) Especifica um valor de ponto flutuante que corresponde `β` à fórmula anterior.
++ **Offset** : (opcional) Especifica um valor de ponto flutuante que corresponde `k` à fórmula anterior. Falha em 1.
 
 O exemplo a seguir define um pacote de normalização de resposta utilizando estes atributos:
 
@@ -463,4 +463,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Agradecimentos
 
-A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolvida na Microsoft por Shon Katzenberger (Architect, Machine Learning) e Alexey Kamenev (Software Engineer, Microsoft Research). É utilizado internamente para projetos de machine learning e aplicações que vão desde a deteção de imagem até análise de texto. Para mais informações, consulte [Neural Nets no estúdio Azure Machine Learning - Introdução à Net#](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)
+A linguagem Net# para personalizar a arquitetura das redes neurais foi desenvolvida na Microsoft por Shon Katzenberger (Architect, Machine Learning) e Alexey Kamenev (Software Engineer, Microsoft Research). É utilizado internamente para projetos de machine learning e aplicações que vão desde a deteção de imagem até análise de texto. Para mais informações, consulte [Neural Nets no estúdio Azure Machine Learning - Introdução à Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net)

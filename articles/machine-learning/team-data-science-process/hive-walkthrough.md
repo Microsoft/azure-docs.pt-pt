@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 991e81c46a0cd6c587ac3366b63ba4da6a07f7e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53f50e98bcec4b8ace342808f0bcfd96770834b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336518"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312349"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O processo de ciência de dados da equipa em ação: Use clusters Azure HDInsight Hadoop
 Neste walkthrough, usamos o [Processo de Ciência de Dados de Equipa (TDSP)](overview.md) num cenário de ponta a ponta. Utilizamos um [cluster Azure HDInsight Hadoop](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e criar dados de engenheiros de recursos a partir do conjunto de dados de [viagens de táxi](https://www.andresmh.com/nyctaxitrips/) de NYC publicamente disponíveis, e para desconstrução dos dados. Para lidar com a classificação binária e multiclasse e tarefas preditivas de regressão, construímos modelos dos dados com Azure Machine Learning. 
@@ -59,14 +59,14 @@ Os dados da NyC Taxi Trip são cerca de 20 GB de ficheiros de valores comipresso
 A chave única para juntar dados de viagem \_ e tarifa de viagem é composta pelos \_ campos: medalhão, licença de hack \_ e data de \_ recolha. Para obter todos os detalhes relevantes para uma viagem em particular, é suficiente para se juntar a estas três chaves.
 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de tarefas de previsão
-Determine o tipo de previsões que pretende fazer com base na análise de dados para ajudar a esclarecer as tarefas de processo necessárias. Aqui estão três exemplos de problemas de previsão que abordamos nesta passagem, tudo com base na quantidade de *gorjeta: \_ *
+Determine o tipo de previsões que pretende fazer com base na análise de dados para ajudar a esclarecer as tarefas de processo necessárias. Aqui estão três exemplos de problemas de previsão que abordamos nesta passagem, tudo com base na quantidade de *gorjeta: \_*
 
-- **Classificação binária**: Prever se foi paga ou não uma gorjeta por uma viagem. Ou seja, um * \_ valor de gorjeta* superior a $0 é um exemplo positivo, enquanto uma * \_ gorjeta* de $0 é um exemplo negativo.
+- **Classificação binária** : Prever se foi paga ou não uma gorjeta por uma viagem. Ou seja, um *\_ valor de gorjeta* superior a $0 é um exemplo positivo, enquanto uma *\_ gorjeta* de $0 é um exemplo negativo.
 
   - Classe 0: tip_amount = $0
   - Classe 1: tip_amount > $0
 
-- **Classificação multiclasse**: Prever a gama de valores de gorjeta pagos pela viagem. Dividimos o * \_ valor* da gorjeta em cinco classes:
+- **Classificação multiclasse** : Prever a gama de valores de gorjeta pagos pela viagem. Dividimos o *\_ valor* da gorjeta em cinco classes:
 
   - Classe 0: tip_amount = $0
   - Classe 1: tip_amount > $0 e tip_amount <= $5
@@ -74,7 +74,7 @@ Determine o tipo de previsões que pretende fazer com base na análise de dados 
   - Classe 3: tip_amount > $10 e tip_amount <= $20
   - Classe 4: tip_amount > $20
 
-- **Tarefa de regressão**: Prever o valor da gorjeta paga por uma viagem.  
+- **Tarefa de regressão** : Prever o valor da gorjeta paga por uma viagem.  
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-advanced-analytics"></a><a name="setup"></a>Crie um cluster HDInsight Hadoop para análise avançada
 > [!NOTE]
@@ -85,7 +85,7 @@ Determine o tipo de previsões que pretende fazer com base na análise de dados 
 Você pode configurar um ambiente Azure para análises avançadas que empregam um cluster HDInsight em três etapas:
 
 1. [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md): Esta conta de armazenamento é utilizada para armazenar dados no armazenamento de Azure Blob. Os dados utilizados nos clusters HDInsight também residem aqui.
-2. [Personalize os clusters Azure HDInsight Hadoop para o Processo e Tecnologia Avançada de Análise.](customize-hadoop-cluster.md) Este passo cria um cluster HDInsight Hadoop com 64 bits Anaconda Python 2.7 instalado em todos os nós. Existem dois passos importantes para lembrar ao personalizar o seu cluster HDInsight.
+2. [Personalize os clusters Azure HDInsight Hadoop para o Processo e Tecnologia Avançada de Análise.](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) Este passo cria um cluster HDInsight Hadoop com 64 bits Anaconda Python 2.7 instalado em todos os nós. Existem dois passos importantes para lembrar ao personalizar o seu cluster HDInsight.
    
    * Lembre-se de ligar a conta de armazenamento criada no passo 1 com o seu cluster HDInsight quando estiver a criá-la. Esta conta de armazenamento acede a dados que são processados dentro do cluster.
    * Depois de criar o cluster, ative o acesso remoto ao nó de cabeça do cluster. Navegue no **separador Configuração** e selecione **Ative Remote**. Este passo especifica as credenciais de utilizador utilizadas para o login remoto.
@@ -99,7 +99,7 @@ Você pode configurar um ambiente Azure para análises avançadas que empregam u
 
 Para copiar o conjunto de dados [de Viagens de Táxi de NYC](https://www.andresmh.com/nyctaxitrips/) para a sua máquina a partir da sua localização pública, utilize qualquer um dos métodos descritos nos [dados do Move de e para o armazenamento Azure Blob](move-azure-blob.md).
 
-Aqui, descrevemos como usar o AzCopy para transferir os ficheiros que contêm dados. Para descarregar e instalar o AzCopy, siga as instruções em [Começar com o utilitário da linha de comando AzCopy](../../storage/common/storage-use-azcopy.md).
+Aqui, descrevemos como usar o AzCopy para transferir os ficheiros que contêm dados. Para descarregar e instalar o AzCopy, siga as instruções em [Começar com o utilitário da linha de comando AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 
 1. A partir de uma janela de pedido de comando de comando, executar os seguintes comandos AzCopy, substituindo *\<path_to_data_folder>* pelo destino pretendido:
 
@@ -117,23 +117,23 @@ Aqui, descrevemos como usar o AzCopy para transferir os ficheiros que contêm da
 
 Nos seguintes comandos AzCopy, substitua os seguintes parâmetros pelos valores reais especificados ao criar o cluster Hadoop e desapertar os ficheiros de dados.
 
-* ***\<path_to_data_folder>*** O diretório (juntamente com o caminho) na sua máquina que contém os ficheiros de dados desapertados.  
-* ***\<storage account name of Hadoop cluster>*** A conta de armazenamento associada ao seu cluster HDInsight.
-* ***\<default container of Hadoop cluster>*** O recipiente predefinido utilizado pelo seu cluster. O nome do recipiente predefinido é geralmente o mesmo nome que o próprio cluster. Por exemplo, se o cluster for chamado de "abc123.azurehdinsight.net", o recipiente padrão é abc123.
-* ***\<storage account key>*** A chave para a conta de armazenamento usada pelo seu cluster.
+* ***\<path_to_data_folder>** _ O diretório (juntamente com o caminho) na sua máquina que contém os ficheiros de dados desapertados.  
+_ _ **\<storage account name of Hadoop cluster>** _ _ A conta de armazenamento associada ao seu cluster HDInsight.
+_ _ **\<default container of Hadoop cluster>** _ _ O recipiente predefinido utilizado pelo seu cluster. O nome do recipiente predefinido é geralmente o mesmo nome que o próprio cluster. Por exemplo, se o cluster for chamado de "abc123.azurehdinsight.net", o recipiente padrão é abc123.
+_ _ **\<storage account key>** _ _ A chave para a conta de armazenamento utilizada pelo seu cluster.
 
 A partir de um pedido de comando ou de uma janela Windows PowerShell, executar os dois comandos AzCopy seguintes.
 
-Este comando envia os dados da viagem para o ***diretório nyctaxitripraw*** no contentor padrão do cluster Hadoop.
+Este comando envia os dados da viagem para o _*_diretório nyctaxitripraw_*_ no contentor padrão do cluster Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data_*.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxitripraw /DestKey:<storage account key> /S /Pattern:trip_data__.csv
 ```
 
-Este comando envia os dados da tarifa para o ***diretório nyctaxifareraw*** no contentor padrão do cluster Hadoop.
+Este comando envia os dados da tarifa para o * **nyctaxifareraw** _ diretório no contentor padrão do cluster Hadoop.
 
 ```console
-"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare_*.csv
+"C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:<path_to_unzipped_data_files> /Dest:https://<storage account name of Hadoop cluster>.blob.core.windows.net/<default container of Hadoop cluster>/nyctaxifareraw /DestKey:<storage account key> /S /Pattern:trip_fare__.csv
 ```
 
 Os dados devem agora estar no armazenamento blob, e prontos para serem consumidos dentro do cluster HDInsight.
@@ -144,7 +144,7 @@ Os dados devem agora estar no armazenamento blob, e prontos para serem consumido
 > 
 > 
 
-Para aceder ao nó de cabeça do cluster para análise exploratória de dados e amostragem dos dados, siga o procedimento descrito no [Access o nó de cabeça do Hadoop Cluster](customize-hadoop-cluster.md).
+Para aceder ao nó de cabeça do cluster para análise exploratória de dados e amostragem dos dados, siga o procedimento descrito no [Access o nó de cabeça do Hadoop Cluster](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 
 Nesta passagem, utilizamos principalmente consultas escritas na [Hive,](https://hive.apache.org/)uma linguagem de consulta semelhante ao SQL, para realizar explorações preliminares de dados. As consultas de Colmeia são armazenadas em ficheiros '.hql'. Em seguida, descodámos estes dados para serem utilizados no Machine Learning para construir modelos.
 
@@ -156,7 +156,7 @@ set script='https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataSc
 @powershell -NoProfile -ExecutionPolicy unrestricted -Command "iex ((new-object net.webclient).DownloadString(%script%))"
 ```
 
-Estes dois comandos descarregam todos os ficheiros '.hql' necessários nesta passagem para o diretório local ***C:\temp&#92;*** no nó de cabeça.
+Estes dois comandos descarregam todos os ficheiros '.hql' necessários neste walkthrough para o diretório local * **C:\temp&#92;** _ no nó da cabeça.
 
 ## <a name="create-hive-database-and-tables-partitioned-by-month"></a><a name="#hive-db-tables"></a>Criar base de dados de Colmeia e tabelas divididas por mês
 > [!NOTE]
@@ -182,7 +182,7 @@ A partir do diretório da Colmeia, executar o seguinte comando na linha de coman
 hive -f "C:\temp\sample_hive_create_db_and_tables.hql"
 ```
 
-Aqui está o conteúdo da **colmeia C:\temp\sample \_ criar \_ \_ db e \_ \_ tabelas.hql** que cria a base de dados da Hive **nyctaxidb,** e as tabelas **viagem** e **tarifa**.
+Aqui está o conteúdo do _ *C:\temp\sample \_ hive \_ create \_ db \_ and \_ tables.hql* * que cria a base de dados da Hive **nyctaxidb,** e as tabelas **tropeçam** e **tarifa**.
 
 ```hiveql
 create database if not exists nyctaxidb;
@@ -244,7 +244,7 @@ O conjunto de dados de táxi de NYC tem uma partição natural por mês, que usa
 for /L %i IN (1,1,12) DO (hive -hiveconf MONTH=%i -f "C:\temp\sample_hive_load_data_by_partitions.hql")
 ```
 
-Os ** \_ dados de carga da colmeia da amostra \_ por \_ \_ \_ partitions.ficheiro hql** contém os seguintes comandos **LOAD:**
+Os **\_ dados de carga da colmeia da amostra \_ por \_ \_ \_ partitions.ficheiro hql** contém os seguintes comandos **LOAD:**
 
 ```hiveql
 LOAD DATA INPATH 'wasb:///nyctaxitripraw/trip_data_${hiveconf:MONTH}.csv' INTO TABLE nyctaxidb.trip PARTITION (month=${hiveconf:MONTH});
@@ -447,13 +447,13 @@ O número total de registos em ambas as tabelas é também o mesmo, prevendo uma
 > 
 > 
 
-Este exemplo identifica os medalhão (números de táxi) com mais de 100 viagens num determinado período de tempo. A consulta beneficia do acesso à mesa dividida, pois está condicionada pelo **mês**variável de partição. Os resultados da consulta são escritos num ficheiro local, **consultaoutput.tsv,** `C:\temp` no nó de cabeça.
+Este exemplo identifica os medalhão (números de táxi) com mais de 100 viagens num determinado período de tempo. A consulta beneficia do acesso à mesa dividida, pois está condicionada pelo **mês** variável de partição. Os resultados da consulta são escritos num ficheiro local, **consultaoutput.tsv,** `C:\temp` no nó de cabeça.
 
 ```console
 hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 ```
 
-Aqui está o conteúdo da contagem de ** \_ amostras de viagem da colmeia \_ por \_ \_ \_ medallion.arquivo hql** para inspeção.
+Aqui está o conteúdo da contagem de **\_ amostras de viagem da colmeia \_ por \_ \_ \_ medallion.arquivo hql** para inspeção.
 
 ```hiveql
 SELECT medallion, COUNT(*) as med_count
@@ -466,7 +466,7 @@ ORDER BY med_count desc;
 
 O medalhão no conjunto de dados de táxi de NYC identifica um táxi único. Pode identificar quais táxis estão comparativamente ocupados perguntando quais fizeram mais do que um certo número de viagens num determinado período de tempo. O exemplo a seguir identifica táxis que fizeram mais de uma centena de viagens nos primeiros três meses, e guarda os resultados da consulta para um ficheiro local, **C:\temp\queryoutput.tsv**.
 
-Aqui está o conteúdo da contagem de ** \_ amostras de viagem da colmeia \_ por \_ \_ \_ medallion.arquivo hql** para inspeção.
+Aqui está o conteúdo da contagem de **\_ amostras de viagem da colmeia \_ por \_ \_ \_ medallion.arquivo hql** para inspeção.
 
 ```hiveql
 SELECT medallion, COUNT(*) as med_count
@@ -491,7 +491,7 @@ hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.
 
 Ao explorar um conjunto de dados, queremos frequentemente examinar a distribuição de grupos de valores. Esta secção fornece um exemplo de como fazer esta análise para táxis e motoristas.
 
-A ** \_ contagem de \_ amostras de viagem \_ por \_ \_ \_ medalhão.hql** agrupamentos de dados o conjunto de dados de tarifas no **medalhão** e **hack_license**, e devolve as contagens de cada combinação. Aqui está o seu conteúdo:
+A **\_ contagem de \_ amostras de viagem \_ por \_ \_ \_ medalhão.hql** agrupamentos de dados o conjunto de dados de tarifas no **medalhão** e **hack_license** , e devolve as contagens de cada combinação. Aqui está o seu conteúdo:
 
 ```hiveql
 SELECT medallion, hack_license, COUNT(*) as trip_count
@@ -520,7 +520,7 @@ Os resultados da consulta são escritos num ficheiro local, **C:\temp\consultaou
 
 Um objetivo comum da análise de dados exploratórios é eliminar registos inválidos ou maus. O exemplo nesta secção determina se os campos de longitude ou latitude contêm um valor muito fora da área de NYC. Uma vez que é provável que esses registos tenham um valor erróneo de longitude-latitude, queremos eliminá-los de quaisquer dados que sejam utilizados para modelação.
 
-Aqui está o conteúdo da avaliação da qualidade da ** \_ colmeia da \_ \_ amostra.arquivo hql** para inspeção.
+Aqui está o conteúdo da avaliação da qualidade da **\_ colmeia da \_ \_ amostra.arquivo hql** para inspeção.
 
 ```hiveql
     SELECT COUNT(*) FROM nyctaxidb.trip
@@ -550,7 +550,7 @@ Para o problema de classificação binária delineado na secção [Exemplos de t
 * dica dada (Classe 1, valor da gorjeta \_ > $0)  
 * sem gorjeta (Classe 0, valor da gorjeta \_ = $0)
 
-O seguinte ficheiro de ** \_ frequências com ponta da colmeia \_ da \_ amostra.hql** mostra o comando a executar:
+O seguinte ficheiro de **\_ frequências com ponta da colmeia \_ da \_ amostra.hql** mostra o comando a executar:
 
 ```hiveql
 SELECT tipped, COUNT(*) AS tip_freq
@@ -639,7 +639,7 @@ hdfs dfs -mkdir wasb:///queryoutputdir
 hive -f "C:\temp\sample_hive_trip_direct_distance.hql"
 ```
 
-Os resultados da consulta são escritos a nove bolhas Azure **(consultaoutputdir/000000 \_ 0** a  **consultaoutputdir/000008 \_ 0**), sob o recipiente padrão do cluster Hadoop.
+Os resultados da consulta são escritos a nove bolhas Azure **(consultaoutputdir/000000 \_ 0** a  **consultaoutputdir/000008 \_ 0** ), sob o recipiente padrão do cluster Hadoop.
 
 Para ver o tamanho das bolhas individuais, executar o seguinte comando a partir do diretório hive:
 
@@ -647,7 +647,7 @@ Para ver o tamanho das bolhas individuais, executar o seguinte comando a partir 
 hdfs dfs -ls wasb:///queryoutputdir
 ```
 
-Para ver o conteúdo de um dado ficheiro, por exemplo **0000000, \_ **use o comando de Hadoop. `copyToLocal`
+Para ver o conteúdo de um dado ficheiro, por exemplo **0000000, \_** use o comando de Hadoop. `copyToLocal`
 
 ```hiveql
 hdfs dfs -copyToLocal wasb:///queryoutputdir/000000_0 C:\temp\tempfile
@@ -669,11 +669,11 @@ Uma vantagem fundamental de ter estes dados residir em uma bolha Azure é que po
 Após a fase de análise de dados exploratórios, estamos agora prontos para desacompir os dados para a construção de modelos em Machine Learning. Nesta secção, mostramos como usar uma consulta de Colmeia para reduzir a amostra dos dados. Machine Learning acede-o então a partir do módulo [de Dados de Importação.][import-data]
 
 ### <a name="down-sampling-the-data"></a>Amostragem de amostras
-Há dois passos neste procedimento. Primeiro juntamo-nos às mesas **nyctaxidb.trip** e **nyctaxidb.fare** em três chaves que estão presentes em todos os registos: **medalhão,** ** \_ licença de hack,** e **hora \_ de recolha.** Em seguida, geramos uma etiqueta de classificação binária, **inclinada,** e uma etiqueta de classificação multiclasse, ** \_ classe de ponta.**
+Há dois passos neste procedimento. Primeiro juntamo-nos às mesas **nyctaxidb.trip** e **nyctaxidb.fare** em três chaves que estão presentes em todos os registos: **medalhão,** **\_ licença de hack,** e **hora \_ de recolha.** Em seguida, geramos uma etiqueta de classificação binária, **inclinada,** e uma etiqueta de classificação multiclasse, **\_ classe de ponta.**
 
 Para poder utilizar os dados de amostras abaixo diretamente do módulo [de Dados de Importação][import-data] em Machine Learning, deve armazenar os resultados da consulta anterior a uma tabela interna de Colmeia. No que se segue, criamos uma tabela interna de Colmeia e povoamos o seu conteúdo com os dados associados e desacolhados.
 
-A consulta aplica funções padrão da Colmeia diretamente para gerar os seguintes parâmetros de tempo a partir do campo de ** \_ data de recolha:**
+A consulta aplica funções padrão da Colmeia diretamente para gerar os seguintes parâmetros de tempo a partir do campo de **\_ data de recolha:**
 - hora do dia
 - semana do ano
 - dia da semana ('1' significa para segunda-feira, e '7' significa para domingo)
@@ -820,17 +820,17 @@ Para emitir consultas de Hive no módulo de [Dados][import-data] de Importação
 
 Aqui estão alguns detalhes sobre o módulo [de Dados de Importação][import-data] e os parâmetros para inserir:
 
-**HCatalog servidor URI**: Se o nome do cluster for **abc123,** utilize: https: \/ /abc123.azurehdinsight.net.
+**HCatalog servidor URI** : Se o nome do cluster for **abc123,** utilize: https: \/ /abc123.azurehdinsight.net.
 
-**Nome da conta do utilizador Hadoop**: O nome de utilizador escolhido para o cluster (não o nome de utilizador de acesso remoto).
+**Nome da conta do utilizador Hadoop** : O nome de utilizador escolhido para o cluster (não o nome de utilizador de acesso remoto).
 
-**Palavra-passe da conta de utilizador Hadoop**: A palavra-passe escolhida para o cluster (não a palavra-passe de acesso remoto).
+**Palavra-passe da conta de utilizador Hadoop** : A palavra-passe escolhida para o cluster (não a palavra-passe de acesso remoto).
 
-**Localização dos dados de saída**: Escolhido para ser Azure.
+**Localização dos dados de saída** : Escolhido para ser Azure.
 
-**Nome da conta Azure Storage**: Nome da conta de armazenamento padrão associada ao cluster.
+**Nome da conta Azure Storage** : Nome da conta de armazenamento padrão associada ao cluster.
 
-**Nome do recipiente azul**: O nome do recipiente predefinido para o cluster, e é tipicamente o mesmo que o nome do cluster. Para um cluster chamado **abc123,** o nome é abc123.
+**Nome do recipiente azul** : O nome do recipiente predefinido para o cluster, e é tipicamente o mesmo que o nome do cluster. Para um cluster chamado **abc123,** o nome é abc123.
 
 > [!IMPORTANT]
 > Qualquer tabela que desejemos consultar utilizando o módulo [de dados de importação][import-data] em Machine Learning deve ser uma tabela interna.
@@ -851,18 +851,18 @@ Aqui está uma imagem da consulta hive e do módulo [de dados de importação:][
 
 ![Screenshot da consulta de Hive para módulo de dados de importação](./media/hive-walkthrough/1eTYf52.png)
 
-Como os nossos dados desacolhados residem no recipiente padrão, a consulta da Colmeia resultante da Machine Learning é simples. É apenas um **SELECT * FROM nyctaxidb.nyctaxi \_ dados reduzidos \_ **.
+Como os nossos dados desacolhados residem no recipiente padrão, a consulta da Colmeia resultante da Machine Learning é simples. É apenas um **SELECT * FROM nyctaxidb.nyctaxi \_ dados reduzidos \_**.
 
 O conjunto de dados pode agora ser usado como ponto de partida para a construção de modelos de Machine Learning.
 
 ### <a name="build-models-in-machine-learning"></a><a name="mlmodel"></a>Construir modelos em Machine Learning
 Pode agora avançar para a construção de modelos e implantação de modelos em [Machine Learning](https://studio.azureml.net). Os dados estão prontos para nós para resolver os problemas de previsão identificados anteriormente:
 
-- **Classificação binária**: Para prever se uma gorjeta foi ou não paga por uma viagem.
+- **Classificação binária** : Para prever se uma gorjeta foi ou não paga por uma viagem.
 
   **Aprendiz utilizado:** Regressão logística de duas classes
 
-  a. Para este problema, a etiqueta alvo (ou classe) é **inclinada**. O conjunto de dados original para baixo tem algumas colunas que são fugas de destino para esta experiência de classificação. Em particular, ** \_ a classe de gorjeta**, o valor ** \_ da gorjeta**e a ** \_ quantidade total** revelam informações sobre a etiqueta-alvo que não estão disponíveis no momento do teste. Removemos estas colunas da consideração utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
+  a. Para este problema, a etiqueta alvo (ou classe) é **inclinada**. O conjunto de dados original para baixo tem algumas colunas que são fugas de destino para esta experiência de classificação. Em particular, **\_ a classe de gorjeta** , o valor **\_ da gorjeta** e a **\_ quantidade total** revelam informações sobre a etiqueta-alvo que não estão disponíveis no momento do teste. Removemos estas colunas da consideração utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
 
   O diagrama que se segue mostra a nossa experiência para prever se uma gorjeta foi ou não paga para uma determinada viagem:
 
@@ -878,11 +878,11 @@ Pode agora avançar para a construção de modelos e implantação de modelos em
 
   ![Gráfico do valor AUC](./media/hive-walkthrough/8JDT0F8.png)
 
-- **Classificação multiclasse**: Para prever a gama de valores de gorjeta pagos pela viagem, utilizando as classes previamente definidas.
+- **Classificação multiclasse** : Para prever a gama de valores de gorjeta pagos pela viagem, utilizando as classes previamente definidas.
 
   **Aprendiz utilizado:** Regressão logística multiclasse
 
-  a. Para este problema, a nossa etiqueta alvo (ou classe) é ** \_ a classe ponta,** que pode levar um dos cinco valores (0,1,2,3,4). Como no caso da classificação binária, temos algumas colunas que são fugas de alvo para esta experiência. Em particular, o ** \_ tiped**, o montante da gorjeta e o ** \_ montante total** revelam informações sobre a etiqueta-alvo que não estão disponíveis no momento do teste. **tipped** Removemos estas colunas utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
+  a. Para este problema, a nossa etiqueta alvo (ou classe) é **\_ a classe ponta,** que pode levar um dos cinco valores (0,1,2,3,4). Como no caso da classificação binária, temos algumas colunas que são fugas de alvo para esta experiência. Em particular, o **\_ tiped** , o montante da gorjeta e o **\_ montante total** revelam informações sobre a etiqueta-alvo que não estão disponíveis no momento do teste. **tipped** Removemos estas colunas utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
 
   O diagrama seguinte mostra a experiência para prever em que caixote uma ponta é suscetível de cair. Os caixotes são: Classe 0: dica = $0, Classe 1: gorjeta > $0 e dica <= $5, Classe 2: dica > $5 e gorjeta <= $10, Classe 3: gorjeta > $10 e gorjeta <= $20, e Classe 4: gorjeta > $20.
 
@@ -898,11 +898,11 @@ Pode agora avançar para a construção de modelos e implantação de modelos em
 
   Embora as precisões de classe nas classes prevalentes sejam boas, o modelo não faz um bom trabalho de "aprendizagem" nas classes mais raras.
 
-- **Tarefa de regressão**: Prever o valor da gorjeta paga por uma viagem.
+- **Tarefa de regressão** : Prever o valor da gorjeta paga por uma viagem.
 
   **Aprendiz utilizado:** Árvore de decisão reforçada
 
-  a. Para este problema, a etiqueta alvo (ou classe) é ** \_ a quantidade de gorjeta**. Neste caso, as fugas de destino são: **gorjeta,** **classe \_ de ponta,** e ** \_ montante total**. Todas estas variáveis revelam informações sobre a quantidade de gorjeta que normalmente não está disponível no momento do teste. Removemos estas colunas utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
+  a. Para este problema, a etiqueta alvo (ou classe) é **\_ a quantidade de gorjeta**. Neste caso, as fugas de destino são: **gorjeta,** **classe \_ de ponta,** e **\_ montante total**. Todas estas variáveis revelam informações sobre a quantidade de gorjeta que normalmente não está disponível no momento do teste. Removemos estas colunas utilizando as [Colunas Selecionadas no módulo Dataset.][select-columns]
 
   O diagrama a seguir mostra a experiência para prever a quantidade da ponta dada:
 
@@ -935,5 +935,5 @@ Esta amostra de passagem e os seus scripts que o acompanham são partilhados pel
 [15]: ./media/hive-walkthrough/amlreader.png
 
 <!-- Module References -->
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

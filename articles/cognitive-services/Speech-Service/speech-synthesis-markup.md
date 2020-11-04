@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2c60d2e874e861eebac54e24ba0cb949bfb9a57b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: e0625fd257ed9995fb567785ce07dcb0b0422c61
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207687"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311634"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação da síntese de fala (SSML)
 
@@ -218,11 +218,11 @@ Para a voz chinesa XiaoxiaoNeural, a intensidade do estilo de fala pode ser alte
 | Atributo | Descrição | Obrigatório / Opcional |
 |-----------|-------------|---------------------|
 | `style` | Especifica o estilo de falar. Atualmente, os estilos de fala são específicos da voz. | Necessário se ajustar o estilo de fala para uma voz neural. Se `mstts:express-as` utilizar, deve ser fornecido o estilo. Se for fornecido um valor inválido, este elemento será ignorado. |
-| `styledegree` | Especifica a intensidade do estilo de fala. **Valores aceites**: 0,01 a 2 inclusive. O valor predefinido é 1, o que significa a intensidade de estilo predefinida. A unidade mínima é de 0,01, o que resulta numa ligeira tendência para o estilo alvo. Um valor de 2 resulta numa duplicação da intensidade do estilo padrão.  | Opcional (Neste momento, `styledegree` apenas suporta XiaoxiaoNeural.)|
+| `styledegree` | Especifica a intensidade do estilo de fala. **Valores aceites** : 0,01 a 2 inclusive. O valor predefinido é 1, o que significa a intensidade de estilo predefinida. A unidade mínima é de 0,01, o que resulta numa ligeira tendência para o estilo alvo. Um valor de 2 resulta numa duplicação da intensidade do estilo padrão.  | Opcional (Neste momento, `styledegree` apenas suporta XiaoxiaoNeural.)|
 
 Utilize esta tabela para determinar quais os estilos de fala suportados por cada voz neural.
 
-| Voz                   | Estilo                     | Descrição                                                 |
+| Voz                   | Estilo                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
 | `en-US-AriaNeural`      | `style="newscast-formal"` | Expressa um tom formal, confiante e autoritário para a entrega de notícias |
 |                         | `style="newscast-casual"` | Expressa um tom versátil e casual para a entrega de notícias gerais        |
@@ -233,6 +233,7 @@ Utilize esta tabela para determinar quais os estilos de fala suportados por cada
 | `en-US-JennyNeural`     | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente  |
 |                         | `style="chat"`            | Expressa um tom casual e descontraído                         |
 |                         | `style="assistant"`       | Expressa um tom caloroso e descontraído para assistentes digitais    |
+|                         | `style="newscast"`        | Expressa um tom versátil e casual para a entrega de notícias gerais   |
 | `en-US-GuyNeural`       | `style="newscast"`        | Expressa um tom formal e profissional para narrar notícias |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expressa um tom formal e profissional para narrar notícias |
 |                         | `style="customerservice"` | Expressa um tom amigável e útil para o apoio ao cliente  |
@@ -298,7 +299,7 @@ Utilize o `break` elemento para inserir pausas (ou quebras) entre palavras ou ev
 | `strength` | Especifica a duração relativa de uma pausa utilizando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>fraco</li><li>meio (padrão)</li><li>forte</li><li>x-forte</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos. Exemplos de valores válidos são `2s` e `500` | Opcional |
 
-| Força                      | Descrição |
+| Força                      | Description |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |

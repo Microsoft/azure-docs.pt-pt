@@ -15,6 +15,10 @@
       href: virtual-wan-expressroute-portal.md
 - name: Conceitos
   items:
+    - name: Segurança
+      items:
+        - name: Linha de Base de Segurança
+          href: security-baseline.md
     - name: Trabalhar remotamente
       items:
         - name: Suporte para trabalhar remotamente

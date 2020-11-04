@@ -1,6 +1,6 @@
 ---
-title: Dados de consulta no armazenamento utilizando SQL on demand (pré-visualização)
-description: Este artigo descreve como consultar o armazenamento Azure usando o recurso SQL on demand (pré-visualização) dentro do Azure Synapse Analytics.
+title: Armazenamento de dados de consulta com piscina SQL sem servidor (pré-visualização)
+description: Este artigo descreve como consultar o armazenamento Azure usando o recurso sql sem servidor (pré-visualização) dentro do Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,27 +9,27 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0ac54eb5d6350cc234eb7036a3a1dc97a4f1b083
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3fd3a94efd6e7870ae3919a011fc24f66b97c559
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288380"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310948"
 ---
-# <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Ficheiros de armazenamento de consultas utilizando recursos SQL on-demand (pré-visualização) dentro do Sinaapse SQL
+# <a name="query-storage-files-with-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Ficheiros de armazenamento de consultas com piscina SQL sem servidor (pré-visualização) no Azure Synapse Analytics
 
-SQL on demand (pré-visualização) permite-lhe consultar dados no seu lago de dados. Oferece uma área de superfície de consulta T-SQL que acomoda consultas de dados semi-estruturadas e não estruturadas. Para consulta, os seguintes aspetos T-SQL são suportados:
+O pool SQL sem servidor (pré-visualização) permite-lhe consultar dados no seu lago de dados. Oferece uma área de superfície de consulta T-SQL que acomoda consultas de dados semi-estruturadas e não estruturadas. Para consulta, os seguintes aspetos T-SQL são suportados:
 
 - Área de superfície [SELECT](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) completa, incluindo a maioria das [funções e operadores SQL.](overview-features.md)
 - CRIAR TABELA EXTERNA COMO SELECT[(CETAS)](develop-tables-cetas.md)cria uma [tabela externa](develop-tables-external-tables.md) e, em seguida, exporta, paralelamente, os resultados de uma declaração De Select Transact-SQL para o Azure Storage.
 
-Para obter mais informações sobre o que é vs. o que não é suportado atualmente, leia o artigo de visão geral sobre a pedido do [SQL,](on-demand-workspace-overview.md) ou os seguintes artigos:
+Para obter mais informações sobre o que é vs. o que não é suportado atualmente, leia o artigo [de visão geral da piscina sql sem servidor,](on-demand-workspace-overview.md) ou os seguintes artigos:
 - [Desenvolva o acesso](develop-storage-files-overview.md) ao armazenamento onde pode aprender a usar a [função Externa](develop-tables-external-tables.md) e [OPENROWSET](develop-openrowset.md) para ler dados a partir do armazenamento.
 - [Controle o acesso](develop-storage-files-storage-access-control.md) ao armazenamento onde pode aprender a permitir que o Sinaapse SQL aceda ao armazenamento usando a autenticação SAS ou identidade gerida do espaço de trabalho.
 
 ## <a name="overview"></a>Descrição geral
 
-Para suportar uma experiência suave para a consulta em vigor de dados localizados em ficheiros de armazenamento Azure, o SQL on-demand utiliza a função [OPENROWSET](develop-openrowset.md) com capacidades adicionais:
+Para suportar uma experiência suave para a consulta em vigor de dados localizados em ficheiros de armazenamento Azure, o pool SQL sem servidor utiliza a função [OPENROWSET](develop-openrowset.md) com capacidades adicionais:
 
 - [Consultar vários ficheiros ou pastas](#query-multiple-files-or-folders)
 - [Formato de ficheiro PARQUET](#query-parquet-files)
@@ -65,7 +65,7 @@ WITH (C1 int, C2 varchar(20), C3 as varchar(max)) as rows
 Existem algumas opções adicionais que podem ser usadas para ajustar as regras de análise ao formato CSv personalizado:
 - ESCAPE_CHAR = 'char' Especifica o carácter do ficheiro que é usado para escapar a si próprio e todos os valores delimiter no ficheiro. Se o personagem de fuga for seguido por um valor diferente de si mesmo, ou por qualquer um dos valores delimiter, o personagem de fuga é deixado cair ao ler o valor.
 O parâmetro ESCAPE_CHAR será aplicado quer o FIELDQUOTE esteja ou não ativado. Não será usado para escapar ao personagem citando. O personagem citando deve ser escapado com outro personagem citando. Citar o carácter só pode aparecer dentro do valor da coluna se o valor for encapsulado com caracteres citantes.
-- FIELDTERMINATOR ='field_terminator' Especifica o exterminador de campo a utilizar. O exterminador de campo padrão é uma vírgula ("**,**")
+- FIELDTERMINATOR ='field_terminator' Especifica o exterminador de campo a utilizar. O exterminador de campo padrão é uma vírgula (" **,** ")
 - ROWTERMINATOR ='row_terminator' Especifica o exterminador da linha a utilizar. O exterminador de linha predefinido é um personagem newline: **\r\n**.
 
 ## <a name="file-schema"></a>Esquema de arquivo
@@ -146,7 +146,7 @@ O tipo de dados de devolução é nvarchar(1024). Para um desempenho ótimo, ele
 
 ## <a name="work-with-complex-types-and-nested-or-repeated-data-structures"></a>Trabalhar com tipos complexos e estruturas de dados aninhadas ou repetidas
 
-Para permitir uma experiência suave com dados armazenados em tipos de dados aninhados ou repetidos, como em ficheiros [Parquet,](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) o SQL on-demand adicionou as extensões que se seguem.
+Para permitir uma experiência suave com dados armazenados em tipos de dados aninhados ou repetidos, como em ficheiros [Parquet,](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#nested-types) o pool SQL sem servidor adicionou as extensões que se seguem.
 
 #### <a name="project-nested-or-repeated-data"></a>Projeto aninhado ou repetido dados
 
@@ -224,7 +224,7 @@ Pode aprender mais sobre a consulta de vários tipos de dados utilizando as cons
 As ferramentas que precisa para emitir consultas:
     - Azure Synapse Studio (pré-visualização)
     - Azure Data Studio
-    - O SQL Server Management Studio
+    - SQL Server Management Studio
 
 ### <a name="demo-setup"></a>Configuração de demonstração
 
@@ -248,7 +248,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 - Amostra de arquivos Parquet com colunas aninhadas
 - Livros em formato JSON
 
-| Folder path                                                  | Descrição                                                  |
+| Folder path                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /csv/                                                        | Pasta-mãe para dados em formato CSV                         |
 | /csv/população/<br />/csv/população-unix/<br />/csv/população unix-hdr/<br />/csv/população-unix-hdr-escape<br />/csv/população-unix-hdr-citado | Pastas com ficheiros de dados da População em diferentes formatos CSV. |

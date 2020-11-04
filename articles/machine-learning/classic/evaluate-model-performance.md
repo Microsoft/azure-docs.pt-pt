@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: cff4704b388594511809d92957cbbce97e948f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca369f8a3e680a4d2aae49df83dda0cdd3dc4075
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362423"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310148"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Avalie o desempenho do modelo no Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Neste artigo, pode aprender sobre as métricas que pode usar para monitorizar o desempenho do modelo no Azure Machine Learning Studio (clássico).  Avaliar o desempenho de um modelo é uma das fases centrais do processo de ciência de dados. Indica o sucesso da pontuação (previsões) de um conjunto de dados por um modelo treinado. O Azure Machine Learning Studio (clássico) suporta a avaliação do modelo através de dois dos seus principais módulos de aprendizagem automática: 
@@ -107,7 +107,7 @@ Ligue as portas como mostrado abaixo na Figura 5 e coloque a coluna Label do mó
 Figura 5. Avaliação de um modelo de classificação binária.
 
 ### <a name="inspecting-the-evaluation-results"></a>Inspeção dos Resultados da Avaliação
-Depois de executar a experiência, pode clicar na porta de saída do módulo [Modelo avaliar][evaluate-model] e *selecionar visualizar* para ver os resultados da avaliação (Figura 7). As métricas de avaliação disponíveis para os modelos de classificação binária são: *Precisão,* *Precisão,* *Recuperação,* *Pontuação F1*e *AUC*. Além disso, o módulo produz uma matriz de confusão mostrando o número de verdadeiros positivos, falsos negativos, falsos positivos e verdadeiros negativos, bem como *roc,* *Precision/Recall,* e *Lift* curvas.
+Depois de executar a experiência, pode clicar na porta de saída do módulo [Modelo avaliar][evaluate-model] e *selecionar visualizar* para ver os resultados da avaliação (Figura 7). As métricas de avaliação disponíveis para os modelos de classificação binária são: *Precisão,* *Precisão,* *Recuperação,* *Pontuação F1* e *AUC*. Além disso, o módulo produz uma matriz de confusão mostrando o número de verdadeiros positivos, falsos negativos, falsos positivos e verdadeiros negativos, bem como *roc,* *Precision/Recall,* e *Lift* curvas.
 
 A precisão é simplesmente a proporção de casos corretamente classificados. Normalmente é a primeira métrica que se olha quando se avalia um classificador. No entanto, quando os dados do teste são desequilibrados (onde a maioria dos casos pertencem a uma das classes), ou se está mais interessado no desempenho de qualquer uma das classes, a precisão não captura realmente a eficácia de um classificador. No cenário de classificação do nível de rendimento, assuma que está a testar alguns dados onde 99% dos casos representam pessoas que ganham menos ou igual a 50K por ano. É possível obter uma precisão de 0,99, prevendo a classe "<=50K" para todos os casos. O classificador neste caso parece estar a fazer um bom trabalho em geral, mas na realidade, não consegue classificar nenhum dos indivíduos de alto rendimento (o 1%) corretamente.
 
@@ -117,7 +117,7 @@ Por essa razão, é útil calcular métricas adicionais que captam aspetos mais 
 
 Figura 6. Matriz de confusão de classificação binária.
 
-Voltando ao problema da classificação de rendimentos, gostaríamos de fazer várias perguntas de avaliação que nos ajudam a compreender o desempenho do classificador utilizado. Uma questão natural é a seguinte: "Dos indivíduos a quem o modelo previu estar a ganhar >50 K (TP+FP), quantos foram classificados corretamente (TP)?". Esta questão pode ser respondida olhando para a **precisão** do modelo, que é a proporção de positivos que são classificados corretamente: TP/(TP+FP). Outra questão comum é "De todos os trabalhadores com rendimentos elevados com rendimentos >50k (TP+FN), quantos classificaram corretamente (TP)". Esta é, na verdade, a **Recall**, ou a verdadeira taxa positiva: TP/(TP+FN) do classificador. Podem notar que há uma troca óbvia entre precisão e recordação. Por exemplo, dado um conjunto de dados relativamente equilibrado, um classificador que prevê casos maioritariamente positivos, teria uma elevada recuperação, mas uma precisão bastante baixa, uma vez que muitos dos casos negativos seriam mal classificados, resultando num grande número de falsos positivos. Para ver um enredo de como estas duas métricas variam, pode clicar na curva **PRECISION/RECALL** na página de saída do resultado da avaliação (parte superior esquerda da Figura 7).
+Voltando ao problema da classificação de rendimentos, gostaríamos de fazer várias perguntas de avaliação que nos ajudam a compreender o desempenho do classificador utilizado. Uma questão natural é a seguinte: "Dos indivíduos a quem o modelo previu estar a ganhar >50 K (TP+FP), quantos foram classificados corretamente (TP)?". Esta questão pode ser respondida olhando para a **precisão** do modelo, que é a proporção de positivos que são classificados corretamente: TP/(TP+FP). Outra questão comum é "De todos os trabalhadores com rendimentos elevados com rendimentos >50k (TP+FN), quantos classificaram corretamente (TP)". Esta é, na verdade, a **Recall** , ou a verdadeira taxa positiva: TP/(TP+FN) do classificador. Podem notar que há uma troca óbvia entre precisão e recordação. Por exemplo, dado um conjunto de dados relativamente equilibrado, um classificador que prevê casos maioritariamente positivos, teria uma elevada recuperação, mas uma precisão bastante baixa, uma vez que muitos dos casos negativos seriam mal classificados, resultando num grande número de falsos positivos. Para ver um enredo de como estas duas métricas variam, pode clicar na curva **PRECISION/RECALL** na página de saída do resultado da avaliação (parte superior esquerda da Figura 7).
 
 ![Resultados da avaliação da classificação binária](./media/evaluate-model-performance/7.png)
 
@@ -155,7 +155,7 @@ Ligue as portas como mostrado abaixo na Figura 10.
 
 Desa um índice de coluna label do módulo [Modelo de Comboio][train-model] para 5. O conjunto de dados não tem cabeçalho, mas sabemos que as etiquetas de classe estão na quinta coluna.
 
-Clique no módulo [de Dados de Importação][import-data] e desa estale a propriedade de fonte de *dados* para *URL web via HTTP*, e o *URL* para http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
+Clique no módulo [de Dados de Importação][import-data] e desa estale a propriedade de fonte de *dados* para *URL web via HTTP* , e o *URL* para http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
 
 Desfima a fração de instâncias a utilizar para a formação no módulo [de Dados Divididos][split] (0.7, por exemplo).
 
@@ -182,12 +182,12 @@ Figura 12. Validação cruzada de um modelo de classificação multiclasse.
 Figura 13. Resultados de validação cruzada de um modelo de classificação multiclasse.
 
 <!-- Module References -->
-[cross-validate-model]: https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
+[cross-validate-model]: /azure/machine-learning/studio-module-reference/cross-validate-model
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[multiclass-decision-forest]: /azure/machine-learning/studio-module-reference/multiclass-decision-forest
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-logistic-regression]: /azure/machine-learning/studio-module-reference/two-class-logistic-regression

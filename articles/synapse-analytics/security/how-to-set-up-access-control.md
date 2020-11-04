@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186625"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312036"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização) 
 
@@ -36,7 +36,7 @@ Para garantir um espaço de trabalho synapse (pré-visualização), seguirá um 
 
 Este documento utiliza nomes padrão para simplificar as instruções. Substitua-os por quaisquer nomes à sua escolha.
 
-|Definição | Valor de exemplo | Descrição |
+|Definição | Valor de exemplo | Description |
 | :------ | :-------------- | :---------- |
 | **Espaço de trabalho sinapse** | WS1 |  O nome que o espaço de trabalho da Sinapse terá. |
 | **Conta ADLSGEN2** | STG1 | A conta ADLS para usar com o seu espaço de trabalho. |
@@ -92,7 +92,7 @@ O espaço de trabalho synapse precisa de acesso a STG1 e CNT1 para que possa exe
   - Se não o vir designado, atribua-o.
   - O MSI tem o mesmo nome que o espaço de trabalho. Neste caso, seria &quot; &quot; WS1.
 
-## <a name="step-5-configure-admin-access-for-sql-pools"></a>PASSO 5: Configurar acesso administrativo para piscinas SQL
+## <a name="step-5-configure-admin-access-for-synapse-sql"></a>PASSO 5: Configurar acesso a administrador para Synapse SQL
 
 - Abra o portal do Azure
 - Navegue até WS1
@@ -114,11 +114,11 @@ Os utilizadores de cada função precisam de completar os seguintes passos:
 | Número | Passo | Administradores de área de trabalho | Administradores de faíscas | Administradores SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Faça o upload de um ficheiro parquet para a CNT1 | SIM | SIM | SIM |
-| 2 | Leia o ficheiro parquet usando SQL on demand | SIM | NO | SIM |
-| 3 | Criar uma piscina de faíscas | SIM [1] | SIM [1] | NO  |
+| 2 | Leia o ficheiro parquet usando a piscina SQL sem servidor | SIM | NO | SIM |
+| 3 | Crie uma piscina Apache Spark sem servidor | SIM [1] | SIM [1] | NO  |
 | 4 | Lê o arquivo parquet com um Caderno | SIM | SIM | NO |
 | 5 | Crie um oleoduto a partir do Caderno e desencadeie o oleoduto para funcionar agora | SIM | NO | NO |
-| 6 | Crie uma piscina SQL e execute um script SQL como &quot; SELECT 1&quot; | SIM [1] | NO | SIM[1] |
+| 6 | Crie uma piscina SQL dedicada e execute um script SQL como &quot; SELECT 1&quot; | SIM [1] | NO | SIM[1] |
 
 > [!NOTE]
 > [1] Para criar piscinas SQL ou Spark, o utilizador deve ter pelo menos uma função contributiva no espaço de trabalho da Synapse.
@@ -148,8 +148,8 @@ O Synapse Studio comportar-se-á de forma diferente com base nas funções dos u
 | Data Hub / Ver contas e contentores ADLS Gen2 ligados | SIM [1] | SIM[1] | SIM[1] |
 | Data Hub / Ver Bases de Dados | SIM | SIM | SIM |
 | Data Hub / Ver objetos em bases de dados | SIM | SIM | SIM |
-| Data Hub / Dados de acesso em bases de dados de piscinas SQL | SIM   | NO   | SIM   |
-| Data Hub / Dados de acesso em bases de dados a pedido do SQL | SIM [2]  | NO  | SIM [2]  |
+| Data Hub / Dados de acesso em bases de dados Sinapse SQL | SIM   | NO   | SIM   |
+| Data Hub / Dados de acesso em bases de dados de piscinas SQL sem servidor | SIM [2]  | NO  | SIM [2]  |
 | Data Hub / Dados de acesso em bases de dados Spark | SIM [2] | SIM [2] | SIM [2] |
 | Use o centro de desenvolvimento | SIM | SIM | SIM |
 | Desenvolver scripts SQL hub / autor | SIM | NO | SIM |
@@ -159,7 +159,7 @@ O Synapse Studio comportar-se-á de forma diferente com base nas funções dos u
 | Use o hub Orchestrate | SIM | SIM | SIM |
 | Orquestrar hub / usar Pipelines | SIM | NO | NO |
 | Utilize o Hub de Gestão | SIM | SIM | SIM |
-| Gerir piscinas Hub / SQL | SIM | NO | SIM |
+| Gerir hub / Synapse SQL | SIM | NO | SIM |
 | Gerir piscinas Hub / Spark | SIM | SIM | NO |
 | Gerir hub / Gatilhos | SIM | NO | NO |
 | Gerir o Hub / Serviços ligados | SIM | SIM | SIM |

@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 860fcb2948869d21eb78d0b318074b9a5e2ba0b9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 97dc53c9870112dc5d547ab477e54f15f802cc05
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790326"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310649"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Explore a análise do SaaS com a Azure SQL Database, Azure Synapse Analytics, Data Factory e Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Neste tutorial, você anda por um cenário de análise de ponta a ponta. O cenário demonstra como a análise sobre os dados dos inquilinos pode capacitar os fornecedores de software a tomar decisões inteligentes. Utilizando dados extraídos de cada base de dados de inquilinos, você usa analítica para obter informações sobre o comportamento do inquilino, incluindo a sua utilização da aplicação De Ingressos De Ponta de Amostra SaaS. Este cenário envolve três etapas:
 
-1. **Extrair dados** de cada base de dados de inquilinos numa loja de análise, neste caso, uma piscina SQL.
+1. **Extrair dados** de cada base de dados de inquilinos numa loja de análise, neste caso, uma piscina DE SQL dedicada.
 2. **Otimize os dados extraídos** para o processamento de análise.
 3. Use ferramentas **de Business Intelligence** para extrair informações úteis, que podem orientar a tomada de decisão.
 
@@ -45,7 +45,7 @@ As aplicações saaS possuem uma quantidade potencialmente vasta de dados de inq
 
 O acesso aos dados para todos os inquilinos é simples quando todos os dados estão numa base de dados multi-inquilinos. Mas o acesso é mais complexo quando distribuído em escala por milhares de bases de dados. Uma forma de domar a complexidade é extrair os dados para uma base de dados de análise ou um armazém de dados para consulta.
 
-Este tutorial apresenta um cenário de análise de ponta a ponta para a aplicação de Ingressos wingtip. Em primeiro lugar, [a Azure Data Factory (ADF)](../../data-factory/introduction.md) é usada como ferramenta de orquestração para extrair bilhetes de venda e dados relacionados de cada base de dados de inquilinos. Estes dados são carregados em mesas de preparação numa loja de análise. A loja de análise pode ser uma Base de Dados SQL ou uma piscina SQL. Este tutorial utiliza [a Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) como loja de análise.
+Este tutorial apresenta um cenário de análise de ponta a ponta para a aplicação de Ingressos wingtip. Em primeiro lugar, [a Azure Data Factory (ADF)](../../data-factory/introduction.md) é usada como ferramenta de orquestração para extrair bilhetes de venda e dados relacionados de cada base de dados de inquilinos. Estes dados são carregados em mesas de preparação numa loja de análise. A loja de análise pode ser uma Base de Dados SQL ou uma piscina SQL dedicada. Este tutorial utiliza [a Azure Synapse Analytics (anteriormente SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) como loja de análise.
 
 Em seguida, os dados extraídos são transformados e carregados em um conjunto de tabelas [de esquemas estelares.](https://www.wikipedia.org/wiki/Star_schema) As tabelas consistem num quadro central de factos mais tabelas de dimensão relacionadas:
 
@@ -87,7 +87,7 @@ Este tutorial explora a análise sobre os dados de venda de bilhetes. Neste pass
 
 Na aplicação Wingtip Tickets, os dados transacionais dos inquilinos são distribuídos por muitas bases de dados. A Azure Data Factory (ADF) é usada para orquestrar o Extrato, Carga e Transformação (ELT) destes dados no armazém de dados. Para carregar os dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse) de forma mais eficiente, a ADF extrai dados em ficheiros de bolhas intermédias e, em seguida, utiliza [a PolyBase](../../synapse-analytics/sql-data-warehouse/design-elt-data-loading.md) para carregar os dados no armazém de dados.
 
-Neste passo, você implanta os recursos adicionais utilizados no tutorial: uma piscina SQL chamada _tenantanalytics_ , uma Fábrica de Dados Azure chamada _dbtodwload- \<user\>_ e uma conta de armazenamento Azure chamada _wingtipstaging \<user\>_ . A conta de armazenamento é usada para reter temporariamente ficheiros de dados extraídos como bolhas antes de serem carregados no armazém de dados. Este passo também implanta o esquema de armazém de dados e define os oleodutos ADF que orquestram o processo ELT.
+Neste passo, você implanta os recursos adicionais utilizados no tutorial: uma piscina de SQL dedicada chamada _tenantanalytics_ , uma Fábrica de Dados Azure chamada _dbtodwload- \<user\>_ e uma conta de armazenamento Azure chamada _wingtipstaging \<user\>_. A conta de armazenamento é usada para reter temporariamente ficheiros de dados extraídos como bolhas antes de serem carregados no armazém de dados. Este passo também implanta o esquema de armazém de dados e define os oleodutos ADF que orquestram o processo ELT.
 
 1. No PowerShell ISE, abra *...\Módulos de aprendizagem\Analytics operacional\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* e definido:
     - **$DemoScenario**  =  **2** Implementar armazém de dados de análise de inquilino, armazenamento de bolhas e fábrica de dados
@@ -97,7 +97,7 @@ Agora reveja os recursos do Azure que implementou:
 
 #### <a name="tenant-databases-and-analytics-store"></a>Bases de dados de inquilinos e loja de analítica
 
-Utilize [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para ligar aos **inquilinos utilizadores de 1 dpt- &lt; utilizador &gt;** e **servidores de &lt; utilizadores &gt; de catálogos.** Substitua &lt; o utilizador pelo valor utilizado quando &gt; implementou a aplicação. Utilizar Login = *programador* e palavra-passe = *P \@ ssword1* . Consulte o [tutorial introdutório](./saas-dbpertenant-wingtip-app-overview.md) para obter mais orientação.
+Utilize [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) para ligar aos **inquilinos utilizadores de 1 dpt- &lt; utilizador &gt;** e **servidores de &lt; utilizadores &gt; de catálogos.** Substitua &lt; o utilizador pelo valor utilizado quando &gt; implementou a aplicação. Utilizar Login = *programador* e palavra-passe = *P \@ ssword1*. Consulte o [tutorial introdutório](./saas-dbpertenant-wingtip-app-overview.md) para obter mais orientação.
 
 ![Ligue à Base de Dados SQL a partir de SSMS](./media/saas-tenancy-tenant-analytics-adf/ssmsSignIn.JPG)
 
@@ -138,7 +138,7 @@ Siga os passos abaixo para lançar a fábrica de dados:
 
 ## <a name="extract-load-and-transform-data"></a>Extrair, Carregar e Transformar dados
 
-A Azure Data Factory é utilizada para orquestrar a extração, carregamento e transformação de dados. Neste tutorial, você extrai dados de quatro diferentes vistas SQL de cada uma das bases de dados dos inquilinos: **rawTickets,** **rawCustomers,** **rawEvents,** e **rawVenues.** Estas vistas incluem iD do local, para que você possa discriminar dados de cada local no armazém de dados. Os dados são carregados em tabelas de preparação correspondentes no armazém de dados: **raw_Tickets,** **raw_customers,** **raw_Events** e **raw_Venue** . Um procedimento armazenado transforma então os dados brutos e povoa as tabelas star-schema: **fact_Tickets,** **dim_Customers,** **dim_Venues,** **dim_Events** e **dim_Dates** .
+A Azure Data Factory é utilizada para orquestrar a extração, carregamento e transformação de dados. Neste tutorial, você extrai dados de quatro diferentes vistas SQL de cada uma das bases de dados dos inquilinos: **rawTickets,** **rawCustomers,** **rawEvents,** e **rawVenues.** Estas vistas incluem iD do local, para que você possa discriminar dados de cada local no armazém de dados. Os dados são carregados em tabelas de preparação correspondentes no armazém de dados: **raw_Tickets,** **raw_customers,** **raw_Events** e **raw_Venue**. Um procedimento armazenado transforma então os dados brutos e povoa as tabelas star-schema: **fact_Tickets,** **dim_Customers,** **dim_Venues,** **dim_Events** e **dim_Dates**.
 
 Na secção anterior, implementou e iniciais os recursos Azure necessários, incluindo a fábrica de dados. A fábrica de dados implantada inclui os oleodutos, conjuntos de dados, serviços ligados, etc., necessários para extrair, carregar e transformar os dados do arrendatário. Vamos explorar mais estes objetos e depois desencadear o oleoduto para mover dados das bases de dados dos inquilinos para o armazém de dados.
 
@@ -157,9 +157,9 @@ Os três oleodutos aninhados são: SQLDBToDW, DBCopy e TableCopy.
 
 **Pipeline 2 - A DBCopy** procura os nomes das tabelas de origem e colunas de um ficheiro de configuração armazenado no armazenamento de bolhas.  O pipeline **TableCopy** é então executado para cada uma das quatro tabelas: TicketFacts, CustomerFacts, EventFacts e VenueFacts. A atividade **[foreach](../../data-factory/control-flow-for-each-activity.md)** executa em paralelo para todas as 20 bases de dados. A ADF permite que um máximo de 20 iterações em loop seja executado em paralelo. Considere criar vários oleodutos para mais bases de dados.
 
-**Pipeline 3 - O TableCopy** utiliza números de versão de linha na Base de Dados SQL _(versão de linha)_ para identificar linhas que foram alteradas ou atualizadas. Esta atividade procura a versão inicial e final para extrair linhas das tabelas de origem. A tabela **CopyTracker** armazenada em cada base de dados de inquilinos rastreia a última linha extraída de cada tabela de origem em cada corrida. As linhas novas ou alteradas são copiadas para as correspondentes tabelas de preparação no armazém de dados: **raw_Tickets,** **raw_Customers,** **raw_Venues** e **raw_Events** . Finalmente, a versão da última linha é guardada na tabela **CopyTracker** para ser usada como a versão inicial da linha para a próxima extração.
+**Pipeline 3 - O TableCopy** utiliza números de versão de linha na Base de Dados SQL _(versão de linha)_ para identificar linhas que foram alteradas ou atualizadas. Esta atividade procura a versão inicial e final para extrair linhas das tabelas de origem. A tabela **CopyTracker** armazenada em cada base de dados de inquilinos rastreia a última linha extraída de cada tabela de origem em cada corrida. As linhas novas ou alteradas são copiadas para as correspondentes tabelas de preparação no armazém de dados: **raw_Tickets,** **raw_Customers,** **raw_Venues** e **raw_Events**. Finalmente, a versão da última linha é guardada na tabela **CopyTracker** para ser usada como a versão inicial da linha para a próxima extração.
 
-Existem também três serviços ligados parametrizados que ligam a fábrica de dados à fonte SQL Databases, ao pool SQL alvo e ao armazenamento intermédio blob. No **separador Autor,** clique em **Ligações** para explorar os serviços ligados, como mostra a seguinte imagem:
+Existem também três serviços interligados parametrizados que ligam a fábrica de dados à fonte SQL Databases, o pool SQL dedicado ao alvo e o armazenamento intermédio blob. No **separador Autor,** clique em **Ligações** para explorar os serviços ligados, como mostra a seguinte imagem:
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -180,14 +180,14 @@ O passo final da transformação elimina os dados de encenação prontos para a 
 Siga os passos abaixo para executar o extrato completo, carga e transformar o gasoduto para todas as bases de dados do arrendatário:
 
 1. No **separador Autor** da interface de utilizador ADF, selecione o gasoduto **SQLDBToDW** a partir do painel esquerdo.
-1. Clique **em Trigger** e no menu premido clique em Trigger **Now** . Esta ação corre o oleoduto imediatamente. Num cenário de produção, definiria um calendário para a execução do oleoduto para atualizar os dados num horário.
+1. Clique **em Trigger** e no menu premido clique em Trigger **Now**. Esta ação corre o oleoduto imediatamente. Num cenário de produção, definiria um calendário para a execução do oleoduto para atualizar os dados num horário.
   ![O Screenshot mostra os Recursos de Fábrica para um oleoduto chamado S Q L D B A D W com a opção Trigger expandida e Trigger Now selecionado.](./media/saas-tenancy-tenant-analytics-adf/adf_trigger.JPG)
-1. Na página **Pipeline Run,** clique **em Terminar** .
+1. Na página **Pipeline Run,** clique **em Terminar**.
 
 ### <a name="monitor-the-pipeline-run"></a>Monitorizar a execução do pipeline.
 
 1. Na interface de utilizador ADF, mude para o **separador Monitor** a partir do menu à esquerda.
-1. Clique **em Atualizar** até que o estado do gasoduto SQLDBToDW seja bem **sucedido** .
+1. Clique **em Atualizar** até que o estado do gasoduto SQLDBToDW seja bem **sucedido**.
   ![A screenshot mostra o gasoduto S Q L D B A D W com um estado de Sucesso.](./media/saas-tenancy-tenant-analytics-adf/adf_monitoring.JPG)
 1. Ligue-se ao armazém de dados com sSMS e consultar as tabelas star-schema para verificar se os dados foram carregados nestas tabelas.
 
@@ -203,16 +203,16 @@ Use os seguintes passos para ligar ao Power BI e importar as vistas que criou an
 
 1. Lançar power bi desktop.
 2. A partir da fita Home, **selecione Obter Dados,** e selecione **Mais...** do menu.
-3. Na janela **Obter Dados,** selecione **Azure SQL Database** .
-4. Na janela de início de sessão de dados, insira o nome do seu servidor **(catalog-dpt- &lt; User &gt; .database.windows.net** ). Selecione **Importar** para **o Modo de Conectividade de Dados** e, em seguida, clique em **OK** .
+3. Na janela **Obter Dados,** selecione **Azure SQL Database**.
+4. Na janela de início de sessão de dados, insira o nome do seu servidor **(catalog-dpt- &lt; User &gt; .database.windows.net** ). Selecione **Importar** para **o Modo de Conectividade de Dados** e, em seguida, clique em **OK**.
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics-adf/powerBISignIn.PNG)
 
-5. Selecione **a Base de Dados** no painel esquerdo e, em seguida, introduza o nome do utilizador = *desenvolvedor* , e introduza a palavra-passe = *P \@ ssword1* . Clique em **Ligar** .  
+5. Selecione **a Base de Dados** no painel esquerdo e, em seguida, introduza o nome do utilizador = *desenvolvedor* , e introduza a palavra-passe = *P \@ ssword1*. Clique em **Ligar**.  
 
     ![registo de bases de dados](./media/saas-tenancy-tenant-analytics-adf/databaseSignIn.PNG)
 
-6. No painel **Do Navegador,** sob a base de dados de análise, selecione as tabelas star-schema: **fact_Tickets** , **dim_Events,** **dim_Venues,** **dim_Customers** e **dim_Dates** . Em seguida, **selecione Carregar** .
+6. No painel **Do Navegador,** sob a base de dados de análise, selecione as tabelas star-schema: **fact_Tickets** , **dim_Events,** **dim_Venues,** **dim_Customers** e **dim_Dates**. Em seguida, **selecione Carregar**.
 
 Parabéns! Carregou os dados com sucesso no Power BI. Agora explore visualizações interessantes para obter informações sobre os seus inquilinos. Vamos percorrer como a análise pode fornecer algumas recomendações baseadas em dados para a equipa de negócios wingtip tickets. As recomendações podem ajudar a otimizar o modelo de negócio e a experiência do cliente.
 

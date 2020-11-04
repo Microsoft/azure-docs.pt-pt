@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/02/2020
+ms.openlocfilehash: e16cc8934407a5c54c84fd045c99e28116e656c9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542381"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310501"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Receba e confirme as mensagens B2B AS2 utilizando apps Azure Logic e Pacote de Integração Empresarial
 
@@ -39,7 +39,7 @@ Este artigo mostra como criar uma aplicação lógica que recebe um pedido HTTP 
 
 * Pelo menos dois [parceiros comerciais](../logic-apps/logic-apps-enterprise-integration-partners.md) que já definiu na sua conta de integração, juntamente com [os acordos AS2 e X12](logic-apps-enterprise-integration-agreements.md) para esses parceiros.
 
-## <a name="add-request-trigger"></a>Adicionar gatilho de pedido
+## <a name="add-the-request-trigger"></a>Adicione o gatilho do pedido
 
 Este exemplo utiliza o Logic App Designer no portal Azure, mas pode seguir passos semelhantes para o Logic App Designer em Visual Studio.
 
@@ -59,7 +59,7 @@ Este exemplo utiliza o Logic App Designer no portal Azure, mas pode seguir passo
 
    ![URL gerado para pedido de gatilho para receber chamadas](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-## <a name="add-as2-decode-action"></a>Adicione ação de descodificar AS2
+## <a name="add-the-as2-decode-action"></a>Adicione a ação de descodificar AS2
 
 Adicione agora as ações B2B que pretende utilizar. Este exemplo utiliza ações AS2 e X12.
 
@@ -77,7 +77,7 @@ Adicione agora as ações B2B que pretende utilizar. Este exemplo utiliza açõe
 
      ![Selecione o valor "Corpo" do gatilho](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * Para introduzir uma expressão que faz referência à saída do `body` gatilho, clique no interior da **Caixa de Descodificar.** Depois de aparecer a lista de conteúdos dinâmicos, selecione **Expression**. No editor de expressão, insira a expressão aqui, e selecione **OK**:
+   * Para introduzir uma expressão que faz referência à saída do `body` gatilho, clique no interior da **Caixa de Descodificar.** Depois de aparecer a lista de conteúdos dinâmicos, selecione **Expression**. No editor de expressão, insira a expressão aqui, e selecione **OK** :
 
      `triggerOutputs()['body']`
 
@@ -91,13 +91,21 @@ Adicione agora as ações B2B que pretende utilizar. Este exemplo utiliza açõe
 
 1. Para a propriedade **cabeçalhos de mensagem,** insira os cabeçalhos necessários para a ação AS2, que são descritos pelo `headers` conteúdo recebido pelo gatilho de pedido HTTP.
 
-   Para introduzir uma expressão que faz referência à saída do `headers` gatilho, clique dentro da caixa **de cabeçalhos de mensagem.** Depois de aparecer a lista de conteúdos dinâmicos, selecione **Expression**. No editor de expressão, insira a expressão aqui, e selecione **OK**:
+   1. Para introduzir uma expressão que faz referência à saída do `headers` gatilho, selecione **os cabeçalhos da mensagem switch para o modo de texto**.
 
-   `triggerOutputs()['Headers']`
+      ![Screenshot que mostra "Cabeçalhos de mensagem de switch para modo de texto" selecionado.](./media/logic-apps-enterprise-integration-b2b/as2-decode-switch-text-mode.png)
 
-   Para que esta expressão se resolva como este símbolo, altere entre o designer e a visão de código, por exemplo:
+   1. Clique dentro da caixa **de cabeçalhos de mensagem.** Depois de aparecer a lista de conteúdos dinâmicos, selecione **Expression**. No editor de expressão, insira a expressão aqui, e selecione **OK** :
 
-   ![Saída de cabeçalhos resolvidos do gatilho](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
+      `triggerOutputs()['Headers']`
+
+      Na ação as2 Decode, a expressão aparece agora como um símbolo:
+
+      ![Screenshot que mostra o símbolo " @triggerOutputs ()['Headers']" na caixa "Cabeçalhos de mensagem".](./media/logic-apps-enterprise-integration-b2b/as2-decode-message-header-expression.png)
+
+   1. Para obter a expressão token para resolver no token **headers,** altere entre o designer e a vista de código. Após este passo, a ação de descodificar AS2 parece este exemplo:
+
+      ![Saída de cabeçalhos resolvidos do gatilho](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
 ## <a name="add-response-action-for-message-receipt-notification"></a>Adicionar ação de resposta para notificação de receção de mensagens
 
@@ -105,7 +113,7 @@ Para notificar o parceiro comercial de que a mensagem foi recebida, pode retorna
 
 1. Sob a ação **AS2 Descodificar,** selecione **Novo passo**.
 
-1. Em **Seleção de uma ação,** sob a caixa de pesquisa, selecione **Built-in**. Na caixa de pesquisa, introduza `condition`. Na lista **Ações**, selecione **Condição**.
+1. Em **Seleção de uma ação,** sob a caixa de pesquisa, selecione **Built-in**. Na caixa de pesquisa, introduza `condition`. Na lista **Ações** , selecione **Condição**.
 
    ![Adicione a ação "Condição"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 

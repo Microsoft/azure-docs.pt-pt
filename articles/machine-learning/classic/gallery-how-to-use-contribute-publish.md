@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 1c03f52802881bcf4c916ce3ed438e465e574090
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc405c56538ab305d6e0b8a22c1095458cb1264e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91346840"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309885"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partilhar e descobrir recursos na Galeria Azure AI
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 
@@ -28,7 +28,7 @@ A Galeria tem uma variedade de recursos que pode usar para desenvolver as suas p
 
 ## <a name="what-can-i-find-in-the-gallery"></a>O que posso encontrar na Galeria?
 
-A Galeria Azure AI contém uma série de recursos diferentes que foram contribuídos pela Microsoft e membros da comunidade de ciência de dados. Estes incluem:
+A Galeria Azure AI contém uma série de recursos diferentes que foram contribuídos pela Microsoft e membros da comunidade de ciência de dados. Estas incluem:
 
 * **Experiências** - A Galeria contém uma grande variedade de experiências que foram desenvolvidas no Azure Machine Learning Studio (clássico). Estas vão desde experiências rápidas de prova de conceito que demonstram uma técnica específica de aprendizagem automática, até soluções totalmente desenvolvidas para problemas complexos de aprendizagem automática.
 * **Tutoriais** - Vários tutoriais estão disponíveis para o acompanhar através de tecnologias e conceitos de machine learning, ou para descrever métodos avançados para resolver vários problemas de aprendizagem automática.
@@ -49,7 +49,7 @@ Pode até partilhar um recurso de interesse com amigos ou colegas usando as capa
 Quando assinar, torna-se membro da comunidade gallery. Isto permite-lhe descarregar recursos ou contribuir com os seus próprios itens da Galeria para que outros possam beneficiar das soluções que descobriu.
 
 Você pode baixar **experiências,** **módulos personalizados** para usar no desenvolvimento das suas próprias soluções de análise.
-Pode contribuir com **experiências,** **tutoriais**e **coleções** para a Galeria.
+Pode contribuir com **experiências,** **tutoriais** e **coleções** para a Galeria.
 
 ## <a name="download-experiments-modules"></a>Faça o download de experiências, módulos
 
@@ -65,7 +65,7 @@ Para descarregar um recurso a partir da Galeria AI:
 Para descarregar um recurso de dentro do Estúdio (clássico):
 
 1. Em Studio (clássico), selecione **NEW**.
-1. Selecione **Módulo,** **Experimento**ou **Caderno**.
+1. Selecione **Módulo,** **Experimento** ou **Caderno**.
 1. Procure ou procure para encontrar um recurso da Galeria.
 1. Aponte o rato para o recurso e, em seguida, selecione **Open in Studio**.
     ![Experiência open gallery de inside Machine Learning Studio (clássico)](./media/gallery-how-to-use-contribute-publish/open-experiment-from-studio.png)
@@ -131,7 +131,7 @@ Também pode apagar a experiência da Galeria.
 
 Pode esclarar estas alterações, ou eliminar a experiência, a partir da página de detalhes da experiência ou da página de perfil na Galeria.
 
-* Na página de detalhes da experiência, para alterar os detalhes da sua experiência, **selecione Editar**. A página de detalhes entra no modo de edição. Para escoar alterações, **selecione Editar** ao lado do nome da experiência, resumo ou tags. Quando terminar de fazer alterações, selecione **'Fazer'.** Para alterar as definições de visibilidade para a experiência (**Público** ou **Não Listado),** ou para eliminar a experiência da Galeria, selecione o ícone **Definições.**
+* Na página de detalhes da experiência, para alterar os detalhes da sua experiência, **selecione Editar**. A página de detalhes entra no modo de edição. Para escoar alterações, **selecione Editar** ao lado do nome da experiência, resumo ou tags. Quando terminar de fazer alterações, selecione **'Fazer'.** Para alterar as definições de visibilidade para a experiência ( **Público** ou **Não Listado),** ou para eliminar a experiência da Galeria, selecione o ícone **Definições.**
 
 * Na sua página de perfil, selecione a seta para baixo para a experiência e, em seguida, **selecione Editar**. Isto leva-o à página de detalhes para a sua experiência, em modo de edição. Quando terminar de fazer alterações, selecione **'Fazer'.** Para eliminar a experiência da Galeria, selecione **Delete**.
 
@@ -169,7 +169,7 @@ A sua contribuição está agora na Galeria Azure AI. As suas contribuições es
 
 Pode adicionar itens à sua coleção de duas formas:
 
-* Abra a coleção, **selecione Editar**e, em seguida, selecione **Add Item**. Pode adicionar itens que contribuiu para a Galeria ou pode pesquisar na Galeria itens a adicionar. Depois de ter selecionado os itens que pretende adicionar, clique em **Adicionar**.
+* Abra a coleção, **selecione Editar** e, em seguida, selecione **Add Item**. Pode adicionar itens que contribuiu para a Galeria ou pode pesquisar na Galeria itens a adicionar. Depois de ter selecionado os itens que pretende adicionar, clique em **Adicionar**.
 
 * Se encontrar um item que pretende adicionar enquanto navega na Galeria, abra o item e selecione **Adicionar à coleção**. Selecione a coleção a que pretende adicionar o artigo.
 

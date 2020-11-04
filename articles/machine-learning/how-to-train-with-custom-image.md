@@ -1,7 +1,7 @@
 ---
 title: Treine um modelo usando uma imagem personalizada do Docker
 titleSuffix: Azure Machine Learning
-description: Aprenda a treinar modelos com imagens personalizadas do Docker em Azure Machine Learning.
+description: Aprenda a usar as suas próprias imagens Docker, ou com curadoria da Microsoft, para treinar modelos em Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: saachigopal
 ms.date: 10/20/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6ce0885cce1861b27d6230c3807350831603684b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 23b59c80c8e44cf6473a2de9be9807eaf8a756c6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329122"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310545"
 ---
 # <a name="train-a-model-by-using-a-custom-docker-image"></a>Treine um modelo usando uma imagem personalizada do Docker
 
@@ -32,8 +32,8 @@ Executar o código em qualquer um destes ambientes:
   * No [repositório](https://github.com/Azure/azureml-examples)Azure Machine Learning, encontre um caderno completo indo aos **cadernos**  >  **fastai**  >  **train-pets-resnet34.ipynb.** 
 * O seu próprio servidor de cadernos Jupyter:
   * Crie um [ficheiro de configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)
-  * Instale o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 
-  * Crie um [registo de contentores Azure](/azure/container-registry) ou outro registo Docker que esteja disponível na internet.
+  * Instale o [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). 
+  * Crie um [registo de contentores Azure](../container-registry/index.yml) ou outro registo Docker que esteja disponível na internet.
 
 ## <a name="set-up-a-training-experiment"></a>Crie uma experiência de treino
 
@@ -41,7 +41,7 @@ Nesta secção, você configura a sua experiência de treino inicializando um es
 
 ### <a name="initialize-a-workspace"></a>Inicializar um espaço de trabalho
 
-O espaço de [trabalho Azure Machine Learning](concept-workspace.md) é o recurso de alto nível para o serviço. Dá-te um lugar centralizado para trabalhar com todos os artefactos que crias. No Python SDK, você pode aceder aos artefactos do espaço de trabalho criando um [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) objeto.
+O espaço de [trabalho Azure Machine Learning](concept-workspace.md) é o recurso de alto nível para o serviço. Dá-te um lugar centralizado para trabalhar com todos os artefactos que crias. No Python SDK, você pode aceder aos artefactos do espaço de trabalho criando um [`Workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) objeto.
 
 Crie um `Workspace` objeto a partir do config.jsno ficheiro que criou como [pré-requisito](#prerequisites).
 
@@ -163,7 +163,7 @@ run.wait_for_completion(show_output=True)
 ```
 
 > [!WARNING]
-> A Azure Machine Learning executa scripts de formação copiando todo o diretório de origem. Se tiver dados sensíveis que não pretende fazer o upload, utilize um [ficheiro .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem. Em vez disso, aceda aos seus dados utilizando uma [loja de dados.](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)
+> A Azure Machine Learning executa scripts de formação copiando todo o diretório de origem. Se tiver dados sensíveis que não pretende fazer o upload, utilize um [ficheiro .ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) ou não o inclua no diretório de origem. Em vez disso, aceda aos seus dados utilizando uma [loja de dados.](/python/api/azureml-core/azureml.data?preserve-view=true&view=azure-ml-py)
 
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, treinaste um modelo usando uma imagem personalizada do Docker. Veja estes outros artigos para saber mais sobre Azure Machine Learning:

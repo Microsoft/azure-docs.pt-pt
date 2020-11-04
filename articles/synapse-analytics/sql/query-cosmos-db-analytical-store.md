@@ -1,6 +1,6 @@
 ---
 title: Consulta dados DB da Azure Cosmos utilizando a piscina SQL sem servidor em Azure Synapse Link (pré-visualização)
-description: Neste artigo, você aprenderá a consultar Azure Cosmos DB usando SQL on-demand em Azure Synapse Link (pré-visualização).
+description: Neste artigo, você aprenderá a consultar Azure Cosmos DB usando piscina SQL sem servidor em Azure Synapse Link (pré-visualização).
 services: synapse analytics
 author: jovanpop-msft
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2b1af6fa5b0ccb95476c4ae169481e4aaa15f4f9
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9f57d435134bffbb8e7576adffeacb92bf687124
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737832"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310308"
 ---
 # <a name="query-azure-cosmos-db-data-with-serverless-sql-pool-in-azure-synapse-link-preview"></a>Consulta dados DB da Azure Cosmos com piscina SQL sem servidor em Azure Synapse Link (pré-visualização)
 
 O pool SQL sem servidor sinapse permite-lhe analisar dados nos seus contentores DB Azure Cosmos que estão ativados com [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) em quase tempo real sem afetar o desempenho das suas cargas de trabalho transacionais. Oferece uma sintaxe T-SQL familiar para consultar dados da [loja analítica](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e conectividade integrada a uma ampla gama de ferramentas de consulta bi e ad-hoc através da interface T-SQL.
 
-Para consulta do Azure Cosmos DB, toda a área [de](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) superfície SELECT é suportada através da função [OPENROWSET,](develop-openrowset.md) incluindo a maioria das [funções e operadores SQL](overview-features.md). Também pode armazenar os resultados da consulta que lê os dados da Azure Cosmos DB juntamente com os dados em Azure Blob Storage ou Azure Data Lake Storage utilizando [criar uma tabela externa como selecionado.](develop-tables-cetas.md#cetas-in-sql-on-demand) Não é possível armazenar atualmente resultados de consulta de piscina SQL sem servidor para Azure Cosmos DB utilizando [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+Para consulta do Azure Cosmos DB, toda a área [de](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) superfície SELECT é suportada através da função [OPENROWSET,](develop-openrowset.md) incluindo a maioria das [funções e operadores SQL](overview-features.md). Também pode armazenar os resultados da consulta que lê os dados da Azure Cosmos DB juntamente com os dados em Azure Blob Storage ou Azure Data Lake Storage utilizando [criar uma tabela externa como selecionado.](develop-tables-cetas.md#cetas-in-serverless-sql-pool) Atualmente, não é possível armazenar resultados de consulta de piscina SQL sem servidor para a Azure Cosmos DB utilizando o CETAS. 
 
 Neste artigo, você aprenderá a escrever uma consulta com a piscina SQL sem servidor que irá consultar dados de recipientes DB Azure Cosmos que estão ativados no Synapse Link. Você pode então aprender mais sobre construir vistas de piscina SQL sem servidor sobre os recipientes DB Azure Cosmos e ligá-los aos modelos Power BI [neste](./tutorial-data-analyst.md) tutorial. 
 
@@ -354,10 +354,10 @@ Os eventuais erros e ações de resolução de problemas estão listados no quad
 
 Pode relatar sugestões e problemas na [página de feedback do Azure Synapse](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações, veja os seguintes artigos:
 
-- [Use power BI e sem servidor Piscina SQL synapse com Link Azure Synapse](../../cosmos-db/synapse-link-power-bi.md)
-- [Como criar e usar vistas em SQL on demand](create-use-views.md) 
-- [Tutorial sobre a construção de vistas a pedido do SQL sobre a Azure Cosmos DB e ligá-las aos modelos Power BI via DirectQuery](./tutorial-data-analyst.md)
+- [Use power bi e piscina SQL sem servidor com Link Azure Synapse](../../cosmos-db/synapse-link-power-bi.md)
+- [Como criar e usar vistas na piscina SQL sem servidor](create-use-views.md) 
+- [Tutorial sobre a construção de vistas de piscina SQL sem servidor sobre a Azure Cosmos DB e ligando-os aos modelos Power BI via DirectQuery](./tutorial-data-analyst.md)

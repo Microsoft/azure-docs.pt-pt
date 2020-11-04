@@ -1,7 +1,7 @@
 ---
 title: Modelo de alto desempenho servindo com Tritão (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Aprenda a implementar um modelo com o Servidor de Inferência de Tritão em Azure Machine Learning
+description: Aprenda a implementar o seu modelo com o NVIDIA Triton Inference Server em Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3a3600c4065d331ca1cfc129cd55dd56add21424
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: afa1d958e054a769ea0f19b82afdf55a94c3d0cf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92428341"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309707"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Serviço de alto desempenho com Servidor de Inferência de Tritão (Pré-visualização) 
 
@@ -36,7 +36,7 @@ Tritão é um quadro que está *otimizado para a inferência.* Proporciona uma m
 
 * Uma **subscrição do Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiaridade com [como e onde implementar um modelo](how-to-deploy-and-where.md) com Azure Machine Learning.
-* O [Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) **ou** o [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) e [extensão de aprendizagem automática.](reference-azure-machine-learning-cli.md)
+* O [Azure Machine Learning SDK para Python](/python/api/overview/azure/ml/?view=azure-ml-py) **ou** o [Azure CLI](/cli/azure/?view=azure-cli-latest) e [extensão de aprendizagem automática.](reference-azure-machine-learning-cli.md)
 * Uma instalação de trabalho do Docker para testes locais. Para obter informações sobre a instalação e validação do Docker, consulte [a Orientação e a configuração](https://docs.docker.com/get-started/) na documentação do estivador.
 
 ## <a name="architectural-overview"></a>Descrição geral da arquitetura
@@ -58,7 +58,7 @@ Antes de tentar usar Tritão para o seu próprio modelo, é importante entender 
 * Tritão processa pedidos em lotes para maximizar a utilização da GPU.
 * O cliente usa o __URI de pontuação__ para fazer pedidos. Por exemplo, `https://myserevice.azureml.net/score`.
 
-:::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Normal, não tritão, diagrama de arquitetura de implantação":::
+:::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Inferênciaconfig implantação com Tritão":::
 
 O fluxo de trabalho para usar Tritão para a sua implementação de modelo é:
 
@@ -228,7 +228,7 @@ Uma configuração de inferência permite-lhe usar um script de entrada, bem com
 > [!IMPORTANT]
 > Deve especificar o `AzureML-Triton` [ambiente curado.](./resource-curated-environments.md)
 >
-> O código Python cita clones `AzureML-Triton` para outro ambiente chamado `My-Triton` . O código Azure CLI também utiliza este ambiente. Para obter mais informações sobre a clonagem de um ambiente, consulte a referência [Ambiente.Clone().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#clone-new-name-)
+> O código Python cita clones `AzureML-Triton` para outro ambiente chamado `My-Triton` . O código Azure CLI também utiliza este ambiente. Para obter mais informações sobre a clonagem de um ambiente, consulte a referência [Ambiente.Clone().](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-)
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -283,7 +283,7 @@ az ml model deploy -n triton-densenet-onnx \
 
 ---
 
-Após a colocação concluída, é apresentado o URI de pontuação. Para esta implantação local, `http://localhost:6789/score` será. Se se deslocar para a nuvem, pode utilizar o comando CLI do [serviço AZ ML](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) para obter o URI de pontuação.
+Após a colocação concluída, é apresentado o URI de pontuação. Para esta implantação local, `http://localhost:6789/score` será. Se se deslocar para a nuvem, pode utilizar o comando CLI do [serviço AZ ML](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) para obter o URI de pontuação.
 
 Para obter informações sobre como criar um cliente que envia pedidos de inferência para o URI pontuante, consulte [consumir um modelo implantado como serviço web](how-to-consume-web-service.md).
 
@@ -310,7 +310,7 @@ az ml service delete -n triton-densenet-onnx
 * [Ver amostras de ponta a ponta de Tritão em Azure Machine Learning](https://aka.ms/aml-triton-sample)
 * Confira os [exemplos do cliente tritão](https://github.com/triton-inference-server/server/tree/master/src/clients/python/examples)
 * Leia a documentação do [Servidor de Inferência de Tritão](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html)
-* [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
+* [Resolver problemas de uma implementação com falhas](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Atualizar serviços Web](how-to-deploy-update-web-service.md)
 * [Recolher dados para modelos em produção](how-to-enable-data-collection.md)

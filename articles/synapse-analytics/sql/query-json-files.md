@@ -1,6 +1,6 @@
 ---
-title: Consulta ficheiros JSON utilizando SQL on demand (pré-visualização)
-description: Esta secção explica como ler ficheiros JSON usando SQL on demand in Azure Synapse Analytics.
+title: Consulta ficheiros JSON usando piscina SQL sem servidor (pré-visualização)
+description: Esta secção explica como ler ficheiros JSON usando piscina SQL sem servidor em Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86ed3f005788627166c65b30398279f04388546c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dbad07401d77a15cd860a8ae492560c5fced819
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930854"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310613"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Ficheiros de consulta JSON utilizando SQL on-demand (pré-visualização) em Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Consulta ficheiros JSON usando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
 
-Neste artigo, você aprenderá a escrever uma consulta usando SQL on demand (preview) em Azure Synapse Analytics. O objetivo da consulta é ler ficheiros JSON utilizando [OPENROWSET](develop-openrowset.md). 
+Neste artigo, você aprenderá a escrever uma consulta usando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics. O objetivo da consulta é ler ficheiros JSON utilizando [OPENROWSET](develop-openrowset.md). 
 - Ficheiros JSON padrão onde vários documentos JSON são armazenados como uma matriz JSON.
 - Ficheiros JSON delimitados em linha, onde os documentos JSON são separados com o carácter de nova linha. As extensões comuns para este tipo de ficheiros são `jsonl` `ldjson` , e `ndjson` .
 

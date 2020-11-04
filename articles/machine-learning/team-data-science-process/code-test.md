@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090302"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312681"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Testes de código de ciência de dados no Azure com o Processo de Ciência de Dados da Equipa e Serviços Azure DevOps
 Este artigo fornece orientações preliminares para testar código num fluxo de trabalho de ciência de dados. Estes testes conferem aos cientistas de dados uma forma sistemática e eficiente de verificar a qualidade e o resultado esperado do seu código. Utilizamos um projeto team data science process (TDSP) [que utiliza o conjunto de dados do Rendimento Adulto da UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicámos anteriormente para mostrar como os testes de código podem ser feitos. 
@@ -102,7 +102,7 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
 1. Esses testes podem ser automaticamente descobertos se colocar **codetest.testCase** após o seu nome de classe. Abra o Explorador de Teste no painel direito e selecione **Run All**. Todos os testes serão realizados sequencialmente e dir-lhe-ão se o teste é bem sucedido ou não.
 
-    ![A fazer os testes](./media/code-test/run_tests.PNG)
+    ![Executar os testes](./media/code-test/run_tests.PNG)
 
 1. Consulte o seu código no repositório do projeto utilizando comandos Git. O seu trabalho mais recente será refletido em breve em Azure DevOps.
 
@@ -112,7 +112,7 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
 1. Configurar a construção automática e testar em Azure DevOps:
 
-    a. No repositório do projeto, selecione **Build and Release**, e, em seguida, selecione **+Novo** para criar um novo processo de construção.
+    a. No repositório do projeto, selecione **Build and Release** , e, em seguida, selecione **+Novo** para criar um novo processo de construção.
 
     ![Seleções para iniciar um novo processo de construção](./media/code-test/create_new_build.PNG)
 
@@ -124,7 +124,7 @@ Utilize os seguintes passos para configurar e executar testes de código e uma c
 
     ![Lista de modelos e botão "Processo vazio"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Nomeie a construção e selecione o agente. Pode escolher o padrão aqui se quiser utilizar um DSVM para concluir o processo de construção. Para obter mais informações sobre a definição de agentes, consulte [build e release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Nomeie a construção e selecione o agente. Pode escolher o padrão aqui se quiser utilizar um DSVM para concluir o processo de construção. Para obter mais informações sobre a definição de agentes, consulte [build e release agents](/azure/devops/pipelines/agents/agents?view=vsts).
     
     ![Seleções de construção e de agentes](./media/code-test/select_agent.PNG)
 
@@ -155,7 +155,7 @@ Se os alertas forem configurados corretamente, será notificado por e-mail quand
 * Siga o esboço anterior e os exemplos do cenário de previsão de rendimento da UCI nos seus próprios projetos de ciência de dados.
 
 ## <a name="references"></a>Referências
-* [Processo de Ciência de Dados de Equipa](https://aka.ms/tdsp)
+* [Processo de Ciência de Dados de Equipa](./index.yml)
 * [Ferramentas de teste de estúdio visual](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Recursos de teste de Azure DevOps](https://www.visualstudio.com/team-services/)
 * [Máquinas Virtuais de Ciência de Dados](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

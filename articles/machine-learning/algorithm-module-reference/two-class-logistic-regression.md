@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 525293c7ae3d0af49f6deaa0ce9d3cb037d9ba38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bd42b6e9f1498db294b57d0ea1ffdac5245be8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907701"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309977"
 ---
 # <a name="two-class-logistic-regression-module"></a>Two-Class módulo de regressão logística
 
@@ -40,9 +40,9 @@ Por exemplo, a coluna do rótulo pode ser [Votada] com possíveis valores de "Si
   
 2.  Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**  
   
-    -   **Parâmetro único**: Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único** : Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.  
 
-    -   **Intervalo de parâmetros**: Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
+    -   **Intervalo de parâmetros** : Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
   
 3.  Para **a tolerância à otimização,** especifique um valor-limiar a utilizar ao otimizar o modelo. Se a melhoria entre iterações ficar abaixo do limiar especificado, considera-se que o algoritmo convergiu numa solução e o treino para.  
   
@@ -58,7 +58,7 @@ Por exemplo, a coluna do rótulo pode ser [Votada] com possíveis valores de "Si
      Este algoritmo suporta uma combinação linear de valores de regularização L1 e L2: isto é, se <code>x = L1</code> e <code>y = L2</code> , em seguida, define o período <code>ax + by = c</code> linear dos termos de regularização.  
   
     > [!NOTE]
-    >  Quer saber mais sobre a regularização L1 e L2? O seguinte artigo fornece uma discussão sobre como a regularização L1 e L2 são diferentes e como afetam a montagem do modelo, com amostras de código para regressão logística e modelos de rede neural:  [Regularização L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
+    >  Quer saber mais sobre a regularização L1 e L2? O seguinte artigo fornece uma discussão sobre como a regularização L1 e L2 são diferentes e como afetam a montagem do modelo, com amostras de código para regressão logística e modelos de rede neural:  [Regularização L1 e L2 para Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)  
     >
     > Foram concebidas diferentes combinações lineares de termos L1 e L2 para modelos de regressão logística: por exemplo, [regularização líquida elástica](https://wikipedia.org/wiki/Elastic_net_regularization). Sugerimos que faça referência a estas combinações para definir uma combinação linear que seja eficaz no seu modelo.
       
@@ -87,7 +87,7 @@ Por exemplo, a coluna do rótulo pode ser [Votada] com possíveis valores de "Si
   
 9. Envie o oleoduto.  
   
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o treino estar completo:
  
@@ -97,4 +97,4 @@ Após o treino estar completo:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

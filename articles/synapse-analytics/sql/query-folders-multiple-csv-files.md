@@ -1,6 +1,6 @@
 ---
-title: Pastas de consulta e vários ficheiros utilizando SQL on demand (pré-visualização)
-description: SQL on-demand (pré-visualização) suporta a leitura de vários ficheiros/pastas utilizando wildcards, que são semelhantes aos wildcards utilizados no Windows OS.
+title: Pastas de consulta e vários ficheiros utilizando piscina SQL sem servidor (pré-visualização)
+description: A piscina SQL sem servidor (pré-visualização) suporta a leitura de vários ficheiros/pastas utilizando wildcards, que são semelhantes aos wildcards utilizados no Windows OS.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,18 +9,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 54ef116878dee2ed1c351fac3dacdf359abbe574
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71ed590440a8c7e37a071b4eadfc09977ef91d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288346"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310827"
 ---
 # <a name="query-folders-and-multiple-files"></a>Consultar pastas e vários ficheiros  
 
-Neste artigo, você aprenderá a escrever uma consulta usando SQL on demand (preview) em Azure Synapse Analytics.
+Neste artigo, você aprenderá a escrever uma consulta usando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics.
 
-SQL suporta a leitura de vários ficheiros/pastas utilizando wildcards, que são semelhantes aos wildcards utilizados no Windows OS. No entanto, existe uma maior flexibilidade, uma vez que são permitidos vários wildcards.
+A piscina SQL sem servidor suporta a leitura de vários ficheiros/pastas utilizando wildcards, que são semelhantes aos wildcards utilizados no Windows OS. No entanto, existe uma maior flexibilidade, uma vez que são permitidos vários wildcards.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

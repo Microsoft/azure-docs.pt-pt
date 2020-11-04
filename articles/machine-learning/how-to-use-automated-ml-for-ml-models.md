@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 47df04a0195c4cfcc4e40db5bf21387a284f682c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad84d3d3fd58edc6f7967c6f50440dcc90625617
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362253"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311269"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 
@@ -56,7 +56,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 1. Selecione um conjunto de dados do seu recipiente de armazenamento ou crie um novo conjunto de dados. Os conjuntos de dados podem ser criados a partir de ficheiros locais, urls web, datastores ou conjuntos de dados abertos Azure. Saiba mais sobre [a criação do conjunto de dados.](how-to-create-register-datasets.md)  
 
     >[!Important]
-    > Requisitos para dados de formação:
+    > Requisitos dos dados de preparação:
     >* Os dados devem estar em forma tabular.
     >* O valor que pretende prever (coluna-alvo) deve estar presente nos dados.
 
@@ -126,20 +126,20 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
     
         1. Permitir uma aprendizagem profunda.
     
-        1. Selecione *coluna de tempo*: Esta coluna contém os dados de tempo a utilizar.
+        1. Selecione *coluna de tempo* : Esta coluna contém os dados de tempo a utilizar.
 
-        1. Selecione *o horizonte de previsão*: Indique quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) poderão prever para o futuro. Quanto mais o modelo for necessário para prever o futuro, menos preciso se tornará. [Saiba mais sobre previsão e previsão do horizonte.](how-to-auto-train-forecast.md)
+        1. Selecione *o horizonte de previsão* : Indique quantas unidades de tempo (minutos/horas/dias/semanas/meses/anos) poderão prever para o futuro. Quanto mais o modelo for necessário para prever o futuro, menos preciso se tornará. [Saiba mais sobre previsão e previsão do horizonte.](how-to-auto-train-forecast.md)
 
 1. (Opcional) Ver definições de configuração de adição: definições adicionais que pode utilizar para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados. 
 
-    Configurações adicionais|Descrição
+    Configurações adicionais|Description
     ------|------
     Métrica primária| Métrica principal usada para marcar o seu modelo. [Saiba mais sobre as métricas dos modelos.](how-to-configure-auto-train.md#primary-metric)
     Explicar o melhor modelo | Selecione para ativar ou desativar, de modo a mostrar explicações para o melhor modelo recomendado. <br> Esta funcionalidade não está atualmente disponível para [certos algoritmos de previsão.](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model) 
-    Algoritmo bloqueado| Selecione algoritmos que pretende excluir do trabalho de treino. <br><br> Permitir algoritmos só está disponível para [experiências SDK.](how-to-configure-auto-train.md#supported-models) <br> Consulte os [modelos suportados para cada tipo de tarefa](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true).
-    Critério de saída| Quando qualquer um destes critérios é cumprido, o trabalho de formação é interrompido. <br> *Tempo de formação (horas)*: Quanto tempo para permitir que o trabalho de formação corra. <br> *Limiar de pontuação métrica*: Pontuação métrica mínima para todos os oleodutos. Isto garante que se tiver uma métrica de destino definida que deseja alcançar, não gasta mais tempo no trabalho de formação do que o necessário.
+    Algoritmo bloqueado| Selecione algoritmos que pretende excluir do trabalho de treino. <br><br> Permitir algoritmos só está disponível para [experiências SDK.](how-to-configure-auto-train.md#supported-models) <br> Consulte os [modelos suportados para cada tipo de tarefa](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
+    Critério de saída| Quando qualquer um destes critérios é cumprido, o trabalho de formação é interrompido. <br> *Tempo de formação (horas)* : Quanto tempo para permitir que o trabalho de formação corra. <br> *Limiar de pontuação métrica* : Pontuação métrica mínima para todos os oleodutos. Isto garante que se tiver uma métrica de destino definida que deseja alcançar, não gasta mais tempo no trabalho de formação do que o necessário.
     Validação| Selecione uma das opções de validação cruzada para utilizar no trabalho de treino. <br> [Saiba mais sobre validação cruzada.](how-to-configure-cross-validation-data-splits.md#prerequisites)<br> <br>A previsão suporta apenas a validação cruzada k-fold.
-    Simultaneidade| *Iterações máximas simultâneas*: Número máximo de condutas (iterações) para testar no trabalho de formação. O trabalho não funcionará mais do que o número especificado de iterações.
+    Simultaneidade| *Iterações máximas simultâneas* : Número máximo de condutas (iterações) para testar no trabalho de formação. O trabalho não funcionará mais do que o número especificado de iterações.
 
 1. (Opcional) Ver definições de visualização: se optar por ativar a **caracterização automática** no formulário **configurações de configuração adicionais,** aplicam-se as técnicas de apri metragem de atenção predefinidos. Nas **definições** de visualização do View pode alterar estas padrão e personalizar em conformidade. Saiba como [personalizar as ações.](#customize-featurization) 
 
@@ -153,7 +153,7 @@ A tabela seguinte resume as personalizações atualmente disponíveis através d
 
 Coluna| Personalização
 ---|---
-Incluída | Especifica quais as colunas a incluir para o treino.
+Incluídos | Especifica quais as colunas a incluir para o treino.
 Tipo de recurso| Altere o tipo de valor para a coluna selecionada.
 Impute com| Selecione com que valor imputar valores em falta nos seus dados.
 
@@ -167,7 +167,7 @@ Impute com| Selecione com que valor imputar valores em falta nos seus dados.
 
 O ecrã **'Detalhes'** abre-se para o separador **Detalhes.** Este ecrã mostra-lhe um resumo da experiência, incluindo uma barra de estado na parte superior ao lado do número de execução. 
 
-O separador**Modelos** contém uma lista dos modelos criados encomendados pela pontuação de métrica. Por predefinição, o modelo com a classificação mais alta com base na métrica escolhida está no topo da lista. À medida que a tarefa de preparação experimenta mais modelos, estes são adicionados à lista. Utilize-a para obter uma comparação rápida das métricas dos modelos produzidos até agora.
+O separador **Modelos** contém uma lista dos modelos criados encomendados pela pontuação de métrica. Por predefinição, o modelo com a classificação mais alta com base na métrica escolhida está no topo da lista. À medida que a tarefa de preparação experimenta mais modelos, estes são adicionados à lista. Utilize-a para obter uma comparação rápida das métricas dos modelos produzidos até agora.
 
 [![Executar o painel de detalhes](media/how-to-use-automated-ml-for-ml-models/run-details.png)](media/how-to-use-automated-ml-for-ml-models/run-details-expanded.png#lightbox)
 
@@ -199,7 +199,7 @@ O ML automatizado ajuda-o a implementar o modelo sem escrever código:
     Campo| Valor
     ----|----
     Nome| Insira um nome único para a sua implantação.
-    Descrição| Introduza uma descrição para identificar melhor para que é esta implantação.
+    Description| Introduza uma descrição para identificar melhor para que é esta implantação.
     Tipo de computação| Selecione o tipo de ponto final que pretende implantar: *Serviço Azure Kubernetes (AKS)* ou *Instância de Contentores Azure (ACI)*.
     Nome da computação| *Aplica-se apenas a AKS:* Selecione o nome do cluster AKS para o quais pretende implementar.
     Ative a autenticação | Selecione para permitir a autenticação baseada em símbolos ou em teclas.
@@ -217,6 +217,6 @@ Agora, tem um serviço Web operacional para gerar predições! Pode testar as pr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba como consumir um serviço web.](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service)
+* [Saiba como consumir um serviço web.](./how-to-consume-web-service.md)
 * [Compreenda os resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)
 * [Saiba mais sobre machine learning automatizado](concept-automated-ml.md) e aprendizagem automática Azure.

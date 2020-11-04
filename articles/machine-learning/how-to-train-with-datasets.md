@@ -12,19 +12,19 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: aa1ba4aa07ee4cdc097bd4ed3e6e4d7563360a5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70fd8796eb4d17662697410bf97caee835e998ab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331799"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311335"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de dados em Azure Machine Learning
 
 
-Neste artigo, aprende a trabalhar com [conjuntos de dados de Aprendizagem automática Azure](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true) nas suas experiências de treino.  Pode utilizar conjuntos de dados no seu alvo de computação local ou remota sem se preocupar com cordas de ligação ou caminhos de dados.
+Neste artigo, aprende a trabalhar com [conjuntos de dados de Aprendizagem automática Azure](/python/api/azureml-core/azureml.core.dataset%28class%29?preserve-view=true&view=azure-ml-py) nas suas experiências de treino.  Pode utilizar conjuntos de dados no seu alvo de computação local ou remota sem se preocupar com cordas de ligação ou caminhos de dados.
 
-Os conjuntos de dados Azure Machine Learning proporcionam uma integração perfeita com a funcionalidade de formação de aprendizagem automática Azure como [scriptRunConfig,](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) [hiperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true) e [azure machine learning pipelines](how-to-create-your-first-pipeline.md).
+Os conjuntos de dados Azure Machine Learning proporcionam uma integração perfeita com a funcionalidade de formação de aprendizagem automática Azure como [scriptRunConfig,](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) [hiperDrive](/python/api/azureml-train-core/azureml.train.hyperdrive?preserve-view=true&view=azure-ml-py) e [azure machine learning pipelines](how-to-create-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -34,16 +34,16 @@ Para criar e treinar com conjuntos de dados, precisa:
 
 * Um [espaço de trabalho de aprendizagem automática Azure.](how-to-manage-workspace.md)
 
-* O [Azure Machine Learning SDK para Python instalado](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0), que inclui o pacote de conjuntos de dados azureml.
+* O [Azure Machine Learning SDK para Python instalado](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0), que inclui o pacote de conjuntos de dados azureml.
 
 > [!Note]
-> Algumas classes dataset têm dependências do pacote [azureml-dataprep.](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) Para os utilizadores do Linux, estas classes são suportadas apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+> Algumas classes dataset têm dependências do pacote [azureml-dataprep.](/python/api/azureml-dataprep/?preserve-view=true&view=azure-ml-py) Para os utilizadores do Linux, estas classes são suportadas apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
 
 ## <a name="use-datasets-directly-in-training-scripts"></a>Utilize conjuntos de dados diretamente nos scripts de formação
 
 Se tiver dados estruturados ainda não registados como conjunto de dados, crie um Separadors e utilize-os diretamente no seu script de treino para a sua experiência local ou remota.
 
-Neste exemplo, cria-se um [Separadornista](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) Não Registado e especifica-o como argumento de script no objeto ScriptRunConfig para treino. Se pretender reutilizar este SeparadorDataset com outras experiências no seu espaço de trabalho, consulte [como registar conjuntos de dados no seu espaço de trabalho.](how-to-create-register-datasets.md#register-datasets)
+Neste exemplo, cria-se um [Separadornista](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) Não Registado e especifica-o como argumento de script no objeto ScriptRunConfig para treino. Se pretender reutilizar este SeparadorDataset com outras experiências no seu espaço de trabalho, consulte [como registar conjuntos de dados no seu espaço de trabalho.](how-to-create-register-datasets.md#register-datasets)
 
 ### <a name="create-a-tabulardataset"></a>Criar um Conjunto de Dados Tabular
 
@@ -60,7 +60,7 @@ Os objetos TabularDataset fornecem a capacidade de carregar os dados no seu Sepa
 
 ### <a name="access-dataset-in-training-script"></a>Conjunto de dados de acesso no script de formação
 
-O código que se segue configura um argumento de script `--input-data` que irá especificar quando configurar a sua formação (ver secção seguinte). Quando o conjunto de dados tabular é passado como o valor do argumento, o Azure ML resolverá isso para iD do conjunto de dados, que pode então utilizar para aceder ao conjunto de dados no seu script de treino (sem ter de codificar o nome ou ID do conjunto de dados no seu script). Em seguida, utiliza o [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) método para carregar esse conjunto de dados num dataframe de pandas para mais exploração e preparação de dados antes do treino.
+O código que se segue configura um argumento de script `--input-data` que irá especificar quando configurar a sua formação (ver secção seguinte). Quando o conjunto de dados tabular é passado como o valor do argumento, o Azure ML resolverá isso para iD do conjunto de dados, que pode então utilizar para aceder ao conjunto de dados no seu script de treino (sem ter de codificar o nome ou ID do conjunto de dados no seu script). Em seguida, utiliza o [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) método para carregar esse conjunto de dados num dataframe de pandas para mais exploração e preparação de dados antes do treino.
 
 > [!Note]
 > Se a sua fonte de dados original contiver NaN, cordas vazias ou valores em branco, quando `to_pandas_dataframe()` utilizar, esses valores são substituídos como um valor *nulo.*
@@ -88,7 +88,7 @@ df = dataset.to_pandas_dataframe()
 ```
 
 ### <a name="configure-the-training-run"></a>Configure a corrida de treino
-Um objeto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py&preserve-view=true) é usado para configurar e submeter a execução de treino.
+Um objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrun?preserve-view=true&view=azure-ml-py) é usado para configurar e submeter a execução de treino.
 
 Este código cria um objeto ScriptRunConfig, `src` que especifica
 
@@ -115,7 +115,7 @@ run.wait_for_completion(show_output=True)
 
 ## <a name="mount-files-to-remote-compute-targets"></a>Monte ficheiros para alvos de computação remota
 
-Se tiver dados não estruturados, crie um [Dataset de Ficheiros](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) e monte ou descarregue os seus ficheiros de dados para os disponibilizar ao seu alvo de computação remota para treino. Saiba quando usar [o mount vs. download](#mount-vs-download) para as suas experiências de treino remoto. 
+Se tiver dados não estruturados, crie um [Dataset de Ficheiros](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) e monte ou descarregue os seus ficheiros de dados para os disponibilizar ao seu alvo de computação remota para treino. Saiba quando usar [o mount vs. download](#mount-vs-download) para as suas experiências de treino remoto. 
 
 O exemplo a seguir cria um Dataset de Ficheiros e monta o conjunto de dados para o alvo do cálculo, passando-o como argumento para o script de formação. 
 
@@ -222,7 +222,7 @@ print (mounted_path)
 
 ## <a name="directly-access-datasets-in-your-script"></a>Aceda diretamente conjuntos de dados no seu script
 
-Os conjuntos de dados registados são acessíveis localmente e remotamente em clusters computacional como o cálculo Azure Machine Learning. Para aceder ao conjunto de dados registado através de experiências, utilize o seguinte código para aceder ao seu espaço de trabalho e ao conjunto de dados registado pelo nome. Por predefinição, [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-by-name-workspace--name--version--latest--) o método na classe devolve a versão mais recente do conjunto de `Dataset` dados registado no espaço de trabalho.
+Os conjuntos de dados registados são acessíveis localmente e remotamente em clusters computacional como o cálculo Azure Machine Learning. Para aceder ao conjunto de dados registado através de experiências, utilize o seguinte código para aceder ao seu espaço de trabalho e ao conjunto de dados registado pelo nome. Por predefinição, [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) o método na classe devolve a versão mais recente do conjunto de `Dataset` dados registado no espaço de trabalho.
 
 ```Python
 %%writefile $script_folder/train.py

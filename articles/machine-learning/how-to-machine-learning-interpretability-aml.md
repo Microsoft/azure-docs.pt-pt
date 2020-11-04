@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708259"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311602"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Utilize o pacote de interpretação para explicar os modelos ML & previsões em Python (pré-visualização)
 
@@ -302,7 +302,7 @@ Depois de descarregar as explicações no seu caderno Jupyter local, pode utiliz
 
 Os seguintes enredos proporcionam uma visão geral do modelo treinado juntamente com as suas previsões e explicações.
 
-|Lote|Descrição|
+|Lote|Description|
 |----|-----------|
 |Exploração de Dados| Apresenta uma visão geral do conjunto de dados juntamente com os valores de previsão.|
 |Importância Global|Os agregados apresentam valores importantes de pontos de dados individuais para mostrar as características importantes do modelo no topo do K (configurável K). Ajuda a compreender o comportamento geral do modelo subjacente.|
@@ -316,7 +316,7 @@ Os seguintes enredos proporcionam uma visão geral do modelo treinado juntamente
 
 Pode carregar o enredo de importância de recurso individual para qualquer ponto de dados clicando em qualquer um dos pontos de dados individuais em qualquer um dos enredos globais.
 
-|Lote|Descrição|
+|Lote|Description|
 |----|-----------|
 |Importância Local|Mostra as características importantes k (configurável K) para uma previsão individual. Ajuda a ilustrar o comportamento local do modelo subjacente num ponto de dados específico.|
 |Exploração de Perturbação (e se análise)|Permite alterações aos valores de característica do ponto de dados selecionados e observa alterações resultantes ao valor de previsão.|
@@ -354,7 +354,7 @@ Siga um destes caminhos para aceder ao painel de visualização no estúdio Azur
    [![Visualização Dashboard Característica Local Importância no estúdio AzureML em experiências](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * **Painel de modelos**
-  1. Se registou o seu modelo original seguindo os passos nos [modelos Implementar com Azure Machine Learning,](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)pode selecionar **Modelos** no painel esquerdo para o visualizar.
+  1. Se registou o seu modelo original seguindo os passos nos [modelos Implementar com Azure Machine Learning,](./how-to-deploy-and-where.md)pode selecionar **Modelos** no painel esquerdo para o visualizar.
   1. Selecione um modelo e, em seguida, o **separador Explicações** para visualizar o painel de visualização de explicação.
 
 ## <a name="interpretability-at-inference-time"></a>Interpretação no tempo da inferência
@@ -419,7 +419,7 @@ Pode implantar o explicador juntamente com o modelo original e usá-lo no moment
 
 1. Implementar a imagem num alvo de computação, seguindo estes passos:
 
-   1. Se necessário, registe o seu modelo de previsão original seguindo os passos nos [modelos Deploy com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+   1. Se necessário, registe o seu modelo de previsão original seguindo os passos nos [modelos Deploy com Azure Machine Learning](./how-to-deploy-and-where.md).
 
    1. Crie um ficheiro de pontuação.
 
@@ -553,4 +553,3 @@ Pode implantar o explicador juntamente com o modelo original e usá-lo no moment
 [Saiba mais sobre a interpretação do modelo](how-to-machine-learning-interpretability.md)
 
 [Confira os cadernos de amostra de interpretação de aprendizagem de máquinas Azure](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
-

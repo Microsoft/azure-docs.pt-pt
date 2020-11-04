@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 7f21d3ed3d5e71c2f87777316e7584011490043a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fad51f5c8ec426792c74b1a14ea80ab47c2d892
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757780"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312288"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Criar e explorar conjunto de dados de aprendizagem automática Azure com rótulos
 
@@ -27,8 +27,8 @@ Referimo-nos a conjuntos de dados de aprendizagem automática Azure com etiqueta
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
-* O [Azure Machine Learning SDK para Python,](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)ou acesso ao [estúdio Azure Machine Learning.](https://ml.azure.com/)
-    * Instale o pacote [azure-contrib-dataset](https://docs.microsoft.com/python/api/azureml-contrib-dataset/?view=azure-ml-py&preserve-view=true)
+* O [Azure Machine Learning SDK para Python,](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou acesso ao [estúdio Azure Machine Learning.](https://ml.azure.com/)
+    * Instale o pacote [azure-contrib-dataset](/python/api/azureml-contrib-dataset/?preserve-view=true&view=azure-ml-py)
 * Um espaço de trabalho de aprendizagem automática. Ver [Criar um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md).
 * Acesso a um projeto de rotulagem de dados Azure Machine Learning. Se não tiver um projeto de rotulagem, crie um com [estes passos.](how-to-create-labeling-projects.md)
 
@@ -52,7 +52,7 @@ Carregue os seus conjuntos de dados rotulados num dataframe de pandas ou num con
 
 ### <a name="pandas-dataframe"></a>Dataframe de pandas
 
-Pode carregar conjuntos de dados rotulados num dataframe de pandas com o [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) método da `azureml-contrib-dataset` classe. Instale a classe com o seguinte comando de concha: 
+Pode carregar conjuntos de dados rotulados num dataframe de pandas com o [`to_pandas_dataframe()`](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) método da `azureml-contrib-dataset` classe. Instale a classe com o seguinte comando de concha: 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -87,7 +87,7 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Conjuntos de dados torchvision
 
-Pode carregar conjuntos de dados rotulados no conjunto de dados da Torchvision com o método [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueto-torchvision--) também da `azureml-contrib-dataset` classe. Para utilizar este método, é necessário instalar [o PyTorch.](https://pytorch.org/) 
+Pode carregar conjuntos de dados rotulados no conjunto de dados da Torchvision com o método [to_torchvision()](/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?preserve-view=true&view=azure-ml-py#&preserve-view=trueto-torchvision--) também da `azureml-contrib-dataset` classe. Para utilizar este método, é necessário instalar [o PyTorch.](https://pytorch.org/) 
 
 No código seguinte, o `animal_labels` conjunto de dados é a saída de um projeto de rotulagem previamente guardado para o espaço de trabalho.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85d7159edb1bc8608165264578d77519bf09efc2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f7770e929e51ee51b09060e4247c5f92b27d1035
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195074"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311878"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Fase de aquisição e compreensão de dados do Processo de Ciência de Dados da Equipa
 
@@ -67,8 +67,8 @@ Nesta fase, desenvolve-se uma arquitetura de solução do pipeline de dados. Des
 Seguem-se os resultados nesta fase:
 
    * [Relatório de qualidade dos dados](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): Este relatório inclui resumos de dados, as relações entre cada atributo e alvo, classificação variável, e muito mais. A ferramenta [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) fornecida como parte do TDSP pode gerar rapidamente este relatório em qualquer conjunto de dados tabulares, como um ficheiro CSV ou uma tabela relacional. 
-   * **Arquitetura de solução**: A arquitetura da solução pode ser um diagrama ou descrição do seu pipeline de dados que utiliza para executar pontuação ou previsões em novos dados depois de ter construído um modelo. Também contém o pipeline para reconverter o seu modelo com base em novos dados. Guarde o documento no diretório do [Projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quando utilizar o modelo de estrutura do diretório TDSP.
-   * **Decisão do checkpoint**: Antes de iniciar a engenharia e a construção de modelos completos, pode reavaliar o projeto para determinar se o valor esperado é suficiente para continuar a prossegui-lo. Pode, por exemplo, estar pronto para prosseguir, precisar de recolher mais dados, ou abandonar o projeto, uma vez que os dados não existem para responder à pergunta.
+   * **Arquitetura de solução** : A arquitetura da solução pode ser um diagrama ou descrição do seu pipeline de dados que utiliza para executar pontuação ou previsões em novos dados depois de ter construído um modelo. Também contém o pipeline para reconverter o seu modelo com base em novos dados. Guarde o documento no diretório do [Projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) quando utilizar o modelo de estrutura do diretório TDSP.
+   * **Decisão do checkpoint** : Antes de iniciar a engenharia e a construção de modelos completos, pode reavaliar o projeto para determinar se o valor esperado é suficiente para continuar a prossegui-lo. Pode, por exemplo, estar pronto para prosseguir, precisar de recolher mais dados, ou abandonar o projeto, uma vez que os dados não existem para responder à pergunta.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -82,4 +82,4 @@ Aqui estão as ligações a cada passo no ciclo de vida do TDSP:
 
 Fornecemos passos completos que demonstram todos os passos no processo para cenários específicos. O artigo [exemplo walkthroughs](walkthroughs.md) fornece uma lista dos cenários com links e descrições de miniaturas. As caminhadas ilustram como combinar ferramentas de nuvem, ferramentas no local e serviços em um fluxo de trabalho ou oleoduto para criar uma aplicação inteligente. 
 
-Por exemplo, como executar passos em TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data).
+Por exemplo, como executar passos em TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com Azure Machine Learning]().

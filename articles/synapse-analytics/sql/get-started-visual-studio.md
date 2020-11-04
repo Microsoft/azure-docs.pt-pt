@@ -1,6 +1,6 @@
 ---
 title: Conecte e consulta Synapse SQL com Visual Studio e SSDT
-description: Utilize o Visual Studio para consultar a piscina SQL utilizando o Azure Synapse Analytics.
+description: Utilize o Visual Studio para consultar a piscina SQL dedicada utilizando o Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,15 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93c975bbbc69a43f1bd47bd4b1e7b857338ac1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 098256c3174f5a737bec4f6a62cb1d2af99e6f4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089248"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311075"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Conecte-se ao SYNapse SQL com o Visual Studio e o SSDT
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -26,19 +27,20 @@ ms.locfileid: "87089248"
 > 
 > 
 
-Utilize o Visual Studio para consultar a piscina SQL utilizando o Azure Synapse Analytics. Este método utiliza a extensão SQL Server Data Tools (SSDT) no Visual Studio 2019. 
+Utilize o Visual Studio para consultar a piscina SQL dedicada utilizando o Azure Synapse Analytics. Este método utiliza a extensão SQL Server Data Tools (SSDT) no Visual Studio 2019. 
 
 > [!NOTE]
-> SQL on demand (pré-visualização) não é suportado pela SSDT.
+> A piscina SQL sem servidor (pré-visualização) não é suportada por SSDT.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Para utilizar este tutorial, precisa de ter os seguintes componentes:
 
-* Uma piscina SQL existente. Se não tiver uma, consulte [criar uma piscina SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para completar este pré-requisito.
+* Uma piscina SQL dedicada existente. Se não tiver uma, consulte [criar uma piscina SQL dedicada](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para completar este pré-requisito.
 * SSDT para Visual Studio. Se tem o Visual Studio, provavelmente já tem este componente. Para obter instruções e opções de instalação, veja [Installing Visual Studio and SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) (Instalar o Visual Studio e o SSDT).
-* O nome de servidor SQL completamente qualificado. Para encontrar este nome do servidor, consulte [a piscina Connect to SQL](connect-overview.md).
+* O nome de servidor SQL completamente qualificado. Para encontrar este nome do servidor, consulte [Connect para uma piscina SQL dedicada.](connect-overview.md)
 
-## <a name="1-connect-to-sql-pool"></a>1. Ligue-se à piscina SQL
+## <a name="1-connect-to-a-dedicated-sql-pool"></a>1. Conecte-se a uma piscina SQL dedicada
 1. Open Visual Studio 2019.
 2. Abra o SQL Server Object Explorer selecionando **View**  >  **SQL Server Object Explorer**.
    
@@ -50,9 +52,9 @@ Para utilizar este tutorial, precisa de ter os seguintes componentes:
    
     ![Ligar ao Servidor](./media/get-started-visual-studio/connection-dialog.png)
    
-   * **Nome do servidor**: Introduza o nome do **servidor** previamente identificado.
-   * **Autenticação**: Selecione A autenticação do **servidor SQL** ou **a autenticação integrada do Diretório Ativo**:
-   * **Nome do utilizador** e **palavra-passe**: Introduza o nome de utilizador e a palavra-passe se a autenticação do servidor SQL tiver sido selecionada acima.
+   * **Nome do servidor** : Introduza o nome do **servidor** previamente identificado.
+   * **Autenticação** : Selecione A autenticação do **servidor SQL** ou **a autenticação integrada do Diretório Ativo** :
+   * **Nome do utilizador** e **palavra-passe** : Introduza o nome de utilizador e a palavra-passe se a autenticação do servidor SQL tiver sido selecionada acima.
    * Clique em **Ligar**.
 5. Para explorar, expanda o servidor SQL do Azure. Pode ver as bases de dados associadas ao servidor. Expanda AdventureWorksDW para ver as tabelas na sua base de dados de exemplo.
    
@@ -79,5 +81,5 @@ Agora que foi estabelecida uma ligação à sua base de dados, irá escrever uma
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que pode ligar e consultar, tente [visualizar os dados com o Power BI](get-started-power-bi-professional.md).
-Para configurar o seu ambiente para a autenticação do Azure Ative Directory, consulte [autenticação para piscina SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Para configurar o seu ambiente para a autenticação do Azure Ative Directory, consulte [Authenticate para piscina SQL dedicada.](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
  

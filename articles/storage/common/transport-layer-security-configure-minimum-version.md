@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 5098d87d63d4002c4f219c5d2703ec1375599e00
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 5f772bd996b126a4cd7182a2ce088c2d3edc8e7d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289464"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312018"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Impor uma versão mínima exigida de Segurança da Camada de Transporte (TLS) para pedidos a uma conta de armazenamento
 
@@ -89,7 +89,7 @@ Quando estiver confiante de que o tráfego de clientes que usam versões mais an
 
 ### <a name="configure-the-minimum-tls-version-for-a-storage-account"></a>Configure a versão TLS mínima para uma conta de armazenamento
 
-Para configurar a versão TLS mínima para uma conta de armazenamento, desafie a versão **Mínima de Versão** para a conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Azure Resource Manager na nuvem pública Azure ou em nuvens do Governo Azure. Para obter mais informações sobre o modelo de implementação do Gestor de Recursos Azure, consulte [a visão geral da conta de Armazenamento](storage-account-overview.md).
+Para configurar a versão TLS mínima para uma conta de armazenamento, desafie a versão **Mínima de Versão** para a conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Gestor de Recursos Azure. Para obter mais informações sobre o modelo de implementação do Gestor de Recursos Azure, consulte [a visão geral da conta de Armazenamento](storage-account-overview.md).
 
 A propriedade **MinimumTlsVersion** não é definida por padrão e não devolve um valor até que o desafine explicitamente.  Se o valor da propriedade for **nulo,** então a conta de armazenamento permitirá pedidos enviados com a versão 1.0 ou superior da TLS.
 

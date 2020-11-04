@@ -13,12 +13,12 @@ metadata:
   ms.author: jmartens
   ms.date: 09/21/2020
   ms.custom: contperfq1
-  ms.openlocfilehash: 0695af04856b5e67c6e3de86c6c3cd32007aee02
-  ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+  ms.openlocfilehash: 54947b5a6ab15e52622f1710d5d4f78a314b0d21
+  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92090323"
+  ms.lasthandoff: 11/04/2020
+  ms.locfileid: "93310402"
 landingContent:
 - title: 'Introdução: Primeiro o código'
   linkLists:
@@ -71,11 +71,11 @@ landingContent:
   - linkListType: reference
     links:
     - text: SDK Python
-      url: https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py
+      url: /python/api/overview/azure/ml/?view=azure-ml-py
     - text: API REST
-      url: https://docs.microsoft.com/rest/api/azureml/
+      url: /rest/api/azureml/
     - text: CLI de Aprendizagem automática
-      url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+      url: /cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
 - title: Looking for Studio (clássico)
   linkLists:
   - linkListType: overview

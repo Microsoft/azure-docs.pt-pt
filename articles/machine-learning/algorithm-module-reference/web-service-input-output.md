@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: a62f8aee0bd0a0d2b7009a48e9d5f00ea3c5155f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1bf5dd070ac12878c608f744ff450395de84c48
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883222"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310039"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Módulos de entrada e saída de serviço web de serviço web
 
@@ -26,7 +26,7 @@ O módulo de entrada de serviço web indica onde os dados do utilizador entram n
 
 ## <a name="how-to-use-web-service-input-and-output"></a>Como utilizar a entrada e saída do Serviço Web
 
-Quando [criar um pipeline de inferência em tempo real](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline) a partir do seu pipeline de treino, os módulos de entrada de serviço web e de saída de serviço web serão automaticamente adicionados para mostrar onde os dados do utilizador entram no pipeline e onde os dados são devolvidos. 
+Quando [criar um pipeline de inferência em tempo real](../tutorial-designer-automobile-price-deploy.md#create-a-real-time-inference-pipeline) a partir do seu pipeline de treino, os módulos de entrada de serviço web e de saída de serviço web serão automaticamente adicionados para mostrar onde os dados do utilizador entram no pipeline e onde os dados são devolvidos. 
 
 > [!NOTE]
 > Gerar automaticamente um gasoduto de inferência em tempo real é um processo baseado em regras e melhor esforço. Não há garantia de correção. 
@@ -48,6 +48,6 @@ Depois de submeter o gasoduto e terminar com sucesso, pode implantar o ponto fin
 >  No exemplo anterior, **introduza manualmente** os dados fornece o esquema de dados para a entrada do serviço web e é necessário para a implementação do ponto final em tempo real. Geralmente, deve sempre ligar um módulo ou conjunto de dados à porta onde a **Entrada do Serviço Web** está ligada para fornecer o esquema de dados.
    
 ## <a name="next-steps"></a>Passos seguintes
-Saiba mais sobre [a implantação do ponto final](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint)em tempo real .
+Saiba mais sobre [a implantação do ponto final](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint)em tempo real .
 
 Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

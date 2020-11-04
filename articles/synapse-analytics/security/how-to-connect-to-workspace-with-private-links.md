@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea791e4fc1031c0a5c041119c409f8623ce7aee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee915346a93a600ea352be42dc14e0464525c025
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260381"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312257"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Conecte-se ao seu espaço de trabalho Azure Synapse utilizando links privados (pré-visualização)
 
@@ -23,17 +23,20 @@ Este artigo irá ensiná-lo a criar um ponto final privado para o seu espaço de
 
 Se ainda não o fez, registe o fornecedor de recursos da Rede. O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. Escolha *o Microsoft.Network* na lista de fornecedores de recursos quando se [registar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Se o fornecedor de recursos da Rede já estiver registado, então dirijam-se ao passo 2.
 
-
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Passo 2: Abra o seu espaço de trabalho Azure Synapse no portal Azure
 
-Selecione **a ligação de ponto final privado** em **Segurança** e, em seguida, selecione + ponto **final privado**.
+Selecione **a ligação de ponto final privado** sob **Segurança**. 
 ![Abra espaço de trabalho da Azure Synapse no portal Azure](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1.png)
+
+No ecrã seguinte selecione **+ Ponto final privado**.
+
+![Open Private endpoint no portal Azure](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1a.png)
 
 ## <a name="step-3-select-your-subscription-and-region-details"></a>Passo 3: Selecione os detalhes da sua subscrição e da região
 
 No **separador Básicos** na janela **Criar um ponto final privado,** escolha o seu Grupo de **Subscrição** e **Recursos.** Dê um **nome** ao ponto final privado que pretende criar. Selecione a **Região** onde pretende que o ponto final privado seja criado.
 
-Os pontos finais privados são criados numa sub-rede. A subscrição, o grupo de recursos e a região selecionada filtram as sub-redes de pontos finais privados. Selecione **Seguinte: >de recursos ** quando terminar.
+Os pontos finais privados são criados numa sub-rede. A subscrição, o grupo de recursos e a região selecionada filtram as sub-redes de pontos finais privados. Selecione **Seguinte: >de recursos** quando terminar.
 ![Selecione detalhes de subscrição e região 1](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)
 
 ## <a name="step-4-select-your-azure-synapse-workspace-details"></a>Passo 4: Selecione os seus detalhes do espaço de trabalho Azure Synapse

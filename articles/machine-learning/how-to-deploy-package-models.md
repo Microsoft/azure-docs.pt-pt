@@ -1,7 +1,7 @@
 ---
 title: Modelos de pacote
 titleSuffix: Azure Machine Learning
-description: Embale um modelo como um Dockerfile
+description: Embale um modelo. Os modelos podem ser embalados como uma imagem de estivador, que pode então descarregar, ou pode criar um Dockerfile e usá-lo para construir a imagem.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: edaae4f4c06f038d12267e35a2c356af430e1555
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 299eb316b534ddc9d5eee934cc15eae841276038
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998828"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312635"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Como embalar um modelo registado com Docker
 
@@ -162,7 +162,7 @@ docker kill mycontainer
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
+* [Resolver problemas de uma implementação com falhas](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)
 * [Atualizar serviços Web](how-to-deploy-update-web-service.md)

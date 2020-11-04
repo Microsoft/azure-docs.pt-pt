@@ -8,27 +8,27 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08ead12c99ae4919a2daf523065cfe332c644df1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 54612bee5715cdb78141a8aacfa5d24c814269d1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487199"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312401"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Conceder permissões à identidade gerida pelo espaço de trabalho (pré-visualização)
 
-Este artigo ensina-lhe como conceder permissões à identidade gerida no espaço de trabalho da Sinapse Azure. As permissões, por sua vez, permitem o acesso a piscinas SQL no espaço de trabalho e à conta de armazenamento da ADLS Gen2 através do portal Azure.
+Este artigo ensina-lhe como conceder permissões à identidade gerida no espaço de trabalho da Sinapse Azure. As permissões, por sua vez, permitem o acesso a piscinas SQL dedicadas no espaço de trabalho e à conta de armazenamento da ADLS Gen2 através do portal Azure.
 
 >[!NOTE]
 >Esta identidade gerida pelo espaço de trabalho será referida como identidade gerida através do resto deste documento.
 
-## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Conceder permissões de identidade geridas para a piscina SQL
+## <a name="grant-managed-identity-permissions-to-the-dedicated-sql-pool"></a>Grant comunciou permissões de identidade para a piscina dedicada SQL
 
-A identidade gerida concede permissões às piscinas SQL no espaço de trabalho. Com permissões concedidas, você pode orquestrar oleodutos que realizam atividades relacionadas com piscina SQL. Quando criar um espaço de trabalho Azure Synapse utilizando o portal Azure, pode conceder permissões de controlo de identidade geridas em piscinas SQL.
+A identidade gerida concede permissões às piscinas SQL dedicadas no espaço de trabalho. Com permissões concedidas, você pode orquestrar oleodutos que realizam atividades dedicadas relacionadas com piscina SQL. Quando criar um espaço de trabalho Azure Synapse utilizando o portal Azure, pode conceder permissões de controlo de identidade geridas em piscinas SQL dedicadas.
 
-Selecione **Segurança + networking** quando estiver a criar o seu espaço de trabalho Azure Synapse. Em seguida, selecione **Grant CONTROL para a identidade gerida do espaço de trabalho em piscinas SQL**.
+Selecione **Segurança** quando estiver a criar o seu espaço de trabalho Azure Synapse. Em seguida, **selecione Permitir que os gasodutos (funcionando como identidade atribuída pelo sistema do espaço de trabalho) acedam às piscinas SQL.**
 
-![Permissão de CONTROLO em piscinas SQL](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
+![Permissão de CONTROLO em piscinas SQL dedicadas](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
 ## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Conceder as permissões de identidade geridas à conta de armazenamento da ADLS Gen2
 
