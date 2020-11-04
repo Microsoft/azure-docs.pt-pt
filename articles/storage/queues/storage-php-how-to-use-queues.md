@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e5b7ed75f22659a9a38ac761cc61c841102a067
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809209"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345844"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Como utilizar o Armazenamento de filas do PHP
 
@@ -38,7 +38,7 @@ Neste guia, utiliza as funcionalidades de serviço de armazenamento de fila que 
 ### <a name="install-via-composer"></a>Instalar via Compositor
 
 1. Crie um ficheiro nomeado **composer.jsna** raiz do seu projeto e adicione-lhe o seguinte código:
-   
+
     ```json
     {
       "require": {
@@ -46,9 +46,10 @@ Neste guia, utiliza as funcionalidades de serviço de armazenamento de fila que 
       }
     }
     ```
+
 2. Baixe **[o compositor.phar][composer-phar]** na raiz do seu projeto.
 3. Abra um pedido de comando e execute o seguinte comando na raiz do seu projeto
-   
+
     ```
     php composer.phar install
     ```
@@ -89,8 +90,9 @@ UseDevelopmentStorage=true
 
 Para criar um cliente de serviço Azure Queue, tem de utilizar a classe **QueueRestProxy.** Pode utilizar qualquer uma das seguintes técnicas:
 
-* Passe a ligação diretamente para ele.
-* Utilize variáveis ambientais na sua Web App para armazenar a cadeia de ligação. Consulte o documento [de configuração de configuração de aplicações web Azure](../../app-service/configure-common.md) para configurar as cadeias de ligação.
+- Passe a ligação diretamente para ele.
+- Utilize variáveis ambientais na sua Web App para armazenar a cadeia de ligação. Consulte o documento [de configuração de configuração de aplicações web Azure](../../app-service/configure-common.md) para configurar as cadeias de ligação.
+
 Nos exemplos aqui descritos, a cadeia de ligação é transmitida diretamente.
 
 ```php
@@ -139,8 +141,6 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > Não deve confiar na sensibilidade do caso para as teclas de metadados. Todas as chaves são lidas do serviço em minúsculas.
-> 
-> 
 
 ## <a name="add-a-message-to-a-queue"></a>Adicione uma mensagem a uma fila
 
@@ -421,12 +421,12 @@ catch(ServiceException $e){
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu o básico do armazenamento da Fila Azure, siga estes links para aprender sobre tarefas de armazenamento mais complexas:
 
-* Visite a [Referência API para a Biblioteca de Clientes PHP de Armazenamento Azure](https://azure.github.io/azure-storage-php/)
-* Veja o [exemplo da Fila Avançada.](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php)
+- Visite a [Referência API para a Biblioteca de Clientes PHP de Armazenamento Azure](https://azure.github.io/azure-storage-php/)
+- Veja o [exemplo da Fila Avançada.](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php)
 
 Para mais informações, consulte também o [Centro de Desenvolvimento php.](https://azure.microsoft.com/develop/php/)
 

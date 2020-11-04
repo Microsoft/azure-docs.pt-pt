@@ -3,15 +3,13 @@ title: Personalize as rotas definidas pelo utilizador (UDR) no Serviço Azure Ku
 description: Saiba como definir uma rota de saída personalizada no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.author: juluk
 ms.date: 06/29/2020
-author: jluk
-ms.openlocfilehash: d8ae03d52691a6c30f78439a579e7e7c136dda76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 103d7dc76dee56a336f08f2cc0c7c8489c0bc565
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975295"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348139"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalize a saída do cluster com uma rota User-Defined
 
@@ -76,7 +74,7 @@ Para ilustrar a aplicação de um cluster com tipo de saída utilizando uma rota
 > O tipo de saída de UDR requer uma rota para 0.0.0.0/0 e próximo destino de lúpulo de NVA (Aparelho Virtual de Rede) na tabela de rotas.
 > A tabela de rotas já tem um padrão 0.0.0.0/0 para a Internet, sem um IP público para sNAT apenas adicionando esta rota não lhe fornecerá saída. A AKS validará que não cria uma rota 0.0.0.0/0 que aponta para a Internet, mas sim para NVA ou gateway, etc. Ao utilizar um tipo de UDR de saída, não é criado um endereço IP público de carregamento para **pedidos de entrada,** a menos que um serviço de *loadbalancer* tipo esteja configurado. Um endereço IP público para **pedidos de saída** nunca é criado pela AKS se um tipo de UDR de saída for definido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Consulte [a visão geral da UDR em rede Azure](../virtual-network/virtual-networks-udr-overview.md).
 

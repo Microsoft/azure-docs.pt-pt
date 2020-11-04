@@ -3,7 +3,7 @@ title: Criar uma conta dos Serviços de Multimédia do Azure no portal do Azure 
 description: Este tutorial orienta-o ao longo dos passos para criar uma conta dos Serviços de Multimédia do Azure no portal do Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: c551e158-aad6-47b4-931e-b46260b3ee4c
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/01/2019
-ms.author: juliako
-ms.openlocfilehash: 2f8718b108ca5af0034d4d70c10422d6ac73e892
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: 2ca47e49af06ab0a6dffc1f4011d7dceb58830be
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89260854"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348513"
 ---
 # <a name="create-a-media-services-account-using-the-azure-portal"></a>Criar uma conta de Serviços de Mídia utilizando o portal Azure
 
@@ -35,11 +35,11 @@ A conta dos Serviços de Multimédia e todas as contas de armazenamento associad
 Este artigo mostra como criar uma conta de Serviços de Comunicação através do portal Azure.
 
 > [!NOTE]
-> Para obter informações sobre a disponibilidade das funcionalidades dos Serviços de Multimédia do Azure em regiões diferentes, veja [disponibilidade das funcionalidades do AMS em datacenters](scenarios-and-availability.md#availability).
+> Para obter informações sobre a disponibilidade de funcionalidades dos Serviços Azure Media em diferentes regiões, consulte [as funcionalidades da AMS em todas as regiões.](availability-regions-v-2.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+Para concluir este tutorial, precisa de uma conta do Azure. Para obter mais detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-an-ams-account"></a>Criar uma conta do AMS
 
@@ -47,18 +47,18 @@ Os passos nesta secção explicam como criar uma conta dos AMS.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 2. Clique **+Criar um recurso**  >  **Media**  >  **Media Services**.
-3. Em **CRIAR CONTA DE MEDIA SERVICES**, Introduza os valores necessários.
+3. Em **CRIAR CONTA DE MEDIA SERVICES** , Introduza os valores necessários.
 
-   1. Em **Nome da Conta**, introduza o nome da nova conta de AMS. Um nome de conta dos Serviços de Multimédia é composto por letras minúsculas ou números sem espaços, com 3 a 24 carateres de comprimento.
+   1. Em **Nome da Conta** , introduza o nome da nova conta de AMS. Um nome de conta dos Serviços de Multimédia é composto por letras minúsculas ou números sem espaços, com 3 a 24 carateres de comprimento.
    2. Na subscrição, selecione entre as diferentes subscrições do Azure disponíveis para si.
-   3. Em **Grupo de Recursos**, selecione o recurso novo ou existente.  Um grupo de recursos é uma coleção de recursos que partilham o ciclo de vida, as permissões e as políticas. Sabia mais [aqui](../../azure-resource-manager/management/overview.md#resource-groups).
-   4. Em **Localização**, selecione a região geográfica que será utilizada para armazenar os registos de metadados da conta de Media Services. Esta região será utilizada para processar e transmitir em fluxo a sua multimédia. Apenas as regiões dos Media Services disponíveis são apresentadas na caixa de lista pendente. 
+   3. Em **Grupo de Recursos** , selecione o recurso novo ou existente.  Um grupo de recursos é uma coleção de recursos que partilham o ciclo de vida, as permissões e as políticas. Sabia mais [aqui](../../azure-resource-manager/management/overview.md#resource-groups).
+   4. Em **Localização** , selecione a região geográfica que será utilizada para armazenar os registos de metadados da conta de Media Services. Esta região será utilizada para processar e transmitir em fluxo a sua multimédia. Apenas as regiões dos Media Services disponíveis são apresentadas na caixa de lista pendente. 
    5. Na **Conta de Armazenamento,** selecione uma conta de armazenamento para fornecer armazenamento blob do conteúdo dos meios de comunicação a partir da sua conta De Serviços de Media. Pode selecionar uma conta de armazenamento existente na mesma região geográfica da conta dos Serviços de Multimédia ou pode criar uma conta de armazenamento. É criada uma nova conta do Storage na mesma região. As regras para os nomes da conta do Storage são iguais às das contas dos Media Services.
-      
+
        Saiba mais sobre armazenamento [aqui](../../storage/common/storage-introduction.md).
    6. Selecione **Afixar no dashboard** para ver o progresso da implementação da conta.
 4. Clique em **Criar** na parte inferior do formulário.
-   
+
     Depois de criar a conta com êxito, a página de descrição geral é carregada. Na tabela do ponto final de transmissão em fluxo, a conta terá um ponto final de transmissão em fluxo predefinido no estado **Parado**. 
 
     >[!NOTE]
@@ -66,9 +66,9 @@ Os passos nesta secção explicam como criar uma conta dos AMS.
    
 ## <a name="to-manage-your-ams-account"></a>Para gerir a sua conta do AMS
 
-Para gerir a sua conta do AMS (por exemplo, ligar à API AMS através de programação, carregar vídeos, codificar elementos, configurar a proteção de conteúdos, monitorizar o progresso da tarefa) selecione **Definições** no lado esquerdo do portal. A partir das **Definições**, navegue até um dos painéis disponíveis (por exemplo: **Acesso à API**, **Elementos**, **Tarefas**, **Proteção de Conteúdo**).
+Para gerir a sua conta do AMS (por exemplo, ligar à API AMS através de programação, carregar vídeos, codificar elementos, configurar a proteção de conteúdos, monitorizar o progresso da tarefa) selecione **Definições** no lado esquerdo do portal. A partir das **Definições** , navegue até um dos painéis disponíveis (por exemplo: **Acesso à API** , **Elementos** , **Tarefas** , **Proteção de Conteúdo** ).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora, pode carregar ficheiros para a sua conta do AMS. Para obter mais informações, veja [Carregar ficheiros](media-services-portal-upload-files.md).
 

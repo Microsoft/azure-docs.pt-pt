@@ -9,16 +9,16 @@ ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d73f225f0e6f230509c856af0d15bc02e80fcd98
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f7368025993c91490d808ef0ae5f5f66233fe666
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425874"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345623"
 ---
 # <a name="quickstart-use-the-azure-storage-sdk-v11-for-net-to-manage-a-queue"></a>Quickstart: Use o Azure Storage SDK v11 para .NET para gerir uma fila
 
-Neste arranque rápido, aprende-se a usar a versão 11 da biblioteca do cliente do Azure Storage para .NET para criar uma fila e adicionar-lhe mensagens. Em seguida, aprende-se a ler e processar mensagens da fila. 
+Neste arranque rápido, aprende-se a usar a versão 11 da biblioteca do cliente do Azure Storage para .NET para criar uma fila e adicionar-lhe mensagens. Em seguida, aprende-se a ler e processar mensagens da fila.
 
 > [!NOTE]
 > Este quickstart usa uma versão antiga da biblioteca do cliente de armazenamento Azure Queue. Para começar com a versão mais recente, consulte [Quickstart: Azure Queue storage client library v12 for.NET](storage-quickstart-queues-dotnet.md).
@@ -32,7 +32,7 @@ Em seguida, transfira e instale o .NET Core 2.0 referente ao seu sistema operati
 ### <a name="windows"></a>Windows
 
 - Instale o [.NET Core para Windows](https://www.microsoft.com/net/download/windows) ou o [.NET Framework](https://www.microsoft.com/net/download/windows) (incluído no Visual Studio para Windows)
-- Instale o [Visual Studio para Windows](https://www.visualstudio.com/). Se estiver a utilizar o .NET Core, instalar o Visual Studio é opcional.  
+- Instale o [Visual Studio para Windows](https://www.visualstudio.com/). Se estiver a utilizar o .NET Core, instalar o Visual Studio é opcional.
 
 Para obter informações sobre como escolher entre o .NET Core e o .NET Framework, veja [Escolher entre o .NET Core e o .NET Framework para aplicações de servidor](/dotnet/standard/choosing-core-framework-server).
 
@@ -50,13 +50,13 @@ Para obter informações sobre como escolher entre o .NET Core e o .NET Framewor
 
 A aplicação de exemplo utilizada neste início rápido é uma aplicação de consola básica. Pode explorar a aplicação de exemplo no [GitHub](https://github.com/Azure-Samples/storage-queues-dotnet-quickstart).
 
-Use [git](https://git-scm.com/) para descarregar uma cópia da aplicação para o seu ambiente de desenvolvimento. 
+Use [git](https://git-scm.com/) para descarregar uma cópia da aplicação para o seu ambiente de desenvolvimento.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-queues-dotnet-quickstart.git
 ```
 
-Este comando clona o repositório para a sua pasta local do git. Para abrir a solução Visual Studio, procure a pasta *de arranque rápido de filas de armazenamento- dotnet-quickstart, abra-a* e clique duas vezes em *storage-queues-dotnet-quickstart.sln*. 
+Este comando clona o repositório para a sua pasta local do git. Para abrir a solução Visual Studio, procure a pasta *de arranque rápido de filas de armazenamento- dotnet-quickstart, abra-a* e clique duas vezes em *storage-queues-dotnet-quickstart.sln*.
 
 [!INCLUDE [storage-copy-connection-string-portal](../../../includes/storage-copy-connection-string-portal.md)]
 
@@ -72,7 +72,7 @@ Após ter copiado a cadeia de ligação, escreva-a numa nova variável de ambien
 setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-Depois de adicionar a variável de ambiente, poderá ter de reiniciar todos os programas em execução que irão precisar de ler a variável de ambiente, incluindo a janela da consola. Por exemplo, se estiver a utilizar o Visual Studio como editor, reinicie o Visual Studio antes de executar o exemplo. 
+Depois de adicionar a variável de ambiente, poderá ter de reiniciar todos os programas em execução que irão precisar de ler a variável de ambiente, incluindo a janela da consola. Por exemplo, se estiver a utilizar o Visual Studio como editor, reinicie o Visual Studio antes de executar o exemplo.
 
 ### <a name="linux"></a>Linux
 
@@ -98,7 +98,7 @@ A aplicação da amostra cria uma fila e adiciona-lhe uma mensagem. A aplicaçã
 
 ### <a name="windows"></a>Windows
 
-Se estiver a utilizar o Visual Studio como editor, pode premir **F5** para executar. 
+Se estiver a utilizar o Visual Studio como editor, pode premir **F5** para executar.
 
 Caso contrário, navegue para o diretório de aplicações e execute a aplicação com o comando `dotnet run`.
 
@@ -161,7 +161,7 @@ string storageConnectionString = Environment.GetEnvironmentVariable("storageconn
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with calls to Azure Queues here.
-    ...    
+    ...
 }
 else
 {
@@ -174,11 +174,11 @@ else
 
 ### <a name="create-the-queue"></a>Criar a fila
 
-Primeiro, a amostra cria uma fila e adiciona-lhe uma mensagem. 
+Primeiro, a amostra cria uma fila e adiciona-lhe uma mensagem.
 
 ```csharp
-// Create a queue called 'quickstartqueues' and append a GUID value so that the queue name 
-// is unique in your storage account. 
+// Create a queue called 'quickstartqueues' and append a GUID value so that the queue name
+// is unique in your storage account.
 queue = cloudQueueClient.GetQueueReference("quickstartqueues-" + Guid.NewGuid().ToString());
 await queue.CreateAsync();
 
@@ -188,7 +188,7 @@ Console.WriteLine();
 
 ### <a name="add-a-message"></a>Adicionar uma mensagem
 
-Em seguida, a amostra adiciona uma mensagem na parte de trás da fila. 
+Em seguida, a amostra adiciona uma mensagem na parte de trás da fila.
 
 Uma mensagem deve estar num formato que possa ser incluído num pedido de XML com codificação UTF-8, podendo ter até 64 KB de tamanho. Se uma mensagem contiver dados binários, recomendamos que você Base64-codificar a mensagem.
 
@@ -215,8 +215,8 @@ await queue.AddMessageAsync(message, TimeSpan.FromSeconds(-1), null, null, null)
 A amostra mostra como espreitar uma mensagem de uma fila. Quando espreita uma mensagem, pode ler o conteúdo da mensagem. No entanto, a mensagem permanece visível para outros clientes, para que outro cliente possa posteriormente recuperar e processar a mensagem.
 
 ```csharp
-// Peek at the message at the front of the queue. Peeking does not alter the message's 
-// visibility, so that another client can still retrieve and process it. 
+// Peek at the message at the front of the queue. Peeking does not alter the message's
+// visibility, so that another client can still retrieve and process it.
 CloudQueueMessage peekedMessage = await queue.PeekMessageAsync();
 
 // Display the ID and contents of the peeked message.
@@ -231,7 +231,7 @@ A amostra também mostra como desescoar uma mensagem. Quando descoda uma mensage
 Se o seu código não processar uma mensagem devido a uma falha de hardware ou software, então a mensagem torna-se visível novamente após o período de invisibilidade ter caducado. Outro cliente pode recuperar a mesma mensagem e tentar novamente.
 
 ```csharp
-// Retrieve the message at the front of the queue. The message becomes invisible for 
+// Retrieve the message at the front of the queue. The message becomes invisible for
 // a specified interval, during which the client attempts to process it.
 CloudQueueMessage retrievedMessage = await queue.GetMessageAsync();
 
@@ -267,8 +267,8 @@ Consulte estes recursos adicionais para o desenvolvimento de .NET com filas Azur
 ### <a name="binaries-and-source-code"></a>Binários e código fonte
 
 - Descarregue os pacotes NuGet para a versão mais recente da biblioteca de [clientes Azure Storage para .NET](/dotnet/api/overview/azure/storage)
-    - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-    - [Filas](https://www.nuget.org/packages/Azure.Storage.Queues/)
+  - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+  - [Filas](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - Veja o [código fonte da biblioteca de cliente .NET](https://github.com/Azure/azure-storage-net) no GitHub.
 
 ### <a name="client-library-reference-and-samples"></a>Referência e exemplos da biblioteca de cliente
@@ -276,9 +276,9 @@ Consulte estes recursos adicionais para o desenvolvimento de .NET com filas Azur
 - Consulte a [Referência da API de .NET](/dotnet/api/overview/azure/storage) para obter mais informações sobre a biblioteca de cliente .NET.
 - Explore [as amostras de armazenamento da fila escritas](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=queues) utilizando a biblioteca do cliente .NET.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Neste arranque rápido, aprendeu a adicionar mensagens a uma fila, a espreitar mensagens de uma fila e a descaitar e a processar mensagens usando .NET. 
+Neste arranque rápido, aprendeu a adicionar mensagens a uma fila, a espreitar mensagens de uma fila e a descaitar e a processar mensagens usando .NET.
 
 > [!div class="nextstepaction"]
 > [Comunicar entre aplicações com o armazenamento de Filas do Azure](/learn/modules/communicate-between-apps-with-azure-queue-storage/index)

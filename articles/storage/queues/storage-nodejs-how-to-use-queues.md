@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 77c35ae4b9e845cd3c0f638407c0d71c36fcf9f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a9fb1a179164d24c84213762ee7e2332a1aa25
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289689"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345946"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Como utilizar o armazenamento da Azure Queue a partir de Node.js
 
@@ -44,7 +44,7 @@ A [biblioteca de clientes Azure Storage para JavaScript][Azure Storage client li
 
 1. Tipo **npm instalar \@ a azul/fila de armazenamento** na janela de comando.
 
-1. Verifique se foi criada uma pasta **de módulos de \_ nó.** Dentro dessa pasta encontrará o pacote ** \@ azure/storage-queue,** que contém a biblioteca do cliente que precisa para aceder ao armazenamento.
+1. Verifique se foi criada uma pasta **de módulos de \_ nó.** Dentro dessa pasta encontrará o pacote **\@ azure/storage-queue,** que contém a biblioteca do cliente que precisa para aceder ao armazenamento.
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
@@ -160,13 +160,13 @@ O exemplo a seguir atualiza o texto de uma mensagem.
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-Altere o conteúdo de uma mensagem no lugar na fila chamando [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
+Altere o conteúdo de uma mensagem no lugar na fila chamando [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # <a name="javascript-v2"></a>[JavaScript v2](#tab/javascript2)
 
-Altere o conteúdo de uma mensagem no lugar na fila chamando **updateMessage**. 
+Altere o conteúdo de uma mensagem no lugar na fila chamando **updateMessage**.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -234,8 +234,8 @@ A utilização **de mensagens get** Quando não há mensagens na fila não devol
 
 Há duas formas de personalizar a recuperação de mensagens a partir de uma fila:
 
-* [opções.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) - Recuperar um lote de mensagens (até 32.)
-* [opções.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) - Desemti o tempo limite de invisibilidade mais longo ou curto.
+- [opções.numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) - Recuperar um lote de mensagens (até 32.)
+- [opções.visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) - Desemti o tempo limite de invisibilidade mais longo ou curto.
 
 O exemplo a seguir utiliza o método **de receber mensagens** para receber cinco mensagens numa chamada. Em seguida, processa cada mensagem usando um `for` loop. Também define o tempo limite de invisibilidade para cinco minutos para todas as mensagens devolvidas por este método.
 
@@ -245,8 +245,8 @@ O exemplo a seguir utiliza o método **de receber mensagens** para receber cinco
 
 Há duas formas de personalizar a recuperação de mensagens a partir de uma fila:
 
-* `options.numOfMessages` - Recuperar um lote de mensagens (até 32.)
-* `options.visibilityTimeout` - Desemti o tempo limite de invisibilidade mais longo ou curto.
+- `options.numOfMessages` - Recuperar um lote de mensagens (até 32.)
+- `options.visibilityTimeout` - Desemti o tempo limite de invisibilidade mais longo ou curto.
 
 O exemplo a seguir utiliza o método **getMessages** para obter 15 mensagens numa chamada. Em seguida, processa cada mensagem usando um `for` loop. Também define o tempo limite de invisibilidade para cinco minutos para todas as mensagens devolvidas por este método.
 
@@ -343,12 +343,12 @@ Para limpar todas as mensagens de uma fila sem a apagar, chame **as mensagens cl
 
 [!INCLUDE [storage-check-out-samples-all](../../../includes/storage-check-out-samples-all.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu o básico do armazenamento de filas, siga estes links para aprender sobre tarefas de armazenamento mais complexas.
 
-* Visite o [Azure Storage Team Blog][Azure Storage Team Blog] para saber quais as novidades
-* Visite a biblioteca de [clientes do Azure Storage para][Azure Storage client library for JavaScript] o repositório JavaScript no GitHub
+- Visite o [Azure Storage Team Blog][Azure Storage Team Blog] para saber quais as novidades
+- Visite a biblioteca de [clientes do Azure Storage para][Azure Storage client library for JavaScript] o repositório JavaScript no GitHub
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

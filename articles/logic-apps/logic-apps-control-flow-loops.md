@@ -6,21 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657475"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348071"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetem as ações do fluxo de trabalho e processam as matrizes no Azure Logic Apps
 
-Para processar um conjunto na sua aplicação lógica, pode criar um [loop "Foreach".](#foreach-loop) Este loop repete uma ou mais ações em cada item da matriz. Para limites no número de itens de matriz que os loops "Foreach" podem processar, consulte [Limites e configuração](../logic-apps/logic-apps-limits-and-config.md). 
+Para processar um conjunto na sua aplicação lógica, pode criar um [loop "Foreach".](#foreach-loop) Este loop repete uma ou mais ações em cada item da matriz. Para o limite do número de itens de matriz que um laço "Foreach" pode processar, consulte [Concurrency, looping e limites de debacação](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Para repetir ações até que uma condição seja satisfeita ou um estado mude, pode criar um [loop "Até".](#until-loop) A sua aplicação lógica executa primeiro todas as ações dentro do loop, e depois verifica a condição ou estado. Se a condição for cumprida, o ciclo para. Caso contrário, o laço repete-se. Para limites no número de loops "Até" numa aplicação lógica executada, consulte [Limites e configuração](../logic-apps/logic-apps-limits-and-config.md). 
+Para repetir ações até que uma condição seja satisfeita ou um estado mude, pode criar um [loop "Até".](#until-loop) A sua aplicação lógica executa primeiro todas as ações dentro do loop, e depois verifica a condição ou estado. Se a condição for cumprida, o ciclo para. Caso contrário, o laço repete-se. Para o limite do número de loops "Até" que uma aplicação lógica pode ter, ver [Concurrency, looping e debatching limites](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
-> Se tiver um gatilho que receba uma matriz e queira executar um fluxo de trabalho para cada item de matriz, pode *debaste* essa matriz com a propriedade do gatilho [ **SplitOn** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
+> Se tiver um gatilho que receba uma matriz e queira executar um fluxo de trabalho para cada item de matriz, pode *debaste* essa matriz com a propriedade do gatilho [ **SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -32,7 +32,9 @@ Para repetir ações até que uma condição seja satisfeita ou um estado mude, 
 
 ## <a name="foreach-loop"></a>Loop "Foreach"
 
-Um "Loop Foreach" repete uma ou mais ações em cada item de matriz e funciona apenas em matrizes. Aqui ficam algumas considerações quando se usa os loops "Foreach":
+Um laço "Foreach" repete uma ou mais ações em cada item de matriz e funciona apenas em matrizes. Aqui ficam algumas considerações quando se usa os loops "Foreach":
+
+* O laço "Foreach" pode processar um número limitado de itens de matriz. Para este limite, consulte [Os limites de Concurrency, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 * Por predefinição, as iterações num laço "Foreach" são executadas ao mesmo tempo, ou paralelamente. Este comportamento difere da [ **Aplicação** da Power Automamate a cada ciclo](/power-automate/apply-to-each) onde as iterações são executadas uma de cada vez, ou sequencialmente. No entanto, pode [configurar iterações sequenciais em loop "Foreach".](#sequential-foreach-loop) Por exemplo, se pretender fazer uma pausa na próxima iteração num laço "Foreach", utilizando a [ação Delay](../connectors/connectors-native-delay.md), tem de definir o laço para funcionar sequencialmente.
 
@@ -122,11 +124,11 @@ Se estiver a trabalhar na visão de código para a sua aplicação lógica, pode
 
 Por predefinição, os ciclos num loop "Foreach" funcionam em paralelo. Para executar cada ciclo sequencialmente, desacorda a opção **sequencial** do loop. Os laços "Foreach" devem ser executados sequencialmente quando tiver laços aninhados ou variáveis dentro de loops onde se espera resultados previsíveis. 
 
-1. No canto superior direito do laço, escolha **elipses** **(...**) > **Definições**.
+1. No canto superior direito do laço, escolha **elipses** **(...** ) > **Definições**.
 
    ![No loop "Foreach", escolha "..." > "Definições"](media/logic-apps-control-flow-loops/for-each-loop-settings.png)
 
-1. Sob **controlo de concurrency,** rode a definição **de Controlo de Concurrency** para **On**. Mova o **Curso de Paralelismo** para **1**, e escolha **Feito**.
+1. Sob **controlo de concurrency,** rode a definição **de Controlo de Concurrency** para **On**. Mova o **Curso de Paralelismo** para **1** , e escolha **Feito**.
 
    ![Ligue o controlo da conuncy](media/logic-apps-control-flow-loops/for-each-loop-sequential-setting.png)
 
@@ -150,7 +152,7 @@ Se estiver a trabalhar com a definição JSON da sua aplicação lógica, pode u
 
 ## <a name="until-loop"></a>Loop "Até"
   
-Para executar e repetir ações até que uma condição seja satisfeita ou um estado mude, coloque essas ações num loop "Até". A sua aplicação lógica executa primeiro todas e quaisquer ações dentro do loop, e depois verifica a condição ou estado. Se a condição for cumprida, o ciclo para. Caso contrário, o laço repete-se.
+Para executar e repetir ações até que uma condição seja satisfeita ou um estado mude, coloque essas ações num loop "Até". A sua aplicação lógica executa primeiro todas e quaisquer ações dentro do loop, e depois verifica a condição ou estado. Se a condição for cumprida, o ciclo para. Caso contrário, o laço repete-se. Para o limite do número de loops "Até" que uma aplicação lógica pode ter, ver [Concurrency, looping e debatching limites](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Aqui estão alguns cenários comuns onde você pode usar um loop "Até":
 
@@ -213,7 +215,7 @@ A partir das 8:00 todos os dias, este exemplo de aplicação lógica incrementa 
 
    ![Adicione ação para incrementar variável](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable.png)
 
-1. Para **nome,** selecione a variável **Limite.** Para **Valor**, insira "1". 
+1. Para **nome,** selecione a variável **Limite.** Para **Valor** , insira "1". 
 
      ![Incremento "Limite" por 1](./media/logic-apps-control-flow-loops/do-until-loop-increment-variable-settings.png)
 
@@ -338,7 +340,7 @@ Este exemplo "Até" chama um ponto final HTTP, que cria um recurso. O loop para 
 * Para dúvidas, visite a página de perguntas do [Microsoft Q&Uma página de perguntas para aplicações Azure Logic](/answers/topics/azure-logic-apps.html).
 * Para submeter ou votar em funcionalidades e sugestões, [o site de feedback do utilizador da Azure Logic Apps](https://aka.ms/logicapps-wish).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Passos de execução com base numa condição (declarações condicionais)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
 * [Passos de execução com base em diferentes valores (declarações de switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)

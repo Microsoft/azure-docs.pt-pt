@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a2f1229ab8a292b06dfc43b95d9047ed8d233523
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791142"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345711"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Realizar operações no armazenamento de Filas do Azure com o Azure PowerShell
 
@@ -22,12 +22,12 @@ O armazenamento da Fila Azure é um serviço para armazenar um grande número de
 
 > [!div class="checklist"]
 >
-> * Criar uma fila
-> * Recupere uma fila
-> * Adicionar uma mensagem
-> * Leia uma mensagem
-> * Eliminar uma mensagem
-> * Eliminar uma fila
+> - Criar uma fila
+> - Recupere uma fila
+> - Adicionar uma mensagem
+> - Leia uma mensagem
+> - Eliminar uma mensagem
+> - Eliminar uma fila
 
 Este como-fazer requer a versão Azure PowerShell Az ou mais tarde. Executar `Get-Module -ListAvailable Az` para localizar a versão. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-Az-ps).
 
@@ -127,13 +127,13 @@ Se utilizar o [Azure Storage Explorer,](https://storageexplorer.com)pode ligar-s
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Leia uma mensagem da fila e, em seguida, elimine-a
 
-As mensagens são lidas na melhor primeira tentativa de primeira ordem. Isto não é garantido. Quando se lê a mensagem da fila, torna-se invisível para todos os outros processos que olham para a fila. Isto garante que se o seu código não processar a mensagem devido a hardware ou falha de software, outra instância do seu código pode obter a mesma mensagem e tentar novamente.  
+As mensagens são lidas na melhor primeira tentativa de primeira ordem. Isto não é garantido. Quando se lê a mensagem da fila, torna-se invisível para todos os outros processos que olham para a fila. Isto garante que se o seu código não processar a mensagem devido a hardware ou falha de software, outra instância do seu código pode obter a mesma mensagem e tentar novamente.
 
 Este **tempo limite de invisibilidade** define quanto tempo a mensagem permanece invisível antes de estar novamente disponível para o processamento. A predefinição é 30 segundos.
 
 O seu código lê uma mensagem da fila em dois passos. Quando ligar para o método [Microsoft.Azure.Storage.Queue.CloudQueue.GetMessage,](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) obtém a próxima mensagem na fila. Uma mensagem devolvida por **GetMessage** torna-se invisível para quaisquer outras mensagens de leitura de código desta fila. Para terminar a remoção da mensagem da fila, ligue para o método [Microsoft.Azure.Storage.Queue.CloudQueue.DeleteMessage.](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage)
 
-No exemplo seguinte, lê-se as três mensagens de fila e, em seguida, aguarde 10 segundos (o tempo limite de invisibilidade). Em seguida, leia novamente as três mensagens, apagando as mensagens depois de as ler, chamando **DeleteMessage** . Se tentar ler a fila após a apagar as mensagens, $queueMessage será devolvida como NU.
+No exemplo seguinte, lê-se as três mensagens de fila e, em seguida, aguarde 10 segundos (o tempo limite de invisibilidade). Em seguida, leia novamente as três mensagens, apagando as mensagens depois de as ler, chamando **DeleteMessage**. Se tentar ler a fila após a apagar as mensagens, $queueMessage será devolvida como NU.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -179,23 +179,23 @@ Para remover todos os ativos que criou neste exercício, remova o grupo de recur
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo de como fazer, aprendeu sobre a gestão básica de armazenamento de filas com a PowerShell, incluindo como:
 
 > [!div class="checklist"]
 >
-> * Criar uma fila
-> * Recupere uma fila
-> * Adicionar uma mensagem
-> * Leia a próxima mensagem
-> * Eliminar uma mensagem
-> * Eliminar uma fila
+> - Criar uma fila
+> - Recupere uma fila
+> - Adicionar uma mensagem
+> - Leia a próxima mensagem
+> - Eliminar uma mensagem
+> - Eliminar uma fila
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Cmdlets de armazenamento powerShell da Microsoft Azure
 
-* [Cmdlets do Armazenamento do PowerShell](/powershell/module/az.storage)
+- [Cmdlets do Armazenamento do PowerShell](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Explorador de Armazenamento do Microsoft Azure
 
-* O [Explorador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.
+- O [Explorador de Armazenamento do Microsoft Azure](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) é uma aplicação autónoma e gratuita da Microsoft, que lhe permite trabalhar visualmente com dados do Armazenamento do Azure no Windows, macOS e Linux.

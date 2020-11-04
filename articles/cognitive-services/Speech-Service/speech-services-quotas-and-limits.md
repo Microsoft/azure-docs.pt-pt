@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/04/2020
 ms.author: alexeyo
-ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567167"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345402"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Limites e Quotas dos Serviços de Voz
 
@@ -24,20 +24,35 @@ Este artigo contém uma referência rápida e a **descrição detalhada** das qu
 ## <a name="quotas-and-limits-quick-reference"></a>Quotas e Limites referência rápida
 Saltar para [quotas e limites de texto para discurso](#text-to-speech-quotas-and-limits-per-speech-resource)
 ### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Limites e Quotas da Conversão de Voz em Texto por recurso de Voz
-Na tabela abaixo os parâmetros sem linha "ajustável" **não** são ajustáveis para todos os níveis de preço.
+Nas tabelas abaixo Os parâmetros sem linha "ajustável" **não** são ajustáveis para todos os níveis de preço.
+
+#### <a name="online-transcription"></a>Transcrição online
 
 | Quota | Grátis (F0)<sup>1</sup> | Padrão (S0) |
 |--|--|--|
-| **Transcrição online Limite de pedido simultâneo (modelos base e personalizado)** |  |  |
-| Valor predefinido | 1 | 20 |
+| **Limite de pedido simultâneo (modelos base e personalizado)** | 1 | 20 (valor predefinido) |
 | Ajustável | Nº<sup>2</sup> | Sim<sup>2</sup> |
-| **REST API Request Limit (pontos finais[de gestão de API)](../../api-management/api-management-key-concepts.md)** | 100 pedidos por 10 segundos | 100 pedidos por 10 segundos |
-| **Tamanho do ficheiro do conjunto de dados máximo para importação de dados** | 2 GB | 2 GB |
-| **Tamanho máximo da bolha de entrada para transcrição do lote** | N/D | 2,5 GB |
-| **Tamanho do recipiente de bolhas max para transcrição do lote** | N/D | 5 GB |
-| **Número máximo de bolhas por recipiente para transcrição de lote** | N/D | 10000 |
-| **Número máximo de ficheiros por pedido de transcrição de lote (quando utilizar urls de conteúdo múltiplo como entrada)** | N/D | 1000  |
-| **Número máximo de trabalhos em execução em simultâneo para a Transcrição do Lote** | N/D | 2000  |
+
+#### <a name="batch-transcription"></a>Transcrição do lote
+| Quota | Grátis (F0)<sup>1</sup> | Padrão (S0) |
+|--|--|--|
+| Limite de API de repouso | Transcrição do lote não está disponível para F0 | 300 pedidos por minuto |
+| Tamanho do ficheiro de entrada de áudio max | N/D | 1 GB |
+| Tamanho máximo da bolha de entrada (pode conter mais de um ficheiro, por exemplo, num arquivo zip; certifique-se de que o limite de tamanho do ficheiro acima) | N/D | 2,5 GB |
+| Tamanho do recipiente de bolhas max | N/D | 5 GB |
+| Número máximo de bolhas por recipiente | N/D | 10000 |
+| Número máximo de ficheiros por pedido de transcrição (quando utilizar urls de conteúdo múltiplo como entrada) | N/D | 1000  |
+| Número máximo de empregos simultaneamente em execução | N/D | 2000  |
+
+#### <a name="model-customization"></a>Personalização do modelo
+| Quota | Grátis (F0)<sup>1</sup> | Padrão (S0) |
+|--|--|--|
+| Limite de API de repouso | 300 pedidos por minuto | 300 pedidos por minuto |
+| Número máximo de conjuntos de dados de fala | 2 | 500 |
+| Tamanho máximo do ficheiro do conjunto de dados acústico para importação de dados | 2 GB | 2 GB |
+| Tamanho máximo do ficheiro do conjunto de dados linguísticos para importação de dados | 200 MB | 1,5 GB |
+| Tamanho máximo do ficheiro de conjunto de dados de pronúncia para importação de dados | 1 KB | 1 MB |
+| Tamanho do texto máximo ao usar `text` o parâmetro no pedido de [API do modelo Criar](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) | 200 KB | 500 KB |
 
 <sup>1</sup> O nível de preços **gratuito (F0)** veja também as licenças mensais na [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> Consulte [explicações adicionais,](#detailed-description-quota-adjustment-and-best-practices) [boas práticas](#general-best-practices-to-mitigate-throttling-during-autoscaling)e [instruções de ajuste](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
@@ -57,7 +72,7 @@ Na tabela abaixo os parâmetros sem linha "ajustável" **não** são ajustáveis
 | **Quotas específicas websocket** |  |  |
 |Comprimento de áudio max produzido por turno | 10 min | 10 min |
 |Tamanho da mensagem Max SSML por turno |64 KB |64 KB |
-| **Limite de pedido de API de DESCANSO** | 20 pedidos por minuto | 25 pedidos por 5 segundos |
+| **Limite de API de repouso** | 20 pedidos por minuto | 25 pedidos por 5 segundos |
 
 
 <sup>3</sup> Para o nível de preços **gratuito (F0)** ver também subsídios mensais na [página de preços](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
@@ -94,20 +109,20 @@ O valor existente do parâmetro limite de pedido simultâneo **não** é visíve
 #### <a name="have-the-required-information-ready"></a>Tenha as informações necessárias prontas:
 - Para **o modelo Base:**
   - ID de recursos de fala
-  - Region
+  - Região
 - Para **modelo personalizado:** 
-  - Region
+  - Região
   - ID de ponto final personalizado
 
-- **Como obter informações (modelo base)**:  
+- **Como obter informações (modelo base)** :  
   - Ir para o [portal Azure](https://portal.azure.com/)
   - Selecione o Recurso de Voz para o qual gostaria de aumentar o limite de pedido de concurrency
-  - Selecione *Propriedades* (Grupo*de Gestão de Recursos)* 
+  - Selecione *Propriedades* (Grupo *de Gestão de Recursos)* 
   - Copiar e guardar os valores dos seguintes campos:
     - **ID de recursos**
     - **Localização** (região do seu ponto final)
 
-- **Como obter informações (Modelo Personalizado)**:
+- **Como obter informações (Modelo Personalizado)** :
   - Ir ao portal [do Estúdio da Fala](https://speech.microsoft.com/)
   - Inscreva-se se necessário
   - Ir para o discurso personalizado

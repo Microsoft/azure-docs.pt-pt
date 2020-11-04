@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 2f61fef58485a905b96bdada32b915106e60d1a8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2ee32b3ced8fdcd5f9f889c4fd0183e46ad5d8d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425134"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346014"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Como utilizar o Armazenamento de filas do Java
 
@@ -22,7 +22,7 @@ ms.locfileid: "92425134"
 
 ## <a name="overview"></a>Descrição geral
 
-Este guia irá mostrar-lhe como codificar cenários comuns utilizando o serviço de armazenamento Azure Queue. Os exemplos são escritos em Java e utilizam [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java). Os cenários incluem **inserir,** **espreitar,** **receber**e apagar mensagens **de** fila. O código para **criar** e **eliminar** filas também está coberto. Para obter mais informações sobre as filas, consulte a secção [etapas seguintes.](#next-steps)
+Este guia irá mostrar-lhe como codificar cenários comuns utilizando o serviço de armazenamento Azure Queue. Os exemplos são escritos em Java e utilizam [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java). Os cenários incluem **inserir,** **espreitar,** **receber** e apagar mensagens **de** fila. O código para **criar** e **eliminar** filas também está coberto. Para obter mais informações sobre as filas, consulte a secção [etapas seguintes.](#next-steps)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -34,7 +34,7 @@ Este guia irá mostrar-lhe como codificar cenários comuns utilizando o serviço
 
 Em primeiro lugar, verifique se o seu sistema de desenvolvimento cumpre os pré-requisitos listados na [biblioteca de clientes de armazenamento Azure Queue para Java v12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
-Para criar uma aplicação Java chamada *queues-how-to-v12*:
+Para criar uma aplicação Java chamada *queues-how-to-v12* :
 
 1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize a Maven para criar uma nova aplicação de consola com o nome *filas-como-v12*. Digite o seguinte comando **mvn** para criar um "Olá mundo!" Projeto Java.
 
@@ -152,7 +152,8 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
-Pode armazenar esta cadeia no ficheiro de config de serviço chamado *ServiceConfiguration.cscfg*. Para uma aplicação executada dentro de uma função Microsoft Azure, aceda à cadeia de conexão chamando **RoleEnvironment.getConfigurationSettings**. Aqui está um exemplo de obter a cadeia de conexão de um elemento de **definição** chamado *StorageConnectionString*:
+
+Pode armazenar esta cadeia no ficheiro de config de serviço chamado *ServiceConfiguration.cscfg*. Para uma aplicação executada dentro de uma função Microsoft Azure, aceda à cadeia de conexão chamando **RoleEnvironment.getConfigurationSettings**. Aqui está um exemplo de obter a cadeia de conexão de um elemento de **definição** chamado *StorageConnectionString* :
 
 ```java
 // Retrieve storage account from connection-string.
@@ -596,14 +597,14 @@ catch (Exception e)
 
 [!INCLUDE [storage-check-out-samples-java](../../../includes/storage-check-out-samples-java.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu o básico do armazenamento de filas, siga estes links para aprender sobre tarefas de armazenamento mais complexas.
 
-* [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java)
-* [Azure Storage Client SDK Reference][Azure Storage Client SDK Reference] (Referência do SDK do Cliente do Armazenamento do Azure)
-* [API REST dos Serviços do Armazenamento do Azure][Azure Storage Services REST API]
-* [Blog da equipa de armazenamento Azure][Azure Storage Team Blog]
+- [Azure Storage SDK for Java][Azure Storage SDK for Java] (SDK do Armazenamento do Azure para Java)
+- [Azure Storage Client SDK Reference][Azure Storage Client SDK Reference] (Referência do SDK do Cliente do Armazenamento do Azure)
+- [API REST dos Serviços do Armazenamento do Azure][Azure Storage Services REST API]
+- [Blog da equipa de armazenamento Azure][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
 [Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage

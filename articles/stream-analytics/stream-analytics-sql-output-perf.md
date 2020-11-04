@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: db396bbd2f26638c39f2573fb6014cd2602279d0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129750"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346337"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída Azure Stream Analytics para Azure SQL Database
 
@@ -35,7 +35,7 @@ Aqui estão algumas configurações dentro de cada serviço que podem ajudar a m
 
 ## <a name="sql-azure"></a>SQL Azure
 
-- **Tabela e Índices divididos** – A [utilização de](/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) uma tabela SQL dividida e de índices divididos na tabela com a mesma coluna que a sua chave de partição (por exemplo, PartitionId) pode reduzir significativamente as disputas entre as divisórias durante as escritas. Para uma tabela dividida, terá de criar uma [função de partição](/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) e um [esquema de partição](/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) no grupo de ficheiros PRIMARY. Isto também aumentará a disponibilidade de dados existentes enquanto novos dados estão a ser carregados. O limite de IO de registo pode ser atingido com base no número de divisórias, que podem ser aumentadas através da atualização do SKU.
+- **Tabela e Índices divididos** – A [utilização de](/sql/relational-databases/partitions/partitioned-tables-and-indexes) uma tabela SQL dividida e de índices divididos na tabela com a mesma coluna que a sua chave de partição (por exemplo, PartitionId) pode reduzir significativamente as disputas entre as divisórias durante as escritas. Para uma tabela dividida, terá de criar uma [função de partição](/sql/t-sql/statements/create-partition-function-transact-sql) e um [esquema de partição](/sql/t-sql/statements/create-partition-scheme-transact-sql) no grupo de ficheiros PRIMARY. Isto também aumentará a disponibilidade de dados existentes enquanto novos dados estão a ser carregados. O limite de IO de registo pode ser atingido com base no número de divisórias, que podem ser aumentadas através da atualização do SKU.
 
 - **Evite violações chave únicas** – Se receber [várias mensagens de aviso de violação chave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) no Diário de Atividades Azure Stream Analytics, certifique-se de que o seu trabalho não é afetado por violações de restrições únicas que são suscetíveis de ocorrer durante casos de recuperação. Isto pode ser evitado definindo a opção [IGNORE \_ DUP \_ KEY](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) nos seus índices.
 

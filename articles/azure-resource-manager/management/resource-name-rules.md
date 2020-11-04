@@ -3,12 +3,12 @@ title: Restrições de nomeação de recursos
 description: Mostra as regras e restrições para nomear recursos Azure.
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: ff92eff9351e944f8baa11cf981e8511ad8e4ae1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 206bd6604ecd9dfece9c946c653b2720e75ff1e3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653371"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347799"
 ---
 # <a name="naming-rules-and-restrictions-for-azure-resources"></a>Regras de nomenclatura e restrições para recursos do Azure
 
@@ -107,7 +107,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!div class="mx-tableFixed"]
 > | Entidade | Âmbito | Comprimento | Carateres Válidos |
 > | --- | --- | --- | --- |
-> | lotAcons | Region | 3-24 | Letras minúsculas e números. |
+> | lotAcons | Região | 3-24 | Letras minúsculas e números. |
 > | lotacos / aplicações | conta de lote | 1-64 | Alfanuméricos, sublinhados e hífens. |
 > | lotacos /certificados | conta de lote | 5-45 | Alfanuméricos, sublinhados e hífens. |
 > | lotacos / piscinas | conta de lote | 1-64 | Alfanuméricos, sublinhados e hífens. |
@@ -494,6 +494,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | firewallPolicies | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
 > | firewallPolicies / ruleGroups | política de firewall | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
 > | frontDoors | global | 5-64 | Alfanuméricos e hífens.<br><br>Comece e termine com alfanumérico. |
+> | frontdoorWebApplicationFirewallPolicies | grupo de recursos | 1-128 | Alfanuméricos.<br><br>Comece com a carta. |
 > | loadBalancers | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
 > | loadBalancers / inboundNatRules | balançador de carga | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
 > | localNetworkGateways | grupo de recursos | 1-80 | Alfanuméricos, sublinhados, períodos e hífenes.<br><br>Comece com alfanumérico. Fim alfanumérico ou sublinhado. |
@@ -653,7 +654,7 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > | armazenamentoCotas / gestãoPolícias | conta de armazenamento |  | Deve `default` ser. |
 > | blob | contentor | 1-1024 | Quaisquer caracteres URL, sensíveis a casos |
 > | fila | conta de armazenamento | 3-63 | Letras minúsculas, números e hífenes.<br><br>Não se pode começar ou acabar com hífen. Não se pode usar hífenes consecutivos. |
-> | table | conta de armazenamento | 3-63 | Alfanuméricos.<br><br>Comece com a carta. |
+> | mesa | conta de armazenamento | 3-63 | Alfanuméricos.<br><br>Comece com a carta. |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
@@ -704,6 +705,6 @@ Nas tabelas seguintes, o termo alfanumérico refere-se:
 > [!NOTE]
 > A Azure Functions tem as mesmas regras e restrições de nomeação que a Microsoft.Web/sites.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para recomendações sobre como nomear recursos, consulte [Ready: Convenções recomendadas de nomeação e marcação](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).

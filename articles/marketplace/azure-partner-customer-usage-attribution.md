@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125177"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348343"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro de mercado comercial e atribuição de uso do cliente
 
@@ -74,7 +74,7 @@ Depois de adicionar um GUID ao seu modelo ou ao agente do utilizador, e registar
    * Os parceiros podem registar vários GUIDs.
    * Os parceiros podem registar GUIDs para modelos e ofertas de soluções não-marketplace.
 
-1. No canto superior direito, selecione o ícone de engrenagem de definições e, em seguida, selecione **as definições do Desenvolvedor** .
+1. No canto superior direito, selecione o ícone de engrenagem de definições e, em seguida, selecione **as definições do Desenvolvedor**.
 
 1. Na **página de definições** de conta, selecione **Add Tracking GUID.**
 
@@ -82,7 +82,7 @@ Depois de adicionar um GUID ao seu modelo ou ao agente do utilizador, e registar
 
 1. Para registar mais do que um GUID, **selecione Add Tracking GUID** novamente. Caixas adicionais aparecem na página.
 
-1. Selecione **Guardar** .
+1. Selecione **Save** (Guardar).
 
 ## <a name="use-resource-manager-templates"></a>Utilizar os modelos do Resource Manager
 Muitas soluções parceiras são implementadas usando modelos de Gestor de Recursos Azure. Se tiver um modelo de Gestor de Recursos disponível no Azure Marketplace, no GitHub ou como um Quickstart, o processo para modificar o seu modelo para permitir a atribuição de utilização do cliente é diretamente para a frente.
@@ -102,7 +102,7 @@ Para adicionar um identificador globalmente único (GUID), faça uma única modi
 
 1. Adicione um novo recurso do tipo [Microsoft.Resources/implementações](/azure/templates/microsoft.resources/deployments) no ficheiro de modelo principal. O recurso tem de estar no **mainTemplate.jsapenas em** ficheiros ou **azuredeploy.js,** e não em modelos aninhados ou ligados.
 
-1. Introduza o valor GUID após o `pid-` prefixo como o nome do recurso. Por exemplo, se o GUID for eb7927c8-dd66-43e1-b0cf-c346a422063, o nome de recurso será _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_ .
+1. Introduza o valor GUID após o `pid-` prefixo como o nome do recurso. Por exemplo, se o GUID for eb7927c8-dd66-43e1-b0cf-c346a422063, o nome de recurso será _pid-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Verifique se o modelo é de eventuais erros.
 
@@ -159,7 +159,7 @@ Para Python, use o atributo **config.** Só pode adicionar o atributo a um UserA
 
 #### <a name="example-the-net-sdk"></a>Exemplo: O .NET SDK
 
-Para .NET, certifique-se de definir o agente do utilizador. A biblioteca [Microsoft.Azure.Management.Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) pode ser utilizada para definir o agente do utilizador com o seguinte código (exemplo em C#):
+Para .NET, certifique-se de definir o agente do utilizador. A biblioteca [Microsoft.Azure.Management.Fluent](/dotnet/api/microsoft.azure.management.fluent) pode ser utilizada para definir o agente do utilizador com o seguinte código (exemplo em C#):
 
 ```csharp
 

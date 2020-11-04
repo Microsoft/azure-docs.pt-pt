@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
-ms.openlocfilehash: dfa5d77077b8827bed1cbd8c7a46a5dbf361f139
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 699271316eccec1244db886ed2296f87c52f91ae
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125721"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348360"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Construa a página de aterragem para a sua oferta saas gratuita ou experimental no mercado comercial
 
@@ -95,12 +95,12 @@ O token ID contém informações básicas para identificar o utilizador, mas o s
 | surname | Sobrenome do utilizador. |
 |||
 
-Propriedades adicionais , como o nome da empresa do utilizador ou a localização do utilizador (país)- podem ser selecionadas para inclusão no pedido. Para mais detalhes, consulte [propriedades para o tipo de recurso do utilizador.](/graph/api/resources/user?view=graph-rest-1.0#properties)
+Propriedades adicionais , como o nome da empresa do utilizador ou a localização do utilizador (país)- podem ser selecionadas para inclusão no pedido. Para mais detalhes, consulte [propriedades para o tipo de recurso do utilizador.](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties)
 
 A maioria das aplicações registadas com Azure AD concedem permissões delegadas para ler a informação do utilizador do inquilino AZure AD da sua empresa. Qualquer pedido ao Microsoft Graph para essa informação deve ser acompanhado por um token de acesso como autenticação. Passos específicos para gerar o token de acesso dependerão da pilha de tecnologia que está a usar, mas o código de amostra conterá um exemplo. Para mais informações, consulte [Obter acesso em nome de um utilizador](/graph/auth-v2-user).
 
 > [!NOTE]
 > As contas do inquilino da MSA (com identificação do `9188040d-6c67-4c5b-b112-36a304b66dad` inquilino) não devolverão mais informações do que já foram recolhidas com o token de identificação. Para que possa ignorar esta chamada para a API do Gráfico para estas contas.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 - [Como criar uma oferta SaaS no mercado comercial](create-new-saas-offer.md)

@@ -4,24 +4,28 @@ description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 12/13/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 0de25cc804844b5aa414e521fa641761d9a4b4f4
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3d459f4249c65f2d09f9d8df6e7958adf852a2ea
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108427"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346320"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
 Este artigo é uma introdução ao desenvolvimento de Funções Azure usando Python. O conteúdo abaixo pressupõe que já leu o guia de desenvolvedores de [Funções Azure.](functions-reference.md)
 
-Para projetos de amostra de função autónoma em Python, consulte as [amostras de Funções Python.](/samples/browse/?products=azure-functions&languages=python)
+Como desenvolvedor de Python, também poderá estar interessado num dos seguintes artigos:
+
+| Introdução | Conceitos| Cenários/Amostras |
+| -- | -- | -- | 
+| <ul><li>[Função python usando Código de Estúdio Visual](./functions-create-first-function-vs-code.md?pivots=programming-language-python)</li><li>[Função python com terminal/comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guia para programadores](functions-reference.md)</li><li>[Opções de alojamento](functions-scale.md)</li><li>[&nbsp;Considerações de desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Classificação de imagens com PyTorch](machine-learning-pytorch.md)</li><li>[Amostra de automação Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Aprendizagem automática com o TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Pesquise amostras de Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
 
 ## <a name="programming-model"></a>Modelo de programação
 
 A Azure Functions espera que uma função seja um método apátrida na sua escrita Python que processa a entrada e produz a saída. Por padrão, o tempo de execução espera que o método seja implementado como um método global chamado `main()` no `__init__.py` ficheiro. Também pode [especificar um ponto de entrada alternativo.](#alternate-entry-point)
 
-Os dados de gatilhos e encadernações estão ligados à função através de atributos de método utilizando a `name` propriedade definida nofunction.js* no* ficheiro. Por exemplo, o  _function.jsabaixo_ descreve uma função simples desencadeada por um pedido HTTP denominado `req` :
+Os dados de gatilhos e encadernações estão ligados à função através de atributos de método utilizando a `name` propriedade definida nofunction.js *no* ficheiro. Por exemplo, o  _function.jsabaixo_ descreve uma função simples desencadeada por um pedido HTTP denominado `req` :
 
 :::code language="json" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
@@ -44,11 +48,11 @@ def main(req: azure.functions.HttpRequest) -> str:
     return f'Hello, {user}!'
 ```
 
-Utilize as anotações Python incluídas no pacote [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python) para ligar as entradas e saídas aos seus métodos.
+Utilize as anotações Python incluídas no pacote [azure.functions.*](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true) para ligar as entradas e saídas aos seus métodos.
 
 ## <a name="alternate-entry-point"></a>Ponto de entrada alternativo
 
-Pode alterar o comportamento predefinido de uma função especificando opcionalmente as `scriptFile` propriedades e propriedades nofunction.js`entryPoint` * no* ficheiro. Por exemplo, o _function.jsabaixo_ indica o tempo de execução para utilizar o `customentry()` método no ficheiro _main.py,_ como ponto de entrada para a sua Função Azure.
+Pode alterar o comportamento predefinido de uma função especificando opcionalmente as `scriptFile` propriedades e propriedades nofunction.js`entryPoint` *no* ficheiro. Por exemplo, o _function.jsabaixo_ indica o tempo de execução para utilizar o `customentry()` método no ficheiro _main.py,_ como ponto de entrada para a sua Função Azure.
 
 ```json
 {
@@ -83,19 +87,19 @@ A estrutura de pasta recomendada para um projeto Python Functions parece o segui
 ```
 A pasta principal do projeto \_ \_ \_ \_ (app) pode conter os seguintes ficheiros:
 
-* *local.settings.jsem*: Usado para armazenar configurações de aplicações e cordas de conexão quando funciona localmente. Este ficheiro não é publicado no Azure. Para saber mais, consulte [local.settings.file](functions-run-local.md#local-settings-file).
-* *requirements.txt*: Contém a lista de pacotes que o sistema instala ao publicar no Azure.
+* *local.settings.jsem* : Usado para armazenar configurações de aplicações e cordas de conexão quando funciona localmente. Este ficheiro não é publicado no Azure. Para saber mais, consulte [local.settings.file](functions-run-local.md#local-settings-file).
+* *requirements.txt* : Contém a lista de pacotes que o sistema instala ao publicar no Azure.
 * *host.jsem:* Contém opções de configuração global que afetam todas as funções numa aplicação de função. Este ficheiro é publicado no Azure. Nem todas as opções são suportadas quando se executa localmente. Para saber mais, veja [host.js.](functions-host-json.md)
-* *.funcignore*: (Opcional) declara ficheiros que não devem ser publicados no Azure.
-* *Dockerfile*: (Opcional) utilizado ao publicar o seu projeto num [recipiente personalizado](functions-create-function-linux-custom-image.md).
+* *.funcignore* : (Opcional) declara ficheiros que não devem ser publicados no Azure.
+* *Dockerfile* : (Opcional) utilizado ao publicar o seu projeto num [recipiente personalizado](functions-create-function-linux-custom-image.md).
 
 Cada função tem o seu próprio ficheiro de código e ficheiro de configuração de ligação (function.js).
 
-Ao implementar o seu projeto numa aplicação de função em Azure, todo o conteúdo da pasta principal* \_ \_ (app) \_ \_ *deve ser incluído no pacote, mas não na própria pasta. Recomendamos que mantenha os seus testes numa pasta separada da pasta do projeto, neste exemplo `tests` . Isto impede-o de implementar código de teste com a sua aplicação. Para obter mais informações, consulte [o Teste de Unidade.](#unit-testing)
+Ao implementar o seu projeto numa aplicação de função em Azure, todo o conteúdo da pasta principal *\_ \_ (app) \_ \_* deve ser incluído no pacote, mas não na própria pasta. Recomendamos que mantenha os seus testes numa pasta separada da pasta do projeto, neste exemplo `tests` . Isto impede-o de implementar código de teste com a sua aplicação. Para obter mais informações, consulte [o Teste de Unidade.](#unit-testing)
 
 ## <a name="import-behavior"></a>Comportamento de importação
 
-Pode importar módulos no seu código de função utilizando referências relativas e absolutas explícitas. Com base na estrutura da pasta acima mostrada, as seguintes importações funcionam a partir da aplicação de ficheiro de função * \_ \_ \_ \_ \a minha \_ primeira \_ função \\ _ \_ init \_ \_ .py*:
+Pode importar módulos no seu código de função utilizando referências relativas e absolutas explícitas. Com base na estrutura da pasta acima mostrada, as seguintes importações funcionam a partir da aplicação de ficheiro de função *\_ \_ \_ \_ \a minha \_ primeira \_ função \\ _ \_ init \_ \_ .py* :
 
 ```python
 from . import example #(explicit relative)
@@ -127,7 +131,7 @@ from example import some_helper_code
 import shared_code
 ```
 
-O código partilhado deve ser guardado numa pasta separada na * \_ \_ aplicação \_ \_ *. Para os módulos de referência na pasta de * \_ código partilhada,* pode utilizar a seguinte sintaxe:
+O código partilhado deve ser guardado numa pasta separada na *\_ \_ aplicação \_ \_*. Para os módulos de referência na pasta de *\_ código partilhada,* pode utilizar a seguinte sintaxe:
 
 ```python
 from __app__.shared_code import my_first_helper_function
@@ -194,7 +198,7 @@ A saída pode ser expressa tanto em parâmetros de valor de retorno como de saí
 
 Para utilizar o valor de retorno de uma função como valor de uma ligação de saída, a `name` propriedade da encadernação deve ser definida `$return` em `function.json` .
 
-Para produzir várias saídas, utilize o `set()` método fornecido pela interface para atribuir um valor à [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) encadernação. Por exemplo, a seguinte função pode empurrar uma mensagem para uma fila e também devolver uma resposta HTTP.
+Para produzir várias saídas, utilize o `set()` método fornecido pela interface para atribuir um valor à [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) encadernação. Por exemplo, a seguinte função pode empurrar uma mensagem para uma fila e também devolver uma resposta HTTP.
 
 ```json
 {
@@ -310,7 +314,7 @@ Uma chave para melhorar o desempenho é compreender como a sua aplicação utili
 
 As configurações predefinidas são adequadas para a maioria das aplicações Azure Functions. No entanto, pode melhorar o desempenho da produção das suas aplicações utilizando configurações com base no seu perfil de carga de trabalho. O primeiro passo é compreender o tipo de carga de trabalho que está a correr.
 
-|| Carga de trabalho i/O-bound | Carga de trabalho ligada ao CPU |
+|&nbsp;| Carga de trabalho i/O-bound | Carga de trabalho ligada ao CPU |
 |--| -- | -- |
 |Características da aplicação de função| <ul><li>A aplicação precisa de lidar com muitas invocações simultâneas.</li> <li> A aplicação processa um grande número de eventos de E/S, tais como chamadas de rede e leitura/escrita de disco.</li> </ul>| <ul><li>A aplicação faz cálculos de longa duração, como o redimensionamento de imagens.</li> <li>A aplicação faz a transformação de dados.</li> </ul> |
 |Exemplos| <ul><li>APIs da Web</li><ul> | <ul><li>Processamento de dados</li><li> Inferência de aprendizagem automática</li><ul>|
@@ -381,7 +385,7 @@ O FUNCTIONS_WORKER_PROCESS_COUNT aplica-se a cada anfitrião que as Funções cr
 
 ## <a name="context"></a>Contexto
 
-Para obter o contexto de invocação de uma função durante a execução, inclua o [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) argumento na sua assinatura.
+Para obter o contexto de invocação de uma função durante a execução, inclua o [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) argumento na sua assinatura.
 
 Por exemplo:
 
@@ -394,7 +398,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-A classe [**Contexto**](/python/api/azure-functions/azure.functions.context?view=azure-python) tem os seguintes atributos de corda:
+A classe [**Contexto**](/python/api/azure-functions/azure.functions.context?view=azure-python&preserve-view=true) tem os seguintes atributos de corda:
 
 `function_directory` O diretório em que a função está a funcionar.
 
@@ -742,11 +746,11 @@ Segue-se uma lista de guias de resolução de problemas para questões comuns:
 
 Todos os problemas e pedidos de funcionalidades conhecidos são rastreados utilizando a lista [de problemas do GitHub.](https://github.com/Azure/azure-functions-python-worker/issues) Se encontrar um problema e não encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações, veja os seguintes recursos:
 
-* [Documentação API do pacote de funções AZure Functions](/python/api/azure-functions/azure.functions?view=azure-python)
+* [Documentação API do pacote de funções AZure Functions](/python/api/azure-functions/azure.functions?view=azure-python&preserve-view=true)
 * [Best Practices for Azure Functions (Melhores Práticas para as Funções do Azure)](functions-best-practices.md)
 * [Funções Azure dispara e encaderna](functions-triggers-bindings.md)
 * [Encadernações de armazenamento de bolhas](functions-bindings-storage-blob.md)
@@ -755,5 +759,5 @@ Para obter mais informações, veja os seguintes recursos:
 * [Acionador de temporizador](functions-bindings-timer.md)
 
 
-[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python
-[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python
+[HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true
+[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python&preserve-view=true

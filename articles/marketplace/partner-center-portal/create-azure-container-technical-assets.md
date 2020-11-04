@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/09/2020
-ms.openlocfilehash: 40de52773d9f205e3133543f689c9d381776d8ee
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3599052e49b91747580bf506f06ebfb8d2e34423
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130430"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346813"
 ---
 # <a name="create-an-azure-container-offer"></a>Criar uma oferta de recipienteS Azure
 
@@ -38,8 +38,8 @@ Além do seu domínio de solução, a sua equipa de engenharia deve ter conhecim
 
 Escolha um ou ambos os seguintes ambientes de script para ajudar a gerir a sua imagem de Recipiente:
 
-- [Azure PowerShell](/powershell/azure/?view=azps-3.7.0&viewFallbackFrom=azps-3.6.1)
-- [Azure CLI](/cli/azure/?view=azure-cli-latest).
+- [Azure PowerShell](/powershell/azure/)
+- [Azure CLI](/cli/azure/).
 
 Recomendamos que adicione estas ferramentas ao seu ambiente de desenvolvimento:
 
@@ -58,6 +58,6 @@ Para mais informações, consulte os seguintes tutoriais:
 - [Tutorial: Criar uma imagem de recipiente para implantação em Instâncias de Contentores Azure](../../container-instances/container-instances-tutorial-prepare-app.md)
 - [Tutorial: Construa e implemente imagens de contentores na nuvem com tarefas de registo de contentores Azure](../../container-registry/container-registry-tutorial-quick-task.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Crie a sua oferta de contentores.](create-azure-container-offer.md)

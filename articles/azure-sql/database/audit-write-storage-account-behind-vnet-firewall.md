@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: dde6cf40e7609e902540e08fcaff65d9fe32c85c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289643"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348258"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Escreva auditoria a uma conta de armazenamento por trás do VNet e firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -114,6 +114,7 @@ Para configurar a Auditoria SQL para escrever eventos numa conta de armazenament
      "administratorLoginPassword": "<complex password>",
      "version": "12.0",
      "state": "Ready"
+     }
    }
    ```
 
@@ -158,7 +159,7 @@ Pode configurar a auditoria para escrever eventos de base de dados numa conta de
 > [!NOTE]
 > A amostra ligada encontra-se num repositório público externo e é fornecida "como está", sem garantia, e não é suportada sob qualquer programa/serviço de suporte da Microsoft.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Utilize o PowerShell para criar um ponto final de serviço de rede virtual e, em seguida, uma regra de rede virtual para Azure SQL Database.](scripts/vnet-service-endpoint-rule-powershell-create.md)
 * [Regras de Rede Virtual: Operações com APIs REST](/rest/api/sql/virtualnetworkrules)

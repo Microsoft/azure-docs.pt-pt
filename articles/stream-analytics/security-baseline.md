@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7cf3caa0e309c1640db6ca2817a91f9db71c5110
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 03655e88d4d4c9183bff71e04bf447f470fcf557
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129920"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348411"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Linha de segurança Azure para Stream Analytics
 
@@ -238,9 +238,9 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação** : A Azure AD tem funções incorporadas que devem ser explicitamente atribuídas. Os papéis podem ser questionados para descobrir a adesão. Utilize o módulo Azure AD PowerShell para realizar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-* [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitorização do Centro de Segurança Azure** : Sim
 
@@ -542,7 +542,7 @@ Embora os recursos clássicos do Azure possam ser descobertos através do Gráfi
 
 * [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
-* [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
@@ -682,7 +682,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação** : Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.StreamAnalytics" para criar políticas personalizadas para auditar ou impor a configuração do seu Azure Stream Analytics. Também pode utilizar definições de políticas incorporadas relacionadas com o seu Azure Stream Analytics, tais como: -Registos de diagnóstico em Azure Stream Analytics devem ser ativados
 
-* [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Como ver pseudónimos disponíveis da Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Definições políticas incorporadas da Política Azure](../governance/policy/samples/built-in-policies.md)
 
@@ -724,7 +724,7 @@ Além disso, utilize o Azure Resource Graph para consultar/descobrir recursos de
 
 **Orientação** : Utilize o Azure Repos para armazenar e gerir de forma segura o seu código, incluindo políticas personalizadas de Azure, modelos de Gestor de Recursos Azure, scripts de configuração do estado desejado, funções definidas pelo utilizador, consultas. Para aceder aos recursos que gere em Azure DevOps, pode conceder ou negar permissões a utilizadores específicos, grupos de segurança incorporados ou grupos definidos no Azure Ative Directory (Azure AD) se integrados com Azure DevOps, ou Ative Directory se integrados com TFS.
 
-* [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
 * [Sobre permissões e grupos em Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -880,7 +880,7 @@ Para fazer cópias de segurança dos dados dos serviços suportados pela conta d
 
 As chaves geridas pelo cliente/fornecidas podem ser apoiadas dentro do Cofre da Chave Azure utilizando o Azure CLI ou o PowerShell.
 
-* [Como backup chaves chave cofre em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Como backup chaves chave cofre em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Monitorização do Centro de Segurança Azure** : Atualmente não disponível
 
@@ -996,7 +996,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade** : Compartilhado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre [as linhas de base de segurança da Azure](../security/benchmarks/security-baselines-overview.md)

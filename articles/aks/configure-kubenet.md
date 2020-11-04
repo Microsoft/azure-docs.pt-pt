@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 3bc245fa02f57a433a76a316caac67ed5d884fe9
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 82745d4f86a440c671e73ac3c74702a4a0c56b2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072752"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348207"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Utilize a rede kubenet com as suas próprias gamas de endereços IP no Serviço Azure Kubernetes (AKS)
 
@@ -34,7 +34,7 @@ Este artigo mostra-lhe como usar a rede *kubenet* para criar e utilizar uma sub-
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Precisa da versão Azure CLI 2.0.65 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
+Precisa da versão Azure CLI 2.0.65 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 ## <a name="overview-of-kubenet-networking-with-your-own-subnet"></a>Visão geral da rede kubenet com a sua própria sub-rede
 
@@ -57,11 +57,11 @@ Com *o Azure CNI,* cada pod recebe um endereço IP na sub-rede IP, e pode comuni
 * As **funcionalidades não suportadas no kubenet** incluem:
    * [Políticas de rede Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), mas as políticas de rede Calico são apoiadas no kubenet
    * [Piscinas de nó de janelas](./windows-faq.md)
-   * [Complemento de nó virtuais](virtual-nodes-portal.md#known-limitations)
+   * [Complemento de nó virtuais](virtual-nodes.md#network-requirements)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilidade e exaustão do endereço IP
 
-Com *o Azure CNI*, uma questão comum é que a gama de endereços IP atribuída é demasiado pequena para, em seguida, adicionar nós adicionais quando escala ou atualiza um cluster. A equipa de rede também pode não ser capaz de emitir um intervalo de endereços IP suficientemente grande para suportar as suas exigências de aplicação esperadas.
+Com *o Azure CNI* , uma questão comum é que a gama de endereços IP atribuída é demasiado pequena para, em seguida, adicionar nós adicionais quando escala ou atualiza um cluster. A equipa de rede também pode não ser capaz de emitir um intervalo de endereços IP suficientemente grande para suportar as suas exigências de aplicação esperadas.
 
 Como compromisso, pode criar um cluster AKS que utiliza *kubenet* e se conecta a uma sub-rede de rede virtual existente. Esta abordagem permite que os nós recebam endereços IP definidos, sem a necessidade de reservar um grande número de endereços IP na frente para todas as cápsulas potenciais que poderiam funcionar no cluster.
 
@@ -168,7 +168,7 @@ Os seguintes intervalos de endereços IP são também definidos como parte do pr
 
 * O *pod-cidr* deve ser um grande espaço de endereço que não está em uso em outro lugar no seu ambiente de rede. Esta gama inclui quaisquer gamas de rede no local se ligar, ou planeia ligar, as suas redes virtuais Azure utilizando a Rota Expresso ou uma ligação VPN site-to-site.
     * Este intervalo de endereços deve ser suficientemente grande para acomodar o número de nós que espera escalar. Não é possível alterar este intervalo de endereços uma vez que o cluster é implantado se precisar de mais endereços para nóns adicionais.
-    * A gama de endereços IP do pod é utilizada para atribuir um espaço de endereço */24* a cada nó no cluster. No exemplo seguinte, o *-pod-cidr* de *10.244.0.0/16* atribui o primeiro nó *10.244.0.0/24,* o segundo nó *10.244.1.0/24*, e o terceiro nó *10.244.2.0/24*.
+    * A gama de endereços IP do pod é utilizada para atribuir um espaço de endereço */24* a cada nó no cluster. No exemplo seguinte, o *-pod-cidr* de *10.244.0.0/16* atribui o primeiro nó *10.244.0.0/24,* o segundo nó *10.244.1.0/24* , e o terceiro nó *10.244.2.0/24*.
     * À medida que o cluster escala ou upgrade, a plataforma Azure continua a atribuir uma gama de endereços IP do pod a cada novo nó.
     
 * O *endereço-ponte-estiva-ponte* permite que os nós AKS comuniquem com a plataforma de gestão subjacente. Este endereço IP não deve estar dentro do intervalo de endereços IP de rede virtual do seu cluster, e não deve sobrepor-se a outros intervalos de endereços em uso na sua rede.
@@ -244,7 +244,7 @@ az network vnet subnet list --resource-group
 az aks create -g MyResourceGroup -n MyManagedCluster --vnet-subnet-id MySubnetID
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Com um cluster AKS implantado na sua sub-rede de rede virtual existente, pode agora utilizar o cluster normalmente. Começa com [a construção de apps que utilizam o Azure Dev Spaces,][dev-spaces] [implemente aplicações existentes usando o Helm,][use-helm]ou [crie novas aplicações usando o Helm.][develop-helm]
 

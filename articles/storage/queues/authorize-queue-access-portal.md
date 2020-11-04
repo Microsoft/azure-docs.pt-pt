@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc6c4e57d0e04cc85bd83c11ba583b3f0b24fa82
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715514"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345997"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Escolha como autorizar o acesso aos dados da fila no portal Azure
 
-Quando acede aos dados da fila utilizando o [portal Azure,](https://portal.azure.com)o portal faz pedidos para o Azure Storage sob as capas. Um pedido para a Azure Storage pode ser autorizado usando a sua conta AZure AD ou a chave de acesso à conta de armazenamento. O portal indica qual o método que está a utilizar e permite-lhe alternar entre os dois se tiver as permissões adequadas.  
+Quando acede aos dados da fila utilizando o [portal Azure,](https://portal.azure.com)o portal faz pedidos para o Azure Storage sob as capas. Um pedido para a Azure Storage pode ser autorizado usando a sua conta AZure AD ou a chave de acesso à conta de armazenamento. O portal indica qual o método que está a utilizar e permite-lhe alternar entre os dois se tiver as permissões adequadas.
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Permissões necessárias para aceder aos dados da fila
 
@@ -74,11 +74,11 @@ Ao navegar para uma fila, o portal Azure indica se está a utilizar a chave de a
 
 Se estiver a autenticar utilizando a chave de acesso à conta, verá a **Chave de Acesso** especificada como o método de autenticação no portal:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Screenshot mostrando como navegar para os dados da fila no portal Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Screenshot mostrando o utilizador que atualmente acede às filas com a chave da conta":::
 
 Para mudar para a conta Azure AD, clique no link realçado na imagem. Se tiver as permissões apropriadas através das funções Azure que lhe são atribuídas, poderá prosseguir. No entanto, se não tiver as permissões certas, verá uma mensagem de erro como a seguinte:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Screenshot mostrando como navegar para os dados da fila no portal Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Erro mostrado se a conta AD Azure não suporta acesso":::
 
 Note que não aparecem filas na lista se a sua conta AZure AD não tiver permissões para as visualizar. Clique no **Switch para aceder ao** link chave para utilizar novamente a chave de acesso para autenticação.
 
@@ -86,13 +86,13 @@ Note que não aparecem filas na lista se a sua conta AZure AD não tiver permiss
 
 Se estiver a autenticar utilizando a sua conta Azure AD, verá **a Conta de Utilizador AZure AD** especificada como o método de autenticação no portal:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Screenshot mostrando como navegar para os dados da fila no portal Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Screenshot mostrando o utilizador atualmente a aceder a filas com conta AZure AD":::
 
 Para mudar para a utilização da chave de acesso à conta, clique no link realçado na imagem. Se tiver acesso à chave da conta, poderá prosseguir. No entanto, se não tiver acesso à tecla da conta, o portal Azure apresenta uma mensagem de erro.
 
 As filas não estão listadas no portal se não tiver acesso às chaves da conta. Clique no link **'Conta de Utilizador AD' Azure** para utilizar novamente a sua conta Azure AD para autenticação.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Autenticar acesso a bolhas e filas Azure usando o Azure Ative Directory](../common/storage-auth-aad.md)
 - [Utilize o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](../common/storage-auth-aad-rbac-portal.md)

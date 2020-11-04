@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ca3b218da7835ee9f3e9e8653f4829767a1ffb07
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a62aa9df818bb6ff7026d95daa625acabe66b990
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783475"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345640"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Quickstart: Azure Queue storage client library v12 for .NET
 
@@ -21,26 +21,26 @@ Começa com a versão 12 da biblioteca do cliente de armazenamento da Fila Azure
 
 Utilize a biblioteca de clientes de armazenamento Azure Queue v12 para .NET para:
 
-* Criar uma fila
-* Adicione mensagens a uma fila
-* Espreite as mensagens em uma fila
-* Atualize uma mensagem em uma fila
-* Receber mensagens de uma fila
-* Apagar mensagens de uma fila
-* Eliminar uma fila
+- Criar uma fila
+- Adicione mensagens a uma fila
+- Espreite as mensagens em uma fila
+- Atualize uma mensagem em uma fila
+- Receber mensagens de uma fila
+- Apagar mensagens de uma fila
+- Eliminar uma fila
 
 Recursos adicionais:
 
-* [Documentação de referência da API](/dotnet/api/azure.storage.queues)
-* [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
-* [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
-* [Amostras](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
+- [Documentação de referência da API](/dotnet/api/azure.storage.queues)
+- [Código fonte da biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
+- [Pacote (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
+- [Amostras](../common/storage-samples-dotnet.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
-* Conta de armazenamento Azure - [crie uma conta de armazenamento](../common/storage-account-create.md)
-* Corrente [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) para o seu sistema operativo. Certifique-se de pegar o SDK e não o tempo de execução.
+- Azure subscrição - [crie uma gratuitamente](https://azure.microsoft.com/free/)
+- Conta de armazenamento Azure - [crie uma conta de armazenamento](../common/storage-account-create.md)
+- Corrente [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) para o seu sistema operativo. Certifique-se de pegar o SDK e não o tempo de execução.
 
 ## <a name="setting-up"></a>Configuração
 
@@ -48,9 +48,9 @@ Esta secção acompanha-o através da preparação de um projeto para trabalhar 
 
 ### <a name="create-the-project"></a>Criar o projeto
 
-Criar uma aplicação .NET Core chamada *QueuesQuickstartV12* .
+Criar uma aplicação .NET Core chamada *QueuesQuickstartV12*.
 
-1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome *QueuesQuickstartV12* . Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *Program.cs* .
+1. Numa janela de consola (como cmd, PowerShell ou Bash), utilize o `dotnet new` comando para criar uma nova aplicação de consola com o nome *QueuesQuickstartV12*. Este comando cria um projeto simples "Hello World" C# com um único ficheiro de origem: *Program.cs*.
 
    ```console
    dotnet new console -n QueuesQuickstartV12
@@ -79,8 +79,6 @@ Do diretório do projeto:
 1. Adicionar `using` diretivas
 1. Atualizar a `Main` declaração do método para apoiar o código [async](/dotnet/csharp/whats-new/csharp-7#async-main)
 
-
-
 Aqui está o código:
 
 ```csharp
@@ -107,9 +105,9 @@ namespace QueuesQuickstartV12
 
 O armazenamento de Filas do Azure é um serviço para alojar grandes quantidades de mensagens. Uma mensagem de fila pode ter até 64 KB de tamanho. Uma fila pode conter milhões de mensagens, até ao limite total de capacidade de uma conta de armazenamento. As filas são comumente usadas para criar um atraso de trabalho para processar assíncronos. O armazenamento de fila oferece três tipos de recursos:
 
-* A conta de armazenamento
-* Uma fila na conta de armazenamento
-* Mensagens dentro da fila
+- A conta de armazenamento
+- Uma fila na conta de armazenamento
+- Mensagens dentro da fila
 
 O diagrama seguinte mostra a relação entre estes recursos.
 
@@ -117,22 +115,22 @@ O diagrama seguinte mostra a relação entre estes recursos.
 
 Utilize as seguintes classes .NET para interagir com estes recursos:
 
-* [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): `QueueServiceClient` Permite-lhe gerir todas as filas na sua conta de armazenamento.
-* [QueueClient](/dotnet/api/azure.storage.queues.queueclient): A `QueueClient` classe permite-lhe gerir e manipular uma fila individual e as suas mensagens.
-* [FilaMessage](/dotnet/api/azure.storage.queues.models.queuemessage): A `QueueMessage` classe representa os objetos individuais devolvidos ao chamar ["Receber Caixas"](/dotnet/api/azure.storage.queues.queueclient.receivemessages) numa fila.
+- [QueueServiceClient](/dotnet/api/azure.storage.queues.queueserviceclient): `QueueServiceClient` Permite-lhe gerir todas as filas na sua conta de armazenamento.
+- [QueueClient](/dotnet/api/azure.storage.queues.queueclient): A `QueueClient` classe permite-lhe gerir e manipular uma fila individual e as suas mensagens.
+- [FilaMessage](/dotnet/api/azure.storage.queues.models.queuemessage): A `QueueMessage` classe representa os objetos individuais devolvidos ao chamar ["Receber Caixas"](/dotnet/api/azure.storage.queues.queueclient.receivemessages) numa fila.
 
 ## <a name="code-examples"></a>Exemplos de código
 
 Estes excertos de código de exemplo mostram-lhe como fazer as seguintes ações com a biblioteca do cliente de armazenamento Azure Queue para .NET:
 
-* [Obter a cadeia de ligação](#get-the-connection-string)
-* [Criar uma fila](#create-a-queue)
-* [Adicione mensagens a uma fila](#add-messages-to-a-queue)
-* [Espreite as mensagens em uma fila](#peek-at-messages-in-a-queue)
-* [Atualize uma mensagem em uma fila](#update-a-message-in-a-queue)
-* [Receber mensagens de uma fila](#receive-messages-from-a-queue)
-* [Apagar mensagens de uma fila](#delete-messages-from-a-queue)
-* [Eliminar uma fila](#delete-a-queue)
+- [Obter a cadeia de ligação](#get-the-connection-string)
+- [Criar uma fila](#create-a-queue)
+- [Adicione mensagens a uma fila](#add-messages-to-a-queue)
+- [Espreite as mensagens em uma fila](#peek-at-messages-in-a-queue)
+- [Atualize uma mensagem em uma fila](#update-a-message-in-a-queue)
+- [Receber mensagens de uma fila](#receive-messages-from-a-queue)
+- [Apagar mensagens de uma fila](#delete-messages-from-a-queue)
+- [Eliminar uma fila](#delete-a-queue)
 
 ### <a name="get-the-connection-string"></a>Obter a cadeia de ligação
 
@@ -158,7 +156,6 @@ Decida um nome para a nova fila. O código abaixo anexa um valor GUID ao nome da
 
 > [!IMPORTANT]
 > Os nomes da fila só podem conter letras minúsculas, números e hífens, e devem começar com uma letra ou um número. Cada hífen tem de ser precedido e seguido de um caráter que não seja um hífen. O nome também deve ter entre 3 e 63 caracteres de comprimento. Para obter mais informações sobre o nome de filas, consulte [As Filas de Nomeação e Os Metadados](/rest/api/storageservices/naming-queues-and-metadata).
-
 
 Crie um exemplo da classe [QueueClient.](/dotnet/api/azure.storage.queues.queueclient) Em seguida, ligue para o método [CreateAsync](/dotnet/api/azure.storage.queues.queueclient.createasync) para criar a fila na sua conta de armazenamento.
 
@@ -327,7 +324,7 @@ Quando a aplicação parar antes de receber mensagens, consulte a sua conta de a
 
 Prima a tecla **'Inserir'** para receber e eliminar as mensagens. Quando solicitado, prima novamente a tecla **Enter** para apagar a fila e terminar a demonstração.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a criar uma fila e a adicionar-lhe mensagens utilizando código ASSíncronos .NET. Depois aprendeu a espreitar, a recuperar e a apagar mensagens. Finalmente, aprendeu a apagar uma fila de mensagens.
 
@@ -336,6 +333,6 @@ Para tutoriais, amostras, arranques rápidos e outra documentação, visite:
 > [!div class="nextstepaction"]
 > [Azure for .NET and .NET Core developers](/dotnet/azure/) (Azure para programadores de .NET e .NET Core)
 
-* Para saber mais, consulte as [bibliotecas de Armazenamento Azure para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
-* Para ver mais aplicativos de amostra de armazenamento da Azure Queue, continue até a [Azure Queue storage v12 .NET client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
-* Para saber mais sobre o .NET Core, veja [Introdução ao .NET em 10 minutos](https://www.microsoft.com/net/learn/get-started/).
+- Para saber mais, consulte as [bibliotecas de Armazenamento Azure para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage).
+- Para ver mais aplicativos de amostra de armazenamento da Azure Queue, continue até a [Azure Queue storage v12 .NET client library samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples).
+- Para saber mais sobre o .NET Core, veja [Introdução ao .NET em 10 minutos](https://www.microsoft.com/net/learn/get-started/).

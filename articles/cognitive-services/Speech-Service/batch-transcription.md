@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e4e5f4c1a50c814174dbbd5d419fe24b2e9f88e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f89dd6b7926baf6c1c64cff81e8b613461a3e925
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336685"
+ms.locfileid: "93345504"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como utilizar a transcrição do lote
 
@@ -49,7 +49,7 @@ Tal como acontece com todas as funcionalidades do serviço Speech, cria uma chav
 Se pretende personalizar modelos, siga os passos na [personalização acústica](how-to-customize-acoustic-models.md) e [personalização linguística.](how-to-customize-language-model.md) Para utilizar os modelos criados na transcrição do lote, precisa da localização do modelo. Pode recuperar a localização do modelo quando inspeciona os detalhes do modelo `self` (propriedade). Um ponto final personalizado não é *necessário* para o serviço de transcrição do lote.
 
 >[!NOTE]
-> Como parte da API REST, a Transcrição do Lote tem um conjunto de [quotas e limites](speech-services-quotas-and-limits.md#speech-to-text-quotas-and-limits-per-speech-resource), que encorajamos a rever. Para tirar o máximo partido da capacidade de transcrição do lote para transcrever eficientemente um grande número de ficheiros áudio, recomendamos sempre o envio de vários ficheiros por pedido ou apontando para um recipiente de Armazenamento Blob com os ficheiros de áudio para transcrever. O serviço transcreverá os ficheiros simultaneamente reduzindo o tempo de reviravolta. A utilização de vários ficheiros num único pedido é muito simples e simples - consulte a secção [de Configuração.](#configuration) 
+> Como parte da API REST, a Transcrição do Lote tem um conjunto de [quotas e limites](speech-services-quotas-and-limits.md#batch-transcription), que encorajamos a rever. Para tirar o máximo partido da capacidade de transcrição do lote para transcrever eficientemente um grande número de ficheiros áudio, recomendamos sempre o envio de vários ficheiros por pedido ou apontando para um recipiente de Armazenamento Blob com os ficheiros de áudio para transcrever. O serviço transcreverá os ficheiros simultaneamente reduzindo o tempo de reviravolta. A utilização de vários ficheiros num único pedido é muito simples e simples - consulte a secção [de Configuração.](#configuration) 
 
 ## <a name="batch-transcription-api"></a>API de transcrição de lote
 
@@ -416,6 +416,6 @@ Este código de amostra não especifica um modelo personalizado. O serviço util
 > [!NOTE]
 > Para transcrições de base, não é necessário declarar o ID para o modelo de base.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Referência da API do texto v3](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription)

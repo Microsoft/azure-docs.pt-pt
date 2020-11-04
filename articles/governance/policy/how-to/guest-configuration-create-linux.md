@@ -4,12 +4,12 @@ description: Saiba como criar uma política de configuração de hóspedes Azure
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 240f22a076b5f185ebe3028b201b66d187c9bb2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305549"
+ms.locfileid: "93346881"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -24,7 +24,11 @@ Ao auditar o Linux, a Configuração de Convidado utiliza [Chef InSpec](https://
 Utilize as seguintes ações para criar a sua própria configuração para validar o estado de uma máquina Azure ou não-Azure.
 
 > [!IMPORTANT]
+> Definições de política personalizadas com Configuração de Hóspedes nos ambientes do Governo Azure e da Azure China é uma funcionalidade de pré-visualização.
+>
 > A extensão de Configuração de Convidado é necessária para realizar auditorias nas máquinas virtuais do Azure. Para implementar a extensão em escala em todas as máquinas Linux, atribua a seguinte definição de política: `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
+> 
+> Não utilize segredos ou informações confidenciais em pacotes de conteúdo personalizado.
 
 ## <a name="install-the-powershell-module"></a>Instalar o módulo do PowerShell
 
@@ -49,7 +53,9 @@ Sistemas operativos onde o módulo pode ser instalado:
 - Windows
 
 > [!NOTE]
-> O cmdlet 'Test-GuestConfigurationPackage' requer a versão 1.0 do OpenSSL, devido à dependência do OMI. Isto causa um erro em qualquer ambiente com OpenSSL 1.1 ou mais tarde.
+> O cmdlet `Test-GuestConfigurationPackage` requer a versão 1.0 do OpenSSL, devido a uma dependência do OMI. Isto causa um erro em qualquer ambiente com OpenSSL 1.1 ou mais tarde.
+>
+> A execução do cmdlet `Test-GuestConfigurationPackage` só é suportada no Windows for Guest Configuration Module versão 2.1.0.
 
 O módulo de recursos de configuração do hóspede requer o seguinte software:
 
@@ -319,13 +325,16 @@ Configuration AuditFilePathExists
 
 ## <a name="policy-lifecycle"></a>Ciclo de vida da política
 
-Para lançar uma atualização da definição de política, existem dois campos que requerem atenção.
+Para lançar uma atualização da definição de política, existem três domínios que requerem atenção.
 
-- **Versão** : Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um número de versão maior do que o que é publicado atualmente. A propriedade atualiza a versão da atribuição de Configuração de Hóspedes para que o agente reconheça o pacote atualizado.
+> [!NOTE]
+> A `version` propriedade da atribuição de Configuração de Hóspedes apenas afeta pacotes que são hospedados pela Microsoft. A melhor prática para a versão personalizada é incluir a versão no nome do ficheiro.
+
+- **Versão** : Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um número de versão maior do que o que é publicado atualmente.
+- **conteúdoUri** : Quando executar o `New-GuestConfigurationPolicy` cmdlet, deve especificar um URI para a localização da embalagem. A inclusão de uma versão em pacote no nome do ficheiro garantirá que o valor desta propriedade muda em cada versão.
 - **contentHash** : Esta propriedade é atualizada automaticamente pelo `New-GuestConfigurationPolicy` cmdlet. É um valor haxixe do pacote criado `New-GuestConfigurationPackage` por. A propriedade deve estar correta para o `.zip` ficheiro que publica. Se apenas a propriedade **contentUri** for atualizada, a Extensão não aceitará o pacote de conteúdo.
 
 A forma mais fácil de lançar um pacote atualizado é repetir o processo descrito neste artigo e fornecer um número de versão atualizado. Este processo garante que todas as propriedades foram corretamente atualizadas.
-
 
 ### <a name="filtering-guest-configuration-policies-using-tags"></a>Filtrar as políticas de configuração do hóspede usando Tags
 
@@ -382,7 +391,7 @@ Uma ferramenta está disponível na pré-visualização para ajudar na resoluç�
 
 Para obter mais informações sobre os cmdlets desta ferramenta, utilize o comando Get-Help em PowerShell para mostrar a orientação incorporada. Como a ferramenta está a receber atualizações frequentes, esta é a melhor maneira de obter informações mais recentes.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Saiba mais sobre a auditoria de VMs com [configuração de hóspedes.](../concepts/guest-configuration.md)
 - Entenda como [criar políticas programáticas.](./programmatically-create.md)

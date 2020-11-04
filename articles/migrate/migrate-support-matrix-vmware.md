@@ -3,12 +3,12 @@ title: Suporte de avaliação VMware em Azure Migrate
 description: Saiba mais sobre o suporte para a avaliação de VMware VM com avaliação do servidor Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9d5c954be2a6f05e5132a5f57f8169f436719a8d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8b119b56e7e4c7fac74c57cc5c48fb44f91a7ee6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332275"
+ms.locfileid: "93345436"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação de VMware 
 
@@ -67,12 +67,11 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 **Suporte** | **Detalhes**
 --- | ---
 **Máquinas suportadas** | A descoberta de aplicações é atualmente suportada apenas para VMware VMs. Pode descobrir aplicações instaladas em até 10000 VMware VMs de cada aparelho Azure Migrate.
+**Sistemas operativos** | A descoberta de aplicações é suportada por VMs que executam todas as versões Windows e Linux.
+**Requisitos de VM** | As ferramentas VMware devem ser instaladas e em execução em VMs nas quais pretende descobrir aplicações. <br/><br/> A versão VMware tools deve ser mais tarde do que 10.2.0.<br/><br/> Os VMs devem ter a versão PowerShell 2.0 ou posteriormente instalada.
 **Deteção** | A descoberta de aplicações é sem agente. Utiliza credenciais de hóspedes de máquinas e acede remotamente a máquinas usando chamadas WMI e SSH.
-**Suporte VM** | A descoberta de aplicações é suportada por VMs que executam todas as versões Windows e Linux.
 **vCenter** | A conta de leitura vCenter Server utilizada para avaliação, necessita de privilégios habilitados para operações **de hóspedes de máquinas virtuais,**  >  **Guest Operations** de forma a interagir com o VM para a descoberta de aplicações.
 **Acesso VM** | A descoberta de aplicações necessita de uma conta de utilizador local no VM para a descoberta de aplicações.<br/><br/> A Azure Migrate suporta atualmente o uso de uma credencial para todos os servidores windows, e uma credencial para todos os servidores Linux.<br/><br/> Cria uma conta de utilizador para vMs do Windows e uma conta de utilizador regular/normal (acesso não sudo) para todos os VMs Do Linux.
-**Ferramentas VMware** | As ferramentas VMware devem ser instaladas e em funcionamento em VMs que pretende descobrir. <br/><br/> A versão VMware tools deve ser mais tarde do que 10.2.0.
-**PowerShell** | Os VMs devem ter a versão PowerShell 2.0 ou posteriormente instalada.
 **Acesso portuário** | O aparelho Azure Migrate deve ser capaz de ligar à porta TCP 443 nos anfitriões ESXi que executam VMs nos quais pretende descobrir aplicações. O vCenter Server devolve uma ligação de anfitrião ESXI para descarregar o ficheiro que contém as informações da aplicação.
 **Limites** | Para a descoberta de aplicações, pode descobrir até 10000 VMs em cada aparelho Azure Migrate.
 
@@ -114,7 +113,7 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 **Azure Government** | A análise da dependência baseada em agentes não é suportada.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Reveja as](best-practices-assessment.md) melhores práticas para criar avaliações.
 - Prepare-se para a avaliação [da VMware.](./tutorial-discover-vmware.md)

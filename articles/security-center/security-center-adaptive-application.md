@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: ee5a88dfcc3b4ab29cd3ad8c5ff7c4701d1fced6
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 95c3ad6f689893195e0e5c17c59ab31143cf238d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92339718"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346524"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -54,7 +54,7 @@ Ao definir listas de aplicações conhecidas e gerar alertas quando qualquer out
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Máquinas suportadas:|![Sim ](./media/icons/yes-icon.png) Azure e máquinas não-Azure que executam Windows e Linux<br>![Sim ](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) máquinas|
 |Funções e permissões necessárias:|**As** funções de Leitor de Segurança e **Leitor** podem ver grupos e listas de aplicações conhecidas e seguras<br>**As** funções de Administrador de Colaborador e **Segurança** podem editar grupos e listas de aplicações conhecidas e seguras|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -135,7 +135,7 @@ Para editar as regras para um grupo de máquinas:
 
       ![Adicione uma regra personalizada](./media/security-center-adaptive-application/adaptive-application-add-custom-rule.png)
 
-   1. Se estiver a definir um caminho seguro conhecido, altere o **tipo regra** para 'Caminho'. Pode incluir wildcards no caminho.
+   1. Se estiver a definir um caminho seguro conhecido, altere o **tipo regra** para 'Caminho' e entre num único caminho. Pode incluir wildcards no caminho.
    
       > [!TIP]
       > Alguns cenários para os quais os wildcards num caminho podem ser úteis:
@@ -156,12 +156,12 @@ Para editar as regras para um grupo de máquinas:
 
     Este painel mostra o nome do grupo (que pode ser modificado), o tipo de SO, a localização e outros detalhes relevantes.
 
-    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="Abertura de controlos de aplicação adaptativa a partir do Painel Azure" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="A página de definições de grupo para controlos de aplicações adaptativas" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
     > A opção **Enforce,** nas definições do modo de proteção do tipo de ficheiro, está acinzentado em **todos os** cenários. Não há opções de execução disponíveis neste momento. 
     >
-    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="Abertura de controlos de aplicação adaptativa a partir do Painel Azure":::
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="O modo de aplicação para proteção de ficheiros está permanentemente acinzentado. Não há opções de execução disponíveis.":::
 
 1. Opcionalmente, modifique o nome do grupo ou os modos de proteção do tipo de ficheiro.
 
@@ -242,7 +242,7 @@ Algumas das funções que estão disponíveis na API REST:
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Neste documento, aprendeu a utilizar o controlo de aplicações adaptativas no Azure Security Center para definir as listas de aplicações em execução nas suas máquinas Azure e não-Azure. Para saber mais sobre algumas das outras funcionalidades de proteção da carga de trabalho em nuvem do Security Center, consulte:
 
 * [Compreensão do acesso just-in-time (JIT) à VM](just-in-time-explained.md)

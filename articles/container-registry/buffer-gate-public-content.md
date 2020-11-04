@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: bb185e7d5803219135fddf421b7d6a89edd296b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: def1c3a9b8a1086f453c7e71d766ab0dd89b0c2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315815"
+ms.locfileid: "93347527"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Gerir conteúdos públicos com registo de contentores Azure
 
@@ -28,7 +28,7 @@ Sem controlos adequados, ter dependências de conteúdos de registo público pod
 Como primeiro passo, se atualmente retirar imagens públicas do Docker Hub como parte de um fluxo de trabalho de construção ou implantação, recomendamos que [autente usando uma conta Docker Hub](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) em vez de fazer um pedido de atração anónimo.
 
 > [!NOTE]
-> A partir de 2 de novembro de 2020, [os limites de taxa de descarregamento](https://docs.docker.com/docker-hub/download-rate-limit) aplicam-se a pedidos anónimos e autenticados para Docker Hub a partir de contas Docker Free Plan e são aplicados por endereço IP e Estivador ID, respecitivamente. 
+> A partir de 2 de novembro de 2020, [os limites de taxa de descarregamento](https://docs.docker.com/docker-hub/download-rate-limit) aplicam-se a pedidos anónimos e autenticados ao Docker Hub a partir de contas Docker Free Plan e são aplicados por endereço IP e Estiva, respectivamente. 
 >
 > Ao estimar o seu número de pedidos de puxar, tenha em conta que ao utilizar serviços de fornecedor de nuvem ou trabalhar atrás de um NAT corporativo, vários utilizadores serão apresentados ao Docker Hub em conjunto como um subconjunto de endereços IP. Adicionar a autenticação paga do Docker aos pedidos feitos ao Docker Hub evitará possíveis perturbações no serviço devido ao estrangulamento do limite de taxa.
 >
@@ -94,7 +94,7 @@ Para um exemplo detalhado, consulte [como consumir e manter o conteúdo público
 > [!NOTE]
 > Uma única tarefa pré-configurada pode reconstruir automaticamente todas as imagens de aplicação que referenciam uma imagem base dependente. 
  
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
  
 * Saiba mais sobre [as tarefas ACR](container-registry-tasks-overview.md) para construir, executar, empurrar e remendar imagens de contentores em Azure.
 * Veja [como consumir e manter o conteúdo público com as Tarefas de Registo de Contentores Azure](tasks-consume-public-content.md) para um fluxo de trabalho de gating automatizado para atualizar imagens base para o seu ambiente. 

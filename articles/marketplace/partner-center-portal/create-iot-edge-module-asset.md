@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: 4d55186874e6f5be67a04e4a04d54a89dc09f9cd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130447"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346779"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Prepare os seus ativos técnicos do módulo IoT Edge
 
@@ -107,10 +107,10 @@ Os módulos que utilizam o Módulo IoT SDK devem definir o identificador de mód
 
 Utilize um dos seguintes métodos dos SDKs do módulo IoT para definir o ProdutoInfo a este identificador:
 
-- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
+- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
 - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
+- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo)
 
 Para módulos que não utilizam o Módulo IoT SDK, insights menos precisos estão disponíveis através do Partner Center, como o número de downloads.
 
@@ -141,6 +141,6 @@ A sua oferta também será recertificada se a atualizar, como por exemplo adicio
 
 Para fazer o upload do seu módulo IoT Edge para o Azure Marketplace, primeiro tem de o hospedar num [Registo de Contentores Azure](https://azure.microsoft.com/services/container-registry/) (ACR). O módulo deve incluir todas as etiquetas que pretende publicar, incluindo as etiquetas de imagem que são referenciadas por uma etiqueta manifesto. Para obter mais informações, consulte o tutorial [Criar um registo de contentores Azure e empurrar uma imagem do recipiente](../../container-instances/container-instances-tutorial-prepare-acr.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Criar uma oferta de módulo do IoT Edge](azure-iot-edge-module-creation.md)

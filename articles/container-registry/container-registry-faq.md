@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148533"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347000"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Perguntas frequentes sobre o Registo de Contentores Azure
 
@@ -262,7 +262,8 @@ A quarentena de imagem é atualmente uma característica de pré-visualização 
 A criação de um registo de contentores Azure para acesso anónimo (público) é atualmente uma funcionalidade de pré-visualização. Se tiver algum [mapa de âmbito (utilizador) ou recursos simbólicos](./container-registry-repository-scoped-permissions.md) no seu registo, por favor, apague-os antes de levantar um bilhete de apoio (os mapas de âmbito do sistema podem ser ignorados). Para permitir o acesso ao público, abra um bilhete de apoio em https://aka.ms/acr/support/create-ticket . Para mais detalhes, consulte o [Azure Feedback Forum](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
-> Apenas as APIs necessárias para retirar uma imagem conhecida podem ser acedidas anonimamente. Nenhuma outra APIs para operações como lista de tags ou lista de repositórios está acessível anonimamente.
+> * Apenas as APIs necessárias para retirar uma imagem conhecida podem ser acedidas anonimamente. Nenhuma outra APIs para operações como lista de tags ou lista de repositórios está acessível anonimamente.
+> * Antes de tentar uma operação de atração anónima, corra `docker logout` para garantir que limpe as credenciais existentes do Docker.
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnósticos e exames de saúde
 
@@ -510,8 +511,8 @@ Atualmente, não apoiamos o GitLab para os gatilhos de origem.
 |---|---|---|---|
 | GitHub | `https://github.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Sim |
 | Repositórios do Azure | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` | Sim | Sim |
-| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Sim | Não |
-| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Sim | Não |
+| GitLab | `https://gitlab.com/user/myapp-repo.git#mybranch:myfolder` | Sim | No |
+| BitBucket | `https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder` | Sim | No |
 
 ## <a name="run-error-message-troubleshooting"></a>Executar resolução de problemas de mensagem de erro
 
@@ -524,6 +525,6 @@ Atualmente, não apoiamos o GitLab para os gatilhos de origem.
 - [CircleCI](https://github.com/Azure/acr/blob/master/docs/integration/CircleCI.md)
 - [GitHub Actions](https://github.com/Azure/acr/blob/master/docs/integration/github-actions/github-actions.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Saiba mais](container-registry-intro.md) sobre o Registo de Contentores Azure.

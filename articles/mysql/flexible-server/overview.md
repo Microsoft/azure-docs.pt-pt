@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 4cb706bfa1c10e941e6d2d44358c784549973302
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f6ec6bced9c84e4e5b0f04cc32eebb438052bd6c
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927979"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348292"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -22,7 +22,7 @@ A azure Database for MySQL alimentado pela edição comunitária MySQL está dis
 
 Neste artigo, forneceremos uma visão geral e introdução aos conceitos fundamentais do modelo flexível de implementação do servidor. Para obter informações sobre como decidir qual a opção de implementação adequada para a sua carga de trabalho, consulte [a escolha da opção de servidor MySQL certa em Azure](./../select-right-deployment-type.md).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 A Azure Database for MySQL Flexible Server é um serviço de base de dados totalmente gerido projetado para fornecer mais controlo granular e flexibilidade sobre funções de gestão de bases de dados e configurações de configuração. Em geral, o serviço proporciona mais flexibilidade e personalizações de configuração do servidor com base nos requisitos do utilizador. A arquitetura flexível do servidor permite que os utilizadores optem pela alta disponibilidade dentro de uma única zona de disponibilidade e em várias zonas de disponibilidade. Os servidores flexíveis também fornecem controlos de otimização de custos melhores com a capacidade de parar/iniciar o seu servidor e skus rebentados, ideais para cargas de trabalho que não necessitam de capacidade de computação completa continuamente. O serviço suporta atualmente a versão comunitária do MySQL 5.7. O serviço está atualmente em pré-visualização, disponível hoje em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/)
 
@@ -50,7 +50,7 @@ Se a zona redundante de alta disponibilidade for configurada, as disposições d
 
 Consulte [conceitos de alta disponibilidade](concepts-high-availability.md) para mais detalhes.
 
-:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Diagrama conceptual de alta disponibilidade de zona única"::: 
+:::image type="content" source="media/overview/3-flexible-server-overview-zone-redundant-ha.png" alt-text="Zona redundante diagrama conceptual de alta disponibilidade"::: 
 
 ## <a name="automated-patching-with-managed-maintenance-window"></a>Remendação automatizada com janela de manutenção gerida
 
@@ -66,7 +66,7 @@ Consulte [conceitos de backup](concepts-backup-restore.md) para saber mais.
 
 ## <a name="network-isolation"></a>Isolamento de Rede
 
-Tem duas opções de ligação em rede para ligar à sua Base de Dados Azure para o MySQL Flexible Server. As opções são **acesso privado (integração VNet)** e **acesso público (endereços IP permitidos)** . 
+Tem duas opções de ligação em rede para ligar à sua Base de Dados Azure para o MySQL Flexible Server. As opções são **acesso privado (integração VNet)** e **acesso público (endereços IP permitidos)**. 
 
 * **Acesso privado (Integração VNet)** – Pode implantar o seu servidor flexível na sua [Rede Virtual Azure.](../../virtual-network/virtual-networks-overview.md) As redes virtuais Azure fornecem comunicação de rede privada e segura. Os recursos numa rede virtual podem comunicar através de endereços IP privados.
 
@@ -89,9 +89,9 @@ Consulte [os conceitos de Computação e Armazenamento](concepts-compute-storage
 
 MySQL é um dos motores de base de dados populares para executar aplicações web e móveis à escala da Internet. Muitos dos nossos clientes usam-na para os seus serviços de educação online, serviços de streaming de vídeo, soluções de pagamento digital, plataformas de e-commerce, serviços de jogos, portais de notícias, governo e sites de saúde. Estes serviços são necessários para servir e escalar à medida que o tráfego na web ou aplicação móvel aumenta.
 
-Do lado das aplicações, a aplicação é normalmente desenvolvida em Java ou php e migrada para funcionar em [conjuntos de escala de máquina virtual Azure](/azure/virtual-machine-scale-sets/overview.md)   ou [Azure App Services](/azure/app-service/overview.md)ou são   contentorizadas para funcionar no [Serviço Azure Kubernetes (AKS)](/azure/aks/intro-kubernetes.md). Com o conjunto de escalas de máquinas virtuais, o App Service ou a AKS como infraestrutura subjacente, o dimensionamento de aplicações é simplificado através do fornecimento instantâneo de novos VMs e replicando os componentes apátridas de aplicações para atender aos pedidos, mas muitas vezes, a base de dados acaba por ser um estrangulamento como componente imponente centralizado.
+Do lado das aplicações, a aplicação é normalmente desenvolvida em Java ou php e migrada para funcionar em [conjuntos de escala de máquina virtual Azure](../../virtual-machine-scale-sets/overview.md)   ou [Azure App Services](../../app-service/overview.md)ou são   contentorizadas para funcionar no [Serviço Azure Kubernetes (AKS)](../../aks/intro-kubernetes.md). Com o conjunto de escalas de máquinas virtuais, o App Service ou a AKS como infraestrutura subjacente, o dimensionamento de aplicações é simplificado através do fornecimento instantâneo de novos VMs e replicando os componentes apátridas de aplicações para atender aos pedidos, mas muitas vezes, a base de dados acaba por ser um estrangulamento como componente imponente centralizado.
 
-A funcionalidade de réplica de leitura permite-lhe replicar dados de uma Base de Dados Azure para o servidor flexível MySQL para um servidor apenas de leitura. Pode replicar-se a partir do servidor de **origem até 10 réplicas** . As réplicas são atualizadas assíncronamente utilizando a tecnologia de [replicação baseada na posição de ficheiro (binlog)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)do motor MySQL. Pode utilizar uma solução de procuração de equilibrador de carga como [o ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) para reduzir perfeitamente a carga de trabalho da sua aplicação para ler réplicas sem qualquer custo de refactor de aplicações. 
+A funcionalidade de réplica de leitura permite-lhe replicar dados de uma Base de Dados Azure para o servidor flexível MySQL para um servidor apenas de leitura. Pode replicar-se a partir do servidor de **origem até 10 réplicas**. As réplicas são atualizadas assíncronamente utilizando a tecnologia de [replicação baseada na posição de ficheiro (binlog)](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)do motor MySQL. Pode utilizar uma solução de procuração de equilibrador de carga como [o ProxySQL](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/load-balance-read-replicas-using-proxysql-in-azure-database-for/ba-p/880042) para reduzir perfeitamente a carga de trabalho da sua aplicação para ler réplicas sem qualquer custo de refactor de aplicações. 
 
 Consulte [os conceitos de Replica](concepts-read-replicas.md) para saber mais. 
 
@@ -156,7 +156,7 @@ Além disso, considere os seguintes pontos de contacto, conforme adequado:
 - Para corrigir um problema na sua conta, crie um [pedido de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) no portal do Azure.
 - Para enviar comentários ou pedir novas funcionalidades, crie uma entrada através do [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que leu uma introdução à Base de Dados Azure para o modo de implementação de um único servidor MySQL, está pronto para:
 
 - Crie o seu primeiro servidor. 

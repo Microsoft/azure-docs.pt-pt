@@ -5,22 +5,23 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 21bbe15a37e95df297f580064beb63ebd5debe57
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9becd6341baad54a74f10ae2f38cf9ccf1fd3037
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899904"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347901"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais no portal Azure
 
-Para implementar rapidamente cargas de trabalho num cluster Azure Kubernetes Service (AKS), pode utilizar nós virtuais. Com nós virtuais, você tem um fornecimento rápido de cápsulas, e só paga por segundo pelo seu tempo de execução. Num cenário de escala, não é preciso esperar pelo autoescalador do cluster Kubernetes para implantar nós de computação VM para executar as cápsulas adicionais. Os nós virtuais só são suportados com cápsulas e nós Linux.
+Este artigo mostra-lhe como usar o portal Azure para criar e configurar os recursos de rede virtual e um cluster AKS com nós virtuais ativados.
 
-Este artigo mostra-lhe como criar e configurar os recursos de rede virtuais e um cluster AKS com nós virtuais ativados.
+> [!NOTE]
+> [Este artigo](virtual-nodes.md) dá-lhe uma visão geral da disponibilidade e limitações da região usando nós virtuais.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Os nós virtuais permitem a comunicação de rede entre as cápsulas que funcionam em Instâncias de Contentores Azure (ACI) e o cluster AKS. Para fornecer esta comunicação, é criada uma sub-rede de rede virtual e são atribuídas permissões delegadas. Os nós virtuais só funcionam com clusters AKS criados com redes *avançadas.* Por padrão, os clusters AKS são criados com rede *básica.* Este artigo mostra-lhe como criar uma rede virtual e sub-redes, em seguida, implementar um cluster AKS que utiliza networking avançado.
+Os nós virtuais permitem a comunicação de rede entre as cápsulas que funcionam em Instâncias de Contentores Azure (ACI) e o cluster AKS. Para fornecer esta comunicação, é criada uma sub-rede de rede virtual e são atribuídas permissões delegadas. Os nódigos virtuais só funcionam com clusters AKS criados com rede *avançada* (Azure CNI). Por padrão, os clusters AKS são criados com rede *básica* (kubenet). Este artigo mostra-lhe como criar uma rede virtual e sub-redes, em seguida, implementar um cluster AKS que utiliza networking avançado.
 
 Se não tiver utilizado o ACI anteriormente, registe o prestador de serviços com a sua assinatura. Pode verificar o estado do registo do fornecedor ACI utilizando o comando da [lista de fornecedores az,][az-provider-list] como mostra o seguinte exemplo:
 
@@ -42,52 +43,24 @@ Se o fornecedor mostrar como *Não Registado,* registe o fornecedor utilizando o
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Disponibilidade regional
-
-As seguintes regiões são apoiadas para implantações virtuais de nó:
-
-* Austrália Oriental (austrália)
-* Central DOS EUA (central)
-* Leste dos EUA (leste)
-* Leste dos EUA 2 (leste)
-* Japão Oriental (japãoeast)
-* Norte da Europa (northeurope)
-* Sudeste Asiático (sudeste asiático)
-* West Central US (westcentralus)
-* Europa Ocidental (westeurope)
-* Eua Ocidentais (westus)
-* West US 2 (westus2)
-
-## <a name="known-limitations"></a>Limitações conhecidas
-A funcionalidade Nódes Virtuais está fortemente dependente do conjunto de funcionalidades do ACI. Para além das [quotas e limites para as instâncias do contentor Azure,](../container-instances/container-instances-quotas.md)os seguintes cenários ainda não são suportados com nóns virtuais:
-
-* Utilizar o principal de serviço para retirar imagens ACR. [A solução](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) é usar [segredos de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Limitações de rede virtuais,](../container-instances/container-instances-virtual-network-concepts.md) incluindo o peering VNet, as políticas de rede Kubernetes e o tráfego de saída para a internet com grupos de segurança de rede.
-* Recipientes init
-* [Pseudónimos anfitrião](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Argumentos](../container-instances/container-instances-exec.md#restrictions) para executivos em ACI
-* [Os DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) não vão implantar cápsulas para o nó virtual
-* Os nós virtuais suportam o agendamento de cápsulas Linux. Pode instalar manualmente o fornecedor [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) de fonte aberta para agendar os contentores do Windows Server para ACI.
-* Nós virtuais requerem clusters AKS com rede CNI Azure
-
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
 Inicie sessão no portal do Azure em https://portal.azure.com.
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 No canto superior esquerdo do portal Azure, selecione **Criar um**  >  **serviço kubernetes de** recurso .
 
 Na página **Informações Básicas** , configure as opções seguintes:
 
-- *DETALHES DO PROJETO* : selecione uma subscrição do Azure e selecione ou crie um grupo de recursos do Azure, como *myResourceGroup* . Introduza um **nome para o cluster do Kubernetes** , como *myAKSCluster* .
+- *DETALHES DO PROJETO* : selecione uma subscrição do Azure e selecione ou crie um grupo de recursos do Azure, como *myResourceGroup*. Introduza um **nome para o cluster do Kubernetes** , como *myAKSCluster*.
 - *DETALHES DO CLUSTER* : selecione uma região, a versão do Kubernetes e o prefixo do nome DNS do cluster do AKS.
 - *PISCINA DE NODE PRIMÁRIO* : Selecione um tamanho VM para os nós AKS. O tamanho da VM **não pode** ser alterado após a implementação de um cluster de AKS.
-     - Selecione o número de nós a implementar no cluster. Para este artigo, decrete a **contagem de nó para** *1* . O número de nós **pode** ser ajustado após a implementação do cluster.
+     - Selecione o número de nós a implementar no cluster. Para este artigo, decrete a **contagem de nó para** *1*. O número de nós **pode** ser ajustado após a implementação do cluster.
 
-Clique **em seguida: Escala** .
+Clique **em seguida: Escala**.
 
-Na página **Escala,** selecione *Ativado* sob **nós virtuais** .
+Na página **Escala,** selecione *Ativado* sob **nós virtuais**.
 
 ![Crie o cluster AKS e ative os nóns virtuais](media/virtual-nodes-portal/enable-virtual-nodes.png)
 
@@ -95,7 +68,7 @@ Por padrão, é criado um diretor de serviço Azure Ative Directory. Este direto
 
 O cluster também está configurado para networking avançado. Os nós virtuais são configurados para usar a sua própria sub-rede de rede virtual Azure. Esta sub-rede delegou permissões para ligar os recursos Azure entre o cluster AKS. Se ainda não tiver uma sub-rede delegada, o portal Azure cria e configura a rede virtual Azure e a sub-rede para utilização com os nós virtuais.
 
-Selecione **Rever + criar** . Depois de concluída a validação, selecione **Criar** .
+Selecione **Rever + criar**. Depois de concluída a validação, selecione **Criar**.
 
 O cluster do AKS demora alguns minutos a ser criado e a estar pronto para utilização.
 
@@ -212,7 +185,7 @@ A aplicação de demonstração é apresentada, como mostra a seguinte saída de
 
 Feche a sessão de terminais à sua cápsula de teste com `exit` . Quando a sessão terminar, a cápsula é apagada.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, foi agendada uma cápsula no nó virtual e atribuída um endereço IP interno e privado. Em vez disso, pode criar uma implementação de serviço e encaminhar o tráfego para a sua cápsula através de um equilibrador de carga ou controlador de entrada. Para obter mais informações, consulte Criar um controlador básico de entrada [em AKS][aks-basic-ingress].
 
@@ -241,5 +214,5 @@ Os nós virtuais são um componente de uma solução de escala em AKS. Para obte
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[az-provider-list]: /cli/azure/provider#az-provider-list
-[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register
+[az-provider-list]: /cli/azure/provider&preserve-view=true#az-provider-list
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest&preserve-view=true#az-provider-register

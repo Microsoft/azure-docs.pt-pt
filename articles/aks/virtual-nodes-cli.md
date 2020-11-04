@@ -6,22 +6,23 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4b43cfe41943dcf086afe332508bc6e48fbdb4d7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a655c8c145b4f3812dae9f1a4ec1e5eebbe44809
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899889"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348479"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais usando o Azure CLI
 
-Para escalar rapidamente as cargas de trabalho da aplicação num cluster Azure Kubernetes Service (AKS), pode utilizar nós virtuais. Com nós virtuais, você tem um fornecimento rápido de cápsulas, e só paga por segundo pelo seu tempo de execução. Não é preciso esperar que o cluster de Kubernetes possa implantar nós de computação VM para executar as cápsulas adicionais. Os nós virtuais só são suportados com cápsulas e nós Linux.
+Este artigo mostra-lhe como usar o CLI Azure para criar e configurar os recursos de rede virtuais e o cluster AKS, em seguida, ativar nós virtuais.
 
-Este artigo mostra-lhe como criar e configurar os recursos de rede virtuais e o cluster AKS, em seguida, ativar nós virtuais.
+> [!NOTE]
+> [Este artigo](virtual-nodes.md) dá-lhe uma visão geral da disponibilidade e limitações da região usando nós virtuais.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Os nós virtuais permitem a comunicação de rede entre as cápsulas que funcionam em Instâncias de Contentores Azure (ACI) e o cluster AKS. Para fornecer esta comunicação, é criada uma sub-rede de rede virtual e são atribuídas permissões delegadas. Os nós virtuais só funcionam com clusters AKS criados com redes *avançadas.* Por padrão, os clusters AKS são criados com rede *básica.* Este artigo mostra-lhe como criar uma rede virtual e sub-redes, em seguida, implementar um cluster AKS que utiliza networking avançado.
+Os nós virtuais permitem a comunicação de rede entre as cápsulas que funcionam em Instâncias de Contentores Azure (ACI) e o cluster AKS. Para fornecer esta comunicação, é criada uma sub-rede de rede virtual e são atribuídas permissões delegadas. Os nódigos virtuais só funcionam com clusters AKS criados com rede *avançada* (Azure CNI). Por padrão, os clusters AKS são criados com rede *básica* (kubenet). Este artigo mostra-lhe como criar uma rede virtual e sub-redes, em seguida, implementar um cluster AKS que utiliza networking avançado.
 
 Se não tiver utilizado o ACI anteriormente, registe o prestador de serviços com a sua assinatura. Pode verificar o estado do registo do fornecedor ACI utilizando o comando da [lista de fornecedores az,][az-provider-list] como mostra o seguinte exemplo:
 
@@ -43,34 +44,6 @@ Se o fornecedor mostrar como *Não Registado,* registe o fornecedor utilizando o
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Disponibilidade regional
-
-As seguintes regiões são apoiadas para implantações virtuais de nó:
-
-* Austrália Oriental (austrália)
-* Central DOS EUA (central)
-* Leste dos EUA (leste)
-* Leste dos EUA 2 (leste)
-* Japão Oriental (japãoeast)
-* Norte da Europa (northeurope)
-* Sudeste Asiático (sudeste asiático)
-* West Central US (westcentralus)
-* Europa Ocidental (westeurope)
-* Eua Ocidentais (westus)
-* West US 2 (westus2)
-
-## <a name="known-limitations"></a>Limitações conhecidas
-A funcionalidade Nódes Virtuais está fortemente dependente do conjunto de funcionalidades do ACI. Para além das [quotas e limites para as instâncias do contentor Azure,](../container-instances/container-instances-quotas.md)os seguintes cenários ainda não são suportados com nóns virtuais:
-
-* Utilizar o principal de serviço para retirar imagens ACR. [A solução](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) é usar [segredos de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Limitações de rede virtuais,](../container-instances/container-instances-vnet.md) incluindo o peering VNet, as políticas de rede Kubernetes e o tráfego de saída para a internet com grupos de segurança de rede.
-* Recipientes init
-* [Pseudónimos anfitrião](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Argumentos](../container-instances/container-instances-exec.md#restrictions) para executivos em ACI
-* [Os DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) não vão implantar cápsulas para o nó virtual
-* Os nós virtuais suportam o agendamento de cápsulas Linux. Pode instalar manualmente o fornecedor [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) de fonte aberta para agendar os contentores do Windows Server para ACI.
-* Nós virtuais requerem clusters AKS com rede CNI Azure
-
 ## <a name="launch-azure-cloud-shell"></a>Iniciar o Azure Cloud Shell
 
 O Azure Cloud Shell é um shell interativo gratuito que pode utilizar para executar os passos neste artigo. Tem as ferramentas comuns do Azure pré-instaladas e configuradas para utilização com a sua conta.
@@ -81,7 +54,7 @@ Se preferir instalar e utilizar o CLI localmente, este artigo requer a versão 2
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com o comando [az group create][az-group-create]. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *westus* .
+Um grupo de recursos do Azure é um grupo lógico, no qual os recursos do Azure são implementados e geridos. Crie um grupo de recursos com o comando [az group create][az-group-create]. O exemplo seguinte cria um grupo de recursos com o nome *myResourceGroup* na localização *westus*.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus
@@ -89,7 +62,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Criar uma rede virtual utilizando o [vnet de rede az criar][az-network-vnet-create] comando. O exemplo a seguir cria um *myVnet* de nome de rede virtual com um prefixo de endereço de *10.0.0.0/8* , e uma sub-rede chamada *myAKSSubnet* . O prefixo de endereço desta sub-rede é de *10.240.0.0/16* :
+Criar uma rede virtual utilizando o [vnet de rede az criar][az-network-vnet-create] comando. O exemplo a seguir cria um *myVnet* de nome de rede virtual com um prefixo de endereço de *10.0.0.0/8* , e uma sub-rede chamada *myAKSSubnet*. O prefixo de endereço desta sub-rede é de *10.240.0.0/16* :
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +73,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Agora crie uma sub-rede adicional para nós virtuais utilizando o comando de criação de rede vnet de [rede az.][az-network-vnet-subnet-create] O exemplo a seguir cria uma sub-rede chamada *myVirtualNodeSubnet* com o prefixo de endereço de *10.241.0.0/16* .
+Agora crie uma sub-rede adicional para nós virtuais utilizando o comando de criação de rede vnet de [rede az.][az-network-vnet-subnet-create] O exemplo a seguir cria uma sub-rede chamada *myVirtualNodeSubnet* com o prefixo de endereço de *10.241.0.0/16*.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -132,7 +105,7 @@ O resultado é semelhante ao seguinte exemplo:
 }
 ```
 
-Anote o *appId* e a *palavra-passe* . São utilizados os seguintes valores nos passos seguintes.
+Anote o *appId* e a *palavra-passe*. São utilizados os seguintes valores nos passos seguintes.
 
 ## <a name="assign-permissions-to-the-virtual-network"></a>Atribuir permissões à rede virtual
 
@@ -150,7 +123,7 @@ Para conceder o acesso correto para o cluster AKS usar a rede virtual, crie uma 
 az role assignment create --assignee <appId> --scope <vnetId> --role Contributor
 ```
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS (Create an AKS cluster)
 
 Coloca-se um cluster AKS na sub-rede AKS criada num passo anterior. Obtenha a ID desta sub-rede utilizando [o programa de sub-redes da rede Az:][az-network-vnet-subnet-show]
 
@@ -339,7 +312,7 @@ az network profile delete --id $NETWORK_PROFILE_ID -y
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, foi agendada uma cápsula no nó virtual e atribuída um endereço IP interno e privado. Em vez disso, pode criar uma implementação de serviço e encaminhar o tráfego para a sua cápsula através de um equilibrador de carga ou controlador de entrada. Para obter mais informações, consulte Criar um controlador básico de entrada [em AKS][aks-basic-ingress].
 

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 239aa8677d1aa4cfd1ab1a93e04c05a641611437
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 29a693ac8ff0b170abf59c9671d4b411b456b540
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241485"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346983"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Compreender as alterações na alteração do CA raiz para a Base de Dados Azure para MariaDB
 
@@ -32,9 +32,9 @@ O novo certificado será usado a partir de 15 de fevereiro de 2021 (02/15/2021).
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Como sei se a minha base de dados vai ser afetada?
 
 Todas as aplicações que utilizam SSL/TLS e verificam o certificado raiz precisam de atualizar o certificado raiz. Pode identificar se as suas ligações verificam o certificado raiz, revendo a sua cadeia de ligação.
--   Se a sua cadeia de ligação incluir `sslmode=verify-ca` `sslmode=verify-identity` ou, tem de atualizar o certificado.
--   Se a sua cadeia de ligação incluir `sslmode=disable` , ou , não precisa de atualizar `sslmode=allow` `sslmode=prefer` `sslmode=require` certificados. 
--   Se o seu fio de ligação não especificar sslmode, não precisa de atualizar certificados.
+-    Se a sua cadeia de ligação incluir `sslmode=verify-ca` `sslmode=verify-identity` ou, tem de atualizar o certificado.
+-    Se a sua cadeia de ligação incluir `sslmode=disable` , ou , não precisa de atualizar `sslmode=allow` `sslmode=prefer` `sslmode=require` certificados. 
+-    Se o seu fio de ligação não especificar sslmode, não precisa de atualizar certificados.
 
 Se estiver a utilizar um cliente que abstrate a cadeia de ligação, reveja a documentação do cliente para perceber se verifica os certificados.
 Para compreender a Base de Dados Azure para o sslmode MariaDB, reveja as descrições do [modo SSL](concepts-ssl-connection-security.md#default-settings).
@@ -79,19 +79,19 @@ Para evitar que a disponibilidade da sua candidatura seja interrompida devido à
  </br>-----END CERTIFICATE-----
 
 *   Substitua o ficheiro ca pem de raiz original pelo ficheiro CA raiz combinado e reinicie a sua aplicação/cliente.
-*   No futuro, após o novo certificado implantado no lado do servidor, pode alterar o seu ficheiro CA pem para DigiCertGlobalRootG2.crt.pem.
+*    No futuro, após o novo certificado implantado no lado do servidor, pode alterar o seu ficheiro CA pem para DigiCertGlobalRootG2.crt.pem.
 
 ## <a name="what-can-be-the-impact-of-not-updating-the-certificate"></a>Qual pode ser o impacto de não atualizar o certificado?
 Se estiver a utilizar o certificado emitido pela Base de Dados Azure para MariaDB, como documentado aqui, a disponibilidade da sua candidatura poderá ser interrompida uma vez que a base de dados não será alcançável. Dependendo da sua aplicação, poderá receber uma variedade de mensagens de erro, incluindo, mas não se limitando a:
-*   Certificado inválido/certificado revogado
-*   Excedido o limite de tempo da ligação
+*    Certificado inválido/certificado revogado
+*    Excedido o limite de tempo da ligação
 
 > [!NOTE]
 > Por favor, não largue ou **altere** o certificado de Baltimore até que a alteração do certificado seja feita. Enviaremos uma comunicação assim que a mudança estiver feita, após a qual é seguro que eles larguem o certificado de Baltimore. 
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. Se não estiver a utilizar sSL/TLS, ainda preciso de atualizar a raiz ca?
+###    <a name="1-if-i-am-not-using-ssltls-do-i-still-need-to-update-the-root-ca"></a>1. Se não estiver a utilizar sSL/TLS, ainda preciso de atualizar a raiz ca?
 Não são necessárias ações se não estiver a utilizar o SSL/TLS. 
 
 ### <a name="2-if-i-am-using-ssltls-do-i-need-to-restart-my-database-server-to-update-the-root-ca"></a>2. Se estiver a utilizar o SSL/TLS, preciso de reiniciar o meu servidor de base de dados para atualizar o CA raiz?
@@ -103,7 +103,7 @@ Se não atualizar o certificado de raiz antes de 15 de fevereiro de 2021 (02/15/
 ### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mariadb"></a>4. Qual é o impacto se utilizar o Serviço de Aplicações com Base de Dados Azure para a MariaDB?
 Para os serviços de aplicações Azure, conectando-se à Base de Dados Azure para MariaDB, podemos ter dois cenários possíveis e depende de como você está usando SSL com a sua aplicação.
 *   Este novo certificado foi adicionado ao Serviço de Aplicações a nível da plataforma. Se estiver a utilizar os certificados SSL incluídos na plataforma Do Serviço de Aplicações na sua aplicação, então não é necessária qualquer ação.
-*   Se estiver explicitamente a incluir o caminho para o ficheiro SSL cert no seu código, então terá de descarregar o novo certificado e atualizar o código para utilizar o novo certificado. Um bom exemplo deste cenário é quando utiliza recipientes personalizados no Serviço de Aplicações como partilhado na documentação do [Serviço de Aplicações](/azure/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress)
+*   Se estiver explicitamente a incluir o caminho para o ficheiro SSL cert no seu código, então terá de descarregar o novo certificado e atualizar o código para utilizar o novo certificado. Um bom exemplo deste cenário é quando utiliza recipientes personalizados no Serviço de Aplicações como partilhado na documentação do [Serviço de Aplicações](../app-service/tutorial-multi-container-app.md#configure-database-variables-in-wordpress)
 
 ### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mariadb"></a>5. Qual é o impacto se utilizar os Serviços Azure Kubernetes (AKS) com a Base de Dados Azure para a MariaDB?
 Se estiver a tentar ligar-se à Base de Dados Azure para MariaDB utilizando os Serviços Azure Kubernetes (AKS), é semelhante ao acesso a partir de um ambiente de hospedagem dedicado aos clientes. Consulte os passos [aqui.](../aks/ingress-own-tls.md)
@@ -122,13 +122,13 @@ Uma vez que os clientes utilizados para a ligação ao servidor precisam de esta
 ### <a name="9-if-i-create-a-new-server-after-february-15-2021-02152021-will-i-be-impacted"></a>9. Se eu criar um novo servidor depois de 15 de fevereiro de 2021 (02/15/2021), serei impactado?
 Para servidores criados após 15 de fevereiro de 2021 (02/15/2021), pode utilizar o certificado recém-emitido para as suas aplicações para se conectar através do SSL.
 
-### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. Com que frequência a Microsoft atualiza os seus certificados ou qual é a política de caducidade?
+###    <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. Com que frequência a Microsoft atualiza os seus certificados ou qual é a política de caducidade?
 Estes certificados utilizados pela Base de Dados Azure para MariaDB são fornecidos pelas Autoridades de Certificados Fidedignos (CA). Assim, o apoio destes certificados na Base de Dados Azure para MariaDB está ligado ao apoio destes certificados pela AC. No entanto, como neste caso, podem existir bugs imprevistos nestes certificados predefinidos, que precisam de ser corrigidos o mais cedo possível.
 
-### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. Se estiver a usar réplicas de leitura, preciso de realizar esta atualização apenas no servidor de origem ou nas réplicas de leitura?
+###    <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-source-server-or-the-read-replicas"></a>11. Se estiver a usar réplicas de leitura, preciso de realizar esta atualização apenas no servidor de origem ou nas réplicas de leitura?
 Uma vez que esta atualização é uma alteração do lado do cliente, se o cliente usou para ler dados a partir do servidor de réplica, também terá de aplicar as alterações para esses clientes.
 
-### <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Se estou a usar a replicação do Data-in, preciso de realizar alguma ação?
+###    <a name="12-if-i-am-using-data-in-replication-do-i-need-to-perform-any-action"></a>12. Se estou a usar a replicação do Data-in, preciso de realizar alguma ação?
 Se estiver a utilizar a [replicação de dados](concepts-data-in-replication.md) para ligar à Base de Dados Azure para o MySQL, há duas coisas a considerar:
 *   Se a replicação de dados for de uma máquina virtual (on-prem ou azure virtual machine) para Azure Database for MySQL, é necessário verificar se o SSL está a ser utilizado para criar a réplica. Executar **SHOW SLAVE STATUS** e verificar a seguinte definição.  
 
@@ -149,7 +149,7 @@ Se estiver a utilizar a [replicação de dados](concepts-data-in-replication.md)
 Para verificar se está a utilizar a ligação SSL para ligar ao servidor, consulte a [verificação SSL](howto-configure-ssl.md#verify-the-ssl-connection).
 
 ### <a name="14-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>14. É necessária alguma ação se já tiver o DigiCertGlobalRootG2 no meu ficheiro de certificado?
-Não. Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2** .
+Não. Não é necessária qualquer ação se o seu ficheiro de certificado já tiver o **DigiCertGlobalRootG2**.
 
-### <a name="15-what-if-i-have-further-questions"></a>15. E se eu tiver mais perguntas?
+###    <a name="15-what-if-i-have-further-questions"></a>15. E se eu tiver mais perguntas?
 Se tiver dúvidas, obtenha respostas de especialistas comunitários no [Microsoft Q&A](mailto:AzureDatabaseformariadb@service.microsoft.com). Se tiver um plano de apoio e precisar de ajuda técnica, [contacte-nos](mailto:AzureDatabaseformariadb@service.microsoft.com).

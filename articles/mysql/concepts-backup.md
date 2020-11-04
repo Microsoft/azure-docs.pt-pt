@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: bbeb1248fef846afbd1641a668c6db3be4870ca6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 00cd5a76a52e1b58bc2f01315dd3a1a859074a58
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082101"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348462"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauro na Base de Dados Azure para o MySQL
 
@@ -42,9 +42,9 @@ O armazenamento para fins gerais é o armazenamento de backend suportando o serv
 
 #### <a name="general-purpose-storage-servers-with-up-to-16-tb-storage"></a>Servidores de armazenamento de finalidade geral com armazenamento até 16-TB
 
-Num subconjunto de [regiões Azure,](/azure/mysql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar o armazenamento de fins gerais até 16-TB. Por outras palavras, o armazenamento até 16-TB é o armazenamento geral padrão para todas as [regiões](/azure/mysql/concepts-pricing-tiers#storage) onde é suportado. As cópias de segurança nestes servidores de armazenamento de 16 TB são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais.
+Num subconjunto de [regiões Azure,](/azure/mysql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar o armazenamento de fins gerais até 16-TB. Por outras palavras, o armazenamento até 16-TB é o armazenamento geral padrão para todas as [regiões](concepts-pricing-tiers.md#storage) onde é suportado. As cópias de segurança nestes servidores de armazenamento de 16 TB são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais.
 
-Num subconjunto de [regiões Azure,](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)todos os servidores recém-abastados podem suportar o armazenamento de fins gerais até 16-TB. Por outras palavras, o armazenamento até 16-TB é o armazenamento geral padrão para todas as [regiões](/concepts-pricing-tiers.md#storage) onde é suportado. As cópias de segurança nestes servidores de armazenamento de 16 TB são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais.
+Num subconjunto de [regiões Azure,](concepts-pricing-tiers.md#storage)todos os servidores recém-abastados podem suportar o armazenamento de fins gerais até 16-TB. Por outras palavras, o armazenamento até 16-TB é o armazenamento geral padrão para todas as [regiões](concepts-pricing-tiers.md#storage) onde é suportado. As cópias de segurança nestes servidores de armazenamento de 16 TB são baseadas em instantâneos. A primeira cópia de segurança de instantâneos completa é agendada imediatamente após a criação do servidor. A primeira cópia de segurança total do instantâneo é mantida como a cópia de segurança base do servidor. As cópias de segurança de instantâneos subsequentes são apenas cópias de segurança diferenciais.
 
 As cópias de segurança de instantâneos diferenciais ocorrem, pelo menos, uma vez por dia. As cópias de segurança de instantâneos diferenciais não ocorrem num agendamento fixo. As cópias de segurança instantânea diferenciais ocorrem a cada 24 horas, a menos que o registo de transação (binlog no MySQL) exceda 50 GB desde a última cópia de segurança diferencial. Num dia, são permitidos, no máximo, seis instantâneos diferenciais.
 
@@ -69,7 +69,7 @@ A Azure Database for MySQL proporciona a flexibilidade para escolher entre armaz
 
 #### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Passar de localmente redundante para armazenamento de backup geo-redundante
 
-Configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Uma vez que o servidor é provisionado, não é possível alterar a opção de redundância de armazenamento de cópia de segurança. Para mover o armazenamento de backup do armazenamento localmente redundante para o armazenamento geo-redundante, criar um novo servidor e migrar os dados usando [o despejo e restaurar](concepts-migrate-dump-restore.md) é a única opção suportada.
+Só é permitido configurar o armazenamento localmente redundante ou georredundante para cópias de segurança durante a criação do servidor. Assim que o servidor tiver sido aprovisionado, não poderá alterar a opção de redundância do armazenamento de cópias de segurança. Para mover o armazenamento de backup do armazenamento localmente redundante para o armazenamento geo-redundante, criar um novo servidor e migrar os dados usando [o despejo e restaurar](concepts-migrate-dump-restore.md) é a única opção suportada.
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de backup
 
@@ -126,7 +126,7 @@ Após uma restauração de qualquer mecanismo de recuperação, deve executar as
 - Certifique-se de que estão em vigor logins e permissões de nível de base de dados apropriados
 - Configurar alertas, conforme adequado
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para saber mais sobre a continuidade do negócio, consulte a [visão geral](concepts-business-continuity.md)da continuidade do negócio.
 - Para restaurar um ponto no tempo usando o portal Azure, consulte restaurar o [servidor a um ponto no tempo utilizando o portal Azure](howto-restore-server-portal.md).

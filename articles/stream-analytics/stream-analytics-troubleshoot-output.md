@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: bc630fc5ea9407c284e2e2e879c349a83302cd9f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6942fd68625fd8eac18ea899330fd99f31f771f7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122628"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346116"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Resolução de problemas Saídas Azure Stream Analytics
 
@@ -67,7 +67,7 @@ Durante o funcionamento normal de um trabalho, a saída pode ter períodos de la
 * Se a fonte a montante é estrangulada
 * Se a lógica de processamento na consulta é computacional intensiva
 
-Para ver os detalhes de saída, selecione o trabalho de streaming no portal Azure e, em seguida, selecione **o diagrama de trabalho** . Para cada entrada, há uma métrica de evento por partição. Se a métrica continuar a aumentar, é um indicador de que os recursos do sistema estão limitados. O aumento deve-se potencialmente ao estrangulamento do lavatório de saída ou ao elevado uso do CPU. Para obter mais informações, consulte [a depuração orientada para dados utilizando o diagrama de trabalho](stream-analytics-job-diagram-with-metrics.md).
+Para ver os detalhes de saída, selecione o trabalho de streaming no portal Azure e, em seguida, selecione **o diagrama de trabalho**. Para cada entrada, há uma métrica de evento por partição. Se a métrica continuar a aumentar, é um indicador de que os recursos do sistema estão limitados. O aumento deve-se potencialmente ao estrangulamento do lavatório de saída ou ao elevado uso do CPU. Para obter mais informações, consulte [a depuração orientada para dados utilizando o diagrama de trabalho](stream-analytics-job-diagram-with-metrics.md).
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Aviso de violação chave com saída da Base de Dados Azure SQL
 
@@ -91,7 +91,7 @@ Quando um trabalho stream Analytics com saída SQL recebe o primeiro lote de eve
 2. O trabalho vai buscar o esquema da mesa de destino.
 3. O trabalho valida nomes e tipos de colunas contra o esquema da tabela de destino.
 4. O trabalho prepara uma tabela de dados na memória a partir dos registos de saída do lote.
-5. O trabalho escreve a tabela de dados para SQL usando [a BulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1).
+5. O trabalho escreve a tabela de dados para SQL usando [a BulkCopy API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver).
 
 Durante estes passos, a saída SQL pode experimentar os seguintes tipos de erros:
 
@@ -113,7 +113,7 @@ Ao utilizar o nível de compatibilidade original (1.0), o Azure Stream Analytics
 
 Para obter mais assistência, experimente o nosso [Microsoft Q&Uma página de perguntas para a Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Introdução ao Azure Stream Analytics](stream-analytics-introduction.md)
 * [Começar a utilizar o Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

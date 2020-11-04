@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: tutorial
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 23684dbbc5cb8c2d5fc4880ae8fe1999450928e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d661800c53cc0795efde1f411675d17661fb968
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400575"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345538"
 ---
 # <a name="tutorial-work-with-azure-storage-queues-in-net"></a>Tutorial: Trabalhar com filas de armazenamento Azure em .NET
 
@@ -95,6 +95,8 @@ Criar uma aplicação .NET Core chamada **QueueApp**. Para simplificar, esta apl
    C:\Tutorials\QueueApp>_
    ```
 
+<!-- markdownlint-disable MD023 -->
+
 ## <a name="add-the-azure-client-libraries"></a>Adicione as bibliotecas de clientes Azure
 
 1. Adicione as bibliotecas de clientes Azure Storage ao projeto utilizando o `dotnet add package` comando.
@@ -160,7 +162,7 @@ Adicione o fio de ligação na aplicação para que possa aceder à conta de arm
 
 1. Mude de volta para Visual Studio Code.
 
-1. No método **Principal,**  substitua o `Console.WriteLine("Hello World!");` código pela seguinte linha que obtém a cadeia de ligação da variável ambiente.
+1. No método **Principal,** substitua o `Console.WriteLine("Hello World!");` código pela seguinte linha que obtém a cadeia de ligação da variável ambiente.
 
    # <a name="net-v12"></a>[\.NET v12](#tab/dotnet)
 

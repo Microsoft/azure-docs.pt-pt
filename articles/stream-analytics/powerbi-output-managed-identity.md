@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: f81b6dabbd9053a69ff60d1a3c71d03fff38f627
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 29f02f80aa5bff1304dc593d68954e15fe6e66bb
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129767"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346439"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Utilize identidade gerida para autenticar o seu trabalho Azure Stream Analytics para Power BI
 
@@ -29,13 +29,13 @@ São necessários os seguintes para a utilização desta função:
 
 ## <a name="create-a-stream-analytics-job-using-the-azure-portal"></a>Crie um trabalho stream analytics usando o portal Azure
 
-1. Crie um novo trabalho stream Analytics ou abra um trabalho existente no portal Azure. A partir da barra de menu localizada no lado esquerdo do ecrã, selecione **Identidade Gerida** localizada em **Configuração** . Certifique-se de que é selecionado "Use System-assigned Managed Identity" e, em seguida, selecione o botão **Guardar** na parte inferior do ecrã.
+1. Crie um novo trabalho stream Analytics ou abra um trabalho existente no portal Azure. A partir da barra de menu localizada no lado esquerdo do ecrã, selecione **Identidade Gerida** localizada em **Configuração**. Certifique-se de que é selecionado "Use System-assigned Managed Identity" e, em seguida, selecione o botão **Guardar** na parte inferior do ecrã.
 
    ![Configurar a identidade gerida stream Analytics](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. Antes de configurar a saída, dê ao stream Analytics acesso ao seu espaço de trabalho Power BI seguindo as instruções do [trabalho Dor the Stream Analytics para a sua](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) secção de espaço de trabalho Power BI deste artigo.
 
-3. Navegue para a secção **saídas** do trabalho da analítica stream, selecione **+ Adicionar** , e, em seguida, escolha **Power BI** . Em seguida, selecione o botão **'Autorizor'** e faça login com a sua conta Power BI.
+3. Navegue para a secção **saídas** do trabalho da analítica stream, selecione **+ Adicionar** , e, em seguida, escolha **Power BI**. Em seguida, selecione o botão **'Autorizor'** e faça login com a sua conta Power BI.
 
    ![Autorizar com conta Power BI](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
@@ -45,7 +45,7 @@ São necessários os seguintes para a utilização desta função:
 
 ## <a name="azure-resource-manager-deployment"></a>Implementação do Azure Resource Manager
 
-O Azure Resource Manager permite-lhe automatizar totalmente a implementação do seu trabalho stream Analytics. Pode implementar modelos de Gestor de Recursos utilizando a Azure PowerShell ou o [Azure CLI](/cli/azure/?view=azure-cli-latest). Os exemplos abaixo utilizam o Azure CLI.
+O Azure Resource Manager permite-lhe automatizar totalmente a implementação do seu trabalho stream Analytics. Pode implementar modelos de Gestor de Recursos utilizando a Azure PowerShell ou o [Azure CLI](/cli/azure/). Os exemplos abaixo utilizam o Azure CLI.
 
 
 1. Pode criar um recurso **Microsoft.StreamAnalytics/streamingjobs** com uma Identidade Gerida, incluindo a seguinte propriedade na secção de recursos do seu modelo de Gestor de Recursos:
@@ -221,7 +221,7 @@ Abaixo estão as limitações desta característica:
 
 - [A Identidade Atribuída ao Utilizador](../active-directory/managed-identities-azure-resources/overview.md) não é suportada. Isto significa que não pode entrar no seu próprio principal de serviço para ser usado pelo seu trabalho stream Analytics. O diretor de serviço deve ser gerado pela Azure Stream Analytics.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Integração do painel power BI com Azure Stream Analytics](./stream-analytics-power-bi-dashboard.md)
 * [Compreender as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md)

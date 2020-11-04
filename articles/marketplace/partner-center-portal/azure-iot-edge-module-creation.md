@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 957695892c39dd3ddfd9dc45d60158c89eb22698
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130634"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347487"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Criar uma oferta de módulo do IoT Edge
 
@@ -21,7 +21,7 @@ Este artigo descreve como criar e publicar uma oferta de módulos Internet of Th
 ## <a name="create-a-new-offer"></a>Criar uma nova oferta
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
 3. Na página 'Vista Geral', selecione **+ novo** módulo  >  **IoT Edge de** oferta.
 
     ![Ilustra o menu de navegação à esquerda.](./media/new-offer-iot-edge.png)
@@ -31,16 +31,16 @@ Este artigo descreve como criar e publicar uma oferta de módulos Internet of Th
 
 ### <a name="offer-id-and-alias"></a>ID de oferta e pseudónimo
 
-Introduza um **ID de oferta** . Este é um identificador único para cada oferta na sua conta.
+Introduza um **ID de oferta**. Este é um identificador único para cada oferta na sua conta.
 
 - Este ID é visível para os clientes no endereço web para a oferta de mercado e modelos de Gestor de Recursos Azure, se aplicável.
 - Utilize apenas letras minúsculas e números. Pode incluir hífens e sublinhados, mas sem espaços, e está limitado a 50 caracteres. Por exemplo, se introduzir **a oferta de teste-1,** o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1` .
-- O ID da Oferta não pode ser alterado depois de selecionar **Criar** .
+- O ID da Oferta não pode ser alterado depois de selecionar **Criar**.
 
 Insira **um pseudónimo de Oferta.** Este é o nome usado para a oferta no Partner Center.
 
 - Este nome não é usado no mercado e é diferente do nome da oferta e outros valores mostrados aos clientes.
-- Isto não pode ser alterado depois de selecionar **Criar** .
+- Isto não pode ser alterado depois de selecionar **Criar**.
 
 Selecione **Criar** para gerar a oferta e continuar.
 
@@ -94,7 +94,7 @@ Esta página permite definir as categorias utilizadas para agrupar a sua oferta 
 Selecione categorias e subcategorias para colocar a sua oferta nas áreas de pesquisa de mercado apropriadas. Não se esqueça de descrever como a sua oferta suporta estas categorias na descrição da oferta. Selecione:
 
 - Pelo menos uma e até duas categorias, incluindo uma categoria primária e secundária (opcional).
-- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável** .
+- Até duas subcategorias para cada categoria primária e/ou secundária. Se não for aplicável nenhuma subcategoria à sua oferta, selecione **Não aplicável**.
 
 Consulte a lista completa de categorias e subcategorias na [Listagem de Ofertas Boas Práticas.](../gtm-offer-listing-best-practices.md) No mercado, os módulos IoT Edge são sempre apresentados na categoria de módulos  **Internet of Things**  >  **IoT Edge.**  
 
@@ -111,7 +111,7 @@ Oferecemos um modelo de Contrato Padrão para ajudar a facilitar transações no
 
 Para saber mais sobre o Contrato Padrão, consulte o [Contrato Padrão para o Microsoft Commercial Marketplace](../standard-contract.md). Também pode descarregar o PDF [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) (certifique-se de que o seu bloqueador pop-up está desligado).
 
-Para utilizar o Contrato Padrão, selecione **o Use the Standard Contract para a** caixa de verificação do mercado comercial da Microsoft e, em seguida, clique em **Aceitar** .
+Para utilizar o Contrato Padrão, selecione **o Use the Standard Contract para a** caixa de verificação do mercado comercial da Microsoft e, em seguida, clique em **Aceitar**.
 
 > [!NOTE]
 > Depois de publicar uma oferta utilizando o contrato Standard para o mercado comercial da Microsoft, não pode usar os seus próprios termos e condições personalizados. Ou oferece a sua solução nos termos do Contrato Padrão ou nos seus próprios termos e condições.
@@ -131,7 +131,7 @@ Aqui definirá os detalhes da oferta que são apresentados no mercado. Isto incl
 > [!NOTE]
 > Os detalhes da oferta não são necessários para estar em inglês se a descrição da oferta começar com a frase: "Esta aplicação está disponível apenas em [língua não inglesa]." Também é normal fornecer um Link Útil para oferecer conteúdo num idioma diferente do usado na listagem de detalhes da Oferta.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 
 O nome que aqui entra apresenta como título da sua oferta. Este campo está pré-preenchido com o texto que inseriu na caixa **de pseudónimos Oferta** quando criou a oferta. Pode alterar este nome posteriormente.
 
@@ -149,7 +149,7 @@ Forneça uma breve descrição da sua oferta. Isto pode ter até 100 caracteres 
 
 Forneça uma descrição mais detalhada da sua oferta. Isto pode ter até 256 caracteres de comprimento e é usado em resultados de pesquisa no mercado.
 
-### <a name="description"></a>Description
+### <a name="description"></a>Descrição
 
 [!INCLUDE [Long description-1](./includes/long-description-1.md)]
 
@@ -234,15 +234,15 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 3. Endereço de suporte (link)
 4. Termos e condições
 5. Endereço de política de privacidade (link)
-6. Name
+6. Nome
 7. Resumo
-8. Description
+8. Descrição
 9. Ligações úteis
 10. Screenshots/vídeos
 
 <br>Aqui está um exemplo de como a oferta de informação aparece nos resultados da pesquisa do Azure Marketplace:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Ilustra como esta oferta aparece nos resultados da pesquisa do Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -252,7 +252,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 <br>Aqui está um exemplo de como a oferta de informação aparece no portal Azure:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Ilustra como esta oferta aparece no portal Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -263,7 +263,7 @@ Aqui está um exemplo de como a oferta de informação aparece no Azure Marketpl
 
 <br>Aqui está um exemplo de como a oferta de informação aparece nos resultados de pesquisa do portal Azure:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Ilustra como esta oferta aparece nos resultados de pesquisa do portal Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -314,12 +314,12 @@ As ações disponíveis no Resumo do Plano variam consoante o estado atual do se
 
 Na caixa **de Identificação** do Plano, crie um ID de plano único para cada plano nesta oferta. Este ID será visível para os clientes no endereço web do produto. Utilize apenas letras e números minúsculos, traços ou sublinhados, e um máximo de 50 caracteres.
 
-Na caixa de nomes do **Plano,** insira um nome para este plano. Os clientes vêem este nome ao decidir qual o plano a selecionar dentro da sua oferta. Crie um nome único para cada plano nesta oferta. Por exemplo, pode utilizar um nome de oferta do **Windows Server** com os planos Windows **Server 2016** e **Windows Server 2019** .
+Na caixa de nomes do **Plano,** insira um nome para este plano. Os clientes vêem este nome ao decidir qual o plano a selecionar dentro da sua oferta. Crie um nome único para cada plano nesta oferta. Por exemplo, pode utilizar um nome de oferta do **Windows Server** com os planos Windows **Server 2016** e **Windows Server 2019**.
 
 > [!NOTE]
-> O ID do plano não pode ser alterado depois de selecionar **Criar** .
+> O ID do plano não pode ser alterado depois de selecionar **Criar**.
 
-Selecione **Criar** .
+Selecione **Criar**.
 
 ### <a name="plan-setup"></a>Configuração do plano
 
@@ -362,7 +362,7 @@ Descreva o que torna este plano único, bem como diferenças entre planos dentro
 
 Aqui está um exemplo dos detalhes do plano Azure Marketplace (quaisquer preços listados são apenas para fins e não se destinam a refletir custos reais):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Ilustra detalhes do plano Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -372,7 +372,7 @@ Aqui está um exemplo dos detalhes do plano Azure Marketplace (quaisquer preços
 
 <br>Aqui está um exemplo dos detalhes do plano do portal Azure (quaisquer preços listados são apenas para fins e não se destinam a refletir os custos reais):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Ilustra os detalhes do plano do portal Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -413,15 +413,15 @@ Irá fornecer as seguintes informações no separador detalhes do **repositório
 
 **Nome de utilizador admin para o registo do contentor Azure** : Forneça o [nome de utilizador administrativo](../../container-registry/container-registry-authentication.md#admin-account)) associado ao Registo do Contentor Azure que tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Para obter o nome de utilizador e a **palavra-passe** de administrador, desafine a propriedade ativada por administração para **True** utilizando a Interface Azure Command-Line (CLI). Pode configurar opcionalmente **o utilizador de Administração** para **ativar** no portal Azure.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Ilustra a caixa de diálogo do registo do contentor De atualização.":::
 
 #### <a name="call-out-description"></a>Descrição de chamada
 
 1. Utilizador administrador
 
-<br>**Palavra-passe para o Registo do Contentor Azure** : Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [show.](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show)
+<br>**Palavra-passe para o Registo do Contentor Azure** : Forneça a palavra-passe para o nome de utilizador admin que está associado ao Registo do Contentor Azure e tem a sua imagem de recipiente. O nome de utilizador e a palavra-passe são necessários para garantir que a sua empresa tem acesso ao registo. Pode obter a palavra-passe do portal Azure indo para as Chaves de Acesso ao **Registo de Contentores**  >  **Access Keys** ou com o Azure CLI utilizando o comando do [show.](/cli/azure/acr/credential#az-acr-credential-show)
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustra como esta oferta aparece no Azure Marketplace.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Ilustra o ecrã da chave de acesso no portal Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descrições de chamadas
 
@@ -429,19 +429,19 @@ Irá fornecer as seguintes informações no separador detalhes do **repositório
 2. Nome de utilizador
 3. Palavra-passe
 
-**Nome do repositório no registo do contentor Azure** . Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Especifica o nome do repositório quando empurra a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../../container-registry/container-registry-repositories.md) Depois do nome estar definido, não pode ser mudado. Use um nome único para cada oferta na sua conta.
+**Nome do repositório no registo do contentor Azure**. Forneça o nome do repositório do Registo do Contentor Azure que tenha a sua imagem. Especifica o nome do repositório quando empurra a imagem para o registo. Pode encontrar o nome do repositório [Container Registry](https://azure.microsoft.com/services/container-registry/)indo para a página de  >  **Repositórios de Registo de Contentores.** Para mais informações, consulte [os repositórios de registo de contentores no portal Azure.](../../container-registry/container-registry-repositories.md) Depois do nome estar definido, não pode ser mudado. Use um nome único para cada oferta na sua conta.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Etiquetas de imagem para novas versões da sua oferta
 
 Os clientes devem poder obter automaticamente atualizações do Mercado Azure quando publicar uma atualização. Se não quiserem atualizar, devem poder manter-se numa versão específica da sua imagem. Pode fazê-lo adicionando novas etiquetas de imagem sempre que fizer uma atualização à imagem.
 
-**Etiqueta de imagem** . Este campo deve incluir uma **etiqueta mais recente** que aponta para a versão mais recente da sua imagem em todas as plataformas suportadas. Deve também incluir uma etiqueta de versão (por exemplo, começando com xx.xx.xx, onde xx é um número). Os clientes devem usar [tags manifestas](https://github.com/estesp/manifest-tool) para direcionar várias plataformas. Todas as etiquetas referenciadas por uma etiqueta manifesto também devem ser adicionadas para que possamos carregá-las. Todas as tags manifesto (exceto a última etiqueta) devem começar com X.Y ou X.Y.Z- onde X, Y e Z são inteiros. Por exemplo, se uma etiqueta mais recente aponta para 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, estas seis etiquetas precisam de ser adicionadas a este campo. Para obter mais detalhes sobre tags e versões, consulte [Prepare os seus ativos técnicos do módulo IoT Edge.](create-iot-edge-module-asset.md)
+**Etiqueta de imagem**. Este campo deve incluir uma **etiqueta mais recente** que aponta para a versão mais recente da sua imagem em todas as plataformas suportadas. Deve também incluir uma etiqueta de versão (por exemplo, começando com xx.xx.xx, onde xx é um número). Os clientes devem usar [tags manifestas](https://github.com/estesp/manifest-tool) para direcionar várias plataformas. Todas as etiquetas referenciadas por uma etiqueta manifesto também devem ser adicionadas para que possamos carregá-las. Todas as tags manifesto (exceto a última etiqueta) devem começar com X.Y ou X.Y.Z- onde X, Y e Z são inteiros. Por exemplo, se uma etiqueta mais recente aponta para 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, estas seis etiquetas precisam de ser adicionadas a este campo. Para obter mais detalhes sobre tags e versões, consulte [Prepare os seus ativos técnicos do módulo IoT Edge.](create-iot-edge-module-asset.md)
 
 ### <a name="default-deployment-settings-optional"></a>Definições de implementação predefinidos (opcional)
 
 Defina as definições mais comuns para implantar o seu módulo IoT Edge. Otimize as implementações do cliente, permitindo-lhes lançar o seu módulo IoT Edge fora da caixa com estas definições padrão.
 
-**Rotas predefinidos** . O IoT Edge Hub gere a comunicação entre módulos, o Hub IoT e dispositivos. Pode definir rotas para a entrada e saída de dados entre os módulos e o IoT Hub, o que lhe dá a flexibilidade para enviar mensagens onde precisam de ir sem a necessidade de serviços adicionais para processar mensagens ou escrever código adicional. As rotas são construídas com par de nome/valor. Pode definir até cinco nomes de rota padrão, cada um com até 512 caracteres de comprimento.
+**Rotas predefinidos**. O IoT Edge Hub gere a comunicação entre módulos, o Hub IoT e dispositivos. Pode definir rotas para a entrada e saída de dados entre os módulos e o IoT Hub, o que lhe dá a flexibilidade para enviar mensagens onde precisam de ir sem a necessidade de serviços adicionais para processar mensagens ou escrever código adicional. As rotas são construídas com par de nome/valor. Pode definir até cinco nomes de rota padrão, cada um com até 512 caracteres de comprimento.
 
 Certifique-se de que utiliza a [sintaxe](../../iot-edge/module-composition.md#declare-routes)de rota correta) no valor da sua rota (normalmente definida como FROM/message/* INTO $upstream). Isto significa que quaisquer mensagens enviadas por quaisquer módulos vão para o seu Hub IoT. Para se referir ao seu módulo, utilize o seu nome de módulo predefinido, que será o seu **Nome de Oferta,** sem espaços ou caracteres especiais. Para se referir a outros módulos que ainda não são conhecidos, utilize a convenção <FROM_MODULE_NAME> para informar os seus clientes de que precisam de atualizar esta informação. Para mais informações sobre as rotas IoT Edge, consulte [rotas de Declaração).](../../iot-edge/module-composition.md#declare-routes)
 
@@ -459,14 +459,14 @@ Por exemplo, se um módulo suporta uma taxa de atualização dinâmicamente conf
 - #1 nome: RefreshRate
 - Valor #1: 60
 
-**Variáveis ambientais padrão** . As variáveis ambientais fornecem informações suplementares a um módulo que está a ajudar no processo de configuração. As variáveis ambientais são criadas usando pares de nome/valor. Cada nome e valor variáveis de ambiente predefinidos deve ser inferior a 512 caracteres, e pode definir até cinco. Quando um parâmetro necessário para um valor predefinido não faz sentido (por exemplo, o endereço IP do servidor de um cliente), pode adicionar um parâmetro como valor padrão.
+**Variáveis ambientais padrão**. As variáveis ambientais fornecem informações suplementares a um módulo que está a ajudar no processo de configuração. As variáveis ambientais são criadas usando pares de nome/valor. Cada nome e valor variáveis de ambiente predefinidos deve ser inferior a 512 caracteres, e pode definir até cinco. Quando um parâmetro necessário para um valor predefinido não faz sentido (por exemplo, o endereço IP do servidor de um cliente), pode adicionar um parâmetro como valor padrão.
 
 Por exemplo, se um módulo necessitar de aceitar termos de utilização antes de ser iniciado, pode definir a seguinte variável ambiental:
 
 - #1 nome: ACCEPT_EULA
 - Valor #1: Y
 
-**O recipiente predefinido cria opções** . As opções de criação de contentores direcionam a criação do módulo Estivador do módulo IoT Edge. IoT Edge suporta opções de conjunto de chaves do motor Docker API. Consulte todas as opções nos [recipientes list.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) O campo de opções de criação deve ser válido JSON, não escapado, e menos de 512 caracteres.
+**O recipiente predefinido cria opções**. As opções de criação de contentores direcionam a criação do módulo Estivador do módulo IoT Edge. IoT Edge suporta opções de conjunto de chaves do motor Docker API. Consulte todas as opções nos [recipientes list.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) O campo de opções de criação deve ser válido JSON, não escapado, e menos de 512 caracteres.
 
 Por exemplo, se um módulo necessitar de encadernação de porta, defina as seguintes opções de criação:
 
@@ -476,7 +476,7 @@ Por exemplo, se um módulo necessitar de encadernação de porta, defina as segu
 
 Depois de ter concluído todas as secções necessárias da oferta, pode submetê-la para revisão e publicação.
 
-No canto superior direito do portal, selecione **'Rever e publicar** .
+No canto superior direito do portal, selecione **'Rever e publicar**.
 
 Na página de comentários pode ver o estado da publicação:
 
@@ -486,10 +486,10 @@ Na página de comentários pode ver o estado da publicação:
     - **Completo** - A secção tem todos os dados necessários e não há erros. Todas as secções da oferta devem estar completas antes de poder submeter a oferta.
 - Forneça instruções de teste à equipa de certificação para garantir que a sua oferta é testada corretamente. Além disso, forneça quaisquer notas suplementares que sejam úteis para entender a sua oferta.
 
-Para submeter a oferta de publicação, **selecione Publicar** .
+Para submeter a oferta de publicação, **selecione Publicar**.
 
-Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live** .
+Enviaremos um e-mail para informá-lo quando uma versão de pré-visualização da oferta estiver disponível para revisão e aprovação. Para publicar a sua oferta ao público, vá ao Partner Center e selecione **Go-live**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-- [Atualizar uma oferta existente no mercado comercial](//azure/marketplace/partner-center-portal/update-existing-offer)
+- [Atualizar uma oferta existente no mercado comercial](update-existing-offer.md)

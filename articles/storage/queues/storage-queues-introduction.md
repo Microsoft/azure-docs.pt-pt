@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: overview
 ms.reviewer: dineshm
-ms.openlocfilehash: d1ec251edf384e8032a67dc66982787d17c75dbd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f618b7203cdbf99d79079cf81de38c6d15c91981
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781469"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345572"
 ---
 # <a name="what-are-azure-queues"></a>O que são as filas do Azure?
 
@@ -23,23 +23,23 @@ O Armazenamento de Filas do Azure é um serviço para alojar grandes quantidades
 
 O serviço Fila contém os seguintes componentes:
 
-![Diagrama mostrando a relação entre uma conta de armazenamento, filas e mensagens](./media/storage-queues-introduction/queue1.png)
+![Diagrama mostrando a relação entre uma conta de armazenamento, filas e mensagens.](./media/storage-queues-introduction/queue1.png)
 
-* **Formato do URL:** os ficheiros são endereçáveis com o seguinte formato de URL:
+- **Formato do URL:** os ficheiros são endereçáveis com o seguinte formato de URL:
 
-    `https://<storage account>.queue.core.windows.net/<queue>`
-  
-    O seguinte URL endereça uma fila no diagrama:  
-  
-    `https://myaccount.queue.core.windows.net/images-to-download`
+  `https://<storage account>.queue.core.windows.net/<queue>`
 
-* **Conta de armazenamento:** Todo o acesso ao Azure Storage é feito através de uma conta de armazenamento. Para obter informações sobre a capacidade da conta de armazenamento, consulte [os objetivos de escalabilidade e desempenho para as contas de armazenamento padrão.](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
+  O seguinte URL endereça uma fila no diagrama:
 
-* **Fila:** uma fila contém um conjunto de mensagens. O nome da fila **deve** ser minúsculo. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](/rest/api/storageservices/Naming-Queues-and-Metadata).
+  `https://myaccount.queue.core.windows.net/images-to-download`
 
-* **Mensagem:** uma mensagem, em qualquer formato, até 64 KB. Antes da versão 2017-07-29, o tempo máximo de vida permitido é de sete dias. Para a versão 2017-07-29 ou posterior, o tempo máximo de vida pode ser qualquer número positivo, ou -1 indicando que a mensagem não expira. Se este parâmetro for omitido, o tempo de vida padrão é de sete dias.
+- **Conta de armazenamento:** Todo o acesso ao Azure Storage é feito através de uma conta de armazenamento. Para obter informações sobre a capacidade da conta de armazenamento, consulte [os objetivos de escalabilidade e desempenho para as contas de armazenamento padrão.](../common/scalability-targets-standard-account.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
-## <a name="next-steps"></a>Passos seguintes
+- **Fila:** uma fila contém um conjunto de mensagens. O nome da fila **deve** ser minúsculo. Para obter informações sobre a nomenclatura de filas, veja [Nomenclatura de Filas e Metadados](/rest/api/storageservices/Naming-Queues-and-Metadata).
 
-* [Criar uma conta de armazenamento](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
-* [Começar com filas usando .NET](storage-dotnet-how-to-use-queues.md)
+- **Mensagem:** uma mensagem, em qualquer formato, até 64 KB. Antes da versão 2017-07-29, o tempo máximo de vida permitido é de sete dias. Para a versão 2017-07-29 ou posterior, o tempo máximo de vida pode ser qualquer número positivo, ou -1 indicando que a mensagem não expira. Se este parâmetro for omitido, o tempo de vida padrão é de sete dias.
+
+## <a name="next-steps"></a>Próximos passos
+
+- [Criar uma conta de armazenamento](../common/storage-account-create.md?toc=%252fazure%252fstorage%252fqueues%252ftoc.json)
+- [Começar com filas usando .NET](storage-dotnet-how-to-use-queues.md)

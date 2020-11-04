@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-october2019, devx-track-python
-ms.openlocfilehash: 0b4592b846477fe16e5ebcff7c9adfb45f7fe559
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ac75b89548d346945901d752672ef0f08601ccfb
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790513"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345657"
 ---
 # <a name="how-to-use-azure-queue-storage-from-python"></a>Como usar o armazenamento da fila Azure da Python
 
@@ -33,7 +33,7 @@ Os exemplos deste artigo são escritos em Python e usam a biblioteca de [cliente
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Transfira e instale o SDK de Armazenamento do Azure para Python.
 
 O [Azure Storage SDK for Python](https://github.com/azure/azure-storage-python) requer a versão Python 2.7, 3.3 ou mais tarde.
- 
+
 ### <a name="install-via-pypi"></a>Instalar via PyPI
 
 Para instalar através do Python Package Index (PyPI), escreva:
@@ -73,7 +73,7 @@ O objeto [QueueService](/azure/developer/python/sdk/storage/azure-storage-queue/
 
 ```python
 from azure.storage.queue import (
-        QueueService, 
+        QueueService,
         QueueMessageFormat
 )
 
@@ -293,13 +293,13 @@ queue_service.delete_queue(queue_name)
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que aprendeu o básico do armazenamento de filas, siga estes links para saber mais.
 
-* [Referência Azure Queues Python API](/python/api/azure-storage-queue)
-* [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/)
-* [API REST dos Serviços do Armazenamento do Azure](/rest/api/storageservices/)
+- [Referência Azure Queues Python API](/python/api/azure-storage-queue)
+- [Centro para Programadores do Python](https://azure.microsoft.com/develop/python/)
+- [API REST dos Serviços do Armazenamento do Azure](/rest/api/storageservices/)
 
 [Biblioteca de clientes de armazenamento de fila Azure para Python]: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue
 [SDK do Azure para Python]: https://github.com/azure/azure-sdk-for-python

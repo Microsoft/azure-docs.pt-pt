@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e09b44504623516d41b6d310a82e78619477367c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93304987"
+ms.locfileid: "93347612"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa utilizando o Formato Comum de Eventos
 
@@ -57,7 +57,7 @@ Certifique-se de que a máquina Linux que utiliza como reencaminhador de registo
   - Amazon Linux 2017.09
   - Oráculo Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo sub-versões (não 6)
-  - Debian GNU/Linux 8, 9 e 10
+  - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
   - SUSE Linux Enterprise Server 12, 15
 
@@ -65,7 +65,7 @@ Certifique-se de que a máquina Linux que utiliza como reencaminhador de registo
   - CentOS 7 e 8, incluindo sub-versões (não 6)
   - Oráculo Linux 7
   - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo sub-versões (não 6)
-  - Debian GNU/Linux 8, 9 e 10
+  - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS e 16.04 LTS
  
 - Versões Daemon
@@ -84,7 +84,7 @@ Certifique-se de que a sua máquina também cumpre os seguintes requisitos:
 - Requisitos de software
   - Certifique-se de que tem a pitão 2.7 a funcionar na sua máquina.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste documento, ficou a saber como a Azure Sentinel recolhe registos CEF a partir de soluções de segurança e aparelhos. Para aprender a ligar a sua solução ao Azure Sentinel, consulte os seguintes artigos:
 

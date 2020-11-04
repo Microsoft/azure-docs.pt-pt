@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
-ms.openlocfilehash: 11c6cdff852a0695d4b2071f1d0a60c05dba2410
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0ee3d9c26d6972da9e528660d034432ce696aa45
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213492"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347204"
 ---
 # <a name="quickstart-create-a-queue-and-add-a-message-with-the-azure-portal"></a>Quickstart: Criar uma fila e adicionar uma mensagem com o portal Azure
 
@@ -55,13 +55,13 @@ Depois de adicionar uma mensagem, o portal Azure apresenta uma lista de todas as
 
 ## <a name="dequeue-a-message"></a>Remover uma mensagem da fila
 
-Pode descoduar uma mensagem na parte da frente da fila a partir do portal Azure. Quando descodiona uma mensagem, a mensagem é apagada. 
+Pode descoduar uma mensagem na parte da frente da fila a partir do portal Azure. Quando descodiona uma mensagem, a mensagem é apagada.
 
-A dequeueção remove sempre a mensagem mais antiga da fila. 
+A dequeueção remove sempre a mensagem mais antiga da fila.
 
 ![Screenshot mostrando como desquecção de uma mensagem do portal](media/storage-quickstart-queues-portal/dequeue-message.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a criar uma fila, adicionar uma mensagem, ver propriedades de mensagens e desaquio uma mensagem no portal Azure.
 

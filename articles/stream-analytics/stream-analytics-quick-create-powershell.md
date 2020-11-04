@@ -7,12 +7,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b36a71899be43f40ec16c76b5e53c8c3e7fb3552
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 2ea92ad2e9c81b568e11ff97d7b6a88eeb4f188e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124531"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346587"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Quickstart: Criar um trabalho stream analytics usando Azure PowerShell
 
@@ -28,7 +28,7 @@ O trabalho de exemplo lê dados de streaming de um dispositivo IoT Hub. Os dados
 
 * Este arranque rápido requer o módulo Azure PowerShell. Execute `Get-Module -ListAvailable Az` para localizar a versão instalada no computador local. Se precisar de instalar ou atualizar, veja [Install Azure PowerShell module](/powershell/azure/install-Az-ps)(Instalar o módulo do Azure PowerShell).
 
-* Algumas ações do IoT Hub não são apoiadas pela Azure PowerShell e devem ser concluídas utilizando a versão 2.0.70 do Azure CLI ou posterior e a extensão IoT para Azure CLI. [Instale o Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) e `az extension add --name azure-iot` utilize-o para instalar a extensão IoT.
+* Algumas ações do IoT Hub não são apoiadas pela Azure PowerShell e devem ser concluídas utilizando a versão 2.0.70 do Azure CLI ou posterior e a extensão IoT para Azure CLI. [Instale o Azure CLI](/cli/azure/install-azure-cli) e `az extension add --name azure-iot` utilize-o para instalar a extensão IoT.
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -68,9 +68,9 @@ Antes de definir o trabalho do Stream Analytics, prepare os dados configurados c
 
 O bloco de código Azure CLI seguinte faz muitos comandos para preparar os dados de entrada exigidos pelo trabalho. Reveja as secções para compreender o código.
 
-1. Na sua janela PowerShell, execute o comando [de login az](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) para iniciar sessão na sua conta Azure.
+1. Na sua janela PowerShell, execute o comando [de login az](/cli/azure/authenticate-azure-cli) para iniciar sessão na sua conta Azure.
 
-    Quando iniciar sedições com sucesso, o Azure CLI devolve uma lista das suas subscrições. Copie a subscrição que está a usar para este arranque rápido e execute o comando [conjunto de conta az](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#change-the-active-subscription) para selecionar essa subscrição. Escolha a mesma subscrição selecionada na secção anterior com o PowerShell. Certifique-se de que substitui `<your subscription name>` pelo nome da sua subscrição.
+    Quando iniciar sedições com sucesso, o Azure CLI devolve uma lista das suas subscrições. Copie a subscrição que está a usar para este arranque rápido e execute o comando [conjunto de conta az](/cli/azure/manage-azure-subscriptions-azure-cli#change-the-active-subscription) para selecionar essa subscrição. Escolha a mesma subscrição selecionada na secção anterior com o PowerShell. Certifique-se de que substitui `<your subscription name>` pelo nome da sua subscrição.
 
     ```azurecli
     az login
@@ -78,19 +78,19 @@ O bloco de código Azure CLI seguinte faz muitos comandos para preparar os dados
     az account set --subscription "<your subscription>"
     ```
 
-2. Crie um Hub IoT utilizando o [hub az iot criar](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) comando. Este exemplo cria um hub IoT chamado **MyASAIoTHub** . Como os nomes do IoT Hub são únicos, tens de inventar o teu próprio nome IoT Hub. Desa estama o SKU para F1 para utilizar o nível livre se estiver disponível com a sua subscrição. Caso contrário, escolha o próximo nível mais baixo.
+2. Crie um Hub IoT utilizando o [hub az iot criar](../iot-hub/iot-hub-create-using-cli.md#create-an-iot-hub) comando. Este exemplo cria um hub IoT chamado **MyASAIoTHub**. Como os nomes do IoT Hub são únicos, tens de inventar o teu próprio nome IoT Hub. Desa estama o SKU para F1 para utilizar o nível livre se estiver disponível com a sua subscrição. Caso contrário, escolha o próximo nível mais baixo.
 
     ```azurecli
     az iot hub create --name "<your IoT Hub name>" --resource-group $resourceGroup --sku S1
     ```
 
-    Uma vez criado o hub IoT, obtenha a cadeia de ligação IoT Hub utilizando o comando [az iot hub show-connection-string.](/cli/azure/iot/hub?view=azure-cli-latest) Copie toda a cadeia de ligação e guarde-a para quando adicionar o Hub IoT como entrada no seu trabalho stream Analytics.
+    Uma vez criado o hub IoT, obtenha a cadeia de ligação IoT Hub utilizando o comando [az iot hub show-connection-string.](/cli/azure/iot/hub) Copie toda a cadeia de ligação e guarde-a para quando adicionar o Hub IoT como entrada no seu trabalho stream Analytics.
 
     ```azurecli
     az iot hub show-connection-string --hub-name "MyASAIoTHub"
     ```
 
-3. Adicione um dispositivo ao IoT Hub utilizando o comando [de criação de identidade de dispositivo az iothub.](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) Este exemplo cria um dispositivo chamado **MyASAIoTDevice** .
+3. Adicione um dispositivo ao IoT Hub utilizando o comando [de criação de identidade de dispositivo az iothub.](../iot-hub/quickstart-send-telemetry-c.md#register-a-device) Este exemplo cria um dispositivo chamado **MyASAIoTDevice**.
 
     ```azurecli
     az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
@@ -321,7 +321,7 @@ Start-AzStreamAnalyticsJob `
   -OutputStartMode 'JobStartTime'
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar o trabalho no futuro, pode ignorar a eliminação e parar o trabalho por agora. Se não continuar a utilizar este trabalho, elimine todos os recursos criados por este arranque rápido executando o seguinte cmdlet:
 
@@ -330,7 +330,7 @@ Remove-AzResourceGroup `
   -Name $resourceGroup
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste início rápido, implementou uma tarefa simples do Stream Analytics com o PowerShell. Também pode implementar tarefas do Stream Analytics com o [portal do Azure](stream-analytics-quick-create-portal.md) e o [Visual Studio](stream-analytics-quick-create-vs.md).
 

@@ -2,19 +2,19 @@
 title: Ativar a gestão de atualização de automação Azure a partir de um VM Azure
 description: Este artigo diz como ativar a Gestão de Atualização a partir de um VM Azure.
 services: automation
-ms.date: 09/16/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 2d81b822986f641e64b9211300f83e3b254f316d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222863"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347085"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Ativar a Gestão de Atualizações a partir de uma VM do Azure
 
-Este artigo descreve como pode utilizar um VM Azure para ativar a funcionalidade [de Gestão de Atualização](overview.md) noutras máquinas. Para ativar os VMs Azure em escala, tem de ativar um VM existente utilizando a Gestão de Atualização.
+Este artigo descreve como pode ativar a funcionalidade [de Gestão](overview.md) de Atualização numa ou mais máquinas virtuais Azure (VM). Para ativar os VMs Azure em escala, tem de ativar um VM Azure existente utilizando a Gestão de Atualização.
 
 > [!NOTE]
 > Ao ativar a Gestão de Atualização, apenas certas regiões são suportadas para ligar um espaço de trabalho log Analytics e uma conta Demôm automação. Para obter uma lista dos pares de mapeamento suportados, consulte [o mapeamento da Região para a conta de Automação e o espaço de trabalho log Analytics.](../how-to/region-mappings.md)
@@ -45,7 +45,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
     ![Ativar a Gestão de Atualizações](media/enable-from-vm/enable-update-management.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para utilizar a Gestão de Atualização para VMs, consulte [Gerir atualizações e patches para os seus VMs Azure](manage-updates-for-vm.md).
 

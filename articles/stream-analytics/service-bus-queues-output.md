@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: bba7da0343f234d8cc057ac4ecfa2a4f2e5b7242
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3527bdbbf1ba337d24dc390f97ed090c8dfbe039
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129886"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348394"
 ---
 # <a name="service-bus-queues-output-from-azure-stream-analytics"></a>Saída de filas de autocarros de serviço a partir de Azure Stream Analytics
 
@@ -24,7 +24,7 @@ No [nível de compatibilidade 1.2](stream-analytics-compatibility-level.md), o A
 
 A tabela que se segue lista os nomes dos imóveis e as suas descrições para a criação de uma saída de fila.
 
-| Nome da propriedade | Description |
+| Nome da propriedade | Descrição |
 | --- | --- |
 | Alias de saída |Um nome amigável usado em consultas para direcionar a saída de consulta para esta fila de serviço. |
 | Espaço de nome de ônibus de serviço |Um contentor para um conjunto de entidades de mensagens. |
@@ -32,7 +32,7 @@ A tabela que se segue lista os nomes dos imóveis e as suas descrições para a 
 | Nome da política da fila |Quando cria uma fila, também pode criar políticas de acesso partilhado no **separador Configurar** da fila. Cada política de acesso partilhado tem um nome, permissões que definiu e chaves de acesso. |
 | Chave de política de fila |A chave de acesso partilhada que é usada para autenticar o acesso ao espaço de nomes do Service Bus. |
 | Formato de serialização de eventos |O formato de serialização para dados de saída. JSON, CSV e Avro são apoiados. |
-| Encoding |Para cSV e JSON, UTF-8 é o único formato de codificação suportado neste momento. |
+| Codificação |Para cSV e JSON, UTF-8 é o único formato de codificação suportado neste momento. |
 | Delimitador |Aplicável apenas para serialização de CSV. O Stream Analytics suporta uma série de delimiters comuns para serializar dados em formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, separador e barra vertical. |
 | Formato |Aplicável apenas para o tipo JSON. **A linha separada** especifica que a saída é formatada por cada objeto JSON separado por uma nova linha. Se selecionar **linha separada,** o JSON é lido um objeto de cada vez. Todo o conteúdo por si só não seria um JSON válido. **A matriz** especifica que a saída é formatada como uma matriz de objetos JSON. |
 | Colunas de propriedade | Opcional. Colunas separadas por vírgula que precisam de ser anexadas como propriedades do utilizador da mensagem de saída em vez da carga útil. Mais informações sobre esta funcionalidade estão na secção [Propriedades de metadados personalizados para a saída.](#custom-metadata-properties-for-output) |
@@ -66,13 +66,13 @@ No exemplo seguinte, os campos `DeviceId` são `DeviceStatus` adicionados aos me
 
 A imagem a seguir é das propriedades de mensagens de saída esperadas inspecionadas no EventHub utilizando [o Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
-:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Colunas de propriedade":::
+:::image type="content" source="media/service-bus-queues-output/custom-properties.png" alt-text="Propriedades personalizadas do evento":::
 
 ## <a name="system-properties"></a>Propriedades do sistema
 
-Pode anexar colunas de consulta como [propriedades do sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) à fila do autocarro de serviço de saída ou mensagens tópicos.
+Pode anexar colunas de consulta como [propriedades do sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) à fila do autocarro de serviço de saída ou mensagens tópicos.
 
-Estas colunas não entram na carga útil, em vez disso, a propriedade correspondente do [sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage é povoada com os valores da coluna de consulta.
+Estas colunas não entram na carga útil, em vez disso, a propriedade correspondente do [sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true#properties) BrokeredMessage é povoada com os valores da coluna de consulta.
 Estas propriedades do sistema são suportadas - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc` .
 
 Os valores de cadeia destas colunas são analisados como o tipo de valor contabilístico correspondente do sistema e quaisquer falhas de análise são tratadas como erros de dados.
@@ -92,7 +92,7 @@ Isto mostra como usar esta propriedade –
 
 Isto define as mensagens de fila de `MessageId` autocarros de serviço com `column1` os valores e partitionKey é definido com `column2` os valores de 's'
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](stream-analytics-quick-create-portal.md)
 * [Quickstart: Criar um trabalho Azure Stream Analytics utilizando o Azure CLI](quick-create-azure-cli.md)
