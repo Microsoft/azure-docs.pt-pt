@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05926f7ce25714fb76415802876db0640eb30aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908092"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323771"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceções e códigos de erro para o designer
 
@@ -187,7 +187,7 @@ Verifique também se a conta, o recipiente ou a bolha foram apagados. Utilize ou
 
 Alguns tipos de conta mais recentes não são suportados pela Azure Machine Learning. Por exemplo, os novos tipos de armazenamento "quente" ou "frio" não podem ser utilizados para a aprendizagem automática. Tanto as contas clássicas de armazenamento como as contas de armazenamento criadas como "finalidade geral" funcionam bem.
 
-Se o caminho completo para uma bolha for especificado, verifique se o caminho é especificado como **recipiente/blobname**, e que tanto o recipiente como o blob existem na conta.  
+Se o caminho completo para uma bolha for especificado, verifique se o caminho é especificado como **recipiente/blobname** , e que tanto o recipiente como o blob existem na conta.  
 
  O caminho não deve conter um corte de liderança. Por **exemplo/recipiente/bolha** está incorreto e deve ser introduzido como **recipiente/bolha**.  
 
@@ -713,7 +713,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **Resolução:** Este erro é causado por muitas condições e não existe uma solução específica.  
  A tabela seguinte contém mensagens genéricas para este erro, que são seguidas por uma descrição específica da circunstância. 
 
- Se não houver detalhes disponíveis, [o Microsoft Q&Página de perguntas para enviar feedback](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) e fornecer informações sobre os módulos que geraram o erro e as condições relacionadas.
+ Se não houver detalhes disponíveis, [o Microsoft Q&Página de perguntas para enviar feedback](/answers/topics/azure-machine-learning-studio-classic.html) e fornecer informações sobre os módulos que geraram o erro e as condições relacionadas.
 
 |Mensagens de Exceção|
 |------------------------|
@@ -862,7 +862,7 @@ Outra razão para obter este erro se tentar utilizar uma coluna que contenha nú
 
  Este erro no Azure Machine Learning ocorre se a chave utilizada para aceder à conta de armazenamento Azure estiver incorreta. Por exemplo, pode ver este erro se a chave de armazenamento Azure foi truncada quando copiada e colada, ou se a chave errada foi utilizada.  
 
- Para obter mais informações sobre como obter a chave para uma conta de armazenamento Azure, consulte [ver, copiar e regenerar as teclas de acesso ao armazenamento](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
+ Para obter mais informações sobre como obter a chave para uma conta de armazenamento Azure, consulte [ver, copiar e regenerar as teclas de acesso ao armazenamento](../../storage/common/storage-account-create.md).  
 
 **Resolução:** Reveja o módulo e verifique se a chave de armazenamento Azure está correta para a conta; copiar a chave novamente do portal clássico Azure, se necessário.  
 
@@ -1083,9 +1083,9 @@ A mensagem de erro da Hive é normalmente reportada no Registo de Erros para que
 
 Consulte os seguintes artigos para obter ajuda com consultas de Hive para machine learning:
 
-+ [Criar tabelas de Colmeia e carregar dados a partir do armazenamento do Blob Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Explore dados em tabelas com consultas de Colmeia](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Criar características para dados num cluster do Hadoop com consultas do Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Criar tabelas de Colmeia e carregar dados a partir do armazenamento do Blob Azure](../team-data-science-process/move-hive-tables.md)
++ [Explore dados em tabelas com consultas de Colmeia](../team-data-science-process/explore-data-hive-tables.md)
++ [Criar características para dados num cluster do Hadoop com consultas do Hive](../team-data-science-process/create-features-hive.md)
 + [Colmeia para utilizadores SQL Cheat Sheet (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1107,7 +1107,7 @@ Consulte os seguintes artigos para obter ajuda com consultas de Hive para machin
 
  Se houver uma mensagem gerada pelo SQL reportada pela exceção do módulo, tome medidas com base no erro reportado. Por exemplo, as mensagens de erro por vezes incluem orientações específicas sobre o erro provável:
 + *Nenhuma coluna ou base de dados em falta,* indicando que pode ter digitado um nome de coluna errado. Se tiver a certeza de que o nome da coluna está correto, tente utilizar suportes ou marcas de aspas para incluir o identificador de colunas.
-+ *SQL erro \<SQL keyword\> lógico próximo *, indicando que pode ter um erro de sintaxe antes da palavra-chave especificada
++ *SQL erro \<SQL keyword\> lógico próximo* , indicando que pode ter um erro de sintaxe antes da palavra-chave especificada
 
   
 |Mensagens de Exceção|
@@ -1164,7 +1164,7 @@ Este erro na Aprendizagem automática Azure ocorre quando está a tentar remende
 
 O tratamento de erros para este evento foi introduzido numa versão anterior do Azure Machine Learning que permitiu uma maior personalização dos métodos de binário. Atualmente, todos os métodos de ligação são baseados numa seleção de uma lista de abandono, pelo que, tecnicamente, não deverá continuar a ser possível obter este erro.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Mensagens de Exceção|
 |------------------------|
@@ -1516,11 +1516,10 @@ Exceção da biblioteca interna.
 
 Este erro é fornecido para capturar erros internos do motor de outra forma não manipulados. Portanto, a causa deste erro pode ser diferente dependendo do módulo que gerou o erro.  
 
-Para obter mais ajuda, recomendamos que publique a mensagem detalhada que acompanha o erro no [fórum Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), juntamente com uma descrição do cenário, incluindo os dados utilizados como entradas. Este feedback ajudar-nos-á a priorizar os erros e a identificar as questões mais importantes para o trabalho suplementar.  
+Para obter mais ajuda, recomendamos que publique a mensagem detalhada que acompanha o erro no [fórum Azure Machine Learning](/answers/topics/azure-machine-learning.html), juntamente com uma descrição do cenário, incluindo os dados utilizados como entradas. Este feedback ajudar-nos-á a priorizar os erros e a identificar as questões mais importantes para o trabalho suplementar.  
 
 |Mensagens de Exceção|
 |------------------------|
 |Exceção da biblioteca.|
 |Exceção da biblioteca: {exceção}.|
 |Exceção da biblioteca desconhecida: {exceção}. {customer_support_guidance}.|
-

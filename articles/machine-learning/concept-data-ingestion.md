@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 401398da4d71f32973f720dd0ca5cc9b550892e8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890180"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323047"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opções de ingestão de dados para fluxos de trabalho de aprendizagem automática Azure
 
@@ -33,7 +33,7 @@ A ingestão de dados é o processo em que os dados não estruturados são extra�
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 
-[A Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) oferece suporte nativo para monitorização de fontes de dados e gatilhos para os oleodutos de ingestão de dados.  
+[A Azure Data Factory](../data-factory/introduction.md) oferece suporte nativo para monitorização de fontes de dados e gatilhos para os oleodutos de ingestão de dados.  
 
 A tabela seguinte resume os prós e os contras para a utilização da Azure Data Factory para os seus fluxos de trabalho de ingestão de dados.
 
@@ -41,11 +41,11 @@ A tabela seguinte resume os prós e os contras para a utilização da Azure Data
 ---|---
 Especificamente construído para extrair, carregar e transformar dados.|Atualmente oferece um conjunto limitado de tarefas de pipeline Azure Data Factory 
 Permite-lhe criar fluxos de trabalho orientados por dados para orquestrar movimentos de dados e transformações em escala.|Caro para construir e manter. Consulte a página de [preços](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) da Azure Data Factory para obter mais informações.
-Integrado com várias ferramentas Azure como [Azure Databricks](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook) e [Azure Functions](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity) | Não executa scripts de forma nativa, em vez disso baseia-se em cálculos separados para execuções de scripts 
+Integrado com várias ferramentas Azure como [Azure Databricks](../data-factory/transform-data-using-databricks-notebook.md) e [Azure Functions](../data-factory/control-flow-azure-function-activity.md) | Não executa scripts de forma nativa, em vez disso baseia-se em cálculos separados para execuções de scripts 
 Suporta de forma nativa fonte de dados ativada ingestão de dados| 
 Os processos de preparação de dados e de formação de modelos são separados.|
 Capacidade de linhagem de dados incorporada para fluxos de dados da Azure Data Factory|
-Fornece uma interface de [utilizador](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) de experiência de código baixo para abordagens não scripting |
+Fornece uma interface de [utilizador](../data-factory/quickstart-create-data-factory-portal.md) de experiência de código baixo para abordagens não scripting |
 
 Estes passos e o diagrama seguinte ilustram o fluxo de trabalho de ingestão de dados da Azure Data Factory.
 
@@ -60,7 +60,7 @@ Saiba como construir um pipeline de ingestão de dados para machine learning com
 
 ## <a name="azure-machine-learning-python-sdk"></a>Azure Máquina aprendendo Python SDK 
 
-Com o [Python SDK,](https://docs.microsoft.com/python/api/overview/azure/ml)pode incorporar tarefas de ingestão de dados num passo [de pipeline Azure Machine Learning.](how-to-create-your-first-pipeline.md)
+Com o [Python SDK,](/python/api/overview/azure/ml)pode incorporar tarefas de ingestão de dados num passo [de pipeline Azure Machine Learning.](how-to-create-your-first-pipeline.md)
 
 A tabela seguinte resume os prós e o contra para a utilização do SDK e um passo de gasoduto ml para tarefas de ingestão de dados.
 

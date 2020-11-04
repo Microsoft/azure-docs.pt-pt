@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c4c7b8da659fa7fe8879ae92c4947b7f0867274c
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2a22174fb23a4f0f7bebd58e276a6778e986ce9e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173500"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322921"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analisar dados numa conta de armazenamento
 
@@ -46,7 +46,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
 1. Vá às **contas de armazenamento**  >  **myworkspace (Primário - contosolake)**.
 1. Selecione **utilizadores (Primário)**. Devia ver a pasta **NYCTaxi.** No interior deverá ver duas pastas chamadas **PassengerCountStats.csv** e **PassengerCountStats.parquet**.
 1. Abra a pasta **PassengerCountStats.parquet.** Lá dentro, verá um arquivo de parquet com um nome como `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` .
-1. Clique à direita **em .parquet**e, em seguida, selecione **novo caderno**. Cria um caderno que tem uma célula como esta:
+1. Clique à direita **em .parquet** e, em seguida, selecione **novo caderno**. Cria um caderno que tem uma célula como esta:
 
     ```py
     %%pyspark
@@ -65,7 +65,7 @@ df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
     ) AS [r];
     ```
 
-    Na janela do script, o **campo 'Ligar para'** está definido para **SQL on demand**.
+    Na janela do script, o campo **'Ligar para'** está definido para **a piscina SQL sem servidor**.
 
 1. Execute o script.
 

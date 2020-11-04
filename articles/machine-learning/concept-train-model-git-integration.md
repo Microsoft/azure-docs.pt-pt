@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 71ac7793fe5226215c5d4eab98f84dba356b114c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f13773a8e3e78451dfb587e55c40a20d1b4b385c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275970"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324774"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração de Git para Azure Machine Learning
 
@@ -39,7 +39,7 @@ Para obter mais informações sobre clonagem, consulte o guia sobre [como utiliz
 
 ## <a name="authenticate-your-git-account-with-ssh"></a>Autenticar a sua Conta Git com SSH
 ### <a name="generate-a-new-ssh-key"></a>Gerar uma nova chave SSH
-1) [Abra a janela do terminal](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) no separador de caderno de aprendizagem da máquina Azure.
+1) [Abra a janela do terminal](./how-to-run-jupyter-notebooks.md#terminal) no separador de caderno de aprendizagem da máquina Azure.
 
 2) Cole o texto abaixo, substituindo no seu endereço de e-mail.
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Comece no **passo 2.**
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Comece no **passo 2.**
 
 + [BitBucket.](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2) Comece no **passo 4.**
 
@@ -115,7 +115,7 @@ Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of know
 
 O SSH pode apresentar a impressão digital SSH do servidor e pedir-lhe que verifique. Deve verificar se a impressão digital apresentada corresponde a uma das impressões digitais na página das chaves públicas do SSH.
 
-O SSH exibe esta impressão digital quando se conecta a um hospedeiro desconhecido para [protegê-lo de ataques man-in-the-middle](https://technet.microsoft.com/library/cc959354.aspx). Uma vez que aceite a impressão digital do anfitrião, a SSH não o solicitará novamente, a menos que a impressão digital mude.
+O SSH exibe esta impressão digital quando se conecta a um hospedeiro desconhecido para [protegê-lo de ataques man-in-the-middle](/previous-versions/windows/it-pro/windows-2000-server/cc959354(v=technet.10)). Uma vez que aceite a impressão digital do anfitrião, a SSH não o solicitará novamente, a menos que a impressão digital mude.
 
 3) Quando lhe perguntarem se pretende continuar a ligar, escreva `yes` . Git clonará o repo e configurará o controlo remoto de origem para se conectar com o SSH para futuros comandos git.
 
@@ -123,7 +123,7 @@ O SSH exibe esta impressão digital quando se conecta a um hospedeiro desconheci
 
 Quando submete uma corrida de treino a partir do Python SDK ou do Machine Learning CLI, os ficheiros necessários para treinar o modelo são enviados para o seu espaço de trabalho. Se o `git` comando estiver disponível no seu ambiente de desenvolvimento, o processo de upload utiliza-o para verificar se os ficheiros estão armazenados num repositório de git. Em caso afirmativo, então a informação do seu repositório de git também é carregada como parte da formação. Esta informação é armazenada nas seguintes propriedades para a execução de formação:
 
-| Propriedade | Comando Git usado para obter o valor | Descrição |
+| Propriedade | Comando Git usado para obter o valor | Description |
 | ----- | ----- | ----- |
 | `azureml.git.repository_uri` | `git ls-remote --get-url` | O URI de onde o seu repositório foi clonado. |
 | `mlflow.source.git.repoURL` | `git ls-remote --get-url` | O URI de onde o seu repositório foi clonado. |
@@ -153,9 +153,9 @@ A informação do git é armazenada nas propriedades para uma corrida de treino.
 ### <a name="azure-portal"></a>Portal do Azure
 
 1. A partir do portal do [estúdio,](https://ml.azure.com)selecione o seu espaço de trabalho.
-1. Selecione __Experimentos__e, em seguida, selecione uma das suas experiências.
+1. Selecione __Experimentos__ e, em seguida, selecione uma das suas experiências.
 1. Selecione uma das correções da coluna __RUN NUMBER.__
-1. Selecione __Outputs + logs__e, em seguida, expanda os __registos__ e entradas __azuremis.__ Selecione o link que começa com __ ### \_ azul__.
+1. Selecione __Outputs + logs__ e, em seguida, expanda os __registos__ e entradas __azuremis.__ Selecione o link que começa com __### \_ azul__.
 
 As informações registadas contêm texto semelhante ao seguinte JSON:
 
@@ -178,7 +178,7 @@ As informações registadas contêm texto semelhante ao seguinte JSON:
 
 ### <a name="python-sdk"></a>SDK Python
 
-Depois de submeter uma corrida de treino, um objeto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) é devolvido. O `properties` atributo deste objeto contém a informação do git registado. Por exemplo, o seguinte código recupera o haxixe do compromisso:
+Depois de submeter uma corrida de treino, um objeto [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) é devolvido. O `properties` atributo deste objeto contém a informação do git registado. Por exemplo, o seguinte código recupera o haxixe do compromisso:
 
 ```python
 run.properties['azureml.git.commit']
@@ -192,7 +192,7 @@ O `az ml run` comando CLI pode ser usado para recuperar as propriedades de uma c
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Para mais informações, consulte a documentação de referência [az ml run.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true)
+Para mais informações, consulte a documentação de referência [az ml run.](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest)
 
 ## <a name="next-steps"></a>Passos seguintes
 

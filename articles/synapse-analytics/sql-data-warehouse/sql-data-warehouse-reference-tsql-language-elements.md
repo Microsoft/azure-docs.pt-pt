@@ -1,6 +1,6 @@
 ---
-title: Elementos de linguagem do T-SQL
-description: Ligações à documentação para elementos linguísticos T-SQL suportados na piscina Synapse SQL.
+title: Elementos linguísticos T-SQL para piscina SQL dedicada
+description: Ligações à documentação de elementos linguísticos T-SQL suportados para piscina SQL dedicada em Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bccbe67c1ea4b93a7a1938fbab6b6f3d06cb5da3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 966df3be13eda4450608d42890fcfe2240ac61a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289502"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324653"
 ---
-# <a name="t-sql-language-elements-supported-in-synapse-sql-pool"></a>Elementos linguísticos T-SQL suportados na piscina Sinaapse SQL
+# <a name="t-sql-language-elements-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Elementos linguísticos T-SQL para piscina SQL dedicada em Azure Synapse Analytics 
 
-Ligações à documentação para elementos linguísticos T-SQL suportados na piscina Synapse SQL.
+Ligações à documentação para elementos linguísticos T-SQL suportados em piscina SQL dedicada.
 
 ## <a name="core-elements"></a>Elementos do núcleo
 
@@ -203,7 +203,7 @@ Ligações à documentação para elementos linguísticos T-SQL suportados na pi
 * [ESPAÇO](/sql/t-sql/functions/space-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SQL_VARIANT_PROPERTY](/sql/t-sql/functions/sql-variant-property-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [SQRT](/sql/t-sql/functions/sqrt-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-* [SQUARE](/sql/t-sql/functions/square-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [PRAÇA](/sql/t-sql/functions/square-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STATS_DATE](/sql/t-sql/functions/stats-date-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STDEV](/sql/t-sql/functions/stdev-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [STDEVP](/sql/t-sql/functions/stdevp-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -290,4 +290,4 @@ Ligações à documentação para elementos linguísticos T-SQL suportados na pi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações de referência, consulte [as declarações de T-SQL na piscina Synapse SQL,](sql-data-warehouse-reference-tsql-statements.md)e [vistas para o sistema na piscina Synapse SQL](../sql/reference-tsql-system-views.md).
+Para obter mais informações de referência, consulte [as declarações T-SQL em pool SQL dedicado,](sql-data-warehouse-reference-tsql-statements.md)e [vistas do Sistema em piscina SQL dedicada.](../sql/reference-tsql-system-views.md)

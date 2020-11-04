@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 51a9b0ec0fc19b6b6efa0453d698a5a978dacabc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 809b1be4f9f12e1963ff5caeaacd109c84db154f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907838"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323653"
 ---
 # <a name="linear-regression-module"></a>Módulo linear de regressão
 Este artigo descreve um módulo no designer de Aprendizagem automática Azure.
@@ -63,13 +63,13 @@ Este módulo suporta dois métodos para a montagem de um modelo de regressão, c
 
 1. Adicione o módulo **Modelo linear de regressão** ao seu oleoduto no designer.
 
-    Pode encontrar este módulo na categoria **machine learning.** Expandir **o Modelo Inicialize,** expandir **a Regressão**e, em seguida, arrastar o módulo **Modelo linear de Regressão** para o seu oleoduto.
+    Pode encontrar este módulo na categoria **machine learning.** Expandir **o Modelo Inicialize,** expandir **a Regressão** e, em seguida, arrastar o módulo **Modelo linear de Regressão** para o seu oleoduto.
 
 2. No painel **propriedades,** na lista de dropdown do **método Solution,** selecione **Os Quadrados Mínimos Comuns**. Esta opção especifica o método de cálculo utilizado para encontrar a linha de regressão.
 
 3. No **peso de regularização L2,** digite o valor a utilizar como peso para a regularização L2. Recomendamos que utilize um valor não zero para evitar a sobremontagem.
 
-     Para saber mais sobre como a regularização afeta a montagem do modelo, consulte este artigo: [Regularização L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+     Para saber mais sobre como a regularização afeta a montagem do modelo, consulte este artigo: [Regularização L1 e L2 para Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
 4. Selecione a opção, Inclua o **termo de interceção,** se quiser visualizar o termo para a interceção.
 
@@ -102,16 +102,16 @@ Após o treino estar completo:
 
 3. Para **criar o modo de treinador,** indique se pretende treinar o modelo com um conjunto de parâmetros predefinidos ou se pretende otimizar o modelo utilizando uma varredura de parâmetros.
 
-    + **Parâmetro único**: Se souber como pretende configurar a rede linear de regressão, pode fornecer um conjunto específico de valores como argumentos.
+    + **Parâmetro único** : Se souber como pretende configurar a rede linear de regressão, pode fornecer um conjunto específico de valores como argumentos.
     
-    + **Intervalo de parâmetros**: Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.  
+    + **Intervalo de parâmetros** : Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.  
 
    
-4. Para **a taxa de aprendizagem**, especifique a taxa inicial de aprendizagem para o otimizador de descida de gradiente estocástico.
+4. Para **a taxa de aprendizagem** , especifique a taxa inicial de aprendizagem para o otimizador de descida de gradiente estocástico.
 
 5. Para **o Número de épocas de treino,** escreva um valor que indique quantas vezes o algoritmo deve iterar através de exemplos. Para conjuntos de dados com um pequeno número de exemplos, este número deve ser grande para alcançar a convergência.
 
-6. **Normalizar as características**: Se já normalizou os dados numéricos utilizados para treinar o modelo, pode desmarcar esta opção. Por predefinição, o módulo normaliza todas as entradas numéricas para um intervalo entre 0 e 1.
+6. **Normalizar as características** : Se já normalizou os dados numéricos utilizados para treinar o modelo, pode desmarcar esta opção. Por predefinição, o módulo normaliza todas as entradas numéricas para um intervalo entre 0 e 1.
 
     > [!NOTE]
     > 
@@ -119,7 +119,7 @@ Após o treino estar completo:
 
 7. No **peso de regularização L2,** digite o valor a utilizar como peso para a regularização L2. Recomendamos que utilize um valor não zero para evitar a sobremontagem.
 
-    Para saber mais sobre como a regularização afeta a montagem do modelo, consulte este artigo: [Regularização L1 e L2 para Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)
+    Para saber mais sobre como a regularização afeta a montagem do modelo, consulte este artigo: [Regularização L1 e L2 para Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning)
 
 
 9. Selecione a opção, **Diminua a taxa de aprendizagem,** se quiser que a taxa de aprendizagem diminua à medida que as iterações progridem.  
@@ -152,4 +152,4 @@ Após o treino estar completo:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

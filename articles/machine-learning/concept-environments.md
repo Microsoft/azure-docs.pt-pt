@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: larryfr
 author: BlackMist
 ms.date: 07/08/2020
-ms.openlocfilehash: e1b92563acd6983b1680cacc06a8f2d0789dddf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c554abc8aef89ca353e06c14b04fab2622d2827
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302507"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322196"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>O que são ambientes de aprendizagem automática Azure?
 
@@ -35,7 +35,7 @@ O ambiente, o alvo do cálculo e o roteiro de treino em conjunto formam a config
 
 ## <a name="types-of-environments"></a>Tipos de ambientes
 
-Os ambientes podem ser amplamente divididos em três categorias: *curado,* *gerido pelo utilizador*e gerido pelo *sistema.*
+Os ambientes podem ser amplamente divididos em três categorias: *curado,* *gerido pelo utilizador* e gerido pelo *sistema.*
 
 Ambientes curados são fornecidos pela Azure Machine Learning e estão disponíveis no seu espaço de trabalho por padrão. Destinados a ser usados como está, eles contêm coleções de pacotes python e configurações para ajudá-lo a começar com várias estruturas de aprendizagem automática. Estes ambientes pré-criados também permitem um tempo de implantação mais rápido. Para obter uma lista completa, consulte o [artigo ambientes curados.](resource-curated-environments.md)
 
@@ -68,7 +68,7 @@ O serviço Azure Machine Learning constrói definições ambientais em imagens e
 
 ### <a name="submitting-a-run-using-an-environment"></a>Submeter uma corrida usando um ambiente
 
-Quando submete pela primeira vez uma execução remota utilizando um ambiente, o serviço de Aprendizagem automática Azure invoca uma [Tarefa de Construção de ACR](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview) no Registo de Contentores Azure (ACR) associado ao espaço de trabalho. A imagem de Docker construída é então em cache no Espaço de Trabalho ACR. Ambientes curados são apoiados por imagens de Docker que estão em cache no ACR Global. No início da execução, a imagem é recuperada pelo alvo do cálculo a partir do ACR relevante.
+Quando submete pela primeira vez uma execução remota utilizando um ambiente, o serviço de Aprendizagem automática Azure invoca uma [Tarefa de Construção de ACR](../container-registry/container-registry-tasks-overview.md) no Registo de Contentores Azure (ACR) associado ao espaço de trabalho. A imagem de Docker construída é então em cache no Espaço de Trabalho ACR. Ambientes curados são apoiados por imagens de Docker que estão em cache no ACR Global. No início da execução, a imagem é recuperada pelo alvo do cálculo a partir do ACR relevante.
 
 Para as corridas locais, um ambiente Docker ou Conda é criado com base na definição ambiental. Os scripts são então executados no cálculo alvo - um ambiente local de tempo de execução ou motor local Docker.
 
@@ -79,13 +79,13 @@ Se a definição de ambiente já não existir no espaço de trabalho ACR, uma no
  1. Descarregar uma imagem base e executar quaisquer passos do Docker
  2. Construção de um ambiente conda de acordo com as dependências da conda especificadas na definição ambiental.
 
-O segundo passo é omitido se especificar [as dependências geridas pelo utilizador](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py&preserve-view=true). Neste caso, você é responsável por instalar quaisquer pacotes Python, incluindo-os na sua imagem base, ou especificando passos personalizados do Docker dentro do primeiro passo. Também é responsável por especificar a localização correta para o Python executável. Também é possível usar uma [imagem base personalizada do Docker.](how-to-deploy-custom-docker-image.md)
+O segundo passo é omitido se especificar [as dependências geridas pelo utilizador](/python/api/azureml-core/azureml.core.environment.pythonsection?preserve-view=true&view=azure-ml-py). Neste caso, você é responsável por instalar quaisquer pacotes Python, incluindo-os na sua imagem base, ou especificando passos personalizados do Docker dentro do primeiro passo. Também é responsável por especificar a localização correta para o Python executável. Também é possível usar uma [imagem base personalizada do Docker.](how-to-deploy-custom-docker-image.md)
 
 ### <a name="image-caching-and-reuse"></a>Caching e reutilização de imagens
 
 Se utilizar a mesma definição de ambiente para outra execução, o serviço Azure Machine Learning reutiliza a imagem em cache a partir do Workspace ACR. 
 
-Para ver os detalhes de uma imagem em cache, utilize [Environment.get_image_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-image-details-workspace-) método.
+Para ver os detalhes de uma imagem em cache, utilize [Environment.get_image_details](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-image-details-workspace-) método.
 
 Para determinar se reutilizar uma imagem em cache ou construir uma nova, o serviço calcula [um valor de haxixe](https://en.wikipedia.org/wiki/Hash_table) da definição de ambiente e compara-a com as hashes dos ambientes existentes. O haxixe baseia-se em:
  
@@ -108,10 +108,10 @@ O diagrama a seguir mostra três definições ambientais. Dois deles têm nomes 
 Para atualizar o pacote, especifique um número de versão para forçar a reconstrução da imagem, por exemplo ```numpy==1.18.1``` . Serão instaladas novas dependências, incluindo as aninhadas, que poderão quebrar um cenário de trabalho anterior. 
 
 > [!WARNING]
->  O método [Ambiente.build](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#&preserve-view=truebuild-workspace--image-build-compute-none-) irá reconstruir a imagem em cache, com possível efeito colateral de atualizar pacotes não pinned e quebrar a reprodutibilidade para todas as definições ambientais correspondentes a essa imagem em cache.
+>  O método [Ambiente.build](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#&preserve-view=truebuild-workspace--image-build-compute-none-) irá reconstruir a imagem em cache, com possível efeito colateral de atualizar pacotes não pinned e quebrar a reprodutibilidade para todas as definições ambientais correspondentes a essa imagem em cache.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a [criar e a utilizar ambientes](how-to-use-environments.md) em Azure Machine Learning.
-* Consulte a documentação de referência python SDK para a [classe ambiente.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true)
+* Consulte a documentação de referência python SDK para a [classe ambiente.](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py)
 * Consulte a documentação de referência R SDK para [ambientes.](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-environments)

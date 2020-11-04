@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883090"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325452"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Executar previsões de lote usando O designer de aprendizagem de máquinas Azure
 
@@ -29,7 +29,7 @@ Neste como fazer, aprende-se a fazer as seguintes tarefas:
 > * Consumir um ponto final de gasoduto
 > * Gerir versões de ponto final
 
-Para aprender a configurar serviços de pontuação de lotes utilizando o SDK, consulte o [como acompanhar](how-to-run-batch-predictions.md).
+Para aprender a configurar serviços de pontuação de lotes utilizando o SDK, consulte o [como acompanhar](./tutorial-pipeline-batch-scoring-classification.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -51,7 +51,7 @@ O seu gasoduto de treino deve ser executado pelo menos uma vez para poder criar 
 
 Agora que o gasoduto de treino foi executado, pode criar um pipeline de inferência de lote.
 
-1. Ao lado de **Enviar**, selecione o novo pipeline de **inferências Dedesemesta .**
+1. Ao lado de **Enviar** , selecione o novo pipeline de **inferências Dedesemesta .**
 
 1. Selecione **pipeline de inferência do lote**.
 
@@ -80,7 +80,7 @@ Agora está pronto para implantar o oleoduto de inferência. Isto irá implantar
 
 1. Selecione o botão **Publicar**.
 
-1. No diálogo que aparece, expanda a entrega para **PipelineEndpoint**e selecione **New PipelineEndpoint**.
+1. No diálogo que aparece, expanda a entrega para **PipelineEndpoint** e selecione **New PipelineEndpoint**.
 
 1. Forneça um nome final e descrição opcional.
 

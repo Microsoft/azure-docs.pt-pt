@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4aec299e15964d45ad949034ba02729ff43934de
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043154"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322202"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>Migração StorSimple 8100 e 8600 para Azure File Sync
 
@@ -56,7 +56,7 @@ As ações de ficheiros Azure retêm importantes aspetos de fidelidade de fichei
 
 Este artigo centra-se nos passos de migração. Se quiser saber mais sobre o Azure File Sync antes de migrar, consulte os seguintes artigos:
 
-* [Visão geral do Azure File Sync](https://aka.ms/AFS "Descrição Geral")
+* [Visão geral do Azure File Sync](https://aka.ms/AFS "Descrição geral")
 * [Guia de implementação de Sincronização de Ficheiros Azure](storage-sync-files-deployment-guide.md)
 
 ### <a name="storsimple-service-data-encryption-key"></a>Chave de encriptação de dados de serviço StorSimple
@@ -119,7 +119,7 @@ No final da Fase 1:
 * Tem um plano para o qual os volumes precisam de ser migrados e também como mapear os seus volumes para o número adequado de ações de ficheiros Azure e contas de armazenamento.
 
 > [!CAUTION]
-> Se tiver de migrar cópias de segurança dos volumes StorSimple, **PARE AQUI** .
+> Se tiver de migrar cópias de segurança dos volumes StorSimple, **PARE AQUI**.
 >
 > Esta abordagem de migração baseia-se em novas capacidades de serviço de transformação de dados que atualmente não podem migrar backups. O apoio à migração de apoio chegará no final de 2020. Atualmente só pode migrar os seus dados ao vivo. Se começar agora, não pode "aparafusá-lo" mais tarde. As cópias de segurança devem ser "reproduzidas" para as ações de ficheiros Azure, das mais antigas às mais recentes para os dados ao vivo, com os instantâneos de partilha de ficheiros Azure pelo meio.
 
@@ -165,8 +165,8 @@ Ainda não tem certeza?
 
 #### <a name="account-kind"></a>Tipo de conta
 
-* Para armazenamento normal, escolha *StorageV2 (finalidade geral v2)* .
-* Para ações de ficheiros premium, escolha *o FileStorage* .
+* Para armazenamento normal, escolha *StorageV2 (finalidade geral v2)*.
+* Para ações de ficheiros premium, escolha *o FileStorage*.
 
 #### <a name="replication"></a>Replicação
 
@@ -174,13 +174,13 @@ Existem várias definições de replicação disponíveis. Saiba mais sobre os d
 
 Escolha apenas entre uma das duas opções seguintes:
 
-* *Armazenamento localmente redundante (LRS)* .
+* *Armazenamento localmente redundante (LRS)*.
 * *Armazenamento redundante zona (ZRS),* que não está disponível em todas as regiões de Azure.
 
 > [!NOTE]
 > Apenas os tipos de redundância LRS e ZRS são compatíveis com as grandes ações de ficheiros Azure de 100-TiB.capacitária.
 
-O armazenamento globalmente redundante (GRS) em todas as variações não é atualmente suportado. Pode mudar o seu tipo de redundância mais tarde e mudar para GRS quando o suporte chegar ao Azure.
+O armazenamento geo redundante (GRS) em todas as variações não é suportado atualmente. Pode mudar o seu tipo de redundância mais tarde e mudar para GRS quando o suporte chegar ao Azure.
 
 #### <a name="enable-100-tib-capacity-file-shares"></a>Ativar ações de ficheiros de 100-TiB-capacidade
 
@@ -206,7 +206,7 @@ Após a criação das suas contas de armazenamento, vá à secção de partilha 
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="Uma imagem mostrando o separador Advanced no portal Azure para a criação de uma conta de armazenamento.":::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="Uma imagem do portal Azure mostrando a nova UI partilhada por ficheiros.":::
     :::column-end:::
     :::column:::
         </br>**Name**</br>Letras minúsculas, números e hífenes são suportados.</br></br>**Quota**</br>A quota aqui é comparável a uma quota rígida SMB numa instância do Windows Server. A melhor prática é não definir uma quota aqui porque a sua migração e outros serviços falharão quando a quota for atingida.</br></br>**Escalões**</br>Selecione **Transação otimizada** para a sua nova partilha de ficheiros. Durante a migração, muitas transações ocorrerão. É mais rentável mudar o seu nível mais tarde para o nível mais adequado à sua carga de trabalho.
@@ -215,7 +215,7 @@ Após a criação das suas contas de armazenamento, vá à secção de partilha 
 
 ### <a name="storsimple-data-manager"></a>StorSimple Data Manager
 
-O recurso Azure que irá manter os seus empregos de migração chama-se **StorSimple Data Manager.** Selecione **Novo recurso** e procure-o. Em seguida, selecione **Criar** .
+O recurso Azure que irá manter os seus empregos de migração chama-se **StorSimple Data Manager.** Selecione **Novo recurso** e procure-o. Em seguida, selecione **Criar**.
 
 Este recurso temporário é utilizado para orquestração. Desprovisioná-lo depois da sua migração terminar. Deve ser implantado na mesma subscrição, grupo de recursos e região que a sua conta de armazenamento StorSimple.
 
@@ -232,7 +232,7 @@ No final da Fase 2, terá implantado as suas contas de armazenamento e todas as 
 
 ## <a name="phase-3-create-and-run-a-migration-job"></a>Fase 3: Criar e executar um trabalho de migração
 
-Esta secção descreve como configurar um trabalho de migração e mapear cuidadosamente os diretórios num volume StorSimple que deve ser copiado para o ficheiro target Azure que seleciona. Para começar, vá ao seu Gestor de Dados StorSimple, encontre **definições de Job** no menu e selecione **+ Definição de trabalho** . O tipo de armazenamento alvo é a partilha de **ficheiros Azure** predefinido .
+Esta secção descreve como configurar um trabalho de migração e mapear cuidadosamente os diretórios num volume StorSimple que deve ser copiado para o ficheiro target Azure que seleciona. Para começar, vá ao seu Gestor de Dados StorSimple, encontre **definições de Job** no menu e selecione **+ Definição de trabalho**. O tipo de armazenamento alvo é a partilha de **ficheiros Azure** predefinido .
 
 ![StorSimple 8000 série de empregos de migração.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job-type.png "Uma imagem do portal Job definitions Azure com uma nova caixa de diálogo de definições de emprego aberta que pede o tipo de trabalho: Copiar para uma partilha de ficheiros ou um recipiente blob.")
 
@@ -270,21 +270,21 @@ Um mapeamento é expresso da esquerda para a direita: [\caminho de origem] \> [\
 |Caráter semântico          | Significado  |
 |:---------------------------|:---------|
 | **\\**                     | Indicador de nível de raiz.       |
-| **\>**                     | [Fonte] e [operador de mapeamento de alvos.     |
+| **\>**                     | [Source] e operador [target-mapping].     |
 |**\|** ou RETURN (nova linha) | Separador de duas instruções de mapeamento de pastas. </br>Em alternativa, pode omitir este personagem e selecionar **Enter** para obter a próxima expressão de mapeamento na sua própria linha.        |
 
 ### <a name="examples"></a>Exemplos
 Move o conteúdo da pasta *Os dados do Utilizador* para a raiz da partilha de ficheiros-alvo:
 ``` console
-\User data > \\
+\User data > \
 ```
 Move todo o conteúdo do volume para um novo caminho na partilha de ficheiros-alvo:
 ``` console
-\ \> \Apps\HR tracker
+\ > \Apps\HR tracker
 ```
 Move o conteúdo da pasta de origem para um novo caminho na partilha de ficheiros-alvo:
 ``` console
-\HR resumes-Backup \> \Backups\HR\resumes
+\HR resumes-Backup > \Backups\HR\resumes
 ```
 Classifica vários locais de origem numa nova estrutura de diretório:
 ``` console
@@ -296,7 +296,7 @@ Classifica vários locais de origem numa nova estrutura de diretório:
 ### <a name="semantic-rules"></a>Regras semânticas
 
 * Especifique sempre os caminhos das pastas em relação ao nível da raiz.
-* Inicie cada caminho de pasta com um indicador de nível de raiz " \" .
+* Inicie cada caminho de pasta com um indicador de nível de raiz \\ " "
 * Não inclua cartas de condução.
 * Ao especificar vários caminhos, os caminhos de origem ou alvo não podem sobrepor-se:</br>
    Exemplo de sobreposição de caminho de origem inválido:</br>
@@ -426,10 +426,10 @@ Depois disso muda para qualquer coisa menos **sincronização inicial,** o seu e
 Também pode utilizar o Visualizador de Eventos na sua instância do Windows Server para saber quando o espaço de nome chegou completamente.
 
 1. Abra o **Visualizador de Eventos** e vá a **Aplicações e Serviços.**
-1. Vá e abra **microsoft\FileSync\Agente\Telemetria** .
+1. Vá e abra **microsoft\FileSync\Agente\Telemetria**.
 1. Procure o mais recente **evento 9102,** que corresponde a uma sessão de sincronização completa.
 1. Selecione **Detalhes** e confirme que está a olhar para um evento onde o valor **SyncDirection** é **Download.**
-1. Para o momento em que o seu espaço de nome tiver concluído o download para o servidor, haverá um único evento com **Scenario** , o valor **FullGhostedSync** , e **HResult**  =  **0** .
+1. Para o momento em que o seu espaço de nome tiver concluído o download para o servidor, haverá um único evento com **Scenario** , o valor **FullGhostedSync** , e **HResult**  =  **0**.
 1. Se perder esse evento, também pode procurar outros **eventos 9102** com Download e Cenário **SyncDirection**  =  **Download** **Scenario**  =  **"RegularSync"** do SyncDirection. Encontrar um destes eventos também indica que o espaço de nomes terminou o download e a sincronização progrediu para sessões regulares de sincronização, quer haja algo para sincronizar ou não neste momento.
 
 ### <a name="a-final-robocopy"></a>Um RoboCopy final
@@ -518,7 +518,7 @@ Antecedentes:
    :::column-end:::
 :::row-end:::
 
-Ao configurar as localizações de origem e alvo do comando RoboCopy, certifique-se de que revê a estrutura da fonte e do alvo para garantir que correspondem. Se usou a característica de mapeamento de diretórios do trabalho de migração, a sua estrutura de diretório de raiz pode ser diferente da estrutura do seu volume StorSimple. Se for esse o caso, podes precisar de vários empregos da RoboCopy, um para cada subdireção.
+Ao configurar as localizações de origem e alvo do comando RoboCopy, certifique-se de que revê a estrutura da fonte e do alvo para garantir que correspondem. Se usou a característica de mapeamento de diretórios do trabalho de migração, a sua estrutura de diretório de raiz pode ser diferente da estrutura do seu volume StorSimple. Se for esse o caso, podes precisar de vários empregos da RoboCopy, um para cada subdireção. Se não tiver a certeza se o comando funcionará como esperado, pode utilizar o parâmetro */L,* que simulará o comando sem realmente efetuar quaisquer alterações.
 
 Este comando RoboCopy utiliza /MIR, pelo que não move ficheiros iguais (ficheiros hierárquicos, por exemplo). Mas se errar no caminho da origem e do alvo, o /MIR também purga estruturas de diretório na sua instância do Windows Server ou na partilha de ficheiros Azure que não estão presentes na via de origem StorSimple. Eles devem corresponder exatamente ao trabalho roboCopy para alcançar o objetivo pretendido de atualizar o seu conteúdo migrado com as últimas alterações feitas enquanto a migração está em curso.
 
@@ -547,7 +547,7 @@ Ao desprovisionar um recurso, perde-se o acesso à configuração desse recurso 
 Antes de começar, é uma boa prática observar a sua nova implementação de Azure File Sync em produção durante algum tempo. Esse tempo dá-lhe a oportunidade de resolver qualquer problema que possa encontrar. Depois de ter observado a sua implementação de Azure File Sync durante pelo menos alguns dias, pode começar a desprovisionar recursos nesta ordem:
 
 1. Desprovisionar o seu recurso StorSimple Data Manager através do portal Azure. Todos os seus trabalhos de DTS serão apagados com ele. Não conseguirá recuperar facilmente os registos de cópias. Se forem importantes para os seus registos, recupere-os antes de desprovisionar.
-1. Certifique-se de que os seus aparelhos físicos StorSimple foram migrados e, em seguida, não os registe. Se não tens a certeza absoluta de que foram migradas, não prossigas. Se desprovisionar estes recursos enquanto ainda são necessários, não conseguirá recuperar os dados ou a sua configuração.
+1. Certifique-se de que os seus aparelhos físicos StorSimple foram migrados e, em seguida, não os registe. Se não tens a certeza absoluta de que foram migradas, não prossigas. Se desprovisionar estes recursos enquanto ainda são necessários, não conseguirá recuperar os dados ou a sua configuração.<br>Opcionalmente, pode primeiro desprovisionar o recurso de volume StorSimple, que irá limpar os dados do aparelho. Isto pode demorar vários dias e **não irá,** forensemente, eliminar os dados do aparelho. Se isto for importante para si, manuseie o disco a zeros separadamente da desprovisionamento de recursos e de acordo com as suas políticas.
 1. Se não houver mais dispositivos registados num Gestor de Dispositivos StorSimple, pode proceder à remoção do próprio recurso do Gestor de Dispositivos.
 1. Está na hora de apagar a conta de armazenamento StorSimple em Azure. Mais uma vez, pare e confirme que a sua migração está completa e que nada e ninguém depende destes dados antes de prosseguir.
 1. Desligue o aparelho físico StorSimple do seu centro de dados.

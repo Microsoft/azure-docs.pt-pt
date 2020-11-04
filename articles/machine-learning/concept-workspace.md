@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b40ce0951e2d9c8933d4f0ea9d24b1673e254d6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1076b49a101d5657397ef12b8fac672d37e477b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495710"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324794"
 ---
-# <a name="what-is-an-azure-machine-learning-workspace"></a>O que é um espaço de trabalho de aprendizagem automática Azure?
+# <a name="what-is-an-azure-machine-learning-workspace"></a>O que é uma área de trabalho do Azure Machine Learning?
 
 O espaço de trabalho é o recurso de alto nível para a Azure Machine Learning, proporcionando um lugar centralizado para trabalhar com todos os artefactos que cria quando se utiliza a Azure Machine Learning.  O espaço de trabalho mantém uma história de todas as corridas de treino, incluindo registos, métricas, saídas e uma foto dos seus scripts. Utiliza esta informação para determinar qual o treino que produz o melhor modelo.  
 
@@ -52,9 +52,9 @@ Pode interagir com o seu espaço de trabalho das seguintes formas:
 + Na web:
     + [Estúdio Azure Machine Learning ](https://ml.azure.com) 
     + [Estruturador do Azure Machine Learning](concept-designer.md) 
-+ Em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
++ Em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
 + Em qualquer ambiente R com o [Azure Machine Learning SDK para R (pré-visualização)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ Na linha de comando utilizando a [extensão CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) de aprendizagem da máquina Azure
++ Na linha de comando utilizando a [extensão CLI](./reference-azure-machine-learning-cli.md) de aprendizagem da máquina Azure
 + [Extensão de código VS de aprendizagem de máquina de Azure](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -103,7 +103,7 @@ Ao criar um novo espaço de trabalho, cria automaticamente vários recursos Azur
 + [Conta de Armazenamento Azure](https://azure.microsoft.com/services/storage/): É utilizada como a datastore predefinida para o espaço de trabalho.  Os cadernos Jupyter que são usados com os seus casos de cálculo de Aprendizagem de Máquinas Azure também estão armazenados aqui. 
   
   > [!IMPORTANT]
-  > Por predefinição, a conta de armazenamento é uma conta v1 de uso geral. Pode [atualizá-lo para v2 de uso geral](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) após a criação do espaço de trabalho. Não ative o espaço hierárquico na conta de armazenamento após a atualização para o v2 de uso geral.
+  > Por predefinição, a conta de armazenamento é uma conta v1 de uso geral. Pode [atualizá-lo para v2 de uso geral](../storage/common/storage-account-upgrade.md) após a criação do espaço de trabalho. Não ative o espaço hierárquico na conta de armazenamento após a atualização para o v2 de uso geral.
 
   Para utilizar uma conta de Armazenamento Azure existente, não pode ser uma conta premium (Premium_LRS e Premium_GRS). Também não pode ter um espaço hierárquico de nomes (usado com Azure Data Lake Storage Gen2). Nem o armazenamento premium nem os espaços hierárquicos são suportados com a conta de armazenamento _predefinido_ do espaço de trabalho. Pode utilizar um espaço de identificação premium ou hierárquico com contas de armazenamento _não padrão._
   
@@ -135,5 +135,5 @@ Para começar com a Azure Machine Learning, consulte:
 + [Tutorial: Começa com a Azure Machine Learning no teu ambiente de desenvolvimento](tutorial-1st-experiment-sdk-setup-local.md)
 + [Tutorial: Começa a criar a tua primeira experiência de ML numa instância computacional](tutorial-1st-experiment-sdk-setup.md)
 + [Tutorial: Começar com Azure Machine Learning com o R SDK](tutorial-1st-r-experiment.md)
-+ [Tutorial: Crie o seu primeiro modelo de classificação com aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) 
++ [Tutorial: Criar o seu primeiro modelo de classificação com machine learning automatizado](tutorial-first-experiment-automated-ml.md) 
 + [Tutorial: Prever preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md)

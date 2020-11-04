@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: f73643baa92956280d67d0d931459af3a80925ee
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: e8554bf4385c7ddad540b8ba807988618fe80b53
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233753"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322989"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planear e gerir os custos para a Azure Machine Learning
 
@@ -53,11 +53,11 @@ Para mais informações, consulte [os preços de Aprendizagem automática Azure.
 
 ## <a name="get-cost-alerts"></a>Receba alertas de custos
 
-Crie orçamentos para gerir [custos](../cost-management/tutorial-acm-create-budgets.md) e criar [alertas](../cost-management/cost-mgt-alerts-monitor-usage-spending.md) que notifiquem automaticamente as partes interessadas de anomalias de gastos e riscos de gastos excessivos. Os alertas são baseados nos gastos em comparação com os orçamentos e os limites de custos. Orçamentos e alertas são criados para subscrições e grupos de recursos Azure, por isso são úteis como parte de uma estratégia global de monitorização de custos. No entanto, os orçamentos e alertas podem ter uma funcionalidade limitada para gerir os custos individuais do serviço Azure, porque são projetados para controlar os custos a um nível mais elevado.
+Crie orçamentos para gerir [custos](../cost-management-billing/costs/tutorial-acm-create-budgets.md) e criar [alertas](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md) que notifiquem automaticamente as partes interessadas de anomalias de gastos e riscos de gastos excessivos. Os alertas são baseados nos gastos em comparação com os orçamentos e os limites de custos. Orçamentos e alertas são criados para subscrições e grupos de recursos Azure, por isso são úteis como parte de uma estratégia global de monitorização de custos. No entanto, os orçamentos e alertas podem ter uma funcionalidade limitada para gerir os custos individuais do serviço Azure, porque são projetados para controlar os custos a um nível mais elevado.
 
 ## <a name="monitor-costs"></a>Monitorizar os custos
 
-Ao utilizar recursos com a Azure Machine Learning, incorre em custos. Os custos da unidade de utilização do recurso Azure variam em intervalos de tempo (segundos, minutos, horas e dias) ou mediante utilização da unidade. Assim que a utilização do Azure Machine Learning começa, os custos são incorridos. Veja estes custos no painel de análise de [custos](../cost-management/quick-acm-cost-analysis.md) no portal Azure.
+Ao utilizar recursos com a Azure Machine Learning, incorre em custos. Os custos da unidade de utilização do recurso Azure variam em intervalos de tempo (segundos, minutos, horas e dias) ou mediante utilização da unidade. Assim que a utilização do Azure Machine Learning começa, os custos são incorridos. Veja estes custos no painel de análise de [custos](../cost-management-billing/costs/quick-acm-cost-analysis.md) no portal Azure.
 
 Pode ver os custos em gráficos e tabelas para diferentes intervalos de tempo. Também é possível ver os custos com os orçamentos e os custos previstos. Mudar para vistas mais longas ao longo do tempo ajuda a identificar as tendências de gastos e ver onde poderia ter ocorrido gastos excessivos. Se criou orçamentos, veja onde excederam.  
 
@@ -86,7 +86,7 @@ Também pode configurar a quantidade de tempo que o nó está inativo antes de r
 + Se realizar menos experimentação iterativa, reduza este tempo para economizar custos.
 + Se realizar uma experimentação altamente iterativa dev/teste, poderá ter de aumentar o tempo para não pagar por uma escalada constante após cada alteração ao seu script de treino ou ambiente.
 
-Os clusters AmlCompute podem ser configurados para os seus requisitos de carga de trabalho em mudança no portal Azure, utilizando a [classe AmlCompute SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true), [AmlCompute CLI,](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)com as [APIs REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
+Os clusters AmlCompute podem ser configurados para os seus requisitos de carga de trabalho em mudança no portal Azure, utilizando a [classe AmlCompute SDK](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py), [AmlCompute CLI,](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute)com as [APIs REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable).
 
 ```azurecli
 az ml computetarget create amlcompute --name testcluster --vm-size Standard_NC6 --min-nodes 0 --max-nodes 5 --idle-seconds-before-scaledown 300

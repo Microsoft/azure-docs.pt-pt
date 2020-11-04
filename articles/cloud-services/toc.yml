@@ -12,6 +12,12 @@
       href: cloud-services-dotnet-get-started.md
     - name: Exemplo de Serviço em Nuvem Python para o Visual Studio
       href: cloud-services-python-ptvs.md
+- name: Conceitos
+  items:
+    - name: Segurança
+      items:
+        - name: Linha de base de segurança
+          href: security-baseline.md
 - name: Procedimento
   items:
     - name: Planear

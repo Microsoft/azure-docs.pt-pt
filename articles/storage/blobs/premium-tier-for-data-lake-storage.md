@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/30/2020
 ms.author: normesta
-ms.openlocfilehash: dc0b620629b5dce651e02e5fe95b0619c1d42a78
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: be440407fb6f4d9715ba80c584af023a5f662394
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131161"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324216"
 ---
 # <a name="premium-tier-for-azure-data-lake-storage"></a>Nível premium para armazenamento de lago de dados Azure
 
@@ -57,7 +57,7 @@ Algumas funcionalidades de armazenamento Blob podem não estar disponíveis ou p
 
 ## <a name="enabling-the-premium-performance-tier"></a>Habilitando o nível de desempenho premium 
 
-Pode utilizar o nível premium para o Armazenamento do Lago de Dados Azure, criando uma conta BlockBlobStorage com a definição **de espaço hierárquico** **ativada** . Para obter uma orientação completa, consulte [Criar uma conta BlockBlobStorage.](storage-blob-create-account-block-blob.md)
+Pode utilizar o nível premium para o Armazenamento do Lago de Dados Azure, criando uma conta BlockBlobStorage com a definição **de espaço hierárquico** **ativada**. Para obter uma orientação completa, consulte [Criar uma conta BlockBlobStorage.](storage-blob-create-account-block-blob.md)
 
 Ao criar a conta, certifique-se de escolher a opção de desempenho **Premium** e o tipo de conta **BlockBlobStorage.**
 
@@ -75,7 +75,7 @@ A imagem a seguir mostra esta definição na página de **conta de armazenamento
 
 O nível premium para o Azure Data Lake Storage está disponível nas seguintes regiões.
 
-|Região|Redundância|
+|Region|Redundância|
 |--|--|
 |E.U.A. Leste|LRS, ZRS|
 |E.U.A. Leste 2|LRS, ZRS|
@@ -103,3 +103,12 @@ O nível premium para o Azure Data Lake Storage está disponível nas seguintes 
 |Leste da Austrália|LRS, ZRS|
 |Sudeste da Austrália|LRS|
 |Sul do Brasil|LRS|
+
+## <a name="next-steps"></a>Passos seguintes
+
+Utilize o nível premium para O Armazenamento do Lago de Dados Azure com o seu serviço de análise favorito, como Azure Databricks, Azure HDInsight e Azure Synapse Analytics. 
+
+- [Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark](data-lake-storage-use-databricks-spark.md) 
+- [Use Azure Data Lake Storage Gen2 com clusters Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) O HDInsight suporta atualmente uma conta que utiliza o nível de desempenho premium juntamente com um cluster HBase que acelerou as escritas ativadas.
+- [Quickstart: Criar um espaço de trabalho synapse](../../synapse-analytics/quickstart-create-workspace.md)
+

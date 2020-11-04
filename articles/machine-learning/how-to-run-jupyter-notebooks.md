@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628682"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325406"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
 
@@ -42,7 +42,7 @@ No seu espaço de trabalho Azure Machine Learning, crie um novo caderno Jupyter 
 Para criar um novo caderno: 
 
 1. Abra o seu espaço de trabalho no [estúdio Azure Machine Learning.](https://ml.azure.com)
-1. Do lado esquerdo, selecione **Cadernos** . 
+1. Do lado esquerdo, selecione **Cadernos**. 
 1. Selecione o novo ícone **de ficheiro** acima da lista **Ficheiros do utilizador** na secção **'Os meus ficheiros'.**
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Criar novo ficheiro":::
@@ -50,7 +50,7 @@ Para criar um novo caderno:
 1. Diga o nome do ficheiro. 
 1. Para ficheiros de cadernos Jupyter, selecione **Notebook** como o tipo de ficheiro.
 1. Selecione um diretório de ficheiros.
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 
 Também pode criar ficheiros de texto.  Selecione **Texto** como o tipo de ficheiro e adicione a extensão ao nome (por exemplo, myfile.py ou myfile.txt)  
 
@@ -75,16 +75,16 @@ Pode aceder a todas as operações do Git utilizando uma janela terminal. Todos 
 Para aceder ao terminal:
 
 1. Abra o seu espaço de trabalho no [estúdio Azure Machine Learning.](https://ml.azure.com)
-1. Do lado esquerdo, selecione **Cadernos** .
+1. Do lado esquerdo, selecione **Cadernos**.
 1. Selecione qualquer caderno localizado na secção **de ficheiros do Utilizador** no lado esquerdo.  Se não tem nenhum caderno lá, primeiro [crie um caderno](#create)
 1. Selecione um alvo **compute** ou crie um novo e espere até estar em funcionamento.
 1. Selecione o ícone **do terminal Aberto.**
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Criar novo ficheiro":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Terminal aberto":::
 
-1. Se não vir o ícone, selecione o **...** à direita do alvo do cálculo e, em seguida, selecione **Open terminal** .
+1. Se não vir o ícone, selecione o **...** à direita do alvo do cálculo e, em seguida, selecione **Open terminal**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Criar novo ficheiro":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Terminal aberto de ...":::
 
 
 Saiba mais sobre [a clonagem de repositórios de Git no seu sistema de ficheiros de espaço de trabalho.](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system)
@@ -114,9 +114,9 @@ Também pode lançar Jupyter ou JupyterLab a partir da barra de ferramentas Note
 Utilize o modo de focagem para expandir a sua visão atual para que possa concentrar-se nos separadores ativos. O modo focus esconde o explorador de ficheiros Notebooks.
 
 1. Na barra de ferramentas da janela do terminal, selecione **o modo Focus** para ligar o modo de focagem. Dependendo da largura da janela, este pode estar localizado sob o item do **menu na** sua barra de ferramentas.
-1. Enquanto está no modo de focagem, volte à vista padrão selecionando a **vista Standard** .
+1. Enquanto está no modo de focagem, volte à vista padrão selecionando a **vista Standard**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Criar novo ficheiro":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Modo de foco de alternação / visão padrão":::
 
 
 ### <a name="use-intellisense"></a>Utilizar o IntelliSense
@@ -136,7 +136,7 @@ Ao longo da criação de um caderno, normalmente acaba-se com células que utili
 1. Executar todas as suas celas de caderno.
 1. Selecione a célula que contém o código que deseja que o novo caderno possa ser executado. Por exemplo, o código que submete uma experiência, ou talvez o código que regista um modelo.
 1. Selecione o ícone **'Recolha'** que aparece na barra de ferramentas da célula.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Criar novo ficheiro":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Screenshot: selecione o ícone 'Recolha', selecione":::
 1. Insira o nome do seu novo caderno "recolhido".  
 
 O novo caderno contém apenas células de código, com todas as células necessárias para produzir os mesmos resultados que a célula selecionada para recolha.
@@ -147,7 +147,7 @@ A Azure Machine Learning cria um ficheiro de checkpoint quando cria um ficheiro 
 
 Na barra de ferramentas do portátil, selecione o menu e, em seguida, **&gt; Guarde e registe** para guardar manualmente o portátil e adicionará um ficheiro de verificação associado ao portátil.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Criar novo ficheiro":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot da ferramenta de salvamento na barra de ferramentas do portátil":::
 
 Todos os cadernos são automaticamente a cada 30 segundos. Faça automaticamente atualizações apenas no ficheiro *ipynb* inicial, não no ficheiro de verificação.
  
@@ -181,14 +181,14 @@ Para executar uma experiência a partir de um Caderno, você primeiro se conecta
 
 1. Selecione **+** na barra de ferramentas Do Notebook. 
 2. Nomeie o Compute e escolha um **tamanho de máquina virtual.** 
-3. Selecione **Criar** .
+3. Selecione **Criar**.
 4. A instância computacional está ligada automaticamente ao Caderno e agora pode executar as suas células.
 
 Só você pode ver e usar as instâncias de cálculo que cria.  Os **ficheiros do** utilizador são armazenados separadamente do VM e são partilhados entre todas as instâncias computacional no espaço de trabalho.
 
 ### <a name="view-logs-and-output"></a>Ver registos e saída
 
-Utilize [widgets notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) para ver o progresso da execução e dos registos. Um widget é assíncronoso e fornece atualizações até que o treino termine. Os widgets Azure Machine Learning também são suportados no Jupyter e no JupterLab.
+Utilize [widgets notebook](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) para ver o progresso da execução e dos registos. Um widget é assíncronoso e fornece atualizações até que o treino termine. Os widgets Azure Machine Learning também são suportados no Jupyter e no JupterLab.
 
 ## <a name="change-the-notebook-environment"></a>Alterar o ambiente do caderno
 

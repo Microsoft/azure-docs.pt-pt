@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Azure Toolkit para IntelliJ (aplicação Spark)
-description: Tutorial - Utilize o Kit de Ferramentas Azure para IntelliJ para desenvolver aplicações Spark, que são escritas em Scala, e submetê-las a uma piscina Apache Spark (pré-visualização).
+description: Tutorial - Utilize o Kit de Ferramentas Azure para o IntelliJ para desenvolver aplicações Spark, que são escritas em Scala, e submetê-las a uma piscina Apache Spark sem servidor (pré-visualização).
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,16 +9,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/15/2020
-ms.openlocfilehash: be127d4214577e017522aec6a1b61b8f62638ed9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5a9fcf3e13c2f86a11e9626be486a585ec659044
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368745"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325229"
 ---
 # <a name="tutorial-create-an-apache-spark-application-with-intellij-using-a-synapse-workspace"></a>Tutorial: Criar uma aplicação Apache Spark com IntelliJ usando um espaço de trabalho synapse
 
-Este tutorial mostra-lhe como usar o Azure Toolkit para o plug-in IntelliJ para desenvolver aplicações Apache Spark, que são escritas em [Scala,](https://www.scala-lang.org/)e depois submetê-las a uma piscina spark (pré-visualização) diretamente do ambiente de desenvolvimento integrado intelliJ (IDE). Pode utilizar o plug-in de várias formas:
+Este tutorial mostra-lhe como usar o Azure Toolkit para o plug-in IntelliJ para desenvolver aplicações Apache Spark, que são escritas em [Scala,](https://www.scala-lang.org/)e depois submetê-las a uma piscina Apache Spark sem servidor (pré-visualização) diretamente do ambiente de desenvolvimento integrado intelliJ (IDE). Pode utilizar o plug-in de várias formas:
 
 - Desenvolva e submeta uma aplicação Scala Spark numa piscina de faíscas.
 - Aceda aos recursos das suas piscinas Spark.
@@ -40,7 +40,7 @@ Neste tutorial, ficará a saber como:
 - O seguinte pré-requisito é apenas para utilizadores do Windows:
 
   Enquanto executa a aplicação local Spark Scala num computador Windows, poderá obter uma exceção, como explicado no [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). A exceção ocorre porque WinUtils.exe falta no Windows.
-  Para resolver este erro, faça o download dos [WinUtils executáveis](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) para um local como **C:\WinUtils\bin**. Em seguida, adicione a variável ambiental **HADOOP_HOME**, e desave o valor da variável para **C:\WinUtils**.
+  Para resolver este erro, faça o download dos [WinUtils executáveis](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) para um local como **C:\WinUtils\bin**. Em seguida, adicione a variável ambiental **HADOOP_HOME** , e desave o valor da variável para **C:\WinUtils**.
 
 ## <a name="create-a-spark-scala-application-for-a-spark-pool"></a>Crie uma aplicação Spark Scala para uma piscina de faíscas
 
@@ -96,7 +96,7 @@ Inscreva-se na subscrição da Azure para ligar às suas piscinas Spark.
 
    ![IntelliJ IDEA explorador à direita Azure](./media/intellij-tool-synapse/explorer-rightclick-azure.png)
 
-3. Na caixa **de diálogo Azure In** dialog, escolha Iniciar **sessão**e, em seguida, selecione **Iniciar sessão .**
+3. Na caixa **de diálogo Azure In** dialog, escolha Iniciar **sessão** e, em seguida, selecione **Iniciar sessão .**
 
     ![IntelliJ IDEA Azure adubá-lo](./media/intellij-tool-synapse/intellij-view-explorer2.png)
 
@@ -136,7 +136,7 @@ Depois de criar uma aplicação Scala, pode executá-la remotamente.
 
     ![A Aplicação de Faísca submeter ao comando HDInsight 2](./media/intellij-tool-synapse/create-synapse-configuration02.png)
 
-3. Na janela **Configurações Run/Debug,** forneça os seguintes valores e, em seguida, selecione **OK**:
+3. Na janela **Configurações Run/Debug,** forneça os seguintes valores e, em seguida, selecione **OK** :
 
     |Propriedade |Valor |
     |----|----|
@@ -178,7 +178,7 @@ Pode seguir as instruções abaixo para configurar a sua corrida local e depurar
 
     ![Intellij Run depurar configurações locais run 2](./media/intellij-tool-synapse/local-run-synapse01.png)
 
-3. Uma vez concluída a execução local, se o **data**script incluir a saída, pode verificar o ficheiro de saída a partir do  >  **__predefinido dados__**.
+3. Uma vez concluída a execução local, se o **data** script incluir a saída, pode verificar o ficheiro de saída a partir do  >  **__predefinido dados__**.
 
     ![Intellij Project resultado de execução local 1](./media/intellij-tool-synapse/spark-local-run-result.png)
 
@@ -195,11 +195,11 @@ Pode executar diferentes operações no Azure Explorer dentro do Azure Toolkit p
 
 ### <a name="launch-workspace"></a>Espaço de trabalho de lançamento
 
-1. De Azure Explorer, navegue até **Apache Spark na Sinapse**e, em seguida, expanda-o.
+1. De Azure Explorer, navegue até **Apache Spark na Sinapse** e, em seguida, expanda-o.
 
     ![IntelliJ IDEA Azure Explorer vista principal](./media/intellij-tool-synapse/azure-explorer-workspace.png)
 
-2. Clique com o botão direito num espaço de trabalho e, em seguida, selecione **Launch workspace**, website será aberto.
+2. Clique com o botão direito num espaço de trabalho e, em seguida, selecione **Launch workspace** , website será aberto.
 
     ![Detalhes da aplicação de visualização de emprego spark 1](./media/intellij-tool-synapse/launch-workspace-synapse.png)
 
@@ -213,10 +213,10 @@ Pode executar a Consola Local Spark (Scala) ou executar a Consola De Sessão Int
 
 Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
 
-1. A partir da barra **Run**de menu, navegue para  >  **configurações de edição de execução...**.
+1. A partir da barra **Run** de menu, navegue para  >  **configurações de edição de execução...**.
 2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark na Synapse**  >  **[Faísca na Sinapse] myApp**.
 3. A partir da janela principal, selecione o **separador Localmente Executar.**
-4. Forneça os seguintes valores e, em seguida, selecione **OK**:
+4. Forneça os seguintes valores e, em seguida, selecione **OK** :
 
     |Propriedade |Valor |
     |----|----|
@@ -241,13 +241,13 @@ Certifique-se de ter satisfeito o pré-requisito WINUTILS.EXE.
 
 Só é suportado no IntelliJ 2018.2 e 2018.3.
 
-1. A partir da barra **Run**de menu, navegue para  >  **configurações de edição de execução...**.
+1. A partir da barra **Run** de menu, navegue para  >  **configurações de edição de execução...**.
 
 2. A partir da janela **configurações Run/Debug,** no painel esquerdo, navegue até **Apache Spark na sinapse**  >  **[Faísca na sinapse] myApp**.
 
 3. A partir da janela principal, selecione o **separador "Executar remotamente" no separador Cluster.**
 
-4. Forneça os seguintes valores e, em seguida, selecione **OK**:
+4. Forneça os seguintes valores e, em seguida, selecione **OK** :
 
     |Propriedade |Valor |
     |----|----|
@@ -259,7 +259,7 @@ Só é suportado no IntelliJ 2018.2 e 2018.3.
 
 5. Do Project, navegue para **o myApp**  >  **src**  >  **main**  >  **scala**  >  **myApp**.
 
-6. A partir da barra de menu, navegue para **ferramentas**  >  **spark consola**Run Spark  >  **Livy Interactive Session Console(Scala)**.
+6. A partir da barra de menu, navegue para **ferramentas**  >  **spark consola** Run Spark  >  **Livy Interactive Session Console(Scala)**.
 7. A consola deve ser semelhante à imagem abaixo. No tipo de janela da consola `sc.appName` , e, em seguida, prima ctrl+Enter. O resultado será mostrado. Pode parar a consola local selecionando o botão vermelho.
 
     ![Resultado da consola interativa Intellij IDEA](./media/intellij-tool-synapse/interactive-console-result.png)

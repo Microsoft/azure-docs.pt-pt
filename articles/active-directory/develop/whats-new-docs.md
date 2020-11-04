@@ -1,25 +1,50 @@
 ---
 title: Novidades na plataforma de identidade da Microsoft
+titleSuffix: Microsoft identity platform
 description: Documentação nova e atualizada para a plataforma de identidade da Microsoft.
-ms.date: 10/09/2020
+services: active-directory
+author: mmacy
+manager: CelesteDG
+ms.date: 11/03/2020
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.author: marsma
-services: active-directory
-author: mmacy
-manager: CelesteDG
-ms.openlocfilehash: e6b1e16666188b21926d7547d80bda87303bc0f1
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: d5865810dafef9ce2bb525a8f1b6cdbdb1a86566
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979615"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322569"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Docs da plataforma de identidade da Microsoft: Quais as novidades
 
 Bem-vindos às novidades na documentação da plataforma de identidade da Microsoft. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses.
+
+## <a name="october-2020"></a>Outubro de 2020
+
+### <a name="new-articles"></a>Artigos novos
+
+- [Quickstart: Inicie os utilizadores e obtenha um token de acesso numa aplicação web nó usando o fluxo de código auth](quickstart-v2-nodejs-webapp-msal.md)
+- [Como: Ativar sSO cross-app no Android usando o MSAL](msal-android-single-sign-on.md)
+- [Apoie políticas únicas de segurança de assinatura e aplicações em aplicações móveis que desenvolver](mobile-sso-support-overview.md)
+- Docs da plataforma de identidade da Microsoft: Quais as novidades (este artigo)
+- [Tutorial: Inscreva-se nos utilizadores e chame uma API protegida a partir de uma aplicação Blazor WebAssembly](tutorial-blazor-webassembly.md)
+- [Biblioteca de autenticação Microsoft Identity Web](microsoft-identity-web.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Vidas de token configuradas na plataforma de identidade da Microsoft (pré-visualização)](active-directory-configurable-token-lifetimes.md)
+- [How to: Iniciar sessão de qualquer utilizador do Azure Active Directory com o padrão de aplicação multi-inquilino](howto-convert-app-to-be-multi-tenant.md)
+- [Quickstart: Modificar as contas suportadas por uma aplicação](quickstart-modify-supported-accounts.md)
+- [Vídeos da plataforma de identidade da Microsoft](identity-videos.md)
+- [Guia de migração ADAL para MSAL para Android](migrate-android-adal-msal.md)
+- [Quickstart: Ligue para uma API web ASP.NET protegida pela plataforma de identidade da Microsoft](quickstart-v2-dotnet-native-aspnet.md)
+- [Credenciais de certificado de autenticação de aplicativos da plataforma de identidade da Microsoft](active-directory-certificate-credentials.md)
+- [Tutorial: Inscreva-se nos utilizadores e ligue para o Microsoft Graph a partir de uma aplicação para iOS ou macOS](tutorial-v2-ios.md)
+- [Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)](tutorial-v2-javascript-spa.md)
+- [Tutorial: Utilize o modo de dispositivo partilhado na sua aplicação Android](tutorial-v2-shared-device-mode.md)
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -62,27 +87,3 @@ Bem-vindos às novidades na documentação da plataforma de identidade da Micros
 - [Quickstart: Configurar uma aplicação para expor uma API web](quickstart-configure-app-expose-web-apis.md)
 - [Vídeos da plataforma de identidade da Microsoft](identity-videos.md)
 - [Quickstart: Ligue para uma API web ASP.NET protegida pela plataforma de identidade microsoft](quickstart-v2-dotnet-native-aspnet.md)
-
-## <a name="july-2020"></a>Julho de 2020
-
-### <a name="new-articles"></a>Artigos novos
-
-- [Adicione a sua candidatura à galeria de candidaturas Azure Ative Directory](v2-howto-app-gallery-listing.md)
-- [Obtenha a certificação appSource para diretório ativo Azure](v2-howto-get-appsource-certified.md)
-
-### <a name="updated-articles"></a>Artigos atualizados
-
-- [Plataforma de identidade da Microsoft e OAuth 2.0 Em nome do fluxo](v2-oauth2-on-behalf-of-flow.md)
-- [Restrições e limitações de URI de redirecionamento/URL de resposta](reply-url.md)
-- [API web protegida: configuração de código](scenario-protected-web-api-app-configuration.md)
-- [API web protegida: Verificar âmbitos e funções de aplicativo](scenario-protected-web-api-verification-scope-app-roles.md)
-- [Uma API web que chama APIs web: Adquira um símbolo para a app](scenario-web-api-call-api-acquire-token.md)
-- [Uma API web que chama APIs web: configuração de código](scenario-web-api-call-api-app-configuration.md)
-- [Uma aplicação web que chama APIs web: Adquira um símbolo para a app](scenario-web-app-call-api-acquire-token.md)
-- [Aplicação web que assina nos utilizadores: Configuração de código](scenario-web-app-sign-user-app-configuration.md)
-- [Visão geral da plataforma de identidade da Microsoft](v2-overview.md)
-- [Vídeos da plataforma de identidade da Microsoft](identity-videos.md)
-- [Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java](quickstart-v2-java-webapp.md)
-- [Fluxos de autenticação](msal-authentication-flows.md)
-- [Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (XAML)](tutorial-v2-windows-uwp.md)
-- [Inicialize as aplicações do cliente utilizando MSAL.js](msal-js-initializing-client-applications.md)

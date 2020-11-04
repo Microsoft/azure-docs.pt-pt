@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 21c57257f9ce5a33585f151d38c16736f94a166c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3509530994b07a16fb1f2780fffc6fd27cf8aa7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998693"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325511"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Como implementar um serviço web de inferenculação encriptado (pré-visualização)
 
-Aprenda a implementar um modelo de classificação de imagem como um serviço web de inferenização encriptado em [Instâncias de Contentores Azure](https://docs.microsoft.com/azure/container-instances/) (ACI). O serviço web é uma imagem de recipiente Docker que contém a lógica do modelo e da pontuação.
+Aprenda a implementar um modelo de classificação de imagem como um serviço web de inferenização encriptado em [Instâncias de Contentores Azure](../container-instances/index.yml) (ACI). O serviço web é uma imagem de recipiente Docker que contém a lógica do modelo e da pontuação.
 
 Neste guia, utiliza o serviço Azure Machine Learning para:
 
@@ -28,9 +28,9 @@ Neste guia, utiliza o serviço Azure Machine Learning para:
 > * Implementar serviço web de inferição encriptado
 > * Preparar dados de teste
 > * Fazer previsões encriptadas
-> * Limpar recursos
+> * Limpar os recursos
 
-O ACI é uma excelente solução para testar e compreender o fluxo de trabalho de implementação do modelo. Relativamente a implementação de produção dimensionáveis, considere utilizar o Azure Kubernetes Service. Para mais informações, consulte [como implementar e onde.](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where)
+O ACI é uma excelente solução para testar e compreender o fluxo de trabalho de implementação do modelo. Relativamente a implementação de produção dimensionáveis, considere utilizar o Azure Kubernetes Service. Para mais informações, consulte [como implementar e onde.](./how-to-deploy-and-where.md)
 
 O método de encriptação utilizado nesta amostra é [encriptação homomórfica.](https://github.com/Microsoft/SEAL#homomorphic-encryption) A encriptação homomórfica permite que os cálculos sejam feitos em dados encriptados sem exigir o acesso a uma chave secreta (desencriptação). Os resultados dos cálculos são encriptados e só podem ser revelados pelo proprietário da chave secreta. 
 
@@ -319,7 +319,7 @@ Para fazer previsões encriptadas:
     print ( ' Actual Label : ', y_test[sample_index])
     ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Eliminar o serviço web criado nesta amostra:
 

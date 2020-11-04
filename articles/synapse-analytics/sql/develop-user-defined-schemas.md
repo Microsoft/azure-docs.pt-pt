@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: aebe1d995f3cb6da4663876b8d39d36a1a8b16c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a21d2f0debb2ade8e46b0cdb5b3fa5b51f0a180c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030172"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323863"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Esquemas definidos pelo utilizador dentro do SQL da Sinapse
 
@@ -27,7 +27,7 @@ A arquitetura de análise tradicional usa frequentemente bases de dados separada
 Em vez disso, o Synapse SQL executa toda a carga de trabalho analítica dentro de uma base de dados. Não são permitidas juntas de base de dados cruzadas. A Synapse SQL espera que todas as tabelas utilizadas pelo armazém sejam armazenadas dentro de uma base de dados.
 
 > [!NOTE]
-> As piscinas SQL não suportam consultas de base de dados cruzadas de qualquer tipo. Consequentemente, as implementações analíticas que alavancam este padrão terão de ser revistas. SQL on-demand (pré-visualização) suporta consultas de base de dados cruzadas.
+> Piscinas SQL dedicadas não suportam consultas de base de dados cruzadas de qualquer tipo. Consequentemente, as implementações analíticas que alavancam este padrão terão de ser revistas. O pool SQL sem servidor (pré-visualização) suporta consultas de base de dados cruzadas.
 
 ## <a name="user-defined-schema-recommendations"></a>Recomendações de esquema definidas pelo utilizador
 

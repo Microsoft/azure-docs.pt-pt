@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 62edee6a882191551ce2409646ea8b617576c059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4c479a64b2100cfc1a6fdf17f5e6f5636d3a689d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89651156"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322220"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Treino distribuído com Azure Machine Learning
 
@@ -24,9 +24,9 @@ Na formação distribuída, a carga de trabalho para formar um modelo é dividid
 
 ## <a name="deep-learning-and-distributed-training"></a>Aprendizagem profunda e formação distribuída 
 
-Existem dois tipos principais de formação distribuída: [paralelismo de dados](#data-parallelism) e [paralelismo de modelo.](#model-parallelism) Para formação distribuída em modelos de deep learning, o [Azure Machine Learning SDK em Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) suporta integrações com quadros populares, PyTorch e TensorFlow. Ambos os quadros empregam paralelismo de dados para formação distribuída, e podem aproveitar [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) para otimizar velocidades de computação. 
+Existem dois tipos principais de formação distribuída: [paralelismo de dados](#data-parallelism) e [paralelismo de modelo.](#model-parallelism) Para formação distribuída em modelos de deep learning, o [Azure Machine Learning SDK em Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) suporta integrações com quadros populares, PyTorch e TensorFlow. Ambos os quadros empregam paralelismo de dados para formação distribuída, e podem aproveitar [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) para otimizar velocidades de computação. 
 
-* [Treino distribuído com PyTorch](how-to-train-pytorch.md#distributed-training)
+* [Preparação distribuída com o PyTorch](how-to-train-pytorch.md#distributed-training)
 
 * [Treino distribuído com TensorFlow](how-to-train-tensorflow.md#distributed-training)
 
@@ -51,6 +51,6 @@ No paralelismo modelo, os nós dos trabalhadores só precisam de sincronizar os 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda a [usar alvos de computação para o treino de modelo](how-to-set-up-training-targets.md) com o Python SDK.
-* Para um exemplo técnico, consulte o [cenário de arquitetura de referência.](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/training-deep-learning)
+* Para um exemplo técnico, consulte o [cenário de arquitetura de referência.](/azure/architecture/reference-architectures/ai/training-deep-learning)
 * [Treinar modelos ML com TensorFlow](how-to-train-tensorflow.md).
-* [Treinar modelos ML com PyTorch.](how-to-train-pytorch.md) 
+* [Treinar modelos ML com PyTorch.](how-to-train-pytorch.md)

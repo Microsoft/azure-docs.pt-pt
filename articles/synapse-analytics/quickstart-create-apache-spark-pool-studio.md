@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Criar uma piscina Apache Spark (pré-visualização) usando o Synapse Studio'
-description: Crie uma nova piscina Apache Spark utilizando o Synapse Studio seguindo os passos deste guia.
+title: 'Quickstart: Criar uma piscina Apache Spark sem servidor (pré-visualização) usando o Synapse Studio'
+description: Crie uma piscina Apache Spark sem servidor utilizando o Synapse Studio seguindo os passos deste guia.
 services: synapse-analytics
 author: saveenr
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 10/16/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: c497b9974ad2d6fdd9482ae673de5807669d8ff5
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 313ad0c620fe06158e96c208ae265702134b58d1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748325"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324185"
 ---
-# <a name="quickstart-create-an-apache-spark-pool-preview-using-synapse-studio"></a>Quickstart: Criar uma piscina Apache Spark (pré-visualização) usando o Synapse Studio
+# <a name="quickstart-create-a-serverless-apache-spark-pool-preview-using-synapse-studio"></a>Quickstart: Criar uma piscina Apache Spark sem servidor (pré-visualização) usando o Synapse Studio
 
 O Azure Synapse Analytics oferece vários motores de análise para ajudá-lo a ingerir, transformar, modelar, analisar e servir os seus dados. O conjunto Apache Spark oferece capacidades de computação de dados de código aberto. Depois de criar uma piscina Apache Spark no seu espaço de trabalho Synapse, os dados podem ser carregados, modelados, processados e servidos para obter insights.  
 
@@ -47,7 +47,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
 
 ## <a name="launch-synapse-studio"></a>Iniciar o Synapse Studio 
 
-A partir da visão geral do espaço de trabalho, selecione **Launch Synapse Studio** para abrir o local onde será criada a piscina Apache Spark. Digite o nome de serviço ou nome do recurso diretamente na barra de pesquisa.
+A partir da visão geral do espaço de trabalho, selecione o **URL web workspace** para abrir o Synapse Studio.
 
 ![A visão geral do espaço de trabalho do portal Azure Synapse com Launch Synapse Studio em destaque.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-20.png)
 
@@ -79,9 +79,9 @@ A partir da visão geral do espaço de trabalho, selecione **Launch Synapse Stud
 
 1. No separador seguinte (Definições adicionais), deixe todas as definições como padrão.
 
-1. Não adicionaremos nenhuma etiqueta por enquanto, por isso selecione **Review + create** .
+1. Não adicionaremos nenhuma etiqueta por enquanto, por isso selecione **Review + create**.
 
-1. No **separador 'Rever +' criar,** certifique-se de que os detalhes ficam corretos com base no que foi previamente introduzido e prima **Criar** . 
+1. No **separador 'Rever +' criar,** certifique-se de que os detalhes ficam corretos com base no que foi previamente introduzido e prima **Criar**. 
 
     ![Criar o Estúdio Synapse nova piscina Apache Spark](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-26.png)
 
@@ -104,7 +104,7 @@ Se pretender eliminar a piscina Apache Spark, faça o seguinte:
 
     ![Listagem de piscinas Apache Spark, com a piscina recentemente criada selecionada.](media/quickstart-create-apache-spark-pool/create-spark-pool-studio-29.png)
 
-1. Prima **para apagar** .
+1. Prima **para apagar**.
 1. Confirme a eliminação e prima O botão **Eliminar.**
 1. Quando o processo estiver concluído com sucesso, a piscina Apache Spark deixará de estar listada nos recursos do espaço de trabalho. 
 

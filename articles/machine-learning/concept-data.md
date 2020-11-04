@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446692"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322236"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
 
@@ -29,7 +29,7 @@ O Azure Machine Learning facilita a ligação aos seus dados na nuvem.  Fornece 
     
 ## <a name="data-workflow"></a>Fluxo de trabalho de dados
 
-Quando estiver pronto para utilizar os dados na sua solução de armazenamento baseada na nuvem, recomendamos o seguinte fluxo de trabalho de entrega de dados. Este fluxo de trabalho pressupõe que você tem uma [conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) e dados em um serviço de armazenamento baseado na nuvem em Azure. 
+Quando estiver pronto para utilizar os dados na sua solução de armazenamento baseada na nuvem, recomendamos o seguinte fluxo de trabalho de entrega de dados. Este fluxo de trabalho pressupõe que você tem uma [conta de armazenamento Azure](../storage/common/storage-account-create.md?tabs=azure-portal) e dados em um serviço de armazenamento baseado na nuvem em Azure. 
 
 1. Crie uma [loja de dados Azure Machine Learning](#datastores) para armazenar informações de ligação ao seu armazenamento Azure.
 
@@ -81,9 +81,9 @@ Os conjuntos de dados podem ser criados a partir de ficheiros locais, urls públ
 
 Existem 2 tipos de conjuntos de dados: 
 
-+ Um [Dataset de ficheiros](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) refere ficheiros únicos ou múltiplos nas suas datastores ou URLs públicos. Se os seus dados já estiverem limpos e prontos a serem utilizados em experiências de treino, pode [descarregar ou montar ficheiros](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por FileDatasets para o seu alvo de computação.
++ Um [Dataset de ficheiros](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) refere ficheiros únicos ou múltiplos nas suas datastores ou URLs públicos. Se os seus dados já estiverem limpos e prontos a serem utilizados em experiências de treino, pode [descarregar ou montar ficheiros](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) referenciados por FileDatasets para o seu alvo de computação.
 
-+ Um [SeparadorDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representa dados num formato tabular, analisando o ficheiro ou lista de ficheiros fornecidos. Pode carregar um SeparadorDataset num panda ou No Spark DataFrame para posterior manipulação e limpeza. Para obter uma lista completa de formatos de dados, pode criar Datasets Tabular, consulte a [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
++ Um [SeparadorDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) representa dados num formato tabular, analisando o ficheiro ou lista de ficheiros fornecidos. Pode carregar um SeparadorDataset num panda ou No Spark DataFrame para posterior manipulação e limpeza. Para obter uma lista completa de formatos de dados, pode criar Datasets Tabular, consulte a [classe TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 As capacidades adicionais de conjuntos de dados podem ser encontradas na seguinte documentação:
 
@@ -100,7 +100,7 @@ Com conjuntos de dados, você pode realizar uma série de tarefas de machine lea
      + o [designer](tutorial-designer-automobile-price-train-score.md#import-data)
      + [cadernos](how-to-train-with-datasets.md)
      + [Oleodutos Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ Aceder a conjuntos de dados para pontuação com [inferência de lote](how-to-use-parallel-run-step.md) em [gasodutos de aprendizagem automática](how-to-create-your-first-pipeline.md).
++ Aceder a conjuntos de dados para pontuação com [inferência de lote](./tutorial-pipeline-batch-scoring-classification.md) em [gasodutos de aprendizagem automática](how-to-create-your-first-pipeline.md).
 + Crie um monitor de conjunto de dados para deteção [de deriva de dados.](#drift)
 
 <a name="label"></a>

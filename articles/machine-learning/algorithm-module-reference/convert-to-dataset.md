@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c014f14149b903713ae2f03b98956cd4ecaf8a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898707"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323055"
 ---
 # <a name="convert-to-dataset"></a>Converter em Conjunto de Dados
 
@@ -25,7 +25,7 @@ A conversão não é necessária na maioria dos casos. O Azure Machine Learning 
 Recomendamos guardar dados para o formato do conjunto de dados se tiver realizado algum tipo de normalização ou limpeza num conjunto de dados, e pretender garantir que as alterações são usadas em outros oleodutos.  
   
 > [!NOTE]
-> Converter para Conjunto de Dados altera apenas o formato dos dados. Não guarda uma nova cópia dos dados no espaço de trabalho. Para guardar o conjunto de dados, clique duas vezes na porta de saída, **selecione Guardar como conjunto de dados**e introduza um novo nome.  
+> Converter para Conjunto de Dados altera apenas o formato dos dados. Não guarda uma nova cópia dos dados no espaço de trabalho. Para guardar o conjunto de dados, clique duas vezes na porta de saída, **selecione Guardar como conjunto de dados** e introduza um novo nome.  
   
 ## <a name="how-to-use-convert-to-dataset"></a>Como utilizar Converter para conjunto de dados  
 
@@ -35,25 +35,25 @@ Recomendamos que utilize o módulo [editar metadados](edit-metadata.md) para pre
 
 2. Conecte-o a qualquer módulo que produza um conjunto de dados.   
 
-    Enquanto os dados são [tabulares,](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true)pode convertê-lo num conjunto de dados. Isto inclui dados carregados através [de Dados de Importação,](import-data.md)dados criados através de [Introduzir Dados Manualmente,](enter-data-manually.md)ou conjuntos de dados transformados através da [Apply Transformation](apply-transformation.md).
+    Enquanto os dados são [tabulares,](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py)pode convertê-lo num conjunto de dados. Isto inclui dados carregados através [de Dados de Importação,](import-data.md)dados criados através de [Introduzir Dados Manualmente,](enter-data-manually.md)ou conjuntos de dados transformados através da [Apply Transformation](apply-transformation.md).
 
 3.  Na lista de drop-down de **Ação,** indique se pretende fazer qualquer limpeza nos dados antes de guardar o conjunto de dados:  
   
     - **Nenhum:** Use os dados como está.  
   
-    - **SetMissingValue**: Defina um valor específico para um valor em falta no conjunto de dados. O espaço reservado padrão é o personagem de ponto de interrogação (?), mas pode usar a opção  **de valor em falta** personalizada para introduzir um valor diferente. Por exemplo, se introduzir **Taxi** for **Custom missing value**, então todas as instâncias de **Taxi** no conjunto de dados serão alteradas para o valor em falta.
+    - **SetMissingValue** : Defina um valor específico para um valor em falta no conjunto de dados. O espaço reservado padrão é o personagem de ponto de interrogação (?), mas pode usar a opção  **de valor em falta** personalizada para introduzir um valor diferente. Por exemplo, se introduzir **Taxi** for **Custom missing value** , então todas as instâncias de **Taxi** no conjunto de dados serão alteradas para o valor em falta.
   
-    - **Substituir Valores**: Utilize esta opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Pode substituir valores em falta ou valores personalizados definindo o método **Substituir:**
+    - **Substituir Valores** : Utilize esta opção para especificar um único valor exato a ser substituído por qualquer outro valor exato. Pode substituir valores em falta ou valores personalizados definindo o método **Substituir:**
 
-      - **Em falta**: Escolha esta opção para substituir os valores em falta no conjunto de dados de entrada. Para **Novo Valor,** insira o valor para substituir os valores em falta.
-      - **Costume**: Escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **valor personalizado,** insira o valor que pretende encontrar. Por exemplo, se os seus dados contiverem a cadeia `obs` utilizada como espaço reservado para valores em falta, `obs` introduza . Para **novo valor,** insira o novo valor para substituir a cadeia original.
+      - **Em falta** : Escolha esta opção para substituir os valores em falta no conjunto de dados de entrada. Para **Novo Valor,** insira o valor para substituir os valores em falta.
+      - **Costume** : Escolha esta opção para substituir valores personalizados no conjunto de dados de entrada. Para **valor personalizado,** insira o valor que pretende encontrar. Por exemplo, se os seus dados contiverem a cadeia `obs` utilizada como espaço reservado para valores em falta, `obs` introduza . Para **novo valor,** insira o novo valor para substituir a cadeia original.
   
     Note que a operação **SubstituValues** se aplica apenas a correspondências exatas. Por exemplo, estas cordas não seriam afetadas: `obs.` `obsolete` . . .  
  
   
 5.  Envie o oleoduto.  
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 +  Para guardar o conjunto de dados resultante com um novo nome, selecione no **conjunto de dados** do registo do ícone sob o separador **Saídas** no painel direito do módulo.  
   
@@ -70,4 +70,4 @@ Recomendamos que utilize o módulo [editar metadados](edit-metadata.md) para pre
   
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

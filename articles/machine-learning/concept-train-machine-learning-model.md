@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d34748a2b9f46bde187b4f003e210ffdaecd93e2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675682"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324817"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com Azure Machine Learning
 
@@ -23,11 +23,11 @@ O Azure Machine Learning fornece várias formas de treinar os seus modelos, desd
 
 + [Azure Machine Learning SDK para Python](#python-sdk): O Python SDK oferece várias formas de treinar modelos, cada um com diferentes capacidades.
 
-    | Método de formação | Descrição |
+    | Método de formação | Description |
     | ----- | ----- |
     | [Configuração de execução](#run-configuration) | Uma **forma típica de treinar modelos** é usar um script de treino e configurar de execução. A configuração de execução fornece as informações necessárias para configurar o ambiente de treino utilizado para treinar o seu modelo. Pode especificar o seu script de treino, o alvo do cálculo e o ambiente Azure ML na sua configuração de execução e executar um trabalho de treino. |
     | [Aprendizagem automática automatizada](#automated-machine-learning) | A aprendizagem automática de máquinas **permite-lhe formar modelos sem uma vasta ciência de dados ou conhecimentos de programação.** Para pessoas com um fundo de ciência de dados e programação, ele fornece uma maneira de economizar tempo e recursos automatizando a seleção de algoritmos e afinação hiperparítmica. Não tem de se preocupar em definir uma configuração de execução quando se utiliza aprendizagem automática de máquinas. |
-    | [Gasoduto de aprendizagem automática](#machine-learning-pipeline) | Os gasodutos não são um método de treino diferente, mas uma **forma de definir um fluxo de trabalho utilizando passos modulares e reutilizáveis,** que podem incluir a formação como parte do fluxo de trabalho. Os oleodutos de aprendizagem automática suportam utilizando a configuração automatizada de aprendizagem automática e de execução para treinar modelos. Uma vez que os gasodutos não se concentram especificamente na formação, as razões da utilização de um gasoduto são mais variadas do que os outros métodos de formação. Geralmente, pode utilizar um oleoduto quando:<br>* Pretende **agendar processos não acompanhados,** tais como trabalhos de formação de longa duração ou preparação de dados.<br>* Utilize **vários passos** que são coordenados através de recursos de computação heterogéneos e locais de armazenamento.<br>* Utilize o gasoduto como **modelo reutilizável** para cenários específicos, tais como a reconversão ou a pontuação do lote.<br>* **Rastrear e verrativas fontes de dados, entradas e saídas** para o seu fluxo de trabalho.<br>* O seu fluxo de trabalho é **implementado por diferentes equipas que trabalham em passos específicos de forma independente** . Os passos podem então ser unidos num oleoduto para implementar o fluxo de trabalho. |
+    | [Gasoduto de aprendizagem automática](#machine-learning-pipeline) | Os gasodutos não são um método de treino diferente, mas uma **forma de definir um fluxo de trabalho utilizando passos modulares e reutilizáveis,** que podem incluir a formação como parte do fluxo de trabalho. Os oleodutos de aprendizagem automática suportam utilizando a configuração automatizada de aprendizagem automática e de execução para treinar modelos. Uma vez que os gasodutos não se concentram especificamente na formação, as razões da utilização de um gasoduto são mais variadas do que os outros métodos de formação. Geralmente, pode utilizar um oleoduto quando:<br>* Pretende **agendar processos não acompanhados,** tais como trabalhos de formação de longa duração ou preparação de dados.<br>* Utilize **vários passos** que são coordenados através de recursos de computação heterogéneos e locais de armazenamento.<br>* Utilize o gasoduto como **modelo reutilizável** para cenários específicos, tais como a reconversão ou a pontuação do lote.<br>* **Rastrear e verrativas fontes de dados, entradas e saídas** para o seu fluxo de trabalho.<br>* O seu fluxo de trabalho é **implementado por diferentes equipas que trabalham em passos específicos de forma independente**. Os passos podem então ser unidos num oleoduto para implementar o fluxo de trabalho. |
 
 + [Azure Machine Learning SDK para R (pré-visualização)](#r-sdk-preview): O SDK para R utiliza o pacote reticulado para se ligar ao Python SDK da Azure Machine Learning. Isto permite-lhe aceder a objetos e métodos principais implementados no Python SDK a partir de qualquer ambiente R.
 
@@ -41,13 +41,13 @@ Cada um destes métodos de treino pode utilizar diferentes tipos de recursos com
 
 O Azure Machine Learning SDK para Python permite-lhe construir e executar fluxos de trabalho de aprendizagem automática com Azure Machine Learning. Você pode interagir com o serviço a partir de uma sessão interativa python, Cadernos Jupyter, Código de Estúdio Visual, ou outro IDE.
 
-* [O que é o Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
-* [Instalar/atualizar o SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* [O que é o Azure Machine Learning SDK para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+* [Instalar/atualizar o SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 * [Configure um ambiente de desenvolvimento para a aprendizagem automática Azure](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Configuração de execução
 
-Um trabalho de formação genérico com Azure Machine Learning pode ser definido usando o [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true). A configuração de execução do script é então usada, juntamente com o seu(s script(s) de treino para treinar um modelo num alvo de computação.
+Um trabalho de formação genérico com Azure Machine Learning pode ser definido usando o [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). A configuração de execução do script é então usada, juntamente com o seu(s script(s) de treino para treinar um modelo num alvo de computação.
 
 Pode começar com uma configuração de execução para o seu computador local e, em seguida, mudar para um para um alvo de computação baseado na nuvem, conforme necessário. Ao alterar o alvo do cálculo, só altera a configuração de execução que utiliza. Uma corrida também regista informações sobre o trabalho de formação, como as entradas, saídas e registos.
 
@@ -90,8 +90,8 @@ O ciclo de vida de formação Azure consiste em:
 1. Construindo ou descarregando o estival para o nó computacional 
     1. O sistema calcula um haxixe de: 
         - A imagem base 
-        - Passos personalizados do estivador (ver [Implementar um modelo utilizando uma imagem base personalizada do Docker)](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image)
-        - A definição conda YAML (ver [Criar & utilizar ambientes de software em Azure Machine Learning)](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments)
+        - Passos personalizados do estivador (ver [Implementar um modelo utilizando uma imagem base personalizada do Docker)](./how-to-deploy-custom-docker-image.md)
+        - A definição conda YAML (ver [Criar & utilizar ambientes de software em Azure Machine Learning)](./how-to-use-environments.md)
     1. O sistema utiliza este haxixe como chave numa procura do espaço de trabalho Registo do Contentor Azure (ACR)
     1. Se não for encontrado, procura um jogo no ACR global
     1. Se não for encontrado, o sistema constrói uma nova imagem (que será em cache e registada com o espaço de trabalho ACR)
@@ -101,7 +101,7 @@ O ciclo de vida de formação Azure consiste em:
 1. Guardar registos, ficheiros de modelos e outros ficheiros escritos `./outputs` para a conta de armazenamento associada ao espaço de trabalho
 1. Escalonamento do cálculo, incluindo a remoção do armazenamento temporário 
 
-Se optar por treinar na sua máquina local ("configurar como corrida local"), não precisa de usar o Docker. Pode utilizar o Docker localmente se escolher (consulte a secção [Configure o gasoduto ML](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) por exemplo).
+Se optar por treinar na sua máquina local ("configurar como corrida local"), não precisa de usar o Docker. Pode utilizar o Docker localmente se escolher (consulte a secção [Configure o gasoduto ML](./how-to-debug-pipelines.md) por exemplo).
 
 ## <a name="r-sdk-preview"></a>R SDK (pré-visualização)
 

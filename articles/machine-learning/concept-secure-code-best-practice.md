@@ -1,7 +1,7 @@
 ---
 title: Melhores práticas de código seguro
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre potenciais ameaças à segurança que possam existir quando se desenvolve para a Azure Machine Learning. Conheça as mitigações que a Azure ML proporciona e as melhores práticas para garantir que os seus ambientes de desenvolvimento se mantenham seguros.
+description: Conheça as potenciais ameaças à segurança que podem existir quando se desenvolve para a Azure Machine Learning, mitigações e boas práticas.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: cgronlun
 author: cjgronlund
 ms.date: 11/12/2019
-ms.openlocfilehash: 4bc9a982f6ce77b803a3ba91e050bcda9ec74fed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 37cb70bdbd1e3c87eeb994e0959c6214822d22ad
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728527"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322968"
 ---
 # <a name="secure-code-best-practices-with-azure-machine-learning"></a>Melhores práticas de código seguro com Azure Machine Learning
 
@@ -29,8 +29,8 @@ O desenvolvimento com a Azure Machine Learning envolve frequentemente ambientes 
 
 * [Scripting cross site (XSS)](https://owasp.org/www-community/attacks/xss/)
 
-    * __Injeção DOM__: Este tipo de ataque pode modificar o UI exibido no navegador. Por exemplo, alterando o comportamento do botão de funcionação num Bloco de Notas Jupyter.
-    * __Acesso a token/cookies__: Os ataques XSS também podem aceder a armazenamento local e cookies de navegador. O seu token de autenticação Azure Ative (AAD) está armazenado no armazenamento local. Um ataque XSS poderia usar este token para fazer chamadas de API em seu nome e, em seguida, enviar os dados para um sistema externo ou API.
+    * __Injeção DOM__ : Este tipo de ataque pode modificar o UI exibido no navegador. Por exemplo, alterando o comportamento do botão de funcionação num Bloco de Notas Jupyter.
+    * __Acesso a token/cookies__ : Os ataques XSS também podem aceder a armazenamento local e cookies de navegador. O seu token de autenticação Azure Ative (AAD) está armazenado no armazenamento local. Um ataque XSS poderia usar este token para fazer chamadas de API em seu nome e, em seguida, enviar os dados para um sistema externo ou API.
 
 * [Falsificação de pedido de cross site (CSRF)](https://owasp.org/www-community/attacks/csrf): Este ataque pode substituir o URL de uma imagem ou ligação com o URL de um script malicioso ou API. Quando a imagem é carregada, ou o link clicado, uma chamada é feita para o URL.
 

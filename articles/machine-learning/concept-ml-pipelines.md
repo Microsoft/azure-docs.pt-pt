@@ -9,12 +9,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: b0217766c92ddcd1907eca2c6702d91b02e06c03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ebe3976813c00e92f041faf267ef0d8ae98a909
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893644"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323027"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 
@@ -39,7 +39,7 @@ A nuvem Azure fornece vários outros oleodutos, cada um com um propósito difere
 | Cenário | Persona primária | Oferta azul | Oferta de OSS | Tubo canónico | Pontos fortes | 
 | -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
 | Orquestração modelo (Machine learning) | Cientista de dados | Gasodutos de aprendizagem de máquinas Azure | Gasodutos Kubeflow | Modelo data -> | Distribuição, caching, código-primeiro, reutilização | 
-| Orquestração de dados (preparação de dados) | Engenheiro de dados | [Pipelines do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Fluxo de ar Apache | Dados -> Dados | Movimento fortemente dactilografado, atividades centradas em dados |
+| Orquestração de dados (preparação de dados) | Engenheiro de dados | [Pipelines do Azure Data Factory](../data-factory/concepts-pipelines-activities.md) | Fluxo de ar Apache | Dados -> Dados | Movimento fortemente dactilografado, atividades centradas em dados |
 | Código & orquestração de aplicações (CI/CD) | Desenvolvedor de Aplicativos / Ops | [Gasodutos Azure DevOps](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | Código + Modelo -> App/Serviço | Suporte de atividade mais aberto e flexível, filas de aprovação, fases com gating | 
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>O que podem os oleodutos Azure ML fazer?
@@ -57,9 +57,9 @@ Depois de o gasoduto ter sido concebido, há muitas vezes uma afinação mais fi
 
 Com os oleodutos, pode optar por utilizar hardware diferente para diferentes tarefas. O Azure coordena os vários [alvos de computação](concept-azure-machine-learning-architecture.md) que utiliza, pelo que os seus dados intermédios fluem perfeitamente para alvos de computação a jusante.
 
-Pode [rastrear as métricas das suas experiências](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments) de pipeline diretamente no portal Azure ou na [sua página de aterragem no espaço de trabalho (pré-visualização)](https://ml.azure.com). Depois de ter sido publicado um gasoduto, pode configurar um ponto final REST, que lhe permite refazer o gasoduto a partir de qualquer plataforma ou pilha.
+Pode [rastrear as métricas das suas experiências](./how-to-track-experiments.md) de pipeline diretamente no portal Azure ou na [sua página de aterragem no espaço de trabalho (pré-visualização)](https://ml.azure.com). Depois de ter sido publicado um gasoduto, pode configurar um ponto final REST, que lhe permite refazer o gasoduto a partir de qualquer plataforma ou pilha.
 
-Em suma, todas as tarefas complexas do ciclo de vida de aprendizagem automática podem ser ajudadas com os gasodutos. Outras tecnologias de gasodutos Azure têm os seus próprios pontos fortes. [Os oleodutos Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) primam pelo trabalho com dados e a [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) é a ferramenta certa para integração e implantação contínua. Mas se o seu foco é a aprendizagem automática, os oleodutos Azure Machine Learning são provavelmente a melhor escolha para as suas necessidades de fluxo de trabalho. 
+Em suma, todas as tarefas complexas do ciclo de vida de aprendizagem automática podem ser ajudadas com os gasodutos. Outras tecnologias de gasodutos Azure têm os seus próprios pontos fortes. [Os oleodutos Azure Data Factory](../data-factory/concepts-pipelines-activities.md) primam pelo trabalho com dados e a [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) é a ferramenta certa para integração e implantação contínua. Mas se o seu foco é a aprendizagem automática, os oleodutos Azure Machine Learning são provavelmente a melhor escolha para as suas necessidades de fluxo de trabalho. 
 
 ### <a name="analyzing-dependencies"></a>Analisar dependências
 
@@ -89,9 +89,9 @@ Quando cria e executa um `Pipeline` objeto, ocorrem os seguintes passos de alto 
 
 ## <a name="building-pipelines-with-the-python-sdk"></a>Oleodutos de construção com o Python SDK
 
-No [Azure Machine Learning Python SDK,](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)um oleoduto é um objeto Python definido no `azureml.pipeline.core` módulo. Um objeto [pipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py&preserve-view=true) contém uma sequência ordenada de um ou mais objetos [PipelineStep.](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?view=azure-ml-py&preserve-view=true) A `PipelineStep` classe é abstrata e os passos reais serão de subclasses como [EstimatorStep,](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?view=azure-ml-py&preserve-view=true) [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?view=azure-ml-py&preserve-view=true)ou [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true). A classe [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?view=azure-ml-py&preserve-view=true) contém uma sequência reutilizável de passos que podem ser partilhados entre os oleodutos. Uma `Pipeline` corrida como parte de um `Experiment` .
+No [Azure Machine Learning Python SDK,](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)um oleoduto é um objeto Python definido no `azureml.pipeline.core` módulo. Um objeto [pipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?preserve-view=true&view=azure-ml-py) contém uma sequência ordenada de um ou mais objetos [PipelineStep.](/python/api/azureml-pipeline-core/azureml.pipeline.core.builder.pipelinestep?preserve-view=true&view=azure-ml-py) A `PipelineStep` classe é abstrata e os passos reais serão de subclasses como [EstimatorStep,](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep?preserve-view=true&view=azure-ml-py) [PythonScriptStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.pythonscriptstep?preserve-view=true&view=azure-ml-py)ou [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py). A classe [ModuleStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep?preserve-view=true&view=azure-ml-py) contém uma sequência reutilizável de passos que podem ser partilhados entre os oleodutos. Uma `Pipeline` corrida como parte de um `Experiment` .
 
-Um oleoduto Azure ML está associado a um espaço de trabalho Azure Machine Learning e um passo de pipeline está associado a um alvo de computação disponível dentro desse espaço de trabalho. Para obter mais informações, consulte [Criar e gerir espaços de trabalho de Aprendizagem automática Azure no portal Azure](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) ou Quais são os [alvos de computação em Azure Machine Learning?](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)
+Um oleoduto Azure ML está associado a um espaço de trabalho Azure Machine Learning e um passo de pipeline está associado a um alvo de computação disponível dentro desse espaço de trabalho. Para obter mais informações, consulte [Criar e gerir espaços de trabalho de Aprendizagem automática Azure no portal Azure](./how-to-manage-workspace.md) ou Quais são os [alvos de computação em Azure Machine Learning?](./concept-compute-target.md)
 
 ### <a name="a-simple-python-pipeline"></a>Um simples pipeline Python
 
@@ -125,7 +125,7 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-O snippet começa com objetos comuns de Aprendizagem automática Azure, `Workspace` um `Datastore` , um [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py&preserve-view=true), e um `Experiment` . Em seguida, o código cria os objetos para segurar `input_data` e `output_data` . A matriz `steps` contém um único elemento, um que `PythonScriptStep` utilizará os objetos de dados e funcionará no `compute_target` . Em seguida, o código instantaneamente o `Pipeline` objeto em si, passando no espaço de trabalho e passos matriz. A chamada para `experiment.submit(pipeline)` iniciar o gasoduto Azure ML. A chamada para `wait_for_completion()` bloquear até que o oleoduto esteja terminado. 
+O snippet começa com objetos comuns de Aprendizagem automática Azure, `Workspace` um `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py), e um `Experiment` . Em seguida, o código cria os objetos para segurar `input_data` e `output_data` . A matriz `steps` contém um único elemento, um que `PythonScriptStep` utilizará os objetos de dados e funcionará no `compute_target` . Em seguida, o código instantaneamente o `Pipeline` objeto em si, passando no espaço de trabalho e passos matriz. A chamada para `experiment.submit(pipeline)` iniciar o gasoduto Azure ML. A chamada para `wait_for_completion()` bloquear até que o oleoduto esteja terminado. 
 
 Para saber mais sobre a ligação do seu oleoduto aos seus dados, consulte os artigos [Acesso de dados em Azure Machine Learning](concept-data.md) e Moving datas dentro e entre etapas de gasoduto [ML (Python)](how-to-move-data-in-out-of-pipelines.md). 
 
@@ -141,7 +141,7 @@ Ao conceber os oleodutos visualmente, as entradas e saídas de um degrau são vi
 
 As principais vantagens da utilização de oleodutos para os seus fluxos de trabalho de aprendizagem automática são:
 
-|Vantagem chave|Descrição|
+|Vantagem chave|Description|
 |:-------:|-----------|
 |**Corridas sem &nbsp; supervisão**|Agende os passos para ser executado em paralelo ou em sequência de forma fiável e sem supervisão. A preparação e modelação de dados podem durar dias ou semanas, e os oleodutos permitem-lhe focar-se noutras tarefas enquanto o processo está em curso. |
 |**Cálculo heterogéneo**|Utilize vários oleodutos que são coordenados de forma fiável através de recursos de computação heterogéneos e escaláveis e locais de armazenamento. Faça uma utilização eficiente dos recursos de computação disponíveis executando etapas individuais de gasodutos em diferentes alvos de computação, tais como HDInsight, GPU Data Science VMs e Databricks.|
@@ -159,6 +159,6 @@ Os oleodutos Azure ML são uma instalação poderosa que começa a fornecer valo
 
 + Saiba como [executar previsões de lotes em dados grandes.](tutorial-pipeline-batch-scoring-classification.md )
 
-+ Consulte os documentos de referência SDK para os [passos do núcleo do gasoduto](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) e do [gasoduto](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true).
++ Consulte os documentos de referência SDK para os [passos do núcleo do gasoduto](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e do [gasoduto](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py).
 
 + Experimente o exemplo de cadernos Jupyter que mostram [os oleodutos Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Saiba como [executar cadernos para explorar este serviço.](samples-notebooks.md)

@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa650fe9cb7df64a6a7a948224be225ecfad9057
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691467"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324607"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Receita: Manutenção preditiva com os Serviços Cognitivos para Big Data
 
-Esta receita mostra como você pode usar Azure Synapse Analytics e Serviços Cognitivos em Faísca para manutenção preditiva de dispositivos IoT. Seguiremos junto com a amostra [cosmosDb e Synapse Link.](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) Para manter as coisas simples, nesta receita vamos ler os dados diretamente de um ficheiro CSV em vez de obter dados transmitidos através do CosmosDB e Synapse Link. Encorajamo-lo a olhar para a amostra da Synapse Link.
+Esta receita mostra como você pode usar Azure Synapse Analytics e Serviços Cognitivos em Apache Spark para manutenção preditiva de dispositivos IoT. Seguiremos junto com a amostra [cosmosDb e Synapse Link.](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) Para manter as coisas simples, nesta receita vamos ler os dados diretamente de um ficheiro CSV em vez de obter dados transmitidos através do CosmosDB e Synapse Link. Encorajamo-lo a olhar para a amostra da Synapse Link.
 
 ## <a name="hypothetical-scenario"></a>Cenário hipotético
 
@@ -31,7 +31,7 @@ Pode haver fora dos dados numa frequência aleatória. Nestas situações, os va
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
-* [Espaço de trabalho Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurado com uma [piscina de faíscas](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Espaço de trabalho Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurado com uma [piscina Apache Spark sem servidor](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
 ## <a name="setup"></a>Configuração
 

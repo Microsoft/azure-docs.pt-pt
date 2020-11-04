@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3bd4953812ec88f28ac16956a85c95afc5bb8a38
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 2225ef42d8862935e5cd682a3c11a7ce687babab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999218"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325572"
 ---
 # <a name="advanced-entry-script-authoring"></a>Criação de um script de entrada avançado
 
@@ -26,7 +26,7 @@ Este artigo mostra como escrever scripts de entrada para casos de uso especializ
 
 Este artigo pressupõe que já tem um modelo de machine learning treinado que pretende implementar com a Azure Machine Learning. Para saber mais sobre a implementação do modelo, consulte [este tutorial.](how-to-deploy-and-where.md)
 
-## <a name="automatically-generate-a-swagger-schema"></a>Gerar automaticamente um esquema de Swagger
+## <a name="automatically-generate-a-swagger-schema"></a>Gerar um esquema do Swagger automaticamente
 
 Para gerar automaticamente um esquema para o seu serviço web, forneça uma amostra da entrada e/ou saída no construtor para um dos objetos do tipo definido. O tipo e a amostra são utilizados para criar automaticamente o esquema. A Azure Machine Learning cria então uma especificação [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) para o serviço web durante a implementação.
 
@@ -89,7 +89,7 @@ def run(data):
 
 ## <a name="power-bi-compatible-endpoint"></a>Ponto final compatível com Power BI 
 
-O exemplo a seguir demonstra como definir a forma da API de acordo com a instrução acima. Este método é suportado para consumir o serviço web implantado a partir do Power BI. ([Saiba mais sobre como consumir o serviço web a partir do Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).)
+O exemplo a seguir demonstra como definir a forma da API de acordo com a instrução acima. Este método é suportado para consumir o serviço web implantado a partir do Power BI. ([Saiba mais sobre como consumir o serviço web a partir do Power BI](/power-bi/service-machine-learning-integration).)
 
 ```python
 import json
@@ -197,7 +197,7 @@ res = requests.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'ap
 
 <a id="cors"></a>
 
-## <a name="cross-origin-resource-sharing-cors"></a>Partilha de recursos de origem cruzada (CORS)
+## <a name="cross-origin-resource-sharing-cors"></a>Partilha de recursos transversais à origem (CORS)
 
 A partilha de recursos de origem cruzada é uma forma de permitir que os recursos numa página web sejam solicitados a partir de outro domínio. O CORS funciona através de cabeçalhos HTTP enviados com o pedido do cliente e devolvidos com a resposta do serviço. Para obter mais informações sobre CORS e cabeçalhos válidos, consulte [a partilha de recursos cross-origin](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) na Wikipédia.
 
@@ -312,7 +312,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-Quando regista um modelo, fornece-se um nome modelo que é usado para gerir o modelo no registo. Utilize este nome com o método [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) para recuperar o caminho do ficheiro modelo ou ficheiros no sistema de ficheiros local. Se registar uma pasta ou uma recolha de ficheiros, esta API devolve o caminho do diretório que contém esses ficheiros.
+Quando regista um modelo, fornece-se um nome modelo que é usado para gerir o modelo no registo. Utilize este nome com o método [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) para recuperar o caminho do ficheiro modelo ou ficheiros no sistema de ficheiros local. Se registar uma pasta ou uma recolha de ficheiros, esta API devolve o caminho do diretório que contém esses ficheiros.
 
 Quando se regista um modelo, dá-se-lhe um nome. O nome corresponde ao local onde o modelo é colocado, localmente ou durante a colocação de serviço.
 
@@ -328,7 +328,7 @@ Mais exemplos de script de entrada para casos específicos de utilização de ma
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
+* [Resolver problemas de uma implementação com falhas](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)
 * [Atualizar serviços Web](how-to-deploy-update-web-service.md)

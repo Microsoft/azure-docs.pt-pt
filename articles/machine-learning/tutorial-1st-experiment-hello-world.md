@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: afc851be08e6708efc0138dc45931cda147c67c1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 7bee7bede0219f41d9d5e56214a6dc1b94977cb5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895890"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322736"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutorial: Executar um "Olá mundo!" Escrita python (parte 2 de 4)
 
@@ -99,7 +99,7 @@ Aqui está uma descrição de como o script de controlo funciona:
       `ws = Workspace.from_config()`
    :::column-end:::
    :::column span="2":::
-      [O espaço de trabalho](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) conecta-se ao seu espaço de trabalho de aprendizagem de máquinas Azure, para que possa comunicar com os seus recursos de Aprendizagem automática Azure.
+      [O espaço de trabalho](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) conecta-se ao seu espaço de trabalho de aprendizagem de máquinas Azure, para que possa comunicar com os seus recursos de Aprendizagem automática Azure.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -107,7 +107,7 @@ Aqui está uma descrição de como o script de controlo funciona:
       `experiment =  Experiment( ... )`
    :::column-end:::
    :::column span="2":::
-      [A experiência](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) fornece uma forma simples de organizar várias corridas com um único nome. Mais tarde, pode ver como as experiências facilitam a comparação de métricas entre dezenas de corridas.
+      [A experiência](/python/api/azureml-core/azureml.core.experiment.experiment?preserve-view=true&view=azure-ml-py) fornece uma forma simples de organizar várias corridas com um único nome. Mais tarde, pode ver como as experiências facilitam a comparação de métricas entre dezenas de corridas.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -115,7 +115,7 @@ Aqui está uma descrição de como o script de controlo funciona:
       `config = ScriptRunConfig( ... )` 
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) embrulha o seu `hello.py` código e passa-o para o seu espaço de trabalho. Como o nome sugere, pode usar esta aula para _configurar_ como pretende que o seu _script_ _seja executado_ em Azure Machine Learning. Também especifica qual o alvo do cálculo em que o script será executado. Neste código, o alvo é o cluster de cálculo que criou no tutorial de [configuração.](tutorial-1st-experiment-sdk-setup-local.md)
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) embrulha o seu `hello.py` código e passa-o para o seu espaço de trabalho. Como o nome sugere, pode usar esta aula para _configurar_ como pretende que o seu _script_ _seja executado_ em Azure Machine Learning. Também especifica qual o alvo do cálculo em que o script será executado. Neste código, o alvo é o cluster de cálculo que criou no tutorial de [configuração.](tutorial-1st-experiment-sdk-setup-local.md)
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -123,7 +123,7 @@ Aqui está uma descrição de como o script de controlo funciona:
       `run = experiment.submit(config)`
    :::column-end:::
    :::column span="2":::
-       Submete o teu guião. Esta submissão chama-se [corrida.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) Uma corrida encapsula uma única execução do seu código. Use uma corrida para monitorizar o progresso do script, capturar a saída, analisar os resultados, visualizar métricas e muito mais.
+       Submete o teu guião. Esta submissão chama-se [corrida.](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) Uma corrida encapsula uma única execução do seu código. Use uma corrida para monitorizar o progresso do script, capturar a saída, analisar os resultados, visualizar métricas e muito mais.
    :::column-end:::
 :::row-end:::
 :::row:::

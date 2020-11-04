@@ -8,12 +8,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: a14f7ac212d9957e5258f75a386b8730ad5de700
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 631717252abe956357cf8b588fa653890037bbc9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233848"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322182"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -33,7 +33,7 @@ Aqui estão os passos para criar uma instância da Máquina Virtual de Ciência 
 1. Aceda ao [portal do Azure](https://portal.azure.com). Pode ser solicitado a assinar na sua conta Azure se ainda não tiver assinado.
 1. Encontre a listagem de máquinas virtuais digitando em "data science virtual machine" e selecionando "Data Science Virtual Machine- Ubuntu 18.04"
 
-1. Na janela seguinte, **selecione Criar** .
+1. Na janela seguinte, **selecione Criar**.
 
 1. Deve ser redirecionado para a lâmina "Criar uma máquina virtual".
    
@@ -46,7 +46,7 @@ Aqui estão os passos para criar uma instância da Máquina Virtual de Ciência 
        * **Nome da máquina virtual** : Introduza o nome da máquina virtual. Este nome será usado no seu portal Azure.
        * **Região** : Selecione o datacenter que é mais apropriado. Para um acesso mais rápido à rede, é o datacenter que tem a maioria dos seus dados ou está mais próximo da sua localização física. Saiba mais sobre [as Regiões Azure.](https://azure.microsoft.com/global-infrastructure/regions/)
        * **Imagem** : Deixe o valor predefinido.
-       * **Tamanho** : Esta opção deve autopovoar-se automaticamente com um tamanho adequado para cargas de trabalho gerais. Leia mais sobre [os tamanhos Linux VM em Azure](../../virtual-machines/linux/sizes.md).
+       * **Tamanho** : Esta opção deve autopovoar-se automaticamente com um tamanho adequado para cargas de trabalho gerais. Leia mais sobre [os tamanhos Linux VM em Azure](../../virtual-machines/sizes.md).
        * **Tipo de autenticação** : Para uma configuração mais rápida, selecione "Password". 
          
          > [!NOTE]
@@ -59,10 +59,10 @@ Aqui estão os passos para criar uma instância da Máquina Virtual de Ciência 
 
        * **Palavra-passe** : Introduza a palavra-passe que utilizará para iniciar sessão na sua máquina virtual.    
     
-   1. Selecione **Rever + criar** .
+   1. Selecione **Rever + criar**.
    1. **Review+criar**
       * Verifique se toda a informação que introduziu está correta. 
-      * Selecione **Criar** .
+      * Selecione **Criar**.
     
     O provisionamento deve demorar cerca de 5 minutos. O estado é apresentado no portal Azure.
 
@@ -99,15 +99,15 @@ O Linux VM já está a provisionado com o X2Go Server e pronto para aceitar liga
      * **Anfitrião** : Introduza o endereço IP da sua VM, que anotou anteriormente.
      * **Iniciar sessão** : introduza o nome de utilizador na VM do Linux.
      * **Porta SSH** : deixe-a em 22, o valor predefinido.
-     * **Tipo de Sessão** : Altere o valor para **XFCE** . Atualmente, a VM do Linux apenas suporta o ambiente de trabalho XFCE.
+     * **Tipo de Sessão** : Altere o valor para **XFCE**. Atualmente, a VM do Linux apenas suporta o ambiente de trabalho XFCE.
    * **Separador Multimédia** : pode desativar o suporte de som e a impressão de cliente se não precisar de utilizá-los.
    * **Pastas partilhadas** : Utilize este separador para adicionar o diretório de máquinas do cliente que gostaria de montar no VM. 
 
    ![Configuração X2go](./media/dsvm-ubuntu-intro/x2go-ubuntu.png)
-1. Selecione **OK** .
+1. Selecione **OK**.
 1. Clique na caixa no painel direito da janela X2Go para trazer o ecrã de login para o seu VM.
 1. Introduza a palavra-passe da sua VM.
-1. Selecione **OK** .
+1. Selecione **OK**.
 1. Talvez seja necessário conceder permissão ao X2Go para ignorar a firewall para concluir a ligação.
 1. Deverá agora ver a interface gráfica do seu Ubuntu DSVM. 
 
@@ -144,6 +144,6 @@ Eis como pode continuar a sua aprendizagem e exploração:
 
 * A [ciência dos dados na Máquina Virtual de Ciência de Dados para o linux](linux-dsvm-walkthrough.md) walkthrough mostra-lhe como fazer várias tarefas comuns de ciência de dados com o Linux DSVM aqui previsto. 
 * Explore as várias ferramentas de ciência de dados no DSVM experimentando as ferramentas descritas neste artigo. Também pode funcionar `dsvm-more-info` na concha dentro da máquina virtual para uma introdução básica e ponteiros para mais informações sobre as ferramentas instaladas no VM.  
-* Saiba como construir sistematicamente soluções analíticas utilizando o [Processo de Ciência de Dados de Equipa.](https://aka.ms/tdsp)
+* Saiba como construir sistematicamente soluções analíticas utilizando o [Processo de Ciência de Dados de Equipa.](../team-data-science-process/index.yml)
 * Visite a [Galeria Azure AI](https://gallery.azure.ai/) para análise de máquinas e análise de dados que utilizam os serviços Azure AI.
 * Consulte a [documentação](./reference-ubuntu-vm.md) de referência adequada para esta máquina virtual.

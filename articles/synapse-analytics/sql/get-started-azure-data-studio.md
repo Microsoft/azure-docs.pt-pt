@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c3c1b61cb4f799b79ca00fc92ffadc2374a61c03
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: fb4c7f8ba49cf701ef13cb57ab2b323a94c928cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132470"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323825"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Conecte-se ao SYNapse SQL com o Azure Data Studio (pré-visualização)
 
@@ -42,15 +42,15 @@ A ligação requer os seguintes parâmetros:
 * **Base de dados:** Nome da base de dados
 
 > [!NOTE]
-> Se quiser utilizar o **SQL on demand (pré-visualização),** o URL deve parecer:
+> Se você gostaria de usar piscina **SQL sem servidor (pré-visualização)** o URL deve parecer:
 >
 > - `<Azure Synapse workspace name>`ondemand.sql.azuresynapse.net.
 >
-> Se você gostaria de usar piscina **SQL,** o URL deve parecer:
+> Se você gostaria de usar **piscina SQL dedicada,** o URL deve parecer:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-Escolha a **autenticação do Windows**, **Diretório Ativo Azure,** ou **SQL Login** como tipo de **autenticação**.
+Escolha a **autenticação do Windows** , **Diretório Ativo Azure,** ou **SQL Login** como tipo de **autenticação**.
 
 Para utilizar o **SQL Login** como tipo de autenticação, adicione os parâmetros username/password:
 
@@ -61,11 +61,11 @@ Para utilizar o Azure Ative Directory, tem de escolher o tipo de autenticação 
 
 ![Autenticação do AAD](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-A imagem que se segue mostra os **dados de ligação** para **autenticação do Windows**:
+A imagem que se segue mostra os **dados de ligação** para **autenticação do Windows** :
 
 ![Autenticação do Windows](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-A imagem que se segue mostra os **Detalhes de Conexão** utilizando **o SQL Login**:
+A imagem que se segue mostra os **Detalhes de Conexão** utilizando **o SQL Login** :
 
 ![Início de sessão do SQL](./media/get-started-azure-data-studio/2-database-details.png)
 
@@ -77,7 +77,7 @@ Uma vez ligado, pode consultar o Synapse SQL utilizando declarações [de Transa
 
 ![New Query](./media/get-started-azure-data-studio/5-new-query.png)
 
-Por exemplo, pode utilizar a seguinte declaração Transact-SQL para [consultar ficheiros Parquet](query-parquet-files.md) utilizando SQL a pedido:
+Por exemplo, pode utilizar a seguinte declaração Transact-SQL para [consultar ficheiros Parquet](query-parquet-files.md) utilizando a piscina SQL sem servidor:
 
 ```sql
 SELECT COUNT(*)

@@ -8,16 +8,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff8ade938433e09c6b9ff9deffe64d8294d96b8c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897576"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325556"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Identifie imagens em um projeto de rotulagem 
 
-Depois de o administrador do seu projeto [criar um projeto de rotulagem](https://docs.microsoft.com/azure/machine-learning/how-to-create-labeling-projects#create-a-labeling-project) em Azure Machine Learning, pode utilizar a ferramenta de rotulagem (pré-visualização pública) para preparar rapidamente dados para um projeto de Machine Learning. Este artigo descreve:
+Depois de o administrador do seu projeto [criar um projeto de rotulagem](./how-to-create-labeling-projects.md#create-a-labeling-project) em Azure Machine Learning, pode utilizar a ferramenta de rotulagem (pré-visualização pública) para preparar rapidamente dados para um projeto de Machine Learning. Este artigo descreve:
 
 > [!div class="checklist"]
 > * Como aceder aos seus projetos de rotulagem
@@ -66,7 +66,7 @@ Depois de submeter tags para os dados em questão, o Azure atualiza a página co
 
 > [!IMPORTANT]
 > A aprendizagem de máquinas assistida está atualmente em visualização pública.
-> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Os algoritmos de aprendizagem automática podem ser desencadeados. Se estes algoritmos estiverem ativados no seu projeto, poderá ver o seguinte:
 
@@ -82,7 +82,7 @@ Especialmente no início de um projeto de rotulagem, o modelo de machine learnin
 
 Se o seu projeto for do tipo "Classificação de Imagem Multi-Class", atribuirá uma única etiqueta a toda a imagem. Para rever as instruções a qualquer momento, vá à página **Instruções** e selecione **Ver instruções detalhadas**.
 
-Se perceber que cometeu um erro depois de atribuir uma etiqueta a uma imagem, pode consertá-la. Selecione o "**X**" na etiqueta que é exibida abaixo da imagem para limpar a etiqueta. Ou, selecione a imagem e escolha outra classe. O valor recentemente selecionado substituirá a etiqueta previamente aplicada.
+Se perceber que cometeu um erro depois de atribuir uma etiqueta a uma imagem, pode consertá-la. Selecione o " **X** " na etiqueta que é exibida abaixo da imagem para limpar a etiqueta. Ou, selecione a imagem e escolha outra classe. O valor recentemente selecionado substituirá a etiqueta previamente aplicada.
 
 ## <a name="tag-images-for-multi-label-classification"></a>Etiquetar imagens para classificação de várias etiquetas
 
@@ -96,7 +96,7 @@ Selecione a imagem que pretende rotular e, em seguida, selecione a etiqueta. A e
 
 ![Animação mostra fluxo multilabel](./media/how-to-label-images/multilabel.gif)
 
-Para corrigir um erro, clique no "**X**" para limpar uma etiqueta individual ou selecionar as imagens e, em seguida, selecione a etiqueta, que limpa a etiqueta de todas as imagens selecionadas. Este cenário é mostrado aqui. Clicar em "Land" limpará a etiqueta das duas imagens selecionadas.
+Para corrigir um erro, clique no " **X** " para limpar uma etiqueta individual ou selecionar as imagens e, em seguida, selecione a etiqueta, que limpa a etiqueta de todas as imagens selecionadas. Este cenário é mostrado aqui. Clicar em "Land" limpará a etiqueta das duas imagens selecionadas.
 
 ![Uma imagem mostra vários deselecções](./media/how-to-label-images/multiple-deselection.png)
 
@@ -135,5 +135,4 @@ Quando terminar a rotulagem, selecione o seu nome no canto superior direito do p
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Aprenda a [treinar modelos de classificação de imagem em Azure](https://docs.microsoft.com/azure/machine-learning/tutorial-train-models-with-aml)
-
+* Aprenda a [treinar modelos de classificação de imagem em Azure](./tutorial-train-models-with-aml.md)

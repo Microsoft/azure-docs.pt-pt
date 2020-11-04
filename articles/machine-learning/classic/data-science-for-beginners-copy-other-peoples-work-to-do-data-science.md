@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 59343c500f50430530b24fbfb7d747108377efd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84caf1ea684e46eec00f8479bd0e7c4123e731b1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345647"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322798"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Copiar o trabalho de outras pessoas para fazer ciência de dados
 ## <a name="video-5-data-science-for-beginners-series"></a>Vídeo 5: Data Science for Beginners series
@@ -91,4 +91,4 @@ Certifique-se de conferir mais vídeos em "Data Science for Beginners" do Micros
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Experimente a sua primeira experiência em ciência de dados com o Azure Machine Learning Studio (clássico)](create-experiment.md)
-* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Obtenha uma introdução ao Machine Learning no Microsoft Azure](../overview-what-is-azure-ml.md)

@@ -1,6 +1,6 @@
 ---
 title: Modelo de metadados partilhados
-description: O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Spark (pré-visualização), motor a pedido SQL (pré-visualização) e piscinas SQL.
+description: O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Apache Spark sem servidor (pré-visualização), piscina SQL sem servidor (pré-visualização) e piscinas SQL dedicadas.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 64c19f3331be8ffda433207da88ebf22c546ee4e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87387341"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324670"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Azure Synapse Analytics partilhou metadados
 
-O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Spark (pré-visualização) e o motor a pedido do SQL (pré-visualização).
+O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Apache Spark sem servidor (pré-visualização) e piscina SQL sem servidor (pré-visualização).
 
 [!INCLUDE [preview](../includes/note-preview.md)]
 
@@ -32,7 +32,7 @@ O modelo de metadados partilhado suporta o padrão moderno de armazém de dados 
 
 2. A Spark criou bases de dados e todas as suas tabelas tornam-se visíveis em qualquer um dos casos de piscina spark do Azure Synapse e podem ser usados a partir de qualquer um dos trabalhos da Spark. Esta capacidade está sujeita às [permissões,](#security-model-at-a-glance) uma vez que todas as piscinas Spark num espaço de trabalho partilham a mesma loja de catálogos subjacente.
 
-3. A Spark criou bases de dados e as suas tabelas com apoio parquet tornam-se visíveis no motor a pedido do SQL do espaço de trabalho. [As bases de dados](database.md) são criadas automaticamente nos metadados a pedido do SQL, e tanto as [tabelas externas como geridas criadas](table.md) por um trabalho Spark são tornadas acessíveis como tabelas externas nos metadados a pedido do SQL no `dbo` esquema da base de dados correspondente. 
+3. O Spark criou bases de dados e as suas tabelas com apoio parquet tornam-se visíveis na piscina SQL sem servidores do espaço de trabalho. [As bases de dados](database.md) são criadas automaticamente nos metadados de pool SQL sem servidor, e tanto as [tabelas externas como geridas criadas](table.md) por uma função Spark são tornadas acessíveis como tabelas externas nos metadados de pool SQL sem servidor no `dbo` esquema da base de dados correspondente. 
 
 <!--[INSERT PICTURE]-->
 
@@ -52,7 +52,7 @@ Para mais informações, consulte [a base de dados partilhada Azure Synapse Anal
 
 ## <a name="change-maintenance"></a>Alterar manutenção
 
-Se um objeto de metadados for eliminado ou alterado com o Spark, as alterações são captadas e propagadas para o motor a pedido do SQL. A sincronização é assíncronia e as alterações refletem-se no motor SQL após um curto atraso.
+Se um objeto de metadados for eliminado ou alterado com o Spark, as alterações são captadas e propagadas para a piscina SQL sem servidor. A sincronização é assíncronia e as alterações refletem-se no motor SQL após um curto atraso.
 
 ## <a name="next-steps"></a>Passos seguintes
 

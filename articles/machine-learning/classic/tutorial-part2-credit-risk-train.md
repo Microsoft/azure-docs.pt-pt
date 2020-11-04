@@ -9,16 +9,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c2782d15d8be82d07f14f7ada5732b1dbef699c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59567cf2dc03952a78852f3288e78ba06aa769ee
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91348800"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325679"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutorial 2: Modelos de risco de crédito de comboio - Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Neste tutorial, você dá uma olhada alargada no processo de desenvolvimento de uma solução de análise preditiva. Desenvolve-se um modelo simples no Machine Learning Studio (clássico).  Em seguida, implementa o modelo como um serviço web Azure Machine Learning.  Este modelo implementado pode fazer previsões usando novos dados. Este tutorial é **a segunda parte de uma série tutorial em três partes.**
@@ -100,7 +100,7 @@ Para configurar o modelo SVM, faça o seguinte:
 
 1. Encontre o módulo [de máquina de vetor de suporte de duas classes][two-class-support-vector-machine] na paleta do módulo e arraste-o para a tela.
 
-1. Clique com o botão direito no módulo [Modelo de Comboio,][train-model] selecione **Copy**e, em seguida, clique com o direito na tela e selecione **Pasta**. A cópia do módulo [Train Model][train-model] tem a mesma seleção de colunas que a original.
+1. Clique com o botão direito no módulo [Modelo de Comboio,][train-model] selecione **Copy** e, em seguida, clique com o direito na tela e selecione **Pasta**. A cópia do módulo [Train Model][train-model] tem a mesma seleção de colunas que a original.
 
 1. Ligue a saída do módulo [de vetor de dois classes][two-class-support-vector-machine] à porta de entrada esquerda do segundo módulo do Modelo de [Comboio.][train-model]
 
@@ -118,7 +118,7 @@ Agora configurar o módulo [de dados normalizar:][normalize-data]
 
 1. Clique para selecionar o módulo [de dados normalizar.][normalize-data] No painel **propriedades,** selecione **Tanh** para o parâmetro **do método de transformação.**
 
-1. Clique no **seletor de colunas de lançamento**, selecione "No columns" para Começar **Com**, selecione **Inclua** no primeiro dropdown, selecione o **tipo de coluna** no segundo dropdown e selecione **Nummérico** no terceiro dropdown. Isto especifica que todas as colunas numéricas (e apenas numéricas) são transformadas.
+1. Clique no **seletor de colunas de lançamento** , selecione "No columns" para Começar **Com** , selecione **Inclua** no primeiro dropdown, selecione o **tipo de coluna** no segundo dropdown e selecione **Nummérico** no terceiro dropdown. Isto especifica que todas as colunas numéricas (e apenas numéricas) são transformadas.
 
 1. Clique no sinal de mais (+) à direita desta linha - isto cria uma linha de dropdowns. **Selecione Excluir** no primeiro dropdown, selecione nomes de **colunas** na segunda redução e introduza "Risco de Crédito" no campo de texto. Isto especifica que a coluna de Risco de Crédito deve ser ignorada (é preciso fazê-lo porque esta coluna é numérica e por isso seria transformada se não a excluísse).
 
@@ -224,14 +224,14 @@ Está agora pronto para implementar modelos para estes dados.
 
 
 <!-- Module References -->
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[normalize-data]: https://msdn.microsoft.com/library/azure/986df333-6748-4b85-923d-871df70d6aaf/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
-[two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[normalize-data]: /azure/machine-learning/studio-module-reference/normalize-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-boosted-decision-tree]: /azure/machine-learning/studio-module-reference/two-class-boosted-decision-tree
+[two-class-support-vector-machine]: /azure/machine-learning/studio-module-reference/two-class-support-vector-machine
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/

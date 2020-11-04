@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: edd2b3e02c1a768b1f18a62faaf9b59539b92774
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92739141"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323941"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorização da referência de dados de aprendizagem de máquinas Azure
 
@@ -22,11 +22,11 @@ Conheça os dados e recursos recolhidos pelo Azure Monitor a partir do seu espa�
 
 ## <a name="metrics"></a>Métricas
 
-Esta secção lista todas as métricas da plataforma recolhidas automaticamente para a Azure Machine Learning. O fornecedor de recursos para estas métricas é [o Microsoft.MachineLearningServices/workspaces](/azure/azure-monitor/platform/metrics-supported#microsoftmachinelearningservicesworkspaces).
+Esta secção lista todas as métricas da plataforma recolhidas automaticamente para a Azure Machine Learning. O fornecedor de recursos para estas métricas é [o Microsoft.MachineLearningServices/workspaces](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
 
 **Modelo**
 
-| Métrica | Unidade | Descrição |
+| Métrica | Unidade | Description |
 | ----- | ----- | ----- |
 | A implementação do modelo falhou | de palavras | O número de implementações de modelos que falharam. |
 | Implementação de modelos iniciado | de palavras | O número de implementações de modelos começou. |
@@ -38,7 +38,7 @@ Esta secção lista todas as métricas da plataforma recolhidas automaticamente 
 
 A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
 
-| Métrica | Unidade | Descrição |
+| Métrica | Unidade | Description |
 | ----- | ----- | ----- |
 | Núcleos ativos | de palavras | O número de núcleos de computação ativo. |
 | Nódes ativos | de palavras | O número de nós ativos. |
@@ -56,7 +56,7 @@ A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
 
 **Recurso**
 
-| Métrica | Unidade | Descrição |
+| Métrica | Unidade | Description |
 | ----- | ----- | ----- |
 | CpuUtilização | Percentagem | Quanto por cento do CPU foi usado para um dado nó durante uma corrida/trabalho. Esta métrica só é publicada quando um trabalho está a funcionar num nó. Um trabalho pode usar um ou mais nós. Esta métrica é publicada por nó. |
 | GpuUtilização | Percentagem | Quanto percentagem de GPU foi utilizada para um dado nó durante uma corrida/trabalho. Um nó pode ter uma ou mais GPUs. Esta métrica é publicada por GPU por nó. |
@@ -65,7 +65,7 @@ A informação sobre quotas é apenas para o cálculo Azure Machine Learning.
 
 Informação sobre treinos.
 
-| Métrica | Unidade | Descrição |
+| Métrica | Unidade | Description |
 | ----- | ----- | ----- |
 | Execuções concluídas | de palavras | O número de execuções completas. |
 | Corridas falhadas | de palavras | O número de corridas falhadas. |
@@ -73,11 +73,11 @@ Informação sobre treinos.
 
 ## <a name="metric-dimensions"></a>Dimensões métricas
 
-Para obter mais informações sobre as dimensões métricas, consulte [métricas multidimensionais.](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics)
+Para obter mais informações sobre as dimensões métricas, consulte [métricas multidimensionais.](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics)
 
 A Azure Machine Learning tem as seguintes dimensões associadas às suas métricas.
 
-| Dimensão | Descrição |
+| Dimensão | Description |
 | ---- | ---- |
 | Nome do Cluster | O nome da instância computacional. Disponível para todas as métricas de quota. |
 | Nome da família VM | O nome da família VM usado pelo aglomerado. Disponível para percentagem de utilização de cots. |
@@ -87,7 +87,7 @@ A Azure Machine Learning tem as seguintes dimensões associadas às suas métric
 | NodeId | Identificação do nó criado onde o trabalho está a funcionar. Disponível apenas para CpuUtilization e GpuUtilization. |
 | RunId | Identificação da corrida/trabalho. Disponível apenas para CpuUtilization e GpuUtilization. |
 | ComputeType | O tipo de cálculo que a corrida usou. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
-| PipelineStepType | O tipo de [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) usado na corrida. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
+| PipelineStepType | O tipo de [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) usado na corrida. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
 | PublishedPipelineId | A identificação do oleoduto publicado usado na corrida. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
 | RunType | O tipo de corrida. Apenas disponível para execuções concluídas, corridas falhadas e execuções iniciadas. |
 
@@ -104,7 +104,7 @@ Os valores válidos para a dimensão RunType são:
 
 A tabela que se segue lista as operações relacionadas com a Azure Machine Learning que podem ser criadas no registo de Atividades.
 
-| Operação | Descrição |
+| Operação | Description |
 |:---|:---|
 | Cria ou atualiza um espaço de trabalho de Machine Learning | Um espaço de trabalho foi criado ou atualizado |
 | CheckComputeNameAvailability | Verifique se um nome de computação já está em uso |
@@ -116,7 +116,7 @@ A tabela que se segue lista as operações relacionadas com a Azure Machine Lear
 
 Esta secção lista os tipos de registos de recursos que pode recolher para o espaço de trabalho Azure Machine Learning.
 
-Fornecedor e Tipo de Recursos: [Microsoft.MachineLearningServices/workspace](/azure/azure-monitor/platform/resource-logs-categories#microsoftmachinelearningservicesworkspaces).
+Fornecedor e Tipo de Recursos: [Microsoft.MachineLearningServices/workspace](../azure-monitor/platform/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
 
 | Categoria | Nome a Apresentar |
 | ----- | ----- |
@@ -231,4 +231,4 @@ Os seguintes esquemas estão em uso pela Azure Machine Learning
 ## <a name="see-also"></a>Ver também
 
 - Consulte [a monitorização da aprendizagem automática Azure](monitor-azure-machine-learning.md) para uma descrição da monitorização da aprendizagem automática do Azure.
-- Consulte [os recursos de Monitor Azure com o Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) para obter informações sobre a monitorização dos recursos do Azure.
+- Consulte [os recursos de Monitor Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907923"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323724"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência do módulo hashing de recurso
 
@@ -22,7 +22,7 @@ Este artigo descreve um módulo incluído no designer de Aprendizagem automátic
 
 Utilize o módulo hashing de recurso para transformar um fluxo de texto inglês num conjunto de funcionalidades de inteiro. Em seguida, pode passar este conjunto de funcionalidades de haxixe para um algoritmo de aprendizagem automática para treinar um modelo de análise de texto.
 
-A funcionalidade de hashing de funcionalidade fornecida neste módulo baseia-se na estrutura nimbusml. Para mais informações, consulte [a classe NgramHash.](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)
+A funcionalidade de hashing de funcionalidade fornecida neste módulo baseia-se na estrutura nimbusml. Para mais informações, consulte [a classe NgramHash.](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)
 
 ## <a name="what-is-feature-hashing"></a>O que é hashing de recurso?
 
@@ -96,7 +96,7 @@ As saídas numéricas também possibilitam a utilização de métodos comuns de 
 
 1. Envie o oleoduto.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o processamento estar concluído, o módulo produz um conjunto de dados transformado no qual a coluna de texto original foi convertida em várias colunas. Cada coluna representa uma característica no texto. Dependendo da importência do dicionário, o conjunto de dados resultante pode ser grande:
 
@@ -131,4 +131,4 @@ O conjunto ideal de métodos de pré-processamento para aplicar em qualquer solu
 
 ## <a name="next-steps"></a>Passos seguintes
             
-Veja o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning 
+Veja o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning

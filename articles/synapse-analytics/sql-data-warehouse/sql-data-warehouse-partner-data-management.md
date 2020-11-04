@@ -11,23 +11,23 @@ ms.date: 04/17/2018
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 8f2e41779e72d565e24b67fd8b18afd87a112e62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e029de19e6bdb635dfc4797367de29dfb87e32ce
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542105"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325400"
 ---
 # <a name="azure-synapse-analytics-data-management-partners"></a>Parceiros de gestão de dados Azure Synapse Analytics
 
 Este artigo destaca as empresas parceiras da Microsoft com ferramentas e soluções de gestão de dados que suportam o Azure Synapse.
 
 ## <a name="data-management-partners"></a>Parceiros de gestão de dados
-| Parceiro | Descrição | Link do site/produto |
+| Parceiro | Description | Link do site/produto |
 | ------- | ----------- | -------------------- |
 | ![Aginidade](./media/sql-data-warehouse-partner-data-management/aginity-logo.png) |**Aginidade**<br>A Aginity é uma ferramenta de desenvolvimento de análise, que coloca toda a potência da plataforma Synapse da Microsoft nas mãos de analistas e engenheiros. O rico e intuitivo ambiente de desenvolvimento do SQL permite que os membros da equipa se conectem a mais de uma dezena de plataformas de análise líderes da indústria, ingir dados em vários formatos e construam rapidamente um complexo cálculo de negócios para servir os resultados em casos de business intelligence e machine learning. Toda a aplicação é construída em torno de um catálogo central que torna a colaboração em toda a equipa de análise uma realidade, e as sofisticadas capacidades de gestão e segurança de grãos finos fazem da governação uma brisa. |[Página do produto](https://www.aginity.com/databases/microsoft/)<br> |
 | ![Altação](./media/sql-data-warehouse-partner-data-management/alation-logo.png) |**Altação**<br>O catálogo de dados da Alation melhora drasticamente a produtividade, aumenta a precisão e impulsiona a tomada de decisão baseada em dados confiantes para os analistas. O catálogo de dados da Alation capacita todos na sua organização para encontrar, entender e governar dados. |[Página do produto](https://www.alation.com/product/data-catalog/)<br> |
-| ![Armazenagem de dados do caixão](./media/sql-data-warehouse-partner-data-management/coffing-data-warehousing-logo.png) |**Armazenagem de dados do caixão**<br>O Coffing Data Warehousing fornece o Nexus Chameleon, uma ferramenta com 10 anos de design dedicado aos sistemas de consulta. Nexus está disponível como uma ferramenta de consulta para uma piscina Azure Synapse SQL. Use o Nexus para consultar computadores internos e em nuvem e junte dados em diferentes plataformas. Point-Click-Report! |[Página do produto](https://www.coffingdw.com/software/nexus/)<br> |
+| ![Armazenagem de dados do caixão](./media/sql-data-warehouse-partner-data-management/coffing-data-warehousing-logo.png) |**Armazenagem de dados do caixão**<br>O Coffing Data Warehousing fornece o Nexus Chameleon, uma ferramenta com 10 anos de design dedicado aos sistemas de consulta. A Nexus está disponível como uma ferramenta de consulta para piscina SQL dedicada em Azure Synapse Analytics. Use o Nexus para consultar computadores internos e em nuvem e junte dados em diferentes plataformas. Point-Click-Report! |[Página do produto](https://www.coffingdw.com/software/nexus/)<br> |
 | ![Inbreina](./media/sql-data-warehouse-partner-data-management/inbrein-logo.png) |**Inbrein MicroERD**<br>A Inbrein MicroERD fornece as ferramentas necessárias para criar um modelo de dados preciso, reduzir a redundância de dados, melhorar a produtividade e observar padrões. Ao utilizar a sua UI, que foi desenvolvida com base em extensas experiências de utilizador, um modelador pode trabalhar em modelos DB de forma fácil e conveniente. Pode desfrutar continuamente de novas e melhoradas funções do MicroERD através de rápidas melhorias e atualizações funcionais. |[Página do produto](http://microerd.com/)<br> |
 | ![Infolibrarian](./media/sql-data-warehouse-partner-data-management/infolibrarian-logo.png) |**Infolibrarian (Servidor de Gestão de Metadados)**<br>InfoLibrarian cataloga, armazena e gere metadados para ajudá-lo a resolver os principais pontos de dor da gestão de dados. A Infolibrarian fornece soluções de gestão de metadados, governação de dados e gestão de ativos para gerir e publicar metadados a partir de um conjunto diversificado de ferramentas e tecnologias. |[Página do produto](http://www.infolibcorp.com/metadata-management/software-tools)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/infolibrarian.infolibrarian-metadata-management-server)<br> |
 | ![Kyligence](./media/sql-data-warehouse-partner-data-management/kyligence-logo.png) |**Kyligence**<br>Fundada pelos criadores da Apache Kylin, a Kyligence está numa missão para acelerar a produtividade dos seus clientes automatizando a gestão de dados, descoberta, interação e geração de insights – tudo sem barreiras. A Kyligence Cloud permite a implementação do cluster, melhora o acesso aos dados e acelera drasticamente a análise de dados. A plataforma de gestão de análise de Big Data aumentada pela Kyligence torna a tarefa muitas vezes desafiante de construir lagos de dados à escala empresarial de forma rápida e fácil.|[Página do produto](https://kyligence.io/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/kyligence.kyligence)<br> |

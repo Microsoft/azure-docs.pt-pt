@@ -1,6 +1,6 @@
 ---
-title: Como utilizar o OPENROWSET em SQL on demand (pré-visualização)
-description: Este artigo descreve a sintaxe de OPENROWSET em SQL on-demand (pré-visualização) e explica como usar argumentos.
+title: Como utilizar o OPENROWSET na piscina SQL sem servidor (pré-visualização)
+description: Este artigo descreve a sintaxe de OPENROWSET na piscina SQL sem servidor (pré-visualização) e explica como usar argumentos.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2ef09fd81aaeca92e87be2a0fddbc9be16ebac1d
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 5059b051b16107ac7508e509d319159651de11e3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242046"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324417"
 ---
-# <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Como utilizar o OPENROWSET com SQL on demand (pré-visualização)
+# <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Como utilizar o OPENROWSET utilizando a piscina SQL sem servidor (pré-visualização) no Azure Synapse Analytics
 
-A `OPENROWSET(BULK...)` função permite-lhe aceder a ficheiros no Azure Storage. `OPENROWSET` função lê o conteúdo de uma fonte de dados remoto (por exemplo, ficheiro) e devolve o conteúdo como um conjunto de linhas. Dentro do recurso SQL on demand (pré-visualização), o fornecedor de conjunto de linha a granel OPENROWSET é acedido através da chamada da função OPENROWSET e especificando a opção BULK.  
+A `OPENROWSET(BULK...)` função permite-lhe aceder a ficheiros no Azure Storage. `OPENROWSET` função lê o conteúdo de uma fonte de dados remoto (por exemplo, ficheiro) e devolve o conteúdo como um conjunto de linhas. Dentro do recurso de pool SQL sem servidor (pré-visualização), o fornecedor de conjunto de linha a granel OPENROWSET é acedido através da chamada de função OPENROWSET e especificando a opção BULK.  
 
 A `OPENROWSET` função pode ser referenciada na `FROM` cláusula de uma consulta como se fosse uma nome de mesa `OPENROWSET` . Suporta operações a granel através de um fornecedor BULK incorporado que permite que os dados de um ficheiro sejam lidos e devolvidos como um conjunto de linhas.
 
@@ -131,12 +131,12 @@ O unstructured_data_path que estabelece um caminho para os dados pode ser um cam
 Abaixo está um exemplo que lê todos os *ficheiros csv* começando com a *população* de todas as pastas começando com */csv/população* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
-Se especificar a unstructured_data_path ser uma pasta, uma consulta a pedido do SQL recuperará ficheiros dessa pasta. 
+Se especificar a unstructured_data_path ser uma pasta, uma consulta de piscina SQL sem servidor recuperará ficheiros dessa pasta. 
 
 > [!NOTE]
-> Ao contrário de Hadoop e PolyBase, a SQL on-demand não devolve subpaminações. Além disso, ao contrário de Hadoop e PolyBase, o SQL on demand devolve ficheiros para os quais o nome do ficheiro começa com um sublinhado (_) ou um período (.).
+> Ao contrário de Hadoop e PolyBase, a piscina SQL sem servidor não devolve subpastas. Além disso, ao contrário de Hadoop e PolyBase, o pool SQL sem servidor devolveu ficheiros para os quais o nome do ficheiro começa com um sublinhado (_) ou um período (.).
 
-No exemplo abaixo, se o unstructured_data_path= `https://mystorageaccount.dfs.core.windows.net/webdata/` , uma consulta a pedido do SQL regressará às linhas de mydata.txt e _hidden.txt. Não vai voltar mydata2.txt e mydata3.txt porque estão localizados numa sub-página.
+No exemplo abaixo, se o unstructured_data_path= `https://mystorageaccount.dfs.core.windows.net/webdata/` , uma consulta de piscina SQL sem servidor retornará as linhas de mydata.txt e _hidden.txt. Não vai voltar mydata2.txt e mydata3.txt porque estão localizados numa sub-página.
 
 ![Dados recursivos para tabelas externas](./media/develop-openrowset/folder-traversal.png)
 

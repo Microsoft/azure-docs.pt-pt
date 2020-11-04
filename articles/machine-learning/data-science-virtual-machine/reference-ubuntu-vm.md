@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: d356bd43e5e09dfce96a801732e79d2efe8c08bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9da757e47308fe0fe1a96958e464b440d99f0984
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440342"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324734"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Máquina Virtual Ubuntu (Linux) Data Science
 
@@ -97,7 +97,7 @@ Há também um script R para você instalar os [pacotes Top 20 R,](https://www.k
 
 ## <a name="python"></a>Python
 
-Anaconda Python está instalada com ambientes Python 2.7 e 3.5. O ambiente 2.7 é chamado _raiz_, e o ambiente 3.5 é chamado _py35_. Esta distribuição contém a base Python juntamente com cerca de 300 dos pacotes de matemática, engenharia e análise de dados mais populares.
+Anaconda Python está instalada com ambientes Python 2.7 e 3.5. O ambiente 2.7 é chamado _raiz_ , e o ambiente 3.5 é chamado _py35_. Esta distribuição contém a base Python juntamente com cerca de 300 dos pacotes de matemática, engenharia e análise de dados mais populares.
 
 O ambiente py35 é o padrão. Para ativar o ambiente raiz (2.7), utilize este comando:
 
@@ -148,7 +148,7 @@ Pode aceder ao servidor de portátil Jupyter a partir de qualquer anfitrião. In
 > [!NOTE]
 > A porta 8000 é aberta na firewall por defeito quando o VM é a provisionado. 
 
-Embalamos cadernos de amostras, um em Python e outro em R. Pode ver o link para as amostras na página inicial do portátil depois de autenticar no caderno Jupyter utilizando o seu nome de utilizador e senha linux local. Pode criar um novo caderno selecionando **New**e, em seguida, selecionando o núcleo linguístico apropriado. Se não vir o botão **Novo,** selecione o ícone **Jupyter** na parte superior esquerda para ir à página inicial do servidor de portátil.
+Embalamos cadernos de amostras, um em Python e outro em R. Pode ver o link para as amostras na página inicial do portátil depois de autenticar no caderno Jupyter utilizando o seu nome de utilizador e senha linux local. Pode criar um novo caderno selecionando **New** e, em seguida, selecionando o núcleo linguístico apropriado. Se não vir o botão **Novo,** selecione o ícone **Jupyter** na parte superior esquerda para ir à página inicial do servidor de portátil.
 
 ## <a name="apache-spark-standalone"></a>Apache Spark autónomo
 
@@ -206,13 +206,13 @@ Para mais informações, consulte [SQuirrel SQL.](http://squirrel-sql.sourceforg
 
 O pacote de controlador ODBC para SQL Server também vem com duas ferramentas de linha de comando:
 
-- **bcp**: A ferramenta bcp copia dados entre uma instância do Microsoft SQL Server e um ficheiro de dados num formato especificado pelo utilizador. Pode utilizar a ferramenta bcp para importar um grande número de novas linhas nas tabelas do SQL Server ou para exportar dados de tabelas para ficheiros de dados. Para importar dados para uma tabela, deve utilizar um ficheiro de formato criado para essa tabela. Ou, deve entender a estrutura da tabela e os tipos de dados que são válidos para as suas colunas.
+- **bcp** : A ferramenta bcp copia dados entre uma instância do Microsoft SQL Server e um ficheiro de dados num formato especificado pelo utilizador. Pode utilizar a ferramenta bcp para importar um grande número de novas linhas nas tabelas do SQL Server ou para exportar dados de tabelas para ficheiros de dados. Para importar dados para uma tabela, deve utilizar um ficheiro de formato criado para essa tabela. Ou, deve entender a estrutura da tabela e os tipos de dados que são válidos para as suas colunas.
 
-  Para mais informações, consulte ['Ligar' com o BCP.](https://msdn.microsoft.com/library/hh568446.aspx)
+  Para mais informações, consulte ['Ligar' com o BCP.](/sql/connect/odbc/linux-mac/connecting-with-bcp)
 
-- **sqlcmd**: Pode introduzir declarações Transact-SQL utilizando a ferramenta sqlcmd. Também pode introduzir procedimentos do sistema e ficheiros de script na solicitação de comando. Esta ferramenta utiliza ODBC para executar lotes Transact-SQL.
+- **sqlcmd** : Pode introduzir declarações Transact-SQL utilizando a ferramenta sqlcmd. Também pode introduzir procedimentos do sistema e ficheiros de script na solicitação de comando. Esta ferramenta utiliza ODBC para executar lotes Transact-SQL.
 
-  Para obter mais informações, consulte [Ligar com sqlcmd.](https://msdn.microsoft.com/library/hh568447.aspx)
+  Para obter mais informações, consulte [Ligar com sqlcmd.](/sql/connect/odbc/linux-mac/connecting-with-sqlcmd)
 
   > [!NOTE]
   > Existem algumas diferenças nesta ferramenta entre as plataformas Linux e Windows. Consulte a documentação para mais detalhes.
@@ -228,13 +228,13 @@ As bibliotecas estão disponíveis em R e Python para acesso à base de dados:
 
 As seguintes ferramentas Azure são instaladas no VM:
 
-* **Azure CLI**: Pode utilizar a interface de linha de comando em Azure para criar e gerir recursos Azure através de comandos de concha. Para abrir as ferramentas Azure, **insira a ajuda azul**. Para mais informações, consulte a [página de documentação do Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Azure Storage Explorer**: Azure Storage Explorer é uma ferramenta gráfica que pode utilizar para navegar pelos objetos que armazenou na sua conta de armazenamento Azure, e para carregar e transferir dados de e para as bolhas Azure. Pode aceder ao Storage Explorer a partir do ícone do atalho do ambiente de trabalho. Também pode abri-lo a partir de uma solicitação de concha, introduzindo **StorageExplorer**. Você deve ser contratado por um cliente X2Go, ou ter X11 reencaminhamento.
-* **Bibliotecas azul**: Seguem-se algumas das bibliotecas pré-instaladas.
+* **Azure CLI** : Pode utilizar a interface de linha de comando em Azure para criar e gerir recursos Azure através de comandos de concha. Para abrir as ferramentas Azure, **insira a ajuda azul**. Para mais informações, consulte a [página de documentação do Azure CLI](/cli/azure/get-started-with-az-cli2).
+* **Azure Storage Explorer** : Azure Storage Explorer é uma ferramenta gráfica que pode utilizar para navegar pelos objetos que armazenou na sua conta de armazenamento Azure, e para carregar e transferir dados de e para as bolhas Azure. Pode aceder ao Storage Explorer a partir do ícone do atalho do ambiente de trabalho. Também pode abri-lo a partir de uma solicitação de concha, introduzindo **StorageExplorer**. Você deve ser contratado por um cliente X2Go, ou ter X11 reencaminhamento.
+* **Bibliotecas azul** : Seguem-se algumas das bibliotecas pré-instaladas.
   
-  * **Python**: As bibliotecas relacionadas com o Azure em Python são *azul,* *azureml,* *pydocumentdb,* e *pyodbc.* Com as três primeiras bibliotecas, pode aceder aos serviços de armazenamento Azure, Azure Machine Learning e Azure Cosmos DB (uma base de dados NoSQL em Azure). A quarta biblioteca, pyodbc (juntamente com o controlador Microsoft ODBC para o SQL Server), permite o acesso ao SQL Server, Azure SQL Database e Azure Synapse Analytics de Python utilizando uma interface ODBC. Insira a **lista de pips** para ver todas as bibliotecas listadas. Certifique-se de executar este comando em ambos os ambientes Python 2.7 e 3.5.
-  * **R**: As bibliotecas relacionadas com o Azure em R são AzureML e RODBC.
-  * **Java**: A lista de bibliotecas Azure Java pode ser encontrada no diretório /dsvm/sdk/AzureSDKJava no VM. As principais bibliotecas são os pilotos de armazenamento e gestão Azure, Azure Cosmos DB e JDBC para o SQL Server.  
+  * **Python** : As bibliotecas relacionadas com o Azure em Python são *azul,* *azureml,* *pydocumentdb,* e *pyodbc.* Com as três primeiras bibliotecas, pode aceder aos serviços de armazenamento Azure, Azure Machine Learning e Azure Cosmos DB (uma base de dados NoSQL em Azure). A quarta biblioteca, pyodbc (juntamente com o controlador Microsoft ODBC para o SQL Server), permite o acesso ao SQL Server, Azure SQL Database e Azure Synapse Analytics de Python utilizando uma interface ODBC. Insira a **lista de pips** para ver todas as bibliotecas listadas. Certifique-se de executar este comando em ambos os ambientes Python 2.7 e 3.5.
+  * **R** : As bibliotecas relacionadas com o Azure em R são AzureML e RODBC.
+  * **Java** : A lista de bibliotecas Azure Java pode ser encontrada no diretório /dsvm/sdk/AzureSDKJava no VM. As principais bibliotecas são os pilotos de armazenamento e gestão Azure, Azure Cosmos DB e JDBC para o SQL Server.  
 
 Pode aceder ao [portal Azure](https://portal.azure.com) a partir do navegador Firefox pré-instalado. No portal Azure, pode criar, gerir e monitorizar os recursos do Azure.
 
@@ -253,14 +253,14 @@ Também pode construir os seus modelos em R ou Python no VM e, em seguida, impla
 
 ## <a name="machine-learning-tools"></a>Ferramentas de aprendizagem automática
 
-O VM vem com ferramentas de machine learning e algoritmos que foram pré-compilados e pré-instalados localmente. Estes incluem:
+O VM vem com ferramentas de machine learning e algoritmos que foram pré-compilados e pré-instalados localmente. Estas incluem:
 
 * **Vowpal Wabbit:** Um algoritmo de aprendizagem online rápido.
-* **xgboost**: Uma ferramenta que fornece algoritmos de árvores otimizados e impulsionados.
-* **Chocalho**: Uma ferramenta gráfica baseada em R para fácil exploração e modelação de dados.
-* **Python**: Anaconda Python vem agregado com algoritmos de aprendizagem automática com bibliotecas como Scikit-learn. Pode instalar outras bibliotecas utilizando o `pip install` comando.
-* **LightGBM**: Uma estrutura rápida, distribuída e de alto desempenho de gradiente com base em algoritmos de árvores de decisão.
-* **R**: Uma rica biblioteca de funções de machine learning está disponível para as bibliotecas pré-instaladas inclui lm, glm, randomForest e rpart. Pode instalar outras bibliotecas executando este comando:
+* **xgboost** : Uma ferramenta que fornece algoritmos de árvores otimizados e impulsionados.
+* **Chocalho** : Uma ferramenta gráfica baseada em R para fácil exploração e modelação de dados.
+* **Python** : Anaconda Python vem agregado com algoritmos de aprendizagem automática com bibliotecas como Scikit-learn. Pode instalar outras bibliotecas utilizando o `pip install` comando.
+* **LightGBM** : Uma estrutura rápida, distribuída e de alto desempenho de gradiente com base em algoritmos de árvores de decisão.
+* **R** : Uma rica biblioteca de funções de machine learning está disponível para as bibliotecas pré-instaladas inclui lm, glm, randomForest e rpart. Pode instalar outras bibliotecas executando este comando:
 
     ```r
     install.packages(<lib name>)
@@ -316,7 +316,7 @@ Para obter mais informações sobre o xgboost, consulte a [página de documenta�
 
 ### <a name="rattle"></a>Rattle
 
-O Chocalho (o **R** **A**nalytical **T**ool **T**o **L**ganha **E)** utiliza a exploração e modelação de dados baseadas em GUI. Apresenta resumos estatísticos e visuais de dados, transforma dados que podem ser facilmente modelados, constrói modelos não supervisionados e supervisionados a partir dos dados, apresenta o desempenho dos modelos graficamente, e marca novos conjuntos de dados. Também gera código R, replicando as operações na UI que podem ser executadas diretamente em R ou usadas como ponto de partida para uma análise mais aprofundada.
+O Chocalho (o **R** **A** nalytical **T** ool **T** o **L** ganha **E)** utiliza a exploração e modelação de dados baseadas em GUI. Apresenta resumos estatísticos e visuais de dados, transforma dados que podem ser facilmente modelados, constrói modelos não supervisionados e supervisionados a partir dos dados, apresenta o desempenho dos modelos graficamente, e marca novos conjuntos de dados. Também gera código R, replicando as operações na UI que podem ser executadas diretamente em R ou usadas como ponto de partida para uma análise mais aprofundada.
 
 Para executar o Rattle, precisa de estar numa sessão de sessão de sessão de sessão de sessão de sessão de sessão de sessão de sessão gráfica. No terminal, introduza **R** para abrir o ambiente R. Na introdução r, insira os seguintes comandos:
 

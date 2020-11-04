@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789c6c36def21bfe1c2acc8797c1847455a5c86c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708973"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324387"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Criar um conjunto partilhado de máquinas virtuais de ciência de dados
 
@@ -27,7 +27,7 @@ Você pode usar muitos métodos e tecnologias para criar um conjunto de DSVMs. E
 
 Um conjunto de VMs interativos que são partilhados por toda a equipa de IA/data science permite que os utilizadores iniciem sessão numa instância disponível do DSVM em vez de ter um exemplo dedicado para cada conjunto de utilizadores. Esta configuração permite uma melhor disponibilidade e uma utilização mais eficaz dos recursos.
 
-Você usa a tecnologia [de conjuntos de escala de máquina virtual Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) para criar uma piscina VM interativa. Pode utilizar conjuntos de escala para criar e gerir um grupo de VMs idênticos, equilibrados em carga e autoscalantes.
+Você usa a tecnologia [de conjuntos de escala de máquina virtual Azure](../../virtual-machine-scale-sets/index.yml) para criar uma piscina VM interativa. Pode utilizar conjuntos de escala para criar e gerir um grupo de VMs idênticos, equilibrados em carga e autoscalantes.
 
 O utilizador inicia sessão no endereço IP ou DNS da piscina principal. O conjunto de escalas liga automaticamente a sessão a um DSVM disponível no conjunto de escala. Como os utilizadores querem um ambiente consistente e familiar, independentemente do VM em que estão a iniciar sessão, todas as instâncias do VM na escala montam uma unidade de rede partilhada, como uma partilha de Ficheiros Azure ou uma partilha do Sistema de Ficheiros de Rede (NFS). O espaço de trabalho partilhado do utilizador é normalmente mantido na loja de ficheiros partilhada que é montada em cada uma das instâncias.
 
@@ -53,7 +53,7 @@ O modelo anterior permite o SSH e a porta JupyterHub desde a escala frontal defi
 
 O [script que monta a partilha de Ficheiros Azure](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) também está disponível no repositório Azure DataScienceVM no GitHub. O script monta a partilha de Ficheiros Azure no ponto de montagem especificado no ficheiro de parâmetros. O script também cria ligações suaves à unidade montada no diretório inicial do utilizador. Um diretório de portátil específico do utilizador na partilha de Ficheiros Azure está ligado ao diretório para `$HOME/notebooks/remote` que os utilizadores possam aceder, executar e guardar os seus cadernos Jupyter. Pode utilizar a mesma convenção quando criar utilizadores adicionais no VM para apontar o espaço de trabalho jupyter de cada utilizador para a partilha dos Ficheiros Azure.
 
-A balança de máquina virtual define o suporte a autoscaling. Pode definir regras sobre quando criar instâncias adicionais e quando reduzir as instâncias. Por exemplo, pode reduzir para zero casos para economizar nos custos de utilização de hardware na nuvem quando os VMs não são usados de todo. As páginas de documentação dos conjuntos de escala de máquinas virtuais fornecem [passos detalhados para a autoscalagem.](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview)
+A balança de máquina virtual define o suporte a autoscaling. Pode definir regras sobre quando criar instâncias adicionais e quando reduzir as instâncias. Por exemplo, pode reduzir para zero casos para economizar nos custos de utilização de hardware na nuvem quando os VMs não são usados de todo. As páginas de documentação dos conjuntos de escala de máquinas virtuais fornecem [passos detalhados para a autoscalagem.](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 919b8fb89e9189df7cb1964cbe0149dc6945ad2d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065478"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323160"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Crie um ponto final privado gerido para a sua fonte de dados (pré-visualização)
 
@@ -21,12 +21,11 @@ Este artigo irá ensiná-lo a criar um ponto final privado gerido para a sua fon
 
 ## <a name="step-1-open-your-azure-synapse-workspace-in-azure-portal"></a>Passo 1: Abra o seu espaço de trabalho Azure Synapse no portal Azure
 
-Pode criar um ponto final privado gerido para a sua fonte de dados a partir do Azure Synapse Studio. Selecione o **separador Visão Geral** no portal Azure e selecione **Launch Synapse Studio**.
-![Lançamento Azure Synapse Studio](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-1.png)
+Pode criar um ponto final privado gerido para a sua fonte de dados a partir do Azure Synapse Studio. Selecione o **separador Visão Geral** no portal Azure e selecione **Abrir** no cartão Open Synapse Studio na secção Iniciar.
 
 ## <a name="step-2-navigate-to-the-managed-virtual-networks-tab-in-synapse-studio"></a>Passo 2: Navegue para o separador Redes Virtuais Geridos no Estúdio Synapse
 
-No Azure Synapse Studio, selecione o **separador Gerir** a partir da navegação à esquerda. Selecione **Redes Virtuais Geridas** e, em seguida, selecione **+ Novo**.
+No Azure Synapse Studio, selecione o **separador Gerir** a partir da navegação à esquerda. Selecione **pontos finais privados geridos** e, em seguida, selecione **+ Novo**.
 ![Criar um novo ponto final privado gerido](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-2.png)
 
 ## <a name="step-3-select-the-data-source-type"></a>Passo 3: Selecione o tipo de fonte de dados

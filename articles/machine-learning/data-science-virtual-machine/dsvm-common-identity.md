@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959148"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324782"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Criar uma identidade comum numa máquina virtual de ciência de dados
 
@@ -23,9 +23,9 @@ Numa máquina virtual (VM) do Microsoft Azure, incluindo uma Máquina Virtual de
 
 Ative Directy é um fornecedor de identidade popular e é apoiado no Azure tanto como um serviço de nuvem e como um diretório no local. Pode utilizar o Azure Ative Directory (Azure AD) ou no local Ative Directory para autenticar os utilizadores num DSVM autónomo ou num conjunto de DSVMs num conjunto de máquinas virtuais Azure. Fá-lo juntando as instâncias DSVM a um domínio de Diretório Ativo.
 
-Se já tem Ative Directory, pode usá-lo como seu fornecedor de identidade comum. Se não tiver Diretório Ativo, pode executar uma instância de Diretório Ativo gerida no Azure através [dos Serviços de Domínio do Diretório Ativo Azure](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS).
+Se já tem Ative Directory, pode usá-lo como seu fornecedor de identidade comum. Se não tiver Diretório Ativo, pode executar uma instância de Diretório Ativo gerida no Azure através [dos Serviços de Domínio do Diretório Ativo Azure](../../active-directory-domain-services/index.yml) (Azure AD DS).
 
-A documentação do [Azure AD](https://docs.microsoft.com/azure/active-directory/) fornece [instruções detalhadas de gestão,](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)incluindo orientações sobre a ligação da Azure AD ao seu diretório no local, se tiver uma.
+A documentação do [Azure AD](../../active-directory/index.yml) fornece [instruções detalhadas de gestão,](../../active-directory/hybrid/whatis-hybrid-identity.md)incluindo orientações sobre a ligação da Azure AD ao seu diretório no local, se tiver uma.
 
 Este artigo descreve como configurar um serviço de domínio Ative Directory totalmente gerido em Azure, utilizando o Azure AD DS. Em seguida, pode juntar os seus DSVMs ao domínio gerido do Ative Directory. Esta abordagem permite que os utilizadores acedam a um conjunto de DSVMs (e outros recursos Azure) através de uma conta de utilizador comum e credenciais.
 
@@ -39,27 +39,27 @@ O Azure AD DS torna simples gerir as suas identidades, fornecendo um serviço to
     
    1. Selecione **Azure Active Directory** e, em seguida, **Utilizadores e grupos**.
     
-   1. Em **Utilizadores e grupos**, selecione **Todos os utilizadores**e, em seguida, selecione Novo **utilizador**.
+   1. Em **Utilizadores e grupos** , selecione **Todos os utilizadores** e, em seguida, selecione Novo **utilizador**.
    
         O painel do **utilizador** abre:
       
         ![O painel "Utilizador"](./media/add-user.png)
     
-   1. Introduza os detalhes do utilizador, como o **Nome** e o **Nome de utilizador**. A parte do nome de domínio do nome de utilizador deve ser o nome de domínio inicial "[nome de domínio].onmicrosoft.com" ou um nome de [domínio personalizado](../../active-directory/add-custom-domain.md) verificado e não federado, como "contoso.com".
+   1. Introduza os detalhes do utilizador, como o **Nome** e o **Nome de utilizador**. A parte do nome de domínio do nome de utilizador deve ser o nome de domínio inicial "[nome de domínio].onmicrosoft.com" ou um nome de [domínio personalizado](../../active-directory/fundamentals/add-custom-domain.md) verificado e não federado, como "contoso.com".
     
    1. Copie ou, caso contrário, tenha em atenção à palavra-passe de utilizador gerada, para que possa dá-la ao utilizador, após a conclusão deste processo.
     
-   1. Opcionalmente, pode abrir e preencher as informações em **Perfil**, **Grupos** ou **Função de diretório** para o utilizador. 
+   1. Opcionalmente, pode abrir e preencher as informações em **Perfil** , **Grupos** ou **Função de diretório** para o utilizador. 
     
-   1. No **Utilizador**, selecione **Criar**.
+   1. No **Utilizador** , selecione **Criar**.
     
    1. Distribua a palavra-passe gerada ao novo utilizador para que possa iniciar sedu.
 
-1. Crie uma instância AD DS Azure. Siga as instruções em  [Enable Azure Ative Directory Domain Services utilizando o portal Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (a secção "Criar uma instância e configurar definições básicas"). É importante atualizar as palavras-passe do utilizador existentes no Ative Directory para que a palavra-passe em Azure AD DS seja sincronizada. Também é importante adicionar DNS ao Azure AD DS, como descrito em "Complete os campos na janela Basics do portal Azure para criar uma instância AD DS AZure" nessa secção.
+1. Crie uma instância AD DS Azure. Siga as instruções em  [Enable Azure Ative Directory Domain Services utilizando o portal Azure](../../active-directory-domain-services/tutorial-create-instance.md) (a secção "Criar uma instância e configurar definições básicas"). É importante atualizar as palavras-passe do utilizador existentes no Ative Directory para que a palavra-passe em Azure AD DS seja sincronizada. Também é importante adicionar DNS ao Azure AD DS, como descrito em "Complete os campos na janela Basics do portal Azure para criar uma instância AD DS AZure" nessa secção.
 
 1. Crie uma sub-rede DSVM separada na rede virtual criada na secção "Criar e configurar a rede virtual" do passo anterior.
 1. Crie uma ou mais instâncias DSVM na sub-rede DSVM.
-1. Siga as [instruções](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) para adicionar o DSVM ao Ative Directory. 
+1. Siga as [instruções](../../active-directory-domain-services/join-ubuntu-linux-vm.md) para adicionar o DSVM ao Ative Directory. 
 1. Monte uma partilha de Ficheiros Azure para hospedar o seu diretório de casa ou portátil para que o seu espaço de trabalho possa ser montado em qualquer máquina. (Se precisar de permissões de nível de ficheiro apertado, necessitará do Sistema de Ficheiros de Rede [NFS] em execução em um ou mais VMs.)
 
    1. [Criar uma partilha de Ficheiros Azure](../../storage/files/storage-how-to-create-file-share.md).
@@ -79,6 +79,3 @@ Para autoscalar, pode utilizar uma balança de máquina virtual definida para cr
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Armazenar credenciais de segurança para aceder a recursos na nuvem](dsvm-secure-access-keys.md)
-
-
-

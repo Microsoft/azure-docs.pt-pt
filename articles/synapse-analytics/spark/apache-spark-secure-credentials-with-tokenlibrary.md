@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 08/26/2020
 ms.author: martinle
 ms.reviewer: euang
-ms.openlocfilehash: 90e7297236994650e0820e883c94a98b29c49fb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1cdb010e34674d52ebe2135ad1591a163a078708
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91249421"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324959"
 ---
 # <a name="securing-your-credentials-through-linked-services-with-the-tokenlibrary"></a>Garantir as suas credenciais através de serviços ligados com a TokenLibrary
 O acesso a dados de fontes externas é um padrão comum. A menos que a fonte de dados externa permita o acesso anónimo, é provável que tenha de garantir a sua ligação com uma cadeia de credenciais, secretas ou de ligação.  
@@ -122,5 +122,5 @@ print(accountKey)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Escreva para a piscina SQL](./synapse-spark-sql-pool-import-export.md)
+- [Escreva para piscina SQL dedicada](./synapse-spark-sql-pool-import-export.md)
 

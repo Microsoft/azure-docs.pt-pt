@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: tradutor, serviço de tradutor, tradução de texto, texto transliterado, deteção de linguagem
-ms.openlocfilehash: 874b3379208f7f716dc421f9825ef6b4d823ff14
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 8250141c2baa92478c5929a300ec7b17b8ed7131
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287074"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322518"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Quickstart: Começa com o Tradutor
 
@@ -105,7 +105,7 @@ Ao ligar para o serviço de Tradução via REST, terá de se certificar de que o
   <th>Description</th>
   <tr>
     <td>Cabeçalho de autenticação</td>
-    <td><em>Cabeçalho de pedido necessário</em>.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a></td>
+    <td><em>Cabeçalho de pedido necessário</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Cabeçalho de pedido necessário se utilizar um recurso de serviços cognitivos. Opcional se utilizar um recurso tradutor.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a></td>
   </tr>
   <tr>
     <td>Content-Type</td>

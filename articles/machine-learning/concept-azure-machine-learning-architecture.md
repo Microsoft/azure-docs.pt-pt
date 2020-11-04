@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276089"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322313"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: Arquitetura e conceitos
 
@@ -36,7 +36,7 @@ O espaço de trabalho é o lugar centralizado para:
   * [Pipelines](#ml-pipelines)
   * [Conjuntos de dados](#datasets-and-datastores)
   * [Modelos](#models)
-  * [Pontos Finais](#endpoints)
+  * [Pontos finais](#endpoints)
 
 Um espaço de trabalho inclui outros recursos Azure que são usados pelo espaço de trabalho:
 
@@ -53,9 +53,9 @@ Podes partilhar um espaço de trabalho com os outros.
 
 A Azure Machine Learning introduz duas máquinas virtuais totalmente geridas (VM) totalmente geridas que estão configuradas para tarefas de aprendizagem automática:
 
-* <a name="compute-instance"></a>**Instância de cálculo**: Uma instância computacional é um VM que inclui múltiplas ferramentas e ambientes instalados para machine learning. O uso primário de um exemplo de computação é para o seu posto de trabalho de desenvolvimento.  Pode começar a executar cadernos de amostra sem necessidade de configuração. Uma instância computacional também pode ser usada como um alvo de computação para a formação e inferenção de empregos.
+* <a name="compute-instance"></a>**Instância de cálculo** : Uma instância computacional é um VM que inclui múltiplas ferramentas e ambientes instalados para machine learning. O uso primário de um exemplo de computação é para o seu posto de trabalho de desenvolvimento.  Pode começar a executar cadernos de amostra sem necessidade de configuração. Uma instância computacional também pode ser usada como um alvo de computação para a formação e inferenção de empregos.
 
-* **Clusters computativo**: Os clusters computacional são um aglomerado de VMs com capacidades de escala de vários nós. Os clusters computacional são mais adequados para metas de computação para grandes empregos e produção.  O cluster aumenta automaticamente quando um trabalho é submetido.  Utilizar como alvo de computação de treino ou para implantação dev/teste.
+* **Clusters computativo** : Os clusters computacional são um aglomerado de VMs com capacidades de escala de vários nós. Os clusters computacional são mais adequados para metas de computação para grandes empregos e produção.  O cluster aumenta automaticamente quando um trabalho é submetido.  Utilizar como alvo de computação de treino ou para implantação dev/teste.
 
 Para obter mais informações sobre os alvos de computação de formação, consulte [os alvos do computação de formação](concept-compute-target.md#train).  Para obter mais informações sobre os alvos de computação de implantação, consulte [os alvos de implementação](concept-compute-target.md#deploy).
 
@@ -102,7 +102,7 @@ Produz-se uma corrida quando se envia um guião para treinar um modelo. Uma corr
 
 [Espaço de](#workspace)  >  trabalho [Experiências](#experiments)  >  [Correr](#runs)  >  **Configuração de execução**
 
-Uma configuração de execução define como um script deve ser executado em um alvo de computação especificado. Utiliza a configuração para especificar o script, o alvo do cálculo e o ambiente Azure ML para executar, quaisquer configurações específicas do trabalho distribuídas e algumas propriedades adicionais. Para obter mais informações sobre o conjunto completo de opções configuráveis para execuções, consulte [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
+Uma configuração de execução define como um script deve ser executado em um alvo de computação especificado. Utiliza a configuração para especificar o script, o alvo do cálculo e o ambiente Azure ML para executar, quaisquer configurações específicas do trabalho distribuídas e algumas propriedades adicionais. Para obter mais informações sobre o conjunto completo de opções configuráveis para execuções, consulte [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
 
 Uma configuração de execução pode ser persistido num ficheiro dentro do diretório que contém o seu script de treino.   Ou pode ser construído como um objeto na memória e usado para submeter uma corrida.
 
@@ -204,7 +204,7 @@ Se tiver ativado a monitorização, o Azure recolhe dados de telemetria do model
 O Azure IoT Edge garante que o seu módulo está em funcionamento e monitoriza o dispositivo que o acolhe. 
 ## <a name="automation"></a>Automatização
 
-### <a name="azure-machine-learning-cli"></a>Azure Machine Learning CLI 
+### <a name="azure-machine-learning-cli"></a>CLI do Azure Machine Learning 
 
 O [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) é uma extensão do Azure CLI, uma interface de linha de comando transversal para a plataforma Azure. Esta extensão fornece comandos para automatizar as suas atividades de aprendizagem automática.
 
@@ -231,12 +231,12 @@ O estúdio é também onde você acede às ferramentas interativas que fazem par
 
 > [!IMPORTANT]
 > As ferramentas marcadas (pré-visualização) abaixo estão atualmente em visualização pública.
-> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> A versão de pré-visualização é fornecida sem um acordo de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interaja com o serviço em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
++  Interaja com o serviço em qualquer ambiente Python com o [Azure Machine Learning SDK para Python.](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
 + Interaja com o serviço em qualquer ambiente R com o [Azure Machine Learning SDK para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (pré-visualização).
 + Utilize [o designer de aprendizagem automática Azure](concept-designer.md) para executar os passos de fluxo de trabalho sem escrever código. 
-+ Utilize [o CLI de aprendizagem automática Azure](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) para automatização.
++ Utilize [o CLI de aprendizagem automática Azure](./reference-azure-machine-learning-cli.md) para automatização.
 + O [Acelerador de Soluções de Muitos Modelos](https://aka.ms/many-models) (pré-visualização) baseia-se no Azure Machine Learning e permite-lhe treinar, operar e gerir centenas ou mesmo milhares de modelos de machine learning.
 
 ## <a name="next-steps"></a>Passos seguintes

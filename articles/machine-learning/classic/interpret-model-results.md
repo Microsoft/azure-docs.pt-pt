@@ -8,16 +8,16 @@ ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 11/29/2017
-ms.openlocfilehash: e422c1a7b333254ed49b53bcdf2d10e65f2846e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cfdeaee863c8e11a76ac5842ae6c35d370e2ae2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345324"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322542"
 ---
 # <a name="interpret-model-results-in-azure-machine-learning-studio-classic"></a>Interpretar os resultados do modelo no Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Este tópico explica como visualizar e interpretar os resultados da previsão no Azure Machine Learning Studio (clássico). Depois de ter treinado um modelo e feito previsões em cima dele ("marcou o modelo"), é preciso compreender e interpretar o resultado da previsão.
@@ -80,7 +80,7 @@ Após os resultados da previsão terem sido entendidos e avaliados em som, a exp
 
 Figura 3. Pontuação da experiência de problema de classificação de duas classes da íris
 
-Agora precisa definir a entrada e saída para o serviço web. A entrada é a porta de entrada certa do [Score Model,][score-model]que é a entrada da flor de Íris. A escolha da saída depende se está interessado na classe prevista (etiqueta pontuada), na probabilidade pontuada, ou em ambos. Neste exemplo, presume-se que está interessado em ambos. Para selecionar as colunas de saída desejadas, utilize um [módulo de conjunto de colunas select em dados.][select-columns] Clique [em Selecionar Colunas no conjunto de dados,][select-columns]clique no **seletor de colunas de lançamento**e selecione **Etiquetas pontuadas** e **probabilidades pontuadas**. Depois de definir a porta de saída das [Colunas Selecionadas no conjunto][select-columns] de dados e executá-la novamente, deve estar pronto para publicar a experiência de pontuação como um serviço web clicando **em PUBLISH WEB SERVICE**. A experiência final parece a Figura 4.
+Agora precisa definir a entrada e saída para o serviço web. A entrada é a porta de entrada certa do [Score Model,][score-model]que é a entrada da flor de Íris. A escolha da saída depende se está interessado na classe prevista (etiqueta pontuada), na probabilidade pontuada, ou em ambos. Neste exemplo, presume-se que está interessado em ambos. Para selecionar as colunas de saída desejadas, utilize um [módulo de conjunto de colunas select em dados.][select-columns] Clique [em Selecionar Colunas no conjunto de dados,][select-columns]clique no **seletor de colunas de lançamento** e selecione **Etiquetas pontuadas** e **probabilidades pontuadas**. Depois de definir a porta de saída das [Colunas Selecionadas no conjunto][select-columns] de dados e executá-la novamente, deve estar pronto para publicar a experiência de pontuação como um serviço web clicando **em PUBLISH WEB SERVICE**. A experiência final parece a Figura 4.
 
 ![A experiência de classificação de duas classes da íris](./media/interpret-model-results/4.png)
 
@@ -304,10 +304,10 @@ Executando o serviço web, o resultado devolvido parece a Figura 26. Os cinco re
 Figura 26. Serviço web resultado do problema de recomendação de restaurante
 
 <!-- Module References -->
-[assign-to-clusters]: https://msdn.microsoft.com/library/azure/eed3ee76-e8aa-46e6-907c-9ca767f5c114/
-[execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-matchbox-recommender]: https://msdn.microsoft.com/library/azure/55544522-9a10-44bd-884f-9a91a9cec2cd/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[train-clustering-model]: https://msdn.microsoft.com/library/azure/bb43c744-f7fa-41d0-ae67-74ae75da3ffd/
-[train-matchbox-recommender]: https://msdn.microsoft.com/library/azure/fa4aa69d-2f1c-4ba4-ad5f-90ea3a515b4c/
+[assign-to-clusters]: /azure/machine-learning/studio-module-reference/assign-data-to-clusters
+[execute-r-script]: /azure/machine-learning/studio-module-reference/execute-r-script
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-matchbox-recommender]: /azure/machine-learning/studio-module-reference/score-matchbox-recommender
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[train-clustering-model]: /azure/machine-learning/studio-module-reference/train-clustering-model
+[train-matchbox-recommender]: /azure/machine-learning/studio-module-reference/train-matchbox-recommender

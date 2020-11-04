@@ -11,19 +11,19 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ef56274e0bda3f1a9d494852520a77ecdfc25799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048011"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325380"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Marque modelos de aprendizagem automática com PREVISÃO
 
 O Synapse SQL proporciona-lhe a capacidade de marcar modelos de machine learning utilizando o familiar idioma T-SQL. Com o T-SQL [PREDICT,](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)pode trazer os seus modelos de machine learning existentes treinados com dados históricos e marcá-los dentro dos limites seguros do seu armazém de dados. A função PREDICT requer um modelo [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e os dados como entradas. Esta funcionalidade elimina o passo de mover dados valiosos para fora do armazém de dados para pontuação. Tem como objetivo capacitar os profissionais de dados a implementarem facilmente modelos de machine learning com a interface T-SQL familiar, bem como colaborar perfeitamente com os cientistas de dados que trabalham com o enquadramento certo para a sua tarefa.
 
 > [!NOTE]
-> Esta funcionalidade não é suportada atualmente em SQL on-demand.
+> Esta funcionalidade não é suportada atualmente na piscina SQL sem servidor.
 
 A funcionalidade requer que o modelo seja treinado fora do Synapse SQL. Depois de construir o modelo, carregue-o no armazém de dados e marque-o com a sintaxe T-SQL Predict para obter informações a partir dos dados.
 

@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: e07e12e82d96b591db324673f4c24b9074128065
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e6a7eabec76cf27044b5d0e13acfc2431cb19b77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092998"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323751"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
 
@@ -61,7 +61,7 @@ if spec is None:
 > O módulo Excute Python Script não suporta a instalação de pacotes que dependem de bibliotecas extra-nativas com comando como "apt-get", como Java, PyODBC e etc. Isto porque este módulo é executado num ambiente simples com Python pré-instalado apenas e com permissão não administrada.  
 
 ## <a name="upload-files"></a>Carregar ficheiros
-O módulo de script de Python executante suporta o upload de ficheiros utilizando o [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
+O módulo de script de Python executante suporta o upload de ficheiros utilizando o [Azure Machine Learning Python SDK](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#upload-file-name--path-or-stream-).
 
 O exemplo a seguir mostra como carregar um ficheiro de imagem no módulo Executar Python Script:
 
@@ -110,17 +110,17 @@ O módulo de script execute python contém o código Python de amostra que pode 
 
 1. Adicione o módulo **de script de Python executar** ao seu oleoduto.
 
-2. Adicione e conecte no **Dataset1** quaisquer conjuntos de dados do designer que pretende utilizar para entrada. Consulte este conjunto de dados no seu script Python como **DataFrame1** .
+2. Adicione e conecte no **Dataset1** quaisquer conjuntos de dados do designer que pretende utilizar para entrada. Consulte este conjunto de dados no seu script Python como **DataFrame1**.
 
     A utilização de um conjunto de dados é opcional. Use-os se quiser gerar dados utilizando python, ou use o código Python para importar os dados diretamente para o módulo.
 
-    Este módulo suporta a adição de um segundo conjunto de dados no **Dataset2** . Consulte o segundo conjunto de dados no seu script Python como **DataFrame2** .
+    Este módulo suporta a adição de um segundo conjunto de dados no **Dataset2**. Consulte o segundo conjunto de dados no seu script Python como **DataFrame2**.
 
     Os conjuntos de dados armazenados no Azure Machine Learning são automaticamente convertidos para quadros de dados de pandas quando carregados com este módulo.
 
     ![Execute o mapa de entrada python](media/module/python-module.png)
 
-4. Para incluir novos pacotes ou código Python, ligue o ficheiro com fecho que contém estes recursos personalizados à porta **do pacote script.** Ou se o seu script for maior que 16 KB, use a porta **script Bundle** para evitar erros como *o CommandLine excede o limite de 16597 caracteres* . 
+4. Para incluir novos pacotes ou código Python, ligue o ficheiro com fecho que contém estes recursos personalizados à porta **do pacote script.** Ou se o seu script for maior que 16 KB, use a porta **script Bundle** para evitar erros como *o CommandLine excede o limite de 16597 caracteres*. 
 
     
     1. Embrulhe o script e outros recursos personalizados para um ficheiro zip.
@@ -315,4 +315,4 @@ Os pacotes pré-instalados são:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

@@ -1,5 +1,5 @@
 ---
-title: Código, projeto e amostras de base de dados do Azure Analysis Services Microsoft Docs
+title: Azure Analysis Services código, projeto e amostras de base de dados
 description: Este artigo descreve recursos para aprender sobre amostras de código, projeto e base de dados para serviços de análise Azure.
 author: minewiskan
 ms.service: azure-analysis-services
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b63581b5192c93a8377a642c21eacbd291579b22
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 920cc5142d14308fce412ad44543ddc46dc1663e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013683"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324383"
 ---
 # <a name="azure-analysis-services-samples"></a>Amostras de Serviços de Análise Azure
 
@@ -28,7 +28,7 @@ O repositório [de Serviços](https://github.com/Microsoft/Analysis-Services) de
 
 ## <a name="sample-database-on-azure"></a>Base de dados de amostras em Azure
 
-A Azure Synapse Analytics (SQL Data Warehouse) fornece uma base de dados adventureWorksDW que pode ser incluída num recurso aprovisionado. Para saber mais, consulte [Quickstart: Criar e consultar uma piscina SQL Azure Synapse Analytics](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
+A Azure Synapse Analytics (anteriormente SQL Data Warehouse) fornece uma base de dados adventureWorksDW que pode ser incluída num recurso aprovisionado. Para saber mais, consulte [Quickstart: Criar e consultar uma piscina SQL dedicada em Azure Synapse Analytics ](/azure/sql-data-warehouse/create-data-warehouse-portal).
 
 ## <a name="sample-databases-on-github"></a>Bases de dados de amostras no GitHub
 
@@ -40,7 +40,7 @@ Estas bases de dados de amostras no GitHub podem ser usadas para criar e testar 
 
 ## <a name="adventure-works-internet-sales-sample-model-in-azure-portal"></a>Modelo de amostra de vendas de Internet Adventure Works em portal Azure
 
-Se tiver um servidor de Serviços de Análise no portal Azure, pode criar de forma rápida e fácil um modelo de amostragem. Na página geral do seu servidor no portal Azure, clique em **Novo modelo**e, em seguida, em Escolha uma fonte **de dados**, selecione **dados de amostra**.
+Se tiver um servidor de Serviços de Análise no portal Azure, pode criar de forma rápida e fácil um modelo de amostragem. Na página geral do seu servidor no portal Azure, clique em **Novo modelo** e, em seguida, em Escolha uma fonte **de dados** , selecione **dados de amostra**.
 
 
 

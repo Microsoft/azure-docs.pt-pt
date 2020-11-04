@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 374cc79b42d2dcaed0312c0ec205073906ce1fc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e042fd62d99c9fdf88a144c93739bf1f3f08a78c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530679"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325584"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuragem interativa com código de estúdio visual
 
@@ -38,7 +38,7 @@ Utilize a extensão Azure Machine Learning para validar, executar e depurar as s
 > No Windows, certifique-se de [configurar o Docker para utilizar recipientes Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 > [!TIP]
-> Para o Windows, embora não seja necessário, é altamente recomendado [utilizar o Docker com o Subsistema Windows para Linux (WSL) 2](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
+> Para o Windows, embora não seja necessário, é altamente recomendado [utilizar o Docker com o Subsistema Windows para Linux (WSL) 2](/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
 
 > [!IMPORTANT]
 > Antes de executar a sua experiência local, certifique-se de que Docker está correndo.
@@ -58,7 +58,7 @@ Utilize a extensão Azure Machine Learning para validar, executar e depurar as s
     1. Forneça o nome do script que pretende executar. O caminho é relativo ao diretório aberto no Código VS.
     1. Escolha se pretende utilizar ou não um conjunto de dados de Aprendizagem automática Azure. Pode criar [conjuntos de dados de aprendizagem automática Azure](how-to-manage-resources-vscode.md#create-dataset) utilizando a extensão.
     1. Debugpy é necessário para fixar o depurador ao recipiente que executa a sua experiência. Para adicionar debugpy como dependência, **selecione Add Debugpy**. Caso contrário, **selecione Skip**. Não adicionar debugpy como dependência executa a sua experiência sem se ligar ao depurante.
-    1. Um ficheiro de configuração que contenha as definições de configuração de execução abre no editor. Se estiver satisfeito com as definições, **selecione Enviar experiência**. Em alternativa, abra a paleta de comandos **(Ver > Paleta**de Comando ) da barra de menu e introduza o `Azure ML: Submit experiment` comando na caixa de texto.
+    1. Um ficheiro de configuração que contenha as definições de configuração de execução abre no editor. Se estiver satisfeito com as definições, **selecione Enviar experiência**. Em alternativa, abra a paleta de comandos **(Ver > Paleta** de Comando ) da barra de menu e introduza o `Azure ML: Submit experiment` comando na caixa de texto.
 1. Uma vez submetida a sua experiência, é criada uma imagem do Docker que contém o seu script e as configurações especificadas na sua configuração de execução.
 
     Quando o processo de construção de imagem Docker começa, o conteúdo do fluxo de `60_control_log.txt` ficheiros para a consola de saída no Código VS.
@@ -339,7 +339,7 @@ Poupe o `ip_address` valor. É usado na secção seguinte.
 Em alguns casos, poderá ser necessário depurar interativamente o código Python contido na sua implementação de modelo. Por exemplo, se o script de entrada estiver a falhar e a razão não puder ser determinada por registo adicional. Utilizando o Código VS e o depuratório, pode anexar-se ao código que está a funcionar dentro do contentor Docker.
 
 > [!IMPORTANT]
-> Este método de depuração não funciona quando se utiliza `Model.deploy()` e implanta um modelo `LocalWebservice.deploy_configuration` localmente. Em vez disso, deve criar uma imagem utilizando o método [Modelo.pacote().](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-)
+> Este método de depuração não funciona quando se utiliza `Model.deploy()` e implanta um modelo `LocalWebservice.deploy_configuration` localmente. Em vez disso, deve criar uma imagem utilizando o método [Modelo.pacote().](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-)
 
 As implementações de serviços web locais requerem uma instalação de Docker funcionando no seu sistema local. Para obter mais informações sobre a utilização do Docker, consulte a Documentação do [Docker.](https://docs.docker.com/) Note que ao trabalhar com casos de computação, Docker já está instalado.
 

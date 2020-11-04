@@ -1,6 +1,6 @@
 ---
 title: Orientação de design de mesas distribuídas
-description: Recomendações para a conceção de mesas distribuídas por haxixe e rodapé na piscina Synapse SQL.
+description: Recomendações para a conceção de mesas distribuídas por haxixe e rodapé redondo utilizando piscina SQL dedicada em Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487012"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323624"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Orientações para estruturar tabelas distribuídas no conjunto Synapse SQL
+# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Orientação para o design de mesas distribuídas utilizando piscina SQL dedicada em Azure Synapse Analytics
 
-Recomendações para a conceção de mesas distribuídas por haxixe e rodapé em piscinas Sinaapse SQL.
+Recomendações para a conceção de mesas distribuídas por haxixe e rodapé em piscinas SQL dedicadas.
 
-Este artigo pressupõe que está familiarizado com os conceitos de distribuição de dados e movimento de dados no Synapse SQL.  Para mais informações, consulte [a arquitetura Azure Synapse Analytics.](massively-parallel-processing-mpp-architecture.md)
+Este artigo pressupõe que está familiarizado com os conceitos de distribuição de dados e movimento de dados em pool de SQL dedicado.  Para mais informações, consulte [a arquitetura Azure Synapse Analytics.](massively-parallel-processing-mpp-architecture.md)
 
 ## <a name="what-is-a-distributed-table"></a>O que é uma mesa distribuída?
 
@@ -36,7 +36,7 @@ Como parte do design de mesa, compreenda o máximo possível sobre os seus dados
 
 - Qual é o tamanho da mesa?
 - Com que frequência a mesa é refrescada?
-- Tenho tabelas de fatos e dimensões numa piscina Sinapse SQL?
+- Tenho tabelas de fatos e dimensões numa piscina de SQL dedicada?
 
 ### <a name="hash-distributed"></a>Haxixe distribuído
 
@@ -44,7 +44,7 @@ Uma tabela distribuída por haxixe distribui linhas de mesa através dos nós co
 
 ![Tabela distribuída](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabela distribuída")  
 
-Uma vez que valores idênticos sempre têm a mesma distribuição, o armazém de dados tem conhecimento incorporado das localizações da linha. No pool Synapse SQL este conhecimento é usado para minimizar o movimento de dados durante as consultas, o que melhora o desempenho da consulta.
+Uma vez que valores idênticos sempre têm a mesma distribuição, o armazém de dados tem conhecimento incorporado das localizações da linha. No pool de SQL dedicado este conhecimento é usado para minimizar o movimento de dados durante as consultas, o que melhora o desempenho da consulta.
 
 Mesas distribuídas por haxixe funcionam bem para grandes mesas de factos num esquema estelar. Podem ter um número muito grande de linhas e ainda alcançar um alto desempenho. Existem, naturalmente, algumas considerações de design que o ajudam a obter o desempenho que o sistema distribuído é projetado para fornecer. Escolher uma boa coluna de distribuição é uma consideração que é descrita neste artigo.
 
@@ -113,7 +113,7 @@ Para equilibrar o processamento paralelo, selecione uma coluna de distribuição
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Escolha uma coluna de distribuição que minimize o movimento de dados
 
-Para obter as consultas corretas os resultados da consulta podem mover dados de um nó compute para outro. O movimento de dados geralmente acontece quando as consultas têm juntas e agregações em tabelas distribuídas. Escolher uma coluna de distribuição que ajude a minimizar o movimento de dados é uma das estratégias mais importantes para otimizar o desempenho da sua piscina Synapse SQL.
+Para obter as consultas corretas os resultados da consulta podem mover dados de um nó compute para outro. O movimento de dados geralmente acontece quando as consultas têm juntas e agregações em tabelas distribuídas. Escolher uma coluna de distribuição que ajude a minimizar o movimento de dados é uma das estratégias mais importantes para otimizar o desempenho da sua piscina DE SQL dedicada.
 
 Para minimizar o movimento de dados, selecione uma coluna de distribuição que:
 
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Para criar uma tabela distribuída, utilize uma destas declarações:
 
-- [CREATE TABLE (Piscina Sinapse SQL)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CRIAR TABELA COMO SELECT (Piscina Sinapse SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (piscina SQL dedicada)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE AS SELECT (piscina SQL dedicada)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

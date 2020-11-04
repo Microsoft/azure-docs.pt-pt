@@ -1,6 +1,6 @@
 ---
 title: Desenhar mesas
-description: Introdução à conceção de mesas na piscina Synapse SQL.
+description: Introdução ao design de mesas utilizando piscina SQL dedicada em Azure Synapse Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7973c85c7ca8051cae2ab7155dda94bec43ebd59
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3bdf234156c55e3c30df74c672866a118fd2f4f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486944"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323494"
 ---
-# <a name="design-tables-in-synapse-sql-pool"></a>Mesas de design na piscina Synapse SQL
+# <a name="design-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Tabelas de design usando piscina SQL dedicada em Azure Synapse Analytics
 
-Este artigo fornece conceitos introdutórios fundamentais para a conceção de mesas na piscina SQL.
+Este artigo fornece conceitos introdutórios fundamentais para a conceção de mesas em piscinas SQL dedicadas.
 
 ## <a name="determine-table-category"></a>Determinar categoria de tabela
 
 Um [esquema estelar](https://en.wikipedia.org/wiki/Star_schema) organiza dados em tabelas de fatos e dimensões. Algumas tabelas são usadas para integração ou paragem de dados antes de passar para uma tabela de factos ou dimensões. Ao desenhar uma tabela, decida se os dados da tabela pertencem a uma tabela de factos, dimensão ou integração. Esta decisão informa a estrutura e distribuição de mesa adequadas.
 
-- **As tabelas** de factos contêm dados quantitativos que são geralmente gerados num sistema transacional e depois carregados na piscina SQL. Por exemplo, um negócio de retalho gera transações de vendas todos os dias, e depois carrega os dados numa tabela de factos de piscina SQL para análise.
+- **As tabelas** de factos contêm dados quantitativos que são geralmente gerados num sistema transacional e depois carregados no pool de SQL dedicado. Por exemplo, um negócio de retalho gera transações de vendas todos os dias, e depois carrega os dados numa tabela de fatos de piscina sql dedicada para análise.
 
 - **As tabelas de dimensão** contêm dados de atributos que podem mudar, mas geralmente mudam de forma pouco frequente. Por exemplo, o nome e endereço de um cliente são armazenados numa tabela de dimensão e atualizados apenas quando o perfil do cliente muda. Para minimizar o tamanho de uma grande tabela de factos, o nome e endereço do cliente não precisam de estar em todas as filas de uma tabela de factos. Em vez disso, a tabela de factos e a tabela de dimensões podem partilhar uma identificação do cliente. Uma consulta pode juntar-se às duas tabelas para associar o perfil e transações de um cliente.
 
@@ -34,28 +34,28 @@ Um [esquema estelar](https://en.wikipedia.org/wiki/Star_schema) organiza dados e
 
 ## <a name="schema-and-table-names"></a>Schema e nomes de mesa
 
-Os esquemas são uma boa forma de agrupar mesas, usadas de forma semelhante, juntos.  Se você está migrando várias bases de dados de uma solução on-prem para piscina SQL, ele funciona melhor para migrar todas as tabelas de fato, dimensão e integração para um esquema na piscina SQL.
+Os esquemas são uma boa forma de agrupar mesas, usadas de forma semelhante, juntos.  Se você está migrando várias bases de dados de uma solução on-prem para uma piscina de SQL dedicada, ele funciona melhor para migrar todas as tabelas de fato, dimensão e integração para um esquema em uma piscina de SQL dedicada.
 
-Por exemplo, você poderia armazenar todas as tabelas na piscina SQL de amostra [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) dentro de um esquema chamado wwi. O código a seguir cria um [esquema definido pelo utilizador](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) chamado wwi.
+Por exemplo, você poderia armazenar todas as tabelas na amostra [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) piscina DE SQL dedicada dentro de um esquema chamado wwi. O código a seguir cria um [esquema definido pelo utilizador](/sql/t-sql/statements/create-schema-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) chamado wwi.
 
 ```sql
 CREATE SCHEMA wwi;
 ```
 
-Para mostrar a organização das mesas na piscina SQL, você poderia usar fato, dim, e int como prefixos para os nomes de mesa. A tabela seguinte mostra alguns dos nomes de esquema e tabelas para WideWorldImportersDW.  
+Para mostrar a organização das mesas na piscina dedicada SQL, você poderia usar fato, dim, e int como prefixos para os nomes de mesa. A tabela seguinte mostra alguns dos nomes de esquema e tabelas para WideWorldImportersDW.  
 
-| Tabela WideWorldImportersDW  | Tipo de mesa | Conjunto de SQL |
+| Tabela WideWorldImportersDW  | Tipo de mesa | Piscina SQL dedicada |
 |:-----|:-----|:------|:-----|
 | City | Dimensão | wwi. DimCity |
 | Encomenda | Fact | wwi. Ordem dos Factos |
 
 ## <a name="table-persistence"></a>Persistência da tabela
 
-As tabelas armazenam dados permanentemente no Azure Storage, temporariamente no Azure Storage, ou numa loja de dados externa à piscina SQL.
+As tabelas armazenam dados permanentemente no Azure Storage, temporariamente no Azure Storage, ou numa loja de dados externa a um pool DE SQL dedicado.
 
 ### <a name="regular-table"></a>Tabela regular
 
-Uma mesa regular armazena dados no Azure Storage como parte da piscina SQL. A tabela e os dados persistem independentemente de uma sessão estar aberta.  O exemplo a seguir cria uma tabela regular com duas colunas.
+Uma mesa regular armazena dados no Azure Storage como parte de uma piscina de SQL dedicada. A tabela e os dados persistem independentemente de uma sessão estar aberta.  O exemplo a seguir cria uma tabela regular com duas colunas.
 
 ```sql
 CREATE TABLE MyTable (col1 int, col2 int );  
@@ -69,17 +69,17 @@ As mesas temporárias utilizam o armazenamento local para oferecer um desempenho
 
 ### <a name="external-table"></a>Tabela externa
 
-Uma tabela externa aponta para dados localizados na bolha de armazenamento Azure ou na Azure Data Lake Store. Quando utilizado em conjunto com a declaração CREATE TABLE AS SELECT, selecionando de uma tabela externa os dados de importação para o pool SQL.
+Uma tabela externa aponta para dados localizados na bolha de armazenamento Azure ou na Azure Data Lake Store. Quando utilizado em conjunto com a declaração CREATE TABLE AS SELECT, selecionando de uma tabela externa dados de importação em pool DE SQL dedicado.
 
 Como tal, as tabelas externas são úteis para o carregamento de dados. Para um tutorial de carregamento, consulte [Use PolyBase para carregar dados do armazenamento de bolhas Azure](load-data-from-azure-blob-storage-using-polybase.md).
 
 ## <a name="data-types"></a>Tipos de dados
 
-A piscina SQL suporta os tipos de dados mais utilizados. Para obter uma lista dos tipos de dados suportados, consulte [os tipos de dados na referência CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) na declaração CREATE TABLE. Para obter orientações sobre a utilização de tipos de dados, consulte [os tipos de dados](sql-data-warehouse-tables-data-types.md).
+O pool DE SQL dedicado suporta os tipos de dados mais utilizados. Para obter uma lista dos tipos de dados suportados, consulte [os tipos de dados na referência CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest#DataTypes) na declaração CREATE TABLE. Para obter orientações sobre a utilização de tipos de dados, consulte [os tipos de dados](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Tabelas distribuídas
 
-Uma característica fundamental do Synapse SQL é a forma como pode armazenar e operar em mesas através das [distribuições.](massively-parallel-processing-mpp-architecture.md#distributions) O SQL de Sinapse suporta três métodos para distribuir dados: round-robin (padrão), haxixe e replicado.
+Uma característica fundamental da piscina SQL dedicada é a forma como pode armazenar e operar em mesas através de [distribuições.](massively-parallel-processing-mpp-architecture.md#distributions)  O pool de SQL dedicado suporta três métodos para distribuir dados: round-robin (padrão), haxixe e replicado.
 
 ### <a name="hash-distributed-tables"></a>Tabelas distribuídas com hash
 
@@ -119,7 +119,7 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 
 ## <a name="columnstore-indexes"></a>Índices Columnstore
 
-Por padrão, a piscina SQL armazena uma tabela como um índice de loja de colunas agrupado. Esta forma de armazenamento de dados obtém alta compressão de dados e desempenho de consulta em grandes tabelas.  
+Por padrão, a piscina SQL dedicada armazena uma tabela como um índice de loja de colunas agrupado. Esta forma de armazenamento de dados obtém alta compressão de dados e desempenho de consulta em grandes tabelas.  
 
 O índice de loja de colunas agrupado é geralmente a melhor escolha, mas em alguns casos um índice agrupado ou uma pilha é a estrutura de armazenamento apropriada.  
 
@@ -138,28 +138,28 @@ Atualizar estatísticas não acontece automaticamente. Atualizar as estatística
 
 ## <a name="primary-key-and-unique-key"></a>Chave primária e chave única
 
-A CHAVE PRIMÁRIA só é suportada quando não é aplicada e não executada.  É utilizada uma restrição única apenas com NÃO EXECUTADA.  Verifique as [restrições da mesa de bilhar SQL](sql-data-warehouse-table-constraints.md).
+A CHAVE PRIMÁRIA só é suportada quando não é aplicada e não executada.  É utilizada uma restrição única apenas com NÃO EXECUTADA.  Verifique [as restrições de mesa de bilhar SQL dedicadas](sql-data-warehouse-table-constraints.md).
 
 ## <a name="commands-for-creating-tables"></a>Comandos para criar tabelas
 
 Pode criar uma mesa como uma nova mesa vazia. Também pode criar e preencher uma tabela com os resultados de uma declaração selecionada. Seguem-se os comandos T-SQL para a criação de uma tabela.
 
-| Declaração T-SQL | Descrição |
+| Declaração T-SQL | Description |
 |:----------------|:------------|
 | [CRIAR TABELA](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa vazia definindo todas as colunas e opções de mesa. |
-| [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa externa. A definição da tabela é armazenada na piscina SQL. Os dados da tabela são armazenados no armazenamento Azure Blob ou na Azure Data Lake Store. |
+| [CRIAR TABELA EXTERNA](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma mesa externa. A definição da tabela é armazenada em piscina SQL dedicada. Os dados da tabela são armazenados no armazenamento Azure Blob ou na Azure Data Lake Store. |
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Povoa uma nova tabela com os resultados de uma declaração selecionada. As colunas de tabela e os tipos de dados baseiam-se nos resultados da declaração selecionada. Para importar dados, esta declaração pode selecionar a partir de uma tabela externa. |
 | [CRIAR TABELA EXTERNA COMO SELEÇÃO](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) | Cria uma nova tabela externa exportando os resultados de uma declaração selecionada para um local externo.  A localização é o armazenamento Azure Blob ou a Azure Data Lake Store. |
 
-## <a name="aligning-source-data-with-the-sql-pool"></a>Alinhamento dos dados de origem com a piscina SQL
+## <a name="aligning-source-data-with-dedicated-sql-pool"></a>Alinhamento de dados de origem com piscina DE SQL dedicada
 
-As mesas de bilhar SQL são povoadas carregando dados de outra fonte de dados. Para efetuar uma carga bem sucedida, os tipos de número e dados das colunas nos dados de origem devem alinhar-se com a definição de tabela no pool SQL. Conseguir que os dados se alinhem pode ser a parte mais difícil de desenhar as suas tabelas.
+As mesas de bilhar SQL dedicadas são povoadas carregando dados de outra fonte de dados. Para efetuar uma carga bem sucedida, os tipos de número e dados das colunas nos dados de origem devem alinhar-se com a definição de tabela no pool DE SQL dedicado. Conseguir que os dados se alinhem pode ser a parte mais difícil de desenhar as suas tabelas.
 
-Se os dados forem provenientes de várias lojas de dados, você carrega os dados no pool SQL e armazena-os numa tabela de integração. Uma vez que os dados estão na tabela de integração, você pode usar o poder da piscina SQL para realizar operações de transformação. Uma vez preparados os dados, pode inseri-lo em tabelas de produção.
+Se os dados forem provenientes de várias lojas de dados, você carrega os dados no pool de SQL dedicado e armazene-os numa tabela de integração. Uma vez que os dados estão na tabela de integração, você pode usar o poder de pool SQL dedicado para realizar operações de transformação. Uma vez preparados os dados, pode inseri-lo em tabelas de produção.
 
 ## <a name="unsupported-table-features"></a>Características da tabela não suportadas
 
-A piscina SQL suporta muitas, mas não todas, as funcionalidades de tabela oferecidas por outras bases de dados.  A lista a seguir mostra algumas das funcionalidades da tabela que não são suportadas na piscina SQL:
+O pool dedicado SQL suporta muitas, mas não todas, funcionalidades de tabela oferecidas por outras bases de dados.  A lista a seguir mostra algumas das funcionalidades da tabela que não são suportadas em piscinas SQL dedicadas:
 
 - Chave estrangeira, [Restrições de tabela de verificação](/sql/t-sql/statements/alter-table-table-constraint-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [Colunas Computadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -375,4 +375,4 @@ ORDER BY    distribution_id
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de criar as tabelas para a sua piscina SQL, o próximo passo é carregar dados na tabela.  Para um tutorial de carregamento, consulte [os dados de carregamento para a piscina SQL.](load-data-wideworldimportersdw.md)
+Depois de criar as tabelas para a sua piscina SQL dedicada, o próximo passo é carregar dados na tabela.  Para um tutorial de carregamento, consulte [os dados de carregamento para a piscina sql dedicada.](load-data-wideworldimportersdw.md)

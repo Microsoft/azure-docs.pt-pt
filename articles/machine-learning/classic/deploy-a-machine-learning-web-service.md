@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345054"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322845"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implementar um serviço web Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 O Azure Machine Learning Studio (clássico) permite-lhe construir e testar uma solução analítica preditiva. Em seguida, pode implementar a solução como um serviço web.
@@ -93,7 +93,7 @@ Quando converte esta experiência de treino numa experiência preditiva, alguns 
 
 * **Pontuação** - Neste exemplo, o módulo [Dados Divididos][split] é utilizado para dividir o fluxo de dados em dados de teste e dados de treino. Na experiência preditiva, já não estamos a treinar, por isso os [dados divididos][split] podem ser removidos. Da mesma forma, o segundo módulo [do Modelo de Pontuação][score-model] e o módulo [De Modelo de Avaliação][evaluate-model] são utilizados para comparar os resultados dos dados do teste, pelo que estes módulos não são necessários na experiência preditiva. No entanto, o módulo [restante do Modelo de Pontuação][score-model] é necessário para devolver um resultado de pontuação através do serviço web.
 
-Aqui está como o nosso exemplo fica depois de clicar em **Configurar o Serviço Web**:
+Aqui está como o nosso exemplo fica depois de clicar em **Configurar o Serviço Web** :
 
 ![Experiência preditiva convertida](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
@@ -138,7 +138,7 @@ Os passos seguintes descrevem a implementação de uma experiência preditiva co
 
 Agora que a experiência preditiva foi preparada, pode implantá-la como um novo serviço web Azure (baseado em Gestor de Recursos). Utilizando o serviço web, os utilizadores podem enviar dados para o seu modelo e o modelo irá devolver as suas previsões.
 
-Para implementar a sua experiência preditiva, clique em **Executar** na parte inferior da tela de experiência. Uma vez terminada a experiência, clique em **Implementar o Serviço Web** e selecione Implementar o Serviço Web ** [Novo]**.  Abre a página de implementação do portal de Serviço Web Machine Learning Studio (clássico).
+Para implementar a sua experiência preditiva, clique em **Executar** na parte inferior da tela de experiência. Uma vez terminada a experiência, clique em **Implementar o Serviço Web** e selecione Implementar o Serviço Web **[Novo]**.  Abre a página de implementação do portal de Serviço Web Machine Learning Studio (clássico).
 
 > [!NOTE] 
 > Para implementar um Novo serviço web tem de ter permissões suficientes na subscrição à qual implementa o serviço web. Para obter mais informações, [gerencie um serviço Web utilizando o portal Azure Machine Learning Web Services](manage-new-webservice.md). 
@@ -282,7 +282,7 @@ Como já implementou esta experiência antes, é-lhe perguntado se pretende subs
 > [!NOTE]
 > Se esteiu alterações de configuração no serviço web original, por exemplo, introduzindo um novo nome de visualização ou descrição, terá de introduzir novamente esses valores.
 
-Uma opção para atualizar o seu serviço web é reforçá-lo programaticamente. Para obter mais informações, consulte [os modelos do Retrain Machine Learning Studio (clássico) programáticamente.](/azure/machine-learning/studio/retrain-machine-learning-model)
+Uma opção para atualizar o seu serviço web é reforçá-lo programaticamente. Para obter mais informações, consulte [os modelos do Retrain Machine Learning Studio (clássico) programáticamente.](./retrain-machine-learning-model.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -305,11 +305,11 @@ Uma opção para atualizar o seu serviço web é reforçá-lo programaticamente.
 
 [webserviceparameters]: web-service-parameters.md
 [deploy]: deploy-a-machine-learning-web-service.md
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[export-data]: /azure/machine-learning/studio-module-reference/export-data

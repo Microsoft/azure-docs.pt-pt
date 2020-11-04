@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: ab14547ef5d9791728ce96fdf2c414945a46aab9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef9ea055f437b53313dc9ee11b0b91f095664f5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362491"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322850"
 ---
 # <a name="create-multiple-web-service-endpoints-from-one-experiment-with-ml-studio-classic-and-powershell"></a>Crie vários pontos finais de serviço web a partir de uma experiência com ML Studio (clássico) e PowerShell
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Aqui está um problema comum de aprendizagem automática: Você quer criar muitos modelos que têm o mesmo fluxo de trabalho de treino e usar o mesmo algoritmo. Mas quer que tenham diferentes conjuntos de dados de treino como entrada. Este artigo mostra-lhe como fazê-lo em escala no Azure Machine Learning Studio (clássico) usando apenas uma experiência.
 
@@ -28,7 +28,7 @@ Você pode treinar o seu modelo uma vez usando uma versão fundida de todos os c
 
 Essa pode ser a melhor abordagem, mas não quer criar 1.000 experiências de formação no Azure Machine Learning Studio (clássico) com cada uma representando uma localização única. Além de ser uma tarefa esmagadora, também parece ineficiente, uma vez que cada experiência teria todos os mesmos componentes, exceto o conjunto de dados de treino.
 
-Felizmente, você pode fazê-lo usando o [Azure Machine Learning Studio (clássico) retraining API](/azure/machine-learning/studio/retrain-machine-learning-model) e automatizando a tarefa com [Azure Machine Learning Studio (clássico) PowerShell](powershell-module.md).
+Felizmente, você pode fazê-lo usando o [Azure Machine Learning Studio (clássico) retraining API](./retrain-machine-learning-model.md) e automatizando a tarefa com [Azure Machine Learning Studio (clássico) PowerShell](powershell-module.md).
 
 > [!NOTE]
 > Para que a sua amostra corra mais rapidamente, reduza o número de locais de 1.000 para 10. Mas os mesmos princípios e procedimentos aplicam-se a 1.000 locais. No entanto, se quiser treinar a partir de 1.000 conjuntos de dados, talvez queira executar os seguintes scripts PowerShell em paralelo. Como fazê-lo está fora do âmbito deste artigo, mas você pode encontrar exemplos de powerShell multi-threading na Internet.  
@@ -43,7 +43,7 @@ Use o [exemplo de experiência de treino](https://gallery.azure.ai/Experiment/Bi
 > 
 > 
 
-A experiência utiliza um módulo **de Dados de Importação** para importar o conjunto de dados de formação *customer001.csv* de uma conta de armazenamento Azure. Vamos supor que recolheu conjuntos de dados de treino de todos os locais de aluguer de bicicletas e os armazenou no mesmo local de armazenamento de bolhas com nomes de ficheiros que vão de *rentalloc001.csv* a *rentalloc10.csv. *
+A experiência utiliza um módulo **de Dados de Importação** para importar o conjunto de dados de formação *customer001.csv* de uma conta de armazenamento Azure. Vamos supor que recolheu conjuntos de dados de treino de todos os locais de aluguer de bicicletas e os armazenou no mesmo local de armazenamento de bolhas com nomes de ficheiros que vão de *rentalloc001.csv* a *rentalloc10.csv.*
 
 ![Módulo de leitor importa dados de uma bolha de Azure](./media/create-models-and-endpoints-with-powershell/reader-module.png)
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330398"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323742"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
@@ -121,7 +121,7 @@ Depois de terminado o curso do gasoduto, pode visualizar a imagem no painel dire
 
 ## <a name="access-to-registered-dataset"></a>Acesso ao conjunto de dados registado
 
-Pode consultar o seguinte código de amostra para [aceder aos conjuntos de dados registados](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) no seu espaço de trabalho:
+Pode consultar o seguinte código de amostra para [aceder aos conjuntos de dados registados](../how-to-create-register-datasets.md) no seu espaço de trabalho:
 
 ```R
         azureml_main <- function(dataframe1, dataframe2){
@@ -147,11 +147,11 @@ Os conjuntos de dados armazenados no designer são automaticamente convertidos p
 
 1. Conecte todas as entradas que o script precise. As entradas são opcionais e podem incluir dados e código R adicional.
 
-    * **Dataset1**: Referenciar a primeira entrada como `dataframe1` . O conjunto de dados de entrada deve ser formatado como um ficheiro CSV, TSV ou ARFF. Ou pode ligar um conjunto de dados de aprendizagem de máquinas Azure.
+    * **Dataset1** : Referenciar a primeira entrada como `dataframe1` . O conjunto de dados de entrada deve ser formatado como um ficheiro CSV, TSV ou ARFF. Ou pode ligar um conjunto de dados de aprendizagem de máquinas Azure.
 
-    * **Dataset2**: Referenciar a segunda entrada como `dataframe2` . Este conjunto de dados também deve ser formatado como um ficheiro CSV, TSV ou ARFF, ou como um conjunto de dados de Aprendizagem automática Azure.
+    * **Dataset2** : Referenciar a segunda entrada como `dataframe2` . Este conjunto de dados também deve ser formatado como um ficheiro CSV, TSV ou ARFF, ou como um conjunto de dados de Aprendizagem automática Azure.
 
-    * **Script Bundle**: A terceira entrada aceita ficheiros .zip. Um ficheiro com fecho pode conter vários ficheiros e vários tipos de ficheiros.
+    * **Script Bundle** : A terceira entrada aceita ficheiros .zip. Um ficheiro com fecho pode conter vários ficheiros e vários tipos de ficheiros.
 
 1. Na caixa de texto do **script R,** escreva ou cole um script R válido.
 
@@ -237,7 +237,7 @@ Existem muitas maneiras de estender o seu pipeline usando scripts R personalizad
 
 O módulo Execut R Script suporta ficheiros de script r arbitrários como entradas. Para usá-las, deve enviá-las para o seu espaço de trabalho como parte do ficheiro .zip.
 
-1. Para carregar um ficheiro .zip que contenha código R para o seu espaço de trabalho, aceda à página de ativos **datasets.** Selecione **Criar conjunto de dados**e, em seguida, selecione **A partir do ficheiro local** e da opção do tipo de conjunto de dados **de ficheiro.**  
+1. Para carregar um ficheiro .zip que contenha código R para o seu espaço de trabalho, aceda à página de ativos **datasets.** Selecione **Criar conjunto de dados** e, em seguida, selecione **A partir do ficheiro local** e da opção do tipo de conjunto de dados **de ficheiro.**  
 
 1. Verifique se o ficheiro com fecho aparece nos **meus conjuntos de dados** na categoria **Datasets** na árvore do módulo esquerdo.
 
@@ -505,4 +505,4 @@ Os seguintes pacotes R pré-instalados estão atualmente disponíveis:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

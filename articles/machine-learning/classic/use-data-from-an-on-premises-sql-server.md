@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 695539e4739002480b3622eb217ef920d4cb34e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 279c07ff892cb261c8bda1937c6e9f8f1b6c6793
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357493"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325700"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Execute análises com o Azure Machine Learning Studio (clássico) usando uma base de dados sql server
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Muitas vezes, as empresas que trabalham com dados no local gostariam de aproveitar a escala e a agilidade da nuvem para as suas cargas de trabalho de aprendizagem automática. Mas não querem perturbar os seus processos de negócio e fluxos de trabalho atuais, movendo os seus dados no local para a nuvem. O Azure Machine Learning Studio (clássico) suporta agora a leitura dos seus dados a partir de uma base de dados do SQL Server e, em seguida, treinar e marcar um modelo com estes dados. Já não é preciso copiar manualmente e sincronizar os dados entre a nuvem e o servidor no local. Em vez disso, o módulo **de Dados de Importação** no Azure Machine Learning Studio (clássico) pode agora ler diretamente a partir da sua base de dados SQL Server para os seus trabalhos de formação e pontuação.
@@ -134,7 +134,7 @@ Depois de configurar o gateway, pode adicionar um módulo **de Dados de Importa�
 5. Selecione o **portal data** que instalou e registou. Pode configurar outra porta de entrada selecionando "(adicionar novo Gateway de dados...)".
 
    ![Selecione porta de dados para módulo de dados de importação](./media/use-data-from-an-on-premises-sql-server/import-data-select-on-premises-data-source.png)
-6. Introduza o nome do servidor e o nome do **base** **de dados**SQL, juntamente com a consulta **SQL Database** que pretende executar.
+6. Introduza o nome do servidor e o nome do **base** **de dados** SQL, juntamente com a consulta **SQL Database** que pretende executar.
 7. Clique **em Introduzir valores** no **nome de utilizador e na palavra-passe** e insira as credenciais de base de dados. Pode utilizar a autenticação integrada do Windows ou a autenticação do servidor SQL dependendo da configuração do seu Servidor SQL.
 
    ![Insira credenciais de base de dados](./media/use-data-from-an-on-premises-sql-server/database-credentials.png)

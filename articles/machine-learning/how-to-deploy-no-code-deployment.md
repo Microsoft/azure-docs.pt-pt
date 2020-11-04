@@ -1,7 +1,7 @@
 ---
 title: Sem implantação de código (pré-visualização)
 titleSuffix: Azure Machine Learning
-description: Aprenda a implementar um modelo sem um script de entrada.
+description: Nenhuma implementação de código permite implementar um modelo como um serviço web sem ter de criar manualmente um script de entrada.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 32b2afe036b443846199b5e9d74e690859fb581d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: a17126695aa5138d1df7fd17cfaa2f5f75ad1004
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998853"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324915"
 ---
 # <a name="preview-no-code-model-deployment"></a>(Pré-visualização) Implementação de modelo sem código
 
@@ -63,7 +63,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Para marcar um modelo, consulte [Consumir um modelo Azure Machine Learning implementado como um serviço web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Muitos projetos onNX usam ficheiros protobuf para armazenar compactamente dados de formação e validação, o que pode dificultar saber qual o formato de dados esperado pelo serviço. Como desenvolvedor de modelos, deve documentar para os seus desenvolvedores:
+Para marcar um modelo, consulte [Consumir um modelo Azure Machine Learning implementado como um serviço web](./how-to-consume-web-service.md). Muitos projetos onNX usam ficheiros protobuf para armazenar compactamente dados de formação e validação, o que pode dificultar saber qual o formato de dados esperado pelo serviço. Como desenvolvedor de modelos, deve documentar para os seus desenvolvedores:
 
 * Formato de entrada (JSON ou binário)
 * Forma e tipo de dados de entrada (por exemplo, uma matriz de flutuadores de forma [100,100,3])
@@ -130,7 +130,7 @@ print(output)
 ```
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
+* [Resolver problemas de uma implementação com falhas](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)
 * [Atualizar serviços Web](how-to-deploy-update-web-service.md)

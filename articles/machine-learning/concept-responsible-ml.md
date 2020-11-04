@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2ece76ef3594cadfa1fcda89259ee18eb1f9084
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829395"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324854"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>O que é a aprendizagem automática responsável? (pré-visualização)
 
@@ -73,7 +73,7 @@ Nas soluções tradicionais de armazenamento e computação em nuvem, a nuvem pr
 
 A encriptação homomórfica permite que os cálculos sejam feitos em dados encriptados sem exigir o acesso a uma chave secreta (desencriptação). Os resultados dos cálculos são encriptados e só podem ser revelados pelo proprietário da chave secreta. Utilizando encriptação homomórfica, os operadores de nuvem nunca terão acesso desencriptado aos dados que estão a armazenar e a computar. Os cálculos são realizados diretamente em dados encriptados. A privacidade dos dados baseia-se na criptografia de última geração, e o titular dos dados controla todas as versões de informação. Para obter mais informações sobre encriptação homomórfica na Microsoft, consulte [a Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
 
-Para começar com encriptação homomórfica em Azure Machine Learning, utilize as ligações [Python de inferência encriptada](https://pypi.org/project/encrypted-inference/) para [o Microsoft SEAL](https://github.com/microsoft/SEAL). O Microsoft SEAL é uma biblioteca de encriptação homomórfica de código aberto que permite que adições e multiplicações sejam realizadas em inteiros encriptados ou números reais. Para saber mais sobre o Microsoft SEAL, consulte o [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) ou a página do [projeto Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
+Para começar com encriptação homomórfica em Azure Machine Learning, utilize as ligações [Python de inferência encriptada](https://pypi.org/project/encrypted-inference/) para [o Microsoft SEAL](https://github.com/microsoft/SEAL). O Microsoft SEAL é uma biblioteca de encriptação homomórfica de código aberto que permite que adições e multiplicações sejam realizadas em inteiros encriptados ou números reais. Para saber mais sobre o Microsoft SEAL, consulte o [Azure Architecture Center](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) ou a página do [projeto Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
 
 Consulte a seguinte amostra para [aprender a implementar um serviço web de inferenização encriptado em Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
 
@@ -96,5 +96,5 @@ Consulte a amostra seguinte para aprender a usar o Azure Machine Learning SDK pa
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-- Para mais informações, consulte o [kit de ferramentas de inovação responsável](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) para saber mais sobre as melhores práticas.
+- Para mais informações, consulte o [kit de ferramentas de inovação responsável](/azure/architecture/guide/responsible-innovation/) para saber mais sobre as melhores práticas.
 - Saiba mais sobre o conjunto de diretrizes [do ML](https://www.partnershiponai.org/about-ml/) PARA a documentação do sistema de aprendizagem automática.

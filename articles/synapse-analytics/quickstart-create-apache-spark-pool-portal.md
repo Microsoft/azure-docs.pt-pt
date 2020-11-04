@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Criar uma piscina Apache Spark utilizando o portal Azure'
-description: Crie uma nova piscina Apache Spark utilizando o portal Azure seguindo os passos deste guia.
+title: 'Quickstart: Criar uma piscina Apache Spark sem servidor utilizando o portal Azure'
+description: Crie uma piscina Apache Spark sem servidor utilizando o portal Azure seguindo os passos deste guia.
 services: synapse-analytics
 author: julieMSFT
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7578ca12c46ec6de626eeb1340ce680eda6bbb92
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: e84afc949a84da90a4799d7db3b3e7ad3e0057a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041308"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323519"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Quickstart: Criar uma nova piscina Apache Spark utilizando o portal Azure
+# <a name="quickstart-create-a-new-serverless-apache-spark-pool-using-the-azure-portal"></a>Quickstart: Criar uma nova piscina Apache Spark sem servidor utilizando o portal Azure
 
 O Azure Synapse Analytics oferece vários motores de análise para ajudá-lo a ingerir, transformar, modelar, analisar e distribuir os seus dados. Um conjunto Apache Spark fornece capacidades de computação de dados de código aberto. Depois de criar uma piscina Apache Spark no seu espaço de trabalho Synapse, os dados podem ser carregados, modelados, processados e distribuídos para uma visão analítica mais rápida.
 
@@ -64,12 +64,12 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
 3. Selecione **Seguinte: definições adicionais** e reveja as definições predefinidos. Não modifique quaisquer definições predefinições.
     ![Screenshot que mostra a página "Create Apache Spark pool" com o separador "Definições adicionais" selecionada.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-03.png)
 
-4. Selecione **Seguinte: tags** . Não adicione etiquetas.
+4. Selecione **Seguinte: tags**. Não adicione etiquetas.
     ![A piscina Apache Spark cria fluxo - separador de configurações adicionais.](media/quickstart-create-apache-spark-pool/create-spark-pool-03-tags.png)
 
-5. Selecione **Rever + criar** .
+5. Selecione **Rever + criar**.
 
-6. Certifique-se de que os detalhes parecem corretos com base no que foi previamente introduzido e selecione **Criar** .
+6. Certifique-se de que os detalhes parecem corretos com base no que foi previamente introduzido e selecione **Criar**.
     ![A piscina Apache Spark cria fluxo - separador de definições de revisão.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-05.png)
 
 7. Neste ponto, o fluxo de fornecimento de recursos começará, indicando uma vez que esteja completo.
@@ -80,7 +80,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
 
 9. Neste momento, não há recursos em execução, nem encargos para a Spark, criaste metadados sobre as instâncias Spark que queres criar.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Siga os passos abaixo para eliminar a piscina Apache Spark do espaço de trabalho.
 > [!WARNING]
@@ -90,7 +90,7 @@ Se pretender eliminar a piscina Apache Spark, faça o seguinte:
 
 1. Navegue até à lâmina das piscinas Apache Spark no espaço de trabalho.
 2. Selecione a piscina Apache Spark a eliminar (neste caso, **contosospark).**
-3. Prima **para apagar** .
+3. Prima **para apagar**.
  ![Listagem de piscinas Apache Spark, com a piscina recentemente criada selecionada.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-08.png)
 4. Confirme a eliminação e prima O botão **Eliminar.**
  ![Diálogo de confirmação para eliminar a piscina Apache Spark selecionada.](media/quickstart-create-apache-spark-pool/create-spark-pool-portal-10.png)
@@ -99,4 +99,4 @@ Se pretender eliminar a piscina Apache Spark, faça o seguinte:
 ## <a name="next-steps"></a>Passos seguintes
 
 - Ver [Quickstart: Criar um caderno Apache Spark](quickstart-apache-spark-notebook.md).
-- Consulte [Quickstart: Crie uma piscina Sinapse SQL utilizando o portal Azure](quickstart-create-sql-pool-portal.md).
+- Consulte [Quickstart: Crie uma piscina SQL dedicada à Sinaapse utilizando o portal Azure](quickstart-create-sql-pool-portal.md).

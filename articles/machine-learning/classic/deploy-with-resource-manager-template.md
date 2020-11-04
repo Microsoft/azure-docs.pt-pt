@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-azurepowershell
 ms.date: 02/05/2018
-ms.openlocfilehash: f5e999e50818ab6374ce09dd6920cb5dc3dabc82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f860a52691d4d7fe72cbd7c8989277b224214064
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362440"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322777"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Implementar O Azure Machine Learning Studio (clássico) Workspace Usando O Gestor de Recursos Azure
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 A utilização de um modelo de implementação do Gestor de Recursos Azure poupa-lhe tempo, dando-lhe uma forma escalável de implantar componentes interligados com um mecanismo de validação e retagem. Para configurar o Azure Machine Learning Studio (clássico) Workspaces, por exemplo, é necessário configurar primeiro uma conta de armazenamento Azure e depois implantar o seu espaço de trabalho. Imagine fazer isto manualmente para centenas de espaços de trabalho. Uma alternativa mais fácil é usar um modelo de Gestor de Recursos Azure para implementar um Espaço de Trabalho (clássico) do Estúdio e todas as suas dependências. Este artigo leva-o a este processo passo a passo. Para obter uma excelente visão geral do Azure Resource Manager, consulte [a visão geral do Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 
@@ -145,6 +145,6 @@ Depois de o espaço de trabalho ser a provisionado, também pode automatizar mui
 * Saiba mais sobre [a autoria de Modelos de Gestor de Recursos Azure.](../../azure-resource-manager/templates/template-syntax.md)
 * Veja o [Repositório de Modelos Azure Quickstart](https://github.com/Azure/azure-quickstart-templates).
 * Veja este vídeo sobre [o Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).
-* Consulte a ajuda de referência do [modelo do Gestor de Recursos](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions)
+* Consulte a ajuda de referência do [modelo do Gestor de Recursos](/azure/templates/microsoft.machinelearning/allversions)
 
 <!--Link references-->

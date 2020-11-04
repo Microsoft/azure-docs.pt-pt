@@ -1,6 +1,6 @@
 ---
 title: Usar o IDENTITY para criar chaves de substituição
-description: Recomendações e exemplos para a utilização da propriedade IDENTITY para criar chaves de substituição em mesas na piscina Synapse SQL.
+description: Recomendações e exemplos para a utilização da propriedade IDENTITY para criar chaves de substituição em mesas em piscinas SQL dedicadas.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 96e81b3d7781f1c6f7bf5743a083e9640dd6c831
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876010"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323581"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Utilização da IDENTIDADE para criar chaves de substituição na piscina Synapse SQL
+# <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>Utilização da IDENTIDADE para criar chaves de substituição utilizando piscina SQL dedicada em AzureSynapse Analytics
 
-Neste artigo, você encontrará recomendações e exemplos para usar a propriedade IDENTITY para criar chaves de substituição em tabelas na piscina Synapse SQL.
+Neste artigo, você encontrará recomendações e exemplos para usar a propriedade IDENTITY para criar chaves de substituição em mesas em piscina de SQL dedicada.
 
 ## <a name="what-is-a-surrogate-key"></a>O que é uma chave de substituição
 
@@ -31,7 +31,7 @@ Uma chave de substituição em uma mesa é uma coluna com um identificador únic
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Criar uma tabela com uma coluna IDENTITÁRIA
 
-A propriedade IDENTITY é projetada para escalar em todas as distribuições na piscina Synapse SQL sem afetar o desempenho da carga. Por conseguinte, a implementação da IDENTIDADE orienta-se para a consecução destes objetivos.
+A propriedade IDENTITY é projetada para escalar em todas as distribuições na piscina de SQL dedicada sem afetar o desempenho da carga. Por conseguinte, a implementação da IDENTIDADE orienta-se para a consecução destes objetivos.
 
 Pode definir uma tabela como tendo a propriedade IDENTITY quando criar a tabela pela primeira vez, utilizando sintaxe semelhante à seguinte declaração:
 
@@ -53,7 +53,7 @@ Este remanescente desta secção destaca as nuances da implementação para ajud
 
 ### <a name="allocation-of-values"></a>Atribuição de valores
 
-O imóvel IDENTITY não garante a ordem pela qual os valores de substituição são atribuídos devido à arquitetura distribuída do armazém de dados. A propriedade IDENTITY é projetada para escalar em todas as distribuições na piscina Synapse SQL sem afetar o desempenho da carga. 
+O imóvel IDENTITY não garante a ordem pela qual os valores de substituição são atribuídos devido à arquitetura distribuída do armazém de dados. A propriedade IDENTITY é projetada para escalar em todas as distribuições na piscina de SQL dedicada sem afetar o desempenho da carga. 
 
 O exemplo a seguir é uma ilustração:
 
@@ -103,7 +103,7 @@ CREATE TABLE AS SELECT (CTAS) segue o mesmo comportamento do SQL Server que est�
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserir explicitamente valores numa coluna IDENTITÁRIA
 
-A piscina Sinapse SQL suporta `SET IDENTITY_INSERT <your table> ON|OFF` a sintaxe. Pode utilizar esta sintaxe para inserir explicitamente valores na coluna IDENTITY.
+Piscina SQL dedicada suporta `SET IDENTITY_INSERT <your table> ON|OFF` sintaxe. Pode utilizar esta sintaxe para inserir explicitamente valores na coluna IDENTITY.
 
 Muitos modeladores de dados gostam de usar valores negativos predefinidos para certas linhas nas suas dimensões. Um exemplo é a linha -1 ou "membro desconhecido".
 
@@ -126,7 +126,7 @@ FROM    dbo.T1
 ;
 ```
 
-## <a name="loading-data"></a>Carregar dados
+## <a name="loading-data"></a>A carregar os dados
 
 A presença da propriedade IDENTITY tem algumas implicações no seu código de carregamento de dados. Esta secção destaca alguns padrões básicos para carregar dados em tabelas utilizando o IDENTITY.
 
@@ -164,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Não é possível utilizar `CREATE TABLE AS SELECT` atualmente ao carregar dados numa tabela com uma coluna IDENTITY.
 >
 
-Para obter mais informações sobre os dados de carregamento, consulte [Designing Extract, Load e Transform (ELT) para piscina Sinapse SQL](design-elt-data-loading.md) e [as melhores práticas de carregamento.](guidance-for-loading-data.md)
+Para obter mais informações sobre os dados de carregamento, consulte [Designing Extract, Load e Transform (ELT) para piscina SQL dedicada](design-elt-data-loading.md) e [boas práticas de carregamento.](guidance-for-loading-data.md)
 
 ## <a name="system-views"></a>Vistas de sistema
 
@@ -198,7 +198,7 @@ A propriedade IDENTITY não pode ser usada:
 - Quando a coluna é também a chave de distribuição
 - Quando a mesa é uma mesa externa
 
-As seguintes funções relacionadas não são suportadas na piscina Sinaapse SQL:
+As seguintes funções relacionadas não são suportadas em piscina SQL dedicada:
 
 - [IDENTIDADE()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

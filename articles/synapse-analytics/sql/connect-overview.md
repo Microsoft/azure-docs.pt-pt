@@ -10,17 +10,17 @@ ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bbd82f856213bb36e71625eabc8bce9999ccd53f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 532ada430e7ff2ae76eb0cfbc389792bb0d98209
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289400"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322691"
 ---
 # <a name="connect-to-synapse-sql"></a>Ligue-se ao SQL da Sinapse
 Esteja ligado à capacidade Sinapse SQL em Azure Synapse Analytics.
 
-## <a name="supported-tools-for-sql-on-demand-preview"></a>Ferramentas suportadas para SQL on-demand (pré-visualização)
+## <a name="supported-tools-for-serverless-sql-pool-preview"></a>Ferramentas suportadas para piscina SQL sem servidor (pré-visualização)
 
 [O Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) está totalmente suportado a partir da versão 1.18.0. O SSMS é parcialmente suportado a partir da versão 18.5, pode usá-lo apenas para ligar e consultar.
 
@@ -31,8 +31,8 @@ Esteja ligado à capacidade Sinapse SQL em Azure Synapse Analytics.
 
 ## <a name="find-your-server-name"></a>Encontrar o nome do servidor
 
-O nome do servidor para piscina SQL no seguinte exemplo é: showdemoweu.sql.azuresynapse.net.
-O nome do servidor para SQL a pedido no seguinte exemplo é: showdemoweu-ondemand.sql.azuresynapse.net.
+O nome do servidor da piscina SQL dedicada no seguinte exemplo é: showdemoweu.sql.azuresynapse.net.
+O nome do servidor para a piscina SQL sem servidor no seguinte exemplo é: showdemoweu-ondemand.sql.azuresynapse.net.
 
 Descubra o nome de servidor completamente qualificado:
 
@@ -46,9 +46,9 @@ Descubra o nome de servidor completamente qualificado:
 
 ![Nome de servidor completo](./media/connect-overview/server-connect-example.png)
 
-## <a name="sql-on-demand"></a>**SQL a pedido**
+## <a name="serverless-sql-pool"></a>**piscina SQL sem servidor**
 
-![Nome completo do servidor SQL a pedido](./media/connect-overview/server-connect-example-sqlod.png)
+![Piscina SQL sem servidor de servidor completo](./media/connect-overview/server-connect-example-sqlod.png)
 
 ## <a name="supported-drivers-and-connection-strings"></a>Controladores e cadeias de ligação suportados
 O Sinaapse SQL suporta [ADO.NET,](https://msdn.microsoft.com/library/e80y5yhx(v=vs.110).aspx) [ODBC,](https://msdn.microsoft.com/library/jj730314.aspx) [PHP](https://msdn.microsoft.com/library/cc296172.aspx?f=255&MSPPError=-2147217396)e [JDBC.](https://msdn.microsoft.com/library/mt484311(v=sql.110).aspx) Para encontrar a versão e documentação mais recentes, selecione um dos controladores anteriores. Para gerar automaticamente a cadeia de ligação para o controlador que está a utilizar a partir do portal Azure, selecione **Série de cadeias** de ligação de base de dados a partir do exemplo anterior. Seguem-se também alguns exemplos do aspeto de uma cadeia de ligação para cada controlador.
@@ -92,7 +92,7 @@ O SQL de Sinapse normaliza algumas definições durante a ligação e criação 
 
 ## <a name="recommendations"></a>Recomendações
 
-Para a execução de consultas **a pedido do SQL,** as ferramentas recomendadas são [o Azure Data Studio](get-started-azure-data-studio.md) e o Azure Synapse Studio.
+Para executar consultas **de piscinas SQL sem servidor,** as ferramentas recomendadas são [Azure Data Studio](get-started-azure-data-studio.md) e Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Passos seguintes
 Para ligar e consultar com o Visual Studio, veja [Query with Visual Studio (Consulta com o Visual Studio)](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). Para saber mais sobre opções de autenticação, consulte [autenticação para Synapse SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

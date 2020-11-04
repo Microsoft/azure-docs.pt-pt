@@ -1,6 +1,6 @@
 ---
-title: Declarações do T-SQL
-description: Ligações à documentação das declarações T-SQL suportadas na piscina Synapse SQL.
+title: Declarações T-SQL na piscina SQL dedicada
+description: Ligações à documentação das declarações T-SQL suportadas para piscina SQL dedicada em Azure Synapse Analytics .
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 7a52049dc08b0a8170acc4d15860db69aea44a2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 390907eaf529df3f9adfd481e96ff166be543d01
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86276452"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324632"
 ---
-# <a name="t-sql-statements-supported-in-synapse-sql-pool"></a>Declarações T-SQL apoiadas na piscina Sinaapse SQL
+# <a name="t-sql-statements-supported-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Declarações T-SQL apoiadas para piscina SQL dedicada em Azure Synapse Analytics 
 
-Ligações à documentação das declarações T-SQL suportadas na piscina Synapse SQL.
+Ligações à documentação das declarações T-SQL suportadas na piscina de SQL dedicada.
 
 ## <a name="data-definition-language-ddl-statements"></a>Declarações de Linguagem de Definição de Dados (DDL)
 
@@ -82,7 +82,7 @@ Ligações à documentação das declarações T-SQL suportadas na piscina Synap
 
 ## <a name="query-statements"></a>Instruções de consulta
 
-* [SELECIONAR](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+* [SELECIONE](/sql/t-sql/queries/select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [COM common_table_expression](/sql/t-sql/queries/with-common-table-expression-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [EXCETO E INTERSECT](/sql/t-sql/language-elements/set-operators-except-and-intersect-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 * [EXPLICAR](/sql/t-sql/queries/explain-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
@@ -131,4 +131,4 @@ Ligações à documentação das declarações T-SQL suportadas na piscina Synap
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações de referência, consulte [elementos linguísticos T-SQL na piscina Synapse SQL,](sql-data-warehouse-reference-tsql-language-elements.md)e [vistas para o sistema na piscina Synapse SQL](../sql/reference-tsql-system-views.md).
+Para obter mais informações de referência, consulte [elementos linguísticos T-SQL em piscina SQL dedicada,](sql-data-warehouse-reference-tsql-language-elements.md)e [vistas do Sistema em piscina SQL dedicada.](../sql/reference-tsql-system-views.md)

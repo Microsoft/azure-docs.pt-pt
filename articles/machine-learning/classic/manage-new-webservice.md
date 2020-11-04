@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: fc9da659e7e55e8b15071f957d6a51e3b4673244
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37f10cc8eb3d606d99eb5b3f821a486e9e4ea2fe
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427560"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322338"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Gerir um serviço web utilizando o portal Azure Machine Learning Studio (clássico) Web Services
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Pode gerir os seus serviços Web Machine Learning New e Classic usando o portal Microsoft Azure Machine Learning Web Services. Uma vez que os serviços Web Clássicos e os serviços New Web são baseados em diferentes tecnologias subjacentes, você tem capacidades de gestão ligeiramente diferentes para cada um deles.
@@ -155,5 +155,3 @@ Pode atualizar as seguintes propriedades:
 * **A descrição** permite-lhe introduzir uma descrição para o serviço Web. A descrição é um campo obrigatório.
 * **O registo** de registo permite-lhe ativar ou desativar a sessão de registo de erros no ponto final. Para obter mais informações sobre o Registo registador, consulte [Ativar o registo de serviços web de Machine Learning](web-services-logging.md).
 * **Ativar os dados da amostra** permite-lhe fornecer dados de amostra que pode utilizar para testar o serviço Request-Response. Se criou o serviço web no Machine Learning Studio (clássico), os dados da amostra são retirados dos dados utilizados para treinar o seu modelo. Se criou o serviço programáticamente, os dados são retirados dos dados de exemplo fornecidos como parte do pacote JSON.
-
-

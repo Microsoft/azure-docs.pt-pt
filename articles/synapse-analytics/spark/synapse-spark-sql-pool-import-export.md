@@ -1,6 +1,6 @@
 ---
-title: Dados de importação e exportação entre piscinas spark (pré-visualização) e piscinas SQL
-description: Este artigo fornece informações sobre como usar o conector personalizado para mover dados para trás e para a frente entre piscinas SQL e piscinas Spark (pré-visualização).
+title: Dados de importação e exportação entre piscinas Apache Spark sem servidor (pré-visualização) e piscinas SQL
+description: Este artigo fornece informações sobre como usar o conector personalizado para mover dados entre piscinas SQL dedicadas e piscinas Apache Spark sem servidor (pré-visualização).
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: prgomata
 ms.reviewer: euang
-ms.openlocfilehash: 11f73d2becb40b800c49afe0cd58f56953f8d42d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ee82fbaa9687e064747908600c7e5c9017f8f1a9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91259923"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323895"
 ---
 # <a name="introduction"></a>Introdução
 
-O conector Azure Synapse Apache para Synapse SQL foi concebido para transferir eficientemente dados entre piscinas Spark (pré-visualização) e SQL em Azure Synapse. O conector Azure Synapse Apache para Synapse SQL funciona apenas em piscinas SQL, não funciona com SQL a pedido.
+O conector Azure Synapse Apache Para Synapse SQL foi concebido para transferir eficientemente dados entre piscinas Apache Spark sem servidor (pré-visualização) e piscinas SQL em Azure Synapse. O conector Azure Synapse Apache para Synapse SQL funciona apenas em piscinas SQL dedicadas, não funciona com piscina SQL sem servidor.
 
 ## <a name="design"></a>Design
 
 A transferência de dados entre piscinas Spark e sql pode ser feita usando JDBC. No entanto, tendo em conta dois sistemas distribuídos, como piscinas Spark e SQL, o JDBC tende a ser um estrangulamento com a transferência de dados em série.
 
-O azure Synapse Apache Spark pool to Synapse SQL connector é uma implementação de fonte de dados para Apache Spark. Utiliza o Azure Data Lake Storage Gen2 e Polybase em piscinas SQL para transferir eficientemente dados entre o cluster Spark e a instância Synapse SQL.
+O azure Synapse Apache Spark pool to Synapse SQL connector é uma implementação de fonte de dados para Apache Spark. Utiliza o Azure Data Lake Storage Gen2 e polybase em piscinas SQL dedicadas para transferir eficientemente dados entre o cluster Spark e a instância Synapse SQL.
 
 ![Arquitetura do Conector](./media/synapse-spark-sqlpool-import-export/arch1.png)
 
@@ -32,7 +32,7 @@ O azure Synapse Apache Spark pool to Synapse SQL connector é uma implementaçã
 
 A autenticação entre sistemas é feita sem emenda no Azure Synapse Analytics. O Serviço Token conecta-se com o Azure Ative Directory para obter fichas de segurança para utilização ao aceder à conta de armazenamento ou ao servidor do armazém de dados.
 
-Por esta razão, não há necessidade de criar credenciais ou especificá-las na API do conector, desde que a AAD-Auth esteja configurada na conta de armazenamento e no servidor do armazém de dados. Caso contrário, o SQL Auth pode ser especificado. Veja mais detalhes na secção [Utilização.](#usage)
+Por esta razão, não há necessidade de criar credenciais ou especificá-las na API do conector, desde que o Azure AD-Auth esteja configurado na conta de armazenamento e no servidor do armazém de dados. Caso contrário, o SQL Auth pode ser especificado. Veja mais detalhes na secção [Utilização.](#usage)
 
 ## <a name="constraints"></a>Restrições
 
@@ -67,7 +67,7 @@ EXEC sp_addrolemember 'db_exporter',[mike@contoso.com]
 
 As declarações de importação não são necessárias, são pré-importadas para a experiência do caderno.
 
-### <a name="transfer-data-to-or-from-a-sql-pool-attached-with-the-workspace"></a>Transferir dados de ou para uma piscina SQL anexada ao espaço de trabalho
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-attached-within-the-workspace"></a>Transferir dados para ou de uma piscina DE SQL dedicada anexada dentro do espaço de trabalho
 
 > [!NOTE]
 > **Importações não necessárias na experiência de cadernos**
@@ -91,12 +91,12 @@ A API acima funcionará tanto para as Tabelas Internas (Geridas) como para as Ta
 df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-A API de escrita cria a tabela na piscina SQL e, em seguida, invoca a Polybase para carregar os dados.  A mesa não deve existir na piscina SQL ou e o erro será devolvido afirmando que "Já existe um objeto nomeado..."
+A API de escrita cria a tabela na piscina dedicada SQL e, em seguida, invoca a Polybase para carregar os dados.  A tabela não deve existir na piscina sql dedicada ou será devolvido um erro afirmando que "Já existe um objeto nomeado..."
 
 Valores de TableType
 
-- Constants.INTERNAL - Mesa gerida na piscina SQL
-- Constants.EXTERNAL - Tabela externa na piscina SQL
+- Constants.INTERNAL - Mesa gerida em piscina SQL dedicada
+- Constants.EXTERNAL - Tabela externa em piscina SQL dedicada
 
 Mesa gerida pela piscina SQL
 
@@ -106,10 +106,10 @@ df.write.sqlanalytics("<DBName>.<Schema>.<TableName>", Constants.INTERNAL)
 
 Mesa externa de piscina SQL
 
-Para escrever para uma mesa externa de piscina SQL, deve existir uma FONTE DE DADOS EXTERNA e um formato de ficheiro externo na piscina SQL.  Para mais informações, leia [a criação de uma fonte de dados externa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [formatos de ficheiros externos](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) no pool SQL.  Abaixo estão exemplos para criar uma fonte de dados externa e formatos de ficheiros externos no pool SQL.
+Para escrever para uma mesa externa de piscina SQL dedicada, deve existir uma FONTE DE DADOS EXTERNA e um formato de ficheiro externo no pool de SQL dedicado.  Para mais informações, leia [a criação de uma fonte de dados externa](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) e [formatos de ficheiros externos](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) no pool de SQL dedicado.  Abaixo estão exemplos para criar uma fonte de dados externa e formatos de ficheiros externos em pool DE SQL dedicado.
 
 ```sql
---For an external table, you need to pre-create the data source and file format in SQL pool using SQL queries:
+--For an external table, you need to pre-create the data source and file format in dedicated SQL pool using SQL queries:
 CREATE EXTERNAL DATA SOURCE <DataSourceName>
 WITH
   ( LOCATION = 'abfss://...' ,
@@ -134,7 +134,7 @@ df.write.
 
 ```
 
-### <a name="if-you-transfer-data-to-or-from-a-sql-pool-or-database-outside-the-workspace"></a>Se transferir dados para ou de uma piscina SQL ou base de dados fora do espaço de trabalho
+### <a name="transfer-data-to-or-from-a-dedicated-sql-pool-or-database-outside-the-workspace"></a>Transferir dados para ou de uma piscina ou base de dados SQL dedicada fora do espaço de trabalho
 
 > [!NOTE]
 > Importações não necessárias na experiência de cadernos
@@ -160,11 +160,11 @@ option(Constants.SERVER, "samplews.database.windows.net").
 sqlanalytics("<DBName>.<Schema>.<TableName>", <TableType>)
 ```
 
-### <a name="use-sql-auth-instead-of-aad"></a>Use SQL Auth em vez de AAD
+### <a name="use-sql-auth-instead-of-azure-ad"></a>Use SQL Auth em vez de Azure AD
 
 #### <a name="read-api"></a>Ler API
 
-Atualmente, o conector não suporta auth baseado em token para uma piscina SQL que está fora do espaço de trabalho. Terá de usar o SQL Auth.
+Atualmente, o conector não suporta auth baseado em token para uma piscina SQL dedicada que está fora do espaço de trabalho. Terá de usar o SQL Auth.
 
 ```scala
 val df = spark.read.
@@ -227,7 +227,7 @@ Você precisa ser Proprietário de Dados Blob de Armazenamento na conta de armaz
 
 - Deve ser capaz de acl todas as pastas de "sinapse" e para baixo a partir do portal Azure. Para ACL a pasta raiz "/" raiz, siga as instruções abaixo.
 
-- Ligue-se à conta de armazenamento ligada ao espaço de trabalho do Storage Explorer utilizando a AAD
+- Ligue-se à conta de armazenamento ligada ao espaço de trabalho do Storage Explorer utilizando o Azure AD
 - Selecione a sua Conta e dê o URL de Gen2 da ADLS e o sistema de ficheiros predefinidos para o espaço de trabalho
 - Assim que conseguir ver a conta de armazenamento listada, clique no espaço de trabalho da listagem e selecione "Gerir o Acesso"
 - Adicione o Utilizador à pasta /pasta com a Permissão de Acesso "Executar". Selecione "Ok"
@@ -237,5 +237,5 @@ Você precisa ser Proprietário de Dados Blob de Armazenamento na conta de armaz
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar uma piscina SQL utilizando o portal Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- [Crie uma piscina SQL dedicada utilizando o portal Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 - [Criar uma nova piscina Apache Spark utilizando o portal Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md) 

@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791329"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324999"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Utilize pontos finais de serviço de rede virtual e regras para servidores na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -83,7 +83,7 @@ Para a Base de Dados Azure SQL, a funcionalidade de regras de rede virtual tem a
 
 - Na firewall, as gamas de endereços IP aplicam-se aos seguintes itens de rede, mas as regras de rede virtuais não:
   - [Rede privada virtual local-a-local (S2S) (VPN)][vpn-gateway-indexmd-608y]
-  - No local via [ExpressRoute][expressroute-indexmd-744v]
+  - No local via [ExpressRoute](../../expressroute/index.yml)
 
 ### <a name="considerations-when-using-service-endpoints"></a>Considerações ao utilizar pontos finais de serviço
 
@@ -136,7 +136,7 @@ A PolyBase e a declaração COPY são comumente usadas para carregar dados em Az
    > - Se tiver uma conta de armazenamento v1 ou blob para fins gerais, tem primeiro de **atualizar para v2** utilizando este [guia](../../storage/common/storage-account-upgrade.md).
    > - Para questões conhecidas com a Azure Data Lake Storage Gen2, consulte este [guia.](../../storage/blobs/data-lake-storage-known-issues.md)
 
-1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções** . Atribua o papel de Azure **do Contribuinte de Dados de Armazenamento** ao servidor que hospeda o seu Azure Synapse Analytics que registou no Azure Ative Directory (AAD) como #1 passo.
+1. Na sua conta de armazenamento, navegue para **Access Control (IAM)** e selecione **Adicionar a atribuição de funções**. Atribua o papel de Azure **do Contribuinte de Dados de Armazenamento** ao servidor que hospeda o seu Azure Synapse Analytics que registou no Azure Ative Directory (AAD) como #1 passo.
 
    > [!NOTE]
    > Apenas os membros com privilégio proprietário na conta de armazenamento podem realizar este passo. Para várias funções incorporadas do Azure, consulte este [guia.](../../role-based-access-control/built-in-roles.md)
@@ -210,7 +210,7 @@ O erro de ligação 40914 diz respeito às *regras de rede virtuais,* conforme e
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Portal pode criar uma regra de rede virtual
 
-Esta secção ilustra como pode utilizar o [portal Azure][http-azure-portal-link-ref-477t] para criar uma *regra de rede virtual* na sua base de dados na Base de Dados Azure SQL. A regra diz à sua base de dados para aceitar a comunicação a partir de uma determinada sub-rede que foi marcada como sendo um *ponto final de serviço de Rede Virtual* .
+Esta secção ilustra como pode utilizar o [portal Azure][http-azure-portal-link-ref-477t] para criar uma *regra de rede virtual* na sua base de dados na Base de Dados Azure SQL. A regra diz à sua base de dados para aceitar a comunicação a partir de uma determinada sub-rede que foi marcada como sendo um *ponto final de serviço de Rede Virtual*.
 
 > [!NOTE]
 > Se pretender adicionar um ponto final de serviço às regras de firewall VNet do seu servidor, certifique-se primeiro de que os pontos finais de serviço estão ligados para a sub-rede.
@@ -231,16 +231,16 @@ Internamente, os cmdlets PowerShell para as ações SQL VNet chamam APIs de REST
 
 Já deve ter uma sub-rede que está marcada com o nome de *tipo de ponto* final de serviço de rede virtual relevante para a Base de Dados Azure SQL.
 
-- O nome do tipo ponto final relevante é **Microsoft.Sql** .
+- O nome do tipo ponto final relevante é **Microsoft.Sql**.
 - Se a sua sub-rede não estiver marcada com o nome do tipo, consulte [Verifique se a sua sub-rede é um ponto final][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
 
 ## <a name="azure-portal-steps"></a>Passos do portal Azure
 
-1. Inicie sessão no [Portal do Azure][http-azure-portal-link-ref-477t].
+1. Inicie sessão no [portal do Azure][http-azure-portal-link-ref-477t].
 
-2. Procure e selecione **servidores SQL** e, em seguida, selecione o seu servidor. Em **Segurança** , selecione **Firewalls e redes virtuais** .
+2. Procure e selecione **servidores SQL** e, em seguida, selecione o seu servidor. Em **Segurança** , selecione **Firewalls e redes virtuais**.
 
 3. Desconfiem do controlo **de serviços Azure** para OFF.
 
@@ -255,7 +255,7 @@ Já deve ter uma sub-rede que está marcada com o nome de *tipo de ponto* final 
 
     > [!TIP]
     > Tem de incluir o **prefixo de endereço** correto para a sua sub-rede. Pode encontrar o valor no portal.
-    > Navegar **por todos os recursos** Todos os &gt; **tipos** de redes &gt; **virtuais.** O filtro exibe as suas redes virtuais. Clique na sua rede virtual e, em seguida, clique em **Sub-redes** . A coluna **ADDRESS RANGE** tem o prefixo de endereço de que necessita.
+    > Navegar **por todos os recursos** Todos os &gt; **tipos** de redes &gt; **virtuais.** O filtro exibe as suas redes virtuais. Clique na sua rede virtual e, em seguida, clique em **Sub-redes**. A coluna **ADDRESS RANGE** tem o prefixo de endereço de que necessita.
 
     ![Preencha os campos para uma nova regra.][image-portal-firewall-create-update-vnet-rule-20-png]
 

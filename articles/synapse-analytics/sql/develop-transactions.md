@@ -1,6 +1,6 @@
 ---
 title: Utilizar transações
-description: Dicas para implementar transações em pool SQL (data warehouse) para o desenvolvimento de soluções.
+description: Dicas para implementar transações com piscina DE SQL dedicada em Azure Synapse Analytics para o desenvolvimento de soluções.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,20 +10,20 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: de36d1eda21903480eee986df72c5274e1aa6dff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2597a4bc6c5ed44f0e0050be3f69d7e840665e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288618"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323851"
 ---
-# <a name="use-transactions-in-sql-pool"></a>Utilize transações em piscina SQL
+# <a name="use-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Utilize transações com piscina SQL dedicada em Azure Synapse Analytics
 
-Dicas para implementar transações em pool SQL (data warehouse) para o desenvolvimento de soluções.
+Dicas para implementar transações com piscina DE SQL dedicada em Azure Synapse Analytics para o desenvolvimento de soluções.
 
 ## <a name="what-to-expect"></a>O que esperar
 
-Como seria de esperar, o pool SQL suporta transações como parte da carga de trabalho do armazém de dados. No entanto, para garantir que o desempenho do pool SQL é mantido à escala, algumas funcionalidades são limitadas quando comparadas com o SQL Server. Este artigo destaca as diferenças e lista os outros.
+Como seria de esperar, o pool de SQL dedicado suporta transações como parte da carga de trabalho do armazém de dados. No entanto, para garantir que o desempenho do pool DE SQL dedicado é mantido à escala, algumas funcionalidades são limitadas quando comparadas com o SQL Server. Este artigo destaca as diferenças e lista os outros.
 
 ## <a name="transaction-isolation-levels"></a>Níveis de isolamento de transações
 
@@ -92,7 +92,7 @@ Para otimizar e minimizar a quantidade de dados escritos no registo, consulte o 
 O pool SQL utiliza a função XACT_STATE() para reportar uma transação falhada utilizando o valor -2. Este valor significa que a transação falhou e está marcada apenas para reversão.
 
 > [!NOTE]
-> A utilização de -2 pela função XACT_STATE para denotar uma transação falhada representa um comportamento diferente para o SQL Server. O SQL Server utiliza o valor -1 para representar uma transação incomitável. O SQL Server pode tolerar alguns erros dentro de uma transação sem ter de ser marcado como incomitável. Por `SELECT 1/0` exemplo, provocaria um erro, mas não forçaria uma transação a um estado incomitvel. O SQL Server também permite leituras na transação não comprometedora. No entanto, a piscina SQL não permite que você faça isso. Se ocorrer um erro dentro de uma transação de pool SQL, entrará automaticamente no estado -2 e não poderá fazer mais declarações selecionadas até que a declaração seja revirada. Por isso, é importante verificar se o seu código de aplicação para ver se utiliza XACT_STATE() como pode ser necessário fazer modificações de código.
+> A utilização de -2 pela função XACT_STATE para denotar uma transação falhada representa um comportamento diferente para o SQL Server. O SQL Server utiliza o valor -1 para representar uma transação incomitável. O SQL Server pode tolerar alguns erros dentro de uma transação sem ter de ser marcado como incomitável. Por `SELECT 1/0` exemplo, provocaria um erro, mas não forçaria uma transação a um estado incomitvel. O SQL Server também permite leituras na transação não comprometedora. No entanto, a piscina SQL dedicada não permite que você faça isso. Se ocorrer um erro dentro de uma transação dedicada do pool SQL, entrará automaticamente no estado -2 e não poderá fazer mais declarações selecionadas até que a declaração seja revirada. Por isso, é importante verificar se o seu código de aplicação para ver se utiliza XACT_STATE() como pode ser necessário fazer modificações de código.
 
 Por exemplo, no SQL Server poderá ver uma transação que se pareça com o seguinte:
 
@@ -138,7 +138,7 @@ Msg 111233, Nível 16, Estado 1, Linha 1 111233; A transação atual abortou e q
 
 Não vai conseguir a saída das funções ERROR_*.
 
-Na piscina SQL, o código precisa de ser ligeiramente alterado:
+Na piscina SQL dedicada, o código precisa de ser ligeiramente alterado:
 
 ```sql
 SET NOCOUNT ON;
@@ -181,11 +181,11 @@ Tudo o que mudou foi que o ROLLBACK da transação tinha de acontecer antes da l
 
 ## <a name="error_line-function"></a>Error_Line() função
 
-Vale também a pena notar que o pool SQL não implementa nem suporta a função ERROR_LINE(). Se tiver esta função no seu código, tem de a remover para estar em conformidade com a piscina SQL. Utilize etiquetas de consulta no seu código para implementar funcionalidades equivalentes. Para mais informações, consulte o artigo [LABEL.](develop-label.md)
+Vale também a pena notar que o pool de SQL dedicado não implementa nem suporta a função ERROR_LINE(). Se tiver esta função no seu código, tem de removê-la para estar em conformidade com a piscina SQL dedicada. Utilize etiquetas de consulta no seu código para implementar funcionalidades equivalentes. Para mais informações, consulte o artigo [LABEL.](develop-label.md)
 
 ## <a name="use-of-throw-and-raiserror"></a>Utilização de THROW e RAISERROR
 
-THROW é a implementação mais moderna para aumentar exceções na piscina SQL, mas o RAISERROR também é apoiado. No entanto, há algumas diferenças que merecem ser prestas em atenção.
+THROW é a implementação mais moderna para aumentar exceções em piscinas SQL dedicadas, mas RAISERROR também é apoiado. No entanto, há algumas diferenças que merecem ser prestas em atenção.
 
 * Os números de mensagens de erro definidas pelo utilizador não podem estar na gama de 100.000 - 150.000 para THROW
 * As mensagens de erro RAISERROR são fixadas em 50.000
@@ -204,4 +204,4 @@ O pool SQL tem algumas outras restrições relacionadas com transações. São o
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a otimização de transações, consulte [as melhores práticas de Transações.](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) Guias adicionais de boas práticas também estão previstos para [piscina SQL](best-practices-sql-pool.md) e [SQL on demand (pré-visualização)](best-practices-sql-on-demand.md).
+Para saber mais sobre a otimização de transações, consulte [as melhores práticas de Transações.](../sql-data-warehouse/sql-data-warehouse-develop-best-practices-transactions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) Guias adicionais de boas práticas também são fornecidos para [piscina SQL](best-practices-sql-pool.md) e [piscina SQL sem servidor (pré-visualização)](best-practices-sql-on-demand.md).

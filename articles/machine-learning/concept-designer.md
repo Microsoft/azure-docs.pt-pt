@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: c92351131a60b571a102b85f7d11b79ab29d939e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 059b521461969d8148ced90cb3ceffd14a00c4bb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883113"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322260"
 ---
 # <a name="what-is-azure-machine-learning-designer"></a>O que é a designer de Aprendizagem automática Azure? 
 
@@ -98,7 +98,7 @@ Utilize recursos compute do seu espaço de trabalho para executar o seu pipeline
 
 Os alvos computacional estão ligados ao seu [espaço de trabalho Azure Machine Learning](concept-workspace.md). Gere os seus alvos de computação no seu espaço de trabalho no [estúdio Azure Machine Learning](https://ml.azure.com).
 
-## <a name="deploy"></a>Implementação
+## <a name="deploy"></a>Implementar
 
 Para realizar inferenculação em tempo real, tem de implantar um gasoduto como ponto final em **tempo real**. O ponto final em tempo real cria uma interface entre uma aplicação externa e o seu modelo de pontuação. Uma chamada para um ponto final em tempo real devolve os resultados da previsão à aplicação em tempo real. Para fazer uma chamada para um ponto final em tempo real, você passa a chave API que foi criada quando implementou o ponto final. O ponto final é baseado no REST, uma escolha popular de arquitetura para projetos de programação web.
 
@@ -114,7 +114,7 @@ Os oleodutos publicados são flexíveis, podem ser usados para treinar ou retrei
 
 Um oleoduto publicado funciona nos recursos computacional que define no projeto do pipeline para cada módulo.
 
-O designer cria o mesmo objeto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) que o SDK.
+O designer cria o mesmo objeto [PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?preserve-view=true&view=azure-ml-py) que o SDK.
 
 ## <a name="next-steps"></a>Passos seguintes
 

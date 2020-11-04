@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 2bfcdfcb01e7908c199054e793d82cdfa1b726c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816342"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322491"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>O que é a Máquina Virtual Azure Data Science para Linux e Windows?
 
@@ -28,7 +28,7 @@ O DSVM está disponível em:
 
 ## <a name="comparison-with-azure-machine-learning"></a>Comparação com Azure Machine Learning
 
-O DSVM é uma imagem VM personalizada para a Data Science, mas [a Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (AzureML) é uma plataforma de ponta a ponta que abrange:
+O DSVM é uma imagem VM personalizada para a Data Science, mas [a Azure Machine Learning](../overview-what-is-azure-ml.md) (AzureML) é uma plataforma de ponta a ponta que abrange:
 
 + Cálculo totalmente gerido
   + Instâncias de Computação
@@ -44,23 +44,23 @@ O DSVM é uma imagem VM personalizada para a Data Science, mas [a Azure Machine 
 
 ### <a name="comparison-with-azureml-compute-instances"></a>Comparação com AzureML Computação
 
-[Azure Machine Learning Compute Instances](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance) é uma imagem VM totalmente configurada e __gerida,__ enquanto o DSVM é um VM __não gerido.__
+[Azure Machine Learning Compute Instances](../concept-compute-instance.md) é uma imagem VM totalmente configurada e __gerida,__ enquanto o DSVM é um VM __não gerido.__
 
 As principais diferenças entre estas duas ofertas de produtos são detalhadas abaixo:
 
 
 |Funcionalidade |Ciência dos Dados<br>VM |AzureML<br>Instância de Computação  | 
 |---------|---------|---------|
-| Totalmente gerido | Não        | Sim        |
+| Totalmente gerido | No        | Yes        |
 |Suporte de Idiomas     |  Python, R, Julia, SQL, C#,<br> Java, Node.js, F #       | Python e R        |
 |Sistema Operativo     | Ubuntu<br>Windows         |    Ubuntu     |
-|Opção GPU pré-configurada     |  Sim       |    Sim     |
-|Opção de escala | Sim | Sim |
-|Acesso SSH    | Sim        |    Sim     |
-|Acesso RDP    | Sim        |     Não    |
-|Incorporado<br>Cadernos hospedados     |   Não<br>(requer uma configuração adicional)      |      Sim   |
-|SSO embutido     | Não <br>(requer uma configuração adicional)         |    Sim     |
-|Colaboração Incorporada     | Não         | Sim        |
+|Opção GPU pré-configurada     |  Yes       |    Yes     |
+|Opção de escala | Yes | Yes |
+|Acesso SSH    | Yes        |    Yes     |
+|Acesso RDP    | Yes        |     No    |
+|Incorporado<br>Cadernos hospedados     |   No<br>(requer uma configuração adicional)      |      Yes   |
+|SSO embutido     | No <br>(requer uma configuração adicional)         |    Yes     |
+|Colaboração Incorporada     | No         | Yes        |
 |Ferramentas pré-instaladas     |  Jupyter (laboratório), RStudio Server, VSCode,<br> Estúdio Visual, PyCharm, Juno,<br>Power BI Desktop, SSMS, <br>Microsoft Office 365, Apache Drill       |     Jupyter(laboratório)<br> RStudio Server   |
 
 ## <a name="sample-use-cases"></a>Exemplos de casos de utilização

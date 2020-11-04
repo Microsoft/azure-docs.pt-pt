@@ -1,6 +1,6 @@
 ---
 title: Tabelas de indexação
-description: Recomendações e exemplos para tabelas de indexação na piscina Sinaapse SQL.
+description: Recomendações e exemplos para tabelas de indexação em piscinas SQL dedicadas.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 605c3320b0fcc7ac9663acc1578740e2cb3f3174
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05551f39203f2c070dd2ede0740135d6963aedcf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88797603"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323574"
 ---
-# <a name="indexing-tables-in-synapse-sql-pool"></a>Tabelas de indexação na piscina Sinaapse SQL
+# <a name="indexing-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Tabelas de indexação usando piscina SQL dedicada em Azure Synapse Analytics
 
-Recomendações e exemplos para tabelas de indexação na piscina Sinaapse SQL.
+Recomendações e exemplos para tabelas de indexação em piscinas SQL dedicadas.
 
 ## <a name="index-types"></a>Tipos de índice
 
-O pool Sinaapse SQL oferece várias opções de indexação, incluindo [índices de lojas de colunas agrupados,](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [índices agrupados e índices não aglomerados,](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e uma opção não indexada também conhecida como [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
+O pool de SQL dedicado oferece várias opções de indexação, incluindo [índices de lojas de colunas agrupados,](/sql/relational-databases/indexes/columnstore-indexes-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) [índices agrupados e índices não classificados,](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e uma opção não indexada também conhecida como [heap](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  
 
-Para criar uma tabela com um índice, consulte a documentação [CREATE TABLE (Synapse SQL pool).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Para criar uma tabela com um índice, consulte a documentação [CREATE TABLE (pool DE SQL dedicado).](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 ## <a name="clustered-columnstore-indexes"></a>Índices de loja de colunas agrupadas
 
-Por predefinição, o pool Synapse SQL cria um índice de loja de colunas agrupado quando não são especificadas opções de índice numa tabela. As tabelas de lojas de colunas agrupadas oferecem tanto o mais alto nível de compressão de dados como o melhor desempenho geral de consulta.  As tabelas de lojas de colunas agrupadas geralmente superam o índice agrupado ou as tabelas de pilhas e são geralmente a melhor escolha para grandes tabelas.  Por estas razões, a loja de colunas agrupada é o melhor lugar para começar quando não tem a certeza de como indexar a sua tabela.  
+Por predefinição, o pool SQL dedicado cria um índice de loja de colunas agrupado quando não são especificadas opções de índice numa tabela. As tabelas de lojas de colunas agrupadas oferecem tanto o mais alto nível de compressão de dados como o melhor desempenho geral de consulta.  As tabelas de lojas de colunas agrupadas geralmente superam o índice agrupado ou as tabelas de pilhas e são geralmente a melhor escolha para grandes tabelas.  Por estas razões, a loja de colunas agrupada é o melhor lugar para começar quando não tem a certeza de como indexar a sua tabela.  
 
 Para criar uma tabela de loja de colunas agrupada, basta especificar o ÍNDICE DE LOJA DE COLUNAS AGRUPADAS na cláusula COM ou deixar a cláusula COM desligada:
 
@@ -52,7 +52,7 @@ Existem alguns cenários em que a loja de colunas agrupada pode não ser uma boa
 
 ## <a name="heap-tables"></a>Mesas de pilha
 
-Quando você está temporariamente a aterrar dados na piscina Synapse SQL, você pode descobrir que usar uma mesa de amontoado torna o processo geral mais rápido. Isto porque as cargas em pilhas são mais rápidas do que para indexar tabelas e em alguns casos a leitura subsequente pode ser feita a partir de cache.  Se estiver a carregar dados apenas para os encenar antes de executar mais transformações, carregar a tabela para a mesa de montes é muito mais rápido do que carregar os dados para uma tabela de colunas agrupadas. Além disso, os dados de carregamento para uma [tabela temporária](sql-data-warehouse-tables-temporary.md) carregam mais rapidamente do que carregar uma mesa para armazenamento permanente.  Após o carregamento de dados, pode criar índices na tabela para um desempenho de consulta mais rápido.  
+Quando você está temporariamente a aterrar dados em pool SQL dedicado, você pode descobrir que usar uma mesa de amontoado torna o processo geral mais rápido. Isto porque as cargas em pilhas são mais rápidas do que para indexar tabelas e em alguns casos a leitura subsequente pode ser feita a partir de cache.  Se estiver a carregar dados apenas para os encenar antes de executar mais transformações, carregar a tabela para a mesa de montes é muito mais rápido do que carregar os dados para uma tabela de colunas agrupadas. Além disso, os dados de carregamento para uma [tabela temporária](sql-data-warehouse-tables-temporary.md) carregam mais rapidamente do que carregar uma mesa para armazenamento permanente.  Após o carregamento de dados, pode criar índices na tabela para um desempenho de consulta mais rápido.  
 
 As tabelas de lojas de colunas de cluster começam a obter uma compressão ótima uma vez que há mais de 60 milhões de linhas.  Para pequenas tabelas de procura, menos de 60 milhões de linhas, considere usar o índice HEAP ou clustered para um desempenho de consulta mais rápido. 
 
@@ -204,13 +204,13 @@ As operações de atualização e inserção em lote que excedam o limiar de 102
 
 ### <a name="small-or-trickle-load-operations"></a>Operações de carga pequenas ou gotas
 
-Pequenas cargas que fluem para a piscina Synapse SQL também são por vezes conhecidas como cargas gota-a-gota. Normalmente representam um fluxo quase constante de dados que estão a ser ingeridos pelo sistema. No entanto, como este fluxo está perto de ser contínuo, o volume de linhas não é particularmente grande. Mais frequentemente do que não, os dados estão significativamente abaixo do limiar necessário para uma carga direta para o formato de loja de colunas.
+Pequenas cargas que fluem para piscinas SQL dedicadas também são por vezes conhecidas como cargas gota-a-gota. Normalmente representam um fluxo quase constante de dados que estão a ser ingeridos pelo sistema. No entanto, como este fluxo está perto de ser contínuo, o volume de linhas não é particularmente grande. Mais frequentemente do que não, os dados estão significativamente abaixo do limiar necessário para uma carga direta para o formato de loja de colunas.
 
 Nestas situações, é muitas vezes melhor aterrar os dados primeiro no armazenamento de bolhas Azure e deixá-los acumular antes de carregar. Esta técnica é frequentemente conhecida como *micro-lote.*
 
 ### <a name="too-many-partitions"></a>Demasiadas divisórias
 
-Outra coisa a considerar é o impacto da partição nas suas mesas de colunas agrupadas.  Antes da partilha, o pool Synapse SQL já divide os seus dados em 60 bases de dados.  A partilha divide ainda mais os seus dados.  Se dividir os seus dados, considere que **cada** partição precisa de pelo menos 1 milhão de linhas para beneficiar de um índice de colunas agrupado.  Se dividir a sua mesa em 100 divisórias, então a sua mesa precisa de pelo menos 6 mil milhões de linhas para beneficiar de um índice de colunas agrupadas (60 distribuições *100 divisórias* 1 milhão de linhas). Se a sua mesa de 100 divisórias não tiver 6 mil milhões de linhas, reduza o número de divisórias ou considere usar uma mesa de amontoados.
+Outra coisa a considerar é o impacto da partição nas suas mesas de colunas agrupadas.  Antes da partilha, o pool de SQL dedicado já divide os seus dados em 60 bases de dados.  A partilha divide ainda mais os seus dados.  Se dividir os seus dados, considere que **cada** partição precisa de pelo menos 1 milhão de linhas para beneficiar de um índice de colunas agrupado.  Se dividir a sua mesa em 100 divisórias, então a sua mesa precisa de pelo menos 6 mil milhões de linhas para beneficiar de um índice de colunas agrupadas (60 distribuições *100 divisórias* 1 milhão de linhas). Se a sua mesa de 100 divisórias não tiver 6 mil milhões de linhas, reduza o número de divisórias ou considere usar uma mesa de amontoados.
 
 Uma vez que as suas tabelas tenham sido carregadas com alguns dados, siga os passos abaixo para identificar e reconstruir tabelas com índices de colunas sub-ideais agrupados.
 
@@ -252,7 +252,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-Reconstruir um índice na piscina Synapse SQL é uma operação offline.  Para obter mais informações sobre os índices de reconstrução, consulte a secção DE RECONSTRUÇÃO DO ÍNDICE DE ALTERAÇÃO na [Desfragmentação de Índices de Colunas](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+Reconstruir um índice em pool SQL dedicado é uma operação offline.  Para obter mais informações sobre os índices de reconstrução, consulte a secção DE RECONSTRUÇÃO DO ÍNDICE DE ALTERAÇÃO na [Desfragmentação de Índices de Colunas](/sql/relational-databases/indexes/columnstore-indexes-defragmentation?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)e [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Passo 3: Verificar se a qualidade do segmento de colunas agrupadas melhorou
 
@@ -283,7 +283,7 @@ AND     [OrderDateKey] <  20010101
 ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [dbo].[FactInternetSales] PARTITION 2 WITH (TRUNCATE_TARGET = ON);
 ```
 
-Para obter mais detalhes sobre a recriação de divisórias utilizando CTAS, consulte [utilizar divisórias na piscina Sinapse SQL](sql-data-warehouse-tables-partition.md).
+Para obter mais detalhes sobre a recriação de divisórias utilizando CTAS, consulte [utilizar divisórias em piscina SQL dedicada.](sql-data-warehouse-tables-partition.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

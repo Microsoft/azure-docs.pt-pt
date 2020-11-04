@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: 133c7e95e620bfea51d1d6c9f6fd1d2946eeca33
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7c442aaf6484e8e47bd6d00c91023fba43af75d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91347263"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325020"
 ---
 # <a name="get-started-with-azure-machine-learning-studio-classic-in-r"></a>Começa com o Azure Machine Learning Studio (clássico) em R
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 <!-- Stephen F Elston, Ph.D. -->
@@ -140,11 +140,11 @@ O código completo desta secção [encontra-se em MachineLearningSamples-Noteboo
 
 #### <a name="load-the-dataset"></a><a id="loading"></a>Carregue o conjunto de dados
 
-Começaremos por carregar o ** ficheirocsdairydata.csv** no Machine Learning Studio (clássico).
+Começaremos por carregar o **ficheirocsdairydata.csv** no Machine Learning Studio (clássico).
 
 1. Inicie o seu ambiente de Machine Learning Studio (clássico).
 1. Selecione **+ NOVO** no lado inferior esquerdo do ecrã e selecione **Dataset**.
-1. Selecione **A partir do Arquivo Local**e, em seguida, selecione **Procurar** para selecionar o ficheiro.
+1. Selecione **A partir do Arquivo Local** e, em seguida, selecione **Procurar** para selecionar o ficheiro.
 1. Certifique-se de que selecionou **o ficheiro Genérico CSV com cabeçalho (.csv)** como o tipo para o conjunto de dados.
 1. Selecione a marca de verificação.
 1. Depois de o conjunto de dados ter sido carregado, deverá ver o novo conjunto de dados quando selecionar o **separador Datasets.**
@@ -153,13 +153,13 @@ Começaremos por carregar o ** ficheirocsdairydata.csv** no Machine Learning Stu
 
 Agora que temos alguns dados no Machine Learning Studio (clássico), precisamos de criar uma experiência para fazer a análise.  
 
-1. Selecione **+ NOVO** no lado inferior esquerdo do ecrã e selecione **Experiment**Blank  >  **Experiment .**
+1. Selecione **+ NOVO** no lado inferior esquerdo do ecrã e selecione **Experiment** Blank  >  **Experiment .**
 1. Nomeie a sua experiência selecionando e modificando a **Experiência criada no** título no topo da página. Por exemplo, alterá-lo para **CA Análise de Lacticínios**.
-1. À esquerda da página de experiências, selecione **Conjuntos de dados guardados**  >  **os meus conjuntos de dados**. Devia ver o ** ficheirocadairydata.csv** que carregou mais cedo.
+1. À esquerda da página de experiências, selecione **Conjuntos de dados guardados**  >  **os meus conjuntos de dados**. Devia ver o **ficheirocadairydata.csv** que carregou mais cedo.
 1. Arraste **csdairydata.csv conjunto de dados** para a experiência.
 1. Na caixa **de itens de experiência de pesquisa** na parte superior do painel esquerdo, insira executar o Script [R][execute-r-script]. O módulo aparece na lista de pesquisa.
 1. Arraste o módulo [de script Execute R][execute-r-script] para a sua palete.
-1. Ligue a saída do conjunto de ** dadoscsdairydata.csv** à entrada mais à esquerda **(Dataset1**) do [Script Execute R][execute-r-script].
+1. Ligue a saída do conjunto de **dadoscsdairydata.csv** à entrada mais à esquerda **(Dataset1** ) do [Script Execute R][execute-r-script].
 1. Selecione **Guardar**.
 
 Neste momento, a sua experiência deve parecer-se com este exemplo.
@@ -169,7 +169,7 @@ Neste momento, a sua experiência deve parecer-se com este exemplo.
 
 #### <a name="check-on-the-data"></a>Verifique os dados
 
-Vamos ver os dados que carregamos na nossa experiência. Na experiência, selecione a saída do conjunto de ** dadoscadairydata.csv**e selecione **Visualize**. Devia ver algo como este resumo.
+Vamos ver os dados que carregamos na nossa experiência. Na experiência, selecione a saída do conjunto de **dadoscadairydata.csv** e selecione **Visualize**. Devia ver algo como este resumo.
 
 ![Screenshot que mostra um resumo do conjunto de dados cadairydata.csv.](./media/r-quickstart/fig4.png)
 
@@ -1029,10 +1029,10 @@ Esta função gera a seguinte saída.
 ##
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
-## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 ***
-## Time              1.63e-09   1.72e-10    9.47   <2e-16 ***
+## (Intercept)       6.33e+00   1.45e-01   43.60   <2e-16 **_
+## Time              1.63e-09   1.72e-10    9.47   <2e-16 _*_
 ## I(Month.Count^2) -1.71e-06   4.89e-06   -0.35    0.726
-## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 *  
+## I(Month.Count^3) -3.24e-08   1.49e-08   -2.17    0.031 _  
 ## ---
 ## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
@@ -1062,10 +1062,10 @@ Esta função gera a seguinte saída.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## (Intercept)       6.38e+00   4.07e-02   156.6   <2e-16 ***
-## Time              1.57e-09   4.32e-11    36.3   <2e-16 ***
-## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 ***
+## Time              1.57e-09   4.32e-11    36.3   <2e-16 **_
+## I(Month.Count^3) -3.76e-08   2.50e-09   -15.1   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0417 on 213 degrees of freedom
 ## Multiple R-squared:  0.941,  Adjusted R-squared:  0.94
@@ -1113,21 +1113,21 @@ Esta função gera a seguinte saída.
 ## Coefficients:
 ##                   Estimate Std. Error t value Pr(>|t|)
 ## Time              1.57e-09   2.72e-11    57.7   <2e-16 ***
-## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 ***
-## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 ***
-## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 ***
-## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 ***
-## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 ***
-## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 ***
-## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 ***
-## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 ***
-## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 ***
-## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 ***
-## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 ***
-## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 ***
-## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 ***
+## I(Month.Count^3) -3.74e-08   1.57e-09   -23.8   <2e-16 **_
+## MonthApr          6.40e+00   2.63e-02   243.3   <2e-16 _*_
+## MonthAug          6.38e+00   2.63e-02   242.2   <2e-16 _*_
+## MonthDec          6.38e+00   2.64e-02   241.9   <2e-16 _*_
+## MonthFeb          6.31e+00   2.63e-02   240.1   <2e-16 _*_
+## MonthJan          6.39e+00   2.63e-02   243.1   <2e-16 _*_
+## MonthJul          6.39e+00   2.63e-02   242.6   <2e-16 _*_
+## MonthJun          6.38e+00   2.63e-02   242.4   <2e-16 _*_
+## MonthMar          6.42e+00   2.63e-02   244.2   <2e-16 _*_
+## MonthMay          6.43e+00   2.63e-02   244.3   <2e-16 _*_
+## MonthNov          6.34e+00   2.63e-02   240.6   <2e-16 _*_
+## MonthOct          6.37e+00   2.63e-02   241.8   <2e-16 _*_
+## MonthSep          6.34e+00   2.63e-02   240.6   <2e-16 _*_
 ## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## Signif. codes:  0 '_*_' 0.001 '_*' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 ##
 ## Residual standard error: 0.0263 on 202 degrees of freedom
 ## Multiple R-squared:     1,    Adjusted R-squared:     1
@@ -1276,11 +1276,11 @@ A partir destes resultados, vemos que adicionar os fatores sazonais ao modelo re
 
 O RStudio está bem documentado. Aqui estão algumas ligações com as secções-chave da documentação RStudio para começar.
 
-* **Criar projetos**: Pode organizar e gerir o seu código R em projetos utilizando o RStudio. Para obter mais informações, consulte [Utilização de Projetos.](https://support.rstudio.com/hc/articles/200526207-Using-Projects) Siga estas instruções e crie um projeto para os exemplos de código R neste artigo.
-* **Editar e executar código R**: O RStudio proporciona um ambiente integrado para a edição e execução do código R. Para obter mais informações, consulte [o Código de Edição e Execução.](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code)
-* **Debug**: RStudio inclui poderosas capacidades de depuração. Para obter mais informações sobre estas funcionalidades, consulte [Debugging com RStudio.](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) Para obter informações sobre funcionalidades de resolução de problemas de breakpoint, consulte [a resolução de problemas de Breakpoint](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
+* **Criar projetos** : Pode organizar e gerir o seu código R em projetos utilizando o RStudio. Para obter mais informações, consulte [Utilização de Projetos.](https://support.rstudio.com/hc/articles/200526207-Using-Projects) Siga estas instruções e crie um projeto para os exemplos de código R neste artigo.
+* **Editar e executar código R** : O RStudio proporciona um ambiente integrado para a edição e execução do código R. Para obter mais informações, consulte [o Código de Edição e Execução.](https://support.rstudio.com/hc/articles/200484448-Editing-and-Executing-Code)
+* **Debug** : RStudio inclui poderosas capacidades de depuração. Para obter mais informações sobre estas funcionalidades, consulte [Debugging com RStudio.](https://support.rstudio.com/hc/articles/200713843-Debugging-with-RStudio) Para obter informações sobre funcionalidades de resolução de problemas de breakpoint, consulte [a resolução de problemas de Breakpoint](https://support.rstudio.com/hc/articles/200534337-Breakpoint-Troubleshooting).
 
-## <a name="further-reading"></a><a id="appendixb"></a>Mais recursos
+## <a name="further-reading"></a><a id="appendixb"></a>Continuar a ler
 
 Este tutorial de programação R cobre o básico do que você precisa para usar a linguagem R com Machine Learning Studio (clássico). Se não está familiarizado com r, duas apresentações estão disponíveis no CRAN:
 

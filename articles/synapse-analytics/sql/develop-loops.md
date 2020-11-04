@@ -1,6 +1,6 @@
 ---
 title: Use laços T-SQL
-description: Dicas para a utilização de laços T-SQL, substituição de cursores e desenvolvimento de soluções relacionadas com piscina SQL em Synapse SQL.
+description: Dicas para a utilização de laços T-SQL, substituição de cursores e desenvolvimento de soluções relacionadas com o Synapse SQL em Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 manager: craigg
@@ -10,23 +10,24 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33e1ebc2269ef1db6bb0646f845b09be1a01c724
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99ee41de7ffd66191ff712a5ffbda65f3233196f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289060"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324450"
 ---
-# <a name="use-t-sql-loops-in-synapse-sql"></a>Utilize laços T-SQL em Sinaapse SQL
-Este artigo fornece-lhe dicas essenciais para a utilização de laços T-SQL, substituição de cursores e desenvolvimento de soluções relacionadas com piscina SQL em Synapse SQL.
+# <a name="use-t-sql-loops-with-synapse-sql-in-azure-synapse-analytics"></a>Use laços T-SQL com Sinaapse SQL em Azure Synapse Analytics
+
+Este artigo fornece-lhe dicas essenciais para a utilização de laços T-SQL, substituição de cursores e desenvolvimento de soluções relacionadas com o Synapse SQL.
 
 ## <a name="purpose-of-while-loops"></a>Finalidade dos ciclos DO WHILE
 
 O SQL de Sinapse suporta o loop [WHILE](https://docs.microsoft.com/sql/t-sql/language-elements/while-transact-sql?view=sql-server-ver15&preserve-view=true) para executar repetidamente blocos de declaração. Este laço WHILE continua enquanto as condições especificadas forem verdadeiras ou até que o código encerre especificamente o loop utilizando a palavra-chave BREAK. 
 
-Os loops na piscina SQL são úteis para substituir cursores definidos no código SQL. Felizmente, quase todos os cursores que estão escritos no código SQL são da variedade rápida e só de leitura. Assim, os loops ENQUANTO são uma ótima alternativa para substituir cursores.
+Os loops em Synapse SQL são úteis para substituir cursores definidos no código SQL. Felizmente, quase todos os cursores que estão escritos no código SQL são da variedade rápida e só de leitura. Assim, os loops ENQUANTO são uma ótima alternativa para substituir cursores.
 
-## <a name="replace-cursors-in-sql-pool"></a>Substitua os cursores na piscina SQL
+## <a name="replace-cursors-in-synapse-sql"></a>Substitua os cursores em Synapse SQL
 
 Antes de mergulhar, a seguinte pergunta deve ser considerada: "Poderia este cursor ser reescrito para usar operações baseadas em conjunto?" Em muitos casos, a resposta é sim e é frequentemente a melhor abordagem. Uma operação baseada em conjunto executa frequentemente mais rápido do que uma abordagem iterativa, linha a linha.
 

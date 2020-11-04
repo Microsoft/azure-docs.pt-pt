@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841964"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322301"
 ---
-# <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os alvos de computação em Azure Machine Learning?
+# <a name="what-are-compute-targets-in-azure-machine-learning"></a>Quais são os destinos de computação no Azure Machine Learning?
 
 Um *alvo de cálculo* é um recurso ou ambiente de computação designado onde executa o seu script de treino ou hospeda a sua implementação de serviço. Esta localização pode ser a sua máquina local ou um recurso computacional baseado em nuvem. A utilização de metas de computação facilita-lhe a mudança posterior do seu ambiente de computação sem ter de alterar o seu código.
 
@@ -54,7 +54,7 @@ Ao realizar inferência, a Azure Machine Learning cria um recipiente Docker que 
 
 * Como um ponto final de _inferência_ de lote que é usado periodicamente para processar lotes de dados. As inferências do lote utilizam [clusters computa computa computacional Azure Machine Learning](how-to-create-attach-compute-cluster.md).
 
-* Para um _dispositivo IoT_ (pré-visualização). A implantação num dispositivo IoT depende apenas da Azure Machine Learning para construir o recipiente Docker. A partir daí, é implantado usando Azure IoT Edge. Para obter mais informações, consulte [implementar como um módulo IoT Edge (pré-visualização)](/azure/iot-edge/tutorial-deploy-machine-learning).
+* Para um _dispositivo IoT_ (pré-visualização). A implantação num dispositivo IoT depende apenas da Azure Machine Learning para construir o recipiente Docker. A partir daí, é implantado usando Azure IoT Edge. Para obter mais informações, consulte [implementar como um módulo IoT Edge (pré-visualização)](../iot-edge/tutorial-deploy-machine-learning.md).
 
 Saiba [onde e como implementar o seu modelo num alvo de computação.](how-to-deploy-and-where.md)
 
@@ -89,7 +89,7 @@ Quando criados, estes recursos computacional são automaticamente parte do seu e
 
 ### <a name="supported-vm-series-and-sizes"></a>Séries e tamanhos VM suportados
 
-Quando selecionar um tamanho de nó para um recurso de computação gerido em Azure Machine Learning, pode escolher entre os tamanhos VM selecionados disponíveis no Azure. O Azure oferece uma gama de tamanhos para Linux e Windows para diferentes cargas de trabalho. Para saber mais, consulte [os tipos e tamanhos VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Quando selecionar um tamanho de nó para um recurso de computação gerido em Azure Machine Learning, pode escolher entre os tamanhos VM selecionados disponíveis no Azure. O Azure oferece uma gama de tamanhos para Linux e Windows para diferentes cargas de trabalho. Para saber mais, consulte [os tipos e tamanhos VM](../virtual-machines/sizes.md).
 
 Existem algumas exceções e limitações à escolha de um tamanho VM:
 
@@ -133,7 +133,7 @@ As atuais ofertas de VM isoladas incluem:
 
 *Com capacidade RDMA
 
-Para saber mais sobre o isolamento, veja [o Isolamento na nuvem pública azul.](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)
+Para saber mais sobre o isolamento, veja [o Isolamento na nuvem pública azul.](../security/fundamentals/isolation-choices.md)
 
 ## <a name="unmanaged-compute"></a>Computação não gerido
 

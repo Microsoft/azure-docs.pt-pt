@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 66216cc21101f133281f9adbda96d395661dcbfe
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280495"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324569"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -329,7 +329,7 @@ Para isso, utilizará a função *ProcessDTRoutedData* Azure para atualizar um *
 :::image type="content" source="media/tutorial-end-to-end/building-scenario-c.png" alt-text="Um excerto do cenário de construção completo gráfico destacando seta C, os elementos após Azure Digital Twins: a Grade de Evento e segunda função Azure":::
 
 Aqui estão as ações que irá completar para configurar este fluxo de dados:
-1. Criar um ponto final Azure Digital Twins que liga a instância à Grade de Eventos
+1. Criar um ponto final de Grade de Eventos em Azure Digital Twins que liga o caso à Grade de Eventos
 2. Estabeleça uma rota dentro da Azure Digital Twins para enviar eventos de mudança de propriedade twin para o ponto final
 3. Implementar uma aplicação Azure Functions que ouve (através [da Grade de Eventos)](../event-grid/overview.md)no ponto final, e atualiza outros gémeos em conformidade
 4. Executar o dispositivo simulado e consultar a Azure Digital Twins para ver os resultados ao vivo
@@ -354,7 +354,7 @@ az eventgrid topic create -g <your-resource-group> --name <name-for-your-event-g
 
 A saída deste comando é informação sobre o tópico da grelha de eventos que criou.
 
-Em seguida, crie um ponto final Azure Digital Twins apontando para o tópico da grelha do evento. Utilize o comando abaixo, preenchendo os campos reservados, se necessário:
+Em seguida, crie um ponto final de Grade de Eventos em Azure Digital Twins, que irá ligar o seu caso ao tópico da grelha de eventos. Utilize o comando abaixo, preenchendo os campos reservados, se necessário:
 
 ```azurecli-interactive
 az dt endpoint create eventgrid --dt-name <your-Azure-Digital-Twins-instance> --eventgrid-resource-group <your-resource-group> --eventgrid-topic <your-event-grid-topic> --endpoint-name <name-for-your-Azure-Digital-Twins-endpoint>
@@ -372,11 +372,11 @@ Procure o `provisioningState` campo na saída, e verifique se o valor é "Bem su
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultado da consulta de ponto final, mostrando o ponto final com um Estado de provisionamento de Sucesso":::
 
-Guarde os nomes que deu ao tema da grelha de eventos e ao seu ponto final Azure Digital Twins. Vais usá-los mais tarde.
+Guarde os nomes que deu ao tema da grelha de eventos e ao ponto final da Grelha de Eventos em Azure Digital Twins. Vais usá-los mais tarde.
 
 ### <a name="set-up-route"></a>Configurar rota
 
-Em seguida, crie uma rota Azure Digital Twins que envia eventos para o ponto final das Gémeas Digitais Azure que acabaste de criar.
+Em seguida, crie uma rota Azure Digital Twins que envia eventos para o ponto final da Grade de Eventos que acabaste de criar.
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

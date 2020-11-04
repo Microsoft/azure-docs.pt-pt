@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac6055029b8fc7bbba11a8e3b789df3b6b1622e2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864235"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322755"
 ---
 # <a name="team-data-science-process-project-planning"></a>Planeamento de projetos de processo de ciência de dados de equipa
 
@@ -30,7 +30,7 @@ O ciclo de vida descreve as principais fases que os projetos normalmente executa
 - Implementação
 - Aceitação do Cliente
 
-Para descrições de cada uma destas fases, consulte o ciclo de [vida do Processo de Ciência de Dados da Equipa](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
+Para descrições de cada uma destas fases, consulte o ciclo de [vida do Processo de Ciência de Dados da Equipa](./lifecycle.md).
 
  
 ## <a name="microsoft-project-template"></a>Modelo de projeto da Microsoft
@@ -60,5 +60,4 @@ Use este [repositório de modelo de projeto](https://github.com/Azure/Azure-TDSP
 
 [Desenvolvimento ágil de projetos de ciência de dados](agile-development.md) Este documento descreve um projeto de ciência de dados de forma sistemática, controlada pela versão e colaborativa, utilizando o Processo de Ciência de Dados de Equipa.
 
-São também fornecidas etapas que demonstram todos os passos no processo para **cenários específicos.** Estão listados e ligados com descrições de miniaturas no artigo [exemplo.](walkthroughs.md) Ilustram como combinar ferramentas e serviços de nuvem, no local, num fluxo de trabalho ou oleoduto para criar uma aplicação inteligente. 
-
+São também fornecidas etapas que demonstram todos os passos no processo para **cenários específicos.** Estão listados e ligados com descrições de miniaturas no artigo [exemplo.](walkthroughs.md) Ilustram como combinar ferramentas e serviços de nuvem, no local, num fluxo de trabalho ou oleoduto para criar uma aplicação inteligente.
