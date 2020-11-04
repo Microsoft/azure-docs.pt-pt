@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 374320c0becfecc6691af91b36a1d80b087300e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361948"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312867"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gerir a experiência corre no Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Desenvolver um modelo de análise preditiva é um processo iterativo - à medida que modifica as várias funções e parâmetros da sua experiência, os seus resultados convergem até que esteja convencido de que tem um modelo treinado e eficaz. A chave para este processo é rastrear as várias iterações dos seus parâmetros e configurações de experiência.
@@ -76,4 +76,4 @@ Por exemplo, suponha que tenha a experiência de fazer a história mostrada na s
 Pode agora continuar a modificar e executar esta versão da sua experiência, construindo um novo histórico de execução para registar o seu trabalho.
 
 <!-- Module References -->
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression

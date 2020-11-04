@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Spark & Hive Tools for VSCode (aplicação Spark)
-description: Tutorial - Utilize as Ferramentas de Colmeia spark & para VSCode para desenvolver aplicações Spark, que são escritas em Python, e submetê-las a uma piscina Apache Spark (pré-visualização).
+description: Tutorial - Utilize as Ferramentas de Colmeia spark & para VSCode para desenvolver aplicações Spark, que são escritas em Python, e submetê-las a uma piscina Apache Spark sem servidor (pré-visualização).
 services: synapse-analytics
 author: hrasheed-msft
 ms.author: jejiang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 09/03/2020
-ms.openlocfilehash: 6778d78ff5e342d97c1c9bc477c1a88eca42a10a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99b2b04d0f29d92b503cc0bed2460b79cfa6c354
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91348637"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315654"
 ---
 # <a name="tutorial-create-an-apache-spark-applications-with-vscode-using-a-synapse-workspace"></a>Tutorial: Criar aplicações Apache Spark com VSCode utilizando um espaço de trabalho Synapse
 
@@ -26,7 +26,7 @@ Spark & Hive Tools podem ser instalados em plataformas que são suportadas pelo 
 
 São necessários os seguintes itens para completar as etapas deste artigo:
 
-- Uma piscina Apache Spark. Para criar uma piscina Apache Spark, consulte [a piscina Create Apache Spark utilizando o portal Azure.](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
+- Uma piscina Apache Spark sem servidor. Para criar uma piscina Apache Spark sem servidor, consulte [a piscina Create Apache Spark utilizando o portal Azure](../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md).
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Mono.](https://www.mono-project.com/docs/getting-started/install/) Mono é necessário apenas para Linux e macOS.
 - [Um ambiente interativo PySpark para Código de Estúdio Visual.](../../hdinsight/set-up-pyspark-interactive-environment.md)
@@ -42,7 +42,7 @@ Depois de conhecer os pré-requisitos, pode instalar Spark & Hive Tools for Visu
 
 3. Na caixa de pesquisa, **insira Spark & Hive**.
 
-4. Selecione **Spark & Hive Tools** a partir dos resultados da pesquisa e, em seguida, selecione **Instalar**:
+4. Selecione **Spark & Hive Tools** a partir dos resultados da pesquisa e, em seguida, selecione **Instalar** :
 
      ![Spark & Hive para instalação visual Studio Code Python](./media/vscode-tool-synapse/install-hdInsight-plugin.png)
 
@@ -52,7 +52,7 @@ Depois de conhecer os pré-requisitos, pode instalar Spark & Hive Tools for Visu
 
 Para abrir uma pasta de trabalho e criar um ficheiro no Código do Estúdio Visual, siga estes passos:
 
-1. A partir da barra de menu, navegue para **a**pasta  >  **'Arquivo' ...**  >  **C:\HD\Synaseexample**, e, em seguida, selecione o botão **Select Folder.** A pasta aparece na vista **Explorer** à esquerda.
+1. A partir da barra de menu, navegue para **a** pasta  >  **'Arquivo' ...**  >  **C:\HD\Synaseexample** , e, em seguida, selecione o botão **Select Folder.** A pasta aparece na vista **Explorer** à esquerda.
 
 2. Na visualização **do Explorer,** selecione a pasta **Synaseexample** e, em seguida, selecione o ícone **Novo Ficheiro** ao lado da pasta de trabalho:
 
@@ -68,7 +68,7 @@ Inscreva-se na subscrição da Azure para ligar às suas piscinas Spark.
 
 Siga estes passos para ligar a Azure:
 
-1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Azure: Iniciar Sedura**:
+1. A partir da barra de menu, navegue para **ver**  >  **paleta de comando...** e insira **Azure: Iniciar Sedura** :
 
      ![Ferramentas de hive spark & para login visual studio code](./media/vscode-tool-synapse/hdinsight-for-vscode-extension-login.png)
 
@@ -130,7 +130,7 @@ for (word, count) in sortedCollection:
 
      ![instalar o núcleo de pyspark](./media/vscode-tool-synapse/install-the-pyspark-kernel.png)
 
-5. Se precisar de o instalar mais tarde, pode navegar para definições de preferência de **ficheiro**  >  **Preference**  >  , em seguida,**desmarque** **a visão Hdin: Ative a instalação Skip Pyspark** nas definições. 
+5. Se precisar de o instalar mais tarde, pode navegar para definições de preferência de **ficheiro**  >  **Preference**  >  , em seguida, **desmarque** **a visão Hdin: Ative a instalação Skip Pyspark** nas definições. 
     
      ![permitir a instalação de pyspark](./media/vscode-tool-synapse/enable-skip-pyspark-installation.png)
 
@@ -156,7 +156,7 @@ for (word, count) in sortedCollection:
 
      ![menu de contexto interativo pyspark](./media/vscode-tool-synapse/pyspark-interactive-right-click.png)
 
-12. Selecione a piscina Spark, se não tiver especificado uma piscina spark predefinida. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o núcleo para **Synapse PySpark**, em seguida, submeter novamente o código selecionado e o código será executado com sucesso. As ferramentas também permitem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
+12. Selecione a piscina Spark, se não tiver especificado uma piscina spark predefinida. Após alguns momentos, os resultados da **Python Interactive** aparecem num novo separador. Clique no PySpark para mudar o núcleo para **Synapse PySpark** , em seguida, submeter novamente o código selecionado e o código será executado com sucesso. As ferramentas também permitem submeter um bloco de código em vez de todo o ficheiro de script, utilizando o menu de contexto:
 
      ![interativo](./media/vscode-tool-synapse/pyspark-interactive-python-interactive-window.png)
 
@@ -166,7 +166,7 @@ for (word, count) in sortedCollection:
 
      ![adicionar #%%](./media/vscode-tool-synapse/run-cell.png)
 
-2. Clique em **Run Cell**. Após alguns momentos, os resultados da Python Interactive aparecem num novo separador. Clique no PySpark para mudar o núcleo para **Synapse PySpark**, em seguida, clique novamente em **Run Cell** e o código será executado com sucesso. 
+2. Clique em **Run Cell**. Após alguns momentos, os resultados da Python Interactive aparecem num novo separador. Clique no PySpark para mudar o núcleo para **Synapse PySpark** , em seguida, clique novamente em **Run Cell** e o código será executado com sucesso. 
 
      ![executar resultados celulares](./media/vscode-tool-synapse/run-cell-get-results.png)
 
@@ -178,7 +178,7 @@ for (word, count) in sortedCollection:
 
      ![definir a piscina de faísca padrão e recarregar](./media/vscode-tool-synapse/set-the-default-spark-pool-and-reload.png)
 
-3. Clique no PySpark para mudar o kernel para **Synapse Pyspark**, e, em seguida, clique em **Run Cell**, depois de um tempo, o resultado será exibido.
+3. Clique no PySpark para mudar o kernel para **Synapse Pyspark** , e, em seguida, clique em **Run Cell** , depois de um tempo, o resultado será exibido.
 
      ![executar resultados ipynb](./media/vscode-tool-synapse/run-ipynb-file-results.png)
 
@@ -244,7 +244,7 @@ Pode executar diferentes operações no Azure Explorer dentro de ferramentas Spa
 
 2. Clique na Subscrição do espaço de trabalho synapse, expanda-o e exiba a lista de espaço de trabalho.
 
-3. Clique com o botão direito num espaço de trabalho e, em seguida, selecione **Ver aplicações Apache Spark**, a página de aplicação Apache Spark no site do Synapse Studio será aberta.
+3. Clique com o botão direito num espaço de trabalho e, em seguida, selecione **Ver aplicações Apache Spark** , a página de aplicação Apache Spark no site do Synapse Studio será aberta.
 
      ![clique direito no espaço de trabalho](./media/vscode-tool-synapse/right-click-on-workspace.png)
 
@@ -256,7 +256,7 @@ Pode executar diferentes operações no Azure Explorer dentro de ferramentas Spa
 
      ![clique direito no armazenamento predefinido](./media/vscode-tool-synapse/right-click-on-default-storage.png)
 
-     - Clique em **Copy Full Path**, o URL de conta ADLS Gen2 primário será copiado, pode colar onde precisar。
+     - Clique em **Copy Full Path** , o URL de conta ADLS Gen2 primário será copiado, pode colar onde precisar。
 
      - Clique **em Open in Synapse Studio,** a Conta de Armazenamento Primário será aberta no Synapse Studio.
 

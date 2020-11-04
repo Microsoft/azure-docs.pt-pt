@@ -1,6 +1,6 @@
 ---
 title: Apache Spark conceitos centrais
-description: Introdução ao Apache Spark em Azure Synapse Analytics e os diferentes conceitos.
+description: Introdução aos conceitos fundamentais para Apache Spark in Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: bb5c7e082dc4a35183190f5d2d6a4b305b907f4f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d29fa6454839b0c34830374282b8abb5fa6e4c51
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480484"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313399"
 ---
 # <a name="apache-spark-in-azure-synapse-analytics-core-concepts"></a>Apache Spark in Azure Synapse Analytics Core Concepts
 
@@ -24,7 +24,7 @@ A Azure Synapse facilita a criação e configuração das capacidades de faísca
 
 ## <a name="spark-pools-preview"></a>Piscinas de faíscas (pré-visualização)
 
-Uma piscina Spark (pré-visualização) é criada no portal Azure. É a definição de uma piscina de faíscas que, quando instantânea, é usada para criar uma instância Spark que processa dados. Quando uma piscina Spark é criada, existe apenas como metadados, e nenhum recursos são consumidos, em execução ou cobrados. Uma piscina spark tem uma série de propriedades que controlam as características de uma ocorrência de faísca. Estas características incluem, mas não se limitam ao nome, tamanho, comportamento de escala, tempo de vida.
+Uma piscina Apache Spark sem servidor (pré-visualização) é criada no portal Azure. É a definição de uma piscina de faíscas que, quando instantânea, é usada para criar uma instância Spark que processa dados. Quando uma piscina Spark é criada, existe apenas como metadados, e nenhum recursos são consumidos, em execução ou cobrados. Uma piscina spark tem uma série de propriedades que controlam as características de uma ocorrência de faísca. Estas características incluem, mas não se limitam ao nome, tamanho, comportamento de escala, tempo de vida.
 
 Como não há um dólar ou custo de recursos associado à criação de piscinas Spark, qualquer número pode ser criado com qualquer número de configurações diferentes. As permissões também podem ser aplicadas a piscinas Spark, permitindo que os utilizadores tenham apenas acesso a alguns e não a outros.
 

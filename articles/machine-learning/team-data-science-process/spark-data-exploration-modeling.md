@@ -11,18 +11,18 @@ ms.topic: sample
 ms.date: 06/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 406092466b7ab5ca729a08f7c703bcb30812901d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7a361319c3fc6c80c6dac80c48fb10155a3ff5b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027516"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314850"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploração e modelação de dados com o Spark
 
 Aprenda a usar o HDInsight Spark para treinar modelos de aprendizagem automática para previsão de tarifas de táxi usando Spark MLlib.
 
-Esta amostra mostra os vários passos no [Processo de Ciência de Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)de Equipa. Um subconjunto da viagem de táxi de NYC e dataset de tarifa 2013 é usado para carregar, explorar e preparar dados. Em seguida, usando spark MLlib, os modelos binários de classificação e regressão são treinados para prever se uma gorjeta será paga pela viagem e estimar o valor da gorjeta.
+Esta amostra mostra os vários passos no [Processo de Ciência de Dados](./index.yml)de Equipa. Um subconjunto da viagem de táxi de NYC e dataset de tarifa 2013 é usado para carregar, explorar e preparar dados. Em seguida, usando spark MLlib, os modelos binários de classificação e regressão são treinados para prever se uma gorjeta será paga pela viagem e estimar o valor da gorjeta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -92,7 +92,7 @@ Os núcleos PySpark que são fornecidos com cadernos Jupyter têm um contexto pr
 O kernel PySpark fornece algumas "magias" predefinidas, que são comandos especiais que se pode chamar com %%. Há dois comandos que são usados nestas amostras de código.
 
 * **%%local** Especifica que o código nas linhas subsequentes deve ser executado localmente. O código deve ser o código Python válido.
-* **%%sql -o \<variable name> ** Executa uma consulta de Colmeia contra o sqlContext. Se o parâmetro -o for aprovado, o resultado da consulta é persistido no contexto python %%local como um DataFrame pandas.
+* **%%sql -o \<variable name>** Executa uma consulta de Colmeia contra o sqlContext. Se o parâmetro -o for aprovado, o resultado da consulta é persistido no contexto python %%local como um DataFrame pandas.
 
 Para obter mais informações sobre os núcleos de cadernos Jupyter e as "magias" predefinidas, consulte [Kernels disponível para cadernos Jupyter com clusters HDInsight Spark Linux em HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -181,7 +181,7 @@ Uma vez que os dados tenham sido trazidos para a Spark, o próximo passo no proc
 Este código e os subsequentes snippets usam magia SQL para consultar a amostra e a magia local para traçar os dados.
 
 * **MAGIA SQL ( `%%sql` )** O kernel HDInsight PySpark suporta consultas de HiveQL fáceis em linha contra o sqlContext. O argumento (-o VARIABLE_NAME) persiste na saída da consulta SQL como um DataFrame pandas no servidor Jupyter. Esta definição disponibiliza a saída no modo local.
-* A ** `%%local` magia** é usada para executar código localmente no servidor Jupyter, que é o headnode do cluster HDInsight. Normalmente, usa-se `%%local` magia em conjunto com a magia com o parâmetro `%%sql` -o. O parâmetro -o persistiria a saída da consulta SQL localmente e, em seguida, a magia local %%desencadearia o próximo conjunto de código snippet para correr localmente contra a saída das consultas SQL que são persistidos localmente
+* A **`%%local` magia** é usada para executar código localmente no servidor Jupyter, que é o headnode do cluster HDInsight. Normalmente, usa-se `%%local` magia em conjunto com a magia com o parâmetro `%%sql` -o. O parâmetro -o persistiria a saída da consulta SQL localmente e, em seguida, a magia local %%desencadearia o próximo conjunto de código snippet para correr localmente contra a saída das consultas SQL que são persistidos localmente
 
 A saída é visualizada automaticamente depois de executar o código.
 
@@ -1119,4 +1119,4 @@ Agora que criou modelos de regressão e classificação com o Spark MlLib, está
 
 **Consumo de modelos:** Para aprender a pontuar e avaliar os modelos de classificação e regressão criados neste tópico, consulte [Score e avalie os modelos de aprendizagem automática construídos pela Spark.](spark-model-consumption.md)
 
-**Varredura de validação cruzada e hiperparímetro**: Consulte [a exploração e modelação avançadas de dados com a Spark](spark-advanced-data-exploration-modeling.md) sobre como os modelos podem ser treinados usando a validação cruzada e a varredura de hiper-parâmetros
+**Varredura de validação cruzada e hiperparímetro** : Consulte [a exploração e modelação avançadas de dados com a Spark](spark-advanced-data-exploration-modeling.md) sobre como os modelos podem ser treinados usando a validação cruzada e a varredura de hiper-parâmetros

@@ -9,12 +9,12 @@ ms.subservice: machine-learning
 ms.date: 06/30/2020
 ms.author: midesa
 ms.reviewer: jrasnick,
-ms.openlocfilehash: da4cef50610b219689e2271e9f70fd1adb1a235f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 979e360bb920fc3b34a201b1287b50b141bffa9b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540511"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313619"
 ---
 # <a name="tutorial-run-experiments-using-azure-automated-ml-and-apache-spark"></a>Tutorial: Executar experiências usando Azure Automated ML e Apache Spark
 
@@ -29,13 +29,16 @@ Neste tutorial aprende-se as seguintes tarefas:
 - Calcular a precisão do modelo
 
 ### <a name="before-you-begin"></a>Antes de começar
-- Crie uma Piscina de Faíscas Apache seguindo o [tutorial de piscina Create a Apache Spark.](../quickstart-create-apache-spark-pool-studio.md)
+
+- Crie um Apache Spark Pool sem servidor seguindo o [arranque rápido da piscina Apache Spark sem servidor](../quickstart-create-apache-spark-pool-studio.md).
 - Complete o tutorial de configuração do [espaço de trabalho Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/tutorial-1st-experiment-sdk-setup) se não tiver um espaço de trabalho de aprendizagem automática Azure existente. 
 
 ### <a name="understand-regression-models"></a>Compreender modelos de regressão
+
 *Os modelos de regressão* prevêem valores de saída numéricos baseados em preditores independentes. Na regressão, o objetivo é ajudar a estabelecer a relação entre essas variáveis preditores independentes, estimando como uma variável impacta as outras.  
 
 ### <a name="regression-analysis-example-on-the-nyc-taxi-data"></a>Exemplo de análise de regressão nos dados do táxi de NYC
+
 Neste exemplo, você usará Spark para realizar algumas análises sobre dados de dicas de viagem de táxi de Nova Iorque. Os dados estão disponíveis através [de Conjuntos de Dados Azure Open](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). Este subconjunto do conjunto de dados contém informações sobre viagens de táxi amarelas, incluindo informações sobre cada viagem, o tempo e locais de início e fim, o custo e outros atributos interessantes.
 
 > [!IMPORTANT]
@@ -143,7 +146,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## <a name="convert-a-dataframe-to-an-azure-machine-learning-dataset"></a>Converter um conjunto de dados para um conjunto de dados de aprendizagem de máquinas Azure
-Para submeter uma experiência remota, precisamos converter o nosso conjunto de dados numa Aprendizagem automática Azure ```TabularDatset``` . Um [SeparadorDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) representa dados num formato tabular através da análise dos ficheiros fornecidos.
+Para submeter uma experiência remota, precisamos converter o nosso conjunto de dados numa Aprendizagem automática Azure ```TabularDatset``` . Um [SeparadorDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) representa dados num formato tabular através da análise dos ficheiros fornecidos.
 
 O código seguinte obtém o espaço de trabalho existente e a loja de dados padrão Azure Machine Learning. Em seguida, passa a datastore e arquiva localizações para o parâmetro do caminho para criar um novo ```TabularDataset``` . 
 
@@ -165,7 +168,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 
 ![Imagem do conjunto de dados carregado.](./media/apache-spark-machine-learning-aml-notebook/upload-dataset.png)
 
-## <a name="submit-an-auto-ml-experiment"></a>Submeter uma experiência auto ML
+## <a name="submit-an-automl-experiment"></a>Submeter uma experiência AutoML
 
 #### <a name="define-training-settings"></a>Definir definições de formação
 

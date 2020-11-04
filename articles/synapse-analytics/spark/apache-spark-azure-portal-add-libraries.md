@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737973"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313534"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerir bibliotecas para Apache Spark em Azure Synapse Analytics
 
-As bibliotecas fornecem código reutilizável que poderá querer incluir nos seus programas ou projetos. Para disponibilizar código de terceiros ou construído localmente para as suas aplicações, pode instalar uma biblioteca numa das suas Piscinas spark (pré-visualização). Uma vez instalada uma biblioteca para uma piscina Spark, está disponível para todas as sessões usando a mesma piscina. 
+As bibliotecas fornecem código reutilizável que poderá querer incluir nos seus programas ou projetos. Para disponibilizar códigos de terceiros ou construídos localmente para as suas aplicações, pode instalar uma biblioteca numa das suas Piscinas Apache Spark sem servidor (pré-visualização). Uma vez instalada uma biblioteca para uma piscina Spark, está disponível para todas as sessões usando a mesma piscina. 
 
 ## <a name="default-installation"></a>Instalação predefinida
 Apache Spark in Azure Synapse Analytics tem uma instalação completa de Anacondas mais bibliotecas adicionais. A lista completa de bibliotecas pode ser encontrada no [suporte da versão Apache Spark.](apache-spark-version-support.md) 
@@ -68,7 +68,7 @@ Para atualizar ou adicionar bibliotecas adicionais a uma piscina Spark (pré-vis
    
 2.  Lance o seu espaço de trabalho Azure Synapse Analytics a partir do portal Azure.
 
-3.  **Selecione Gerir** a partir do painel de navegação principal e, em seguida, selecione **as piscinas Apache Spark** .
+3.  **Selecione Gerir** a partir do painel de navegação principal e, em seguida, selecione **as piscinas Apache Spark**.
    
 4. Selecione uma única piscina Spark e carreque o ficheiro de configuração do ambiente utilizando o seletor de ficheiros na secção  **Pacotes** da página.
 
@@ -106,7 +106,7 @@ Para atualizar ou desinstalar uma biblioteca:
 
 3. Navegue na secção **Pacotes** e carregue um novo ficheiro de configuração ambiental
    
-4. Assim que guardar as alterações, terá de terminar as sessões ativas e deixar a piscina reiniciar. Opcionalmente, pode forçar as sessões ativas a terminar selecionando a caixa de verificação para **forçar novas definições** .
+4. Assim que guardar as alterações, terá de terminar as sessões ativas e deixar a piscina reiniciar. Opcionalmente, pode forçar as sessões ativas a terminar selecionando a caixa de verificação para **forçar novas definições**.
 
     ![Adicionar bibliotecas Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Adicionar bibliotecas Python")
    

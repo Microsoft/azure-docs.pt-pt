@@ -9,18 +9,18 @@ ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
 ms.custom: devx-track-python
-ms.openlocfilehash: b5f1d0712098e4fe331607860f6e0ed488d29c1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 394e735be5da65ffa75e10200589a4adb4e7cad2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87848797"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313933"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark
 
 Este tutorial mostra-lhe como ligar o seu cluster Azure Databricks a dados armazenados numa conta de armazenamento Azure que tem o Azure Data Lake Storage Gen2 ativado. Esta ligação permite-lhe executar consultas e análises nativas do seu cluster nos seus dados.
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 > * Criar um cluster do Databricks
@@ -33,7 +33,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 * Crie uma conta Azure Data Lake Storage Gen2.
 
-  Consulte [criar uma conta Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+  Consulte [Criar uma conta de armazenamento para utilizar com a Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
 
 * Certifique-se de que a sua conta de utilizador tem a [função de Contribuinte de Dados de Armazenamento Blob](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) que lhe é atribuída.
 
@@ -94,7 +94,7 @@ Nesta secção, cria-se um serviço Azure Databricks utilizando o portal Azure.
 
     ![Databricks em Azure](./media/data-lake-storage-use-databricks-spark/databricks-on-azure.png "Databricks em Azure")
 
-3. Na página **Novo cluster**, indique os valores para criar um cluster.
+3. Na página **Novo cluster** , indique os valores para criar um cluster.
 
     ![Criar conjunto de faíscas de dados no Azure](./media/data-lake-storage-use-databricks-spark/create-databricks-spark-cluster.png "Criar conjunto de faíscas de dados no Azure")
 
@@ -138,11 +138,11 @@ Nesta secção, irá criar um recipiente e uma pasta na sua conta de armazenamen
 
 1. No [portal Azure,](https://portal.azure.com)vá ao serviço Azure Databricks que criou e selecione **Launch Workspace**.
 
-2. À esquerda, selecione **Workspace**. No menu pendente **Área de Trabalho**, selecione **Criar** > **Bloco de Notas**.
+2. À esquerda, selecione **Workspace**. No menu pendente **Área de Trabalho** , selecione **Criar** > **Bloco de Notas**.
 
     ![Criar um caderno em Databricks](./media/data-lake-storage-use-databricks-spark/databricks-create-notebook.png "Criar caderno em Databricks")
 
-3. Na caixa de diálogo **Criar Bloco de Notas**, introduza um nome para o bloco de notas. Selecione **Python** como o idioma e, em seguida, selecione o cluster Spark que criou anteriormente.
+3. Na caixa de diálogo **Criar Bloco de Notas** , introduza um nome para o bloco de notas. Selecione **Python** como o idioma e, em seguida, selecione o cluster Spark que criou anteriormente.
 
 4. Selecione **Criar**.
 
@@ -195,7 +195,7 @@ from pyspark.sql import SQLContext
 display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
-Para criar um novo ficheiro e listar os ficheiros na pasta *parquet/flights*, execute este script:
+Para criar um novo ficheiro e listar os ficheiros na pasta *parquet/flights* , execute este script:
 
 ```python
 dbutils.fs.put("/mnt/flightdata/1.txt", "Hello, World!", True)

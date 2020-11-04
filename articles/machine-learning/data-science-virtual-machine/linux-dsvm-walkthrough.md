@@ -9,12 +9,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: 65a627cc009699660de0897ce853acaa78381f6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275987"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315790"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma máquina virtual de ciência de dados Ubuntu em Azure
 
@@ -28,8 +28,8 @@ Antes de poder utilizar um DSVM Linux, deve ter os seguintes pré-requisitos:
 
 * **Assinatura Azure**. Para obter uma subscrição do Azure, consulte [hoje a sua conta Azure gratuita.](https://azure.microsoft.com/free/)
 
-* [**Máquina virtual Ubuntu Data Science.**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Para obter informações sobre o fornecimento da máquina virtual, consulte [disposição da Máquina Virtual Ubuntu Data Science](linux-dsvm-intro.md).
-* [**X2Go**](https://wiki.x2go.org/doku.php) instalado no seu computador com uma sessão de XFCE aberta. Para mais informações, consulte [instalar e configurar o cliente X2Go.](linux-dsvm-intro.md#x2go)
+* [**Máquina virtual Ubuntu Data Science.**](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Para obter informações sobre o fornecimento da máquina virtual, consulte [disposição da Máquina Virtual Ubuntu Data Science](./release-notes.md).
+* [**X2Go**](https://wiki.x2go.org/doku.php) instalado no seu computador com uma sessão de XFCE aberta. Para mais informações, consulte [instalar e configurar o cliente X2Go.](dsvm-ubuntu-intro.md#x2go)
 * Para uma experiência de scrolling mais suave, no navegador web Firefox da DSVM, altere a `gfx.xrender.enabled` bandeira em `about:config` . [Saiba mais](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considere também a definição `mousewheel.enable_pixel_scrolling` para `False` . [Saiba mais](https://support.mozilla.org/questions/981140).
 
 ## <a name="download-the-spambase-dataset"></a>Descarregue o conjunto de dados de base de spam
@@ -62,10 +62,10 @@ mv headers spambaseHeaders.data
 
 O conjunto de dados tem vários tipos de estatísticas para cada e-mail:
 
-* Colunas como **palavra \_ freq \_ _WORD_ ** indicam a percentagem de palavras no e-mail que correspondem *PALAVRA*. Por exemplo, se **a palavra \_ freq \_ make** é **1,** então 1% de todas as palavras no e-mail foram *fazer*.
-* Colunas como **char \_ freq \_ _CHAR_ ** indicam a percentagem de todos os caracteres no e-mail que são *CHAR*.
-* ** \_ comprimento de corrida de capital \_ mais \_ longo** é o comprimento mais longo de uma sequência de letras maiúsculas.
-* ** \_ a \_ \_ média** do comprimento da corrida de capital é o comprimento médio de todas as sequências de letras maiúsculas.
+* Colunas como **palavra \_ freq \_ _WORD_** indicam a percentagem de palavras no e-mail que correspondem *PALAVRA*. Por exemplo, se **a palavra \_ freq \_ make** é **1,** então 1% de todas as palavras no e-mail foram *fazer*.
+* Colunas como **char \_ freq \_ _CHAR_** indicam a percentagem de todos os caracteres no e-mail que são *CHAR*.
+* **\_ comprimento de corrida de capital \_ mais \_ longo** é o comprimento mais longo de uma sequência de letras maiúsculas.
+* **\_ a \_ \_ média** do comprimento da corrida de capital é o comprimento médio de todas as sequências de letras maiúsculas.
 * **o \_ comprimento total da \_ execução \_ de capital** é o comprimento total de todas as sequências de letras maiúsculas.
 * **o spam** indica se o e-mail foi considerado spam ou não (1 = spam, 0 = não spam).
 
@@ -213,7 +213,7 @@ Para além das amostras baseadas no quadro, é também fornecido um conjunto de 
 
 - [Um guia para a construção de uma solução de ponta a ponta para detetar produtos dentro de imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): A deteção de imagem é uma técnica que pode localizar e classificar objetos dentro das imagens. A tecnologia tem o potencial de trazer enormes recompensas em muitos domínios de negócios da vida real. Por exemplo, os retalhistas podem utilizar esta técnica para determinar que produto um cliente recolheu da prateleira. Esta informação, por sua vez, ajuda as lojas a gerir o inventário do produto. 
 
-- [Deep learning para áudio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): Este tutorial mostra como treinar um modelo de aprendizagem profunda para deteção de eventos áudio no [conjunto de dados de sons urbanos.](https://urbansounddataset.weebly.com/) O tutorial fornece uma visão geral de como trabalhar com dados áudio.
+- [Deep learning para áudio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): Este tutorial mostra como treinar um modelo de aprendizagem profunda para deteção de eventos áudio no [conjunto de dados de sons urbanos.](https://urbansounddataset.weebly.com/) O tutorial fornece uma visão geral de como trabalhar com dados áudio.
 
 - [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): Este walkthrough demonstra como construir e formar duas diferentes arquiteturas de rede neural: Rede de Atenção Hierárquica e Memória de Longo Prazo (LSTM). Estas redes neurais utilizam a API keras para uma aprendizagem profunda para classificar documentos de texto. Keras é uma extremidade frontal de três dos quadros de aprendizagem profunda mais populares: Microsoft Cognitive Toolkit, TensorFlow e Theano.
 
@@ -315,7 +315,7 @@ Vários cadernos de amostras já estão instalados no DSVM:
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) *(R* *A*nalytical *T*ool *T*o *L*earn *E*asily) é uma ferramenta r gráfica para a mineração de dados. O Rattle tem uma interface intuitiva que facilita a carga, exploração e transformação de dados e a construção e avaliação de modelos. [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece uma passagem que demonstra as características de Rattle.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) *(R* *A* nalytical *T* ool *T* o *L* earn *E* asily) é uma ferramenta r gráfica para a mineração de dados. O Rattle tem uma interface intuitiva que facilita a carga, exploração e transformação de dados e a construção e avaliação de modelos. [Rattle: A Data Mining GUI for R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) fornece uma passagem que demonstra as características de Rattle.
 
 Instale e inicie o Rattle executando estes comandos:
 
@@ -328,12 +328,12 @@ rattle()
 > [!NOTE]
 > Não é necessário instalar o Rattle no DSVM. No entanto, poderá ser solicitado que instale pacotes adicionais quando o Rattle abrir.
 
-O Rattle usa uma interface baseada em separadores. A maioria dos separadores corresponde a etapas no Processo de Ciência de Dados da [Equipa,](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)como carregar dados ou explorar dados. O processo de ciência de dados flui da esquerda para a direita através dos separadores. O último separador contém um registo dos comandos R que foram geridos por Rattle.
+O Rattle usa uma interface baseada em separadores. A maioria dos separadores corresponde a etapas no Processo de Ciência de Dados da [Equipa,](../team-data-science-process/index.yml)como carregar dados ou explorar dados. O processo de ciência de dados flui da esquerda para a direita através dos separadores. O último separador contém um registo dos comandos R que foram geridos por Rattle.
 
 Para carregar e configurar o conjunto de dados:
 
 1. Para carregar o ficheiro, selecione o separador **Dados.**
-1. Escolha o seletor ao lado **do nome de ficheiros**e, em seguida, selecione **spambaseHeaders.data**.
+1. Escolha o seletor ao lado **do nome de ficheiros** e, em seguida, selecione **spambaseHeaders.data**.
 1. Para carregar o ficheiro. selecionar **Executar**. Deverá consultar um resumo de cada coluna, incluindo o tipo de dados identificado; seja uma entrada, um alvo, ou outro tipo de variável; e o número de valores únicos.
 1. O Chocalho identificou corretamente a coluna **de spam** como o alvo. Selecione a coluna **de spam** e, em seguida, desajuste o **Tipo de Dados-Alvo** para **Categoric**.
 
@@ -351,11 +351,11 @@ Também pode utilizar o separador **Explore** para gerar enredos perspicazes. Pa
 
 Os enredos **da Correlação** também são interessantes. Para criar um enredo:
 
-1. Para **tipo**, selecione **Correlation**.
+1. Para **tipo** , selecione **Correlation**.
 1. Selecione **Execute** (Executar).
 1. O Rattle avisa-lhe que recomenda um máximo de 40 variáveis. Selecione **Sim** para ver o enredo.
 
-Há algumas correlações interessantes que surgem: a _tecnologia_ está fortemente correlacionada com a _HP_ e _os laboratórios_, por exemplo. Também está fortemente correlacionado com _650_ porque o código de área dos dadores de conjuntos de dados é 650.
+Há algumas correlações interessantes que surgem: a _tecnologia_ está fortemente correlacionada com a _HP_ e _os laboratórios_ , por exemplo. Também está fortemente correlacionado com _650_ porque o código de área dos dadores de conjuntos de dados é 650.
 
 Os valores numéricos para as correlações entre palavras estão disponíveis na janela **Explore.** É interessante notar, por exemplo, que a _tecnologia_ está negativamente correlacionada com _o seu_ dinheiro e _dinheiro._
 
@@ -374,18 +374,18 @@ O chocalho também pode executar a análise do cluster. Vamos excluir algumas fu
 * word_freq_business
 * spam
 
-Volte ao **separador Cluster.** Selecione **KMeans**e, em seguida, coloque **o número de aglomerados** em **4**. Selecione **Execute** (Executar). Os resultados são apresentados na janela de saída. Um cluster tem alta frequência _de george_ e _hp_, e é provavelmente um e-mail de negócios legítimo.
+Volte ao **separador Cluster.** Selecione **KMeans** e, em seguida, coloque **o número de aglomerados** em **4**. Selecione **Execute** (Executar). Os resultados são apresentados na janela de saída. Um cluster tem alta frequência _de george_ e _hp_ , e é provavelmente um e-mail de negócios legítimo.
 
 Para construir um modelo básico de aprendizagem de máquinas de decisão:
 
 1. Selecione o separador **Modelo,**
-1. Para o **Tipo**, selecione **Árvore**.
+1. Para o **Tipo** , selecione **Árvore**.
 1. **Selecione Executar** para exibir a árvore no formulário de texto na janela de saída.
 1. Selecione o botão **Desenhar** para ver uma versão gráfica. A árvore de decisão é semelhante à árvore que obtivemos anteriormente usando o rpart.
 
 Uma característica útil do Rattle é a sua capacidade de executar vários métodos de aprendizagem automática e avaliá-los rapidamente. Aqui estão os passos:
 
-1. Para **escrever**, selecione **All**.
+1. Para **escrever** , selecione **All**.
 1. Selecione **Execute** (Executar).
 1. Quando o Rattle terminar de correr, pode selecionar qualquer valor **tipo,** como **SVM,** e ver os resultados.
 1. Também pode comparar o desempenho dos modelos no conjunto de validação utilizando o separador **Avaliar.** Por exemplo, a seleção **Desemprete Matrix** mostra-lhe a matriz de confusão, erro geral e erro de classe médio para cada modelo no conjunto de validação. Também pode traçar curvas ROC, executar análises de sensibilidade e fazer outros tipos de avaliações de modelos.
@@ -464,23 +464,23 @@ Agora, vamos explorar os dados e executar algumas consultas usando o SQuirreL SQ
 
 Para começar, no menu **Aplicações,** abra O SQL SQuirreL. Para configurar o condutor:
 
-1. Selecione **Windows**  >  **controladores de visualização do**Windows .
+1. Selecione **Windows**  >  **controladores de visualização do** Windows .
 1. Clique à direita **PostgreSQL** e selecione **Modificar o Controlador.**
 1. Selecione **extra class path**  >  **add**.
-1. Para **o nome do ficheiro**, insira **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
+1. Para **o nome do ficheiro** , insira **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
 1. Selecione **Abrir**.
-1. Selecione **Condutores de Listas**. Para **o nome da classe**, selecione **org.postgresql.Driver**, e, em seguida, selecione **OK**.
+1. Selecione **Condutores de Listas**. Para **o nome da classe** , selecione **org.postgresql.Driver** , e, em seguida, selecione **OK**.
 
 Para configurar a ligação ao servidor local:
 
 1. Selecione **Windows**  >  **Aliases de visualização do Windows.**
 1. Selecione o **+** botão para criar um novo pseudónimo. Para o novo nome de pseudónimo, insira a **base de dados do Spam**. 
-1. Para **o controlador**, selecione **PostgreSQL**.
+1. Para **o controlador** , selecione **PostgreSQL**.
 1. Desajuste o URL para **jdbc:postgresql://localhost/spam**.
 1. Introduza o nome de utilizador e a palavra-passe.
 1. Selecione **OK**.
 1. Para abrir a janela **'Ligação',** clique duas vezes no pseudónimo da base de dados de **spam.**
-1. Selecione **Ligar**.
+1. Selecione **Connect** (Ligar).
 
 Para executar algumas consultas:
 
@@ -538,5 +538,3 @@ GO
 ```
 
 Também pode consultar o SQuirreL SQL. Siga passos semelhantes ao PostgreSQL utilizando o controlador JDBC do servidor SQL. O controlador JDBC está na pasta /usr/share/java/jdbcdrivers/sqljdbc42.jar.
-
-

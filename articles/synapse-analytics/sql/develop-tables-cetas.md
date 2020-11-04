@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 09/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93f23cdcfb3fb7107e3b1838b48b3e58ccc2d028
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d0805aaf694f1569e613ab74135c95e454adbdc0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288771"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315062"
 ---
 # <a name="cetas-with-synapse-sql"></a>CETAS com Sinaapse SQL
 
-Pode utilizar a CRIAÇÃO DE TABELA EXTERNA AS SELECT (CETAS) na piscina SQL ou SQL on demand (pré-visualização) para completar as seguintes tarefas:  
+Pode utilizar CREATE EXTERNAL TABLE AS SELECT (CETAS) em pool SQL dedicado ou piscina SQL sem servidor (pré-visualização) para completar as seguintes tarefas:  
 
 - Criar uma tabela externa
 - Exportar, paralelamente, os resultados de uma declaração seleta Transact-SQL para:
@@ -27,13 +27,13 @@ Pode utilizar a CRIAÇÃO DE TABELA EXTERNA AS SELECT (CETAS) na piscina SQL ou 
   - Azure Storage Blob
   - Armazenamento do Azure Data Lake Ger2
 
-## <a name="cetas-in-sql-pool"></a>CETAS na piscina SQL
+## <a name="cetas-in-dedicated-sql-pool"></a>CETAS em piscina SQL dedicada
 
-Para a piscina SQL, utilização e sintaxe CETAS, verifique a tabela externa CREATE COMO ARTIGO [SELECT.](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) Além disso, para obter orientação sobre ctas utilizando piscina SQL, consulte o artigo [SELECT TABELA CREATE](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) AS.
+Para obter piscina SQL dedicada, utilização cetas e sintaxe, verifique o artigo [CREATE EXTERNAL TABLE AS SELECT.](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) Além disso, para obter orientação sobre ctas utilizando piscina SQL dedicada, consulte o artigo [CREATE TABLE AS SELECT.](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
 
-## <a name="cetas-in-sql-on-demand"></a>CETAS em SQL a pedido
+## <a name="cetas-in-serverless-sql-pool"></a>CETAS na piscina SQL sem servidor
 
-Ao utilizar o SQL a pedido, o CETAS é utilizado para criar uma tabela externa e resultados de consulta de exportação para a Azure Storage Blob ou Azure Data Lake Storage Gen2.
+Ao utilizar a piscina SQL sem servidor, o CETAS é utilizado para criar uma tabela externa e resultados de consulta de exportação para a Azure Storage Blob ou Azure Data Lake Storage Gen2.
 
 ## <a name="syntax"></a>Sintaxe
 
@@ -56,7 +56,7 @@ CREATE EXTERNAL TABLE [ [database_name  . [ schema_name ] . ] | schema_name . ] 
 
 *[database_name *database_name* . *[schema_name* ] . ] | *schema_name.* ] *table_name**
 
-O nome de uma a três partes da mesa para criar. Para uma tabela externa, a SQL armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado em SQL on demand.
+O nome de uma a três partes da mesa para criar. Para uma tabela externa, a piscina SQL sem servidor armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado em piscina SQL sem servidor.
 
 LOCALIZAÇÃO = *'path_to_folder'*
 
@@ -144,7 +144,7 @@ O CETAS pode ser utilizado para armazenar conjuntos de resultados com os seguint
 - varbinário
 - char
 - varchar
-- data
+- date
 - hora
 - datetime2
 - decimal

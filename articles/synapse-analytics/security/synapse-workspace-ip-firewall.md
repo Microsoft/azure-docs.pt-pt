@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2bac9645fa66cd33c7cda79f16628c1104e27d7d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00b4f38f4a2a44b88718224db2b2442033816f83
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480552"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313898"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Regras de firewall IP Azure Synapse Analytics (pré-visualização)
 
@@ -21,7 +21,7 @@ Este artigo irá explicar as regras de firewall IP e ensiná-lo a configurá-las
 
 ## <a name="ip-firewall-rules"></a>Regras de firewall IP
 
-As regras de firewall IP concedem ou negam o acesso ao seu espaço de trabalho Synapse com base no endereço IP originário de cada pedido. Pode configurar as regras de firewall IP para o seu espaço de trabalho. As regras de firewall IP configuradas ao nível do espaço de trabalho aplicam-se a todos os pontos finais públicos do espaço de trabalho (piscinas SQL, SQL on-demand e Development).
+As regras de firewall IP concedem ou negam o acesso ao seu espaço de trabalho Synapse com base no endereço IP originário de cada pedido. Pode configurar as regras de firewall IP para o seu espaço de trabalho. As regras de firewall IP configuradas ao nível do espaço de trabalho aplicam-se a todos os pontos finais públicos do espaço de trabalho (piscinas SQL dedicadas, piscina SQL sem servidor e desenvolvimento).
 
 ## <a name="create-and-manage-ip-firewall-rules"></a>Criar e gerir regras de firewall IP
 
@@ -37,7 +37,7 @@ Também pode adicionar regras de firewall IP a um espaço de trabalho synapse ap
 
 ## <a name="connect-to-synapse-from-your-own-network"></a>Ligar ao Synapse a partir da própria rede
 
-Pode ligar-se ao seu espaço de trabalho Synapse utilizando o Synapse Studio. Também pode utilizar o SQL Server Management Studio (SSMS) para se conectar aos recursos SQL (piscinas SQL e SQL on-demand) no seu espaço de trabalho.
+Pode ligar-se ao seu espaço de trabalho Synapse utilizando o Synapse Studio. Também pode utilizar o SQL Server Management Studio (SSMS) para se conectar aos recursos SQL (piscinas SQL dedicadas e piscina SQL sem servidor) no seu espaço de trabalho.
 
 Certifique-se de que a firewall da sua rede e computador local permite a comunicação de saída nas portas TCP 80, 443 e 1443 para o Synapse Studio.
 

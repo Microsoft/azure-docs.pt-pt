@@ -1,6 +1,6 @@
 ---
-title: Criar e utilizar tabelas externas em SQL on-demand (pré-visualização)
-description: Nesta secção, você aprenderá a criar e usar tabelas externas em SQL on demand (pré-visualização).
+title: Criar e utilizar tabelas externas na piscina SQL sem servidor (pré-visualização)
+description: Nesta secção, você aprenderá a criar e usar tabelas externas na piscina SQL sem servidor (pré-visualização).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182deba959144f6a3992bb41243f29023bad5e5c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a52db131311d9956cf7217d910f22c3a4f07738
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91289332"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314719"
 ---
-# <a name="create-and-use-external-tables-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Criar e utilizar tabelas externas em SQL on-demand (pré-visualização) utilizando a Azure Synapse Analytics
+# <a name="create-and-use-external-tables-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Criar e utilizar tabelas externas utilizando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
 
-Nesta secção, você aprenderá a criar e usar [tabelas externas](develop-tables-external-tables.md) em SQL on demand (pré-visualização). As tabelas externas são úteis quando pretende controlar o acesso a dados externos em SQL On-demand e se pretender utilizar ferramentas, como o Power BI, em conjunto com o SQL on-demand. As tabelas externas podem aceder a dois tipos de armazenamento:
+Nesta secção, você aprenderá a criar e usar [tabelas externas](develop-tables-external-tables.md) na piscina SQL sem servidor (pré-visualização). As tabelas externas são úteis quando pretende controlar o acesso a dados externos na piscina SQL sem servidor e se pretender utilizar ferramentas, como o Power BI, em conjunto com o pool SQL sem servidor. As tabelas externas podem aceder a dois tipos de armazenamento:
 - Armazenamento público onde os utilizadores acedem a ficheiros de armazenamento público.
 - Armazenamento protegido onde os utilizadores acedem a ficheiros de armazenamento usando a credencial SAS, identidade AD AZure ou Identidade Gerida do espaço de trabalho Synapse.
 

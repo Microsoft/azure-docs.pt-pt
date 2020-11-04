@@ -9,38 +9,38 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a9bb3ac7d3028937a422f2cd94aca4f4f4f41b58
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a5a958228d79c86550604109d7aaf19e68593a57
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167540"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314960"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utilize tabelas externas com Sinapse SQL
 
-Uma tabela externa aponta para dados localizados em Hadoop, Azure Storage blob, ou Azure Data Lake Storage. As tabelas externas são usadas para ler dados a partir de ficheiros ou escrever dados para ficheiros no Azure Storage. Com o Synapse SQL, pode utilizar tabelas externas para ler e escrever dados para a piscina SQL ou SQL on demand (pré-visualização).
+Uma tabela externa aponta para dados localizados em Hadoop, Azure Storage blob, ou Azure Data Lake Storage. As tabelas externas são usadas para ler dados a partir de ficheiros ou escrever dados para ficheiros no Azure Storage. Com o Synapse SQL, pode utilizar tabelas externas para ler e escrever dados para piscina SQL dedicada ou piscina SQL sem servidor (pré-visualização).
 
-## <a name="external-tables-in-synapse-sql-pool-and-on-demand"></a>Mesas externas na piscina Sinaapse SQL e a pedido
+## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Mesas externas em piscina SQL dedicada e piscina SQL sem servidor
 
-### <a name="sql-pool"></a>[Conjunto de SQL](#tab/sql-pool) 
+### <a name="dedicated-sql-pool"></a>[Piscina SQL dedicada](#tab/sql-pool) 
 
-Na piscina SQL, você pode usar uma mesa externa para:
+Na piscina SQL dedicada, você pode usar uma mesa externa para:
 
 - Consulta Azure Blob Storage e Azure Data Lake Gen2 com declarações Transact-SQL.
-- Importar e armazenar dados do Azure Blob Storage e do Azure Data Lake Storage para a piscina SQL.
+- Importar e armazenar dados da Azure Blob Storage e do Azure Data Lake Storage em piscinas SQL dedicadas.
 
 Quando utilizado em conjunto com a declaração [CREATE TABLE AS SELECT,](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) selecionando de uma tabela externa os dados de importação para uma tabela dentro do pool SQL. Além da [declaração COPY,](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)as tabelas externas são úteis para o carregamento de dados. 
 
 Para um tutorial de carregamento, consulte [o PolyBase para carregar os dados do Azure Blob Storage](../sql-data-warehouse/load-data-from-azure-blob-storage-using-polybase.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-### <a name="sql-on-demand"></a>[SQL a pedido](#tab/sql-on-demand)
+### <a name="serverless-sql-pool"></a>[Piscina SQL sem servidor](#tab/sql-on-demand)
 
-Para SQL on demand, você usará uma tabela externa para:
+Para piscina SQL sem servidor, você usará uma mesa externa para:
 
 - Dados de consulta no Azure Blob Storage ou Azure Data Lake Storage com declarações Transact-SQL
-- Armazenar resultados de consulta a pedido do SQL em ficheiros no Azure Blob Storage ou no Azure Data Lake Storage utilizando [o CETAS](develop-tables-cetas.md)
+- Armazenar a consulta de piscina SQL sem servidor resulta em ficheiros no Azure Blob Storage ou no Azure Data Lake Storage usando [o CETAS](develop-tables-cetas.md)
 
-Pode criar tabelas externas utilizando SQL a pedido através dos seguintes passos:
+Pode criar tabelas externas utilizando a piscina SQL sem servidor através dos seguintes passos:
 
 1. CRIAR FONTE DE DADOS EXTERNA
 2. CREATE EXTERNAL FILE FORMAT
@@ -56,7 +56,7 @@ Acesso externo à tabela subjacente ao armazenamento do Azure utilizando a crede
 - A fonte de dados pode ter credencial que permite que as tabelas externas acedam apenas aos ficheiros do armazenamento Azure utilizando o token SAS ou o espaço de trabalho Identidade Gerida - Por exemplo, consulte o artigo [de controlo de acesso a ficheiros de armazenamento de armazenamento.](develop-storage-files-storage-access-control.md#examples)
 
 > [!IMPORTANT]
-> No pool SQL, a fonte de dados sem creadential permite ao utilizador Azure AD aceder aos ficheiros de armazenamento utilizando a sua identidade AZure AD. No SQL on demand, você precisa criar fonte de dados com credencial de base de dados que tem `IDENTITY='User Identity'` propriedade - veja [exemplos aqui](develop-storage-files-storage-access-control.md#examples).
+> No pool DE SQL dedicado, uma fonte de dados criada sem uma credencial permite que os utilizadores de Azure AD acedam a ficheiros de armazenamento usando a sua identidade AZure AD. Na piscina SQL sem servidor, você precisa criar uma fonte de dados com uma credencial de base de dados que tem `IDENTITY='User Identity'` propriedade - veja [exemplos aqui](develop-storage-files-storage-access-control.md#examples).
 
 ## <a name="create-external-data-source"></a>CRIAR FONTE DE DADOS EXTERNA
 
@@ -64,7 +64,7 @@ Fontes de dados externas são usadas para se ligarem a contas de armazenamento. 
 
 ### <a name="syntax-for-create-external-data-source"></a>Sintaxe para criar fonte de dados externos
 
-#### <a name="sql-pool"></a>[Conjunto de SQL](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Piscina SQL dedicada](#tab/sql-pool)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -76,7 +76,7 @@ WITH
 [;]
 ```
 
-#### <a name="sql-on-demand"></a>[SQL a pedido](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Piscina SQL sem servidor](#tab/sql-on-demand)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -110,16 +110,16 @@ LOCALIZAÇÃO = `'<prefix>://<path>'`   - Fornece o protocolo de conectividade e
 #### <a name="credential"></a>Credencial
 CREDENCIAL = `<database scoped credential>` é credencial opcional que será usada para autenticar no armazenamento Azure. Fonte externa de dados sem credencial pode aceder à conta de armazenamento público. 
 
-Fontes de dados externas sem credencial no pool SQL também podem usar a identidade AZure AD para aceder a ficheiros no armazenamento. Fonte externa de dados com identidade de utilização credencial especificada na credencial para aceder a ficheiros.
-- Na piscina SQL, a credencial de âmbito de base de dados pode especificar a identidade personalizada da aplicação, o espaço de trabalho Identidade Gerida ou a chave SAK. 
-- No SQL on demand, a credencial de área de dados pode especificar a identidade AD do chamador, a identidade gerida do espaço de trabalho ou a chave SAS. 
+Fontes de dados externas sem credencial em pool DE SQL dedicado utilizarão a identidade AZure AD do chamador para aceder a ficheiros no armazenamento. Uma fonte de dados externa para o pool SQL sem servidor com credencial  `IDENTITY='User Identity'` utilizará a identidade AD do chamador para aceder a ficheiros.
+- No pool DE SQL dedicado, a credencial de âmbito de base de dados pode especificar a identidade personalizada da aplicação, o espaço de trabalho Identidade Gerida ou a chave SAK. 
+- Na piscina SQL sem servidor, a credencial de área de dados pode especificar a identidade AD do chamador, a identidade gerida do espaço de trabalho ou a chave SAS. 
 
 #### <a name="type"></a>TIPO
-TYPE = `HADOOP` é opção obrigatória na piscina SQL e especificar que a tecnologia Polybase é usada para aceder a ficheiros subjacentes. Este parâmetro não pode ser usado em serviço a pedido sql que usa leitor nativo incorporado.
+TYPE = `HADOOP` é a opção obrigatória na piscina DE SQL dedicada e especifica que a tecnologia Polybase é usada para aceder a ficheiros subjacentes. Este parâmetro não pode ser usado em piscina SQL sem servidor que usa leitor nativo incorporado.
 
 ### <a name="example-for-create-external-data-source"></a>Exemplo para CRIAR FONTE DE DADOS EXTERNA
 
-#### <a name="sql-pool"></a>[Conjunto de SQL](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Piscina SQL dedicada](#tab/sql-pool)
 
 O exemplo a seguir cria uma fonte de dados externa para o Azure Data Lake Gen2 que aponta para o conjunto de dados de Nova Iorque:
 
@@ -133,7 +133,7 @@ WITH
   ) ;
 ```
 
-#### <a name="sql-on-demand"></a>[SQL a pedido](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Piscina SQL sem servidor](#tab/sql-on-demand)
 
 O exemplo a seguir cria uma fonte de dados externa para o Azure Data Lake Gen2 que pode ser acedido através da credencial SAS:
 
@@ -195,7 +195,7 @@ WITH (
 }
 ```
 
-#### <a name="sql-on-demand"></a>[SQL a pedido](#tab/sql-on-demand)
+#### <a name="serverless-sql-pool"></a>[Piscina SQL sem servidor](#tab/sql-on-demand)
 
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
@@ -266,7 +266,7 @@ VERDADEIRO - Se estiver a recolher dados do ficheiro de texto, guarde cada valor
 
 FALSO - Guarde todos os valores em falta como NULO. Quaisquer valores NULOS que sejam armazenados utilizando a palavra NULO no ficheiro de texto delimitado são importados como o string 'NULL'.
 
-Codificação = {'UTF8' 'UTF16'} - SQL on-demand pode ler utf8 e UTF16 ficheiros de texto delimitados codificados.
+Codificação = {'UTF8' 'UTF16'} - A piscina SQL sem servidor pode ler ficheiros de texto delimitados UTF8 e UTF16 codificados.
 
 DATA_COMPRESSION = *data_compression_method* - Este argumento especifica o método de compressão de dados para os dados externos. 
 
@@ -321,7 +321,7 @@ column_name <data_type>
 
 *{ database_name.schema_name.table_name / schema_name.table_name [ table_name }*
 
-O nome de uma a três partes da mesa para criar. Para uma tabela externa, a SQL armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado em SQL on demand.
+O nome de uma a três partes da mesa para criar. Para uma tabela externa, a piscina SQL sem servidor armazena apenas os metadados da tabela. Nenhum dado real é movido ou armazenado em piscina SQL sem servidor.
 
 <column_definition>... *n* ]
 
@@ -332,16 +332,16 @@ CRIAR TABELA EXTERNA suporta a capacidade de configurar o nome da coluna, o tipo
 
 Ao ler os ficheiros Parquet, pode especificar apenas as colunas que pretende ler e saltar as restantes.
 
-LOCALIZAÇÃO = '*folder_or_filepath*'
+LOCALIZAÇÃO = ' *folder_or_filepath* '
 
 Especifica a pasta ou o caminho do ficheiro e o nome do ficheiro para os dados reais no Azure Blob Storage. A localização começa a partir da pasta raiz. A pasta raiz é a localização de dados especificada na origem de dados externa.
 
-Se especificar uma pasta LOCALIZAÇÃO, uma consulta a pedido do SQL selecionará a partir da tabela externa e recuperará ficheiros da pasta.
+Se especificar uma pasta LOCATION, uma consulta de piscina SQL sem servidor selecionará a partir da tabela externa e recuperará ficheiros da pasta.
 
 > [!NOTE]
-> Ao contrário de Hadoop e PolyBase, a SQL on-demand não devolve subpaminações. Devolve ficheiros para os quais o nome do ficheiro começa com um sublinhado (_) ou um período (.).
+> Ao contrário de Hadoop e PolyBase, a piscina SQL sem servidor não devolve subpastas. Devolve ficheiros para os quais o nome do ficheiro começa com um sublinhado (_) ou um período (.).
 
-Neste exemplo, se o LOCATION='/webdata/', uma consulta a pedido do SQL, regressará às linhas de mydata.txt e _hidden.txt. Não vai voltar mydata2.txt e mydata3.txt porque estão localizados numa sub-página.
+Neste exemplo, se o LOCATION='/webdata/', uma consulta de piscina SQL sem servidor, regressará às linhas de mydata.txt e _hidden.txt. Não vai voltar mydata2.txt e mydata3.txt porque estão localizados numa sub-página.
 
 ![Dados recursivos para tabelas externas](./media/develop-tables-external-tables/folder-traversal.png)
 
@@ -381,7 +381,7 @@ SELECT TOP 1 * FROM census_external_table
 
 ## <a name="create-and-query-external-tables-from-a-file-in-azure-data-lake"></a>Criar e consultar tabelas externas a partir de um ficheiro no Lago de Dados Azure
 
-Utilizando as capacidades de exploração do Data Lake, pode agora criar e consultar uma tabela externa utilizando a piscina SQL ou SQL a pedido com um simples clique à direita no ficheiro.
+Utilizando as capacidades de exploração do Data Lake, pode agora criar e consultar uma tabela externa utilizando uma piscina SQL dedicada ou piscina SQL sem servidor com um simples clique à direita no ficheiro.
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -395,7 +395,7 @@ A partir do painel de dados, selecione o ficheiro que pretende criar a tabela ex
 > [!div class="mx-imgBorder"]
 >![externa1](./media/develop-tables-external-tables/external-table-1.png)
 
-Uma janela de diálogo abrir-se-á. Selecione piscina SQL ou SQL on-demand, dê um nome à mesa e selecione script aberto:
+Uma janela de diálogo abrir-se-á. Selecione piscina SQL dedicada ou piscina SQL sem servidor, dê um nome à mesa e selecione script aberto:
 
 > [!div class="mx-imgBorder"]
 >![externa2](./media/develop-tables-external-tables/external-table-2.png)

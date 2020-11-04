@@ -11,14 +11,14 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a36f69c9956dd05c5fbd85d7e37b90c0b1e4c21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09eeafa99c14984f74f8807014f646379c7507f0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897656"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314212"
 ---
-# <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorize e recolha dados dos pontos finais do serviço web ML
+# <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorizar e recolher dados de pontos finais de serviço Web de ML
 
 
 Neste artigo, aprende-se a recolher dados de modelos implantados para os pontos finais do serviço web em Azure Kubernetes Service (AKS) ou Azure Container Instances (ACI). Utilize [insights de aplicação Azure](../azure-monitor/app/app-insights-overview.md) para recolher os seguintes dados de um ponto final:
@@ -204,9 +204,9 @@ Para registar informações de pedido de serviço web, adicione `print` declara�
 ## <a name="export-data-for-retention-and-processing"></a>Dados de exportação para retenção e tratamento
 
 >[!Important]
-> A Azure Application Insights só suporta exportações para armazenamento de bolhas. Para obter mais informações sobre os limites desta implementação, consulte [a telemetria exporto da App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> A Azure Application Insights só suporta exportações para armazenamento de bolhas. Para obter mais informações sobre os limites desta implementação, consulte [a telemetria exporto da App Insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
 
-Utilize a [exportação contínua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) da Application Insights para exportar dados para uma conta de armazenamento de bolhas onde pode definir as definições de retenção. A Application Insights exporta os dados em formato JSON. 
+Utilize a [exportação contínua](../azure-monitor/app/export-telemetry.md) da Application Insights para exportar dados para uma conta de armazenamento de bolhas onde pode definir as definições de retenção. A Application Insights exporta os dados em formato JSON. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Exportação contínua":::
 
@@ -215,8 +215,8 @@ Utilize a [exportação contínua](https://docs.microsoft.com/azure/azure-monito
 Neste artigo, aprendeu a ativar a gravação e visualizar registos para pontos finais de serviço web. Experimente estes artigos para os próximos passos:
 
 
-* [Como implementar um modelo num cluster AKS](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+* [Como implementar um modelo num cluster AKS](./how-to-deploy-azure-kubernetes-service.md)
 
-* [Como implementar um modelo para instâncias de contentores Azure](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+* [Como implementar um modelo para instâncias de contentores Azure](./how-to-deploy-azure-container-instance.md)
 
-* [MLOps: Gerir, implementar e monitorizar modelos com a Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) para aprender mais sobre a alavancagem de dados recolhidos a partir de modelos em produção. Estes dados podem ajudar a melhorar continuamente o seu processo de aprendizagem automática.
+* [MLOps: Gerir, implementar e monitorizar modelos com a Azure Machine Learning](./concept-model-management-and-deployment.md) para aprender mais sobre a alavancagem de dados recolhidos a partir de modelos em produção. Estes dados podem ajudar a melhorar continuamente o seu processo de aprendizagem automática.

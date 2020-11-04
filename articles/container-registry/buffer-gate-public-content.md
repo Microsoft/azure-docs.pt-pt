@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bb185e7d5803219135fddf421b7d6a89edd296b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130855"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315815"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Gerir conteúdos públicos com registo de contentores Azure
 
@@ -25,16 +25,14 @@ Sem controlos adequados, ter dependências de conteúdos de registo público pod
 
 ## <a name="authenticate-with-docker-hub"></a>Autenticar com Docker Hub
 
-Como primeiro passo, se atualmente retirar imagens públicas do Docker Hub como parte de um fluxo de trabalho de construção ou implantação, recomendamos que autente usando uma conta Docker Hub em vez de fazer um pedido de atração anónimo.
+Como primeiro passo, se atualmente retirar imagens públicas do Docker Hub como parte de um fluxo de trabalho de construção ou implantação, recomendamos que [autente usando uma conta Docker Hub](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) em vez de fazer um pedido de atração anónimo.
 
 > [!NOTE]
-> A partir de 2 de novembro de 2020, os limites de taxa de descarregamento aplicam-se a pedidos anónimos e autenticados para Docker Hub a partir de contas Docker Free Plan e são aplicados por endereço IP. 
+> A partir de 2 de novembro de 2020, [os limites de taxa de descarregamento](https://docs.docker.com/docker-hub/download-rate-limit) aplicam-se a pedidos anónimos e autenticados para Docker Hub a partir de contas Docker Free Plan e são aplicados por endereço IP e Estivador ID, respecitivamente. 
 >
-> Ao estimar o seu número de pedidos de puxar, tenha em conta que ao utilizar serviços de fornecedor de nuvem ou trabalhar atrás de um NAT corporativo, vários utilizadores serão apresentados ao Docker Hub em conjunto como um subconjunto de endereços IP.  Adicionar a autenticação paga do Docker aos pedidos feitos ao Docker Hub evitará possíveis perturbações no serviço devido ao estrangulamento do limite de taxa.
+> Ao estimar o seu número de pedidos de puxar, tenha em conta que ao utilizar serviços de fornecedor de nuvem ou trabalhar atrás de um NAT corporativo, vários utilizadores serão apresentados ao Docker Hub em conjunto como um subconjunto de endereços IP. Adicionar a autenticação paga do Docker aos pedidos feitos ao Docker Hub evitará possíveis perturbações no serviço devido ao estrangulamento do limite de taxa.
 >
 > Para mais detalhes, consulte [os preços e subscrições](https://www.docker.com/pricing) do Docker e os [Termos de Serviço do Docker.](https://www.docker.com/legal/docker-terms-service)
-
-Para exemplos e cenários de autenticação, consulte [o limite da taxa de descarregamento](https://docs.docker.com/docker-hub/download-rate-limit/).
 
 ### <a name="docker-hub-access-token"></a>Sinal de acesso do Docker Hub
 

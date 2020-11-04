@@ -1,6 +1,6 @@
 ---
-title: Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
-description: Descreve como o SQL on-demand (pré-visualização) acede ao Azure Storage e como pode controlar o acesso ao armazenamento para SQL on-demand em Azure Synapse Analytics.
+title: Acesso de conta de armazenamento de controlo para piscina SQL sem servidor (pré-visualização)
+description: Descreve como a piscina SQL sem servidor (pré-visualização) acede ao Azure Storage e como pode controlar o acesso ao armazenamento para piscina SQL sem servidor em Azure Synapse Analytics.
 services: synapse-analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 182ab55f8e86d972293222f8a3bcf32dada89328
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 958f371a0018d20331e73d0eabba9354614d121c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91449471"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315736"
 ---
-# <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Acesso à conta de armazenamento de controlo para SQL a pedido (pré-visualização)
+# <a name="control-storage-account-access-for-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Acesso de conta de armazenamento de controlo para piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
 
-Uma consulta a pedido do SQL lê ficheiros diretamente do Azure Storage. As permissões de acesso aos ficheiros do armazenamento Azure são controladas a dois níveis:
+Uma consulta de piscina SQL sem servidor lê ficheiros diretamente do Azure Storage. As permissões de acesso aos ficheiros do armazenamento Azure são controladas a dois níveis:
 - **Nível de armazenamento** - O utilizador deve ter permissão para aceder a ficheiros de armazenamento subjacentes. O seu administrador de armazenamento deve permitir que o diretor da AD AD Azure leia/escreva ficheiros ou gere a chave SAS que será usada para aceder ao armazenamento.
 - **Nível de serviço SQL** - O utilizador deve ter `SELECT` permissão para ler dados a partir de [tabela externa](develop-tables-external-tables.md) ou `ADMINISTER BULK ADMIN` permissão para executar e também `OPENROWSET` permissão para usar credenciais que serão usadas para aceder ao armazenamento.
 
@@ -26,14 +26,14 @@ Este artigo descreve os tipos de credenciais que pode usar e como a procura cred
 
 ## <a name="supported-storage-authorization-types"></a>Tipos de autorização de armazenamento suportados
 
-Um utilizador que tenha iniciado sessão num recurso a pedido do SQL deve ser autorizado a aceder e consultar os ficheiros no Azure Storage se os ficheiros não estiverem disponíveis ao público. Pode utilizar três tipos de autorização para aceder ao armazenamento não público - [Identidade do Utilizador,](?tabs=user-identity) [Assinatura de acesso Partilhado](?tabs=shared-access-signature)e Identidade [Gerida.](?tabs=managed-identity)
+Um utilizador que tenha iniciado sessão num pool SQL sem servidor deve ser autorizado a aceder e consultar os ficheiros no Azure Storage se os ficheiros não estiverem disponíveis ao público. Pode utilizar três tipos de autorização para aceder ao armazenamento não público - [Identidade do Utilizador,](?tabs=user-identity) [Assinatura de acesso Partilhado](?tabs=shared-access-signature)e Identidade [Gerida.](?tabs=managed-identity)
 
 > [!NOTE]
 > **A azure AD pass-through** é o comportamento padrão quando cria um espaço de trabalho.
 
 ### <a name="user-identity"></a>[Identidade do Utilizador](#tab/user-identity)
 
-**Identidade do Utilizador**, também conhecida como "Azure AD pass-through", é um tipo de autorização onde a identidade do utilizador Azure AD que acedeu ao SQL on-demand é usada para autorizar o acesso aos dados. Antes de aceder aos dados, o administrador do Azure Storage deve conceder permissões ao utilizador Azure AD. Como indicado na tabela abaixo, não é suportado para o tipo de utilizador SQL.
+**Identidade do Utilizador** , também conhecida como "Azure AD pass-through", é um tipo de autorização onde a identidade do utilizador Azure AD que iniciou sessão no pool SQL sem servidor é usada para autorizar o acesso aos dados. Antes de aceder aos dados, o administrador do Azure Storage deve conceder permissões ao utilizador Azure AD. Como indicado na tabela abaixo, não é suportado para o tipo de utilizador SQL.
 
 > [!IMPORTANT]
 > Precisa de ter uma função de Proprietário/Contribuinte/Leitor de Armazenamento para utilizar a sua identidade para aceder aos dados.
@@ -49,7 +49,7 @@ Um utilizador que tenha iniciado sessão num recurso a pedido do SQL deve ser au
 Pode obter um token SAS navegando para o **portal Azure -> Storage Account -> Assinatura de acesso partilhado -> configurar permissões -> Gerar SAS e cadeia de conexão.**
 
 > [!IMPORTANT]
-> Quando um token SAS é gerado, inclui um ponto de interrogação ('?') no início do token. Para utilizar o token em SQL on demand, deve remover o ponto de interrogação ('?') ao criar uma credencial. Por exemplo:
+> Quando um token SAS é gerado, inclui um ponto de interrogação ('?') no início do token. Para utilizar o token na piscina SQL sem servidor, deve remover o ponto de interrogação ('?') ao criar uma credencial. Por exemplo:
 >
 > Sas token: ?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-04-18T20:42:12Z&&&st=2019-04-18T12:42:12Z&spr=https&sig=lQHczNvrk1KoYLCpFdSsMANd0ef9BrIPBNJ3VYEIq78%3D
 
@@ -57,7 +57,7 @@ Para ativar o acesso através de um token SAS, é necessário criar uma credenci
 
 ### <a name="managed-identity"></a>[Identidade Gerida](#tab/managed-identity)
 
-**A Identidade Gerida** também é conhecida como MSI. É uma característica do Azure Ative Directory (Azure AD) que fornece serviços Azure para SQL on-demand. Além disso, implementa uma identidade gerida automaticamente no Azure AD. Esta identidade pode ser utilizada para autorizar o pedido de acesso aos dados no Azure Storage.
+**A Identidade Gerida** também é conhecida como MSI. É uma característica do Azure Ative Directory (Azure AD) que fornece serviços Azure para piscina SQL sem servidor. Além disso, implementa uma identidade gerida automaticamente no Azure AD. Esta identidade pode ser utilizada para autorizar o pedido de acesso aos dados no Azure Storage.
 
 Antes de aceder aos dados, o administrador do Azure Storage deve conceder permissões à Identidade Gerida para aceder aos dados. A concessão de permissões à Identidade Gerida é feita da mesma forma que a concessão de permissão a qualquer outro utilizador da AD Azure.
 
@@ -95,7 +95,7 @@ Pode utilizar as seguintes combinações de autorizações e tipos de armazename
 
 ## <a name="credentials"></a>Credenciais
 
-Para consultar um ficheiro localizado no Azure Storage, o seu ponto final a pedido do SQL necessita de uma credencial que contenha as informações de autenticação. São utilizados dois tipos de credenciais:
+Para consultar um ficheiro localizado no Azure Storage, o ponto final da piscina SQL sem servidor necessita de uma credencial que contenha as informações de autenticação. São utilizados dois tipos de credenciais:
 - O CREDENCIAL de nível do servidor é utilizado para consultas ad-hoc executadas utilizando `OPENROWSET` a função. O nome credencial deve coincidir com o URL de armazenamento.
 - BASE BASE DE DADOS O CREDENCIAL SCOPED é utilizado para tabelas externas. Referências de tabela externa `DATA SOURCE` com a credencial que deve ser usada para aceder ao armazenamento.
 
@@ -144,7 +144,7 @@ Os utilizadores do SQL não podem utilizar a autenticação AZure AD para aceder
 
 O seguinte script cria uma credencial de nível de servidor que pode ser usada por `OPENROWSET` função para aceder a qualquer ficheiro no armazenamento Azure usando o token SAS. Crie esta credencial para permitir que o principal sql que executa `OPENROWSET` a função de ler ficheiros protegidos com a chave SAS no armazenamento Azure que corresponda a URL em nome credencial.
 
-Troque <*mystorageaccountname*> com o seu nome de conta de armazenamento real, e <*mystorageaccountcontainername*> com o nome real do recipiente:
+Troque < *mystorageaccountname* > com o seu nome de conta de armazenamento real, e < *mystorageaccountcontainername* > com o nome real do recipiente:
 
 ```sql
 CREATE CREDENTIAL [https://<storage_account>.dfs.core.windows.net/<container>]

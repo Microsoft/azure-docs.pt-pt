@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: a1c986663c42b87e7e5d4530b26200d48fe612cb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080724"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314262"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Sugestões de desempenho para o Azure Cosmos DB e SDK de .NET v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -52,7 +52,7 @@ Recomendamos o processamento do anfitrião Windows 64 bits para um melhor desemp
 - Para ASP.NET aplicações web implementadas no Azure, pode alterar o processamento do anfitrião selecionando a plataforma **de 64 bits** nas **definições de Aplicação** no portal Azure.
 
 > [!NOTE] 
-> Por predefinição, novos projetos do Visual Studio estão definidos para **Qualquer CPU** . Recomendamos que desemalte o seu projeto para **x64** para que não mude para **x86** . Um projeto definido para **Qualquer CPU** pode facilmente mudar para **x86** se for adicionada uma dependência apenas x86.<br/>
+> Por predefinição, novos projetos do Visual Studio estão definidos para **Qualquer CPU**. Recomendamos que desemalte o seu projeto para **x64** para que não mude para **x86**. Um projeto definido para **Qualquer CPU** pode facilmente mudar para **x86** se for adicionada uma dependência apenas x86.<br/>
 > ServiceInterop.dll precisa estar na pasta da qual o SDK DLL está a ser executado. Isto só deve ser uma preocupação se copiar manualmente DLLs ou tiver sistemas de construção/implementação personalizados.
     
 **Ligue a recolha de lixo do lado do servidor (GC)**

@@ -1,6 +1,6 @@
 ---
-title: Restaurar um armazém de dados a partir de um geo-backup
-description: Como guiar para restaurar geo-restauração de uma piscina SQL.
+title: Restaurar uma piscina SQL dedicada a partir de um geo-backup
+description: Como guiar para restaurar geo-restauração de uma piscina SQL dedicada em Azure Synapse Analytics
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,29 +11,29 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3c8d78c164cefbab03d9d3fa783c75ded9773d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7496cedd127182482bccf97909cc0a0a4a78253f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87075822"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313413"
 ---
-# <a name="geo-restore-for-sql-pool"></a>Geo-restauro para piscina SQL
+# <a name="geo-restore-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Geo-restaurar uma piscina SQL dedicada em Azure Synapse Analytics
 
-Neste artigo, aprende a restaurar a sua piscina SQL a partir de um geo-backup através do portal Azure e powerShell.
+Neste artigo, aprende a restaurar a sua piscina SQL dedicada a partir de um geo-backup através do portal Azure e powerShell.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-**Verifique a sua capacidade de DTU.** Cada piscina SQL é hospedada por um [servidor lógico SQL](../../azure-sql/database/logical-servers.md) (por exemplo, myserver.database.windows.net) que tem uma quota DTU padrão. Verifique se o servidor SQL tem quota DTU suficiente para a base de dados ser restaurada. Para aprender a calcular o DTU necessário ou a solicitar mais DTU, consulte [Solicitar uma alteração de quota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
+**Verifique a sua capacidade de DTU.** Cada piscina SQL dedicada é hospedada por um [servidor lógico SQL](../../azure-sql/database/logical-servers.md) (por exemplo, myserver.database.windows.net) que tem uma quota DTU padrão. Verifique se o servidor SQL tem quota DTU suficiente para a base de dados ser restaurada. Para aprender a calcular o DTU necessário ou a solicitar mais DTU, consulte [Solicitar uma alteração de quota de DTU](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>Restaurar de uma região geográfica azul através da PowerShell
 
 Para restaurar a partir de uma cópia de segurança, utilize o [cmdlet Get-AzSqlDatabaseGeoBackup](/powershell/module/az.sql/get-azsqldatabasegeobackup?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) e [Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 > [!NOTE]
-> Você pode realizar um geo-restauro para a Gen2! Para tal, especifique um Nome Gen2 ServiceObjective (por exemplo, DW1000**c**) como um parâmetro opcional.
+> Você pode realizar um geo-restauro para a Gen2! Para tal, especifique um Nome Gen2 ServiceObjective (por exemplo, DW1000 **c** ) como um parâmetro opcional.
 >
 
 1. Antes de começar, certifique-se de [instalar a Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
@@ -74,7 +74,7 @@ A base de dados recuperada será ativada pelo TDE se a base de dados de origem e
 
 ## <a name="restore-from-an-azure-geographical-region-through-azure-portal"></a>Restaurar a partir de uma região geográfica azul através do portal Azure
 
-Siga os passos descritos abaixo para restaurar uma piscina SQL a partir de um geo-backup:
+Siga os passos descritos abaixo para restaurar uma piscina SQL dedicada a partir de um geo-backup:
 
 1. Inscreva-se na sua conta [do portal Azure.](https://portal.azure.com/)
 2. Clique em **+ Criar um recurso**.
@@ -87,7 +87,7 @@ Siga os passos descritos abaixo para restaurar uma piscina SQL a partir de um ge
 
 4. Preencha as informações **solicitadas** no separador Básicos e clique em **Seguinte: Definições adicionais**.
 
-   ![Noções básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
+   ![Informações básicas](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 
 5. Para utilizar o parâmetro **de dados existente,** selecione **Backup** e selecione a cópia de segurança adequada das opções de deslocamento para baixo. Clique em **Rever + Criar**.
 
@@ -97,5 +97,5 @@ Siga os passos descritos abaixo para restaurar uma piscina SQL a partir de um ge
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Restaurar uma piscina SQL existente](sql-data-warehouse-restore-active-paused-dw.md)
-- [Restaurar uma piscina SQL eliminada](sql-data-warehouse-restore-deleted-dw.md)
+- [Restaurar uma piscina SQL dedicada existente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Restaurar uma piscina SQL dedicada eliminada](sql-data-warehouse-restore-deleted-dw.md)

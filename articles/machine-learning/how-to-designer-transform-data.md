@@ -10,19 +10,19 @@ ms.author: peterlu
 ms.date: 06/28/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 9124bbfc7300f3a5116c572d569b41e15356ab8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f08d0f1be166630d9cf4b0b9236d78228fd78aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983833"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312800"
 ---
 # <a name="transform-data-in-azure-machine-learning-designer"></a>Transforme dados em Azure Machine Learning designer
 
 
 Neste artigo, aprende-se a transformar e guardar conjuntos de dados no designer Azure Machine Learning para que possa preparar os seus próprios dados para a aprendizagem automática.
 
-Você usará a amostra de conjunto de dados [de classificação binária de rendimento de censos](sample-designer-datasets.md) adulto para preparar dois conjuntos de dados: um conjunto de dados que inclui informações de recenseamento de adultos apenas dos Estados Unidos e outro conjunto de dados que inclui informações de recenseamento de adultos não americanos.
+Você usará a amostra de conjunto de dados [de classificação binária de rendimento de censos](./samples-designer.md) adulto para preparar dois conjuntos de dados: um conjunto de dados que inclui informações de recenseamento de adultos apenas dos Estados Unidos e outro conjunto de dados que inclui informações de recenseamento de adultos não americanos.
 
 Neste artigo, vai aprender a:
 
@@ -97,36 +97,36 @@ Agora que o seu pipeline está configurado para dividir os dados, precisa de esp
 
     ![Screenshot mostrando como ligar os módulos de Dados de Exportação](media/how-to-designer-transform-data/export-data-pipeline.png).
 
-1. Selecione o módulo **dados de exportação** que está ligado à porta *esquerda*do módulo **Dados Divididos.**
+1. Selecione o módulo **dados de exportação** que está ligado à porta *esquerda* do módulo **Dados Divididos.**
 
     A ordem das portas de saída é importante para o módulo **De Dados Divididos.** A primeira porta de saída contém as linhas onde a expressão regular é verdadeira. Neste caso, a primeira porta contém filas para os rendimentos baseados nos EUA, e a segunda porta contém filas para rendimentos não americanos.
 
 1. No painel de detalhes do módulo à direita da tela, desa estale as seguintes opções:
     
-    **Tipo de loja de dados**: Azure Blob Storage
+    **Tipo de loja de dados** : Azure Blob Storage
 
-    **Datastore**: Selecione uma datastore existente ou selecione "New datastore" para criar um agora.
+    **Datastore** : Selecione uma datastore existente ou selecione "New datastore" para criar um agora.
 
     **Caminho:**`/data/us-income`
 
-    **Formato de ficheiro**: csv
+    **Formato de ficheiro** : csv
 
     > [!NOTE]
     > Este artigo pressupõe que você tem acesso a uma datastore registrada no atual espaço de trabalho Azure Machine Learning. Para obter instruções sobre como configurar uma loja de dados, consulte [os serviços de armazenamento Connect to Azure](how-to-connect-data-ui.md#create-datastores).
 
     Se não tiver uma loja de dados, pode criar uma agora. Por exemplo, este artigo irá guardar os conjuntos de dados para a conta de armazenamento de bolhas predefinida associada ao espaço de trabalho. Guardará os conjuntos de dados no `azureml` recipiente numa nova pasta chamada `data` .
 
-1.  Selecione o módulo **dados de exportação** ligado à porta *direita*do módulo **Dados Divididos.**
+1.  Selecione o módulo **dados de exportação** ligado à porta *direita* do módulo **Dados Divididos.**
 
 1. No painel de detalhes do módulo à direita da tela, desa estale as seguintes opções:
     
-    **Tipo de loja de dados**: Azure Blob Storage
+    **Tipo de loja de dados** : Azure Blob Storage
 
-    **Datastore**: Selecione a mesma loja de dados acima
+    **Datastore** : Selecione a mesma loja de dados acima
 
     **Caminho:**`/data/non-us-income`
 
-    **Formato de ficheiro**: csv
+    **Formato de ficheiro** : csv
 
 1. Confirme que o módulo **de Dados de Exportação** ligado à porta esquerda dos **Dados Divididos** tem o **Caminho** `/data/us-income` .
 

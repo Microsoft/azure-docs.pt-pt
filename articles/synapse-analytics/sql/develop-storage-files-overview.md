@@ -1,6 +1,6 @@
 ---
-title: Aceder a ficheiros de armazenamento em SQL on demand (pré-visualização)
-description: Descreve ficheiros de armazenamento de consulta usando recursos SQL on-demand (pré-visualização) dentro do SQL synapse.
+title: Aceder a ficheiros de armazenamento na piscina SQL sem servidor (pré-visualização)
+description: Descreve ficheiros de armazenamento de consulta usando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/19/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8884f62ba015cc4b33b75a133f21264dac6430e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 73a5414a979742c4a7df16dcd2a5edda3748abef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288992"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315928"
 ---
-# <a name="access-external-storage-in-synapse-sql-on-demand"></a>Acesso ao armazenamento externo em Synapse SQL (a pedido)
+# <a name="access-external-storage-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Aceda ao armazenamento externo utilizando piscina SQL sem servidor (pré-visualização) no Azure Synapse Analytics
 
-Este documento descreve como pode o utilizador ler dados dos ficheiros armazenados no Azure Storage em Synapse SQL (a pedido). Os utilizadores têm as seguintes opções de acesso ao armazenamento:
+Este documento descreve como os utilizadores podem ler dados dos ficheiros armazenados no Azure Storage na piscina SQL sem servidor. Os utilizadores têm as seguintes opções de acesso ao armazenamento:
 
 - [Função OPENROWSET](develop-openrowset.md) que permite consultas ad-hoc sobre os ficheiros no Azure Storage.
 - [Tabela externa](develop-tables-external-tables.md) que é uma estrutura de dados predefinida construída em cima de conjunto de ficheiros externos.
@@ -27,7 +27,7 @@ O utilizador pode utilizar [diferentes métodos de autenticação,](develop-stor
 
 ## <a name="query-files-using-openrowset"></a>Ficheiros de consulta utilizando OPENROWSET
 
-O OPENROWSET permite que os utilizadores consultam ficheiros externos sobre o armazenamento do Azure se tiverem acesso ao armazenamento. O utilizador que esteja ligado ao ponto final a pedido do Synapse SQL deve utilizar a seguinte consulta para ler o conteúdo dos ficheiros no armazenamento Azure:
+O OPENROWSET permite que os utilizadores consultam ficheiros externos sobre o armazenamento do Azure se tiverem acesso ao armazenamento. Um utilizador que esteja ligado ao pool SQL sem servidor deve utilizar a seguinte consulta para ler o conteúdo dos ficheiros no armazenamento Azure:
 
 ```sql
 SELECT * FROM

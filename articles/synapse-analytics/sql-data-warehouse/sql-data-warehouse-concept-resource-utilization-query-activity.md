@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f66efb9112a9342122f5b56ab11b862ce3c7c61b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077679"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314434"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Monitorização da utilização de recursos e atividade de consulta na Azure Synapse Analytics
 
@@ -26,7 +26,7 @@ O Azure Synapse Analytics proporciona uma experiência de monitorização rica d
 
 As seguintes métricas estão disponíveis no portal Azure para Synapse SQL. Estas métricas são emergidas através do [Monitor Azure.](../../azure-monitor/platform/data-collection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#metrics)
 
-| Nome da Métrica             | Descrição                                                  | Tipo de Agregação |
+| Nome da Métrica             | Description                                                  | Tipo de Agregação |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
 | Percentagem de CPU          | Utilização do CPU em todos os nós para o armazém de dados      | Avg, Min, Max    |
 | Percentagem de ES de Dados      | IO Utilização em todos os nós para o armazém de dados       | Avg, Min, Max    |
@@ -53,7 +53,7 @@ Coisas a ter em conta ao visualizar métricas e alertas de definição:
 
 Para uma experiência programática ao monitorizar o Synapse SQL via T-SQL, o serviço fornece um conjunto de Vistas de Gestão Dinâmica (DMVs). Estas opiniões são úteis quando se soluciona ativamente e identifica estrangulamentos de desempenho com a sua carga de trabalho.
 
-Para ver a lista de DMVs que se aplicam ao Sinaapse SQL, consulte esta [documentação](../sql/reference-tsql-system-views.md#sql-pool-dynamic-management-views-dmvs). 
+Para ver a lista de DMVs que se aplicam ao Sinaapse SQL, consulte esta [documentação](../sql/reference-tsql-system-views.md#dedicated-sql-pool-dynamic-management-views-dmvs). 
 
 ## <a name="metrics-and-diagnostics-logging"></a>Métricas e registos de diagnóstico 
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/22/2020
+ms.date: 11/03/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 7ea0cbfb8ddfa2991e2a362bcb321418428cb16b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a808a6bb0d4dc75f02147bbfdd74d17b34e96f6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288128"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313983"
 ---
 # <a name="configure-anonymous-public-read-access-for-containers-and-blobs"></a>Configurar o público anónimo ler acesso a contentores e bolhas
 
@@ -51,7 +51,7 @@ A não permitir o acesso público à conta de armazenamento impede o acesso anó
 > [!IMPORTANT]
 > A não permitir o acesso do público a uma conta de armazenamento sobrepõe-se às definições de acesso público a todos os contentores dessa conta de armazenamento. Quando o acesso público for proibido para a conta de armazenamento, quaisquer futuros pedidos anónimos a essa conta falharão. Antes de alterar esta definição, certifique-se de compreender o impacto nas aplicações do cliente que podem estar a aceder a dados na sua conta de armazenamento de forma anónima. Para obter mais informações, consulte [Prevent anonymous public read access to containers and blobs](anonymous-read-access-prevent.md).
 
-Para permitir ou proibir o acesso público a uma conta de armazenamento, configurar a propriedade **AllowBlobPublicAccess** da conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Azure Resource Manager na nuvem pública Azure ou em nuvens do Governo Azure. Para mais informações, consulte [a visão geral da conta de Armazenamento.](../common/storage-account-overview.md)
+Para permitir ou proibir o acesso público a uma conta de armazenamento, configurar a propriedade **AllowBlobPublicAccess** da conta. Esta propriedade está disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Gestor de Recursos Azure. Para mais informações, consulte [a visão geral da conta de Armazenamento.](../common/storage-account-overview.md)
 
 A propriedade **AllowBlobPublicAccess** não é definida por padrão e não devolve um valor até que o descreva explicitamente. A conta de armazenamento permite o acesso público quando o valor da propriedade é **nulo** ou **verdadeiro.**
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 0cc367b86507d6d819608795851052e8a0c1c73b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67d17af4f615907ca50b27ce8fa26973e5869608
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890310"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314251"
 ---
 # <a name="score-model"></a>Modelo de Classificação
 
@@ -32,7 +32,7 @@ Utilize este módulo para gerar previsões utilizando um modelo de classificaç�
 
 3. Envie o oleoduto.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Depois de ter gerado um conjunto de pontuações usando [o Score Model](./score-model.md):
 
@@ -48,8 +48,8 @@ A pontuação, ou valor previsto, pode estar em vários formatos diferentes, dep
 
 ## <a name="publish-scores-as-a-web-service"></a>Publicar pontuações como um serviço web
 
-Um uso comum de pontuação é devolver a saída como parte de um serviço web preditivo. Para mais informações, consulte [este tutorial](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) sobre como implementar um ponto final em tempo real baseado num pipeline no designer de Machine Learning Azure.
+Um uso comum de pontuação é devolver a saída como parte de um serviço web preditivo. Para mais informações, consulte [este tutorial](../tutorial-designer-automobile-price-deploy.md) sobre como implementar um ponto final em tempo real baseado num pipeline no designer de Machine Learning Azure.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

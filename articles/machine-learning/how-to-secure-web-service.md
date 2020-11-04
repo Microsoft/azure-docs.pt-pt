@@ -1,7 +1,7 @@
 ---
 title: Serviços web seguros usando TLS
 titleSuffix: Azure Machine Learning
-description: Saiba como ativar o HTTPS de forma a garantir um serviço web implantado através do Azure Machine Learning. O Azure Machine Learning utiliza a versão 1.2 do TLS para garantir os modelos implementados como serviços web.
+description: Saiba como ativar HTTPS com a versão 1.2 do TLS para garantir um serviço web que seja implementado através do Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 03/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: bb6229f602e4171cc88af6a452da69a02d2f7ad6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: dca5d65364d11e96a15913309686bc532d130278
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078191"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313955"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Utilizar o TLS para proteger um serviço Web através do Azure Machine Learning
 
@@ -26,7 +26,7 @@ Este artigo mostra-lhe como garantir um serviço web que é implementado atravé
 Utiliza [HTTPS](https://en.wikipedia.org/wiki/HTTPS) para restringir o acesso aos serviços web e proteger os dados que os clientes submetem. HTTPS ajuda a garantir comunicações entre um cliente e um serviço web encriptando comunicações entre os dois. A encriptação utiliza [a Segurança da Camada de Transporte (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS é por vezes ainda referido como *Camada de Tomadas Seguras* (SSL), que foi o antecessor de TLS.
 
 > [!TIP]
-> O Azure Machine Learning SDK utiliza o termo "SSL" para propriedades relacionadas com comunicações seguras. Isto não significa que o seu serviço web não use *TLS* . SSL é apenas um termo mais comumente reconhecido.
+> O Azure Machine Learning SDK utiliza o termo "SSL" para propriedades relacionadas com comunicações seguras. Isto não significa que o seu serviço web não use *TLS*. SSL é apenas um termo mais comumente reconhecido.
 >
 > Especificamente, os serviços web implementados através do suporte Azure Machine Learning TLS versão 1.2 para AKS e ACI. Para implementações ACI, se estiver na versão TLS mais antiga, recomendamos a recolocação para obter a versão TLS mais recente.
 
@@ -78,12 +78,12 @@ Para implementar (ou redistribuir) o serviço com TLS ativado, desacorra o parâ
 ### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>Implantar na AKS e na matriz de portão programável de campo (FPGA)
 
   > [!NOTE]
-  > As informações nesta secção também se aplicam quando implementa um serviço web seguro para o designer. Se não está familiarizado com o uso do Python SDK, veja [o que é o Azure Machine Learning SDK para Python?](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
+  > As informações nesta secção também se aplicam quando implementa um serviço web seguro para o designer. Se não está familiarizado com o uso do Python SDK, veja [o que é o Azure Machine Learning SDK para Python?](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
 
 Quando se implanta em AKS, pode criar um novo cluster AKS ou anexar um existente. Para obter mais informações sobre a criação ou anexação de um cluster, consulte [Implementar um modelo num cluster de Serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md).
   
--  Se criar um novo cluster, utilize **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)** .
-- Se ligar um cluster existente, utilize **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** . Ambos devolvem um objeto de configuração que tem um método **enable_ssl.**
+-  Se criar um novo cluster, utilize **[AksCompute.provisioning_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueprovisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none--load-balancer-type-none--load-balancer-subnet-none-)**.
+- Se ligar um cluster existente, utilize **[AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#&preserve-view=trueattach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)**. Ambos devolvem um objeto de configuração que tem um método **enable_ssl.**
 
 O **método enable_ssl** pode usar um certificado fornecido pela Microsoft ou um certificado que você compra.
 
@@ -130,7 +130,7 @@ O **método enable_ssl** pode usar um certificado fornecido pela Microsoft ou um
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-Para obter mais informações sobre *enable_ssl* , consulte [AksProvisioningConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) e [AksAttachConfiguration.enable_ssl()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py&preserve-view=true#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
+Para obter mais informações sobre *enable_ssl* , consulte [AksProvisioningConfiguration.enable_ssl()](/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) e [AksAttachConfiguration.enable_ssl()](/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=trueenable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-).
 
 ### <a name="deploy-on-azure-container-instances"></a>Implantar em instâncias de contentores Azure
 
@@ -143,7 +143,7 @@ aci_config = AciWebservice.deploy_configuration(
     ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
 ```
 
-Para mais informações, consulte [AciWebservice.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-).
+Para mais informações, consulte [AciWebservice.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.aciwebservice#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none--primary-key-none--secondary-key-none--collect-model-data-none--cmk-vault-base-url-none--cmk-key-name-none--cmk-key-version-none-).
 
 ## <a name="update-your-dns"></a>Atualize o seu DNS
 
@@ -200,8 +200,8 @@ az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n 
 
 Para mais informações, consulte os seguintes documentos de referência:
 
-* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py&preserve-view=true)
-* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py&preserve-view=true)
+* [SslConfiguration](/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?preserve-view=true&view=azure-ml-py)
+* [AksUpdateConfiguration](/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?preserve-view=true&view=azure-ml-py)
 
 ### <a name="update-custom-certificate"></a>Atualizar certificado personalizado
 
@@ -240,8 +240,8 @@ Se o certificado tiver sido originalmente gerado por uma autoridade de certifica
 
 Para mais informações, consulte os seguintes documentos de referência:
 
-* [SslConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?view=azure-ml-py&preserve-view=true)
-* [AksUpdateConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?view=azure-ml-py&preserve-view=true)
+* [SslConfiguration](/python/api/azureml-core/azureml.core.compute.aks.sslconfiguration?preserve-view=true&view=azure-ml-py)
+* [AksUpdateConfiguration](/python/api/azureml-core/azureml.core.compute.aks.aksupdateconfiguration?preserve-view=true&view=azure-ml-py)
 
 ## <a name="disable-tls"></a>Desativar TLS
 

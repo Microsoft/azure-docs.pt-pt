@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 06b535b25df19e5062d16184f4469d9e9253b9c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 00920f30061832bd1d685f04113a63781df718b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87042616"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313700"
 ---
 # <a name="azure-synapse-analytics-managed-virtual-network-preview"></a>Azure Synapse Analytics Rede Virtual Gerida (pré-visualização)
 
@@ -30,11 +30,11 @@ O espaço de trabalho gerido A Rede Virtual proporciona-lhe valor de quatro form
 - Não é necessário criar uma sub-rede para os seus clusters Spark com base na carga máxima.
 - Rede Virtual gerida do espaço de trabalho juntamente com pontos finais privados geridos protege contra exfiltração de dados. Só é possível criar pontos finais privados geridos num espaço de trabalho que tenha uma Rede Virtual gerida associada a ele.
 
-Criar um espaço de trabalho com uma Rede Virtual gerida associada a ele garante que o seu espaço de trabalho está isolado de outros espaços de trabalho. A Azure Synapse oferece várias capacidades analíticas num espaço de trabalho: Integração de dados, Apache Spark, piscina SQL e SQL on demand.
+Criar um espaço de trabalho com uma Rede Virtual gerida associada a ele garante que o seu espaço de trabalho está isolado de outros espaços de trabalho. O Azure Synapse fornece várias capacidades analíticas num espaço de trabalho: integração de dados, piscina Apache Spark sem servidor, piscina SQL dedicada e piscina SQL sem servidor.
 
 Se o seu espaço de trabalho tiver uma Rede Virtual gerida, a integração de dados e os recursos de Spark são implantados nele. Um espaço de trabalho gerido A Rede Virtual também fornece isolamento ao nível do utilizador para atividades spark porque cada cluster Spark está na sua própria sub-rede.
 
-A piscina SQL e o SQL a pedido são capacidades multi-arrendatários e, portanto, residem fora da Rede Virtual gerida do espaço de trabalho. Comunicação intra-workspace para piscina SQL e SQL on-demand use links privados Azure. Estas ligações privadas são criadas automaticamente para si quando cria um espaço de trabalho com uma Rede Virtual gerida associada ao mesmo.
+Piscina SQL dedicada e piscina SQL sem servidor são capacidades multi-inquilinos e, portanto, residem fora da Rede Virtual do espaço de trabalho gerido. A comunicação intra-workspace para piscina SQL dedicada e piscina SQL sem servidor usam links privados Azure. Estas ligações privadas são criadas automaticamente para si quando cria um espaço de trabalho com uma Rede Virtual gerida associada ao mesmo.
 
 >[!IMPORTANT]
 >Não é possível alterar esta configuração do espaço de trabalho após a criação do espaço de trabalho. Por exemplo, não é possível reconfigurar um espaço de trabalho que não tenha uma Rede Virtual gerida associada a ele e associem-lhe uma Rede Virtual. Da mesma forma, não é possível reconfigurar um espaço de trabalho com uma Rede Virtual gerida associada ao mesmo e dissociar a Rede Virtual a partir dele.
@@ -43,7 +43,7 @@ A piscina SQL e o SQL a pedido são capacidades multi-arrendatários e, portanto
 
 Se ainda não o fez, registe o fornecedor de recursos da Rede. O registo de um fornecedor de recursos configura a sua subscrição para trabalhar com o fornecedor de recursos. Escolha *o Microsoft.Network* na lista de fornecedores de recursos quando se [registar](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types).
 
-Para criar um espaço de trabalho Azure Synapse que tenha uma Rede Virtual gerida do espaço de trabalho associada a ele, selecione o **separador Segurança + rede** no portal Azure e verifique a caixa de verificação de rede virtual gerida **enable.**
+Para criar um espaço de trabalho Azure Synapse que tenha uma Rede Virtual gerida do espaço de trabalho associada a ele, selecione o **separador de Rede** no portal Azure e verifique a caixa de verificação **de rede virtual gerida enable.**
 
 Se deixar a caixa de verificação desmarcada, o seu espaço de trabalho não terá uma Rede Virtual associada a ela.
 

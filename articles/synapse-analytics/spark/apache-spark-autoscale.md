@@ -1,6 +1,6 @@
 ---
 title: Escala automática casos de Faísca Apache
-description: Utilize a função Azure Synapse Autoscale para escalar automaticamente as instâncias de faíscas apaches
+description: Utilize a função de autoescala Azure Synapse para escalar automaticamente as instâncias de faíscas apaches
 author: euangMS
 ms.author: euang
 ms.reviewer: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500356"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313637"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escala automática Piscinas Apache Spark Azure Synapse
 
@@ -49,7 +49,7 @@ Para uma escala para baixo, com base no número de executores, mestres de aplica
 
 ## <a name="get-started"></a>Introdução
 
-### <a name="create-a-spark-pool-with-autoscaling"></a>Criar uma piscina spark com autoscaling
+### <a name="create-a-serverless-apache-spark-pool-with-autoscaling"></a>Crie uma piscina Apache Spark sem servidor com Autoscaling
 
 Para ativar a funcionalidade Autoscale, complete os seguintes passos como parte do processo normal de criação de piscinas:
 

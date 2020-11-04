@@ -1,6 +1,6 @@
 ---
 title: Mesas de partilha
-description: Recomendações e exemplos para a utilização de divisórias de mesa na piscina Sinaapse SQL
+description: Recomendações e exemplos para a utilização de divisórias de mesa em piscina SQL dedicada
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: ed5c0a140c69e9042fc9b85589719a54b65e985e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a1f41d97b1f4576d5877e4f35c99b3e189e3b2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88763138"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314499"
 ---
-# <a name="partitioning-tables-in-synapse-sql-pool"></a>Mesas de partição na piscina Sinapse SQL
+# <a name="partitioning-tables-in-dedicated-sql-pool"></a>Mesas de partição em piscina SQL dedicada
 
-Recomendações e exemplos para a utilização de divisórias de mesa na piscina Synapse SQL.
+Recomendações e exemplos para a utilização de divisórias de mesa em piscinas SQL dedicadas.
 
 ## <a name="what-are-table-partitions"></a>O que são divisórias de mesa?
 
-As divisórias de tabela permitem dividir os seus dados em grupos de dados mais pequenos. Na maioria dos casos, as divisórias de mesa são criadas numa coluna de data. A partição é suportada em todos os tipos de mesa de piscina Synapse SQL; incluindo loja de colunas agrupadas, índice agrupado e pilha. A partição também é suportada em todos os tipos de distribuição, incluindo tanto o haxixe como o robin redondo distribuídos.  
+As divisórias de tabela permitem dividir os seus dados em grupos de dados mais pequenos. Na maioria dos casos, as divisórias de mesa são criadas numa coluna de data. A partição é suportada em todos os tipos de mesas de bilhar SQL dedicados; incluindo loja de colunas agrupadas, índice agrupado e pilha. A partição também é suportada em todos os tipos de distribuição, incluindo tanto o haxixe como o robin redondo distribuídos.  
 
 A partilha pode beneficiar a manutenção de dados e o desempenho da consulta. Se beneficia ambos ou apenas um depende da forma como os dados são carregados e se a mesma coluna pode ser usada para ambos os fins, uma vez que a partição só pode ser feita numa coluna.
 
 ### <a name="benefits-to-loads"></a>Benefícios para cargas
 
-O principal benefício da partição no pool Sinaapse SQL é melhorar a eficiência e o desempenho dos dados de carregamento através da utilização da eliminação de divisórias, comutação e fusão. Na maioria dos casos, os dados são divididos numa coluna de datas que está intimamente ligada à ordem em que os dados são carregados na base de dados. Um dos maiores benefícios da utilização de divisórias para manter os dados é evitar a exploração de transações. Ao mesmo tempo que simplesmente inserir, atualizar ou eliminar dados pode ser a abordagem mais simples, com um pouco de pensamento e esforço, usar a partição durante o seu processo de carga pode melhorar substancialmente o desempenho.
+O principal benefício da partição no pool de SQL dedicado é melhorar a eficiência e o desempenho dos dados de carregamento através da utilização da eliminação de divisórias, comutação e fusão. Na maioria dos casos, os dados são divididos numa coluna de datas que está intimamente ligada à ordem em que os dados são carregados na base de dados. Um dos maiores benefícios da utilização de divisórias para manter os dados é evitar a exploração de transações. Ao mesmo tempo que simplesmente inserir, atualizar ou eliminar dados pode ser a abordagem mais simples, com um pouco de pensamento e esforço, usar a partição durante o seu processo de carga pode melhorar substancialmente o desempenho.
 
 A comutação de partição pode ser utilizada para remover ou substituir rapidamente uma secção de uma tabela.  Por exemplo, uma tabela de factos de vendas pode conter apenas dados dos últimos 36 meses. No final de cada mês, os dados de vendas mais antigos são eliminados da tabela.  Estes dados podem ser eliminados utilizando uma declaração de exclusão para apagar os dados do mês mais antigo. 
 
@@ -48,17 +48,17 @@ Embora a partição possa ser usada para melhorar o desempenho de alguns cenári
 
 Para que a partição seja útil, é importante entender quando usar a partição e o número de divisórias para criar. Não existe uma regra difícil de quantas divisórias são demasiadas, depende dos seus dados e de quantas divisórias carrega simultaneamente. Um esquema de partição bem sucedido geralmente tem dezenas a centenas de divisórias, não milhares.
 
-Ao criar divisórias em **mesas de lojas de colunas agrupadas,** é importante considerar quantas linhas pertencem a cada divisória. Para uma compressão e desempenho ótimos das mesas de loja de colunas agrupadas, é necessário um mínimo de 1 milhão de linhas por distribuição e partição. Antes de serem criadas as divisórias, a piscina Synapse SQL já divide cada mesa em 60 bases de dados distribuídas. 
+Ao criar divisórias em **mesas de lojas de colunas agrupadas,** é importante considerar quantas linhas pertencem a cada divisória. Para uma compressão e desempenho ótimos das mesas de loja de colunas agrupadas, é necessário um mínimo de 1 milhão de linhas por distribuição e partição. Antes de serem criadas as divisórias, a piscina SQL dedicada já divide cada mesa em 60 bases de dados distribuídas. 
 
-Qualquer divisória adicionada a uma mesa é além das distribuições criadas nos bastidores. Usando este exemplo, se a tabela de factos de vendas continha 36 divisórias mensais, e dado que uma piscina Sinapse SQL tem 60 distribuições, então a tabela de factos de vendas deve conter 60 milhões de linhas por mês, ou 2,1 mil milhões de linhas quando todos os meses são povoados. Se uma tabela contiver menos do que o número mínimo recomendado de linhas por partição, considere a utilização de menos divisórias para aumentar o número de linhas por partição. 
+Qualquer divisória adicionada a uma mesa é além das distribuições criadas nos bastidores. Usando este exemplo, se a tabela de factos de vendas continha 36 divisórias mensais, e dado que um pool de SQL dedicado tem 60 distribuições, então a tabela de factos de vendas deve conter 60 milhões de linhas por mês, ou 2,1 mil milhões de linhas quando todos os meses são povoados. Se uma tabela contiver menos do que o número mínimo recomendado de linhas por partição, considere a utilização de menos divisórias para aumentar o número de linhas por partição. 
 
 Para mais informações, consulte o artigo [indexante,](sql-data-warehouse-tables-index.md) que inclui consultas que podem avaliar a qualidade dos índices de loja de colunas de cluster.
 
 ## <a name="syntax-differences-from-sql-server"></a>Diferenças de sintaxe do SQL Server
 
-A piscina Sinaapse SQL introduz uma forma de definir divisórias que é mais simples do que o SQL Server. As funções e esquemas de partição não são utilizados na piscina Synapse SQL, uma vez que se encontram no SQL Server. Em vez disso, tudo o que precisa fazer é identificar a coluna dividida e os pontos de fronteira. 
+Piscina de SQL dedicada introduz uma forma de definir divisórias que é mais simples do que o SQL Server. As funções e esquemas de partição não são utilizados em piscinas SQL dedicadas, uma vez que se encontram no SQL Server. Em vez disso, tudo o que precisa fazer é identificar a coluna dividida e os pontos de fronteira. 
 
-Embora a sintaxe da partição possa ser ligeiramente diferente do SQL Server, os conceitos básicos são os mesmos. Sql Server e Synapse SQL suportem uma coluna de partição por tabela, que pode ser partição de gama. Para saber mais sobre a partição, consulte [Tabelas e Índices Divididos.](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+Embora a sintaxe da partição possa ser ligeiramente diferente do SQL Server, os conceitos básicos são os mesmos. O SQL Server e o pool de SQL dedicado suportam uma coluna de partição por tabela, que pode ser dividida. Para saber mais sobre a partição, consulte [Tabelas e Índices Divididos.](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 O exemplo a seguir utiliza a declaração [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para dividir a tabela FactInternetSales na coluna OrderDateKey:
 
@@ -88,12 +88,12 @@ WITH
 
 ## <a name="migrating-partitioning-from-sql-server"></a>Partição migratória do SQL Server
 
-Para migrar definições de partição do SQL Server para a piscina Sinaapse SQL simplesmente:
+Para migrar definições de partição do SQL Server para piscinas SQL dedicadas simplesmente:
 
 - Elimine o esquema de [partição](/sql/t-sql/statements/create-partition-scheme-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)do SQL Server .
 - Adicione a definição de [função de partição](/sql/t-sql/statements/create-partition-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) à sua TABELA CREATE.
 
-Se estiver a migrar uma tabela dividida a partir de uma instância SQL Server, o SQL seguinte pode ajudá-lo a descobrir o número de linhas que em cada divisória. Tenha em mente que se a mesma granularidade partição for utilizada na piscina Sinapse SQL, o número de linhas por partição diminui em um fator de 60.  
+Se estiver a migrar uma tabela dividida a partir de uma instância SQL Server, o SQL seguinte pode ajudá-lo a descobrir o número de linhas que em cada divisória. Tenha em mente que se a mesma granularidade de partição for utilizada na piscina de SQL dedicada, o número de linhas por partição diminui em um fator de 60.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -131,7 +131,7 @@ GROUP BY    s.[name]
 
 ## <a name="partition-switching"></a>Comutação de partição
 
-A piscina Sinaapse SQL suporta a divisão, a fusão e a comutação. Cada uma destas funções é executada utilizando a declaração [ALTER TABLE.](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+A piscina dedicada SQL suporta a divisão, a fusão e a comutação. Cada uma destas funções é executada utilizando a declaração [ALTER TABLE.](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 Para alternar as divisórias entre duas tabelas, deve certificar-se de que as divisórias se alinham nos respetivos limites e que as definições de tabela coincidem. Dado que não existem restrições de verificação para impor o intervalo de valores num quadro, a tabela de origem deve conter os mesmos limites de partição que a tabela-alvo. Se os limites da partição não forem os mesmos, então o interruptor de partição falhará, uma vez que os metadados de partição não serão sincronizados.
 
@@ -253,7 +253,7 @@ Carregar dados em divisórias com comutação de partição é uma forma conveni
 
 Para limpar os dados existentes numa partição, `ALTER TABLE` é necessário que se altere os dados.  Em seguida, outro `ALTER TABLE` foi obrigado a mudar os novos dados.  
 
-Na piscina Synapse SQL, a `TRUNCATE_TARGET` opção é suportada no `ALTER TABLE` comando.  Com `TRUNCATE_TARGET` o comando substitui os `ALTER TABLE` dados existentes na partição com novos dados.  Abaixo está um exemplo que usa `CTAS` para criar uma nova tabela com os dados existentes, insere novos dados e, em seguida, muda todos os dados de volta para a tabela alvo, sobreescrita dos dados existentes.
+Na piscina SQL dedicada, a `TRUNCATE_TARGET` opção é suportada no `ALTER TABLE` comando.  Com `TRUNCATE_TARGET` o comando substitui os `ALTER TABLE` dados existentes na partição com novos dados.  Abaixo está um exemplo que usa `CTAS` para criar uma nova tabela com os dados existentes, insere novos dados e, em seguida, muda todos os dados de volta para a tabela alvo, sobreescrita dos dados existentes.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

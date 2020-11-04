@@ -1,6 +1,6 @@
 ---
 title: Tabelas de metadados partilhadas
-description: O Azure Synapse Analytics fornece um modelo de metadados partilhado onde a criação de uma tabela em Apache Spark o tornará acessível a partir dos seus motores de piscina SQL on-demand (pré-visualização) e SQL sem duplicar os dados.
+description: O Azure Synapse Analytics fornece um modelo de metadados partilhado onde a criação de uma tabela no conjunto Apache Spark sem servidor tornará acessível a partir de piscina SQL sem servidor (pré-visualização) e piscina DE SQL dedicada sem duplicar os dados.
 services: sql-data-warehouse
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,30 +10,30 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d19376d21081d899d8ff7226c6d7c5b76267fabf
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: f269217908bea4b5e8ef3c0004a9cec9d5d682c7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280461"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314541"
 ---
 # <a name="azure-synapse-analytics-shared-metadata-tables"></a>Azure Synapse Analytics partilhou tabelas de metadados
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e mesas apoiadas por Parquet entre as suas piscinas Apache Spark (pré-visualização) e o motor SQL on demand (pré-visualização).
+O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e mesas apoiadas por Parquet entre as suas piscinas Apache Spark (pré-visualização) e piscina SQL sem servidor (pré-visualização).
 
 Uma vez criada uma base de dados por uma função Spark, pode criar tabelas com a Spark que usam o Parquet como formato de armazenamento. Estas mesas ficarão imediatamente disponíveis para consulta por qualquer uma das piscinas de spark do espaço de trabalho Azure Synapse. Também podem ser usados a partir de qualquer um dos trabalhos de Faísca sujeitos a permissões.
 
-As tabelas Spark criadas, geridas e externas também são disponibilizadas como tabelas externas com o mesmo nome na base de dados sincronizada correspondente em SQL on-demand. [Expor uma tabela Spark em SQL](#expose-a-spark-table-in-sql) fornece mais detalhes sobre a sincronização da tabela.
+As tabelas Spark criadas, geridas e externas também são disponibilizadas como tabelas externas com o mesmo nome na base de dados sincronizada correspondente na piscina SQL sem servidor. [Expor uma tabela Spark em SQL](#expose-a-spark-table-in-sql) fornece mais detalhes sobre a sincronização da tabela.
 
-Uma vez que as tabelas são sincronizadas com SQL a pedido assíncronia, haverá um atraso até que apareçam.
+Uma vez que as tabelas são sincronizadas para a piscina SQL sem servidor assíncronea, haverá um atraso até que apareçam.
 
 ## <a name="manage-a-spark-created-table"></a>Gerir uma mesa criada por Faíscas
 
-Use o Spark para gerir as bases de dados criadas pela Spark. Por exemplo, elimine-o através de uma experiência de piscina spark e crie mesas nele a partir de Spark.
+Use o Spark para gerir as bases de dados criadas pela Spark. Por exemplo, elimine-o através de uma conta de piscina Apache Spark sem servidor e crie mesas no mesmo a partir do Spark.
 
-Se criar objetos numa base de dados deste tipo a partir da SQL a pedido ou tentar largar a base de dados, a operação terá sucesso, mas a base de dados original do Spark não será alterada.
+Se criar objetos numa base de dados a partir de uma piscina SQL sem servidor ou tentar largar a base de dados, a operação terá sucesso, mas a base de dados original do Spark não será alterada.
 
 ## <a name="expose-a-spark-table-in-sql"></a>Expor uma mesa de faíscas em SQL
 
@@ -95,9 +95,9 @@ Para obter mais informações sobre como definir permissões nas pastas e fichei
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Criar uma tabela gerida apoiada pela Parquet em Faísca e consulta a partir de SQL on-demand
+### <a name="create-a-managed-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Crie uma tabela gerida apoiada pela Parquet em Spark e consulta a partir de piscina SQL sem servidor
 
-Neste cenário, tem uma base de dados Spark chamada `mytestdb` . Consulte [Criar e ligue-se a uma base de dados Spark com SQL a pedido.](database.md#create-and-connect-to-spark-database-with-sql-on-demand)
+Neste cenário, tem uma base de dados Spark chamada `mytestdb` . Consulte [Criar e ligue-se a uma base de dados Spark com piscina SQL sem servidor](database.md#create-and-connect-to-spark-database-with-serverless-sql-pool).
 
 Crie uma tabela spark gerida com o SparkSQL executando o seguinte comando:
 
@@ -105,7 +105,7 @@ Crie uma tabela spark gerida com o SparkSQL executando o seguinte comando:
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-Este comando cria a tabela `myParquetTable` na base de `mytestdb` dados. Depois de um curto atraso, você pode ver a mesa em SQL on demand. Por exemplo, executar a seguinte declaração da SQL a pedido.
+Este comando cria a tabela `myParquetTable` na base de `mytestdb` dados. Após um curto atraso, pode ver a tabela na sua piscina SQL sem servidor. Por exemplo, execute a seguinte declaração a partir da sua piscina SQL sem servidor.
 
 ```sql
     USE mytestdb;
@@ -140,7 +140,7 @@ var df = spark.CreateDataFrame(data, schema);
 df.Write().Mode(SaveMode.Append).InsertInto("mytestdb.myParquetTable");
 ```
 
-Agora pode ler os dados da SQL on demand da seguinte forma:
+Agora pode ler os dados da sua piscina SQL sem servidor da seguinte forma:
 
 ```sql
 SELECT * FROM mytestdb.dbo.myParquetTable WHERE name = 'Alice';
@@ -154,7 +154,7 @@ id | name | birthdate
 1 | Alice | 2010-01-01
 ```
 
-### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-sql-on-demand"></a>Criar uma tabela externa apoiada pela Parquet em Faísca e consulta a partir de SQL on-demand
+### <a name="create-an-external-table-backed-by-parquet-in-spark-and-query-from-serverless-sql-pool"></a>Crie uma tabela externa apoiada por Parquet em Faísca e consulta a partir de piscina SQL sem servidor
 
 Neste exemplo, crie uma tabela De Spark externa sobre os ficheiros de dados parquet que foram criados no exemplo anterior para a tabela gerida.
 
@@ -168,7 +168,7 @@ CREATE TABLE mytestdb.myExternalParquetTable
 
 Substitua o espaço reservado `<fs>` pelo nome do sistema de ficheiros que é o sistema de ficheiros predefinidos do espaço de trabalho e o espaço reservado com o nome do espaço de trabalho `<synapse_ws>` sinapse que está a usar para executar este exemplo.
 
-O exemplo anterior cria a tabela `myExtneralParquetTable` na base de `mytestdb` dados. Depois de um curto atraso, você pode ver a mesa em SQL on demand. Por exemplo, executar a seguinte declaração da SQL a pedido.
+O exemplo anterior cria a tabela `myExtneralParquetTable` na base de `mytestdb` dados. Após um curto atraso, pode ver a tabela na sua piscina SQL sem servidor. Por exemplo, execute a seguinte declaração a partir da sua piscina SQL sem servidor.
 
 ```sql
 USE mytestdb;
@@ -177,7 +177,7 @@ SELECT * FROM sys.tables;
 
 Verifique se `myExternalParquetTable` está incluído nos resultados.
 
-Agora pode ler os dados da SQL on demand da seguinte forma:
+Agora pode ler os dados da sua piscina SQL sem servidor da seguinte forma:
 
 ```sql
 SELECT * FROM mytestdb.dbo.myExternalParquetTable WHERE name = 'Alice';

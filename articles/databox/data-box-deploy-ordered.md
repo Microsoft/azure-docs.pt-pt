@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: f36836681e338c597c068a91a6d4bc011cce3511
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 400c5bd4dd31daaf826ed63ada75266d4ab3099c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206802"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313210"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -255,7 +255,7 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
     ![Destino de dados da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
-    Com base na região do Azure especificada, selecione uma ou mais contas de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. Também pode criar uma nova conta de **Fins gerais v1**, **Fins gerais v2** ou **Conta de armazenamento de blobs**.
+    Com base na região do Azure especificada, selecione uma ou mais contas de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. Também pode criar uma nova conta de **Fins gerais v1** , **Fins gerais v2** ou **Conta de armazenamento de blobs**.
 
     As contas de armazenamento com redes virtuais são suportadas. Para permitir que o serviço Data Box funcione com contas de armazenamento protegidas, ative os serviços fidedignos nas definições de firewall de rede da conta de armazenamento. Para mais informações, consulte como [adicionar a Azure Data Box como um serviço de confiança](../storage/common/storage-network-security.md#exceptions).
 
@@ -285,13 +285,13 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
    ![Expandido Traga as suas próprias opções de senha para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
-   - Para utilizar a sua própria palavra-passe para o seu novo dispositivo, por **definição de preferência para a palavra-passe do dispositivo**, selecione **Use a sua própria palavra-passe**e escreva uma palavra-passe que satisfaça os requisitos de segurança.
+   - Para utilizar a sua própria palavra-passe para o seu novo dispositivo, por **definição de preferência para a palavra-passe do dispositivo** , selecione **Use a sua própria palavra-passe** e escreva uma palavra-passe que satisfaça os requisitos de segurança.
    
      ![Ecrã de segurança para importação de Caixa de Dados, opções para usar a sua própria senha de dispositivo](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
    - Para utilizar as suas próprias palavras-passe para ações:
 
-     1. Por **Definir a preferência por palavras-passe de partilha**, selecione Use as suas **próprias palavras-passe** e, em seguida, **selecione palavras-passe para as ações**.
+     1. Por **Definir a preferência por palavras-passe de partilha** , selecione Use as suas **próprias palavras-passe** e, em seguida, **selecione palavras-passe para as ações**.
      
         ![Ecrã de segurança para importação de Caixa de Dados, opções para usar as suas próprias palavras-passe de partilha](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
@@ -301,9 +301,9 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
      
         ![Tela para introduzir palavras-passe de partilha para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
 
-       No ecrã **'Segurança',** pode utilizar **a visualização de palavras-passe** para alterar as palavras-passe.
+       No ecrã **'Segurança',** pode utilizar **ver ou alterar palavras-passe** para alterar as palavras-passe.
 
-1. Em **Segurança**, se pretender ativar a dupla encriptação baseada em software, expanda a **encriptação dupla (para ambientes altamente seguros)** e selecione **Ative a dupla encriptação para a encomenda**.
+1. Em **Segurança** , se pretender ativar a dupla encriptação baseada em software, expanda a **encriptação dupla (para ambientes altamente seguros)** e selecione **Ative a dupla encriptação para a encomenda**.
 
    ![Ecrã de segurança para importação de Data Box, permitindo encriptação baseada em software para uma encomenda de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
@@ -314,11 +314,11 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
    Selecione **Seguinte: Contacte os dados** para continuar.
 
-8. Em **detalhes de contato**, selecione **+ Adicionar endereço de envio**.
+8. Em **detalhes de contato** , selecione **+ Adicionar endereço de envio**.
 
     ![Screenshot do assistente de Encomenda mostrando o passo de contato do assistente com a opção 'Endereço de envio' "Adicionar" chamada.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
-9. No separador **Endereço para envio**, forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Selecione **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito.
+9. No separador **Endereço para envio** , forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Selecione **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito.
 
    ![Screenshot da caixa de diálogo do endereço de envio de envio com o Navio usando opções e a opção de endereço de envio Adicionar chamada.](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
@@ -344,7 +344,7 @@ Faça os seguintes passos utilizando o Azure CLI para encomendar um dispositivo:
 
 1. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando CLI para criar a ordem Caixa de Dados. A tabela a seguir mostra as definições de parâmetros utilizadas `az databox job create` para:
 
-   | Definição (parâmetro) | Descrição |  Valor da amostra |
+   | Definição (parâmetro) | Description |  Valor da amostra |
    |---|---|---|
    |resource-group| Utilize um grupo de recursos existente ou crie um novo. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |name| O nome da ordem que está a criar. | "mydataboxorder"|
@@ -463,7 +463,7 @@ Faça os seguintes passos utilizando a Azure PowerShell para encomendar um dispo
 
 2. Anote as suas definições para a sua encomenda de Caixa de Dados. Estas definições incluem as suas informações pessoais/empresariais, nome de subscrição, informações do dispositivo e informações de envio. Terá de utilizar estas definições como parâmetros ao executar o comando PowerShell para criar a ordem Caixa de Dados. A tabela seguinte mostra as definições de parâmetros utilizadas para [o New-AzDataBoxJob](/powershell/module/az.databox/New-AzDataBoxJob).
 
-    | Definição (parâmetro) | Descrição |  Valor da amostra |
+    | Definição (parâmetro) | Description |  Valor da amostra |
     |---|---|---|
     |Nome do Grupo de Recursos [Obrigatório]| Utilize um grupo de recursos existente. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
     |Nome [Obrigatório]| O nome da ordem que está a criar. | "mydataboxorder"|
@@ -709,7 +709,7 @@ Para cancelar uma encomenda da Caixa de Dados Azure, executar [o trabalho da cai
    |grupo de recursos [Obrigatório]| O nome do grupo de recursos associado à ordem a eliminar. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |nome [Obrigatório]| O nome da ordem a ser apagada. | "mydataboxorder"|
    |razão [Necessário]| O motivo para cancelar a encomenda. | "Inseri informações erradas e precisei de cancelar a encomenda." |
-   |sim| Não pedir confirmação. | --sim (-y)| --sim-y |
+   |yes| Não pedir confirmação. | --sim (-y)| --sim-y |
    |depurar| Incluir depurar informações para verbose logging | --depurar |
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
    |apenas-show-erros| Só mostre erros, suprimindo avisos. | --só-erros de exibição |
@@ -746,7 +746,7 @@ Se tiver cancelado uma encomenda da Caixa de Dados Azure, pode executar [o traba
    |grupo de recursos [Obrigatório]| O nome do grupo de recursos associado à ordem a eliminar. Um grupo de recursos é um contentor lógico para os recursos que podem ser geridos ou implementados em conjunto. | "grupo myresource"|
    |nome [Obrigatório]| O nome da ordem a ser apagada. | "mydataboxorder"|
    |subscrição| O nome ou ID (GUID) da sua assinatura Azure. | "xxxxxxx-xxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxx" |
-   |sim| Não pedir confirmação. | --sim (-y)| --sim-y |
+   |yes| Não pedir confirmação. | --sim (-y)| --sim-y |
    |depurar| Incluir depurar informações para verbose logging | --depurar |
    |Ajuda| Mostrar informações de ajuda para este comando. | --ajuda -h |
    |apenas-show-erros| Só mostre erros, suprimindo avisos. | --só-erros de exibição |

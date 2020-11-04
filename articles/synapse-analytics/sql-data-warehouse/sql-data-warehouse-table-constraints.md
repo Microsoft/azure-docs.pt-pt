@@ -1,6 +1,6 @@
 ---
 title: Chaves primárias, estrangeiras e únicas
-description: Restrições de mesa suporte na piscina Synapse SQL em Azure Synapse Analytics
+description: Suporte de restrições de mesa usando piscina SQL dedicada em Azure Synapse Analytics
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,33 +11,33 @@ ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 562e2cce317d8774ecf72971d53be4f66f9c3da4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd1d92dd6be47b2bdf6b8ca2f9a99c62e35eb12a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212773"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313053"
 ---
-# <a name="primary-key-foreign-key-and-unique-key-in-synapse-sql-pool"></a>Chave primária, chave estrangeira e chave única na piscina Sinaapse SQL
+# <a name="primary-key-foreign-key-and-unique-key-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Chave primária, chave estrangeira e chave única usando piscina SQL dedicada em Azure Synapse Analytics
 
-Saiba mais sobre as restrições de mesa na piscina Synapse SQL, incluindo chave primária, chave estrangeira e chave única.
+Conheça as restrições de mesa em piscinas SQL dedicadas, incluindo chave primária, chave estrangeira e chave única.
 
 ## <a name="table-constraints"></a>Restrições de tabela
 
-A piscina Sinaapse SQL suporta estas restrições de mesa: 
+Piscina SQL dedicada suporta estes constrangimentos de mesa: 
 - A CHAVE PRIMÁRIA só é suportada quando não é aplicada e não executada.    
 - É utilizada uma restrição única apenas com NÃO EXECUTADA.
 
 Para sintaxe, verifique [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) e [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse). 
 
-A restrição DE CHAVE ESTRANGEIRA não é suportada na piscina Synapse SQL.  
+O constrangimento da CHAVE ESTRANGEIRA não é suportado em piscina SQL dedicada.  
 
 
 ## <a name="remarks"></a>Observações
 
-Ter a chave primária e/ou chave única permite que o motor de piscina Synapse SQL gere um plano de execução ideal para uma consulta.  Todos os valores numa coluna-chave primária ou numa coluna de restrição única devem ser únicos.
+Ter chave primária e/ou chave única permite que o motor de piscina SQL dedicado gere um plano de execução ideal para uma consulta.  Todos os valores numa coluna-chave primária ou numa coluna de restrição única devem ser únicos.
 
-Depois de criar uma tabela com chave primária ou restrição única na piscina Synapse SQL, os utilizadores precisam de se certificar de que todos os valores nessas colunas são únicos.  Uma violação disso pode fazer com que a consulta devolva resultados imprecisos.  Este exemplo mostra como uma consulta pode devolver resultados imprecisos se a chave primária ou coluna de restrição única incluir valores duplicados.  
+Depois de criar uma tabela com chave primária ou restrição única na piscina DE SQL dedicada, os utilizadores precisam de se certificar de que todos os valores nessas colunas são únicos.  Uma violação disso pode fazer com que a consulta devolva resultados imprecisos.  Este exemplo mostra como uma consulta pode devolver resultados imprecisos se a chave primária ou coluna de restrição única incluir valores duplicados.  
 
 ```sql
  -- Create table t1
@@ -164,12 +164,13 @@ a1          total
 
 ## <a name="examples"></a>Exemplos
 
-Crie uma mesa de bilhar Synapse SQL com uma chave primária: 
+Crie uma mesa de bilhar SQL dedicada com uma chave primária: 
 
 ```sql 
 CREATE TABLE mytable (c1 INT PRIMARY KEY NONCLUSTERED NOT ENFORCED, c2 INT);
 ```
-Crie uma mesa de bilhar Synapse SQL com uma restrição única:
+
+Crie uma mesa de bilhar SQL dedicada com um constrangimento único:
 
 ```sql
 CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
@@ -177,4 +178,4 @@ CREATE TABLE t6 (c1 INT UNIQUE NOT ENFORCED, c2 INT);
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Depois de criar as tabelas para a sua piscina Synapse SQL, o próximo passo é carregar dados na tabela. Para um tutorial de carregamento, consulte [os dados de carregamento para a piscina Sinaapse SQL](load-data-wideworldimportersdw.md).
+Depois de criar as tabelas para a sua piscina SQL dedicada, o próximo passo é carregar dados na tabela. Para um tutorial de carregamento, consulte [os dados de carregamento para a piscina sql dedicada.](load-data-wideworldimportersdw.md)

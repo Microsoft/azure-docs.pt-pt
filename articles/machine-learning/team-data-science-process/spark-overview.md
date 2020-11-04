@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3aa33efa9aa416ad1dfefd2fe957ce04b2b14432
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dd82fb00c55e3676929999f204eae8755671038
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027465"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314748"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Visão geral da ciência dos dados usando Spark on Azure HDInsight
 
@@ -41,8 +41,8 @@ Estes cadernos devem ser executados no núcleo pySpark do servidor de cadernos J
 ### <a name="spark-20-notebooks"></a>Spark 2.0 cadernos
 Estes cadernos devem ser executados no núcleo pySpark3 do servidor de cadernos Jupyter.
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Este ficheiro fornece informações sobre como realizar a exploração, modelação e pontuação de dados em clusters Spark 2.0 utilizando a viagem de táxi de NYC e conjunto de dados de tarifas [descritos aqui.](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data) Este caderno pode ser um bom ponto de partida para explorar rapidamente o código que fornecemos para o Spark 2.0. Para um caderno mais detalhado analisa os dados do Táxi de NYC, consulte o próximo caderno desta lista. Consulte as notas que seguem esta lista que compara estes cadernos.
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): Este ficheiro mostra como realizar a luta de dados (Spark SQL e operações dataframe), exploração, modelação e pontuação utilizando a viagem de táxi de NYC e conjunto de dados de tarifas [descritos aqui.](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Este ficheiro fornece informações sobre como realizar a exploração, modelação e pontuação de dados em clusters Spark 2.0 utilizando a viagem de táxi de NYC e conjunto de dados de tarifas [descritos aqui.](#the-nyc-2013-taxi-data) Este caderno pode ser um bom ponto de partida para explorar rapidamente o código que fornecemos para o Spark 2.0. Para um caderno mais detalhado analisa os dados do Táxi de NYC, consulte o próximo caderno desta lista. Consulte as notas que seguem esta lista que compara estes cadernos.
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): Este ficheiro mostra como realizar a luta de dados (Spark SQL e operações dataframe), exploração, modelação e pontuação utilizando a viagem de táxi de NYC e conjunto de dados de tarifas [descritos aqui.](#the-nyc-2013-taxi-data)
 - [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): Este ficheiro mostra como realizar a realização de problemas de trabalho (Spark SQL e operações de dataframe), exploração, modelação e pontuação utilizando o conhecido conjunto de dados de partida on-time da Companhia Aérea de 2011 e 2012. Integrámos o conjunto de dados da companhia aérea com os dados meteorológicos do aeroporto (por exemplo, velocidade do vento, temperatura, altitude, etc.) antes da modelação, para que estas características meteorológicas possam ser incluídas no modelo.
 
 <!-- -->
@@ -152,17 +152,17 @@ Recolhemos uma amostra de 0,1% destes ficheiros e juntivemos os ficheiros CVS de
 | tip_class |Aula de gorjeta (0: $0, 1: $0-5, 2: $6-10, 3: $11-20, 4: > $20) |
 
 ## <a name="execute-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Execute o código a partir de um caderno Jupyter no cluster Spark
-Pode lançar o Caderno Jupyter a partir do portal Azure. Encontre o seu cluster Spark no seu painel de instrumentos e clique nele para introduzir a página de gestão para o seu cluster. Para abrir o caderno associado ao cluster Spark, clique no **Bloco de Painéis de Cluster**  ->  **Jupyter**Notebook .
+Pode lançar o Caderno Jupyter a partir do portal Azure. Encontre o seu cluster Spark no seu painel de instrumentos e clique nele para introduzir a página de gestão para o seu cluster. Para abrir o caderno associado ao cluster Spark, clique no **Bloco de Painéis de Cluster**  ->  **Jupyter** Notebook .
 
 ![Painéis de cluster](./media/spark-overview/spark-jupyter-on-portal.png)
 
-Também pode navegar para aceder aos ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** Cadernos Jupyter. Substitua a parte clustername deste URL pelo nome do seu próprio cluster. Precisa da senha da sua conta de administração para aceder aos cadernos.
+Também pode navegar para * *_`https://CLUSTERNAME.azurehdinsight.net/jupyter`_* _ para aceder aos Cadernos Jupyter. Substitua a parte clustername deste URL pelo nome do seu próprio cluster. Precisa da senha da sua conta de administração para aceder aos cadernos.
 
 ![Navegue por cadernos jupyter](./media/spark-overview/spark-jupyter-notebook.png)
 
 Selecione PySpark para ver um diretório que contém alguns exemplos de cadernos pré-embalados que usam a API PySpark. Os cadernos que contêm as amostras de código para este conjunto de temas Spark estão disponíveis no [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
-Pode fazer o upload dos cadernos diretamente do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) para o servidor de cadernos Jupyter no seu cluster Spark. Na página inicial do seu Jupyter, clique no botão **Upload** na parte direita do ecrã. Abre um explorador de ficheiros. Aqui pode colar o URL gitHub (conteúdo bruto) do Caderno e clicar em **Abrir**.
+Pode fazer o upload dos cadernos diretamente do [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) para o servidor de cadernos Jupyter no seu cluster Spark. Na página inicial do seu Jupyter, clique no botão _ *Upload* * na parte direita do ecrã. Abre um explorador de ficheiros. Aqui pode colar o URL gitHub (conteúdo bruto) do Caderno e clicar em **Abrir**.
 
 Vê o nome do ficheiro na sua lista de ficheiros Jupyter com um botão **upload** novamente. Clique neste botão **upload.** Agora importaste o caderno. Repita estes passos para carregar os outros cadernos desta passagem.
 
@@ -192,5 +192,4 @@ Agora que foi configurado com um cluster HDInsight Spark e carregou os cadernos 
 
 **Consumo de modelos:** Para aprender a pontuar os modelos de classificação e regressão criados neste tópico, consulte [Score e avalie os modelos de aprendizagem automática construídos pela Spark.](spark-model-consumption.md)
 
-**Varredura de validação cruzada e hiperparímetro**: Consulte [a exploração e modelação avançadas de dados com a Spark](spark-advanced-data-exploration-modeling.md) sobre como os modelos podem ser treinados usando a validação cruzada e a varredura de hiper-parâmetros
-
+**Varredura de validação cruzada e hiperparímetro** : Consulte [a exploração e modelação avançadas de dados com a Spark](spark-advanced-data-exploration-modeling.md) sobre como os modelos podem ser treinados usando a validação cruzada e a varredura de hiper-parâmetros

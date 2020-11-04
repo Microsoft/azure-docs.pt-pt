@@ -1,6 +1,6 @@
 ---
-title: Limites de capacidade - Azure Synapse Analytics (anteriormente SQL DW)
-description: Valores máximos permitidos para vários componentes da piscina Synapse SQL em Azure Synapse.
+title: Limites de capacidade para piscina SQL dedicada
+description: Valores máximos permitidos para vários componentes de piscina SQL dedicada em Azure Synapse Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dac2a60b6b9db082a10d2473eb22b86d8097eee0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742462"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313147"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limites de capacidade Azure Synapse Analytics (anteriormente SQL DW)
+# <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limites de capacidade para piscina SQL dedicada em Azure Synapse Analytics
 
-Valores máximos permitidos para vários componentes da Azure Synapse.
+Valores máximos permitidos para vários componentes de piscina SQL dedicada em Azure Synapse Analytics.
 
 ## <a name="workload-management"></a>Gestão de cargas de trabalho
 
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
-| [Unidades de Armazém de Dados (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU para uma única unidade de piscina SQL (data warehouse) | Gen1: DW6000<br></br>Gen2: DW30000c |
+| [Unidades de Armazém de Dados (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Max DWU para uma única unidade de piscina SQL dedicada (data warehouse) | Gen1: DW6000<br></br>Gen2: DW30000c |
 | [Unidades de Armazém de Dados (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinido por servidor |54,000<br></br>Por padrão, cada servidor SQL (por exemplo, myserver.database.windows.net) tem uma quota DTU de 54.000, que permite até DW5000c. Esta quota é apenas um limite de segurança. Pode aumentar a sua quota [criando um bilhete de apoio](sql-data-warehouse-get-started-create-support-ticket.md) e selecionando *quota* como tipo de pedido.  Para calcular as suas necessidades de DTU, multiplique o 7.5 pelo DWU total necessário, ou multiplique 9,5 pelo total de cDWU necessário. Por exemplo:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW5000c x 9,5 = 47.500 DTUs.<br></br>Pode ver o seu consumo atual de DTU a partir da opção do servidor SQL no portal. Tanto as bases de dados em pausa como as que não estão em pausa contam para a quota de DTU. |
 | Ligação de base de dados |Sessões abertas concurrentes máximas |1024<br/><br/>O número de sessões abertas simultâneas variará em função do DWU selecionado. DWU600c e acima suportam um máximo de 1024 sessões abertas. DWU500c e abaixo, suporte um limite máximo de sessão aberta simultânea de 512. Nota: existem limites no número de consultas que podem ser executadas simultaneamente. Quando o limite de concordância é ultrapassado, o pedido entra numa fila interna onde espera ser processado. |
 | Ligação de base de dados |Memória máxima para declarações preparadas |20 MB |
@@ -62,7 +62,7 @@ Valores máximos permitidos para vários componentes da Azure Synapse.
 | Categoria | Descrição | Máximo |
 |:--- |:--- |:--- |
 | Cargas de Polibase |MB por linha |1<br/><br/>As cargas de polibase são inferiores a 1 MB. O carregamento de tipos de dados LOB em tabelas com um Índice de Loja de Colunas Agrupados (CCI) não é suportado.<br/> |
-|Cargas de Polibase|Número total de ficheiros|1 000 000<br/><br/>As cargas de base poli-base não podem exceder mais de 1M ficheiros. Pode experimentar o seguinte erro: **A operação falhou como contagem de divisão superior ao limite superior de 10000000** .|
+|Cargas de Polibase|Número total de ficheiros|1 000 000<br/><br/>As cargas de base poli-base não podem exceder mais de 1M ficheiros. Pode experimentar o seguinte erro: **A operação falhou como contagem de divisão superior ao limite superior de 10000000**.|
 
 ## <a name="queries"></a>Consultas
 

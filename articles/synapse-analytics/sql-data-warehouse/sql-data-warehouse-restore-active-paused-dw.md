@@ -1,6 +1,6 @@
 ---
-title: Restaurar um armazém de dados existente
-description: Como orientar para restaurar uma piscina SQL existente.
+title: Restaurar uma piscina SQL dedicada existente
+description: Como orientar para restaurar uma piscina SQL dedicada existente.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: dead71d08b5a7a16871816580107c8aed8a0a77c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b5ced43e1277ffbb1c9988af08ee032ab93a15e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91405110"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313503"
 ---
-# <a name="restore-an-existing-sql-pool"></a>Restaurar uma piscina SQL existente
+# <a name="restore-an-existing-dedicated-sql-pool-in-azure-synapse-analytics"></a>Restaurar uma piscina SQL dedicada existente em Azure Synapse Analytics
 
-Neste artigo, você aprende a restaurar uma piscina SQL existente em Azure Synapse Analytics usando o portal Azure e PowerShell.
+Neste artigo, você aprende a restaurar uma piscina SQL dedicada existente em Azure Synapse Analytics usando o portal Azure e PowerShell.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -31,9 +31,9 @@ Neste artigo, você aprende a restaurar uma piscina SQL existente em Azure Synap
 1. Certifique-se de [instalar a Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 2. Tenha um ponto de restauro existente que queira restaurar. Se quiser criar um novo restauro, consulte [o tutorial para criar um novo ponto de restauro definido pelo utilizador](sql-data-warehouse-restore-points.md).
 
-## <a name="restore-an-existing-sql-pool-through-powershell"></a>Restaurar uma piscina SQL existente através do PowerShell
+## <a name="restore-an-existing-dedicated-sql-pool-through-powershell"></a>Restaurar uma piscina SQL dedicada existente através do PowerShell
 
-Para restaurar uma piscina SQL existente a partir de um ponto de restauração, utilize o [cmdlet PowerShell Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+Para restaurar uma piscina SQL dedicada existente a partir de um ponto de restauração, utilize o [cmdlet Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell.
 
 1. Abra o PowerShell.
 
@@ -41,18 +41,18 @@ Para restaurar uma piscina SQL existente a partir de um ponto de restauração, 
 
 3. Selecione a subscrição que contém a base de dados a ser restaurada.
 
-4. Listar os pontos de restauro para a piscina SQL.
+4. Listar os pontos de restauro para a piscina dedicada SQL.
 
 5. Escolha o ponto de restauro pretendido utilizando o RestorePointCreationDate.
 
-6. Restaurar a piscina SQL no ponto de restauro pretendido utilizando [o cmdlet Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell.
+6. Restaurar a piscina SQL dedicada ao ponto de restauro pretendido utilizando o [cmdlet Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) PowerShell.
 
-    1. Para restaurar a piscina SQL para um servidor diferente, certifique-se de especificar o outro nome do servidor.  Este servidor também pode estar em um grupo de recursos diferente e região.
+    1. Para restaurar a piscina SQL dedicada a um servidor diferente, certifique-se de especificar o outro nome do servidor.  Este servidor também pode estar em um grupo de recursos diferente e região.
     2. Para restaurar uma subscrição diferente, utilize o botão 'Move' para mover o servidor para outra subscrição.
 
-7. Verifique se a piscina SQL restaurada está online.
+7. Verifique se a piscina SQL dedicada restaurada está online.
 
-8. Depois de concluída a restauração, pode configurar a sua piscina SQL recuperada, seguindo a [configuração da sua base de dados após a recuperação.](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery)
+8. Após a restauração concluída, pode configurar a sua piscina SQL dedicada recuperada, seguindo a [configuração da sua base de dados após a recuperação.](../../azure-sql/database/disaster-recovery-guidance.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#configure-your-database-after-recovery)
 
 ```Powershell
 
@@ -89,19 +89,19 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-an-existing-sql-pool-through-the-azure-portal"></a>Restaurar uma piscina SQL existente através do portal Azure
+## <a name="restore-an-existing-dedicated-sql-pool-through-the-azure-portal"></a>Restaurar uma piscina SQL dedicada existente através do portal Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Navegue até à piscina SQL daí que pretende restaurar.
+2. Navegue para o dedicado que deseja restaurar.
 3. Na parte superior da lâmina overview, **selecione Restaurar**.
 
     ![ Descrição geral do Restauro](./media/sql-data-warehouse-restore-active-paused-dw/restoring-01.png)
 
-4. Selecione pontos de **restauro automáticos** ou **pontos de restauro definidos pelo utilizador**. Se a piscina SQL não tiver pontos de restauro automáticos, aguarde algumas horas ou crie um ponto de restauro definido pelo utilizador antes de restaurar. Para User-Defined Restaurar Pontos, selecione um existente ou crie um novo. Para **o Servidor,** pode escolher um servidor num grupo e região de recursos diferentes ou criar um novo. Depois de fornecer todos os parâmetros, clique em **Rever + Restaurar.**
+4. Selecione pontos de **restauro automáticos** ou **pontos de restauro definidos pelo utilizador**. Se a piscina SQL dedicada não tiver pontos de restauro automáticos, aguarde algumas horas ou crie um ponto de restauro definido pelo utilizador antes de restaurar. Para User-Defined Restaurar Pontos, selecione um existente ou crie um novo. Para **o Servidor,** pode escolher um servidor num grupo e região de recursos diferentes ou criar um novo. Depois de fornecer todos os parâmetros, clique em **Rever + Restaurar.**
 
     ![Pontos de Restauro Automático](./media/sql-data-warehouse-restore-active-paused-dw/restoring-11.png)
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- [Restaurar uma piscina SQL eliminada](sql-data-warehouse-restore-deleted-dw.md)
-- [Restaurar a partir de uma piscina SQL de geo-backup](sql-data-warehouse-restore-from-geo-backup.md)
+- [Restaurar uma piscina SQL dedicada eliminada](sql-data-warehouse-restore-deleted-dw.md)
+- [Restaurar a partir de uma piscina SQL dedicada a geo-backup](sql-data-warehouse-restore-from-geo-backup.md)

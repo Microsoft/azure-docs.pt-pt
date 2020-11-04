@@ -1,6 +1,6 @@
 ---
 title: Integração do Controlo de Origem
-description: Experiência de devOps de classe empresarial para piscina SQL com integração de controlo de fonte nativa usando Azure Repos (Git e GitHub).
+description: Experiência de DevOps de classe empresarial para piscina de SQL dedicada com integração nativa de controlo de fontes usando Azure Repos (Git e GitHub).
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: sql-dw
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 84abfea39cb7311e7cd60346d936c08c28c334d4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4751f3cf213098873b0c53b15df82f57d155787a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89441326"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313292"
 ---
-# <a name="source-control-integration-for-sql-pool"></a>Integração de Controlo de Fontes para piscina SQL
+# <a name="source-control-integration-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Integração de Controlo de Fontes para piscina SQL dedicada em Azure Synapse Analytics
 
-Este tutorial descreve como integrar o seu projeto de base de dados sql server (SSDT) com controlo de origem.  A integração do controlo de fontes é o primeiro passo para construir o seu oleoduto de integração e implantação contínua com o recurso de piscina SQL em Azure Synapse Analytics.
+Este tutorial descreve como integrar o seu projeto de base de dados sql server (SSDT) com controlo de origem.  A integração do controlo de fontes é o primeiro passo para construir o seu oleoduto de integração e implantação contínua com o recurso de piscina SQL dedicado no Azure Synapse Analytics.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 - Inscreva-se numa [organização da Azure DevOps](https://azure.microsoft.com/services/devops/)
 - Passe pelo tutorial [De Criar e Ligar](create-data-warehouse-portal.md)
@@ -37,7 +37,7 @@ Este tutorial descreve como integrar o seu projeto de base de dados sql server (
 
    ![Gerir Ligações](./media/sql-data-warehouse-source-control-integration/2-manage-connections.png "Gerir Ligações")
 
-3. Conecte-se ao seu projeto selecionando **Gerir Ligações**e, em seguida, **Ligar a um projeto.**
+3. Conecte-se ao seu projeto selecionando **Gerir Ligações** e, em seguida, **Ligar a um projeto.**
  ![Ligação1](./media/sql-data-warehouse-source-control-integration/3-connect-project.png "Ligar")
 
 
@@ -85,8 +85,8 @@ Para obter mais informações sobre a ligação de projetos utilizando o Visual 
 
    ![Verificar](./media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "Verificação das alterações")
 
-4. (**Opcional)** Utilize o Schema Compare e atualize as alterações ao seu armazém de dados-alvo utilizando o SSDT para garantir que as definições de objeto no seu repositório de Azure Repositório e repositório local reflitam o seu armazém de dados.
+4. ( **Opcional)** Utilize o Schema Compare e atualize as alterações ao seu armazém de dados-alvo utilizando o SSDT para garantir que as definições de objeto no seu repositório de Azure Repositório e repositório local reflitam o seu armazém de dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Desenvolvimento para piscina SQL](sql-data-warehouse-overview-develop.md)
+- [Desenvolvimento para piscina SQL dedicada](sql-data-warehouse-overview-develop.md)
