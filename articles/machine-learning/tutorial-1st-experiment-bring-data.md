@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: tracking-python
-ms.openlocfilehash: 13d43eb788c750a2f24033a6138ebf00ac57fffe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 123e55202de8a33bca88afcfd1f0dc0c7edeae77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372579"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320098"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Use os seus próprios dados (parte 4 de 4)
 
@@ -202,7 +202,7 @@ datastore.upload(src_dir='./data', target_path='datasets/cifar10', overwrite=Tru
 O `target_path` valor especifica a trajetória na loja de dados onde os dados do CIFAR10 serão carregados.
 
 >[!TIP] 
-> Enquanto estiver a utilizar o Azure Machine Learning para fazer o upload dos dados, pode utilizar o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para carregar ficheiros ad hoc. Se precisar de uma ferramenta ETL, pode utilizar [a Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) para ingerir os seus dados no Azure.
+> Enquanto estiver a utilizar o Azure Machine Learning para fazer o upload dos dados, pode utilizar o [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) para carregar ficheiros ad hoc. Se precisar de uma ferramenta ETL, pode utilizar [a Azure Data Factory](../data-factory/introduction.md) para ingerir os seus dados no Azure.
 
 Executar o ficheiro Python para carregar os dados. (O upload deve ser rápido, menos de 60 segundos.)
 
@@ -271,7 +271,7 @@ O script de controlo é semelhante ao da [parte 3 desta série,](tutorial-1st-ex
       `dataset = Dataset.File.from_files( ... )`
    :::column-end:::
    :::column span="2":::
-      Um [conjunto de dados](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) é utilizado para fazer referência aos dados enviados para o Azure Blob Storage. Os conjuntos de dados são uma camada de abstração em cima dos seus dados que são projetados para melhorar a fiabilidade e fiabilidade.
+      Um [conjunto de dados](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) é utilizado para fazer referência aos dados enviados para o Azure Blob Storage. Os conjuntos de dados são uma camada de abstração em cima dos seus dados que são projetados para melhorar a fiabilidade e fiabilidade.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -279,7 +279,7 @@ O script de controlo é semelhante ao da [parte 3 desta série,](tutorial-1st-ex
       `config = ScriptRunConfig(...)`
    :::column-end:::
    :::column span="2":::
-      [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) é modificado para incluir uma lista de argumentos que serão transmitidos em `train.py` . O `dataset.as_named_input('input').as_mount()` argumento significa que o diretório especificado será _montado_ no alvo do cálculo.
+      [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) é modificado para incluir uma lista de argumentos que serão transmitidos em `train.py` . O `dataset.as_named_input('input').as_mount()` argumento significa que o diretório especificado será _montado_ no alvo do cálculo.
    :::column-end:::
 :::row-end:::
 

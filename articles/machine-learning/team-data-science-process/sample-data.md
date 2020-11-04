@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 22e91d50227fcb44c7b90478d76379c14161ae05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 878a2a47dfaddf1d3399a1dbd98865332838e148
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76718608"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321749"
 ---
 # <a name="sample-data-in-azure-blob-containers-sql-server-and-hive-tables"></a><a name="heading"></a>Dados de exemplo em contentores de blobs do Azure, no SQL Server e em tabelas do Hive
 
@@ -26,9 +26,8 @@ Os seguintes artigos descrevem como recolher dados que são armazenados num dos 
 * [**Os dados do SQL Server**](sample-data-sql-server.md) são recolhidos utilizando tanto o SQL como a Linguagem de Programação Python. 
 * [**Os dados da tabela da colmeia**](sample-data-hive.md) são recolhidos usando consultas de Colmeia.
 
-Esta tarefa de amostragem é um passo no Processo de Ciência de Dados de [Equipa (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarefa de amostragem é um passo no Processo de Ciência de Dados de [Equipa (TDSP)](./index.yml).
 
 **Por que amostra de dados?**
 
 Se o conjunto de dados que pretende analisar é grande, é geralmente uma boa ideia reduzir a amostragem dos dados para reduzi-los a um tamanho menor, mas representativo e mais manejável. A redução pode facilitar a compreensão de dados, a exploração e a engenharia de recursos. Esta função de amostragem no Processo de Análise cortana é para permitir uma prototipagem rápida das funções de processamento de dados e modelos de machine learning.
-

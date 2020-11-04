@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c0dfa06e2ece2ba4631c0d5681b066ab0134daba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7234a8c45c20c64dddb43a52a099aa92f2d297d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085672"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321123"
 ---
 # <a name="explore-data-in-hive-tables-with-hive-queries"></a>Explorar dados em tabelas do Hive com consultas do Hive
 
@@ -28,9 +28,9 @@ Esta tarefa é um passo no [Processo de Ciência de Dados](overview.md)da Equipa
 Este artigo assume que tem:
 
 * Criei uma conta de armazenamento Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento Azure](../../storage/common/storage-account-create.md)
-* Aderiu um cluster Hadoop personalizado com o serviço HDInsight. Se precisar de instruções, consulte [Os Clusters Hadoop Azure HDInsight para Análise Avançada](customize-hadoop-cluster.md).
+* Aderiu um cluster Hadoop personalizado com o serviço HDInsight. Se precisar de instruções, consulte [Os Clusters Hadoop Azure HDInsight para Análise Avançada](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Os dados foram enviados para as tabelas hive em clusters Azure HDInsight Hadoop. Caso contrário, siga as instruções em [Criar e carregue os dados nas tabelas da Hive](move-hive-tables.md) para enviar primeiro os dados para as tabelas da Colmeia.
-* Habilitado acesso remoto ao cluster. Se precisar de instruções, consulte [o nó de cabeça do Conjunto Hadoop](customize-hadoop-cluster.md).
+* Habilitado acesso remoto ao cluster. Se precisar de instruções, consulte [o nó de cabeça do Conjunto Hadoop](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md).
 * Se precisar de instruções sobre como submeter consultas de Colmeia, consulte [Como Submeter Consultas de Colmeia](move-hive-tables.md#submit)
 
 ## <a name="example-hive-query-scripts-for-data-exploration"></a>Exemplo Scripts de consulta de hive para exploração de dados
@@ -72,4 +72,3 @@ Este artigo assume que tem:
 
 ## <a name="additional-query-scripts-for-taxi-trip-data-scenarios"></a>Scripts de consulta adicionais para cenários de dados de viagem de táxi
 Exemplos de consultas específicas aos cenários [de datas de viagem de táxi de NYC](https://chriswhong.com/open-data/foil_nyc_taxi/) também são fornecidos no [repositório gitHub.](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/DataScienceProcess/DataScienceScripts) Estas consultas já têm esquema de dados especificado e estão prontas para serem submetidas a execução.
-

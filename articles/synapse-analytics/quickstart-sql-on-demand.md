@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Use SQL a pedido'
-description: Neste arranque rápido, você verá e aprenderá como é fácil consultar vários tipos de ficheiros usando SQL on demand (pré-visualização).
+title: 'Quickstart: Use a piscina SQL sem servidor'
+description: Neste arranque rápido, você verá e aprenderá como é fácil consultar vários tipos de ficheiros usando piscina SQL sem servidor (pré-visualização).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: fe07192b0077518cdd73092f53342c298034cfa8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b2e502a984e71a06eb57b345371d70d659c6a031
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86274174"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321672"
 ---
-# <a name="quickstart-use-sql-on-demand"></a>Quickstart: Use SQL a pedido
+# <a name="quickstart-use-serverless-sql-pool"></a>Quickstart: Use a piscina SQL sem servidor
 
-Synapse SQL on-demand (pré-visualização) é um serviço de consulta sem servidor que lhe permite executar consultas SQL em ficheiros colocados no Azure Storage. Neste arranque rápido, você vai aprender a consultar vários tipos de ficheiros usando SQL on demand. Os formatos suportados estão listados em [OPENROWSET](sql/develop-openrowset.md).
+Synapse serverless SQL pool (pré-visualização) é um serviço de consulta sem servidor que lhe permite executar consultas SQL em ficheiros colocados no Azure Storage. Neste arranque rápido, você vai aprender a consultar vários tipos de ficheiros usando piscina SQL sem servidor. Os formatos suportados estão listados em [OPENROWSET](sql/develop-openrowset.md).
 
 Este quickstart mostra consultas: ficheiros CSV, Apache Parquet e JSON.
 
@@ -34,8 +34,8 @@ Parâmetros para este arranque rápido:
 
 | Parâmetro                                 | Descrição                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Endereço de ponto final de serviço a pedido da SQL    | Usado como nome de servidor                                   |
-| SqL região de ponto final de serviço a pedido     | Usado para determinar que armazenamento vamos usar em amostras |
+| endereço final de serviço de piscina sem servidor SQL    | Usado como nome de servidor                                   |
+| região de ponto final de serviço de piscina SQL sem servidor     | Usado para determinar que armazenamento vamos usar em amostras |
 | Nome de utilizador e senha para acesso ao ponto final | Usado para aceder ao ponto final                               |
 | A base de dados usada para criar pontos de vista         | Base de dados utilizada como ponto de partida em amostras       |
 
@@ -44,7 +44,7 @@ Parâmetros para este arranque rápido:
 Antes de utilizar as amostras:
 
 - Crie base de dados para as suas opiniões (caso pretenda utilizar vistas)
-- Criar credenciais a serem usadas pela SQL a pedido de acesso a ficheiros no armazenamento
+- Criar credenciais para ser usado pela piscina SQL sem servidor para aceder a ficheiros no armazenamento
 
 ### <a name="create-database"></a>Criar base de dados
 
@@ -62,7 +62,7 @@ CREATE DATABASE mydbname
 
 ### <a name="create-data-source"></a>Criar fonte de dados
 
-Para executar consultas usando SQL a pedido, crie uma fonte de dados que o SQL on demand pode usar para aceder a ficheiros no armazenamento.
+Para executar consultas utilizando o pool SQL sem servidor, crie uma fonte de dados que o pool SQL sem servidor pode usar para aceder a ficheiros no armazenamento.
 Execute o seguinte corte de código para criar fonte de dados utilizada em amostras nesta secção:
 
 ```sql
@@ -115,7 +115,7 @@ Para mais exemplos, consulte como [consultar o ficheiro CSV](sql/query-single-cs
 A amostra que se segue mostra as capacidades automáticas de inferência de esquema para consulta de ficheiros Parquet. Devolve o número de filas em setembro de 2017 sem especificar o esquema.
 
 > [!NOTE]
-> Não é preciso especificar colunas na `OPENROWSET WITH` cláusula ao ler ficheiros Parquet. Nesse caso, o SQL on-demand utiliza metadados no ficheiro Parquet e liga colunas pelo nome.
+> Não é preciso especificar colunas na `OPENROWSET WITH` cláusula ao ler ficheiros Parquet. Nesse caso, a piscina SQL sem servidor utiliza metadados no ficheiro Parquet e liga colunas pelo nome.
 
 ```sql
 SELECT COUNT_BIG(*)
@@ -133,7 +133,7 @@ Saiba mais sobre [a consulta dos ficheiros parquet](sql/query-parquet-files.md).
 
 ### <a name="json-sample-file"></a>Ficheiro de amostra JSON
 
-Os ficheiros são armazenados em recipiente *json,* *livros*de pastas, e contêm entrada de livro único com a seguinte estrutura:
+Os ficheiros são armazenados em recipiente *json,* *livros* de pastas, e contêm entrada de livro único com a seguinte estrutura:
 
 ```json
 {  
@@ -153,7 +153,7 @@ Os ficheiros são armazenados em recipiente *json,* *livros*de pastas, e contêm
 
 ### <a name="query-json-files"></a>Consultar ficheiros JSON
 
-A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para recuperar valores escalar (título, editor) de um livro com o título *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Artigos Selecionados*:
+A seguinte consulta mostra como usar [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) para recuperar valores escalar (título, editor) de um livro com o título *Métodos Probabilísticos e Estatísticos em Criptologia, Uma Introdução por Artigos Selecionados* :
 
 ```sql
 SELECT

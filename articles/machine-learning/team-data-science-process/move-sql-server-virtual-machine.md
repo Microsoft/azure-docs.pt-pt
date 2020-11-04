@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8350437d04fd019aab8fb22be8ad0e9a4a2831d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c80a90b07e25942e751d52cafa47f6e3e94852ab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012183"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320335"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Mover dados para o SQL Server numa máquina virtual do Azure
 
@@ -43,7 +43,7 @@ Este tutorial pressupõe que tem:
 
 * Uma **subscrição do Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Uma **conta de armazenamento Azure.** Você usará uma conta de armazenamento Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md). Depois de ter criado a conta de armazenamento, terá de obter a chave de conta utilizada para aceder ao armazenamento. Consulte [as teclas de acesso à conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
-* Servidor **SQL provisionado num VM Azure**. Para obter instruções, consulte [configurar uma máquina virtual do Azure SQL Server como um servidor de caderno IPython para análises avançadas](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
+* Servidor **SQL provisionado num VM Azure**. Para obter instruções, consulte [configurar uma máquina virtual do Azure SQL Server como um servidor de caderno IPython para análises avançadas](../data-science-virtual-machine/overview.md).
 * Instalado e configurado **Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
 ## <a name="moving-data-from-a-flat-file-source-to-sql-server-on-an-azure-vm"></a><a name="filesource_to_sqlonazurevm"></a> Mover dados de uma fonte de ficheiro plana para SQL Server em um Azure VM
@@ -58,7 +58,7 @@ O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma 
 
 > [!NOTE]
 > **Onde devem estar os meus dados para o BCP?**  
-> Embora não seja necessário, ter ficheiros que contenham dados de origem localizados na mesma máquina que o SqL Server alvo permite transferências mais rápidas (velocidade de rede vs velocidade IO do disco local). Pode mover os ficheiros planos que contêm dados para a máquina onde o SQL Server é instalado utilizando várias ferramentas de cópia de ficheiros, tais como [AZCopy,](../../storage/common/storage-use-azcopy.md) [Azure Storage Explorer](https://storageexplorer.com/) ou cópia/pasta do Windows através do Protocolo de Ambiente de Trabalho Remoto (RDP).
+> Embora não seja necessário, ter ficheiros que contenham dados de origem localizados na mesma máquina que o SqL Server alvo permite transferências mais rápidas (velocidade de rede vs velocidade IO do disco local). Pode mover os ficheiros planos que contêm dados para a máquina onde o SQL Server é instalado utilizando várias ferramentas de cópia de ficheiros, tais como [AZCopy,](../../storage/common/storage-use-azcopy-v10.md) [Azure Storage Explorer](https://storageexplorer.com/) ou cópia/pasta do Windows através do Protocolo de Ambiente de Trabalho Remoto (RDP).
 >
 >
 
@@ -82,7 +82,7 @@ O BCP é um utilitário de linha de comando instalado com o SQL Server e é uma 
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
-> **Otimização de Inserções BCP** Consulte o seguinte artigo ["Diretrizes para otimizar a importação a granel"](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) para otimizar tais inserções.
+> **Otimização de Inserções BCP** Consulte o seguinte artigo ["Diretrizes para otimizar a importação a granel"](/previous-versions/sql/sql-server-2008-r2/ms177445(v=sql.105)) para otimizar tais inserções.
 >
 >
 
@@ -133,7 +133,7 @@ Set-ExecutionPolicy Restricted #reset the execution policy
 ```
 
 ### <a name="bulk-insert-sql-query"></a><a name="insert-tables-bulkquery"></a>Inserir a granel consulta SQL
-[A consulta de inserção](https://msdn.microsoft.com/library/ms188365) a granel pode ser usada para importar dados na base de dados a partir de ficheiros baseados em linha/coluna (os tipos suportados são abrangidos pelo tópico[Prepare dados para exportação ou importação a granel (SQL Server).](https://msdn.microsoft.com/library/ms188609)
+[A consulta de inserção](/sql/t-sql/statements/bulk-insert-transact-sql) a granel pode ser usada para importar dados na base de dados a partir de ficheiros baseados em linha/coluna (os tipos suportados são abrangidos pelo tópico[Prepare dados para exportação ou importação a granel (SQL Server).](/sql/relational-databases/import-export/prepare-data-for-bulk-export-or-import-sql-server)
 
 Aqui estão alguns comandos de amostra para Inserção a Granel são os seguintes:  
 
@@ -158,10 +158,10 @@ Aqui estão alguns comandos de amostra para Inserção a Granel são os seguinte
 
 ### <a name="built-in-utilities-in-sql-server"></a><a name="sql-builtin-utilities"></a>Utilitários incorporados no SQL Server
 Pode utilizar os Serviços de Integração de Servidores SQL (SSIS) para importar dados em SQL Server VM em Azure a partir de um ficheiro plano.
-O SSIS está disponível em dois ambientes de estúdio. Para mais detalhes, consulte [os Serviços de Integração (SSIS) e Ambientes de Estúdio:](https://technet.microsoft.com/library/ms140028.aspx)
+O SSIS está disponível em dois ambientes de estúdio. Para mais detalhes, consulte [os Serviços de Integração (SSIS) e Ambientes de Estúdio:](/sql/integration-services/integration-services-ssis-development-and-management-tools)
 
-* Para obter detalhes sobre as ferramentas de dados do servidor SQL, consulte as [ferramentas de dados do servidor do Microsoft SQL](https://msdn.microsoft.com/data/tools.aspx)  
-* Para mais detalhes sobre o assistente de importação/exportação, consulte [o Assistente de Importação e Exportação do Servidor SQL](https://msdn.microsoft.com/library/ms141209.aspx)
+* Para obter detalhes sobre as ferramentas de dados do servidor SQL, consulte as [ferramentas de dados do servidor do Microsoft SQL](/sql/ssdt/download-sql-server-data-tools-ssdt)  
+* Para mais detalhes sobre o assistente de importação/exportação, consulte [o Assistente de Importação e Exportação do Servidor SQL](/sql/integration-services/import-export-data/import-and-export-data-with-the-sql-server-import-and-export-wizard)
 
 ## <a name="moving-data-from-on-premises-sql-server-to-sql-server-on-an-azure-vm"></a><a name="sqlonprem_to_sqlonazurevm"></a>Mover dados do SQL Server para o SQL Server num VM Azure
 Também pode utilizar as seguintes estratégias de migração:
@@ -177,13 +177,13 @@ Descrevemos cada uma destas opções abaixo:
 A Base de Dados de **Servidor SQL para um assistente VM do Microsoft Azure** é uma forma simples e recomendada de mover dados de uma instância do SQL Server no local para o SQL Server num VM Azure. Para obter etapas detalhadas, bem como uma discussão de outras alternativas, consulte [a Migração de uma base de dados para o SQL Server num Azure VM](../../azure-sql/virtual-machines/windows/migrate-to-vm-from-sql-server.md).
 
 ### <a name="export-to-flat-file"></a><a name="export-flat-file"></a>Exportação para Arquivo Plano
-Vários métodos podem ser usados para a granel dados de exportação de um servidor SQL on-in, conforme documentado no tópico [de importação e exportação de dados a granel (SQL Server).](https://msdn.microsoft.com/library/ms175937.aspx) Este documento abrangerá o Programa de Cópias a Granel (BCP) como exemplo. Uma vez que os dados são exportados para um ficheiro plano, pode ser importado para outro servidor SQL usando a importação a granel.
+Vários métodos podem ser usados para a granel dados de exportação de um servidor SQL on-in, conforme documentado no tópico [de importação e exportação de dados a granel (SQL Server).](/sql/relational-databases/import-export/bulk-import-and-export-of-data-sql-server) Este documento abrangerá o Programa de Cópias a Granel (BCP) como exemplo. Uma vez que os dados são exportados para um ficheiro plano, pode ser importado para outro servidor SQL usando a importação a granel.
 
 1. Exportar os dados do SQL Server para um ficheiro que utilize o utilitário bcp da seguinte forma
 
     `bcp dbname..tablename out datafile.tsv -S    servername\sqlinstancename -T -t \t -t \n -c`
 2. Crie a base de dados e a tabela no SQL Server VM em Azure utilizando o `create database` esquema de `create table` mesa exportado no passo 1.
-3. Criar um ficheiro de formato para descrever o esquema de tabela dos dados que estão a ser exportados/importados. Os detalhes do ficheiro de formato são descritos em [Criar um Ficheiro de Formato (SQL Server)](https://msdn.microsoft.com/library/ms191516.aspx).
+3. Criar um ficheiro de formato para descrever o esquema de tabela dos dados que estão a ser exportados/importados. Os detalhes do ficheiro de formato são descritos em [Criar um Ficheiro de Formato (SQL Server)](/sql/relational-databases/import-export/create-a-format-file-sql-server).
 
     Geração de ficheiros de formato ao executar o BCP a partir do computador SQL Server
 
@@ -202,8 +202,8 @@ Vários métodos podem ser usados para a granel dados de exportação de um serv
 ### <a name="database-back-up-and-restore"></a><a name="sql-backup"></a>Base de dados de volta e restauro
 Suportes do SQL Server:
 
-1. [Base de dados de back up e restaurar a funcionalidade](https://msdn.microsoft.com/library/ms187048.aspx) (tanto para um ficheiro local como para exportação de bacpac para blob) e [aplicações de nível de dados](https://msdn.microsoft.com/library/ee210546.aspx) (usando bacpac).
-2. Capacidade de criar vMs de servidor SQL diretamente no Azure com uma base de dados copiada ou cópia para uma base de dados existente na Base de Dados SQL. Para obter mais informações, consulte [utilizar o Assistente de Base de Dados de Cópias](https://msdn.microsoft.com/library/ms188664.aspx).
+1. [Base de dados de back up e restaurar a funcionalidade](/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases) (tanto para um ficheiro local como para exportação de bacpac para blob) e [aplicações de nível de dados](/sql/relational-databases/data-tier-applications/data-tier-applications) (usando bacpac).
+2. Capacidade de criar vMs de servidor SQL diretamente no Azure com uma base de dados copiada ou cópia para uma base de dados existente na Base de Dados SQL. Para obter mais informações, consulte [utilizar o Assistente de Base de Dados de Cópias](/sql/relational-databases/databases/use-the-copy-database-wizard).
 
 Uma imagem da base de dados de back up/restaurar opções do SQL Server Management Studio é mostrada abaixo.
 

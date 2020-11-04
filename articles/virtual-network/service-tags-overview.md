@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.date: 07/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 863ab9b600b81006cdeb670811c61ed961e8c623
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: d21b59b8822684598ac2fc3fd813278c1cf0c698
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170258"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319804"
 ---
 # <a name="virtual-network-service-tags"></a>Tags de serviço de rede virtual
 <a name="network-service-tags"></a>
 
 Uma etiqueta de serviço representa um grupo de prefixos de endereço IP de um determinado serviço Azure. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam, minimizando a complexidade das atualizações frequentes às regras de segurança da rede.
 
-Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules)de rede   ou [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço, como **ApiManagement,** no campo de *origem*ou destino adequado   de uma *destination*   regra, pode permitir ou negar o tráfego para o serviço correspondente.
+Pode utilizar tags de serviço para definir controlos de acesso à rede em [grupos de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) de rede ou [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags). Utilize etiquetas de serviço no lugar de endereços IP específicos quando criar regras de segurança. Ao especificar o nome da etiqueta de serviço, como **ApiManagement,** no campo de *origem* ou *destino* adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente.
 
 Pode utilizar tags de serviço para alcançar o isolamento da rede e proteger os seus recursos Azure da Internet geral, ao mesmo tempo que acede aos serviços Azure que têm pontos finais públicos. Crie regras de grupo de segurança de rede de entrada/saída para negar o tráfego de/para a **Internet** e permitir o tráfego de/para **a AzureCloud** ou outras tags de serviço disponíveis de [serviços específicos](#available-service-tags) da Azure.
 
@@ -54,7 +54,7 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **AzureBackup** |ReforçoS Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das etiquetas **Storage** e **AzureActiveDirectory.** | Saída | No | Yes |
 | **AzureBotService** | Serviço Azure Bot. | Saída | No | No |
 | **AzureCloud** | Todos os [endereços IP públicos do datacenter](https://www.microsoft.com/download/details.aspx?id=56519). | Saída | Yes | Yes |
-| **AzureCognitiveSearch** | Pesquisa Cognitiva Azure. <br/><br/>Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para conceder aos indexantes acesso seguro a fontes de dados. Consulte a documentação de ligação do [indexante](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) para obter mais detalhes. <br/><br/> *Nota*: O IP do serviço de pesquisa não está incluído na lista de gamas IP para esta etiqueta de serviço e **também precisa de ser adicionado** à firewall IP de fontes de dados. | Entrada | No | No |
+| **AzureCognitiveSearch** | Pesquisa Cognitiva Azure. <br/><br/>Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para conceder aos indexantes acesso seguro a fontes de dados. Consulte a documentação de ligação do [indexante](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) para obter mais detalhes. <br/><br/> *Nota* : O IP do serviço de pesquisa não está incluído na lista de gamas IP para esta etiqueta de serviço e **também precisa de ser adicionado** à firewall IP de fontes de dados. | Entrada | No | No |
 | **AzureConnectors** | Conectores Azure Logic Apps para ligações sonda/back-end. | Entrada | Yes | Yes |
 | **AzureContainerRegistry** | Registo de Contentores Azure. | Saída | Yes | Yes |
 | **AzureCosmosDB** | Azure Cosmos DB. | Saída | Yes | Yes |
@@ -62,9 +62,10 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **AzureDataExplorerManagement** | Gestão de Exploradores de Dados Azure. | Entrada | No | No |
 | **AzureDataLake** | Azure Data Lake Storage Gen1. | Saída | No | Yes |
 | **AzureDevSpaces** | Espaços Azure Dev. | Saída | No | No |
+| **AzureDigitalTwins** | Gémeos Digitais Azure.<br/><br/>*Nota:* Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para restringir o acesso aos pontos finais configurados para as rotas do evento. *Esta etiqueta não é atualmente configurável através do Portal Azure* | Entrada | No | Yes |
 | **AzureEventGrid** | Grelha de Eventos Azure. | Ambos | No | No |
 | **AzureFrontDoor.Frontend** <br/> **AzureFrontDoor.Backend** <br/> **AzureFrontDoor.FirstParty**  | Porta da Frente Azul. | Ambos | No | No |
-| **AzureInformationProtection** | Proteção de Informação Azure.<br/><br/>*Nota:* Esta tag tem uma dependência das tags **AzureActiveDirectory**, **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty.** | Saída | No | No |
+| **AzureInformationProtection** | Proteção de Informação Azure.<br/><br/>*Nota:* Esta tag tem uma dependência das tags **AzureActiveDirectory** , **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty.** | Saída | No | No |
 | **AzureIoTHub** | Hub Azure IoT. | Saída | No | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* Esta etiqueta tem uma dependência da etiqueta **AzureActiveDirectory.** | Saída | Yes | Yes |
 | **AzureLoadBalancer** | O equilibrador de carga de infraestrutura Azure. A etiqueta traduz-se para o [endereço IP virtual do anfitrião](security-overview.md#azure-platform-considerations) (168.63.129.16) de onde provêm as sondas de saúde Azure. Isto inclui apenas o tráfego de sondas, não o tráfego real para o seu recurso backend. Se não estiver a utilizar o Balançador de Carga Azure, pode anular esta regra. | Ambos | No | No |
@@ -76,7 +77,7 @@ Por padrão, as etiquetas de serviço refletem as gamas para toda a nuvem. Algum
 | **AzurePlatformLKM** | Serviço de licenciamento do Windows ou serviço de gestão de chaves.<br/><br/>Pode utilizar esta etiqueta para desativar os predefinidos para o licenciamento. Tenha cuidado quando usar esta etiqueta. Recomendamos que leia considerações da [plataforma Azure.](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)  Recomendamos também que efetue testes antes de utilizar esta etiqueta. | Saída | No | No |
 | **AzureResourceManager** | Azure Resource Manager. | Saída | No | No |
 | **Azuresignalr** | Sinaleiro Azure. | Saída | No | No |
-| **AzureSiteRecovery** | Recuperação do local de Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das **etiquetas AzureActiveDirectory**, **AzureKeyVault**, **EventHub,****GuestAndHybridManagement** e **Storage.** | Saída | No | No |
+| **AzureSiteRecovery** | Recuperação do local de Azure.<br/><br/>*Nota:* Esta etiqueta tem uma dependência das **etiquetas AzureActiveDirectory** , **AzureKeyVault** , **EventHub,****GuestAndHybridManagement** e **Storage.** | Saída | No | No |
 | **AzureTrafficManager** | Azure Traffic Manager sonda endereços IP.<br/><br/>Para obter mais informações sobre endereços IP da sonda Traffic Manager, consulte [o Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). | Entrada | No | Yes |  
 | **BatchNodeManagement** | Tráfego de gestão para implantações dedicadas ao Azure Batch. | Ambos | No | Yes |
 | **CognitiveServicesManagement** | Os intervalos de endereços para o tráfego dos Serviços Cognitivos Azure. | Ambos | No | No |

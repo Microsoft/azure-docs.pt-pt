@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6c8e6fee2b9f01b8d7ab48990760aa4c4d6e11b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 497b8f5598cf7aa7720f47863d465f5e29789b07
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361505"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321955"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Utilizar a biblioteca de clientes de Python do Azure Machine Learning para aceder a conjuntos de dados com Python
 A pré-visualização da biblioteca de clientes Microsoft Azure Machine Learning Python pode permitir o acesso seguro aos seus conjuntos de dados de Aprendizagem de Máquinas Azure a partir de um ambiente python local e permite a criação e gestão de conjuntos de dados num espaço de trabalho.
@@ -364,6 +364,5 @@ Se os seus dados já estiverem serializados, utilize `update_from_raw_data` em v
 
 
 <!-- Module References -->
-[convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
+[convert-to-csv]: /azure/machine-learning/studio-module-reference/convert-to-csv
+[split]: /azure/machine-learning/studio-module-reference/split-data

@@ -1,6 +1,6 @@
 ---
-title: Otimizar transações para piscina SQL
-description: Saiba como otimizar o desempenho do seu código transacional na piscina SQL.
+title: Otimizar transações para piscinas SQL dedicadas
+description: Saiba como otimizar o desempenho do seu código transacional em pool SQL dedicado.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,22 +10,22 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 174ae84e66f10db4ad24ed561b228f0031492d97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a17e3c80f15bb1e4c5aacba4dc974e363eca285e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288652"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319857"
 ---
-# <a name="optimize-transactions-in-sql-pool"></a>Otimizar transações em pool SQL
+# <a name="optimize-transactions-with-dedicated-sql-pool-in-azure-synapse-analytics"></a>Otimizar transações com piscina SQL dedicada em Azure Synapse Analytics 
 
-Aprenda a otimizar o desempenho do seu código transacional na piscina SQL, minimizando o risco de retrocessos longos.
+Aprenda a otimizar o desempenho do seu código transacional em pool SQL dedicado, minimizando o risco para reversãos longas.
 
 ## <a name="transactions-and-logging"></a>Transações e registos
 
-As transações são um componente importante de um motor de base de dados relacional. O pool SQL utiliza transações durante a modificação de dados. Estas transações podem ser explícitas ou implícitas. As declarações de INSERÇÃO, ATUALIZAÇÃO e DELETE são exemplos de transações implícitas. As transações explícitas utilizam O BEGIN TRAN, COMMIT TRAN ou O TRAN DE REVERSÃO. As transações explícitas são normalmente utilizadas quando várias declarações de modificação precisam de ser ligadas numa única unidade atómica.
+As transações são um componente importante de um motor de base de dados relacional. O pool de SQL dedicado utiliza transações durante a modificação de dados. Estas transações podem ser explícitas ou implícitas. As declarações de INSERÇÃO, ATUALIZAÇÃO e DELETE são exemplos de transações implícitas. As transações explícitas utilizam O BEGIN TRAN, COMMIT TRAN ou O TRAN DE REVERSÃO. As transações explícitas são normalmente utilizadas quando várias declarações de modificação precisam de ser ligadas numa única unidade atómica.
 
-O pool SQL compromete alterações na base de dados utilizando registos de transações. Cada distribuição tem o seu próprio registo de transações. As gravações de registos de transações são automáticas. Não é necessária configuração. No entanto, embora este processo garanta a escrita, introduz uma sobrecarga no sistema. Pode minimizar este impacto escrevendo código transacionalmente eficiente. O código transacionalmente eficiente enquadra-se, em termos gerais, em duas categorias.
+O pool dedicado SQL compromete alterações na base de dados utilizando registos de transações. Cada distribuição tem o seu próprio registo de transações. As gravações de registos de transações são automáticas. Não é necessária configuração. No entanto, embora este processo garanta a escrita, introduz uma sobrecarga no sistema. Pode minimizar este impacto escrevendo código transacionalmente eficiente. O código transacionalmente eficiente enquadra-se, em termos gerais, em duas categorias.
 
 * Utilize construções mínimas de registo sempre que possível
 * Processar dados utilizando lotes de âmbito para evitar transações singulares de longo prazo
@@ -49,8 +49,8 @@ As seguintes operações são capazes de ser minimamente registadas:
 * CREATE INDEX
 * ALTERAR O ÍNDICE RECONSTRUIR
 * DROP INDEX
-* TABELA TRUNCADA
-* MESA DE LANÇAMENTO
+* TRUNCATE TABLE
+* DROP TABLE
 * ALTERAR PARTILHA DO INTERRUPTOR DE MESA
 
 <!--
@@ -78,7 +78,7 @@ CTAS e INSERT... SELECT são ambas operações de carga a granel. No entanto, am
 Vale a pena notar que quaisquer escritos para atualizar índices secundários ou não agrupados serão sempre operações totalmente registadas.
 
 > [!IMPORTANT]
-> A piscina SQL tem 60 distribuições. Portanto, assumindo que todas as linhas são distribuídas uniformemente e aterrando numa única divisória, o seu lote terá de conter 6.144.000 linhas ou maiores para ser minimamente registado ao escrever para um Índice de Colunas Agrupadas. Se a tabela for dividida e as linhas inseridas forem limites de partição de extensão, então você precisará de 6.144.000 linhas por limite de partição assumindo até mesmo a distribuição de dados. Cada divisória em cada distribuição deve exceder independentemente o limiar de 102.400 linhas para que o inserível seja minimamente registado na distribuição.
+> Piscina dedicada SQL tem 60 distribuições. Portanto, assumindo que todas as linhas são distribuídas uniformemente e aterrando numa única divisória, o seu lote terá de conter 6.144.000 linhas ou maiores para ser minimamente registado ao escrever para um Índice de Colunas Agrupadas. Se a tabela for dividida e as linhas inseridas forem limites de partição de extensão, então você precisará de 6.144.000 linhas por limite de partição assumindo até mesmo a distribuição de dados. Cada divisória em cada distribuição deve exceder independentemente o limiar de 102.400 linhas para que o inserível seja minimamente registado na distribuição.
 
 Carregar dados numa tabela não vazia com um índice agrupado pode muitas vezes conter uma mistura de linhas totalmente registadas e minimamente registadas. Um índice agrupado é uma árvore equilibrada (árvore b) de páginas. Se a página que está a ser escrita já contiver linhas de outra transação, então estas gravações serão totalmente registadas. No entanto, se a página estiver vazia, a escrita para essa página será minimamente registada.
 
@@ -177,7 +177,7 @@ DROP TABLE [dbo].[FactInternetSales_old]
 ```
 
 > [!NOTE]
-> Recriar grandes mesas pode beneficiar da utilização de funcionalidades de gestão da carga de trabalho da piscina SQL. Para obter mais informações, consulte [as classes de Recursos para a gestão da carga de trabalho.](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> Recriar grandes mesas pode beneficiar da utilização de funcionalidades dedicadas de gestão da carga de trabalho da piscina SQL. Para obter mais informações, consulte [as classes de Recursos para a gestão da carga de trabalho.](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ## <a name="optimize-with-partition-switching"></a>Otimizar com a comutação de partição
 
@@ -406,20 +406,20 @@ END
 
 ## <a name="pause-and-scaling-guidance"></a>Orientação de pausa e escala
 
-O Azure Synapse Analytics permite-lhe [fazer uma pausa, retomar e escalar](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) a sua piscina SQL a pedido. 
+O Azure Synapse Analytics permite-lhe [fazer uma pausa, retomar e escalar](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) a sua piscina SQL dedicada a pedido. 
 
-Quando você pausa ou escala o seu pool SQL, é importante entender que quaisquer transações a bordo são terminadas imediatamente; fazendo com que quaisquer transações abertas sejam revertidas. 
+Quando você pausa ou escala o seu pool DE SQL dedicado, é importante entender que quaisquer transações a bordo são terminadas imediatamente; fazendo com que quaisquer transações abertas sejam revertidas. 
 
-Se a sua carga de trabalho tivesse emitido uma longa e incompleta modificação de dados antes da pausa ou da operação de escala, então este trabalho terá de ser desfeito. Esta desfasamento pode ter impacto no tempo que leva para parar ou escalar a sua piscina SQL. 
+Se a sua carga de trabalho tivesse emitido uma longa e incompleta modificação de dados antes da pausa ou da operação de escala, então este trabalho terá de ser desfeito. Esta desfasamento pode ter impacto no tempo que leva para parar ou escalar a sua piscina DE SQL dedicada. 
 
 > [!IMPORTANT]
 > Ambas `UPDATE` e `DELETE` são operações totalmente registadas e, por isso, estas operações de desfazer/refazer podem demorar significativamente mais tempo do que operações minimamente registadas equivalentes.
 
-O melhor cenário é deixar as transações de modificação de dados de voo concluídas antes de fazer uma pausa ou escalar o pool SQL. No entanto, este cenário pode nem sempre ser prático. Para mitigar o risco de uma longa reversão, considere uma das seguintes opções:
+O melhor cenário é deixar as transações de modificação de dados de voo concluídas antes de fazer uma pausa ou escalar o seu pool de SQL dedicado. No entanto, este cenário pode nem sempre ser prático. Para mitigar o risco de uma longa reversão, considere uma das seguintes opções:
 
 * Reescrever operações de longo prazo utilizando [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 * Parta a operação em pedaços; operando num subconjunto das linhas
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte [as Transações no pool SQL](develop-transactions.md) para saber mais sobre os níveis de isolamento e os limites transacionais.  Para uma visão geral de outras Boas Práticas, consulte [as melhores práticas da piscina SQL.](best-practices-sql-pool.md)
+Consulte [transações em pool SQL dedicado](develop-transactions.md) para saber mais sobre os níveis de isolamento e limites transacionais.  Para uma visão geral de outras Boas Práticas, consulte [as melhores práticas da piscina SQL.](best-practices-sql-pool.md)

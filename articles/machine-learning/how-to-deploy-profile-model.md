@@ -1,7 +1,7 @@
 ---
 title: Memória do modelo de perfil e utilização do CPU
 titleSuffix: Azure Machine Learning
-description: Aprenda a perfilar a memória do seu modelo e o uso do CPU
+description: Aprenda a perfilar o seu modelo antes da implementação. O perfil determina a memória e o uso do CPU do seu modelo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 95f35c2734e0a8dbc39d409847976b8b31716f81
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: b9ae40b3d2673961f9b84ed702f18b25b79b6d0c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998766"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320403"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Perfilar o seu modelo para determinar a utilização de recursos
 
@@ -133,7 +133,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
+* [Resolver problemas de uma implementação com falhas](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)
 * [Atualizar serviços Web](how-to-deploy-update-web-service.md)

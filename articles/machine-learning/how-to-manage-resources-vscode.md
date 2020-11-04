@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 09/30/2020
-ms.openlocfilehash: 1120a3636b7ce24dde0d33c213f9063f910123c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e410cbc7813031929ea040b2cc4fb2967b99c1b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530634"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319355"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gerir os recursos de aprendizagem automática Azure com a extensão do código VS (pré-visualização)
 
@@ -56,8 +56,8 @@ Os métodos alternativos para criar um espaço de trabalho incluem:
 1. Expanda o nó de subscrição que contém o seu espaço de trabalho.
 1. Clique com o botão direito no espaço de trabalho que pretende remover.
 1. Selecione se deseja remover:
-    - *Apenas o espaço de trabalho*: Esta opção elimina **apenas** o recurso Azure do espaço de trabalho. O grupo de recursos, as contas de armazenamento e quaisquer outros recursos a que o espaço de trabalho foi anexado ainda estão em Azure.
-    - *Com recursos associados*: Esta opção elimina o espaço de trabalho **e** todos os recursos que lhe estão associados.
+    - *Apenas o espaço de trabalho* : Esta opção elimina **apenas** o recurso Azure do espaço de trabalho. O grupo de recursos, as contas de armazenamento e quaisquer outros recursos a que o espaço de trabalho foi anexado ainda estão em Azure.
+    - *Com recursos associados* : Esta opção elimina o espaço de trabalho **e** todos os recursos que lhe estão associados.
 
 ## <a name="datastores"></a>Arquivos de dados
 
@@ -96,8 +96,8 @@ Para mais informações, consulte [as lojas de dados.](concept-data.md#datastore
 
 A extensão suporta atualmente os seguintes tipos de conjunto de dados:
 
-- *Tabular*: Permite materializar dados num DataFrame (Pandas ou PySpark).
-- *Arquivo*: Um ficheiro ou recolha de ficheiros. Permite-lhe descarregar ou montar ficheiros no seu cálculo.
+- *Tabular* : Permite materializar dados num DataFrame (Pandas ou PySpark).
+- *Arquivo* : Um ficheiro ou recolha de ficheiros. Permite-lhe descarregar ou montar ficheiros no seu cálculo.
 
 Para mais informações, consulte [conjuntos de dados](concept-data.md#datasets)
 
@@ -159,11 +159,11 @@ Para mais informações, consulte [os ambientes.](concept-environments.md)
 1. No aviso:
     1. Forneça um nome para o seu ambiente
     1. Defina a configuração do seu ambiente:
-        - *Ambientes curados*: Ambientes pré-configurados em Azure Machine Learning. Pode personalizar ainda mais o ambiente modificando a `dependencies` propriedade no ficheiro JSON. Saiba mais sobre [ambientes curados.](resource-curated-environments.md)
-        - *Ficheiro de dependências conda*: Para ambientes Anaconda, o ficheiro que contém a definição de ambiente pode ser fornecido.
-        - *Ficheiro de requisitos do Pip*: Para ambientes de pip, o ficheiro que contém a definição de ambiente pode ser fornecido.
-        - *Ambiente Conda existente*: Esta opção procura os ambientes conda no seu PC local e tenta construir um ambiente a partir do ambiente selecionado.
-        - *Costume*: Defina os seus próprios canais e dependências
+        - *Ambientes curados* : Ambientes pré-configurados em Azure Machine Learning. Pode personalizar ainda mais o ambiente modificando a `dependencies` propriedade no ficheiro JSON. Saiba mais sobre [ambientes curados.](resource-curated-environments.md)
+        - *Ficheiro de dependências conda* : Para ambientes Anaconda, o ficheiro que contém a definição de ambiente pode ser fornecido.
+        - *Ficheiro de requisitos do Pip* : Para ambientes de pip, o ficheiro que contém a definição de ambiente pode ser fornecido.
+        - *Ambiente Conda existente* : Esta opção procura os ambientes conda no seu PC local e tenta construir um ambiente a partir do ambiente selecionado.
+        - *Costume* : Defina os seus próprios canais e dependências
     1. Um ficheiro de configuração abre no editor. Se estiver satisfeito com a sua configuração, **selecione Save and continue** ou abra a paleta de comando VS Code **(Ver > Paleta de Comando)** e **digite Azure ML: Save and Continue**.
 
 ### <a name="view-environment-configurations"></a>Ver configurações de ambiente
@@ -257,7 +257,7 @@ Para obter mais informações, consulte [as instâncias computacional](concept-c
     1. Forneça um nome para a sua instância de computação.
     1. Selecione um tamanho VM da lista.
     1. Escolha se deseja ativar o acesso ao SSH.
-        1. Se ativar o acesso ao SSH, também terá de fornecer a chave SSH pública ou o ficheiro que contém a chave. Para obter mais informações, consulte o [guia sobre a criação e utilização das teclas SSH no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
+        1. Se ativar o acesso ao SSH, também terá de fornecer a chave SSH pública ou o ficheiro que contém a chave. Para obter mais informações, consulte o [guia sobre a criação e utilização das teclas SSH no Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 ### <a name="stop-or-restart-compute-instance"></a>Parar ou reiniciar a instância de computação
 
@@ -293,7 +293,7 @@ Para obter mais informações, consulte [os alvos do cálculo.](concept-compute-
 1. Clique com o botão direito no nó **de clusters compute** e selecione **Create Compute**.
 1. No aviso:
     1. Escolha um tipo de cálculo
-    1. Selecionar o tamanho da VM. Saiba mais sobre [os tamanhos de VM.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)
+    1. Selecionar o tamanho da VM. Saiba mais sobre [os tamanhos de VM.](../virtual-machines/sizes.md)
     1. Forneça um nome para o seu cálculo.
 
 ### <a name="view-compute-configuration"></a>Ver configuração computacional
@@ -371,7 +371,7 @@ Para mais informações, consulte [os modelos](concept-azure-machine-learning-ar
 1. Expanda o nó **Modelos** dentro do seu espaço de trabalho.
 1. Clique com o botão direito no modelo que pretende descarregar e selecione **Download Model File**.
 
-### <a name="delete-a-model"></a>Excluir um modelo
+### <a name="delete-a-model"></a>Eliminar um modelo
 
 1. Expanda o nó de subscrição que contém o seu espaço de trabalho.
 1. Expanda o nó **Modelos** dentro do seu espaço de trabalho.

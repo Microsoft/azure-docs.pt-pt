@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f432b417140440584bf4dfd01ed45814a746953
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440359"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320921"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de dados suportadas na Máquina Virtual da Ciência de Dados
 
@@ -31,7 +31,7 @@ As seguintes ferramentas da plataforma de dados são suportadas no DSVM.
 | Edições DSVM suportadas      | Windows 2016: SQL Server 2017, Windows 2019: SQL Server 2019      |
 | Usos típicos      | <ul><li>Desenvolvimento rápido localmente com conjunto de dados mais pequeno</li><li>Executar in-database R</li></ul> |
 | Ligações a amostras      | <ul><li>Uma pequena amostra de um conjunto de dados da cidade de Nova Iorque é carregada na base de dados SQL:<br/>  `nyctaxi`</li><li>A amostra do Jupyter que mostra o Microsoft Machine Learning Server e a análise in-database pode ser encontrada em:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
-| Ferramentas relacionadas no DSVM       | <ul><li>O SQL Server Management Studio</li><li>Condutores ODBC/JDBC</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
+| Ferramentas relacionadas no DSVM       | <ul><li>SQL Server Management Studio</li><li>Condutores ODBC/JDBC</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
 
 > [!NOTE]
 > A SQL Server Developer Edition só pode ser utilizada para fins de desenvolvimento e teste. Precisa de uma licença ou de um dos VMs do SQL Server para executá-la em produção.
@@ -103,5 +103,4 @@ As bibliotecas para aceder aos dados do armazenamento Azure Blob ou do Azure Dat
 
 Para a instância Spark no DSVM para aceder aos dados armazenados no armazenamento blob ou no armazenamento do Lago de Dados Azure, deve criar e configurar o `core-site.xml` ficheiro com base no modelo encontrado no $SPARK_HOME/conf/core-site.xml.template. Você também deve ter as credenciais apropriadas para aceder ao armazenamento blob e ao armazenamento do Lago de Dados Azure. (Note que os ficheiros de modelo utilizam espaços reservados para armazenamento de Blob e configurações de armazenamento de lago de dados Azure.)
 
-Para obter informações mais detalhadas sobre a criação de credenciais de serviço de armazenamento de data lake [azure, consulte autenticação com Azure Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Depois de serem inseridas as credenciais para armazenamento Blob ou Azure Data Lake Storage no ficheiro core-site.xml, pode referenciar os dados armazenados nessas fontes através do prefixo URI de wasb:// ou adl://.
-
+Para obter informações mais detalhadas sobre a criação de credenciais de serviço de armazenamento de data lake [azure, consulte autenticação com Azure Data Lake Storage Gen1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Depois de serem inseridas as credenciais para armazenamento Blob ou Azure Data Lake Storage no ficheiro core-site.xml, pode referenciar os dados armazenados nessas fontes através do prefixo URI de wasb:// ou adl://.

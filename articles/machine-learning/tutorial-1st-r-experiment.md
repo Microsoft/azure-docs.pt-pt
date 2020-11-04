@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e94288b49cd57b59c126c95ca507477f1c56946
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913284"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321520"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Tutorial: Use R para criar um modelo de aprendizagem automática (pré-visualização)
 
@@ -74,7 +74,7 @@ Clone o https://github.com/Azure/azureml-sdk-for-r repositório GitHub para uma 
 
 1. Corre `git clone https://github.com/Azure/azureml-sdk-for-r` no terminal para clonar o repositório.
 
-1. Em RStudio, navegue para a pasta de *vinhetas* da pasta *clonada azureml-sdk-for-r.*  Sob *vinhetas,* selecione o modelo de *comboio e implantação.primeiro. Arquivo RMD* para encontrar vinheta usada neste tutorial. Os ficheiros adicionais utilizados para a vinheta estão localizados na sub-dobradeira *de primeiro modelo de comboio e implantação.* Uma vez aberta a vinheta, desave o diretório de trabalho para a localização do ficheiro através da **Sessão > Definir o Diretório de Trabalho > Para a Localização do Ficheiro Fonte** . 
+1. Em RStudio, navegue para a pasta de *vinhetas* da pasta *clonada azureml-sdk-for-r.*  Sob *vinhetas,* selecione o modelo de *comboio e implantação.primeiro. Arquivo RMD* para encontrar vinheta usada neste tutorial. Os ficheiros adicionais utilizados para a vinheta estão localizados na sub-dobradeira *de primeiro modelo de comboio e implantação.* Uma vez aberta a vinheta, desave o diretório de trabalho para a localização do ficheiro através da **Sessão > Definir o Diretório de Trabalho > Para a Localização do Ficheiro Fonte**. 
 
 > [!Important]
 > O resto deste artigo contém o mesmo conteúdo que se vê no *primeiro modelo de comboio e implantação. Arquivo RMD.* Se tiver experiência com o RMarkdown, sinta-se à vontade para utilizar o código a partir desse ficheiro.  Ou pode copiar/colar os cortes de código de lá, ou deste artigo para um script R ou para a linha de comando. 
@@ -188,7 +188,7 @@ Um roteiro de treino chamado `accidents.R` foi fornecido para si no *diretório 
 
 * O roteiro de formação requer um argumento `-d` para encontrar o diretório que contém os dados de treino. Quando definir e submeter o seu trabalho mais tarde, você aponta para a datastore para este argumento. A Azure ML montará a pasta de armazenamento no cluster remoto para o trabalho de treino.
 * O script de treino regista a precisão final como uma métrica ao registo de execução em Azure ML usando `log_metric_to_run()` . O Azure ML SDK fornece um conjunto de APIs de registo para registar várias métricas durante os treinos. Estas métricas são registadas e persistiu no registo de experiências. As métricas podem então ser acedidas a qualquer momento ou visualizadas na página de detalhes de execução em [estúdio](https://ml.azure.com). Consulte a [referência](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation) para o conjunto completo de métodos de registo `log_*()` .
-* O script de treino guarda o seu modelo num diretório chamado **outputs** . A `./outputs` pasta recebe tratamento especial por Azure ML. Durante o treino, os ficheiros escritos `./outputs` são automaticamente enviados para o seu registo de execução pela Azure ML e persistidos como artefactos. Ao guardar o modelo treinado `./outputs` para, poderá aceder e recuperar o seu ficheiro de modelo mesmo depois de terminado o percurso e já não tem acesso ao seu ambiente de treino remoto.
+* O script de treino guarda o seu modelo num diretório chamado **outputs**. A `./outputs` pasta recebe tratamento especial por Azure ML. Durante o treino, os ficheiros escritos `./outputs` são automaticamente enviados para o seu registo de execução pela Azure ML e persistidos como artefactos. Ao guardar o modelo treinado `./outputs` para, poderá aceder e recuperar o seu ficheiro de modelo mesmo depois de terminado o percurso e já não tem acesso ao seu ambiente de treino remoto.
 
 ### <a name="create-an-estimator"></a>Criar simulador
 
@@ -289,7 +289,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>Implementar como um serviço web
 
-Com o seu modelo, pode prever o perigo de morte por uma colisão. Utilize a Azure ML para implementar o seu modelo como um serviço de previsão. Neste tutorial, irá implementar o serviço web em [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI).
+Com o seu modelo, pode prever o perigo de morte por uma colisão. Utilize a Azure ML para implementar o seu modelo como um serviço de previsão. Neste tutorial, irá implementar o serviço web em [Azure Container Instances](../container-instances/index.yml) (ACI).
 
 ### <a name="register-the-model"></a>Registar o modelo
 
@@ -329,7 +329,7 @@ Neste tutorial, irá utilizar o seu serviço para o ACI. Este código prevê um 
 aci_config <- aci_webservice_deployment_config(cpu_cores = 1, memory_gb = 0.5)
 ```
 
-Agora implementa o seu modelo como um serviço web. A implantação **pode demorar vários minutos** . 
+Agora implementa o seu modelo como um serviço web. A implantação **pode demorar vários minutos**. 
 
 ```R
 aci_service <- deploy_model(ws, 
@@ -369,7 +369,7 @@ Também pode obter o ponto final HTTP do serviço web, que aceita chamadas de cl
 aci_service$scoring_uri
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Apague os recursos uma vez que já não precise deles. Não elimine nenhum recurso que pretenda utilizar. 
 
@@ -392,7 +392,7 @@ delete_compute(compute)
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Delete** .
+Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

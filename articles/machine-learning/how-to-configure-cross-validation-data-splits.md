@@ -11,20 +11,20 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 3e2711243d7c093d3ab8aa5f0e7ebac0a5ec95f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed11a1b772acb31268f3d0a61fba10301ad62e18
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886194"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320468"
 ---
-# <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configure as divisões de dados e a validação cruzada na aprendizagem automática de máquinas
+# <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurar divisões de dados e validação cruzada no machine learning automatizado
 
 Neste artigo, aprende-se as diferentes opções para configurar divisões de dados de treino/validação e validação cruzada para a sua aprendizagem automática de máquinas, AutoML, experiências.
 
 No Azure Machine Learning, quando utiliza o AutoML para construir vários modelos ML, cada corrida infantil precisa de validar o modelo relacionado calculando as métricas de qualidade para esse modelo, como precisão ou AUC ponderado. Estas métricas são calculadas comparando as previsões feitas com cada modelo com rótulos reais de observações anteriores nos dados de validação. 
 
-As experiências autoML realizam a validação do modelo automaticamente. As seguintes secções descrevem como pode personalizar ainda mais as definições de validação com o [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
+As experiências autoML realizam a validação do modelo automaticamente. As seguintes secções descrevem como pode personalizar ainda mais as definições de validação com o [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
 Para obter uma experiência de baixo código ou sem código, consulte [Criar as suas experiências automatizadas de aprendizagem automática de máquinas no estúdio Azure Machine Learning](how-to-use-automated-ml-for-ml-models.md). 
 
@@ -47,7 +47,7 @@ Para este artigo que precisa,
 
 ## <a name="default--data-splits-and-cross-validation"></a>Os dados predefinidos dividem-se e validam-se cruzadas
 
-Utilize o objeto [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) para definir as definições de experiência e treino. No seguinte corte de código, note que apenas os parâmetros necessários são definidos, que são os parâmetros para `n_cross_validation` ou `validation_ data` **não** estão incluídos.
+Utilize o objeto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) para definir as definições de experiência e treino. No seguinte corte de código, note que apenas os parâmetros necessários são definidos, que são os parâmetros para `n_cross_validation` ou `validation_ data` **não** estão incluídos.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"

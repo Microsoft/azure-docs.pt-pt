@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d3f6a48815519499ddc39dcc12cafe0fe95e70e0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440002"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320228"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plataformas e ferramentas para projetos de ciência de dados
 
@@ -60,7 +60,7 @@ O Apache Spark é uma arquitetura de processamento paralelo open source que supo
 
 Quando cria um cluster do Spark no HDInsight, está a criar recursos de computação do Azure com o Spark instalado e configurado. Leva cerca de 10 minutos para criar um cluster Spark em HDInsight. Guarde os dados a serem processados no armazenamento da Azure Blob. Para obter informações sobre a utilização do Azure Blob Storage com um cluster, consulte [use o armazenamento Azure Blob compatível com HDFS com Hadoop em HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-A equipa da TDSP da Microsoft publicou duas pesquisas de ponta a ponta sobre como usar clusters de faíscas Azure HDInsight para construir soluções de ciência de dados, uma usando Python e a outra Scala. Para obter mais informações sobre Azure HDInsight **Spark Clusters**, consulte [visão geral: Apache Spark em HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a construir uma solução de ciência de dados usando **Python** em um Azure HDInsight Spark Cluster, consulte [a visão geral da Ciência dos Dados usando Spark on Azure HDInsight](spark-overview.md). Para aprender a construir uma solução de ciência de dados usando **Scala** num Cluster de Faíscas Azure HDInsight, consulte [Data Science usando Scala e Spark on Azure](scala-walkthrough.md). 
+A equipa da TDSP da Microsoft publicou duas pesquisas de ponta a ponta sobre como usar clusters de faíscas Azure HDInsight para construir soluções de ciência de dados, uma usando Python e a outra Scala. Para obter mais informações sobre Azure HDInsight **Spark Clusters** , consulte [visão geral: Apache Spark em HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a construir uma solução de ciência de dados usando **Python** em um Azure HDInsight Spark Cluster, consulte [a visão geral da Ciência dos Dados usando Spark on Azure HDInsight](spark-overview.md). Para aprender a construir uma solução de ciência de dados usando **Scala** num Cluster de Faíscas Azure HDInsight, consulte [Data Science usando Scala e Spark on Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
@@ -92,16 +92,16 @@ Para obter mais informações sobre clusters de colmeia Azure HDInsight, consult
 
 O Azure File Storage é um serviço que oferece partilhas de ficheiros na nuvem utilizando o protocolo padrão do Bloco de Mensagens do Servidor (SMB). O SMB 2.1 e o SMB 3.0 são suportados. Com o Armazenamento de ficheiros do Azure, pode migrar aplicações antigas que se baseiam em partilhas de ficheiros para o Azure rapidamente e sem reescritas dispendiosas. As aplicações em execução em máquinas virtuais ou serviços em nuvem do Azure ou em clientes no local podem montar uma partilha de ficheiros na nuvem, tal como uma aplicação de ambiente de trabalho monta uma partilha SMB típica. Em seguida, quaisquer componentes da aplicação podem montar e aceder à partilha do Armazenamento de ficheiros em simultâneo.
 
-Especialmente útil para projetos de ciência de dados é a capacidade de criar uma loja de ficheiros Azure como o local para partilhar dados do projeto com os membros da sua equipa de projeto. Cada um deles tem então acesso à mesma cópia dos dados no armazenamento de ficheiros Azure. Também podem utilizar este armazenamento de ficheiros para partilhar conjuntos de funcionalidades gerados durante a execução do projeto. Se o projeto for um compromisso com o cliente, os seus clientes podem criar um armazenamento de ficheiros Azure sob a sua própria assinatura Azure para partilhar os dados e funcionalidades do projeto consigo. Desta forma, o cliente tem o controlo total dos ativos de dados do projeto. Para obter mais informações sobre o armazenamento de ficheiros Azure, consulte [Começar com o armazenamento de ficheiros Azure no Windows](https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-files) e como utilizar o Armazenamento de [Ficheiros Azure com o Linux](../../storage/files/storage-how-to-use-files-linux.md).
+Especialmente útil para projetos de ciência de dados é a capacidade de criar uma loja de ficheiros Azure como o local para partilhar dados do projeto com os membros da sua equipa de projeto. Cada um deles tem então acesso à mesma cópia dos dados no armazenamento de ficheiros Azure. Também podem utilizar este armazenamento de ficheiros para partilhar conjuntos de funcionalidades gerados durante a execução do projeto. Se o projeto for um compromisso com o cliente, os seus clientes podem criar um armazenamento de ficheiros Azure sob a sua própria assinatura Azure para partilhar os dados e funcionalidades do projeto consigo. Desta forma, o cliente tem o controlo total dos ativos de dados do projeto. Para obter mais informações sobre o armazenamento de ficheiros Azure, consulte [Começar com o armazenamento de ficheiros Azure no Windows](../../storage/files/storage-dotnet-how-to-use-files.md) e como utilizar o Armazenamento de [Ficheiros Azure com o Linux](../../storage/files/storage-how-to-use-files-linux.md).
 
 
 ## <a name="sql-server-2019-r-and-python-services"></a>SqL Server 2019 R e Python Services
 
 Os serviços R (Base de dados) fornecem uma plataforma para desenvolver e implementar aplicações inteligentes que podem descobrir novos conhecimentos. Você pode usar a linguagem R rica e poderosa, incluindo os muitos pacotes fornecidos pela comunidade R, para criar modelos e gerar previsões a partir dos seus dados do SQL Server. Como os Serviços R (Base de dados) integram o idioma R com o SQL Server, as análises são mantidas perto dos dados, o que elimina os custos e riscos de segurança associados aos dados em movimento.
 
-Os serviços R (base de dados in- database) suportam a linguagem R de código aberto com um conjunto abrangente de ferramentas e tecnologias do SQL Server. Oferecem desempenho superior, segurança, fiabilidade e gestão. Pode implementar soluções R utilizando ferramentas convenientes e familiares. As suas aplicações de produção podem ligar para o tempo de execução R e recuperar previsões e visuais utilizando o Transact-SQL. Também utiliza as bibliotecas ScaleR para melhorar a escala e o desempenho das suas soluções R. Para mais informações, consulte [os Serviços R do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/r/sql-server-r-services).
+Os serviços R (base de dados in- database) suportam a linguagem R de código aberto com um conjunto abrangente de ferramentas e tecnologias do SQL Server. Oferecem desempenho superior, segurança, fiabilidade e gestão. Pode implementar soluções R utilizando ferramentas convenientes e familiares. As suas aplicações de produção podem ligar para o tempo de execução R e recuperar previsões e visuais utilizando o Transact-SQL. Também utiliza as bibliotecas ScaleR para melhorar a escala e o desempenho das suas soluções R. Para mais informações, consulte [os Serviços R do SQL Server](/sql/advanced-analytics/r/sql-server-r-services).
 
-A equipa da TDSP da Microsoft publicou duas pesquisas de ponta a ponta que mostram como construir soluções de ciência de dados nos Serviços R do SQL Server 2016: uma para programadores R e outra para desenvolvedores DE SQL. Para **programadores R**, consulte [data science end-to-end walkthrough](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para **desenvolvedores SQL**, consulte [In-Database Advanced Analytics for SQL Developers (Tutorial)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
+A equipa da TDSP da Microsoft publicou duas pesquisas de ponta a ponta que mostram como construir soluções de ciência de dados nos Serviços R do SQL Server 2016: uma para programadores R e outra para desenvolvedores DE SQL. Para **programadores R** , consulte [data science end-to-end walkthrough](/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). Para **desenvolvedores SQL** , consulte [In-Database Advanced Analytics for SQL Developers (Tutorial)](/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
 ## <a name="appendix-tools-to-set-up-data-science-projects"></a><a name="appendix"></a>Apêndice: Ferramentas para criar projetos de ciência de dados
@@ -142,7 +142,7 @@ Se estiver a utilizar máquinas Linux (CentOS) para executar os comandos git, te
     
    ![Clique no seu nome e, em seguida, clique em segurança](./media/platforms-and-tools/resources-2-user-setting.png)
 
-1. Clique em **teclas públicas SSH**e clique **em +Adicionar**. 
+1. Clique em **teclas públicas SSH** e clique **em +Adicionar**. 
 
    ![Clique em teclas públicas SSH e, em seguida, clique em +Adicionar](./media/platforms-and-tools/resources-3-add-ssh.png)
 
@@ -153,4 +153,4 @@ Se estiver a utilizar máquinas Linux (CentOS) para executar os comandos git, te
 
 São também fornecidas caminhadas completas de ponta a ponta que demonstram todos os passos no processo para **cenários específicos.** Estão listados e ligados com descrições de miniaturas no tópico [Exemplo.](walkthroughs.md) Ilustram como combinar ferramentas e serviços de nuvem, no local, num fluxo de trabalho ou oleoduto para criar uma aplicação inteligente. 
 
-Por exemplo, que mostram como executar passos no Processo de Ciência de Dados de Equipa utilizando o Azure Machine Learning Studio (clássico), consulte o caminho de aprendizagem [with Azure ML.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)
+Por exemplo, que mostram como executar passos no Processo de Ciência de Dados de Equipa utilizando o Azure Machine Learning Studio (clássico), consulte o caminho de aprendizagem [with Azure ML.](./index.yml)

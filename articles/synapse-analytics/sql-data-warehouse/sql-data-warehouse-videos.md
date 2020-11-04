@@ -11,18 +11,18 @@ ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 0515827ab2d93c76ea91e95c2d53a44273b5633b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b0b3a924008d4180c045455aecda8ec109845939
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213793"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320998"
 ---
-# <a name="azure-synapse-analytics---sql-pool-videos"></a>Azure Synapse Analytics - SQL pool Videos
+# <a name="azure-synapse-analytics---dedicated-sql-pool-videos"></a>Azure Synapse Analytics - vídeos dedicados à piscina SQL
 
-Veja os mais recentes vídeos da piscina Azure Synapse SQL para saber mais sobre novas capacidades e melhorias de desempenho. 
+Assista aos mais recentes vídeos dedicados da piscina SQL para conhecer novas capacidades e melhorias de desempenho. 
 
-Para começar, selecione o vídeo geral abaixo para saber mais sobre as novas atualizações para a piscina SQL Azure Synapse. Além disso, saiba como os padrões modernos de armazém de dados podem ser usados para enfrentar cenários do mundo real, como o cibercrime.
+Para começar, selecione o vídeo geral abaixo para saber mais sobre as novas atualizações para a piscina de SQL dedicada. Além disso, saiba como os padrões modernos de armazém de dados podem ser usados para enfrentar cenários do mundo real, como o cibercrime.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">

@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2da8bd0b36b553a4b5f85b6f79987ab1a7b8d5a7
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286565"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321713"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de lançamento - Azure Arc habilitado serviços de dados (Pré-visualização)
 
@@ -28,7 +28,7 @@ Número da versão Azure Data CLI `azdata` ( 20.2.3. Faça o download em [https:
 
 Esta versão introduz as seguintes alterações de rutura: 
 
-* Os ficheiros de definição de recursos personalizados PostgreSQL (CRD) substituem o termo `shards` são renomeados para `workers` . Este termo corresponde `workers` ao nome do parâmetro da linha de comando.
+* Na definição de recurso personalizado PostgreSQL (CRD), o termo `shards` é renomeado para `workers` . Este termo corresponde `workers` ao nome do parâmetro da linha de comando.
 
 * `azdata arc postgres server delete` solicita a confirmação antes de apagar uma instância postgres.  Use `--force` para saltar o pedido.
 
@@ -50,15 +50,15 @@ Esta versão introduz as seguintes alterações de rutura:
 
    * Se nenhum dado tiver sido carregado para Azure, um pedido para tentar novamente.
 
-* `azdata arc dc debug copy-logs` agora também lê a partir de `/var/opt/controller/log` pasta e recolhe registos postgres.
+* `azdata arc dc debug copy-logs` agora também lê a partir de `/var/opt/controller/log` pasta e recolhe registos de motores PostgreSQL no Linux.
 
-*   Apresente um indicador de funcionamento durante as pós-saídas criando e restaurando a cópia de segurança.
+*   Apresente um indicador de trabalho durante a criação e restauro da cópia de segurança com a Hiperescala PostgreSQL.
 
 * `azdata arc postrgres backup list` agora inclui informações sobre o tamanho da cópia de segurança.
 
 * A propriedade do nome de administração sql Managed Instance foi adicionada à coluna direita da lâmina de visão geral no portal Azure.
 
-* O Azure Data Studio suporta o número de nós de trabalho, vCore e definições de memória para um grupo de servidor. 
+* O Azure Data Studio suporta o número de nós de trabalho, vCore e definições de memória para a Escala de Hiperescala PostgreSQL. 
 
 * A pré-visualização suporta o backup/restauro para as versões 11 e 12 do Postgres.
 
@@ -80,9 +80,7 @@ Para obter [instruções, o que são os serviços de dados habilitados a Azure A
 - Por enquanto, se estiver a utilizar o NFS, tem de definir `allowRunAsRoot` no seu ficheiro de perfil de `true` implementação antes de criar o controlador de dados Azure Arc.
 - Apenas a autenticação de login SQL e PostgreSQL.  Sem suporte para Azure Ative Directory ou Ative Directory.
 - A criação de um controlador de dados no OpenShift requer restrições de segurança descontraídas.  Para obter mais detalhes, veja a documentação.
-- A redução do número de _nós_ de trabalhadores de hiperescala PostgresSQL não é suportada.
 - Se estiver a utilizar o Motor de Serviço Azure Kubernetes (Motor AKS) no Azure Stack Hub com o controlador de dados Azure Arc e as instâncias de base de dados, o upgrade para uma versão mais recente de Kubernetes não é suportado. Desinstale o controlador de dados do Azure Arc e todas as instâncias da base de dados antes de atualizar o cluster Kubernetes.
-- A pré-visualização não suporta backup/restauro para o motor da versão 11 do Postgres. (Resolvido em outubro de 2020) Só suporta backup/restauro para a versão 12 do Postgres.
 - Azure Kubernetes Service (AKS), clusters que abrangem [várias zonas de disponibilidade](../../aks/availability-zones.md) não são atualmente suportados para serviços de dados habilitados a Azure Arc. Para evitar este problema, quando criar o cluster AKS no portal Azure, se selecionar uma região onde as zonas estão disponíveis, limpe todas as zonas do controlo de seleção. Veja a imagem seguinte:
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Limpe as caixas de verificação para cada zona especificar nenhuma.":::
@@ -90,10 +88,11 @@ Para obter [instruções, o que são os serviços de dados habilitados a Azure A
 
 ### <a name="known-issues-for-azure-arc-enabled-postgresql-hyperscale"></a>Problemas conhecidos para Azure Arc Enabled PostgreSQL Hyperscale   
 
+- A pré-visualização não suporta a cópia de segurança/restauro do motor da versão 11 do PostgreSQL. Só suporta backup/restauro para a versão 12 do PostgreSQL.
+- `azdata arc dc debug copy-logs` Ndoes não recolhem registos de motores PostgreSQL no Windows.
 - Recriar um grupo de servidor com o nome de um grupo de servidor que foi eliminado pode falhar ou pendurar. 
    - **Solução alternativa** Não reutilizar o mesmo nome quando recriar um grupo de servidor ou esperar pelo balanceador de carga/serviço externo do grupo de servidores previamente eliminado. Assumindo que o nome do grupo de servidor que apagou era `postgres01` e que estava hospedado num espaço de nome , antes de recriar um grupo de servidor com o `arc` mesmo nome, espere até que não `postgres01-external-svc` apareça na saída do comando kubectl `kubectl get svc -n arc` .
- 
-- Carregar a página de visão geral e a página de configuração do Computação + Armazenamento no Azure Data Studio é lento. 
+ - Carregar a página de visão geral e a página de configuração do Computação + Armazenamento no Azure Data Studio é lento. 
 
 
 

@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 56f266eaba76bb990a4d2bc3d902f4c5911d9c47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ae4549fe343422bbf60275a97768ca407f2dc7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026190"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321372"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Utilizar o Scala e o Spark para Ciência de Dados no Azure
-Este artigo mostra-lhe como usar o Scala para tarefas de machine learning supervisionadas com os pacotes MLlib e Spark ML de spark num cluster Azure HDInsight Spark. Acompanha-o através das tarefas que constituem o [processo data Science](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão e exploração de dados, visualização, engenharia de recursos, modelação e consumo de modelos. Os modelos do artigo incluem regressão logística e linear, florestas aleatórias e árvores impulsionadas por gradientes (GBTs), além de duas tarefas comuns de aprendizagem automática supervisionada:
+Este artigo mostra-lhe como usar o Scala para tarefas de machine learning supervisionadas com os pacotes MLlib e Spark ML de spark num cluster Azure HDInsight Spark. Acompanha-o através das tarefas que constituem o [processo data Science](./index.yml): ingestão e exploração de dados, visualização, engenharia de recursos, modelação e consumo de modelos. Os modelos do artigo incluem regressão logística e linear, florestas aleatórias e árvores impulsionadas por gradientes (GBTs), além de duas tarefas comuns de aprendizagem automática supervisionada:
 
 * Problema de regressão: Previsão do valor da gorjeta ($) para uma viagem de táxi
 * Classificação binária: Previsão de ponta ou sem ponta (1/0) para uma viagem de táxi
@@ -52,7 +52,7 @@ Os passos de configuração e código deste artigo são para Azure HDInsight 3.4
 Para obter uma descrição dos dados da viagem de táxi de NYC e instruções sobre como executar código a partir de um caderno Jupyter no cluster Spark, consulte as secções relevantes na [Visão Geral da Ciência dos Dados utilizando a Spark on Azure HDInsight](spark-overview.md).  
 
 ## <a name="execute-scala-code-from-a-jupyter-notebook-on-the-spark-cluster"></a>Execute o código Scala a partir de um caderno Jupyter no cluster Spark
-Pode lançar um caderno Jupyter a partir do portal Azure. Encontre o cluster Spark no seu painel de instrumentos e, em seguida, clique nele para introduzir a página de gestão para o seu cluster. Em seguida, clique em **Cluster Dashboards**e, em seguida, clique em **Jupyter Notebook** para abrir o caderno associado ao cluster Spark.
+Pode lançar um caderno Jupyter a partir do portal Azure. Encontre o cluster Spark no seu painel de instrumentos e, em seguida, clique nele para introduzir a página de gestão para o seu cluster. Em seguida, clique em **Cluster Dashboards** e, em seguida, clique em **Jupyter Notebook** para abrir o caderno associado ao cluster Spark.
 
 ![Painel de painel de cluster e cadernos Jupyter](./media/scala-walkthrough/spark-jupyter-on-portal.png)
 
@@ -257,9 +257,9 @@ sqlResultsDF.show(3)
 
 | fare_amount | passenger_count | tip_amount | gorjeta |
 | --- | --- | --- | --- |
-|        13.5 |1.0 |2.9 |1.0 |
-|        16.0 |2.0 |3.4 |1.0 |
-|        10,5 |2.0 |1.0 |1.0 |
+|        13.5 |1,0 |2.9 |1,0 |
+|        16.0 |2,0 |3.4 |1,0 |
+|        10,5 |2,0 |1,0 |1,0 |
 
 ## <a name="data-exploration-and-visualization"></a>Exploração e visualização de dados
 Depois de trazer os dados para a Spark, o próximo passo no processo de Data Science é obter uma compreensão mais profunda dos dados através da exploração e visualização. Nesta secção, você examina os dados do táxi usando consultas SQL. Em seguida, importe os resultados em um quadro de dados para traçar as variáveis-alvo e as funcionalidades prospetivas para inspeção visual usando a funcionalidade de visualização automática Jupyter.
@@ -353,7 +353,7 @@ Para funções de modelação baseadas em árvores de Spark ML e MLlib, você te
 1. Crie uma nova **funcionalidade, vinculando** horas em baldes de tempo de tráfego.
 2. Aplicar **indexação e codificação de um quente** a características categóricas.
 3. **Recolher e dividir os dados definidos** em frações de treino e teste.
-4. **Especifique a variável de formação e as características**, e, em seguida, crie treino codificado indexado ou de uma só vez e teste de entrada de pontos de distribuição resilientes (RDDs) ou quadros de dados.
+4. **Especifique a variável de formação e as características** , e, em seguida, crie treino codificado indexado ou de uma só vez e teste de entrada de pontos de distribuição resilientes (RDDs) ou quadros de dados.
 5. **Categorize e vetorize** automaticamente funcionalidades e metas para usar como entradas para modelos de machine learning.
 
 ### <a name="create-a-new-feature-by-binning-hours-into-traffic-time-buckets"></a>Crie uma nova funcionalidade ao ligar horas aos baldes de tempo de tráfego
@@ -922,7 +922,7 @@ Nesta secção, utiliza-se utilitários de aprendizagem automática que os desen
 * Otimize o modelo utilizando a validação cruzada e a varredura de hiper-parâmetros utilizando a função CrossValidator da Spark ML (classificação binária)
 * Otimize o modelo utilizando o código de validação cruzada personalizada e de varredura de parâmetros para utilizar qualquer função de aprendizagem automática e conjunto de parâmetros (regressão linear)
 
-**A validação cruzada** é uma técnica que avalia o quão bem um modelo treinado num conhecido conjunto de dados irá generalizar para prever as características dos conjuntos de dados em que não foi treinado. A ideia geral por trás desta técnica é que um modelo é treinado num conjunto de dados de dados conhecidos, e então a precisão das suas previsões é testada contra um conjunto de dados independente. Uma implementação comum é dividir *k*um conjunto de dados em k-folds, e depois treinar o modelo de uma forma redonda em todas as dobras.
+**A validação cruzada** é uma técnica que avalia o quão bem um modelo treinado num conhecido conjunto de dados irá generalizar para prever as características dos conjuntos de dados em que não foi treinado. A ideia geral por trás desta técnica é que um modelo é treinado num conjunto de dados de dados conhecidos, e então a precisão das suas previsões é testada contra um conjunto de dados independente. Uma implementação comum é dividir *k* um conjunto de dados em k-folds, e depois treinar o modelo de uma forma redonda em todas as dobras.
 
 **A otimização de hiper-parâmetros** é o problema de escolher um conjunto de hiper-parâmetros para um algoritmo de aprendizagem, geralmente com o objetivo de otimizar uma medida do desempenho do algoritmo num conjunto de dados independente. Um hiper-parâmetro é um valor que deve especificar fora do procedimento de treino do modelo. As suposições sobre os valores dos hiper-parâmetros podem afetar a flexibilidade e a precisão do modelo. As árvores de decisão têm hipermetrões, por exemplo, como a profundidade desejada e o número de folhas na árvore. Você deve definir um termo de penalização de classificação errada para uma máquina vetorial de suporte (SVM).
 
@@ -1135,9 +1135,8 @@ val test_rsqr = new RegressionMetrics(labelAndPreds).r2
 Hora de executar a cela: 61 segundos.
 
 ## <a name="consume-spark-built-machine-learning-models-automatically-with-scala"></a>Consumir modelos de aprendizagem automática construídos por faíscas automaticamente com o Scala
-Para uma visão geral dos tópicos que o percorrem através das tarefas que compõem o processo de Ciência de Dados em Azure, consulte [o Processo de Ciência de Dados da Equipa.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)
+Para uma visão geral dos tópicos que o percorrem através das tarefas que compõem o processo de Ciência de Dados em Azure, consulte [o Processo de Ciência de Dados da Equipa.](./index.yml)
 
 [O Team Data Science Process walkthroughs](walkthroughs.md) descreve outras caminhadas de ponta a ponta que demonstram os passos no Processo de Ciência de Dados da Equipa para cenários específicos. As caminhadas também ilustram como combinar ferramentas e serviços de nuvem e no local num fluxo de trabalho ou oleoduto para criar uma aplicação inteligente.
 
 [Os modelos de machine learning construídos pela Score Spark mostram-lhe](spark-model-consumption.md) como usar o código Scala para carregar e marcar automaticamente novos conjuntos de dados com modelos de machine learning construídos em Spark e guardados no armazenamento Azure Blob. Pode seguir as instruções aí fornecidas e simplesmente substituir o código Python por código Scala neste artigo para consumo automatizado.
-

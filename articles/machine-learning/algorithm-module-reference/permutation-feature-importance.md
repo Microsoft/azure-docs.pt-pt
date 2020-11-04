@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bddd9a6825899f646a86ae274c539b54156667c5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905269"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319398"
 ---
 # <a name="permutation-feature-importance"></a>Importância da funcionalidade de permutação
 
@@ -24,7 +24,7 @@ Neste módulo, os valores de características são baralhados aleatoriamente, um
 
 As pontuações que o módulo devolve representam a *mudança* no desempenho de um modelo treinado, após permutação. Características importantes são geralmente mais sensíveis ao processo de baralhar, por isso resultarão em pontuações de maior importância. 
 
-Este artigo fornece uma visão geral da característica de permutação, da sua base teórica, e das suas aplicações em machine learning: [Permutaation Feature Import](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+Este artigo fornece uma visão geral da característica de permutação, da sua base teórica, e das suas aplicações em machine learning: [Permutaation Feature Import](/archive/blogs/machinelearning/permutation-feature-importance).  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>Como usar a importância da característica de permutação
 
@@ -69,4 +69,4 @@ A razão para a diferença é que a Importância da Característica de Permutaç
   
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

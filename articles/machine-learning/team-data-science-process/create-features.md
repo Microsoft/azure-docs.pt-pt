@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250662"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322024"
 ---
 # <a name="feature-engineering-in-data-science"></a>Engenharia de recursos em ciência de dados
 
 Neste artigo, aprende-se sobre engenharia de recursos e o seu papel na melhoria dos dados na aprendizagem automática. Aprenda com exemplos ilustrativos retirados de experiências [do Azure Machine Learning Studio (clássico).](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio) 
 
-* **Engenharia de recursos**: O processo de criação de novas funcionalidades a partir de dados brutos para aumentar o poder preditivo do algoritmo de aprendizagem. As funcionalidades concebidas devem capturar informações adicionais que não sejam facilmente visíveis no conjunto de funcionalidades originais.
-* **Seleção de recursos**: O processo de seleção do subconjunto chave das funcionalidades para reduzir a dimensionalidade do problema de treino.
+* **Engenharia de recursos** : O processo de criação de novas funcionalidades a partir de dados brutos para aumentar o poder preditivo do algoritmo de aprendizagem. As funcionalidades concebidas devem capturar informações adicionais que não sejam facilmente visíveis no conjunto de funcionalidades originais.
+* **Seleção de recursos** : O processo de seleção do subconjunto chave das funcionalidades para reduzir a dimensionalidade do problema de treino.
 
 **Normalmente, a engenharia de recursos** é aplicada primeiro para gerar funcionalidades adicionais, e então a **seleção de recursos** é feita para eliminar características irrelevantes, redundantes ou altamente correlacionadas.
 
@@ -60,13 +60,13 @@ Além do conjunto de funcionalidades A, que já existe nos dados brutos originai
 
 ### <a name="feature-engineering-using-studio-classic"></a>Engenharia de recursos usando Studio (clássico)
 
-Na experiência Studio (clássica), estes quatro conjuntos de dados de treino são formados através de quatro ramos do conjunto de dados de entrada pré-processado. Com exceção do ramo mais à esquerda, cada um destes ramos contém um módulo [executivo de script r,](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) no qual as características derivadas (conjunto de funcionalidades B, C e D) são construídas e anexadas ao conjunto de dados importado.
+Na experiência Studio (clássica), estes quatro conjuntos de dados de treino são formados através de quatro ramos do conjunto de dados de entrada pré-processado. Com exceção do ramo mais à esquerda, cada um destes ramos contém um módulo [executivo de script r,](/azure/machine-learning/studio-module-reference/execute-r-script) no qual as características derivadas (conjunto de funcionalidades B, C e D) são construídas e anexadas ao conjunto de dados importado.
 
 A figura a seguir demonstra o script R utilizado para criar o conjunto de funcionalidades B no segundo ramo esquerdo.
 
 ![criar funcionalidades](./media/create-features/addFeature-Rscripts.png)
 
-### <a name="results"></a>Results
+### <a name="results"></a>Resultados
 
 Uma comparação dos resultados de desempenho dos quatro modelos é resumida no quadro seguinte: 
 
@@ -80,9 +80,9 @@ A engenharia de recursos é amplamente aplicada em tarefas relacionadas com a mi
 
 ### <a name="feature-hashing"></a>Hashing de recurso
 
-Para realizar esta tarefa, uma técnica chamada [hashing de recurso](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) é aplicada para transformar eficientemente funcionalidades de texto arbitrárias em índices. Em vez de associar cada recurso de texto (palavras/frases) a um determinado índice, este método aplica uma função de haxixe às características e utiliza os seus valores de haxixe como índices diretamente.
+Para realizar esta tarefa, uma técnica chamada [hashing de recurso](/azure/machine-learning/studio-module-reference/feature-hashing) é aplicada para transformar eficientemente funcionalidades de texto arbitrárias em índices. Em vez de associar cada recurso de texto (palavras/frases) a um determinado índice, este método aplica uma função de haxixe às características e utiliza os seus valores de haxixe como índices diretamente.
 
-No Studio (clássico), existe um módulo [de Hashing de Recurso](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) que cria funcionalidades de palavras/frases convenientemente. A figura que se segue mostra um exemplo de utilização deste módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro que varia de 1 a 5 e o conteúdo de revisão real. O objetivo deste módulo é recuperar um conjunto de novas funcionalidades que mostrem a frequência de ocorrência das palavras(s) correspondentes dentro da revisão de livros em particular. Para utilizar este módulo, complete os seguintes passos:
+No Studio (clássico), existe um módulo [de Hashing de Recurso](/azure/machine-learning/studio-module-reference/feature-hashing) que cria funcionalidades de palavras/frases convenientemente. A figura que se segue mostra um exemplo de utilização deste módulo. O conjunto de dados de entrada contém duas colunas: a classificação do livro que varia de 1 a 5 e o conteúdo de revisão real. O objetivo deste módulo é recuperar um conjunto de novas funcionalidades que mostrem a frequência de ocorrência das palavras(s) correspondentes dentro da revisão de livros em particular. Para utilizar este módulo, complete os seguintes passos:
 
 * Em primeiro lugar, selecione a coluna que contém o texto de entrada ("Col2" neste exemplo).
 * Em segundo lugar, definir o "bitsize de hashing" para 8, o que significa que serão criadas 2^8=256 funcionalidades. A palavra/fase em todo o texto será hashed a 256 índices. O parâmetro "Hashing bitsize" varia de 1 a 31. A palavra(s) /frase(s) é menos provável de ser hashed no mesmo índice se a definição de um número maior.

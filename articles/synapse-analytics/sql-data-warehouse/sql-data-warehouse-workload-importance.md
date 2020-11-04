@@ -1,6 +1,6 @@
 ---
 title: Importância da carga de trabalho
-description: Orientação para definir importância para consultas de piscina Synapse SQL em Azure Synapse Analytics.
+description: Orientação para definir importância para consultas dedicadas de piscina SQL em Azure Synapse Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212348"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322126"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Azure Synapse Analytics importância da carga de trabalho
 
-Este artigo explica como a importância da carga de trabalho pode influenciar a ordem de execução dos pedidos de piscina sinapse SQL em Azure Synapse.
+Este artigo explica como a importância da carga de trabalho pode influenciar a ordem de execução para pedidos dedicados de piscina SQL em Azure Synapse.
 
 ## <a name="importance"></a>Importância
 
@@ -38,7 +38,7 @@ Para além do cenário de importância básica acima descrito com dados de venda
 
 ### <a name="locking"></a>Bloquear
 
-O acesso a fechaduras para atividade de leitura e escrita é uma área de contenção natural. Atividades como [comutação de divisórias](sql-data-warehouse-tables-partition.md) ou [OBJECT RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) requerem fechaduras elevadas.  Sem importância de carga de trabalho, a piscina Synapse SQL em Azure Synapse otimiza para a produção. Otimizar para a produção significa que quando os pedidos de execução e fila têm as mesmas necessidades de bloqueio e recursos estão disponíveis, os pedidos em fila podem contornar pedidos com necessidades de bloqueio mais elevadas que chegaram na fila de pedidos mais cedo. Uma vez que a importância da carga de trabalho é aplicada a pedidos com necessidades de bloqueio mais elevadas. O pedido com maior importância será executado antes do pedido com menor importância.
+O acesso a fechaduras para atividade de leitura e escrita é uma área de contenção natural. Atividades como [comutação de divisórias](sql-data-warehouse-tables-partition.md) ou [OBJECT RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) requerem fechaduras elevadas.  Sem importância de carga de trabalho, a piscina SQL dedicada em Azure Synapse otimiza para produção. Otimizar para a produção significa que quando os pedidos de execução e fila têm as mesmas necessidades de bloqueio e recursos estão disponíveis, os pedidos em fila podem contornar pedidos com necessidades de bloqueio mais elevadas que chegaram na fila de pedidos mais cedo. Uma vez que a importância da carga de trabalho é aplicada a pedidos com necessidades de bloqueio mais elevadas. O pedido com maior importância será executado antes do pedido com menor importância.
 
 Considere o exemplo seguinte:
 
@@ -50,7 +50,7 @@ Se o Q2 e o Q3 tiverem a mesma importância e o Q1 ainda estiver a ser executado
 
 ### <a name="non-uniform-requests"></a>Pedidos não uniformes
 
-Outro cenário em que a importância pode ajudar a satisfazer as exigências de consulta é quando são apresentados pedidos com diferentes classes de recursos.  Como já foi referido, sob a mesma importância, a piscina Synapse SQL em Azure Synapse otimiza para a produção. Quando os pedidos de tamanho misto (como o smallrc ou o mediumrc) forem em fila, a piscina Synapse SQL escolherá o pedido de chegada mais cedo que se enquadra nos recursos disponíveis. Se a importância da carga de trabalho for aplicada, o pedido de maior importância é agendado a seguir.
+Outro cenário em que a importância pode ajudar a satisfazer as exigências de consulta é quando são apresentados pedidos com diferentes classes de recursos.  Como já foi mencionado, sob a mesma importância, a piscina SQL dedicada em Azure Synapse otimiza para a produção. Quando os pedidos de tamanho misto (como o smallrc ou o mediumrc) forem em fila, a piscina de SQL dedicada escolherá o pedido de chegada mais precoce que se enquadra nos recursos disponíveis. Se a importância da carga de trabalho for aplicada, o pedido de maior importância é agendado a seguir.
   
 Considere o seguinte exemplo no DW500c:
 

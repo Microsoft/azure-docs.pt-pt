@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 76027275d6f0b838ed6fbb7275086f190701d286
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a1af48d89fbf5d303c2a6b8ef85ca3117debd5a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89439832"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320080"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Walkthroughs executando o processo de ciência de dados de equipa
 
@@ -42,5 +42,4 @@ Para uma discussão dos componentes-chave que compõem o Processo de Ciência de
 
 Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados de Equipa, consulte [o ciclo de vida do Processo de Ciência de Dados da Equipa.](lifecycle.md) Este ciclo de vida traça os passos, do início ao fim, que os projetos geralmente seguem quando são executados. 
 
-Para uma visão geral, consulte [o Processo de Ciência de Dados.](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) 
-
+Para uma visão geral, consulte [o Processo de Ciência de Dados.](./index.yml)

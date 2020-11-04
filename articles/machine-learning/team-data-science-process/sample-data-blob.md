@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 04528d28e9f54710cd0a63372e32b099c2e07fb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026173"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321904"
 ---
 # <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Dados de exemplo no armazenamento de blobs do Azure
 
@@ -25,7 +25,7 @@ Este artigo cobre os dados de amostragem armazenados no armazenamento de bolhas 
 **Por que provar os seus dados?**
 Se o conjunto de dados que pretende analisar é grande, é geralmente uma boa ideia reduzir a amostragem dos dados para reduzi-los a um tamanho menor, mas representativo e mais manejável. A amostragem facilita a compreensão de dados, a exploração e a engenharia de recursos. O seu papel no Processo de Análise cortana é permitir uma rápida prototipagem das funções de processamento de dados e modelos de machine learning.
 
-Esta tarefa de amostragem é um passo no Processo de Ciência de Dados de [Equipa (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarefa de amostragem é um passo no Processo de Ciência de Dados de [Equipa (TDSP)](./index.yml).
 
 ## <a name="download-and-down-sample-data"></a>Dados de descarregamento e amostra de amostra
 1. Descarregue os dados do armazenamento de blob Azure utilizando o serviço Blob a partir do seguinte código Python da amostra: 
@@ -102,7 +102,6 @@ Pode utilizar o seguinte código de amostra para recolher amostras dos dados e u
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
     ```
 
-3. Leia os dados da bolha Azure utilizando [dados de importação de aprendizagem de](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) máquina azure, como mostrado na imagem abaixo:
+3. Leia os dados da bolha Azure utilizando [dados de importação de aprendizagem de](/azure/machine-learning/studio-module-reference/import-data) máquina azure, como mostrado na imagem abaixo:
 
 ![bolha leitor](./media/sample-data-blob/reader_blob.png)
-

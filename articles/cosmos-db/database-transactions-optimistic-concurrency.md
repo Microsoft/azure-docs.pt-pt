@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: c1ecd3a3d29d6876a59a2fa039802966f348a09d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9209b33f23b7f6c836dedb6227d052610a21d9d2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089836"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319489"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transações e controlo de simultaneidade otimista
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -65,4 +65,5 @@ Saiba mais sobre as transações de bases de dados e o controlo otimista da conu
 - [Trabalhar com bases de dados, contentores e itens da Azure Cosmos](account-databases-containers-items.md)
 - [Níveis de consistência](consistency-levels.md)
 - [Tipos de conflito e políticas de resolução](conflict-resolution-policies.md)
+- [Utilização de TransactionalBatch](transactional-batch.md)
 - [Procedimentos armazenados, gatilhos e funções definidas pelo utilizador](stored-procedures-triggers-udfs.md)

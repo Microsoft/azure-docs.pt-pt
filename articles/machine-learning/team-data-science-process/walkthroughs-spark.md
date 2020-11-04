@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1662af6cd3499fdf851d4e1bd8a0db48da7635b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864150"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320140"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>HDInsight Spark data science walkthroughs usando PySpark e Scala em Azure
 
@@ -40,12 +40,11 @@ Consulte [a exploração e modelação avançadas de dados com a Spark](spark-ad
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Prever dicas de táxi usando Scala em Azure Spark
 
-O [Use Scala com Spark on Azure](scala-walkthrough.md) walkthrough prevê se uma gorjeta é paga e a gama de valores que se espera que sejam pagos. Mostra como usar o Scala para tarefas de aprendizagem automática supervisionadas com a biblioteca de machine learning Spark (MLlib) e pacotes SparkML num cluster Azure HDInsight Spark. Acompanha-o através das tarefas que constituem o Processo de Ciência de [Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): ingestão e exploração de dados, visualização, engenharia de recursos, modelação e consumo de modelos. Os modelos construídos incluem regressão logística e linear, florestas aleatórias e árvores impulsionadas pelo gradiente.
+O [Use Scala com Spark on Azure](scala-walkthrough.md) walkthrough prevê se uma gorjeta é paga e a gama de valores que se espera que sejam pagos. Mostra como usar o Scala para tarefas de aprendizagem automática supervisionadas com a biblioteca de machine learning Spark (MLlib) e pacotes SparkML num cluster Azure HDInsight Spark. Acompanha-o através das tarefas que constituem o Processo de Ciência de [Dados](./index.yml): ingestão e exploração de dados, visualização, engenharia de recursos, modelação e consumo de modelos. Os modelos construídos incluem regressão logística e linear, florestas aleatórias e árvores impulsionadas pelo gradiente.
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Para uma visão geral do processo de ciência de dados da equipa, consulte [a visão geral do processo de ciência de dados da equipa.](overview.md)
 
-Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados de Equipa, consulte [o ciclo de vida do Processo de Ciência de Dados da Equipa.](lifecycle.md) Este ciclo de vida traça os passos, do início ao fim, que os projetos geralmente seguem quando são executados. 
-
+Para uma discussão sobre o ciclo de vida do Processo de Ciência de Dados de Equipa, consulte [o ciclo de vida do Processo de Ciência de Dados da Equipa.](lifecycle.md) Este ciclo de vida traça os passos, do início ao fim, que os projetos geralmente seguem quando são executados.

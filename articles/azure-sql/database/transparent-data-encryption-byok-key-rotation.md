@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: c24c82e6e013734798b75d7c2cfa5ca126e32bc4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 37931aee24e2dbcab03bca400d58f236601c87e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788609"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321422"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Rode o protetor transparente de encriptação de dados (TDE)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ Este artigo descreve a rotação da chave para um [servidor](logical-servers.md)
 Este guia discute duas opções para rodar o protetor TDE no servidor.
 
 > [!NOTE]
-> Uma piscina SQL Azure Synapse Analytics pausada deve ser retomada antes das rotações das chaves.
+> Uma piscina SQL dedicada a uma pausa em Azure Synapse Analytics deve ser retomada antes das rotações das chaves.
 
 > [!IMPORTANT]
 > Não elimine as versões anteriores da chave após um capotamento. Quando as chaves são enroladas, alguns dados ainda são encriptados com as teclas anteriores, como cópias de segurança de bases de dados mais antigas.

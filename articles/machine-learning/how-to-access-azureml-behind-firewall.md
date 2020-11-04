@@ -1,7 +1,7 @@
 ---
 title: Use uma firewall
 titleSuffix: Azure Machine Learning
-description: Controle o acesso a espaços de trabalho de aprendizagem automática Azure com firewalls Azure. Saiba mais sobre os anfitriões que deve permitir através da firewall para a Azure Machine Learning funcionar corretamente.
+description: Controle o acesso a espaços de trabalho de aprendizagem automática Azure com firewalls Azure. Saiba mais sobre os anfitriões que deve permitir através da firewall.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d0f30edeb24f3c4abed6f144f3fb7f755cc08a72
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 5ba1804630649044d29dd2919ef8375265a69a08
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629464"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320882"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás de uma firewall para aprendizagem de máquinas Azure
 
@@ -78,7 +78,7 @@ Os anfitriões desta secção são utilizados para instalar pacotes Python. São
 | ---- | ---- |
 | **anaconda.com**</br>**\*.anaconda.com** | Usado para instalar pacotes predefinidos. |
 | **\*.anaconda.org** | Usado para obter dados de repo. |
-| **pypi.org** | Usado para listar dependências do índice padrão, se houver, e o índice não é substituído pelas definições do utilizador. Se o índice for substituído, também deve permitir **\* que .pythonhosted.org** . |
+| **pypi.org** | Usado para listar dependências do índice padrão, se houver, e o índice não é substituído pelas definições do utilizador. Se o índice for substituído, também deve permitir **\* que .pythonhosted.org**. |
 
 ## <a name="r-hosts"></a>Anfitriões R
 

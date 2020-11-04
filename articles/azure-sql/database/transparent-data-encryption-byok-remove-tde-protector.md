@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 657e3967d9e34147364114cec4d946e900f60032
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a879ac81859c855bb7b7bc2eddb1e3c9b62adb34
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791380"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321409"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Remova um protetor de encriptação de dados transparente (TDE) usando o PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "92791380"
 Este tópico descreve como responder a uma proteção TDE potencialmente comprometida para a Base de Dados Azure SQL ou Azure Synapse Analytics que está a usar o TDE com chaves geridas pelo cliente no suporte Azure Key Vault - Traga a sua própria chave (BYOK). Para saber mais sobre o suporte da BYOK para o TDE, consulte a [página geral.](transparent-data-encryption-byok-overview.md)
 
 > [!CAUTION]
-> Os procedimentos descritos neste artigo só devem ser efetuados em casos extremos ou em ambientes de ensaio. Reveja cuidadosamente os passos, uma vez que eliminar protetores TDE ativamente utilizados do Azure Key Vault resultará na **indisponibilidade da base de dados** .
+> Os procedimentos descritos neste artigo só devem ser efetuados em casos extremos ou em ambientes de ensaio. Reveja cuidadosamente os passos, uma vez que eliminar protetores TDE ativamente utilizados do Azure Key Vault resultará na **indisponibilidade da base de dados**.
 
 Se alguma vez se suspeitar que uma chave está comprometida, de modo a que um serviço ou utilizador tenha acesso não autorizado à chave, o melhor é apagar a chave.
 

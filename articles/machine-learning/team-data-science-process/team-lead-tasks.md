@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864286"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321203"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Tarefas para a equipa liderar uma equipa de processos de ciência de dados de equipa
 
@@ -61,7 +61,7 @@ Para poder clonar repositórios e modificar o seu conteúdo na sua máquina loca
 
 - Uma subscrição do Azure.
 - Git instalado na sua máquina. Se estiver a utilizar um DSVM, o Git está pré-instalado. Caso contrário, consulte as Plataformas e o [apêndice de ferramentas.](platforms-and-tools.md#appendix)
-- Se pretender utilizar um DSVM, o Windows ou o Linux DSVM criado e configurado em Azure. Para obter mais informações e instruções, consulte a [Documentação da Máquina Virtual da Ciência dos Dados.](/azure/machine-learning/data-science-virtual-machine/)
+- Se pretender utilizar um DSVM, o Windows ou o Linux DSVM criado e configurado em Azure. Para obter mais informações e instruções, consulte a [Documentação da Máquina Virtual da Ciência dos Dados.](../data-science-virtual-machine/index.yml)
 - Para um DSVM Do Windows, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) instalado na sua máquina. No ficheiro *README.md,* desloque-se até à secção **de Descarregamento e Instalação** e selecione o **instalador mais recente**. Descarregue o instalador *.exe* da página do instalador e execute-o. 
 - Para um Linux DSVM, uma chave pública SSH configurada no seu DSVM e adicionada em Azure DevOps. Para obter mais informações e instruções, consulte a secção **de chaves públicas Create SSH** no [apêndice de ferramentas e ferramentas.](platforms-and-tools.md#appendix) 
 
@@ -77,7 +77,7 @@ Os nomes especificados para os repositórios e diretórios neste tutorial assume
 - Um pequeno grupo de ciência de dados que não tem várias equipas de ciência de dados. 
 - Um grupo de ciência de dados maior com várias equipas de ciência de dados que, no entanto, quer otimizar a colaboração inter-equipa com atividades como o planeamento de sprint a nível de grupo. 
 
-Se as equipas optarem por ter os seus repositórios específicos da equipa no âmbito de um único projeto de grupo, a equipa lidera deve criar os repositórios com nomes como * \<TeamName> Modelo* e * \<TeamName> Utilitários.* Por exemplo: *TeamATemplate* e *TeamAUtilities*. 
+Se as equipas optarem por ter os seus repositórios específicos da equipa no âmbito de um único projeto de grupo, a equipa lidera deve criar os repositórios com nomes como *\<TeamName> Modelo* e *\<TeamName> Utilitários.* Por exemplo: *TeamATemplate* e *TeamAUtilities*. 
 
 Em todo o caso, as equipas lideram a necessidade de informar os seus membros da equipa sobre qual o modelo e os repositórios de utilidades para configurar e clonar. Os líderes do projeto devem seguir as tarefas de liderança do [projeto para uma equipa de ciência de dados](project-lead-tasks.md) para criar repositórios de projetos, seja em projetos separados ou num único projeto. 
 
@@ -85,21 +85,21 @@ Em todo o caso, as equipas lideram a necessidade de informar os seus membros da 
 
 Para criar um projeto separado para a sua equipa:
 
-1. No seu navegador web, aceda à página inicial da organização Azure DevOps do seu grupo em * \/ / \<server name> / \<organization name> HTTPS URL:* e selecione **Novo projeto**. 
+1. No seu navegador web, aceda à página inicial da organização Azure DevOps do seu grupo em *\/ / \<server name> / \<organization name> HTTPS URL:* e selecione **Novo projeto**. 
    
    ![Selecione novo projeto](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
 1. No diálogo do **projeto Create,** insira o nome da sua equipa, como *MyTeam,* com **o nome do Projeto,** e, em seguida, selecione **Advanced**. 
    
-1. Sob **controlo de versão**, selecione **Git**, e no processo de produto **do trabalho**, selecione **Agile**. Em seguida, selecione **Criar**. 
+1. Sob **controlo de versão** , selecione **Git** , e no processo de produto **do trabalho** , selecione **Agile**. Em seguida, selecione **Criar**. 
    
    ![Criar o projeto](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-O projeto de equipa A página **de resumo** abre, com url de página * \/ / \<server name> / \<organization name> / \<team name> https:*.
+O projeto de equipa A página **de resumo** abre, com url de página *\/ / \<server name> / \<organization name> / \<team name> https:*.
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Mude o nome do repositório padrão myTeam para TeamUtilities
 
-1. Na **Repos**página **resumo** do projeto **MyTeam,** em que serviço gostaria de **começar?** 
+1. Na **Repos** página **resumo** do projeto **MyTeam,** em que serviço gostaria de **começar?** 
    
    ![Selecione Repos](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
    
@@ -110,7 +110,7 @@ O projeto de equipa A página **de resumo** abre, com url de página * \/ / \<se
    
    ![Selecione repositório de renomeação](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
    
-1. No **retoco do repositório MyTeam,** insira *TeamUtilities*e, em seguida, selecione **Rename**. 
+1. No **retoco do repositório MyTeam,** insira *TeamUtilities* e, em seguida, selecione **Rename**. 
 
 ### <a name="create-the-teamtemplate-repository"></a>Criar o repositório TeamTemplate
 
@@ -120,7 +120,7 @@ O projeto de equipa A página **de resumo** abre, com url de página * \/ / \<se
    
    Ou, selecione **Repos** da navegação à esquerda da página **sumária** do projeto **MyTeam,** selecione um repositório no topo da página e, em seguida, selecione **Novo repositório** a partir do dropdown.
    
-1. No Criar um novo diálogo **de repositório,** certifique-se de que **o Git** é selecionado por **tipo**. Introduza *teamTemplate* com **o nome repositório**e, em seguida, selecione **Criar**.
+1. No Criar um novo diálogo **de repositório,** certifique-se de que **o Git** é selecionado por **tipo**. Introduza *teamTemplate* com **o nome repositório** e, em seguida, selecione **Criar**.
    
    ![Criar repositório](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
    
@@ -140,7 +140,7 @@ Para povoar os repositórios da sua equipa com o conteúdo dos repositórios com
    
    ![Selecione Importar](./media/team-lead-tasks/import-repo.png)
    
-1. No diálogo **repositório de repositório De Importação a Git,** selecione **Git** como o **tipo Origem**, e introduza o URL para o repositório de modelo comum do seu grupo em **URL clone**. O URL é *https: \/ / \<server name> / \<organization name> /_git/ \<repository name> *. Por exemplo: *https: \/ /dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. No diálogo **repositório de repositório De Importação a Git,** selecione **Git** como o **tipo Origem** , e introduza o URL para o repositório de modelo comum do seu grupo em **URL clone**. O URL é *https: \/ / \<server name> / \<organization name> /_git/ \<repository name>*. Por exemplo: *https: \/ /dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Selecione **Import** (Importar). O conteúdo do repositório de modelos de grupo é importado para o repositório do modelo da sua equipa. 
    
@@ -184,11 +184,11 @@ Para trabalhar com repositórios na sua máquina local ou DSVM, primeiro copia o
 
 Para clonar repositórios:
 
-1. Na página **resumo** do projeto **MyTeam,** selecione **Repos**, e no topo da página, selecione o repositório que pretende clonar.
+1. Na página **resumo** do projeto **MyTeam,** selecione **Repos** , e no topo da página, selecione o repositório que pretende clonar.
    
 1. Na página de repo, selecione **Clone** na parte superior direita.
    
-1. No diálogo **do repositório clone,** na **linha Comando**, selecione **HTTPS** para uma ligação HTTP ou **SSH** para uma ligação SSH e copie o URL do clone para a sua área de transferência.
+1. No diálogo **do repositório clone,** na **linha Comando** , selecione **HTTPS** para uma ligação HTTP ou **SSH** para uma ligação SSH e copie o URL do clone para a sua área de transferência.
    
    ![URL de clone de cópia](./media/team-lead-tasks/clone.png)
    
@@ -259,7 +259,7 @@ Para configurar permissões para membros da equipa:
    
 1. Na página **Permissões,** selecione o grupo a que pretende adicionar membros. 
    
-1. Na página para esse grupo, selecione **Membros**e, em seguida, **selecione Adicionar**. 
+1. Na página para esse grupo, selecione **Membros** e, em seguida, **selecione Adicionar**. 
    
 1. No popup de **membros do Convite,** procure e selecione membros para adicionar ao grupo e, em seguida, selecione **Save**. 
    
@@ -318,7 +318,7 @@ Para obter informações sobre a partilha de outros recursos com a sua equipa, c
    
 1. Prima Insira ou introduza *Y* para continuar, se guardou um ficheiro de informações de armazenamento de ficheiros Azure no passo anterior. Introduza o caminho completo e o nome do ficheiro que criou. 
    
-   Se não tiver um ficheiro de informações de armazenamento de ficheiros Azure, *insira n*e siga as instruções para introduzir a sua subscrição, a conta de armazenamento Azure e as informações de armazenamento de ficheiros Azure.
+   Se não tiver um ficheiro de informações de armazenamento de ficheiros Azure, *insira n* e siga as instruções para introduzir a sua subscrição, a conta de armazenamento Azure e as informações de armazenamento de ficheiros Azure.
    
 1. Insira o nome de uma unidade local ou TDSP para montar a partilha de ficheiros. O ecrã apresenta uma lista de nomes de acionamento existentes. Forneça um nome de unidade que já não existe.
    

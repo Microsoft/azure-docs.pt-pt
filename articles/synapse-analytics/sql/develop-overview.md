@@ -10,50 +10,50 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f4c61b43855e4a845956a937d9d9cfe738d6f47a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a24a61e26bdfaba0619e3965e95b1828380a1c8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032950"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322110"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisões de design e técnicas de codificação para características do SQL da Sinapse no Azure Synapse Analytics
-Neste artigo, você encontrará uma lista de recursos para piscina SQL e sql on-demand (pré-visualização) funções de Synapse SQL. Os artigos recomendados dividem-se em duas secções: decisões de conceção chave e técnicas de desenvolvimento e codificação.
+Neste artigo, você encontrará uma lista de recursos para piscina SQL dedicada e funções de piscina SQL sem servidor (pré-visualização) de Synapse SQL. Os artigos recomendados dividem-se em duas secções: decisões de conceção chave e técnicas de desenvolvimento e codificação.
 
 O objetivo destes artigos é ajudá-lo a desenvolver a abordagem técnica ideal para os componentes Sinapse SQL dentro da Synapse Analytics.
 
 ## <a name="key-design-decisions"></a>Principais decisões de design
 Os artigos abaixo destacam conceitos e decisões de design para o desenvolvimento do SQL da Sinapse:
 
-| Artigo | Conjunto de SQL | SQL a pedido |
+| Artigo | piscina de SQL dedicada | piscina SQL sem servidor |
 | ------- | -------- | ------------- |
-| [Ligações](connect-overview.md)                    | Sim | Sim |
-| [Classes de recursos e concuência](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sim    | Não |
-| [Transações](develop-transactions.md)              | Sim | Não |
-| [Esquemas definidos pelo utilizador](develop-user-defined-schemas.md) | Sim | Sim |
-| [Distribuição da tabela](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Sim | Não |
-| [Índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Sim | Não |
-| [Divisórias de mesa](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Sim | Não |
-| [Estatísticas](develop-tables-statistics.md)            | Sim | Sim |
-| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Sim | Não |
-| [Tabelas externas](develop-tables-external-tables.md) | Sim | Sim |
-| [CETAS](develop-tables-cetas.md)                     | Sim | Sim |
+| [Ligações](connect-overview.md)                    | Yes | Yes |
+| [Classes de recursos e concuência](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Yes    | No |
+| [Transações](develop-transactions.md)              | Yes | No |
+| [Esquemas definidos pelo utilizador](develop-user-defined-schemas.md) | Yes | Yes |
+| [Distribuição da tabela](../sql-data-warehouse/sql-data-warehouse-tables-distribute.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                 | Yes | No |
+| [Índices de tabela](../sql-data-warehouse/sql-data-warehouse-tables-index.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                           | Yes | No |
+| [Divisórias de mesa](../sql-data-warehouse/sql-data-warehouse-tables-partition.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                     | Yes | No |
+| [Estatísticas](develop-tables-statistics.md)            | Yes | Yes |
+| [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)                                             | Yes | No |
+| [Tabelas externas](develop-tables-external-tables.md) | Yes | Yes |
+| [CETAS](develop-tables-cetas.md)                     | Yes | Yes |
 
 
 ## <a name="recommendations"></a>Recomendações
 
 Abaixo encontrará artigos essenciais que enfatizam técnicas específicas de codificação, dicas e recomendações para o desenvolvimento:
 
-| Artigo | Conjunto de SQL | SQL a pedido |
+| Artigo | piscina de SQL dedicada | piscina SQL sem servidor |
 | ------- | -------- | ------------- |
-| [Procedimentos armazenados](develop-stored-procedures.md)  | Sim                | Não                      |
-| [Etiquetas](develop-label.md)                           | Sim                | Não                      |
-| [Vistas](develop-views.md)                             | Sim                | Sim                     |
-| [Tabelas temporárias](develop-tables-temporary.md)       | Sim                | Sim                     |
-| [Dynamic SQL](develop-dynamic-sql.md)                 | Sim                | Sim                     |
-| [Executar ciclos](develop-loops.md)                         | Sim                | Sim                     |
-| [Agrupar por opções](develop-group-by-options.md)       | Sim                | Não                      |
-| [Atribuição de variáveis](develop-variable-assignment.md) | Sim                | Sim                     |
+| [Procedimentos armazenados](develop-stored-procedures.md)  | Yes                | No                      |
+| [Etiquetas](develop-label.md)                           | Yes                | No                      |
+| [Vistas](develop-views.md)                             | Yes                | Yes                     |
+| [Tabelas temporárias](develop-tables-temporary.md)       | Yes                | Yes                     |
+| [Dynamic SQL](develop-dynamic-sql.md)                 | Yes                | Yes                     |
+| [Executar ciclos](develop-loops.md)                         | Yes                | Yes                     |
+| [Agrupar por opções](develop-group-by-options.md)       | Yes                | No                      |
+| [Atribuição de variáveis](develop-variable-assignment.md) | Yes                | Sim                     |
 
 ## <a name="next-steps"></a>Próximos passos
 Para obter mais informações de referência, consulte [as declarações T-SQL da piscina SQL](../sql-data-warehouse/sql-data-warehouse-reference-tsql-statements.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).

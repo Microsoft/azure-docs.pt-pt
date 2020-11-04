@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c024b12210d408fe2a9987cba56a08e4b660ae1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027550"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321344"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Exploração e modelação avançada de dados com o Spark
 
-Este walkthrough usa HDInsight Spark para fazer a exploração de dados e treinar modelos de classificação e regressão binária usando a otimização de validação cruzada e hiperparametr numa amostra da viagem de táxi de NYC e do conjunto de dados de tarifa 2013. Percorre os passos do Processo de Ciência de [Dados](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), de ponta a ponta, utilizando um cluster HDInsight Spark para processamento e bolhas Azure para armazenar os dados e os modelos. O processo explora e visualiza os dados trazidos de uma Bolha de Armazenamento Azure e, em seguida, prepara os dados para construir modelos preditivos. Python tem sido usado para codificar a solução e mostrar os enredos relevantes. Estes modelos são construídos utilizando o kit de ferramentas Spark MLlib para fazer tarefas de classificação binária e de modelação de regressão. 
+Este walkthrough usa HDInsight Spark para fazer a exploração de dados e treinar modelos de classificação e regressão binária usando a otimização de validação cruzada e hiperparametr numa amostra da viagem de táxi de NYC e do conjunto de dados de tarifa 2013. Percorre os passos do Processo de Ciência de [Dados](./index.yml), de ponta a ponta, utilizando um cluster HDInsight Spark para processamento e bolhas Azure para armazenar os dados e os modelos. O processo explora e visualiza os dados trazidos de uma Bolha de Armazenamento Azure e, em seguida, prepara os dados para construir modelos preditivos. Python tem sido usado para codificar a solução e mostrar os enredos relevantes. Estes modelos são construídos utilizando o kit de ferramentas Spark MLlib para fazer tarefas de classificação binária e de modelação de regressão. 
 
 * A tarefa **de classificação binária** é prever se uma gorjeta é ou não paga pela viagem. 
 * A tarefa **de regressão** é prever a quantidade da ponta com base em outras características da ponta. 
@@ -119,7 +119,7 @@ Os núcleos PySpark que são fornecidos com cadernos Jupyter têm um contexto pr
 O kernel PySpark fornece algumas "magias" predefinidas, que são comandos especiais que se pode chamar com %%. Há dois comandos que são usados nestas amostras de código.
 
 * **%%local** Especifica que o código nas linhas subsequentes deve ser executado localmente. O código deve ser o código Python válido.
-* **%%sql -o \<variable name> ** Executa uma consulta de Colmeia contra o sqlContext. Se o parâmetro -o for aprovado, o resultado da consulta é persistido no contexto python %%local como um DataFrame pandas.
+* **%%sql -o \<variable name>** Executa uma consulta de Colmeia contra o sqlContext. Se o parâmetro -o for aprovado, o resultado da consulta é persistido no contexto python %%local como um DataFrame pandas.
 
 Para obter mais informações sobre os núcleos para os cadernos Jupyter e as "magias" predefinidas que eles fornecem, consulte [Kernels disponível para cadernos Jupyter com clusters HDInsight Spark Linux em HDInsight.](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)
 
@@ -202,7 +202,7 @@ Uma vez que os dados tenham sido trazidos para a Spark, o próximo passo no proc
 Este código e os subsequentes snippets usam magia SQL para consultar a amostra e a magia local para traçar os dados.
 
 * **MAGIA SQL ( `%%sql` )** O kernel HDInsight PySpark suporta consultas de HiveQL fáceis em linha contra o sqlContext. O argumento (-o VARIABLE_NAME) persiste na saída da consulta SQL como um DataFrame pandas no servidor Jupyter. Isto significa que está disponível no modo local.
-* A ** `%%local` magia** é usada para executar código localmente no servidor Jupyter, que é o headnode do cluster HDInsight. Normalmente, usa-se `%%local` magia depois de a magia ser usada para fazer uma `%%sql -o` consulta. O parâmetro -o persistiria a saída da consulta SQL localmente. Em seguida, a `%%local` magia desencadeia o próximo conjunto de cortes de código para correr localmente contra a saída das consultas SQL que tem sido persistido localmente. A saída é visualizada automaticamente depois de executar o código.
+* A **`%%local` magia** é usada para executar código localmente no servidor Jupyter, que é o headnode do cluster HDInsight. Normalmente, usa-se `%%local` magia depois de a magia ser usada para fazer uma `%%sql -o` consulta. O parâmetro -o persistiria a saída da consulta SQL localmente. Em seguida, a `%%local` magia desencadeia o próximo conjunto de cortes de código para correr localmente contra a saída das consultas SQL que tem sido persistido localmente. A saída é visualizada automaticamente depois de executar o código.
 
 Esta consulta recupera as viagens por contagem de passageiros. 
 
@@ -1508,4 +1508,3 @@ ReforçotreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-
 Agora que criou modelos de regressão e classificação com o Spark MlLib, está pronto para aprender a pontuar e avaliar estes modelos.
 
 **Consumo de modelos:** Para aprender a pontuar e avaliar os modelos de classificação e regressão criados neste tópico, consulte [Score e avalie os modelos de aprendizagem automática construídos pela Spark.](spark-model-consumption.md)
-

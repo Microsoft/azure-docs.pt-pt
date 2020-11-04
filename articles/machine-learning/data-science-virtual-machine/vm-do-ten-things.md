@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: b570968a66a0cfd60ac4d6ce6dd7dc31a1003240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440461"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320942"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Ciência de dados com uma máquina virtual de ciência de dados do Windows
 
@@ -79,9 +79,9 @@ Para python, você pode usar um IDE como Visual Studio Community Edition, que te
 1. Dê uma descrição e estabeleça o caminho do prefixo do ambiente como **c:\anaconda\envs\python2** para Anaconda Python 2.7.
 1. Selecione **Deteção automática**  >  **Aplicar** para salvar o ambiente.
 
-Consulte a documentação do [PTVS](https://aka.ms/ptvsdocs) para obter mais detalhes sobre como criar ambientes Python.
+Consulte a documentação do [PTVS](/visualstudio/python/) para obter mais detalhes sobre como criar ambientes Python.
 
-Agora está preparado para criar um novo projeto Python. Vá ao **Arquivo**  >  **Novo**  >  **Projeto**  >  **Python** e selecione o tipo de aplicação Python que está a construir. Pode definir o ambiente Python para o projeto atual para a versão desejada (Python 2.7 ou 3.6) clicando à direita **em ambientes Python** e, em seguida, selecionando **Ambientes Add/Remove Python**. Pode encontrar mais informações sobre o trabalho com o PTVS na documentação do [produto.](https://aka.ms/ptvsdocs)
+Agora está preparado para criar um novo projeto Python. Vá ao **Arquivo**  >  **Novo**  >  **Projeto**  >  **Python** e selecione o tipo de aplicação Python que está a construir. Pode definir o ambiente Python para o projeto atual para a versão desejada (Python 2.7 ou 3.6) clicando à direita **em ambientes Python** e, em seguida, selecionando **Ambientes Add/Remove Python**. Pode encontrar mais informações sobre o trabalho com o PTVS na documentação do [produto.](/visualstudio/python/)
 
 
 
@@ -91,7 +91,7 @@ O DSVM não permite apenas construir a sua solução de análise localmente na m
 Para administrar a sua subscrição Azure e recursos em nuvem, tem duas opções:
 + Use o seu navegador e vá ao [portal Azure.](https://portal.azure.com)
 
-+ Use scripts PowerShell. Executar Azure PowerShell a partir de um atalho no ambiente de trabalho ou a partir do menu **Iniciar.** Consulte a documentação do [Microsoft Azure PowerShell](../../powershell-azure-resource-manager.md) para obter todos os detalhes. 
++ Use scripts PowerShell. Executar Azure PowerShell a partir de um atalho no ambiente de trabalho ou a partir do menu **Iniciar.** Consulte a documentação do [Microsoft Azure PowerShell](../../azure-resource-manager/management/manage-resources-powershell.md) para obter todos os detalhes. 
 
 ## <a name="extend-storage-by-using-shared-file-systems"></a>Alargar o armazenamento utilizando sistemas de ficheiros partilhados
 Os cientistas de dados podem partilhar grandes conjuntos de dados, código ou outros recursos dentro da equipa. O DSVM tem cerca de 45 GB de espaço disponível. Para prolongar o seu armazenamento, pode utilizar ficheiros Azure e montá-lo em uma ou mais instâncias DSVM ou acede-lo através de uma API REST. Também pode utilizar o [portal Azure](../../virtual-machines/windows/attach-managed-disk-portal.md) ou utilizar [o Azure PowerShell](../../virtual-machines/windows/attach-disk-ps.md) para adicionar discos de dados extra dedicados. 
@@ -162,7 +162,7 @@ O armazenamento Azure Blob é um serviço de armazenamento de nuvem fiável e ec
 
    ![Screenshot do processo de criação de conta de armazenamento no portal Azure](./media/vm-do-ten-things/create-azure-blob.png)
 
-* Confirme se a ferramenta AzCopy da linha de comando está pré-instalada: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . O diretório que contém azcopy.exe já está na variável ambiente PATH, para que possa evitar digitar o caminho de comando completo ao executar esta ferramenta. Para obter mais informações sobre a ferramenta AzCopy, consulte a [documentação AzCopy](../../storage/common/storage-use-azcopy.md).
+* Confirme se a ferramenta AzCopy da linha de comando está pré-instalada: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . O diretório que contém azcopy.exe já está na variável ambiente PATH, para que possa evitar digitar o caminho de comando completo ao executar esta ferramenta. Para obter mais informações sobre a ferramenta AzCopy, consulte a [documentação AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 * Inicie a ferramenta Azure Storage Explorer. Pode descarregá-lo na [página do Storage Explorer.](https://storageexplorer.com/) 
 
    ![Screenshot do Azure Storage Explorer a aceder a uma conta de armazenamento](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -197,7 +197,7 @@ Depois de executar o comando AzCopy para copiar para uma bolha Azure, o seu fich
 Também pode fazer o upload de dados a partir do ficheiro local no seu VM utilizando o Azure Storage Explorer:
 
 * Para enviar dados para um recipiente, selecione o recipiente-alvo e selecione o botão **Upload.** ![ Screenshot do botão de upload no Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Selecione a elipse **(...**) para a direita da caixa **Ficheiros,** selecione um ou vários ficheiros para carregar a partir do sistema de ficheiros e selecione **upload** para começar a carregar os ficheiros. ![ Screenshot da caixa de diálogo de ficheiros upload](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Selecione a elipse **(...** ) para a direita da caixa **Ficheiros,** selecione um ou vários ficheiros para carregar a partir do sistema de ficheiros e selecione **upload** para começar a carregar os ficheiros. ![ Screenshot da caixa de diálogo de ficheiros upload](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Leia os dados de uma bolha de Azure: Python ODBC
 
@@ -255,7 +255,7 @@ Os dados são lidos como um quadro de dados:
 ### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure Synapse Analytics (anteriormente SQL DW) e bases de dados
 Azure Synapse Analytics (anteriormente SQL DW) é um armazém de dados elástico como um serviço com uma experiência de sql server de classe empresarial.
 
-Pode providenciar a Azure Synapse Analytics seguindo as instruções [deste artigo.](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) Depois de providenciar a Azure Synapse Analytics, pode utilizar [este walkthrough](../team-data-science-process/sqldw-walkthrough.md) para fazer upload, exploração e modelação de dados utilizando dados dentro do Azure Synapse Analytics.
+Pode providenciar a Azure Synapse Analytics seguindo as instruções [deste artigo.](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) Depois de providenciar a Azure Synapse Analytics, pode utilizar [este walkthrough](../team-data-science-process/sqldw-walkthrough.md) para fazer upload, exploração e modelação de dados utilizando dados dentro do Azure Synapse Analytics.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB é uma base de dados NoSQL na nuvem. Você pode usá-lo para trabalhar com documentos como JSON, e para armazenar e consultar os documentos.
@@ -269,7 +269,7 @@ Utilize os seguintes passos pré-requisitos para aceder ao Azure Cosmos DB a par
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
-Depois de importar os dados, pode ir ao Jupyter e abrir o caderno intitulado *DocumentDBSample*. Contém código Python para aceder a Azure Cosmos DB e fazer algumas consultas básicas. Você pode saber mais sobre Azure Cosmos DB visitando a página de [documentação](https://docs.microsoft.com/azure/cosmos-db/)do serviço .
+Depois de importar os dados, pode ir ao Jupyter e abrir o caderno intitulado *DocumentDBSample*. Contém código Python para aceder a Azure Cosmos DB e fazer algumas consultas básicas. Você pode saber mais sobre Azure Cosmos DB visitando a página de [documentação](../../cosmos-db/index.yml)do serviço .
 
 ## <a name="use-power-bi-reports-and-dashboards"></a>Use relatórios e dashboards power bi 
 Pode visualizar o ficheiro Vulcão JSON a partir do exemplo DB do Azure Cosmos anterior no Power BI Desktop para obter informações visuais sobre os dados. Estão disponíveis passos detalhados no artigo do [Power BI](../../cosmos-db/powerbi-visualize.md). Aqui estão os passos de alto nível:
@@ -326,10 +326,9 @@ Além das amostras baseadas em quadros, você pode obter um conjunto de walkthro
 
 - [Um guia de como construir uma solução de ponta a ponta para detetar produtos dentro de imagens](https://github.com/Azure/cortana-intelligence-product-detection-from-images): A deteção de imagem é uma técnica que pode localizar e classificar objetos dentro das imagens. Esta tecnologia tem o potencial de trazer enormes recompensas em muitos domínios de negócios da vida real. Por exemplo, os retalhistas podem utilizar esta técnica para determinar que produto um cliente recolheu da prateleira. Esta informação, por sua vez, ajuda as lojas a gerir o inventário do produto. 
 
-- [Aprendizagem profunda para áudio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): Este tutorial mostra como treinar um modelo de aprendizagem profunda para deteção de eventos áudio no [conjunto de dados de sons urbanos.](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) Também fornece uma visão geral de como trabalhar com dados áudio.
+- [Aprendizagem profunda para áudio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): Este tutorial mostra como treinar um modelo de aprendizagem profunda para deteção de eventos áudio no [conjunto de dados de sons urbanos.](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) Também fornece uma visão geral de como trabalhar com dados áudio.
 
 - [Classificação de documentos de texto](https://github.com/anargyri/lstm_han): Este walkthrough demonstra como construir e formar duas arquiteturas de rede neural: Rede hierárquica de atenção e rede de memória de longo prazo (LSTM). Estas redes neurais utilizam a API keras para uma aprendizagem profunda para classificar documentos de texto. 
 
 ## <a name="summary"></a>Resumo
 Este artigo descreveu algumas das coisas que pode fazer na Máquina Virtual da Ciência dos Dados da Microsoft. Há muitas mais coisas que pode fazer para tornar o DSVM um ambiente de análise eficaz.
-

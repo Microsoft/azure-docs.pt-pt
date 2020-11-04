@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/29/2020
+ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 56a797864b70cb1be4a1bc5d4b79c44348d43dae
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: c0323bed627fd622471724b20677914736c564d3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93144431"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319905"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Definir listas de controlo de acesso (ACLs) recursivamente para Azure Data Lake Storage Gen2
 
@@ -433,7 +433,7 @@ az storage fs access set-recursive --acl "user::rwx,group::r-x,other::---,user:x
 
 Desenre um ACL de forma recorrente, chamando o método **DataLakeDirectoryClient.SetAccessControlRecursiveAsync.** Passe este método uma [Lista](/dotnet/api/system.collections.generic.list-1) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Cada [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) define uma entrada ACL. 
 
-Se pretender definir uma entrada ACL **predefinitiva,** pode definir a propriedade [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) do [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) para **ser verdadeira** . 
+Se pretender definir uma entrada ACL **predefinitiva,** pode definir a propriedade [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) do [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) para **ser verdadeira**. 
 
 Este exemplo define a ACL de um diretório chamado `my-parent-directory` . Este método aceita um parâmetro booleano nomeado `isDefaultScope` que especifica se deve definir o ACL predefinido. Este parâmetro é utilizado no construtor do [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). As entradas da ACL dão ao utilizador que leia, escreva e execute permissões, dá ao grupo que só lê e executa permissões, e não dá acesso a todos os outros. A última entrada ACL neste exemplo dá a um utilizador específico o ID do objeto ""xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" ler e executar permissões.
 
@@ -475,7 +475,7 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient, bool is
 
 Desenre um ACL de forma recorrente, chamando o método **DataLakeDirectoryClient.setAccessControlRecursive.** Passe este método uma [Lista](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) de [objetos PathAccessControlEntry.](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) Cada [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) define uma entrada ACL. 
 
-Se pretender definir uma entrada ACL **predefinida,** pode ligar para o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) e passar num valor **de verdade** . 
+Se pretender definir uma entrada ACL **predefinida,** pode ligar para o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) e passar num valor **de verdade**. 
 
 Este exemplo define a ACL de um diretório chamado `my-parent-directory` . Este método aceita um parâmetro booleano nomeado `isDefaultScope` que especifica se deve definir o ACL predefinido. Este parâmetro é utilizado em cada chamada para o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). As entradas da ACL dão ao utilizador que leia, escreva e execute permissões, dá ao grupo que só lê e executa permissões, e não dá acesso a todos os outros. A última entrada ACL neste exemplo dá a um utilizador específico com o objeto ID "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" ler e executar permissões.
 
@@ -620,7 +620,7 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 
 Atualize um ACL recursivamente chamando o método **DataLakeDirectoryClient.UpdateAccessControlRecursiveAsync.**  Passe este método uma [Lista](/dotnet/api/system.collections.generic.list-1) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Cada [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) define uma entrada ACL. 
 
-Se pretender atualizar uma entrada ACL **predefinitiva,** pode definir a propriedade [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) do [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) para **ser verdadeira** . 
+Se pretender atualizar uma entrada ACL **predefinitiva,** pode definir a propriedade [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) do [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) para **ser verdadeira**. 
 
 Este exemplo atualiza uma entrada ACL com permissão de escrita. Este método aceita um parâmetro booleano nomeado `isDefaultScope` que especifica se deve atualizar o ACL predefinido. Este parâmetro é utilizado no construtor do [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem).
 
@@ -651,7 +651,7 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient, boo
 
 Atualize um ACL recursivamente chamando o método **DataLakeDirectoryClient.updateAccessControlRecursive.**  Passe este método uma [Lista](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) de [objetos PathAccessControlEntry.](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) Cada [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) define uma entrada ACL. 
 
-Se pretender atualizar uma entrada ACL **predefinida,** pode então o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) e passar num valor **de verdade** . 
+Se pretender atualizar uma entrada ACL **predefinida,** pode então o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) e passar num valor **de verdade**. 
 
 Este exemplo atualiza uma entrada ACL com permissão de escrita. Este método aceita um parâmetro booleano nomeado `isDefaultScope` que especifica se deve atualizar o ACL predefinido. Este parâmetro é utilizado na chamada para o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html). 
 
@@ -755,7 +755,7 @@ az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 
 Remova as entradas ACL chamando o método **DataLakeDirectoryClient.RemoveAccessControlRecursiveAsync.** Passe este método uma [Lista](/dotnet/api/system.collections.generic.list-1) de [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem). Cada [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) define uma entrada ACL. 
 
-Se pretender remover uma entrada ACL **predefinitiva,** pode definir a propriedade [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) do [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) para **ser verdadeira** . 
+Se pretender remover uma entrada ACL **predefinitiva,** pode definir a propriedade [PathAccessControlItem.DefaultScope](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem.defaultscope#Azure_Storage_Files_DataLake_Models_PathAccessControlItem_DefaultScope) do [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem) para **ser verdadeira**. 
 
 Este exemplo remove uma entrada ACL da ACL do diretório denominado `my-parent-directory` . Este método aceita um parâmetro booleano nomeado `isDefaultScope` que especifica se deve remover a entrada do ACL predefinido. Este parâmetro é utilizado no construtor do [PathAccessControlItem](/dotnet/api/azure.storage.files.datalake.models.pathaccesscontrolitem).
 
@@ -783,7 +783,7 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient, isD
 
 Remova as entradas ACL chamando o método **DataLakeDirectoryClient.removeAccessControlRecursive.** Passe este método uma [Lista](https://docs.oracle.com/javase/8/docs/api/java/util/List.html) de [objetos PathAccessControlEntry.](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) Cada [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) define uma entrada ACL. 
 
-Se pretender remover uma entrada ACL **predefinida,** pode então o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) e passar num valor **de verdade** .  
+Se pretender remover uma entrada ACL **predefinida,** pode então o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) e passar num valor **de verdade**.  
 
 Este exemplo remove uma entrada ACL da ACL do diretório denominado `my-parent-directory` . Este método aceita um parâmetro booleano nomeado `isDefaultScope` que especifica se deve remover a entrada do ACL predefinido. Este parâmetro é utilizado na chamada para o método **setDefaultScope** do [PathAccessControlEntry](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html).
 
@@ -847,19 +847,40 @@ Pode encontrar erros de tempo de execução ou permissão. Para erros de tempo d
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Devolva os resultados à variável. O tubo falhou as entradas para uma tabela formatada.
+Este exemplo define ACLs em lotes. Cada chamada para **Set-AzDataLakeGen2AclRecursive** devolve um token de continuação até que todos os ACLs estejam definidos. Este exemplo define uma variável nomeada `$ContinueOnFailure` para indicar que o processo não deve continuar a definir `$false` ACLs em caso de erro de permissão. O token de continuação é armazenado para `&token` variável. Em caso de falha, esse token pode ser usado para retomar o processo a partir do ponto de falha.
 
 ```powershell
-$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
-$result
-$result.FailedEntries | ft 
-```
+$ContinueOnFailure = $false
 
-Com base na saída da tabela, pode corrigir quaisquer erros de permissão e, em seguida, retomar a execução utilizando o token de continuação.
+$token = $null
+$TotalDirectoriesSuccess = 0
+$TotalFilesSuccess = 0
+$totalFailure = 0
+$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
+do
+{
+    if ($ContinueOnFailure)
+    {
+        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 -ContinueOnFailure
+    }
+    else
+    {
+        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 
+    }
+    echo $result
+    $TotalFilesSuccess += $result.TotalFilesSuccessfulCount
+    $TotalDirectoriesSuccess += $result.TotalDirectoriesSuccessfulCount
+    $totalFailure += $result.TotalFailureCount
+    $FailedEntries += $result.FailedEntries
+    $token = $result.ContinuationToken
+} while (($token -ne $null) -and (($ContinueOnFailure) -or ($result.TotalFailureCount -eq 0)))
+echo ""
+echo "[Result Summary]"
+echo "TotalDirectoriesSuccessfulCount: `t$($TotalDirectoriesSuccess)"
+echo "TotalFilesSuccessfulCount: `t`t`t$($TotalFilesSuccess)"
+echo "TotalFailureCount: `t`t`t`t`t$($totalFailure)"
+echo "FailedEntries:"$($FailedEntries | ft)
 
-```powershell
-$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinuationToken $result.ContinuationToken
-$result
 
 ```
 
@@ -970,23 +991,41 @@ Se quiser que o processo seja concluído ininterruptamente por erros de permiss�
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Este exemplo define as entradas ACL de forma recursiva. Se este código encontrar um erro de permissão, regista essa falha e continua a execução. Este exemplo imprime os resultados (incluindo o número de falhas) na consola. 
+Este exemplo define a `$ContinueOnFailure` variável `$true` para indicar que o processo deve continuar a definir ACLs em caso de erro de permissão. 
 
 ```powershell
 $ContinueOnFailure = $true
 
+$token = $null
 $TotalDirectoriesSuccess = 0
 $TotalFilesSuccess = 0
 $totalFailure = 0
 $FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-
-$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
-
+do
+{
+    if ($ContinueOnFailure)
+    {
+        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 -ContinueOnFailure
+    }
+    else
+    {
+        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 
+    }
+    echo $result
+    $TotalFilesSuccess += $result.TotalFilesSuccessfulCount
+    $TotalDirectoriesSuccess += $result.TotalDirectoriesSuccessfulCount
+    $totalFailure += $result.TotalFailureCount
+    $FailedEntries += $result.FailedEntries
+    $token = $result.ContinuationToken
+} while (($token -ne $null) -and (($ContinueOnFailure) -or ($result.TotalFailureCount -eq 0)))
+echo ""
 echo "[Result Summary]"
-echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
-echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount)"
-echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
-echo "FailedEntries:"$($result.FailedEntries | ft) 
+echo "TotalDirectoriesSuccessfulCount: `t$($TotalDirectoriesSuccess)"
+echo "TotalFilesSuccessfulCount: `t`t`t$($TotalFilesSuccess)"
+echo "TotalFailureCount: `t`t`t`t`t$($totalFailure)"
+echo "FailedEntries:"$($FailedEntries | ft)
+
+
 ```
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -1028,7 +1067,7 @@ public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
 
 ### <a name="java"></a>[Java](#tab/java)
 
-Para garantir que o processo é concluído ininterruptamente, ligue para o método **setContinueOnFailure** de um objeto [PathSetAccessControlRecursiveOptions](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) e passe num valor **verdadeiro** .
+Para garantir que o processo é concluído ininterruptamente, ligue para o método **setContinueOnFailure** de um objeto [PathSetAccessControlRecursiveOptions](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.3.0-beta.1/index.html) e passe num valor **verdadeiro**.
 
 Este exemplo define as entradas ACL de forma recursiva. Se este código encontrar um erro de permissão, regista essa falha e continua a execução. Este exemplo imprime o número de falhas na consola. 
 

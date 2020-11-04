@@ -1,6 +1,6 @@
 ---
-title: Ficheiros CSV de consulta utilizando SQL on demand (pré-visualização)
-description: Neste artigo, você aprenderá a consultar ficheiros CSV únicos com diferentes formatos de ficheiro usando SQL on-demand (pré-visualização).
+title: Ficheiros CSV de consulta utilizando piscina SQL sem servidor (pré-visualização)
+description: Neste artigo, você aprenderá a consultar ficheiros CSV únicos com diferentes formatos de ficheiro usando piscina SQL sem servidor (pré-visualização).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288295"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321458"
 ---
 # <a name="query-csv-files"></a>Consultar ficheiros CSV
 
-Neste artigo, você aprenderá a consultar um único ficheiro CSV usando SQL on demand (pré-visualização) em Azure Synapse Analytics. Os ficheiros CSV podem ter formatos diferentes: 
+Neste artigo, você aprenderá a consultar um único ficheiro CSV usando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics. Os ficheiros CSV podem ter formatos diferentes: 
 
 - Com e sem uma linha de cabeçalho
 - Valores de vírgula e delimitados

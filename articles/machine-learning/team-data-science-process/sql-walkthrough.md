@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d7c02e413fdaa54db431cdac7a3cf7af0bddeb98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 580181aaaea975ee07bcec8108297079c5373b92
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331901"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320429"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>O processo de ciência de dados da equipa em ação: usando o SQL Server
 Neste tutorial, você anda pelo processo de construção e implementação de um modelo de machine learning usando SQL Server e um conjunto de dados publicamente disponível -- o conjunto de dados [de Viagens de Táxi de NYC.](https://www.andresmh.com/nyctaxitrips/) O procedimento segue um fluxo de trabalho padrão da ciência dos dados: ingerir e explorar os dados, criar recursos para facilitar a aprendizagem, depois construir e implementar um modelo.
@@ -55,10 +55,10 @@ Os dados da NyC Taxi Trip são cerca de 20 GB de ficheiros CSV comprimidos (~48 
 A chave única para juntar dados de viagem \_ e tarifa de viagem é composta pelos \_ campos: medalhão, licença de hack \_ e data de \_ recolha.
 
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de Tarefas de Previsão
-Vamos formular três problemas de previsão com base no valor da *gorjeta, \_ *nomeadamente:
+Vamos formular três problemas de previsão com base no valor da *gorjeta, \_* nomeadamente:
 
-* Classificação binária: Prever se uma gorjeta foi ou não paga por uma viagem, isto é, um * \_ valor* de gorjeta superior a $0 é um exemplo positivo, enquanto um * \_ valor* de gorjeta de $0 é um exemplo negativo.
-* Classificação multiclasse: Para prever o intervalo de gorjeta paga pela viagem. Dividimos a * \_ quantidade de gorjeta* em cinco caixotes ou classes:
+* Classificação binária: Prever se uma gorjeta foi ou não paga por uma viagem, isto é, um *\_ valor* de gorjeta superior a $0 é um exemplo positivo, enquanto um *\_ valor* de gorjeta de $0 é um exemplo negativo.
+* Classificação multiclasse: Para prever o intervalo de gorjeta paga pela viagem. Dividimos a *\_ quantidade de gorjeta* em cinco caixotes ou classes:
 
    `Class 0 : tip_amount = $0`
 
@@ -84,7 +84,7 @@ Para configurar o seu ambiente Azure Data Science:
 
 1. [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md)
 2. [Criar uma área de trabalho do Azure Machine Learning](../classic/create-workspace.md)
-3. [Fornecer uma máquina virtual de ciência de dados,](../data-science-virtual-machine/setup-sql-server-virtual-machine.md)que fornece um Servidor SQL e um servidor de caderno iPython.
+3. [Fornecer uma máquina virtual de ciência de dados,](../data-science-virtual-machine/overview.md)que fornece um Servidor SQL e um servidor de caderno iPython.
    
    > [!NOTE]
    > Os scripts de amostra e os cadernos IPython serão descarregados para a sua máquina virtual Data Science durante o processo de configuração. Quando o script de pós-instalação VM estiver concluído, as amostras estarão na biblioteca de Documentos VM:  
@@ -137,32 +137,32 @@ O desempenho do carregamento/transferência de grandes quantidades de dados para
    
    * Crie uma função de partição para dividir os dados por mês.
    * Crie um esquema de partição para mapear os dados de cada mês para um grupo de ficheiros diferente.
-   * Crie duas mesas divididas mapeadas para o esquema de partição: **a \_ viagem nyctaxi** irá conter os dados da viagem \_ e a ** \_ tarifa nyctaxi** irá conter os dados da tarifa da \_ viagem.
+   * Crie duas mesas divididas mapeadas para o esquema de partição: **a \_ viagem nyctaxi** irá conter os dados da viagem \_ e a **\_ tarifa nyctaxi** irá conter os dados da tarifa da \_ viagem.
      
      Clique em **Executar** para executar o script e criar as tabelas divididas.
 7. Na pasta **Scripts sample scripts,** existem dois scripts PowerShell de amostra fornecidos para demonstrar importações paralelas a granel de dados para tabelas de servidorES SQL.
    
-   * ** \_generic.ps1paralelo \_ bcp ** é um script genérico para dados paralelos de importação a granel em uma tabela. Modifique este script para definir as variáveis de entrada e alvo como indicado nas linhas de comentário no script.
-   * **onyctaxi.ps1paralelo bcp \_ \_ ** é uma versão pré-configurada do script genérico e pode ser usado para carregar ambas as tabelas para os dados de Viagens de Táxi de NYC.  
-8. Clique com o lado direito do **bcp \_ paralelo \_nyctaxi.ps1** nome do guião e clique em **Editar** para o abrir no PowerShell. Reveja as variáveis predefinidas e modifique de acordo com o nome da base de dados selecionada, pasta de dados de entrada, pasta de registo de destino e caminhos para os ficheiros do formato da amostra **nyctaxi_trip.xml** e ** \_fare.xmlnyctaxi** (fornecidos na pasta **Scripts de Amostra).**
+   * **\_generic.ps1paralelo \_ bcp** é um script genérico para dados paralelos de importação a granel em uma tabela. Modifique este script para definir as variáveis de entrada e alvo como indicado nas linhas de comentário no script.
+   * **onyctaxi.ps1paralelo bcp \_ \_** é uma versão pré-configurada do script genérico e pode ser usado para carregar ambas as tabelas para os dados de Viagens de Táxi de NYC.  
+8. Clique com o lado direito do **bcp \_ paralelo \_nyctaxi.ps1** nome do guião e clique em **Editar** para o abrir no PowerShell. Reveja as variáveis predefinidas e modifique de acordo com o nome da base de dados selecionada, pasta de dados de entrada, pasta de registo de destino e caminhos para os ficheiros do formato da amostra **nyctaxi_trip.xml** e **\_fare.xmlnyctaxi** (fornecidos na pasta **Scripts de Amostra).**
    
     ![Dados de importação a granel][16]
    
     Pode também selecionar o modo de autenticação, o padrão é a autenticação do Windows. Clique na seta verde na barra de ferramentas para correr. O guião lançará 24 operações de importação a granel em paralelo, 12 para cada mesa dividida. Pode monitorizar o progresso da importação de dados abrindo a pasta de dados padrão SQL Server conforme definido acima.
 9. O script PowerShell relata os tempos de início e fim. Quando todas as importações a granel terminam, o tempo final é reportado. Verifique a pasta de registo de destino para verificar se as importações a granel foram bem sucedidas, ou seja, não há erros relatados na pasta de registo alvo.
-10. A sua base de dados está agora pronta para exploração, engenharia de recursos e outras operações conforme desejado. Uma vez que as tabelas são divididas de acordo com o campo de ** \_ data de recolha,** as consultas que incluem as condições de ** \_ data de recolha** na cláusula **WHERE** beneficiarão do esquema de partição.
+10. A sua base de dados está agora pronta para exploração, engenharia de recursos e outras operações conforme desejado. Uma vez que as tabelas são divididas de acordo com o campo de **\_ data de recolha,** as consultas que incluem as condições de **\_ data de recolha** na cláusula **WHERE** beneficiarão do esquema de partição.
 11. No **SQL Server Management Studio,** explore as consultas de **amostras \_ fornecidas.sql**. Para executar qualquer uma das consultas de amostra, realce as linhas de consulta e clique em **Executar** na barra de ferramentas.
 12. Os dados da NYC Taxi Trips são carregados em duas tabelas separadas. Para melhorar as operações de junção, é altamente recomendado indexar as tabelas. O script da amostra **cria \_ índices \_ divididos.sql** cria índices divididos no medalhão de chave de **adesão, licença de hack \_ e hora \_ de recolha**.
 
 ## <a name="data-exploration-and-feature-engineering-in-sql-server"></a><a name="dbexplore"></a>Exploração de dados e Engenharia de Recursos no SqL Server
-Nesta secção, realizaremos a exploração de dados e geração de recursos executando consultas SQL diretamente no **SQL Server Management Studio** usando a base de dados sql Server criada anteriormente. Um script de amostra chamado ** \_ consultas de amostra.sql** é fornecido na pasta **Scripts de Amostra.** Modifique o script para alterar o nome da base de dados, se for diferente do padrão: **TaxiNYC**.
+Nesta secção, realizaremos a exploração de dados e geração de recursos executando consultas SQL diretamente no **SQL Server Management Studio** usando a base de dados sql Server criada anteriormente. Um script de amostra chamado **\_ consultas de amostra.sql** é fornecido na pasta **Scripts de Amostra.** Modifique o script para alterar o nome da base de dados, se for diferente do padrão: **TaxiNYC**.
 
 Neste exercício, iremos:
 
 * Conecte-se ao **SQL Server Management Studio** utilizando a autenticação do Windows ou utilizando a autenticação SQL e o nome de login e senha sql.
 * Explore a distribuição de dados de alguns campos em janelas de tempo variadas.
 * Investigue a qualidade dos dados dos campos de longitude e latitude.
-* Gere etiquetas de classificação binárias e multiclasses com base na ** \_ quantidade de gorjeta**.
+* Gere etiquetas de classificação binárias e multiclasses com base na **\_ quantidade de gorjeta**.
 * Gere características e computação/compare distâncias de viagem.
 * Junte-se às duas tabelas e extraa uma amostra aleatória que será usada para construir modelos.
 
@@ -179,7 +179,7 @@ Para uma rápida verificação do número de linhas e colunas nas tabelas povoad
 - Número de colunas na tabela nyctaxi_trip: `SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'`
 
 #### <a name="exploration-trip-distribution-by-medallion"></a>Exploração: Distribuição de viagem por medalhão
-Este exemplo identifica o medalhão (números de táxi) com mais de 100 viagens num determinado período de tempo. A consulta beneficiaria do acesso à mesa dividido, uma vez que está condicionada pelo esquema de partição da ** \_ data**de recolha . A consulta do conjunto de dados completo também utilizará a tabela dividida e/ou a varredura de índice.
+Este exemplo identifica o medalhão (números de táxi) com mais de 100 viagens num determinado período de tempo. A consulta beneficiaria do acesso à mesa dividido, uma vez que está condicionada pelo esquema de partição da **\_ data** de recolha . A consulta do conjunto de dados completo também utilizará a tabela dividida e/ou a varredura de índice.
 
 ```sql
 SELECT medallion, COUNT(*)
@@ -258,10 +258,10 @@ AND   pickup_longitude != '0' AND dropoff_longitude != '0'
 ```
 
 #### <a name="feature-engineering-in-sql-queries"></a>Engenharia de Recursos em Consultas SQL
-As consultas de exploração de geração de etiquetas e de conversão de geografia também podem ser usadas para gerar rótulos/características removendo a parte de contagem. Exemplos adicionais de engenharia de recursos SQL são fornecidos na [secção de Exploração de Dados e Engenharia de Recursos na secção IPython Notebook.](#ipnb) É mais eficiente executar as consultas de geração de funcionalidades no conjunto de dados completo ou um grande subconjunto do mesmo usando consultas SQL que funcionam diretamente na caixa de dados do SQL Server. As consultas podem ser executadas no **SQL Server Management Studio**, IPython Notebook, ou em qualquer ferramenta ou ambiente de desenvolvimento que possa aceder à base de dados local ou remotamente.
+As consultas de exploração de geração de etiquetas e de conversão de geografia também podem ser usadas para gerar rótulos/características removendo a parte de contagem. Exemplos adicionais de engenharia de recursos SQL são fornecidos na [secção de Exploração de Dados e Engenharia de Recursos na secção IPython Notebook.](#ipnb) É mais eficiente executar as consultas de geração de funcionalidades no conjunto de dados completo ou um grande subconjunto do mesmo usando consultas SQL que funcionam diretamente na caixa de dados do SQL Server. As consultas podem ser executadas no **SQL Server Management Studio** , IPython Notebook, ou em qualquer ferramenta ou ambiente de desenvolvimento que possa aceder à base de dados local ou remotamente.
 
 #### <a name="preparing-data-for-model-building"></a>Preparação de dados para a construção de modelos
-A seguinte consulta junta-se às tabelas **de tarifas nyctaxi \_ e** **nyctaxi, \_ ** gera uma etiqueta de classificação binária **inclinada**, uma ** \_ classe**de ponta de etiqueta de classificação multi-classe , e extrai uma amostra aleatória de 1% do conjunto de dados completo. Esta consulta pode ser copiada e colada diretamente no módulo [Azure Machine Learning Studio](https://studio.azureml.net) [Import Data][import-data] para ingestão direta de dados a partir da caixa de dados do SQL Server em Azure. A consulta exclui registos com coordenadas incorretas (0,0).
+A seguinte consulta junta-se às tabelas **de tarifas nyctaxi \_ e** **nyctaxi, \_** gera uma etiqueta de classificação binária **inclinada** , uma **\_ classe** de ponta de etiqueta de classificação multi-classe , e extrai uma amostra aleatória de 1% do conjunto de dados completo. Esta consulta pode ser copiada e colada diretamente no módulo [Azure Machine Learning Studio](https://studio.azureml.net) [Import Data][import-data] para ingestão direta de dados a partir da caixa de dados do SQL Server em Azure. A consulta exclui registos com coordenadas incorretas (0,0).
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -364,7 +364,7 @@ A hora de ler a tabela de amostras é de 6.49200 segundos
 Número de linhas e colunas recuperadas = (84952, 21)
 
 #### <a name="descriptive-statistics"></a>Estatísticas Descritivas
-Agora estão prontos para explorar os dados amostrados. Começamos por olhar para estatísticas descritivas para o campo de distância de **viagem \_ ** (ou qualquer outro) campo):
+Agora estão prontos para explorar os dados amostrados. Começamos por olhar para estatísticas descritivas para o campo de distância de **viagem \_** (ou qualquer outro) campo):
 
 ```sql
 df1['trip_distance'].describe()
@@ -415,7 +415,7 @@ pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 ![#4 de enredo][4]
 
 #### <a name="visualization-scatterplot-example"></a>Visualização: Scatterplot Exemplo
-Mostramos o enredo de dispersão entre **o tempo de viagem em \_ \_ \_ segundos** e a distância da **viagem \_ ** para ver se há alguma correlação
+Mostramos o enredo de dispersão entre **o tempo de viagem em \_ \_ \_ segundos** e a distância da **viagem \_** para ver se há alguma correlação
 
 ```sql
 plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -423,7 +423,7 @@ plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![#6 do enredo][6]
 
-Da mesma forma, podemos verificar a relação entre o ** \_ código de taxa** e **a distância \_ de viagem.**
+Da mesma forma, podemos verificar a relação entre o **\_ código de taxa** e **a distância \_ de viagem.**
 
 ```sql
 plt.scatter(df1['passenger_count'], df1['trip_distance'])
@@ -432,12 +432,12 @@ plt.scatter(df1['passenger_count'], df1['trip_distance'])
 ![#8 do enredo][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Sub-Sampling os Dados em SQL
-Ao preparar dados para a construção de modelos no [Azure Machine Learning Studio,](https://studio.azureml.net)pode decidir sobre **a consulta SQL para utilizar diretamente no módulo de Dados de Importação** ou persistir os dados projetados e amostrados numa nova tabela, que poderá utilizar no módulo De [Dados de Importação][import-data] com um simples SELECT * FROM <o seu novo nome de mesa ** \_ \_ \_>**.
+Ao preparar dados para a construção de modelos no [Azure Machine Learning Studio,](https://studio.azureml.net)pode decidir sobre **a consulta SQL para utilizar diretamente no módulo de Dados de Importação** ou persistir os dados projetados e amostrados numa nova tabela, que poderá utilizar no módulo De [Dados de Importação][import-data] com um simples SELECT * FROM <o seu novo nome de mesa **\_ \_ \_>**.
 
 Nesta secção, criaremos uma nova tabela para conter os dados amostrados e projetados. Um exemplo de uma consulta direta de SQL para a construção de modelos é fornecido na [secção de Exploração de Dados e Engenharia de Recursos na secção SQL Server.](#dbexplore)
 
 #### <a name="create-a-sample-table-and-populate-with-1-of-the-joined-tables-drop-table-first-if-it-exists"></a>Crie uma tabela de amostras e povoe com 1% das tabelas unidas. Mesa de lançamento primeiro se existir.
-Nesta secção, juntamo-nos às tabelas **nyctaxi \_ trip** e **tarifa nyctaxi, \_ **extrair uma amostra aleatória de 1% e persistir os dados amostrados em um novo nome de mesa **nyctaxi \_ um por \_ cento**:
+Nesta secção, juntamo-nos às tabelas **nyctaxi \_ trip** e **tarifa nyctaxi, \_** extrair uma amostra aleatória de 1% e persistir os dados amostrados em um novo nome de mesa **nyctaxi \_ um por \_ cento** :
 
 ```sql
 cursor = conn.cursor()
@@ -463,7 +463,7 @@ cursor.commit()
 ```
 
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>Exploração de dados usando consultas SQL em bloco de notas IPython
-Nesta secção, exploramos as distribuições de dados utilizando os dados amostrados de 1% que persistem na nova tabela que criamos acima. Explorações semelhantes podem ser realizadas usando as tabelas originais, utilizando opcionalmente **tablesample** para limitar a amostra de exploração ou limitando os resultados a um determinado período de tempo usando as divisórias de ** \_ data de recolha,** como ilustrado na [secção de Exploração de Dados e Engenharia de Recursos na secção SQL Server.](#dbexplore)
+Nesta secção, exploramos as distribuições de dados utilizando os dados amostrados de 1% que persistem na nova tabela que criamos acima. Explorações semelhantes podem ser realizadas usando as tabelas originais, utilizando opcionalmente **tablesample** para limitar a amostra de exploração ou limitando os resultados a um determinado período de tempo usando as divisórias de **\_ data de recolha,** como ilustrado na [secção de Exploração de Dados e Engenharia de Recursos na secção SQL Server.](#dbexplore)
 
 #### <a name="exploration-daily-distribution-of-trips"></a>Exploração: Distribuição diária de viagens
 
@@ -496,7 +496,7 @@ Nesta secção, iremos gerar novas etiquetas e funcionalidades utilizando direta
 No exemplo seguinte, geramos dois conjuntos de rótulos para utilizar para modelação:
 
 1. Etiquetas de classe **binárias inclinadas** (prevendo se uma gorjeta será dada)
-2. Classe de **ponta \_ ** de rótulos multiclasses (previsão do caixote da ponta ou alcance)
+2. Classe de **ponta \_** de rótulos multiclasses (previsão do caixote da ponta ou alcance)
 
 ```sql   
     nyctaxi_one_percent_add_col = '''
@@ -585,7 +585,7 @@ cursor.commit()
 ```
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>Engenharia de Recursos: Características de localização de extração de Latitude/Longitude Decimal
-Este exemplo decompõe a representação decimal de um campo de latitude e/ou longitude em múltiplos campos de granularidade, tais como, país/região, cidade, cidade, bloco, etc. Os novos geo-campos não estão mapeados para locais reais. Para obter informações sobre as localizações do geocódigo de mapeamento, consulte [os Serviços Bing Maps REST](https://msdn.microsoft.com/library/ff701710.aspx).
+Este exemplo decompõe a representação decimal de um campo de latitude e/ou longitude em múltiplos campos de granularidade, tais como, país/região, cidade, cidade, bloco, etc. Os novos geo-campos não estão mapeados para locais reais. Para obter informações sobre as localizações do geocódigo de mapeamento, consulte [os Serviços Bing Maps REST](/bingmaps/rest-services/locations/find-a-location-by-point).
 
 ```sql
 nyctaxi_one_percent_insert_col = '''
@@ -653,7 +653,7 @@ Neste exercício, já exploramos e concebemos os dados no SQL Server, e decidimo
 2. Selecione **Azure SQL Database** como **fonte de dados** no painel **Propriedades.**
 3. Introduza o nome DNS da base de dados no campo **de nome do servidor Database.** Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Introduza o **nome base de dados** no campo correspondente.
-5. Introduza o **nome de utilizador SQL** no nome da **conta de utilizador**do Servidor e na **palavra-passe** da **conta de utilizador**do Servidor .
+5. Introduza o **nome de utilizador SQL** no nome da **conta de utilizador** do Servidor e na **palavra-passe** da **conta de utilizador** do Servidor .
 7. Na **área de consulta de base de dados** editar a área de texto, cole a consulta que extrai os campos de base de dados necessários (incluindo quaisquer campos calculados, como os rótulos) e diminui as amostras dos dados para o tamanho da amostra pretendido.
 
 Um exemplo de uma experiência de classificação binária que lê dados diretamente da base de dados do SQL Server está na figura abaixo. Experiências semelhantes podem ser construídas para problemas de classificação e regressão multiclasse.
@@ -661,7 +661,7 @@ Um exemplo de uma experiência de classificação binária que lê dados diretam
 ![Azure Machine Learning Train][10]
 
 > [!IMPORTANT]
-> Nos exemplos de extração de dados de modelação e de amostragem fornecidos nas secções anteriores, **todas as etiquetas para os três exercícios de modelação estão incluídas na consulta**. Um passo importante (necessário) em cada um dos exercícios de modelação consiste em **excluir** os rótulos desnecessários para os outros dois **problemas,** e quaisquer outras fugas de alvo . Por exemplo, quando utilizar a classificação binária, utilize a etiqueta **inclinada** e exclua a **classe \_ de ponta**dos campos, **a quantidade \_ de gorjeta**e **a \_ quantidade total**. Estes últimos são fugas de alvo, uma vez que implicam a gorjeta paga.
+> Nos exemplos de extração de dados de modelação e de amostragem fornecidos nas secções anteriores, **todas as etiquetas para os três exercícios de modelação estão incluídas na consulta**. Um passo importante (necessário) em cada um dos exercícios de modelação consiste em **excluir** os rótulos desnecessários para os outros dois **problemas,** e quaisquer outras fugas de alvo . Por exemplo, quando utilizar a classificação binária, utilize a etiqueta **inclinada** e exclua a **classe \_ de ponta** dos campos, **a quantidade \_ de gorjeta** e **a \_ quantidade total**. Estes últimos são fugas de alvo, uma vez que implicam a gorjeta paga.
 > 
 > Para excluir colunas desnecessárias e/ou fugas de alvo, pode utilizar as [Colunas Selecionadas no][select-columns] módulo Dataset ou nos [Metadados de Edição.][edit-metadata] Para obter mais informações, consulte [Colunas selecionadas em páginas de][select-columns] referência de datas e [edite metadados.][edit-metadata]
 > 
@@ -722,6 +722,6 @@ Esta amostra e os seus scripts que acompanham e os portátils IPython são parti
 
 
 <!-- Module References -->
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

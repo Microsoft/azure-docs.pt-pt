@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3b5783476e0d4a96561e11158cd2b0f6421cfbf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 648f06ef1af5d6dce9fa3583c6358d3bd173f209
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88136104"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319679"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Folha de batota para Azure Synapse Analytics (anteriormente SQL DW)
 
@@ -37,7 +37,7 @@ Saber os tipos de operações antecipadamente ajuda-o a otimizar o design das ta
 
 ## <a name="data-migration"></a>Migração de dados
 
-Em primeiro lugar, carregue os seus dados no [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou no Azure Blob Storage. Em seguida, utilize a [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (pré-visualização) para carregar os seus dados em tabelas de preparação. Utilize a seguinte configuração:
+Em primeiro lugar, carregue os seus dados no [Azure Data Lake Storage](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) ou no Azure Blob Storage. Em seguida, utilize a [declaração COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (pré-visualização) para carregar os seus dados em tabelas de preparação. Utilize a seguinte configuração:
 
 | Design | Recomendação |
 |:--- |:--- |
@@ -64,8 +64,8 @@ Utilize as seguintes estratégias, consoante as propriedades da tabela:
 * Certifique-se de que as chaves de hash comuns têm o mesmo formato de dados.
 * Não distribua no formato varchar.
 * As tabelas de dimensões com chaves de hash comuns para tabelas de factos com operações de associação frequentes podem ser distribuídas com hash.
-* Utilize *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* para analisar eventuais assimetrias nos dados.
-* Utilize *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* para analisar os movimentos de dados por trás de consultas, monitorizar a transmissão do tempo e baralhar as operações. Esta opção é útil para rever a estratégia de distribuição.
+* Utilize *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* para analisar eventuais assimetrias nos dados.
+* Utilize *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* para analisar os movimentos de dados por trás de consultas, monitorizar a transmissão do tempo e baralhar as operações. Esta opção é útil para rever a estratégia de distribuição.
 
 Saiba mais sobre as [tabelas replicadas](design-guidance-for-replicated-tables.md) e as [tabelas distribuídas](sql-data-warehouse-tables-distribute.md).
 
@@ -121,7 +121,7 @@ Os grupos de recursos são usados como forma de alocar a memória a consultas. S
 
 Se reparar em que as consultas demoram demasiado tempo, confirme se os utilizadores não são executados em classes de recursos grandes. Estas classes consomem muitos blocos de simultaneidade e podem fazer com que outras consultas sejam colocadas em fila.
 
-Finalmente, ao utilizar a Gen2 da [piscina SQL,](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse)cada classe de recursos obtém 2,5 vezes mais memória do que a Gen1.
+Finalmente, ao utilizar a Gen2 da [piscina SQL,](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse)cada classe de recursos obtém 2,5 vezes mais memória do que a Gen1.
 
 Saiba mais como trabalhar com [classes de recursos e a simultaneidade](resource-classes-for-workload-management.md).
 

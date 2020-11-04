@@ -11,22 +11,22 @@ ms.subservice: core
 ms.date: 02/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ac7420e47077e4e2b5bcfce0f33766554cd5c76d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1789f83f048a2ab0fb75aa33635e58b0850b865b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89647323"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319127"
 ---
 # <a name="use-azure-ad-identity-with-your-machine-learning-web-service-in-azure-kubernetes-service"></a>Utilizar a identidade do Azure Active Directory com o serviço Web de aprendizagem automática no Azure Kubernetes Service
 
-Neste modo de fazer, aprende a atribuir uma identidade do Azure Ative Directory (AAD) ao seu modelo de machine learning implantado no Serviço Azure Kubernetes. O projeto [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) permite que as aplicações acedam a recursos em nuvem de forma segura com a AAD utilizando uma [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) e primitivos Kubernetes. Isto permite que o seu serviço web aceda de forma segura aos seus recursos Azure sem ter de incorporar credenciais ou gerir fichas diretamente dentro do seu `score.py` script. Este artigo explica os passos para criar e instalar uma Identidade Azure no seu cluster de Serviço Azure Kubernetes e atribuir a identidade ao seu serviço web implantado.
+Neste modo de fazer, aprende a atribuir uma identidade do Azure Ative Directory (AAD) ao seu modelo de machine learning implantado no Serviço Azure Kubernetes. O projeto [AAD Pod Identity](https://github.com/Azure/aad-pod-identity) permite que as aplicações acedam a recursos em nuvem de forma segura com a AAD utilizando uma [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) e primitivos Kubernetes. Isto permite que o seu serviço web aceda de forma segura aos seus recursos Azure sem ter de incorporar credenciais ou gerir fichas diretamente dentro do seu `score.py` script. Este artigo explica os passos para criar e instalar uma Identidade Azure no seu cluster de Serviço Azure Kubernetes e atribuir a identidade ao seu serviço web implantado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A [extensão Azure CLI para o serviço machine learning](reference-azure-machine-learning-cli.md), o [Azure Machine Learning SDK para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true), ou a extensão do Código do Estúdio Visual de [Aprendizagem de Máquinas Azure.](tutorial-setup-vscode-extension.md)
+- A [extensão Azure CLI para o serviço machine learning](reference-azure-machine-learning-cli.md), o [Azure Machine Learning SDK para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py), ou a extensão do Código do Estúdio Visual de [Aprendizagem de Máquinas Azure.](tutorial-setup-vscode-extension.md)
 
-- Acesso ao seu cluster AKS utilizando o `kubectl` comando. Para mais informações, consulte [Connect to the cluster](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough#connect-to-the-cluster)
+- Acesso ao seu cluster AKS utilizando o `kubectl` comando. Para mais informações, consulte [Connect to the cluster](../aks/kubernetes-walkthrough.md#connect-to-the-cluster)
 
 - Um serviço web Azure Machine Learning implantado no seu cluster AKS.
 
@@ -126,7 +126,7 @@ Uma vez que as cápsulas estejam em funcionamento, os serviços web para esta im
 
 ## <a name="assign-the-appropriate-roles-to-your-azure-identity"></a>Atribua as funções adequadas à sua Identidade Azure
 
-[Atribua a sua Identidade Gerida Azure com funções adequadas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal) para aceder a outros recursos da Azure. Certifique-se de que as funções que está a atribuir têm as **ações de dados corretas**. Por exemplo, a [Função de leitor de dados de armazenamento blob](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader) terá lido permissões para o seu Bloco de Armazenamento enquanto a [Função](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) de Leitor genérico não poderá.
+[Atribua a sua Identidade Gerida Azure com funções adequadas](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) para aceder a outros recursos da Azure. Certifique-se de que as funções que está a atribuir têm as **ações de dados corretas**. Por exemplo, a [Função de leitor de dados de armazenamento blob](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) terá lido permissões para o seu Bloco de Armazenamento enquanto a [Função](../role-based-access-control/built-in-roles.md#reader) de Leitor genérico não poderá.
 
 ## <a name="use-azure-identity-with-your-machine-learning-web-service"></a>Use a identidade Azure com o seu serviço web de aprendizagem automática
 
@@ -153,7 +153,7 @@ secret = secret_client.get_secret(my_secret_name)
 ```
 
 > [!IMPORTANT]
-> Este exemplo utiliza o DefaultAzureCredential. Para conceder o acesso à sua identidade utilizando uma política de acesso específica, consulte [atribuir uma política de acesso ao Cofre de Chaves utilizando o CLI Azure](/azure/key-vault/general/assign-access-policy-cli).
+> Este exemplo utiliza o DefaultAzureCredential. Para conceder o acesso à sua identidade utilizando uma política de acesso específica, consulte [atribuir uma política de acesso ao Cofre de Chaves utilizando o CLI Azure](../key-vault/general/assign-access-policy-cli.md).
 
 ### <a name="access-blob-from-your-web-service"></a>Aceder Blob a partir do seu serviço web
 

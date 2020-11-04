@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5a0804ae5ee2dbffaa57fc967fda29701562ab44
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ee92a9eaf9316cbd453ea1ec4def58bb543a5a6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085706"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321139"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explore os dados no armazenamento de bolhas Azure com pandas
 
@@ -28,7 +28,7 @@ Esta tarefa é um passo no [Processo de Ciência de Dados](overview.md)da Equipa
 Este artigo assume que tem:
 
 * Criei uma conta de armazenamento Azure. Se precisar de instruções, consulte [Criar uma conta de Armazenamento Azure](../../storage/common/storage-account-create.md)
-* Guarde os seus dados numa conta de armazenamento de blob Azure. Se precisar de instruções, consulte [a mudança de dados de e para o Armazenamento Azure](../../storage/common/storage-moving-data.md)
+* Guarde os seus dados numa conta de armazenamento de blob Azure. Se precisar de instruções, consulte [a mudança de dados de e para o Armazenamento Azure](../../storage/common/storage-choose-data-transfer-solution.md)
 
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>Carregue os dados num DataFrame de pandas
 Para explorar e manipular um conjunto de dados, deve primeiro ser descarregado da fonte blob para um ficheiro local, que pode ser carregado num DataFrame de pandas. Aqui estão os passos a seguir para este procedimento:

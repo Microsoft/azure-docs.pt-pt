@@ -10,12 +10,12 @@ author: luisquintanilla
 ms.author: luquinta
 ms.date: 07/09/2020
 ms.custom: contperfq4
-ms.openlocfilehash: a13bec5fa557bed1b9ce84836588e6a3e501ddf5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ca0f1e82b81c8aad53938a5475f1ece68c0e33
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906691"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321565"
 ---
 # <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension-preview"></a>Treine e implemente um modelo de classificação de imagem TensorFlow utilizando a extensão do código do estúdio visual de aprendizagem visual Azure Machine Learning (pré-visualização)
 
@@ -97,7 +97,7 @@ Para criar um alvo de computação:
     > ![Criar um alvo de computação](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
 
 1. Selecione **Azure Machine Learning Compute (AmlCompute)**. O Azure Machine Learning Compute é uma infraestrutura de computação gerida que permite ao utilizador criar facilmente um único ou multi-nó compute que pode ser usado com outros utilizadores no seu espaço de trabalho.
-1. Selecionar o tamanho da VM. Selecione **Standard_F2s_v2** da lista de opções. O tamanho do seu VM tem um impacto no tempo que leva para treinar os seus modelos. Para obter mais informações sobre tamanhos VM, consulte [os tamanhos das máquinas virtuais Linux em Azure.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)
+1. Selecionar o tamanho da VM. Selecione **Standard_F2s_v2** da lista de opções. O tamanho do seu VM tem um impacto no tempo que leva para treinar os seus modelos. Para obter mais informações sobre tamanhos VM, consulte [os tamanhos das máquinas virtuais Linux em Azure.](../virtual-machines/sizes.md)
 1. Nomeie o seu cálculo "TeamWkspc-com" e prima **Enter** para criar o seu cálculo.
 
     Um ficheiro aparece no Código VS com conteúdo semelhante ao seguinte:
@@ -140,7 +140,7 @@ Para criar uma configuração de execução:
 1. Na barra de atividades do Código do Estúdio Visual, selecione o ícone **Azure.** Aparece a vista Azure Machine Learning. 
 1. Expanda o seu nó de subscrição. 
 1. Expandir o nó **de clusters teamWorkspace > Compute.** 
-1. Sob o nó computacional, clique com o botão direito no nó de computação **TeamWkspc-com** e escolha **Configuração De Execução**Create .
+1. Sob o nó computacional, clique com o botão direito no nó de computação **TeamWkspc-com** e escolha **Configuração De Execução** Create .
 
     > [!div class="mx-imgBorder"]
     > ![Criar uma configuração de execução](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
@@ -414,4 +414,3 @@ Neste momento, é enviado um pedido à Azure para implementar o seu serviço web
 
 * Para uma passagem de como treinar com a Azure Machine Learning fora do Código do Estúdio Visual, consulte [Tutorial: Modelos de comboio com Azure Machine Learning](tutorial-train-models-with-aml.md).
 * Para uma análise de como editar, correr e depurar código localmente, consulte o [tutorial python hello-world](https://code.visualstudio.com/docs/Python/Python-tutorial).
-

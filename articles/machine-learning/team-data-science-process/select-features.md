@@ -11,20 +11,20 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1127a470a48660ffffa892d24c9f2991ec64c8e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 940d4c465acb5e8478d2b204ab5b9b18c79254f0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76716678"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321316"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Seleção de características no Team Data Science Process (TDSP)
 Este artigo explica as finalidades da seleção de recursos e fornece exemplos do seu papel no processo de melhoria de dados de machine learning. Estes exemplos são desenhados a partir do Azure Machine Learning Studio.
 
 A engenharia e seleção de funcionalidades faz parte do Processo de Ciência de Dados de Equipa (TDSP) delineado no artigo [O que é o Processo de Ciência de Dados da Equipa?](overview.md) A engenharia e a seleção de recursos são partes do passo de **funcionalidades de Desenvolvimento** do TDSP.
 
-* **engenharia de recursos**: Este processo tenta criar funcionalidades relevantes adicionais a partir das características brutas existentes nos dados, e aumentar o poder preditivo para o algoritmo de aprendizagem.
-* **seleção de recursos**: Este processo seleciona o subconjunto chave das características originais dos dados numa tentativa de reduzir a dimensionalidade do problema de treino.
+* **engenharia de recursos** : Este processo tenta criar funcionalidades relevantes adicionais a partir das características brutas existentes nos dados, e aumentar o poder preditivo para o algoritmo de aprendizagem.
+* **seleção de recursos** : Este processo seleciona o subconjunto chave das características originais dos dados numa tentativa de reduzir a dimensionalidade do problema de treino.
 
 **Normalmente, a engenharia de recursos** é aplicada primeiro para gerar funcionalidades adicionais, e em seguida, o passo de **seleção** de recursos é executado para eliminar características irrelevantes, redundantes ou altamente correlacionadas.
 
@@ -64,7 +64,6 @@ A engenharia de recursos e a seleção de recursos são duas características ge
 Nem sempre é necessariamente para realizar engenharia de recursos ou seleção de recursos. Se é necessário ou não depende dos dados recolhidos, do algoritmo selecionado e do objetivo da experiência.
 
 <!-- Module References -->
-[feature-hashing]: https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/
-[filter-based-feature-selection]: https://msdn.microsoft.com/library/azure/918b356b-045c-412b-aa12-94a1d2dad90f/
-[fisher-linear-discriminant-analysis]: https://msdn.microsoft.com/library/azure/dcaab0b2-59ca-4bec-bb66-79fd23540080/
-
+[feature-hashing]: /azure/machine-learning/studio-module-reference/feature-hashing
+[filter-based-feature-selection]: /previous-versions/azure/dn905854(v=azure.100)
+[fisher-linear-discriminant-analysis]: /azure/machine-learning/studio-module-reference/fisher-linear-discriminant-analysis

@@ -10,20 +10,20 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5fe11b20ff8e96bc4b0d997c49201aafdd2e2cac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbe822b75368a1ab72bcd7f73419770b291d2508
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320528"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321148"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelação e implantação
 
 As tarefas típicas da ciência dos dados incluem a exploração de dados, modelação e implantação. Este artigo mostra como utilizar os utilitários **Interativos de Exploração, Análise e Reportagem (IDEAR)** e **Modelação e Reportagem Automatizada (AMAR)** para completar várias tarefas comuns de ciência de dados, tais como exploração interativa de dados, análise de dados, reporte e criação de modelos. As opções para a implantação de um modelo num ambiente de produção podem incluir:
 
 - [Azure Machine Learning](../index.yml)
-- [SQL-Server com serviços ML](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)
-- [Servidor do Microsoft Machine Learning](https://docs.microsoft.com/machine-learning-server/what-is-machine-learning-server)
+- [SQL-Server com serviços ML](/sql/advanced-analytics/r/r-services)
+- [Microsoft Machine Learning Server](/machine-learning-server/what-is-machine-learning-server)
 
 
 ## <a name="1--exploration"></a>1. <a name='DataQualityReportUtility-1'></a> Exploração 
@@ -76,7 +76,7 @@ Depois de vários modelos terem sido construídos, normalmente é necessário te
 1. [Azure Machine Learning - serviço de gestão de modelos](../index.yml)
 2. [ModelDB do MIT](http://modeldb.csail.mit.edu:3000/projects) 
 3. [SQL-servidor como um sistema de gestão de modelos](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
-4. [Servidor do Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+4. [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 ## <a name="3--deployment"></a>3. <a name='Deployment-3'></a> Implantação
 
@@ -87,8 +87,8 @@ Existem várias abordagens e plataformas para colocar modelos em produção. Aqu
 
 
 - [Implantação de modelos em Azure Machine Learning](../how-to-deploy-and-where.md)
-- [Implantação de um modelo no sql-servidor](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
-- [Servidor do Microsoft Machine Learning](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
+- [Implantação de um modelo no sql-servidor](/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
+- [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 
 > [!NOTE]
 > Antes da implantação, é preciso garantir que a latência da pontuação do modelo é baixa o suficiente para ser usada na produção.

@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: 294a3dc9525ba0a0c533d68027b148ad402cd7ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f69b62f39b7e62eea26cc4d8511505056c6821bf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91268847"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321277"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Tutorial: Treine e implemente um modelo a partir do CLI
 
@@ -39,7 +39,7 @@ Saiba como tomar as seguintes ações:
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
-* Para utilizar os comandos CLI neste documento a partir do seu **ambiente local,** necessita do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Para utilizar os comandos CLI neste documento a partir do seu **ambiente local,** necessita do [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
     Se utilizar o [Azure Cloud Shell,](https://azure.microsoft.com//features/cloud-shell/)o CLI é acedido através do navegador e vive na nuvem.
 
@@ -128,7 +128,7 @@ A resposta deste comando é semelhante à seguinte JSON:
 }
 ```
 
-Para obter mais informações sobre o trabalho com grupos de recursos, consulte [o grupo AZ](https://docs.microsoft.com//cli/azure/group?view=azure-cli-latest&preserve-view=true).
+Para obter mais informações sobre o trabalho com grupos de recursos, consulte [o grupo AZ](//cli/azure/group?preserve-view=true&view=azure-cli-latest).
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 

@@ -10,12 +10,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: d57de4d52ccf3a029a8dd1350635fb65dd3ac829
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b98384d4d735f4c124c6af40d6edbff896900ce
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91828680"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320987"
 ---
 # <a name="upgrade-your-data-science-virtual-machine-to-ubuntu-1804"></a>Atualizar a Máquina Virtual de Ciência de Dados para o Ubuntu 18.04
 
@@ -38,9 +38,9 @@ No portal Azure, utilize a barra de pesquisa para encontrar a funcionalidade **S
 
 :::image type="content" source="media/ubuntu_upgrade/azure-portal-search-bar.png" alt-text="Screenshot mostrando portal Azure e barra de pesquisa, com **Snapshots** em destaque":::
 
-1. **Selecione Adicionar**, que irá levá-lo para a página **'Criar' instantâneo.** Selecione o grupo de subscrição e recursos da sua máquina virtual. Para **a Região**, selecione a mesma região em que o armazenamento alvo existe. Selecione o disco de armazenamento DSVM e opções de backup adicionais. **O HDD padrão** é um tipo de armazenamento apropriado para este cenário de backup.
+1. **Selecione Adicionar** , que irá levá-lo para a página **'Criar' instantâneo.** Selecione o grupo de subscrição e recursos da sua máquina virtual. Para **a Região** , selecione a mesma região em que o armazenamento alvo existe. Selecione o disco de armazenamento DSVM e opções de backup adicionais. **O HDD padrão** é um tipo de armazenamento apropriado para este cenário de backup.
 
-:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Screenshot mostrando portal Azure e barra de pesquisa, com **Snapshots** em destaque":::
+:::image type="content" source="media/ubuntu_upgrade/create-snapshot-options.png" alt-text="Screenshot mostrando as opções de 'Criar instantâneo'":::
 
 2. Uma vez preenchidos todos os detalhes e as validações passam, selecione **Review + create** para validar e criar o instantâneo. Quando o instantâneo estiver concluído com sucesso, verá uma mensagem a dizer-lhe que a implementação está completa.
 
@@ -67,7 +67,12 @@ Depois de o seu VM ter atualizado e reiniciado, tente aceder-lhe novamente via S
 
 Se receber o erro **A identificação do anfitrião remoto mudou,** terá de regenerar as suas credenciais SSH.
 
-:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Screenshot mostrando portal Azure e barra de pesquisa, com **Snapshots** em destaque"
+:::image type="content" source="media/ubuntu_upgrade/remote-host-warning.png" alt-text="Imagem powerShell mostrando identificação remota do anfitrião mudou aviso":::
+
+Para tal, na sua máquina local, faça o comando:
+
+```bash
+ssh-keygen -R "your server hostname or ip"
 ```
 
 Deve agora ser capaz de se conectar com o SSH. Se ainda tiver problemas, na página **'Ligar'** siga o link para **problemas de conectividade SSH resolução de problemas**.
@@ -98,19 +103,19 @@ Pode optar por atualizar as partes do sistema operativo do sistema de ficheiros 
 
 Se ainda não criou um instantâneo VM como descrito anteriormente, faça-o. 
 
-1. No portal Azure, procure **discos** e selecione **Add**, que abrirá a página **do Disco.**
+1. No portal Azure, procure **discos** e selecione **Add** , que abrirá a página **do Disco.**
 
-:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Screenshot mostrando portal Azure e barra de pesquisa, com **Snapshots** em destaque":::
+:::image type="content" source="media/ubuntu_upgrade/portal-disks-search.png" alt-text="Screenshot do portal Azure mostrando a pesquisa da página de Discos e do botão Adicionar":::
 
-2. Desajuste a **Subscrição,** **grupo de recursos**e **Região** para os valores do seu instantâneo VM. Escolha um **Nome** para o disco a ser criado.
+2. Desajuste a **Subscrição,** **grupo de recursos** e **Região** para os valores do seu instantâneo VM. Escolha um **Nome** para o disco a ser criado.
 
 3. Selecione **o tipo de Origem** como **Snapshot** e selecione o instantâneo VM como o **instantâneo 'Source'.** Reveja e crie o disco. 
 
-:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Screenshot mostrando portal Azure e barra de pesquisa, com **Snapshots** em destaque":::
+:::image type="content" source="media/ubuntu_upgrade/disk-create-options.png" alt-text="Screenshot do diálogo de criação de disco mostrando opções":::
 
 ### <a name="create-a-new-ubuntu-data-science-virtual-machine"></a>Criar uma nova Máquina Virtual de Ciência de Dados Ubuntu
 
-Crie uma nova Máquina Virtual de Ciência de Dados Ubuntu utilizando o [portal Azure](https://portal.azure.com) ou um [modelo ARM](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager). 
+Crie uma nova Máquina Virtual de Ciência de Dados Ubuntu utilizando o [portal Azure](https://portal.azure.com) ou um [modelo ARM](./dsvm-tutorial-resource-manager.md). 
 
 ### <a name="recreate-user-accounts-on-your-new-data-science-virtual-machine"></a>Recrie a conta(s) do utilizador na sua nova Máquina Virtual de Ciência de Dados
 
@@ -118,7 +123,7 @@ Uma vez que estará apenas a copiar dados do seu computador antigo, terá de rec
 
 O Linux é suficientemente flexível para permitir que personalize diretórios e caminhos na sua nova instalação para seguir a sua antiga máquina. No entanto, em geral, é mais fácil usar o layout preferido do Ubuntu moderno e modificar o seu ambiente de utilizador e scripts para se adaptar.
 
-Para obter mais informações, consulte [Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro).
+Para obter mais informações, consulte [Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)](./dsvm-ubuntu-intro.md).
 
 ### <a name="mount-the-disk-of-the-snapshotted-vm-as-a-data-disk-on-your-new-data-science-virtual-machine"></a>Monte o disco do VM instantâneo como um disco de dados na sua nova Máquina Virtual de Ciência de Dados
 
@@ -128,7 +133,7 @@ Para obter mais informações, consulte [Quickstart: Configurar a Máquina Virtu
 
 3. No **dropdown** do nome do disco, selecione o disco que criou a partir da foto do seu antigo VM.
 
-:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Screenshot mostrando portal Azure e barra de pesquisa, com **Snapshots** em destaque":::
+:::image type="content" source="media/ubuntu_upgrade/attach-data-disk.png" alt-text="Screenshot da página de opções DSVM mostrando opções de anexo de disco":::
 
 4. **Selecione Guardar** para atualizar a sua máquina virtual.
 
@@ -147,7 +152,7 @@ Para obter mais informações, consulte [Quickstart: Configurar a Máquina Virtu
     
     Os resultados devem parecer-se com a seguinte imagem. Na imagem, o disco `sda1` é montado na raiz e é o disco de `sdb2` `/mnt` risco. O disco de dados criado a partir do instantâneo do seu antigo VM é identificado como `sdc1` mas ainda não está disponível, como evidenciado pela falta de uma localização de montagem. Os seus resultados podem ter identificadores diferentes, mas deve ver um padrão semelhante.
     
-    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot mostrando portal Azure e barra de pesquisa, com **Snapshots** em destaque":::
+    :::image type="content" source="media/ubuntu_upgrade/lsblk-results.png" alt-text="Screenshot da saída de Isblk, mostrando unidade de dados não desmontada":::
     
 3. Para aceder à unidade de dados, crie uma localização para ele e monte-a. `/dev/sdc1`Substitua-o pelo valor adequado devolvido `lsblk` por:
 
@@ -157,7 +162,7 @@ Para obter mais informações, consulte [Quickstart: Configurar a Máquina Virtu
     
 4. Agora, `/datadrive` contém os diretórios e ficheiros da sua antiga Máquina Virtual de Ciência de Dados. Mova ou copie os diretórios ou ficheiros que pretende da unidade de dados para o novo VM como desejar.
 
-Para obter mais informações, consulte [utilizar o portal para anexar um disco de dados a um VM Linux](https://docs.microsoft.com/azure/virtual-machines/linux/attach-disk-portal#connect-to-the-linux-vm-to-mount-the-new-disk).
+Para obter mais informações, consulte [utilizar o portal para anexar um disco de dados a um VM Linux](../../virtual-machines/linux/attach-disk-portal.md#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 ## <a name="connect-and-confirm-version-upgrade"></a>Ligar e confirmar atualização da versão
 
@@ -169,13 +174,13 @@ cat /etc/os-release
 
 E devias ver que estás a comandar o Ubuntu 18.04.
 
-:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Screenshot mostrando portal Azure e barra de pesquisa, com **Snapshots** em destaque":::
+:::image type="content" source="media/ubuntu_upgrade/ssh-os-release.png" alt-text="Screenshot do terminal Ubuntu mostrando dados da versão OS":::
 
 A mudança de versão também é mostrada no portal Azure.
 
-:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="Screenshot mostrando portal Azure e barra de pesquisa, com **Snapshots** em destaque":::
+:::image type="content" source="media/ubuntu_upgrade/portal-showing-os-version.png" alt-text="Screenshot do portal mostrando propriedades DSVM, incluindo versão OS":::
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ciência de dados com uma máquina de ciência de dados Ubuntu em Azure](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/linux-dsvm-walkthrough)
-- [Que ferramentas estão incluídas na Máquina Virtual de Ciência de Dados do Azure?](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/tools-included)
+- [Ciência de dados com uma máquina de ciência de dados Ubuntu em Azure](./linux-dsvm-walkthrough.md)
+- [Que ferramentas estão incluídas na Máquina Virtual de Ciência de Dados do Azure?](./tools-included.md)

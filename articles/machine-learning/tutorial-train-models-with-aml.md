@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 40ee7ad74d1a1daaf6df5e76b5e51db52feea304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 003056ae9d3f236d37ddc10764812c15a3c6c695
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535074"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321285"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Modelos de classificação de imagem de comboio com dados do MNIST e scikit-learn 
 
@@ -37,7 +37,7 @@ Aprende-se a selecionar um modelo e a implantá-lo na [segunda parte deste tutor
 Se não tiver uma subscrição do Azure, crie uma conta gratuita antes de começar. Experimente hoje a [versão gratuita ou paga do Azure Machine Learning.](https://aka.ms/AMLFree)
 
 >[!NOTE]
-> O código deste artigo foi testado com a versão 1.13.0 [da Azure Machine Learning SDK.](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
+> O código deste artigo foi testado com a versão 1.13.0 [da Azure Machine Learning SDK.](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -159,7 +159,7 @@ Antes de treinar um modelo, precisa entender os dados que usa para treiná-lo. N
 
 ### <a name="download-the-mnist-dataset"></a>Transferir o conjunto de dados MNIST
 
-Utilize conjuntos de dados abertos Azure para obter os ficheiros de dados MNIST em bruto. [Os conjuntos de dados Azure Open](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) são conjuntos de dados públicos com curadoria que pode utilizar para adicionar funcionalidades específicas de cenários a soluções de machine learning para modelos mais precisos. Cada conjunto de dados tem uma classe correspondente, `MNIST` neste caso, para recuperar os dados de diferentes maneiras.
+Utilize conjuntos de dados abertos Azure para obter os ficheiros de dados MNIST em bruto. [Os conjuntos de dados Azure Open](../open-datasets/overview-what-are-open-datasets.md) são conjuntos de dados públicos com curadoria que pode utilizar para adicionar funcionalidades específicas de cenários a soluções de machine learning para modelos mais precisos. Cada conjunto de dados tem uma classe correspondente, `MNIST` neste caso, para recuperar os dados de diferentes maneiras.
 
 Este código recupera os dados como um `FileDataset` objeto, que é uma subclasse de `Dataset` . Uma `FileDataset` referência a ficheiros únicos ou múltiplos de qualquer formato nas suas datastores ou urls públicos. A classe fornece-lhe a capacidade de descarregar ou montar os ficheiros no seu cálculo, criando uma referência à localização da fonte de dados. Além disso, registe o Dataset no seu espaço de trabalho para uma fácil recuperação durante o treino.
 
@@ -309,7 +309,7 @@ Repare que o script obtém dados e guarda modelos:
 
 ### <a name="configure-the-training-job"></a>Configure o trabalho de formação
 
-Crie um objeto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) para especificar os detalhes de configuração do seu trabalho de treino, incluindo o seu script de treino, ambiente a utilizar e o alvo de computação para executar. Configure o ScriptRunConfig especificando:
+Crie um objeto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) para especificar os detalhes de configuração do seu trabalho de treino, incluindo o seu script de treino, ambiente a utilizar e o alvo de computação para executar. Configure o ScriptRunConfig especificando:
 
 * O diretório que contém os seus scripts. Todos os ficheiros neste diretório são carregados para os nós do cluster, para execução.
 * O destino de computação. Neste caso, irá utilizar o cluster de computação do Azure Machine Learning que criou.
@@ -368,21 +368,21 @@ No total, a primeira corrida demora **cerca de 10 minutos.** Mas para as execuç
 
 O que acontece enquanto espera:
 
-- **Criação de imagem**: É criada uma imagem Docker que corresponde ao ambiente Python especificado pelo ambiente Azure ML. A imagem é carregada para a área de trabalho. A criação e upload de imagens demora cerca de **cinco minutos.**
+- **Criação de imagem** : É criada uma imagem Docker que corresponde ao ambiente Python especificado pelo ambiente Azure ML. A imagem é carregada para a área de trabalho. A criação e upload de imagens demora cerca de **cinco minutos.**
 
   Esta fase acontece uma vez para cada ambiente Python porque o recipiente está em cache para as corridas subsequentes. Durante a criação da imagem, os registos são transmitidos para o histórico de execuções. Pode monitorizar o progresso da criação de imagens utilizando estes registos.
 
-- **Dimensionamento**: Se o cluster remoto necessitar de mais nós para fazer a execução do que atualmente disponível, os nós adicionais são adicionados automaticamente. A escala normalmente demora **cerca de cinco minutos.**
+- **Dimensionamento** : Se o cluster remoto necessitar de mais nós para fazer a execução do que atualmente disponível, os nós adicionais são adicionados automaticamente. A escala normalmente demora **cerca de cinco minutos.**
 
-- **Execução**: Nesta fase, os scripts e ficheiros necessários são enviados para o alvo do cálculo. Em seguida, as datastores são montadas ou copiadas. E então o **entry_script** é executado. Enquanto o trabalho está em execução, **o stdout** e o diretório **./logs** são transmitidos para o histórico de execução. Pode monitorizar o progresso da execução utilizando estes registos.
+- **Execução** : Nesta fase, os scripts e ficheiros necessários são enviados para o alvo do cálculo. Em seguida, as datastores são montadas ou copiadas. E então o **entry_script** é executado. Enquanto o trabalho está em execução, **o stdout** e o diretório **./logs** são transmitidos para o histórico de execução. Pode monitorizar o progresso da execução utilizando estes registos.
 
-- **Pós-processamento**: O diretório **de ./outputs** da execução é copiado para o histórico de execução no seu espaço de trabalho, para que possa aceder a estes resultados.
+- **Pós-processamento** : O diretório **de ./outputs** da execução é copiado para o histórico de execução no seu espaço de trabalho, para que possa aceder a estes resultados.
 
 Pode verificar o progresso de um trabalho em execução de várias maneiras. Este tutorial usa um widget Jupyter e um `wait_for_completion` método.
 
 ### <a name="jupyter-widget"></a>Widget Jupyter
 
-Assista ao progresso da corrida com um [widget Jupyter.](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) Tal como a submissão de corrida, o widget é assíncronos e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho termine:
+Assista ao progresso da corrida com um [widget Jupyter.](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) Tal como a submissão de corrida, o widget é assíncronos e fornece atualizações ao vivo a cada 10 a 15 segundos até que o trabalho termine:
 
 ```python
 from azureml.widgets import RunDetails
@@ -393,7 +393,7 @@ O widget será o seguinte no final do treino:
 
 ![Widget de portátil](./media/tutorial-train-models-with-aml/widget.png)
 
-Se precisar de cancelar uma corrida, pode seguir [estas instruções](https://aka.ms/aml-docs-cancel-run).
+Se precisar de cancelar uma corrida, pode seguir [estas instruções](./how-to-manage-runs.md).
 
 ### <a name="get-log-results-upon-completion"></a>Obter resultados do registo após a conclusão
 

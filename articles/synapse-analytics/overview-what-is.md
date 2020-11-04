@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 09429e26c5b7192141262e1a31c0ef90427bdd32
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 16e13a18f93da9063a7eb08e3a2df27db9e3090f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899030"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321704"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>O que é Azure Synapse Analytics (pré-visualização de espaços de trabalho)?
 
@@ -75,8 +75,8 @@ O Azure Synapse fornece uma única forma de as empresas gerirem os recursos anal
 * Produtividade líder na indústria para engenheiros de dados que escrevem código SQL ou Spark: autoria, depuração e otimização de desempenho
 * Integrar-se com processos ci/CD da empresa
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 * [Começa com o Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)
-* [Utilizar o SQL a pedido](quickstart-sql-on-demand.md)
+* [Use a piscina SQL sem servidor](quickstart-sql-on-demand.md)

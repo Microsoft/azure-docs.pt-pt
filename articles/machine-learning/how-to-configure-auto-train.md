@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: fc5b958813ea1107d98525b6dfc1b0b56c9c5400
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 09fe93d4e3ba50ced6c8f07d6fe25ace2376c388
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091207"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320516"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
 
-Neste guia, aprenda a definir várias configurações das suas experiências automatizadas de aprendizagem automática de máquinas com o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). A aprendizagem automática de máquinas escolhe um algoritmo e hiperparímetros para si e gera um modelo pronto para ser implantado. Existem várias opções que pode usar para configurar experiências automatizadas de aprendizagem automática de máquinas.
+Neste guia, aprenda a definir várias configurações das suas experiências automatizadas de aprendizagem automática de máquinas com o [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). A aprendizagem automática de máquinas escolhe um algoritmo e hiperparímetros para si e gera um modelo pronto para ser implantado. Existem várias opções que pode usar para configurar experiências automatizadas de aprendizagem automática de máquinas.
 
 Para ver exemplos de experiências automatizadas de aprendizagem automática de máquinas, consulte [Tutorial: Treine um modelo de classificação com machine learning automatizado](tutorial-auto-train-models.md) ou [modelos de comboio com aprendizagem automática de máquinas na nuvem.](how-to-auto-train-remote.md)
 
@@ -46,7 +46,7 @@ Para este artigo que precisa,
     Para instalar o SDK pode, 
     * Crie uma instância computacional, que instala automaticamente o SDK e está pré-configurada para fluxos de trabalho ML. Consulte [Criar e gerir uma instância de cálculo de Aprendizagem automática Azure](how-to-create-manage-compute-instance.md) para obter mais informações. 
 
-    * [Instale o SDK por si mesmo.](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) Apenas certifique-se de incluir o `automl` extra. 
+    * [Instale o SDK por si mesmo.](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) Apenas certifique-se de incluir o `automl` extra. 
 
 ## <a name="select-your-experiment-type"></a>Selecionar o tipo de experimentação
 
@@ -61,20 +61,20 @@ from azureml.train.automl import AutoMLConfig
 automl_config = AutoMLConfig(task = "classification")
 ```
 
-## <a name="data-source-and-format"></a>Fonte de dados e formato
+## <a name="data-source-and-format"></a>Origem de dados e formato
 
-A aprendizagem automática de máquinas suporta dados que residem no seu ambiente de trabalho local ou na nuvem, como o Azure Blob Storage. Os dados podem ser lidos num **DataFrame pandas** ou num **Separador de Aprendizagem de Máquinas Azure.** [Saiba mais sobre conjuntos de dados.](how-to-create-register-datasets.md)
+O machine learning automatizado suporta os dados que residem no ambiente de trabalho local ou na cloud, como o Armazenamento de Blobs do Azure. Os dados podem ser lidos num **DataFrame pandas** ou num **Separador de Aprendizagem de Máquinas Azure.** [Saiba mais sobre os conjuntos de dados](how-to-create-register-datasets.md).
 
-Requisitos para dados de formação:
+Requisitos dos dados de preparação:
 - Os dados devem estar em forma tabular.
 - O valor a prever, coluna-alvo, deve estar nos dados.
 
-**Para experiências remotas,** os dados de treino devem estar acessíveis a partir do cálculo remoto. A AutoML só aceita [TabularDatasets de Aprendizagem de Máquinas Azure](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) ao trabalhar num computação remota. 
+**Para experiências remotas,** os dados de treino devem estar acessíveis a partir do cálculo remoto. O AutoML só aceita [TabularDatasets do Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) ao trabalhar em computação remota. 
 
-Os conjuntos de dados Azure Machine Learning expõem a funcionalidade a:
+Os conjuntos de dados do Azure Machine Learning expõem a funcionalidade para:
 
 * Transfira facilmente dados de ficheiros estáticos ou fontes de URL para o seu espaço de trabalho.
-* Disponibilize os seus dados para os scripts de formação quando estiver em execução em recursos de computação em nuvem. Veja [como treinar com conjuntos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) de dados para um exemplo de utilização da classe para montar `Dataset` dados no seu alvo de computação remota.
+* Tornar os dados disponíveis para os scripts de preparação ao executar os recursos de computação na cloud. Veja [como treinar com conjuntos](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) de dados para um exemplo de utilização da classe para montar `Dataset` dados no seu alvo de computação remota.
 
 O código a seguir cria um SeparadorSet a partir de um url web. Consulte [Criar um Separador de Dados](how-to-create-register-datasets.md#create-a-tabulardataset) para obter exemplos de código sobre como criar conjuntos de dados de outras fontes, como ficheiros locais e datastores.
 
@@ -109,15 +109,15 @@ Neste momento, precisa de fornecer os seus **próprios dados de teste** para ava
 
 ## <a name="compute-to-run-experiment"></a>Computação para executar a experimentação
 
-Em seguida, determinar onde o modelo será treinado. Uma experiência automatizada de treinamento de machine learning pode ser executada nas seguintes opções de computação. Aprenda os prós e contras das opções [de computação local e remota.](concept-automated-ml.md#local-remote) 
+Em seguida, determinar onde o modelo será treinado. Pode executar uma experimentação de preparação de machine learning automatizado nas seguintes opções de computação. Conheça as [vantagens e desvantagens das opções de computação local e remota](concept-automated-ml.md#local-remote). 
 
-* A sua máquina **local,** como um ambiente de trabalho local ou um portátil – Geralmente quando tem um pequeno conjunto de dados e ainda está na fase de exploração. Consulte [este caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) para obter um exemplo de computação local. 
+* A sua máquina **local,** como um ambiente de trabalho local ou um portátil – Geralmente quando tem um pequeno conjunto de dados e ainda está na fase de exploração. Veja [este bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) para obter um exemplo de computação local. 
  
 * Uma máquina **remota** na nuvem – [Azure Machine Learning Managed Compute](concept-compute-target.md#amlcompute) é um serviço gerido que permite treinar modelos de machine learning em clusters de máquinas virtuais Azure. 
 
-    Consulte [este caderno](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) para obter um exemplo remoto utilizando o Azure Machine Learning Managed Compute. 
+    Veja [este bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) para obter um exemplo remoto que utiliza o Azure Machine Learning Managed Compute. 
 
-* Um **cluster Azure Databricks** na sua subscrição Azure. Pode encontrar mais detalhes aqui - [Configurar o cluster Azure Databricks para ML Automatizado](how-to-configure-environment.md#aml-databricks). Consulte este [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) para ver exemplos de cadernos com Azure Databricks.
+* Um **cluster Azure Databricks** na sua subscrição Azure. Pode encontrar mais detalhes aqui: [Configurar um cluster do Azure Databricks para ML Automatizado](how-to-configure-environment.md#aml-databricks). Consulte este [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) para ver exemplos de cadernos com Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -198,10 +198,10 @@ Classificação | Regressão | Previsão de Série Temporal
 [Floresta Aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Floresta Aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Floresta Aleatória](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Árvores extremamente aleatórias](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Árvores extremamente aleatórias](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Árvores extremamente aleatórias](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[Classificador Perceptron Médio](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)|[Regressor de Descida de Gradiente Online](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest&preserve-view=true) |[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Baías Ingénuas](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Rápido Linear Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest&preserve-view=true)|[Profeta](https://facebook.github.io/prophet/docs/quick_start.html)
+[Classificador Perceptron Médio](/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)|[Regressor de Descida de Gradiente Online](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) |[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Baías Ingénuas](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Rápido Linear Regressor](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)|[Profeta](https://facebook.github.io/prophet/docs/quick_start.html)
 [Descida estocástica do gradiente (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||PrevisãoTCN
-|[Classificador Linear SVM](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)*||
+|[Classificador Linear SVM](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)*||
 
 ### <a name="primary-metric"></a>Métrica Primária
 O `primary metric` parâmetro determina a métrica a ser usada durante o treino do modelo para otimização. As métricas disponíveis que pode selecionar são determinadas pelo tipo de tarefa que escolher, e a tabela seguinte apresenta métricas primárias válidas para cada tipo de tarefa.

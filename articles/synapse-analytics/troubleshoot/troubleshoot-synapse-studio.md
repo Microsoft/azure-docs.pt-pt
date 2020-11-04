@@ -8,28 +8,28 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287752"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321010"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Azure Synapse Studio (pré-visualização) resolução de problemas
 
 Este guia de resolução de problemas fornece instruções sobre as informações a fornecer ao abrir um bilhete de apoio sobre problemas de conectividade de rede. Com a informação adequada, podemos resolver o problema mais rapidamente.
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Problema de conectividade de serviço a pedido (pré-visualização) SQL
+## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>Problema de conectividade de serviço de pool SQL sem servidor (pré-visualização)
 
 ### <a name="symptom-1"></a>Sintoma 1
 
-A opção "SQL on demand" é acinzentada no dropdown "Connect to".
+A opção "Piscina SQL sem servidor" está acinzentada no dropdown "Connect to".
 
 ![sintoma1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>Sintoma 2
 
-Executar a consulta com "SQL on-demand" dá-lhe a mensagem de erro "Falhou em estabelecer a ligação ao servidor".
+Executar a consulta com "pool SQL sem servidor" dá-lhe a mensagem de erro "Falhou em estabelecer a ligação ao servidor".
 
 ![sintoma 2](media/troubleshooting-synapse-studio/symptom2.png)
  
@@ -45,7 +45,7 @@ Abra o painel "Informação de Diagnóstico", selecione o botão "Baixar diagnó
 
 Para começar a resolução de problemas, relemisça a operação que realizou no Azure Synapse Studio.
 
-- Para o sintoma 1, selecione o botão "Refresh" à direita da "Use database" no separador "SQL script" e verifique se consegue ver "SQL on demand".
+- Para o sintoma 1, selecione o botão "Refresh" à direita da "Use database" no separador "SCRIPT SQL" e verifique se consegue ver "pool SQL sem servidor".
 - Para o sintoma 2, tente executar a consulta novamente para ver se executa com sucesso.
 
 Se o problema ainda existir, prima F12 no seu browser para abrir "Developer Tools" (DevTools).
@@ -61,7 +61,7 @@ Encontre o item cuja coluna url corresponde ao seguinte padrão:
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Onde [*A*] é o seu nome de espaço de trabalho, e "-ondemand" poderia ser "-sqlod" e onde [*B*] deveria ser um nome de base de dados, como "mestre". Deve haver no máximo dois itens com o mesmo valor DE URL, mas valores de método diferentes; OPÇÕES E POST. Verifique se estes dois itens têm "200" ou "20x" debaixo da coluna de estado, onde "x" pode ser qualquer dígito.
+Onde [ *A* ] é o seu nome de espaço de trabalho, e "-ondemand" poderia ser "-sqlod" e onde [ *B* ] deveria ser um nome de base de dados, como "mestre". Deve haver no máximo dois itens com o mesmo valor DE URL, mas valores de método diferentes; OPÇÕES E POST. Verifique se estes dois itens têm "200" ou "20x" debaixo da coluna de estado, onde "x" pode ser qualquer dígito.
 
 Se um deles tiver algo diferente de "20x" e:
 
@@ -71,7 +71,7 @@ Se um deles tiver algo diferente de "20x" e:
 
     - Se vir ERR_NAME_NOT_RESOLVED e criar o seu espaço de trabalho em 10 minutos, aguarde 10 minutos e reforce para ver se o problema ainda existe.
     - Se vir ERR_INTERNET_DISCONNECTED ou ERR_NETWORK_CHANGED, pode indicar que a ligação à rede do PC está a ter problemas. Verifique a sua ligação à rede e volte a tentar a operação.
-    - Se vir ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR ou outros códigos de erro que contenham "SSL", poderá indicar que a configuração SSL local está a ter problemas, ou o administrador de rede bloqueou o acesso ao servidor a pedido do SQL. Abra um bilhete de apoio e anexe o código de erro na descrição.
+    - Se vir ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR ou outros códigos de erro que contenham "SSL", poderá indicar que a configuração SSL local está a ter problemas, ou o administrador de rede bloqueou o acesso ao servidor de piscina SQL sem servidor. Abra um bilhete de apoio e anexe o código de erro na descrição.
     - Se vir ERR_NETWORK_ACCESS_DENIED, poderá ter de verificar com o administrador se a sua política de firewall local bloqueou o acesso ao domínio *.database.windows.net ou à porta remota 1443.
     - Opcionalmente, tente a mesma operação imediatamente num ambiente de máquina e/ou rede diferente para excluir um problema de configuração de rede no seu PC.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91d6d15fc8855b49bece3a7ed903074e716b7ac4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905254"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319414"
 ---
 # <a name="poisson-regression"></a>Regressão de Poisson
 
@@ -29,7 +29,7 @@ Utilize este módulo para criar um modelo de regressão poisson num oleoduto. A 
 - Uma distribuição Poisson é uma distribuição discreta; portanto, não faz sentido utilizar este método com números não inteiros.
 
 > [!TIP]
-> Se o seu alvo não é uma contagem, a regressão de Poisson provavelmente não é um método apropriado. Experimente [outros módulos de regressão no designer.](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms) 
+> Se o seu alvo não é uma contagem, a regressão de Poisson provavelmente não é um método apropriado. Experimente [outros módulos de regressão no designer.](./module-reference.md#machine-learning-algorithms) 
 
 Depois de configurar o método de regressão, deve treinar o modelo usando um conjunto de dados que contenha exemplos do valor que pretende prever. O modelo treinado pode então ser usado para fazer previsões.
 
@@ -57,13 +57,13 @@ Como a variável de resposta tem uma distribuição poisson, o modelo faz pressu
 
 3. No painel direito do módulo **de regressão poisson, especifique** como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**  
   
-    - **Parâmetro único**: Se souber como pretende configurar o modelo, forneça um conjunto específico de valores como argumentos.
+    - **Parâmetro único** : Se souber como pretende configurar o modelo, forneça um conjunto específico de valores como argumentos.
   
-    - **Intervalo de parâmetros**: Se não tiver a certeza dos melhores parâmetros, faça uma varredura de parâmetros utilizando o módulo [Tune Model Hyperparameters.](tune-model-hyperparameters.md) O treinador itera sobre vários valores que especifica para encontrar a configuração ideal.
+    - **Intervalo de parâmetros** : Se não tiver a certeza dos melhores parâmetros, faça uma varredura de parâmetros utilizando o módulo [Tune Model Hyperparameters.](tune-model-hyperparameters.md) O treinador itera sobre vários valores que especifica para encontrar a configuração ideal.
   
-4. **Tolerância à otimização**: Digite um valor que defina o intervalo de tolerância durante a otimização. Quanto mais baixo o valor, mais lento e preciso o encaixe.
+4. **Tolerância à otimização** : Digite um valor que defina o intervalo de tolerância durante a otimização. Quanto mais baixo o valor, mais lento e preciso o encaixe.
 
-5. **Peso de regularização L1** e **peso de regularização L2**: Valores de tipo a utilizar para regularização L1 e L2. *A regularização* adiciona constrangimentos ao algoritmo em relação a aspetos do modelo que são independentes dos dados de formação. A regularização é comumente usada para evitar a sobremontagem. 
+5. **Peso de regularização L1** e **peso de regularização L2** : Valores de tipo a utilizar para regularização L1 e L2. *A regularização* adiciona constrangimentos ao algoritmo em relação a aspetos do modelo que são independentes dos dados de formação. A regularização é comumente usada para evitar a sobremontagem. 
 
     - A regularização L1 é útil se o objetivo é ter um modelo o mais escasso possível.
 
@@ -73,9 +73,9 @@ Como a variável de resposta tem uma distribuição poisson, o modelo faz pressu
 
     Neste módulo, pode aplicar uma combinação de regularizações L1 e L2. Ao combinar a regularização L1 e L2, pode impor uma penalização à magnitude dos valores dos parâmetros. O aluno tenta minimizar o penálti, numa troca com a minimização da perda.
 
-    Para uma boa discussão sobre a regularização L1 e L2, consulte [a Regularização L1 e L2 para machine learning](https://msdn.microsoft.com/magazine/dn904675.aspx).
+    Para uma boa discussão sobre a regularização L1 e L2, consulte [a Regularização L1 e L2 para machine learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning).
 
-6. **Tamanho da memória para L-BFGS**: Especifique a quantidade de memória para reservar para a montagem e otimização do modelo.
+6. **Tamanho da memória para L-BFGS** : Especifique a quantidade de memória para reservar para a montagem e otimização do modelo.
 
      L-BFGS é um método específico de otimização, baseado no algoritmo Broyden-Fletcher-Goldfarb-Shanno (BFGS). O método utiliza uma quantidade limitada de memória (L) para calcular a direção do passo seguinte.
 
@@ -97,12 +97,12 @@ Como a variável de resposta tem uma distribuição poisson, o modelo faz pressu
 
 8.  Envie o oleoduto.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o treino estar completo:
 
-+ Para guardar uma imagem do modelo treinado, selecione o módulo de treino e, em seguida, mude para o **separador Outputs+logs** no painel direito. Clique no **conjunto de dados**do registo do ícone .  Pode encontrar o modelo guardado como um módulo na árvore do módulo. 
++ Para guardar uma imagem do modelo treinado, selecione o módulo de treino e, em seguida, mude para o **separador Outputs+logs** no painel direito. Clique no **conjunto de dados** do registo do ícone .  Pode encontrar o modelo guardado como um módulo na árvore do módulo. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning. 
+Consulte o [conjunto de módulos disponíveis](module-reference.md) para Azure Machine Learning.

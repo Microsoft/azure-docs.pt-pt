@@ -2,17 +2,17 @@
 title: Crie uma especificação de modelo com modelos ligados
 description: Aprenda a criar uma especificação de modelo com modelos ligados.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: b1862789ede4a9d2ab8c57bdb913c449a560dc58
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728544"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321592"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Tutorial: Criar uma especificação de modelo com modelos ligados (Pré-visualização)
 
-Aprenda a criar uma [especificação de modelo](template-specs.md) com um [modelo ligado.](linked-templates.md#linked-template) Utiliza especificações de modelo para partilhar modelos ARM com outros utilizadores na sua organização. Este artigo mostra-lhe como criar uma especificação de modelo para embalar um modelo principal e seus modelos ligados usando a `relativePath` propriedade do recurso de [implantação](/azure/templates/microsoft.resources/deployments).
+Aprenda a criar uma [especificação de modelo](template-specs.md) com um modelo principal e um [modelo ligado.](linked-templates.md#linked-template) Utiliza especificações de modelo para partilhar modelos ARM com outros utilizadores na sua organização. Este artigo mostra-lhe como criar uma especificação de modelo para embalar um modelo principal e seus modelos ligados usando a `relativePath` propriedade do recurso de [implantação](/azure/templates/microsoft.resources/deployments).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -27,7 +27,7 @@ Crie o modelo principal e o modelo ligado.
 
 Para ligar um modelo, adicione um [recurso de implementações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na `templateLink` propriedade, especifique o caminho relativo do modelo ligado de acordo com o caminho do modelo principal.
 
-O modelo ligado é chamado **linkedTemplate.jsem**, e é armazenado em uma sub-página chamada **artefactos** no caminho onde o modelo principal é armazenado.  Pode utilizar um dos seguintes valores para o ParentePath:
+O modelo ligado é chamado **linkedTemplate.jsem** , e é armazenado em uma sub-página chamada **artefactos** no caminho onde o modelo principal é armazenado.  Pode utilizar um dos seguintes valores para o ParentePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`
@@ -35,7 +35,7 @@ O modelo ligado é chamado **linkedTemplate.jsem**, e é armazenado em uma sub-p
 
 A `relativePath` propriedade é sempre relativa ao ficheiro de modelo onde é `relativePath` declarado, por isso, se houver outra linkedTemplate2.jssobre o que é chamado a partir de linkedTemplate.jse linkedTemplate2.jsestá armazenado na mesma subpagadora de artefactos, o parentePath especificado em linkedTemplate.jsé apenas `linkedTemplate2.json` .
 
-1. Crie o modelo principal com o seguinte JSON. Guarde o modelo principal à medida ** queazuredeploy.jspara** o computador local. Este tutorial assume que guardou para um caminho **c:\Templates\linkedTS\azuredeploy.js,** mas pode usar qualquer caminho.
+1. Crie o modelo principal com o seguinte JSON. Guarde o modelo principal à medida **queazuredeploy.jspara** o computador local. Este tutorial assume que guardou para um caminho **c:\Templates\linkedTS\azuredeploy.js,** mas pode usar qualquer caminho.
 
     ```json
     {

@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 462cf6cf850885b31588123bac46ff99bf319ee8
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: c17eeda91af46c4159f7c4b1747416298f24c703
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93243145"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319642"
 ---
 # <a name="regional-code-names-and-endpoints"></a>Nomes de código regionais e pontos finais
 
@@ -64,6 +64,9 @@ Os seguintes pontos finais são importantes para saber ao ligar-se às contas do
 
 ### <a name="azure-germany"></a>Azure Alemanha
 
+> [!NOTE]
+> Os pontos finais da Alemanha azul aplicam-se apenas às nuvens soberanas na Alemanha.
+
 | Serviço | Ponto final |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
@@ -78,7 +81,7 @@ Os seguintes pontos finais são importantes para saber ao ligar-se às contas do
 | Autenticação | `https://login.chinacloudapi.cn/` |
 | Público simbólico |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Regiões do Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Nomes de código regionais e pontos finais](azure-regions-code-names.md)

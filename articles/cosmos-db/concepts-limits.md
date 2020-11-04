@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 070c1ef4eeec2b4ed15f2f4720d9fbd8494fca0f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090431"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319822"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -133,7 +133,6 @@ Dependendo da API que utiliza, um item Azure Cosmos pode representar um document
 | Comprimento máximo do valor da chave de partição | Bytes de 2048 |
 | Comprimento máximo do valor de ID | 1023 bytes |
 | Número máximo de propriedades por item | Sem limite prático |
-| Profundidade máxima de nidificação | Sem limite prático |
 | Comprimento máximo do nome da propriedade | Sem limite prático |
 | Comprimento máximo do valor da propriedade | Sem limite prático |
 | Comprimento máximo do valor da propriedade da corda | Sem limite prático |

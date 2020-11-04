@@ -9,12 +9,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: f9dd12c05f4fcf6d7afb9b4e881106ae89a89117
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 13540f6a4c2e80da390298f7deaf050cd913487f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747952"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320043"
 ---
 # <a name="monitoring-azure-table-storage"></a>Monitorização do armazenamento da mesa Azure
 
@@ -46,7 +46,7 @@ O armazenamento da tabela Azure recolhe os mesmos tipos de dados de monitorizaç
 
 Consulte [a referência de dados de monitorização do armazenamento da tabela Azure](monitor-table-storage-reference.md) para obter informações detalhadas sobre as métricas de métricas e registos criadas pelo armazenamento da Tabela Azure.
 
-Métricas e registos no Azure Monitor suportam apenas contas de armazenamento do Gestor de Recursos Azure. O Azure Monitor não suporta contas clássicas de armazenamento. Se quiser utilizar métricas ou registos numa conta de armazenamento clássica, tem de migrar para uma conta de armazenamento do Azure Resource Manager. Consulte [a Migração para o Gestor de Recursos Azure](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+Métricas e registos no Azure Monitor suportam apenas contas de armazenamento do Gestor de Recursos Azure. O Azure Monitor não suporta contas clássicas de armazenamento. Se quiser utilizar métricas ou registos numa conta de armazenamento clássica, tem de migrar para uma conta de armazenamento do Azure Resource Manager. Consulte [a Migração para o Gestor de Recursos Azure](../../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 Pode continuar a usar métricas e registos clássicos, se quiser. Na verdade, métricas e troncos clássicos estão disponíveis em paralelo com métricas e troncos no Azure Monitor. O suporte permanece em vigor até que o Azure Storage termine o serviço em métricas e registos antigos.
 
@@ -77,14 +77,14 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 
 2. Navegue até à sua conta de armazenamento.
 
-3. Na secção **de Monitorização,** clique nas **definições de Diagnóstico (pré-visualização)** .
+3. Na secção **de Monitorização,** clique nas **definições de Diagnóstico (pré-visualização)**.
 
    > [!div class="mx-imgBorder"]
    > ![portal - Registos de diagnóstico](media/monitor-table-storage/diagnostic-logs-settings-pane.png)   
 
 4. Escolha a **tabela** como o tipo de armazenamento para o qual pretende ativar os registos.
 
-5. Clique **na definição de diagnóstico de adicionar** .
+5. Clique **na definição de diagnóstico de adicionar**.
 
    > [!div class="mx-imgBorder"]
    > ![portal - Registos de recursos - adicione a definição de diagnóstico](media/monitor-table-storage/diagnostic-logs-settings-pane-2.png)
@@ -106,7 +106,7 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 2. Na lista de down-down da **conta De armazenamento,** selecione a conta de armazenamento para a que pretende arquivar os seus registos, clique no botão **OK** e, em seguida, clique no botão **Guardar.**
 
    > [!NOTE]
-   > Antes de escolher uma conta de armazenamento como destino de exportação, consulte [os registos de recursos do Archive Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-storage) para entender os pré-requisitos na conta de armazenamento.
+   > Antes de escolher uma conta de armazenamento como destino de exportação, consulte [os registos de recursos do Archive Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) para entender os pré-requisitos na conta de armazenamento.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Registos de streaming para Azure Event Hubs
 
@@ -142,7 +142,7 @@ Para obter orientações gerais, consulte [Criar definição de diagnóstico par
 
 #### <a name="archive-logs-to-a-storage-account"></a>Registos de arquivo para uma conta de armazenamento
 
-Ativar os registos utilizando o [cmdlet de definição de](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticose de definição de energia, juntamente com o `StorageAccountId` parâmetro.
+Ativar os registos utilizando o [cmdlet de definição de](/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticose de definição de energia, juntamente com o `StorageAccountId` parâmetro.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -StorageAccountId <storage-account-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -156,11 +156,11 @@ Eis um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-Para obter uma descrição de cada parâmetro, consulte os [registos de recursos archive Azure através do Azure PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-azure-powershell).
+Para obter mais informações sobre o arquivamento de registos de recursos para o Azure Storage, consulte [os registos de recursos do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Registos de fluxo para um centro de eventos
 
-Ativar os registos utilizando o [cmdlet de definição de](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticos elétricos com o `EventHubAuthorizationRuleId` parâmetro.
+Ativar os registos utilizando o [cmdlet de definição de](/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticos elétricos com o `EventHubAuthorizationRuleId` parâmetro.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -170,11 +170,11 @@ Eis um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-Para obter uma descrição de cada parâmetro, consulte os dados de [fluxo para centros de evento através de cmdlets PowerShell](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-powershell-cmdlets).
+Para obter mais informações sobre o envio de registos de recursos para centros de eventos, consulte [registos de recursos do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Enviar registos para o Log Analytics
 
-Ativar os registos utilizando o [cmdlet de definição de](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticos elétricos com o `WorkspaceId` parâmetro.
+Ativar os registos utilizando o [cmdlet de definição de](/powershell/module/az.monitor/set-azdiagnosticsetting) diagnósticos elétricos com o `WorkspaceId` parâmetro.
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
@@ -184,11 +184,11 @@ Eis um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/tableServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-1. Primeiro, abra o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), ou se [instalou](https://docs.microsoft.com/cli/azure/install-azure-cli) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
+1. Primeiro, abra o [Azure Cloud Shell](../../cloud-shell/overview.md), ou se [instalou](/cli/azure/install-azure-cli) o Azure CLI localmente, abra uma aplicação de consola de comando como o Windows PowerShell.
 
 2. Se a sua identidade estiver associada a mais de uma subscrição, então desa estale a sua subscrição ativa para a subscrição da conta de armazenamento para a qual pretende ativar os registos.
 
@@ -200,7 +200,7 @@ Para obter mais informações, consulte [os Registos de Recursos stream Azure pa
 
 #### <a name="archive-logs-to-a-storage-account"></a>Registos de arquivo para uma conta de armazenamento
 
-Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
+Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --storage-account <storage-account-name> --resource <storage-service-resource-id> --resource-group <resource-group> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -214,11 +214,9 @@ Eis um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
-Para obter uma descrição de cada parâmetro, consulte os [registos de Recursos de Arquivo através do CLI Azure](https://docs.microsoft.com/azure/azure-monitor/platform/archive-diagnostic-logs#archive-diagnostic-logs-via-the-azure-cli).
-
 #### <a name="stream-logs-to-an-event-hub"></a>Registos de fluxo para um centro de eventos
 
-Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
+Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
@@ -228,11 +226,9 @@ Eis um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-Para obter uma descrição de cada parâmetro, consulte os dados do [Stream para Os Centros de Eventos via Azure CLI](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-event-hubs#via-azure-cli).
-
 #### <a name="send-logs-to-log-analytics"></a>Enviar registos para o Log Analytics
 
-Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
+Ativar os registos utilizando as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create) comando.
 
 ```azurecli-interactive
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
@@ -242,11 +238,11 @@ Eis um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/tableServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store).
+ Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="template"></a>[Modelo](#tab/template)
 
-Para ver um modelo do Gestor de Recursos Azure que cria uma definição de diagnóstico, consulte [a definição de Diagnóstico para armazenamento Azure](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
+Para ver um modelo do Gestor de Recursos Azure que cria uma definição de diagnóstico, consulte [a definição de Diagnóstico para armazenamento Azure](../../azure-monitor/samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
 ---
 
@@ -270,7 +266,7 @@ As métricas para o armazenamento da mesa Azure estão nestes espaços de nome:
 - Microsoft.Storage/storageAcontas
 - Microsoft.Storage/storageAcontas/tableServices
 
-Para obter uma lista de todas as métricas de suporte do Azure Monitor, que inclui o armazenamento da tabela Azure, consulte [as métricas suportadas pelo Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)
+Para obter uma lista de todas as métricas de suporte do Azure Monitor, que inclui o armazenamento da tabela Azure, consulte [as métricas suportadas pelo Monitor Azure.](../../azure-monitor/platform/metrics-supported.md)
 
 
 ### <a name="accessing-metrics"></a>Métricas de acesso
@@ -282,7 +278,7 @@ Para obter uma lista de todas as métricas de suporte do Azure Monitor, que incl
 
 #### <a name="list-the-metric-definition"></a>Listar a definição métrica
 
-Pode listar a definição métrica da sua conta de armazenamento ou do serviço de armazenamento de mesa. Utilize o [cmdlet Get-AzMetricDefinition.](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition)
+Pode listar a definição métrica da sua conta de armazenamento ou do serviço de armazenamento de mesa. Utilize o [cmdlet Get-AzMetricDefinition.](/powershell/module/az.monitor/get-azmetricdefinition)
 
 Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou pelo ID de recursos do serviço de armazenamento de mesa.  Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
 
@@ -293,7 +289,7 @@ Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos
 
 #### <a name="reading-metric-values"></a>Valores métricos de leitura
 
-Pode ler os valores métricos ao nível da conta da sua conta de armazenamento ou o serviço de armazenamento de mesa. Utilize o [cmdlet Get-AzMetric.](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric)
+Pode ler os valores métricos ao nível da conta da sua conta de armazenamento ou o serviço de armazenamento de mesa. Utilize o [cmdlet Get-AzMetric.](/powershell/module/Az.Monitor/Get-AzMetric)
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -304,7 +300,7 @@ Pode ler os valores métricos ao nível da conta da sua conta de armazenamento o
 
 #### <a name="list-the-account-level-metric-definition"></a>Listar a definição métrica de nível de conta
 
-Pode listar a definição métrica da sua conta de armazenamento ou do serviço de armazenamento de mesa. Utilize o comando [de definições de listas de métricas az monitor.](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions)
+Pode listar a definição métrica da sua conta de armazenamento ou do serviço de armazenamento de mesa. Utilize o comando [de definições de listas de métricas az monitor.](/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions)
  
 Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou pelo ID de recursos do serviço de armazenamento de mesa. Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
 
@@ -314,7 +310,7 @@ Neste exemplo, substitua o `<resource-ID>` espaço reservado pelo ID de recursos
 
 #### <a name="read-account-level-metric-values"></a>Leia os valores métricos ao nível da conta
 
-Pode ler os valores métricos da sua conta de armazenamento ou do serviço de armazenamento de mesa. Utilize o comando [da lista de métricas do monitor az.](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list)
+Pode ler os valores métricos da sua conta de armazenamento ou do serviço de armazenamento de mesa. Utilize o comando [da lista de métricas do monitor az.](/cli/azure/monitor/metrics#az-monitor-metrics-list)
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H
@@ -326,7 +322,7 @@ O Azure Monitor fornece o [.NET SDK](https://www.nuget.org/packages/Microsoft.Az
  
 Nestes exemplos, substitua o `<resource-ID>` espaço reservado pelo ID de recursos de toda a conta de armazenamento ou do serviço de armazenamento de mesa. Pode encontrar estes IDs de recursos nas páginas **Propriedades** da sua conta de armazenamento no portal Azure.
 
-Substitua a `<subscription-ID>` variável pelo ID da sua subscrição. Para obter orientações sobre como obter valores `<tenant-ID>` `<application-ID>` para, `<AccessKey>` e, ver [Usar o portal para criar uma aplicação AD AZure e um principal de serviço que possa aceder a recursos.](https://azure.microsoft.com/documentation/articles/resource-group-create-service-principal-portal/) 
+Substitua a `<subscription-ID>` variável pelo ID da sua subscrição. Para obter orientações sobre como obter valores `<tenant-ID>` `<application-ID>` para, `<AccessKey>` e, ver [Usar o portal para criar uma aplicação AD AZure e um principal de serviço que possa aceder a recursos.](../../active-directory/develop/howto-create-service-principal-portal.md) 
 
 #### <a name="list-the-account-level-metric-definition"></a>Listar a definição métrica de nível de conta
 
@@ -515,22 +511,22 @@ Os registos enviados para um centro de eventos não são armazenados como um fic
 
 ![Registos de auditoria](media/monitor-table-storage/event-hub-log.png)
 
-Pode aceder e ler dados de registo que são enviados para o seu centro de eventos utilizando informações de segurança e ferramentas de gestão e monitorização de eventos. Para mais informações, veja [o que posso fazer com os dados de monitorização que estão a ser enviados para o meu centro de eventos?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
+Pode aceder e ler dados de registo que são enviados para o seu centro de eventos utilizando informações de segurança e ferramentas de gestão e monitorização de eventos. Para obter mais informações, consulte [os registos de recursos do Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Aceder a registos num espaço de trabalho do Log Analytics
 
 Pode aceder aos registos enviados para um espaço de trabalho do Log Analytics utilizando consultas de registo do Azure Monitor.
 
-Para obter mais informações, consulte [Começar com o Log Analytics no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
+Para obter mais informações, consulte [os dados de monitorização do Stream Azure para o centro de eventos e parceiros externos.](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
 
 Os dados são armazenados na tabela **StorageTableLogs.** 
 
 #### <a name="sample-kusto-queries"></a>Experimente consultas kusto
 
-Aqui ficam algumas consultas que pode introduzir na barra **de pesquisa log** para ajudá-lo a monitorizar o armazenamento da sua mesa. Estas consultas funcionam com a [nova linguagem.](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)
+Aqui ficam algumas consultas que pode introduzir na barra **de pesquisa log** para ajudá-lo a monitorizar o armazenamento da sua mesa. Estas consultas funcionam com a [nova linguagem.](../../azure-monitor/log-query/log-query-overview.md)
 
 > [!IMPORTANT]
-> Quando seleciona **Logs** do menu do grupo de recursos de conta de armazenamento, o Log Analytics é aberto com o âmbito de consulta definido para o grupo de recursos atual. Isto significa que as consultas de registo só incluirão dados desse grupo de recursos. Se pretender executar uma consulta que inclua dados de outros recursos ou dados de outros serviços Azure, selecione **Logs** do menu **Azure Monitor.** Consulte [o âmbito de consulta de registo e o intervalo de tempo no Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope/) para obter mais detalhes.
+> Quando seleciona **Logs** do menu do grupo de recursos de conta de armazenamento, o Log Analytics é aberto com o âmbito de consulta definido para o grupo de recursos atual. Isto significa que as consultas de registo só incluirão dados desse grupo de recursos. Se pretender executar uma consulta que inclua dados de outros recursos ou dados de outros serviços Azure, selecione **Logs** do menu **Azure Monitor.** Consulte [o âmbito de consulta de registo e o intervalo de tempo no Azure Monitor Log Analytics](../../azure-monitor/log-query/scope.md) para obter mais detalhes.
 
 Utilize estas consultas para ajudá-lo a monitorizar as suas contas de Armazenamento Azure:
 

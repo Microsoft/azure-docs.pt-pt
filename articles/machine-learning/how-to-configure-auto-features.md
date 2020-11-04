@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 0138715e4c9df8ae05c9a3eade64d539eb7cdeda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 229bcbb8c8c429b7fe4e5878b0e57e74dd828b72
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756556"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320659"
 ---
-# <a name="featurization-in-automated-machine-learning"></a>Caracterização na aprendizagem automática de máquinas
+# <a name="featurization-in-automated-machine-learning"></a>Caracterização em machine learning automatizado
 
 
 
@@ -38,7 +38,7 @@ Este artigo assume que já sabe configurar uma experiência AutoML. Para obter i
 
 ## <a name="configure-featurization"></a>Conigure aconsendo a exibição
 
-Em todas as experiências automatizadas de aprendizagem automática de máquinas, [as técnicas automáticas de escala e normalização](#featurization) são aplicadas aos seus dados por padrão. Estas técnicas são tipos de caracterização que ajudam *certos* algoritmos que são sensíveis a características em escalas diferentes. No entanto, também pode permitir a acoplamento adicional, como *a imputação de valores em falta,* *codificação*e *transformação.*
+Em todas as experiências automatizadas de aprendizagem automática de máquinas, [as técnicas automáticas de escala e normalização](#featurization) são aplicadas aos seus dados por padrão. Estas técnicas são tipos de caracterização que ajudam *certos* algoritmos que são sensíveis a características em escalas diferentes. No entanto, também pode permitir a acoplamento adicional, como *a imputação de valores em falta,* *codificação* e *transformação.*
 
 > [!NOTE]
 > Os passos para a caracterização automatizada de aprendizagem automática (como a normalização de recursos, o manuseamento de dados em falta ou a conversão de texto em numérico) tornam-se parte do modelo subjacente. Quando utiliza o modelo para previsões, aplicam-se automaticamente os mesmos passos de apresentação que são aplicados durante o treino.
@@ -47,7 +47,7 @@ Para experiências que configura com o Python SDK, pode ativar ou desativar a de
 
 A tabela seguinte mostra as definições aceites para `featurization` a [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configuração de exibição | Descrição|
+|Configuração de exibição | Description|
 ------------- | ------------- |
 |`"featurization": 'auto'`| Especifica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](#featurization) devem ser feitos automaticamente. Esta é a predefinição.|
 |`"featurization": 'off'`| Especifica que os passos de caracterização não devem ser feitos automaticamente.|
@@ -62,13 +62,13 @@ A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus d
 > [!NOTE]
 > Se pretende exportar os seus modelos criados pela AutoML para um [modelo ONNX,](concept-onnx.md)apenas as opções de exibição indicadas com um asterisco ("*") são suportadas no formato ONNX. Saiba mais sobre [a conversão de modelos para ONNX](concept-automated-ml.md#use-with-onnx).
 
-|Etapas de exibição &nbsp;| Descrição |
+|Etapas de exibição &nbsp;| Description |
 | ------------- | ------------- |
-|**Largar altas características de cardinalidade ou nenhuma variação*** |Largue estas funcionalidades dos conjuntos de treino e validação. Aplica-se a características com todos os valores em falta, com o mesmo valor em todas as linhas, ou com elevado cardinalício (por exemplo, hashes, IDs ou GUIDs).|
-|**Imputar valores em falta*** |Para características numéricas, imputar com a média de valores na coluna.<br/><br/>Para características categóricas, imputar com o valor mais frequente.|
-|**Gerar funcionalidades adicionais*** |Para as características datetime: Ano, mês, dia, dia da semana, dia do ano, quarto, semana do ano, Hora, Minuto, Segundo.<br><br> *Para as tarefas de previsão,* estas funcionalidades adicionais do DateTime são criadas: ISO ano, meio - semestre, mês civil como string, semana, dia da semana como string, Dia do trimestre, Dia do ano, AM/PM (0 se a hora é antes do meio-dia (12 horas), 1 de outra forma), AM/PM como corda, Hora do Dia (12 horas base)<br/><br/>Para funcionalidades de texto: Frequência de prazo baseada em unigramas, bigrams e trigramas. Saiba mais sobre [como isto é feito com o BERT.](#bert-integration)|
-|**Transformar e codificar***|Transforme características numéricas que têm poucos valores únicos em características categóricas.<br/><br/>A codificação de um só calor é usada para características categóricas de baixa cardinalidade. A codificação de haxixe é usada para características categóricas de alto cardeal.|
-|**Incorporações de palavras**|Um text featurizer converte vetores de fichas de texto em vetores de frase usando um modelo pré-treinado. O vetor incorporado de cada palavra em um documento é agregado com o resto para produzir um vetor de recursos documentais.|
+|**Largar altas características de cardinalidade ou nenhuma variação** _ |Largue estas funcionalidades dos conjuntos de treino e validação. Aplica-se a características com todos os valores em falta, com o mesmo valor em todas as linhas, ou com elevado cardinalício (por exemplo, hashes, IDs ou GUIDs).|
+|_*Imputar valores em falta**_ |Para características numéricas, imputar com a média de valores na coluna.<br/><br/>Para características categóricas, imputar com o valor mais frequente.|
+|_*Gerar funcionalidades adicionais**_ |Para as características datetime: Ano, mês, dia, dia da semana, dia do ano, quarto, semana do ano, Hora, Minuto, Segundo.<br><br> _For tarefas de previsão,* estas funcionalidades adicionais do DateTime são criadas: ISO ano, meio - semestre, mês civil como string, Semana, Dia da semana como string, Dia do trimestre, Dia do ano, AM/PM (0 se a hora é antes do meio-dia (12 horas), 1 de outra forma), AM/PM como corda, Hora do Dia (12 horas por dia)<br/><br/>Para funcionalidades de texto: Frequência de prazo baseada em unigramas, bigrams e trigramas. Saiba mais sobre [como isto é feito com o BERT.](#bert-integration)|
+|**Transformar e codificar** _|Transforme características numéricas que têm poucos valores únicos em características categóricas.<br/><br/>A codificação de um só calor é usada para características categóricas de baixa cardinalidade. A codificação de haxixe é usada para características categóricas de alto cardeal.|
+|_ *Incorporações de palavras**|Um text featurizer converte vetores de fichas de texto em vetores de frase usando um modelo pré-treinado. O vetor incorporado de cada palavra em um documento é agregado com o resto para produzir um vetor de recursos documentais.|
 |**Codificações de alvos**|Para características categóricas, este passo mapeia cada categoria com um valor-alvo médio para problemas de regressão, e para a probabilidade de classe para cada classe para problemas de classificação. A ponderação baseada em frequências e a validação cruzada k-fold são aplicadas para reduzir a sobremontagem do mapeamento e do ruído causados por categorias de dados escassas.|
 |**Codificação do alvo de texto**|Para a entrada de texto, um modelo linear empilhado com saco de palavras é usado para gerar a probabilidade de cada classe.|
 |**Peso da evidência (Ai)**|Calcula o Ai como uma medida de correlação das colunas categóricas para a coluna-alvo. O Ai é calculado como o registo da relação entre probabilidades de classe vs. fora de classe. Este passo produz uma coluna de recurso numérico por classe e elimina a necessidade de imputar explicitamente os valores em falta e o tratamento mais estranho.|
@@ -81,7 +81,7 @@ A tabela seguinte resume técnicas que são automaticamente aplicadas aos seus d
 São aplicados guarda-costas de dados:
 
 - **Para experiências com SDK:** Quando os parâmetros `"featurization": 'auto'` ou `validation=auto` estiverem especificados no seu `AutoMLConfig` objeto.
-- **Para experiências em estúdio**: Quando a apresentação automática estiver ativada.
+- **Para experiências em estúdio** : Quando a apresentação automática estiver ativada.
 
 Pode rever os guarda-dados para a sua experiência:
 
@@ -105,18 +105,18 @@ A tabela a seguir descreve os guarda-dados que são suportados atualmente e os e
 
 Guarda-costas|Estado|Condição &nbsp; para &nbsp; o gatilho
 ---|---|---
-**Imputação de valores de recurso em falta** |Passado <br><br><br> Concluído| Não foram detetados valores de recurso em falta nos seus dados de treino. Saiba mais sobre [a imputação de valor em falta.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Os valores de recurso em falta foram detetados nos seus dados de treino e foram imputados.
+**Imputação de valores de recurso em falta** |Passado <br><br><br> Concluído| Não foram detetados valores de recurso em falta nos seus dados de treino. Saiba mais sobre [a imputação de valor em falta.](./how-to-use-automated-ml-for-ml-models.md#customize-featurization) <br><br> Os valores de recurso em falta foram detetados nos seus dados de treino e foram imputados.
 **Alto tratamento de recurso cardinalício** |Passado <br><br><br> Concluído| As suas entradas foram analisadas, e não foram detetadas características de alto cardeal. <br><br> As características de alta cardinalidade foram detetadas nas suas entradas e foram tratadas.
-**Tratamento dividido de validação** |Concluído| A configuração de validação foi definida `'auto'` e os dados de treino continham *menos de 20.000 linhas*. <br> Cada iteração do modelo treinado foi validada através da validação cruzada. Saiba mais sobre [dados de validação.](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data) <br><br> A configuração de validação foi definida para `'auto'` , e os dados de treino continham *mais de 20.000 linhas*. <br> Os dados de entrada foram divididos num conjunto de dados de formação e num conjunto de dados de validação para validação do modelo.
-**Deteção de equilíbrio de classes** |Passado <br><br><br><br>Alertado <br><br><br>Concluído | As suas entradas foram analisadas e todas as aulas são equilibradas nos seus dados de treino. Um conjunto de dados é considerado equilibrado se cada classe tiver uma boa representação no conjunto de dados, medido pelo número e relação de amostras. <br><br> As aulas desequilibradas foram detetadas nas suas entradas. Para corrigir o viés do modelo, corrija o problema de equilíbrio. Saiba mais sobre [dados desequilibrados.](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data)<br><br> As classes desequilibradas foram detetadas nas suas entradas e a lógica abrangente determinou aplicar o equilíbrio.
-**Deteção de problemas de memória** |Passado <br><br><br><br> Concluído |<br> Os valores selecionados (horizonte, lag, janela rolante) foram analisados e não foram detetados potenciais problemas fora da memória. Saiba mais sobre [as configurações de previsão de séries temporq.](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment) <br><br><br>Os valores selecionados (horizonte, lag, janela rolante) foram analisados e potencialmente farão com que a sua experiência fique sem memória. As configurações de lag ou janela de rolamento foram desligadas.
-**Deteção de frequências** |Passado <br><br><br><br> Concluído |<br> As séries horárias foram analisadas e todos os pontos de dados estão alinhados com a frequência detetada. <br> <br> As séries horárias foram analisadas e foram detetados pontos de dados que não se alinham com a frequência detetada. Estes pontos de dados foram removidos do conjunto de dados. Saiba mais sobre [a preparação de dados para a previsão de séries de tempo](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
+**Tratamento dividido de validação** |Concluído| A configuração de validação foi definida `'auto'` e os dados de treino continham *menos de 20.000 linhas*. <br> Cada iteração do modelo treinado foi validada através da validação cruzada. Saiba mais sobre [dados de validação.](./how-to-configure-auto-train.md#training-validation-and-test-data) <br><br> A configuração de validação foi definida para `'auto'` , e os dados de treino continham *mais de 20.000 linhas*. <br> Os dados de entrada foram divididos num conjunto de dados de formação e num conjunto de dados de validação para validação do modelo.
+**Deteção de equilíbrio de classes** |Passado <br><br><br><br>Alertado <br><br><br>Concluído | As suas entradas foram analisadas e todas as aulas são equilibradas nos seus dados de treino. Um conjunto de dados é considerado equilibrado se cada classe tiver uma boa representação no conjunto de dados, medido pelo número e relação de amostras. <br><br> As aulas desequilibradas foram detetadas nas suas entradas. Para corrigir o viés do modelo, corrija o problema de equilíbrio. Saiba mais sobre [dados desequilibrados.](./concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data)<br><br> As classes desequilibradas foram detetadas nas suas entradas e a lógica abrangente determinou aplicar o equilíbrio.
+**Deteção de problemas de memória** |Passado <br><br><br><br> Concluído |<br> Os valores selecionados (horizonte, lag, janela rolante) foram analisados e não foram detetados potenciais problemas fora da memória. Saiba mais sobre [as configurações de previsão de séries temporq.](./how-to-auto-train-forecast.md#configuration-settings) <br><br><br>Os valores selecionados (horizonte, lag, janela rolante) foram analisados e potencialmente farão com que a sua experiência fique sem memória. As configurações de lag ou janela de rolamento foram desligadas.
+**Deteção de frequências** |Passado <br><br><br><br> Concluído |<br> As séries horárias foram analisadas e todos os pontos de dados estão alinhados com a frequência detetada. <br> <br> As séries horárias foram analisadas e foram detetados pontos de dados que não se alinham com a frequência detetada. Estes pontos de dados foram removidos do conjunto de dados. Saiba mais sobre [a preparação de dados para a previsão de séries de tempo](./how-to-auto-train-forecast.md#preparing-data).
 
 ## <a name="customize-featurization"></a>Personalizar a exibição
 
 Pode personalizar as definições de exibição para garantir que os dados e funcionalidades utilizados para treinar o seu modelo ML resultem em previsões relevantes.
 
-Para personalizar as ações, especifique  `"featurization": FeaturizationConfig` no seu `AutoMLConfig` objeto. Se estiver a usar o estúdio Azure Machine Learning para a sua experiência, consulte o [artigo de como fazer.](how-to-use-automated-ml-for-ml-models.md#customize-featurization) Para personalizar os tipos de tarefas de previsão, consulte o [como fazer a previsão](how-to-auto-train-forecast.md#customize-featurization).
+Para personalizar as ações, especifique `"featurization": FeaturizationConfig` no seu `AutoMLConfig` objeto. Se estiver a usar o estúdio Azure Machine Learning para a sua experiência, consulte o [artigo de como fazer.](how-to-use-automated-ml-for-ml-models.md#customize-featurization) Para personalizar os tipos de tarefas de previsão, consulte o [como fazer a previsão](how-to-auto-train-forecast.md#customize-featurization).
 
 As personalizações suportadas incluem:
 

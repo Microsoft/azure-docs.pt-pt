@@ -11,25 +11,26 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d160040620fcaa60a8adc955efcc54ac3ca2609e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289174"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321436"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>OPÇÕES GRUPO A EM Sinapse SQL
+
 O Sinaapse SQL permite desenvolver soluções implementando diferentes opções group by. 
 
-## <a name="what-does-group-by-do"></a>O que é que o GROUP BY faz
+## <a name="what-group-by-does"></a>Que GRUPO BY faz
 
 A cláusula [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) T-SQL agrega dados a um conjunto sumário de linhas.
 
-A SQL on-demand suporta toda a gama de opções GROUP BY. A piscina SQL suporta um número limitado de opções GROUP BY.
+A piscina SQL sem servidor suporta toda a gama de opções GROUP BY. A piscina dedicada SQL suporta um número limitado de opções GROUP BY.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>OPÇÕES GRUPO POR APOIO Na Piscina SQL
+## <a name="group-by-options-supported-in-dedicated-sql-pool"></a>OPÇÕES GRUPO BY apoiadas em piscina SQL dedicada
 
-O GROUP BY tem algumas opções que a piscina SQL não suporta. Estas opções têm soluções alternativas, que são as seguintes:
+O GROUP BY tem algumas opções que a piscina SQL dedicada não suporta. Estas opções têm soluções alternativas, que são as seguintes:
 
 * GRUPO BY com ROLLUP
 * CONJUNTOS DE AGRUPAMENTO

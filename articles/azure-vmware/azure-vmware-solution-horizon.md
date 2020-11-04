@@ -3,12 +3,12 @@ title: Implementar Horizonte na Solução VMware Azure
 description: Saiba como implementar o VMware Horizon na Solução VMware Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6a466aea5cbdf4452a2c46b455932042d920c3b9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369017"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321354"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implementar Horizonte na Solução VMware Azure 
 
@@ -86,7 +86,7 @@ Dada a nuvem privada Azure e o limite máximo do SDDC, recomendamos uma arquitet
 
 A ligação da Rede Virtual Azure às nuvens privadas Azure /SDDCs deve ser configurada com ExpressRoute FastPath. O diagrama seguinte mostra uma implantação básica da cápsula Horizon.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Horizonte em Azure VMware Solution e Nuvem Horizon em Azure" border="false":::
+:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Implantação típica do pod Horizonte usando o Caminho Rápido ExpressPath" border="false":::
 
 ## <a name="network-connectivity-to-scale-horizon-on-azure-vmware-solution"></a>Conectividade de rede para escalar Horizonte na Solução VMware Azure
 
@@ -94,7 +94,7 @@ Esta secção define a arquitetura da rede a um nível elevado com alguns exempl
 
 ### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Cápsula Single Horizon na Solução VMware Azure
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Horizonte em Azure VMware Solution e Nuvem Horizon em Azure" border="false":::
+:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Cápsula Single Horizon na Solução VMware Azure" border="false":::
 
 Uma única cápsula Horizon é o cenário de implantação mais simples porque implementa apenas uma cápsula Horizon na região leste dos EUA.  Uma vez que cada nuvem privada e SDDC são estimados para lidar com 4.000 sessões de desktop, você implementa o tamanho máximo do pod horizon.  Você pode planear a implantação de até três nuvens/SDDCs privados.
 
@@ -112,7 +112,7 @@ Uma variação do exemplo básico pode ser o de apoiar a conectividade dos recur
 
 O diagrama mostra como apoiar a conectividade para os recursos no local. Para se ligar à sua rede corporativa à Rede Virtual Azure, precisará de um circuito ExpressRoute.  Também terá de ligar a sua rede corporativa a cada uma das nuvems privadas e SDDCs usando o ExpressRoute Global Reach.  Permite a conectividade do SDDC ao circuito ExpressRoute e aos recursos no local. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Horizonte em Azure VMware Solution e Nuvem Horizon em Azure" border="false":::
+:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Ligue a sua rede corporativa a uma Rede Virtual Azure" border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Várias cápsulas Horizon na Azure VMware Solution em várias regiões
 
@@ -122,7 +122,7 @@ Você vai ligar a Rede Virtual Azure em cada região às nuvens/SDDCs privados n
 
 Os mesmos princípios aplicam-se se implementar duas cápsulas Horizon na mesma região.  Certifique-se de que implanta a segunda cápsula Horizon numa *rede virtual Azure separada*. Tal como o exemplo de um único pod, pode ligar a sua rede corporativa e o pod no local a este exemplo multi-pod/região usando ExpressRoute e Global Reach. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Horizonte em Azure VMware Solution e Nuvem Horizon em Azure" border="false":::
+:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" Várias cápsulas Horizon na Azure VMware Solution em várias regiões" border="false":::
 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Solução De Tamanho Azure VMware para implementações horizon 
 
@@ -211,3 +211,6 @@ Com base na arquitetura de implementação padrão, os VMs de infraestrutura Hor
 | Partilha de ficheiros do Windows               | D4sv3          |         | *Opcional*                               |
 
 O custo da infraestrutura VM ascende a \$ 0,36 por utilizador por mês para a implantação de 2.000 desktops no exemplo acima. Este exemplo utiliza os preços de junho de 2020 dos EUA. O seu preço pode variar dependendo da região, opções selecionadas e tempo.
+
+## <a name="next-steps"></a>Passos seguintes
+Para saber mais sobre a VMware Horizon na Solução VMware Azure, leia o [VMware Horizon FAQ](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf).

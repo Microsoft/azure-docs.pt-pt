@@ -1,6 +1,6 @@
 ---
 title: Melhores práticas de carregamento de dados
-description: Recomendações e otimizações de desempenho para carregar dados em Sinaapse SQL
+description: Recomendações e otimizações de desempenho para carregar dados em um pool de SQL dedicado Azure Synapse Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4c07ad2aaf6c682dc370e3223dba1f199242ca2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289236"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321517"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Melhores práticas para carregar dados para armazenamento de dados
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Melhores práticas para carregar dados em um pool de SQL dedicado Azure Synapse Analytics
 
 Neste artigo, encontrará recomendações e otimizações de desempenho para carregar dados.
 
 ## <a name="prepare-data-in-azure-storage"></a>Preparar dados no Azure Storage
 
-Para minimizar a latência, coloque a sua camada de armazenamento e o seu armazém de dados.
+Para minimizar a latência, coloque a sua camada de armazenamento e a sua piscina SQL dedicada.
 
 Ao exportar dados para um Formato de Ficheiro ORC, poderá obter erros de memória esgotada Java quando existem colunas de texto grandes. Para contornar esta limitação, exporte apenas um subconjunto de colunas.
 
@@ -36,7 +36,7 @@ Divida grandes ficheiros comprimidos em ficheiros mais pequenos comprimidos.
 
 ## <a name="run-loads-with-enough-compute"></a>Executar cargas com cálculo suficiente
 
-Para a velocidade de carregamento mais rápida, execute apenas uma tarefa de carregamento de cada vez. Se não for viável, execute um número mínimo de cargas em simultâneo. Se espera um grande trabalho de carregamento, considere aumentar a sua piscina SQL antes da carga.
+Para a velocidade de carregamento mais rápida, execute apenas uma tarefa de carregamento de cada vez. Se não for viável, execute um número mínimo de cargas em simultâneo. Se espera um grande trabalho de carregamento, considere aumentar a sua piscina SQL dedicada antes da carga.
 
 Para executar cargas com recursos de computação adequados, crie utilizadores de carregamento designados para a execução de cargas. Atribua cada utilizador de carregamento a uma classe de recursos específica ou grupo de carga de trabalho. Para executar uma carga, inscreva-se como um dos utilizadores de carregamento e, em seguida, carregue a carga. A carga é executada com a classe de recursos do utilizador.  Este método é mais simples do que tentar alterar a classe de recursos de um utilizador para que se ajuste à necessidade da classe de recursos atual.
 

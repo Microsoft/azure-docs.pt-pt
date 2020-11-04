@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0be75b3b0a7b9b5aaec0da1d9f41f67a7108e77a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c20bf1c5856276c4c7ee0e37ed4ef2120d1d93d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86085315"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322041"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar características para dados no SQL Server com SQL e Python
 Este documento mostra como gerar funcionalidades para dados armazenados num SQL Server VM em Azure que ajudam os algoritmos a aprender mais eficientemente a partir dos dados. Você pode usar SQL ou uma linguagem de programação como Python para realizar esta tarefa. Ambas as abordagens são demonstradas aqui.
 
-Esta tarefa é um passo no Processo de Ciência de Dados de [Equipa (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Esta tarefa é um passo no Processo de Ciência de Dados de [Equipa (TDSP)](./index.yml).
 
 > [!NOTE]
 > Para um exemplo prático, pode consultar o [conjunto de dados](https://www.andresmh.com/nyctaxitrips/) do Nyc Taxi e consultar o IPNB intitulado [NYC Data wrangling usando IPython Notebook e SQL Server](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-sql-walkthrough.ipynb) para um walk-through de ponta a ponta.
@@ -99,12 +99,12 @@ Estas funcionalidades baseadas na localização podem ser ainda mais utilizadas 
 
 > [!TIP]
 > Pode inserir os registos programáticamente utilizando o seu idioma de eleição. Pode ser necessário inserir os dados em pedaços para melhorar a eficiência da escrita. [Aqui está um exemplo de como fazê-lo usando pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
-> Outra alternativa é inserir dados na base de dados utilizando [o utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx)
+> Outra alternativa é inserir dados na base de dados utilizando [o utilitário BCP](/sql/tools/bcp-utility)
 > 
 > 
 
 ### <a name="connecting-to-azure-machine-learning"></a><a name="sql-aml"></a>Ligação à aprendizagem automática Azure
-A funcionalidade recém-gerada pode ser adicionada como uma coluna a uma mesa existente ou armazenada numa nova tabela e juntada à tabela original para machine learning. As funcionalidades podem ser geradas ou acedidas se já criadas, utilizando o módulo [de Dados de Importação](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) em Azure ML, como mostrado abaixo:
+A funcionalidade recém-gerada pode ser adicionada como uma coluna a uma mesa existente ou armazenada numa nova tabela e juntada à tabela original para machine learning. As funcionalidades podem ser geradas ou acedidas se já criadas, utilizando o módulo [de Dados de Importação](/azure/machine-learning/studio-module-reference/import-data) em Azure ML, como mostrado abaixo:
 
 ![Leitores de Azure ML](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
@@ -126,5 +126,4 @@ A [biblioteca pandas](https://pandas.pydata.org/) em Python fornece um rico conj
 data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 ```
 
-Agora pode trabalhar com o quadro de dados do Pandas como abordado em tópicos [Criar funcionalidades para o armazenamento de blob Azure usando o Panda.](create-features-blob.md)
-
+Agora pode trabalhar com o quadro de dados do Pandas como abordado em tópicos [Criar funcionalidades para o armazenamento de blob Azure usando o Panda.](./explore-data-blob.md)
