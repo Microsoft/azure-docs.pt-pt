@@ -3,15 +3,16 @@ title: Partilha de Recursos de Origem Cruzada (CORS) em Azure Cosmos DB
 description: Este artigo descreve como configurar a Partilha de Recursos de Origem Cruzada (CORS) em Azure Cosmos DB utilizando modelos do portal Azure e do Gestor de Recursos Azure.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: eba49ff45ba9ab1f5cfaa1d75973d656ac32ca6a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086419"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339908"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configure a partilha de recursos de origem cruzada (CORS)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

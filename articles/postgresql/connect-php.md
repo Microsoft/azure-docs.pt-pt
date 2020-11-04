@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
-ms.openlocfilehash: 45fa455d00a757e6df87d2a93982f33fe4e64bef
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4e82c8402584f694cb32bb37ae3e6eae9366eaf7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710367"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341438"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Utilize PHP para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -47,13 +47,13 @@ Instale o PHP no seu próprio servidor ou crie uma [aplicação Web](../app-serv
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para PostgreSQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
 1. Faça login no [portal Azure](https://portal.azure.com/).
-2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
+2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver** ).
 3. Clique no nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
  :::image type="content" source="./media/connect-php/1-connection-string.png" alt-text="Nome do servidor da Base de Dados do Azure para PostgreSQL":::
 
 ## <a name="connect-and-create-a-table"></a>Ligar e criar uma tabela
-Utilize o código seguinte para ligar e criar uma tabela com a instrução SQL **CREATE TABLE**, seguida das instruções SQL **INSERT INTO** para adicionar linhas à tabela.
+Utilize o código seguinte para ligar e criar uma tabela com a instrução SQL **CREATE TABLE** , seguida das instruções SQL **INSERT INTO** para adicionar linhas à tabela.
 
 O método de chamada de código [pg_connect()](https://secure.php.net/manual/en/function.pg-connect.php) para ligar à Base de Dados Azure para PostgreSQL. Em seguida, chama o método [pg_query()](https://secure.php.net/manual/en/function.pg-query.php) várias vezes para executar vários comandos e [pg_last_error()](https://secure.php.net/manual/en/function.pg-last-error.php) para verificar os detalhes, se tiver ocorrido um erro. Em seguida, chama o método [pg_close()](https://secure.php.net/manual/en/function.pg-close.php) para fechar a ligação.
 
@@ -214,6 +214,16 @@ Substitua os parâmetros `$host`, `$database`, `$user` e `$password` pelos seus 
     // Closing connection
     pg_close($connection);
 ?>
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos utilizados durante este arranque rápido, elimine o grupo de recursos utilizando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

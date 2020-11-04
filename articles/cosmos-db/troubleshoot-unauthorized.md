@@ -3,16 +3,17 @@ title: Resolução de problemas Azure Cosmos DB exceções não autorizadas
 description: Saiba como diagnosticar e corrigir exceções não autorizadas.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 860748c7114017dcd1120551d9539e0d098fa1fa
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: dce956b932274a44e98a28b4c6567a5e98771613
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097851"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340010"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-unauthorized-exceptions"></a>Diagnosticar e resolver problemas Azure Cosmos DB exceções não autorizadas
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

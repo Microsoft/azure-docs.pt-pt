@@ -3,16 +3,17 @@ title: Produção de base de dados de provisão em Azure Cosmos DB SQL API
 description: Saiba como obter a produção a nível de base de dados no Azure Cosmos DB SQL API utilizando o portal Azure, CLI, PowerShell e vários outros SDKs.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 63de1c970a118ddf24c52e7e14a0632a4eee7fba
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4ecbee2260da735cd6ba74d3b9ffb55b4a652e9e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086300"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342004"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Produção padrão de provisão (manual) numa base de dados em Azure Cosmos DB - SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,12 +28,12 @@ Se estiver a utilizar uma API diferente, consulte [a API para a MongoDB,](how-to
 
 1. [Crie uma nova conta Azure Cosmos,](create-sql-api-dotnet.md#create-account)ou selecione uma conta Azure Cosmos existente.
 
-1. Abra o painel **do Data Explorer** e selecione New **Database** . Fornecer os seguintes detalhes:
+1. Abra o painel **do Data Explorer** e selecione New **Database**. Fornecer os seguintes detalhes:
 
    * Introduza uma identificação de base de dados.
    * Selecione a opção **de saída da base de dados De provisionar.**
    * Introduza uma produção (por exemplo, 1000 RUs).
-   * Selecione **OK** .
+   * Selecione **OK**.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Screenshot da caixa de diálogo new database":::
 

@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 4afe6f175095d146c7feed04d469d78203179e0f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bb2ff066089e3348c40f5a22bd73ea376ecef6de
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91707885"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341404"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Use o Ruby para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -32,7 +32,7 @@ Também precisa de ter instalado:
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para PostgreSQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
 1. Faça login no [portal Azure](https://portal.azure.com/).
-2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
+2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver** ).
 3. Clique no nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
  :::image type="content" source="./media/connect-ruby/1-connection-string.png" alt-text="Nome do servidor da Base de Dados do Azure para PostgreSQL":::
@@ -41,7 +41,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 > O `@` símbolo no nome de utilizador Azure Postgres foi codificado url como em todas as `%40` cadeias de ligação.
 
 ## <a name="connect-and-create-a-table"></a>Ligar e criar uma tabela
-Utilize o código seguinte para ligar e criar uma tabela com a instrução SQL **CREATE TABLE**, seguida das instruções SQL **INSERT INTO** para adicionar linhas à tabela.
+Utilize o código seguinte para ligar e criar uma tabela com a instrução SQL **CREATE TABLE** , seguida das instruções SQL **INSERT INTO** para adicionar linhas à tabela.
 
 O código utiliza um ```PG::Connection``` objeto com construtor para ligar à Base de ```new``` Dados Azure para PostgreSQL. Em seguida, chama o método ```exec()``` para executar o DROP, CRIAR TABELA e INSERIR nos comandos. O código verifica se há erros na utilização da ```PG::Error``` classe. Em seguida, chama o método ```close()``` para fechar a ligação antes de terminar. Consulte [a documentação de referência da Ruby Pg](https://www.rubydoc.info/gems/pg/PG) para obter mais informações sobre estas classes e métodos.
 
@@ -183,6 +183,16 @@ rescue PG::Error => e
 ensure
     connection.close if connection
 end
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos utilizados durante este arranque rápido, elimine o grupo de recursos utilizando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

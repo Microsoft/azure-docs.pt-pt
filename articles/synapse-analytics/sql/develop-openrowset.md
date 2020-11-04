@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5059b051b16107ac7508e509d319159651de11e3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324417"
+ms.locfileid: "93341336"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Como utilizar o OPENROWSET utilizando a piscina SQL sem servidor (pré-visualização) no Azure Synapse Analytics
 
@@ -96,6 +96,7 @@ WITH ( {'column_name' 'column_type' [ 'column_ordinal'] })
 [ , DATA_COMPRESSION = 'data_compression_method' ]
 [ , PARSER_VERSION = 'parser_version' ]
 [ , HEADER_ROW = { TRUE | FALSE } ]
+[ , DATAFILETYPE = { 'char' | 'widechar' } ]
 ```
 
 ## <a name="arguments"></a>Argumentos
@@ -112,7 +113,7 @@ O unstructured_data_path que estabelece um caminho para os dados pode ser um cam
 - O caminho absoluto no formato ' \<prefix> ' ' permite que um utilizador leia \<storage_account_path> / \<storage_path> diretamente os ficheiros.
 - Percurso relativo no formato '<storage_path>' que deve ser utilizado com o `DATA_SOURCE` parâmetro e descreve o padrão de ficheiro dentro da localização <storage_account_path> definida em `EXTERNAL DATA SOURCE` . 
 
- Abaixo encontrará os <storage account path> valores relevantes que irão ligar-se à sua fonte de dados externa. 
+Abaixo encontrará os <storage account path> valores relevantes que irão ligar-se à sua fonte de dados externa. 
 
 | Fonte de Dados Externos       | Prefixo | Caminho da conta de armazenamento                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
@@ -125,16 +126,18 @@ O unstructured_data_path que estabelece um caminho para os dados pode ser um cam
 
 '\<storage_path>'
 
- Especifica um caminho dentro do seu armazenamento que aponta para a pasta ou ficheiro que pretende ler. Se o caminho aponta para um recipiente ou pasta, todos os ficheiros serão lidos a partir desse recipiente ou pasta em particular. Os ficheiros nas sub-dobradeiras não serão incluídos. 
+Especifica um caminho dentro do seu armazenamento que aponta para a pasta ou ficheiro que pretende ler. Se o caminho aponta para um recipiente ou pasta, todos os ficheiros serão lidos a partir desse recipiente ou pasta em particular. Os ficheiros nas sub-dobradeiras não serão incluídos. 
 
- Pode utilizar wildcards para direcionar vários ficheiros ou pastas. É permitida a utilização de vários wildcards não consagrtivos.
+Pode utilizar wildcards para direcionar vários ficheiros ou pastas. É permitida a utilização de vários wildcards não consagrtivos.
 Abaixo está um exemplo que lê todos os *ficheiros csv* começando com a *população* de todas as pastas começando com */csv/população* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Se especificar a unstructured_data_path ser uma pasta, uma consulta de piscina SQL sem servidor recuperará ficheiros dessa pasta. 
 
+Pode instruir a piscina SQL sem servidor para atravessar pastas especificando /* no final do caminho como por exemplo: `https://sqlondemandstorage.blob.core.windows.net/csv/population/**`
+
 > [!NOTE]
-> Ao contrário de Hadoop e PolyBase, a piscina SQL sem servidor não devolve subpastas. Além disso, ao contrário de Hadoop e PolyBase, o pool SQL sem servidor devolveu ficheiros para os quais o nome do ficheiro começa com um sublinhado (_) ou um período (.).
+> Ao contrário de Hadoop e PolyBase, a piscina SQL sem servidor não devolve subpaminações a menos que especifique /** no final do caminho. Além disso, ao contrário de Hadoop e PolyBase, o pool SQL sem servidor devolveu ficheiros para os quais o nome do ficheiro começa com um sublinhado (_) ou um período (.).
 
 No exemplo abaixo, se o unstructured_data_path= `https://mystorageaccount.dfs.core.windows.net/webdata/` , uma consulta de piscina SQL sem servidor retornará as linhas de mydata.txt e _hidden.txt. Não vai voltar mydata2.txt e mydata3.txt porque estão localizados numa sub-página.
 
@@ -222,6 +225,10 @@ HEADER_ROW = { TRUE FALSO}
 
 Especifica se o ficheiro CSV contém linha de cabeçalho. O padrão é FALSO. Apoiado em PARSER_VERSION='2.0'. Se VERDADEIRO, os nomes das colunas serão lidos da primeira linha de acordo com o argumento FIRSTROW.
 
+DATAFILETYPE = {'char' 'widechar' }
+
+Especifica a codificação: o carvão é utilizado para UTF8, o widechar é utilizado para ficheiros UTF16.
+
 ## <a name="fast-delimited-text-parsing"></a>Análise de texto delimitada rápida
 
 Há duas versões deslimitadas de parser de texto que pode usar. A versão 1.0 do parser CSV é padrão e apresenta-se rica enquanto a versão parser 2.0 é construída para desempenho. A melhoria do desempenho no parser 2.0 provém de técnicas avançadas de análise e multi-rosca. A diferença de velocidade será maior à medida que o tamanho do ficheiro aumenta.
@@ -235,7 +242,7 @@ Os ficheiros parquet contêm metadados de coluna que serão lidos, os mapeamento
 Para os ficheiros CSV, os nomes das colunas do CSV podem ser lidos a partir da linha do cabeçalho. Pode especificar se existe uma linha de cabeçalho utilizando HEADER_ROW argumento. Se HEADER_ROW = FALSO, serão usados nomes de colunas genéricas: C1, C2, ... CN onde n é número de colunas em arquivo. Os tipos de dados serão inferidos a partir das primeiras 100 linhas de dados. Verifique a [leitura dos ficheiros CSV sem especificar o esquema](#read-csv-files-without-specifying-schema) para amostras.
 
 > [!IMPORTANT]
-> Há casos em que o tipo de dados adequado não pode ser deduzido devido à falta de informação e o tipo de dados maior será usado em vez disso. Isto traz a sobrecarga de desempenho e é particularmente importante para as colunas de caracteres que serão inferidas como varchar(8000). No caso de ter colunas de caracteres nos seus ficheiros e utilizar inferência de esquema, para obter um desempenho ótimo, [verifique os tipos de dados inferidos](best-practices-sql-on-demand.md#check-inferred-data-types) e utilize tipos de [dados apropriados](best-practices-sql-on-demand.md#use-appropriate-data-types).
+> Há casos em que o tipo de dados adequado não pode ser deduzido devido à falta de informação e o tipo de dados maior será usado em vez disso. Isto traz a sobrecarga de desempenho e é particularmente importante para as colunas de caracteres que serão inferidas como varchar(8000). Para obter um melhor desempenho, [verifique os tipos de dados inferidos](best-practices-sql-on-demand.md#check-inferred-data-types) e utilize tipos de [dados apropriados](best-practices-sql-on-demand.md#use-appropriate-data-types).
 
 ### <a name="type-mapping-for-parquet"></a>Tipo de mapeamento para Parquet
 

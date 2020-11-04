@@ -3,15 +3,16 @@ title: Perguntas frequentes sobre a API de Cassandra para Azure Cosmos DB
 description: Obtenha respostas para perguntas frequentes sobre a API cassandra para Azure Cosmos DB.
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: thvankra
-ms.openlocfilehash: b467e191a8f009b85abb4866821dd64fc87ce657
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3436a0edf69efc71d3528bffaefd613668426fad
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092386"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339942"
 ---
 # <a name="frequently-asked-questions-about-the-cassandra-api-in-azure-cosmos-db"></a>Perguntas frequentes sobre a API cassandra em Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -170,7 +171,7 @@ Pode adicionar quantas regiões quiser para a conta e controlo onde pode falhar,
 
 ### <a name="does-the-cassandra-api-index-all-attributes-of-an-entity-by-default"></a>A API Cassandra indexa todos os atributos de uma entidade por defeito?
 
-N.º A API cassandra suporta [índices secundários,](cassandra-secondary-index.md)que se comportam de forma semelhante à De Apache Cassandra. A API não indexa todos os atributos por defeito.  
+Não. A API cassandra suporta [índices secundários,](cassandra-secondary-index.md)que se comportam de forma semelhante à De Apache Cassandra. A API não indexa todos os atributos por defeito.  
 
 
 ### <a name="can-i-use-the-new-cassandra-api-sdk-locally-with-the-emulator"></a>Posso usar a nova Cassandra API SDK localmente com o emulador?

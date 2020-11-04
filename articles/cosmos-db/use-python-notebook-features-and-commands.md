@@ -3,15 +3,16 @@ title: Use comandos e funcionalidades de cadernos incorporados em cadernos Azure
 description: Aprenda a usar comandos e funcionalidades incorporados para fazer operações comuns usando os cadernos Python incorporados da Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 32c433455e1075045323dc466b41ad19ac68f454
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074357"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340418"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Use comandos e funcionalidades de cadernos incorporados em cadernos Azure Cosmos DB Python (pré-visualização)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -201,7 +202,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Redefinir espaço de trabalho de cadernos
 Para redefinir o espaço de trabalho dos blocos de notas para as definições predefinidos, selecione **Reset Workspace** na barra de comando. Isto removerá quaisquer pacotes instalados personalizados e reiniciará o servidor Jupyter. Os seus cadernos, ficheiros e recursos da Azure Cosmos não serão afetados.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="explorador de dados nteract":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Redefinir espaço de trabalho de cadernos":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

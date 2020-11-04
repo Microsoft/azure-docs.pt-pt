@@ -3,15 +3,16 @@ title: Estimativa de custos usando o planejador de capacidades DB da Azure Cosmo
 description: O planejador de capacidades DB da Azure Cosmos permite-lhe estimar a produção (RU/s) necessária e o custo para a sua carga de trabalho. Este artigo descreve como usar a nova versão do planejador de capacidade para estimar a produção e o custo necessários.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: 460f47ce453f183821ec0f49c38865c44b15ba9f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 017aeaaa24e8ac2d493d0de81a7abb655bae5611
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096721"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342084"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Estimativa RU/s usando o planejador de capacidades DB Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +41,7 @@ Para obter uma estimativa rápida da sua carga de trabalho utilizando o modo bá
 |Leituras/seg por região|Número de leituras esperadas por segundo. |
 |Escritos/seg por região|Número de escritos esperado por segundo. |
 
-Depois de preencher os dados necessários, **selecione Calcular** . O **separador Estimativa de Custos** mostra o custo total de armazenamento e produção a provisionada. Pode expandir o link 'Detalhes do **Espetáculo'** neste separador para obter a desagregação da produção necessária para pedidos de leitura e escrita. Sempre que alterar o valor de qualquer campo, **selecione Calcular** para re-calcular o custo estimado. 
+Depois de preencher os dados necessários, **selecione Calcular**. O **separador Estimativa de Custos** mostra o custo total de armazenamento e produção a provisionada. Pode expandir o link 'Detalhes do **Espetáculo'** neste separador para obter a desagregação da produção necessária para pedidos de leitura e escrita. Sempre que alterar o valor de qualquer campo, **selecione Calcular** para re-calcular o custo estimado. 
 
 :::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Modo básico de planejador de capacidade":::
 
@@ -63,7 +64,7 @@ Depois de iniciar sedutada, pode ver campos adicionais em comparação com os ca
 
 Também pode utilizar o botão **'Estimativa de Poupança'** para descarregar um ficheiro CSV que contenha a estimativa atual. 
 
-:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Modo básico de planejador de capacidade":::
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Modo avançado de planejador de capacidade":::
 
 Os preços indicados no planificador de capacidades da Azure Cosmos são estimativas baseadas nas taxas de preços públicos para produção e armazenamento. Todos os preços são mostrados em dólares americanos. Consulte a [página de preços do Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) para ver todas as tarifas por região.  
 

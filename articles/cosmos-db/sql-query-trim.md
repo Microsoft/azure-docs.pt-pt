@@ -3,16 +3,17 @@ title: TRIM em linguagem de consulta DB Azure Cosmos
 description: Saiba mais sobre a função do sistema SQL TRIM em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 963d4ad0557c3ca2bd4cabb2afbb24d701a59c07
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 377aa042919f94ec31549f6d672a4dabc6c86859
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093787"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340741"
 ---
 # <a name="trim-azure-cosmos-db"></a>TRIM (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

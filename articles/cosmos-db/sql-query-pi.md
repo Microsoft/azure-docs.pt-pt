@@ -3,16 +3,17 @@ title: PI em Azure Cosmos DB linguagem de consulta
 description: Saiba mais sobre a função do sistema SQL PI em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5f2aa78b866b148f59ee3dcfccd351eb51e46526
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0ebe94d8b06c342fc61fae4255fa354150974c4f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089156"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341719"
 ---
 # <a name="pi-azure-cosmos-db"></a>PI (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

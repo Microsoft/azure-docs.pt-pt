@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ramkris
-ms.openlocfilehash: 3132f19bd80d6958d4d073f63eb6a01c103c2776
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7621a19b510d302454465f9fcbacec27a14dddf9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101350"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340180"
 ---
 # <a name="azure-synapse-link-for-azure-cosmos-db-near-real-time-analytics-use-cases"></a>Azure Synapse Link para o Azure Cosmos DB: casos de utilização da análise quase em tempo real
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 [Azure Synapse Link](synapse-link.md) for Azure Cosmos DB é uma capacidade de processamento transacional e analítico híbrido nativo em nuvem (HTAP) que lhe permite executar perto de análises em tempo real sobre dados operacionais. A Synapse Link cria uma integração apertada e perfeita entre a Azure Cosmos DB e a Azure Synapse Analytics.
 
@@ -71,7 +71,7 @@ Seguem-se algumas orientações para a integração de dados para o lote & dados
 
 Os retalhistas de hoje devem construir soluções de e-commerce seguras e escaláveis que atendam às exigências tanto dos clientes como das empresas. Estas soluções de e-commerce precisam de envolver os clientes através de produtos e ofertas personalizadas, processar transações de forma rápida e segura, e focar-se na realização e no atendimento ao cliente. A Azure Cosmos DB juntamente com a mais recente Synapse Link para Azure Cosmos DB permite que os retalhistas gerem recomendações personalizadas para os clientes em tempo real. Utilizam configurações de baixa latência e consistência incapazes para insights imediatos, como mostra a seguinte arquitetura:
 
-:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Azure Synapse Link para Azure Cosmos DB na análise da cadeia de fornecimento " border="false":::
+:::image type="content" source="./media/synapse-link-use-cases/real-time-personalization.png" alt-text="Azure Synapse Link para Azure Cosmos DB em personalização em tempo real" border="false":::
 
 Link Synapse para Azure Cosmos DB caso de utilização:
 
@@ -83,7 +83,7 @@ As inovações industriais da IOT reduziram drasticamente os tempos de inativida
 
 Segue-se uma arquitetura que aproveita as capacidades nativas de HTAP em nuvem da Azure Synapse Link para Azure Cosmos DB na manutenção preditiva IoT:
 
-:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Azure Synapse Link para Azure Cosmos DB na análise da cadeia de fornecimento " border="false" :::
+:::image type="content" source="./media/synapse-link-use-cases/iot-predictive-maintenance.png" alt-text="Ligação Azure Synapse para Azure Cosmos DB na manutenção preditiva IOT" border="false" :::
 
 Link Synapse para Azure Cosmos DB usar casos:
 
@@ -105,7 +105,7 @@ A lista a seguir mostra uma visão geral dos vários padrões de carga de trabal
 
 O Azure Synapse Link permite que a Azure Cosmos DB não só faça cargas de trabalho transacionais de energia, mas também realize cargas de trabalho analíticos em tempo real sobre dados operacionais históricos. Acontece sem requisitos etl e isolamento de desempenho garantido das cargas de trabalho transacionais.
 
-A imagem a seguir mostra padrões de carga de trabalho usando Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Azure Synapse Link para Azure Cosmos DB na análise da cadeia de fornecimento " border="false":::
+A imagem a seguir mostra padrões de carga de trabalho usando Azure Cosmos DB: :::image type="content" source="./media/synapse-link-use-cases/synapse-link-workload-patterns.png" alt-text="Azure Synapse Link para padrões de carga de trabalho DB Azure Cosmos" border="false":::
 
 Tomemos o exemplo de uma empresa de comércio eletrónico CompanyXYZ com operações globais em 20 países/regiões para ilustrar os benefícios de escolher a Azure Cosmos DB como a única base de dados em tempo real que alimenta os requisitos transacionais e analíticos de uma plataforma de gestão de inventário.
 

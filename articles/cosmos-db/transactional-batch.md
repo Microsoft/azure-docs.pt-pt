@@ -4,16 +4,18 @@ description: Saiba como utilizar o TransactionalBatch no Azure Cosmos DB .NET SD
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c27eb2b4e0dc0d269e1cffc9e213cebeb93443e2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328735"
+ms.locfileid: "93340571"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>Operações de lote transacional em Azure Cosmos DB utilizando o .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O lote transacional descreve um grupo de operações pontuais que precisam de ter sucesso ou falhar juntamente com a mesma chave de partição num recipiente. No .NET SDK, a `TranscationalBatch` classe é utilizada para definir este lote de operações. Se todas as operações forem bem sucedidas na ordem que são descritas no âmbito da operação do lote transacional, a transação será comprometida. No entanto, se alguma operação falhar, toda a transação será revertida.
 

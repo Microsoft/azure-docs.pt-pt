@@ -3,17 +3,17 @@ title: Amostras de Azure CLI para Azure Cosmos DB Gremlin API
 description: Amostras de Azure CLI para Azure Cosmos DB Gremlin API
 author: markjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: cosmosdb-graph
 ms.topic: sample
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bb992b81318c33e9b06637f8e3ad52f63fa8ed33
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 63ff557e5ca0769b68cb74f4b790e3678da7c3c7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073170"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342118"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-gremlin-api"></a>Amostras de Azure CLI para Azure Cosmos DB Gremlin API
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]

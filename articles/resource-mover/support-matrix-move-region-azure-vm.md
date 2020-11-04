@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521310"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341863"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Apoio à deslocação de VMs Azure entre regiões de Azure
 
@@ -101,7 +101,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 |  Todas as ações SUSE 15 e 15 núcle
 **Definição** | **Suporte** | **Detalhes**
 --- | --- | ---
 Tamanho | Qualquer tamanho Azure VM com pelo menos dois núcleos cpu e 1 GB de RAM | Verifique os [tamanhos da máquina virtual Azure](../virtual-machines/sizes-general.md).
-Conjuntos de disponibilidade | Atualmente, não é suportado | Se adicionar um VM Azure com um conjunto de disponibilidade para a coleção de movimento com as opções predefinidas, o processo de Preparação falha. Pode optar por mover o VM para uma zona de disponibilidade ou movê-lo como um único exemplo VM. Pode modificar estas definições na página de propriedades alvo de edição.
+Conjuntos de disponibilidade | Suportado | Suportado.
 Zonas de disponibilidade | Suportado | Apoiado, dependendo do apoio da região alvo.
 Imagens da galeria Azure (publicadas pela Microsoft) | Suportado | Suportado se o VM funcionar num sistema operativo suportado.
 Imagens da Galeria Azure (publicadas por terceiros)  | Suportado | Suportado se o VM funcionar num sistema operativo suportado.
@@ -170,7 +170,7 @@ VMs Azure que você quer mover precisam de acesso de saída.
 
  Se estiver a usar um proxy de firewall baseado em URL para controlar a conectividade de saída, permita o acesso a estes URLs:
 
-**Nome** | **Nuvem pública azul** | **Detalhes** 
+**Name** | **Nuvem pública azul** | **Detalhes** 
 --- | --- | --- 
 Armazenamento | `*.blob.core.windows.net`  | Permite que os dados sejam escritos da VM para a conta de armazenamento em cache na região de origem. 
 Azure Active Directory | `login.microsoftonline.com`  | Fornece autorização e autenticação para os URLs do serviço Site Recovery. 

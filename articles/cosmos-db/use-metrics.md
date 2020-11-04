@@ -5,15 +5,16 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8694a884b26194c61cc77d00848692a24e3009be
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 243f6f26be592e2db82d8f46df3de9aafcd2078b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073711"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340475"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Monitore e depure com métricas em Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -52,13 +53,13 @@ Para começar, dirija-se ao [portal Azure](https://portal.azure.com) e navegue a
 
 O código de estado de erro mais comum é 429 (limitação/estrangulamento de taxa). Este erro significa que os pedidos à Azure Cosmos DB são mais do que o rendimento previsto. A solução mais comum para este problema é [aumentar as RUs](./set-throughput.md) para a recolha dada.
 
-:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Métricas de desempenho do Cosmos DB no portal Azure":::
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Número de pedidos por minuto":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Determinar a distribuição de produção através de divisórias
 
 Ter uma boa cardinalidade das suas chaves de partição é essencial para qualquer aplicação escalável. Para determinar a distribuição de produção de qualquer recipiente dividido por divisórias, navegue até à **lâmina métrica** do [portal Azure](https://portal.azure.com). No **separador Deprodução,** a avaria de armazenamento é mostrada no **Max consumido RU/segundo por cada gráfico de partição física.** O gráfico que se segue ilustra um exemplo de uma má distribuição de dados, como mostra a divisória distorcida na extrema esquerda.
 
-:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Métricas de desempenho do Cosmos DB no portal Azure":::
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Partição única vendo uso pesado":::
 
 Uma distribuição de produção desigual pode causar divisórias *quentes,* o que pode resultar em pedidos acelerados e pode exigir repartição. Para obter mais informações sobre a partição em Azure Cosmos DB, consulte [a Partição e a escala em Azure Cosmos DB](./partitioning-overview.md).
 
@@ -66,11 +67,11 @@ Uma distribuição de produção desigual pode causar divisórias *quentes,* o q
 
 Ter uma boa cardinalidade da sua partição é essencial para qualquer aplicação escalável. Para determinar a distribuição de armazenamento de qualquer recipiente dividido por divisórias, dirija-se à lâmina métrica do [portal Azure](https://portal.azure.com). No separador Armazenamento, a desagregação de armazenamento é mostrada no armazenamento data + índice consumido pelo gráfico de chaves de partição superior. O gráfico que se segue ilustra uma má distribuição do armazenamento de dados, como mostra a divisória distorcida na extrema esquerda.
 
-:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Métricas de desempenho do Cosmos DB no portal Azure":::
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Exemplo de má distribuição de dados":::
 
 Pode raírar a causa da chave de partição que está a distorcer a distribuição clicando na partição na tabela.
 
-:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Métricas de desempenho do Cosmos DB no portal Azure":::
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="A chave de partição está a distorcer a distribuição":::
 
 Depois de identificar qual a chave de partição que está a causar a distorção na distribuição, poderá ter de repartir o seu recipiente com uma chave de partição mais distribuída. Para obter mais informações sobre a partição em Azure Cosmos DB, consulte [a Partição e a escala em Azure Cosmos DB](./partitioning-overview.md).
 

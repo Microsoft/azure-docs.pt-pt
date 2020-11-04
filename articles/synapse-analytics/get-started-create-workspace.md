@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 6e1eeba99e3ad98aa0fee2e6709bb817ff829ed9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: dfa2752be2da0a89c7246241177b3624984fa0d2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93304751"
+ms.locfileid: "93342203"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -31,13 +31,10 @@ Para completar tudo isto, é necessário ter acesso a um grupo de recursos para 
 1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics (pré-visualização de espaços de trabalho)**.
 1. **Selecione Adicionar** para criar um espaço de trabalho.
 1. No **Básico, insira** a sua **Assinatura** Preferida, **Grupo de Recursos,** **Região,** e, em seguida, escolha um nome de espaço de trabalho. Neste tutorial, usaremos **o meu espaço de trabalho.**
-1. Precisa de uma conta ADLSGEN2 e de um contentor nessa conta para criar um espaço de trabalho. A escolha mais simples para criar uma nova. Se quiser reutilizar uma existente, terá de realizar alguma configuração adicional. 
-    1. O espaço de trabalho synapse utilizará este recipiente como localização padrão para armazenar registos spark e dados para tabelas Spark.
-1. OPÇÃO 1 Criação de uma nova conta ADLSGEN2 
+1. Precisa de uma conta ADLSGEN2 e de um contentor nessa conta para criar um espaço de trabalho. O espaço de trabalho synapse utilizará este recipiente como localização padrão para armazenar registos spark e dados para tabelas Spark.
     1. Navegue para **selecionar data lake storage Gen 2**. 
     1. Clique **em Criar Novo** e nomeie-o **contosolake**.
     1. Clique no **Sistema de Ficheiros** e nomeie os **utilizadores.** Isto irá criar um recipiente chamado **utilizadores**
-1. OPÇÃO 2 Utilizando uma conta ADLSGEN2 existente. Consulte as instruções **da Conta de Armazenamento ADLSGEN2** na parte inferior deste documento.
 1. O seu espaço de trabalho Azure Synapse utilizará esta conta de armazenamento como a conta de armazenamento "primária" e o recipiente para armazenar dados do espaço de trabalho. O espaço de trabalho armazena dados em tabelas Apache Spark. Armazena registos de aplicações Spark sob uma pasta chamada **/sinapse/workspacename**.
 1. Selecione **Rever + criar** > **Criar**. O seu espaço de trabalho está pronto em poucos minutos.
 
@@ -83,39 +80,7 @@ Quando realizar atividade spark em Azure Synapse, especifique uma piscina spark 
 
 ## <a name="the-serverless-sql-pool"></a>A piscina SQL sem servidor
 
-Cada espaço de trabalho vem com uma piscina pré-construída chamada **Built-in.** Esta piscina não pode ser apagada. A piscina SQL sem servidor permite-lhe trabalhar com o SQL sem ter de criar ou pensar em gerir uma piscina SQL sem servidor em Azure Synapse.
-
-
-Ao contrário dos outros tipos de piscinas, a faturação para o pool SQL sem servidor baseia-se na quantidade de dados digitalizados para executar a consulta, e não no número de recursos utilizados para executar a consulta.
-
-* O pool SQL sem servidor tem as suas próprias bases de dados que existem independentemente de outras piscinas SQL sem servidor.
-* Um espaço de trabalho tem sempre exatamente uma piscina SQL sem servidor chamada **Built-in**.
-
-## <a name="preparing-a-adlsgen2-storage-account"></a>Preparar uma conta de armazenamento ADLSGEN2
-
-### <a name="perform-the-following-steps-before-you-create-your-workspace"></a>Execute os seguintes passos ANTES de criar o seu espaço de trabalho
-
-1. Abra o [portal do Azure](https://portal.azure.com).
-1. Navegue para a sua conta de armazenamento existente
-1. Selecione **o controlo de acesso (IAM)** no painel esquerdo. 
-1. Atribua as seguintes funções ou certifique-se de que já estão atribuídas:
-    * Atribua-se ao papel **de Proprietário.**
-    * Atribua-se à função **de Proprietário de Dados blob de armazenamento.**
-1. No painel esquerdo, selecione **Recipientes** e crie um recipiente.
-1. Pode dar um nome ao contentor. Neste documento, utilizamos os  **utilizadores** de nomes.
-1. Aceite a definição predefinitiva **do nível de acesso público** e, em seguida, selecione **Criar**.
-
-### <a name="perform-the-following-steps-after-you-create-your-workspace"></a>Execute os seguintes passos DEPOIS de criar o seu espaço de trabalho
-
-Configure o acesso à conta de armazenamento a partir do seu espaço de trabalho. As identidades geridas para o seu espaço de trabalho Azure Synapse podem já ter acesso à conta de armazenamento. Siga estes passos para se certificar de que:
-
-1. Abra o [portal Azure](https://portal.azure.com) e a conta de armazenamento primária escolhida para o seu espaço de trabalho.
-1. Selecione o controlo de **acesso (IAM)** a partir do painel esquerdo.
-1. Atribua as seguintes funções ou certifique-se de que já estão atribuídas. Usamos o mesmo nome para a identidade do espaço de trabalho e o nome do espaço de trabalho.
-    * Para a função **de Contribuinte de Dados blob de armazenamento** na conta de armazenamento, atribua o meu espaço de **trabalho** como identidade do espaço de trabalho.
-    * Atribua **o meu espaço de trabalho** como o nome do espaço de trabalho.
-1. Selecione **Guardar**.
-
+Cada espaço de trabalho vem com uma piscina pré-construída chamada **Built-in.** Esta piscina não pode ser apagada. A piscina SQL sem servidor permite-lhe trabalhar com o SQL sem ter de criar ou pensar em gerir uma piscina SQL sem servidor em Azure Synapse. Ao contrário das piscinas SQL dedicadas, a faturação de um pool SQL sem servidor baseia-se na quantidade de dados digitalizados para executar a consulta, e não no número de recursos utilizados para executar a consulta.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,16 +3,17 @@ title: Como converter formatos de token de sessão em .NET SDK - Azure Cosmos DB
 description: Saiba como converter formatos de token de sessão para garantir compatibilidades entre diferentes versões .NET SDK
 author: vinhms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ece181d06c7d3dbd00ba2f1262a3887ad966d088
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7ed06eeb7330989b4a251dc77e516eb8ac578bff
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101668"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342050"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Converter formatos de token de sessão em .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

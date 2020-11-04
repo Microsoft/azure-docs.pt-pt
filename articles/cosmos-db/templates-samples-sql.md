@@ -3,15 +3,16 @@ title: Modelos de Gestor de Recursos Azure para Azure Cosmos DB Core (SQL API)
 description: Utilize modelos de Gestor de Recursos Azure para criar e configurar a Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/14/2020
 ms.author: mjbrown
-ms.openlocfilehash: 7c060b20920ec17e5de0d10ec74b5619b1575ae2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52fa5957cdbc3ae73ebc4b36e04582741199414a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079398"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340605"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Resource Manager templates for Azure Cosmos DB (Modelos do Azure Resource Manager para o Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

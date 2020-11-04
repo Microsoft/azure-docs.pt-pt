@@ -3,17 +3,17 @@ title: Amostras Azure CLI para Azure Cosmos DB Cassandra API
 description: Amostras Azure CLI para Azure Cosmos DB Cassandra API
 author: markjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9de87341f57c42aa6a4fa39465c9311887056075
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2dbae196b981b792b47e6c12e500398f772d8451
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074034"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342135"
 ---
 # <a name="azure-cli-samples-for-azure-cosmos-db-cassandra-api"></a>Amostras de Azure CLI para Azure Cosmos DB Cassandra API
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

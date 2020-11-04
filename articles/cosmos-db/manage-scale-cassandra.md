@@ -3,15 +3,16 @@ title: Escala elástica com Cassandra API em Azure Cosmos DB
 description: Conheça as opções disponíveis para escalar uma conta Azure Cosmos DB Cassandra API e suas vantagens/desvantagens
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: 0d5aded62c9c3990a3fa102863f4850bbfda6702
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aad2e80598146be7b45a8a7b8a02cfe050163102
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088688"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340962"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Dimensionar elasticamente uma conta Azure Cosmos DB Cassandra API
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -63,7 +64,7 @@ A vantagem desta abordagem é que permite responder às necessidades de escala d
 
 Além da forma padrão (manual) ou programática de provisão de produção, também pode configurar recipientes Azure cosmos em produção de autoescala. A autoescala será automaticamente e instantaneamente dimensionada para as suas necessidades de consumo dentro de gamas RU especificadas sem comprometer as SLAs. Para saber mais, consulte os [recipientes e bases de dados Create Azure Cosmos em artigo de autoescalação.](provision-throughput-autoscale.md)
 
-A vantagem desta abordagem é que é a forma mais fácil de gerir as necessidades de escala no seu sistema. Não aplicará a limitação das taxas **dentro das gamas RU configuradas** . A desvantagem é que, se as necessidades de escala no seu sistema forem previsíveis, a autoescala pode ser uma forma menos rentável de lidar com as suas necessidades de escala do que usar o plano de controlo sob medida ou abordagens de nível SDK acima mencionadas.
+A vantagem desta abordagem é que é a forma mais fácil de gerir as necessidades de escala no seu sistema. Não aplicará a limitação das taxas **dentro das gamas RU configuradas**. A desvantagem é que, se as necessidades de escala no seu sistema forem previsíveis, a autoescala pode ser uma forma menos rentável de lidar com as suas necessidades de escala do que usar o plano de controlo sob medida ou abordagens de nível SDK acima mencionadas.
 
 Para definir ou alterar a potência máxima (RUs) para a autoescala utilizando o CQL, utilize o seguinte (substituindo o teclado/nome da tabela em conformidade):
 

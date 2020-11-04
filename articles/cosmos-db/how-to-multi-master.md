@@ -3,16 +3,17 @@ title: Como configurar várias regiões escreve em Azure Cosmos DB
 description: Aprenda a configurar as gravações multi-regiões para as suas aplicações utilizando diferentes SDKs em Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2c91b330f52733a91fbceb1dc9ca2309c0d10547
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a2b1ca8434c40eca610f95a3031e677782866e04
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317104"
+ms.locfileid: "93342016"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configure várias regiões escreve nas suas aplicações que usam Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

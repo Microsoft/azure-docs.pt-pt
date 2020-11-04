@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71ed590440a8c7e37a071b4eadfc09977ef91d5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 424a1ef7a73b5abbdba0d89ededb44cb9efdd116
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310827"
+ms.locfileid: "93340993"
 ---
 # <a name="query-folders-and-multiple-files"></a>Consultar pastas e vários ficheiros  
 
@@ -29,7 +29,7 @@ O seu primeiro passo é **criar uma base de dados** onde executará as consultas
 Você usará a pasta *csv/táxi* para seguir as consultas de amostra. Contém dados da NYC Taxi - Yellow Taxi Trip Records de julho de 2016 a junho de 2018. Os *ficheiros em csv/táxi* são nomeados após ano e mês usando o seguinte padrão: yellow_tripdata_ <year> - <month> .csv
 
 ## <a name="read-all-files-in-folder"></a>Leia todos os ficheiros na pasta
-    
+
 O exemplo abaixo lê todos os ficheiros de dados do Táxi Amarelo nyc da pasta *csv/táxi* e devolve o número total de passageiros e passeios por ano. Também mostra o uso de funções agregadas.
 
 ```sql
@@ -180,6 +180,49 @@ ORDER BY
 > Todos os ficheiros acedidos com o openrowset único devem ter a mesma estrutura (ou seja, número de colunas e seus tipos de dados).
 
 Uma vez que tem apenas uma pasta que corresponde aos critérios, o resultado da consulta é o mesmo que [ler todos os ficheiros na pasta](#read-all-files-in-folder).
+
+## <a name="traverse-folders-recursively"></a>Transversalizar pastas recursivamente
+
+A piscina SQL sem servidor pode atravessar novamente as pastas se especificar /** no fim do caminho. A seguinte consulta irá ler todos os ficheiros de todas as pastas e sub-dobras localizadas na pasta *csv.*
+
+```sql
+SELECT
+    YEAR(pickup_datetime) as [year],
+    SUM(passenger_count) AS passengers_total,
+    COUNT(*) AS [rides_total]
+FROM OPENROWSET(
+        BULK 'csv/taxi/**', 
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+        trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
+GROUP BY
+    YEAR(pickup_datetime)
+ORDER BY
+    YEAR(pickup_datetime);
+```
+
+> [!NOTE]
+> Todos os ficheiros acedidos com o openrowset único devem ter a mesma estrutura (ou seja, número de colunas e seus tipos de dados).
 
 ## <a name="multiple-wildcards"></a>Vários wildcards
 

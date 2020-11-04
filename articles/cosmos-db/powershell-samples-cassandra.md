@@ -3,15 +3,16 @@ title: Amostras Azure PowerShell para Azure Cosmos DB Cassandra API
 description: Obtenha as amostras Azure PowerShell para executar tarefas comuns em Azure Cosmos DB Cassandra API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 87263946715119bc3cf93efbbadf39cde0f4f26b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4f3166693de0365af387f4b6005a4a309f17bb5b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096262"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342288"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-cassandra-api"></a>Amostras Azure PowerShell para Azure Cosmos DB Cassandra API
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]

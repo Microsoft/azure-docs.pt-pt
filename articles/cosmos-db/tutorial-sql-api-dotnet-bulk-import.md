@@ -4,16 +4,17 @@ description: Saiba como importar ou ingerir dados para a Azure Cosmos DB constru
 author: ealsur
 ms.author: maquaran
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 09/21/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e80a67890dcf76d115464ea62c0729aedd444667
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6e50fe1f5b1658458a2d561f8157f04d1cbceb41
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099237"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341251"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>Dados de importação a granel para a conta Azure Cosmos DL API através da utilização da conta .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -45,7 +46,7 @@ Antes de seguir as instruções deste artigo, certifique-se de que dispõe dos s
 
 ## <a name="step-2-set-up-your-net-project"></a>Passo 2: Configurar o seu projeto .NET
 
-Abra o pedido de comando do Windows ou uma janela do terminal a partir do computador local. Executará todos os comandos nas próximas secções a partir do comando ou terminal. Executar o seguinte comando dotnet novo para criar uma nova app com o nome *granão-importação-demonstração* . O `--langVersion` parâmetro define a propriedade *LangVersion* no ficheiro do projeto criado.
+Abra o pedido de comando do Windows ou uma janela do terminal a partir do computador local. Executará todos os comandos nas próximas secções a partir do comando ou terminal. Executar o seguinte comando dotnet novo para criar uma nova app com o nome *granão-importação-demonstração*. O `--langVersion` parâmetro define a propriedade *LangVersion* no ficheiro do projeto criado.
 
    ```bash
    dotnet new console –langVersion:8 -n bulk-import-demo

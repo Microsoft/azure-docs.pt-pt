@@ -3,16 +3,17 @@ title: Configure e gere o Tempo para Viver em Azure Cosmos DB
 description: Aprenda a configurar e gerir o tempo para viver num contentor e num item em Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 7cf0f91a655901373b02a51004cf77eb25c8cf8e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2ddba95f9ccc25d536638dbc68c41027d26e71c7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085892"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341013"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurar tempo para viver em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +35,7 @@ Utilize os seguintes passos para permitir que o tempo viva num recipiente sem ex
 4. Selecione um recipiente existente, expanda-o e modifique os seguintes valores:
 
    * Abra a **janela 'Definições & escala'.**
-   * Em **Definição** encontrar, **tempo para viver** .
+   * Em **Definição** encontrar, **tempo para viver**.
    * Selecione **On (sem predefinição)** ou selecione **On** e desafina um valor TTL
    * Clique em **Guardar** para guardar as alterações.
 
@@ -205,7 +206,7 @@ Além de definir um tempo padrão para viver num recipiente, pode definir uma ho
 
 * Se o TTL estiver desativado ao nível do recipiente, o campo TTL no item será ignorado até que a TTL seja reativada no recipiente.
 
-### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Portal do Azure
+### <a name="azure-portal"></a><a id="portal-set-ttl-item"></a>Portal Azure
 
 Utilize os seguintes passos para permitir que o tempo viva num item:
 
@@ -218,11 +219,11 @@ Utilize os seguintes passos para permitir que o tempo viva num item:
 4. Selecione um recipiente existente, expanda-o e modifique os seguintes valores:
 
    * Abra a **janela 'Definições & escala'.**
-   * Em **Definição** encontrar, **tempo para viver** .
+   * Em **Definição** encontrar, **tempo para viver**.
    * Selecione **On (sem predefinição)** ou selecione **On** e desafina um valor TTL. 
    * Clique em **Guardar** para guardar as alterações.
 
-5. Em seguida, navegue para o item para o qual deseja definir a hora de viver, adicione a `ttl` propriedade e selecione **Update** . 
+5. Em seguida, navegue para o item para o qual deseja definir a hora de viver, adicione a `ttl` propriedade e selecione **Update**. 
 
    ```json
    {

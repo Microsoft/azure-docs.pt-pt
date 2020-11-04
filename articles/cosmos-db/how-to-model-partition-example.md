@@ -3,16 +3,17 @@ title: Dados de modelo e partição sobre Azure Cosmos DB com um exemplo no mund
 description: Saiba como modelar e dividir um exemplo do mundo real usando a API do Núcleo de Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 92d15337f511f534c23ff97d274b344714812a5e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ef999d4b452f3f31942e1fb2ddb46efe760acff0
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100257"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342152"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e criar partições de dados no Azure Cosmos DB com um exemplo do mundo real
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -138,7 +139,7 @@ Este pedido é simples de implementar à medida que apenas criamos ou atualizamo
 
 A recuperação de um utilizador é feita lendo o item correspondente do `users` recipiente.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q1.png" alt-text="Recuperação de um único item do recipiente dos utilizadores" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -148,7 +149,7 @@ A recuperação de um utilizador é feita lendo o item correspondente do `users`
 
 Da mesma forma **que [C1],** só temos que escrever para o `posts` recipiente.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Escrever um único item no recipiente dos postes" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -158,7 +159,7 @@ Da mesma forma **que [C1],** só temos que escrever para o `posts` recipiente.
 
 Começamos por recuperar o documento correspondente do `posts` contentor. Mas isso não é suficiente, como de acordo com a nossa especificação também temos que agregar o nome de utilizador do autor do post e as contagens de quantos comentários e quantos gostos este post tem, o que requer 3 consultas adicionais de SQL para ser emitida.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q2.png" alt-text="Recuperação de um posto e agregação de dados adicionais" border="false":::
 
 Cada uma das consultas adicionais filtra na chave de partição do respetivo recipiente, que é exatamente o que queremos maximizar o desempenho e a escalabilidade. Mas eventualmente temos que fazer quatro operações para devolver um único poste, então vamos melhorar isso em uma próxima iteração.
 
@@ -170,7 +171,7 @@ Cada uma das consultas adicionais filtra na chave de partição do respetivo rec
 
 Em primeiro lugar, temos de recuperar os posts desejados com uma consulta SQL que vai buscar os posts correspondentes a esse utilizador em particular. Mas também temos de emitir perguntas adicionais para agregar o nome de utilizador do autor e as contagens de comentários e gostos.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q3.png" alt-text="Recuperação de todos os posts para um utilizador e agregação dos seus dados adicionais" border="false":::
 
 Esta implementação apresenta muitos inconvenientes:
 
@@ -185,7 +186,7 @@ Esta implementação apresenta muitos inconvenientes:
 
 Um comentário é criado escrevendo o item correspondente no `posts` recipiente.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Escrever um único item no recipiente dos postes" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -195,7 +196,7 @@ Um comentário é criado escrevendo o item correspondente no `posts` recipiente.
 
 Começamos com uma consulta que vai buscar todos os comentários para esse post e, mais uma vez, precisamos também de agregar nomes de utilizadores separadamente para cada comentário.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q4.png" alt-text="Recuperação de todos os comentários para uma publicação e agregação dos seus dados adicionais" border="false":::
 
 Embora a consulta principal filtre na chave de partição do recipiente, agregar os nomes de utilizador penaliza separadamente o desempenho geral. Vamos melhorar mais tarde.
 
@@ -207,7 +208,7 @@ Embora a consulta principal filtre na chave de partição do recipiente, agregar
 
 Tal como **[C3],** criamos o item correspondente no `posts` recipiente.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Escrever um único item no recipiente dos postes" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -217,7 +218,7 @@ Tal como **[C3],** criamos o item correspondente no `posts` recipiente.
 
 Assim como **[Q4],** consultamos os gostos para esse post e, em seguida, agregamos os seus nomes de utilizador.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Recuperar todos os gostos para um post e agregar os seus dados adicionais" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -227,7 +228,7 @@ Assim como **[Q4],** consultamos os gostos para esse post e, em seguida, agregam
 
 Buscamos as publicações mais recentes consultando o `posts` contentor classificado por data de criação descendente, em seguida, agregamos nomes de utilizadores e contagens de comentários e gostos para cada um dos posts.
 
-:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V1-Q6.png" alt-text="Recuperação de postos mais recentes e agregação dos seus dados adicionais" border="false":::
 
 Mais uma vez, a nossa consulta inicial não filtra a chave de partição do recipiente, o `posts` que despoleta uma dispendiosa saída de ventilação. Este é ainda pior, uma vez que visamos um conjunto de resultados muito maior e classificamos os resultados com uma cláusula, o `ORDER BY` que o torna mais caro em termos de unidades de pedido.
 
@@ -338,7 +339,7 @@ Os nomes de utilizador requerem uma abordagem diferente, uma vez que os utilizad
 
 No nosso exemplo, utilizamos o feed de alteração do `users` recipiente para reagir sempre que os utilizadores atualizarem os seus nomes de utilizador. Quando isso acontece, propagamos a mudança chamando outro procedimento armazenado no `posts` recipiente:
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-1.png" alt-text="Nomes de utilizador desnormalizados no recipiente dos postes" border="false":::
 
 ```javascript
 function updateUsernames(userId, username) {
@@ -378,7 +379,7 @@ Este procedimento armazenado toma o ID do utilizador e o novo nome de utilizador
 
 Agora que a nossa desnormalização está em vigor, só temos de ir buscar um único item para tratar desse pedido.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q2.png" alt-text="Recuperação de um único item do contentor dos postes" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -388,7 +389,7 @@ Agora que a nossa desnormalização está em vigor, só temos de ir buscar um ú
 
 Aqui novamente, podemos poupar os pedidos extra que buscaram os nomes de utilizador e acabar com uma única consulta que filtra na chave de partição.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q4.png" alt-text="Recuperando todos os comentários para uma publicação" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -398,7 +399,7 @@ Aqui novamente, podemos poupar os pedidos extra que buscaram os nomes de utiliza
 
 Exatamente a mesma situação ao listar os gostos.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q5.png" alt-text="Recuperando todos os gostos para um poste" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -406,13 +407,13 @@ Exatamente a mesma situação ao listar os gostos.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: Certificar-se de que todos os pedidos são escaláveis
 
-Olhando para as nossas melhorias globais de desempenho, ainda existem dois pedidos que ainda não otimizamos totalmente: **[Q3]** e **[Q6]** . São os pedidos que envolvem consultas que não filtram a chave de partição dos contentores que visam.
+Olhando para as nossas melhorias globais de desempenho, ainda existem dois pedidos que ainda não otimizamos totalmente: **[Q3]** e **[Q6]**. São os pedidos que envolvem consultas que não filtram a chave de partição dos contentores que visam.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Listar os posts de um utilizador em formato curto
 
 Este pedido já beneficia das melhorias introduzidas na V2, que poupam consultas adicionais.
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q3.png" alt-text="Diagrama que mostra a consulta para listar as publicações de um utilizador em formato curto." border="false":::
 
 Mas a restante consulta ainda não está a filtrar a chave de partição do `posts` recipiente.
 
@@ -456,11 +457,11 @@ Tenha em atenção que:
 
 Para conseguir essa desnormalização, mais uma vez usamos o feed de mudança. Desta vez, reagimos à alteração do feed do `posts` contentor para enviar qualquer posto novo ou atualizado para o `users` contentor. E como os posts de listagem não requerem devolver todo o seu conteúdo, podemos truncá-los no processo.
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-2.png" alt-text="Posts desnormalizadores no recipiente dos utilizadores" border="false":::
 
 Agora podemos encaminhar a nossa consulta para o `users` recipiente, filtrando a chave de partição do recipiente.
 
-:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q3.png" alt-text="Recuperação de todos os posts para um utilizador" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |
@@ -470,7 +471,7 @@ Agora podemos encaminhar a nossa consulta para o `users` recipiente, filtrando a
 
 Temos de lidar com uma situação semelhante: mesmo depois de pouparmos as consultas adicionais deixadas desnecessárias pela desnormalização introduzida em V2, a restante consulta não filtra a chave de partição do recipiente:
 
-:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V2-Q6.png" alt-text="Diagrama que mostra a consulta para listar os posts mais recentes criados em formato curto." border="false":::
 
 Seguindo a mesma abordagem, maximizar o desempenho e escalabilidade deste pedido requer que atinja apenas uma partição. Isto é concebível porque só temos de devolver um número limitado de itens; para preencher a página inicial da nossa plataforma de blogs, só precisamos de obter as 100 publicações mais recentes, sem necessidade de paginar através de todo o conjunto de dados.
 
@@ -495,7 +496,7 @@ Este recipiente é dividido `type` por, que estará sempre `post` nos nossos ite
 
 Para conseguir a desnormalização, só temos de nos ligar ao gasoduto de alimentação de mudanças que introduzimos anteriormente para despachar os postes para aquele novo contentor. Uma coisa importante a ter em conta é que temos de nos certificar de que só armazenamos os 100 postos mais recentes; caso contrário, o conteúdo do recipiente pode crescer para além do tamanho máximo de uma divisória. Isto é feito chamando um [pós-gatilho](stored-procedures-triggers-udfs.md#triggers) cada vez que um documento é adicionado no recipiente:
 
-:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/denormalization-3.png" alt-text="Postes desnormalizadores no recipiente de alimentação" border="false":::
 
 Aqui está o corpo do pós-gatilho que trunta a coleção:
 
@@ -546,7 +547,7 @@ function truncateFeed() {
 
 O passo final é redirecionar a nossa consulta para o nosso novo `feed` contentor:
 
-:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="Escrever um único item no recipiente dos utilizadores" border="false":::
+:::image type="content" source="./media/how-to-model-partition-example/V3-Q6.png" alt-text="Recuperação de postos mais recentes" border="false":::
 
 | **Latência** | **Carga RU** | **Desempenho** |
 | --- | --- | --- |

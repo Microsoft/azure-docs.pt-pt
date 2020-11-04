@@ -3,18 +3,21 @@ title: Resolução de problemas Azure Cosmos DB HTTP 408 ou solicitar problemas 
 description: Saiba como diagnosticar e corrigir Java SDK solicitar exceções de tempo limite com o Java v4 SDK.
 author: kushagrathapar
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 45452109582be40f007ae57a00c2a151f216bdb8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 442d6638e88462b1dc87e9321dc631fe0a4f3a10
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103166"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340088"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-request-timeout-exceptions"></a>Diagnosticar e resolver problemas Azure Cosmos DB Java v4 SDK solicitar exceções no tempo limite
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 O erro HTTP 408 ocorre se o SDK não conseguir completar o pedido antes do prazo de tempo.
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas

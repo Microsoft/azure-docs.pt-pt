@@ -1,6 +1,6 @@
 ---
-title: Use Java e JDBC com base de dados Azure para PostgreSQL
-description: Saiba como utilizar Java e JDBC com uma Base de Dados Azure para PostgreSQL.
+title: 'Quickstart: Use Java e JDBC com Base de Dados Azure para PostgreSQL'
+description: Neste arranque rápido, aprende-se a usar Java e JDBC com uma Base de Dados Azure para PostgreSQL.
 author: jdubois
 ms.author: judubois
 ms.service: postgresql
@@ -8,14 +8,14 @@ ms.custom: mvc, devcenter, devx-track-azurecli
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/17/2020
-ms.openlocfilehash: 402e69606196ecb1030023c49fa5afefd31b9e94
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 42547338c0f5f2f3105833b12e499d40b6209b05
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92734984"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341421"
 ---
-# <a name="use-java-and-jdbc-with-azure-database-for-postgresql"></a>Use Java e JDBC com base de dados Azure para PostgreSQL
+# <a name="quickstart-use-java-and-jdbc-with-azure-database-for-postgresql"></a>Quickstart: Use Java e JDBC com Base de Dados Azure para PostgreSQL
 
 Este tópico demonstra a criação de uma aplicação de amostra que utiliza Java e [JDBC](https://en.wikipedia.org/wiki/Java_Database_Connectivity) para armazenar e recuperar informações na [Base de Dados Azure para PostgreSQL](./index.yml).
 
@@ -485,7 +485,7 @@ A execução da classe principal deverá agora produzir a seguinte saída:
 [INFO   ] Closing database connection 
 ```
 
-## <a name="conclusion-and-resources-clean-up"></a>Conclusão e limpeza de recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Parabéns! Criou uma aplicação Java que utiliza o JDBC para armazenar e recuperar dados da Base de Dados Azure para PostgreSQL.
 

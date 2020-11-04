@@ -2,17 +2,18 @@
 title: Trabalhar com datas em Azure Cosmos DB
 description: Saiba como armazenar, indexar e consultar objetos DataTime em Azure Cosmos DB
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9df71763c610f9773949ef618de7840ae752d82
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b74a403cef8474ae32d98a20899437c2124f3abf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073575"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340384"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Trabalhar com datas em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

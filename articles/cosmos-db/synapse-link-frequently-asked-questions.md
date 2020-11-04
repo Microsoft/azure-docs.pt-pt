@@ -6,15 +6,15 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 30f139c92fe426369c609dabd826a7bff1617e72
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0791ed6882feedeab47b75eff6a69bf0a49ab7ee
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098047"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341297"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Synapse Link for Azure Cosmos DB cria uma integração apertada entre Azure Cosmos DB e Azure Synapse Analytics. Permite que os clientes corram quase análises em tempo real sobre os seus dados operacionais com isolamento total do desempenho das suas cargas de trabalho transacionais e sem um gasoduto ETL. Este artigo responde a perguntas mais frequentes sobre o Synapse Link para o Azure Cosmos DB.
 
@@ -157,7 +157,7 @@ Um recipiente DB Azure Cosmos ativado com loja analítica tem o seguinte ícone:
 
 Um recipiente de loja transacional será representado com o seguinte ícone:
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Recipiente DB Azure Cosmos habilitado com ícone de loja analítica":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Recipiente DB Azure Cosmos habilitado com ícone de loja transacional":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-azure-synapse-studio"></a>Como é que se passam as credenciais de DB do Azure Cosmos do Azure Synapse Studio?
 

@@ -3,16 +3,17 @@ title: Trabalhar com procedimentos armazenados, gatilhos e UDFs em Azure Cosmos 
 description: Este artigo introduz conceitos como procedimentos armazenados, gatilhos e funções definidas pelo utilizador em Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7dc81581846f8abdae81fa3552d9fa4645f32a05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101311"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340707"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Procedimentos armazenados, gatilhos e funções definidas pelo utilizador
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

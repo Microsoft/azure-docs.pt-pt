@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8fd794822e9e4fe282d6ef8a8ccf1eb908c03560
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321663"
+ms.locfileid: "93340044"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -104,6 +104,13 @@ Para ativar a auditoria das operações de suporte do Microsoft (Preview) navegu
   > A auditoria das operações de suporte da Microsoft (Preview) não suporta o destino da conta de armazenamento. Para ativar a capacidade, um espaço de trabalho log Analytics ou um destino Event Hub tem de ser configurado.
 
 ![Screenshot das operações de suporte da Microsoft](./media/auditing-overview/support-operations.png)
+
+Para rever os registos de auditoria das operações de Suporte do Microsoft no seu espaço de trabalho Log Analytics, utilize a seguinte consulta:
+
+```kusto
+AzureDiagnostics
+| where Category == "DevOpsOperationsAudit"
+```
 
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Auditoria ao destino de armazenamento
 
@@ -205,9 +212,7 @@ Se optar por escrever registos de auditoria numa conta de armazenamento Azure, e
 - Métodos adicionais:
 
   - Depois de descarregar vários ficheiros ou uma sub-dobragem que contenha ficheiros de registo, pode fundi-los localmente como descrito nas instruções de Ficheiros de Auditoria de Fusão SSMS descritos anteriormente.
-  - Ver registos de auditoria de blob programáticamente:
-
-    - [Consulta ficheiros de eventos estendidos](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) utilizando o PowerShell.
+  - Ver registos de auditoria de blob programáticamente: [Consulta ficheiros de eventos estendidos](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) utilizando o PowerShell.
 
 ## <a name="production-practices"></a><a id="production-practices"></a>Práticas de produção
 

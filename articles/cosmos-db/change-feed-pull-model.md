@@ -4,16 +4,17 @@ description: Saiba como utilizar o modelo de puxar o feed de alteração Azure C
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 6d2f39eae94b217ad1f95a6a559aa3e1044d10da
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b3f7a8fbe2afcf9b5603f288fe6e3bc429b14532
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072693"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340197"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar modelo de puxar feed em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,14 +41,14 @@ Deve considerar a utilização do modelo de puxar nestes cenários:
 
 Aqui estão algumas diferenças fundamentais entre o processador de alimentação de alteração e o modelo de puxar:
 
-|Destaque  | Processador do feed de alterações| Modelo de puxar |
+|Funcionalidade  | Processador do feed de alterações| Modelo de puxar |
 | --- | --- | --- |
 | Acompanhar o ponto atual no processamento do feed de alteração | Locação (armazenada num recipiente DB Azure Cosmos) | Ficha de continuação (armazenada na memória ou persistiu manualmente) |
 | Capacidade de reproduzir alterações passadas | Sim, com o modelo push | Sim, com o modelo pull|
 | Sondagem para futuras mudanças | Verifica automaticamente as alterações com base nas especificadas do utilizador `WithPollInterval` | Manual |
 | Comportamento onde não há novas alterações | Aguardar `WithPollInterval` e rever verificação automática | Deve pegar a exceção e verificar manualmente |
 | Mudanças de processo a partir de todo o contentor | Sim, e automaticamente paralizada através de múltiplos fios/máquina consumindo a partir do mesmo recipiente| Sim, e manualmente paralelo usando FeedTokens |
-| O processo muda a partir de apenas uma chave de partição | Não suportado | Yes|
+| O processo muda a partir de apenas uma chave de partição | Não suportado | Sim|
 | Nível de suporte | Disponível em Geral | Pré-visualizar |
 
 > [!NOTE]

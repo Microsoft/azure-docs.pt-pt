@@ -3,18 +3,20 @@ title: Resolução de problemas Serviço DB da Azure Cosmos indisponível com o 
 description: Saiba como diagnosticar e corrigir o serviço DB Azure Cosmos indisponível com o Java v4 SDK.
 author: kushagrathapar
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 10/28/2020
 ms.author: kuthapar
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: bba6465b8978b58fa3ef7be2a7575018828eabb2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 03c899307b00010ca87b279ed720b92946d3673c
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103156"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340095"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-java-v4-sdk-service-unavailable-exceptions"></a>Diagnosticar e resolver problemas Serviço Azure Cosmos DB Java v4 SDK indisponíveis exceções
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 O Java v4 SDK não foi capaz de ligar-se ao Azure Cosmos DB.
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas

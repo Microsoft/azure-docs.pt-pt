@@ -3,16 +3,17 @@ title: Resolução de problemas Azure Cosmos DB taxa de pedido de exceções dem
 description: Saiba como diagnosticar e corrigir taxas de pedido demasiado grandes.
 author: j82w
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 10917ce51ff64292809f2fa8799c84b5cdeb3d6c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c985cea24ea772fe9e0c9bcad59f63a66b2489cc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097911"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340112"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-exceptions"></a>Diagnosticar e resolver problemas A taxa de pedido de DB da Azure Cosmos é demasiado grande.
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

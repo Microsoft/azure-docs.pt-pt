@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 30a960c3ed76788158b15022947fec49a95ae299
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa260e911673ea99b292ab5dc9895840d0098ef
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375215"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340339"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Redimensione um disco DE que tenha uma partição GPT
 
@@ -200,7 +200,7 @@ Quando o VM tiver sido reiniciado, execute os seguintes passos:
    data blocks changed from 7470331 to 12188923
    ```
    
-   Para **ext4**, utilize o seguinte comando:
+   Para **ext4** , utilize o seguinte comando:
    
    ```
    #resize2fs /dev/sda4
@@ -231,7 +231,7 @@ Quando o VM tiver sido reiniciado, execute os seguintes passos:
    
    No exemplo anterior, podemos ver que o tamanho do sistema de ficheiros para o disco de so foi aumentado.
 
-### <a name="rhel"></a>RHEL
+### <a name="rhel-lvm"></a>RHEL LVM
 
 Para aumentar o tamanho do disco DE em RHEL 7.x com LVM:
 
@@ -351,6 +351,129 @@ Quando o VM tiver sido reiniciado, execute os seguintes passos:
 
 > [!NOTE]
 > Para utilizar o mesmo procedimento para redimensionar qualquer outro volume lógico, altere o nome **lv** no passo 7.
+
+### <a name="rhel-raw"></a>RHEL RAW
+>[!NOTE]
+>Tire sempre uma foto do VM antes de aumentar o tamanho do disco de SO.
+
+Para aumentar o tamanho do disco DE em RHEL com partição RAW:
+
+Parar a VM.
+Aumente o tamanho do disco de SO a partir do portal.
+Inicie a VM.
+Quando o VM tiver sido reiniciado, execute os seguintes passos:
+
+1. Aceda ao seu VM como utilizador **de raiz** utilizando o seguinte comando:
+ 
+   ```
+   sudo su
+   ```
+
+1. Instale o pacote **gptfdisk,** que é necessário para aumentar o tamanho do disco DE.
+
+   ```
+   yum install gdisk -y
+   ```
+
+1.  Para ver todos os sectores disponíveis no disco, executar o seguinte comando:
+    ```
+    gdisk -l /dev/sda
+    ```
+
+1. Verá os detalhes informando o tipo de partição. Certifique-se de que é GPT. Identifique a divisória de raiz. Não altere nem elimine a partição do arranque (partição de arranque BIOS) e a partição do sistema ('Partição do Sistema EFI')
+
+1. Utilize o seguinte comando para iniciar a partição pela primeira vez. 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. Agora verá uma mensagem a pedir o próximo comando ('Comando: ? para ajudar'). 
+
+   ```
+   w
+   ```
+
+1. Receberá um aviso indicando "Aviso! O cabeçalho secundário é colocado muito cedo no disco! Quer corrigir este problema? (Y/N):". Tens de carregar em 'Y'
+
+   ```
+   Y
+   ```
+
+1. Deverá ver uma mensagem a informar que os controlos finais estão completos e a pedir confirmação. Prima 'Y'
+
+   ```
+   Y
+   ```
+
+1. Verifique se tudo aconteceu corretamente usando o comando partprobe
+
+   ```
+   partprobe
+   ```
+
+1. Os passos acima asseguraram que o cabeçalho GPT secundário é colocado no final. O próximo passo é iniciar o processo de redimensionamento utilizando novamente a ferramenta gdisk. Utilize o seguinte comando.
+
+   ```
+   gdisk /dev/sda
+   ```
+1. No menu de comando, prima 'p' para ver a lista de divisórias. Identificar a partição raiz (Nos degraus, o sda2 é considerado como a divisória raiz) e a divisória de arranque (Nos degraus, sda3 é considerada como a partição do arranque) 
+
+   ```
+   p
+   ```
+    ![Partição de Raiz e Partição de Botas](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. Prima 'd' para eliminar a partição e selecione o número de partição atribuído ao arranque (neste exemplo é '3')
+   ```
+   d
+   3
+   ```
+1. Prima 'd' para eliminar a partição e selecione o número de partição atribuído ao arranque (neste exemplo é '2')
+   ```
+   d
+   2
+   ```
+    ![Eliminar a partição de raiz e a partição do arranque](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. Para recriar a partição de raiz com maior tamanho, prima 'n', introduza o número de partição que apagou anteriormente para raiz ('2' para este exemplo) e escolha o Primeiro Sector como 'Valor Padrão', Último Sector como 'Último sector - sector do tamanho do arranque' ('4096 neste caso' correspondente a bota de 2MB) e Código Hex como '8300'
+   ```
+   n
+   2
+   (Enter default)
+   (Calculateed value of Last sector value - 4096)
+   8300
+   ```
+1. Para recriar a partição de arranque, prima 'n', insira o número de partição que apagou anteriormente para o arranque ('3' para este exemplo) e escolha o Primeiro Sector como 'Valor Predefinido', Último Sector como 'Valor Padrão' e Código Hex como 'EF02'
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. Escreva as alterações com o comando 'w' e prima 'Y' para confirmar
+   ```
+   w
+   Y
+   ```
+1. Executar comando 'partprobe' para verificar a estabilidade do disco
+   ```
+   partprobe
+   ```
+1. Reiniciar o VM e o tamanho da partição raiz teria sido aumentado
+   ```
+   reboot
+   ```
+
+   ![Nova partição de raiz e partição de botas](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. Executar o comando xfs_growfs na partição para redimensioná-lo
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS crescem FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

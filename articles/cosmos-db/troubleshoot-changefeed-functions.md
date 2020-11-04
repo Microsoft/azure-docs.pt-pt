@@ -3,16 +3,17 @@ title: Problemas de resolução de problemas ao utilizar o gatilho de funções 
 description: Questões comuns, soluções alternativas e passos de diagnóstico, ao utilizar o gatilho das Funções Azure para o Cosmos DB
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.date: 03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 9da07dc76bdd9273b70f68ee1abcddfa04519fda
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9fc5da214a50cb000d2154d08bb9b6f6f98ac5ec
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101039"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340537"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticar e resolver problemas ao utilizar o gatilho de funções Azure para o Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,7 +45,7 @@ A função Azure falha com a mensagem de erro "Não existe a recolha de fontes '
 
 Isto significa que um ou ambos os recipientes Azure Cosmos necessários para o gatilho funcionar não existem ou não estão alcançáveis à Função Azure. **O erro em si irá dizer-lhe qual a base de dados e o contentor Azure Cosmos é o gatilho que procura** com base na sua configuração.
 
-1. Verifique o `ConnectionStringSetting` atributo e **refere-se a uma definição que existe na sua App de Função Azure** . O valor deste atributo não deve ser a própria Cadeia de Ligação, mas o nome da Definição de Configuração.
+1. Verifique o `ConnectionStringSetting` atributo e **refere-se a uma definição que existe na sua App de Função Azure**. O valor deste atributo não deve ser a própria Cadeia de Ligação, mas o nome da Definição de Configuração.
 2. Verifique se `databaseName` o e existe na sua conta `collectionName` Azure Cosmos. Se estiver a utilizar a substituição automática de valor (utilizando `%settingName%` padrões), certifique-se de que o nome da definição existe na sua App de Função Azure.
 3. Se não especificar `LeaseCollectionName/leaseCollectionName` um, o padrão é "arrendamentos". Verifique se tal recipiente existe. Opcionalmente, pode definir o `CreateLeaseCollectionIfNotExists` atributo no seu Gatilho para o criar `true` automaticamente.
 4. Verifique a configuração firewall da sua [conta Azure Cosmos](how-to-configure-firewall.md) para ver se não está a bloquear a Função Azure.
@@ -95,7 +96,7 @@ Neste cenário, o melhor caminho a seguir é adicionar `try/catch` blocos no seu
 > [!NOTE]
 > Por predefinição, o acionador das Funções do Azure do Cosmos DB não repetirá nenhum lote de alterações se existir alguma exceção não processada durante a execução do código. Isto significa que a razão pela qual as alterações não chegaram ao destino é porque não está a conseguir processá-las.
 
-Se descobrir que algumas alterações não foram recebidas pelo seu gatilho, o cenário mais comum é que existe **outra Função Azure em funcionamento** . Pode ser outra Função Azure implantada em Azure ou uma Função Azure que funciona localmente numa máquina de um desenvolvedor que tem **exatamente a mesma configuração** (os mesmos recipientes monitorizados e de locação), e esta Função Azure está a roubar um subconjunto das alterações que esperaria que a sua Função Azure processasse.
+Se descobrir que algumas alterações não foram recebidas pelo seu gatilho, o cenário mais comum é que existe **outra Função Azure em funcionamento**. Pode ser outra Função Azure implantada em Azure ou uma Função Azure que funciona localmente numa máquina de um desenvolvedor que tem **exatamente a mesma configuração** (os mesmos recipientes monitorizados e de locação), e esta Função Azure está a roubar um subconjunto das alterações que esperaria que a sua Função Azure processasse.
 
 Além disso, o cenário pode ser validado, se souber quantas instâncias da App Azure Function tem em execução. Se inspecionar o seu recipiente de locação e contar o número de itens de locação no seu interior, os valores distintos do `Owner` imóvel neles devem ser iguais ao número de instâncias da sua App de Função. Se há mais proprietários do que os casos conhecidos da App Azure Function, significa que estes proprietários extra são os que "roubam" as alterações.
 

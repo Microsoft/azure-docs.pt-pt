@@ -1,20 +1,20 @@
 ---
-title: Como autor e assinar uma política de Azure Attestation
-description: Uma explicação de como autor e assinar uma política de atestado.
+title: Como autor de uma política de Azure Attestation
+description: Uma explicação de como autor de uma política de atestado.
 services: attestation
 author: msmbaldwin
 ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c8ffdcd0615913649e80b20f6873d005f4ad4410
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3e36de62b79788e2efdc3e9abf711924c4fba0c4
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675993"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341812"
 ---
-# <a name="how-to-author-and-sign-an-attestation-policy"></a>Como autor e assinar uma política de atestado
+# <a name="how-to-author-an-attestation-policy"></a>Como autor de uma política de atestado
 
 A política de atestado é um ficheiro enviado para o Microsoft Azure Attestation. O Azure Attestation oferece a flexibilidade para carregar uma política num formato político específico de atestado. Em alternativa, uma versão codificada da política, na JSON Web Signature, também pode ser carregada. O administrador da apólice é responsável pela redação da política de atestado. Na maioria dos cenários de atestado, o partido que conta atua como administrador político. O cliente que faz a chamada de atestado envia provas de atestado, que o serviço analisa e converte em reclamações recebidas (conjunto de propriedades, valor). O serviço processa então as reclamações, com base no que está definido na apólice, e devolve o resultado calculado.
 
@@ -44,7 +44,7 @@ Um ficheiro de política tem três segmentos, como visto acima:
 
     Atualmente, a única versão suportada é a versão 1.0.
 
-- **regras de autorização** : Uma recolha de regras de reclamação que será verificada primeiro, para determinar se o Azure Attestation deve proceder às **regras de emissão** . As regras de reclamação aplicam-se na ordem em que são definidas.
+- **regras de autorização** : Uma recolha de regras de reclamação que será verificada primeiro, para determinar se o Azure Attestation deve proceder às **regras de emissão**. As regras de reclamação aplicam-se na ordem em que são definidas.
 
 - **regras de emissão** : Uma recolha de regras de reclamação que serão avaliadas para adicionar informações adicionais ao resultado do atestado, tal como definido na política. As regras de reclamação aplicam-se na ordem em que são definidas e são também facultativas.
 
@@ -54,7 +54,7 @@ Consulte [as regras de reclamação e reclamação](claim-rule-grammar.md) para 
 
 1. Criar um novo ficheiro.
 1. Adicione a versão ao ficheiro.
-1. Adicione secções para **regras** de autorização e **regras de emissão** .
+1. Adicione secções para **regras** de autorização e **regras de emissão**.
 
   ```
   version=1.0;
@@ -84,9 +84,9 @@ Consulte [as regras de reclamação e reclamação](claim-rule-grammar.md) para 
   };
   ```
 
-  Se o conjunto de reclamações de entrada contiver uma reclamação correspondente ao tipo, valor e emitente, a ação de licença() dirá ao motor da política para processar as **regras de emissão** .
+  Se o conjunto de reclamações de entrada contiver uma reclamação correspondente ao tipo, valor e emitente, a ação de licença() dirá ao motor da política para processar as **regras de emissão**.
   
-5. Adicione regras de reclamação às **regras de emissão** .
+5. Adicione regras de reclamação às **regras de emissão**.
 
   ```
   version=1.0;
@@ -134,41 +134,6 @@ Depois de criar um ficheiro de política, para fazer o upload de uma política e
 3. Faça o upload do JWS e valide a apólice.
      - Se o ficheiro de política estiver isento de erros de sintaxe, o ficheiro de política é aceite pelo serviço.
      - Se o ficheiro de política contiver erros de sintaxe, o ficheiro de política é rejeitado pelo serviço.
-
-## <a name="signing-the-policy"></a>Assinar a apólice
-
-Abaixo está uma amostra de script Python sobre como executar a operação de assinatura de políticas
-
-```python
-from OpenSSL import crypto
-import jwt
-import getpass
-       
-def cert_to_b64(cert):
-              cert_pem = crypto.dump_certificate(crypto.FILETYPE_PEM, cert)
-              cert_pem_str = cert_pem.decode('utf-8')
-              return ''.join(cert_pem_str.split('\n')[1:-2])
-       
-print("Provide the path to the PKCS12 file:")
-pkcs12_path = str(input())
-pkcs12_password = getpass.getpass("\nProvide the password for the PKCS12 file:\n")
-pkcs12_bin = open(pkcs12_path, "rb").read()
-pkcs12 = crypto.load_pkcs12(pkcs12_bin, pkcs12_password.encode('utf8'))
-ca_chain = pkcs12.get_ca_certificates()
-ca_chain_b64 = []
-for chain_cert in ca_chain:
-   ca_chain_b64.append(cert_to_b64(chain_cert))
-   signing_cert_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM, pkcs12.get_privatekey())
-signing_cert_b64 = cert_to_b64(pkcs12.get_certificate())
-ca_chain_b64.insert(0, signing_cert_b64)
-
-print("Provide the path to the policy text file:")
-policy_path = str(input())
-policy_text = open(policy_path, "r").read()
-encoded = jwt.encode({'text': policy_text }, signing_cert_pkey, algorithm='RS256', headers={'x5c' : ca_chain_b64})
-print("\nAttestation Policy JWS:")
-print(encoded.decode('utf-8'))
-```
 
 ## <a name="next-steps"></a>Passos seguintes
 - [Configurar a Azure Attestation usando o PowerShell](quickstart-powershell.md)

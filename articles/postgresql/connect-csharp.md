@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 96a655c99a5b6846e5f286e31d22a3756e69d06e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8820fd7b0812d925af6aca923a2b205d5bc92f3e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912128"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341455"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Utilize .NET (C#) para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -42,11 +42,11 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 1. Faça login no [portal Azure](https://portal.azure.com/).
 2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver** ).
 3. Clique no nome do servidor.
-4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor** . Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
+4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
  :::image type="content" source="./media/connect-csharp/1-connection-string.png" alt-text="Nome do servidor da Base de Dados do Azure para PostgreSQL":::
 
 ## <a name="step-1-connect-and-insert-data"></a>Passo 1: Ligar e inserir dados
-Utilize o seguinte código para se ligar e carregar os dados com as instruções SQL **CREATE TABLE** e **INSERT INTO** . O código utiliza a classe NpgsqlCommand com método: 
+Utilize o seguinte código para se ligar e carregar os dados com as instruções SQL **CREATE TABLE** e **INSERT INTO**. O código utiliza a classe NpgsqlCommand com método: 
 - [Abrir()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para estabelecer uma ligação à base de dados PostgreSQL.
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) define a propriedade CommandText.
 - [Executar o](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) método Executar o Método De Executar o Código da Base de Dados. 
@@ -127,7 +127,7 @@ namespace Driver
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="step-2-read-data"></a>Passo 2: Ler dados
-Utilize o código seguinte para se ligar e ler dados com uma instrução SQL **SELECT** . O código utiliza a classe NpgsqlCommand com método:
+Utilize o código seguinte para se ligar e ler dados com uma instrução SQL **SELECT**. O código utiliza a classe NpgsqlCommand com método:
 - [Aberto()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para estabelecer uma ligação com PostgreSQL.
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand) e [ExecutReader para](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteReader) executar os comandos da base de dados.
 - [Leia()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlDataReader.html#Npgsql_NpgsqlDataReader_Read) para avançar para o registo dos resultados.
@@ -200,7 +200,7 @@ namespace Driver
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="step-3-update-data"></a>Passo 3: Atualizar dados
-Utilize o código seguinte para se ligar e atualizar os dados com uma instrução SQL **UPDATE** . O código utiliza a classe NpgsqlCommand com método:
+Utilize o código seguinte para se ligar e atualizar os dados com uma instrução SQL **UPDATE**. O código utiliza a classe NpgsqlCommand com método:
 - [Aberto()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para estabelecer uma ligação com PostgreSQL. 
 - [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), define a propriedade CommandText.
 - [Executar o](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) método Executar o Método De Executar o Código da Base de Dados.
@@ -265,7 +265,7 @@ namespace Driver
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/postgres-doc-feedback)
 
 ## <a name="step-4-delete-data"></a>Passo 4: Eliminar dados
-Utilize o código seguinte para se ligar e eliminar os dados com a instrução SQL **DELETE** . 
+Utilize o código seguinte para se ligar e eliminar os dados com a instrução SQL **DELETE**. 
 
 O código utiliza a classe NpgsqlCommand com o método [Open()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_Open) para ligar à base de dados PostgreSQL. Em seguida, o código utiliza o método [CreateCommand()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlConnection.html#Npgsql_NpgsqlConnection_CreateCommand), define a propriedade CommandText e chama o método [ExecuteNonQuery()](https://www.npgsql.org/doc/api/Npgsql.NpgsqlCommand.html#Npgsql_NpgsqlCommand_ExecuteNonQuery) para executar os comandos da base de dados.
 
@@ -321,6 +321,16 @@ namespace Driver
     }
 }
 
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos utilizados durante este arranque rápido, elimine o grupo de recursos utilizando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

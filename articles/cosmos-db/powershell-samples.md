@@ -3,15 +3,16 @@ title: Amostras Azure PowerShell para Azure Cosmos DB Core (SQL) API
 description: Obtenha as amostras Azure PowerShell para executar tarefas comuns em Azure Cosmos DB para Core (SQL) API
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: e9ec15f757b6d798a8adf3eb6970321cec112afe
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 95b3bdf7c0f232655b4f64f3700579f3672eb3b8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096160"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341982"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-core-sql-api"></a>Amostras Azure PowerShell para Azure Cosmos DB Core (SQL) API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
