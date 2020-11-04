@@ -1,7 +1,7 @@
 ---
 title: Configurar autenticação
 titleSuffix: Azure Machine Learning
-description: Saiba como configurar e configurar a autenticação para vários recursos e fluxos de trabalho em Azure Machine Learning. Existem múltiplas formas de configurar e utilizar a autenticação dentro do serviço, desde simples auth baseado em UI para fins de desenvolvimento ou teste, até à autenticação principal do serviço Azure Ative.
+description: Saiba como configurar e configurar a autenticação para vários recursos e fluxos de trabalho em Azure Machine Learning.
 services: machine-learning
 author: cjgronlund
 ms.author: cgronlun
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: a23f44e60bd68e51c26cc6a0bbf3e85e64914135
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: fd6f933e1b3c1e7c003f62e03215273e3d28ea5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125772"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318536"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos de aprendizagem automática Azure e fluxos de trabalho
 
@@ -38,7 +38,7 @@ Independentemente do tipo de autenticação utilizado, o controlo de acesso base
 ## <a name="interactive-authentication"></a>Autenticação interativa
 
 > [!IMPORTANT]
-> A autenticação interativa utiliza o seu navegador e requer cookies (incluindo cookies de 3ª parte). Se tiver cookies desativados, poderá receber um erro como "não podemos inscrevê-lo". Este erro também pode ocorrer se tiver ativado [a autenticação de vários fatores Azure](/azure/active-directory/authentication/concept-mfa-howitworks).
+> A autenticação interativa utiliza o seu navegador e requer cookies (incluindo cookies de 3ª parte). Se tiver cookies desativados, poderá receber um erro como "não podemos inscrevê-lo". Este erro também pode ocorrer se tiver ativado [a autenticação de vários fatores Azure](../active-directory/authentication/concept-mfa-howitworks.md).
 
 A maioria dos exemplos na documentação e amostras utilizam a autenticação interativa. Por exemplo, ao utilizar o SDK existem duas chamadas de função que irão automaticamente insusá-lo com um fluxo de autenticação baseado em UI:
 
@@ -77,7 +77,7 @@ Para utilizar a autenticação principal do serviço (SP), tem primeiro de criar
 >
 > A razão para conceder o menor acesso é que um diretor de serviço usa uma senha para autenticar, e a palavra-passe pode ser armazenada como parte de um script de automação. Se a palavra-passe for vazada, ter o acesso mínimo necessário para uma tarefa específica minimiza a utilização maliciosa do SP.
 
-A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho é utilizando o [CLI Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Para criar um principal serviço e conceder-lhe acesso ao seu espaço de trabalho, utilize os seguintes passos:
+A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho é utilizando o [CLI Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Para criar um principal serviço e conceder-lhe acesso ao seu espaço de trabalho, utilize os seguintes passos:
 
 > [!NOTE]
 > Você deve ser um administrador na subscrição para executar todos estes passos.
@@ -92,7 +92,7 @@ A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho 
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    Para outros métodos de autenticação, consulte [iniciar sing com Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
+    Para outros métodos de autenticação, consulte [iniciar sing com Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 1. Instale a extensão Azure Machine Learning:
 
@@ -190,11 +190,11 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Utilize um diretor de serviço do Azure CLI
 
-Pode utilizar um rente-chefe de serviço para comandos Azure CLI. Para obter mais informações, consulte [Iniciar sina com um principal de serviço.](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal)
+Pode utilizar um rente-chefe de serviço para comandos Azure CLI. Para obter mais informações, consulte [Iniciar sina com um principal de serviço.](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal)
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Utilize um principal de serviço com a API REST (pré-visualização)
 
-O principal de serviço também pode ser usado para autenticar a [API de](https://docs.microsoft.com/rest/api/azureml/) Aprendizagem automática Azure (pré-visualização). Utiliza o [fluxo de concessão](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)de credenciais de cliente do Azure Ative, que permite chamadas de serviço para autenticação sem cabeça em fluxos de trabalho automatizados. Os exemplos são implementados com a [biblioteca ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) em Python e Node.js, mas também pode usar qualquer biblioteca de código aberto que suporte OpenID Connect 1.0.
+O principal de serviço também pode ser usado para autenticar a [API de](/rest/api/azureml/) Aprendizagem automática Azure (pré-visualização). Utiliza o [fluxo de concessão](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md)de credenciais de cliente do Azure Ative, que permite chamadas de serviço para autenticação sem cabeça em fluxos de trabalho automatizados. Os exemplos são implementados com a [biblioteca ADAL](../active-directory/azuread-dev/active-directory-authentication-libraries.md) em Python e Node.js, mas também pode usar qualquer biblioteca de código aberto que suporte OpenID Connect 1.0.
 
 > [!NOTE]
 > MSAL.js é uma biblioteca mais recente do que a ADAL, mas não é possível fazer autenticação de serviço-a-serviço utilizando credenciais de cliente com MSAL.js, uma vez que se trata principalmente de uma biblioteca do lado do cliente destinada à autenticação interativa/UI ligada a um utilizador específico. Recomendamos a utilização do ADAL como mostrado abaixo para construir fluxos de trabalho automatizados com a API REST.
@@ -375,7 +375,7 @@ aci_service = Model.deploy(workspace=ws,
 aci_service.wait_for_deployment(True)
 ```
 
-Para ir buscar as teclas auth, `aci_service.get_keys()` use. Para regenerar uma chave, utilize a `regen_key()` função e passe tanto **no Primário** como **no Secundário** .
+Para ir buscar as teclas auth, `aci_service.get_keys()` use. Para regenerar uma chave, utilize a `regen_key()` função e passe tanto **no Primário** como **no Secundário**.
 
 ```python
 aci_service.regen_key("Primary")

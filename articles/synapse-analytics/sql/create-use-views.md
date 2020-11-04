@@ -1,6 +1,6 @@
 ---
-title: Criar e utilizar vistas em SQL on-demand (pré-visualização)
-description: Nesta secção, você vai aprender a criar e usar vistas para embrulhar as consultas SQL on-demand (pré-visualização). As vistas permitir-lhe-ão reutilizar essas consultas. Também são necessárias vistas se quiser utilizar ferramentas, como o Power BI, em conjunto com o SQL a pedido.
+title: Criar e utilizar vistas na piscina SQL sem servidor (pré-visualização)
+description: Nesta secção, você vai aprender a criar e usar vistas para embrulhar consultas de piscina SQL sem servidor (pré-visualização). As vistas permitir-lhe-ão reutilizar essas consultas. Também são necessárias vistas se pretender utilizar ferramentas, como o Power BI, em conjunto com a piscina SQL sem servidor.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c965b27fde80e1cb8d52b1061917d83e5cd7f5d6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: d578529839afb5393dd013cb10f48c755f08addd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927809"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316244"
 ---
-# <a name="create-and-use-views-in-sql-on-demand-preview-using-azure-synapse-analytics"></a>Criar e utilizar vistas em SQL on-demand (pré-visualização) usando Azure Synapse Analytics
+# <a name="create-and-use-views-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Criar e utilizar vistas utilizando piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics
 
-Nesta secção, você vai aprender a criar e usar vistas para embrulhar as consultas SQL on-demand (pré-visualização). As vistas permitir-lhe-ão reutilizar essas consultas. Também são necessárias vistas se quiser utilizar ferramentas, como o Power BI, em conjunto com o SQL a pedido.
+Nesta secção, você vai aprender a criar e usar vistas para embrulhar consultas de piscina SQL sem servidor (pré-visualização). As vistas permitir-lhe-ão reutilizar essas consultas. Também são necessárias vistas se pretender utilizar ferramentas, como o Power BI, em conjunto com a piscina SQL sem servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

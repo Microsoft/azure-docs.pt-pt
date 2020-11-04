@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: e30140dc23e64bfc733a0a51fa77fe811ba8fbc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601434628258b8af3fb5fb9336f701be72441c64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776124"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318132"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 
@@ -30,7 +30,7 @@ A rotulagem dos dados acompanha o progresso e mantém a fila de tarefas de rotul
 > [!Important]
 > Atualmente, apenas são apoiados projetos de rotulagem de classificação de imagem e identificação de objetos. Além disso, as imagens de dados devem estar disponíveis numa loja de dados blob Azure. (Se não tiver uma loja de dados existente, poderá enviar imagens durante a criação do projeto.)
 
-Neste artigo, aprenderá a:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 > * Criar um projeto
@@ -189,7 +189,7 @@ Para interromper ou reiniciar o projeto, altere o estado **de Funcionamento** no
 
 O **separador Dashboard** mostra o progresso da tarefa de rotulagem.
 
-:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Assistente de criação de projeto de rotulagem":::
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Painel de rotulagem de dados":::
 
 O gráfico de progresso mostra quantos itens foram rotulados e quantos ainda não foram feitos.  Os artigos pendentes podem ser:
 
@@ -213,7 +213,7 @@ Do lado direito está uma distribuição dos rótulos para as tarefas que estão
 
 ### <a name="data-tab"></a>Separador de dados
 
-No separador **Dados,** pode ver o conjunto de dados e rever os dados rotulados. Se vir dados rotulados incorretamente, selecione-os e escolha **Rejeitar**, que removerá as etiquetas e colocará os dados de volta na fila não identificada.
+No separador **Dados,** pode ver o conjunto de dados e rever os dados rotulados. Se vir dados rotulados incorretamente, selecione-os e escolha **Rejeitar** , que removerá as etiquetas e colocará os dados de volta na fila não identificada.
 
 ### <a name="details-tab"></a>Separador de detalhes
 
@@ -260,4 +260,4 @@ O ficheiro COCO é criado na loja blob padrão do espaço de trabalho Azure Mach
 
 * [Tutorial: Crie o seu primeiro projeto de rotulagem de classificação de imagem.](tutorial-labeling.md)
 * Rotular imagens para [classificação de imagem ou deteção de objetos](how-to-label-images.md)
-* Saiba mais sobre [o Azure Machine Learning e o Machine Learning Studio (clássico)](compare-azure-ml-to-studio-classic.md)
+* Saiba mais sobre [o Azure Machine Learning e o Machine Learning Studio (clássico)](./overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)

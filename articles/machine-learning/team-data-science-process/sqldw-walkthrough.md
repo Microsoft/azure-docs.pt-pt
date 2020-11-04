@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e48261c4c6aeb75556663e1bf77c675557bcd1b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b638cb2b33f24220e7ceb852402862c707cc7bc6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315495"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315999"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>O processo de ciência de dados da equipa em ação: usando a Azure Synapse Analytics
 Neste tutorial, percorremos a construção e implementamos um modelo de machine learning usando a Azure Synapse Analytics para um conjunto de dados publicamente disponível - o conjunto de dados [de Viagens de Táxi de NYC.](https://www.andresmh.com/nyctaxitrips/) O modelo de classificação binária construído prevê se uma gorjeta é ou não paga por uma viagem.  Os modelos incluem classificação multiclasse (se há ou não uma ponta) e regressão (a distribuição pelos valores da gorjeta paga).
 
-O procedimento segue o fluxo de trabalho [do Processo de Ciência de Dados de Equipa (TDSP).](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) Mostramos como configurar um ambiente de ciência de dados, como carregar os dados no Azure Synapse Analytics, e como usar a Azure Synapse Analytics ou um Notebook IPython para explorar os dados e as funcionalidades de engenheiro para modelar. Em seguida, mostramos como construir e implementar um modelo com Azure Machine Learning.
+O procedimento segue o fluxo de trabalho [do Processo de Ciência de Dados de Equipa (TDSP).](./index.yml) Mostramos como configurar um ambiente de ciência de dados, como carregar os dados no Azure Synapse Analytics, e como usar a Azure Synapse Analytics ou um Notebook IPython para explorar os dados e as funcionalidades de engenheiro para modelar. Em seguida, mostramos como construir e implementar um modelo com Azure Machine Learning.
 
 ## <a name="the-nyc-taxi-trips-dataset"></a><a name="dataset"></a>O conjunto de dados de viagens de táxi de NYC
 Os dados da NY Taxi Trip consistem em cerca de 20 GB de ficheiros CSV comprimidos (~48 GB descomprimidos), registando mais de 173 milhões de viagens individuais e as tarifas pagas por cada viagem. Cada registo de viagem inclui os locais e horários de recolha e entrega, o número da carta de condução (motorista) anonimizada e o número do medalhão (ID único do táxi). Os dados cobrem todas as viagens do ano de 2013 e são fornecidos nos dois conjuntos de dados seguintes para cada mês:
@@ -40,7 +40,7 @@ Os dados da NY Taxi Trip consistem em cerca de 20 GB de ficheiros CSV comprimido
 
 `DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,1,N,2013-01-07 23:25:03,2013-01-07 23:34:24,1,560,2.10,-73.97625,40.748528,-74.002586,40.747868`
 
-2. O ** ficheirotrip_fare.csv** contém detalhes da tarifa paga por cada viagem, como tipo de pagamento, valor da tarifa, sobretaxa e impostos, gorjetas e portagens, e o valor total pago. Aqui estão alguns registos de amostras:
+2. O **ficheirotrip_fare.csv** contém detalhes da tarifa paga por cada viagem, como tipo de pagamento, valor da tarifa, sobretaxa e impostos, gorjetas e portagens, e o valor total pago. Aqui estão alguns registos de amostras:
 
 `medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount`
 
@@ -61,10 +61,10 @@ A **chave única** usada para juntar dados de viagem e tarifa de \_ viagem é co
 * \_hora de recolha.
 
 ## <a name="address-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Endereçar três tipos de tarefas de previsão
-Formulamos três problemas de previsão com base na * \_ quantidade* de ponta para ilustrar três tipos de tarefas de modelação:
+Formulamos três problemas de previsão com base na *\_ quantidade* de ponta para ilustrar três tipos de tarefas de modelação:
 
-1. **Classificação binária**: Prever se uma gorjeta foi ou não paga por uma viagem, isto é, um * \_ valor* de gorjeta superior a $0 é um exemplo positivo, enquanto um * \_ valor* de gorjeta de $0 é um exemplo negativo.
-2. **Classificação multiclasse**: Para prever o intervalo de gorjeta paga pela viagem. Dividimos a * \_ quantidade de gorjeta* em cinco caixotes ou classes:
+1. **Classificação binária** : Prever se uma gorjeta foi ou não paga por uma viagem, isto é, um *\_ valor* de gorjeta superior a $0 é um exemplo positivo, enquanto um *\_ valor* de gorjeta de $0 é um exemplo negativo.
+2. **Classificação multiclasse** : Para prever o intervalo de gorjeta paga pela viagem. Dividimos a *\_ quantidade de gorjeta* em cinco caixotes ou classes:
 
 `Class 0 : tip_amount = $0`
 
@@ -76,7 +76,7 @@ Formulamos três problemas de previsão com base na * \_ quantidade* de ponta pa
 
 `Class 4 : tip_amount > $20`
 
-3. **Tarefa de regressão**: Prever o valor da gorjeta paga por uma viagem.
+3. **Tarefa de regressão** : Prever o valor da gorjeta paga por uma viagem.
 
 ## <a name="set-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Criar o ambiente de ciência de dados Azure para análises avançadas
 Para configurar o seu ambiente Azure Data Science, siga estes passos.
@@ -84,7 +84,7 @@ Para configurar o seu ambiente Azure Data Science, siga estes passos.
 **Crie a sua própria conta de armazenamento de blob Azure**
 
 * Quando forte o seu próprio armazenamento de blob Azure, escolha um geolocalização para o seu armazenamento de bolhas Azure em ou o mais próximo possível **do South Central US,** que é onde os dados do Táxi NYC estão armazenados. Os dados serão copiados utilizando o AzCopy do recipiente de armazenamento de bolhas públicas para um recipiente na sua própria conta de armazenamento. Quanto mais perto estiver o seu armazenamento de blob Azure para south central eua, mais rápido esta tarefa (Passo 4) será concluída.
-* Para criar a sua própria conta de Armazenamento Azure, siga os passos descritos nas [contas de Armazenamento About Azure](../../storage/common/storage-create-storage-account.md). Certifique-se de tomar notas sobre os valores para seguir as credenciais de conta de armazenamento, uma vez que serão necessários mais tarde nesta passagem.
+* Para criar a sua própria conta de Armazenamento Azure, siga os passos descritos nas [contas de Armazenamento About Azure](../../storage/common/storage-account-create.md). Certifique-se de tomar notas sobre os valores para seguir as credenciais de conta de armazenamento, uma vez que serão necessários mais tarde nesta passagem.
 
   * **Nome da conta de armazenamento**
   * **Chave da conta de armazenamento**
@@ -93,7 +93,7 @@ Para configurar o seu ambiente Azure Data Science, siga estes passos.
 **Provisionar o seu exemplo Azure Synapse Analytics.**
 Siga a documentação na [Create e questione um Azure Synapse Analytics no portal Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) para obter uma instância Azure Synapse Analytics. Certifique-se de que faz notações nas seguintes credenciais Azure Synapse Analytics que serão usadas em etapas posteriores.
 
-* **Nome do servidor**: \<server Name> .database.windows.net
+* **Nome do servidor** : \<server Name> .database.windows.net
 * **Nome SQLDW (Base de Dados)**
 * **Nome de Utilizador**
 * **Palavra-passe**
@@ -396,7 +396,7 @@ Aqui estão os tipos de tarefas de exploração de dados e geração de recursos
 
 * Explore a distribuição de dados de alguns campos em janelas de tempo variadas.
 * Investigue a qualidade dos dados dos campos de longitude e latitude.
-* Gere etiquetas de classificação binárias e multiclasses com base na ** \_ quantidade de gorjeta**.
+* Gere etiquetas de classificação binárias e multiclasses com base na **\_ quantidade de gorjeta**.
 * Gere características e computação/compare distâncias de viagem.
 * Junte-se às duas tabelas e extraa uma amostra aleatória que será usada para construir modelos.
 
@@ -418,7 +418,7 @@ Estas consultas proporcionam uma rápida verificação do número de linhas e co
 **Saída:** Deve ter 173.179.759 filas e 14 colunas.
 
 ### <a name="exploration-trip-distribution-by-medallion"></a>Exploração: Distribuição de viagem por medalhão
-Este exemplo identifica os medalhão (números de táxi) que completaram mais de 100 viagens num período de tempo especificado. A consulta beneficiaria do acesso à mesa dividido, uma vez que está condicionada pelo esquema de partição da ** \_ data**de recolha . A consulta do conjunto de dados completo também utilizará a tabela dividida e/ou a varredura de índice.
+Este exemplo identifica os medalhão (números de táxi) que completaram mais de 100 viagens num período de tempo especificado. A consulta beneficiaria do acesso à mesa dividido, uma vez que está condicionada pelo esquema de partição da **\_ data** de recolha . A consulta do conjunto de dados completo também utilizará a tabela dividida e/ou a varredura de índice.
 
 ```sql
 SELECT medallion, COUNT(*)
@@ -609,7 +609,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Preparar dados para a construção de modelos
-A seguinte consulta junta-se às tabelas **de tarifas nyctaxi \_ e** **nyctaxi, \_ ** gera uma etiqueta de classificação binária **inclinada**, uma ** \_ classe**de ponta de etiqueta de classificação multi-classe , e extrai uma amostra do conjunto de dados completo. A amostragem é feita recuperando um subconjunto das viagens com base no tempo de recolha.  Esta consulta pode ser copiada e colada diretamente no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net) Módulo[de importação de dados de importação de] [dados]para ingestão direta de dados a partir da instância SQL Database em Azure. A consulta exclui registos com coordenadas incorretas (0,0).
+A seguinte consulta junta-se às tabelas **de tarifas nyctaxi \_ e** **nyctaxi, \_** gera uma etiqueta de classificação binária **inclinada** , uma **\_ classe** de ponta de etiqueta de classificação multi-classe , e extrai uma amostra do conjunto de dados completo. A amostragem é feita recuperando um subconjunto das viagens com base no tempo de recolha.  Esta consulta pode ser copiada e colada diretamente no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net) Módulo[de importação de dados de importação de] [dados]para ingestão direta de dados a partir da instância SQL Database em Azure. A consulta exclui registos com coordenadas incorretas (0,0).
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -759,7 +759,7 @@ A hora de ler a tabela de amostras é de 14.096495 segundos.
 Número de linhas e colunas recuperadas = (1000, 21).
 
 ### <a name="descriptive-statistics"></a>Estatísticas descritivas
-Agora está pronto para explorar os dados recolhidos. Começamos por analisar algumas estatísticas descritivas para a distância de **viagem \_ ** (ou quaisquer outros campos que escolha especificar).
+Agora está pronto para explorar os dados recolhidos. Começamos por analisar algumas estatísticas descritivas para a distância de **viagem \_** (ou quaisquer outros campos que escolha especificar).
 
 ```sql
 df1['trip_distance'].describe()
@@ -814,7 +814,7 @@ pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 ![Saída do enredo de linha][4]
 
 ### <a name="visualization-scatterplot-examples"></a>Visualização: Exemplos de scatterplot
-Mostramos o enredo de dispersão entre **o tempo de viagem em \_ \_ \_ segundos** e a distância da **viagem \_ ** para ver se há alguma correlação
+Mostramos o enredo de dispersão entre **o tempo de viagem em \_ \_ \_ segundos** e a distância da **viagem \_** para ver se há alguma correlação
 
 ```sql
 plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
@@ -822,7 +822,7 @@ plt.scatter(df1['trip_time_in_secs'], df1['trip_distance'])
 
 ![Dispersão da produção da relação entre o tempo e a distância][6]
 
-Da mesma forma, podemos verificar a relação entre o ** \_ código de taxa** e **a distância \_ de viagem.**
+Da mesma forma, podemos verificar a relação entre o **\_ código de taxa** e **a distância \_ de viagem.**
 
 ```sql
 plt.scatter(df1['passenger_count'], df1['trip_distance'])
@@ -937,9 +937,9 @@ pd.read_sql(query,conn)
 ## <a name="build-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Construa modelos em Azure Machine Learning
 Estamos agora prontos para avançar para a construção de modelos e implantação de modelos em [Azure Machine Learning.](https://studio.azureml.net) Os dados estão prontos para serem utilizados em qualquer um dos problemas de previsão identificados anteriormente, nomeadamente:
 
-1. **Classificação binária**: Para prever se uma gorjeta foi ou não paga por uma viagem.
-2. **Classificação multiclasse**: Para prever o intervalo de gorjeta paga, de acordo com as classes previamente definidas.
-3. **Tarefa de regressão**: Prever o valor da gorjeta paga por uma viagem.
+1. **Classificação binária** : Para prever se uma gorjeta foi ou não paga por uma viagem.
+2. **Classificação multiclasse** : Para prever o intervalo de gorjeta paga, de acordo com as classes previamente definidas.
+3. **Tarefa de regressão** : Prever o valor da gorjeta paga por uma viagem.
 
 Para iniciar o exercício de modelação, inicie sessão no seu espaço de trabalho **Azure Machine Learning (clássico).** Se ainda não criou um espaço de trabalho de aprendizagem automática, consulte [Create a Azure Machine Learning Studio (clássico) espaço de trabalho](../classic/create-workspace.md).
 
@@ -962,13 +962,13 @@ Uma experiência de treino típica consiste nos seguintes passos:
 
 Neste exercício, já exploramos e concebemos os dados no Azure Synapse Analytics, e decidimos sobre o tamanho da amostra para ingerir no Azure Machine Learning Studio (clássico). Aqui está o procedimento para construir um ou mais dos modelos de previsão:
 
-1. Obtenha os dados no Azure Machine Learning Studio (clássico) utilizando o módulo[de dados de importação de dados de] importação de [dados de importação,]disponível na secção entrada e saída de **dados.** Para obter mais informações, consulte a página de referência do módulo[de dados de importação de dados de importação de dados de] importação de [dados de importação.]
+1. Obtenha os dados no Azure Machine Learning Studio (clássico) utilizando o módulo [de dados de importação de dados de] importação de [dados de importação,]disponível na secção entrada e saída de **dados.** Para obter mais informações, consulte a página de referência do módulo[de dados de importação de dados de importação de dados de] importação de [dados de importação.]
 
     ![Dados de importação de Azure ML][17]
 2. Selecione **Azure SQL Database** como **fonte de dados** no painel **Propriedades.**
 3. Introduza o nome DNS da base de dados no campo **de nome do servidor Database.** Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Introduza o **nome base de dados** no campo correspondente.
-5. Introduza o *nome de utilizador SQL* no nome da **conta de utilizador**do Servidor e na *palavra-passe* da **conta de utilizador**do Servidor .
+5. Introduza o *nome de utilizador SQL* no nome da **conta de utilizador** do Servidor e na *palavra-passe* da **conta de utilizador** do Servidor .
 7. Na **área de consulta de base de dados** editar a área de texto, cole a consulta que extrai os campos de base de dados necessários (incluindo quaisquer campos calculados, como os rótulos) e diminui as amostras dos dados para o tamanho da amostra pretendido.
 
 Um exemplo de uma experiência de classificação binária que lê dados diretamente da base de dados Azure Synapse Analytics está na figura abaixo (lembre-se de substituir os nomes de tabelas nyctaxi_trip e nyctaxi_fare pelo nome de esquema e pelos nomes de tabela que usou na sua passagem). Experiências semelhantes podem ser construídas para problemas de classificação e regressão multiclasse.
@@ -976,7 +976,7 @@ Um exemplo de uma experiência de classificação binária que lê dados diretam
 ![Comboio Azure ML][10]
 
 > [!IMPORTANT]
-> Nos exemplos de extração de dados de modelação e de amostragem fornecidos nas secções anteriores, **todas as etiquetas para os três exercícios de modelação estão incluídas na consulta**. Um passo importante (necessário) em cada um dos exercícios de modelação consiste em **excluir** os rótulos desnecessários para os outros dois **problemas,** e quaisquer outras fugas de alvo . Por exemplo, ao utilizar a classificação binária, utilize a etiqueta **inclinada** e exclua a **classe \_ de ponta**dos campos, **a quantidade \_ de gorjeta**e **a \_ quantidade total**. Estes últimos são fugas de alvo, uma vez que implicam a gorjeta paga.
+> Nos exemplos de extração de dados de modelação e de amostragem fornecidos nas secções anteriores, **todas as etiquetas para os três exercícios de modelação estão incluídas na consulta**. Um passo importante (necessário) em cada um dos exercícios de modelação consiste em **excluir** os rótulos desnecessários para os outros dois **problemas,** e quaisquer outras fugas de alvo . Por exemplo, ao utilizar a classificação binária, utilize a etiqueta **inclinada** e exclua a **classe \_ de ponta** dos campos, **a quantidade \_ de gorjeta** e **a \_ quantidade total**. Estes últimos são fugas de alvo, uma vez que implicam a gorjeta paga.
 >
 > Para excluir quaisquer colunas ou fugas de alvo desnecessárias, pode utilizar as [Colunas Selecionadas no][select-columns] módulo Dataset ou nos [Metadados de Edição.][edit-metadata] Para obter mais informações, consulte [Colunas selecionadas em páginas de][select-columns] referência de datas e [edite metadados.][edit-metadata]
 >
@@ -1046,6 +1046,6 @@ Esta amostra e os seus scripts que acompanham e os portátils IPython são parti
 
 
 <!-- Module References -->
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[importar dados]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[importar dados]: /azure/machine-learning/studio-module-reference/import-data

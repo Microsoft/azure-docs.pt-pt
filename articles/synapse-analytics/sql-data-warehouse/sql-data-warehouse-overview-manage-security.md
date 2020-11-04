@@ -1,6 +1,6 @@
 ---
 title: Proteger uma base de dados
-description: Dicas para proteger uma base de dados e desenvolver soluções num recurso de piscina Synapse SQL.
+description: Dicas para garantir uma piscina SQL dedicada e desenvolver soluções no Azure Synapse Analytics.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -11,14 +11,14 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: c94924c973a1095a4bebf6231d9853968facc1b2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f6c1370cab573926183a937b8e749ef490c19334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516888"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317705"
 ---
-# <a name="secure-a-database-in-azure-synapse"></a>Proteger uma base de dados em Azure Synapse
+# <a name="secure-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Garanta uma piscina SQL dedicada em Azure Synapse Analytics
 
 > [!div class="op_single_selector"]
 >
@@ -27,7 +27,7 @@ ms.locfileid: "92516888"
 > * [Encriptação (Portal)](sql-data-warehouse-encryption-tde.md)
 > * [Encriptação (T-SQL)](sql-data-warehouse-encryption-tde-tsql.md)
 
-Este artigo irá acompanhá-lo através do básico de garantir a sua piscina Synapse SQL. Em particular, este artigo inicia-o com recursos para limitar o acesso, proteger dados e monitorizar atividades numa base de dados ateada através do pool SQL.
+Este artigo irá acompanhá-lo através do básico de garantir a sua piscina DE SQL dedicada. Em particular, este artigo inicia-o com recursos para limitar o acesso, proteger dados e monitorizar atividades usando um pool de SQL dedicado.
 
 ## <a name="connection-security"></a>Segurança da Ligação
 
@@ -35,15 +35,15 @@ A Segurança da Ligação diz respeito à forma como restringe e protege as liga
 
 As regras de firewall são usadas tanto pelo [servidor lógico SQL](../../azure-sql/database/logical-servers.md) como pelas suas bases de dados para rejeitar tentativas de ligação de endereços IP que não tenham sido explicitamente aprovadas. Para permitir ligações a partir da sua aplicação ou endereço IP público da sua máquina cliente, tem primeiro de criar uma regra de firewall ao nível do servidor utilizando o portal Azure, REST API ou PowerShell.
 
-Como uma boa prática, deve restringir ao máximo as gamas de endereços IP permitidas através da firewall ao nível do servidor.  Para aceder à piscina SQL a partir do seu computador local, certifique-se de que a firewall da sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
+Como uma boa prática, deve restringir ao máximo as gamas de endereços IP permitidas através da firewall ao nível do servidor.  Para aceder à sua piscina SQL dedicada a partir do seu computador local, certifique-se de que a firewall da sua rede e computador local permite a comunicação de saída na porta TCP 1433.  
 
 A Azure Synapse Analytics utiliza regras de firewall IP de nível de servidor. Não suporta regras de firewall IP ao nível da base de dados. Para mais informações, consulte [as regras de firewall da Base de Dados Azure SQL](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
-As ligações à sua piscina SQL são encriptadas por padrão.  A modificação das definições de ligação para desativar a encriptação é ignorada.
+As ligações ao seu pool SQL dedicado são encriptadas por padrão.  A modificação das definições de ligação para desativar a encriptação é ignorada.
 
 ## <a name="authentication"></a>Autenticação
 
-A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. A piscina SQL suporta atualmente a autenticação do servidor SQL com um nome de utilizador e senha, e com o Azure Ative Directory.
+A autenticação diz respeito à forma como prova a sua identidade quando se liga à base de dados. O pool dedicado SQL suporta atualmente a autenticação do servidor SQL com um nome de utilizador e senha, e com o Azure Ative Directory.
 
 Quando criou o servidor para a sua base de dados, especificou um login de "administrador do servidor" com um nome de utilizador e senha. Utilizando estas credenciais, pode autenticar em qualquer base de dados desse servidor como o proprietário da base de dados, ou "dbo" através da Autenticação do Servidor SQL.
 
@@ -57,7 +57,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Em seguida, conecte-se à base de dados de **piscinas SQL** com o seu login de administração do servidor e crie um utilizador de base de dados com base no login do servidor que criou.
+Em seguida, conecte-se à sua **base de dados de piscinas SQL dedicada** com o seu login de administração do servidor e crie um utilizador de base de dados com base no login do servidor que criou.
 
 ```sql
 -- Connect to the database and create a database user
@@ -104,4 +104,4 @@ Pode encriptar a sua base de dados utilizando o [portal Azure](sql-data-warehous
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter detalhes e exemplos sobre a ligação ao seu armazém com diferentes protocolos, consulte [Connect to SQL pool](../sql/connect-overview.md).
+Para obter detalhes e exemplos sobre a ligação ao seu armazém com diferentes protocolos, consulte [Connect to dedicated SQL pool](../sql/connect-overview.md).

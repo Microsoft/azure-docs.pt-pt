@@ -1,6 +1,6 @@
 ---
-title: Ingerir dados numa piscina SQL
-description: Saiba como ingerir dados numa piscina SQL em Azure Synapse Analytics
+title: Ingerir dados numa piscina de SQL dedicada
+description: Saiba como ingerir dados numa piscina DE SQL dedicada em Azure Synapse Analytics
 services: synapse-analytics
 author: djpmsft
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 40f8834a69101682abaaa7eac8ec9cafe8ef3d9e
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 44d17bafe534fea2d408c92a3a01efb699250a78
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279372"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317789"
 ---
-# <a name="ingest-data-into-a-sql-pool"></a>Ingerir dados numa piscina SQL
+# <a name="ingest-data-into-a-dedicated-sql-pool"></a>Ingerir dados numa piscina de SQL dedicada
 
-Neste artigo, você aprenderá a ingerir dados de uma conta de armazenamento Azure Data Lake Gen 2 em uma piscina SQL usando Azure Synapse Analytics.
+Neste artigo, você aprenderá a ingerir dados de uma conta de armazenamento Azure Data Lake Gen 2 em uma piscina DE SQL dedicada em Azure Synapse Analytics.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Subscrição Azure** : Se não tiver uma subscrição do Azure, crie uma [conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de armazenamento Azure** : Utiliza a Azure Data Lake Storage Gen 2 como uma loja de dados *de origem.* Se não tiver uma conta de armazenamento, consulte [criar uma conta de Armazenamento Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para obter passos para criar uma.
-* **Azure Synapse Analytics** : Você usa uma piscina SQL como uma loja de dados *de pia.* Se não tiver uma instância Azure Synapse Analytics, consulte [Criar uma piscina SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para obter passos para criar um.
+* **Azure Synapse Analytics** : Você usa uma piscina SQL dedicada como uma loja de dados *de lavatórios.* Se não tiver uma instância Azure Synapse Analytics, consulte [Criar uma piscina SQL dedicada](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) para etapas para criar uma.
 
 ## <a name="create-linked-services"></a>Criar serviços ligados
 
@@ -39,7 +39,7 @@ No Azure Synapse Analytics, um serviço ligado é onde define as suas informaç�
 
 ## <a name="create-pipeline"></a>Criar pipeline
 
-Um oleoduto contém o fluxo lógico para uma execução de um conjunto de atividades. Nesta secção, você vai criar um pipeline contendo uma atividade de cópia que ingere dados da ADLS Gen2 em uma piscina SQL.
+Um oleoduto contém o fluxo lógico para uma execução de um conjunto de atividades. Nesta secção, você vai criar um pipeline contendo uma atividade de cópia que ingere dados da ADLS Gen2 em uma piscina DE SQL dedicada.
 
 1. Aceda ao **separador Integração.** Selecione no ícone mais ao lado do cabeçalho dos gasodutos e selecione **Pipeline**.
 1. Em **Movimento e Transforme** no painel de atividades, **arraste os dados do Copy** para a tela do gasoduto.
@@ -68,7 +68,7 @@ Neste passo, aciona manualmente o gasoduto publicado no passo anterior.
 1. **Selecione Adicionar Gatilho** na barra de ferramentas e, em seguida, selecione Trigger **Now**. Na página **Executar Pipeline** , selecione **Concluir**.  
 1. Vá ao **separador Monitor** localizado na barra lateral esquerda. Verá uma execução de pipeline que é acionada por um acionador manual. Pode utilizar links na coluna **Ações** para visualizar detalhes da atividade e para refazer o pipeline.
 1. Para ver as execuções de atividade associadas à execução do pipeline, selecione a ligação **Ver Execuções de Atividade** na coluna **Ações**. Neste exemplo, há apenas uma atividade, por isso só se vê uma entrada na lista. Para ver os detalhes da operação de cópia, selecione a ligação **Detalhes** (ícone de óculos), na coluna **Ações**. Selecione **Pipeline Runs** na parte superior para voltar à vista Pipeline Runs. Para atualizar a vista, selecione **Atualizar**.
-1. Verifique se os seus dados estão corretamente escritos na piscina SQL.
+1. Verifique se os seus dados estão corretamente escritos na piscina SQL dedicada.
 
 
 ## <a name="next-steps"></a>Passos seguintes

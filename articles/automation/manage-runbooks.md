@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521072"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317092"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gerir livros de execução na Azure Automation
 
@@ -228,7 +228,7 @@ Para usar um script personalizado:
 
 ## <a name="test-a-runbook"></a>Testar um runbook
 
-Quando se testa um livro de execução, a [versão Draft](#publish-a-runbook) é executada e todas as ações que executa são concluídas. Não foi criado nenhum histórico de trabalho, mas os fluxos [de saída](automation-runbook-output-and-messages.md#use-the-output-stream) e de aviso [e erro](automation-runbook-output-and-messages.md#monitor-message-streams) são apresentados no painel de saída do Teste. As mensagens para o [fluxo verboso](automation-runbook-output-and-messages.md#monitor-message-streams) só são apresentadas no painel de saída se a variável [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) estiver definida para `Continue` .
+Quando se testa um livro de execução, a [versão Draft](#publish-a-runbook) é executada e todas as ações que executa são concluídas. Não foi criado nenhum histórico de trabalho, mas os fluxos [de saída](automation-runbook-output-and-messages.md#use-the-output-stream) e de aviso [e erro](automation-runbook-output-and-messages.md#working-with-message-streams) são apresentados no painel de saída do Teste. As mensagens para o [fluxo verboso](automation-runbook-output-and-messages.md#write-output-to-verbose-stream) só são apresentadas no painel de saída se a variável [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) estiver definida para `Continue` .
 
 Mesmo que a versão do projeto esteja a ser executada, o livro de corridas ainda executa normalmente e executa quaisquer ações contra recursos no ambiente. Por esta razão, só deve testar livros de recortes em recursos não produtivos.
 
@@ -298,7 +298,7 @@ Pode filtrar a lista de empregos selecionando **trabalhos de filtragem**. Filtra
 
 Em alternativa, pode visualizar os dados do resumo do trabalho para um livro de contas específico selecionando o livro de recortes da página Runbooks na sua conta Demômes automática e, em seguida, selecionando **Jobs**. Esta ação apresenta a página Jobs. A partir daqui, pode clicar num registo de trabalho para ver os seus detalhes e saída.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot da página Jobs.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot da página Jobs com o botão Errors realçado.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperar o estatuto de trabalho usando o PowerShell
 

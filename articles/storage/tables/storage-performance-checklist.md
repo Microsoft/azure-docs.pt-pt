@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89458337"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316196"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Lista de verificação de desempenho e escalabilidade para armazenamento de mesas
 
@@ -31,9 +31,9 @@ Este artigo organiza práticas comprovadas para o desempenho numa lista de verif
 | &nbsp; |Metas de escalabilidade |[Pode conceber a sua aplicação para utilizar não mais do que o número máximo de contas de armazenamento?](#maximum-number-of-storage-accounts) |
 | &nbsp; |Metas de escalabilidade |[Está a evitar aproximar-se dos limites de capacidade e transação?](#capacity-and-transaction-targets) |
 | &nbsp; |Metas de escalabilidade |[Está a aproximar-se dos objetivos de escalabilidade para entidades por segundo?](#targets-for-data-operations) |
-| &nbsp; |Redes |[Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
-| &nbsp; |Redes |[Os dispositivos do lado do cliente têm uma ligação de rede de alta qualidade?](#link-quality) |
-| &nbsp; |Redes |[O pedido do cliente é na mesma região que a conta de armazenamento?](#location) |
+| &nbsp; |Rede |[Os dispositivos do lado do cliente têm largura de banda suficientemente alta e baixa latência para alcançar o desempenho necessário?](#throughput) |
+| &nbsp; |Rede |[Os dispositivos do lado do cliente têm uma ligação de rede de alta qualidade?](#link-quality) |
+| &nbsp; |Rede |[O pedido do cliente é na mesma região que a conta de armazenamento?](#location) |
 | &nbsp; |Acesso direto ao cliente |[Está a utilizar assinaturas de acesso partilhado (SAS) e partilha de recursos de origem cruzada (CORS) para permitir o acesso direto ao Azure Storage?](#sas-and-cors) |
 | &nbsp; |Lotes |[A sua aplicação está a fazer atualizações utilizando transações de grupos de entidades?](#batch-transactions) |
 | &nbsp; |Configuração .NET |[Está a utilizar .NET Core 2.1 ou mais tarde para um desempenho ótimo?](#use-net-core) |
@@ -90,7 +90,7 @@ O limite de escalabilidade para aceder às tabelas é de até 20.000 entidades (
 
 Dentro de uma única partição, o objetivo de escalabilidade para aceder às tabelas é de 2.000 entidades (1 KB cada) por segundo, utilizando a mesma contagem descrita na secção anterior.
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 Os constrangimentos físicos da rede da aplicação podem ter um impacto significativo no desempenho. As seguintes secções descrevem algumas das limitações que os utilizadores podem encontrar.  
 
@@ -153,7 +153,7 @@ Desa estada o limite de ligação antes de abrir quaisquer ligações.
 
 Para outras linguagens de programação, consulte a documentação dessa língua para determinar como definir o limite de ligação.  
 
-Para mais informações, consulte o blog post [Web Services: Concurrent Connections](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Para mais informações, consulte o blog post [Web Services: Concurrent Connections](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentar o número mínimo de fios
 
@@ -171,7 +171,7 @@ Embora o paralelismo possa ser ótimo para o desempenho, tenha cuidado com a uti
 
 ## <a name="client-libraries-and-tools"></a>Bibliotecas e ferramentas do cliente
 
-Para um melhor desempenho, utilize sempre as mais recentes bibliotecas e ferramentas de clientes fornecidas pela Microsoft. As bibliotecas de clientes do Azure Storage estão disponíveis para uma variedade de idiomas. O Azure Storage também suporta o PowerShell e o Azure CLI. A Microsoft desenvolve ativamente estas bibliotecas e ferramentas de clientes com o desempenho em mente, mantém-nas atualizadas com as versões de serviço mais recentes, e garante que eles lidam com muitas das práticas de desempenho comprovadas internamente. Para mais informações, consulte a [documentação de referência do Azure Storage](/azure/storage/#reference).
+Para um melhor desempenho, utilize sempre as mais recentes bibliotecas e ferramentas de clientes fornecidas pela Microsoft. As bibliotecas de clientes do Azure Storage estão disponíveis para uma variedade de idiomas. O Azure Storage também suporta o PowerShell e o Azure CLI. A Microsoft desenvolve ativamente estas bibliotecas e ferramentas de clientes com o desempenho em mente, mantém-nas atualizadas com as versões de serviço mais recentes, e garante que eles lidam com muitas das práticas de desempenho comprovadas internamente.
 
 ## <a name="handle-service-errors"></a>Lidar com erros de serviço
 
@@ -197,7 +197,7 @@ Esta secção lista várias configurações rápidas que pode utilizar para faze
 
 Começando pela versão de serviço de armazenamento 2013-08-15, o serviço Table suporta a utilização do JSON em vez do formato AtomPub baseado em XML para a transferência de dados da tabela. A utilização do JSON pode reduzir os tamanhos de carga útil em até 75% e pode melhorar significativamente o desempenho da sua aplicação.
 
-Para obter mais informações, consulte as [tabelas post Microsoft Azure: Introdução do Formato JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) e [Payload para Operações de Serviço de Tabela](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Para obter mais informações, consulte as [tabelas post Microsoft Azure: Introdução do Formato JSON](/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) e [Payload para Operações de Serviço de Tabela](/rest/api/storageservices/Payload-Format-for-Table-Service-Operations).
 
 ### <a name="disable-nagle"></a>Desativar o Nagle
 
@@ -243,7 +243,7 @@ Esta secção descreve práticas comprovadas para consulta do serviço table.
 
 Existem várias formas de especificar o leque de entidades a consultar. A lista a seguir descreve cada opção para o âmbito de consulta.
 
-- **Consultas de ponto:**- Uma consulta de pontos recupera exatamente uma entidade especificando tanto a chave de partição como a chave de linha da entidade para recuperar. Estas consultas são eficientes, e você deve usá-las sempre que possível.
+- **Consultas de ponto:** - Uma consulta de pontos recupera exatamente uma entidade especificando tanto a chave de partição como a chave de linha da entidade para recuperar. Estas consultas são eficientes, e você deve usá-las sempre que possível.
 - **Consultas de partição:** Uma consulta de partição é uma consulta que recupera um conjunto de dados que partilha uma chave de partição comum. Tipicamente, a consulta especifica uma gama de valores-chave de linha ou uma gama de valores para alguma propriedade de entidade, além de uma chave de partição. Estas consultas são menos eficientes do que as consultas pontuais, e devem ser usadas com moderação.
 - **Consultas de tabela:** Uma consulta de mesa é uma consulta que recupera um conjunto de entidades que não partilham uma chave de partição comum. Estas consultas não são eficientes e deve evitá-las se possível.
 
@@ -275,8 +275,8 @@ As transações de lote são conhecidas como transações de grupos de entidades
 
 Utilize as operações **de Upsert** de tabela sempre que possível. Existem dois tipos de **Upsert,** ambos podem ser mais eficientes do que uma operação tradicional de **Inserção** e **Atualização:**  
 
-- **InserirOrMerge**: Utilize esta operação quando pretender carregar um subconjunto das propriedades da entidade, mas não tem a certeza se a entidade já existe. Se a entidade existir, esta chamada atualiza as propriedades incluídas na operação **Upsert,** e deixa todas as propriedades existentes como são, se a entidade não existir, insere a nova entidade. Isto é semelhante ao uso da projeção numa consulta, na medida em que só precisa de carregar as propriedades que estão a mudar.
-- **InserirOrReplace**: Utilize esta operação quando pretender carregar uma entidade inteiramente nova, mas não tem a certeza se já existe. Utilize esta operação quando souber que a entidade recém-carregada está inteiramente correta porque substitui completamente a antiga entidade. Por exemplo, pretende atualizar a entidade que armazena a localização atual de um utilizador, independentemente de a aplicação ter ou não armazenado dados de localização previamente armazenados para o utilizador; a nova entidade de localização está completa, e não precisa de nenhuma informação de nenhuma entidade anterior.
+- **InserirOrMerge** : Utilize esta operação quando pretender carregar um subconjunto das propriedades da entidade, mas não tem a certeza se a entidade já existe. Se a entidade existir, esta chamada atualiza as propriedades incluídas na operação **Upsert,** e deixa todas as propriedades existentes como são, se a entidade não existir, insere a nova entidade. Isto é semelhante ao uso da projeção numa consulta, na medida em que só precisa de carregar as propriedades que estão a mudar.
+- **InserirOrReplace** : Utilize esta operação quando pretender carregar uma entidade inteiramente nova, mas não tem a certeza se já existe. Utilize esta operação quando souber que a entidade recém-carregada está inteiramente correta porque substitui completamente a antiga entidade. Por exemplo, pretende atualizar a entidade que armazena a localização atual de um utilizador, independentemente de a aplicação ter ou não armazenado dados de localização previamente armazenados para o utilizador; a nova entidade de localização está completa, e não precisa de nenhuma informação de nenhuma entidade anterior.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>Armazenar séries de dados numa única entidade
 

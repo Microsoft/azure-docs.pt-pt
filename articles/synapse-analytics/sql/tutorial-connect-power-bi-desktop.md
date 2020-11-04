@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Ligue o SQL a pedido ao Power BI Desktop & criar relatório'
-description: Neste tutorial, aprenda a ligar o SQL on-demand em Azure Synapse Analytics ao power bi desktop e crie um relatório de demonstração baseado numa vista.
+title: 'Tutorial: Conecte a piscina SQL sem servidor ao Power BI Desktop & criar relatório'
+description: Neste tutorial, aprenda a ligar a piscina SQL sem servidor em Azure Synapse Analytics ao desktop Power BI e crie um relatório de demonstração baseado numa vista.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5c86825d6dce8681e114ec930add751b6beae085
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc2b068dd7c5e7fb3f9e3505f93245515d90ae23
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539559"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317198"
 ---
-# <a name="tutorial-use-sql-on-demand-with-power-bi-desktop--create-a-report"></a>Tutorial: Use SQL on-demand com Power BI Desktop & criar um relatório
+# <a name="tutorial-use-serverless-sql-pool-with-power-bi-desktop--create-a-report"></a>Tutorial: Use a piscina SQL sem servidor com o Power BI Desktop & criar um relatório
 
 Neste tutorial, irá aprender a:
 
@@ -24,7 +24,7 @@ Neste tutorial, irá aprender a:
 >
 > - Criar base de dados de demonstração
 > - Criar vista usada para relatório
-> - Ligue o Power BI Desktop ao SQL a pedido
+> - Conecte o Power BI Desktop à piscina SQL sem servidor
 > - Criar relatório com base na visualização
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -42,8 +42,8 @@ Valores para os seguintes parâmetros:
 
 | Parâmetro                                 | Descrição                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Endereço de ponto final de serviço a pedido da SQL    | Usado como nome de servidor                                   |
-| SqL região de ponto final de serviço a pedido     | Usado para determinar o armazenamento utilizado nas amostras |
+| Endereço final do serviço de piscina sem servidor SQL    | Usado como nome de servidor                                   |
+| Região de ponto final de serviço de piscina sem servidor SQL     | Usado para determinar o armazenamento utilizado nas amostras |
 | Nome de utilizador e senha para acesso ao ponto final | Usado para aceder ao ponto final                               |
 | Base de dados que utilizará para criar vistas     | A base de dados utilizada como ponto de partida nas amostras       |
 
@@ -65,7 +65,7 @@ GO
 
 ## <a name="2---create-data-source"></a>2 - Criar fonte de dados
 
-Uma fonte de dados é necessária para que o serviço a pedido do SQL aceda a ficheiros armazenados. Crie a fonte de dados para uma conta de armazenamento que esteja localizada na mesma região que o seu ponto final. Embora o SQL on demand possa aceder a contas de armazenamento de diferentes regiões, ter o armazenamento e o ponto final na mesma região proporciona um melhor desempenho.
+Uma fonte de dados é necessária para que o serviço de piscina SQL sem servidor aceda a ficheiros no armazenamento. Crie a fonte de dados para uma conta de armazenamento que esteja localizada na mesma região que o seu ponto final. Embora o pool SQL sem servidor possa aceder a contas de armazenamento de diferentes regiões, ter o armazenamento e o ponto final na mesma região proporciona um melhor desempenho.
 
 Crie a fonte de dados executando o seguinte script Transact-SQL (T-SQL):
 
@@ -100,7 +100,7 @@ Os dados de demonstração contêm os seguintes conjuntos de dados:
 
 População dos EUA por sexo e raça para cada condado dos EUA, proveniente de 2000 e 2010 Censos Decennial em formato parquet.
 
-| Folder path                                                  | Descrição                                                  |
+| Folder path                                                  | Description                                                  |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | /libertação/                                                    | Pasta-mãe para dados na conta de armazenamento de demonstração               |
 | /lançamento/us_population_county/                               | Ficheiros de dados populacionais dos EUA no formato Parquet, divididos por ano usando o esquema de partição hive/Hadoop. |

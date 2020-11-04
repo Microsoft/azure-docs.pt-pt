@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cb455880852295d7176e813208a93919a2c14bb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708400"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318262"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Criar metas de computação para formação de modelos e implantação no estúdio Azure Machine Learning
 
@@ -45,7 +45,7 @@ Para ver todos os alvos de cálculo para o seu espaço de trabalho, utilize os s
 
 1. Navegue para [o estúdio Azure Machine Learning.](https://ml.azure.com)
  
-1. Em __Gestão__, __selecione Compute__.
+1. Em __Gestão__ , __selecione Compute__.
 
 1. Selecione separadores no topo para mostrar cada tipo de alvo de computação.
 
@@ -59,11 +59,11 @@ Siga os passos anteriores para ver a lista de alvos de computação. Em seguida,
 
 1. Se não tiver alvos de cálculo,  **selecione Criar** no meio da página.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Ver lista de alvos de computação":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Criar alvo de cálculo":::
 
 1. Se vir uma lista de recursos de computação, selecione **+Novo** acima da lista.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Ver lista de alvos de computação":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Selecione novo":::
 
 
 1. Preencha o formulário para o seu tipo de cálculo:
@@ -77,14 +77,14 @@ Siga os passos anteriores para ver a lista de alvos de computação. Em seguida,
 
 1. Ver o estado da operação de criação selecionando o alvo do cálculo na lista:
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Ver lista de alvos de computação":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Ver estado do cálculo a partir de uma lista":::
 
 
 ### <a name="compute-instance"></a>Instância de computação
 
 Use os [passos acima](#portal-create) para criar a instância de computação.  Em seguida, preencha o formulário da seguinte forma:
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Ver lista de alvos de computação":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Criar uma nova instância computacional":::
 
 
 |Campo  |Descrição  |
@@ -93,7 +93,7 @@ Use os [passos acima](#portal-create) para criar a instância de computação.  
 |Tipo de máquina virtual |  Escolha CPU ou GPU. Este tipo não pode ser alterado após a criação     |
 |Tamanho da máquina virtual     |  Os tamanhos de máquina virtual suportados podem ser restringidos na sua região. Consulte a [lista de disponibilidades](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Ativar/desativar o acesso ao SSH     |   O acesso ao SSH é desativado por predefinição.  O acesso ao SSH não pode ser. mudou após a criação. Certifique-se de que permite o acesso se planeia depurar interativamente com [o vs Code Remote](how-to-set-up-vs-code-remote.md)   |
-|Definições avançadas     |  Opcional. Configurar uma rede virtual. Especifique o **grupo de Recursos**, rede **virtual**e **sub-rede** para criar a instância computacional dentro de uma Rede Virtual Azure (vnet). Para mais informações, consulte estes [requisitos de rede](how-to-enable-virtual-network.md#compute-instance) para vnet.  |
+|Definições avançadas     |  Opcional. Configurar uma rede virtual. Especifique o **grupo de Recursos** , rede **virtual** e **sub-rede** para criar a instância computacional dentro de uma Rede Virtual Azure (vnet). Para mais informações, consulte estes [requisitos de rede](./how-to-secure-training-vnet.md) para vnet.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Clusters computacional
 
@@ -108,7 +108,7 @@ Crie um cluster de computação de nó único ou multi-nós para a sua formaçã
 |Tamanho da máquina virtual     |  Os tamanhos de máquina virtual suportados podem ser restringidos na sua região. Consulte a [lista de disponibilidades](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Número mínimo de nós | Número mínimo de nós que pretende providenciar. Se quiser um número dedicado de nós, desemote a contagem aqui. Poupe dinheiro definindo o mínimo para 0, para que não pague por nenhum nós quando o cluster estiver inativo. |
 |Número máximo de nós | Número máximo de nós que pretende providenciar. O cálculo irá autodimensionar-se automaticamente para um máximo desta contagem de nós quando um trabalho é submetido. |
-|Definições avançadas     |  Opcional. Configurar uma rede virtual. Especifique o **grupo de Recursos**, rede **virtual**e **sub-rede** para criar a instância computacional dentro de uma Rede Virtual Azure (vnet). Para mais informações, consulte estes [requisitos de rede](how-to-enable-virtual-network.md#compute-instance) para vnet.   Também anexar [identidades geridas](#managed-identity) para conceder acesso a recursos     |
+|Definições avançadas     |  Opcional. Configurar uma rede virtual. Especifique o **grupo de Recursos** , rede **virtual** e **sub-rede** para criar a instância computacional dentro de uma Rede Virtual Azure (vnet). Para mais informações, consulte estes [requisitos de rede](./how-to-secure-training-vnet.md) para vnet.   Também anexar [identidades geridas](#managed-identity) para conceder acesso a recursos     |
 
 #### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Configurar identidade gerida
 
@@ -136,7 +136,7 @@ Crie ou anexe um cluster Azure Kubernetes Service (AKS) para inferenização em 
 |Tamanho da máquina virtual     |  Os tamanhos de máquina virtual suportados podem ser restringidos na sua região. Consulte a [lista de disponibilidades](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Finalidade do cluster  | Selecione **Produção** ou **Teste de Dev** |
 |Número de nós | O número de nós multiplicados pelo número de núcleos (vCPUs) da máquina virtual deve ser superior ou igual a 12. |
-| Configuração de rede | Selecione **Advanced** para criar o cálculo dentro de uma rede virtual existente. Para obter mais informações sobre a AKS numa rede virtual, consulte [o isolamento da Rede durante o treino e inferência com pontos finais privados e redes virtuais.](how-to-enable-virtual-network.md#aksvnet) |
+| Configuração de rede | Selecione **Advanced** para criar o cálculo dentro de uma rede virtual existente. Para obter mais informações sobre a AKS numa rede virtual, consulte [o isolamento da Rede durante o treino e inferência com pontos finais privados e redes virtuais.](./how-to-secure-inferencing-vnet.md) |
 | Ativar a configuração SSL | Utilize isto para configurar o certificado SSL no cálculo |
 
 ### <a name="attached-compute"></a>Cálculo anexo
@@ -157,8 +157,8 @@ Utilize os [passos acima](#portal-create) para anexar um cálculo.  Em seguida, 
     > [!NOTE]
     > A Microsoft recomenda que utilize as chaves SSH, que são mais seguras do que as palavras-passe. As palavras-passe são vulneráveis a ataques de força bruta. As chaves SSH dependem de assinaturas criptográficas. Para obter informações sobre como criar chaves SSH para utilização com Máquinas Virtuais Azure, consulte os seguintes documentos:
     >
-    > * [Criar e utilizar chaves SSH no Linux ou no macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Criar e utilizar chaves SSH no Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Criar e utilizar chaves SSH no Linux ou no macOS](../virtual-machines/linux/mac-create-ssh-keys.md)
+    > * [Criar e utilizar chaves SSH no Windows](../virtual-machines/linux/ssh-from-windows.md)
 
 1. __Selecione Anexar__. 
 
@@ -176,4 +176,4 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * [Tutorial: Treinar um modelo](tutorial-train-models-with-aml.md) usa um alvo de computação gerido para treinar um modelo.
 * Aprenda a [sintonizar eficientemente os hiperparmetros](how-to-tune-hyperparameters.md) para construir modelos melhores.
 * Uma vez treinado, aprenda [como e onde implementar modelos.](how-to-deploy-and-where.md)
-* [Use a azure machine learning com redes virtuais Azure](how-to-enable-virtual-network.md)
+* [Use a azure machine learning com redes virtuais Azure](./how-to-network-security-overview.md)

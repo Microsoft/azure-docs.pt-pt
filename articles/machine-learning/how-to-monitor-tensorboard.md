@@ -10,17 +10,17 @@ ms.author: minxia
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 2ed8910db8b903dab3b81d9db6c9b5798d2b6b69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7642fe6642c1b938645e520c15ac367e12630f91
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542058"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316657"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>Visualizar corridas e métricas de experimentação com TensorBoard e Azure Machine Learning
 
 
-Neste artigo, você aprende a ver as suas experiências e métricas no TensorBoard usando [o `tensorboard` pacote](https://docs.microsoft.com/python/api/azureml-tensorboard/?view=azure-ml-py&preserve-view=true) no SDK de aprendizagem automática Azure. Uma vez inspecionado as suas experiências, pode afinar e retreinar melhor os seus modelos de aprendizagem automática.
+Neste artigo, você aprende a ver as suas experiências e métricas no TensorBoard usando [o `tensorboard` pacote](/python/api/azureml-tensorboard/?preserve-view=true&view=azure-ml-py) no SDK de aprendizagem automática Azure. Uma vez inspecionado as suas experiências, pode afinar e retreinar melhor os seus modelos de aprendizagem automática.
 
 [O TensorBoard](https://www.tensorflow.org/tensorboard/r1/overview) é um conjunto de aplicações web para inspecionar e compreender a sua estrutura e desempenho de experiências.
 
@@ -42,7 +42,7 @@ A forma como lança o TensorBoard com experiências de Aprendizagem automática 
             * **como-usar-azureml > experiências de > tensorboard > exportação-run-run-história-a-tensorboard > exportação-run-run-history-to-tensorboard.ipynb**
             * **como-usar-azureml > experiências de > tensorboard > tensorboard > tensorboard.ipynb**
     * O seu próprio servidor de cadernos Juptyer
-       * [Instale o Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) com o `tensorboard` extra
+       * [Instale o Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) com o `tensorboard` extra
         * Criar um espaço de trabalho para [aprendizagem automática Azure.](how-to-manage-workspace.md)  
         * [Crie um ficheiro de configuração do espaço de trabalho.](how-to-configure-environment.md#workspace)
 
@@ -166,7 +166,7 @@ run = exp.submit(src)
 
 Pode lançar o TensorBoard durante a sua execução ou depois de concluído. No seguinte, criamos uma instância de objeto tensorBoard, `tb` que leva a experiência executar a história carregada no , e depois lança o `run` TensorBoard com o `start()` método. 
   
-O [construtor tensorBoard](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true) leva uma série de execuções, por isso certifique-se e passe-o como uma matriz de um único elemento.
+O [construtor tensorBoard](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?preserve-view=true&view=azure-ml-py) leva uma série de execuções, por isso certifique-se e passe-o como uma matriz de um único elemento.
 
 ```python
 from azureml.tensorboard import Tensorboard
@@ -247,7 +247,7 @@ for alpha in tqdm(alphas):
 
 ### <a name="export-runs-to-tensorboard"></a>Exportação corre para TensorBoard
 
-Com o método de export_to_tensorboard da SDK, [podemos](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py&preserve-view=true) exportar a história da nossa experiência de aprendizagem automática Azure em registos tensorBoard, para que possamos vê-los através do TensorBoard.  
+Com o método de export_to_tensorboard da SDK, [podemos](/python/api/azureml-tensorboard/azureml.tensorboard.export?preserve-view=true&view=azure-ml-py) exportar a história da nossa experiência de aprendizagem automática Azure em registos tensorBoard, para que possamos vê-los através do TensorBoard.  
 
 No seguinte código, criamos a pasta `logdir` no nosso diretório de trabalho atual. Esta pasta é onde exportaremos a nossa experiência executar histórico e registos `root_run` e, em seguida, marcar que correr como concluído. 
 
@@ -273,7 +273,7 @@ root_run.complete()
 > Também pode exportar uma determinada corrida para o TensorBoard especificando o nome da corrida  `export_to_tensorboard(run_name, logdir)`
 
 ### <a name="start-and-stop-tensorboard"></a>Iniciar e parar o TensorBoard
-Uma vez que o nosso histórico de execução para esta experiência é exportado, podemos lançar o TensorBoard com o método [de arranque().](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true#&preserve-view=truestart-start-browser-false-) 
+Uma vez que o nosso histórico de execução para esta experiência é exportado, podemos lançar o TensorBoard com o método [de arranque().](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?preserve-view=true&view=azure-ml-py#&preserve-view=truestart-start-browser-false-) 
 
 ```Python
 from azureml.tensorboard import Tensorboard
@@ -285,7 +285,7 @@ tb = Tensorboard([], local_root=logdir, port=6006)
 tb.start()
 ```
 
-Quando terminar, certifique-se de ligar para o método [stop()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?view=azure-ml-py&preserve-view=true#&preserve-view=truestop--) do objeto TensorBoard. Caso contrário, o TensorBoard continuará a funcionar até desligar o núcleo do portátil. 
+Quando terminar, certifique-se de ligar para o método [stop()](/python/api/azureml-tensorboard/azureml.tensorboard.tensorboard?preserve-view=true&view=azure-ml-py#&preserve-view=truestop--) do objeto TensorBoard. Caso contrário, o TensorBoard continuará a funcionar até desligar o núcleo do portátil. 
 
 ```python
 tb.stop()
@@ -296,4 +296,4 @@ tb.stop()
 Neste como-para-você, criou duas experiências e aprendeu a lançar o TensorBoard contra as suas histórias de execução para identificar áreas para potenciais afinações e reconversão. 
 
 * Se estiver satisfeito com o seu modelo, dirija-se ao nosso Como implementar um artigo [de modelo.](how-to-deploy-and-where.md) 
-* Saiba mais sobre [a sintonização de hiperparímetros.](how-to-tune-hyperparameters.md) 
+* Saiba mais sobre [a sintonização de hiperparímetros.](how-to-tune-hyperparameters.md)

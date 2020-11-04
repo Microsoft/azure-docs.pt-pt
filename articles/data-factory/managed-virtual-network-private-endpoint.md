@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635784"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317068"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Rede Virtual Gerida (pré-visualização)
 
@@ -51,7 +51,7 @@ Os pontos finais privados geridos são pontos finais privados criados na Rede Vi
 
 ![Novo ponto final privado gerido](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-A Azure Data Factory suporta ligações privadas. O link privado permite-lhe aceder aos serviços Azure (PaaS) (como Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)).
+A Azure Data Factory suporta ligações privadas. O link privado permite-lhe aceder aos serviços Azure (PaaS) (como Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (anteriormente SQL Data Warehouse)).
 
 Quando utiliza uma ligação privada, o tráfego entre as suas lojas de dados e a Rede Virtual gerida atravessa inteiramente a rede de espinha dorsal da Microsoft. A Private Link protege contra riscos de exfiltração de dados. Estabelece-se uma ligação privada a um recurso criando um ponto final privado.
 
@@ -81,7 +81,7 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 - Ficheiros do Azure
 - Azure Data Lake Gen2
 - Base de Dados Azure SQL (sem incluir a instância gerida do Azure SQL)
-- Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse)
+- Azure Synapse Analytics (anteriormente SQL Data Warehouse)
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Serviço de Ligação Privada Azure

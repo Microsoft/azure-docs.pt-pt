@@ -1,6 +1,6 @@
 ---
 title: Ligue ao SQL da Sinapse com sqlcmd
-description: Utilize o utilitário de linha de comando sqlcmd para ligar e consultar a piscina SQL on-demand (pré-visualização) e SQL.
+description: Utilize o utilitário sqlcmd da linha de comando para ligar e consultar a piscina SQL sem servidor (pré-visualização) e piscina SQL dedicada.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1af42a838463132a241447c11b90bfb489f879ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 10f15ec2108e897164206543358d7a9e7bd40f64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87059454"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316494"
 ---
 # <a name="connect-to-synapse-sql-with-sqlcmd"></a>Ligue ao SQL da Sinapse com sqlcmd
 
@@ -25,7 +25,7 @@ ms.locfileid: "87059454"
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
-Pode utilizar o utilitário [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) da linha de comando para ligar e consultar a piscina SQL on-demand (pré-visualização) e SQL dentro do Synapse SQL.  
+Pode utilizar o utilitário [sqlcmd](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) da linha de comando para ligar e consultar a piscina SQL sem servidor (pré-visualização) e piscina SQL dedicada dentro do Synapse SQL.  
 
 ## <a name="1-connect"></a>1. Ligar
 Para começar com [sqlcmd,](/sql/tools/sqlcmd-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)abra o pedido de comando e introduza **sqlcmd** seguido pela cadeia de ligação para a sua base de dados Synapse SQL. A cadeia de ligação requer os parâmetros seguintes:
@@ -41,13 +41,13 @@ Para utilizar a autenticação do servidor SQL, é necessário adicionar o nome 
 
 A sua cadeia de ligação pode parecer o seguinte exemplo:
 
-**SQL a pedido**
+**Piscina SQL sem servidor**
 
 ```sql
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P Enter_Your_Password_Here -I
 ```
 
-**Conjunto de SQL**
+**Piscina SQL dedicada**
 
 ```
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I
@@ -59,13 +59,13 @@ Para utilizar a autenticação Integrada do Azure Active Directory, tem de adici
 
 A sua cadeia de ligação pode parecer-se com os seguintes exemplos:
 
-**SQL a pedido**
+**Piscina SQL sem servidor**
 
 ```
 C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -G -I
 ```
 
-**Conjunto de SQL**
+**Piscina SQL dedicada**
 
 ```sql
 C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
@@ -76,7 +76,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 
 ## <a name="2-query"></a>2. Consulta
 
-### <a name="use-sql-pool"></a>Use a piscina SQL
+### <a name="use-dedicated-sql-pool"></a>Use piscina SQL dedicada
 
 Após a ligação, pode emitir quaisquer declarações [de Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (T-SQL) suportadas contra a instância. Neste exemplo, as consultas são submetidas em modo interativo:
 
@@ -87,7 +87,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@s
 3> QUIT
 ```
 
-Para a piscina SQL, os seguintes exemplos mostram-lhe como executar consultas em modo de lote utilizando a opção -Q ou canalizando o seu SQL para sqlcmd:
+Para uma piscina SQL dedicada, os seguintes exemplos mostram-lhe como executar consultas em modo de lote utilizando a opção -Q ou canalizando o seu SQL para sqlcmd:
 
 ```sql
 sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I -Q "SELECT name FROM sys.tables;"
@@ -97,7 +97,7 @@ sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@sswor
 "SELECT name FROM sys.tables;" | sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -U myuser -P myP@ssword -I > .\tables.out
 ```
 
-### <a name="use-sql-on-demand"></a>Utilizar o SQL a pedido
+### <a name="use-serverless-sql-pool"></a>Use a piscina SQL sem servidor
 
 Após a ligação, pode emitir quaisquer declarações [de Transact-SQL](/sql/t-sql/language-reference?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) (T-SQL) suportadas contra a instância.  No exemplo seguinte, as consultas são submetidas em modo interativo:
 
@@ -108,7 +108,7 @@ C:\>sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Her
 3> QUIT
 ```
 
-Para o SQL on demand, os exemplos que se seguem mostram-lhe como executar consultas no modo de lote utilizando a opção -Q ou canalizando o seu SQL para sqlcmd:
+Para a piscina SQL sem servidor, os exemplos que se seguem mostram-lhe como executar consultas no modo de lote utilizando a opção -Q ou canalizando o seu SQL para sqlcmd:
 
 ```sql
 sqlcmd -S partyeunrt.database.windows.net -d demo -U Enter_Your_Username_Here -P 'Enter_Your_Password_Here' -I -Q "SELECT COUNT(*) FROM  OPENROWSET(BULK 'https://azureopendatastorage.blob.core.windows.net/censusdatacontainer/release/us_population_county/year=20*/*.parquet', FORMAT='PARQUET')"

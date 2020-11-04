@@ -1,6 +1,6 @@
 ---
 title: Base de dados partilhada
-description: O Azure Synapse Analytics fornece um modelo de metadados partilhado onde a criação de uma base de dados em Apache Spark o tornará acessível a partir dos seus motores de piscina SQL on-demand (pré-visualização) e SQL.
+description: O Azure Synapse Analytics fornece um modelo de metadados partilhado onde a criação de uma base de dados no conjunto Apache Spark sem servidor tornará acessível a partir dos seus motores SQL sem servidor (pré-visualização) e sql pool.
 services: synapse-analytics
 author: MikeRys
 ms.service: synapse-analytics
@@ -10,36 +10,36 @@ ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58c1aea944d89872a79d0672a925b1696791c1a8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e17eb44a5f4f4aace9ce9d541b8218b35db0f5d3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91260857"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317843"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de dados partilhada Azure Synapse Analytics
 
-O Azure Synapse Analytics permite que os diferentes motores de espaço de trabalho computacionais partilhem bases de dados e tabelas entre as suas piscinas Spark (pré-visualização) e o motor a pedido (pré-visualização) sql.
+O Azure Synapse Analytics permite que os diferentes motores computacionais do espaço de trabalho partilhem bases de dados e tabelas entre as suas piscinas Apache Spark sem servidor (pré-visualização) e o motor de piscina SQL sem servidor (pré-visualização).
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-Uma base de dados criada com uma obra Spark tornar-se-á visível com o mesmo nome para todas as piscinas spark atuais e futuras (pré-visualização) no espaço de trabalho, incluindo o motor a pedido do SQL.
+Uma base de dados criada com uma obra Spark tornar-se-á visível com o mesmo nome para todas as piscinas spark atuais e futuras (pré-visualização) no espaço de trabalho, incluindo o motor de piscina SQL sem servidor.
 
-A base de dados padrão Spark, chamada `default` , também será visível no contexto de procura do SQL como uma base de dados chamada `default` .
+A base de dados padrão Spark, chamada `default` , também será visível no contexto da piscina SQL sem servidor como uma base de dados chamada `default` .
 
-Uma vez que as bases de dados são sincronizadas para a SQL on-demand asynchronously, haverá um atraso até que apareçam.
+Uma vez que as bases de dados são sincronizadas para a piscina SQL sem servidor assíncronea, haverá um atraso até que apareçam.
 
 ## <a name="manage-a-spark-created-database"></a>Gerir uma base de dados criada por Spark
 
 Use o Spark para gerir as bases de dados criadas pela Spark. Por exemplo, elimine-o através de uma experiência de piscina spark e crie mesas nele a partir de Spark.
 
-Se criar objetos numa base de dados criada pela Spark usando o SQL a pedido ou tentar largar a base de dados, a operação terá sucesso. Mas a base de dados original do Spark não será alterada.
+Se criar objetos numa base de dados criada pelo Spark utilizando a piscina SQL sem servidor ou tentar largar a base de dados, a operação terá sucesso. Mas a base de dados original do Spark não será alterada.
 
 ## <a name="how-name-conflicts-are-handled"></a>Como os conflitos de nome são tratados
 
-Se o nome de uma base de dados Spark entrar em conflito com o nome de uma base de dados a pedido do SQL existente, um sufixo é anexado em SQL a pedido à base de dados Spark. O sufixo em SQL a pedido é `_<workspace name>-ondemand-DefaultSparkConnector` .
+Se o nome de uma base de dados Spark entrar em conflito com o nome de uma base de dados de piscinas SQL sem servidor existente, um sufixo é anexado na piscina SQL sem servidor à base de dados Spark. O sufixo na piscina SQL sem servidor é `_<workspace name>-ondemand-DefaultSparkConnector` .
 
-Por exemplo, se uma base de dados Spark chamada `mydb` for criada no espaço de trabalho Azure Synapse e uma base de `myws` dados SQL a pedido com esse nome já existir, então a base de dados Spark em SQL a pedido terá de ser referenciada usando o nome `mydb_myws-ondemand-DefaultSparkConnector` .
+Por exemplo, se uma base de dados Spark chamada `mydb` for criada no espaço de trabalho Azure Synapse e uma base de `myws` dados de piscinas SQL sem servidor com esse nome já existir, então a base de dados Spark no pool SQL sem servidor terá de ser referenciada usando o nome `mydb_myws-ondemand-DefaultSparkConnector` .
 
 > [!CAUTION]
 > Atenção: Não deve depender deste comportamento.
@@ -58,7 +58,7 @@ Se um princípio de segurança necessitar da capacidade de criar objetos ou larg
 
 ## <a name="examples"></a>Exemplos
 
-### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Criar e ligar à base de dados Spark com SQL on demand
+### <a name="create-and-connect-to-spark-database-with-serverless-sql-pool"></a>Criar e ligar à base de dados Spark com piscina SQL sem servidor
 
 Primeiro crie uma nova base de dados Spark chamada `mytestdb` usando um cluster Spark que já criou no seu espaço de trabalho. Pode conseguir isso, por exemplo, utilizando um Caderno Spark C# com o seguinte .NET para declaração spark:
 
@@ -66,7 +66,7 @@ Primeiro crie uma nova base de dados Spark chamada `mytestdb` usando um cluster 
 spark.Sql("CREATE DATABASE mytestdb")
 ```
 
-Após um curto atraso, pode ver a base de dados da SQL on demand. Por exemplo, executar a seguinte declaração da SQL a pedido.
+Após um curto atraso, pode ver a base de dados a partir da piscina SQL sem servidor. Por exemplo, executar a seguinte declaração a partir da piscina SQL sem servidor.
 
 ```sql
 SELECT * FROM sys.databases;

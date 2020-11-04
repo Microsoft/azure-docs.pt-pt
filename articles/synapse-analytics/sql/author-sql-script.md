@@ -1,6 +1,6 @@
 ---
 title: Scripts SQL no Azure Synapse Studio (pré-visualização)
-description: Introdução Azure Synapse Studio (pré-visualização) scripts SQL
+description: Introdução aos scripts do Azure Synapse Studio (pré-visualização) SQL
 services: synapse-analytics
 author: pimorano
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: pimorano
 ms.reviewer: omafnan
-ms.openlocfilehash: cd00c5033d0435b24d4cfb9f413b5afe74da6774
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 3618ba28403882ee1f949a2bbc97e586674b3772
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089014"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317557"
 ---
-# <a name="using-sql-script-in-azure-synapse-studio-preview"></a>Usando o script SQL no Azure Synapse Studio (pré-visualização)
+# <a name="using-sql-scripts-in-azure-synapse-studio-preview"></a>Utilizando scripts SQL no Azure Synapse Studio (pré-visualização)
 
-O Azure Synapse Studio (pré-visualização) fornece uma interface web de script SQL para você para autor de consultas SQL. Pode ligar-se à piscina SQL (pré-visualização) ou ao SQL a pedido (pré-visualização). 
+O Azure Synapse Studio (pré-visualização) fornece uma interface web de script SQL para você para autor de consultas SQL. Pode ligar-se à piscina SQL (pré-visualização). 
 
 ## <a name="begin-authoring-in-sql-script"></a>Comece a escrever no script SQL 
 
@@ -26,33 +26,26 @@ Existem várias formas de iniciar a experiência de autoria no script SQL. Pode 
 
 1. A partir do menu Desenvolver, selecione o ícone **"+"** e escolha **o script SQL**.
 
-![novo roteiro sql](media/author-sql-script/newsqlscript.png)
-
 2. A partir do menu **Ações,** escolha **o novo script SQL.**
-> [!div class="mx-imgBorder"]
-> ![novo guião sql 2 ações](media/author-sql-script/newsqlscript2actions.png)
-
-Em alternativa, pode: 
 
 3. Escolha **importar** do menu **Ações** em Desenvolvimento de Scripts SQL. Selecione um script SQL existente a partir do seu armazenamento local.
-![novo guião sql 3 ações](media/author-sql-script/newsqlscript3actions.png)
+![novo guião sql 3 ações](media/author-sql-script/new-sql-script-3-actions.png)
 
 ## <a name="create-your-sql-script"></a>Crie o seu script SQL
 
 1. Escolha um nome para o seu script SQL selecionando o botão **Propriedade** e substituindo o nome predefinido atribuído ao script SQL. 
-![novo guião sql renomeado](media/author-sql-script/newsqlscriptrename.png)
+![novo guião sql renomeado](media/author-sql-script/new-sql-script-rename.png)
 
-2. Escolha a piscina SQL específica ou o SQL a pedido do menu **Connect para** drop-down. Ou, se necessário, escolha a base de dados da base de **dados Use**. 
-![nova piscina de escolha sql](media/author-sql-script/newsqlchoosepool.png)
+2. Escolha a piscina SQL específica ou a piscina SQL sem servidor do menu **Connect para** drop-down. Ou, se necessário, escolha a base de dados da base de **dados Use**. 
+![nova piscina de escolha sql](media/author-sql-script/new-sql-choose-pool.png)
 
 3. Comece a escrever o seu script SQL utilizando a funcionalidade intellisense.
-![novo sql intellisense](media/author-sql-script/newsqlintellisense.png)
 
 ## <a name="run-your-sql-script"></a>Execute o seu script SQL
 
 Selecione o botão **Executar** para executar o seu script SQL. Os resultados são apresentados por padrão numa tabela.
 
-![nova tabela de resultados de script sql](media/author-sql-script/newsqlscriptresultstable.png)
+![nova tabela de resultados de script sql](media/author-sql-script/new-sql-script-results-table.png)
 
 ## <a name="export-your-results"></a>Exporte os seus resultados
 
@@ -60,13 +53,13 @@ Pode exportar os resultados para o seu armazenamento local em diferentes formato
 
 Também pode visualizar os resultados do script SQL num gráfico selecionando o botão **Gráfico.** Selecione a coluna "Tipo gráfico" e **categoria**. Pode exportar o gráfico para uma imagem selecionando **Guardar como imagem**. 
 
-![novo gráfico de resultados de script sql](media/author-sql-script/newsqlscriptresultschart.png)
+![novo gráfico de resultados de script sql](media/author-sql-script/new-sql-script-results-chart.png)
 
 ## <a name="explore-data-from-a-parquet-file"></a>Explore dados a partir de um ficheiro Parquet
 
 Pode explorar ficheiros Parquet numa conta de armazenamento utilizando o script SQL para visualizar o conteúdo do ficheiro.
 
-![novo script sqlod parquet](media/author-sql-script/newscriptsqlodparquet.png)
+![novo script sqlod parquet](media/author-sql-script/new-script-sqlod-parquet.png)
 
 ## <a name="sql-tables-external-tables-views"></a>Tabelas SQL, tabelas externas, vistas
 
@@ -77,9 +70,9 @@ Ao selecionar o menu **Ações** nos dados, pode selecionar várias ações, tai
 - CREATE
 - DROP e CRIAR 
  
-Explore o gesto disponível clicando à direita nos nós da piscina SQL e SQL a pedido.
+Explore o gesto disponível clicando nos nós das bases de dados SQL.
  
-![nova base de dados de scripts](media/author-sql-script/newscriptdatabase.png)
+![nova base de dados de scripts](media/author-sql-script/new-script-database.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

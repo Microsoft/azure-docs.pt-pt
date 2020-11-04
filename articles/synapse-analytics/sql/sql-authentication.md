@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8edf782c03300cf22bd349548da425669f492bc1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 460fed7244ba8094da41ae6b5b8161de3d9efe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093536"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317274"
 ---
 # <a name="sql-authentication"></a>Autenticação SQL
 
@@ -22,14 +22,14 @@ O Azure Synapse Analytics tem dois fatores de forma SQL que lhe permitem control
 
 Para autorizar a Synapse SQL, pode utilizar dois tipos de autorização:
 
-- Autorização AAD
+- Autorização do Diretório Ativo Azure
 - Autorização de SQL
 
-A autorização AAD baseia-se no Azure Ative Directory e permite-lhe ter um lugar único para a gestão do utilizador. A autorização SQL permite que as aplicações antigas utilizem o SQL synapse de uma forma bem familiar.
+O Azure Ative Directory permite-lhe ter um lugar único para a gestão do utilizador. A autorização SQL permite que as aplicações antigas utilizem o SQL synapse de uma forma bem familiar.
 
 ## <a name="administrative-accounts"></a>Contas administrativas
 
-Existem duas contas administrativas (**Administrador de servidor** e **Administrador do Active Directory**) que atuam como administradores. Para identificar estas contas de administrador para o seu servidor SQL, abra o portal Azure e navegue no separador Propriedades do seu SQL Synapse.
+Existem duas contas administrativas ( **Administrador de servidor** e **Administrador do Active Directory** ) que atuam como administradores. Para identificar estas contas de administrador para o seu servidor SQL, abra o portal Azure e navegue no separador Propriedades do seu SQL Synapse.
 
 ![Administradores do SQL Server](./media/sql-authentication/sql-admins.png)
 
@@ -51,18 +51,18 @@ As contas **de administração do Servidor** e **Azure AD** têm as seguintes ca
 - Pode adicionar e remover membros aos `dbmanager` `loginmanager` papéis e funções.
 - Pode ver a tabela do `sys.sql_logins` sistema.
 
-## <a name="sql-on-demand-preview"></a>[SQL on demand (pré-visualização)](#tab/serverless)
+## <a name="serverless-sql-pool-preview"></a>[Piscina SQL sem servidor (pré-visualização)](#tab/serverless)
 
-Para gerir os utilizadores que tenham acesso a SQL a pedido, pode utilizar as instruções abaixo.
+Para gerir os utilizadores que tenham acesso à piscina SQL sem servidor, pode utilizar as instruções abaixo.
 
-Para criar um login para SQL on-demand, utilize a seguinte sintaxe:
+Para criar um login para a piscina SQL sem servidor, utilize a seguinte sintaxe:
 
 ```sql
 CREATE LOGIN Mary WITH PASSWORD = '<strong_password>';
 -- or
 CREATE LOGIN Mary@domainname.net FROM EXTERNAL PROVIDER;
 ```
-Uma vez que o login exista, pode criar utilizadores nas bases de dados individuais dentro do ponto final a pedido do SQL e conceder as permissões necessárias a estes utilizadores. Para criar uma utilização, pode utilizar a seguinte sintaxe:
+Uma vez que o login exista, pode criar utilizadores nas bases de dados individuais dentro do ponto final do pool SQL sem servidor e conceder permissões necessárias a estes utilizadores. Para criar uma utilização, pode utilizar a seguinte sintaxe:
 ```sql
 CREATE USER Mary FROM LOGIN Mary;
 -- or
@@ -127,7 +127,7 @@ Agora o utilizador pode ligar-se à `master` base de dados e criar novas bases d
 
 ### <a name="login-managers"></a>Gestores de início de sessão
 
-A outra função administrativa é a função de gestor de início de sessão. Os membros desta função podem criar novos inícios de sessão na base de dados mestra. Se pretender, pode seguir os mesmos passos (criar um início de sessão e um utilizador e adicionar um utilizador à função **loginmanager**) para permitir que um utilizador crie novos inícios de sessão na base de dados mestra. Normalmente, os logins não são necessários, uma vez que a Microsoft recomenda a utilização de utilizadores de bases de dados contidos, que autenticam ao nível da base de dados em vez de utilizarem os utilizadores com base em logins. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+A outra função administrativa é a função de gestor de início de sessão. Os membros desta função podem criar novos inícios de sessão na base de dados mestra. Se pretender, pode seguir os mesmos passos (criar um início de sessão e um utilizador e adicionar um utilizador à função **loginmanager** ) para permitir que um utilizador crie novos inícios de sessão na base de dados mestra. Normalmente, os logins não são necessários, uma vez que a Microsoft recomenda a utilização de utilizadores de bases de dados contidos, que autenticam ao nível da base de dados em vez de utilizarem os utilizadores com base em logins. Para obter mais informações, veja [Contained Database Users - Making Your Database Portable (Utilizadores de Base de Dados Contidos – Tornar a Sua Base de Dados Portátil)](/sql/relational-databases/security/contained-database-users-making-your-database-portable?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ---
 
@@ -158,7 +158,7 @@ Na Base de Dados Azure SQL ou na sinapse sem servidor, utilize a `ALTER ROLE` de
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-Na piscina SQL utilize [sp_addrolemember DE SP_ADDROLEMEMBER](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
+Na piscina de SQL dedicada utilize [sp_addrolemember EXEC](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
@@ -187,7 +187,7 @@ A gestão de acessos eficaz utiliza permissões atribuídas a grupos e funções
 
 - Ao utilizar a autenticação do SQL Server, crie utilizadores de base de dados contida na base de dados. Coloque um ou mais utilizadores de base de dados numa [função de base de dados](/sql/relational-databases/security/authentication-access/database-level-roles?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) e, em seguida, atribua [permissões](/sql/relational-databases/security/permissions-database-engine?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) à função de base de dados.
 
-As funções de base de dados podem ser as funções incorporadas, tais como **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter** e **db_denydatareader**. **db_owner** é, geralmente, utilizada para conceder permissão total apenas a alguns utilizadores. As outras funções de base de dados fixas são úteis para colocar bases de dados simples em desenvolvimento rapidamente, mas não são recomendadas para a maioria das bases de dados de produção. 
+As funções de base de dados podem ser as funções incorporadas, tais como **db_owner** , **db_ddladmin** , **db_datawriter** , **db_datareader** , **db_denydatawriter** e **db_denydatareader**. **db_owner** é, geralmente, utilizada para conceder permissão total apenas a alguns utilizadores. As outras funções de base de dados fixas são úteis para colocar bases de dados simples em desenvolvimento rapidamente, mas não são recomendadas para a maioria das bases de dados de produção. 
 
 Por exemplo, a função de base de dados fixa **db_datareader** concede acesso de leitura a todas as tabelas na base de dados, o que, regra geral, é mais do que o estritamente necessário. 
 
@@ -208,7 +208,7 @@ Ao gerir logins e utilizadores na Base de Dados SQL, considere os seguintes pont
 - Deve estar ligado à base de **dados principal** ao executar as `CREATE/ALTER/DROP DATABASE` declarações.
 - O utilizador da base de dados correspondente ao login **de administração do Servidor** não pode ser alterado ou eliminado.
 - O inglês dos E.U.A. é o idioma predefinido do início de sessão do **Administrador de servidor**.
-- Só os administradores (início de sessão do **Administrador de servidor** ou administrador do Azure AD) e os membros da função de base de dados **dbmanager**ba base de dados **mestra** têm permissão para executar as declarações `CREATE DATABASE` e `DROP DATABASE`.
+- Só os administradores (início de sessão do **Administrador de servidor** ou administrador do Azure AD) e os membros da função de base de dados **dbmanager** ba base de dados **mestra** têm permissão para executar as declarações `CREATE DATABASE` e `DROP DATABASE`.
 - Tem de estar ligado à base de dados mestra ao executar as instruções `CREATE/ALTER/DROP LOGIN`. No entanto, não é aconselhável utilizar inícios de sessão. Utilize os utilizadores de base de dados contida.
 - Para ligar a uma base de dados do utilizador, tem de fornecer o nome da base de dados na cadeia de ligação.
 - Apenas o início de sessão principal ao nível do servidor e os membros da função de base de dados **loginmanager** na base de dados **mestra** têm permissão para executar as instruções `CREATE LOGIN`, `ALTER LOGIN`, e `DROP LOGIN`.

@@ -1,6 +1,6 @@
 ---
-title: Autoajuda a pedido da SQL (pré-visualização)
-description: Esta secção contém informações que podem ajudá-lo a resolver problemas com SQL on demand (pré-visualização).
+title: Piscina SQL sem servidor (pré-visualização) autoajuda
+description: Esta secção contém informações que podem ajudá-lo a resolver problemas com piscina SQL sem servidor (pré-visualização).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,37 +9,37 @@ ms.subservice: sql
 ms.date: 05/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8bd955e844c9569438c5d35f152ba1bcdfccc306
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9753fc491cb5950d679ae3633a18cdd5c1170291
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91288006"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317296"
 ---
-# <a name="self-help-for-sql-on-demand-preview"></a>Autoajuda para SQL on demand (pré-visualização)
+# <a name="self-help-for-serverless-sql-pool-preview"></a>Autoajuda para piscina SQL sem servidor (pré-visualização)
 
-Este artigo contém informações sobre como resolver problemas mais frequentes com SQL on demand (preview) em Azure Synapse Analytics.
+Este artigo contém informações sobre como resolver problemas mais frequentes com piscina SQL sem servidor (pré-visualização) em Azure Synapse Analytics.
 
-## <a name="sql-on-demand-is-grayed-out-in-synapse-studio"></a>SQL on demand é cinza no Estúdio Synapse
+## <a name="serverless-sql-pool-is-grayed-out-in-synapse-studio"></a>Piscina SQL sem servidor é acinzentada no Estúdio Synapse
 
-Se o Synapse Studio não conseguir estabelecer ligação ao SQL a pedido, irá notar que o SQL on-demand está acinzentado ou mostra o estado "Offline". Normalmente, este problema ocorre quando um dos seguintes casos acontece:
+Se o Synapse Studio não conseguir estabelecer ligação à piscina SQL sem servidor, irá notar que a piscina SQL sem servidor está acinzentada ou mostra o estado "Offline". Normalmente, este problema ocorre quando um dos seguintes casos acontece:
 
-1) A sua rede impede a comunicação ao backend Azure Synapse. O caso mais frequente é que o porto 1443 está bloqueado. Para que o SQL funcione a pedido, desbloqueie esta porta. Outros problemas poderiam impedir que a SQL também trabalhasse, [visitar o guia completo de resolução de problemas para obter mais informações.](../troubleshoot/troubleshoot-synapse-studio.md)
-2) Não tem permissões para entrar no SQL a pedido. Para ter acesso, um dos administradores do espaço de trabalho Azure Synapse deve adicioná-lo ao administrador do espaço de trabalho ou à função de administrador do SQL. [Visite o guia completo sobre o controlo de acessos para mais informações.](access-control.md)
+1) A sua rede impede a comunicação ao backend Azure Synapse. O caso mais frequente é que o porto 1443 está bloqueado. Para que a piscina SQL sem servidor funcione, desbloqueie esta porta. Outros problemas poderiam impedir que a piscina SQL sem servidor funcionasse também, [visite o guia completo de resolução de problemas para obter mais informações.](../troubleshoot/troubleshoot-synapse-studio.md)
+2) Você não tem permissões para iniciar sessão na piscina SQL sem servidor. Para ter acesso, um dos administradores do espaço de trabalho Azure Synapse deve adicioná-lo ao administrador do espaço de trabalho ou à função de administrador do SQL. [Visite o guia completo sobre o controlo de acessos para mais informações.](access-control.md)
 
 ## <a name="query-fails-because-file-cannot-be-opened"></a>Consulta falha porque o ficheiro não pode ser aberto
 
-Se a sua consulta falhar com o erro dizendo "O Ficheiro não pode ser aberto porque não existe ou é usado por outro processo" e tem a certeza de que ambos os ficheiros existem e não são utilizados por outro processo, significa que o SQL on-demand não pode aceder ao ficheiro. Este problema geralmente acontece porque a sua identidade do Azure Ative Directory não tem direitos de acesso ao ficheiro. Por predefinição, a SQL está a tentar aceder ao ficheiro utilizando a sua identidade do Azure Ative Directory. Para resolver este problema, é necessário ter os direitos adequados de acesso ao ficheiro. A forma mais fácil é conceder a si próprio a função de“Contribuinte de Dados do Armazenamento de Blobs” na conta de armazenamento que está a tentar consultar. [Veja o guia completo no controlo de acesso do Azure Active Directory para obter mais informações](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
+Se a sua consulta falhar com o erro dizendo "O Ficheiro não pode ser aberto porque não existe ou é usado por outro processo" e tem a certeza de que ambos os ficheiros existem e não são utilizados por outro processo, significa que o pool SQL sem servidor não pode aceder ao ficheiro. Este problema geralmente acontece porque a sua identidade do Azure Ative Directory não tem direitos de acesso ao ficheiro. Por predefinição, o pool SQL sem servidor está a tentar aceder ao ficheiro utilizando a sua identidade do Azure Ative Directory. Para resolver este problema, é necessário ter os direitos adequados de acesso ao ficheiro. A forma mais fácil é conceder a si próprio a função de“Contribuinte de Dados do Armazenamento de Blobs” na conta de armazenamento que está a tentar consultar. [Veja o guia completo no controlo de acesso do Azure Active Directory para obter mais informações](../../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). 
 
 ## <a name="query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints"></a>Consulta falha porque não pode ser executada devido a restrições de recursos atuais 
 
-Se a sua consulta falhar com a mensagem de erro "Esta consulta não pode ser executada devido a restrições de recursos atuais", significa que a SQL on-demand não é capaz de executá-la neste momento devido a restrições de recursos: 
+Se a sua consulta falhar com a mensagem de erro "Esta consulta não pode ser executada devido a restrições de recursos atuais", significa que a piscina SQL sem servidor não é capaz de executá-la neste momento devido a restrições de recursos: 
 
 - Certifique-se de que os tipos de dados de tamanhos razoáveis são utilizados. Além disso, especifique o esquema para ficheiros Parquet para colunas de cordas, uma vez que serão VARCHAR(8000) por padrão. 
 
-- Se a sua consulta tiver como alvo ficheiros CSV, considere [criar estatísticas](develop-tables-statistics.md#statistics-in-sql-on-demand-preview). 
+- Se a sua consulta tiver como alvo ficheiros CSV, considere [criar estatísticas](develop-tables-statistics.md#statistics-in-serverless-sql-pool-preview). 
 
-- Visite [as melhores práticas de desempenho para o SQL on demand](best-practices-sql-on-demand.md) para otimizar a consulta.  
+- Visite as [melhores práticas de desempenho para a piscina SQL sem servidor](best-practices-sql-on-demand.md) para otimizar a consulta.  
 
 ## <a name="create-statement-is-not-supported-in-master-database"></a>CREATE 'STATEMENT' não é suportado na base de dados principal
 
@@ -47,7 +47,7 @@ Se a sua consulta falhar com a mensagem de erro:
 
 > Falhou em executar consulta. Erro: CRIAR QUADRO EXTERNO/FONTE DE DADOS/BASE DE DADOS SCOPED O FORMATO CREDENCIAL/FICHEIRO SCOPED não é suportado na base de dados principal.» 
 
-significa que a base de dados principal em SQL a pedido não suporta a criação de:
+significa que a base de dados principal no pool SQL sem servidor não suporta a criação de:
   - Tabelas externas
   - Fontes de dados externas
   - Credenciais de âmbito de dados
@@ -73,7 +73,7 @@ WITH ( FORMAT_TYPE = PARQUET)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Reveja os seguintes artigos para saber mais sobre como utilizar o SQL a pedido:
+Reveja os seguintes artigos para saber mais sobre como usar a piscina SQL sem servidor:
 
 - [Consulta único ficheiro CSV](query-single-csv-file.md)
 

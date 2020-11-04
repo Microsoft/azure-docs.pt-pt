@@ -1,7 +1,7 @@
 ---
 title: Criar cliente para modelo implementado como serviço web
 titleSuffix: Azure Machine Learning
-description: Saiba como chamar um ponto final de serviço web que foi gerado quando um modelo foi implementado a partir de Azure Machine Learning. O ponto final expõe uma API REST, que pode chamar para realizar inferência com o modelo. Crie clientes para esta API utilizando a linguagem de programação à sua escolha.
+description: Saiba como chamar um ponto final de serviço web que foi gerado quando um modelo foi implementado a partir de Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,19 +11,19 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 5ffdb7a3bb177092d728fbd469aa8cf95e93edb5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 03b077c7cadbfd101705c040e485c5766909c2de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966105"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318157"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como serviço Web
 
 
-A implementação de um modelo Azure Machine Learning como um serviço web cria um ponto final rest API. Pode enviar dados para este ponto final e receber a previsão devolvida pelo modelo. Neste documento, aprenda a criar clientes para o serviço web utilizando C#, Go, Java e Python.
+A implementação de um modelo Azure Machine Learning como um serviço web cria um ponto final rest API. Pode enviar dados para este ponto final e receber a predição devolvida pelo modelo. Neste documento, aprenda a criar clientes para o serviço web utilizando C#, Go, Java e Python.
 
-Cria um serviço web quando implementa um modelo para o seu ambiente local, Instâncias de Contentores Azure, Serviço Azure Kubernetes ou matrizes de portão programáveis em campo (FPGA). Você recupera o URI usado para aceder ao serviço web usando o [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Se a autenticação estiver ativa, também pode utilizar o SDK para obter as teclas de autenticação ou fichas.
+Cria um serviço web quando implementa um modelo para o seu ambiente local, Instâncias de Contentores Azure, Serviço Azure Kubernetes ou matrizes de portão programáveis em campo (FPGA). Você recupera o URI usado para aceder ao serviço web usando o [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Se a autenticação estiver ativa, também pode utilizar o SDK para obter as teclas de autenticação ou fichas.
 
 O fluxo de trabalho geral para criar um cliente que utiliza um serviço web de machine learning é:
 
@@ -39,7 +39,7 @@ O fluxo de trabalho geral para criar um cliente que utiliza um serviço web de m
 > [!NOTE]
 > Utilize o Azure Machine Learning SDK para obter as informações do serviço web. Este é um Python SDK. Pode utilizar qualquer idioma para criar um cliente para o serviço.
 
-A classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) fornece a informação necessária para criar um cliente. As `Webservice` seguintes propriedades são úteis para a criação de uma aplicação ao cliente:
+A classe [azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) fornece a informação necessária para criar um cliente. As `Webservice` seguintes propriedades são úteis para a criação de uma aplicação ao cliente:
 
 * `auth_enabled` - Se a autenticação da chave estiver `True` ativada, caso contrário, `False` .
 * `token_auth_enabled` - Se a autenticação simbólica estiver `True` ativada, caso contrário, `False` .
@@ -59,7 +59,7 @@ Existem várias formas de recuperar esta informação para serviços web implant
     print(service.swagger_uri)
     ```
 
-* Pode utilizar `Webservice.list` para recuperar uma lista de serviços web implantados para modelos no seu espaço de trabalho. Pode adicionar filtros para reduzir a lista de informações devolvidas. Para obter mais informações sobre o que pode ser filtrado, consulte a documentação de referência [da lista Webservice.list.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py&preserve-view=true)
+* Pode utilizar `Webservice.list` para recuperar uma lista de serviços web implantados para modelos no seu espaço de trabalho. Pode adicionar filtros para reduzir a lista de informações devolvidas. Para obter mais informações sobre o que pode ser filtrado, consulte a documentação de referência [da lista Webservice.list.](/python/api/azureml-core/azureml.core.webservice.webservice.webservice?preserve-view=true&view=azure-ml-py)
 
     ```python
     services = Webservice.list(ws)
@@ -77,7 +77,7 @@ Existem várias formas de recuperar esta informação para serviços web implant
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Se souber o nome do serviço implantado, utilize o comando [de espetáculo de serviço az ml:](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show)
+Se souber o nome do serviço implantado, utilize o comando [de espetáculo de serviço az ml:](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show)
 
 ```azurecli
 az ml service show -n <service-name>
@@ -85,7 +85,7 @@ az ml service show -n <service-name>
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-A partir do estúdio Azure Machine Learning, selecione __Endpoints,__ __pontos finais em tempo real__e, em seguida, o nome de ponto final. Em detalhes para o ponto final, o campo __de ponto final REST__ contém o URI de pontuação. O __Swagger URI__ contém o swagger URI.
+A partir do estúdio Azure Machine Learning, selecione __Endpoints,__ __pontos finais em tempo real__ e, em seguida, o nome de ponto final. Em detalhes para o ponto final, o campo __de ponto final REST__ contém o URI de pontuação. O __Swagger URI__ contém o swagger URI.
 
 ---
 
@@ -139,7 +139,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se precisar de regenerar uma chave, [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) use.
+> Se precisar de regenerar uma chave, [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) use.
 
 #### <a name="authentication-with-tokens"></a>Autenticação com fichas
 
@@ -199,7 +199,7 @@ Para obter informações sobre como ativar o suporte a dados binários no seu se
 > res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/> octet-stream'})
 > ```
 
-### <a name="cross-origin-resource-sharing-cors"></a>Partilha de recursos de origem cruzada (CORS)
+### <a name="cross-origin-resource-sharing-cors"></a>Partilha de recursos transversais à origem (CORS)
 
 Para obter informações sobre como ativar o suporte do CORS no seu serviço, consulte [a partilha de recursos cross-origin](how-to-deploy-advanced-entry-script.md#cors).
 
@@ -527,7 +527,7 @@ Os resultados devolvidos são semelhantes ao seguinte documento JSON:
 
 ## <a name="web-service-schema-openapi-specification"></a>Esquema de serviço web (especificação OpenAPI)
 
-Se utilizar a geração de esquemas automáticos com a sua implantação, pode obter o endereço da especificação OpenAPI para o serviço utilizando a [propriedade swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueswagger-uri). (Por exemplo, `print(service.swagger_uri)` .) Utilize um pedido GET ou abra o URI num browser para recuperar a especificação.
+Se utilizar a geração de esquemas automáticos com a sua implantação, pode obter o endereço da especificação OpenAPI para o serviço utilizando a [propriedade swagger_uri](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueswagger-uri). (Por exemplo, `print(service.swagger_uri)` .) Utilize um pedido GET ou abra o URI num browser para recuperar a especificação.
 
 O seguinte documento JSON é um exemplo de um esquema (especificação OpenAPI) gerado para uma implantação:
 
@@ -669,15 +669,15 @@ Para um utilitário que possa criar bibliotecas de clientes a partir da especifi
 
 
 > [!TIP]
-> Pode recuperar o documento de esquema JSON depois de implementar o serviço. Utilize a [propriedade swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueswagger-uri) a partir do serviço web implantado (por exemplo, ) para obter `service.swagger_uri` o URI para o ficheiro Swagger do serviço web local.
+> Pode recuperar o documento de esquema JSON depois de implementar o serviço. Utilize a [propriedade swagger_uri](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueswagger-uri) a partir do serviço web implantado (por exemplo, ) para obter `service.swagger_uri` o URI para o ficheiro Swagger do serviço web local.
 
-## <a name="consume-the-service-from-power-bi"></a>Consumir o serviço no Power BI
+## <a name="consume-the-service-from-power-bi"></a>Consumir o serviço da Power BI
 
 O Power BI suporta o consumo de serviços web Azure Machine Learning para enriquecer os dados no Power BI com previsões. 
 
-Para gerar um serviço web suportado para consumo em Power BI, o esquema deve suportar o formato que é exigido pelo Power BI. [Saiba como criar um esquema suportado por Power BI](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script).
+Para gerar um serviço web suportado para consumo em Power BI, o esquema deve suportar o formato que é exigido pelo Power BI. [Saiba como criar um esquema suportado por Power BI](./how-to-deploy-advanced-entry-script.md#power-bi-compatible-endpoint).
 
-Uma vez que o serviço web é implementado, é consumível a partir de fluxos de dados Power BI. [Saiba como consumir um serviço web Azure Machine Learning da Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Assim que o serviço Web for implementado, poderá ser consumido nos fluxos de dados do Power BI. [Saiba como consumir um serviço web Azure Machine Learning da Power BI](/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>Passos seguintes
 

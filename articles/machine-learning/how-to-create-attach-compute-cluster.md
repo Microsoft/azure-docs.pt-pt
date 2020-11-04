@@ -11,30 +11,30 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 56ab5ba93545ffdbfd36850c08eda78cc239f694
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: ce80c6bbd3e4a5154e80317c3918776c771e67fb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207126"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318207"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Criar um cluster de cálculo de aprendizagem automática Azure
 
 Aprenda a criar e gerir um [cluster de cálculo](concept-compute-target.md#azure-machine-learning-compute-managed) no seu espaço de trabalho Azure Machine Learning.
 
-Você pode usar o cluster de cálculo Azure Machine Learning para distribuir um processo de inferência de treino ou lote através de um conjunto de nós de cálculo cpu ou GPU na nuvem. Para obter mais informações sobre os tamanhos de VM que incluem GPUs, consulte [os tamanhos de máquinas virtuais otimizadas pela GPU.](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) 
+Você pode usar o cluster de cálculo Azure Machine Learning para distribuir um processo de inferência de treino ou lote através de um conjunto de nós de cálculo cpu ou GPU na nuvem. Para obter mais informações sobre os tamanhos de VM que incluem GPUs, consulte [os tamanhos de máquinas virtuais otimizadas pela GPU.](../virtual-machines/sizes-gpu.md) 
 
 Neste artigo, saiba como:
 
 * Criar um cluster computacional
 * Reduza o custo do seu cluster de cálculo
-* Criar uma [identidade gerida](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para o cluster
+* Criar uma [identidade gerida](../active-directory/managed-identities-azure-resources/overview.md) para o cluster
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [Criar um espaço de trabalho para aprendizagem de máquinas Azure.](how-to-manage-workspace.md)
 
-* A [extensão Azure CLI para o serviço de aprendizagem automática](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK,](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)ou a extensão do [Código do Estúdio Visual Azure Machine Learning.](tutorial-setup-vscode-extension.md)
+* A [extensão Azure CLI para o serviço de aprendizagem automática](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK,](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou a extensão do [Código do Estúdio Visual Azure Machine Learning.](tutorial-setup-vscode-extension.md)
 
 ## <a name="what-is-a-compute-cluster"></a>O que é um cluster computacional?
 
@@ -74,13 +74,13 @@ A computação escala automaticamente para zero nós quando não é usada.   VMs
 
 Para criar um recurso persistente de Azure Machine Learning Compute em Python, especifique as propriedades **vm_size** e **max_nodes.** A Azure Machine Learning utiliza então falhas inteligentes para as outras propriedades. 
     
-* **vm_size**: A família VM dos nós criados pela Azure Machine Learning Compute.
-* **max_nodes**: O número máximo de nós para autoescalar até quando você tem um trabalho no Azure Machine Learning Compute.
+* **vm_size** : A família VM dos nós criados pela Azure Machine Learning Compute.
+* **max_nodes** : O número máximo de nós para autoescalar até quando você tem um trabalho no Azure Machine Learning Compute.
 
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/amlcompute2.py?name=cpu_cluster)]
 
-Também pode configurar várias propriedades avançadas quando criar o Azure Machine Learning Compute. As propriedades permitem criar um cluster persistente de tamanho fixo, ou dentro de uma Rede Virtual Azure existente na sua subscrição.  Consulte a [aula AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) para mais detalhes.
+Também pode configurar várias propriedades avançadas quando criar o Azure Machine Learning Compute. As propriedades permitem criar um cluster persistente de tamanho fixo, ou dentro de uma Rede Virtual Azure existente na sua subscrição.  Consulte a [aula AmlCompute](/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?preserve-view=true&view=azure-ml-py) para mais detalhes.
 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
@@ -90,7 +90,7 @@ Também pode configurar várias propriedades avançadas quando criar o Azure Mac
 az ml computetarget create amlcompute -n cpu --min-nodes 1 --max-nodes 1 -s STANDARD_D3_V2
 ```
 
-Para obter mais informações, consulte [o az ml computetarget criar amlcompute](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
+Para obter mais informações, consulte [o az ml computetarget criar amlcompute](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-amlcompute&preserve-view=true).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -217,4 +217,4 @@ Ver [Configurar identidade gerida em estúdio](how-to-create-attach-compute-stud
 Use o seu cluster de cálculo para:
 
 * [Submeter uma corrida de formação](how-to-set-up-training-targets.md) 
-* [Executar inferência de lote](how-to-use-parallel-run-step.md).
+* [Executar inferência de lote](./tutorial-pipeline-batch-scoring-classification.md).

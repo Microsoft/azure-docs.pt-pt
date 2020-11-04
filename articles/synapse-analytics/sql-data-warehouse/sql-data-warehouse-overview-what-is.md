@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: ce4efe0250ea1b85e2e2d77b7ee69bdf3dbcab26
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8840791c7b18d1efa499c2826a6eaf041a6da787
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480400"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317480"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>O que é Azure Synapse Analytics (anteriormente SQL DW)?
 
@@ -28,17 +28,17 @@ Azure Synapse é um serviço de análise que reúne armazenamento de dados da em
 Azure Synapse tem quatro componentes:
 
 - Sinapse SQL: Análise completa baseada em T-SQL – Geralmente Disponível
-  - Piscina SQL (pagamento por DWU a provisionado)
-  - SQL on demand (pagamento por TB processado) (pré-visualização)
+  - Piscina SQL dedicada (pagamento por DWU a provisionado)
+  - Piscina SQL sem servidor (pagamento por TB processado) (pré-visualização)
 - Faísca: Faísca Apache profundamente integrada (pré-visualização)
 - Pipelines synapse: Integração de dados híbridos (pré-visualização)
 - Estúdio: Experiência unificada do utilizador. (pré-visualização)
 
-## <a name="synapse-sql-pool-in-azure-synapse"></a>Piscina Sinapse SQL em Azure Synapse
+## <a name="dedicated-sql-pool-in-azure-synapse"></a>Piscina SQL dedicada em Azure Synapse
 
-O pool SYNAPSE SQL refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis em Azure Synapse.
+Pool DE SQL dedicado refere-se às funcionalidades de armazenamento de dados da empresa que estão geralmente disponíveis em Azure Synapse.
 
-A piscina SQL representa uma coleção de recursos analíticos que estão sendo a provisionados ao utilizar o SQL da Sinapse. O tamanho da piscina SQL é determinado por Unidades de Armazenagem de Dados (DWU).
+O pool de SQL dedicado representa uma coleção de recursos analíticos que estão sendo a provisionados ao utilizar o SQL da Synapse. O tamanho de uma piscina SQL dedicada é determinado por Unidades de Armazenamento de Dados (DWU).
 
 Importe big data com consultas simples [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) T-SQL e, em seguida, use a potência do motor de consulta distribuído para executar análises de alto desempenho. À medida que integra e analisa os dados, o Synapse SQL tornar-se-á a única versão da verdade com que o seu negócio pode contar para insights mais rápidos e robustos. 
 
@@ -48,16 +48,16 @@ O armazenamento de dados é um componente chave de uma solução de big data bas
 
 ![Solução de armazém de dados](./media/sql-data-warehouse-overview-what-is/data-warehouse-solution.png)
 
-Numa solução de dados na cloud, os dados são ingeridos em arquivos de macrodados de várias origens. Assim que estiverem num arquivo de macrodados, o Hadoop, o Spark e os algoritmos de machine learning preparam os dados. Quando os dados estão prontos para análise complexa, o pool Synapse SQL utiliza a PolyBase para consultar as grandes lojas de dados. A PolyBase utiliza consultas T-SQL padrão para trazer os dados para as mesas de bilhar Synapse SQL.
+Numa solução de dados na cloud, os dados são ingeridos em arquivos de macrodados de várias origens. Assim que estiverem num arquivo de macrodados, o Hadoop, o Spark e os algoritmos de machine learning preparam os dados. Quando os dados estão prontos para análise complexa, o pool de SQL dedicado utiliza a PolyBase para consultar as grandes lojas de dados. A PolyBase utiliza consultas T-SQL padrão para trazer os dados para mesas de bilhar SQL dedicadas.
 
-A piscina Sinaapse SQL armazena dados em tabelas relacionais com armazenamento de colunaar. Este formato reduz significativamente os custos de armazenamento de dados e melhora o desempenho das consultas. Quando os dados estiverem armazenados, poderá executar análises em grande escala. Comparativamente aos sistemas de bases de dados tradicionais, as consultas de análise são concluídas em segundos em vez de minutos, ou horas em vez de dias.
+Pool SQL dedicado armazena dados em tabelas relacionais com armazenamento de colunaar. Este formato reduz significativamente os custos de armazenamento de dados e melhora o desempenho das consultas. Quando os dados estiverem armazenados, poderá executar análises em grande escala. Comparativamente aos sistemas de bases de dados tradicionais, as consultas de análise são concluídas em segundos em vez de minutos, ou horas em vez de dias.
 
 Os resultados das análises podem ser enviados para aplicações ou bases de dados de relatórios em todo o mundo. Em seguida, os analistas empresariais podem obter informações para tomar decisões mais adequadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Explore [a arquitetura Azure Synapse](massively-parallel-processing-mpp-architecture.md)
-- Crie rapidamente [uma piscina SQL](create-data-warehouse-portal.md)
+- Crie rapidamente [uma piscina SQL dedicada](create-data-warehouse-portal.md)
 - [Carregar dados de amostras.](load-data-from-azure-blob-storage-using-polybase.md)
 - Explore [vídeos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 

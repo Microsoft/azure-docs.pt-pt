@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c13b71858915ab262ab3e0e99ab8c482d19160ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217546"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318494"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partilhar e receber dados da Base de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -80,7 +80,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
     | Name | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
     | | |
 
-1. Selecione **Rever + criar**e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos. 
+1. Selecione **Rever + criar** e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos. 
 
 1. Quando a implementação estiver concluída, selecione **Ir para o recurso**.
 
@@ -179,7 +179,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 1. Pode abrir o convite a partir de e-mail ou diretamente do portal Azure. 
 
-   Para abrir o convite a partir de e-mail, consulte a sua caixa de entrada para obter um convite do seu fornecedor de dados. O convite é da Microsoft Azure, intitulada **Azure <yourdataprovider@domain.com> Data Share invitation from **. Clique em **Ver convite** para ver o seu convite em Azure. 
+   Para abrir o convite a partir de e-mail, consulte a sua caixa de entrada para obter um convite do seu fornecedor de dados. O convite é da Microsoft Azure, intitulada **Azure <yourdataprovider@domain.com> Data Share invitation from**. Clique em **Ver convite** para ver o seu convite em Azure. 
 
    Para abrir diretamente o convite do portal Azure, procure convites de **partilha de dados** no portal Azure. Isto leva-o à lista de convites da Partilha de Dados.
 
@@ -228,7 +228,7 @@ Estes passos aplicam-se apenas à partilha baseada em instantâneos.
 
    ![Instantâneo do gatilho](./media/trigger-snapshot.png "Instantâneo do gatilho") 
 
-1. Quando o estado da última execução for *bem sucedido,* vá à loja de dados de destino para ver os dados recebidos. Selecione **Conjuntos de dados**e clique no link no Caminho Alvo. 
+1. Quando o estado da última execução for *bem sucedido,* vá à loja de dados de destino para ver os dados recebidos. Selecione **Conjuntos de dados** e clique no link no Caminho Alvo. 
 
    ![Conjuntos de dados do consumidor](./media/consumer-datasets.png "Mapeamento do conjunto de dados do consumidor") 
 
@@ -244,7 +244,7 @@ Quando partilha dados a partir de fonte SQL, os seguintes mapeamentos são usado
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| data |DateTime |
+| date |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |
@@ -275,7 +275,7 @@ Quando partilha dados a partir de fonte SQL, os seguintes mapeamentos são usado
 
 >[!NOTE]
 > 1. Para os tipos de dados que mapeiam para o tipo de decimal provisório, atualmente o instantâneo suporta precisão até 28. Se tiver dados que exijam precisão superior a 28, considere converter-se numa corda. 
-> 1.  Se estiver a partilhar dados da base de dados Azure SQL para a Azure Synapse Analytics, nem todos os tipos de dados são suportados. Consulte os [tipos de dados de tabela na piscina Synapse SQL](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) para obter mais detalhes. 
+> 1.  Se estiver a partilhar dados da base de dados Azure SQL para a Azure Synapse Analytics, nem todos os tipos de dados são suportados. Consulte os [tipos de dados de tabela no pool DE SQL dedicado](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) para obter detalhes. 
 
 ## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>SQL Sempre Encriptado ou Dinâmico Mascaramento de Dados
 Atualmente, a Azure Data Share não suporta bases de dados Azure SQL com sempre configurado. 

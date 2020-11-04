@@ -1,6 +1,6 @@
 ---
 title: Conecte-se ao SQL synapse com power BI Professional
-description: Neste tutorial, vamos passar por etapas como ligar o desktop Power BI ao SQL on demand (pré-visualização).
+description: Neste tutorial, passaremos por etapas como ligar o desktop Power BI à piscina SQL sem servidor (pré-visualização).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d88406646099a136d196a104f9cf4352a367f6d2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 97b611c449302c95d4b24c305ce50ee7683e85ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899120"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316466"
 ---
-# <a name="connect-to-synapse-sql-with-power-bi-professional"></a>Conecte-se ao SQL synapse com power BI Professional
+# <a name="connect-to-serverless-sql-pool-with-power-bi-professional"></a>Conecte-se à piscina SQL sem servidor com o Power BI Professional
 
 > [!div class="op_single_selector"]
 >
@@ -26,7 +26,7 @@ ms.locfileid: "92899120"
 > - [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > - [SSMS](get-started-ssms.md)
 
-Neste tutorial, passaremos os passos para ligar o desktop Power BI ao SQL on demand (pré-visualização).
+Neste tutorial, passaremos os passos para ligar o ambiente de trabalho Power BI à piscina SQL sem servidor (pré-visualização).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,17 +43,17 @@ Parâmetros:
 
 | Parâmetro                                 | Descrição                                                   |
 | ----------------------------------------- | ------------------------------------------------------------- |
-| Endereço de ponto final de serviço a pedido da SQL    | Será usado como nome de servidor                                   |
-| SqL região de ponto final de serviço a pedido     | Será usado para determinar que armazenamento vamos usar em amostras |
+| Endereço final do serviço de piscina sem servidor SQL    | Será usado como nome de servidor                                   |
+| Região de ponto final de serviço de piscina sem servidor SQL     | Será usado para determinar que armazenamento vamos usar em amostras |
 | Nome de utilizador e senha para acesso ao ponto final | Será usado para aceder ao ponto final                               |
-| Base de dados que utilizará para criar vistas     | Esta base de dados será usada como ponto de partida em amostras       |
+| Base de dados que utilizará para criar vistas       | Esta base de dados será usada como ponto de partida em amostras       |
 
 ## <a name="first-time-setup"></a>Configuração pela primeira vez
 
 Existem dois passos antes da utilização de amostras:
 
 1. Crie base de dados para os seus pontos de vista
-2. Criar credenciais a serem usadas pela SQL a pedido de acesso a ficheiros no armazenamento
+2. Criar credenciais para ser usado pela piscina SQL sem servidor para aceder a ficheiros no armazenamento
 
 ### <a name="create-database"></a>Criar base de dados
 
@@ -70,10 +70,10 @@ DROP DATABASE IF EXISTS demo;
 
 ### <a name="create-credentials"></a>Criar credenciais
 
-Precisamos de criar credenciais antes que possas fazer consultas. Esta credencial será utilizada pelo serviço a pedido da SQL para aceder a ficheiros armazenados.
+Precisamos de criar credenciais antes que possas fazer consultas. Esta credencial será usada pelo serviço de piscina SQL sem servidor para aceder a ficheiros no armazenamento.
 
 > [!NOTE]
-> Precisa de criar credenciais para o acesso à conta de armazenamento. Embora o SQL on demand possa aceder ao armazenamento de diferentes regiões, ter armazenamento e espaço de trabalho Azure Synapse na mesma região proporcionará uma melhor experiência de desempenho.
+> Precisa de criar credenciais para o acesso à conta de armazenamento. Embora a piscina SQL sem servidor possa aceder ao armazenamento de diferentes regiões, ter armazenamento e espaço de trabalho Azure Synapse na mesma região proporcionará uma melhor experiência de desempenho.
 
 **Código snippet sobre como criar credenciais para recipientes de dados do Censos,** executar:
 
@@ -98,7 +98,7 @@ Abra a aplicação de ambiente de trabalho Power BI e selecione a opção **Obte
 
 ### <a name="step-1---select-data-source"></a>Passo 1 - Selecione fonte de dados
 
-Selecione **Azure** no menu e, em seguida, **Azure SQL Database** .
+Selecione **Azure** no menu e, em seguida, **Azure SQL Database**.
 ![Selecione fonte de dados.](./media/get-started-power-bi-professional/step-1-select-data-source.png)
 
 ### <a name="step-2---select-database"></a>Passo 2 - Selecione base de dados
@@ -106,7 +106,6 @@ Selecione **Azure** no menu e, em seguida, **Azure SQL Database** .
 Escreva o URL para a base de dados e o nome da base de dados onde a vista reside.
 ![Selecione base de dados no ponto final.](./media/get-started-power-bi-professional/step-2-db.png)
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
-Avance para [consultar ficheiros de armazenamento](get-started-azure-data-studio.md) para aprender a ligar-se ao SQL on demand usando o Azure Data Studio.
- 
+Avance para [consultar ficheiros de armazenamento](get-started-azure-data-studio.md) para aprender a ligar-se à piscina SQL sem servidor usando o Azure Data Studio.

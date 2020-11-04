@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 35c0b5529cd9ada612caf4884683fbeaacb25b33
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2c91b330f52733a91fbceb1dc9ca2309c0d10547
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100138"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317104"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configure várias regiões escreve nas suas aplicações que usam Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,22 @@ Uma vez criada uma conta com múltiplas regiões de escrita ativadas, deve escoa
 
 > [!Note]
 > As contas cosmos inicialmente configuradas com uma única região de escrita podem ser configuradas para várias regiões de escrita com zero tempo de insuporta. Para saber mais ver, [configuure regiões de escrita múltipla](how-to-manage-database-account.md#configure-multiple-write-regions)
+
+## <a name="azure-portal"></a><a id="portal"></a> Portal Azure
+
+Utilize os seguintes passos para permitir as gravações de várias regiões a partir do portal Azure:
+
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+
+1. Navegue na sua conta Azure Cosmos e a partir do menu, abra o painel **de dados replicado globalmente.**
+
+1. Sob a opção **de escrita multi-região,** escolha **ativar**. Acrescenta automaticamente as regiões existentes para ler e escrever regiões.
+
+1. Pode adicionar regiões adicionais selecionando os ícones no mapa ou selecionando o botão **região Adicionar.** Todas as regiões que adicionar terão tanto leitura como escrita ativadas.
+
+1. Depois de atualizar a lista da região, selecione **guardar** para aplicar as alterações.
+
+   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Screenshot para permitir gravações multi-regiões usando portal Azure" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>SDK v2 de .NET
 

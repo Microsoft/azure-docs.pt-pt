@@ -1,7 +1,7 @@
 ---
 title: Criar e anexar o Serviço Azure Kubernetes
 titleSuffix: Azure Machine Learning
-description: O Serviço Azure Kubernetes (AKS) pode ser usado para implementar um modelo de machine learning como um serviço web. Aprenda a criar um novo cluster AKS através do Azure Machine Learning. Você também vai aprender a anexar um cluster AKS existente ao seu espaço de trabalho Azure Machine Learning.
+description: Aprenda a criar um novo cluster de Serviço Azure Kubernetes através do Azure Machine Learning, ou como anexar um cluster AKS existente ao seu espaço de trabalho.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 10/02/2020
-ms.openlocfilehash: 1126798bdf07f54811c83b932af9928f3e3115dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b14ba12c9f9b679d1d63008d31825647f42619d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792009"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318059"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Criar e anexar um cluster de serviço Azure Kubernetes
 
@@ -26,25 +26,25 @@ A Azure Machine Learning pode implementar modelos de aprendizagem automática tr
 
 - Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [Criar um espaço de trabalho para aprendizagem de máquinas Azure.](how-to-manage-workspace.md)
 
-- A [extensão Azure CLI para o serviço de aprendizagem automática](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK,](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)ou a extensão do [Código do Estúdio Visual Azure Machine Learning.](tutorial-setup-vscode-extension.md)
+- A [extensão Azure CLI para o serviço de aprendizagem automática](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK,](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou a extensão do [Código do Estúdio Visual Azure Machine Learning.](tutorial-setup-vscode-extension.md)
 
-- Se planeia utilizar uma Rede Virtual Azure para garantir a comunicação entre o seu espaço de trabalho Azure ML e o cluster AKS, leia o isolamento da Rede durante o treino & artigo [de inferência.](how-to-enable-virtual-network.md)
+- Se planeia utilizar uma Rede Virtual Azure para garantir a comunicação entre o seu espaço de trabalho Azure ML e o cluster AKS, leia o isolamento da Rede durante o treino & artigo [de inferência.](./how-to-network-security-overview.md)
 
 ## <a name="limitations"></a>Limitações
 
 - Se precisar de um **Balancer de Carga Padrão (SLB)** implantado no seu cluster em vez de um Balanceador de Carga Básica (BLB), crie um cluster no portal AKS/CLI/SDK e, em seguida, **prenda-o** ao espaço de trabalho AML.
 
-- Se tiver uma Política Azure que restringe a criação de endereços IP públicos, então a criação de clusters AKS falhará. A AKS requer um IP público para [tráfego de saídas](/azure/aks/limit-egress-traffic). O artigo de tráfego de saídas também fornece orientações para bloquear o tráfego de saída do cluster através do IP público, exceto para alguns nomes de domínio totalmente qualificados. Existem 2 formas de permitir um IP público:
+- Se tiver uma Política Azure que restringe a criação de endereços IP públicos, então a criação de clusters AKS falhará. A AKS requer um IP público para [tráfego de saídas](../aks/limit-egress-traffic.md). O artigo de tráfego de saídas também fornece orientações para bloquear o tráfego de saída do cluster através do IP público, exceto para alguns nomes de domínio totalmente qualificados. Existem 2 formas de permitir um IP público:
     - O cluster pode usar o IP público criado por padrão com o BLB ou SLB, ou
-    - O cluster pode ser criado sem um IP público e, em seguida, um IP público é configurado com uma firewall com uma rota definida pelo utilizador. Para obter mais informações, consulte [Personalizar a saída do cluster com uma rota definida pelo utilizador.](/azure/aks/egress-outboundtype)
+    - O cluster pode ser criado sem um IP público e, em seguida, um IP público é configurado com uma firewall com uma rota definida pelo utilizador. Para obter mais informações, consulte [Personalizar a saída do cluster com uma rota definida pelo utilizador.](../aks/egress-outboundtype.md)
     
     O avião de controlo AML não fala com este IP Público. Fala com o avião de controlo da AKS para implantações. 
 
-- Se **ligar** um cluster AKS, que tem uma [gama IP autorizada habilitada a aceder ao servidor API,](/azure/aks/api-server-authorized-ip-ranges)ative as gamas IP do plano de controlo AML para o cluster AKS. O plano de controlo AML é implantado em regiões emparelhadas e implanta cápsulas de inferência no cluster AKS. Sem acesso ao servidor API, as cápsulas de inferência não podem ser implantadas. Utilize as [gamas IP](https://www.microsoft.com/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas](/azure/best-practices-availability-paired-regions) ao permitir as gamas IP num cluster AKS.
+- Se **ligar** um cluster AKS, que tem uma [gama IP autorizada habilitada a aceder ao servidor API,](../aks/api-server-authorized-ip-ranges.md)ative as gamas IP do plano de controlo AML para o cluster AKS. O plano de controlo AML é implantado em regiões emparelhadas e implanta cápsulas de inferência no cluster AKS. Sem acesso ao servidor API, as cápsulas de inferência não podem ser implantadas. Utilize as [gamas IP](https://www.microsoft.com/download/confirmation.aspx?id=56519) para ambas as [regiões emparelhadas](../best-practices-availability-paired-regions.md) ao permitir as gamas IP num cluster AKS.
 
     Os intervalos de IP autorizados só funcionam com o Balanceador de Carga Padrão.
 
-- Se quiser utilizar um cluster AKS privado (utilizando o Azure Private Link), deve criar primeiro o cluster e, em seguida, **anexá-lo** ao espaço de trabalho. Para obter mais informações, consulte [criar um cluster privado de Serviço Azure Kubernetes](/azure/aks/private-clusters).
+- Se quiser utilizar um cluster AKS privado (utilizando o Azure Private Link), deve criar primeiro o cluster e, em seguida, **anexá-lo** ao espaço de trabalho. Para obter mais informações, consulte [criar um cluster privado de Serviço Azure Kubernetes](../aks/private-clusters.md).
 
 - O nome computacional do cluster AKS DEVE ser único dentro do seu espaço de trabalho Azure ML.
     - O nome é necessário e deve ter entre 3 a 24 caracteres de comprimento.
@@ -54,12 +54,12 @@ A Azure Machine Learning pode implementar modelos de aprendizagem automática tr
    
  - Se pretender implantar modelos para nós **GPU** ou nóns **FPGA** (ou qualquer SKU específico), então deve criar um cluster com o SKU específico. Não existe suporte para a criação de um conjunto de nó secundário num cluster existente e modelos de implantação na piscina de nó secundário.
  
-- Ao criar ou anexar um cluster, pode selecionar se deve criar o cluster para __teste dev__ ou __produção__ . Se pretender criar um cluster AKS para __desenvolvimento,__ __validação__ e __teste__ em vez de produção, desabrava o objetivo do __cluster__ __para dev-teste__ . Se não especificar o objetivo do cluster, é criado um cluster de __produção.__ 
+- Ao criar ou anexar um cluster, pode selecionar se deve criar o cluster para __teste dev__ ou __produção__. Se pretender criar um cluster AKS para __desenvolvimento,__ __validação__ e __teste__ em vez de produção, desabrava o objetivo do __cluster__ __para dev-teste__. Se não especificar o objetivo do cluster, é criado um cluster de __produção.__ 
 
     > [!IMPORTANT]
     > Um aglomerado __de teste dev__ não é adequado para o tráfego de nível de produção e pode aumentar os tempos de inferência. Os agrupamentos de dev/teste também não garantem a tolerância à falha.
 
-- Ao criar ou anexar um cluster, se o cluster for utilizado para __a produção,__ deve conter pelo menos 12 __CPUs virtuais__ . O número de CPUs virtuais pode ser calculado multiplicando o número de nós no cluster pelo __número de núcleos__ fornecidos pelo tamanho VM selecionado. __number of nodes__ Por exemplo, se utilizar um tamanho VM de "Standard_D3_v2", que tem 4 núcleos virtuais, então deve selecionar 3 ou mais como o número de nós.
+- Ao criar ou anexar um cluster, se o cluster for utilizado para __a produção,__ deve conter pelo menos 12 __CPUs virtuais__. O número de CPUs virtuais pode ser calculado multiplicando o número de nós no cluster pelo __número de núcleos__ fornecidos pelo tamanho VM selecionado. __number of nodes__ Por exemplo, se utilizar um tamanho VM de "Standard_D3_v2", que tem 4 núcleos virtuais, então deve selecionar 3 ou mais como o número de nós.
 
     Para um cluster __de teste dev,__ recomodámos pelo menos 2 CPUs virtuais.
 
@@ -70,7 +70,7 @@ A Azure Machine Learning pode implementar modelos de aprendizagem automática tr
 
 ## <a name="azure-kubernetes-service-version"></a>Versão do Serviço Azure Kubernetes
 
-O Serviço Azure Kubernetes permite-lhe criar um cluster utilizando uma variedade de versões Kubernetes. Para obter mais informações sobre as versões disponíveis, consulte as [versões Kubernetes suportadas no Serviço Azure Kubernetes](/azure/aks/supported-kubernetes-versions).
+O Serviço Azure Kubernetes permite-lhe criar um cluster utilizando uma variedade de versões Kubernetes. Para obter mais informações sobre as versões disponíveis, consulte as [versões Kubernetes suportadas no Serviço Azure Kubernetes](../aks/supported-kubernetes-versions.md).
 
 Ao **criar** um cluster de serviço Azure Kubernetes utilizando um dos seguintes métodos, *não tem escolha na versão* do cluster que é criado:
 
@@ -124,7 +124,7 @@ Result
 1.16.13
 ```
 
-Se quiser verificar **programáticamente as versões disponíveis,** utilize o Cliente de Serviço de [Contentores - List Orchestrators](https://docs.microsoft.com/rest/api/container-service/container%20service%20client/listorchestrators) REST API. Para encontrar as versões disponíveis, veja as entradas onde `orchestratorType` está `Kubernetes` . As `orchestrationVersion` entradas associadas contêm as versões disponíveis que podem ser **anexadas** ao seu espaço de trabalho.
+Se quiser verificar **programáticamente as versões disponíveis,** utilize o Cliente de Serviço de [Contentores - List Orchestrators](/rest/api/container-service/container%20service%20client/listorchestrators) REST API. Para encontrar as versões disponíveis, veja as entradas onde `orchestratorType` está `Kubernetes` . As `orchestrationVersion` entradas associadas contêm as versões disponíveis que podem ser **anexadas** ao seu espaço de trabalho.
 
 Para encontrar a versão padrão que é usada ao **criar** um cluster através do Azure Machine Learning, encontre a entrada onde `orchestratorType` está e está `Kubernetes` `default` `true` . O valor associado `orchestratorVersion` é a versão padrão. O seguinte snippet JSON mostra uma entrada de exemplo:
 
@@ -183,10 +183,10 @@ aks_target.wait_for_completion(show_output = True)
 
 Para obter mais informações sobre as classes, métodos e parâmetros utilizados neste exemplo, consulte os seguintes documentos de referência:
 
-* [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
+* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
 * [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [ComputeTarget.create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false-)
+* [ComputeTarget.create](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false-)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -194,7 +194,7 @@ Para obter mais informações sobre as classes, métodos e parâmetros utilizado
 az ml computetarget create aks -n myaks
 ```
 
-Para obter mais informações, consulte o [computação az ml para criar referência aks.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-create-aks)
+Para obter mais informações, consulte o [computação az ml para criar referência aks.](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -215,12 +215,12 @@ Se já tiver cluster AKS na sua subscrição Azure, e for a versão 1.17 ou infe
 > [!WARNING]
 > Não crie ligações múltiplas e simultâneas ao mesmo cluster AKS do seu espaço de trabalho. Por exemplo, anexar um cluster AKS a um espaço de trabalho utilizando dois nomes diferentes. Cada novo acessório quebrará os acessórios existentes anteriores.
 >
-> Se pretender voltar a anexar um cluster AKS, por exemplo para alterar o TLS ou outra configuração de configuração do cluster, deve primeiro remover o acessório existente utilizando [atach.AksCompute.(](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#detach--)
+> Se pretender voltar a anexar um cluster AKS, por exemplo para alterar o TLS ou outra configuração de configuração do cluster, deve primeiro remover o acessório existente utilizando [atach.AksCompute.(](/python/api/azureml-core/azureml.core.compute.akscompute?preserve-view=true&view=azure-ml-py#detach--)
 
 Para obter mais informações sobre a criação de um cluster AKS utilizando o Azure CLI ou portal, consulte os seguintes artigos:
 
-* [Criar um cluster do AKS (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest&preserve-view=true#az-aks-create)
-* [Criar um cluster AKS (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest&preserve-view=true)
+* [Criar um cluster do AKS (CLI)](/cli/azure/aks?bc=%252fazure%252fbread%252ftoc.json&preserve-view=true&toc=%252fazure%252faks%252fTOC.json&view=azure-cli-latest#az-aks-create)
+* [Criar um cluster AKS (portal)](../aks/kubernetes-walkthrough-portal.md?preserve-view=true&view=azure-cli-latest)
 * [Crie um cluster AKS (modelo ARM em modelos de arranque rápido azure)](https://github.com/Azure/azure-quickstart-templates/tree/master/101-aks-azml-targetcompute)
 
 O exemplo a seguir demonstra como anexar um cluster AKS existente ao seu espaço de trabalho:
@@ -248,8 +248,8 @@ aks_target.wait_for_completion(show_output = True)
 Para obter mais informações sobre as classes, métodos e parâmetros utilizados neste exemplo, consulte os seguintes documentos de referência:
 
 * [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py&preserve-view=true#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
-* [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py&preserve-view=true)
-* [AksCompute.attach](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#attach-workspace--name--attach-configuration-)
+* [AksCompute.ClusterPurpose](/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?preserve-view=true&view=azure-ml-py)
+* [AksCompute.attach](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#attach-workspace--name--attach-configuration-)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -271,7 +271,7 @@ Para fixar o cluster existente ao seu espaço de trabalho, utilize o seguinte co
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-Para obter mais informações, consulte a referência [aks attach aks.](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
+Para obter mais informações, consulte a referência [aks attach aks.](/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks)
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -284,7 +284,7 @@ Para obter informações sobre a anexação de um cluster AKS no portal, consult
 Para separar um cluster do seu espaço de trabalho, utilize um dos seguintes métodos:
 
 > [!WARNING]
-> A utilização do estúdio Azure Machine Learning, SDK ou a extensão Azure CLI para aprendizagem automática para separar um cluster AKS **não elimina o cluster AKS** . Para eliminar o cluster, consulte [utilizar o CLI Azure com AKS](/azure/aks/kubernetes-walkthrough#delete-the-cluster).
+> A utilização do estúdio Azure Machine Learning, SDK ou a extensão Azure CLI para aprendizagem automática para separar um cluster AKS **não elimina o cluster AKS**. Para eliminar o cluster, consulte [utilizar o CLI Azure com AKS](../aks/kubernetes-walkthrough.md#delete-the-cluster).
 
 # <a name="python"></a>[Python](#tab/python)
 

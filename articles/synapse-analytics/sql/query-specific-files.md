@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b4755d1d2e14b8ce3b05cfef6d30d7f6102905d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288108"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318821"
 ---
-# <a name="use-file-metadata-in-queries"></a>Use metadados de ficheiros em consultas
+# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Use metadados de ficheiros em consultas de piscina SQL sem servidor
 
-O SQL on-demand pode abordar vários ficheiros e pastas conforme descrito nas pastas De consulta e no artigo [de vários ficheiros.](query-folders-multiple-csv-files.md) Neste artigo, aprende a utilizar informações de metadados sobre ficheiros e nomes de pastas nas consultas.
+O pool SQL sem servidor pode endereçar vários ficheiros e pastas conforme descrito nas pastas de consulta e no artigo [de vários ficheiros.](query-folders-multiple-csv-files.md) Neste artigo, aprende a utilizar informações de metadados sobre ficheiros e nomes de pastas nas consultas.
 
 Por vezes, poderá ser necessário saber qual o ficheiro ou fonte de pasta que se relaciona com uma linha específica no conjunto de resultados.
 

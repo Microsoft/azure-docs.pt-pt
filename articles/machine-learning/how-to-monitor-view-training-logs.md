@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285953"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316679"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e visualizar ML executar registos e métricas
 
@@ -58,7 +58,7 @@ Uma vez concluída uma execução, deixará de ser exibida nesta página. Para v
 
 ## <a name="monitor-runs-using-the-jupyter-notebook-widget"></a>Monitor executa usando o widget de caderno Jupyter
 
-Quando utilizar o método **ScriptRunConfig** para submeter execuções, pode observar o progresso da execução utilizando o [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Tal como a submissão da execução, o widget é assíncrono e disponibiliza atualizações dinâmicas a cada 10 a 15 segundos até à conclusão do trabalho.
+Quando utilizar o método **ScriptRunConfig** para submeter execuções, pode observar o progresso da execução utilizando o [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py). Tal como a submissão da execução, o widget é assíncrono e disponibiliza atualizações dinâmicas a cada 10 a 15 segundos até à conclusão do trabalho.
 
 Veja o widget Jupyter enquanto espera que a corrida esteja completa.
     
@@ -134,4 +134,3 @@ Experimente estes próximos passos para aprender a usar a Azure Machine Learning
 * Aprenda a [rastrear experiências e ativer registos no designer de Aprendizagem automática Azure.](how-to-track-designer-experiments.md)
 
 * Veja um exemplo sobre como registar o melhor modelo e implementá-lo no tutorial [Preparar um modelo de classificação de imagens com o Azure Machine Learning](tutorial-train-models-with-aml.md).
-

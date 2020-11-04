@@ -9,22 +9,22 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: 394521156d6192d25c3a4d254ac2c9b94c6231f5
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1a78142ded7be46bdc06c49d6e0a26ef8b266300
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093553"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318401"
 ---
 # <a name="synapse-sql-resource-consumption"></a>Consumo de recursos SQL de Sinapse
 
 Este artigo descreve os modelos de consumo de recursos do Synapse SQL (pré-visualização).
 
-## <a name="sql-on-demand"></a>SQL a pedido
+## <a name="serverless-sql-pool"></a>Piscina SQL sem servidor
 
-SQL on-demand é um serviço de pagamento por consulta que não requer que você escolha o tamanho certo. O sistema ajusta-se automaticamente com base nos seus requisitos, libertando-o da gestão da sua infraestrutura e escolhendo o tamanho certo para a sua solução.
+A piscina SQL sem servidor é um serviço de pagamento por consulta que não requer que escolha o tamanho certo. O sistema ajusta-se automaticamente com base nos seus requisitos, libertando-o da gestão da sua infraestrutura e escolhendo o tamanho certo para a sua solução.
 
-## <a name="sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Piscina SQL - Data Warehouse Units (DWUs) e compute data warehouse Units (cDWUs)
+## <a name="dedicated-sql-pool---data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Pool SQL dedicado - Unidades de Armazém de Dados (DWUs) e unidades de armazém de dados computacional (cDWUs)
 
 Recomendações sobre a escolha do número ideal de unidades de armazém de dados (DWUs) para otimizar o preço e o desempenho, e como alterar o número de unidades.
 
@@ -50,12 +50,12 @@ Aumento dos DWUs:
 
 O Objetivo de Nível de Serviço (SLO) é a configuração de escalabilidade que determina o custo e o nível de desempenho do seu armazém de dados. Os níveis de serviço para a Gen2 são medidos em unidades de armazém de dados computacional (cDWU), por exemplo DW2000c. Os níveis de serviço da Gen1 são medidos em DWUs, por exemplo DW2000.
 
-O Objetivo de Nível de Serviço (SLO) é a configuração de escalabilidade que determina o custo e o nível de desempenho do seu armazém de dados. Os níveis de serviço para o pool Gen2 SQL são medidos em unidades de armazém de dados (DWU), por exemplo DW2000c.
+O Objetivo de Nível de Serviço (SLO) é a configuração de escalabilidade que determina o custo e o nível de desempenho do seu armazém de dados. Os níveis de serviço para o pool SQL dedicado à Gen2 são medidos em unidades de armazém de dados (DWU), por exemplo DW2000c.
 
 > [!NOTE]
 > A Azure Synapse Analytics Gen2 adicionou recentemente capacidades de escala adicionais para suportar níveis de computação tão baixos como 100 cDWU. Os armazéns de dados existentes atualmente na Gen1 que requerem os níveis de computação mais baixos podem agora fazer upgrade para a Gen2 nas regiões que estão atualmente disponíveis sem custos adicionais.  Se a sua região ainda não for apoiada, ainda pode fazer upgrade para uma região apoiada. Para mais informações, consulte [Upgrade para a Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
-Em T-SQL, a definição de SERVICE_OBJETIVE determina o nível de serviço e o nível de desempenho da sua piscina SQL.
+Em T-SQL, a definição de SERVICE_OBJETIVE determina o nível de serviço e o nível de desempenho da sua piscina SQL dedicada.
 
 ```sql
 CREATE DATABASE mySQLDW
@@ -127,7 +127,7 @@ Para alterar DWUs:
 
 1. Abra o [portal Azure,](https://portal.azure.com)abra a sua base de dados e selecione **Escala**.
 
-2. Em **Escala**, mova o deslizador para a esquerda ou para a direita para alterar a definição DWU.
+2. Em **Escala** , mova o deslizador para a esquerda ou para a direita para alterar a definição DWU.
 
 3. Selecione **Guardar**. É apresentada uma mensagem de confirmação. Selecione **sim** para confirmar ou **não** para cancelar.
 
@@ -204,7 +204,7 @@ AND       major_resource_id = 'MySQLDW'
 ;
 ```
 
-Este DMV devolve informações sobre várias operações de gestão no seu pool SQL, como a operação e o estado da operação, que é IN_PROGRESS ou concluído.
+Este DMV devolve informações sobre várias operações de gestão no seu pool de SQL dedicado, como a operação e o estado da operação, que é IN_PROGRESS ou concluído.
 
 ### <a name="the-scaling-workflow"></a>O fluxo de trabalho de escala
 
