@@ -3,16 +3,17 @@ title: Tipos de resolução de conflitos e políticas de resolução em Azure Co
 description: Este artigo descreve as categorias de conflitos e as políticas de resolução de conflitos na Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/20/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: bfe4bd8483485ffc3b09e77e7683d2d0ec38ba75
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ba55d88de3a5a4087db30613b22a7d2441de9be1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090193"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334383"
 ---
 # <a name="conflict-types-and-resolution-policies-when-using-multiple-write-regions"></a>Tipos de conflitos e políticas de resolução ao utilizar várias regiões de escrita
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -40,9 +41,9 @@ A Azure Cosmos DB oferece um mecanismo flexível orientado pela política para r
 
   Para saber mais, consulte [exemplos que utilizam políticas de resolução de conflitos LWW.](how-to-manage-conflicts.md)
 
-* **Costume** : Esta política de resolução destina-se à semântica definida pela aplicação para a reconciliação de conflitos. Ao definir esta política no seu contentor Azure Cosmos, também precisa de registar um *procedimento armazenado de fusão* . Este procedimento é automaticamente invocado quando os conflitos são detetados numa transação de base de dados no servidor. O sistema fornece exatamente uma garantia única para a execução de um procedimento de fusão como parte do protocolo de compromisso.  
+* **Costume** : Esta política de resolução destina-se à semântica definida pela aplicação para a reconciliação de conflitos. Ao definir esta política no seu contentor Azure Cosmos, também precisa de registar um *procedimento armazenado de fusão*. Este procedimento é automaticamente invocado quando os conflitos são detetados numa transação de base de dados no servidor. O sistema fornece exatamente uma garantia única para a execução de um procedimento de fusão como parte do protocolo de compromisso.  
 
-  Se configurar o seu recipiente com a opção de resolução personalizada, e não registar um procedimento de fusão no contentor ou o procedimento de fusão abrir uma exceção no tempo de funcionamento, os conflitos são escritos para o *feed de conflitos* . A sua aplicação precisa então de resolver manualmente os conflitos nos conflitos. Para saber mais, veja [exemplos de como utilizar a política de resolução personalizada e como utilizar os conflitos alimentados.](how-to-manage-conflicts.md)
+  Se configurar o seu recipiente com a opção de resolução personalizada, e não registar um procedimento de fusão no contentor ou o procedimento de fusão abrir uma exceção no tempo de funcionamento, os conflitos são escritos para o *feed de conflitos*. A sua aplicação precisa então de resolver manualmente os conflitos nos conflitos. Para saber mais, veja [exemplos de como utilizar a política de resolução personalizada e como utilizar os conflitos alimentados.](how-to-manage-conflicts.md)
 
   > [!NOTE]
   > A política de resolução de conflitos personalizada está disponível apenas para contas API SQL.

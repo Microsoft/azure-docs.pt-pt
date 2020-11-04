@@ -3,32 +3,19 @@ title: Ativar a extensão VM utilizando o CLI Azure
 description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a funcionar em ambientes de nuvem híbrida usando o Azure CLI.
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8f09914f246635f07b3c51c682bd67591c706732
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 99504c86046c1ef34eeab500a703b9a028cb46fb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92463005"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336746"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Ativar extensões Azure VM utilizando o CLI Azure
 
 Este artigo mostra-lhe como implantar e desinstalar extensões Azure VM, suportadas por servidores ativados pelo Azure Arc, para uma máquina híbrida Linux ou Windows utilizando o CLI Azure.
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-[Instale o Azure CLI](/cli/azure/install-azure-cli).
-
-Antes de utilizar o CLI Azure para gerir as extensões VM no seu servidor híbrido gerido por servidores ativados pelo Arc, é necessário instalar a `ConnectedMachine` extensão CLI. Executar o seguinte comando no seu servidor ativado arc:
-
-```azurecli
-az extension add connectedmachine
-```
-
-Quando a instalação estiver concluída, a seguinte mensagem é devolvida:
-
-`The installed extension `conexa` is experimental and not covered by customer support. Please use with discretion.`
 
 ## <a name="enable-extension"></a>Permitir extensão
 

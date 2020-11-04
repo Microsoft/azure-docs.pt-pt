@@ -2,18 +2,19 @@
 title: Proteção Avançada de Ameaças para Azure Cosmos DB
 description: Saiba como a Azure Cosmos DB fornece encriptação de dados em repouso e como é implementado.
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: d8398dbded8753bac193f973026fb63d5f1fc6b3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ea7524b32b7637aa7c36308f8b869aa5207c08a2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097724"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334417"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção avançada de ameaças para Azure Cosmos DB (Pré-visualização)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,13 +48,13 @@ Pode configurar uma proteção avançada de ameaças de várias formas, descrita
 
 1. Lançar o portal Azure em  [https://portal.azure.com](https://portal.azure.com/) .
 
-2. A partir da conta DB Azure Cosmos, a partir do menu **Definições,** selecione **Segurança Avançada** .
+2. A partir da conta DB Azure Cosmos, a partir do menu **Definições,** selecione **Segurança Avançada**.
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png" alt-text="Configurar ATP":::
 
 3. Na lâmina de configuração **avançada de segurança:**
 
-    * Clique na opção **De Proteção de Ameaças Avançadas** para defini-la para **ON** .
+    * Clique na opção **De Proteção de Ameaças Avançadas** para defini-la para **ON**.
     * Clique em **Guardar** para guardar a política do Advanced Threat Protection nova ou atualizada.   
 
 ### <a name="rest-api"></a>[API REST](#tab/rest-api)
@@ -82,19 +83,19 @@ Utilize uma política de Azure para permitir a Proteção Avançada de Ameaças 
 
 1. Lançar a página Azure **Policy - Definições** e procurar a política de implementação de ameaças avançadas para a política **de DB do Cosmos.**
 
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Configurar ATP"::: 
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Política de Pesquisa"::: 
 
-1. Clique na política **de Implementação de Proteção de Ameaças Avançadas para CosmosDB** e, em seguida, clique em **Atribuir** .
+1. Clique na política **de Implementação de Proteção de Ameaças Avançadas para CosmosDB** e, em seguida, clique em **Atribuir**.
 
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Configurar ATP":::
-
-
-1. A partir do campo **Scope,** clique nos três pontos, selecione uma subscrição ou grupo de recursos Azure e, em seguida, clique em **Select** .
-
-    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Configurar ATP":::
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Selecione subscrição ou grupo":::
 
 
-1. Introduza os outros parâmetros e clique em **Atribuir** .
+1. A partir do campo **Scope,** clique nos três pontos, selecione uma subscrição ou grupo de recursos Azure e, em seguida, clique em **Select**.
+
+    :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Página de Definições de Política":::
+
+
+1. Introduza os outros parâmetros e clique em **Atribuir**.
 
 
 
@@ -105,11 +106,11 @@ Quando ocorrem anomalias de atividade da Azure Cosmos DB, um alerta de seguranç
 
  A partir do Azure Security Center, pode rever e gerir os seus [atuais alertas de segurança](../security-center/security-center-alerts-overview.md).  Clique num alerta específico no [Centro de Segurança](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) para ver possíveis causas e ações recomendadas para investigar e mitigar a ameaça potencial. A imagem que se segue mostra um exemplo de detalhes de alerta fornecidos no Centro de Segurança.
 
- :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png" alt-text="Configurar ATP":::
+ :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png" alt-text="Detalhes da ameaça":::
 
 Uma notificação por e-mail também é enviada com os detalhes de alerta e ações recomendadas. A imagem que se segue mostra um exemplo de um e-mail de alerta.
 
- :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png" alt-text="Configurar ATP":::
+ :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png" alt-text="Detalhes do alerta":::
 
 ## <a name="cosmos-db-atp-alerts"></a>Alertas ATP do Cosmos DB
 

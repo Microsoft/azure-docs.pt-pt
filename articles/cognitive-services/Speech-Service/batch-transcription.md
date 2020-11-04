@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e4e5f4c1a50c814174dbbd5d419fe24b2e9f88e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360757"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336685"
 ---
 # <a name="how-to-use-batch-transcription"></a>Como utilizar a transcrição do lote
 
@@ -36,8 +36,6 @@ Pode utilizar a transcrição do lote REST APIs para ligar para os seguintes mé
 
 Pode rever e testar a API detalhada, que está disponível como [documento Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
-Esta API não requer pontos finais personalizados e não tem requisitos de concordância.
-
 Os trabalhos de transcrição de lote são programados com a melhor base de esforço.
 Não se pode estimar quando um trabalho vai mudar para o estado de funcionamento, mas deve acontecer dentro de minutos sob a carga normal do sistema. Uma vez no estado de funcionamento, a transcrição ocorre mais rapidamente do que a velocidade de reprodução de tempo de funcionamento áudio.
 
@@ -49,6 +47,9 @@ Tal como acontece com todas as funcionalidades do serviço Speech, cria uma chav
 > É necessária uma subscrição padrão (S0) para o serviço de fala para a transcrição do lote. As teclas de subscrição gratuitas (F0) não funcionam. Para mais informações, consulte [os preços e os limites.](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 
 Se pretende personalizar modelos, siga os passos na [personalização acústica](how-to-customize-acoustic-models.md) e [personalização linguística.](how-to-customize-language-model.md) Para utilizar os modelos criados na transcrição do lote, precisa da localização do modelo. Pode recuperar a localização do modelo quando inspeciona os detalhes do modelo `self` (propriedade). Um ponto final personalizado não é *necessário* para o serviço de transcrição do lote.
+
+>[!NOTE]
+> Como parte da API REST, a Transcrição do Lote tem um conjunto de [quotas e limites](speech-services-quotas-and-limits.md#speech-to-text-quotas-and-limits-per-speech-resource), que encorajamos a rever. Para tirar o máximo partido da capacidade de transcrição do lote para transcrever eficientemente um grande número de ficheiros áudio, recomendamos sempre o envio de vários ficheiros por pedido ou apontando para um recipiente de Armazenamento Blob com os ficheiros de áudio para transcrever. O serviço transcreverá os ficheiros simultaneamente reduzindo o tempo de reviravolta. A utilização de vários ficheiros num único pedido é muito simples e simples - consulte a secção [de Configuração.](#configuration) 
 
 ## <a name="batch-transcription-api"></a>API de transcrição de lote
 
@@ -65,12 +66,16 @@ Para criar uma transcrição final ordenada, use os tempos gerados por expressã
 
 ### <a name="configuration"></a>Configuração
 
-Os parâmetros de configuração são fornecidos como JSON (um ou mais ficheiros individuais):
+Os parâmetros de configuração são fornecidos como JSON.
+
+**Transcrever um ou mais ficheiros individuais.** Se tiver mais de um ficheiro para transcrever, recomendamos o envio de vários ficheiros num único pedido. O exemplo abaixo é usar três ficheiros:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -80,7 +85,7 @@ Os parâmetros de configuração são fornecidos como JSON (um ou mais ficheiros
 }
 ```
 
-Os parâmetros de configuração são fornecidos como JSON (processamento de um recipiente de armazenamento inteiro):
+**Processamento de um recipiente de armazenamento inteiro:**
 
 ```json
 {
@@ -93,12 +98,14 @@ Os parâmetros de configuração são fornecidos como JSON (processamento de um 
 }
 ```
 
-O seguinte JSON especifica um modelo treinado personalizado para usar numa transcrição de lote:
+**Use um modelo personalizado treinado numa transcrição de lote.** O exemplo é usar três ficheiros:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -156,14 +163,14 @@ Utilize estas propriedades opcionais para configurar a transcrição:
       `channels`
    :::column-end:::
    :::column span="2":::
-      Opcional, `0` e `1` transcrito por defeito. Uma série de números de canal para processar. Aqui, um subconjunto dos canais disponíveis no ficheiro áudio pode ser especificado para ser processado `0` (por exemplo, apenas).
+      Opcional, `0` e `1` transcrito por defeito. Uma série de números de canal para processar. Aqui, um subconjunto dos canais disponíveis no ficheiro áudio pode ser especificado para ser processado (por exemplo `0` apenas).
 :::row-end:::
 :::row:::
    :::column span="1":::
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      Opcional, sem eliminação por defeito. Uma duração para apagar automaticamente as transcrições após a conclusão da transcrição. O `timeToLive` que é útil nas transcrições de processamento em massa para garantir que serão eventualmente eliminadas (por exemplo, durante `PT12H` 12 horas).
+      Opcional, sem eliminação por defeito. Uma duração para apagar automaticamente as transcrições após a conclusão da transcrição. O `timeToLive` é útil nas transcrições de processamento em massa para garantir que serão eventualmente eliminadas (por exemplo, durante `PT12H` 12 horas).
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -323,7 +330,80 @@ Atualize o código de amostra com as informações de subscrição, região de s
 
 O código de amostra define o cliente e submete o pedido de transcrição. Em seguida, ele sonda para a informação de estado e detalhes de impressão sobre o progresso da transcrição.
 
-[!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptionstatus)]
+```csharp
+// get the status of our transcriptions periodically and log results
+int completed = 0, running = 0, notStarted = 0;
+while (completed < 1)
+{
+    completed = 0; running = 0; notStarted = 0;
+
+    // get all transcriptions for the user
+    paginatedTranscriptions = null;
+    do
+    {
+        // <transcriptionstatus>
+        if (paginatedTranscriptions == null)
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync().ConfigureAwait(false);
+        }
+        else
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync(paginatedTranscriptions.NextLink).ConfigureAwait(false);
+        }
+
+        // delete all pre-existing completed transcriptions. If transcriptions are still running or not started, they will not be deleted
+        foreach (var transcription in paginatedTranscriptions.Values)
+        {
+            switch (transcription.Status)
+            {
+                case "Failed":
+                case "Succeeded":
+                    // we check to see if it was one of the transcriptions we created from this client.
+                    if (!createdTranscriptions.Contains(transcription.Self))
+                    {
+                        // not created form here, continue
+                        continue;
+                    }
+
+                    completed++;
+
+                    // if the transcription was successful, check the results
+                    if (transcription.Status == "Succeeded")
+                    {
+                        var paginatedfiles = await client.GetTranscriptionFilesAsync(transcription.Links.Files).ConfigureAwait(false);
+
+                        var resultFile = paginatedfiles.Values.FirstOrDefault(f => f.Kind == ArtifactKind.Transcription);
+                        var result = await client.GetTranscriptionResultAsync(new Uri(resultFile.Links.ContentUrl)).ConfigureAwait(false);
+                        Console.WriteLine("Transcription succeeded. Results: ");
+                        Console.WriteLine(JsonConvert.SerializeObject(result, SpeechJsonContractResolver.WriterSettings));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Transcription failed. Status: {0}", transcription.Properties.Error.Message);
+                    }
+
+                    break;
+
+                case "Running":
+                    running++;
+                    break;
+
+                case "NotStarted":
+                    notStarted++;
+                    break;
+            }
+        }
+
+        // for each transcription in the list we check the status
+        Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
+    }
+    while (paginatedTranscriptions.NextLink != null);
+
+    // </transcriptionstatus>
+    // check again after 1 minute
+    await Task.Delay(TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+}
+```
 
 Para obter todos os detalhes sobre as chamadas anteriores, consulte o nosso [documento Swagger](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). Para a amostra completa mostrada aqui, vá ao [GitHub](https://aka.ms/csspeech/samples) na `samples/batch` subdiretória.
 

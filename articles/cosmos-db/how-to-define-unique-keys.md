@@ -3,16 +3,17 @@ title: Defina chaves únicas para um recipiente Azure Cosmos
 description: Aprenda a definir chaves únicas para um recipiente Azure Cosmos usando o portal Azure, PowerShell, .NET, Java e vários outros SDKs.
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: b814100097897aff6047b8b6d6cc0e8ebaa409ba
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101532"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336627"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Defina chaves únicas para um recipiente Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +28,7 @@ Este artigo apresenta as diferentes formas de definir [chaves únicas](unique-ke
 
 1. Abra o painel **do Data Explorer** e selecione o recipiente em que pretende trabalhar.
 
-1. Clique em **Novo Recipiente** .
+1. Clique em **Novo Recipiente**.
 
 1. No diálogo **'Adicionar recipiente',** clique em **+ Adicione uma tecla única** para adicionar uma entrada única na chave.
 

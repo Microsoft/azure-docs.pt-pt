@@ -8,31 +8,23 @@ ms.workload: storage
 ms.topic: quickstart
 ms.date: 09/22/2020
 ms.custom: devx-track-azurecli, subject-armqs
-ms.openlocfilehash: d2ea7233ee923881ee430aba8d8c23a37c29da7c
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 70441c3a1953fa1b6ebd69ef9cdb324d6cc04a5b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027725"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336457"
 ---
-# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume-using-an-arm-template"></a>Quickstart: Configurar ficheiros Azure NetApp e criar um volume NFS utilizando um modelo ARM
+# <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Quickstart: Configurar ficheiros Azure NetApp e criar um volume NFS
 
-Este artigo mostra-lhe como configurar rapidamente ficheiros Azure NetApp e criar um volume usando um modelo de Gestor de Recursos Azure (modelo ARM).
-
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+Este artigo mostra-lhe como configurar rapidamente os Ficheiros Azure NetApp e criar um volume.
 
 Neste arranque rápido, irá configurar os seguintes itens:
 
-- Registo para Ficheiros Azure NetApp e Provedor de Recursos NetApp.
-- Uma conta NetApp.
-- Uma piscina de capacidade.
-- Um volume NFS para ficheiros Azure NetApp.
-
-Se o seu ambiente satisfaça os pré-requisitos, completou a secção Antes de [começar](#before-you-begin) e está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar para Azul.** O modelo será aberto no portal do Azure.
-
-[![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-anf-nfs-volume%2Fazuredeploy.json)
-
-## <a name="prerequisites"></a>Pré-requisitos
+- Registo para Ficheiros Azure NetApp e Provedor de Recursos NetApp
+- Uma conta NetApp
+- Uma piscina de capacidade
+- Um volume NFS para ficheiros Azure NetApp
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
@@ -43,24 +35,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="review-the-template"></a>Rever o modelo
-
-O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-anf-nfs-volume).
-
- Para ver o modelo, consulte [azuredeploy.js.](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json)
-
-Vários recursos são definidos no modelo:
-
-- [Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)
-- [Microsoft.NetApp/netAppAccounts](/azure/templates/microsoft.netapp/netappaccounts)
-- [Microsoft.NetApp/netAppAccounts/capacityPools](/azure/templates/microsoft.netapp/netappaccounts/capacitypools)
-- [Microsoft.NetApp/netAppAccounts/capacityPools/volumes](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes)
-
-## <a name="deploy-the-template"></a>Implementar o modelo
-
 ---
 
-### <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registre-se para ficheiros Azure NetApp e Provedor de Recursos NetApp
+## <a name="register-for-azure-netapp-files-and-netapp-resource-provider"></a>Registre-se para ficheiros Azure NetApp e Provedor de Recursos NetApp
 
 > [!NOTE]
 > O processo de registo pode demorar algum tempo a ser concluído.
@@ -100,7 +77,7 @@ Consulte [registo de ficheiros Azure NetApp](azure-netapp-files-register.md) par
 
 ---
 
-### <a name="create-a-netapp-account"></a>Criar uma conta NetApp
+## <a name="create-a-netapp-account"></a>Criar uma conta NetApp
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -115,7 +92,7 @@ Consulte [registo de ficheiros Azure NetApp](azure-netapp-files-register.md) par
 3. Na janela New NetApp Account, forneça as seguintes informações:
    1. **Insira a minha contagem1** para o nome da conta.
    2. Selecione a sua subscrição.
-   3. Selecione **Criar novo** para criar um novo grupo de recursos. Insira **o myRG1** para o nome do grupo de recursos. Clique em **OK** .
+   3. Selecione **Criar novo** para criar um novo grupo de recursos. Insira **o myRG1** para o nome do grupo de recursos. Clique em **OK**.
    4. Selecione a localização da sua conta.
 
       ![Janela da nova conta NetApp](../media/azure-netapp-files/azure-netapp-files-new-account-window.png)
@@ -185,9 +162,9 @@ Consulte [registo de ficheiros Azure NetApp](azure-netapp-files-register.md) par
 
 # <a name="template"></a>[Modelo](#tab/template)
 
-<!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-O seguinte corte de código mostra como criar uma conta NetApp num modelo ARM, utilizando o recurso [Microsoft.NetApp/netAppAccounts.](/azure/templates/microsoft.netapp/netappaccounts) Para executar o código, descarregue o [modelo ARM completo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json) do nosso repo GitHub.
+O seguinte corte de código mostra como criar uma conta NetApp num modelo de Gestor de Recursos Azure (modelo ARM), utilizando o recurso [Microsoft.NetApp/netAppAccounts.](/azure/templates/microsoft.netapp/netappaccounts) Para executar o código, descarregue o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) do nosso repo GitHub.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="177-183":::
 
@@ -195,7 +172,7 @@ O seguinte corte de código mostra como criar uma conta NetApp num modelo ARM, u
 
 ---
 
-### <a name="set-up-a-capacity-pool"></a>Configurar um conjunto de capacidade
+## <a name="set-up-a-capacity-pool"></a>Configurar um conjunto de capacidade
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -203,7 +180,7 @@ O seguinte corte de código mostra como criar uma conta NetApp num modelo ARM, u
 
     ![Selecione conta NetApp](../media/azure-netapp-files/azure-netapp-files-select-netapp-account.png)
 
-2. A partir da lâmina de gestão de Ficheiros Azure NetApp da sua conta NetApp, clique em **pools de capacidade** .
+2. A partir da lâmina de gestão de Ficheiros Azure NetApp da sua conta NetApp, clique em **pools de capacidade**.
 
     ![Clique em piscinas de capacidade](../media/azure-netapp-files/azure-netapp-files-click-capacity-pools.png)
 
@@ -217,7 +194,7 @@ O seguinte corte de código mostra como criar uma conta NetApp num modelo ARM, u
     * Especifique **4 (TiB)** como o tamanho da piscina.
     * Utilize o tipo **Auto** QoS.
 
-5. Clique em **Criar** .
+5. Clique em **Criar**.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -261,7 +238,7 @@ O seguinte corte de código mostra como criar uma conta NetApp num modelo ARM, u
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
 
-O seguinte corte de código mostra como criar um pool de capacidade num modelo ARM, utilizando o recurso [Microsoft.NetApp/netAppAccounts/capacityPools.](/azure/templates/microsoft.netapp/netappaccounts/capacitypools) Para executar o código, descarregue o [modelo ARM completo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json) do nosso repo GitHub.
+O seguinte corte de código mostra como criar um pool de capacidade num modelo de Gestor de Recursos Azure (modelo ARM), utilizando o recurso [Microsoft.NetApp/netAppAccounts/capacityPools.](/azure/templates/microsoft.netapp/netappaccounts/capacitypools) Para executar o código, descarregue o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) do nosso repo GitHub.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="184-196":::
 
@@ -269,15 +246,15 @@ O seguinte corte de código mostra como criar um pool de capacidade num modelo A
 
 ---
 
-### <a name="create-nfs-volume-for-azure-netapp-files"></a>Criar volume NFS para ficheiros Azure NetApp
+## <a name="create-nfs-volume-for-azure-netapp-files"></a>Criar volume NFS para ficheiros Azure NetApp
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. A partir da lâmina de gestão de Ficheiros Azure NetApp da sua conta NetApp, clique em **Volumes** .
+1. A partir da lâmina de gestão de Ficheiros Azure NetApp da sua conta NetApp, clique em **Volumes**.
 
     ![Clicar em Volumes](../media/azure-netapp-files/azure-netapp-files-click-volumes.png)
 
-2. Clique em **+ Adicionar volume** .
+2. Clique em **+ Adicionar volume**.
 
     ![Clique Em Adicionar volumes](../media/azure-netapp-files/azure-netapp-files-click-add-volumes.png)
 
@@ -306,11 +283,11 @@ O seguinte corte de código mostra como criar um pool de capacidade num modelo A
 
     ![Especificar o protocolo NFS para arranque rápido](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
-5. Clique em **Rever + criar** .
+5. Clique em **Rever + criar**.
 
     ![Rever e criar janela](../media/azure-netapp-files/azure-netapp-files-review-and-create-window.png)
 
-6. Reveja as informações para o volume e, em seguida, clique em **Criar** .
+6. Reveja as informações para o volume e, em seguida, clique em **Criar**.
     O volume criado aparece na lâmina Volumes.
 
     ![Volume criado](../media/azure-netapp-files/azure-netapp-files-create-volume-created.png)
@@ -410,7 +387,7 @@ O seguinte corte de código mostra como criar um pool de capacidade num modelo A
 
 <!-- [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)] -->
 
-Os seguintes snippets de código mostram como configurar um VNet e criar um volume de Ficheiros Azure NetApp num modelo ARM. A configuração VNet utiliza o recurso [Microsoft.Network/virtualNetworks.](/azure/templates/Microsoft.Network/virtualNetworks) A criação de volume utiliza o recurso [Microsoft.NetApp/netAppAccounts/capacityPools/volumes.](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) Para executar o código, descarregue o [modelo ARM completo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-anf-nfs-volume/azuredeploy.json) do nosso repo GitHub.
+Os seguintes snippets de código mostram como configurar um VNet e criar um volume de Ficheiros Azure NetApp num modelo de Gestor de Recursos Azure (modelo ARM). A configuração VNet utiliza o recurso [Microsoft.Network/virtualNetworks.](/azure/templates/Microsoft.Network/virtualNetworks) A criação de volume utiliza o recurso [Microsoft.NetApp/netAppAccounts/capacityPools/volumes.](/azure/templates/microsoft.netapp/netappaccounts/capacitypools/volumes) Para executar o código, descarregue o [modelo ARM completo](https://github.com/Azure/azure-quickstart-templates/blob/master/101-anf-nfs-volume/azuredeploy.json) do nosso repo GitHub.
 
 :::code language="json" source="~/quickstart-templates/101-anf-nfs-volume/azuredeploy.json" range="148-176":::
 
@@ -422,7 +399,7 @@ Os seguintes snippets de código mostram como configurar um VNet e criar um volu
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -438,13 +415,13 @@ Quando terminar e se quiser, pode eliminar o grupo de recursos. A ação de elim
     ![Navegue para grupos de recursos](../media/azure-netapp-files/azure-netapp-files-azure-navigate-to-resource-groups.png)
 
 
-3. Na página do grupo de recursos, clique **em Eliminar o grupo de recursos** .
+3. Na página do grupo de recursos, clique **em Eliminar o grupo de recursos**.
 
     ![Screenshot que realça o botão do grupo de recursos Delete.](../media/azure-netapp-files/azure-netapp-files-azure-delete-resource-group.png)
 
     É aberta uma janela com um aviso sobre os recursos que serão eliminados com o grupo de recursos.
 
-4. Insira o nome do grupo de recursos (myRG1) para confirmar que pretende eliminar permanentemente o grupo de recursos e todos os recursos nele e, em seguida, clique em **Eliminar** .
+4. Insira o nome do grupo de recursos (myRG1) para confirmar que pretende eliminar permanentemente o grupo de recursos e todos os recursos nele e, em seguida, clique em **Eliminar**.
 
     ![Confirmar a eliminação do grupo de recursos](../media/azure-netapp-files/azure-netapp-files-azure-confirm-resource-group-deletion.png )
 

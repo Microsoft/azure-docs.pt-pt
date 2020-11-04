@@ -4,20 +4,21 @@ ms.date: 09/10/2020
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.openlocfilehash: 1aa344d80df6bfc22d0c94c6d5c61d305ace8d0c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: e4eb2c108b5964bcc78049cbf355facc52738abd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073548"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336737"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Utilize [a casca de nuvem Azure](/azure/cloud-shell/quickstart) utilizando o ambiente de festa.
 
    [![Lançamento incorporado](https://shell.azure.com/images/launchcloudshell.png "Iniciar o Azure Cloud Shell")](https://shell.azure.com)  
-- Se preferir, faça uma [instalação local](/cli/azure/install-azure-cli) do CLI Azure para executar comandos de referência CLI.
-   - Se estiver a utilizar uma instalação local, inicie sessão com o Azure CLI utilizando o comando [de login az.](/cli/azure/reference-index#az-login)  Siga os passos apresentados no seu terminal para concluir o processo de autenticação.  Consulte [iniciar seduca com Azure CLI](/cli/azure/authenticate-azure-cli) para obter opções adicionais de inscrição.
-  - Quando solicitado, instale as extensões Azure CLI na primeira utilização.  Saiba mais sobre extensões de [utilização com Azure CLI](/cli/azure/azure-cli-extensions-overview).
+- Se preferir, [instale](/cli/azure/install-azure-cli) o CLI Azure para executar comandos de referência CLI.
+   - Se estiver a utilizar uma instalação local, inicie sessão com o Azure CLI utilizando o comando [de login az.](/cli/azure/reference-index#az-login)  Para terminar o processo de autenticação, siga os passos apresentados no seu terminal.  Consulte [iniciar seduca com Azure CLI](/cli/azure/authenticate-azure-cli) para obter opções adicionais de inscrição.
+  - Quando for solicitado, instale as extensões Azure CLI na primeira utilização.  Para obter mais informações sobre extensões, consulte [extensões de utilização com Azure CLI](/cli/azure/azure-cli-extensions-overview).
   - Executar [a versão az](/cli/azure/reference-index?#az_version) para encontrar a versão e bibliotecas dependentes que estão instaladas. Para atualizar para a versão mais recente, executar [atualização az](/cli/azure/reference-index?#az_upgrade).
 
