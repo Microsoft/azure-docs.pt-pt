@@ -128,7 +128,7 @@
               href: graphical-runbook-sdk.md
         - name: Monitorizar runbooks
           items:
-            - name: Monitorizar o resultado do runbook
+            - name: Configurar resultado do runbook
               href: automation-runbook-output-and-messages.md
             - name: Processamento de erros em runbooks gráficos
               href: automation-runbook-graphical-error-handling.md

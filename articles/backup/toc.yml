@@ -406,6 +406,8 @@
           href: backup-encryption.md
         - name: Encriptação com chaves geridas pelo cliente
           href: encryption-at-rest-with-cmk.md
+        - name: Transport Layer Security
+          href: transport-layer-security.md
         - name: Controlos de segurança do Azure Policy
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
