@@ -11,30 +11,30 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 6d59d64c861b74610e82b962ddd5db2331d3db64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148257"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305024"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas em Synapse SQL
 
-São fornecidas neste artigo recomendações e exemplos para a criação e atualização de estatísticas de otimização de consultas utilizando os recursos Sinapse SQL: piscina SQL e SQL on demand (pré-visualização).
+Fornecidos neste artigo estão recomendações e exemplos para a criação e atualização de estatísticas de otimização de consultas utilizando os recursos Sinapse SQL: pool SQL dedicado e piscina SQL sem servidor (pré-visualização).
 
-## <a name="statistics-in-sql-pool"></a>Estatísticas em piscina SQL
+## <a name="statistics-in-dedicated-sql-pool"></a>Estatísticas em piscina SQL dedicada
 
 ### <a name="why-use-statistics"></a>Porquê usar estatísticas
 
-Quanto mais o recurso de pool SQL souber dos seus dados, mais rápido poderá executar consultas. Depois de carregar dados no pool SQL, recolher estatísticas sobre os seus dados é uma das coisas mais importantes que pode fazer para otimização de consultas.  
+Quanto mais dedicado o pool SQL souber dos seus dados, mais rápido poderá executar consultas. Depois de carregar dados num pool de SQL dedicado, recolher estatísticas sobre os seus dados é uma das coisas mais importantes que pode fazer para otimização de consultas.  
 
-O otimizador de consultas de piscina SQL é um otimizador baseado em custos. Compara o custo de vários planos de consulta, e depois escolhe o plano com o menor custo. Na maioria dos casos, escolhe o plano que executará o mais rápido.
+O otimizador de consulta de piscina SQL dedicado é um otimizador baseado em custos. Compara o custo de vários planos de consulta, e depois escolhe o plano com o menor custo. Na maioria dos casos, escolhe o plano que executará o mais rápido.
 
 Por exemplo, se o optimizador estimar que a data em que a sua consulta está a ser filtrada voltará a uma linha, escolherá um plano. Se estimar que a data selecionada devolverá 1 milhão de linhas, devolverá um plano diferente.
 
 ### <a name="automatic-creation-of-statistics"></a>Criação automática de estatísticas
 
-O pool SQL analisará as consultas recebidas dos utilizadores para obter estatísticas em falta quando a AUTO_CREATE_STATISTICS opção de base de dados estiver definida para `ON` .  Se faltam estatísticas, o otimizador de consulta cria estatísticas sobre colunas individuais na consulta predicado ou aderir à condição. 
+O motor de piscina SQL dedicado analisará as consultas recebidas dos utilizadores por estatísticas em falta quando a AUTO_CREATE_STATISTICS opção de base de dados estiver definida para `ON` .  Se faltam estatísticas, o otimizador de consulta cria estatísticas sobre colunas individuais na consulta predicado ou aderir à condição. 
 
 Esta função é usada para melhorar as estimativas de cardinalícia para o plano de consulta.
 
@@ -166,7 +166,7 @@ Estes exemplos mostram como utilizar várias opções para criar estatísticas. 
 #### <a name="create-single-column-statistics-with-default-options"></a>Criar estatísticas de coluna única com opções predefinidos
 
 Para criar estatísticas sobre uma coluna, forneça um nome para o objeto estatístico e o nome da coluna.
-Esta sintaxe utiliza todas as opções padrão. Por padrão, a piscina SQL mostra **20%** da tabela quando cria estatísticas.
+Esta sintaxe utiliza todas as opções padrão. Por padrão, a piscina de SQL dedicada mostra **20%** da tabela quando cria estatísticas.
 
 ```sql
 CREATE STATISTICS [statistics_name]
@@ -430,7 +430,7 @@ A declaração de ESTATÍSTICAS DE ATUALIZAÇÃO é fácil de usar. Lembre-se ap
 Se o desempenho não é um problema, este método é a maneira mais fácil e completa de garantir que as estatísticas estão atualizadas.
 
 > [!NOTE]
-> Ao atualizar todas as estatísticas sobre uma tabela, a piscina SQL faz uma varredura para amostrar a tabela para cada objeto estatístico. Se o quadro for grande e tiver muitas colunas e muitas estatísticas, poderá ser mais eficiente atualizar as estatísticas individuais com base nas necessidades.
+> Ao atualizar todas as estatísticas sobre uma tabela, a piscina sql dedicada faz uma digitalização para amostrar a tabela para cada objeto estatístico. Se o quadro for grande e tiver muitas colunas e muitas estatísticas, poderá ser mais eficiente atualizar as estatísticas individuais com base nas necessidades.
 
 Para uma implementação de um `UPDATE STATISTICS` procedimento, consulte [tabelas temporárias.](develop-tables-temporary.md) O método de implementação é ligeiramente diferente do `CREATE STATISTICS` procedimento anterior, mas o resultado é o mesmo.
 Para obter a sintaxe completa, consulte [as estatísticas de Atualização](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
@@ -512,7 +512,7 @@ O DBCC SHOW_STATISTICS() mostra os dados retidos num objeto estatístico. Estes 
 
 O cabeçalho são os metadados sobre as estatísticas. O histograma exibe a distribuição de valores na primeira coluna-chave do objeto estatístico. 
 
-O vetor de densidade mede a correlação entre colunas. A piscina SQL calcula as estimativas de cardinalidade com qualquer um dos dados no objeto estatístico.
+O vetor de densidade mede a correlação entre colunas. O pool de SQL dedicado calcula as estimativas de cardinalidade com qualquer um dos dados no objeto estatístico.
 
 #### <a name="show-header-density-and-histogram"></a>Mostrar cabeçalho, densidade e histograma
 
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="dbcc-show_statistics-differences"></a>DBCC SHOW_STATISTICS() diferenças
 
-`DBCC SHOW_STATISTICS()` é mais rigorosamente implementado na piscina SQL em comparação com o SQL Server:
+`DBCC SHOW_STATISTICS()` é mais rigorosamente implementado em pool SQL dedicado em comparação com SQL Server:
 
 - As funcionalidades não documentadas não são suportadas.
 - Não posso usá Stats_stream.
@@ -556,25 +556,22 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - Não se pode usar nomes de colunas para identificar objetos estatísticos.
 - O erro personalizado 2767 não é suportado.
 
-### <a name="next-steps"></a>Passos seguintes
 
-Para melhorar ainda mais o desempenho da consulta, consulte [Monitorar a sua carga de trabalho](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## <a name="statistics-in-sql-on-demand-preview"></a>Estatísticas em SQL on demand (pré-visualização)
+## <a name="statistics-in-serverless-sql-pool-preview"></a>Estatísticas na piscina SQL sem servidor (pré-visualização)
 
 As estatísticas são criadas por coluna particular para determinado conjunto de dados (trajetória de armazenamento).
 
 ### <a name="why-use-statistics"></a>Porquê usar estatísticas
 
-Quanto mais SQL on-demand (pré-visualização) souber dos seus dados, mais rápido poderá executar consultas contra os mesmos. Recolher estatísticas sobre os seus dados é uma das coisas mais importantes que pode fazer para otimizar as suas consultas. 
+Quanto mais sem servidor a piscina SQL (pré-visualização) souber dos seus dados, mais rápido poderá executar consultas contra os mesmos. Recolher estatísticas sobre os seus dados é uma das coisas mais importantes que pode fazer para otimizar as suas consultas. 
 
-O otimizador de consulta a pedido SQL é um otimizador baseado em custos. Compara o custo de vários planos de consulta, e depois escolhe o plano com o menor custo. Na maioria dos casos, escolhe o plano que executará o mais rápido. 
+O otimizador de perguntas sql sem servidor é um otimizador baseado em custos. Compara o custo de vários planos de consulta, e depois escolhe o plano com o menor custo. Na maioria dos casos, escolhe o plano que executará o mais rápido. 
 
 Por exemplo, se o optimizador estimar que a data em que a sua consulta está a ser filtrada irá retornar uma linha, escolherá um plano. Se estimar que a data selecionada devolverá 1 milhão de linhas, devolverá um plano diferente.
 
 ### <a name="automatic-creation-of-statistics"></a>Criação automática de estatísticas
 
-SQL on-demand analisa consultas de utilizador recebidas para estatísticas em falta. Se faltam estatísticas, o otimizador de consultas cria estatísticas sobre colunas individuais na consulta predicado ou junta-se a condições para melhorar as estimativas de cardinalícia para o plano de consulta.
+A piscina SQL sem servidor analisa as consultas recebidas dos utilizadores por falta de estatísticas. Se faltam estatísticas, o otimizador de consultas cria estatísticas sobre colunas individuais na consulta predicado ou junta-se a condições para melhorar as estimativas de cardinalícia para o plano de consulta.
 
 A declaração SELECT irá desencadear a criação automática de estatísticas.
 
@@ -585,7 +582,7 @@ A criação automática de estatísticas é feita de forma sincronizada para que
 
 ### <a name="manual-creation-of-statistics"></a>Criação manual de estatísticas
 
-O SQL on demand permite criar estatísticas manualmente. Para ficheiros CSV, tem de criar estatísticas manualmente porque a criação automática de estatísticas não está ligada para ficheiros CSV. 
+A piscina SQL sem servidor permite criar estatísticas manualmente. Para ficheiros CSV, tem de criar estatísticas manualmente porque a criação automática de estatísticas não está ligada para ficheiros CSV. 
 
 Consulte os seguintes exemplos para obter instruções sobre como criar estatísticas manualmente.
 
@@ -593,7 +590,7 @@ Consulte os seguintes exemplos para obter instruções sobre como criar estatís
 
 Alterações nos dados em ficheiros, eliminação e adição de ficheiros resultam em alterações na distribuição de dados e estão desatualizadas. Nesse caso, as estatísticas têm de ser atualizadas.
 
-O SQL a pedido recria automaticamente as estatísticas se os dados forem alterados significativamente. Sempre que as estatísticas são criadas automaticamente, o estado atual do conjunto de dados também é guardado: caminhos de ficheiros, tamanhos, datas de última modificação.
+O pool SQL sem servidor recria automaticamente as estatísticas se os dados forem alterados significativamente. Sempre que as estatísticas são criadas automaticamente, o estado atual do conjunto de dados também é guardado: caminhos de ficheiros, tamanhos, datas de última modificação.
 
 Quando as estatísticas estiverem em eso, novas serão criadas. O algoritmo passa pelos dados e compara-os com o estado atual do conjunto de dados. Se o tamanho das alterações for maior do que o limiar específico, então as estatísticas antigas são eliminadas e serão recriadas ao longo do novo conjunto de dados.
 
@@ -650,7 +647,7 @@ Argumentos: [ @stmt = ] N'statement_text' - Especifica uma declaração Transact
 
 Para criar estatísticas sobre uma coluna, forneça uma consulta que devolva a coluna para a qual necessita estatísticas.
 
-Por padrão, se não especificar o contrário, o SQL on-demand utiliza 100% dos dados fornecidos no conjunto de dados quando cria estatísticas.
+Por padrão, se não especificar o contrário, o pool SQL sem servidor utiliza 100% dos dados fornecidos no conjunto de dados quando cria estatísticas.
 
 Por exemplo, criar estatísticas com opções predefinidas (FULLSCAN) para uma coluna de um ano do conjunto de dados com base no ficheiro population.csv:
 
@@ -816,4 +813,6 @@ CREATE STATISTICS sState
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter melhorias no desempenho da consulta, consulte [as melhores práticas para a piscina SQL](best-practices-sql-pool.md#maintain-statistics).
+Para melhorar ainda mais o desempenho de consulta para piscinas SQL dedicadas, consulte [monitorar a sua carga de trabalho](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e as [melhores práticas para piscina SQL dedicada.](best-practices-sql-pool.md#maintain-statistics)
+
+Para melhorar ainda mais o desempenho da consulta para o pool SQL sem servidor, consulte [as melhores práticas para piscina SQL sem servidor](best-practices-sql-on-demand.md)

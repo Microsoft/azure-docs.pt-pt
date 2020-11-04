@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-python, devx-track-js, devx-track-csharp
 ms.date: 05/29/2020
-ms.openlocfilehash: 66c9368d06960790c6dc960d2d95bd82be1a6e39
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9922ddf0859e4f28d5759108581f5ef538f0c294
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91345964"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305559"
 ---
 # <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Como consumir um serviço web Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ sim ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) no ![ ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Uma vez que você implemente um modelo preditivo Azure Machine Learning Studio (clássico) como um serviço Web, você pode usar uma API REST para enviar-lhe dados e obter previsões. Pode enviar os dados em tempo real ou em modo de lote.
@@ -99,7 +99,7 @@ Para se ligar a um serviço Web machine learning, o pacote **Microsoft.AspNet.We
 **Instale Microsoft.AspNet.WebApi.Client NuGet em Estúdio Visual**
 
 1. Publique o conjunto de dados de descarregamento da UCI: Adult 2 class dataset Web Service.
-2. Clique em **Ferramentas**  >  **NuGet Package Manager**Package Manager  >  **Consola**.
+2. Clique em **Ferramentas**  >  **NuGet Package Manager** Package Manager  >  **Consola**.
 3. Escolha **instalar pacote Microsoft.aspNet.WebApi.Client**.
 
 **Para executar a amostra de código**

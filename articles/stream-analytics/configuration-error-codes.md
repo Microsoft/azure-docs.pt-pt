@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: de8eefd099f3691ae5e5eb5234ae8f76015dd68f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80179506c133de92b56d476c9aa99d55c3e3bbd9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86041120"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305795"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Códigos de erro de configuração Azure Stream Analytics
 
@@ -23,38 +23,38 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 
 ## <a name="eventhubreceiverepochconflict"></a>EventHubReceiverEpochConflict
 
-* **Causa**: Existe mais de um recetor Event Hub com diferentes valores de época.
-* **Recomendação**: Certifique-se de que o *Service Bus Explorer* ou uma aplicação *EventProcessorHost* não está ligada enquanto o seu trabalho de Stream Analytics estiver em execução.
+* **Causa** : Existe mais de um recetor Event Hub com diferentes valores de época.
+* **Recomendação** : Certifique-se de que o *Service Bus Explorer* ou uma aplicação *EventProcessorHost* não está ligada enquanto o seu trabalho de Stream Analytics estiver em execução.
 
 ## <a name="eventhubreceiverquotaexceeded"></a>EventHubReceiverQuotaExceed
 
-* **Causa**: Stream Analytics não pode ligar-se a uma partição porque o número máximo de recetores permitidos por partição em um grupo de consumidores foi atingido.
-* **Recomendação**: Certifique-se de que outros trabalhos da Stream Analytics ou do Service Bus Explorer não estão a utilizar o mesmo grupo de consumidores.
+* **Causa** : Stream Analytics não pode ligar-se a uma partição porque o número máximo de recetores permitidos por partição em um grupo de consumidores foi atingido.
+* **Recomendação** : Certifique-se de que outros trabalhos da Stream Analytics ou do Service Bus Explorer não estão a utilizar o mesmo grupo de consumidores.
 
 ## <a name="eventhuboutputthrottled"></a>EventHubOutputThrottled
 
-* **Causa**: Ocorreu um erro ao escrever dados para o Event Hub devido a estrangulamento.
-* **Recomendação**: Se isto acontecer de forma consistente, atualize a produção.
+* **Causa** : Ocorreu um erro ao escrever dados para o Event Hub devido a estrangulamento.
+* **Recomendação** : Se isto acontecer de forma consistente, atualize a produção.
 
 ## <a name="eventhuboutputinvalidconnectionconfig"></a>EventHubOutputInvalidConnectionConfig
 
-* **Causa**: A configuração de ligação fornecida está incorreta.
+* **Causa** : A configuração de ligação fornecida está incorreta.
 * **Recomendação:** Corrija a configuração e reinicie o trabalho.
 
 ## <a name="eventhuboutputinvalidhostname"></a>EventHubOutputInvalidHostname
 
-* **Causa**: O anfitrião do Event Hub é inacessível.
-* **Recomendação**: Certifique-se de que o nome do hospedeiro fornecido está correto.
+* **Causa** : O anfitrião do Event Hub é inacessível.
+* **Recomendação** : Certifique-se de que o nome do hospedeiro fornecido está correto.
 
 ## <a name="eventhuboutputunexpectedpartitioncount"></a>EventHubOutputUnexpectedPartitionCount
 
 * **Causa:** O remetente do EventHub encontrou uma contagem inesperada de partição do EventHub.
-* **Recomendação**: Reinicie o seu trabalho stream Analytics se a contagem de divisórias do EventHub tiver mudado.
+* **Recomendação** : Reinicie o seu trabalho stream Analytics se a contagem de divisórias do EventHub tiver mudado.
 
 ## <a name="cosmosdbpartitionkeynotfound"></a>CosmosDBPartitionKeyNotFound
 
 * **Causa:** Stream Analytics não conseguiu encontrar a chave de partição de uma determinada coleção de Cosmos DB na base de dados.
-* **Recomendação**: Certifique-se de que existe uma chave de partição válida especificada para a coleção em Cosmos DB.
+* **Recomendação** : Certifique-se de que existe uma chave de partição válida especificada para a coleção em Cosmos DB.
 
 ## <a name="cosmosdbinvalidpartitionkeycolumn"></a>CosmosDBInvalidPartitionKeyColumn
 
@@ -62,7 +62,7 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 
 ## <a name="cosmosdbinvalididcolumn"></a>CosmosDBInvalidIdColumn
 
-* **Causa**: A saída de consulta não pode conter o id da \[ coluna] se uma coluna diferente for escolhida como propriedade principal.
+* **Causa** : A saída de consulta não pode conter o id da \[ coluna] se uma coluna diferente for escolhida como propriedade principal.
 
 ## <a name="cosmosdbdatabasenotfound"></a>CosmosDBDatabaseNotFound
 
@@ -74,18 +74,18 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 
 ## <a name="cosmosdboutputwritethrottling"></a>CosmosDBOutputWriteThrottling
 
-* **Causa**: Ocorreu um erro ao escrever dados devido ao estrangulamento por Cosmos DB.
-* **Recomendação**: Atualize o nível de desempenho da recolha e afina o desempenho da sua base de dados.
+* **Causa** : Ocorreu um erro ao escrever dados devido ao estrangulamento por Cosmos DB.
+* **Recomendação** : Atualize o nível de desempenho da recolha e afina o desempenho da sua base de dados.
 
 ## <a name="sqldatabaseconnectionstringerror"></a>SQLDatabaseConnectionStringError
 
-* **Causa**: O trabalho stream Analytics encontrou um erro de autenticação.
-* **Recomendação**: Certifique-se de que o fio de ligação SQL Database está correto.
+* **Causa** : O trabalho stream Analytics encontrou um erro de autenticação.
+* **Recomendação** : Certifique-se de que o fio de ligação SQL Database está correto.
 
 ## <a name="sqldatabasemanagedidentityauthenticationerror"></a>SQLDatabaseManagedIdentityAuthenticationError
 
-* **Causa**: O trabalho stream Analytics encontrou um erro de autenticação. 
-* **Recomendação**: Certifique-se de que o nome da conta está configurado corretamente e que a Identidade Gerida do trabalho tem acesso à Base de Dados SQL.
+* **Causa** : O trabalho stream Analytics encontrou um erro de autenticação. 
+* **Recomendação** : Certifique-se de que o nome da conta está configurado corretamente e que a Identidade Gerida do trabalho tem acesso à Base de Dados SQL.
 
 ## <a name="sqldatabaseoutputnotableerror"></a>SQLDatabaseOutputNoTableError
 
@@ -93,8 +93,8 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 
 ## <a name="sqldwoutputinvalidserviceedition"></a>SQLDWOutputInvalidServiceEdition
 
-* **Causa**: SqL Database não é suportado.
-* **Recomendação**: Utilize a piscina Synapse SQL.
+* **Causa** : SqL Database não é suportado.
+* **Recomendação** : Utilize piscina SQL dedicada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

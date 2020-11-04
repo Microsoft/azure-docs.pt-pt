@@ -4,12 +4,12 @@ description: Saiba como criar uma política de configuração de hóspedes Azure
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6b072a615cfc31f250d1a605a20e1628d601bb25
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: c0559e284f1e7022510a458209ec8d985ffc6324
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676641"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305549"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Como criar políticas de Configuração de Convidado para o Linux
 
@@ -17,7 +17,7 @@ Antes de criar políticas personalizadas, leia as informações gerais na [Confi
  
 Para saber sobre a criação de políticas de configuração de hóspedes para windows, consulte a página [Como criar políticas de configuração de hóspedes para windows](./guest-configuration-create.md)
 
-Ao auditar o Linux, a Configuração de Convidado utiliza [Chef InSpec](https://www.inspec.io/). O perfil InSpec define a condição em que o computador deverá estar. Se a avaliação da configuração falhar, a auditoria do efeito **políticoIfNotExists** é ativada e a máquina é considerada **incompatível** .
+Ao auditar o Linux, a Configuração de Convidado utiliza [Chef InSpec](https://www.inspec.io/). O perfil InSpec define a condição em que o computador deverá estar. Se a avaliação da configuração falhar, a auditoria do efeito **políticoIfNotExists** é ativada e a máquina é considerada **incompatível**.
 
 [A configuração do hóspede Azure Policy](../concepts/guest-configuration.md) só pode ser usada para auditar definições dentro de máquinas. A reparação de configurações dentro das máquinas ainda não está disponível.
 
@@ -160,7 +160,7 @@ O `New-GuestConfigurationPackage` cmdlet cria o pacote. Parâmetros do `New-Gues
 - **Nome** : Nome do pacote de configuração do hóspede.
 - **Configuração** : Documento de configuração compilado no caminho completo.
 - **Caminho** : Caminho da pasta de saída. Este parâmetro é opcional. Se não for especificado, o pacote é criado no diretório atual.
-- **ChefProfilePath** : Caminho completo para o perfil InSpec. Este parâmetro só é suportado na criação de conteúdo para auditar o Linux.
+- **ChefInspecProfilePath** : Caminho completo para o perfil InSpec. Este parâmetro só é suportado na criação de conteúdo para auditar o Linux.
 
 Executar o seguinte comando para criar um pacote utilizando a configuração dada no passo anterior:
 
@@ -191,7 +191,7 @@ Test-GuestConfigurationPackage `
 O cmdlet também suporta a entrada do gasoduto PowerShell. Encaneie a saída do `New-GuestConfigurationPackage` cmdlet até ao `Test-GuestConfigurationPackage` cmdlet.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
+New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefInspecProfilePath './' | Test-GuestConfigurationPackage
 ```
 
 O próximo passo é publicar o ficheiro no Azure Blob Storage.  O comando `Publish-GuestConfigurationPackage` requer o `Az.Storage` módulo.
@@ -271,7 +271,7 @@ describe file(attr_path) do
 end
 ```
 
-Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parâmetro** . Este parâmetro requer um haxixe, incluindo todos os detalhes sobre cada parâmetro e cria automaticamente todas as secções necessárias dos ficheiros utilizados para criar cada definição de Política de Azure.
+Os cmdlets `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` incluem um parâmetro chamado **Parâmetro**. Este parâmetro requer um haxixe, incluindo todos os detalhes sobre cada parâmetro e cria automaticamente todas as secções necessárias dos ficheiros utilizados para criar cada definição de Política de Azure.
 
 O exemplo a seguir cria uma definição de política para auditar uma trajetória de ficheiro, onde o utilizador fornece o caminho no momento da atribuição da política.
 

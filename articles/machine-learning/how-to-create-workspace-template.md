@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631054"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305471"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -28,9 +28,9 @@ Para obter mais informações, consulte [Implementar uma aplicação com o model
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma **subscrição do Azure** . Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
+* Uma **subscrição do Azure**. Se não tiver uma, experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para utilizar um modelo a partir de um CLI, você precisa de [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) ou do [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Para utilizar um modelo a partir de um CLI, você precisa de [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) ou do [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 * Alguns cenários exigem que abra um bilhete de apoio. Estes cenários são:
 
@@ -69,7 +69,7 @@ O modelo de exemplo tem dois parâmetros **necessários:**
 > [!TIP]
 > Enquanto o modelo associado a este documento cria um novo registo de contentores Azure, também pode criar um novo espaço de trabalho sem criar um registo de contentores. Um deles será criado quando efetuar uma operação que requer um registo de contentores. Por exemplo, treinar ou implementar um modelo.
 >
-> Também pode fazer referência a um registo de contentores ou uma conta de armazenamento existente no modelo Azure Resource Manager, em vez de criar uma nova. No entanto, o registo do contentor que utiliza deve ter a __conta de administração__ ativada. Para obter informações sobre a habilitação da conta de administração, consulte [a conta Admin](/azure/container-registry/container-registry-authentication#admin-account).
+> Também pode fazer referência a um registo de contentores ou uma conta de armazenamento existente no modelo Azure Resource Manager, em vez de criar uma nova. No entanto, o registo do contentor que utiliza deve ter a __conta de administração__ ativada. Para obter informações sobre a habilitação da conta de administração, consulte [a conta Admin](../container-registry/container-registry-authentication.md#admin-account).
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -77,7 +77,7 @@ Para obter mais informações sobre os modelos, consulte os seguintes artigos:
 
 * [Modelos de gestor de recursos do autor Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Implementar uma aplicação com modelos de Gestor de Recursos Azure](../azure-resource-manager/templates/deploy-powershell.md)
-* [Microsoft.MachineLearningServes de recursos](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Microsoft.MachineLearningServes de recursos](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="deploy-template"></a>Implementar o modelo
 
@@ -254,7 +254,7 @@ New-AzResourceGroupDeployment `
 
 Ao utilizar uma chave gerida pelo cliente, a Azure Machine Learning cria um grupo de recursos secundários que contém a instância de DB cosmos. Para mais informações, consulte [a encriptação em repouso - Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
 
-Uma configuração adicional que pode fornecer para os seus dados é definir o parâmetro **confidential_data** para **verdadeiro** . Ao fazê-lo, faz o seguinte:
+Uma configuração adicional que pode fornecer para os seus dados é definir o parâmetro **confidential_data** para **verdadeiro**. Ao fazê-lo, faz o seguinte:
 
 * Começa a encriptar o disco de risco local para clusters de cálculo Azure Machine Learning, desde que não tenha criado nenhum cluster anterior na sua subscrição. Se criou previamente um cluster na subscrição, abra um bilhete de suporte para ter a encriptação do disco de risco ativado para os seus clusters de computação.
 * Limpa o disco de risco local entre as corridas.
@@ -541,7 +541,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Utilizar o portal do Azure
 
-1. Siga os passos na [implementação de recursos a partir do modelo personalizado.](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template) Quando chegar ao ecrã __do modelo,__ escolha o modelo **avançado de aprendizagem de 201 máquinas** a partir do dropdown.
+1. Siga os passos na [implementação de recursos a partir do modelo personalizado.](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template) Quando chegar ao ecrã __do modelo,__ escolha o modelo **avançado de aprendizagem de 201 máquinas** a partir do dropdown.
 1. __Selecione o modelo__ para usar o modelo. Forneça as seguintes informações necessárias e quaisquer outros parâmetros dependendo do seu cenário de implantação.
 
    * Subscrição: Selecione a subscrição Azure para utilizar para estes recursos.
@@ -549,7 +549,7 @@ New-AzResourceGroupDeployment `
    * Região: Selecione a região de Azure onde serão criados os recursos.
    * Nome do espaço de trabalho: O nome a usar para o espaço de trabalho Azure Machine Learning que será criado. O nome do espaço de trabalho deve ter entre 3 e 33 caracteres. Só pode conter caracteres alfanuméricos e "-".
    * Localização: Selecione o local onde os recursos serão criados.
-1. Selecione __Rever + criar__ .
+1. Selecione __Rever + criar__.
 1. No __Review + criar__ ecrã, concordar com os termos e condições listados e selecionar __Criar.__
 
 Para obter mais informações, consulte [implementar recursos a partir do modelo personalizado.](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)
@@ -576,7 +576,7 @@ Para evitar este problema, recomendamos uma das seguintes abordagens:
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Para obter mais informações sobre a `accessPolicies` utilização da secção do modelo, consulte a referência do [objeto AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Para obter mais informações sobre a `accessPolicies` utilização da secção do modelo, consulte a referência do [objeto AccessPolicyEntry](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
 * Verifique se o recurso Key Vault já existe. Se o fizer, não o recrie através do modelo. Por exemplo, para utilizar o Cofre de Chaves existente em vez de criar um novo, faça as seguintes alterações ao modelo:
 
@@ -655,7 +655,7 @@ Para evitar este problema, recomendamos uma das seguintes abordagens:
 
 ### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Rede virtual não ligada à zona privada de DNS
 
-Ao criar um espaço de trabalho com um ponto final privado, o modelo cria uma Zona Privada de DNS chamada __privatelink.api.azureml.ms__ . Uma __ligação de rede virtual__ é automaticamente adicionada a esta zona privada de DNS. O link é adicionado apenas para o primeiro espaço de trabalho e ponto final privado que você cria em um grupo de recursos; se criar outra rede virtual e espaço de trabalho com um ponto final privado no mesmo grupo de recursos, a segunda rede virtual pode não ser adicionada à zona privada de DNS.
+Ao criar um espaço de trabalho com um ponto final privado, o modelo cria uma Zona Privada de DNS chamada __privatelink.api.azureml.ms__. Uma __ligação de rede virtual__ é automaticamente adicionada a esta zona privada de DNS. O link é adicionado apenas para o primeiro espaço de trabalho e ponto final privado que você cria em um grupo de recursos; se criar outra rede virtual e espaço de trabalho com um ponto final privado no mesmo grupo de recursos, a segunda rede virtual pode não ser adicionada à zona privada de DNS.
 
 Para ver as ligações de rede virtual que já existem para a zona privada de DNS, utilize o seguinte comando Azure CLI:
 

@@ -4,12 +4,12 @@ description: 'Tutorial: Descreve como usar a Azure Event Grid e os Centros de Ev
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 64d4b9769e1a228294bd7d8741f6f4b1260fb0dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fb26bf92e6af1fd9e97f3b9434b4ab5e76316b3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270564"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305276"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Tutorial: Transmitir big data para um armazém de dados
 A Azure [Event Grid](overview.md) é um serviço inteligente de encaminhamento de eventos que lhe permite reagir a notificações (eventos) de apps e serviços. Por exemplo, pode desencadear uma Função Azure para processar dados do Event Hubs que foram capturados para um armazenamento Azure Blob ou Azure Data Lake Storage, e migrar os dados para outros repositórios de dados. Esta [amostra de integração de Centros de Eventos e Grelha de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra-lhe como usar os Centros de Eventos com a Grade de Eventos para migrar sem problemas dados de Centros de Eventos capturados, desde o armazenamento de blob até um Azure Synapse Analytics (anteriormente SQL Data Warehouse).
@@ -165,7 +165,7 @@ Feche a casca de nuvem selecionando o botão **Cloud Shell** no botão portal (o
 ### <a name="create-a-table-in-azure-synapse-analytics"></a>Criar uma tabela no Azure Synapse Analytics
 Crie uma tabela no seu armazém de dados executando o script [CreateDataWarehouseTable.sql.](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql) Para executar o script, pode utilizar o Visual Studio ou o Editor de Consulta no portal. Os seguintes passos mostram-lhe como usar o Editor de Consulta: 
 
-1. Na lista de recursos do grupo de recursos, selecione o seu **pool Synapse SQL (data warehouse)**. 
+1. Na lista de recursos do grupo de recursos, selecione a sua **piscina SQL dedicada.** 
 2. Na página Azure Synapse Analytics, selecione **Editor de Consulta (pré-visualização)** no menu esquerdo. 
 
     ![Página Azure Synapse Analytics](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
@@ -210,7 +210,7 @@ Crie uma tabela no seu armazém de dados executando o script [CreateDataWarehous
 4. Se vir o ecrã a seguir, selecione **Iniciar**. 
 
    ![Screenshot que mostra Visual Studios com o botão "Iniciar" na secção Publicar.](media/event-grid-event-hubs-integration/start-publish-button.png) 
-5. Na caixa de diálogo **publicar,** selecione **Azure** for **Target**e selecione **Seguinte**. 
+5. Na caixa de diálogo **publicar,** selecione **Azure** for **Target** e selecione **Seguinte**. 
 
    ![Começar a publicar botão](media/event-grid-event-hubs-integration/publish-select-azure.png)
 6. Selecione **Azure Function App (Windows)** e selecione **Next**. 
@@ -269,7 +269,7 @@ Terminou a configuração do seu centro de eventos, Azure Synapse Analytics, app
     ![Cadeia de conexão para o espaço de nome do centro de eventos](media/event-grid-event-hubs-integration/get-connection-string.png)
 1. Volte para a sua solução visual Studio. 
 2. No projeto WindTurbineDataGenerator, abra **program.cs**.
-5. Substitua os dois valores constantes. Utilize o valor copiado para **EventHubConnectionString**. Utilize **hubdatamigration**, o nome do hub de eventos. Se usou um nome diferente para o centro do evento, especifique esse nome. 
+5. Substitua os dois valores constantes. Utilize o valor copiado para **EventHubConnectionString**. Utilize **hubdatamigration** , o nome do hub de eventos. Se usou um nome diferente para o centro do evento, especifique esse nome. 
 
    ```cs
    private const string EventHubConnectionString = "Endpoint=sb://demomigrationnamespace.servicebus.windows.net/...";

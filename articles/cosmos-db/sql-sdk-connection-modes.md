@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: maquaran
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 95396f28fd835091258bccbfdb0a0c0eafebea91
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: 3eb10452dda0227bcada3a576d28fb55089397cb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093559"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305123"
 ---
 # <a name="azure-cosmos-db-sql-sdk-connectivity-modes"></a>Modos de conectividade Azure Cosmos DL SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

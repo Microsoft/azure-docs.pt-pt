@@ -8,17 +8,17 @@ ms.date: 04/05/2019
 ms.author: rogarana
 ms.subservice: tables
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e643a7ce5ccf4aa5107df1e505d90a0767517350
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a7502d48095fe18b983c1971d5145f51e766c95
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070416"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306903"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Realizar operações de armazenamento de mesa Azure com a Azure PowerShell 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
 
-O armazenamento de mesas Azure é uma loja de dados NoSQL que pode usar para armazenar e consultar enormes conjuntos de dados estruturados e não relacionais. Os principais componentes do serviço são as tabelas, entidades e propriedades. Uma mesa é uma coleção de entidades. Uma entidade é um conjunto de propriedades. Cada entidade pode ter até 252 propriedades, que são todos pares de valor-nome. Este artigo pressupõe que já está familiarizado com os conceitos do Serviço de Armazenamento de MesaS Azure. Para obter informações detalhadas, consulte [compreender o modelo de dados do serviço de tabela](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) e começar com o armazenamento da tabela [Azure usando .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md).
+O armazenamento de mesas Azure é uma loja de dados NoSQL que pode usar para armazenar e consultar enormes conjuntos de dados estruturados e não relacionais. Os principais componentes do serviço são as tabelas, entidades e propriedades. Uma mesa é uma coleção de entidades. Uma entidade é um conjunto de propriedades. Cada entidade pode ter até 252 propriedades, que são todos pares de valor-nome. Este artigo pressupõe que já está familiarizado com os conceitos do Serviço de Armazenamento de MesaS Azure. Para obter informações detalhadas, consulte [compreender o modelo de dados do serviço de tabela](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model) e começar com o armazenamento da tabela [Azure usando .NET](../../cosmos-db/tutorial-develop-table-dotnet.md).
 
 Este artigo abrange operações comuns de armazenamento da tabela Azure. Saiba como: 
 

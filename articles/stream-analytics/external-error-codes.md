@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: f963f4c3538146b7f9929960092a18294659be5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61d6556467bc6f1494e11ce3a01bf5266b740f3f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045251"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305786"
 ---
 # <a name="azure-stream-analytics-external-error-codes"></a>Códigos de erro externos Azure Stream Analytics
 
@@ -19,15 +19,15 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 
 ## <a name="adapterinitializationerror"></a>AdaptadorInitializaçãoError
 
-* **Causa**: Ocorreu um erro ao rubricar o adaptador.
+* **Causa** : Ocorreu um erro ao rubricar o adaptador.
 
 ## <a name="adapterfailedtowriteevents"></a>AdaptadorFailedToWriteEvents
 
-* **Causa**: Ocorreu um erro ao escrever dados a um adaptador.
+* **Causa** : Ocorreu um erro ao escrever dados a um adaptador.
 
 ## <a name="azurefunctionhttperror"></a>AzureFunctionHttpError
 
-* **Causa**: Um erro HTTP foi devolvido das funções Azure.
+* **Causa** : Um erro HTTP foi devolvido das funções Azure.
 
 ## <a name="azurefunctionfailedtosendmessage"></a>AzureFunctionFailedToSendMessage
 
@@ -35,7 +35,7 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 
 ## <a name="azurefunctionredirecterror"></a>AzureFunctionRedirectError
 
-* **Causa**: Existe um erro de redireccionamento ao desatado para funções Azure.
+* **Causa** : Existe um erro de redireccionamento ao desatado para funções Azure.
 
 ## <a name="azurefunctionclienterror"></a>AzureFunctionClientError
 
@@ -43,17 +43,17 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 
 ## <a name="azurefunctionservererror"></a>AzureFunctionServerError
 
-* **Causa**: Existe um erro de saída do servidor para as Funções Azure.
+* **Causa** : Existe um erro de saída do servidor para as Funções Azure.
 
 ## <a name="azurefunctionhttptimeouterror"></a>AzureFunctionHttpTimeOutError
 
-* **Causa**: As funções de escrita para Azure falharam, uma vez que o pedido http excedeu o tempo limite. 
-* **Recomendação**: Verifique os registos das funções Azure para eventuais atrasos.
+* **Causa** : As funções de escrita para Azure falharam, uma vez que o pedido http excedeu o tempo limite. 
+* **Recomendação** : Verifique os registos das funções Azure para eventuais atrasos.
 
 ## <a name="eventhubargumenterror"></a>EventHubArgumentError
 
 * **Causa:** As compensações de entrada são inválidas. Isto pode ser devido a um fracasso.
-* **Recomendação**: Reinicie o seu trabalho stream Analytics a partir da última hora de saída.
+* **Recomendação** : Reinicie o seu trabalho stream Analytics a partir da última hora de saída.
 
 ## <a name="eventhubfailedtowriteevents"></a>EventHubFailedToWriteEvents
 
@@ -61,11 +61,11 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 
 ## <a name="cosmosdbconnectionfailureaftermaxretries"></a>CosmosDBConnectionFailureAfterMaxRetries
 
-* **Causa**: Stream Analytics não conseguiu ligar-se a uma conta Cosmos DB após o número máximo de retrações.
+* **Causa** : Stream Analytics não conseguiu ligar-se a uma conta Cosmos DB após o número máximo de retrações.
 
 ## <a name="cosmosdbfailureaftermaxretries"></a>CosmosDBFailureAfterMaxRetries
 
-* **Causa**: Stream Analytics não conseguiu consultar a base de dados e recolha do Cosmos DB após o número máximo de retrações.
+* **Causa** : Stream Analytics não conseguiu consultar a base de dados e recolha do Cosmos DB após o número máximo de retrações.
 
 ## <a name="cosmosdbfailedtocreatestoredprocedure"></a>CosmosDBFailedToCreateStoredProcedure
 
@@ -73,7 +73,7 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 
 ## <a name="cosmosdboutputrequesttimeout"></a>CosmosDBOutoutrequestTimeout
 
-* **Causa**: O procedimento de retenção retornado devolveu um erro. 
+* **Causa** : O procedimento de retenção retornado devolveu um erro. 
 
 ## <a name="sqldatabaseoutputinitializationerror"></a>SQLDatabaseOutputInitializationError
 
@@ -85,11 +85,11 @@ Pode utilizar registos de atividades e registos de recursos para ajudar a depura
 
 ## <a name="sqldwoutputinitializationerror"></a>SQLDWOutputInitializaçãoError
 
-* **Causa**: Ocorreu um erro ao rubricar uma saída de piscina Synapse SQL.
+* **Causa** : Ocorreu um erro ao rubricar uma saída de piscina SQL dedicada.
 
 ## <a name="sqldwoutputwriteerror"></a>SQLDWOutputWriteError
 
-* **Causa**: Ocorreu um erro ao escrever a saída para uma piscina Sinapse SQL.
+* **Causa:** Ocorreu um erro ao escrever a saída para uma piscina SQL dedicada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

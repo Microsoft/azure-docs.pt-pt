@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed54fda744978ac43bbffc6a70d6b331e85dc5e7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720457"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305596"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>O ciclo de vida do processo de ciência de dados da equipa
 
@@ -43,12 +43,12 @@ O ciclo de vida TDSP é modelado como uma sequência de passos iterados que forn
 
 Para cada fase, fornecemos as seguintes informações:
 
-   * **Objetivos**: Os objetivos específicos.
-   * **Como fazê-lo**: Um esboço das tarefas específicas e orientação sobre como completá-las.
-   * **Artefactos**: Os resultados e o suporte para os produzir.
+   * **Objetivos** : Os objetivos específicos.
+   * **Como fazê-lo** : Um esboço das tarefas específicas e orientação sobre como completá-las.
+   * **Artefactos** : Os resultados e o suporte para os produzir.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Fornecemos caminhadas completas de ponta a ponta que demonstram todos os passos no processo para cenários específicos. O artigo [exemplo walkthroughs](walkthroughs.md) fornece uma lista dos cenários com links e descrições de miniaturas. As caminhadas ilustram como combinar ferramentas de nuvem, ferramentas no local e serviços em um fluxo de trabalho ou oleoduto para criar uma aplicação inteligente. 
 
-Por exemplo, como executar passos em TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Por exemplo, como executar passos em TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com Azure Machine Learning](./index.yml).

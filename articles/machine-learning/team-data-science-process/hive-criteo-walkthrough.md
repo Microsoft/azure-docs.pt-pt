@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e66bd0a4e56f63185d8361355d6cf8e0e29bc30b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336654"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305936"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O processo de ciência de dados da equipa em ação - Usando um cluster de hadoop Azure HDInsight num conjunto de dados de 1-TB
 
@@ -50,11 +50,11 @@ Faltam valores nas colunas numéricas e categóricas neste conjunto de dados. É
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Exemplos de tarefas de previsão
 Dois problemas de previsão da amostra são abordados nesta passagem:
 
-1. **Classificação binária**: Prevê se um utilizador clicou num suplemento:
+1. **Classificação binária** : Prevê se um utilizador clicou num suplemento:
 
    * Classe 0: Sem Clique
    * Classe 1: Clique
-2. **Regressão**: Prevê a probabilidade de um clique de anúncio a partir das funcionalidades do utilizador.
+2. **Regressão** : Prevê a probabilidade de um clique de anúncio a partir das funcionalidades do utilizador.
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-data-science"></a><a name="setup"></a>Configurar um cluster HDInsight Hadoop para a ciência dos dados
 > [!NOTE]
@@ -63,7 +63,7 @@ Dois problemas de previsão da amostra são abordados nesta passagem:
 Crie o seu ambiente Azure Data Science para construir soluções de análise preditiva com clusters HDInsight em três etapas:
 
 1. [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md): Esta conta de armazenamento é usada para armazenar dados no Azure Blob Storage. Os dados utilizados nos clusters HDInsight são armazenados aqui.
-2. [Personalizar clusters Hadoop Azure HDInsight para a Ciência](customize-hadoop-cluster.md)dos Dados : Este passo cria um cluster Azure HDInsight Hadoop com 64 bits Anaconda Python 2.7 instalado em todos os nós. Existem dois passos importantes (descritos neste tópico) para completar ao personalizar o cluster HDInsight.
+2. [Personalizar clusters Hadoop Azure HDInsight para a Ciência](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)dos Dados : Este passo cria um cluster Azure HDInsight Hadoop com 64 bits Anaconda Python 2.7 instalado em todos os nós. Existem dois passos importantes (descritos neste tópico) para completar ao personalizar o cluster HDInsight.
 
    * Ligue a conta de armazenamento criada no passo 1 com o seu cluster HDInsight quando for criada. Esta conta de armazenamento é utilizada para aceder a dados que podem ser processados dentro do cluster.
    * Ativar o acesso remoto ao nó de cabeça do cluster após a sua criação. Lembre-se das credenciais de acesso remoto que especifica aqui (diferentes das credenciais especificadas na criação do cluster): complete os seguintes procedimentos.
@@ -76,7 +76,7 @@ O conjunto de dados [criteo](https://labs.criteo.com/downloads/download-terabyte
 
 Clique **em Continuar a Baixar** para ler mais sobre o conjunto de dados e a sua disponibilidade.
 
-Os dados residem num local de [armazenamento de bolhas Azure:](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ . O "wasb" refere-se ao local de armazenamento da Mancha Azure.
+Os dados residem num local de [armazenamento de bolhas Azure:](../../storage/blobs/storage-quickstart-blobs-dotnet.md) wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ . O "wasb" refere-se ao local de armazenamento da Mancha Azure.
 
 1. Os dados deste armazenamento de bolhas Azure consistem em três sub-dobradeiras de dados não abertos.
 
@@ -99,7 +99,7 @@ Aqui está o que um primeiro login típico para o headnode cluster parece:
 Agora está configurado e pronto para começar a primeira parte da passagem: exploração de dados usando a Hive e preparando os dados para o Azure Machine Learning.
 
 ## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Criar base de dados e tabelas de Colmeias
-Para criar tabelas de Colmeia para o nosso conjunto de dados Criteo, abra a Linha de ***Comando Hadoop*** no ambiente de trabalho do nó de cabeça e insira o diretório da Colmeia inserindo o comando
+Para criar tabelas de Colmeia para o nosso conjunto de dados Criteo, abra a * Linha de *_Comando Hadoop_* _ no ambiente de trabalho do nó de cabeça, e insira o diretório da Colmeia inserindo o comando
 
 ```console
 cd %hive_home%\bin
@@ -118,7 +118,7 @@ Depois da Colmeia REPL aparecer com um sinal de "colmeia >", basta cortar e cola
 
 O seguinte código cria uma base de dados "criteo" e gera então quatro tabelas:
 
-* uma *tabela para gerar contagens* construídas nos dias \_ 00 até dia \_ 20,
+_ uma *tabela para gerar contagens* construídas nos dias \_ 00 até dia \_ 20,
 * uma *tabela para uso como o conjunto de dados do comboio* construído no dia \_ 21, e
 * duas *tabelas para utilização como conjuntos de dados de teste construídos* no dia \_ 22 e \_ dia 23, respectivamente.
 
@@ -161,7 +161,7 @@ Todas estas tabelas são externas para que possa indicar as suas localizações 
 
 **Existem duas formas de executar qualquer consulta de Colmeia:**
 
-* **Utilizando a linha de comando Hive REPL**: A primeira é emitir um comando "colmeia" e copiar e colar uma consulta na linha de comando Hive REPL:
+* **Utilizando a linha de comando Hive REPL** : A primeira é emitir um comando "colmeia" e copiar e colar uma consulta na linha de comando Hive REPL:
 
   ```console
   cd %hive_home%\bin
@@ -169,7 +169,7 @@ Todas estas tabelas são externas para que possa indicar as suas localizações 
   ```
 
      Agora, na linha de comando da REPL, cortar e colar a consulta executa-a.
-* **Guardar consultas para um ficheiro e executar o comando**: A segunda é guardar as consultas para um ficheiro '.hql'[(amostra&#95;colmeia&#95;criar&#95;base de dados criteo&#95;&#95;e&#95;tabelas.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) e, em seguida, emitir o seguinte comando para executar a consulta:
+* **Guardar consultas para um ficheiro e executar o comando** : A segunda é guardar as consultas para um ficheiro '.hql' [(amostra&#95;colmeia&#95;criar&#95;base de dados criteo&#95;&#95;e&#95;tabelas.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) e, em seguida, emitir o seguinte comando para executar a consulta:
 
   ```console
   hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
@@ -354,7 +354,7 @@ Isto rende:
 Time taken: 448.116 seconds, Fetched: 1 row(s)
 ```
 
-Col15 tem 19M valores únicos! Usar técnicas ingénuas como a "codificação de um só hot" para codificar tais variáveis categóricas de alta dimensão não é viável. Em particular, uma técnica poderosa e robusta chamada [Learning With Counts](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para enfrentar este problema de forma eficiente é explicada e demonstrada.
+Col15 tem 19M valores únicos! Usar técnicas ingénuas como a "codificação de um só hot" para codificar tais variáveis categóricas de alta dimensão não é viável. Em particular, uma técnica poderosa e robusta chamada [Learning With Counts](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) para enfrentar este problema de forma eficiente é explicada e demonstrada.
 
 Finalmente olhe para o número de valores únicos para algumas outras colunas categóricas também. O conteúdo da [amostra&#95;colmeia&#95;criteo&#95;valores&#95;únicos&#95;múltiplos&#95;categóricos.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) são:
 
@@ -472,7 +472,7 @@ Com isto, está pronto para usar o nosso comboio e conjuntos de dados de teste p
 Há um componente importante final antes de passar para a Azure Machine Learning, que diz respeito à tabela de contagem. Na próxima subsecção, a tabela de contagem é discutida em alguns detalhes.
 
 ## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a> Uma breve discussão na mesa de contagem
-Como viu, várias variáveis categóricas têm uma alta dimensionalidade. No walkthrough, é apresentada uma poderosa técnica chamada [Learning With Counts](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para codificar estas variáveis de forma eficiente e robusta. Mais informações sobre esta técnica estão no link fornecido.
+Como viu, várias variáveis categóricas têm uma alta dimensionalidade. No walkthrough, é apresentada uma poderosa técnica chamada [Learning With Counts](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) para codificar estas variáveis de forma eficiente e robusta. Mais informações sobre esta técnica estão no link fornecido.
 
 >[!NOTE]
 >Nesta passagem, o foco está em usar tabelas de contagem para produzir representações compactas de características categóricas de alta dimensão. Esta não é a única forma de codificar características categóricas; para obter mais informações sobre outras técnicas, os utilizadores interessados podem conferir mais informações sobre [a codificação](https://en.wikipedia.org/wiki/One-hot) e [o hashing de recursos.](https://en.wikipedia.org/wiki/Feature_hashing)
@@ -502,13 +502,13 @@ Para o módulo **Dados de Importação,** os valores dos parâmetros fornecidos 
 
 1. Escolha "Consulta de colmeia" para **Fonte de Dados**
 2. Na caixa de consulta de **base de dados da Hive,** basta um simples SELECT * FROM <o nome da \_ base de \_ dados.o nome da sua \_ mesa> - é \_ suficiente.
-3. **Hcatalog servidor URI**: Se o seu cluster é "abc", então isto é simplesmente: https: \/ /abc.azurehdinsight.net
-4. **Nome da conta do utilizador Hadoop**: O nome de utilizador escolhido no momento da colocação em funcionamento do cluster. (NÃO o nome de utilizador do Acesso Remoto!)
-5. **Palavra-passe da conta de utilizador Hadoop**: A palavra-passe para o nome de utilizador escolhido no momento da colocação em funcionamento do cluster. (NÃO a palavra-passe de Acesso Remoto!)
-6. **Localização dos dados de saída**: Escolha "Azure"
-7. **Nome da conta de Armazenamento Azure**: A conta de armazenamento associada ao cluster
-8. **Chave da conta de armazenamento Azure**: A chave da conta de armazenamento associada ao cluster.
-9. **Nome do recipiente azul**: Se o nome do cluster for "abc", então isto é simplesmente "abc", normalmente.
+3. **Hcatalog servidor URI** : Se o seu cluster é "abc", então isto é simplesmente: https: \/ /abc.azurehdinsight.net
+4. **Nome da conta do utilizador Hadoop** : O nome de utilizador escolhido no momento da colocação em funcionamento do cluster. (NÃO o nome de utilizador do Acesso Remoto!)
+5. **Palavra-passe da conta de utilizador Hadoop** : A palavra-passe para o nome de utilizador escolhido no momento da colocação em funcionamento do cluster. (NÃO a palavra-passe de Acesso Remoto!)
+6. **Localização dos dados de saída** : Escolha "Azure"
+7. **Nome da conta de Armazenamento Azure** : A conta de armazenamento associada ao cluster
+8. **Chave da conta de armazenamento Azure** : A chave da conta de armazenamento associada ao cluster.
+9. **Nome do recipiente azul** : Se o nome do cluster for "abc", então isto é simplesmente "abc", normalmente.
 
 Assim que os **Dados de Importação** terminarem de obter dados (vê o tique-taque verde no Módulo), guarde estes dados como um Conjunto de Dados (com um nome à sua escolha). O que isto parece:
 

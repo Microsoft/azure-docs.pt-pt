@@ -10,18 +10,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.custom: how-to
-ms.openlocfilehash: eb1a3c1f306b6941987d0981967cf5d096a68735
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: cb4e57cfe8b7494b7d5c38869f83190bff76ef2a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133678"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305775"
 ---
 # <a name="make-predictions-with-an-automl-onnx-model-in-net"></a>Faça previsões com um modelo AutoML ONNX em .NET
 
 Neste artigo, aprende-se a utilizar um modelo automatizado de ML (AutoML) Open Neural Network Exchange (ONNX) para fazer previsões numa aplicação de consola C# .NET Core com ML.NET.
 
-[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/) é um quadro de aprendizagem automática de código aberto, transversal para o ecossistema .NET que permite treinar e consumir modelos de aprendizagem automática personalizados utilizando uma abordagem de código em C# ou F# bem como através de ferramentas de baixo código como [Model Builder](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-model-builder) e o [ML.NET CLI](https://docs.microsoft.com/dotnet/machine-learning/automate-training-with-cli). A estrutura também é extensível e permite-lhe alavancar outros quadros populares de aprendizagem automática como o TensorFlow e o ONNX.
+[ML.NET](/dotnet/machine-learning/) é um quadro de aprendizagem automática de código aberto, transversal para o ecossistema .NET que permite treinar e consumir modelos de aprendizagem automática personalizados utilizando uma abordagem de código em C# ou F# bem como através de ferramentas de baixo código como [Model Builder](/dotnet/machine-learning/automate-training-with-model-builder) e o [ML.NET CLI](/dotnet/machine-learning/automate-training-with-cli). A estrutura também é extensível e permite-lhe alavancar outros quadros populares de aprendizagem automática como o TensorFlow e o ONNX.
 
 O ONNX é um formato de código aberto para modelos de IA. A ONNX apoia a interoperabilidade entre quadros. Isto significa que você pode treinar um modelo em um dos muitos quadros populares de aprendizagem de máquinas como PyTorch, convertê-lo em formato ONNX, e consumir o modelo ONNX em um quadro diferente como ML.NET. Para saber mais, visite o site da [ONNX.](https://onnx.ai/)
 
@@ -34,7 +34,7 @@ O ONNX é um formato de código aberto para modelos de IA. A ONNX apoia a intero
 
 ## <a name="create-a-c-console-application"></a>Criar uma aplicação de consola C#
 
-Nesta amostra, utiliza o CLI .NET Core para construir a sua aplicação, mas pode fazer as mesmas tarefas utilizando o Visual Studio. Saiba mais sobre o [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/).
+Nesta amostra, utiliza o CLI .NET Core para construir a sua aplicação, mas pode fazer as mesmas tarefas utilizando o Visual Studio. Saiba mais sobre o [.NET Core CLI](/dotnet/core/tools/).
 
 1. Abra um terminal e crie uma nova aplicação de consola C# .NET Core. Neste exemplo, o nome da aplicação é `AutoMLONNXConsoleApp` . Um diretório é criado com o mesmo nome com o conteúdo da sua aplicação.
 
@@ -71,7 +71,7 @@ Nesta amostra, utiliza o CLI .NET Core para construir a sua aplicação, mas pod
 
 ## <a name="add-a-reference-to-the-onnx-model"></a>Adicione uma referência ao modelo ONNX
 
-Uma forma de a aplicação da consola aceder ao modelo ONNX é adicioná-la ao diretório de saída de construção.  Para saber mais sobre os itens comuns da MSBuild, consulte o [guia MSBuild](https://docs.microsoft.com/visualstudio/msbuild/common-msbuild-project-items).
+Uma forma de a aplicação da consola aceder ao modelo ONNX é adicioná-la ao diretório de saída de construção.  Para saber mais sobre os itens comuns da MSBuild, consulte o [guia MSBuild](/visualstudio/msbuild/common-msbuild-project-items).
 
 Adicione uma referência ao seu ficheiro modelo ONNX na sua aplicação
 
@@ -86,7 +86,7 @@ Adicione uma referência ao seu ficheiro modelo ONNX na sua aplicação
     </ItemGroup>
     ```
 
-    Neste caso, o nome do ficheiro modelo ONNX é *automl-model.onnx* .
+    Neste caso, o nome do ficheiro modelo ONNX é *automl-model.onnx*.
 
 1. Abra o ficheiro *Program.cs* e adicione a seguinte linha dentro da `Program` classe.
 
@@ -161,7 +161,7 @@ O [`ColumnName`](xref:Microsoft.ML.Data.ColumnNameAttribute) atributo permite es
   
 Para valores numéricos, ML.NET funciona apenas com [`Single`](xref:System.Single) tipos de valor. No entanto, o tipo de dados original de algumas das colunas são inteiros. Os [`OnnxMapType`](xref:Microsoft.ML.Transforms.Onnx.OnnxMapTypeAttribute) tipos de mapas de atributos entre ONNX e ML.NET.
 
-Para saber mais sobre os atributos de dados, consulte o [guia de dados de ML.NET carregar](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/load-data-ml-net).
+Para saber mais sobre os atributos de dados, consulte o [guia de dados de ML.NET carregar](/dotnet/machine-learning/how-to-guides/load-data-ml-net).
 
 ### <a name="define-model-output-schema"></a>Definir esquema de saída de modelo
 
@@ -179,7 +179,7 @@ Semelhante a `OnnxInput` , use o atributo para [`ColumnName`](xref:Microsoft.ML.
 
 ## <a name="define-a-prediction-pipeline"></a>Definir um oleoduto de previsão
 
-Um oleoduto em ML.NET é tipicamente uma série de transformações acorrentadas que operam nos dados de entrada para produzir uma saída. Para saber mais sobre as transformações de dados, consulte o [guia de transformação de dados ML.NET.](https://docs.microsoft.com/dotnet/machine-learning/resources/transforms)
+Um oleoduto em ML.NET é tipicamente uma série de transformações acorrentadas que operam nos dados de entrada para produzir uma saída. Para saber mais sobre as transformações de dados, consulte o [guia de transformação de dados ML.NET.](/dotnet/machine-learning/resources/transforms)
 
 1. Criar um novo método chamado `GetPredictionPipeline` dentro da `Program` classe
 
@@ -226,7 +226,7 @@ Um oleoduto em ML.NET é tipicamente uma série de transformações acorrentadas
     O [`Fit`](xref:Microsoft.ML.IEstimator%601.Fit%2A) método espera uma entrada como entrada para realizar as [`IDataView`](xref:Microsoft.ML.IDataView) operações. Uma [`IDataView`](xref:Microsoft.ML.IDataView) é uma forma de representar dados em ML.NET usando um formato tabular. Dado que neste caso o gasoduto é utilizado apenas para previsões, pode fornecer um vazio [`IDataView`](xref:Microsoft.ML.IDataView) para fornecer [`ITransformer`](xref:Microsoft.ML.ITransformer) a informação necessária sobre o esquema de entrada e saída. O equipado [`ITransformer`](xref:Microsoft.ML.ITransformer) é então devolvido para posterior utilização na sua aplicação.
 
     > [!TIP]
-    > Nesta amostra, o gasoduto é definido e utilizado dentro da mesma aplicação. No entanto, recomenda-se que utilize aplicações separadas para definir e utilizar o seu pipeline para fazer previsões. Na ML.NET os seus oleodutos podem ser serializados e guardados para posterior utilização noutras aplicações de utilizador final .NET. ML.NET suporta vários alvos de implementação, tais como aplicações de desktop, serviços web, aplicações WebAssembly*, e muito mais. Para saber mais sobre a poupança de gasodutos, consulte o [guia de modelos ML.NET economizadores e de carga.](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net)
+    > Nesta amostra, o gasoduto é definido e utilizado dentro da mesma aplicação. No entanto, recomenda-se que utilize aplicações separadas para definir e utilizar o seu pipeline para fazer previsões. Na ML.NET os seus oleodutos podem ser serializados e guardados para posterior utilização noutras aplicações de utilizador final .NET. ML.NET suporta vários alvos de implementação, tais como aplicações de desktop, serviços web, aplicações WebAssembly*, e muito mais. Para saber mais sobre a poupança de gasodutos, consulte o [guia de modelos ML.NET economizadores e de carga.](/dotnet/machine-learning/how-to-guides/save-load-machine-learning-models-ml-net)
     >
     > *WebAssembly só é suportado em .NET Core 5 ou superior
 
@@ -284,9 +284,9 @@ Agora que tens um oleoduto, está na altura de o usares para fazer previsões. M
     Predicted Fare: 15.621523
     ```
 
-Para saber mais sobre fazer previsões em ML.NET, consulte o [uso de um modelo para fazer guia de previsões.](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net)
+Para saber mais sobre fazer previsões em ML.NET, consulte o [uso de um modelo para fazer guia de previsões.](/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Implemente o seu modelo como um ASP.NET Core Web API](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
-- [Implemente o seu modelo como uma função de azure sem servidor .NET](https://docs.microsoft.com/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)
+- [Implemente o seu modelo como um ASP.NET Core Web API](/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
+- [Implemente o seu modelo como uma função de azure sem servidor .NET](/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: dd055eecaef00a2f3b555034f44f3c04684a1722
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 2857989fb09555ecd808bfdba95bcf58e4444594
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171870"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93304895"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento sinapse
 
@@ -37,7 +37,7 @@ O **Centro de Conhecimento** permite-lhe fazer três coisas:
 * **Amostra disponível do navegador.** Esta opção permite-lhe ligar conjuntos de dados de amostra e adicionar código de amostra sob a forma de scripts, cadernos e oleodutos SQL.
 * **Estúdio Tour Synapse**. Esta opção leva-o a uma breve visita às partes básicas do Synapse Studio. Isto é útil se nunca usou o Synapse Studio antes.
 
-## <a name="exploring-blob-storage-with-sql-on-demand"></a>Explorando o armazenamento de bolhas com SQL a pedido
+## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Explorando o armazenamento de bolhas com piscina SQL sem servidor
 
 1. O **Centro de Conhecimento,** clique em **Utilizar amostras imediatamente**
 1. **Selecione dados de consulta com SQL** 
@@ -50,7 +50,7 @@ O **Centro de Conhecimento** permite-lhe fazer três coisas:
 1. O **Knowledge Center,** clique em **procurar amostras disponíveis** 
 1. Selecione o separador **de scripts SQL** no topo
 1. Selecione **Carregar o conjunto de dados do Táxi de Nova Iorque**
-1. Em **Entradas**, escolha **selecionar uma piscina existente** e selecione **SQLDB1**
+1. Em **Entradas** , escolha **selecionar uma piscina existente** e selecione **SQLDB1**
 1. Clique **em escrever aberto**
 1. Aparecerá um novo script SQL.
 1. Clique **em Executar**
@@ -60,4 +60,4 @@ O **Centro de Conhecimento** permite-lhe fazer três coisas:
 
 * [Começa com o Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)
-* [Utilizar o SQL a pedido](quickstart-sql-on-demand.md)
+* [Use a piscina SQL sem servidor](quickstart-sql-on-demand.md)

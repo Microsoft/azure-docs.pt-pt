@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3845c5e5d7cf6bb372744fb3c740c44aa2b94236
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336450"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305617"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase de modelação do ciclo de vida do processo de ciência de dados da equipa
 
@@ -41,8 +41,8 @@ Aqui está uma representação visual do ciclo de vida TDSP:
 ## <a name="how-to-do-it"></a>Como fazê-lo
 Há três tarefas principais abordadas nesta fase:
 
-  * **Engenharia de recursos**: Criar características de dados a partir dos dados brutos para facilitar a formação de modelos.
-  * **Formação de modelos**: Encontre o modelo que responda a pergunta com mais precisão, comparando as suas métricas de sucesso.
+  * **Engenharia de recursos** : Criar características de dados a partir dos dados brutos para facilitar a formação de modelos.
+  * **Formação de modelos** : Encontre o modelo que responda a pergunta com mais precisão, comparando as suas métricas de sucesso.
   * Determine se o seu modelo é **adequado para a produção.**
 
 ### <a name="feature-engineering"></a>Desenvolvimento de funcionalidades
@@ -59,11 +59,11 @@ O processo de formação de modelos inclui os seguintes passos:
 
    * **Divida os dados de entrada** aleatoriamente para modelar num conjunto de dados de treino e num conjunto de dados de teste.
    * **Construa os modelos** utilizando o conjunto de dados de treino.
-   * **Avalie** o conjunto de dados de treino e teste. Utilize uma série de algoritmos de aprendizagem automática concorrentes juntamente com os vários parâmetros de afinação associados (conhecidos como varredura de *parâmetros*) que são orientados para responder à questão do interesse com os dados atuais.
+   * **Avalie** o conjunto de dados de treino e teste. Utilize uma série de algoritmos de aprendizagem automática concorrentes juntamente com os vários parâmetros de afinação associados (conhecidos como varredura de *parâmetros* ) que são orientados para responder à questão do interesse com os dados atuais.
    * **Determine a solução "melhor"** para responder à pergunta comparando as métricas de sucesso entre métodos alternativos.
 
 > [!NOTE]
-> **Evite fugas**: Pode causar fugas de dados se incluir dados de fora do conjunto de dados de treino que permitem que um modelo ou algoritmo de aprendizagem automática faça previsões irrealistas. A fuga é uma razão comum para os cientistas de dados ficarem nervosos quando obtêm resultados preditivos que parecem demasiado bons para serem verdade. Estas dependências podem ser difíceis de detetar. Para evitar fugas, muitas vezes requer iteração entre a construção de um conjunto de dados de análise, a criação de um modelo e a avaliação da precisão dos resultados. 
+> **Evite fugas** : Pode causar fugas de dados se incluir dados de fora do conjunto de dados de treino que permitem que um modelo ou algoritmo de aprendizagem automática faça previsões irrealistas. A fuga é uma razão comum para os cientistas de dados ficarem nervosos quando obtêm resultados preditivos que parecem demasiado bons para serem verdade. Estas dependências podem ser difíceis de detetar. Para evitar fugas, muitas vezes requer iteração entre a construção de um conjunto de dados de análise, a criação de um modelo e a avaliação da precisão dos resultados. 
 > 
 > 
 
@@ -74,7 +74,7 @@ Os artefactos produzidos nesta fase incluem:
 
    * [Conjuntos de características](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): As funcionalidades desenvolvidas para a modelação são descritas na secção conjuntos de **funcionalidades** do relatório de definição de **dados.** Contém ponteiros do código para gerar as funcionalidades e uma descrição de como a funcionalidade foi gerada.
    * [Relatório do modelo](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): Para cada modelo que é experimentado, é produzido um relatório padrão baseado em modelos que fornece detalhes sobre cada experiência.
-   * **Decisão do ponto de verificação**: Avaliar se o modelo funciona o suficiente para a produção. Algumas perguntas-chave a fazer são:
+   * **Decisão do ponto de verificação** : Avaliar se o modelo funciona o suficiente para a produção. Algumas perguntas-chave a fazer são:
      * O modelo responde à pergunta com confiança suficiente dado os dados do teste? 
      * Deve tentar alguma abordagem alternativa? Deve recolher dados adicionais, fazer mais engenharia de recursos ou experimentar outros algoritmos?
 
@@ -90,4 +90,4 @@ Aqui estão as ligações a cada passo no ciclo de vida do TDSP:
 
 Fornecemos caminhadas completas de ponta a ponta que demonstram todos os passos no processo para cenários específicos. O artigo [exemplo walkthroughs](walkthroughs.md) fornece uma lista dos cenários com links e descrições de miniaturas. As caminhadas ilustram como combinar ferramentas de nuvem, ferramentas no local e serviços em um fluxo de trabalho ou oleoduto para criar uma aplicação inteligente. 
 
-Por exemplo, como executar passos em TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Por exemplo, como executar passos em TDSPs que utilizam o Azure Machine Learning Studio, consulte [utilizar o TDSP com Azure Machine Learning](./index.yml).

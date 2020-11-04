@@ -1,7 +1,7 @@
 ---
 title: Paridade entre regiões públicas e soberanas
 titleSuffix: Azure Machine Learning
-description: Algumas funcionalidades do Azure Machine Learning, como as funcionalidades de pré-visualização do público, só podem estar disponíveis em regiões de nuvem pública. Este artigo lista as funcionalidades também disponíveis nas regiões Azure, Azure Germany e Azure China 21Vianet.
+description: Este artigo lista a paridade entre a nuvem pública e o Governo de Azure, Azure Alemanha, e as regiões Azure China 21Vianet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426527"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305745"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Azure Machine Learning paridade de nuvem soberana
 
@@ -56,7 +56,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Notebook do espaço de trabalho e partilha de arquivos                                        | GA                   | SIM                | SIM         |
 | Apoio R e Python                                                       | GA                   | SIM                | SIM         |
 | Suporte de Rede Virtual                                                    | Pré-visualização pública       | NO                 | NO          |
-| **Instância computacional** |   |  | | 
+| **Instância de computação** |   |  | | 
 | Casos de computação gerido para cadernos integrados                         | GA                   | SIM                | SIM         |
 | Jupyter, Integração jupyterLab                                            | GA                   | SIM                | SIM         |
 | Suporte de Rede Virtual (VNet)                                             | Pré-visualização pública       | SIM                | SIM         |
@@ -104,7 +104,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | **Inferência** |   | | |
 | Inferenculação de lote                                                          | GA                   | SIM                | SIM         |
 | Borda da Caixa de Dados com FPGA                                                    | Pré-visualização pública       | NO                 | NO          |
-| **Outro** |   | | |
+| **Outros** |   | | |
 | Open Datasets                                                              | Pré-visualização pública       | SIM                | SIM         |
 | Pesquisa Cognitiva Personalizada                                                    | Pré-visualização pública       | SIM                | SIM         |
 | Muitos Modelos                                                                | Pré-visualização pública       | NO                 | NO          |
@@ -169,7 +169,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | Notebook do espaço de trabalho e partilha de arquivos                                        | GA               | SIM       | N/D        |
 | Apoio R e Python                                                       | GA               | SIM       | N/D        |
 | Suporte de Rede Virtual                                                    | Pré-visualização pública   | NO        | N/D        |
-| **Instância computacional** |    | | |
+| **Instância de computação** |    | | |
 | Casos de computação gerido para cadernos integrados                         | GA               | NO        | N/D        |
 | Jupyter, Integração jupyterLab                                            | GA               | SIM       | N/D        |
 | Suporte de Rede Virtual (VNet)                                             | Pré-visualização pública   | SIM       | N/D        |
@@ -217,7 +217,7 @@ Pretendemos proporcionar a máxima paridade entre a nossa nuvem pública e as re
 | **Inferência** |   | | |
 | Inferenculação de lote                                                          | GA               | SIM       | N/D        |
 | Borda da Caixa de Dados com FPGA                                                    | Pré-visualização pública   | NO        | N/D        |
-| **Outro** |    | | |
+| **Outros** |    | | |
 | Open Datasets                                                              | Pré-visualização pública   | SIM       | N/D        |
 | Pesquisa Cognitiva Personalizada                                                    | Pré-visualização pública   | SIM       | N/D        |
 | Muitos Modelos                                                                | Pré-visualização pública   | NO        | N/D        |

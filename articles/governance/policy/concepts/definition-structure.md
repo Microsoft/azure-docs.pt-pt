@@ -1,18 +1,18 @@
 ---
 title: Detalhes da estrutura de definição de políticas
 description: Descreve como as definições de política são usadas para estabelecer convenções para recursos Azure na sua organização.
-ms.date: 10/05/2020
+ms.date: 10/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8e7cea1d03b0a236b9a485c2e640d7bf3f4e8e7e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5f9a110247d4ec93c8f3fb95fc9ed61eb6806787
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132487"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305160"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição do Azure Policy
 
-A Política Azure estabelece convenções para os recursos. As definições de política descrevem [as condições](#conditions) de conformidade dos recursos e o efeito a ter em conta se uma condição for satisfeita. Uma condição compara um [campo](#fields) de propriedade de recurso a um valor necessário. Os campos de propriedade de recursos são acedidos através [de pseudónimos.](#aliases) Um campo de propriedade de recursos é um campo de valor único ou uma [matriz](#understanding-the--alias) de múltiplos valores. A avaliação da condição é diferente nas matrizes.
+A Política Azure estabelece convenções para os recursos. As definições de política descrevem [as condições](#conditions) de conformidade dos recursos e o efeito a ter em conta se uma condição for satisfeita. Uma condição compara um [campo](#fields) de propriedade de recurso ou um [valor](#value) a um valor exigido. Os campos de propriedade de recursos são acedidos através [de pseudónimos.](#aliases) Quando um campo de propriedade de recursos é uma matriz, um pseudónimo de matriz especial pode ser usado para selecionar valores de todos os [membros](#understanding-the--alias) da matriz e aplicar uma condição a cada um.
 Saiba mais sobre [as condições.](#conditions)
 
 Ao definir convenções, pode controlar os custos e gerir mais facilmente os seus recursos. Por exemplo, pode especificar que apenas certos tipos de máquinas virtuais são permitidos. Ou pode exigir que os recursos tenham uma etiqueta particular. As atribuições políticas são herdadas por recursos infantis. Se uma atribuição de política for aplicada a um grupo de recursos, é aplicável a todos os recursos desse grupo de recursos.
@@ -75,7 +75,7 @@ Azure Policy incorporados e padrões estão em [amostras da Política Azure](../
 Usa **o nome e** **a descrição** do display Para identificar a definição de política e fornecer contexto para quando for usado. **displayName** tem um comprimento máximo de _128_ caracteres e **descrição** de um comprimento máximo de _512_ caracteres.
 
 > [!NOTE]
-> Durante a criação ou atualização de uma definição de política, **id,** **tipo**e **nome** são definidos por propriedades externas ao JSON e não são necessários no ficheiro JSON. A obtenção da definição de política via SDK devolve o **id**, **tipo**, e propriedades de **nome** como parte do JSON, mas cada uma delas são apenas informações de leitura relacionadas com a definição de política.
+> Durante a criação ou atualização de uma definição de política, **id,** **tipo** e **nome** são definidos por propriedades externas ao JSON e não são necessários no ficheiro JSON. A obtenção da definição de política via SDK devolve o **id** , **tipo** , e propriedades de **nome** como parte do JSON, mas cada uma delas são apenas informações de leitura relacionadas com a definição de política.
 
 ## <a name="type"></a>Tipo
 
@@ -83,7 +83,7 @@ Embora a propriedade **tipo** não possa ser definida, existem três valores que
 
 - `Builtin`: Estas definições de política são fornecidas e mantidas pela Microsoft.
 - `Custom`: Todas as definições de política criadas pelos clientes têm este valor.
-- `Static`: Indica uma definição de política [de conformidade regulamentar](./regulatory-compliance.md) com a Propriedade **da**Microsoft . Os resultados de conformidade destas definições de política são os resultados de auditorias de terceiros sobre a infraestrutura da Microsoft. No portal Azure, este valor é por vezes apresentado à medida **que a Microsoft conseguiu**. Para mais informações, consulte [responsabilidade partilhada na nuvem.](../../../security/fundamentals/shared-responsibility.md)
+- `Static`: Indica uma definição de política [de conformidade regulamentar](./regulatory-compliance.md) com a Propriedade **da** Microsoft . Os resultados de conformidade destas definições de política são os resultados de auditorias de terceiros sobre a infraestrutura da Microsoft. No portal Azure, este valor é por vezes apresentado à medida **que a Microsoft conseguiu**. Para mais informações, consulte [responsabilidade partilhada na nuvem.](../../../security/fundamentals/shared-responsibility.md)
 
 ## <a name="mode"></a>Modo
 
@@ -106,7 +106,7 @@ Recomendamos que desfase o **modo** `all` na maioria dos casos. Todas as defini�
 
 O seguinte modo fornecedor de recursos é totalmente suportado:
 
-- `Microsoft.Kubernetes.Data` para gerir os seus clusters Kubernetes em ou fora de Azure. Definições que utilizam este modo de fornecedor de recursos utilizam _auditoria_de efeitos, _negar_e _desativar_. A utilização do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) é _depreciada._
+- `Microsoft.Kubernetes.Data` para gerir os seus clusters Kubernetes em ou fora de Azure. Definições que utilizam este modo de fornecedor de recursos utilizam _auditoria_ de efeitos, _negar_ e _desativar_. A utilização do efeito [EnforceOPAConstraint](./effects.md#enforceopaconstraint) é _depreciada._
 
 Os seguintes modos de Fornecedor de Recursos são atualmente suportados como **pré-visualização:**
 
@@ -143,7 +143,7 @@ Os parâmetros funcionam da mesma forma quando se constrói políticas. Ao inclu
 Um parâmetro tem as seguintes propriedades que são usadas na definição de política:
 
 - `name`: O nome do seu parâmetro. Utilizado pela `parameters` função de implantação dentro da regra da política. Para obter mais informações, consulte [utilizando um valor de parâmetro.](#using-a-parameter-value)
-- `type`: Determina se o parâmetro é uma **corda,** **matriz,** **objeto,** **boolean,** **inteiro,** **boia**ou **data**.
+- `type`: Determina se o parâmetro é uma **corda,** **matriz,** **objeto,** **boolean,** **inteiro,** **boia** ou **data**.
 - `metadata`: Define subpropriedades utilizadas principalmente pelo portal Azure para apresentar informações fáceis de utilizar:
   - `description`: A explicação para o que o parâmetro é usado. Pode ser usado para fornecer exemplos de valores aceitáveis.
   - `displayName`: O nome amigável indicado no portal para o parâmetro.
@@ -284,14 +284,14 @@ Uma condição avalia se um **campo** ou o acessório **de valor** cumpre determ
   `"greaterOrEquals": intValue`
 - `"exists": "bool"`
 
-Por **menos,** **menos, os locais EQuals**, **maiores**e **maiores,** se o tipo de propriedade não corresponder ao tipo de condição, é lançado um erro. As comparações de cordas são feitas `InvariantCultureIgnoreCase` utilizando.
+Por **menos,** **menos, os locais EQuals** , **maiores** e **maiores,** se o tipo de propriedade não corresponder ao tipo de condição, é lançado um erro. As comparações de cordas são feitas `InvariantCultureIgnoreCase` utilizando.
 
 Ao utilizar as condições **similares** e **não semelhantes,** fornece um wildcard `*` no valor.
 O valor não deve ter mais do que um `*` wildcard.
 
 Ao utilizar as condições **de jogo** e não **de jogo,** forneça `#` para combinar um dígito, para uma `?` letra, para combinar com `.` qualquer personagem, e qualquer outro personagem que corresponda a esse personagem real. Embora **o match** e **o notMatch** sejam sensíveis a casos, todas as outras condições que avaliam uma _cadeiaValue_ são insensíveis a caso. Alternativas insensíveis a casos estão disponíveis em **matchInsensitively** e **não MatchInsensitively**.
 
-Num valor de campo de matriz ** \[ \* \] de pseudónimo,** cada elemento na matriz é avaliado individualmente com elementos lógicos **e** entre elementos. Para mais informações, consulte [a Avaliação do \[ \* \] pseudónimo.](../how-to/author-policies-for-arrays.md#evaluating-the--alias)
+Num valor de campo de matriz **\[ \* \] de pseudónimo,** cada elemento na matriz é avaliado individualmente com elementos lógicos **e** entre elementos. Para obter mais informações, consulte as propriedades dos recursos da matriz de [referência.](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)
 
 ### <a name="fields"></a>Campos
 
@@ -358,7 +358,7 @@ No exemplo seguinte, `concat` é usado para criar um lookup de campo de tags par
 As condições também podem ser formadas com **o valor.** **valore** verifica as condições contra [parâmetros,](#parameters) [funções de modelo suportadas,](#policy-functions)ou literais. **o valor** é emparelhado com qualquer [condição](#conditions)suportada .
 
 > [!WARNING]
-> Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falha. Uma avaliação falhada é uma **negação**implícita. Para obter mais informações, consulte [evitar falhas no modelo](#avoiding-template-failures). Utilize [a aplicação da](./assignment-structure.md#enforcement-mode) **DoNotEnforce** para evitar o impacto de uma avaliação falhada em recursos novos ou atualizados enquanto testa e valida uma nova definição de política.
+> Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falha. Uma avaliação falhada é uma **negação** implícita. Para obter mais informações, consulte [evitar falhas no modelo](#avoiding-template-failures). Utilize [a aplicação da](./assignment-structure.md#enforcement-mode) **DoNotEnforce** para evitar o impacto de uma avaliação falhada em recursos novos ou atualizados enquanto testa e valida uma nova definição de política.
 
 #### <a name="value-examples"></a>Exemplos de valor
 
@@ -402,7 +402,7 @@ Este exemplo de regra de política utiliza **valor** para verificar se o resulta
 
 #### <a name="avoiding-template-failures"></a>Evitando falhas de modelo
 
-A utilização de _funções_ de modelo em **valor** permite muitas funções aninhadas complexas. Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falha. Uma avaliação falhada é uma **negação**implícita. Um exemplo de um **valor** que falha em certos cenários:
+A utilização de _funções_ de modelo em **valor** permite muitas funções aninhadas complexas. Se o resultado de uma _função de modelo_ for um erro, a avaliação da política falha. Uma avaliação falhada é uma **negação** implícita. Um exemplo de um **valor** que falha em certos cenários:
 
 ```json
 {
@@ -459,9 +459,11 @@ A estrutura da expressão **da contagem** é:
 As seguintes propriedades são utilizadas com **contagem:**
 
 - **count.field** (obrigatório): Contém o caminho para a matriz e deve ser um pseudónimo de matriz. Se faltar a matriz, a expressão é avaliada como _falsa_ sem considerar a expressão da condição.
-- **count.where** (opcional): A expressão da condição para avaliar individualmente cada membro da [ \[ \* \] ](#understanding-the--alias) matriz de **nomes de conde.field**. Se esta propriedade não for fornecida, todos os membros da matriz com o caminho do 'campo' são avaliados como _verdadeiros_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada dentro desta propriedade.
+- **count.where** (opcional): A expressão da condição para avaliar individualmente cada membro da [ \[ \* \]](#understanding-the--alias) matriz de **nomes de conde.field**. Se esta propriedade não for fornecida, todos os membros da matriz com o caminho do 'campo' são avaliados como _verdadeiros_. Qualquer [condição](../concepts/definition-structure.md#conditions) pode ser usada dentro desta propriedade.
   [Os operadores lógicos](#logical-operators) podem ser usados dentro desta propriedade para criar requisitos de avaliação complexos.
 - **\<condition\>** (obrigatório): O valor é comparado com o número de itens que cumpriram a **contagem.onde** a expressão da condição. Deve ser utilizada uma [condição](../concepts/definition-structure.md#conditions) numérica.
+
+Para obter mais detalhes sobre como trabalhar com propriedades de matriz na Política Azure, incluindo explicações detalhadas sobre como a expressão da contagem é avaliada, consulte [as propriedades de recursos da matriz de referência](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties).
 
 #### <a name="count-examples"></a>Contar exemplos
 
@@ -548,15 +550,30 @@ Exemplo 5: Verifique se pelo menos um membro da matriz corresponde a várias pro
 }
 ```
 
+Exemplo 6: Utilizar `field()` a função dentro das `where` condições de acesso ao valor literal do membro da matriz atualmente avaliado. Esta condição verifica se não existem regras de segurança com um valor _prioritário_ numerado.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+          "value": "[mod(first(field('Microsoft.Network/networkSecurityGroups/securityRules[*].priority')), 2)]",
+          "equals": 0
+        }
+    },
+    "greater": 0
+}
+```
+
 ### <a name="effect"></a>Efeito
 
 A Azure Policy apoia os seguintes tipos de efeito:
 
-- **Apêndice**: adiciona o conjunto de campos definido ao pedido
-- **Auditoria**: gera um evento de alerta no registo de atividades mas não falha o pedido
-- **AuditIfNotExists**: gera um evento de alerta no registo de atividades se um recurso relacionado não existir
+- **Apêndice** : adiciona o conjunto de campos definido ao pedido
+- **Auditoria** : gera um evento de alerta no registo de atividades mas não falha o pedido
+- **AuditIfNotExists** : gera um evento de alerta no registo de atividades se um recurso relacionado não existir
 - **Negar:** gera um evento no registo de atividades e falha o pedido
-- **ImplementarIfNotExists**: implementa um recurso relacionado se já não existir
+- **ImplementarIfNotExists** : implementa um recurso relacionado se já não existir
 - **Deficiente:** não avalia recursos para o cumprimento da regra da política
 - **Modificar:** adicionar, atualizar ou remover as tags definidas de um recurso
 - **EnforceOPAConstraint** (preterido): configura o controlador de admissão de Agente de Política Aberta com Gatekeeper v3 para clusters kubernetes auto-geridos em Azure
@@ -589,10 +606,10 @@ A função a seguir está disponível para ser utilizada numa regra de política
 As seguintes funções só estão disponíveis nas regras políticas:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dataTime**: [Required] string - String in the Universal ISO 8601 DateTime format 'yyyy-MM-ddTHH:mm:mms. FFFFFZ'
-  - **númeroOfDaysToAdd**: [Necessário] inteiro - Número de dias a adicionar
+  - **dataTime** : [Required] string - String in the Universal ISO 8601 DateTime format 'yyyy-MM-ddTHH:mm:mms. FFFFFZ'
+  - **númeroOfDaysToAdd** : [Necessário] inteiro - Número de dias a adicionar
 - `field(fieldName)`
-  - **nome de campo**: [Obrigatório] cadeia - Nome do [campo](#fields) para recuperar
+  - **nome de campo** : [Obrigatório] cadeia - Nome do [campo](#fields) para recuperar
   - Devolve o valor desse campo do recurso que está a ser avaliado pela condição "Se".
   - `field` é usado principalmente com **AuditIfNotExists** e **DeployIfNotExists** para campos de referência sobre o recurso que estão sendo avaliados. Um exemplo desta utilização pode ser visto no [exemplo do DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
@@ -612,8 +629,8 @@ As seguintes funções só estão disponíveis nas regras políticas:
 
 
 - `ipRangeContains(range, targetRange)`
-    - **gama**: [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
-    - **targetRange**: [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
+    - **gama** : [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
+    - **targetRange** : [Obrigatório] string - Cadeia especificando uma gama de endereços IP.
 
     Devolve se o intervalo de endereço IP dado contém o intervalo de endereço IP alvo. Não são permitidas gamas vazias, ou mistura entre famílias ip e resulta em falha de avaliação.
 
@@ -718,30 +735,20 @@ Vários dos pseudónimos disponíveis têm uma versão que aparece como um nome 
 
 O pseudónimo 'normal' representa o campo como um único valor. Este campo é para cenários de comparação de correspondência exatos quando todo o conjunto de valores deve ser exatamente como definido, nem mais nem menos.
 
-O **\[\*\]** pseudónimo permite comparar com o valor de cada elemento na matriz e propriedades específicas de cada elemento. Esta abordagem permite comparar propriedades de elementos para "se nenhum", "se algum", ou "se todos" cenários. Para cenários mais complexos, use a expressão da condição [de contagem.](#count) Utilizando **o ipRules \[ \* \] **, um exemplo seria validar que cada _ação_ é _Deny_, mas não se preocupa com quantas regras existem ou qual é o _valor_ IP.
-Esta regra da amostra verifica quaisquer correspondências de **ipRules \[ \* \] .valor** a **10.0.4.1** e aplica o **efeitoType** apenas se não encontrar pelo menos uma correspondência:
+O **\[\*\]** pseudónimo representa uma coleção de valores selecionados a partir dos elementos de uma propriedade de recursos de matriz. Por exemplo:
 
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "10.0.4.1"
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+| Alias | Valores selecionados |
+|:---|:---|
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]` | Os elementos da `ipRules` matriz. |
+| `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].action` | Os valores da `action` propriedade a partir de cada elemento da `ipRules` matriz. |
 
-Para mais informações, consulte [a avaliação do \* pseudónimo.](../how-to/author-policies-for-arrays.md#evaluating-the--alias)
+Quando usados numa condição de [campo,](#fields) os pseudónimos de matriz permite comparar cada elemento de matriz individual com um valor-alvo. Quando usado com expressão [de contagem,](#count) é possível:
+
+- Verifique o tamanho de uma matriz
+- Verifique se todos\any\nenhum dos elementos de matriz satisfaz uma condição complexa
+- Verifique se exatamente ***n*** elementos de matriz satisfazem uma condição complexa
+
+Para obter mais informações e exemplos, consulte [as propriedades dos recursos da matriz de referência.](../how-to/author-policies-for-arrays.md#referencing-array-resource-properties)
 
 ## <a name="next-steps"></a>Passos seguintes
 

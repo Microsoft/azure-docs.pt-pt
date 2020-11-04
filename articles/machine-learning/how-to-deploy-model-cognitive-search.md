@@ -1,7 +1,7 @@
 ---
 title: Implementar um modelo para utilizar com o Cognitive Search
 titleSuffix: Azure Machine Learning
-description: Este artigo ensina-o a usar a Azure Machine Learning para implementar um modelo para uso com Azure Cognitive Search. A Cognitive Search pode usar modelos implementados pela Azure Machine Learning como uma habilidade personalizada para enriquecer a experiência de pesquisa.
+description: Aprenda a usar a Azure Machine Learning para implementar um modelo para uso com Pesquisa Cognitiva. O modelo é usado como uma habilidade personalizada para enriquecer a experiência de pesquisa.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 06/11/2020
 ms.custom: deploy
-ms.openlocfilehash: 5d198a27d7aeca679f1ee17f35d3f4384283f13c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: e1eebf88b72c87ce9db02760c5c44a0aa25c57cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998911"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305920"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Implementar um modelo para utilizar com o Cognitive Search
 
@@ -25,7 +25,7 @@ Este artigo ensina-o a usar a Azure Machine Learning para implementar um modelo 
 
 A Cognitive Search executa o processamento de conteúdos sobre conteúdo heterogéneo, para torná-lo questionável por humanos ou aplicações. Este processo pode ser melhorado utilizando um modelo implantado a partir do Azure Machine Learning.
 
-O Azure Machine Learning pode implementar um modelo treinado como serviço web. O serviço web é então incorporado numa _habilidade_de Pesquisa Cognitiva, que se torna parte do pipeline de processamento.
+O Azure Machine Learning pode implementar um modelo treinado como serviço web. O serviço web é então incorporado numa _habilidade_ de Pesquisa Cognitiva, que se torna parte do pipeline de processamento.
 
 > [!IMPORTANT]
 > A informação neste artigo é específica para a implementação do modelo. Fornece informações sobre as configurações de implementação suportadas que permitem que o modelo seja utilizado pela Pesquisa Cognitiva.
@@ -46,7 +46,7 @@ Ao implementar um modelo para utilização com a Azure Cognitive Search, a imple
 
 * Uma área de trabalho do Azure Machine Learning. Para obter mais informações, consulte [Criar um espaço de trabalho para aprendizagem de máquinas Azure.](how-to-manage-workspace.md)
 
-* Um ambiente de desenvolvimento Python com o Azure Machine Learning SDK instalado. Para mais informações, consulte [a Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).  
+* Um ambiente de desenvolvimento Python com o Azure Machine Learning SDK instalado. Para mais informações, consulte [a Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
 * Um modelo registado. Se não tiver um modelo, utilize o caderno de exemplo em [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill) .
 
@@ -75,7 +75,7 @@ except:
 
 ## <a name="create-a-kubernetes-cluster"></a>Criar um cluster do Kubernetes
 
-**Estimativa de tempo**: Aproximadamente 20 minutos.
+**Estimativa de tempo** : Aproximadamente 20 minutos.
 
 Um cluster Kubernetes é um conjunto de casos de máquinas virtuais (chamados nós) que são usados para executar aplicações contentorizadas.
 
@@ -252,7 +252,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-Para mais informações, consulte a documentação de referência para [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true).
+Para mais informações, consulte a documentação de referência para [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
 
 ## <a name="deploy-the-model"></a>Implementar o modelo
 
@@ -277,7 +277,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-Para mais informações, consulte a documentação de referência [do Modelo.](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true)
+Para mais informações, consulte a documentação de referência [do Modelo.](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py)
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Emite uma consulta de amostra ao seu serviço
 

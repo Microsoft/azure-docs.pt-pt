@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 7214915e28158fe5dbb7b350e175b068afed1244
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 5fa895964c30021452b8ce7b070a8b127d65e972
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166204"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305951"
 ---
 # <a name="example-detect-language-with-text-analytics"></a>Exemplo: Detetar linguagem com análise de texto
 
@@ -184,7 +184,7 @@ O serviço tem agora um contexto adicional para fazer um melhor julgamento:
         "documents": [
             {
                 "id": "1",
-                "detectedLanguages": [
+                "detectedLanguage": [
                     {
                         "name": "English",
                         "iso6391Name": "en",
@@ -194,7 +194,7 @@ O serviço tem agora um contexto adicional para fazer um melhor julgamento:
             },
             {
                 "id": "2",
-                "detectedLanguages": [
+                "detectedLanguage": [
                     {
                         "name": "French",
                         "iso6391Name": "fr",
@@ -212,7 +212,7 @@ Se o analisador não puder analisar a entrada, retorna `(Unknown)` . Um exemplo 
 ```json
     {
         "id": "5",
-        "detectedLanguages": [
+        "detectedLanguage": [
             {
                 "name": "(Unknown)",
                 "iso6391Name": "(Unknown)",
@@ -248,7 +248,7 @@ A produção resultante consiste na língua predominante, com uma pontuação in
       "documents": [
         {
           "id": "1",
-          "detectedLanguages": [
+          "detectedLanguage": [
             {
               "name": "Spanish",
               "iso6391Name": "es",
@@ -270,7 +270,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para deteção de linguagem
 + O pedido do POST é para um `/languages` ponto final usando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta consiste em identificadores de linguagem para cada documento ID. A saída pode ser transmitida para qualquer app que aceite o JSON. As aplicações de exemplo incluem Excel e Power BI, para citar alguns.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)

@@ -1,6 +1,6 @@
 ---
 title: Ligue os dados do CEF à pré-visualização do Azure Sentinel. Microsoft Docs
-description: Ligue uma solução externa que envia mensagens Common Event Format (CEF) ao Azure Sentinel utilizando uma máquina Linux como procuração.
+description: Ligue uma solução externa que envia mensagens Common Event Format (CEF) ao Azure Sentinel utilizando uma máquina Linux como reencaminhador de registos.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: dae8ce6cbad1ae08898ae439c1f621bef185b5df
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e09b44504623516d41b6d310a82e78619477367c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747900"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93304987"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa utilizando o Formato Comum de Eventos
 
@@ -50,40 +50,49 @@ Para utilizar a comunicação TLS entre a fonte Syslog e o Syslog Forwarder, ter
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Certifique-se de que a máquina Linux que utiliza como representante está a executar um dos seguintes sistemas operativos:
+Certifique-se de que a máquina Linux que utiliza como reencaminhador de registos está a executar um dos seguintes sistemas operativos:
 
 - 64 bits
-  - CentOS 7 e sub-versões, e mais altos (não 6)
+  - CentOS 7 e 8, incluindo sub-versões (não 6)
   - Amazon Linux 2017.09
   - Oráculo Linux 7
-  - Red Hat Enterprise Linux (RHEL) Servidor 7 e sub-versões, e mais alto (não 6)
-  - Debian GNU/Linux 8 e 9
+  - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo sub-versões (não 6)
+  - Debian GNU/Linux 8, 9 e 10
   - Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
-  - SUSE Linux Enterprise Server 12
+  - SUSE Linux Enterprise Server 12, 15
+
 - 32 bits
-   - CentOS 7
-   - Oráculo Linux 7
-   - Red Hat Enterprise Linux Server 7
-   - Debian GNU/Linux 8 e 9
-   - Ubuntu Linux 14.04 LTS e 16.04 LTS
+  - CentOS 7 e 8, incluindo sub-versões (não 6)
+  - Oráculo Linux 7
+  - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo sub-versões (não 6)
+  - Debian GNU/Linux 8, 9 e 10
+  - Ubuntu Linux 14.04 LTS e 16.04 LTS
  
- - Versões Daemon
-   - Syslog-ng: 2.1 - 3.22.1
-   - Rsyslog: v8
+- Versões Daemon
+  - Syslog-ng: 2.1 - 3.22.1
+  - Rsyslog: v8
   
- - Syslog RFCs apoiados
-   - Syslog RFC 3164
-   - Syslog RFC 5424
+- Syslog RFCs apoiados
+  - Syslog RFC 3164
+  - Syslog RFC 5424
  
 Certifique-se de que a sua máquina também cumpre os seguintes requisitos: 
+
 - Permissões
-    - Deve ter permissões elevadas (sudo) na sua máquina. 
+  - Deve ter permissões elevadas (sudo) na sua máquina. 
+
 - Requisitos de software
-    - Certifique-se de que tem a pitão 2.7 a funcionar na sua máquina.
+  - Certifique-se de que tem a pitão 2.7 a funcionar na sua máquina.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste documento, aprendeu a ligar os aparelhos CEF ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
+Neste documento, ficou a saber como a Azure Sentinel recolhe registos CEF a partir de soluções de segurança e aparelhos. Para aprender a ligar a sua solução ao Azure Sentinel, consulte os seguintes artigos:
+
+- PASSO 1: [Ligue o CEF implantando um reencaminhador Syslog/CEF](connect-cef-agent.md)
+- PASSO 2: [Executar etapas específicas da solução](connect-cef-solution-config.md)
+- PASSO 3: [Verificar conectividade](connect-cef-verify.md)
+
+Para saber mais sobre o que fazer com os dados recolhidos no Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)
 - Começa [a detetar ameaças com o Azure Sentinel.](tutorial-detect-threats.md)
 

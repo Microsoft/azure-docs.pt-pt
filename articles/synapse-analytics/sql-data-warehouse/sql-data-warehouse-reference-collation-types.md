@@ -1,6 +1,6 @@
 ---
 title: Tipos de colagem de armazém de dados
-description: Tipos de colagem suportados na piscina Azure Synapse Analytics SQL.
+description: Tipos de colagem suportados para piscina SQL dedicada em Azure Synapse Analytics.
 services: synapse-analytics
 author: antvgski
 manager: igorstan
@@ -11,16 +11,16 @@ ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 08a008e2f2402072dce3069c5d059b297239b7dd
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 8d76d70c4c84f1d63d4643e1fba3f66d3541beff
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090459"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305265"
 ---
-# <a name="database-collation-support-for-azure-synapse-analytics-sql-pool"></a>Suporte de colagem de base para piscina SQL Azure Synapse Analytics
+# <a name="database-collation-support-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Suporte de colagem de base de dados para piscina SQL dedicada em Azure Synapse Analytics 
 
-Pode alterar a colagem de base de dados predefinida a partir do portal Azure quando criar uma nova base de dados de piscinas Azure Synapse SQL. Esta capacidade torna ainda mais fácil criar uma nova base de dados utilizando uma das 3800 colagens de dados suportadas.
+Pode alterar a colagem da base de dados predefinida a partir do portal Azure quando criar uma nova base de dados dedicada à piscina SQL. Esta capacidade torna ainda mais fácil criar uma nova base de dados utilizando uma das 3800 colagens de dados suportadas.
 
 As colagens fornecem as regras de local, página de código, ordem de classificação e sensibilidade ao carácter para tipos de dados baseados em caracteres. Uma vez escolhidos, todas as colunas e expressões que necessitem de informações de colagem herdam a colagem escolhida a partir da definição da base de dados. A herança predefinida pode ser ultrapassada declarando explicitamente uma colagem diferente para um tipo de dados baseado em caracteres.
 
