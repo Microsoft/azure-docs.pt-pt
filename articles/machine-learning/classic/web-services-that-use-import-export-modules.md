@@ -11,16 +11,16 @@ ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a963a9f10ee23c50f50e66191e92f0839c457d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc348318401c9362636893d70294496c7012408
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362853"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308472"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços web do Azure Machine Learning Studio (clássicos) que utilizam módulos de importação de dados e exportação de dados
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Quando cria uma experiência preditiva, normalmente adiciona-se uma entrada e saída de serviço web. Quando implementa a experiência, os consumidores podem enviar e receber dados do serviço web através das entradas e saídas. Para algumas aplicações, os dados de um consumidor podem estar disponíveis a partir de um feed de dados ou já residir numa fonte de dados externa, como o armazenamento Azure Blob. Nestes casos, não precisam de ler e escrever dados utilizando entradas e saídas de serviço web. Em vez disso, podem utilizar o Serviço de Execução de Lotes (BES) para ler dados da fonte de dados utilizando um módulo de Dados de Importação e escrever os resultados da pontuação para um local de dados diferente utilizando um módulo de Dados de Exportação.
@@ -41,7 +41,7 @@ Para ler os dados da tabela Azure SQL:
 3. Da lista de resultados, adicione um módulo *de Dados de Importação* à tela de experiência.
 4. Ligue a saída do módulo *de dados de importação* a entrada do módulo de *dados em falta.*
 5. No painel de propriedades, selecione **Azure SQL Database** na origem de **dados.**
-6. No nome do **servidor base de dados**, **nome de base de dados,** **nome de utilizador** **e** password, introduza as informações adequadas para a sua base de dados.
+6. No nome do **servidor base de dados** , **nome de base de dados,** **nome de utilizador** **e** password, introduza as informações adequadas para a sua base de dados.
 7. No campo de consulta de base de dados, insira a seguinte consulta.
 
     ```tsql
@@ -73,12 +73,12 @@ Em seguida, configura a experiência preditiva a partir da qual implementa o seu
 4. Da lista de resultados, adicione um módulo *de Dados de Exportação* à tela de experiência.
 5. Ligue a saída do módulo *'Modelo de Pontuação'* a entrada do módulo *de dados de exportação.*
 6. No painel de propriedades, selecione **Azure SQL Database** no dropdown do destino de dados.
-7. No nome do **servidor base de dados**, nome de base de **dados,** **nome da conta do utilizador do servidor**e na conta de utilizador do **Servidor,** introduza as informações apropriadas para a sua base de dados.
+7. No nome do **servidor base de dados** , nome de base de **dados,** **nome da conta do utilizador do servidor** e na conta de utilizador do **Servidor,** introduza as informações apropriadas para a sua base de dados.
 8. Na lista separada da **Vírgula de colunas a guardar,** escreva labels.
 9. No campo de **nome da tabela de dados,** escreva dbo. ScoredLabels. Se a tabela não existir, é criada quando a experiência é executada ou o serviço web é chamado.
 10. Na lista separada da **Vírgula do campo de colunas de dados,** escreva MarcouLabels.
 
-Quando escrever uma aplicação que ligue para o serviço web final, pode querer especificar uma consulta de entrada ou tabela de destino diferente no tempo de execução. Para configurar estas entradas e saídas, utilize a funcionalidade Parâmetros de Serviço Web para definir a propriedade de fonte de *dados* do módulo *de dados de importação* e a propriedade de destino de dados do modo de *exportação.*  Para obter mais informações sobre os parâmetros do Serviço Web, consulte a entrada dos parâmetros do [Serviço Web Azure Machine Learning Studio](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) no Cortana Intelligence and Machine Learning Blog.
+Quando escrever uma aplicação que ligue para o serviço web final, pode querer especificar uma consulta de entrada ou tabela de destino diferente no tempo de execução. Para configurar estas entradas e saídas, utilize a funcionalidade Parâmetros de Serviço Web para definir a propriedade de fonte de *dados* do módulo *de dados de importação* e a propriedade de destino de dados do modo de *exportação.*  Para obter mais informações sobre os parâmetros do Serviço Web, consulte a entrada dos parâmetros do [Serviço Web Azure Machine Learning Studio](/archive/blogs/machinelearning/azureml-web-service-parameters) no Cortana Intelligence and Machine Learning Blog.
 
 Para configurar os parâmetros do Serviço Web para a consulta de importação e para a tabela de destino:
 
@@ -103,7 +103,7 @@ Para implementar como um Serviço Web Clássico e criar uma aplicação para con
 2. Quando a execução tiver terminado, clique em **Implementar o Serviço Web** e selecione Implementar o Serviço Web **[Clássico]**.
 3. No painel de atendimento web, localize a sua chave API. Copie e guarde-o para usar mais tarde.
 4. Na tabela **Ponto final predefinido,** clique no link **de execução** do lote para abrir a Página de Ajuda da API.
-5. No Visual Studio, crie uma aplicação para consola C#: **Novo**  >  **Project**  >  **Visual C#** Windows Classic  >  **Desktop**Console  >  **App (.NET Framework)**.
+5. No Visual Studio, crie uma aplicação para consola C#: **Novo**  >  **Project**  >  **Visual C#** Windows Classic  >  **Desktop** Console  >  **App (.NET Framework)**.
 6. Na página de ajuda da API, encontre a secção **código de amostra** na parte inferior da página.
 7. Copie e cole o código de amostra C# no seu ficheiro Program.cs e remova todas as referências ao armazenamento do blob.
 8. Atualize o valor da variável *apiKey* com a chave API guardada anteriormente.
@@ -134,7 +134,7 @@ Para implementar como um Novo Serviço Web e criar uma aplicação para consumi-
 3. Na página 'Implementar experiência', insira um nome para o seu serviço web e selecione um plano de preços e, em seguida, clique em **Implementar**.
 4. Na página **Quickstart,** clique em **Consumir**.
 5. Na secção **Código amostra,** clique em **Lote**.
-6. No Visual Studio, crie uma aplicação para consola C#: **Novo**  >  **Project**  >  **Visual C#** Windows Classic  >  **Desktop**Console  >  **App (.NET Framework)**.
+6. No Visual Studio, crie uma aplicação para consola C#: **Novo**  >  **Project**  >  **Visual C#** Windows Classic  >  **Desktop** Console  >  **App (.NET Framework)**.
 7. Copie e cole o código de amostra C# no seu ficheiro Program.cs.
 8. Atualize o valor da variável *apiKey* com a **Chave Primária** localizada na secção **informações de consumo básico.**
 9. Localize a declaração *de pontuaçãoRequest* e atualize os valores dos Parâmetros do Serviço Web que são transmitidos aos módulos *de Dados de Importação* e *Exportação.* Neste caso, você usa a consulta original, mas define um novo nome de mesa.
@@ -152,4 +152,3 @@ Para implementar como um Novo Serviço Web e criar uma aplicação para consumi-
     };
     ```
 10. Execute a aplicação.
-

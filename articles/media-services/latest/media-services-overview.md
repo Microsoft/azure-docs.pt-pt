@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: mvc
-ms.openlocfilehash: c7bdf3e0300bffaffb7191aea019bed719cdc6fa
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 01ec0c7c0d2d060bbd930a099fe3db54de6cb150
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220640"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308971"
 ---
 # <a name="azure-media-services-v3-overview"></a>Descrição geral dos Serviços de Multimédia do Azure v3
 
@@ -59,12 +59,12 @@ Os Serviços de Mídia permitem-lhe construir uma variedade de fluxos de trabalh
 * Use o Azure Media Services juntamente com [a Azure Cognitive Services APIs](../../index.yml?pivot=products&panel=ai) para adicionar legendas e legendas a vídeos para atender a um público mais amplo (por exemplo, pessoas com deficiências auditivas ou pessoas que queiram ler numa língua diferente).
 * Ativar o Azure CDN para obter uma grande escala para manusear melhor as cargas altas instantâneas (por exemplo, o início de um evento de lançamento do produto).
 
-## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a utilizar a v3? 
+## <a name="how-can-i-get-started-with-v3"></a>Como posso começar a utilizar a v3?
 
 Aprenda a codificar e embalar conteúdos, transmita vídeos a pedido, transmita em direto e analise os seus vídeos com o Media Services v3. Tutoriais, referências de API e outra documentação mostram-lhe como fornecer de forma segura transmissões em fluxo de vídeo ou áudio a pedido e live dimensionáveis para milhões de utilizadores.
 
 > [!TIP]
-> Antes de começar a desenvolver-se, reveja:<br/>* [Conceitos fundamentais](concepts-overview.md) (inclui conceitos importantes, como embalagem, codificação e proteção)<br/>* [Desenvolvimento com Serviços de Mídia v3 APIs](media-services-apis-overview.md) (inclui informações sobre o acesso a APIs, convenções de nomeação, e assim por diante)
+> Antes de começar a desenvolver, reveja: [Conceitos fundamentais](concepts-overview.md) que incluem conceitos importantes, como embalagem, codificação e proteção, e [Desenvolvimento com Serviços de Media v3 APIs](media-services-apis-overview.md) que inclui informações sobre o acesso a APIs, convenções de nomeação, e assim por diante.
 
 ### <a name="sdks"></a>SDKs
 

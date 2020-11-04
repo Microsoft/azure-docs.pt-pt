@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/14/2020
+ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 2ec4bafac46526c95d48a1a8d9c8faaa7a49df98
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: eb784d02ec4c380d72438a1c000290fe3a4eea78
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043458"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307506"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Amazon Web Services (AWS)
 
@@ -61,7 +61,6 @@ Para começar, precisa dos seguintes itens:
 Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Amazon Web Services (AWS) suporta **SP e IDP** iniciado SSO
-* Assim que configurar a Amazon Web Services (AWS) pode impor o Controlo de Sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
@@ -71,15 +70,15 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 Para configurar a integração da Amazon Web Services (AWS) no AD Azure, é necessário adicionar a Amazon Web Services (AWS) da galeria à sua lista de aplicações geridas para o SaaS.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho, conta escolar ou conta pessoal da Microsoft.
-1. No portal Azure, procure e selecione **O Diretório Ativo Azure** .
-1. Dentro do menu geral do Azure Ative Directory, escolha **Aplicações Empresariais**  >  **Todas as aplicações** .
+1. No portal Azure, procure e selecione **O Diretório Ativo Azure**.
+1. Dentro do menu geral do Azure Ative Directory, escolha **Aplicações Empresariais**  >  **Todas as aplicações**.
 1. Selecione **Nova aplicação** para adicionar uma aplicação.
 1. Na secção Add a partir da secção **de galeria,** digite Amazon **Web Services (AWS)** na caixa de pesquisa.
 1. Selecione **Amazon Web Services (AWS)** do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
 ## <a name="configure-and-test-azure-ad-sso-for-amazon-web-services-aws"></a>Configure e teste Azure AD SSO para serviços web da Amazon (AWS)
 
-Configure e teste Azure AD SSO com Amazon Web Services (AWS) usando um utilizador de teste chamado **B.Simon** . Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Amazon Web Services (AWS).
+Configure e teste Azure AD SSO com Amazon Web Services (AWS) usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na Amazon Web Services (AWS).
 
 Para configurar e testar o Azure AD SSO com a Amazon Web Services (AWS), complete os seguintes blocos de construção:
 
@@ -96,7 +95,7 @@ Para configurar e testar o Azure AD SSO com a Amazon Web Services (AWS), complet
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. No [portal Azure](https://portal.azure.com/), na página de integração de aplicações da **Amazon Web Services (AWS),** encontre a secção **Gerir** e selecione um único sinal de **sação.**
-1. Na página de método **de inscrição** única, selecione **SAML** .
+1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
@@ -119,11 +118,11 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     | Função            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
     | SessãoDuração             | "fornecer um valor entre 900 segundos (15 minutos) a 43200 segundos (12 horas)" |  `https://aws.amazon.com/SAML/Attributes` |
 
-1. Na **configuração de um único sinal com** a página SAML, na caixa de diálogo do Certificado de Assinatura **SAML** (Passo 3), selecione **Adicionar um certificado** .
+1. Na **configuração de um único sinal com** a página SAML, na caixa de diálogo do Certificado de Assinatura **SAML** (Passo 3), selecione **Adicionar um certificado**.
 
     ![Criar novo Certificado SAML](common/add-saml-certificate.png)
 
-1. Gere um novo certificado de assinatura SAML e, em seguida, selecione **Novo Certificado** . Insira um endereço de e-mail para notificações de certificado.
+1. Gere um novo certificado de assinatura SAML e, em seguida, selecione **Novo Certificado**. Insira um endereço de e-mail para notificações de certificado.
    
     ![Novo Certificado SAML](common/new-saml-certificate.png) 
 
@@ -139,23 +138,23 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. No portal Azure, procure e selecione **O Diretório Ativo Azure** .
-1. Dentro do menu geral do Azure Ative Directory, escolha **Utilizadores**  >  **Todos os utilizadores** .
+1. No portal Azure, procure e selecione **O Diretório Ativo Azure**.
+1. Dentro do menu geral do Azure Ative Directory, escolha **Utilizadores**  >  **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
    1. No campo **Nome** , introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
-   1. Clique em **Criar** .
+   1. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso aos Serviços Web da Amazon (AWS).
 
-1. No portal Azure, procure e selecione **O Diretório Ativo Azure** .
-1. Dentro do menu geral do Azure Ative Directory, escolha **Aplicações Empresariais**  >  **Todas as aplicações** .
-1. Na lista de candidaturas, selecione **Amazon Web Services (AWS)** .
-1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos** .
+1. No portal Azure, procure e selecione **O Diretório Ativo Azure**.
+1. Dentro do menu geral do Azure Ative Directory, escolha **Aplicações Empresariais**  >  **Todas as aplicações**.
+1. Na lista de candidaturas, selecione **Amazon Web Services (AWS)**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 
@@ -171,7 +170,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Numa janela de navegador diferente, inscreva-se no site da empresa AWS como administrador.
 
-2. Selecione **AWS Home** .
+2. Selecione **AWS Home**.
 
     ![Screenshot do site da empresa AWS, com ícone AWS Home em destaque][11]
 
@@ -187,19 +186,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Screenshot do Fornecedor de Configuração][14]
 
-    a. Para **o Tipo de Fornecedor** , selecione **SAML** .
+    a. Para **o Tipo de Fornecedor** , selecione **SAML**.
 
     b. Para **o Nome do Fornecedor,** escreva um nome de fornecedor (por exemplo: *WAAD* ).
 
-    c. Para fazer o upload do **ficheiro de metadados** descarregado a partir do portal Azure, selecione **Choose File** .
+    c. Para fazer o upload do **ficheiro de metadados** descarregado a partir do portal Azure, selecione **Choose File**.
 
-    d. Selecione **Next Step** .
+    d. Selecione **Next Step**.
 
-6. Na página **'Verificar informações do fornecedor',** selecione **Criar** .
+6. Na página **'Verificar informações do fornecedor',** selecione **Criar**.
 
     ![Screenshot de Verificar Informações do Fornecedor, com Criar em destaque][15]
 
-7. Selecione **Funções**  >  **Criar função** .
+7. Selecione **Funções**  >  **Criar função**.
 
     ![Screenshot da página Roles][16]
 
@@ -207,15 +206,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Screenshot da página de função Criar][19]
 
-    a. Sob **o tipo de entidade fidedigna** Select , selecione **SAML 2.0 Federation** .
+    a. Sob **o tipo de entidade fidedigna** Select , selecione **SAML 2.0 Federation**.
 
     b. Em **Escolha um Fornecedor SAML 2.0** , selecione o fornecedor **SAML** que criou anteriormente (por exemplo: *WAAD* ).
 
     c. Selecione **Permitir o acesso a consolas programáticas e AWS Management.**
   
-    d. Selecione **Seguinte: Permissões** .
+    d. Selecione **Seguinte: Permissões**.
 
-9. Na caixa de diálogo **de políticas de permissões anexar,** anexe a política apropriada, por sua organização. Em seguida, selecione **Seguinte: Revisão** .  
+9. Na caixa de diálogo **de políticas de permissões anexar,** anexe a política apropriada, por sua organização. Em seguida, selecione **Seguinte: Revisão**.  
 
     ![Screenshot da caixa de diálogo de política de permissões attach][33]
 
@@ -227,17 +226,17 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     b. Na **descrição da função,** insira a descrição.
 
-    c. Selecione **Criar função** .
+    c. Selecione **Criar função**.
 
     d. Crie o número de papéis necessários e mapeeee-os para o fornecedor de identidade.
 
 11. Utilize credenciais de conta de serviço AWS para obter as funções da conta AWS no provisionamento do utilizador Azure AD. Para isso, abra a casa de consola AWS.
 
-12. Selecione **Serviços** . Em Conformidade de **Segurança, Identidade &,** selecione **IAM** .
+12. Selecione **Serviços**. Em Conformidade de **Segurança, Identidade &,** selecione **IAM**.
 
     ![Screenshot da casa de consola AWS, com Serviços e IAM em destaque](./media/amazon-web-service-tutorial/fetchingrole1.png)
 
-13. Na secção IAM, selecione **Políticas** .
+13. Na secção IAM, selecione **Políticas**.
 
     ![Screenshot da secção IAM, com Políticas em destaque](./media/amazon-web-service-tutorial/fetchingrole2.png)
 
@@ -276,19 +275,19 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Screenshot da página de política create, com os campos de nome e descrição em destaque](./media/amazon-web-service-tutorial/policy2.png)
 
-    a. Para **citar nome,** **insira AzureAD_SSOUserRole_Policy** .
+    a. Para **citar nome,** **insira AzureAD_SSOUserRole_Policy**.
 
-    b. Para **descrição** , introduza **Esta política permitirá obter as funções a partir de contas AWS** .
+    b. Para **descrição** , introduza **Esta política permitirá obter as funções a partir de contas AWS**.
 
-    c. Selecione **Criar política** .
+    c. Selecione **Criar política**.
 
 17. Crie uma nova conta de utilizador no serviço AWS IAM.
 
-    a. Na consola AWS IAM, selecione **Utilizadores** .
+    a. Na consola AWS IAM, selecione **Utilizadores**.
 
     ![Screenshot da consola AWS IAM, com os Utilizadores em destaque](./media/amazon-web-service-tutorial/policy3.png)
 
-    b. Para criar um novo utilizador, **selecione Adicionar utilizador** .
+    b. Para criar um novo utilizador, **selecione Adicionar utilizador**.
 
     ![Screenshot do botão de utilizador Adicionar](./media/amazon-web-service-tutorial/policy4.png)
 
@@ -296,21 +295,21 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     ![Screenshot da página de utilizador Adicionar, com nome de utilizador e tipo de acesso em destaque](./media/amazon-web-service-tutorial/adduser1.png)
 
-    * Introduza o nome de utilizador como **AzureADRoleManager** .
+    * Introduza o nome de utilizador como **AzureADRoleManager**.
 
-    * Para o tipo de acesso, selecione **acesso programático** . Desta forma, o utilizador pode invocar as APIs e obter as funções da conta AWS.
+    * Para o tipo de acesso, selecione **acesso programático**. Desta forma, o utilizador pode invocar as APIs e obter as funções da conta AWS.
 
-    * Selecione **As Próximas Permissões** .
+    * Selecione **As Próximas Permissões**.
 
 18. Crie uma nova política para este utilizador.
 
     ![A screenshot mostra a página do utilizador Adicionar onde pode criar uma política para o utilizador.](./media/amazon-web-service-tutorial/adduser2.png)
 
-    a. **Selecione Fixe diretamente as políticas existentes** .
+    a. **Selecione Fixe diretamente as políticas existentes**.
 
-    b. Procure a política recém-criada na secção **de filtros AzureAD_SSOUserRole_Policy** .
+    b. Procure a política recém-criada na secção **de filtros AzureAD_SSOUserRole_Policy**.
 
-    c. Selecione a apólice e, em seguida, selecione **Seguinte: Revisão** .
+    c. Selecione a apólice e, em seguida, selecione **Seguinte: Revisão**.
 
 19. Reveja a política ao utilizador anexo.
 
@@ -318,7 +317,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     a. Reveja o nome de utilizador, o tipo de acesso e a política mapeada ao utilizador.
 
-    b. Selecione **Criar utilizador** .
+    b. Selecione **Criar utilizador**.
 
 20. Descarregue as credenciais de utilizador de um utilizador.
 
@@ -328,11 +327,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     b. Introduza estas credenciais na secção de provisionamento do utilizador Azure AD para obter as funções da consola AWS.
 
-    c. Selecione **Fechar** .
+    c. Selecione **Fechar**.
 
 ### <a name="how-to-configure-role-provisioning-in-amazon-web-services-aws"></a>Como configurar o fornecimento de funções nos Serviços Web da Amazon (AWS)
 
-1. No portal de gestão AZure AD, na app AWS, aceda ao **Provisioning** .
+1. No portal de gestão AZure AD, na app AWS, aceda ao **Provisioning**.
 
     ![Screenshot da app AWS, com Provisioning em destaque](./media/amazon-web-service-tutorial/provisioning.png)
 
@@ -344,11 +343,11 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     b. Insira o segredo do utilizador da AWS no campo **Secret Token.**
 
-    c. Selecione **a ligação de teste** .
+    c. Selecione **a ligação de teste**.
 
-    d. Guarde a definição selecionando **Guardar** .
+    d. Guarde a definição selecionando **Guardar**.
 
-3. Na secção **Definições,** para **o Estado de Provisionamento** , selecione **On** . Em seguida, selecione **Guardar** .
+3. Na secção **Definições,** para **o Estado de Provisionamento** , selecione **On**. Em seguida, selecione **Guardar**.
 
     ![Screenshot da secção Definições, com On em destaque](./media/amazon-web-service-tutorial/provisioning2.png)
 
@@ -356,7 +355,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 > O serviço de fornecimento importa funções apenas de AWS a Azure AD. O serviço não fornece utilizadores e grupos de Azure AD a AWS.
 
 > [!NOTE]
-> Depois de guardar as credenciais de provisionamento, deve esperar que o ciclo de sincronização inicial se deslo sente. O sync geralmente demora cerca de 40 minutos a terminar. Pode ver o estado na parte inferior da página **de Provisionamento,** em **Estado Atual** .
+> Depois de guardar as credenciais de provisionamento, deve esperar que o ciclo de sincronização inicial se deslo sente. O sync geralmente demora cerca de 40 minutos a terminar. Pode ver o estado na parte inferior da página **de Provisionamento,** em **Estado Atual**.
 
 ### <a name="create-amazon-web-services-aws-test-user"></a>Criar utilizador de teste amazon Web Services (AWS)
 
@@ -364,38 +363,40 @@ O objetivo desta secção é criar um utilizador chamado B.Simon in Amazon Web S
 
 ## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo amazon Web Services (AWS) no Painel de Acesso, deverá ser automaticamente inscrito nos Serviços Web da Amazon (AWS) para os quais configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+#### <a name="sp-initiated"></a>SP iniciado:
+
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para o Amazon Web Services (AWS) Assinar no URL onde pode iniciar o fluxo de login.  
+
+* Vá diretamente ao URL de login da Amazon Web Services (AWS) e inicie o fluxo de login a partir daí.
+
+#### <a name="idp-initiated"></a>IDP iniciado:
+
+* Clique em **Testar esta aplicação** no portal Azure e deverá ser automaticamente inscrito nos Serviços Web da Amazon (AWS) para os quais configura o SSO 
+
+Também pode utilizar o Microsoft Access Panel para testar a aplicação em qualquer modo. Quando clicar no azulejo da Amazon Web Services (AWS) no Painel de Acesso, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito nos Serviços Web da Amazon (AWS) para os quais configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
+
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
  * Na secção **de Provisionamento,** a subsecção **de Mapeamentos** mostra um "Loading..." mensagem, e nunca exibe os mapeamentos de atributos. O único fluxo de trabalho de provisionamento suportado hoje é a importação de funções da AWS para a Azure AD para seleção durante uma atribuição de utilizador ou grupo. Os mapeamentos de atributos para isto são pré-determinados, e não são configuráveis.
 
- * A secção **de Provisionamento** só suporta a entrada de um conjunto de credenciais para um inquilino da AWS de cada vez. Todas as funções importadas são escritas para a `appRoles` propriedade do [ `servicePrincipal` objeto](/graph/api/resources/serviceprincipal?view=graph-rest-beta) AD AZure para o inquilino da AWS.
+ * A secção **de Provisionamento** só suporta a entrada de um conjunto de credenciais para um inquilino da AWS de cada vez. Todas as funções importadas são escritas para a `appRoles` propriedade do [ `servicePrincipal` objeto](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) AD AZure para o inquilino da AWS.
 
    Vários inquilinos da AWS (representados `servicePrincipals` por) podem ser adicionados à Azure AD da galeria para provisionamento. Há um problema conhecido, no entanto, com não ser capaz de escrever automaticamente todas as funções importadas a partir dos múltiplos AWS `servicePrincipals` usados para provisão para o único `servicePrincipal` usado para SSO.
 
-   Como solução alternativa, pode utilizar a API do [Microsoft Graph](/graph/api/resources/serviceprincipal?view=graph-rest-beta) para extrair todos os `appRoles` importados em cada AWS `servicePrincipal` onde o provisionamento está configurado. Pode adicionar posteriormente estas cordas de função à AWS onde o `servicePrincipal` SSO está configurado.
+   Como solução alternativa, pode utilizar a API do [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) para extrair todos os `appRoles` importados em cada AWS `servicePrincipal` onde o provisionamento está configurado. Pode adicionar posteriormente estas cordas de função à AWS onde o `servicePrincipal` SSO está configurado.
 
 * As funções devem satisfazer os seguintes requisitos a serem elegíveis para serem importados da AWS para a Azure AD:
 
   * As funções devem ter exatamente um fornecedor de saml definido em AWS
-  * O comprimento combinado do ARN (Nome de Recursos da Amazon) para o papel e o ARN para o fornecedor de saml associado deve ser inferior a 119 caracteres
+  * O comprimento combinado do ARN (Nome de Recursos da Amazon) para o papel e o ARN para o fornecedor de saml associado deve ser inferior a 120 caracteres
 
-## <a name="additional-resources"></a>Recursos adicionais
+## <a name="next-steps"></a>Passos seguintes
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+Assim que configurar a Amazon Web Services (AWS) pode impor o Session Control, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimente os Serviços Web da Amazon (AWS) com Azure AD](https://aad.portal.azure.com/)
-
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
-
-- [Como proteger a Amazon Web Services (AWS) com visibilidade e controlos avançados](/cloud-app-security/protect-aws)
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 52404aa1514dc3189305117181408e25e233fce8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc71dc87ca972c52fabb91a6412eec702eee5460
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362406"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307440"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (clássico) Web Services: Implantação e consumo
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Você pode usar O Azure Machine Learning Studio (clássico) para implementar fluxos de trabalho de machine learning e modelos como serviços web. Estes serviços web podem então ser usados para chamar os modelos de machine learning de aplicações através da Internet para fazer previsões em tempo real ou em modo de lote. Como os serviços web são RESTful, pode chamá-los de várias linguagens e plataformas de programação, tais como .NET e Java, e de aplicações, como o Excel.
 
@@ -44,7 +44,7 @@ Os seguintes links fornecem informações gerais sobre como implementar um novo 
 
 O fornecedor de recursos Azure Machine Learning Studio (clássico) para serviços web permite a implementação e gestão de serviços web utilizando chamadas REST API. Para obter mais informações, consulte a referência [do Serviço Web de Aprendizagem Automática (REST).](/rest/api/machinelearning/index)
 
-<!-- [Machine Learning Web Service (REST)](https://msdn.microsoft.com/library/azure/mt767538.aspx) reference. -->
+<!-- [Machine Learning Web Service (REST)](/rest/api/machinelearning/webservices) reference. -->
 
 ### <a name="with-powershell-cmdlets"></a>Com cmdlets PowerShell
 
@@ -83,7 +83,7 @@ Eis um exemplo:
 
 Consulte os seguintes artigos e código de amostra para mais detalhes:
 
-* [Azure Machine Learning Studio (clássico) Referência de Cmdlets](https://docs.microsoft.com/powershell/module/az.machinelearning) na MSDN
+* [Azure Machine Learning Studio (clássico) Referência de Cmdlets](/powershell/module/az.machinelearning) na MSDN
 
 ## <a name="consume-the-web-services"></a>Consumir os serviços web
 

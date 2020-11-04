@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: ae3b54ca72c92722dffa370b0b8be1ca2c490f97
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 22cbd0b4ce512df70d13d89c5f2539420dac2b85
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476013"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307032"
 ---
 # <a name="azure-synapse-sql-architecture"></a>Arquitetura Azure Synapse SQL 
 
@@ -27,9 +27,9 @@ Este artigo descreve os componentes de arquitetura da Synapse SQL.
 
 O Sinaapse SQL aproveita uma arquitetura de escala para distribuir o processamento computacional de dados através de múltiplos nós. O cálculo é separado do armazenamento, o que lhe permite escalar o cálculo independentemente dos dados do seu sistema. 
 
-Para a piscina SQL, a unidade de escala é uma abstração de poder computacional que é conhecida como uma [unidade de armazém de dados.](resource-consumption-models.md) 
+Para piscina SQL dedicada, a unidade de escala é uma abstração de poder computacional que é conhecida como uma [unidade de armazém de dados.](resource-consumption-models.md) 
 
-Para o SQL a pedido, sendo sem servidor, o dimensionamento é feito automaticamente para acomodar os requisitos de recursos de consulta. À medida que a topologia muda ao longo do tempo adicionando, removendo nós ou failovers, adapta-se a alterações e garante que a sua consulta tem recursos e acabamentos suficientes com sucesso. Por exemplo, a imagem abaixo mostra SQL on demand usando 4 nós de computação para executar uma consulta.
+Para a piscina SQL sem servidor, sendo sem servidor, o dimensionamento é feito automaticamente para acomodar os requisitos de recursos de consulta. À medida que a topologia muda ao longo do tempo adicionando, removendo nós ou failovers, adapta-se a alterações e garante que a sua consulta tem recursos e acabamentos suficientes com sucesso. Por exemplo, a imagem abaixo mostra piscina SQL sem servidor utilizando 4 nós de computação para executar uma consulta.
 
 ![Arquitetura SQL do Synapse](./media//overview-architecture/sql-architecture.png)
 
@@ -37,13 +37,13 @@ O SYNAPSE SQL utiliza uma arquitetura baseada em nó. As aplicações ligam e em
 
 O nó de controlo Azure Synapse SQL utiliza um motor de consulta distribuído para otimizar consultas de processamento paralelo e, em seguida, passa as operações para os nós compute para fazer o seu trabalho em paralelo. 
 
-O nó de controlo on-demand SQL utiliza o motor distributed query processing (DQP) para otimizar e orquestrar a execução distribuída da consulta do utilizador, dividindo-o em consultas menores que serão executadas nos nós compute. Cada pequena consulta é chamada tarefa e representa unidade de execução distribuída. Lê ficheiros(s) a partir de armazenamento, junta resultados de outras tarefas, grupos ou dados de encomendas obtidos de outras tarefas. 
+O conjunto sem servidor SQL O nós de controlo do pool utiliza o motor de processamento de consulta distribuído (DQP) para otimizar e orquestrar a execução distribuída da consulta do utilizador, dividindo-a em consultas menores que serão executadas nos nós compute. Cada pequena consulta é chamada tarefa e representa unidade de execução distribuída. Lê ficheiros(s) a partir de armazenamento, junta resultados de outras tarefas, grupos ou dados de encomendas obtidos de outras tarefas. 
 
 Os nós de computação armazenam todos os dados de utilizador no Armazenamento do Microsoft Azure e executam as consultas paralelas. O Serviço de Movimento de Dados (DMS – Data Movement Service) é um serviço interno ao nível do sistema que move os dados em todos os nós, conforme necessário, para executar consultas em paralelo e devolver resultados precisos. 
 
-Com armazenamento e cálculo dissociados, ao utilizar o Synapse SQL pode-se beneficiar de um tamanho independente de poder de computação, independentemente das suas necessidades de armazenamento. Para o sql on demand o dimensionamento é feito automaticamente, enquanto para a piscina SQL uma lata:
+Com armazenamento e cálculo dissociados, ao utilizar o Synapse SQL pode-se beneficiar de um tamanho independente de poder de computação, independentemente das suas necessidades de armazenamento. Para o dimensionamento de piscina SQL sem servidor é feito automaticamente, enquanto para piscina SQL dedicada uma lata:
 
-* Cresça ou encolhe a potência de computação, dentro de um pool SQL (data warehouse), sem mover dados.
+* Cresça ou encolhe a potência de computação, dentro de um pool de SQL dedicado, sem dados móveis.
 * Colocar a capacidade de computação em pausa, mantendo os dados intactos, pelo que só paga pelo armazenamento.
 * Retomar a capacidade de computação durante as horas de funcionamento.
 
@@ -51,7 +51,7 @@ Com armazenamento e cálculo dissociados, ao utilizar o Synapse SQL pode-se bene
 
 O Synapse SQL aproveita o Azure Storage para manter os dados do utilizador seguros. Uma vez que os seus dados são armazenados e geridos pela Azure Storage, existe uma taxa separada para o seu consumo de armazenamento. 
 
-O SQL on demand permite-lhe consultar ficheiros no seu lago de dados apenas de forma a ler, enquanto o pool SQL permite-lhe ingerir dados também. Quando os dados são ingeridos no pool SQL, os dados são fragmentos em **distribuições** para otimizar o desempenho do sistema. Pode escolher qual o padrão de fragmentos a utilizar para distribuir os dados quando define a tabela. Estes padrões de fragmentos são suportados:
+O pool SQL sem servidor permite-lhe consultar ficheiros no seu lago de dados apenas de forma a ler, enquanto o pool SQL permite ingerir dados também. Quando os dados são ingeridos em pool SQL dedicado, os dados são fragmentos em **distribuições** para otimizar o desempenho do sistema. Pode escolher qual o padrão de fragmentos a utilizar para distribuir os dados quando define a tabela. Estes padrões de fragmentos são suportados:
 
 * Hash
 * Round Robin
@@ -61,34 +61,34 @@ O SQL on demand permite-lhe consultar ficheiros no seu lago de dados apenas de f
 
 O nó de Controlo é o cérebro da arquitetura. É o front-end que interage com todas as ligações e aplicações. 
 
-No Synapse SQL, o motor de consulta distribuído funciona no nó de Controlo para otimizar e coordenar consultas paralelas. Quando submete uma consulta T-SQL à piscina SQL, o nó de Controlo transforma-o em consultas que vão contra cada distribuição em paralelo.
+No Synapse SQL, o motor de consulta distribuído funciona no nó de Controlo para otimizar e coordenar consultas paralelas. Quando submete uma consulta T-SQL a uma piscina SQL dedicada, o nó de Controlo transforma-o em consultas que vão contra cada distribuição em paralelo.
 
-No SQL on demand, o motor DQP funciona no nó de Controlo para otimizar e coordenar a execução distribuída da consulta do utilizador, dividindo-a em consultas menores que serão executadas nos nós compute. Também atribui conjuntos de ficheiros a serem processados por cada nó.
+Na piscina SQL sem servidor, o motor DQP funciona no nó de Controlo para otimizar e coordenar a execução distribuída da consulta do utilizador, dividindo-a em consultas menores que serão executadas nos nós computativos. Também atribui conjuntos de ficheiros a serem processados por cada nó.
 
 ## <a name="compute-nodes"></a>Nós de computação
 
 Os nós de computação conferem poder de computação. 
 
-Na piscina SQL, mapa de distribuição para nós compute para processamento. À medida que paga por mais recursos computacional, o pool remaps as distribuições para os nós computacional disponíveis. O número de nós computativos varia de 1 a 60, e é determinado pelo nível de serviço para piscina SQL. Cada nó computacional tem um nó ID que é visível nas vistas do sistema. Você pode ver o ID do nó compute procurando a coluna node_id nas vistas do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista destas vistas do sistema, consulte [as vistas do sistema Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
+Na piscina de SQL dedicada, mapa de distribuição para nós compute para processamento. À medida que paga por mais recursos computacional, o pool remaps as distribuições para os nós computacional disponíveis. O número de nós computativos varia de 1 a 60, e é determinado pelo nível de serviço para a piscina DE SQL dedicada. Cada nó computacional tem um nó ID que é visível nas vistas do sistema. Você pode ver o ID do nó compute procurando a coluna node_id nas vistas do sistema cujos nomes começam com sys.pdw_nodes. Para obter uma lista destas vistas do sistema, consulte [as vistas do sistema Synapse SQL](/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=azure-sqldw-latest).
 
-Em SQL on demand, cada nó compute é atribuído tarefa e conjunto de ficheiros para executar tarefa. A tarefa é distribuída unidade de execução de consulta, que na verdade faz parte do utilizador de consulta submetido. O dimensionamento automático está em vigor para garantir que os nós computacional suficientes são utilizados para executar a consulta do utilizador.
+Na piscina SQL sem servidor, cada nó Compute é atribuído tarefa e conjunto de ficheiros para executar tarefa. A tarefa é distribuída unidade de execução de consulta, que na verdade faz parte do utilizador de consulta submetido. O dimensionamento automático está em vigor para garantir que os nós computacional suficientes são utilizados para executar a consulta do utilizador.
 
 ## <a name="data-movement-service"></a>Serviço de Movimento de Dados
 
-Data Movement Service (DMS) é a tecnologia de transporte de dados no pool SQL que coordena o movimento de dados entre os nós compute. Algumas consultas requerem movimento de dados para garantir que as consultas paralelas retornem resultados precisos. Quando o movimento de dados é necessário, o DMS garante que os dados certos chegarão ao local certo.
+Data Movement Service (DMS) é a tecnologia de transporte de dados no pool de SQL dedicado que coordena o movimento de dados entre os nós compute. Algumas consultas requerem movimento de dados para garantir que as consultas paralelas retornem resultados precisos. Quando o movimento de dados é necessário, o DMS garante que os dados certos chegarão ao local certo.
 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="distributions"></a>Distribuições
 
-Uma distribuição é a unidade básica de armazenamento e processamento para consultas paralelas que funcionam em dados distribuídos na piscina SQL. Quando a piscina SQL executa uma consulta, o trabalho é dividido em 60 consultas menores que funcionam em paralelo. 
+Uma distribuição é a unidade básica de armazenamento e processamento para consultas paralelas que funcionam em dados distribuídos em pool DE SQL dedicado. Quando a piscina SQL dedicada executa uma consulta, a obra é dividida em 60 consultas menores que funcionam em paralelo. 
 
-Cada uma das 60 consultas menores funciona numa das distribuições de dados. Cada nó compute gere uma ou mais das 60 distribuições. Uma piscina SQL com recursos de computação máximo tem uma distribuição por nó Compute. Uma piscina SQL com recursos mínimos de computação tem todas as distribuições em um nó compute. 
+Cada uma das 60 consultas menores funciona numa das distribuições de dados. Cada nó compute gere uma ou mais das 60 distribuições. Um pool SQL dedicado com recursos de computação máximo tem uma distribuição por nó Compute. Um pool DE SQL dedicado com recursos mínimos de computação tem todas as distribuições em um nó de computação. 
 
 ## <a name="hash-distributed-tables"></a>Tabelas distribuídas com hash
 Uma tabela distribuída com hash pode proporcionar o mais elevado desempenho de consulta para associações e agregações em tabelas grandes. 
 
-Para obter dados em uma tabela distribuída por haxixe, o pool SQL usa uma função de haxixe para atribuir deterministicamente cada linha a uma distribuição. Na definição da tabela, uma das colunas será a coluna de distribuição. A função hash utiliza os valores da coluna de distribuição para atribuir cada linha a uma distribuição.
+Para obter dados em uma tabela distribuída por haxixe, o pool SQL dedicado usa uma função de haxixe para atribuir deterministicamente cada linha a uma distribuição. Na definição da tabela, uma das colunas será a coluna de distribuição. A função hash utiliza os valores da coluna de distribuição para atribuir cada linha a uma distribuição.
 
 O diagrama seguinte ilustra como uma tabela completa (não distribuída) é armazenada como uma mesa distribuída por haxixe. 
 
@@ -117,4 +117,4 @@ O diagrama abaixo mostra uma tabela replicada que é em cache na primeira distri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que sabe um pouco sobre o Sinaapse SQL, aprenda a criar rapidamente [uma piscina SQL](../quickstart-create-sql-pool-portal.md) e [carregue dados de amostra](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md). Ou começa a [utilizar o SQL a pedido.](../quickstart-sql-on-demand.md) Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../../azure-glossary-cloud-terminology.md) quando se deparar com terminologia nova. 
+Agora que sabe um pouco sobre o Sinaapse SQL, aprenda a criar rapidamente [uma piscina SQL dedicada](../quickstart-create-sql-pool-portal.md) e carregar dados de [amostras](../sql-data-warehouse/sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md) (./sql-data-warehouse-load-sample-databases.md). Ou começa a [usar a piscina SQL sem servidor.](../quickstart-sql-on-demand.md) Se não estiver familiarizado com o Azure, poderá achar útil o [Glossário do Azure](../../azure-glossary-cloud-terminology.md) quando se deparar com terminologia nova. 

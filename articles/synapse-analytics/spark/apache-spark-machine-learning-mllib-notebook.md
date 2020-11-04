@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020
 ms.author: euang
-ms.openlocfilehash: b723c77b193b499286a692bd5145131a904a7f07
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d7c5bd2d1918ecebe2d2aabc213de43e7cdb1fef
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369340"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306972"
 ---
 # <a name="tutorial-build-a-machine-learning-app-with-apache-spark-mllib-and-azure-synapse-analytics"></a>Tutorial: Construa uma app de machine learning com Apache Spark MLlib e Azure Synapse Analytics
 
@@ -31,7 +31,7 @@ MLlib é uma biblioteca core Spark que fornece muitos utilitários que são úte
 
 ## <a name="understand-classification-and-logistic-regression"></a>Compreender classificação e regressão logística
 
-*Classificação*, uma tarefa popular de aprendizagem automática, é o processo de triagem de dados de entrada em categorias. É função de um algoritmo de classificação descobrir como atribuir etiquetas aos *dados* de entrada que fornece. Por exemplo, pode pensar num algoritmo de machine learning que aceita informações de stock como entrada e divide o stock em duas categorias: ações que deve vender e ações que deve manter.
+*Classificação* , uma tarefa popular de aprendizagem automática, é o processo de triagem de dados de entrada em categorias. É função de um algoritmo de classificação descobrir como atribuir etiquetas aos *dados* de entrada que fornece. Por exemplo, pode pensar num algoritmo de machine learning que aceita informações de stock como entrada e divide o stock em duas categorias: ações que deve vender e ações que deve manter.
 
 *A regressão logística* é um algoritmo que pode usar para a classificação. A API de regressão logística da Spark é útil para *a classificação binária,* ou para classificar dados de entrada em um de dois grupos. Para obter mais informações sobre regressões logísticas, consulte [a Wikipédia.](https://en.wikipedia.org/wiki/Logistic_regression)
 
@@ -49,7 +49,7 @@ Nos passos seguintes, desenvolve-se um modelo para prever se uma determinada via
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Crie uma app de aprendizagem automática Apache Spark MLlib
 
 1. Crie um caderno utilizando o núcleo PySpark. Para obter as instruções, consulte [Criar um caderno](../quickstart-apache-spark-notebook.md#create-a-notebook).
-2. Importe os tipos necessários para este pedido. Copie e cole o seguinte código numa célula vazia e, em seguida, prima **SHIFT + ENTER**, ou executar a célula utilizando o ícone de reprodução azul à esquerda do código.
+2. Importe os tipos necessários para este pedido. Copie e cole o seguinte código numa célula vazia e, em seguida, prima **SHIFT + ENTER** , ou executar a célula utilizando o ícone de reprodução azul à esquerda do código.
 
     ```python
     import matplotlib.pyplot as plt
@@ -71,7 +71,7 @@ Nos passos seguintes, desenvolve-se um modelo para prever se uma determinada via
 
 Como os dados brutos estão num formato Parquet, pode utilizar o contexto Spark para puxar o ficheiro para a memória como um dataframe diretamente. Embora o código abaixo utilize as opções predefinidos, é possível forçar o mapeamento de tipos de dados e outros atributos de esquema, se necessário.
 
-1. Executar as seguintes linhas para criar um dataframe Spark colando o código numa nova célula. Isto recupera os dados através da API Open Datasets. Puxar todos estes dados gera cerca de 1,5 mil milhões de linhas. Dependendo do tamanho da sua piscina Spark (pré-visualização), os dados brutos podem ser demasiado grandes ou demorar muito tempo a operar. Pode filtrar estes dados para algo menor. O seguinte exemplo de código utiliza start_date e end_date para aplicar um filtro que devolve um único mês de dados.
+1. Executar as seguintes linhas para criar um dataframe Spark colando o código numa nova célula. Isto recupera os dados através da API Open Datasets. Puxar todos estes dados gera cerca de 1,5 mil milhões de linhas. Dependendo do tamanho do seu conjunto Apache Spark sem servidor (pré-visualização), os dados brutos podem ser demasiado grandes ou demorar muito tempo a operar. Pode filtrar estes dados para algo menor. O seguinte exemplo de código utiliza start_date e end_date para aplicar um filtro que devolve um único mês de dados.
 
     ```python
     from azureml.opendatasets import NycTlcYellow
@@ -193,7 +193,7 @@ taxi_featurised_df = taxi_df.select('totalAmount', 'fareAmount', 'tipAmount', 'p
 
 ## <a name="create-a-logistic-regression-model"></a>Criar um modelo de regressão logística
 
-A tarefa final é converter os dados rotulados num formato que possa ser analisado por regressão logística. A entrada para um algoritmo de regressão logística precisa ser um conjunto de pares de *vetores de características de etiqueta,* onde o *vetor* de recurso é um vetor de números que representam o ponto de entrada. Então, precisamos converter as colunas categóricas em números. As `trafficTimeBins` `weekdayString` colunas e as colunas precisam de ser convertidas em representações inteiros. Existem múltiplas abordagens para realizar a conversão, no entanto a abordagem adotada neste exemplo é *OneHotEncoding*, uma abordagem comum.
+A tarefa final é converter os dados rotulados num formato que possa ser analisado por regressão logística. A entrada para um algoritmo de regressão logística precisa ser um conjunto de pares de *vetores de características de etiqueta,* onde o *vetor* de recurso é um vetor de números que representam o ponto de entrada. Então, precisamos converter as colunas categóricas em números. As `trafficTimeBins` `weekdayString` colunas e as colunas precisam de ser convertidas em representações inteiros. Existem múltiplas abordagens para realizar a conversão, no entanto a abordagem adotada neste exemplo é *OneHotEncoding* , uma abordagem comum.
 
 ```python
 # Since the sample uses an algorithm that only works with numeric features, convert them so they can be consumed

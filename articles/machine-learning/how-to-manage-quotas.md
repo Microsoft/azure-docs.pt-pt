@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a8a04d9e1b17c7e65be946cb51bfc41019e0706d
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234002"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309075"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir e aumentar quotas para recursos com Azure Machine Learning
 
@@ -52,7 +52,7 @@ Nesta secção, você aprende sobre o padrão e limites máximos de quota para o
 + Storage do Azure
 
 > [!IMPORTANT]
-> Os limites estão sujeitos a alterações. Para obter as informações mais recentes, consulte [os limites de subscrição e serviço da Azure, quotas e constrangimentos](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) para toda a Azure.
+> Os limites estão sujeitos a alterações. Para obter as informações mais recentes, consulte [os limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md) para toda a Azure.
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 Cada subscrição do Azure tem um limite no número de máquinas virtuais em todos os serviços. Os núcleos de máquinas virtuais têm um limite total regional e um limite regional por série de tamanho. Ambos os limites são aplicados separadamente.
@@ -100,7 +100,7 @@ A tabela a seguir mostra limites adicionais que não pode exceder.
 
 ### <a name="container-instances"></a>Container Instances
 
-Para obter mais informações, consulte [os limites de instâncias de contentores.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits)
+Para obter mais informações, consulte [os limites de instâncias de contentores.](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits)
 
 ### <a name="storage"></a>Armazenamento
 O Azure Storage tem um limite de 250 contas de armazenamento por região, por subscrição. Este limite inclui contas de armazenamento Standard e Premium.
@@ -115,7 +115,7 @@ Utilize quotas de nível de trabalho para gerir a alocação de destino de cálc
 Por padrão, todos os espaços de trabalho partilham a mesma quota que a quota de nível de subscrição para as famílias VM. No entanto, pode definir uma quota máxima para famílias VM individuais em espaços de trabalho numa subscrição. Isto permite-lhe partilhar a capacidade e evitar problemas de contenção de recursos.
 
 1. Vá a qualquer espaço de trabalho na sua subscrição.
-1. No painel esquerdo, selecione **Usage + quotas** .
+1. No painel esquerdo, selecione **Usage + quotas**.
 1. Selecione o **separador quotas configurar** para visualizar as quotas.
 1. Expandir uma família VM.
 1. Estabeleça um limite de quota em qualquer espaço de trabalho listado na família VM.
@@ -156,7 +156,7 @@ Não é possível elevar os limites acima dos valores máximos indicados nas tab
 Quando pedir um aumento de quota, selecione o serviço que tem em mente. Por exemplo, selecione Azure Machine Learning, Container Instances ou Storage. Para o cálculo Azure Machine Learning, pode selecionar o botão **Quota de Pedido** enquanto visualiza a quota nos passos anteriores.
 
 > [!NOTE]
-> [As assinaturas de ensaios gratuitos](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou de quotas. Se tiver uma subscrição de teste gratuita, pode fazer upgrade para uma subscrição [pay-as-you-go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para mais informações, consulte [o upgrade Azure free trial para pay-as-you-go](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) e [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).
+> [As assinaturas de ensaios gratuitos](https://azure.microsoft.com/offers/ms-azr-0044p) não são elegíveis para aumentos de limites ou de quotas. Se tiver uma subscrição de teste gratuita, pode fazer upgrade para uma subscrição [pay-as-you-go.](https://azure.microsoft.com/offers/ms-azr-0003p/) Para mais informações, consulte [o upgrade Azure free trial para pay-as-you-go](../cost-management-billing/manage/upgrade-azure-subscription.md) e [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq).
 
 ## <a name="private-endpoint-and-private-dns-quota-increases"></a>Aumentos de quota de ponto final privado e DNS privado
 
@@ -172,7 +172,7 @@ O Azure Machine Learning cria recursos na sua subscrição (cliente), mas alguns
 
 Para solicitar um subsídio para estes cenários, utilize as seguintes etapas:
 
-1. [Crie um pedido de suporte Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) e selecione as seguintes opções na secção __Básico:__
+1. [Crie um pedido de suporte Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) e selecione as seguintes opções na secção __Básico:__
 
     | Campo | Seleção |
     | ----- | ----- |

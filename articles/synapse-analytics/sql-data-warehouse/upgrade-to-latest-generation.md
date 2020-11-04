@@ -1,6 +1,6 @@
 ---
 title: Upgrade para a última geração
-description: Upgrade Azure Synapse Analytics SQL pool para a última geração de hardware e arquitetura de armazenamento Azure.
+description: Upgrade Azure Synapse Analytics dedicou a piscina SQL à última geração de hardware e arquitetura de armazenamento Azure.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,32 +11,32 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b025b26d505f99b3bc92e995fde9184a4cc26a4d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627079"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309590"
 ---
-# <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Otimizar o desempenho através da modernização da piscina SQL Azure Synapse Analytics
+# <a name="optimize-performance-by-upgrading-dedicated-sql-pool-in-azure-synapse-analytics"></a>Otimizar o desempenho através da atualização da piscina SQL dedicada no Azure Synapse Analytics
 
-Atualizar a piscina SQL para a última geração de hardware e arquitetura de armazenamento Azure.
+Atualize a sua piscina SQL dedicada à última geração de hardware e arquitetura de armazenamento Azure.
 
 ## <a name="why-upgrade"></a>Porquê atualizar?
 
-Pode agora fazer um upgrade perfeito para o sql pool Compute Optimized Gen2 tier no portal Azure para [regiões apoiadas.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) Se a sua região não apoiar o auto-upgrade, pode fazer upgrade para uma região apoiada ou esperar que o auto-upgrade esteja disponível na sua região. Atualize agora para aproveitar a última geração de hardware Azure e arquitetura de armazenamento melhorada, incluindo desempenho mais rápido, maior escalabilidade e armazenamento colunar ilimitado.
+Pode agora fazer um upgrade perfeito para o nível de Gen2 otimizado da piscina SQL no portal Azure para [regiões apoiadas.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) Se a sua região não apoiar o auto-upgrade, pode fazer upgrade para uma região apoiada ou esperar que o auto-upgrade esteja disponível na sua região. Atualize agora para aproveitar a última geração de hardware Azure e arquitetura de armazenamento melhorada, incluindo desempenho mais rápido, maior escalabilidade e armazenamento colunar ilimitado.
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 > [!IMPORTANT]
-> Esta atualização aplica-se a piscinas SQL de nível SQL otimizados compute em [regiões apoiadas.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
+> Esta atualização aplica-se a piscinas SQL dedicadas ao nível da Computação Otimizada da Gen1 em [regiões apoiadas.](gen2-migration-schedule.md#automated-schedule-and-region-availability-table)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 1. Verifique se a sua [região](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) é apoiada para a migração GEN1 para GEN2. Note as datas de migração automática. Para evitar conflitos com o processo automatizado, planeie a sua migração manual antes da data de início do processo automatizado.
 2. Se você estiver em uma região que ainda não está apoiada, continue a verificar se a sua região deve ser adicionada ou [upgrade usando o restauro](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) para uma região apoiada.
 3. Se a sua região for apoiada, [atualize através do portal Azure](#upgrade-in-a-supported-region-using-the-azure-portal)
-4. **Selecione o nível de desempenho sugerido** para piscina SQL com base no seu nível de desempenho atual no nível de Gen1 otimizado compute, utilizando o mapeamento abaixo:
+4. **Selecione o nível** de desempenho sugerido para piscina SQL dedicada com base no seu nível de desempenho atual no nível de Gen1 otimizado compute, utilizando o mapeamento abaixo:
 
    | Nível de Gen1 otimizado compute | Nível de Gen2 otimizado compute |
    | :-------------------------: | :-------------------------: |
@@ -59,18 +59,18 @@ Pode agora fazer um upgrade perfeito para o sql pool Compute Optimized Gen2 tier
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Upgrade numa região apoiada usando o portal Azure
 
 - A migração da Gen1 para a Gen2 através do portal Azure é permanente. Não há um processo para regressar à Gen1.
-- Piscina SQL deve estar correndo para migrar para a Gen2
+- Piscina SQL dedicada deve estar correndo para migrar para a Gen2
 
 ### <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 - Inicie sessão no [portal do Azure](https://portal.azure.com/).
-- Certifique-se de que a piscina SQL está em funcionamento - deve ser para migrar para a Gen2
+- Certifique-se de que a piscina SQL dedicada está em funcionamento - deve ser para migrar para a Gen2
 
 ### <a name="powershell-upgrade-commands"></a>Comandos de upgrade powerShell
 
-1. Se a piscina SQL de nível SQL otimizada compute otimizada a ser atualizada for pausada, [retome a piscina SQL](pause-and-resume-compute-portal.md).
+1. Se a piscina SQL dedicada ao nível da Computação Otimizada gen1 a ser atualizada for interrompida, [retome a piscina SQL dedicada](pause-and-resume-compute-portal.md).
 
 2. Prepare-se para alguns minutos de tempo de descanso.
 
@@ -89,7 +89,7 @@ Pode agora fazer um upgrade perfeito para o sql pool Compute Optimized Gen2 tier
    ```
 
    > [!NOTE]
-   > -Serviço Solicitado O nome "DW300" é alterado para - Nome de miniatura do Serviço Solicitado "DW300**c"**
+   > -Serviço Solicitado O nome "DW300" é alterado para - Nome de miniatura do Serviço Solicitado "DW300 **c"**
    >
 
    Comando Original Gen1 T-SQL:
@@ -105,18 +105,18 @@ Pode agora fazer um upgrade perfeito para o sql pool Compute Optimized Gen2 tier
    ```
 
    > [!NOTE]
-   > SERVICE_OBJETIVE = 'DW300' é alterado para SERVICE_OBJETIVE = 'DW300**c'**
+   > SERVICE_OBJETIVE = 'DW300' é alterado para SERVICE_OBJETIVE = 'DW300 **c'**
 
 ## <a name="start-the-upgrade"></a>Inicie a atualização
 
-1. Vá à sua piscina Desatalado Da Gen1 SQL no portal Azure. Se a piscina SQL de nível SQL otimizada compute otimizada a ser atualizada for pausada, [retome a piscina SQL](pause-and-resume-compute-portal.md).
+1. Vá à sua piscina SQL dedicada à Computação Otimizada gen1 no portal Azure. Se a piscina SQL dedicada ao nível da Computação Otimizada gen1 a ser atualizada for interrompida, [retome a piscina SQL dedicada](pause-and-resume-compute-portal.md).
 2. Selecione Upgrade para o cartão **Gen2** no separador Tarefas: ![ Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
    > [!NOTE]
    > Se não vir o cartão **Upgrade para Gen2** no separador Tarefas, o seu tipo de subscrição é limitado na região atual.
    > [Envie um bilhete de apoio](sql-data-warehouse-get-started-create-support-ticket.md) para obter a sua assinatura aprovada.
 
-3. Certifique-se de que a sua carga de trabalho está concluída em funcionamento e a 50da antes de ser melhorada. Você vai experimentar tempo de inatividade por alguns minutos antes que a sua piscina SQL esteja novamente on-line como uma piscina SQL de nível De Gama Otimizada Compute. **Selecione Upgrade**:
+3. Certifique-se de que a sua carga de trabalho está concluída em funcionamento e a 50da antes de ser melhorada. Você vai experimentar tempo de inatividade por alguns minutos antes que sua piscina DEDICADA SQL esteja novamente on-line como uma piscina SQL dedicada ao nível da Computação Otimizada Gen2. **Selecione Upgrade** :
 
    ![Upgrade_2](./media/upgrade-to-latest-generation/upgrade-to-gen2-2.png)
 
@@ -126,7 +126,7 @@ Pode agora fazer um upgrade perfeito para o sql pool Compute Optimized Gen2 tier
 
    O primeiro passo do processo de atualização passa pela operação de escala ("Upgrade - Offline") onde todas as sessões serão eliminadas e as ligações serão retiradas.
 
-   O segundo passo do processo de atualização é a migração de dados ("Upgrade - Online"). A migração de dados é um processo de fundo online. Este processo move lentamente dados colunares da antiga arquitetura de armazenamento para a nova arquitetura de armazenamento usando uma cache SSD local. Durante este tempo, a sua piscina SQL estará online para consulta e carregamento. Os seus dados estarão disponíveis para consulta, independentemente de terem sido migrados ou não. A migração de dados ocorre a taxas variadas dependendo do tamanho dos seus dados, do seu nível de desempenho e do número dos segmentos da sua loja de colunas.
+   O segundo passo do processo de atualização é a migração de dados ("Upgrade - Online"). A migração de dados é um processo de fundo online. Este processo move lentamente dados colunares da antiga arquitetura de armazenamento para a nova arquitetura de armazenamento usando uma cache SSD local. Durante este tempo, a sua piscina dedicada SQL estará online para consulta e carregamento. Os seus dados estarão disponíveis para consulta, independentemente de terem sido migrados ou não. A migração de dados ocorre a taxas variadas dependendo do tamanho dos seus dados, do seu nível de desempenho e do número dos segmentos da sua loja de colunas.
 
 5. **Recomendação opcional:** Uma vez concluída a operação de dimensionamento, pode acelerar o processo de fundo de migração de dados. Pode forçar o movimento de dados executando [a reconstrução do Alter Index](sql-data-warehouse-tables-index.md) em todas as tabelas de lojas de colunas primárias que estaria a consultar numa SLO maior e classe de recursos. Esta operação está **offline** em comparação com o processo de fundo trickle, que pode levar horas a ser concluída dependendo do número e tamanhos das suas tabelas. No entanto, uma vez concluída, a migração de dados será muito mais rápida devido à nova arquitetura de armazenamento melhorada com grupos de linha de alta qualidade.
 
@@ -184,7 +184,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
-2. Navegue até à piscina SQL para a que pretende criar um ponto de restauração.
+2. Navegue para a piscina de SQL dedicada para a que pretende criar um ponto de restauração.
 
 3. No topo da secção Overview, selecione **+Novo Ponto de Restauro**.
 
@@ -197,7 +197,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Restaurar uma base de dados ativa ou pausada utilizando o portal Azure
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-2. Navegue até à piscina SQL daí que pretende restaurar.
+2. Navegue até à piscina dedicada SQL a partir daí restaurada.
 3. No topo da secção 'Vista Geral', selecione **'Restaurar'.**
 
     ![ Descrição geral do Restauro](./media/upgrade-to-latest-generation/restoring_0.png)
@@ -213,7 +213,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 Para recuperar uma base de dados, utilize o [cmdlet Restore-AzSqlDatabase.](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
 > [!NOTE]
-> Você pode realizar um geo-restauro para a Gen2! Para tal, especifique um Nome Gen2 ServiceObjective (por exemplo, DW1000**c**) como um parâmetro opcional.
+> Você pode realizar um geo-restauro para a Gen2! Para tal, especifique um Nome Gen2 ServiceObjective (por exemplo, DW1000 **c** ) como um parâmetro opcional.
 
 1. Abra o Windows PowerShell.
 2. Ligue-se à sua conta Azure e enuseça todas as subscrições associadas à sua conta.
@@ -242,8 +242,8 @@ $GeoRestoredDatabase.status
 
 A base de dados recuperada será ativada pelo TDE se a base de dados de origem estiver ativada pelo TDE.
 
-Se sentir algum problema com a sua piscina SQL, crie um pedido de [suporte](sql-data-warehouse-get-started-create-support-ticket.md) e referência "atualização Gen2" como a causa possível.
+Se sentir algum problema com a sua piscina DE SQL dedicada, crie um pedido de [suporte](sql-data-warehouse-get-started-create-support-ticket.md) e referência "atualização Gen2" como a causa possível.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-A sua piscina SQL melhorada está online. Para tirar partido da arquitetura melhorada, consulte as [classes de Recursos para Gestão da Carga de Trabalho.](resource-classes-for-workload-management.md)
+A sua piscina SQL dedicada atualizada está online. Para tirar partido da arquitetura melhorada, consulte as [classes de Recursos para Gestão da Carga de Trabalho.](resource-classes-for-workload-management.md)

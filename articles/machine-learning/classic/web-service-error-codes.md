@@ -11,16 +11,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: c48c59db2d9b830367276d39a82bc7fc8fdc34d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e0fa530b370782af730a2383df1240bbf5c859
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357255"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308653"
 ---
 # <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (clássico) REST API Error Codes
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Os seguintes códigos de erro podem ser devolvidos através de uma operação num serviço web Azure Machine Learning Studio (clássico).
@@ -225,7 +225,7 @@ Pacote de serviço web inválido. Verifique se a embalagem web fornecida está c
  
 | Código de erro | Mensagem de utilizador |
 | ---------- |--------------|
-| MóduloError | O gráfico do pacote de serviço web é inválido. Detalhes: {0} |
+| ModuleError | O gráfico do pacote de serviço web é inválido. Detalhes: {0} |
  
 ## <a name="initializingcontainers-http-status-code-503"></a>InicializaçãoContainers (código de estado HTTP 503)
  
@@ -252,4 +252,3 @@ A operação não pôde ser concluída dentro do prazo permitido.
 | ---------- |--------------|
 | BackendInitializationTimeout | A inicialização do serviço web não pôde ser concluída dentro do tempo permitido. |
 | BackendScoreTimeout | O pedido de serviço web de execução não pôde ser concluído dentro do tempo permitido. |
- 

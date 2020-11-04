@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790887"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308338"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -82,7 +82,7 @@ Os auditores podem utilizar o Azure Monitor para rever os registos auditevent do
 
 - Conceda ao servidor ou ao acesso de instância gerida ao cofre de chaves (obter, wrapKey, desembrulhar aKey) utilizando a sua identidade de Diretório Ativo Azure. Ao utilizar o portal Azure, a identidade Azure AD é criada automaticamente. Ao utilizar o PowerShell ou o CLI, a identidade AZure AD deve ser explicitamente criada e a conclusão deve ser verificada. Consulte [o Configure TDE com BYOK](transparent-data-encryption-byok-configure.md) e [Configure TDE com BYOK para SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para instruções detalhadas passo a passo ao utilizar o PowerShell.
 
-- Ao utilizar firewall com AKV, deve ativar a opção *Permitir que os serviços fidedignos da Microsoft contornem a firewall* .
+- Ao utilizar firewall com AKV, deve ativar a opção *Permitir que os serviços fidedignos da Microsoft contornem a firewall*.
 
 ### <a name="requirements-for-configuring-tde-protector"></a>Requisitos para configurar o protetor TDE
 
@@ -126,7 +126,7 @@ Os auditores podem utilizar o Azure Monitor para rever os registos auditevent do
 
 ## <a name="inaccessible-tde-protector"></a>Protetor TDE inacessível
 
-Quando a encriptação de dados transparente é configurada para utilizar uma chave gerida pelo cliente, é necessário um acesso contínuo ao protetor TDE para que a base de dados se mantenha on-line. Se o servidor perder o acesso ao protetor TDE gerido pelo cliente em AKV, em até 10 minutos uma base de dados começará a negar todas as ligações com a mensagem de erro correspondente e a alterar o seu estado para *Inacessível* . A única ação permitida numa base de dados no estado inacessível é apagá-la.
+Quando a encriptação de dados transparente é configurada para utilizar uma chave gerida pelo cliente, é necessário um acesso contínuo ao protetor TDE para que a base de dados se mantenha on-line. Se o servidor perder o acesso ao protetor TDE gerido pelo cliente em AKV, em até 10 minutos uma base de dados começará a negar todas as ligações com a mensagem de erro correspondente e a alterar o seu estado para *Inacessível*. A única ação permitida numa base de dados no estado inacessível é apagá-la.
 
 > [!NOTE]
 > Se a base de dados estiver inacessível devido a uma falha intermitente de rede, não é necessária nenhuma ação e as bases de dados voltarão a funcionar automaticamente.
@@ -135,7 +135,7 @@ Após o acesso à chave ser restaurado, a tomada de base de dados online requer 
 
 - Se o acesso à chave for restaurado dentro de 8 horas, a base de dados curar-se-á automaticamente dentro de uma hora.
 
-- Se o acesso à chave for restaurado mais de 8 horas depois, não será possível realizar a autorrecuperação. Além disso, recuperar a base de dados requer passos adicionais no portal e pode demorar bastante tempo, dependendo do tamanho da base de dados. Uma vez que a base de dados esteja novamente on-line, configuradas previamente configuradas configurações de nível do servidor, tais como configuração [do grupo de failover,](auto-failover-group-overview.md) histórico de restauração pontual e tags **serão perdidas** . Por isso, recomenda-se a implementação de um sistema de notificação que lhe permita identificar e resolver os principais problemas de acesso subjacentes dentro de 8 horas.
+- Se o acesso à chave for restaurado mais de 8 horas depois, não será possível realizar a autorrecuperação. Além disso, recuperar a base de dados requer passos adicionais no portal e pode demorar bastante tempo, dependendo do tamanho da base de dados. Uma vez que a base de dados esteja novamente on-line, configuradas previamente configuradas configurações de nível do servidor, tais como configuração [do grupo de failover,](auto-failover-group-overview.md) histórico de restauração pontual e tags **serão perdidas**. Por isso, recomenda-se a implementação de um sistema de notificação que lhe permita identificar e resolver os principais problemas de acesso subjacentes dentro de 8 horas.
 
 Abaixo está uma visão dos passos adicionais necessários no portal para colocar uma base de dados inacessível de volta on-line.
 
@@ -156,7 +156,7 @@ Pode acontecer que alguém com direitos de acesso suficientes ao cofre de chaves
 
 - eliminando a identidade gerida do servidor no Azure Ative Directory
 
-Saiba mais sobre [as causas comuns para que a base de dados se torne inacessível.](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible)
+Saiba mais sobre [as causas comuns para que a base de dados se torne inacessível.](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible)
 
 ## <a name="monitoring-of-the-customer-managed-tde"></a>Monitorização do TDE gerido pelo cliente
 
@@ -179,7 +179,7 @@ Se a chave necessária para restaurar uma cópia de segurança já não estiver 
 
 Para o mitigar, execute o cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) para o servidor alvo ou [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) para o caso gerido pelo alvo para devolver a lista das chaves disponíveis e identificar as que faltam. Para garantir que todas as cópias de segurança podem ser restauradas, certifique-se de que o servidor alvo para a restauração tem acesso a todas as teclas necessárias. Estas chaves não precisam de ser marcadas como protetora TDE.
 
-Para saber mais sobre a recuperação de backup para a Base de Dados SQL, consulte [recuperar uma base de dados na Base de Dados SQL.](recovery-using-backups.md) Para saber mais sobre a recuperação de backup para a SQL Pool, consulte [Recuperar uma Piscina SQL.](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md) Para a cópia de segurança/restauro nativo do SQL Server com sql Managed Instance, consulte [Quickstart: Restaurar uma base de dados para SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
+Para saber mais sobre a recuperação de backup para a Base de Dados SQL, consulte [recuperar uma base de dados na Base de Dados SQL.](recovery-using-backups.md) Para saber mais sobre a recuperação de backup para piscina SQL dedicada em Azure Synapse Analytics, consulte [Recuperar uma piscina SQL dedicada.](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md) Para a cópia de segurança/restauro nativo do SQL Server com sql Managed Instance, consulte [Quickstart: Restaurar uma base de dados para SQL Managed Instance](../managed-instance/restore-sample-database-quickstart.md)
 
 Consideração adicional para ficheiros de registo: Os ficheiros de registo com o fundo permanecem encriptados com o protetor TDE original, mesmo que tenha sido rodado e a base de dados esteja agora a utilizar um novo protetor TDE.  No momento de restauração, ambas as chaves serão necessárias para restaurar a base de dados.  Se o ficheiro de registo estiver a utilizar um protetor TDE armazenado no Cofre da Chave Azure, esta chave será necessária no momento de restauração, mesmo que a base de dados tenha sido alterada para utilizar o TDE gerido pelo serviço entretanto.
 

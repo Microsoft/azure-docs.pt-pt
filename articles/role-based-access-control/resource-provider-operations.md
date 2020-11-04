@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 3f192493dfd6bfc2fb3d5802b1dd94cd4ca3a9a9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e337cef9121dc5992f87b9996cfd01d16d9cc188
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285221"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309379"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
 
@@ -4100,7 +4100,7 @@ Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQ
 > | Microsoft.Sql/servidores/bases de dados/dataMaskingPolicies/rules/delete | Eliminar a regra da política de mascaramento de dados para uma determinada base de dados |
 > | Microsoft.Sql/servidores/bases de dados/dataWarehouseQueries/read | Devolve as informações de distribuição de armazém de dados para iD de consulta selecionada |
 > | Microsoft.Sql/servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/read | Devolve a informação distribuída do passo de consulta da consulta de armazém de dados para iD de passo selecionado |
-> | Microsoft.Sql/servidores/bases de dados/dataWarehouseUserActividades/leitura | Recupera as atividades do utilizador de uma instância do Armazém de Dados SQL que inclui consultas em execução e suspensão |
+> | Microsoft.Sql/servidores/bases de dados/dataWarehouseUserActividades/leitura | Recupera as atividades do utilizador de uma piscina SQL dedicada Azure Synapse Analytics, que inclui consultas em execução e suspensão |
 > | Microsoft.Sql/servidores/bases de dados/extendedAuditingSettings/read | Recuperar detalhes da política de auditoria de blob alargada configurada numa determinada base de dados |
 > | Microsoft.Sql/servidores/bases de dados/extendedAuditingSettings/write | Alterar a política de auditoria de blob alargada para uma determinada base de dados |
 > | Microsoft.Sql/servidores/bases de dados/extensões/leitura | Recebe uma coleção de extensões para a base de dados. |

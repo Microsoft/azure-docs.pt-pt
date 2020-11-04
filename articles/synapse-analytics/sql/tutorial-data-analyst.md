@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Use SQL on-demand (pré-visualização) para analisar conjuntos de dados abertos Azure no Azure Synapse Studio (pré-visualização)'
-description: Este tutorial mostra-lhe como realizar facilmente a análise de dados exploratórios combinando diferentes conjuntos de dados Azure Open usando SQL on-demand (pré-visualização) e visualizar os resultados no Azure Synapse Studio.
+title: 'Tutorial: Use piscina SQL sem servidor (pré-visualização) para analisar conjuntos de dados abertos Azure no Azure Synapse Studio (pré-visualização)'
+description: Este tutorial mostra-lhe como realizar facilmente a análise de dados exploratórios combinando diferentes conjuntos de dados Azure Open usando piscina SQL sem servidor (pré-visualização) e visualizar os resultados no Azure Synapse Studio.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0471bd594dcf1b0654d6b4c496e5d39ade2739fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec16041edd10a57088df4ae9cfe0587906919eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539525"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309288"
 ---
-# <a name="tutorial-use-sql-on-demand-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutorial: Use SQL on-demand para analisar conjuntos de dados Azure Open e visualizar os resultados no Azure Synapse Studio
+# <a name="tutorial-use-serverless-sql-pool-to-analyze-azure-open-datasets-and-visualize-the-results-in-azure-synapse-studio"></a>Tutorial: Use a piscina SQL sem servidor para analisar os Conjuntos de Dados Abertos do Azure e visualizar os resultados no Azure Synapse Studio
 
-Neste tutorial, aprende-se a realizar análises exploratórias de dados combinando diferentes conjuntos de dados Azure Open usando SQL a pedido e, em seguida, visualizando os resultados no Azure Synapse Studio.
+Neste tutorial, aprende-se a realizar análises exploratórias de dados combinando diferentes conjuntos de dados Azure Open utilizando pool SQL sem servidor e, em seguida, visualizando os resultados no Azure Synapse Studio.
 
 Em particular, você analisa o [conjunto de dados de táxi de Nova Iorque (NYC)](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/) que inclui:
 
@@ -102,7 +102,7 @@ O seguinte corte mostra o resultado do número anual de passeios de táxi:
 
 ![Número anual de passeios de táxi resulta de snippet](./media/tutorial-data-analyst/4.png)
 
-Os dados podem ser visualizados no Synapse Studio mudando da **tabela** para a vista **gráfico.** Pode escolher entre diferentes tipos de gráficos, tais como **Área,** **Bar,** **Coluna,** **Linha,** **Tarte**e **Dispersão.** Neste caso, defina o gráfico **da Coluna** com a coluna **categoria** definida para **current_year**:
+Os dados podem ser visualizados no Synapse Studio mudando da **tabela** para a vista **gráfico.** Pode escolher entre diferentes tipos de gráficos, tais como **Área,** **Bar,** **Coluna,** **Linha,** **Tarte** e **Dispersão.** Neste caso, defina o gráfico **da Coluna** com a coluna **categoria** definida para **current_year** :
 
 ![Gráfico de coluna mostrando passeios por ano](./media/tutorial-data-analyst/5.png)
 
@@ -213,9 +213,9 @@ Os resultados da consulta indicam que a diminuição do número de passeios de t
 - Estava frio (a temperatura estava abaixo de zero graus Celsius).
 - Estava ventoso (~10 m/s).
 
-Este tutorial mostrou como um analista de dados pode rapidamente realizar análises exploratórias de dados, combinar facilmente diferentes conjuntos de dados usando SQL on-demand, e visualizar os resultados usando o Azure Synapse Studio.
+Este tutorial mostrou como um analista de dados pode rapidamente realizar análises exploratórias de dados, combinar facilmente diferentes conjuntos de dados utilizando o pool SQL sem servidor, e visualizar os resultados usando o Azure Synapse Studio.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para aprender a ligar o SQL on-demand ao Power BI Desktop e criar relatórios, consulte [Connect SQL on-demand ao Power BI Desktop e crie relatórios](tutorial-connect-power-bi-desktop.md).
+Para aprender a ligar a piscina SQL sem servidor ao Power BI Desktop e criar relatórios, consulte [a piscina SQL sem servidor para o Power BI Desktop e crie relatórios](tutorial-connect-power-bi-desktop.md).
  

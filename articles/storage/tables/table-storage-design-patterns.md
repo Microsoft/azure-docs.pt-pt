@@ -9,12 +9,12 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 41e07087574989935e89ba2c1f4c09a3c12b192d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 20e776e649d13e435a7bc9215802fcd89efe0867
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215608"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307462"
 ---
 # <a name="table-design-patterns"></a>Padrões de design da tabela
 Este artigo descreve alguns padrões adequados para utilização com soluções de serviço de mesa. Além disso, você verá como você pode praticamente abordar algumas das questões e trade-offs discutidos em outros artigos de design de armazenamento de mesa. O diagrama seguinte resume as relações entre os diferentes padrões:  
@@ -22,7 +22,7 @@ Este artigo descreve alguns padrões adequados para utilização com soluções 
 ![para procurar dados relacionados](media/storage-table-design-guide/storage-table-design-IMAGE05.png)
 
 
-O mapa de padrões acima destaca algumas relações entre padrões (azul) e anti-padrões (laranja) que são documentados neste guia. Há muitos outros padrões que vale a pena considerar. Por exemplo, um dos cenários-chave para o Serviço de Mesa é utilizar o Padrão de [Visualização Materializado](https://msdn.microsoft.com/library/azure/dn589782.aspx) a partir do padrão de segregação de [responsabilidade de comando (CQRS).](https://msdn.microsoft.com/library/azure/jj554200.aspx)  
+O mapa de padrões acima destaca algumas relações entre padrões (azul) e anti-padrões (laranja) que são documentados neste guia. Há muitos outros padrões que vale a pena considerar. Por exemplo, um dos cenários-chave para o Serviço de Mesa é utilizar o Padrão de [Visualização Materializado](/previous-versions/msp-n-p/dn589782(v=pandp.10)) a partir do padrão de segregação de [responsabilidade de comando (CQRS).](/previous-versions/msp-n-p/jj554200(v=pandp.10))  
 
 ## <a name="intra-partition-secondary-index-pattern"></a>Padrão do índice secundário intra-partição
 Armazenar várias cópias de cada entidade utilizando diferentes valores **RowKey** (na mesma partição) para permitir procuras rápidas e eficientes e ordens de classificação alternativas utilizando diferentes valores **RowKey.** As atualizações entre cópias podem ser mantidas consistentes utilizando EGTs.  
@@ -35,7 +35,7 @@ O serviço tabela indexa automaticamente as entidades utilizando os valores **Pa
 Se também quiser encontrar uma entidade de colaboradores com base no valor de outra propriedade, como endereço de e-mail, deve utilizar uma verificação de partição menos eficiente para encontrar uma correspondência. Isto porque o serviço de mesa não fornece índices secundários. Além disso, não há opção de solicitar uma lista de funcionários classificados numa ordem diferente da ordem **RowKey.**  
 
 ### <a name="solution"></a>Solução
-Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade com cada cópia utilizando um valor **RowKey** diferente. Se armazenar uma entidade com as estruturas abaixo indicadas, pode recuperar eficientemente entidades de colaboradores com base no endereço de e-mail ou iD do funcionário. Os valores de prefixo para o **RowKey**, "empid_" e "email_" permitem-lhe consultar um único empregado ou uma série de colaboradores utilizando uma série de endereços de e-mail ou IDs de funcionários.  
+Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade com cada cópia utilizando um valor **RowKey** diferente. Se armazenar uma entidade com as estruturas abaixo indicadas, pode recuperar eficientemente entidades de colaboradores com base no endereço de e-mail ou iD do funcionário. Os valores de prefixo para o **RowKey** , "empid_" e "email_" permitem-lhe consultar um único empregado ou uma série de colaboradores utilizando uma série de endereços de e-mail ou IDs de funcionários.  
 
 ![Entidades dos trabalhadores](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
 
@@ -49,7 +49,7 @@ Se consultar uma série de entidades de colaboradores, pode especificar um inter
 * Para encontrar todos os colaboradores do departamento de Vendas com um ID de empregado na gama 000100 a 000199 use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'empid_000100') e (RowKey le 'empid_000199')  
 * Encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail a começar pela letra 'a' use: $filter=(PartitionKey eq 'Sales') e (RowKey ge 'email_a') e (RowKey lt 'email_b')  
   
-  A sintaxe do filtro utilizada nos exemplos acima é do serviço de tabela REST API, para mais informações, consulte [Entidades De Consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  A sintaxe do filtro utilizada nos exemplos acima é do serviço de tabela REST API, para mais informações, consulte [Entidades De Consulta](/rest/api/storageservices/Query-Entities).  
 
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
@@ -90,7 +90,7 @@ Se também quiser encontrar uma entidade de colaboradores com base no valor de o
 Está a antecipar um elevado volume de transações contra estas entidades e pretende minimizar o risco de o serviço de Tabela estrangular o seu cliente.  
 
 ### <a name="solution"></a>Solução
-Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade com cada cópia utilizando diferentes valores **PartitionKey** e **RowKey.** Se armazenar uma entidade com as estruturas abaixo indicadas, pode recuperar eficientemente entidades de colaboradores com base no endereço de e-mail ou iD do funcionário. Os valores de prefixo para a **PartitionKey**, "empid_" e "email_" permitem identificar o índice que pretende utilizar para uma consulta.  
+Para contornar a falta de índices secundários, pode armazenar várias cópias de cada entidade com cada cópia utilizando diferentes valores **PartitionKey** e **RowKey.** Se armazenar uma entidade com as estruturas abaixo indicadas, pode recuperar eficientemente entidades de colaboradores com base no endereço de e-mail ou iD do funcionário. Os valores de prefixo para a **PartitionKey** , "empid_" e "email_" permitem identificar o índice que pretende utilizar para uma consulta.  
 
 ![Índice primário e índice secundário](media/storage-table-design-guide/storage-table-design-IMAGE10.png)
 
@@ -105,7 +105,7 @@ Se consultar uma série de entidades de colaboradores, pode especificar um inter
 * Para encontrar todos os colaboradores do departamento de Vendas com um ID de empregado na gama **000100** a **000199** classificados em uso de iD de empregado: $filter=(PartitionKey eq 'empid_Sales') e (RowKey ge '000100') e (RowKey le '000199')  
 * Para encontrar todos os colaboradores do departamento de Vendas com um endereço de e-mail que começa com 'a' classificado na utilização de endereço de endereço de e-mail: $filter=(PartitionKey eq 'email_Sales') e (RowKey ge 'a') e (RowKey lt 'b')  
 
-A sintaxe do filtro utilizada nos exemplos acima é do serviço de tabela REST API, para mais informações, consulte [Entidades De Consulta](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
+A sintaxe do filtro utilizada nos exemplos acima é do serviço de tabela REST API, para mais informações, consulte [Entidades De Consulta](/rest/api/storageservices/Query-Entities).  
 
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
@@ -156,14 +156,14 @@ Neste exemplo, o passo 4 insere o funcionário na tabela **Archive.** Pode adici
 ### <a name="recovering-from-failures"></a>Recuperação de falhas
 É importante que as operações nos passos **4** e **5** sejam *consideradas como possíveis* no caso de a função do trabalhador ter de reiniciar a operação de arquivo. Se estiver a utilizar o serviço Tabela, para o passo **4** deverá utilizar uma operação de "inserir ou substituir"; para o passo **5,** deve utilizar uma operação de "excluir se existir" na biblioteca do cliente que está a utilizar. Se estiver a utilizar outro sistema de armazenamento, deve utilizar uma operação idempotente apropriada.  
 
-Se o papel do trabalhador nunca completar o passo **6,** então, após um intervalo, a mensagem reaparece na fila pronta para o papel do trabalhador tentar reprocessá-la. O papel do trabalhador pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizar é uma mensagem "venenosa" para investigação enviando-a para uma fila separada. Para obter mais informações sobre a leitura de mensagens de fila e a verificação da contagem de pedidos, consulte ['Obter Mensagens'.](https://msdn.microsoft.com/library/azure/dd179474.aspx)  
+Se o papel do trabalhador nunca completar o passo **6,** então, após um intervalo, a mensagem reaparece na fila pronta para o papel do trabalhador tentar reprocessá-la. O papel do trabalhador pode verificar quantas vezes uma mensagem na fila foi lida e, se necessário, sinalizar é uma mensagem "venenosa" para investigação enviando-a para uma fila separada. Para obter mais informações sobre a leitura de mensagens de fila e a verificação da contagem de pedidos, consulte ['Obter Mensagens'.](/rest/api/storageservices/Get-Messages)  
 
 Alguns erros dos serviços de Tabela e Fila são erros transitórios, e a sua aplicação ao cliente deve incluir lógica de relemis para lidar com eles.  
 
 ### <a name="issues-and-considerations"></a>Problemas e considerações
 Na altura de decidir como implementar este padrão, considere os seguintes pontos:  
 
-* Esta solução não prevê o isolamento das transações. Por exemplo, um cliente podia ler as tabelas **Corrente** e **Arquivo** quando o papel do trabalhador estava entre os passos **4** e **5**, e ver uma visão inconsistente dos dados. Os dados serão consistentes eventualmente.  
+* Esta solução não prevê o isolamento das transações. Por exemplo, um cliente podia ler as tabelas **Corrente** e **Arquivo** quando o papel do trabalhador estava entre os passos **4** e **5** , e ver uma visão inconsistente dos dados. Os dados serão consistentes eventualmente.  
 * Deve certificar-se de que os passos 4 e 5 são idempotentes para garantir uma eventual consistência.  
 * Pode escalar a solução utilizando várias filas e instâncias de função do trabalhador.  
 
@@ -213,7 +213,7 @@ A propriedade **EmployeeIDs** contém uma lista de IDs de empregados para funcio
 Os seguintes passos descrevem o processo que deve seguir quando estiver a adicionar um novo funcionário se estiver a utilizar a segunda opção. Neste exemplo, estamos adicionando um empregado com ID 000152 e um sobrenome Jones no departamento de Vendas:  
 
 1. Recupere a entidade de índice com um valor **PartitionKey** "Sales" e o valor **RowKey** "Jones". Guarde o ETag desta entidade para utilizar no passo 2.  
-2. Criar uma transação de grupo de entidades (isto é, uma operação de lote) que insira a nova entidade de empregados (**Valor PartitionKey** "Vendas" e valor **RowKey** "000152"), e atualiza a entidade de índices (**valor PartitionKey** "Sales" e **valor RowKey** "Jones") adicionando o novo ID do empregado à lista no campo EmployeeIDs. Para obter mais informações sobre transações de grupos de entidades, consulte As Transações do Grupo Entity.  
+2. Criar uma transação de grupo de entidades (isto é, uma operação de lote) que insira a nova entidade de empregados ( **Valor PartitionKey** "Vendas" e valor **RowKey** "000152"), e atualiza a entidade de índices ( **valor PartitionKey** "Sales" e **valor RowKey** "Jones") adicionando o novo ID do empregado à lista no campo EmployeeIDs. Para obter mais informações sobre transações de grupos de entidades, consulte As Transações do Grupo Entity.  
 3. Se a transação do grupo de entidades falhar devido a um erro de concordância otimista (alguém acabou de modificar a entidade de índice), então precisa recomeçar no passo 1.  
 
 Pode utilizar uma abordagem semelhante para eliminar um empregado se estiver a utilizar a segunda opção. Alterar o apelido de um colaborador é um pouco mais complexo porque terá de executar uma transação de grupo de entidades que atualiza três entidades: a entidade de colaboradores, a entidade indexa para o apelido antigo e a entidade indexa para o novo apelido. Tem de recuperar cada entidade antes de efetuar quaisquer alterações para recuperar os valores ETag que pode utilizar para executar as atualizações utilizando a concordância otimista.  
@@ -634,7 +634,7 @@ Uma consulta ideal devolve uma entidade individual com base num valor **Partitio
 
 Deve sempre testar totalmente o desempenho da sua aplicação nesses cenários.  
 
-Uma consulta contra o serviço de mesa pode devolver um máximo de 1.000 entidades de uma só vez e pode executar por um máximo de cinco segundos. Se o conjunto de resultados contiver mais de 1.000 entidades, se a consulta não tiver sido concluída no prazo de cinco segundos, ou se a consulta cruzar o limite de partição, o serviço Tabela devolve um token de continuação para permitir que o pedido do cliente solicite o próximo conjunto de entidades. Para obter mais informações sobre como funcionam os tokens de continuação, consulte [Consulta Timeout e Pagination](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Uma consulta contra o serviço de mesa pode devolver um máximo de 1.000 entidades de uma só vez e pode executar por um máximo de cinco segundos. Se o conjunto de resultados contiver mais de 1.000 entidades, se a consulta não tiver sido concluída no prazo de cinco segundos, ou se a consulta cruzar o limite de partição, o serviço Tabela devolve um token de continuação para permitir que o pedido do cliente solicite o próximo conjunto de entidades. Para obter mais informações sobre como funcionam os tokens de continuação, consulte [Consulta Timeout e Pagination](/rest/api/storageservices/Query-Timeout-and-Pagination).  
 
 Se estiver a utilizar a Biblioteca do Cliente de Armazenamento, pode lidar automaticamente com fichas de continuação para si, uma vez que devolve entidades do serviço Table. A amostra de código C# que utiliza a Biblioteca do Cliente de Armazenamento lida automaticamente com fichas de continuação se o serviço de tabela os devolver numa resposta:  
 
@@ -686,7 +686,7 @@ employeeQuery.TakeCount = 50;
 ```
 
 ### <a name="server-side-projection"></a>Projeção do lado do servidor
-Uma única entidade pode ter até 255 propriedades e ter até 1 MB de tamanho. Ao consultar a tabela e recuperar entidades, pode não precisar de todas as propriedades e pode evitar a transferência de dados desnecessariamente (para ajudar a reduzir a latência e o custo). Pode utilizar a projeção do lado do servidor para transferir apenas as propriedades necessárias. O exemplo a seguir é a recuperação apenas da propriedade **Email** (juntamente com **PartitionKey,** **RowKey,** **Timestamp**e **ETag**) das entidades selecionadas pela consulta.  
+Uma única entidade pode ter até 255 propriedades e ter até 1 MB de tamanho. Ao consultar a tabela e recuperar entidades, pode não precisar de todas as propriedades e pode evitar a transferência de dados desnecessariamente (para ajudar a reduzir a latência e o custo). Pode utilizar a projeção do lado do servidor para transferir apenas as propriedades necessárias. O exemplo a seguir é a recuperação apenas da propriedade **Email** (juntamente com **PartitionKey,** **RowKey,** **Timestamp** e **ETag** ) das entidades selecionadas pela consulta.  
 
 ```csharp
 string filter = TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Sales");
@@ -711,7 +711,7 @@ As exceções lançadas quando a Biblioteca do Cliente de Armazenamento executa 
 Também deve considerar como o seu design afeta a forma como a sua aplicação de cliente lida com as operações de conuncy e atualização.  
 
 ### <a name="managing-concurrency"></a>Gerir a simultaneidade
-Por predefinição, o serviço de mesa implementa controlos de concordância otimistas ao nível de entidades individuais para operações **de Inserção,** **Fusão**e **Eliminação,** embora seja possível um cliente forçar o serviço de mesa a contornar estas verificações. Para obter mais informações sobre como o serviço de mesa gere a concordância, consulte  [a Managing Concurrency no Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
+Por predefinição, o serviço de mesa implementa controlos de concordância otimistas ao nível de entidades individuais para operações **de Inserção,** **Fusão** e **Eliminação,** embora seja possível um cliente forçar o serviço de mesa a contornar estas verificações. Para obter mais informações sobre como o serviço de mesa gere a concordância, consulte  [a Managing Concurrency no Microsoft Azure Storage](../../storage/common/storage-concurrency.md).  
 
 ### <a name="merge-or-replace"></a>Fundir ou substituir
 O método **de substituição** da classe **TableOperation** substitui sempre a entidade completa no serviço Tabela. Se não incluir um imóvel no pedido quando esse imóvel existe na entidade armazenada, o pedido retira esse imóvel da entidade armazenada. A menos que queira remover um imóvel explicitamente de uma entidade armazenada, deve incluir todos os bens no pedido.  
@@ -813,7 +813,7 @@ O serviço Table é uma loja de mesa *sem esquemas,* o que significa que uma ún
 </tr>
 </table>
 
-Cada entidade ainda deve ter **valores PartitionKey,** **RowKey**e **Timestamp,** mas pode ter qualquer conjunto de propriedades. Além disso, não há nada que indique o tipo de entidade a menos que escolha armazenar essa informação em algum lugar. Existem duas opções para identificar o tipo de entidade:  
+Cada entidade ainda deve ter **valores PartitionKey,** **RowKey** e **Timestamp,** mas pode ter qualquer conjunto de propriedades. Além disso, não há nada que indique o tipo de entidade a menos que escolha armazenar essa informação em algum lugar. Existem duas opções para identificar o tipo de entidade:  
 
 * Prepare o tipo de entidade para o **RowKey** (ou possivelmente o **PartitionKey).** Por exemplo, **EMPLOYEE_000123** ou **DEPARTMENT_SALES** como valores **do RowKey.**  
 * Utilize uma propriedade separada para registar o tipo de entidade como mostrado na tabela abaixo.  
@@ -927,7 +927,7 @@ O restante desta secção descreve algumas das funcionalidades na Biblioteca do 
 ### <a name="retrieving-heterogeneous-entity-types"></a>Recuperação de tipos de entidades heterogéneas
 Se estiver a utilizar a Biblioteca do Cliente de Armazenamento, tem três opções para trabalhar com vários tipos de entidades.  
 
-Se conhecer o tipo de entidade armazenada com um determinado valor **RowKey** e **PartitionKey,** então pode especificar o tipo de entidade quando recuperar a entidade como mostrado nos dois exemplos anteriores que recuperam entidades de tipo **Entidade de Empregados**: Executar uma consulta de [ponto utilizando a Biblioteca do Cliente de Armazenamento](#executing-a-point-query-using-the-storage-client-library) e Recuperar [várias entidades utilizando o LINQ](#retrieving-multiple-entities-using-linq).  
+Se conhecer o tipo de entidade armazenada com um determinado valor **RowKey** e **PartitionKey,** então pode especificar o tipo de entidade quando recuperar a entidade como mostrado nos dois exemplos anteriores que recuperam entidades de tipo **Entidade de Empregados** : Executar uma consulta de [ponto utilizando a Biblioteca do Cliente de Armazenamento](#executing-a-point-query-using-the-storage-client-library) e Recuperar [várias entidades utilizando o LINQ](#retrieving-multiple-entities-using-linq).  
 
 A segunda opção é utilizar o tipo **DynamicTableEntity** (um saco de propriedade) em vez de um tipo de entidade POCO de betão (esta opção também pode melhorar o desempenho porque não há necessidade de serializar e desseializar a entidade para os tipos .NET). O código C# seguinte potencialmente recupera várias entidades de diferentes tipos da tabela, mas devolve todas as entidades como instâncias **DynamicTableEntity.** Em seguida, utiliza a propriedade **EntityType** para determinar o tipo de cada entidade:  
 

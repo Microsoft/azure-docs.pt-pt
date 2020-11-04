@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254805"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307456"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Acompanhe experiências e implemente modelos em Azure Machine Learning
 
@@ -26,11 +26,11 @@ O diagrama seguinte ilustra que, com o MLflow Tracking, rastreia as métricas de
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Você precisará de providenciar um espaço de trabalho de [aprendizagem de máquinas Azure](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* Você precisará de providenciar um espaço de trabalho de [aprendizagem de máquinas Azure](../how-to-manage-workspace.md#create-a-workspace)
 
 ## <a name="create-a-new-notebook"></a>Criar um novo Notebook
 
-O Azure Machine Learning e o MLFlow SDK estão pré-instalados no VM da Ciência dos Dados e podem ser acedidos no ambiente **conda azureml_py36_. \* ** No Jupyterlab, clique no lançador e selecione o seguinte núcleo:
+O Azure Machine Learning e o MLFlow SDK estão pré-instalados no VM da Ciência dos Dados e podem ser acedidos no ambiente * *azureml_py36_ \** _ conda. No Jupyterlab, clique no lançador e selecione o seguinte núcleo:
 
 ![seleção de kernel](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +137,7 @@ No menu à esquerda no [Estúdio AzureML](https://ml.azure.com) clique no __Comp
 
 No painel de agrupamento de __inferência Nova,__ os detalhes preenchem os detalhes para:
 
-* Nome do cálculo
+_ Nome do cálculo
 * Kubernetes Service - selecione criar novos
 * Selecione a região
 * Selecione o tamanho VM (para efeitos deste tutorial, o padrão de Standard_D3_v2 é suficiente)
@@ -165,7 +165,7 @@ Para implementar o modelo de diabetes, vá ao menu à esquerda no [Azure Machine
 
 Em seguida, clique no botão __Implementar__ no painel de detalhes do modelo:
 
-![Implementação](./media/how-to-track-experiments/mlflow-experiments-4.png)
+![Implementar](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
 Vamos implantar o modelo para o Cluster de Inferências (Serviço Azure Kubernetes) que criamos no passo 1. Preencha os detalhes abaixo, fornecendo um nome para o serviço, e o nome do cluster de computação AKS (criado no passo 1). Recomendamos ainda que aumente a capacidade de reserva do __CPU__ para 1 (de 0,1) e a __capacidade de reserva__ de memória para 1 (a partir de 0,5) - pode fazer este aumento clicando em __Advanced__ e preenchendo os detalhes. Em seguida, clique em __Implementar__.
 
@@ -177,7 +177,7 @@ Quando o modelo tiver sido implementado com sucesso, deverá ver o seguinte (par
 
 ![Consumir modelo](./media/how-to-track-experiments/mlflow-experiments-8.png)
 
-Deve ver que o estado de implantação passa da __transição__ __para__saudável. Além disso, esta secção de detalhes fornece o ponto final REST e URLs Swagger que um desenvolvedor de aplicações pode usar para integrar o seu modelo ML nas suas apps.
+Deve ver que o estado de implantação passa da __transição__ __para__ saudável. Além disso, esta secção de detalhes fornece o ponto final REST e URLs Swagger que um desenvolvedor de aplicações pode usar para integrar o seu modelo ML nas suas apps.
 
 Pode testar o ponto final usando o [Carteiro,](https://www.postman.com/)ou pode utilizar o AzureML SDK:
 
@@ -204,4 +204,4 @@ Elimine o Inference Compute que criou no Passo 1 para que não incorra em taxas 
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [a implementação de modelos em AzureML](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
+* Saiba mais sobre [a implementação de modelos em AzureML](../how-to-deploy-and-where.md)

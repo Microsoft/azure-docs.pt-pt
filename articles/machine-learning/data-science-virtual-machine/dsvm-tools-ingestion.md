@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 736504febea16af53c2c05bc367513b2dde93ccf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89cf81f8d0a66c29a345f56676fbb97601743710
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012319"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308982"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de máquina virtual de ciência de dados de dados
 
@@ -31,7 +31,7 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 | Versões DSVM suportadas      | Windows      |
 | Usos típicos      | Importando várias bolhas do armazenamento Azure Blob para a Azure Data Lake Store.      |
 |  Como usá-lo/ executá-lo?    |   Abra uma solicitação de comando e `adlcopy` escreva para obter ajuda.    |
-| Ligações a amostras      | [Utilizar o AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Ligações a amostras      | [Utilizar o AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md)      |
 | Ferramentas relacionadas no DSVM      | AzCopy     |
 
 ## <a name="azure-cli"></a>CLI do Azure
@@ -42,7 +42,7 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 | Versões DSVM suportadas      | Windows, Linux     |
 | Usos típicos      | Importar e exportar dados de e para a Azure Storage e Azure Data Lake Store.      |
 |  Como usá-lo/ executá-lo?    |   Abra uma solicitação de comando e `az` escreva para obter ajuda.    |
-| Ligações a amostras      | [Utilizar a CLI do Azure](https://docs.microsoft.com/cli/azure)     |
+| Ligações a amostras      | [Utilizar a CLI do Azure](/cli/azure)     |
 | Ferramentas relacionadas no DSVM      | AzCopy      |
 
 
@@ -54,7 +54,7 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 | Versões DSVM suportadas      | Windows      |
 | Usos típicos      | Copiar ficheiros para o armazenamento da Azure Blob e copiar bolhas entre contas.      |
 |  Como usá-lo/ executá-lo?    |   Abra uma solicitação de comando e `azcopy` escreva para obter ajuda.    |
-| Ligações a amostras      | [AzCopy no Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
+| Ligações a amostras      | [AzCopy no Windows](../../storage/common/storage-use-azcopy-v10.md)      |
 | Ferramentas relacionadas no DSVM      | AdlCopy     |
 
 
@@ -66,7 +66,7 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 | Versões DSVM suportadas      | Windows      |
 | Usos típicos      | Importar ficheiros de um VM para CosmosDB, importar dados do armazenamento de mesas Azure para cosmosDB, e importar dados de uma base de dados do Microsoft SQL Server para CosmosDB.     |
 |  Como usá-lo/ executá-lo?    |   Para utilizar a versão da linha de comando, abra um pedido de comando e escreva `dt` . Para utilizar a ferramenta GUI, abra uma solicitação de comando e escreva `dtui` .    |
-| Ligações a amostras      | [Dados de importação do CosmosDB](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
+| Ligações a amostras      | [Dados de importação do CosmosDB](../../cosmos-db/import-data.md)      |
 | Ferramentas relacionadas no DSVM      | AzCopy      |
 
 ## <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
@@ -88,7 +88,7 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 | Versões DSVM suportadas      | Windows      |
 | Usos típicos      | Importar um ficheiro CSV numa tabela do SQL Server e exportar uma tabela sql Server para um ficheiro.      |
 |  Como usá-lo/ executá-lo?    |   Abra uma solicitação de comando e `bcp` escreva para obter ajuda.    |
-| Ligações a amostras      | [utilidade bcp](https://docs.microsoft.com/sql/tools/bcp-utility)      |
+| Ligações a amostras      | [utilidade bcp](/sql/tools/bcp-utility)      |
 | Ferramentas relacionadas no DSVM      | SQL Server, sqlcmd      |
 
 ## <a name="blobfuse"></a>blobfuse

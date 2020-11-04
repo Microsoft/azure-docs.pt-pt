@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 0ed958d24a7ff499c8cf33974648afb0f4e0a81d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b08318d4c12fd2e6ea8055771ca6792b0fb280dd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367994"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307872"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-machine-learning-studio-classic"></a>Escolha parâmetros para otimizar os seus algoritmos no Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Este tópico descreve como escolher o conjunto de hiperparímetros certo para um algoritmo no Azure Machine Learning Studio (clássico). A maioria dos algoritmos de aprendizagem automática têm parâmetros para definir. Quando treina um modelo, tem de fornecer valores para esses parâmetros. A eficácia do modelo treinado depende dos parâmetros do modelo que escolher. O processo de encontrar o conjunto ideal de parâmetros é conhecido como *seleção de modelos.*
 
@@ -28,9 +28,9 @@ Existem várias formas de fazer a seleção de modelos. No machine learning, a v
 
 Existem quatro passos no processo de encontrar o melhor parâmetro definido:
 
-1. **Defina o espaço dos parâmetros**: Para o algoritmo, primeiro decida os valores exatos do parâmetro que pretende considerar.
-2. **Definir as definições de validação cruzada**: Decida como escolher dobras de validação cruzada para o conjunto de dados.
-3. **Definir a métrica**: Decida qual a métrica a utilizar para determinar o melhor conjunto de parâmetros, tais como precisão, erro quadrado de raiz, precisão, recolha ou f-score.
+1. **Defina o espaço dos parâmetros** : Para o algoritmo, primeiro decida os valores exatos do parâmetro que pretende considerar.
+2. **Definir as definições de validação cruzada** : Decida como escolher dobras de validação cruzada para o conjunto de dados.
+3. **Definir a métrica** : Decida qual a métrica a utilizar para determinar o melhor conjunto de parâmetros, tais como precisão, erro quadrado de raiz, precisão, recolha ou f-score.
 4. **Treinar, avaliar e comparar:** Para cada combinação única dos valores dos parâmetros, a validação cruzada é realizada por e com base na métrica de erro que define. Após avaliação e comparação, pode escolher o modelo com melhor desempenho.
 
 A imagem a seguir ilustra como isto pode ser alcançado no Azure Machine Learning Studio (clássico).
@@ -66,12 +66,12 @@ O módulo também tem uma entrada opcional do conjunto de dados. Ligue o conjunt
 
 ![Classificador de árvore de decisão reforçada](./media/algorithm-parameters-optimize/fig6a.png)
 
-O modelo é então avaliado no conjunto de dados de validação. A porta de saída esquerda do módulo mostra métricas diferentes como funções dos valores dos parâmetros. A porta de saída certa dá ao modelo treinado que corresponde ao modelo de melhor desempenho de acordo com a métrica escolhida (**Precisão** neste caso).  
+O modelo é então avaliado no conjunto de dados de validação. A porta de saída esquerda do módulo mostra métricas diferentes como funções dos valores dos parâmetros. A porta de saída certa dá ao modelo treinado que corresponde ao modelo de melhor desempenho de acordo com a métrica escolhida ( **Precisão** neste caso).  
 
 ![Conjunto de dados de validação](./media/algorithm-parameters-optimize/fig6b.png)
 
 Pode ver os parâmetros exatos escolhidos visualizando a porta de saída certa. Este modelo pode ser utilizado na pontuação de um conjunto de testes ou num serviço web operacionalizado depois de ter sido poupado como modelo treinado.
 
 <!-- Module References -->
-[partition-and-sample]: https://msdn.microsoft.com/library/azure/a8726e34-1b3e-4515-b59a-3e4a475654b8/
-[tune-model-hyperparameters]: https://msdn.microsoft.com/library/azure/038d91b6-c2f2-42a1-9215-1f2c20ed1b40/
+[partition-and-sample]: /azure/machine-learning/studio-module-reference/partition-and-sample
+[tune-model-hyperparameters]: /azure/machine-learning/studio-module-reference/tune-model-hyperparameters

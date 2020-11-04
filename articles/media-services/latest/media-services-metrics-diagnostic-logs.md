@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296656"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309073"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorize métricas de Serviços de Mídia e registos de diagnóstico via Azure Monitor
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorize métricas de Serviços de Mídia e registos de diagnóstico com o Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -44,7 +44,7 @@ Os Serviços de Comunicação Social apoiam métricas de monitorização dos seg
 
 Pode monitorizar as seguintes métricas de conta.
 
-|Nome da métrica|Nome a apresentar|Descrição|
+|Nome da métrica|Nome a apresentar|Description|
 |---|---|---|
 |Conta de Ativos|Contagem de ativos|Bens na sua conta.|
 |AssetQuota|Quota de ativos|Quota de ativo na sua conta.|
@@ -62,13 +62,15 @@ Deve também rever [as quotas e limites de conta.](limits-quotas-constraints.md)
 
 São suportadas as [seguintes métricas de serviços](/rest/api/media/streamingendpoints) de streaming de media:
 
-|Nome da métrica|Nome a apresentar|Descrição|
+|Nome da métrica|Nome a apresentar|Description|
 |---|---|---|
 |Pedidos|Pedidos|Fornece o número total de pedidos HTTP servidos pelo Streaming Endpoint.|
 |Saída|Saída|Egress bytes total por minuto por streaming Endpoint.|
 |SucessoE2ELatency|Fim do sucesso para acabar com a latência|Duração do tempo a partir do momento em que o Streaming Endpoint recebeu o pedido para quando foi enviado o último byte da resposta.|
+|Utilização da CPU| Utilização do CPU para pontos finais de streaming premium. Estes dados não estão disponíveis para os pontos finais de streaming padrão. |
+|Largura de banda da Egress | Largura de banda de Egress em pedaços por segundo.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>Por que iria querer usar métricas?
+### <a name="metrics-are-useful"></a>As métricas são úteis
 
 Aqui estão exemplos de como monitorizar as métricas dos Media Services pode ajudá-lo a entender como as suas aplicações estão a funcionar. Algumas questões que podem ser abordadas com as métricas dos Serviços de Comunicação Social são:
 
@@ -79,6 +81,8 @@ Aqui estão exemplos de como monitorizar as métricas dos Media Services pode aj
 * Como posso ver a quebra de pedidos a falhar e o que está a causar a falha?
 * Como posso ver quantos pedidos de HLS ou DASH estão a ser retirados do embalador?
 * Como posso definir um alerta para saber quando o valor limiar de # de pedidos falhados foi atingido?
+
+A concurrency torna-se uma preocupação para o número de pontos finais de streaming utilizados numa única conta ao longo do tempo. É necessário ter em mente a relação entre o número de fluxos simultâneos com parâmetros de publicação complexos como embalagem dinâmica a múltiplos protocolos, encriptações múltiplas drm, etc. Cada transmissão ao vivo publicada adicional adiciona ao CPU e largura de banda de saída no ponto de final de streaming. Com isso em mente, deverá utilizar o Azure Monitor para observar de perto a utilização do Streaming Endpoint (capacidade de CPU e Egress) para se certificar de que está a escaloná-lo adequadamente (ou dividir o tráfego entre vários pontos de streaming se estiver a entrar em alta concordância).
 
 ### <a name="example"></a>Exemplo
 

@@ -11,12 +11,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 29f1949cbe9998ac569b0389986023a72e7845b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070921"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309033"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Deep learning e ia frameworks para o Azure Data Science VM
 Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
@@ -76,7 +76,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 | Como é configurado / instalado no DSVM?  | Keras está instalado em Python 3.6 em Windows e em Python 3.5 em Linux |
 | Como executá-lo      | Ative o ambiente correto no terminal e, em seguida, executar Python. |
 
-## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/)
 
 | Categoria | Valor |
 | ------------- | ------------- |

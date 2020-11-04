@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 813f229d414ab911169f404dfc6b3cbf93fa96b3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780789"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308828"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de recursos para a Azure SQL Database e para os servidores Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -96,7 +96,7 @@ Ao encontrar erros fora da memória, as opções de mitigação incluem:
 - Aumentar o nível de serviço ou o tamanho do cálculo da base de dados ou piscina elástica. Consulte [os recursos de base de dados únicos escala](single-database-scale.md) e recursos de piscina elástica em [escala.](elastic-pool-scale.md)
 - Otimização de consultas e configuração para reduzir a utilização da memória. As soluções comuns são descritas no quadro seguinte.
 
-|Solução|Descrição|
+|Solução|Description|
 | :----- | :----- |
 |Reduzir o tamanho das bolsas de memória|Para obter mais informações sobre subsídios de memória, consulte o post de blog [de concessão de memória Understanding SQL Server.](https://techcommunity.microsoft.com/t5/sql-server/understanding-sql-server-memory-grant/ba-p/383595) Uma solução comum para evitar subsídios de memória excessivamente grandes é manter [as estatísticas](/sql/relational-databases/statistics/statistics) atualizadas. Isto resulta em estimativas mais precisas do consumo de memória pelo motor de consulta, evitando subvenções de memória desnecessariamente grandes.</br></br>Em bases de dados utilizando o nível de compatibilidade 140 e posteriormente, o motor da base de dados pode ajustar automaticamente o tamanho do subsídio de memória utilizando [o feedback do subsídio de memória do modo Lote](/sql/relational-databases/performance/intelligent-query-processing#batch-mode-memory-grant-feedback). Em bases de dados utilizando o nível de compatibilidade 150 e posteriormente, o motor da base de dados utiliza igualmente [o feedback do subsídio de memória do modo Row](/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback), para consultas de modo de linha mais comuns. Esta funcionalidade incorporada ajuda a evitar erros fora da memória devido a grandes subsídios de memória desnecessariamente grandes.|
 |Reduzir o tamanho da cache do plano de consulta|O motor de base de dados caches planos de consulta na memória, para evitar compilar um plano de consulta para cada execução de consulta. Para evitar o inchaço do cache do plano de consulta causado por planos de cache que só são utilizados uma vez, ative a configuração OTIMIZE_FOR_AD_HOC_WORKLOADS [com âmbito de base de dados](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).|
@@ -131,7 +131,7 @@ A governação dos recursos da Base de Dados Azure SQL é de natureza hierárqui
 
 A governação do IO de Dados é um processo na Base de Dados Azure SQL usado para limitar a leitura e a escrita de IO físicos contra ficheiros de dados de uma base de dados. Os limites do IOPS são definidos para cada nível de serviço para minimizar o efeito "vizinho barulhento", para proporcionar equidade na atribuição de recursos no serviço multi-inquilino, e para permanecer dentro das capacidades do hardware e armazenamento subjacentes.
 
-Para bases de dados individuais, os limites do grupo de carga de trabalho são aplicados a todas as IO de armazenamento contra a base de dados, enquanto os limites do conjunto de recursos se aplicam a todas as bases de dados de armazenamento no mesmo pool SQL, incluindo a `tempdb` base de dados. Para piscinas elásticas, os limites do grupo de carga de trabalho aplicam-se a cada base de dados da piscina, enquanto o limite de reserva de recursos se aplica a toda a piscina elástica, incluindo a `tempdb` base de dados, que é partilhada entre todas as bases de dados da piscina. Em geral, os limites do conjunto de recursos podem não ser alcançáveis pela carga de trabalho contra uma base de dados (única ou agrupada), uma vez que os limites do grupo de carga de trabalho são inferiores aos limites do conjunto de recursos e limitam o IOPS/produção mais cedo. No entanto, os limites de piscina podem ser alcançados pela carga de trabalho combinada contra várias bases de dados na mesma piscina.
+Para bases de dados individuais, os limites do grupo de carga de trabalho são aplicados a todas as IO de armazenamento contra a base de dados, enquanto os limites do conjunto de recursos se aplicam a todas as bases de dados de armazenamento no mesmo pool de SQL dedicado, incluindo a base de `tempdb` dados. Para piscinas elásticas, os limites do grupo de carga de trabalho aplicam-se a cada base de dados da piscina, enquanto o limite de reserva de recursos se aplica a toda a piscina elástica, incluindo a `tempdb` base de dados, que é partilhada entre todas as bases de dados da piscina. Em geral, os limites do conjunto de recursos podem não ser alcançáveis pela carga de trabalho contra uma base de dados (única ou agrupada), uma vez que os limites do grupo de carga de trabalho são inferiores aos limites do conjunto de recursos e limitam o IOPS/produção mais cedo. No entanto, os limites de piscina podem ser alcançados pela carga de trabalho combinada contra várias bases de dados na mesma piscina.
 
 Por exemplo, se uma consulta gerar 1000 IOPS sem qualquer governação de recursos IO, mas o limite máximo de IOPS do grupo de carga de trabalho está definido para 900 IOPS, a consulta não será capaz de gerar mais de 900 IOPS. No entanto, se o limite máximo de IOPS do conjunto de recursos for fixado em 1500 IOPS, e o IO total de todos os grupos de trabalho associados ao conjunto de recursos exceder 1500 IOPS, então o IO da mesma consulta pode ser reduzido abaixo do limite de grupo de trabalho de 900 IOPS.
 

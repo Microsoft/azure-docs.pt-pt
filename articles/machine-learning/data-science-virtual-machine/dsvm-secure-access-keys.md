@@ -10,20 +10,20 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 1cb0c5094d49eac5a1c8f63406a28d2927d8fa94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5604e42c2c27463e10c136ccd18c3c21846fc5a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79477328"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309148"
 ---
 # <a name="store-access-credentials-securely-on-an-azure-data-science-virtual-machine"></a>Armazenar credenciais de acesso seguramente numa Máquina Virtual Azure Data Science
 
 É comum que o código em aplicações em nuvem contenha credenciais para autenticação em serviços na nuvem. Como gerir e proteger estas credenciais é um desafio bem conhecido na construção de aplicações em nuvem. Idealmente, as credenciais nunca devem aparecer em postos de trabalho do desenvolvedor ou ser check-in para o controlo de fontes.
 
-As identidades geridas para a funcionalidade [de recursos Azure](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) simplificam a resolução deste problema, dando aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporta a autenticação Azure AD sem ter que ter nenhumas credenciais no seu código.
+As identidades geridas para a funcionalidade [de recursos Azure](../../active-directory/managed-identities-azure-resources/overview.md) simplificam a resolução deste problema, dando aos serviços Azure uma identidade gerida automaticamente no Azure Ative Directory (Azure AD). Pode utilizar esta identidade para autenticar em qualquer serviço que suporta a autenticação Azure AD sem ter que ter nenhumas credenciais no seu código.
 
-Uma forma de garantir credenciais é utilizar o Instalador do Windows (MSI) em combinação com [o Azure Key Vault](https://docs.microsoft.com/azure/key-vault/), um serviço gerido azure para armazenar segredos e chaves criptográficas de forma segura. Você pode aceder a um cofre chave usando a identidade gerida e, em seguida, recuperar os segredos autorizados e chaves criptográficas do cofre da chave.
+Uma forma de garantir credenciais é utilizar o Instalador do Windows (MSI) em combinação com [o Azure Key Vault](../../key-vault/index.yml), um serviço gerido azure para armazenar segredos e chaves criptográficas de forma segura. Você pode aceder a um cofre chave usando a identidade gerida e, em seguida, recuperar os segredos autorizados e chaves criptográficas do cofre da chave.
 
 A documentação sobre identidades geridas para recursos Azure e Key Vault compreende um recurso abrangente para informações aprofundadas sobre estes serviços. O resto deste artigo percorre o uso básico de MSI e Key Vault na Data Science Virtual Machine (DSVM) para aceder aos recursos do Azure. 
 

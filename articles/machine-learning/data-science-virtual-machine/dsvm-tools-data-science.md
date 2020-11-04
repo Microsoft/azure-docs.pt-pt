@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 087679c49c3cc025268e6f895757ae5f5c47c917
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012411"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309113"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Ferramentas de aprendizagem automática e ciência de dados em Azure Data Science Virtual Machines
 As máquinas virtuais Azure Data Science (DSVMs) têm um rico conjunto de ferramentas e bibliotecas para machine learning disponíveis em línguas populares, como Python, R e Julia.
@@ -24,7 +24,7 @@ Aqui estão algumas das ferramentas de aprendizagem automática e bibliotecas em
 
 ## <a name="azure-machine-learning-sdk-for-python"></a>SDK do Azure Machine Learning para Python
 
-Consulte a referência completa para o [Azure Machine Learning SDK para Python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
+Consulte a referência completa para o [Azure Machine Learning SDK para Python](../overview-what-is-azure-ml.md).
 
 | Categoria | Valor |
 | ------------- | ------------- |
@@ -113,5 +113,3 @@ Existem várias outras bibliotecas de aprendizagem automática em DSVMs, como o 
 | Usos típicos      |  Para a exploração de dados no local sem necessidade de extrato, transformação, carga (ETL). Consultar diferentes fontes de dados e formatos, incluindo CSV, JSON, tabelas relacionais e Hadoop.     |
 | Como usá-lo e executá-lo      | Atalho de ambiente de trabalho  <br/> [Começa com a Drill em 10 minutos](https://drill.apache.org/docs/drill-in-10-minutes/)  |
 | Ferramentas relacionadas no DSVM      |   Rattle, Weka, SQL Server Management Studio      |
-
-

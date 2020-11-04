@@ -8,16 +8,16 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 10/16/2020
-ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b8c7792a09dd86e7d4ac043c572f69fc47ee6e63
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738183"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307177"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Tutorial: Criar definição de emprego apache spark no Estúdio Synapse
 
-Este tutorial demonstra como usar o Azure Synapse Studio para criar definições de emprego apache spark, e depois submetê-los a uma piscina Apache Spark.
+Este tutorial demonstra como usar o Azure Synapse Studio para criar definições de emprego Apache Spark e, em seguida, submetê-los a uma piscina Apache Spark sem servidor.
 
 Este tutorial abrange as seguintes tarefas:
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Este tutorial abrange as seguintes tarefas:
 Antes de começar este tutorial, certifique-se de que cumpre os seguintes requisitos:
 
 * Um espaço de trabalho Azure Synapse Analytics. Para obter instruções, consulte [Criar um espaço de trabalho Azure Synapse Analytics](../../machine-learning/how-to-manage-workspace.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#create-a-workspace).
-* Uma piscina Apache Spark.
+* Uma piscina Apache Spark sem servidor.
 * Uma conta de armazenamento da ADLS Gen2. Tem de ser o Proprietário de **Dados blob** de armazenamento do sistema de ficheiros ADLS Gen2 com o que pretende trabalhar. Se não estiver, tem de adicionar a permissão manualmente.
 * Se não quiser utilizar o armazenamento padrão do espaço de trabalho, ligue a conta de armazenamento ADLS Gen2 necessária no Synapse Studio. 
 
@@ -93,7 +93,7 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para Apache 
  
      ![preparar estrutura scala](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Selecione **Develop** hub, selecione o ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark** .)
+ 4. Selecione **Develop** hub, selecione o ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark**.)
 
  5. Selecione **Spark (Scala)** da lista de drop down da linguagem na janela principal de definição de emprego Apache Spark.
 
@@ -133,7 +133,7 @@ Nesta secção, você cria uma definição de trabalho Apache Spark para .NET Sp
  
      ![preparar estrutura de dotnet](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Selecione **Develop** hub, selecione o ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark** .)
+ 4. Selecione **Develop** hub, selecione o ícone '+' e selecione **a definição de trabalho spark** para criar uma nova definição de trabalho spark. (A imagem da amostra é a mesma do passo 4 de Criar uma definição de **trabalho apache spark (Python) para PySpark**.)
 
  5. Selecione **.NET Spark(C#/F#)** da lista de drop down da linguagem na janela principal da Definição de Emprego de Faísca Apache.
 
@@ -197,7 +197,7 @@ Nesta secção, adicione uma definição de trabalho apache spark em pipeline.
 
  1. Abra uma definição de emprego apache spark existente.
 
- 2. Selecione o ícone no canto superior direito da definição de trabalho Apache Spark, escolha **O Pipeline Existente** ou Novo **pipeline** . Pode consultar a página pipeline para mais informações.
+ 2. Selecione o ícone no canto superior direito da definição de trabalho Apache Spark, escolha **O Pipeline Existente** ou Novo **pipeline**. Pode consultar a página pipeline para mais informações.
 
      ![adicionar ao pipeline1](./media/apache-spark-job-definitions/add-to-pipeline01.png)
 

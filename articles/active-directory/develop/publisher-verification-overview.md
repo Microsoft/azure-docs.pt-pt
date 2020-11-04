@@ -12,16 +12,20 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363424"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308770"
 ---
 # <a name="publisher-verification"></a>Verificação do editor
 
-A verificação do editor ajuda os administradores e os utilizadores finais a compreender a autenticidade dos desenvolvedores de aplicações que se integram na plataforma de identidade da Microsoft. Quando uma aplicação é marcada como editora verificada, significa que a editora verificou a sua identidade utilizando uma conta [da Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu o processo de [verificação](/partner-center/verification-responses) e associou esta conta MPN ao seu registo de candidatura. 
+A verificação do editor ajuda os administradores e os utilizadores finais a compreender a autenticidade dos desenvolvedores de aplicações que se integram na plataforma de identidade da Microsoft. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+Quando uma aplicação é marcada como editora verificada, significa que a editora verificou a sua identidade utilizando uma conta [da Microsoft Partner Network](https://partner.microsoft.com/membership) que concluiu o processo de [verificação](/partner-center/verification-responses) e associou esta conta MPN ao seu registo de candidatura. 
 
 Um crachá azul "verificado" aparece na solicitação de consentimento Azure AD e outros ecrãs: ![ Pedido de consentimento](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -29,11 +33,11 @@ Esta funcionalidade destina-se principalmente a programadores que couem aplicaç
 
 ## <a name="benefits"></a>Benefícios
 A verificação do editor proporciona os seguintes benefícios:
-- **Maior transparência e redução de risco para os clientes**- esta capacidade ajuda os clientes a entender quais as aplicações que estão a ser usadas nas suas organizações são publicadas pelos desenvolvedores em que confiam. 
+- **Maior transparência e redução de risco para os clientes** - esta capacidade ajuda os clientes a entender quais as aplicações que estão a ser usadas nas suas organizações são publicadas pelos desenvolvedores em que confiam. 
 
-- **Melhor marca**- um crachá "verificado" aparece no [pedido](application-consent-experience.md)de consentimento Azure AD, página de Aplicações empresariais e superfícies UX adicionais usadas pelos utilizadores finais e administradores. 
+- **Melhor marca** - um crachá "verificado" aparece no [pedido](application-consent-experience.md)de consentimento Azure AD, página de Aplicações empresariais e superfícies UX adicionais usadas pelos utilizadores finais e administradores. 
 
-- **Adoção mais suave da empresa**- os administradores podem configurar políticas de consentimento do [utilizador,](../manage-apps/configure-user-consent.md)com o estado de verificação do editor como um dos principais critérios de política.
+- **Adoção mais suave da empresa** - os administradores podem configurar políticas de consentimento do [utilizador,](../manage-apps/configure-user-consent.md)com o estado de verificação do editor como um dos principais critérios de política.
 
 > [!NOTE]
 > A partir de novembro de 2020, os utilizadores finais deixarão de poder conceder o consentimento à maioria das aplicações multi-inquilinos recentemente registadas sem editores verificados. Isto aplica-se a aplicações registadas a partir de 8 de novembro de 2020, utilizará o OAuth2.0 para solicitar permissões para além do perfil básico do utilizador e lerá o consentimento dos utilizadores em diferentes inquilinos do que aquele em que a app está registada. Será exibido um aviso no ecrã de consentimento informando os utilizadores de que estas aplicações são arriscadas e são de editoras não verificadas.    

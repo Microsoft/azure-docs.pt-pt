@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: 23ecc3bdfb0ca85caf219fc262348937923f53c3
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d4a2d9e43dadc53008c04b44ea1dda9cb337da99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286124"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308350"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Registo automático com fornecedor de recursos SQL VM
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -23,7 +23,7 @@ Ativar a função de registo automático no portal Azure para registar automatic
 
 Este artigo ensina-o a ativar a função de registo automático. Em alternativa, pode [registar um único VM,](sql-vm-resource-provider-register.md)ou [registar os seus VMs a granel](sql-vm-resource-provider-bulk-register.md) com o fornecedor de recursos SQL VM. 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Registar o seu SQL Server VM com o fornecedor de recursos SQL VM instala a [extensão sql IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). 
 
@@ -38,7 +38,7 @@ Uma vez que o registo automático esteja habilitado para uma subscrição, todos
 
 Para registar o seu SQL Server VM com o fornecedor de recursos, necessitará de: 
 
-- Uma [subscrição do Azure](https://azure.microsoft.com/free/).
+- Uma [subscrição Azure](https://azure.microsoft.com/free/) e, no mínimo, permissões [de função de contribuinte.](../../../role-based-access-control/built-in-roles.md#all)
 - Uma máquina virtual do Azure Resource Model [Windows Server 2008 R2 (ou posterior)](../../../virtual-machines/windows/quick-create-portal.md) com [o SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) implantado na nuvem do governo do Azure ou do Governo Azure. O Windows Server 2008 não é suportado. 
 
 

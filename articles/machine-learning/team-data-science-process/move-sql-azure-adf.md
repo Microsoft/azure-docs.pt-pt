@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6f2e0b9a797edb2d5529bb0645ed56c44df3121c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02fd6c1d4cbd1c2db287a38e086045042b5f220a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440026"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309542"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Mover dados de uma base de dados do SQL Server para a Base de Dados SQL com Azure Data Factory
 
@@ -43,7 +43,7 @@ Criamos um oleoduto ADF que compõe duas atividades de migração de dados. Junt
 * Copie os dados da conta de armazenamento Azure Blob para a Base de Dados Azure SQL.
 
 > [!NOTE]
-> Os passos aqui mostrados foram adaptados do tutorial mais detalhado fornecido pela equipa ADF: [Copiar dados de uma base de dados do SQL Server para Azure Blob](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) Referências às secções relevantes desse tópico são fornecidas quando apropriado.
+> Os passos aqui mostrados foram adaptados do tutorial mais detalhado fornecido pela equipa ADF: [Copiar dados de uma base de dados do SQL Server para Azure Blob](../../data-factory/tutorial-hybrid-copy-portal.md) Referências às secções relevantes desse tópico são fornecidas quando apropriado.
 >
 >
 
@@ -52,7 +52,7 @@ Este tutorial pressupõe que tem:
 
 * Uma **subscrição do Azure**. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Uma **conta de armazenamento Azure.** Utilize uma conta de armazenamento Azure para armazenar os dados neste tutorial. Se não tiver uma conta de armazenamento do Azure, veja o artigo [Criar uma conta de armazenamento](../../storage/common/storage-account-create.md). Depois de ter criado a conta de armazenamento, tem de obter a chave de conta utilizada para aceder ao armazenamento. Consulte [as teclas de acesso à conta de armazenamento](../../storage/common/storage-account-keys-manage.md).
-* Acesso a uma **Base de Dados Azure SQL**. Se tiver de configurar uma Base de Dados Azure SQL, o tópico ["Começar com a Base de Dados SQL do Microsoft Azure](../../sql-database/sql-database-get-started.md) fornece informações sobre como fornecer uma nova instância de uma Base de Dados SQL Azure."
+* Acesso a uma **Base de Dados Azure SQL**. Se tiver de configurar uma Base de Dados Azure SQL, o tópico ["Começar com a Base de Dados SQL do Microsoft Azure](../../azure-sql/database/single-database-create-quickstart.md) fornece informações sobre como fornecer uma nova instância de uma Base de Dados SQL Azure."
 * Instalado e configurado **Azure PowerShell** localmente. Para obter instruções, consulte [como instalar e configurar a Azure PowerShell](/powershell/azure/).
 
 > [!NOTE]
@@ -71,7 +71,7 @@ As instruções para a criação de uma nova Fábrica de Dados Azure e um grupo 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Instalar e configurar o tempo de integração da fábrica de dados Azure
 O Integration Runtime é uma infraestrutura de integração de dados gerida pelo cliente utilizada pela Azure Data Factory para fornecer capacidades de integração de dados em diferentes ambientes de rede. Este tempo de funcionação foi anteriormente chamado de "Data Management Gateway".
 
-Para configurar, [siga as instruções para criar um oleoduto](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Para configurar, [siga as instruções para criar um oleoduto](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)
 
 ## <a name="create-linked-services-to-connect-to-the-data-resources"></a><a name="adflinkedservices"></a>Criar serviços ligados para ligar aos recursos de dados
 Um serviço ligado define as informações necessárias para que a Azure Data Factory se conecte a um recurso de dados. Dispomos de três recursos neste cenário para os quais são necessários serviços ligados:
@@ -87,7 +87,7 @@ O procedimento passo a passo para a criação de serviços ligados é prestado n
 Criar tabelas que especifiquem a estrutura, localização e disponibilidade dos conjuntos de dados com os seguintes procedimentos baseados em scripts. Os ficheiros JSON são usados para definir as tabelas. Para obter mais informações sobre a estrutura destes ficheiros, consulte [Datasets](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> Deverá executar o `Add-AzureAccount` cmdlet antes de executar o cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) para confirmar que a subscrição Azure certa está selecionada para a execução do comando. Para documentação deste cmdlet, consulte [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
+> Deverá executar o `Add-AzureAccount` cmdlet antes de executar o cmdlet [New-AzureDataFactoryTable](/previous-versions/azure/dn835096(v=azure.100)) para confirmar que a subscrição Azure certa está selecionada para a execução do comando. Para documentação deste cmdlet, consulte [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 

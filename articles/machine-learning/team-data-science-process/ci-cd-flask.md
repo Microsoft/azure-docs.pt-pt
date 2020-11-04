@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: 42433ec419ac9e02077cd0359e18b5114206f27d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af7900faff18d526686b80f23b9de3b3bce5ec5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76721834"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309605"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Criar oleodutos CI/CD para aplicações de IA utilizando Pipelines Azure, Docker e Kubernetes
 
@@ -34,9 +34,9 @@ Para utilizar o código fonte descarregado e tutorial, precisa dos seguintes pr�
 - O [repositório de código fonte](https://github.com/Azure/DevOps-For-AI-Apps) forcado à sua conta GitHub
 - Uma [Organização Azure DevOps](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [CLI do Azure](/cli/azure/install-azure-cli)
-- Um [serviço de contentores Azure para o cluster Kubernetes (AKS)](/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+- Um [serviço de contentores Azure para o cluster Kubernetes (AKS)](/previous-versions/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) para executar comandos e obter configuração do cluster AKS 
-- Uma [conta do Registo de Contentores Azure (ACR)](/azure/container-registry/container-registry-get-started-portal)
+- Uma [conta do Registo de Contentores Azure (ACR)](../../container-registry/container-registry-get-started-portal.md)
 
 ## <a name="cicd-pipeline-summary"></a>Resumo do gasoduto CI/CD
 
@@ -60,9 +60,9 @@ O diagrama e os passos seguintes descrevem a arquitetura do gasoduto CI/CD:
 10. Os pedidos dos utilizadores para a aplicação passam pelo servidor DNS.
 11. O servidor DNS transmite os pedidos a um equilibrador de carga e envia respostas para os utilizadores.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-- [Processo de ciência de dados da equipa (TDSP)](/azure/machine-learning/team-data-science-process/)
-- [Azure Machine Learning (AML)](/azure/machine-learning/)
-- [DevOps do Azure](https://azure.microsoft.com/services/devops/)
-- [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes)
+- [Processo de ciência de dados da equipa (TDSP)](./index.yml)
+- [Azure Machine Learning (AML)](../index.yml)
+- [Azure DevOps](https://azure.microsoft.com/services/devops/)
+- [Azure Kubernetes Services (AKS)](../../aks/intro-kubernetes.md)

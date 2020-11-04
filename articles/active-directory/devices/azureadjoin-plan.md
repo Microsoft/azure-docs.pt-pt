@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a559b29502adb1c507b1543463d84eb3bd15d5a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3587ef6be9d6c9969dff5d1af2181ed51aea7d29
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083291"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308289"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Como: Planeie a sua Azure AD aderir à implementação
 
@@ -119,7 +119,7 @@ Existem duas abordagens para gerir dispositivos aderidos a Azure AD:
 - **APENAS MDM** - Um dispositivo é gerido exclusivamente por um fornecedor de MDM como o Intune. Todas as políticas são entregues como parte do processo de inscrição do MDM. Para os clientes Azure AD Premium ou EMS, a inscrição no MDM é um passo automatizado que faz parte de uma junção AD Azure.
 - **Cogestão** - Um dispositivo é gerido por um provedor de MDM e SCCM. Nesta abordagem, o agente SCCM é instalado num dispositivo gerido pelo MDM para administrar determinados aspetos.
 
-Se estiver a utilizar políticas de grupo, avalie a sua paridade de política de MDM utilizando a [Ferramenta de Análise de Migração do MDM (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
+Se estiver a utilizar as Políticas de Grupo, avalie a paridade da política de GPO e MDM utilizando [a análise da política de grupo](/mem/intune/configuration/group-policy-analytics) no Microsoft Endpoint Manager. 
 
 Reveja as políticas apoiadas e não apoiadas para determinar se pode utilizar uma solução MDM em vez de políticas de grupo. Para políticas não apoiadas, considere o seguinte:
 
@@ -246,7 +246,7 @@ Antes de configurar as suas definições de mobilidade, poderá ter de adicionar
 **Para adicionar um provedor de MDM:**
 
 1. Na **página Azure Ative Directory** , na secção **Gerir,** clique `Mobility (MDM and MAM)` em . 
-1. Clique **na aplicação Adicionar** .
+1. Clique **na aplicação Adicionar**.
 1. Selecione o seu fornecedor DEM na lista.
 
    :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Screenshot do Diretório Ativo Azure Adicione uma página de aplicação. Vários fornecedores M D M estão listados." border="false":::
@@ -272,7 +272,7 @@ Existem três URLs que estão relacionados com a sua configuração de MDM:
 - URL de deteção da MDM 
 - URL de conformidade da MDM
 
-:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Screenshot do Diretório Ativo Azure Adicione uma página de aplicação. Vários fornecedores M D M estão listados." border="false":::
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Screenshot de parte da secção de configuração do Azure Ative Directory M D M, com campos U R L para termos de utilização, descoberta e conformidade M D M." border="false":::
 
 Cada URL tem um valor predefinido. Se estes campos estiverem vazios, contacte o seu fornecedor de MDM para mais informações.
 

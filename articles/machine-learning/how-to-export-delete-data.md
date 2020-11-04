@@ -11,12 +11,12 @@ ms.author: laobri
 ms.date: 04/24/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e847f62c2ae3d1d68c39685a38b67e1d0ada8c2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82e128ffdc215a084110a68170ac12accd8fca0e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251019"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308131"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportar ou eliminar os dados do seu espaço de trabalho do serviço de Machine Learning
 
@@ -50,7 +50,7 @@ Estes recursos podem ser eliminados selecionando-os da lista e escolhendo **Elim
 
 Os documentos de histórico, que podem conter informações pessoais do utilizador, são armazenados na conta de armazenamento de bolhas, em sub-dobradeiras de `/azureml` . Pode descarregar e eliminar os dados do portal.
 
-:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Screenshot do portal, com ícone de exclusão realçado":::
+:::image type="content" source="media/how-to-export-delete-data/storage-account-folders.png" alt-text="Screenshot do diretório azureml na conta de armazenamento, dentro do portal":::
 
 ## <a name="export-and-delete-machine-learning-resources-using-azure-machine-learning-studio"></a>Exportar e apagar recursos de aprendizagem automática usando o estúdio Azure Machine Learning
 
@@ -62,7 +62,7 @@ Você pode baixar artefactos de treino de corridas experimentais usando o Estúd
 
 Você pode baixar um modelo registado navegando para o **modelo** desejado e escolhendo **Download**. 
 
-:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Screenshot do portal, com ícone de exclusão realçado":::
+:::image type="contents" source="media/how-to-export-delete-data/model-download.png" alt-text="Screenshot da página do modelo do estúdio com opção de descarregamento em destaque":::
 
 ## <a name="export-and-delete-resources-using-the-python-sdk"></a>Exportar e eliminar recursos utilizando o Python SDK
 
@@ -84,8 +84,7 @@ Os seguintes recursos de aprendizagem automática podem ser eliminados utilizand
 
 | Tipo | Chamada de função | Notas | 
 | --- | --- | --- |
-| `Workspace` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` para cascata a eliminação |
-| `Model` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) | | 
-| `ComputeTarget` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--) | |
-| `WebService` | [`delete`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) | | 
-
+| `Workspace` | [`delete`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete-delete-dependent-resources-false--no-wait-false-) | Use `delete-dependent-resources` para cascata a eliminação |
+| `Model` | [`delete`](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | | 
+| `ComputeTarget` | [`delete`](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--) | |
+| `WebService` | [`delete`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) | |

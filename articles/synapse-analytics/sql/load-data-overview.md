@@ -1,6 +1,6 @@
 ---
-title: Desenhe uma estratégia de carregamento de dados da PolyBase para piscina SQL
-description: Em vez de ETL, desenhe um processo de extrato, carga e transformação (ELT) para carregar dados ou piscina SQL.
+title: Desenhe uma estratégia de carregamento de dados da PolyBase para piscina sql dedicada
+description: Em vez de ETL, desenhe um processo de Extrato, Carga e Transformação (ELT) para carregar dados com SQL dedicado.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: dbbed2ccaa62a99bb54a6d3d2eecf0c644281404
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a57abd080bdbbaefbe07258a2b241c093dc8c441
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474670"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308750"
 ---
-# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Desenhe uma estratégia de carregamento de dados da PolyBase para a piscina SQL Azure Synapse
+# <a name="design-a-polybase-data-loading-strategy-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Desenhe uma estratégia de carregamento de dados da PolyBase para piscina SQL dedicada em Azure Synapse Analytics
 
 Os armazéns de dados tradicionais SMP utilizam um processo de extração, transformação e carga (ETL) para o carregamento de dados. A piscina Azure SQL é uma arquitetura de processamento massivamente paralela (MPP) que aproveita a escalabilidade e flexibilidade dos recursos de computação e armazenamento. A utilização de um processo de Extração, Carga e Transformação (ELT) pode tirar partido das capacidades de processamento de consultas distribuídas incorporadas e eliminar os recursos necessários para transformar os dados antes do carregamento.
 
@@ -29,12 +29,12 @@ Enquanto a piscina SQL suporta muitos métodos de carregamento, incluindo opçõ
 
 Extrato, Carga e Transformação (ELT) é um processo pelo qual os dados são extraídos de um sistema de origem, carregados num armazém de dados e depois transformados.
 
-Os passos básicos para a implementação de um PolyBase ELT para piscina SQL são:
+Os passos básicos para a implementação de um PolyBase ELT para piscina SQL dedicada são:
 
 1. Extraia os dados de origem para ficheiros de texto.
 2. Aterre os dados no armazém da Azure Blob ou na Azure Data Lake Store.
 3. Prepare os dados para o carregamento.
-4. Carregue os dados em mesas de paragem de piscinas SQL utilizando o PolyBase.
+4. Carregue os dados em mesas de preparação de piscinas SQL dedicadas utilizando a PolyBase.
 5. Transforme os dados.
 6. Insira os dados em tabelas de produção.
 
@@ -85,11 +85,11 @@ Ferramentas e serviços que pode utilizar para mover dados para o Azure Storage:
 
 - O serviço [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) melhora a produção, desempenho e previsibilidade da rede. O ExpressRoute é um serviço que encaminha os seus dados através de uma ligação privada dedicada ao Azure. As ligações ExpressRoute não encaminham dados através da internet pública. As ligações oferecem mais fiabilidade, velocidades mais rápidas, latências mais baixas e maior segurança do que as ligações típicas através da internet pública.
 - [O utilitário AZCopy](../../storage/common/storage-use-azcopy-v10.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) move dados para Azure Storage através da internet pública. Isto funciona se os seus dados forem inferiores a 10 TB. Para efetuar cargas regularmente com AZCopy, teste a velocidade da rede para ver se é aceitável.
-- [A Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) tem um portal que pode instalar no seu servidor local. Em seguida, pode criar um pipeline para mover dados do seu servidor local para o Azure Storage. Para utilizar a Data Factory com piscina SQL, consulte [os dados de carga na piscina SQL](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- [A Azure Data Factory (ADF)](../../data-factory/introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) tem um portal que pode instalar no seu servidor local. Em seguida, pode criar um pipeline para mover dados do seu servidor local para o Azure Storage. Para utilizar a Data Factory com piscina SQL dedicada, consulte [os dados de carga em piscina SQL dedicada.](../../data-factory/load-azure-sql-data-warehouse.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 ## <a name="3-prepare-the-data-for-loading"></a>3. Preparar os dados para o carregamento
 
-Poderá ter de preparar e limpar os dados na sua conta de armazenamento antes de os colocar na piscina SQL. A preparação de dados pode ser realizada enquanto os seus dados estão na fonte, à medida que exporta os dados para ficheiros de texto, ou depois de os dados estarem no Azure Storage.  É mais fácil trabalhar com os dados o mais cedo possível no processo.  
+Poderá ter de preparar e limpar os dados na sua conta de armazenamento antes de os colocar numa piscina SQL dedicada. A preparação de dados pode ser realizada enquanto os seus dados estão na fonte, à medida que exporta os dados para ficheiros de texto, ou depois de os dados estarem no Azure Storage.  É mais fácil trabalhar com os dados o mais cedo possível no processo.  
 
 ### <a name="define-external-tables"></a>Definir tabelas externas
 
@@ -110,7 +110,7 @@ Para formatar os ficheiros de texto:
 - Formato de dados no ficheiro de texto para alinhar com as colunas e tipos de dados na tabela de destinos de piscina SQL. O desalinhamento entre os tipos de dados nos ficheiros de texto externos e a tabela do armazém de dados faz com que as filas sejam rejeitadas durante a carga.
 - Separe os campos no ficheiro de texto com um exterminador.  Certifique-se de que utiliza um personagem ou uma sequência de caracteres que não se encontra nos seus dados de origem. Utilize o exterminador especificado com [FORMATO DE FICHEIRO EXTERNO CREATE](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-## <a name="4-load-the-data-into-sql-pool-staging-tables-using-polybase"></a>4. Carregue os dados em mesas de paragem de piscinas SQL usando a PolyBase
+## <a name="4-load-the-data-into-dedicated-sql-pool-staging-tables-using-polybase"></a>4. Carregue os dados em mesas de paragem dedicadas ao SQL utilizando a PolyBase
 
 É melhor a prática carregar dados numa tabela de preparação. As tabelas de preparação permitem-lhe lidar com erros sem interferir com as tabelas de produção. Uma tabela de encenação também lhe dá a oportunidade de usar capacidades de processamento de consulta distribuída incorporadas sql para transformações de dados antes de inserir os dados em tabelas de produção.
 
@@ -125,7 +125,7 @@ Para carregar dados com a PolyBase, pode utilizar qualquer uma destas opções d
 
 ### <a name="non-polybase-loading-options"></a>Opções de carregamento não-PolyBase
 
-Se os seus dados não forem compatíveis com a PolyBase, pode utilizar o [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) ou a [API SQLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). o BCP carrega diretamente para a piscina SQL sem passar pelo armazenamento Azure Blob, e destina-se apenas a pequenas cargas. Note que o desempenho da carga destas opções é significativamente mais lento do que o PolyBase.
+Se os seus dados não forem compatíveis com a PolyBase, pode utilizar o [BCP](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) ou a [API SQLBulkCopy](/dotnet/api/system.data.sqlclient.sqlbulkcopy?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json). o BCP carrega diretamente para piscina SQL dedicada sem passar pelo armazenamento Azure Blob, e destina-se apenas a pequenas cargas. Note que o desempenho da carga destas opções é significativamente mais lento do que o PolyBase.
 
 ## <a name="5-transform-the-data"></a>5. Transformar os dados
 

@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: b30cd926f6908c26c6f71c1513a8c68c8a46bf43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 154479be1eae01bcc533b556b751ed24aee3da2b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359754"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308580"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Ativar o registo de serviços web do Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Este documento fornece informações sobre a capacidade de registo de serviços web do Machine Learning Studio (clássico). O registo fornece informações adicionais, para além de apenas um número de erro e uma mensagem, que podem ajudá-lo a resolver problemas nas suas chamadas para o Machine Learning Studio (clássico) APIs.  
@@ -66,7 +66,7 @@ Você permite iniciar sessão a partir do portal [Azure Machine Learning Studio 
 ## <a name="the-effects-of-enabling-logging"></a>Os efeitos da ativação do abate
 Quando o registo está ativado, os diagnósticos e erros do ponto final do serviço web são registados no recipiente de **bolhas de diagnóstico ml** na Conta de Armazenamento Azure ligada ao espaço de trabalho do utilizador. Este recipiente contém todas as informações de diagnóstico de todos os pontos finais do serviço web para todos os espaços de trabalho associados a esta conta de armazenamento.
 
-Os registos podem ser vistos utilizando qualquer uma das várias ferramentas disponíveis para explorar uma Conta de Armazenamento Azure. O mais fácil pode ser navegar até à conta de armazenamento no portal Azure, clicar em **Recipientes**e, em seguida, clicar nos **diagnósticos ml do**recipiente .  
+Os registos podem ser vistos utilizando qualquer uma das várias ferramentas disponíveis para explorar uma Conta de Armazenamento Azure. O mais fácil pode ser navegar até à conta de armazenamento no portal Azure, clicar em **Recipientes** e, em seguida, clicar nos **diagnósticos ml do** recipiente .  
 
 ## <a name="log-blob-detail-information"></a>Informação detalhada do blob de log
 Cada bolha no recipiente contém a informação de diagnóstico para uma das seguintes ações:
@@ -85,5 +85,4 @@ Quando _o tipo de registo_ é um dos seguintes valores:
 
 * lote  
 * pontuação/pedidos  
-* pontuação/init  
-
+* pontuação/init

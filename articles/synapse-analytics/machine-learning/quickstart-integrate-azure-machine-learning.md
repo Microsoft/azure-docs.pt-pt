@@ -9,12 +9,12 @@ ms.reviewer: jrasnick, garye
 ms.date: 09/25/2020
 author: nelgson
 ms.author: negust
-ms.openlocfilehash: 141cc47adb398cbd5730fbe33bcd90fece809ed3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2597aa1f0589fea75af0a3ac41244e3718d5eb3e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91543479"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307962"
 ---
 # <a name="quickstart-create-a-new-azure-machine-learning-linked-service-in-synapse"></a>Quickstart: Criar um novo serviço de aprendizagem automática Azure em Synapse
 
@@ -46,11 +46,11 @@ Este passo vai criar um novo diretor de serviços. Se quiser utilizar um diretor
 
 1. Clique em **Novo registo**. Em seguida, siga as instruções da UI para registar uma nova aplicação.
 
-1. Depois de o pedido ser registado. Gere um segredo para a aplicação. Aceda ao **certificado**de & Segredo de  ->  **Candidatura.** Clique **em Adicionar segredo** de cliente para gerar um segredo. Guarde o segredo e será usado mais tarde.
+1. Depois de o pedido ser registado. Gere um segredo para a aplicação. Aceda ao **certificado** de & Segredo de  ->  **Candidatura.** Clique **em Adicionar segredo** de cliente para gerar um segredo. Guarde o segredo e será usado mais tarde.
 
    ![Gerar segredo](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00a.png)
 
-1. Crie um diretor de serviço para a aplicação. Vá à **sua visão**geral da sua  ->  **Overview** aplicação e, em seguida, clique em **Criar o principal do serviço**. Em alguns casos, este diretor de serviço é criado automaticamente.
+1. Crie um diretor de serviço para a aplicação. Vá à **sua visão** geral da sua  ->  **Overview** aplicação e, em seguida, clique em **Criar o principal do serviço**. Em alguns casos, este diretor de serviço é criado automaticamente.
 
    ![Criar um principal de serviço](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-createsp-00b.png)
 
@@ -60,7 +60,7 @@ Este passo vai criar um novo diretor de serviços. Se quiser utilizar um diretor
 
 ## <a name="create-a-linked-service"></a>Criar um serviço ligado
 
-1. No espaço de trabalho da Sinaapse onde pretende criar o novo serviço Azure Machine Learning, vá ao serviço **Management**  ->  **Linked service**Linked, crie um novo serviço ligado com o tipo "Azure Machine Learning".
+1. No espaço de trabalho da Sinaapse onde pretende criar o novo serviço Azure Machine Learning, vá ao serviço **Management**  ->  **Linked service** Linked, crie um novo serviço ligado com o tipo "Azure Machine Learning".
 
    ![Criar serviço ligado](media/quickstart-integrate-azure-machine-learning/quickstart-integrate-azure-machine-learning-create-linked-service-00a.png)
 
@@ -79,5 +79,5 @@ Este passo vai criar um novo diretor de serviços. Se quiser utilizar um diretor
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Assistente de pontuação do modelo de machine learning - piscina SQL](tutorial-sql-pool-model-scoring-wizard.md)
+- [Tutorial: Assistente de pontuação de modelo de machine learning - piscina de SQL dedicada](tutorial-sql-pool-model-scoring-wizard.md)
 - [Capacidades de aprendizagem automática em Azure Synapse Analytics (pré-visualização de espaços de trabalho)](what-is-machine-learning.md)

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
-ms.openlocfilehash: 8ffdd8c15cf225e4f5b99a0b84b71bdbed456234
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 31cb2b2b5411968f1eba71fa9afc7bdc8296407c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130090"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307394"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>O que é o machine learning automatizado (AutoML)?
 
@@ -172,7 +172,7 @@ Considere estes prós e contras ao optar por utilizar local vs. remoto.
 
  Mais funcionalidades estão disponíveis quando utiliza o cálculo remoto, como mostra a tabela abaixo. 
 
-| Destaque                                                    | Remoto | Local | 
+| Funcionalidade                                                    | Remoto | Local | 
 |------------------------------------------------------------|--------|-------|
 | Streaming de dados (Grande suporte a dados, até 100 GB)          | ✓      |       | 
 | A participação e formação de texto baseados em DNN-BERT             | ✓      |       |
@@ -204,7 +204,7 @@ Por exemplo, a construção de um modelo __para cada instância ou indivíduo__ 
 
 A Azure Machine Learning oferece duas experiências para trabalhar com ML automatizado:
 
-* Para clientes experientes em código, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
+* Para clientes experientes em código, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 
 
 * Para clientes de experiência de código limitada/sem código, estúdio Azure Machine Learning em [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -289,8 +289,7 @@ Reveja exemplos de código detalhados e use casos no [repositório de cadernos G
 
 ### <a name="python-sdk-reference"></a>Referência Python SDK
 
-Aprofundar a sua experiência em padrões de design SDK e especificações de classe com a [documentação de referência da classe AutoML.](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) 
+Aprofundar a sua experiência em padrões de design SDK e especificações de classe com a [documentação de referência da classe AutoML.](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) 
 
 > [!Note]
-> As capacidades automatizadas de aprendizagem automática também estão disponíveis noutras soluções da Microsoft, tais [como, ML.NET,](https://docs.microsoft.com/dotnet/machine-learning/automl-overview) [HDInsight,](../hdinsight/spark/apache-spark-run-machine-learning-automl.md) [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
-
+> As capacidades automatizadas de aprendizagem automática também estão disponíveis noutras soluções da Microsoft, tais [como, ML.NET,](/dotnet/machine-learning/automl-overview) [HDInsight,](../hdinsight/spark/apache-spark-run-machine-learning-automl.md) [Power BI](/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
