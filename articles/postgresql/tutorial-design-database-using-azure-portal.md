@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: 7af3386a618fdcc58facb1d67c26692312d30a89
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 179d4124e28abfffa83b16cfdb418d8e860192d8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92535778"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337137"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Tutorial: Desenhe uma base de dados Azure para PostgreSQL - Servidor Único utilizando o portal Azure
 
@@ -37,16 +37,16 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreSQL:
 1. Clique em **Criar um recurso** , no canto superior esquerdo do portal do Azure.
-2. Selecione **Bases de Dados** , na página **Nova** , e selecione **Base de Dados do Azure para o PostgreSQL** , na página **Bases de Dados** .
+2. Selecione **Bases de Dados** , na página **Nova** , e selecione **Base de Dados do Azure para o PostgreSQL** , na página **Bases de Dados**.
    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/1-create-database.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a base de dados":::
 
 3. Selecione a opção de implementação **do servidor único.**
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/select-deployment-option.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a base de dados":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/select-deployment-option.png" alt-text="Selecione Azure Database para postgreSQL - Opção de implementação de servidor único":::
 
 4. Preencha o formulário Básico com as **seguintes** informações:
 
-    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/create-basics.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a base de dados":::
+    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/create-basics.png" alt-text="Criar um servidor":::
 
     Definição|Valor sugerido|Descrição
     ---|---|---
@@ -58,13 +58,13 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
     Palavra-passe |A sua palavra-passe| Uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. A sua palavra-passe tem de conter carateres de três das categorias seguintes: letras em maiúscula inglesas, letras em minúscula inglesas, números (0 a 9) e carateres não alfanuméricos (!, $, #, %, etc.).
     Localização|A região mais próxima dos seus utilizadores| A localização que esteja mais próxima dos seus utilizadores.
     Versão|A versão principal mais recente| A versão principal mais recente do PostgreSQL, a não ser que tenha requisitos específicos.
-    Computação e armazenamento | **Fins Gerais** , **Geração 5** , **2 vCores** , **5 GB** , **7 dias** , **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **o servidor Configurar** . Em seguida, selecione o separador **Finalidade Geral.** *Gen 5* , *4 vCores* , *100 GB* e *7 dias* são os valores padrão para a **Geração computacional** , **vCore,** **Armazenamento** e Período **de Retenção de Backup** . Pode deixar os sliders como está ou ajustá-los. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança** . Para guardar a seleção deste escalão de preço, selecione **OK** . A captura de ecrã seguinte captura estas seleções.
+    Computação e armazenamento | **Fins Gerais** , **Geração 5** , **2 vCores** , **5 GB** , **7 dias** , **Geograficamente Redundante** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **o servidor Configurar**. Em seguida, selecione o separador **Finalidade Geral.** *Gen 5* , *4 vCores* , *100 GB* e *7 dias* são os valores padrão para a **Geração computacional** , **vCore,** **Armazenamento** e Período **de Retenção de Backup**. Pode deixar os sliders como está ou ajustá-los. Para ativar as cópias de segurança do servidor no armazenamento georredundante, selecione **Geograficamente Redundante** nas **Opções de Redundância da Cópia de Segurança**. Para guardar a seleção deste escalão de preço, selecione **OK**. A captura de ecrã seguinte captura estas seleções.
 
    > [!NOTE]
    > Considere usar o nível de preços básico se o cálculo leve e a I/O forem adequados para a sua carga de trabalho. Note que os servidores criados no nível de preços básicos não podem ser posteriormente dimensionados para Final Geral ou Memória Otimizada. Consulte [a página de preços](https://azure.microsoft.com/pricing/details/postgresql/) para mais informações.
    > 
 
-    :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a base de dados":::
+    :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="O painel de preços":::
 
     > [!TIP]
     > Com **o crescimento automático** ativado, o seu servidor aumenta o armazenamento quando se aproxima do limite atribuído, sem afetar a sua carga de trabalho.
@@ -73,9 +73,9 @@ Siga estes passos para criar uma Base de Dados do Azure para o servidor PostgreS
 
 6. Na barra de ferramentas, selecione o ícone **Notificações** (um sino) para monitorizar o processo de implementação. Uma vez concluída a implementação, pode selecionar **Afixar ao dashboard** , o que cria um mosaico para este servidor no dashboard do portal do Azure como um atalho para a página **Descrição geral** do servidor. Selecionar **Ir para recurso** abre a página **Descrição geral** do servidor.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a base de dados":::
+    :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="O painel de notificações":::
    
-   Por predefinição, é criada uma base de dados **postgres** no servidor. A base de dados [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é uma base de dados predefinida que se destina a ser utilizada por utilizadores, utilitários e aplicações de terceiros. (A outra base de dados predefinida é **azure_maintenance** . A sua função é separar os processos de serviço geridos das ações dos utilizadores. Não pode aceder a esta base de dados.)
+   Por predefinição, é criada uma base de dados **postgres** no servidor. A base de dados [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é uma base de dados predefinida que se destina a ser utilizada por utilizadores, utilitários e aplicações de terceiros. (A outra base de dados predefinida é **azure_maintenance**. A sua função é separar os processos de serviço geridos das ações dos utilizadores. Não pode aceder a esta base de dados.)
 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurar uma regra de firewall ao nível do servidor
@@ -84,15 +84,15 @@ O serviço Base de Dados do Azure para PostgreSQL utiliza uma firewall ao nível
 
 1. Uma vez concluída a implementação, clique em **Todos os Recursos** no menu da esquerda e escreva o nome **mydemoserver** para procurar o servidor que acabou de criar. Clique no nome do servidor listado no resultado da pesquisa. É apresentada a página **Descrição Geral** do servidor, que fornece opções para configuração adicional.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a base de dados":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Base de Dados do Azure para o PostgreSQL – Procurar o servidor":::
 
-2. Na página do servidor, selecione **Segurança da ligação** . 
+2. Na página do servidor, selecione **Segurança da ligação**. 
 
-3. Clique na caixa de texto sob **o Nome de Regra** e adicione uma nova regra de firewall para especificar o intervalo IP para conectividade. Introduza o seu intervalo de IP. Clique em **Guardar** .
+3. Clique na caixa de texto sob **o Nome de Regra** e adicione uma nova regra de firewall para especificar o intervalo IP para conectividade. Introduza o seu intervalo de IP. Clique em **Guardar**.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/5-firewall-2.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a base de dados":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/5-firewall-2.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a Regra de Firewall":::
 
-4. Clique em **Guardar** e, em seguida, no **X** para fechar a página **Segurança das ligações** .
+4. Clique em **Guardar** e, em seguida, no **X** para fechar a página **Segurança das ligações**.
 
    > [!NOTE]
    > O servidor PostgreSQL do Azure comunica através da porta 5432. Se estiver a tentar ligar a partir de uma rede empresarial, o tráfego de saída através da porta 5432 poderá não ser permitido pela firewall da rede. Se assim for, não poderá ligar ao servidor da Base de Dados SQL do Azure, a menos que o departamento de TI abra a porta 5432.
@@ -104,13 +104,13 @@ Quando criou o servidor da Base de Dados do Azure para PostgreSQL, também criou
 
 1. No menu da esquerda no portal do Azure, clique em **Todos os recursos** e procure o servidor que acabou de criar.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a base de dados":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Base de Dados do Azure para o PostgreSQL – Procurar o servidor":::
 
-2. Clique no nome do servidor **mydemoserver** .
+2. Clique no nome do servidor **mydemoserver**.
 
-3. Selecione a página **Descrição Geral** do servidor. Anote o **Nome do servidor** e **Nome de início de sessão de administrador do servidor** .
+3. Selecione a página **Descrição Geral** do servidor. Anote o **Nome do servidor** e **Nome de início de sessão de administrador do servidor**.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/6-server-name.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a base de dados":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/6-server-name.png" alt-text="Base de Dados do Azure para o PostgreSQL – Início de sessão de administrador do servidor":::
 
 
 ## <a name="connect-to-postgresql-database-using-psql"></a>Ligar à base de dados do PostgreSQL com psql
@@ -190,11 +190,11 @@ Imagine que eliminou acidentalmente esta tabela. Esta situação é algo de que 
 
 1. Na página de **Descrição Geral** da Base de Dados do Azure para PostgreSQL para o seu servidor, clique em **Restaurar** na barra de ferramentas. A página **Restaurar** abre.
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a base de dados":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Screenshot que mostra a base de dados Azure para a página PostgreSQL **Visão Geral** para o seu servidor e realça o botão Restaurar.":::
 
 2. Preencha o formulário **Restaurar** com as informações necessárias:
 
-   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Base de Dados do Azure para o PostgreSQL – Criar a base de dados":::
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Portal do Azure – Opções do formulário de restauro":::
 
    - **Ponto de restauro** : Selecione um ponto no tempo que ocorre antes de o servidor ser alterado
    - **Servidor de destino** : indique um novo nome de servidor para o qual pretende restaurar
@@ -202,15 +202,20 @@ Imagine que eliminou acidentalmente esta tabela. Esta situação é algo de que 
    - **Escalão de preço** : não pode alterar este valor quando restaurar um servidor. É igual ao servidor de origem. 
 3. Clique em **OK** para [restaurar o servidor para um ponto anterior no tempo](./howto-restore-server-portal.md) antes da eliminação da tabela. Restaurar um servidor para outro ponto anterior no tempo cria um novo servidor duplicado como servidor original a partir do ponto anterior no tempo que especificar, desde que esteja dentro do período de retenção do seu [escalão de preço](./concepts-pricing-tiers.md).
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Nos passos anteriores, criou recursos Azure num grupo de servidores. Se não espera precisar destes recursos no futuro, elimine o grupo de servidores. Prima o botão *Eliminar* na página *'Vista Geral'* para o seu grupo de servidor. Quando solicitado numa página pop-up, confirme o nome do grupo de servidor e clique no botão final *eliminar.*
+
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a utilizar o portal do Azure e outros utilitários para:
 > [!div class="checklist"]
 > * Criar um servidor da Base de Dados do Azure para PostgreSQL
 > * Configurar a firewall do servidor
-> * Utilize o utilitário [**psql**](https://www.postgresql.org/docs/9.6/static/app-psql.html) para criar uma base de dados
+> * Use o **utilitário psql** para criar uma base de dados
 > * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados
 
-Em seguida, para aprender a utilizar a CLI do Azure para realizar tarefas semelhantes, reveja este tutorial: [Conceber a sua primeira Base de Dados do Azure para PostgreSQL com a CLI do Azure](tutorial-design-database-using-azure-cli.md)
+> [!div class="nextstepaction"]
+>[Desenhe a sua primeira Base de Dados Azure para PostgreSQL utilizando o Azure CLI](tutorial-design-database-using-azure-cli.md)

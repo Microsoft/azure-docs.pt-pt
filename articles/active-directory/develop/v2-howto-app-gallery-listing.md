@@ -1,5 +1,5 @@
 ---
-title: Publique a sua app na galeria de aplicações AZure AD
+title: Publique a sua app na galeria de aplicações Azure Ative Directory
 description: Saiba como listar uma aplicação que suporta um único s-on na galeria de aplicações Azure Ative Directory.
 services: active-directory
 author: kenwith
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275656"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339440"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publique a sua app na galeria de aplicações AZure AD
 
@@ -60,11 +60,28 @@ Os passos para a publicação da sua aplicação na galeria de aplicações AZur
 5. Envie a sua aplicação.
 6. Junte-se à rede de parceiros da Microsoft.
 
+## <a name="what-is-the-azure-ad-application-gallery"></a>O que é a galeria de aplicações AD AZure?
+
+- Os clientes encontram a melhor experiência possível de inscrição única.
+- A configuração da aplicação é simples e mínima.
+- Uma pesquisa rápida encontra a sua aplicação na galeria.
+- Os clientes AD Azure gratuitos, básicos e premium podem utilizar esta integração.
+- Os clientes mútuos obtêm um tutorial de configuração passo a passo.
+- Os clientes que utilizam o Sistema de Gestão de Identidade de Domínio Cruzado[(SCIM)](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)podem utilizar o provisionamento para a mesma aplicação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Precisa de uma conta permanente para testes com pelo menos dois utilizadores registados.
 
+- Para aplicações federadas (Open ID e SAML/WS-Fed), a aplicação deve apoiar o modelo software-as-a-service (SaaS) para ser listado na galeria de aplicações AD Azure. As aplicações da galeria da empresa devem suportar múltiplas configurações de clientes e não qualquer cliente específico.
+- Para o Open ID Connect, a aplicação deve ser multitendida e o [quadro de consentimento Azure AD](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) deve ser devidamente implementado para a aplicação. O utilizador pode enviar o pedido de inscrição para um ponto final comum para que qualquer cliente possa fornecer consentimento para a aplicação. Pode controlar o acesso do utilizador com base no ID do inquilino e na UPN do utilizador recebida no token.
+- Para a SAML 2.0/WS-Fed, a sua aplicação deve ter a capacidade de fazer a integração SSO SAML/WS-Fed no modo SP ou IDP. Certifique-se de que esta capacidade está a funcionar corretamente antes de submeter o pedido.
+- Para a palavra-passe SSO, certifique-se de que a sua aplicação suporta a autenticação do formulário para que a abóbada de senha possa ser feita para obter um único sinal de acesso ao funcionamento como esperado.
+- Precisa de uma conta permanente para testes com pelo menos dois utilizadores registados.
+
+**Como obter Azure AD para desenvolvedores?**
+
+Você pode obter uma conta de teste gratuita com todas as funcionalidades premium AZure AD - 90 dias grátis e pode ser estendida desde que faça dev trabalhar com ele: https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Passo 1 - Escolha o padrão de inscrição único certo para a sua aplicação
 
@@ -256,6 +273,16 @@ Pode atualizar ou remover uma aplicação de galeria existente no portal da [Red
 
 > [!NOTE]
 > Se tiver algum problema de acesso, consulte a secção anterior sobre a criação da sua conta. Se isso não funcionar, contacte a [Equipa de Integração SSO da Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+### <a name="list-requests-by-customers"></a>Pedidos de lista por clientes
+
+Os clientes podem submeter um pedido de lista de uma aplicação selecionando **pedidos de App por Clientes**  >  **Enviar novo pedido.**
+
+![Mostra o azulejo de aplicações solicitado pelo cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Aqui está o fluxo de aplicações solicitadas pelo cliente.
+
+![Mostra o fluxo de aplicações solicitadas pelo cliente](./media/howto-app-gallery-listing/customer-request-2.png)
 
 
 ### <a name="timelines"></a>Linhas cronológicas

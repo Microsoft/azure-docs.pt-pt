@@ -5,15 +5,16 @@ author: SnehaGunda
 ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 37f5acdb2921b6f2bf4a5ed5a8c435db78e01513
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087371"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339670"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Quickstart: Crie um Azure Cosmos DB e um recipiente usando um modelo ARM
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +23,7 @@ Azure Cosmos DB é a base de dados NoSQL rápida da Microsoft com APIs abertos p
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Desdobre-se para Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
@@ -58,13 +59,13 @@ Mais amostras de modelo de Azure Cosmos DB podem ser encontradas na [galeria de 
 
 2. Selecione ou introduza os seguintes valores.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Desdobre-se para Azure":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Modelo ARM, integração DB Azure Cosmos, implementar portal":::
 
     A menos que seja especificado, use os valores padrão para criar os recursos Azure Cosmos.
 
     * **Subscrição** : selecione uma subscrição do Azure.
-    * **Grupo de recursos** : selecione **Criar novo,** insira um nome único para o grupo de recursos e, em seguida, clique em **OK** .
-    * **Localização** : selecione uma localização.  Por exemplo, **E.U.A. Central** .
+    * **Grupo de recursos** : selecione **Criar novo,** insira um nome único para o grupo de recursos e, em seguida, clique em **OK**.
+    * **Localização** : selecione uma localização.  Por exemplo, **E.U.A. Central**.
     * **Nome da conta** : insira um nome para a conta Azure Cosmos. Deve ser globalmente único.
     * **Localização** : insira um local onde pretende criar a sua conta Azure Cosmos. A conta Azure Cosmos pode estar no mesmo local que o grupo de recursos.
     * **Região Primária** : A principal região réplica da conta Azure Cosmos.
@@ -77,9 +78,9 @@ Mais amostras de modelo de Azure Cosmos DB podem ser encontradas na [galeria de 
     * **Produção** : A produção para o contentor, o valor mínimo de produção é de 400 RU/s.
     * **Aceito os termos e condições acima apresentados** : selecione.
 
-3. Selecione **Comprar** . Depois de a conta Azure Cosmos ter sido implantada com sucesso, recebe uma notificação:
+3. Selecione **Comprar**. Depois de a conta Azure Cosmos ter sido implantada com sucesso, recebe uma notificação:
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Desdobre-se para Azure":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Modelo ARM, integração de Cosmos DB, implementar notificação do portal":::
 
 O portal do Azure é utilizado para implementar o modelo. Além do portal Azure, também pode utilizar o Azure PowerShell, Azure CLI e REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../azure-resource-manager/templates/deploy-powershell.md).
 

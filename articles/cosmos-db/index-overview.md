@@ -3,17 +3,18 @@ title: Indexação no Azure Cosmos DB
 description: Entenda como a indexação funciona em Azure Cosmos DB, diferentes tipos de índices tais como Range, Spatial, índices compósitos suportados.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: acb0396ece32c568a4d8c384bebcbabd7480eb09
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101464"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339761"
 ---
-# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB – Descrição geral
+# <a name="indexing-in-azure-cosmos-db---overview"></a>Indexação no Azure Cosmos DB — Descrição geral
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB é uma base de dados de esquemas agnósticos que lhe permite iterar a sua aplicação sem ter de lidar com esquemas ou gestão de índices. Por padrão, a Azure Cosmos DB indexa automaticamente todas as propriedades para todos os itens do seu [contentor](account-databases-containers-items.md#azure-cosmos-containers) sem ter de definir qualquer esquema ou configurar índices secundários.
@@ -181,7 +182,7 @@ Os caminhos extraídos ao indexar dados facilitam a procura do índice ao proces
 
 Por exemplo, considere a seguinte consulta: `SELECT location FROM location IN company.locations WHERE location.country = 'France'` . O predicado de consulta (filtragem em itens, onde qualquer local tem "França" como seu país/região) corresponderia ao caminho realçado a vermelho abaixo:
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="O item anterior representado como uma árvore" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Combinando um caminho específico dentro de uma árvore" border="false":::
 
 > [!NOTE]
 > Uma `ORDER BY` cláusula que ordena por uma única propriedade *sempre* precisa de um índice de alcance e falhará se o caminho que referenciar não tiver um. Da mesma forma, uma `ORDER BY` consulta que encomenda por múltiplas propriedades *sempre* precisa de um índice composto.

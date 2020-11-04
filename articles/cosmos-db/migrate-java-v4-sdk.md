@@ -5,15 +5,16 @@ author: anfeldma-ms
 ms.custom: devx-track-java
 ms.author: anfeldma
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: eb2553346881bc2e8de631988bd11642b85aa847
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b33524acd09cbf565127dc81ef2b5bfa16b4504d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099645"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339772"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Migrar a sua aplicação para usar o Azure Cosmos DB Java SDK v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +35,7 @@ A tabela a seguir lista diferentes SDKs Azure Cosmos DB Java, o nome do pacote e
 
 | SDK Java| Data da versão: | APIs agregados   | Jarro Maven  | Nome do pacote java  |Referência de API   | Notas de Versão  |
 |-------|------|-----------|-----------|--------------|-------------|---------------------------|
-| Async 2.x.x  | Junho de 2018    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de lançamento](sql-api-sdk-async-java.md) |
+| Async 2.x.x  | junho de 2018    | Async (RxJava)  | `com.microsoft.azure::azure-cosmosdb` | `com.microsoft.azure.cosmosdb.rx` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de lançamento](sql-api-sdk-async-java.md) |
 | Sincronização 2.x.x     | Setembro 2018    | Sync   | `com.microsoft.azure::azure-documentdb` | `com.microsoft.azure.cosmosdb` | [API](https://azure.github.io/azure-cosmosdb-java/2.0.0/) | [Notas de lançamento](sql-api-sdk-java.md)  |
 | 3.x.x    | Julho de 2019    | Async(Reator)/Sync  | `com.microsoft.azure::azure-cosmos`  | `com.azure.data.cosmos` | [API](https://azure.github.io/azure-cosmosdb-java/3.0.0/) | - |
 | 4.0   | Junho de 2020   | Async(Reator)/Sync  | `com.azure::azure-cosmos` | `com.azure.cosmos`   | -  | [API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-cosmos/4.0.1/index.html)  |
@@ -67,7 +68,7 @@ Seguem-se as alterações de nível API em Azure Cosmos DB Java SDK 4.x.x em com
 
   * **Java SDK 3.x.x:** Todas as classes pertencem à API Async, a menos que o nome da classe seja anexado `Async` a partir de `Cosmos` .
 
-  * **Async Java SDK 2.x.x:** Os nomes da classe são semelhantes a Sync Java SDK 2.x.x, no entanto o nome começa com *Async* .
+  * **Async Java SDK 2.x.x:** Os nomes da classe são semelhantes a Sync Java SDK 2.x.x, no entanto o nome começa com *Async*.
 
 ### <a name="hierarchical-api-structure"></a>Estrutura hierárquica da API
 

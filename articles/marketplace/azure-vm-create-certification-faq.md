@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f065b1bc98eab86542ecff73e1471e4d90cd4182
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677820"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339539"
 ---
 # <a name="vm-certification-troubleshooting"></a>Resolução de problemas da certificação de VM
 
@@ -47,15 +47,15 @@ Verifique se a sua imagem suporta extensões VM.
 Para ativar as extensões de VM, faça o seguinte:
 
 1. Selecione o seu Linux VM.
-1. Ir para as **definições de Diagnóstico** .
+1. Ir para as **definições de Diagnóstico**.
 1. Ativar as matrizes base atualizando a **conta de Armazenamento.**
-1. Selecione **Guardar** .
+1. Selecione **Save** (Guardar).
 
    ![Ativar a monitorização ao nível do convidado](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 Para verificar se as extensões VM estão corretamente ativadas, faça o seguinte:
 
-1. No VM, selecione o separador **de extensões VM** e, em seguida, verifique o estado da extensão de **diagnóstico linux** .
+1. No VM, selecione o separador **de extensões VM** e, em seguida, verifique o estado da extensão de **diagnóstico linux**.
 1. 
     * Se o estado for *Provisioning Succeeded,* o caso do teste de extensões passou.  
     * Se o estado for *Provisioning Failed,* o caso de teste de extensões falhou e tem de definir a bandeira endurecida.
@@ -81,6 +81,45 @@ As questões de provisionamento podem incluir os seguintes cenários de falha:
 > Para obter mais informações sobre a generalização da VM, consulte:
 > - [Documentação linux](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Documentação do Windows](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+
+
+## <a name="vhd-specifications"></a>Especificações VHD
+
+### <a name="conectix-cookie-and-other-vhd-specifications"></a>Cookie conectix e outras especificações de VHD
+A cadeia 'conectix' faz parte da especificação VHD, e definida como o 'cookie' de 8 byte no rodapé VHD abaixo que identifica o criador do ficheiro. Todos os ficheiros VHD criados pela Microsoft têm este cookie. 
+
+Uma bolha em formatada VHD deve ter um rodapé de 512 byte; este é o formato de rodapé VHD:
+
+|Campos de rodapé de disco rígido|Tamanho (bytes)|
+|---|---|
+Cookie|8
+Funcionalidades|4
+Versão em formato de ficheiro|4
+Compensação de dados|8
+Time Stamp (Carimbo de Data/Hora)|4
+Aplicação do Criador|4
+Versão do Criador|4
+Criador Host OS|4
+Tamanho original|8
+Tamanho atual|8
+Geometria do disco|4
+Tipo de Disco|4
+Soma de verificação|4
+ID Único|16
+Estado Salvo|1
+Reservado|427
+
+
+### <a name="vhd-specifications"></a>Especificações VHD
+Para garantir uma experiência de publicação perfeita, certifique-se de que **a VHD satisfaz os seguintes critérios:**
+* O cookie deve conter a corda "conectix"
+* O tipo de disco deve ser fixado
+* O tamanho virtual do VHD é de pelo menos 20MB
+* O VHD está alinhado (ou seja, o tamanho virtual deve ser um múltiplo de 1 MB)
+* O comprimento do blob VHD = tamanho virtual + comprimento do pé VHD (512)
+
+Você pode baixar a especificação VHD [aqui.](https://www.microsoft.com/download/details.aspx?id=23850)
+
 
 ## <a name="software-compliance-for-windows"></a>Conformidade de software para Windows
 
@@ -123,8 +162,8 @@ A tabela que se segue enumera erros comuns que são encontrados durante a execu�
 |---|---|---|---|
 |1|Caso de teste de versão linux agente|A versão mínima do agente Linux é 2.2.41 ou mais tarde. Esta exigência é obrigatória desde 1 de maio de 2020.|Por favor, atualize a versão do agente Linux e deverá ser 2.241 ou mais tarde. Para mais informações, pode visitar a [página de atualização da versão do Agente Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Caso de teste de história de bash|Verá um erro se o tamanho do histórico de bash na sua imagem submetida for superior a 1 quilobyte (KB). O tamanho é restrito a 1 KB para garantir que qualquer informação potencialmente sensível não seja capturada no seu ficheiro histórico de bash.|Para resolver este problema, monte o VHD em qualquer outro VM de trabalho e faça quaisquer alterações que pretenda (por exemplo, eliminar os ficheiros *históricos .bash)* para reduzir o tamanho para menos ou igual a 1 KB.|
-|3|Caso de teste do parâmetro do núcleo necessário|Receberá este erro quando o valor para **a consola** não estiver definido para **ttyS0** . Verifique executando o seguinte comando:<br>`cat /proc/cmdline`|Descreva o valor da **consola** para **o ttyS0** e reenvia o pedido.|
-|4|Caso de teste de intervalo clientealive|Se o resultado do toolkit lhe der um resultado falhado para este caso de teste, existe um valor inadequado para **o ClientAliveInterval** .|Descreva o valor para **ClientAliveInterval** para menos ou igual a 235 e, em seguida, reenvia o pedido.|
+|3|Caso de teste do parâmetro do núcleo necessário|Receberá este erro quando o valor para **a consola** não estiver definido para **ttyS0**. Verifique executando o seguinte comando:<br>`cat /proc/cmdline`|Descreva o valor da **consola** para **o ttyS0** e reenvia o pedido.|
+|4|Caso de teste de intervalo clientealive|Se o resultado do toolkit lhe der um resultado falhado para este caso de teste, existe um valor inadequado para **o ClientAliveInterval**.|Descreva o valor para **ClientAliveInterval** para menos ou igual a 235 e, em seguida, reenvia o pedido.|
 
 ### <a name="windows-test-cases"></a>Casos de teste do Windows
 
@@ -391,7 +430,7 @@ Certifique-se sempre de que as credenciais predefinidas não são enviadas com o
   
 ## <a name="datadisk-mapped-incorrectly"></a>DataDisk mapeado incorretamente
 
-Quando um pedido é submetido com vários discos de dados, mas a sua encomenda não está em sequência, este é considerado um problema de mapeamento. Por exemplo, se existirem três discos de dados, a ordem de numeração deve ser *0, 1, 2* . Qualquer outra ordem é tratada como um problema de mapeamento.
+Quando um pedido é submetido com vários discos de dados, mas a sua encomenda não está em sequência, este é considerado um problema de mapeamento. Por exemplo, se existirem três discos de dados, a ordem de numeração deve ser *0, 1, 2*. Qualquer outra ordem é tratada como um problema de mapeamento.
 
 Reenviar o pedido com a sequenciação adequada dos discos de dados.
 
@@ -501,28 +540,28 @@ Para fornecer uma imagem VM fixa para substituir uma imagem VM que tenha uma vul
 Para completar estes passos, terá de preparar os ativos técnicos para a imagem VM que pretende adicionar. Para obter mais informações, consulte [Criar uma máquina virtual utilizando uma base aprovada](azure-vm-create-using-approved-base.md) ou criar uma máquina virtual utilizando a sua própria [imagem](azure-vm-create-using-own-image.md), e Gerar [um SAS URI para a sua imagem VM](azure-vm-get-sas-uri.md).
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
 3. Na coluna **'Oferta' é a** seguinte, selecione a oferta.
 4. No separador **Plano de Visão Geral,** na coluna **Nome,** selecione o plano a que pretende adicionar o VM.
-5. No separador **de configuração técnica,** em **Imagens VM,** selecione **+ Adicionar Imagem VM** .
+5. No separador **de configuração técnica,** em **Imagens VM,** selecione **+ Adicionar Imagem VM**.
 
 > [!NOTE]
 > Pode adicionar apenas uma imagem VM a um plano de cada vez. Para adicionar várias imagens VM, publique a primeira ao vivo antes de adicionar a próxima imagem VM.
 
 6. Nas caixas que aparecem, forneça uma nova versão em disco e a imagem da máquina virtual.
-7. Selecione **Guardar rascunho** .
+7. Selecione **Guardar rascunho**.
 
 Continue com a secção seguinte abaixo para remover a imagem VM com a vulnerabilidade de segurança.
 
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>Remova a imagem VM com a vulnerabilidade de segurança ou exploração
 
 1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/home).
-2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview** .
+2. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Overview**.
 3. Na coluna **'Oferta' é a** seguinte, selecione a oferta.
 4. No separador **Plano de Visão Geral,** na coluna **Nome,** selecione o plano com o VM que pretende remover.
-5. No separador **de configuração técnica,** em **Imagens VM,** junto à imagem VM que pretende remover, selecione **Remover imagem VM** .
-6. Na caixa de diálogo que aparece, selecione **Continue** .
-7. Selecione **Guardar rascunho** .
+5. No separador **de configuração técnica,** em **Imagens VM,** junto à imagem VM que pretende remover, selecione **Remover imagem VM**.
+6. Na caixa de diálogo que aparece, selecione **Continue**.
+7. Selecione **Guardar rascunho**.
 
 Continue com a secção seguinte abaixo para republicar a oferta.
 
@@ -530,7 +569,7 @@ Continue com a secção seguinte abaixo para republicar a oferta.
 
 1. Selecione **Rever e publicar.**
 2. Se precisar de fornecer alguma informação à equipa de certificação, adicione-a às Notas para caixa **de certificação.**
-3. Selecione **Publicar** .
+3. Selecione **Publicar**.
 
 Para completar o processo de publicação, consulte [Rever e publicar ofertas.](review-publish-offer.md)
 

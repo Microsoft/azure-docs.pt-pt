@@ -3,16 +3,17 @@ title: Use o estimador de alimentação de mudança - Azure Cosmos DB
 description: Saiba como usar o estimador de feed de alteração para analisar o progresso do seu processador de feed de mudança
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b785479a1f3169c32be0d9fbd7accf37bc7ba8ed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a44557d15f437317c2b5fa659ab8d4ca3c208edf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085790"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339845"
 ---
 # <a name="use-the-change-feed-estimator"></a>Utilize o estimador de alimentos para alterações
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

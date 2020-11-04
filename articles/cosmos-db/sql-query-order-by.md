@@ -3,15 +3,16 @@ title: ENCOMENDA POR cláusula em Azure Cosmos DB
 description: Saiba mais sobre SQL ORDER BY cláusula para Azure Cosmos DB. Use o SQL como uma linguagem de consulta Azure Cosmos DB JSON.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: fdbe0f9754cc82ef790409cf2b36a7203b90855b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 887dc13eb5e351688718d2a221e69499557b23e5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099288"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338307"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>ENCOMENDA POR cláusula em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

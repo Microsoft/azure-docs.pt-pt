@@ -3,15 +3,16 @@ title: Constantes SQL em Azure Cosmos DB
 description: Saiba como as constantes de consulta SQL em Azure Cosmos DB são usadas para representar um valor de dados específico
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: ebc1f66e68d4cf37546e7d33a9b723385330395c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b0973dca980b65b85ac66cc1b3c9ed45f0f9c779
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100869"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339211"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL constantes de consulta  
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,11 +25,11 @@ ms.locfileid: "93100869"
 |-|-|  
 |**Indefinido**|Valor único: **indefinido**|  
 |**Null**|Valor único: **nulo**|  
-|**Rio Boolean**|Valores: **falso,** **verdadeiro** .|  
+|**Rio Boolean**|Valores: **falso,** **verdadeiro**.|  
 |**Number**|Um número de ponto flutuante de dupla precisão, padrão IEEE 754.|  
 |**String**|Uma sequência de caracteres Unicode zero ou mais. As cordas devem ser fechadas em ações simples ou duplas.|  
-|**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido** .|  
-|**Objeto**|Um conjunto não ordenado de pares de nomes/valor zero ou mais. O nome é uma cadeia Unicode, o valor pode ser de qualquer tipo de dados escalar, exceto **Indefined** .|  
+|**Matriz**|Uma sequência de zero ou mais elementos. Cada elemento pode ser um valor de qualquer tipo de dados escalar, exceto **indefinido**.|  
+|**Objeto**|Um conjunto não ordenado de pares de nomes/valor zero ou mais. O nome é uma cadeia Unicode, o valor pode ser de qualquer tipo de dados escalar, exceto **Indefined**.|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Syntax
   
@@ -68,7 +69,7 @@ ms.locfileid: "93100869"
   
 * `<null_constant>; null`  
   
-  Representa um valor **nulo** do tipo **Nulo** .  
+  Representa um valor **nulo** do tipo **Nulo**.  
   
 * `<boolean_constant>`  
   

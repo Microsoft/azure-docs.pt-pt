@@ -3,12 +3,12 @@ title: Configurar uma análise de dependência sem agente na avaliação do serv
 description: Configure a análise de dependência sem agente na Avaliação do Servidor Azure Migrate.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8893b0f41bb7a06c02a6c2aa28002980144b582a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667474"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337698"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analisar dependências de máquinas (sem agente)
 
@@ -19,13 +19,13 @@ Este artigo descreve como configurar uma análise de dependência sem agente no 
 > A visualização de dependência de agentes está atualmente em pré-visualização para VMware VMs descobertos com a ferramenta Azure Migrate:Server Assessment.
 > As características podem ser limitadas ou incompletas.
 > Esta pré-visualização é coberta pelo suporte ao cliente e pode ser usada para cargas de trabalho de produção.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="current-limitations"></a>Limitações atuais
 
 - Na visão de análise de dependência, não é possível adicionar ou remover um servidor de um grupo.
 - Um mapa de dependência de um grupo de servidores não está disponível atualmente.
-- A recolha de dados de dependência pode ser configurada simultaneamente para 1000 servidores. Pode analisar um maior número de servidores sequenciando em lotes de 1000.
+- Num projeto da Azure Migrate, a recolha de dados de dependência pode ser configurada simultaneamente para 1000 servidores. Pode analisar um maior número de servidores sequenciando em lotes de 1000.
 
 ## <a name="before-you-start"></a>Antes de começar
 

@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: baselden
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 887e76fb1fa3dc630b12862c49689b3fa923b656
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7cc92c8bfb7dd9cb0328820009828ed0dd22e2a1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795365"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339466"
 ---
 # <a name="certificate-authorities-used-by-azure-active-directory"></a>Autoridades de certificados utilizadas pelo Azure Ative Directory
 
@@ -31,7 +31,7 @@ As autoridades de certificados podem ser classificadas em AA de raiz e CAs inter
 
 ## <a name="cas-used-in-azure-public-and-azure-us-government-clouds"></a>CAs usados nas nuvens do Governo Azure Public e Azure US
 
-Serviços diferentes podem utilizar diferentes CAs de raiz ou intermédios.
+Serviços diferentes podem utilizar diferentes CAs de raiz ou intermédios. Portanto, todas as inscrições listadas abaixo podem ser necessárias.
 
 ### <a name="digicert-global-root-g2"></a>Raiz Global DigiCert G2
 
@@ -78,9 +78,8 @@ Serviços diferentes podem utilizar diferentes CAs de raiz ou intermédios.
 | Emissão e Ca Intermédia| Número de série| Data de Expiração da Data de Emissão| Impressão digital SHA1| URIs |
 | - | - | - | - | - |
 | DigiCert SHA2 Secure Server CA| 01fda3eb6eca75c 888438b724bcfbc91| 8 de março de 2013 8 de março de 2023| 1fb86b1168ec743154062 e8c9cc5b171a4b7ccb4| [AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA.crt)<br>[CDP](http://crl3.digicert.com/ssca-sha2-g6.crl)<br>[OCSP](http://ocsp.digicert.com/) |
+| DigiCert SHA2 Secure Server CA |02742eaa17ca8e21 c717bb1fffd0ca0 |22 de setembro de 2020<br>22 de setembro de 2030|626d44e704d1ceabe3bf 0d53397464ac8080142c|[AIA](http://cacerts.digicert.com/DigiCertSHA2SecureServerCA-2.crt)<br>[CDP](http://crl3.digicert.com/DigiCertSHA2SecureServerCA.crl)<br>[OCSP](http://ocsp.digicert.com/)|
 
-
- 
 
 ## <a name="cas-used-in-azure-china-21vianet-cloud"></a>CAs usados na nuvem Azure China 21Vianet
 

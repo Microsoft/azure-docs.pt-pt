@@ -1,24 +1,24 @@
 ---
-title: Use ID Broker (pré-visualização) para gestão de credenciais - Azure HDInsight
+title: Corretor de ID Azure HDInsight (HIB)
 description: Saiba mais sobre o Azure HDInsight ID Broker para simplificar a autenticação para clusters Apache Hadoop unidos pelo domínio.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 6617c778c0b79a55058eafb40fd9b49b627819ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/03/2020
+ms.openlocfilehash: df4faf367951402914abb03285498e0da6f3105f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043263"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337681"
 ---
-# <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID Broker (pré-visualização)
+# <a name="azure-hdinsight-id-broker-hib"></a>Corretor de ID Azure HDInsight (HIB)
 
 Este artigo descreve como configurar e usar a função Azure HDInsight ID Broker. Você pode usar esta funcionalidade para obter a autenticação moderna da OAuth para Apache Ambari enquanto tem aplicação de autenticação multifactor sem precisar de hashes de senha legado em Azure Ative Directory Domain Services (Azure AD DS).
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 HdInsight ID Broker simplifica configurações de autenticação complexas nos seguintes cenários:
 
@@ -45,7 +45,7 @@ Ainda pode haver muitas aplicações antigas que apenas suportam a autenticaçã
 
 O diagrama seguinte mostra o fluxo básico de autenticação para os utilizadores federados. Em primeiro lugar, o gateway tenta completar a autenticação utilizando o [fluxo ROPC](../../active-directory/develop/v2-oauth-ropc.md). Caso não existam hashes de palavra-passe sincronizados com a Azure AD, volta a descobrir o ponto final AD FS e completa a autenticação acedendo ao ponto final da AD FS.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que mostra fluxo de autenticação com corretor de ID HDInsight.":::
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagrama que mostra arquitetura com autenticação básica.":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Ativar o corretor de ID HDInsight
@@ -54,7 +54,7 @@ Para criar um cluster de pacotes de segurança empresarial com corretor de ID HD
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Siga os passos básicos de criação para um cluster de pacotes de segurança da empresa. Para obter mais informações, consulte [Criar um cluster HDInsight com Pacote de Segurança Empresarial.](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp)
-1. Selecione **Ative HdInsight ID Broker** .
+1. Selecione **Ative HdInsight ID Broker**.
 
 A função hdInsight ID Broker adiciona um VM extra ao cluster. Este VM é o nó de corretor de id de id de aparência HD, e inclui componentes do servidor para suportar a autenticação. O nó de corretor de ID HDInsight é um domínio associado ao domínio Azure AD DS.
 

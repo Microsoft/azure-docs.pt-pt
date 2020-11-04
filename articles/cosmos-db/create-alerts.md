@@ -4,16 +4,15 @@ description: Aprenda a configurar alertas para a Azure Cosmos DB usando o Azure 
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: 1042638dc622e6675c997bc6db8df1d072824816
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e29db7e31438bc7f6ac609384d0d9b92c275e813
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099917"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339551"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Criar alertas para a Azure Cosmos DB usando o Azure Monitor
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +33,7 @@ Esta secção mostra como criar um alerta quando recebe um código de estado HTT
 
 1. Inscreva-se no [portal Azure.](https://portal.azure.com/)
 
-1. Selecione **Monitor** da barra de navegação à esquerda e selecione **Alertas** .
+1. Selecione **Monitor** da barra de navegação à esquerda e selecione **Alertas**.
 
 1. Selecione o botão nova regra de alerta para abrir o painel de regras de alerta Criar.  
 
@@ -44,11 +43,11 @@ Esta secção mostra como criar um alerta quando recebe um código de estado HTT
 
    * Escolha o nome **da sua subscrição.**
 
-   * Selecione **Azure Cosmos DB conta** para o **tipo de recurso** .
+   * Selecione **Azure Cosmos DB conta** para o **tipo de recurso**.
 
    * A **localização** da sua conta Azure Cosmos.
 
-   * Depois de preencher os detalhes, é apresentada uma lista de contas da Azure Cosmos no âmbito selecionado. Escolha aquele para o qual deseja configurar alertas e selecione **Feito** .
+   * Depois de preencher os detalhes, é apresentada uma lista de contas da Azure Cosmos no âmbito selecionado. Escolha aquele para o qual deseja configurar alertas e selecione **Feito**.
 
 1. Preencha a secção **condição:**
 
@@ -58,17 +57,17 @@ Esta secção mostra como criar um alerta quando recebe um código de estado HTT
 
    * Selecione **Tudo** para o **serviço Monitor**
 
-   * Escolha um **nome signal** . Para obter um alerta para códigos de estado HTTP, escolha o sinal **de Unidades de Pedido Total.**
+   * Escolha um **nome signal**. Para obter um alerta para códigos de estado HTTP, escolha o sinal **de Unidades de Pedido Total.**
 
    * No separador seguinte, pode definir a lógica para desencadear um alerta e usar o gráfico para ver as tendências da sua conta Azure Cosmos. A métrica **total das Unidades de Pedido** suporta dimensões. Estas dimensões permitem filtrar a métrica. Se não selecionar nenhuma dimensão, este valor é ignorado.
 
    * Escolha **StatusCode** como **o nome Dimension.** **Selecione Adicione o valor personalizado** e desacione o código de estado para 429.
 
-   * Na **lógica alerta,** desa um **limite** para **estático** . O limiar estático utiliza um valor limiar definido pelo utilizador para avaliar a regra, enquanto os limiares dinâmicos utilizam algoritmos de aprendizagem automática incorporados para aprender continuamente o padrão de comportamento métrico e calcular os limiares automaticamente.
+   * Na **lógica alerta,** desa um **limite** para **estático**. O limiar estático utiliza um valor limiar definido pelo utilizador para avaliar a regra, enquanto os limiares dinâmicos utilizam algoritmos de aprendizagem automática incorporados para aprender continuamente o padrão de comportamento métrico e calcular os limiares automaticamente.
 
-   * Coloque o **operador** em **Maior do que** , o tipo de **agregação** para **total** , e o **valor limiar** para **100** . Com esta lógica, se o seu cliente vê mais de 100 pedidos que têm um código de estado 429, o alerta é desencadeado. Também pode configurar o tipo de agregação, granularidade agregação e a frequência de avaliação com base na sua exigência.
+   * Coloque o **operador** em **Maior do que** , o tipo de **agregação** para **total** , e o **valor limiar** para **100**. Com esta lógica, se o seu cliente vê mais de 100 pedidos que têm um código de estado 429, o alerta é desencadeado. Também pode configurar o tipo de agregação, granularidade agregação e a frequência de avaliação com base na sua exigência.
 
-   * Depois de preencher o formulário, selecione **Fazer** . A imagem que se segue mostra os detalhes da lógica de alerta:
+   * Depois de preencher o formulário, selecione **Fazer**. A imagem que se segue mostra os detalhes da lógica de alerta:
 
      :::image type="content" source="./media/create-alerts/configure-alert-logic.png" alt-text="Configure a lógica de receber alertas para pedidos de taxa limitada/429":::
 
@@ -82,9 +81,9 @@ Esta secção mostra como criar um alerta quando recebe um código de estado HTT
 
    * Escolha a subscrição e o grupo de recursos em que este grupo de ação será criado.  
 
-   * Forneça um nome para a sua ação e selecione **e-mail/SMS mensagem/Push/Voice** como o **Tipo de Ação** . A imagem que se segue mostra os detalhes do tipo de ação:
+   * Forneça um nome para a sua ação e selecione **e-mail/SMS mensagem/Push/Voice** como o **Tipo de Ação**. A imagem que se segue mostra os detalhes do tipo de ação:
 
-     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configure a lógica de receber alertas para pedidos de taxa limitada/429":::
+     :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configurar o tipo de ação, como a notificação por e-mail para receber o alerta":::
 
 1. Preencha a secção **de detalhes da regra de alerta:**
 

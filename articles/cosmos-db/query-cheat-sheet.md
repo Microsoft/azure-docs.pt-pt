@@ -3,15 +3,16 @@ title: Azure Cosmos DB PDF folhas de batota de consulta
 description: Folhas de batota PDF imprimíveis que o ajudam a usar O SQL, MongoDB, Gráfico e APIs de tabela da Azure Cosmos para consultar os seus dados
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 0e9010ba79e4253d7569a0bba79fa05423e1a1ec
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2ef8aed7243e8956ad9ca62b630cda0efbd2deb9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081761"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339653"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Azure Cosmos DB consulta folhas de batota
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +30,7 @@ Baixe as [folhas de fraude do tamanho de uma letra do Azure Cosmos DB](https://g
 ## <a name="oversized-cheat-sheets"></a>Folhas de batota de grandes dimensões
 Descarregue as [folhas de fraude do tamanho de Azure Cosmos DB A3](https://go.microsoft.com/fwlink/?linkid=870413) se for imprimir usando um plotter ou impressora em larga escala em papel de tamanho A3 (11,7" x 16,5").
 
-:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB consultas folhas de batota - tamanho de letra, com SQL API, JavaScript, MongoDB, Gremlin, e tabela API consultas e funções" border="false":::
+:::image type="content" source="./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-a3.png" alt-text="Azure Cosmos DB consultas folhas de batota - tamanho A3, com SQL API, JavaScript, MongoDB, Gremlin, e Tabela API consultas e funções" border="false":::
 
 ## <a name="next-steps"></a>Passos seguintes
 Para obter mais ajuda para escrever consultas, consulte os seguintes artigos:

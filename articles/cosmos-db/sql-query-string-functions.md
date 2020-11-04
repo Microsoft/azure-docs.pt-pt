@@ -3,16 +3,17 @@ title: Funções de corda na linguagem de consulta DB do Cosmos Azure
 description: Saiba mais sobre as funções do sistema SQL de cordas em Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 26f1a402c4ad070b0834efe545bebea0ee3c2f0a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4516bb9c426355de1fa2ce19befddef896a2de3e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079806"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338106"
 ---
 # <a name="string-functions-azure-cosmos-db"></a>Funções de corda (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

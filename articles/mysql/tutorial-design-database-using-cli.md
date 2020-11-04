@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3e851c47e67ac6e42d81b7688e457c2f9e17725b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: dadf710f726a89184e73189041b6735c548d7d75
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543955"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337231"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Conceber uma Base de Dados do Azure para MySQL com a CLI do Azure
 
@@ -27,6 +27,8 @@ A Base de Dados do Azure para MySQL é um serviço de base de dados relacional n
 > * Consultar dados
 > * Atualizar dados
 > * Restaurar dados
+
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -85,7 +87,7 @@ Para ligar ao seu servidor, terá de fornecer credenciais de acesso e informaç�
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **administratorLogin** .
+O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **administratorLogin**.
 ```json
 {
   "administratorLogin": "myadmin",
@@ -196,12 +198,25 @@ Restaurar um servidor para um ponto anterior no tempo cria um novo servidor, cop
 
 O comando é síncrono e irá regressar depois de o servidor ser restaurado. Depois de o restauro ser concluído, localize o novo servidor que foi criado. Certifique-se de que os dados foram restaurados conforme esperado.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+Se não precisa destes recursos para outro início rápido/tutorial, pode eliminá-los ao executar o seguinte comando: 
+
+```azurecli-interactive
+az group delete --name myresourcegroup
+```
+
+Se apenas quiser eliminar o único servidor recém-criado, pode executar o comando [az mysql server delete](/cli/azure/mysql/server#az-mysql-server-delete).
+
+```azurecli-interactive
+az mysql server delete --resource-group myresourcegroup --name mydemoserver
+```
+
 ## <a name="next-steps"></a>Passos seguintes
 Neste tutorial, aprendeu a:
 > [!div class="checklist"]
 > * Criar uma Base de Dados do Azure para o servidor MySQL
 > * Configurar a firewall do servidor
-> * Use [a ferramenta de linha de comando mysql](https://dev.mysql.com/doc/refman/5.6/en/mysql.html) para criar uma base de dados
+> * Utilizar a ferramenta de linha de comandos mysql para criar uma base de dados
 > * Carregar os dados de exemplo
 > * Consultar dados
 > * Atualizar dados

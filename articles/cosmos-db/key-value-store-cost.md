@@ -3,16 +3,17 @@ title: Solicite taxas unitárias para a Azure Cosmos DB como uma loja de valor c
 description: Saiba mais sobre as taxas da unidade de pedido da Azure Cosmos DB para operações simples de escrita e leitura quando é usada como uma loja chave/valor.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cd80e98d0838cb06228c92c7ea7efeb3fc30a0ed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9354ae0a22ef2e8ab4ee6a57563d3f3c4c8e4547
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082883"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339310"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como uma loja de valor chave - visão geral de custos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

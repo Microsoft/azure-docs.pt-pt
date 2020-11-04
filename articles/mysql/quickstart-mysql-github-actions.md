@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: ce045da7d21c2af0dfde5ee896b4f7f343ce6545
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 57e740e6c47d9518c12a49473e103d0abe772618
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541269"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337018"
 ---
-# <a name="use-github-actions-to-connect-to-azure-mysql"></a>Use ações do GitHub para ligar ao Azure MySQL
+# <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Quickstart: Use ações do GitHub para ligar ao Azure MySQL
 
 Inicie com [as ações do GitHub](https://docs.github.com/en/actions) utilizando um fluxo de trabalho para implementar atualizações de base de dados [para a Base de Dados Azure para o MySQL](https://azure.microsoft.com/services/mysql/). 
 
@@ -66,7 +66,7 @@ A saída é um objeto JSON com as credenciais de atribuição de funções que f
 
 ## <a name="copy-the-mysql-connection-string"></a>Copie a cadeia de ligação MySQL 
 
-No portal Azure, aceda à base de dados Azure para o servidor MySQL e abra **as**  >  **cadeias de ligação** de definições . Copie a cadeia de ligação de **ADO.NET** . Substitua os valores de espaço reservado `your_database` para e `your_password` . A cadeia de ligação será semelhante a esta. 
+No portal Azure, aceda à base de dados Azure para o servidor MySQL e abra **as**  >  **cadeias de ligação** de definições . Copie a cadeia de ligação de **ADO.NET**. Substitua os valores de espaço reservado `your_database` para e `your_password` . A cadeia de ligação será semelhante a esta. 
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;
@@ -77,7 +77,7 @@ Usará a cadeia de ligação como segredo do GitHub.
 
 1. No [GitHub,](https://github.com/)navegue no seu repositório.
 
-1. Selecione **Definições > Segredos > Novo segredo** .
+1. Selecione **Definições > Segredos > Novo segredo**.
 
 1. Cole toda a saída JSON do comando Azure CLI para o campo de valor do segredo. Dê o nome ao `AZURE_CREDENTIALS` segredo.
 
@@ -98,7 +98,7 @@ Usará a cadeia de ligação como segredo do GitHub.
 
 1. Vá às **ações** para o seu repositório GitHub. 
 
-2. Selecione **Configurar o seu fluxo de trabalho por si mesmo** . 
+2. Selecione **Configurar o seu fluxo de trabalho por si mesmo**. 
 
 2. Elimine tudo após a `on:` secção do seu ficheiro de fluxo de trabalho. Por exemplo, o seu fluxo de trabalho restante pode ser assim. 
 

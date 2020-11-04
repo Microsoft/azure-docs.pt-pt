@@ -3,16 +3,17 @@ title: StringEquals em Azure Cosmos DB linguagem de consulta
 description: Saiba como o sistema StringEquals SQL funciona no Azure Cosmos DB retorna um Boolean indicando se a primeira expressão de corda corresponde à segunda
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/20/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: a34ea2e2421433777ff1b9dd44d2ffc5599017bc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 47d899534de535b5cd6a7c3fb2df78cdadbe11f2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079789"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338055"
 ---
 # <a name="stringequals-azure-cosmos-db"></a>STRINGEQUALS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

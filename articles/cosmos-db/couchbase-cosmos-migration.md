@@ -2,17 +2,18 @@
 title: Migrar de CouchBase para Azure Cosmos DB SQL API
 description: Orientação passo a passo para migrar da CouchBase para Azure Cosmos DB SQL API
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 0f286b5586a0d74afed0bb185179454bb1efff95
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 73d6fe0233eccea9ebf1d82beb509c56fb45f4da
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097554"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339517"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Migrar de CouchBase para Azure Cosmos DB SQL API
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -312,7 +313,7 @@ Este é um tipo simples de carga de trabalho em que você pode realizar lookups 
 
 1. Considere ter "/ID" como chave primária, o que garante que pode realizar uma operação de procura diretamente na partição específica. Crie uma coleção e especifique "/ID" como chave de partição.
 
-1. Desligue completamente a indexação. Como vai executar operações de procura, não vale a pena carregar a indexação. Para desativar a indexação, inscreva-se no portal Azure, conta DB goto Azure Cosmos. Abra o **Data Explorer,** selecione a **base de dados** e o **Contentor.** Abra o **separador Escala & Definições** e selecione a  **Política de Indexação** . Atualmente, a política de indexação parece ser a seguinte:
+1. Desligue completamente a indexação. Como vai executar operações de procura, não vale a pena carregar a indexação. Para desativar a indexação, inscreva-se no portal Azure, conta DB goto Azure Cosmos. Abra o **Data Explorer,** selecione a **base de dados** e o **Contentor.** Abra o **separador Escala & Definições** e selecione a  **Política de Indexação**. Atualmente, a política de indexação parece ser a seguinte:
     
    ```json
    {
