@@ -3,20 +3,21 @@ title: SQL JOIN consultas para Azure Cosmos DB
 description: Saiba como juntar várias tabelas em Azure Cosmos DB para consultar os dados
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: b4c754455e2a686274eab8b1f77713b8983251a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c3fad0c7eed2b42a9ac340a091f17b90e22b000a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100801"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333856"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Junta-se ao Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Numa base de dados relacional, as juntas entre as tabelas são o corolário lógico para a conceção de esquemas normalizados. Em contraste, a API SQL utiliza o modelo de dados desnormalizado de itens isentos de esquemas, que é o equivalente lógico de uma *união auto-união* .
+Numa base de dados relacional, as juntas entre as tabelas são o corolário lógico para a conceção de esquemas normalizados. Em contraste, a API SQL utiliza o modelo de dados desnormalizado de itens isentos de esquemas, que é o equivalente lógico de uma *união auto-união*.
 
 As juntas interiores resultam num produto transversal completo dos conjuntos que participam na junção. O resultado de uma junção N-way é um conjunto de tuples de elemento N, onde cada valor no tuple está associado com o conjunto pseudónimo que participa na junção e pode ser acedido referindo esse pseudónimo em outras cláusulas.
 

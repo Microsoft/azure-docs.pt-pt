@@ -4,15 +4,16 @@ description: Mapeamento dos níveis de consistência para Azure Cosmos DB API pa
 author: sivethe
 ms.author: sivethe
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 37c128a42ca68134b770b32c940d59834261ce44
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e8ac3e376c8d67e82def3a57910707c6b1433912
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096585"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333159"
 ---
 # <a name="consistency-levels-for-azure-cosmos-db-and-the-api-for-mongodb"></a>Níveis de consistência para Azure Cosmos DB e a API para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -48,4 +49,4 @@ Saiba mais sobre os níveis de distribuição e consistência globais para a Azu
 
 * [Descrição geral da distribuição global](distribute-data-globally.md)
 * [Visão geral do nível de consistência](consistency-levels.md)
-* [Alta disponibilidade](high-availability.md)
+* [Elevada disponibilidade](high-availability.md)

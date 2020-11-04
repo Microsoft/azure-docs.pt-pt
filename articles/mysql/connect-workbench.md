@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 5ec6aab8aaa63b848131d44f78867100f154d251
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 57bd8348977270de9b0e445e0a40c006b65d8392
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896332"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332045"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use a bancada mySQL workbench para ligar e consultar dados na Base de Dados Azure para o MySQL
 
@@ -35,7 +35,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 
 1. Faça login no [portal Azure](https://portal.azure.com/).
 
-2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver**).
+2. No menu esquerdo do portal do Azure, clique em **Todos os recursos** e, em seguida, procure o servidor que acabou de criar, (por exemplo, **mydemoserver** ).
 
 3. Clique no nome do servidor.
 
@@ -47,9 +47,9 @@ Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
 
 1.    Inicie a aplicação MySQL Workbench no computador. 
 
-2.    Na caixa de diálogo **Configurar Ligação Nova**, introduza as informações seguintes no separador **Parâmetros**:
+2.    Na caixa de diálogo **Configurar Ligação Nova** , introduza as informações seguintes no separador **Parâmetros** :
 
-:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Nome do servidor da Base de Dados do Azure para o MySQL":::
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="configurar ligação nova":::
 
 | **Definição** | **Valor sugerido** | **Descrição do campo** |
 |---|---|---|
@@ -64,7 +64,7 @@ Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
 
 4.   Clique **em OK** para guardar a ligação. 
 
-5.   Na listagem das **Ligações do MySQL**, clique no mosaico correspondente ao seu servidor e, em seguida, aguarde que a ligação seja estabelecida.
+5.   Na listagem das **Ligações do MySQL** , clique no mosaico correspondente ao seu servidor e, em seguida, aguarde que a ligação seja estabelecida.
 
         É aberto um novo separador do SQL com um editor em branco, onde pode escrever as suas consultas.
     
@@ -103,13 +103,23 @@ Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
 
     A captura de ecrã mostra um exemplo do código de SQL no SQL Workbench e o resultado após ter sido executado.
     
-    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Nome do servidor da Base de Dados do Azure para o MySQL":::
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Separador do SQL MySQL Workbench para executar o código do SQL de exemplo":::
 
 2. Para executar o código do SQL de exemplo, clique no ícone de relâmpago na barra de ferramentas do separador **Ficheiro SQL**.
 3. Repare nos três resultados em separadores na secção **Grelha de Resultado** no meio da página. 
 4. Repare na lista de **Resultados** na parte inferior da página. É apresentado o estado de cada comando. 
 
 Agora, ligou-se à Base de Dados do Azure para MySQL com o MySQL Workbench e consultou dados com linguagem do SQL.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos utilizados durante este arranque rápido, elimine o grupo de recursos utilizando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 > [!div class="nextstepaction"]

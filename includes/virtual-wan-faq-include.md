@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 38aea30c5f716df927b5924754eb07e7f94c7ebc
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: da2535a9764c909af3a491402311fe263dbb48fb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92038477"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331135"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>Azure Virtual WAN está na AG?
 
@@ -70,7 +70,7 @@ Existem duas opções para adicionar servidores DNS para os clientes P2S. O prim
 
    // Re-generate Vpn profile either from PS/Portal for Vpn clients to have the specified dns servers
    ```
-2. Ou, se estiver a utilizar o Cliente VPN Azure para o Windows 10, ** \<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers> ** pode modificar o perfil descarregado do ficheiro XML e adicionar as etiquetas antes de o importar.
+2. Ou, se estiver a utilizar o Cliente VPN Azure para o Windows 10, **\<dnsservers> \<dnsserver> \</dnsserver> \</dnsservers>** pode modificar o perfil descarregado do ficheiro XML e adicionar as etiquetas antes de o importar.
 
    ```powershell
       <azvpnprofile>
@@ -259,6 +259,8 @@ Sim. Esta opção está atualmente disponível apenas através do powershell. O 
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>Existe suporte para o IPv6 em VIRTUAL WAN?
 
 O IPv6 não é suportado no centro VIRTUAL WAN e nas suas portas de entrada. Se tem um VNet que tem suporte IPv4 e IPv6 e gostaria de ligar o VNet ao WAN Virtual, este cenário não está atualmente suportado. 
+
+Para o cenário VPN do site (utilizador) com a fuga de internet através do Azure Firewall, é provável que tenha de desligar a conectividade IPv6 no dispositivo do seu cliente para forçar o tráfego ao centro de WAN virtual. Isto porque os dispositivos modernos por padrão usam endereços IPv6 por padrão.
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Qual é a versão API recomendada para ser usada por scripts automatizando várias funcionalidades de WAN Virtual?
 

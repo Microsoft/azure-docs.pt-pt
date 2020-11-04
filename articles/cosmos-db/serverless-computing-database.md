@@ -3,15 +3,16 @@ title: Computação de base de dados sem servidor com funções Azure Cosmos DB 
 description: Saiba como o Azure Cosmos DB e o Azure Functions podem ser usados em conjunto para criar aplicações de computação sem servidor orientadas por eventos.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 5264fb44f8088ae8f942abf95bc8c0ef6d917413
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 73a34cc27eaba33d04f4d31585c7f494f58e7274
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096143"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334078"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Computação de base de dados sem servidor usando funções Azure Cosmos DB e Azure
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,9 +25,9 @@ Com a integração nativa entre as [funções Azure Cosmos DB](https://azure.mic
 
 As funções Azure Cosmos DB e Azure permitem-lhe integrar as suas bases de dados e aplicações sem servidor das seguintes formas:
 
-* Crie um **gatilho de funções Azure orientado por eventos para Cosmos DB** . Este gatilho baseia-se em fluxos [de alimentação](change-feed.md) de mudança para monitorizar o seu contentor Azure Cosmos para alterações. Quando são efetuadas alterações num recipiente, o fluxo de alimentação de alteração é enviado para o gatilho, que invoca a Função Azure.
-* Alternativamente, ligue uma Função Azure a um recipiente Azure Cosmos utilizando uma **ligação de entrada** . As ligações de entrada lêem os dados de um recipiente quando uma função é executada.
-* Ligue uma função a um recipiente Azure Cosmos utilizando uma **ligação de saída** . As ligações de saída escrevem dados para um recipiente quando uma função termina.
+* Crie um **gatilho de funções Azure orientado por eventos para Cosmos DB**. Este gatilho baseia-se em fluxos [de alimentação](change-feed.md) de mudança para monitorizar o seu contentor Azure Cosmos para alterações. Quando são efetuadas alterações num recipiente, o fluxo de alimentação de alteração é enviado para o gatilho, que invoca a Função Azure.
+* Alternativamente, ligue uma Função Azure a um recipiente Azure Cosmos utilizando uma **ligação de entrada**. As ligações de entrada lêem os dados de um recipiente quando uma função é executada.
+* Ligue uma função a um recipiente Azure Cosmos utilizando uma **ligação de saída**. As ligações de saída escrevem dados para um recipiente quando uma função termina.
 
 > [!NOTE]
 > Atualmente, o gatilho das funções Azure, as ligações de entrada e as ligações de saída para Cosmos DB são suportadas apenas para utilização com o API SQL. Para todas as outras APIs DB Azure Cosmos, deverá aceder à base de dados a partir da sua função utilizando o cliente estático para a sua API.
@@ -62,7 +63,7 @@ Nas implementações de IoT, pode invocar uma função quando a luz do motor de 
 
 A imagem a seguir mostra o código escrito no portal Azure para este gatilho.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Como integram as funções Azure Cosmos DB e Azure":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-trigger-portal.png" alt-text="Criar um gatilho de funções Azure para Cosmos DB no portal Azure":::
 
 ### <a name="financial-use-case---timer-trigger-and-input-binding"></a>Caso de utilização financeira - Gatilho temporizador e encadernação de entrada
 
@@ -70,15 +71,15 @@ Nas implementações financeiras, pode invocar uma função quando um saldo de c
 
 **Implementação:** Um gatilho temporizador com uma ligação de entrada Azure Cosmos DB
 
-1. Utilizando um [gatilho temporizador,](../azure-functions/functions-bindings-timer.md)pode obter a informação do saldo da conta bancária armazenada num recipiente Azure Cosmos em intervalos cronometrado utilizando uma **ligação de entrada** .
+1. Utilizando um [gatilho temporizador,](../azure-functions/functions-bindings-timer.md)pode obter a informação do saldo da conta bancária armazenada num recipiente Azure Cosmos em intervalos cronometrado utilizando uma **ligação de entrada**.
 2. Se o saldo estiver abaixo do limiar de saldo baixo definido pelo utilizador, então acompanhe uma ação da Função Azure.
 3. A imução de saída pode ser uma [integração SendGrid](../azure-functions/functions-bindings-sendgrid.md) que envia um e-mail de uma conta de serviço para os endereços de e-mail identificados para cada uma das contas de baixo saldo.
 
 As imagens que se seguem mostram o código no portal Azure para este cenário.
 
-:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Como integram as funções Azure Cosmos DB e Azure":::
+:::image type="content" source="./media/serverless-computing-database/cosmos-db-functions-financial-trigger.png" alt-text="Index.js um ficheiro para um gatilho do Temporizador para um cenário financeiro":::
 
-:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="Como integram as funções Azure Cosmos DB e Azure":::
+:::image type="content" source="./media/serverless-computing-database/azure-function-cosmos-db-trigger-run.png" alt-text="File Run.csx para um gatilho do Temporizador para um cenário financeiro":::
 
 ### <a name="gaming-use-case---azure-functions-trigger-and-output-binding-for-cosmos-db"></a>Caso de uso de jogos - Azure Functions trigger e ligação de saída para Cosmos DB 
 
@@ -87,7 +88,7 @@ Nos jogos, quando um novo utilizador é criado, pode pesquisar outros utilizador
 **Implementação:** Use um gatilho de funções Azure e ligação de saída para Cosmos DB
 
 1. Utilizando uma [base de dados de gráficos](graph-introduction.md) DB da Azure Cosmos para armazenar todos os utilizadores, pode criar uma nova função com um gatilho de Funções Azure para Cosmos DB. 
-2. Sempre que um novo utilizador é inserido, a função é invocada e, em seguida, o resultado é armazenado com uma **ligação de saída** .
+2. Sempre que um novo utilizador é inserido, a função é invocada e, em seguida, o resultado é armazenado com uma **ligação de saída**.
 3. A função consulta a base de dados do gráfico para procurar todos os utilizadores que estejam diretamente relacionados com o novo utilizador e retorne esse conjunto de dados à função.
 4. Estes dados são então armazenados num DB Azure Cosmos que pode ser facilmente recuperado por qualquer aplicação frontal que mostre ao novo utilizador os seus amigos conectados.
 

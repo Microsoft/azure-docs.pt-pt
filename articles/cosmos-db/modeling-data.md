@@ -5,14 +5,15 @@ description: Saiba mais sobre a modelação de dados nas bases de dados NoSQL, d
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 0868b0d3e917b857d09c89e3a35d03872c42a23e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096653"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333261"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelação de dados em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,7 +37,7 @@ Para comparação, vamos primeiro ver como podemos modelar dados numa base de da
 
 :::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Modelo de base de dados relacional" border="false":::
 
-Ao trabalhar com bases de dados relacionais, a estratégia é normalizar todos os seus dados. Normalizar os seus dados normalmente envolve pegar numa entidade, como uma pessoa, e decompô-lo em componentes discretos. No exemplo acima, uma pessoa pode ter vários registos de detalhes de contacto, bem como vários registos de endereços. Os dados de contacto podem ser ainda mais desafinados através da extração de campos comuns como um tipo. O mesmo se aplica ao endereço, cada registo pode ser do tipo *Home* ou *Business* .
+Ao trabalhar com bases de dados relacionais, a estratégia é normalizar todos os seus dados. Normalizar os seus dados normalmente envolve pegar numa entidade, como uma pessoa, e decompô-lo em componentes discretos. No exemplo acima, uma pessoa pode ter vários registos de detalhes de contacto, bem como vários registos de endereços. Os dados de contacto podem ser ainda mais desafinados através da extração de campos comuns como um tipo. O mesmo se aplica ao endereço, cada registo pode ser do tipo *Home* ou *Business*.
 
 A premissa orientadora para a normalização dos dados é **evitar armazenar dados redundantes** em cada registo e, em vez disso, consultar os dados. Neste exemplo, para ler uma pessoa, com todos os seus dados de contacto e endereços, é necessário utilizar o JOINS para compor (ou desnormalizar) os seus dados no tempo de execução.
 
@@ -300,7 +301,7 @@ No exemplo acima, deixámos cair a coleção ilimitada no documento da editora. 
 Numa base de *dados relacional, muitas: muitas* relações são muitas vezes modeladas com mesas de junção, que apenas juntam registos de outras mesas.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Modelo de base de dados relacional" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Junte-se às mesas" border="false":::
 
 Pode sentir-se tentado a replicar a mesma coisa usando documentos e produzir um modelo de dados semelhante ao seguinte.
 

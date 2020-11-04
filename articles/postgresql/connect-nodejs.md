@@ -13,12 +13,12 @@ ms.custom:
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 5360c053370d4963b9fa9f6e24273edd4038b9ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7569606429740de23b56767d490b9bb14283d468
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710401"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331697"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Quickstart: Utilize Node.js para ligar e consultar dados na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -50,7 +50,7 @@ Obtenha as informações de ligação necessárias para se ligar à Base de Dado
 
 1. No [portal Azure,](https://portal.azure.com/)procure e selecione o servidor que criou (como **o mydemoserver).**
 
-1. A partir do painel de **visão geral** do servidor, tome nota do nome de utilizador **do Servidor** e do nome de **utilizador do**Administrador . Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
+1. A partir do painel de **visão geral** do servidor, tome nota do nome de utilizador **do Servidor** e do nome de **utilizador do** Administrador . Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
 
    :::image type="content" source="./media/connect-nodejs/server-details-azure-database-postgresql.png" alt-text="Base de dados Azure para cadeia de ligação PostgreSQL":::
 
@@ -250,6 +250,16 @@ function queryDatabase() {
             throw err;
         });
 }
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos utilizados durante este arranque rápido, elimine o grupo de recursos utilizando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passos seguintes

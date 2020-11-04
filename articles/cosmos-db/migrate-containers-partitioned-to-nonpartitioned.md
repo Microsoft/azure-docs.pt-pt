@@ -3,16 +3,17 @@ title: Migrar recipientes Azure Cosmos não divididos para recipientes divididos
 description: Aprenda a migrar todos os recipientes não divididos existentes para recipientes divididos.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/25/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ffd1ff6d18769998dd3a168992566a376ea1cd27
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: edb6114406922d55c439ae7426a2be933bba4aee
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080078"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334094"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrar recipientes não divididos para recipientes divididos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

@@ -4,14 +4,15 @@ description: Saiba como atualizar a sua aplicação .NET existente do v2 SDK par
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: 3cddf76ae0157c6729e6f58e40ee3f1725a9d395
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 514a6c6daccfe63865ae0b2b9f5bf29c5cbedc29
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096670"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334026"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-net-sdk-v3"></a>Migrar a sua aplicação para utilizar o Azure Cosmos DB .NET SDK v3
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

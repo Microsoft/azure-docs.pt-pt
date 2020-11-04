@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f6bf436110e9822d687419b74a8a22bad7a6d700
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048088"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333469"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Pré-visualização: Utilize chaves geridas pelo cliente para encriptar imagens
 
@@ -25,7 +25,7 @@ A encriptação do lado do servidor utilizando teclas geridas pelo cliente utili
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo requer que já tenha um conjunto de encriptação de disco para usar para a sua imagem.
+Este artigo requer que já tenha uma encriptação de disco definida em cada região para a quais pretende replicar a sua imagem.
 
 - Para utilizar apenas uma chave gerida pelo cliente, consulte **Ativar as teclas geridas pelo cliente com encriptação do lado** do servidor utilizando o [portal Azure](./disks-enable-customer-managed-keys-portal.md) ou [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
@@ -48,7 +48,7 @@ Existem várias limitações ao utilizar as chaves geridas pelo cliente para enc
 
 > [!IMPORTANT]
 > A encriptação utilizando chaves geridas pelo cliente está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="powershell"></a>PowerShell
@@ -210,7 +210,7 @@ Quando criar a sua versão de imagem no portal, pode utilizar o **separador Encr
 
 
 1. Na página **'Criar uma versão de imagem',** selecione o **separador Encriptação.**
-2. No **tipo de encriptação**, selecione **Encriptação em repouso com uma chave gerida pelo cliente** ou **encriptação dupla com teclas geridas pela plataforma e geridas pelo cliente**. 
+2. No **tipo de encriptação** , selecione **Encriptação em repouso com uma chave gerida pelo cliente** ou **encriptação dupla com teclas geridas pela plataforma e geridas pelo cliente**. 
 3. Para cada disco na imagem, selecione o conjunto de **encriptação** do disco para utilizar a partir do drop-down. 
 
 ### <a name="create-the-vm"></a>Criar a VM

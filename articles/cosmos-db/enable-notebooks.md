@@ -3,15 +3,16 @@ title: Ativar os cadernos na conta DB do Azure Cosmos (pré-visualização)
 description: Os cadernos incorporados da Azure Cosmos DB permitem analisar e visualizar os seus dados a partir do Portal. Este artigo descreve como ativar esta funcionalidade para contas Cosmos.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: cf8da4379a7770e44e86663c02cc7a57da9d3452
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c869069e40780b1fd399758e84b0ffba311398e3
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089785"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334196"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Ativar cadernos para contas DB do Azure Cosmos (pré-visualização)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,23 +25,23 @@ Os cadernos Jupyter incorporados em Azure Cosmos DB permitem-lhe analisar e visu
 ## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Ativar cadernos numa nova conta cosmos
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Selecione **Criar uma** base de  >  **dados de** recursos  >  **Azure Cosmos DB** .
-1. Na página **'Conta DB Create Azure Cosmos',** selecione **Cadernos** . 
+1. Selecione **Criar uma** base de  >  **dados de** recursos  >  **Azure Cosmos DB**.
+1. Na página **'Conta DB Create Azure Cosmos',** selecione **Cadernos**. 
  
     :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
 
-1. Selecione **Rever + criar** . Pode saltar a opção **Rede** e **Tags.** 
-1. Reveja as definições da conta e, em seguida, selecione **Criar** . A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída** . 
+1. Selecione **Rever + criar**. Pode saltar a opção **Rede** e **Tags.** 
+1. Reveja as definições da conta e, em seguida, selecione **Criar**. A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída**. 
 
-   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
+   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="O painel de Notificações do portal do Azure":::
 
 1. Selecione **Ir para recurso** para aceder à página da conta do Azure Cosmos DB.
 
-   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
+   :::image type="content" source="../../includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-3.png" alt-text="A página da conta do Azure Cosmos DB":::
 
 1. Navegue para o painel do Explorador de **Dados.** Agora deve ver o seu espaço de trabalho dos seus cadernos.
 
-    :::image type="content" source="media/enable-notebooks/new-notebooks-workspace.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
+    :::image type="content" source="media/enable-notebooks/new-notebooks-workspace.png" alt-text="Novo Azure Cosmos DB cadernos espaço de trabalho":::
 
 ## <a name="enable-notebooks-in-an-existing-cosmos-account"></a>Ativar cadernos numa conta cosmos existente
 
@@ -49,7 +50,7 @@ Também pode ativar os cadernos nas contas existentes. Este passo só tem de ser
 1. Navegue para o painel **do Data Explorer** na sua conta Cosmos.
 1. Selecione **'Enable Notebooks'.**
 
-    :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
+    :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Criar um novo espaço de trabalho de cadernos no Data Explorer":::
 
 1. Isto irá levá-lo a criar um novo espaço de trabalho de cadernos. Selecione **configuração completa.**
 1. A sua conta está agora habilitada a utilizar cadernos!
@@ -58,20 +59,20 @@ Também pode ativar os cadernos nas contas existentes. Este passo só tem de ser
 
 Para verificar se pode utilizar cadernos, selecione um dos cadernos em Cadernos de Amostra. Isto irá guardar uma cópia do caderno para o seu espaço de trabalho e abri-lo.
 
-Neste exemplo, usaremos **GettingStarted.ipynb** . 
+Neste exemplo, usaremos **GettingStarted.ipynb**. 
 
-:::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
+:::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Ver caderno GettingStarted.ipynb":::
 
 Para executar o caderno:
 1. Selecione a primeira célula de código que contém o código Python. 
 1. **Selecione Executar** para executar a célula. Também pode utilizar **o Shift + Enter** para executar a célula.
 1. Refresque o painel de recursos para ver a base de dados e o recipiente que foi criado.
 
-    :::image type="content" source="media/enable-notebooks/run-first-notebook-cell.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
+    :::image type="content" source="media/enable-notebooks/run-first-notebook-cell.png" alt-text="Executar começando o caderno":::
 
 Também pode selecionar **Novo Caderno** para criar um novo bloco de notas ou carregar um ficheiro de caderno existente (.ipynb) selecionando o **Upload File** a partir do menu **My Notebooks.** 
 
-:::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
+:::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Criar ou carregar um novo caderno":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

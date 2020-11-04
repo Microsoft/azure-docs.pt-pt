@@ -3,16 +3,17 @@ title: Gerir recursos API Azure Cosmos DB Core (SQL) utilizando o PowerShell
 description: Gerir os recursos API da Azure Cosmos DB Core (SQL) utilizando o PowerShell.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 53a44ed15517cad157e43d8de465438537e15121
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2d99a760e3bf44febcee05bf9827479616bf7bd6
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088612"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333448"
 ---
 # <a name="manage-azure-cosmos-db-core-sql-api-resources-using-powershell"></a>Gerir recursos API DB Core (SQL) da Azure Cosmos (SQL) utilizando o PowerShell
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

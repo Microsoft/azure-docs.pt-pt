@@ -8,12 +8,12 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-t
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 48e6a2a6bcf20e22edbf0d2f98607b8310d2f22d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 55c352df83e8f72a418452dd28d621556b207e5e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91307862"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332173"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Utilize Node.js para ligar e consultar dados na Base de Dados Azure para o MySQL
 
@@ -50,7 +50,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
 
-1. Execute os seguintes comandos para instalar **Node.js** e **npm**, o gestor de pacotes para Node.js.
+1. Execute os seguintes comandos para instalar **Node.js** e **npm** , o gestor de pacotes para Node.js.
 
    ```bash
    sudo apt-get install -y nodejs npm
@@ -66,9 +66,9 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
    ```
 3. Verifique a instalação verificando o texto de saída da lista npm. O número da versão pode variar à medida que forem sendo lançados patches novos.
 
-### <a name="mac-os"></a>Mac OS
+### <a name="macos"></a>macOS
 
-1. Introduza os seguintes comandos para instalar **brew**, um gestor de pacotes de fácil utilização para Mac OS X e **Node.js**.
+1. Introduza os seguintes comandos para instalar a **cerveja,** um gestor de pacotes fácil de usar para macOS e **Node.js**.
 
    ```bash
    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -90,7 +90,7 @@ Dependendo da sua plataforma, siga as instruções na secção apropriada para i
 Obtenha as informações de ligação necessárias para se ligar à Base de Dados do Azure para MySQL. Necessita do nome do servidor e das credenciais de início de sessão totalmente qualificados.
 
 1. Faça login no [portal Azure](https://portal.azure.com/).
-2. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos**e, em seguida, procure o servidor que criou (como o **mydemoserver).**
+2. A partir do menu à esquerda no portal Azure, selecione **Todos os recursos** e, em seguida, procure o servidor que criou (como o **mydemoserver).**
 3. Selecione o nome do servidor.
 4. No painel **Descrição geral** do servidor, tome nota do **Nome do servidor** e do **Nome de início de sessão de administrador do servidor**. Caso se esqueça da sua palavra-passe, também pode repor a palavra-passe neste painel.
  :::image type="content" source="./media/connect-nodejs/server-name-azure-database-mysql.png" alt-text="Nome do servidor da Base de Dados do Azure para o MySQL":::
@@ -319,6 +319,16 @@ function deleteData(){
                 else  console.log('Done.') 
         });
 };
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Para limpar todos os recursos utilizados durante este arranque rápido, elimine o grupo de recursos utilizando o seguinte comando:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
