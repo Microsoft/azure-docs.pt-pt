@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: d62b958189ac01f1beabdbf17ee5cc6a08481e23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfee8a32c54bff5aecb1e298db8b4814255418b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362304"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325746"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Criar experiências do Azure Machine Learning Studio (clássico) a partir de exemplos de trabalho na Galeria Azure AI
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 
@@ -41,11 +41,11 @@ Nesta página, pode ver as experimentações **Recentemente adicionadas** ou des
 Para procurar todas as experimentações:
 
 1. Clique em **Procurar tudo** na parte superior da página.
-2. No lado esquerdo, em **Refinar por** na secção **Categorias**, selecione **Experimentação** para ver todas as experimentações na Galeria.
+2. No lado esquerdo, em **Refinar por** na secção **Categorias** , selecione **Experimentação** para ver todas as experimentações na Galeria.
 3. Pode encontrar experimentações que cumprem os requisitos de duas formas diferentes:
-   * **Selecione filtros no lado esquerdo.** Por exemplo, para procurar experimentações que utilizem um algoritmo de deteção de anomalias baseado em PCA: em **Categorias**, clique em **Experimentação**. Em seguida, em **Algoritmos Utilizados**, clique em **Mostrar tudo** e, na caixa de diálogo, escolha **Deteção de Anomalias Baseada em PCA**. Poderá ter de deslocar para baixo para vê-la.<br></br>
+   * **Selecione filtros no lado esquerdo.** Por exemplo, para procurar experimentações que utilizem um algoritmo de deteção de anomalias baseado em PCA: em **Categorias** , clique em **Experimentação**. Em seguida, em **Algoritmos Utilizados** , clique em **Mostrar tudo** e, na caixa de diálogo, escolha **Deteção de Anomalias Baseada em PCA**. Poderá ter de deslocar para baixo para vê-la.<br></br>
      ![Selecionar filtros](./media/sample-experiments/choose-an-algorithm.png)
-   * **Utilize a caixa de pesquisa.** Por exemplo, para procurar experimentações que tenham feito parte da Microsoft e estejam relacionadas com o reconhecimento de dígitos que utilizam um algoritmo da máquina de vetor com suporte de classe dois, introduza "reconhecimento de dígitos" na caixa de pesquisa. Em seguida, selecione os filtros **Experiment,** **apenas conteúdo da Microsoft**e **máquina de vetor de suporte de duas classes**:<br></br>
+   * **Utilize a caixa de pesquisa.** Por exemplo, para procurar experimentações que tenham feito parte da Microsoft e estejam relacionadas com o reconhecimento de dígitos que utilizam um algoritmo da máquina de vetor com suporte de classe dois, introduza "reconhecimento de dígitos" na caixa de pesquisa. Em seguida, selecione os filtros **Experiment,** **apenas conteúdo da Microsoft** e **máquina de vetor de suporte de duas classes** :<br></br>
      ![Utilizar a caixa de pesquisa](./media/sample-experiments/search-for-experiments.png)
 4. Clique numa experimentação para saber mais acerca da mesma.
 5. Para executar e/ou modificar a experimentação, clique em **Abrir no Studio** na página de experimentação. <br></br>

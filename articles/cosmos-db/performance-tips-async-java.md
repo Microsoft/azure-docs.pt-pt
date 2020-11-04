@@ -7,13 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: 53171fedac23401b7d696a9e611c53da86b1bb60
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-java, contperfq2
+ms.openlocfilehash: c1dec2c8451ddd1feb4b5b0dac9c82e1716079b7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078072"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325845"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Dicas de desempenho para Azure Cosmos DB Async Java SDK v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,11 +36,11 @@ Azure Cosmos DB é uma base de dados distribuída rápida e flexível que escala
 
 Então, se está a perguntar"Como posso melhorar o desempenho da minha base de dados?" Considerar as seguintes opções:
 
-## <a name="networking"></a>Redes
+## <a name="networking"></a>Rede
 
 * **Modo de ligação: Utilize o modo direto**
     
-  A forma como um cliente se conecta à Azure Cosmos DB tem implicações importantes no desempenho, especialmente em termos de latência do lado do cliente. O *ConnectionMode* é uma definição de configuração de chave disponível para configurar o cliente *ConnectionPolicy* . Para Azure Cosmos DB Async Java SDK v2, os dois ConnectionModes disponíveis são:  
+  A forma como um cliente se conecta à Azure Cosmos DB tem implicações importantes no desempenho, especialmente em termos de latência do lado do cliente. O *ConnectionMode* é uma definição de configuração de chave disponível para configurar o cliente *ConnectionPolicy*. Para Azure Cosmos DB Async Java SDK v2, os dois ConnectionModes disponíveis são:  
       
   * [Gateway (padrão)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
   * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
@@ -87,7 +87,7 @@ Então, se está a perguntar"Como posso melhorar o desempenho da minha base de d
 
   * ***Visão geral do modo direto** _
 
-  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da política de conexão DB Azure Cosmos" border="false":::
+  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Ilustração da arquitetura do modo direto" border="false":::
   
   A arquitetura do lado do cliente utilizada no modo Direct permite uma utilização previsível da rede e acesso multiplexed às réplicas DB do Azure Cosmos. O diagrama acima mostra como o modo direto encaminha os pedidos do cliente para réplicas no backend do Cosmos DB. A arquitetura do modo direto atribui até 10 _ *Canais* * do lado cliente por réplica DB. Um Canal é uma ligação TCP precedida por um tampão de pedido, que é de 30 pedidos de profundidade. Os canais pertencentes a uma réplica são dinamicamente atribuídos conforme necessário pelo **Ponto de Serviço** da réplica. Quando o utilizador emite um pedido em modo direto, o **TransportClient** encaminha o pedido para o ponto final de serviço adequado com base na chave de partição. Os pedidos de buffers **de fila de pedidos** antes do ponto de final de serviço.
 

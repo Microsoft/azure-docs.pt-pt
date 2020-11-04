@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8aad0d9fde30a235903364d57a73c1c53f08ecce
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7bb38824f2071e2575877940795f9b90a2a384b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145791"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325768"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
@@ -94,7 +94,7 @@ JOIN Consumer RELATED Factory.customer Edge
 WHERE Factory.$dtId = 'ABC'
 ```
 
-Você também pode usar a projeção para devolver uma propriedade de um gémeo. A seguinte consulta projeta o *nome* propriedade dos *Consumidores* que estão relacionados com a *Fábrica* com uma identificação de *ABC* através de uma relação de *Factory.customer* .
+Você também pode usar a projeção para devolver uma propriedade de um gémeo. A seguinte consulta projeta o *nome* propriedade dos *Consumidores* que estão relacionados com a *Fábrica* com uma identificação de *ABC* através de uma relação de *Factory.customer*.
 
 ```sql
 SELECT Consumer.name
@@ -151,7 +151,7 @@ AND T.Temperature = 70
 > [!TIP]
 > A identificação de um gémeo digital é consultada utilizando o campo de `$dtId` metadados.
 
-Você também pode obter gémeos com base em **se uma determinada propriedade é definida** . Aqui está uma consulta que obtém gémeos que têm uma propriedade *de Localização* definida:
+Você também pode obter gémeos com base em **se uma determinada propriedade é definida**. Aqui está uma consulta que obtém gémeos que têm uma propriedade *de Localização* definida:
 
 ```sql
 SELECT *
@@ -175,39 +175,41 @@ WHERE IS_NUMBER(T.Temperature)
 
 O `IS_OF_MODEL` operador pode ser utilizado para filtrar com base no [**modelo**](concepts-models.md)do gémeo.
 
-Considera [a herança](concepts-models.md#model-inheritance) e [a versão que ordena](how-to-manage-model.md#update-models) a semântica, e avalia a **verdade** para um dado gémeo se o gémeo cumprir uma destas condições:
+Considera [a herança](concepts-models.md#model-inheritance) e [a versão de](how-to-manage-model.md#update-models)modelo, e avalia a **verdade** para um dado gémeo se o gémeo cumprir qualquer uma destas condições:
 
 * O twin implementa diretamente o modelo `IS_OF_MODEL()` fornecido, e o número de versão do modelo no twin é *maior ou igual ao* número de versão do modelo fornecido
 * O twin implementa um modelo que *alarga* o modelo `IS_OF_MODEL()` fornecido, e o número de versão do modelo alargado da gémea é *maior ou igual ao* número de versão do modelo fornecido
 
-Este método tem várias opções de sobrecarga.
+Assim, por exemplo, se consultar os gémeos do `dtmi:example:widget;4` modelo, a consulta devolverá todos os gémeos com base na **versão 4 ou superior** do modelo **widget,** e também gémeos com base na versão **4 ou maior** de quaisquer **modelos que herdem do widget.**
+
+`IS_OF_MODEL` pode tomar vários parâmetros diferentes, e o resto desta secção é dedicado às suas diferentes opções de sobrecarga.
 
 A utilização mais simples `IS_OF_MODEL` requer apenas um `twinTypeName` parâmetro: `IS_OF_MODEL(twinTypeName)` .
 Aqui está um exemplo de consulta que passa um valor neste parâmetro:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1')
 ```
 
 Para especificar uma coleção dupla para procurar quando há mais de uma (como quando uma `JOIN` é usada), adicione o `twinCollection` parâmetro: `IS_OF_MODEL(twinCollection, twinTypeName)` .
 Aqui está um exemplo de consulta que acrescenta um valor para este parâmetro:
 
 ```sql
-SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1')
 ```
 
 Para fazer uma correspondência exata, adicione o `exact` parâmetro: `IS_OF_MODEL(twinTypeName, exact)` .
 Aqui está um exemplo de consulta que acrescenta um valor para este parâmetro:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1', exact)
 ```
 
 Também pode passar os três argumentos juntos: `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
 Aqui está um exemplo de consulta especificando um valor para os três parâmetros:
 
 ```sql
-SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
 ```
 
 ### <a name="query-based-on-relationships"></a>Consulta baseada em relacionamentos
@@ -321,7 +323,7 @@ As seguintes funções de corda são suportadas:
 
 ## <a name="run-queries-with-an-api-call"></a>Executar consultas com uma chamada de API
 
-Uma vez decidido uma cadeia de consulta, executa-a fazendo uma chamada para a **API de Consulta** .
+Uma vez decidido uma cadeia de consulta, executa-a fazendo uma chamada para a **API de Consulta**.
 O seguinte código snippet ilustra esta chamada da aplicação do cliente:
 
 ```csharp

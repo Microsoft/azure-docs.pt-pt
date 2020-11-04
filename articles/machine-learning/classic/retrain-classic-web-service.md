@@ -9,23 +9,23 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 0064509c1158d8b016413046cb528bfd125b5f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 158541d34568b7ea02ea82dbfe90f5801824716f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362321"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325780"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Retreine e implemente um serviço web clássico do Studio (clássico)
 
-**APLICA-SE A:** ![ Marca verde de verificação. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ X indicando não](../../../includes/media/aml-applies-to-skus/no.png)[A. Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**APLICA-SE A:** ![ Marca verde de verificação. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ X indicando não ](../../../includes/media/aml-applies-to-skus/no.png)[A. Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 A reconversão de modelos de aprendizagem automática é uma forma de garantir que se mantêm precisas e com base nos dados mais relevantes disponíveis. Este artigo irá mostrar-lhe como treinar um serviço web clássico do Studio (clássico). Para um guia sobre como treinar um novo serviço web Studio (clássico), [veja este artigo como-a-dia.](retrain-machine-learning-model.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que já tem uma experiência de reconversão e uma experiência preditiva. Estes passos são explicados na [Retrain e implementam um modelo de aprendizagem automática.](/azure/machine-learning/studio/retrain-machine-learning-model) No entanto, em vez de implementar o seu modelo de machine learning como um novo serviço web, irá implementar a sua experiência preditiva como um serviço web clássico.
+Este artigo pressupõe que já tem uma experiência de reconversão e uma experiência preditiva. Estes passos são explicados na [Retrain e implementam um modelo de aprendizagem automática.](./retrain-machine-learning-model.md) No entanto, em vez de implementar o seu modelo de machine learning como um novo serviço web, irá implementar a sua experiência preditiva como um serviço web clássico.
      
 ## <a name="add-a-new-endpoint"></a>Adicione um novo ponto final
 
@@ -76,7 +76,7 @@ A página de ajuda PATCH contém o URL PATCH que deve utilizar e fornece o códi
 
 Agora pode utilizar o modelo treinado para atualizar o ponto final de pontuação que criou anteriormente.
 
-O seguinte código de amostra mostra-lhe como utilizar o *BaseLocation*, *RelativeLocation*, *SasBlobToken*e PATCH URL para atualizar o ponto final.
+O seguinte código de amostra mostra-lhe como utilizar o *BaseLocation* , *RelativeLocation* , *SasBlobToken* e PATCH URL para atualizar o ponto final.
 
 ```csharp
 private async Task OverwriteModel()
