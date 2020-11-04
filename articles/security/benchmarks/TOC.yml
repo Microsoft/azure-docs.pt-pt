@@ -127,6 +127,8 @@
       href: ../../web-application-firewall/security-baseline.md
     - name: Linha de base de segurança do Batch
       href: ../../batch/security-baseline.md
+    - name: Linha de base de segurança dos Serviços Cloud
+      href: ../../cloud-services/security-baseline.md
     - name: Linha de base de segurança do Cloud Shell
       href: ../../cloud-shell/security-baseline.md
     - name: Linha de base de segurança dos Serviços Cognitivos
@@ -177,5 +179,7 @@
       href: ../../virtual-machines/windows/security-baseline.md
     - name: Linha de base de segurança da Rede Virtual
       href: ../../virtual-network/security-baseline.md
+    - name: Linha de base de segurança do WAN Virtual
+      href: ../../virtual-wan/security-baseline.md
     - name: Linha de base de segurança do Gateway de VPN
       href: ../../vpn-gateway/security-baseline.md

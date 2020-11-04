@@ -557,14 +557,9 @@
               href: sql-query-linq-to-sql.md
         - name: Contentores e itens
           items:
-            - name: Indexação
-              items:
-                - name: Descrição geral da indexação
-                  displayName: 'range, spatial'
-                  href: index-overview.md
-                - name: Políticas de indexação
-                  displayName: 'consistent, none'
-                  href: index-policy.md
+            - name: Descrição geral da indexação
+              displayName: 'range, spatial'
+              href: index-overview.md
             - name: Time to live
               displayName: 'delete, delete data, ttl'
               href: time-to-live.md
@@ -665,8 +660,6 @@
             - name: Configurar TTL
               displayName: 'delete, delete data, ttl'
               href: how-to-time-to-live.md
-            - name: Gerir as políticas de indexação
-              href: how-to-manage-indexing-policy.md
             - name: Definir chaves exclusivas
               href: how-to-define-unique-keys.md
         - name: Desempenho
@@ -677,6 +670,13 @@
                   href: profile-sql-api-query.md
                 - name: Otimizar o desempenho de consultas
                   href: sql-api-query-metrics.md
+            - name: Indexação
+              items:
+                - name: Políticas de indexação
+                  displayName: 'consistent, none, indexing, policy'
+                  href: index-policy.md
+                - name: Gerir as políticas de indexação
+                  href: how-to-manage-indexing-policy.md
             - name: .NET
               items:
                 - name: Sugestões de desempenho para o SDK v3 de .NET
@@ -753,6 +753,8 @@
               href: create-sql-api-java-changefeed.md
         - name: Programação do lado do servidor
           items:
+            - name: Realizar operações de lote transacionais
+              href: transactional-batch.md
             - name: 'Escrever procedimentos armazenados, acionadores e UDFs'
               href: how-to-write-stored-procedures-triggers-udfs.md
             - name: Escrever procedimentos armazenados e acionadores com a API de consulta JavaScript

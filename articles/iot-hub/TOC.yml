@@ -74,7 +74,7 @@
           href: tutorial-routing-view-message-routing-results.md
     - name: Melhoramentos das mensagens
       href: tutorial-message-enrichments.md
-    - name: Utilizar métricas e registos de diagnóstico
+    - name: Utilizar métricas e registos
       href: tutorial-use-metrics-and-diags.md
     - name: Realizar ativação pós-falha manual
       href: tutorial-manual-failover.md
