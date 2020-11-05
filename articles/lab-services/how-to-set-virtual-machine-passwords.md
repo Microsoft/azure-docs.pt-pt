@@ -3,12 +3,12 @@ title: Definir palavras-passe para VMs nos Serviços de Laboratório Azure Micro
 description: Saiba como definir e redefinir palavras-passe para máquinas virtuais (VMs) em laboratórios de sala de aula dos Serviços Azure Lab.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334077"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379694"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurar e gerir o conjunto de máquinas virtuais 
 Este artigo mostra-lhe como fazer as seguintes tarefas:
@@ -53,6 +53,7 @@ Da mesma forma, pode parar um ou mais VMs toggling o botão na coluna **State** 
 > Quando um educador liga um VM estudantil, a quota para o aluno não é afetada. A quota para um utilizador especifica o número de horas de laboratório disponíveis para o utilizador fora do horário de aula programado. Para obter mais informações sobre quotas, consulte [Definição de quotas para utilizadores.](how-to-configure-student-usage.md?#set-quotas-for-users)
 
 ## <a name="reset-vms"></a>Reset VMs
+
 Para reiniciar um ou mais VMs, selecione-os na lista e, em seguida, **selecione Reset** na barra de ferramentas. 
 
 ![Redefinir VMs selecionados](./media/how-to-set-virtual-machine-passwords/reset-vm-button.png)
@@ -60,8 +61,6 @@ Para reiniciar um ou mais VMs, selecione-os na lista e, em seguida, **selecione 
 Na caixa de diálogo **(s) máquina virtual reset,** selecione **Reset**. 
 
 ![Caixa de diálogo VM reiniciada](./media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png)
-
-
 
 ## <a name="set-password-for-vms"></a>Definir palavra-passe para VMs
 Um dono de laboratório (educador) pode definir/redefinir a palavra-passe para VMs no momento de criar o laboratório (assistente de criação de laboratório) ou depois de criar o laboratório na página **modelo.** 
