@@ -1,18 +1,18 @@
 ---
 title: Introdução à Azure Cosmos DB Gremlin API
 description: Saiba como pode utilizar o Azure Cosmos DB para armazenar, consultar e percorrer gráficos enormes com baixa latência através da linguagem de consulta de gráficos Gremlin do Apache TinkerPop.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
-ms.author: jasonh
-ms.openlocfilehash: 98ad02c134df919c593c87dd96a9a71d73371a1c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.author: chrande
+ms.openlocfilehash: d0bd94037a75db8d69cfd44820a80ae8b403c9ea
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087422"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357084"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introdução à API de Gremlin em Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -107,7 +107,7 @@ As bases de dados de gráficos são frequentemente incluídas na categoria NoSQL
 
 Vamos utilizar um gráfico de exemplo para compreender como as consultas podem ser expressadas no Gremlin. A imagem seguinte apresenta uma aplicação empresarial que gere dados sobre os utilizadores, interesses e dispositivos sob a forma de um gráfico.  
 
-:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Arquitetura de gráficos do Azure Cosmos DB" border="false"::: 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Base de dados de exemplo a mostrar pessoas, dispositivos e interesses" border="false"::: 
 
 Este gráfico tem os seguintes tipos *de vértice* (estes também são chamados de "rótulo" em Gremlin):
 
@@ -151,7 +151,7 @@ Os gráficos são bastante úteis quando tem de responder a perguntas como "What
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para saber mais sobre o suporte de gráficos no Azure Cosmos DB, veja:
 

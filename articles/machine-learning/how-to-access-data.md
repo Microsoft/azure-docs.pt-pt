@@ -1,5 +1,5 @@
 ---
-title: Ligar aos serviços de armazenamento do Azure
+title: Conecte-se aos serviços de armazenamento em Azure
 titleSuffix: Azure Machine Learning
 description: Saiba como utilizar as lojas de dados para ligar de forma segura aos serviços de armazenamento da Azure durante o treino com a Azure Machine Learning
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 07/22/2020
-ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: db641eee13350f5a774e4ffd138e38c474af4981
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/03/2020
+ms.custom: how-to, contperfq1, devx-track-python, data4ml
+ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320866"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358104"
 ---
-# <a name="connect-to-azure-storage-services"></a>Ligar aos serviços de armazenamento do Azure
+# <a name="connect-to-storage-services-azure"></a>Ligar aos serviços de armazenamento Azure
 
-Neste artigo, saiba como **ligar-se aos serviços de armazenamento Azure através das lojas de dados Azure Machine Learning**. As datas conectam-se de forma segura ao seu serviço de armazenamento Azure sem colocar em risco as suas credenciais de autenticação e a integridade da sua fonte de dados original. Armazenam informações de ligação, como o ID de subscrição e a autorização simbólica no [cofre-chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. Você pode usar o [Azure Machine Learning Python SDK](#python) ou o [estúdio Azure Machine Learning](how-to-connect-data-ui.md) para criar e registar datastores.
+Neste artigo, aprenda a **ligar-se aos serviços de armazenamento no Azure via Azure Machine Learning datastores**. As datas conectam-se de forma segura ao seu serviço de armazenamento Azure sem colocar em risco as suas credenciais de autenticação e a integridade da sua fonte de dados original. Armazenam informações de ligação, como o ID de subscrição e a autorização simbólica no [cofre-chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. Você pode usar o [Azure Machine Learning Python SDK](#python) ou o [estúdio Azure Machine Learning](how-to-connect-data-ui.md) para criar e registar datastores.
 
 Se preferir criar e gerir as datastores utilizando a extensão do Código VS de Aprendizagem de Máquinas Azure; visite a [gestão de recursos do Código VS como orientar](how-to-manage-resources-vscode.md#datastores) para saber mais.
 
@@ -109,11 +109,13 @@ Pode encontrar a chave de conta, o token SAS e informações principais do servi
     * A sua página **geral** correspondente conterá informações necessárias, como iD do inquilino e identificação do cliente.
 
 > [!IMPORTANT]
-> Por razões de segurança, poderá ter de alterar as suas chaves de acesso para uma conta de Armazenamento Azure (chave de conta ou ficha SAS). Ao fazê-lo, certifique-se de sincronizar as novas credenciais com o seu espaço de trabalho e as datas-tores que lhe estão ligadas. Saiba como [sincronizar as suas credenciais atualizadas.](how-to-change-storage-access-key.md) 
-
+> * Se precisar de alterar as suas teclas de acesso para uma conta de Armazenamento Azure (chave de conta ou token SAS), certifique-se de sincronizar as novas credenciais com o seu espaço de trabalho e as lojas de dados ligadas a ela. Saiba como [sincronizar as suas credenciais atualizadas.](how-to-change-storage-access-key.md) 
 ### <a name="permissions"></a>Permissões
 
-Para o recipiente blob Azure e o armazenamento do Azure Data Lake Gen 2, certifique-se de que as suas credenciais de autenticação têm acesso **ao Leitor de Dados Blob de Armazenamento.** Saiba mais sobre [o Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Uma conta SAS não tem permissões. Para o acesso à leitura de dados, as suas credenciais de autenticação devem ter um mínimo de lista e ler permissões para contentores e objetos. Para que os dados escrevam acesso, escreva e adicione permissões também são necessárias.
+Para o recipiente de blob Azure e o armazenamento do Azure Data Lake Gen 2, certifique-se de que as suas credenciais de autenticação têm acesso **ao Leitor de Dados Blob de Armazenamento.** Saiba mais sobre [o Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Uma conta SAS não tem permissões. 
+* Para **o acesso à leitura** de dados, as suas credenciais de autenticação devem ter um mínimo de lista e ler permissões para contentores e objetos. 
+
+* Para que os dados **escrevam acesso,** escreva e adicione permissões também são necessárias.
 
 <a name="python"></a>
 
@@ -130,6 +132,8 @@ Dentro desta secção encontram-se exemplos de como criar e registar uma loja de
  Para criar datastores para outros serviços de armazenamento suportados, consulte a [documentação de referência para os `register_azure_*` métodos aplicáveis.](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods)
 
 Se preferir uma experiência de código baixo, consulte [Connect to data with Azure Machine Learning studio](how-to-connect-data-ui.md).
+>[!IMPORTANT]
+> Se não registar e re-registar uma loja de dados com o mesmo nome, e falhar, o Cofre da Chave Azure para o seu espaço de trabalho pode não ter a eliminação suave ativada. Por predefinição, a eliminação suave está ativada para a instância do cofre de chaves criada pelo seu espaço de trabalho, mas pode não ser ativada se utilizar um cofre-chave existente ou se tiver um espaço de trabalho criado antes de outubro de 2020. Para obter informações sobre como permitir a eliminação suave, consulte [Ativar o Soft Delete para obter um cofre de chaves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault)."
 
 > [!NOTE]
 > O nome datastore deve consistir apenas em letras minúsculas, dígitos e sublinhados. 
@@ -247,7 +251,7 @@ Também pode alterar a loja de dados predefinido com o seguinte código. Esta ca
 
 A Azure Machine Learning fornece várias formas de usar os seus modelos para pontuar. Alguns destes métodos não fornecem acesso a datastores. Utilize a seguinte tabela para entender quais os métodos que lhe permitem aceder às datastores durante a pontuação:
 
-| Método | Acesso à loja de dados | Description |
+| Método | Acesso à loja de dados | Descrição |
 | ----- | :-----: | ----- |
 | [Predição de lote](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Faça previsões sobre grandes quantidades de dados assíncroneamente. |
 | [Serviço Web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
@@ -263,7 +267,7 @@ A Azure Machine Learning suporta o acesso a dados a partir do armazenamento de A
 
 A Azure Data Factory fornece transferência de dados eficiente e resiliente com mais de 80 conectores pré-construídos sem custos adicionais. Estes conectores incluem serviços de dados Azure, fontes de dados no local, Amazon S3 e Redshift, e Google BigQuery.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Criar um conjunto de dados de aprendizagem de máquinas Azure](how-to-create-register-datasets.md)
 * [Preparar um modelo](how-to-set-up-training-targets.md)

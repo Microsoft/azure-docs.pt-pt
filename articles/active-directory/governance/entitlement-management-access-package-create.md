@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1734af799ee473d6ba75fe2e8ab8429afa51d0
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318197"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356642"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Criar um novo pacote de acesso na gestão de direitos AD da Azure
 
@@ -67,7 +67,7 @@ Aqui estão os passos de alto nível para criar um novo pacote de acesso.
    
     ![Gestão de direitos no portal Azure](./media/entitlement-management-shared/access-packages-list.png)
 
-## <a name="basics"></a>Noções básicas
+## <a name="basics"></a>Informações básicas
 
 No **separador Básicos,** você dá ao pacote de acesso um nome e especifica qual catálogo para criar o pacote de acesso dentro
 
@@ -89,7 +89,7 @@ No **separador Básicos,** você dá ao pacote de acesso um nome e especifica qu
 
 No separador **Funções de Recursos,** seleciona os recursos a incluir no pacote de acesso. Os utilizadores que solicitarem e receberem o pacote de acesso receberão todas as funções de recursos no pacote de acesso.
 
-1. Clique no tipo de recurso que pretende adicionar **(Grupos e Equipas,** **Aplicações**ou **sites SharePoint).**
+1. Clique no tipo de recurso que pretende adicionar **(Grupos e Equipas,** **Aplicações** ou **sites SharePoint).**
 
 1. No painel Select que aparece, selecione um ou mais recursos da lista.
 
@@ -125,7 +125,7 @@ No **separador 'Rever +' criar,** pode rever as suas definições e verificar ev
 
 1. Reveja as definições do pacote de acesso
 
-    ![Pacote de acesso - Política- Permitir a definição de políticas](./media/entitlement-management-access-package-create/review-create.png)
+    ![Pacote de acesso - Ativar a definição de políticas](./media/entitlement-management-access-package-create/review-create.png)
 
 1. Clique em **Criar** para criar o pacote de acesso.
 
@@ -141,7 +141,7 @@ Também pode criar um pacote de acesso utilizando o Microsoft Graph.  Um utiliza
 1. [Criar um accessPackageAssignmentPolicy](/graph/api/accesspackageassignmentpolicy-post?tabs=http&view=graph-rest-beta).
 1. [Crie um AccessPackageResourceRoleScope](/graph/api/accesspackage-post-accesspackageresourcerolescopes?tabs=http&view=graph-rest-beta) para cada função de recurso necessária no pacote de acesso.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Partilhar link para solicitar um pacote de acesso](entitlement-management-access-package-settings.md)
 - [Alterar funções de recursos para um pacote de acesso](entitlement-management-access-package-resources.md)

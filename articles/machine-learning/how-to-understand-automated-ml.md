@@ -10,19 +10,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
-ms.custom: how-to, contperfq2
-ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, contperfq2, automl
+ms.openlocfilehash: fcbe0fc5049f6e892f80f048a885c75420bc636e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311484"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359090"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar resultados automatizados de experiências de aprendizagem automática
 
-Neste artigo, aprenda a visualizar e avaliar os resultados da sua aprendizagem automática de máquinas, AutoML, experiências. Estas experiências consistem em múltiplas corridas, onde cada corrida cria um modelo. Para ajudá-lo a avaliar cada modelo, o AutoML gera automaticamente métricas de desempenho e gráficos específicos do seu tipo de experiência. 
+Neste artigo, aprenda a visualizar e avaliar os resultados da sua aprendizagem automática de máquinas, ML automatizado, experiências. Estas experiências consistem em múltiplas corridas, onde cada corrida cria um modelo. Para ajudá-lo a avaliar cada modelo, o ML automatizado gera automaticamente métricas de desempenho e gráficos específicos do seu tipo de experiência. 
 
-Por exemplo, o AutoML fornece diferentes gráficos para modelos de classificação e regressão. 
+Por exemplo, o ML automatizado fornece diferentes gráficos para modelos de classificação e regressão. 
 
 |Classificação|Regressão
 |---|---|
@@ -61,7 +61,7 @@ Para ver a história de execução e as métricas de desempenho do modelo e grá
 
 ## <a name="classification-performance-metrics"></a>Métricas de desempenho de classificação
 
-A tabela seguinte resume as métricas de desempenho do modelo que a AutoML calcula para cada modelo de classificação gerado para a sua experiência. 
+A tabela seguinte resume as métricas de desempenho do modelo que o ML automatizado calcula para cada modelo de classificação gerado para a sua experiência. 
 
 Métrica|Descrição|Cálculo|Parâmetros extra
 --|--|--|--
@@ -88,7 +88,7 @@ weighted_accuracy|Precisão ponderada é a precisão em que o peso dado a cada e
 
 ### <a name="binary-vs-multiclass-metrics"></a>Métricas binárias vs. multiclasse
 
-O AutoML não diferencia entre métricas binárias e multiclasses. As mesmas métricas de validação são reportadas se um conjunto de dados tem duas classes ou mais de duas classes. No entanto, algumas métricas destinam-se à classificação multiclasse. Quando aplicadas a um conjunto binário de dados, estas métricas não tratarão nenhuma classe como a `true` classe, como seria de esperar. As métricas claramente destinadas a multiclasse são sufixadas com `micro` `macro` , ou `weighted` . Exemplos `average_precision_score` `f1_score` incluem, , , `precision_score` e `recall_score` `AUC` .
+ML automatizado não diferencia entre métricas binárias e multiclasses. As mesmas métricas de validação são reportadas se um conjunto de dados tem duas classes ou mais de duas classes. No entanto, algumas métricas destinam-se à classificação multiclasse. Quando aplicadas a um conjunto binário de dados, estas métricas não tratarão nenhuma classe como a `true` classe, como seria de esperar. As métricas claramente destinadas a multiclasse são sufixadas com `micro` `macro` , ou `weighted` . Exemplos `average_precision_score` `f1_score` incluem, , , `precision_score` e `recall_score` `AUC` .
 
 Por exemplo, em vez de calcular a recordação como `tp / (tp + fn)` , as médias médias multiclasse `micro` `macro` (, ou ) `weighted` médias em ambas as classes de um conjunto de dados de classificação binária. Isto equivale a calcular a recordação para a `true` classe e a classe `false` separadamente, e, em seguida, tomar a média dos dois.
 
@@ -209,7 +209,7 @@ Um modelo bem calibrado alinha-se com a linha y=x, onde prevê corretamente a pr
 
 ## <a name="regression-performance-metrics"></a>Métricas de desempenho de regressão
 
-A tabela seguinte resume as métricas de desempenho do modelo que a AutoML calcula para cada modelo de regressão ou previsão que é gerado para a sua experiência. 
+A tabela seguinte resume as métricas de desempenho do modelo que o ML automatizado calcula para cada modelo de regressão ou previsão que é gerado para a sua experiência. 
 
 |Métrica|Descrição|Cálculo|Parâmetros extra
 --|--|--|--|
@@ -267,7 +267,7 @@ Para obter mais informações sobre a ativação de funcionalidades de interpret
 > [!NOTE]
 > O modelo ForecastTCN não é atualmente suportado pelo Cliente explicação. Este modelo não devolve um dashboard de explicação se for devolvido como o melhor modelo, e não suporta explicações a pedido.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + Saiba mais sobre [ml automatizado](concept-automated-ml.md) em Azure Machine Learning.
 + Experimente os cadernos de amostras de amostra de [amostra de modelo de aprendizagem automática](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) de máquinas.

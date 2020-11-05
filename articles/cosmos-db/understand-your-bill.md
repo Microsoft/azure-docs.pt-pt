@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073830"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358716"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Compreender a fatura do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -103,11 +103,11 @@ Se aumentar a produção proviscizada para um contentor ou um conjunto de conten
 
 * Num mês de 720 horas, se durante 300 horas a produção prevista for forada for forada de 120-K RU/seg e para as restantes 420 horas provisidas foi 155-K RU/seg, sua conta mensal mostrará: 300 x $9,60/hora + 420 x $12,40/hora = $2.880 + $5.208 = $8.088/mês. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemplo de conta de produção dedicada":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Exemplo de conta de produção partilhada":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Exemplos de faturação com geo-replicação e várias regiões escrevem  
+## <a name="billing-examples-with-geo-replication"></a>Exemplos de faturação com geo-replicação  
 
-Pode adicionar/remover regiões do Azure em qualquer parte do mundo à sua conta de base de dados Azure Cosmos a qualquer momento. A produção que configuraste para várias bases de dados e contentores da Azure Cosmos será reservada em cada uma das regiões do Azure associadas à sua conta de base de dados Azure Cosmos. Se a soma de produção prevista (RU/sec) configurada em todas as bases de dados e contentores da sua conta de base de dados Azure Cosmos (a provisionada por hora) for T e o número de regiões Azure associadas à sua conta de base de dados for N, em seguida, a produção total provisida para uma hora, para a sua conta de base de dados Azure Cosmos, (a) configurada com uma única região de escrita é igual a T x N RU/sec e (b) configurada com todas as regiões capazes de processar escritas é igual a T x (N+1) RU/sec, respectivamente. O rendimento previsto (região de escrita única) custa $0.008/hora por 100 RU/seg e o rendimento previsto com várias regiões writable (multi-região escreve config) custa $0,016/hora por 100 RU/sec (ver [página de preços).](https://azure.microsoft.com/pricing/details/cosmos-db/) Seja a sua região de escrita única, ou várias regiões de escrita, a Azure Cosmos DB permite-lhe ler dados de qualquer região.
+Pode adicionar/remover regiões do Azure em qualquer parte do mundo à sua conta de base de dados Azure Cosmos a qualquer momento. A produção que configuraste para várias bases de dados e contentores da Azure Cosmos será reservada em cada uma das regiões do Azure associadas à sua conta de base de dados Azure Cosmos. Se a soma de produção (RU/sec) configurada em todas as bases de dados e contentores da sua conta de base de dados Azure Cosmos (a provisionada por hora) forda por hora, e o número de regiões Azure associadas à sua conta de base de dados for N, então o total provisurável por uma hora, para a sua conta de base de dados Azure Cosmos é igual a T x N RU/sec. O rendimento previsto (região de escrita única) custa $0.008/hora por 100 RU/seg e o rendimento previsto com várias regiões writable (multi-região escreve config) custa $0,016/hora por 100 RU/sec (ver [página de preços).](https://azure.microsoft.com/pricing/details/cosmos-db/) Seja a sua região de escrita única, ou várias regiões de escrita, a Azure Cosmos DB permite-lhe ler dados de qualquer região.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Exemplo de faturação: conta Azure Cosmos multi-região, única região escreve
 
@@ -193,7 +193,7 @@ Consideremos o exemplo seguinte, onde temos uma conta Azure Cosmos multi-região
 
 Visualmente, as alterações na produção total prevista durante 720 horas do mês são apresentadas na figura abaixo: 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemplo de conta de produção dedicada":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Exemplo da vida real":::
 
 A fatura mensal total será (assumindo 30 dias/720 horas num mês) será calculada da seguinte forma:
 
@@ -301,7 +301,7 @@ O que você efetivamente comprou é um crédito de $8 por hora, por 100 K RU/seg
 |----|----|----|----|----|
 |E.U.A. Leste|$0.008 |50 K|$4|$2.880 |
 |Leste do Japão|$0,009 |50 K| $4,50 |$3.240 |
-|||Pay as you go|$8,50|$6120|
+|||Pay-as-you-go|$8,50|$6120|
 |Capacidade Reservada Adquirida|$0.0064 (20% de desconto) |100 RU/seg ou $8 capacidade pré-comprada |-$8|-$5.760 |
 |Conta Líquida|||$0.50 |$360 |
 

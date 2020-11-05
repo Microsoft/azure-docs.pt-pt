@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339440"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356353"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publique a sua app na galeria de aplicações AZure AD
 
@@ -97,6 +97,7 @@ A tabela seguinte compara os principais padrões: Open Authentication 2.0 (OAuth
 | Sign-out único baseado em dispositivos móveis| √| √* |
 | Políticas de acesso condicional para aplicações móveis| √| X |
 | Experiência de MFA sem emenda para aplicações móveis| √| X |
+| Provisão SCIM| √| √ |
 | Aceder ao Gráfico da Microsoft| √| X |
 
 *Possível, mas a Microsoft não fornece amostras ou orientação.
@@ -261,7 +262,7 @@ Se pretender adicionar a sua aplicação à lista na galeria utilizando a palavr
 
 ![Listagem de uma aplicação SSO de palavra-passe na galeria](./media/howto-app-gallery-listing/passwordsso.png)
 
-Se estiver a implementar um ponto final SCIM 2.0 para o provisionamento do utilizador, selecione a opção como mostrado. 
+Se estiver a implementar um ponto final [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2.0 para o provisionamento do utilizador, selecione a opção como mostrado. 
 
    ![Pedido de provisionamento de utilizadores](./media/howto-app-gallery-listing/user-provisioning.png)
 
@@ -304,6 +305,6 @@ Para qualquer escalada, envie um e-mail para a [Equipa de Integração Azure AD 
 A Microsoft Partner Network fornece acesso instantâneo a recursos exclusivos, programas, ferramentas e conexões. Para aderir à rede e criar o seu plano de mercado, consulte [os clientes comerciais Reach.](https://partner.microsoft.com/explore/commercial#gtm)
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Construa um ponto final SCIM e configuure o fornecimento de utilizadores](../app-provisioning/use-scim-to-provision-users-and-groups.md)
 * [Cenários de autenticação para Azure AD](authentication-flows-app-scenarios.md)

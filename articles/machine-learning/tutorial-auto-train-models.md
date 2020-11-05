@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de regressão: ML automatizado'
 titleSuffix: Azure Machine Learning
-description: Neste tutorial, aprende-se a gerar um modelo de aprendizagem automática utilizando machine learning automatizado. O Azure Machine Learning pode realizar a pré-processamento de dados, a seleção de algoritmos e a seleção de hiperparímetros de forma automatizada para si.
+description: Crie uma experiência automatizada de aprendizagem automática que gere um modelo de regressão para si com base nos dados de treino e configurações de configuração que fornece.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ author: aniththa
 ms.author: anumamah
 ms.reviewer: nibaccam
 ms.date: 08/14/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 731c6c743b103111a699074e10d8ba43a353d8e6
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, automl
+ms.openlocfilehash: 811f1c27af660d388ecb875741c073591bd25f7f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93317984"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358614"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>Tutorial: Utilizar machine learning automatizado para prever tarifas de táxi
 
@@ -206,7 +206,7 @@ Para treinar automaticamente um modelo, tome os seguintes passos:
 
 Defina o parâmetro de experiência e as definições do modelo para o treino. Ver a lista completa de [definições](how-to-configure-auto-train.md). Submeter a experiência com estas definições predefinidos levará aproximadamente 5-20 min, mas se quiser um tempo de funcionamento mais curto, reduza o `experiment_timeout_hours` parâmetro.
 
-|Propriedade| Valor neste tutorial |Description|
+|Propriedade| Valor neste tutorial |Descrição|
 |----|----|---|
 |**iteration_timeout_minutes**|2|Limite de tempo em minutos para cada iteração. Reduza este valor para diminuir o tempo de execução total.|
 |**experiment_timeout_hours**|0.3|O tempo máximo em horas que todas as iterações combinadas podem demorar antes do fim da experiência.|
@@ -395,7 +395,7 @@ Se não planeia usar os recursos que criou, elimine-os, para não incorrer em qu
 
 Também pode manter o grupo de recursos, mas eliminar um único espaço de trabalho. Mostrar as propriedades do espaço de trabalho e selecionar **Delete**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial automatizado de aprendizagem automática, fez as seguintes tarefas:
 

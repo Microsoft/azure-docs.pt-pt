@@ -1,7 +1,7 @@
 ---
 title: O que é treino distribuído?
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre o treino distribuído e como a Azure Machine Learning o apoia.
+description: Saiba que tipo de formação distribuída a Azure Machine Learning suporta e as integrações de enquadramento de código aberto disponíveis para formação distribuída.
 services: machine-learning
 ms.service: machine-learning
 author: nibaccam
@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 4c479a64b2100cfc1a6fdf17f5e6f5636d3a689d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4e1972e0530656bf6cc0e6319191ab4ebbfbfddb
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322220"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358580"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Treino distribuído com Azure Machine Learning
 
@@ -48,7 +48,7 @@ No paralelismo modelo, também conhecido como paralelismo de rede, o modelo é s
 
 No paralelismo modelo, os nós dos trabalhadores só precisam de sincronizar os parâmetros partilhados, geralmente uma vez para cada passo de propagação para a frente ou para trás. Além disso, modelos maiores não são uma preocupação, uma vez que cada nó opera numa subsecção do modelo nos mesmos dados de treino.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Aprenda a [usar alvos de computação para o treino de modelo](how-to-set-up-training-targets.md) com o Python SDK.
 * Para um exemplo técnico, consulte o [cenário de arquitetura de referência.](/azure/architecture/reference-architectures/ai/training-deep-learning)

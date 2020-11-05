@@ -9,13 +9,13 @@ ms.topic: conceptual
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.custom: how-to
-ms.openlocfilehash: cb4e57cfe8b7494b7d5c38869f83190bff76ef2a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, automl
+ms.openlocfilehash: 4fb147dc5c57c3a98607a025f566fa583bf87460
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305775"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358818"
 ---
 # <a name="make-predictions-with-an-automl-onnx-model-in-net"></a>Faça previsões com um modelo AutoML ONNX em .NET
 
@@ -286,7 +286,7 @@ Agora que tens um oleoduto, está na altura de o usares para fazer previsões. M
 
 Para saber mais sobre fazer previsões em ML.NET, consulte o [uso de um modelo para fazer guia de previsões.](/dotnet/machine-learning/how-to-guides/machine-learning-model-predictions-ml-net)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Implemente o seu modelo como um ASP.NET Core Web API](/dotnet/machine-learning/how-to-guides/serve-model-web-api-ml-net)
 - [Implemente o seu modelo como uma função de azure sem servidor .NET](/dotnet/machine-learning/how-to-guides/serve-model-serverless-azure-functions-ml-net)

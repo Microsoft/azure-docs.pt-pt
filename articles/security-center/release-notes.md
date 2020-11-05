@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: 3ea8e944a004dc89dadc74e4ab2e3e4b295b3a9b
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 6de06e4ab9a302517a09b34de56c1b5535b245a9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900236"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357815"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -29,6 +29,37 @@ Para saber mais sobre as mudanças *planeadas* que estão a chegar em breve ao C
 
 > [!TIP]
 > Se procura itens com mais de seis meses, vai encontrá-los no Arquivo para o [que há de novo no Azure Security Center.](release-notes-archive.md)
+
+
+## <a name="november-2020"></a>novembro de 2020
+
+### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 recomendações de pré-visualização adicionadas para aumentar a cobertura do Benchmark de Segurança Azure
+
+A azure Security Benchmark é o conjunto de diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. [Saiba mais sobre a Referência de Segurança do Azure](../security/benchmarks/introduction.md).
+
+As seguintes 29 recomendações de pré-visualização foram adicionadas ao Centro de Segurança para aumentar a cobertura deste benchmark.
+
+As recomendações de pré-visualização não tornam um recurso insalubre, e não estão incluídas nos cálculos da sua pontuação segura. Remedia-os sempre que possível, para que quando o período de pré-visualização terminar contribuam para a sua pontuação. Saiba mais sobre como responder a estas recomendações em [recomendações remedias no Azure Security Center](security-center-remediate-recommendations.md).
+
+| Controlo de segurança                     | Novas recomendações                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+|--------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Encriptar dados em trânsito              | - A ligação SSL da Aplicação deve ser ativada para servidores de base de dados PostgreSQL<br>- A ligação SSL da Aplicação deve ser ativada para servidores de base de dados MySQL<br>- O TLS deve ser atualizado para a versão mais recente da sua aplicação API<br>- O TLS deve ser atualizado para a versão mais recente da sua aplicação de função<br>- O TLS deve ser atualizado para a versão mais recente da sua aplicação web<br>- FTPS deve ser exigido na sua App API<br>- FTPS deve ser exigido na sua app de função<br>- FTPS deve ser exigido na sua Web App                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Gerir acessos e permissões        | - As aplicações web devem solicitar um certificado SSL para todos os pedidos de entrada<br>- Identidade gerida deve ser usada na sua App API<br>- Identidade gerida deve ser usada na sua função App<br>- Identidade gerida deve ser usada na sua web App                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Restringir o acesso não autorizado à rede | - O ponto final privado deve ser ativado para servidores PostgreSQL<br>- O ponto final privado deve ser ativado para servidores MariaDB<br>- O ponto final privado deve ser ativado para servidores MySQL                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Permitir a auditoria e a exploração madeireira          | - Os registos de diagnóstico nos Serviços de Aplicações devem ser ativados                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Implementar as melhores práticas de segurança    | - A azure Backup deve ser ativado para máquinas virtuais<br>- Cópia de segurança geo-redundante deve ser ativada para a Base de Dados Azure para a MariaDB<br>- A cópia de segurança geo-redundante deve ser ativada para a Base de Dados Azure para o MySQL<br>- A cópia de segurança geo-redundante deve ser ativada para a Base de Dados Azure para postgreSQL<br>- PHP deve ser atualizado para a versão mais recente para a sua aplicação API<br>- PHP deve ser atualizado para a versão mais recente para a sua aplicação web<br>- A Java deve ser atualizada para a versão mais recente da sua aplicação API<br>- A Java deve ser atualizada para a versão mais recente da sua aplicação de função<br>- Java deve ser atualizado para a versão mais recente para a sua aplicação web<br>- Python deve ser atualizado para a versão mais recente para a sua aplicação API<br>- Python deve ser atualizado para a versão mais recente para a sua aplicação de função<br>- Python deve ser atualizado para a versão mais recente para a sua aplicação web<br>- A retenção de auditoria para servidores SQL deve ser definida para pelo menos 90 dias |
+|                                      |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+
+Links relacionados:
+
+- [Saiba mais sobre a Azure Security Benchmark](../security/benchmarks/introduction.md)
+- [Saiba mais sobre as aplicações AZURE API](../app-service/app-service-web-tutorial-rest-api.md)
+- [Saiba mais sobre aplicações de função Azure](../azure-functions/functions-overview.md)
+- [Saiba mais sobre as aplicações web Azure](../app-service/overview.md)
+- [Saiba mais sobre a Azure Database for MariaDB](../mariadb/overview.md)
+- [Saiba mais sobre a Base de Dados Azure para o MySQL](../mysql/overview.md)
+- [Saiba mais sobre a Base de Dados Azure para PostgreSQL](../postgresql/overview.md)
+
 
 
 
@@ -98,7 +129,33 @@ Para o Azure Security Center, pode utilizar o ARG e a [Língua De Consulta de Ku
 
 Dentro da ARG existem tabelas de dados para utilizar nas suas consultas.
 
-:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="As gamas IP autorizadas devem ser definidas na recomendação dos Serviços Kubernetes com a opção de correção rápida"
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="Azure Resource Graph Explorer e as tabelas disponíveis":::
+
+> [!TIP]
+> A documentação ARG lista todas as tabelas disponíveis na [tabela Azure Resource Graph e referência do tipo de recurso.](../governance/resource-graph/reference/supported-tables-resources.md)
+
+A partir desta atualização, a tabela **Microsoft.Security/securityStatuses** foi removida. A API de segurançastatuses ainda está disponível.
+
+A substituição de dados pode ser utilizada pela tabela Microsoft.Security/Assessments.
+
+A grande diferença entre microsoft.Security/securityStatuses e Microsoft.Security/Assessments é que, embora a primeira mostre agregação de avaliações, os segundos detenha um único recorde para cada um.
+
+Por exemplo, microsoft.Security/securityStatuses devolveria um resultado com uma série de duas avaliações de política:
+
+```
+{
+id: "/subscriptions/449bcidd-3470-4804-ab56-2752595 felab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/securityStatuses/mico-rg-vnet",
+name: "mico-rg-vnet",
+type: "Microsoft.Security/securityStatuses",
+properties:  {
+    policyAssessments: [
+        {assessmentKey: "e3deicce-f4dd-3b34-e496-8b5381bazd7e", category: "Networking", policyName: "Azure DDOS Protection Standard should be enabled",...},
+        {assessmentKey: "sefac66a-1ec5-b063-a824-eb28671dc527", category: "Compute", policyName: "",...}
+    ],
+    securitystateByCategory: [{category: "Networking", securityState: "None" }, {category: "Compute",...],
+    name: "GenericResourceHealthProperties",
+    type: "VirtualNetwork",
+    securitystate: "High"
 }
 ```
 Considerando que a Microsoft.Security/Assessments manterá um registo para cada avaliação de política da seguinte forma:
@@ -298,7 +355,7 @@ As ferramentas integradas de avaliação de vulnerabilidades do Security Center 
 
 Os resultados de segurança estão agora disponíveis para exportação através de exportação contínua quando seleciona recomendações e permite a opção **de conclusões de segurança.**
 
-:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="As gamas IP autorizadas devem ser definidas na recomendação dos Serviços Kubernetes com a opção de correção rápida" :::
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir resultados de segurança alternando na configuração contínua da exportação" :::
 
 Páginas relacionadas:
 
@@ -363,7 +420,7 @@ Além disso, as recomendações **de pré-visualização** não tornam um recurs
 
 Um exemplo de uma recomendação de pré-visualização:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="As gamas IP autorizadas devem ser definidas na recomendação dos Serviços Kubernetes com a opção de correção rápida":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Recomendação com a bandeira de pré-visualização":::
 
 [Saiba mais sobre pontuação segura](secure-score-security-controls.md).
 
@@ -372,7 +429,7 @@ Um exemplo de uma recomendação de pré-visualização:
 
 A página de detalhes para recomendações inclui agora um indicador de intervalo de frescura (sempre que relevante) e uma clara demonstração da gravidade da recomendação.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="As gamas IP autorizadas devem ser definidas na recomendação dos Serviços Kubernetes com a opção de correção rápida":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Página de recomendação mostrando frescura e gravidade":::
 
 
 
@@ -715,137 +772,3 @@ As políticas podem ser encontradas na política de Azure:
 |                                                                                                                                                                                                                                                                       |                                      |
 
 Saiba mais sobre [a proteção contra ameaças no Centro de Segurança Azure](azure-defender.md).
-
-
-
-
-
-## <a name="may-2020"></a>Maio de 2020
-
-As atualizações em maio incluem:
-- [Regras de supressão de alerta (pré-visualização)](#alert-suppression-rules-preview)
-- [A avaliação da vulnerabilidade da máquina virtual está agora geralmente disponível](#virtual-machine-vulnerability-assessment-is-now-generally-available)
-- [Alterações no acesso à máquina virtual (JIT) (JIT)](#changes-to-just-in-time-jit-virtual-machine-vm-access)
-- [Recomendações personalizadas foram transferidas para um controlo de segurança separado](#custom-recommendations-have-been-moved-to-a-separate-security-control)
-- [Toggle adicionado para ver recomendações em controlos ou como uma lista plana](#toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list)
-- [Controlo de segurança alargado "Implementar as melhores práticas de segurança"](#expanded-security-control-implement-security-best-practices)
-- [As políticas personalizadas com metadados personalizados estão agora geralmente disponíveis](#custom-policies-with-custom-metadata-are-now-generally-available)
-- [Capacidades de análise de despejo de colisão migram para deteção de ataque sem ficheiros](#crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection)
-
-
-### <a name="alert-suppression-rules-preview"></a>Regras de supressão de alerta (pré-visualização)
-
-Esta nova funcionalidade (atualmente em pré-visualização) ajuda a reduzir a fadiga do alerta. Use regras para ocultar automaticamente alertas que são conhecidos por serem inócuos ou relacionados com atividades normais na sua organização. Isto permite-lhe focar nas ameaças mais relevantes. 
-
-Os alertas que correspondam às suas regras de supressão ativadas ainda serão gerados, mas o seu estado será definido para ser rejeitado. Pode ver o estado no portal Azure ou no entanto acede aos alertas de segurança do Seu Centro de Segurança.
-
-As regras de supressão definem os critérios para os quais os alertas devem ser automaticamente dispensados. Normalmente, usaria uma regra de supressão para:
-
-- suprimir alertas que identificou como falsos positivos
-
-- suprimir alertas que estão sendo desencadeados com demasiada frequência para ser útil
-
-Saiba mais sobre [a supressão de alertas da proteção contra ameaças do Azure Security Center](alerts-suppression-rules.md).
-
-
-### <a name="virtual-machine-vulnerability-assessment-is-now-generally-available"></a>A avaliação da vulnerabilidade da máquina virtual está agora geralmente disponível
-
-O nível padrão do Security Center inclui agora uma avaliação integrada de vulnerabilidade para máquinas virtuais sem qualquer custo adicional. Esta extensão é alimentada pela Qualys, mas reporta as suas descobertas diretamente ao Centro de Segurança. Você não precisa de uma licença Qualys ou mesmo uma conta Qualys - tudo é tratado perfeitamente dentro do Centro de Segurança.
-
-A nova solução pode digitalizar continuamente as suas máquinas virtuais para encontrar vulnerabilidades e apresentar as descobertas no Centro de Segurança. 
-
-Para implementar a solução, utilize a nova recomendação de segurança:
-
-"Permitir a solução de avaliação de vulnerabilidade incorporada em máquinas virtuais (alimentadas por Qualys)"
-
-Saiba mais sobre [a avaliação integrada de vulnerabilidade do Security Center para máquinas virtuais.](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)
-
-
-
-### <a name="changes-to-just-in-time-jit-virtual-machine-vm-access"></a>Alterações no acesso à máquina virtual (JIT) (JIT)
-
-O Security Center inclui uma funcionalidade opcional para proteger as portas de gestão dos seus VMs. Isto fornece uma defesa contra a forma mais comum de ataques de força bruta.
-
-Esta atualização traz as seguintes alterações a esta funcionalidade:
-
-- A recomendação que o aconselha a ativar o JIT num VM foi renomeada. Anteriormente, "O controlo de acesso à rede just-in-time deve ser aplicado em máquinas virtuais" é agora: "As portas de gestão das máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time".
-
-- A recomendação só é desencadeada se existirem portos de gestão abertos.
-
-Saiba mais sobre [a funcionalidade de acesso JIT.](security-center-just-in-time.md)
-
-
-### <a name="custom-recommendations-have-been-moved-to-a-separate-security-control"></a>Recomendações personalizadas foram transferidas para um controlo de segurança separado
-
-Um dos controlos de segurança introduzidos com a pontuação de segurança reforçada foi "Implementar as melhores práticas de segurança". Quaisquer recomendações personalizadas criadas para as suas subscrições foram automaticamente colocadas nesse controlo. 
-
-Para facilitar a procura das suas recomendações personalizadas, transferimo-las para um controlo de segurança dedicado, "Recomendações personalizadas". Este controlo não tem impacto na sua pontuação segura.
-
-Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização) no Azure Security Center](secure-score-security-controls.md).
-
-
-### <a name="toggle-added-to-view-recommendations-in-controls-or-as-a-flat-list"></a>Toggle adicionado para ver recomendações em controlos ou como uma lista plana
-
-Os controlos de segurança são grupos lógicos de recomendações de segurança relacionadas. Refletem as suas superfícies vulneráveis de ataque. Um controlo é um conjunto de recomendações de segurança, com instruções que o ajudam a implementar essas recomendações.
-
-Para ver imediatamente o quão bem a sua organização está a proteger cada superfície de ataque individual, reveja as pontuações para cada controlo de segurança.
-
-Por predefinição, as suas recomendações são apresentadas nos controlos de segurança. A partir desta atualização, também pode exibi-los como uma lista. Para vê-los como uma lista simples classificada pelo estado de saúde dos recursos afetados, utilize o novo "Grupo por controlos". O toggle está acima da lista no portal.
-
-Os controlos de segurança - e este alternador - fazem parte da nova experiência de pontuação segura. Lembre-se de enviar-nos o seu feedback de dentro do portal.
-
-Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização) no Azure Security Center](secure-score-security-controls.md).
-
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="As gamas IP autorizadas devem ser definidas na recomendação dos Serviços Kubernetes com a opção de correção rápida":::
-
-### <a name="expanded-security-control-implement-security-best-practices"></a>Controlo de segurança alargado "Implementar as melhores práticas de segurança" 
-
-Um dos controlos de segurança introduzidos com a pontuação de segurança reforçada é "Implementar as melhores práticas de segurança". Quando uma recomendação está neste controlo, não afeta a pontuação segura. 
-
-Com esta atualização, três recomendações saíram dos controlos em que foram inicialmente colocados, e para este controlo das boas práticas. Demos este passo porque determinámos que o risco destas três recomendações é menor do que se pensava inicialmente.
-
-Além disso, foram introduzidas duas novas recomendações e acrescentadas a este controlo.
-
-As três recomendações que se moveram são:
-
-- **O MFA deve ser ativado em contas com permissões de leitura na sua subscrição** (originalmente no controlo "Enable MFA")
-- **As contas externas com permissões de leitura devem ser removidas da sua subscrição** (originalmente no controlo "Gerir o acesso e permissões")
-- **Um máximo de 3 proprietários deve ser designado para a sua subscrição** (originalmente no controlo "Gerir o acesso e permissões")
-
-As duas novas recomendações adicionadas ao controlo são:
-
-- **A extensão de configuração do hóspede deve ser instalada em máquinas virtuais do Windows (Preview)** - A utilização da [Configuração do Hóspede Azure Policy](../governance/policy/concepts/guest-configuration.md) proporciona visibilidade dentro de máquinas virtuais para configurações de servidor e aplicação (apenas Windows).
-
-- A **Proteção de Exploração do Windows Defender deve ser ativada nas suas máquinas (Preview)** - O Windows Defender Exploit Guard aproveita o agente de configuração de convidados Azure Policy. A Exploit Guard tem quatro componentes que são projetados para bloquear dispositivos contra uma grande variedade de vetores de ataque e comportamentos de bloqueio geralmente usados em ataques de malware, ao mesmo tempo que permite às empresas equilibrar os seus requisitos de risco de segurança e produtividade (apenas Windows).
-
-Saiba mais sobre o Windows Defender Exploit Guard in [Create e implemente uma política de Exploit Guard](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
-
-Saiba mais sobre os controlos de segurança na [pontuação de segurança melhorada (pré-visualização)](secure-score-security-controls.md).
-
-
-
-### <a name="custom-policies-with-custom-metadata-are-now-generally-available"></a>As políticas personalizadas com metadados personalizados estão agora geralmente disponíveis
-
-As políticas personalizadas fazem agora parte da experiência de recomendações do Centro de Segurança, pontuação segura e o painel de padrões de conformidade regulamentar. Esta funcionalidade está agora geralmente disponível e permite-lhe alargar a cobertura de avaliação de segurança da sua organização no Security Center. 
-
-Crie uma iniciativa personalizada na política Azure, adicione políticas a ela e embarque-a no Azure Security Center, e visualize-a como recomendações.
-
-Agora também acrescentámos a opção de editar os metadados de recomendação personalizados. As opções de metadados incluem gravidade, medidas de reparação, informações de ameaças e muito mais.  
-
-Saiba mais sobre [o reforço das suas recomendações personalizadas com informações detalhadas.](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information)
-
-
-
-### <a name="crash-dump-analysis-capabilities-migrating-to-fileless-attack-detection"></a>Capacidades de análise de despejo de colisão migram para deteção de ataque sem ficheiros 
-
-Estamos a integrar as capacidades de deteção de falhas do Windows (CDA) na [deteção de ataques sem ficheiros.](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers) A análise de deteção de ataques sem ficheiros traz versões melhoradas dos seguintes alertas de segurança para máquinas Windows: Injeção de código descoberta, Módulo do Windows de mascarado detetado, Shellcode descoberto e segmento de código suspeito detetado.
-
-Alguns dos benefícios desta transição:
-
-- **Deteção proativa e oportuna de malware** - A abordagem do CDA envolveu esperar que ocorresse um acidente e, em seguida, executar análises para encontrar artefactos maliciosos. A deteção de ataques sem ficheiros traz identificação proactiva de ameaças na memória enquanto estão em execução. 
-
-- **Alertas enriquecidos** - Os alertas de segurança da deteção de ataques sem ficheiros incluem enriquecimentos que não estão disponíveis no CDA, como a informação de ligações de rede ativa. 
-
-- **Agregação de alerta** - Quando o CDA detetou vários padrões de ataque dentro de uma única lixeira de colisão, desencadeou vários alertas de segurança. A deteção de ataques sem ficheiro combina todos os padrões de ataque identificados do mesmo processo num único alerta, removendo a necessidade de correlacionar vários alertas.
-
-- **Requisitos reduzidos no seu espaço de trabalho Log Analytics** - Os despejos de crash que contenham dados potencialmente sensíveis deixarão de ser enviados para o seu espaço de trabalho Log Analytics.

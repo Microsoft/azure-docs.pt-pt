@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c62d1a0b17fda2531a963c292fbd16aaf3a551b3
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: a1fc5be93e2b9729838aa9fb3a777936003c5f45
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145995"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356404"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Compreenda os gémeos digitais e o seu gráfico gémeo
 
@@ -31,7 +31,7 @@ Depois de criar e carregar um modelo, a sua aplicação de clientes pode criar u
 
 Os gémeos estão ligados a um gráfico gémeo pelas suas relações. As relações que um gémeo pode ter são definidas como parte do seu modelo.  
 
-Por exemplo, o modelo *Floor* pode definir uma relação *de contenção* que visa gémeos de *tipo quarto* . Com esta definição, a Azure Digital Twins permitirá criar relações *de* qualquer *nó* gémeo do Chão a *qualquer* quarto gémeo (incluindo gémeos que são de subtipos *de Quarto).* 
+Por exemplo, o modelo *Floor* pode definir uma relação *de contenção* que visa gémeos de *tipo quarto*. Com esta definição, a Azure Digital Twins permitirá criar relações *de* qualquer *nó* gémeo do Chão a *qualquer* quarto gémeo (incluindo gémeos que são de subtipos *de Quarto).* 
 
 O resultado deste processo é um conjunto de nós (os gémeos digitais) ligados através de bordas (suas relações) num gráfico.
 
@@ -43,13 +43,13 @@ Esta secção mostra o que parece criar gémeos digitais e relacionamentos a par
 
 ### <a name="create-digital-twins"></a>Criar gémeos digitais
 
-Abaixo está um corte de código de cliente que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para instantaneaizar um twin de *tipo Room* .
+Abaixo está um corte de código de cliente que usa as [APIs DigitalTwins](/rest/api/digital-twins/dataplane/twins) para instantaneaizar um twin de *tipo Room*.
 
 Pode inicializar as propriedades de um gémeo quando é criado, ou defini-las mais tarde. Para criar um gémeo com propriedades inicializadas, crie um documento JSON que forneça os valores de inicialização necessários.
 
 [!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
-Você também pode usar uma classe de ajudante chamada `BasicDigitalTwin` para armazenar campos de propriedade em um objeto "twin" mais diretamente, como uma alternativa para usar um dicionário. Para obter mais informações sobre a classe de ajudante e exemplos da sua utilização, consulte a secção [*Digital Twin*](how-to-manage-twin.md#create-a-digital-twin) de *How-to: Manage digital twins* .
+Você também pode usar uma classe de ajudante chamada `BasicDigitalTwin` para armazenar campos de propriedade em um objeto "twin" mais diretamente, como uma alternativa para usar um dicionário. Para obter mais informações sobre a classe de ajudante e exemplos da sua utilização, consulte a secção [*Digital Twin*](how-to-manage-twin.md#create-a-digital-twin) de *How-to: Manage digital twins*.
 
 >[!NOTE]
 >Enquanto as propriedades gémeas são tratadas como opcionais e, portanto, não têm de ser inicializadas, quaisquer componentes no **twin** precisam de ser [definidos](concepts-models.md#elements-of-a-model) quando o gémeo é criado. Podem ser objetos vazios, mas os próprios componentes devem existir.
@@ -71,7 +71,7 @@ var relationship = new BasicRelationship
 try
 {
     string relId = $"GroundFloor-contains-Cafe";
-    await client.CreateOrReplaceRelationshipAsync("GroundFloor", relId, relationship);
+    await client.CreateOrReplaceRelationshipAsync<BasicRelationship>("GroundFloor", relId, relationship);
 } catch(ErrorResponseException e)
 {
     Console.WriteLine($"*** Error creating relationship: {e.Response.StatusCode}");
@@ -86,7 +86,7 @@ Os dados digitais de gémeos e de relacionamento são armazenados no formato JSO
 
 Quando representado como um objeto JSON, um gémeo digital apresentará os seguintes campos:
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
 | `$dtId` | Uma cadeia fornecida pelo utilizador que representa o ID do gémeo digital |
 | `$etag` | Campo HTTP padrão atribuído pelo servidor web |
@@ -153,7 +153,7 @@ Aqui está um exemplo de um gémeo digital formatado como um objeto JSON:
 
 Quando representado como um objeto JSON, uma relação de um gémeo digital mostrará os seguintes campos:
 
-| Nome do campo | Description |
+| Nome do campo | Descrição |
 | --- | --- |
 | `$relationshipId` | Uma cadeia fornecida pelo utilizador que representa a identificação desta relação. Esta cadeia é única no contexto da fonte digital twin, o que também significa que `sourceId`  +  `relationshipId` é única no contexto da instância Azure Digital Twins. |
 | `$etag` | Campo HTTP padrão atribuído pelo servidor web |
@@ -175,7 +175,7 @@ Aqui está um exemplo de uma relação formatada como um objeto JSON:
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja como gerir elementos gráficos com APIs Azure Digital Twin:
 * [*Como fazer: Gerir gémeos digitais*](how-to-manage-twin.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd367b337a0f26323411111ea7eb1120bf6d75d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965187"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356591"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminar palavras-passe más usando a Azure Ative Directory Password Protection
 
@@ -202,7 +202,7 @@ Vamos olhar um exemplo ligeiramente diferente para mostrar como a complexidade a
 > [!IMPORTANT]
 > O algoritmo de senha proibido, juntamente com a lista global de senhas proibidas, pode e fazer mudanças a qualquer momento em Azure com base em análises e pesquisas de segurança em curso.
 >
-> Para o serviço de agente DC no local em cenários híbridos, os algoritmos atualizados só fazem efeito após a reinstalação do software do agente DC.
+> Para o serviço de agente DC no local em cenários híbridos, os algoritmos atualizados só fazem efeito após a atualização do software do agente DC.
 
 ## <a name="what-do-users-see"></a>O que os utilizadores veem
 
@@ -222,7 +222,7 @@ Quando um utilizador tenta redefinir uma palavra-passe para algo que seria proib
 
 Informações adicionais de licenciamento, incluindo custos, podem ser encontradas no site de preços do [Azure Ative Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para começar a usar uma lista de senhas proibidas personalizadas, complete o seguinte tutorial:
 

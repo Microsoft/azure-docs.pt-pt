@@ -10,12 +10,13 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
 ms.date: 07/10/2020
-ms.openlocfilehash: 6ad3e0f3077e6f65642496d4da097fa713bddd53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: automl
+ms.openlocfilehash: 5577a0d9270f3e4566bf57876b8abc3d1a3ae4be
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90979076"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356506"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsão da procura com aprendizagem automática de máquinas
 
@@ -79,7 +80,7 @@ Antes de configurar a sua experiência, faça o upload do seu ficheiro de dados 
         ---|---|---
         Formato do ficheiro|Define o layout e o tipo de dados armazenados num ficheiro.| Delimitado
         Delimitador|Um ou mais caracteres para especificar a fronteira entre &nbsp; regiões separadas e independentes em texto simples ou outros fluxos de dados. |Ponto
-        Encoding|Identifica o bit da tabela de esquemas de caracteres para usar para ler o seu conjunto de dados.| UTF-8
+        Codificação|Identifica o bit da tabela de esquemas de caracteres para usar para ler o seu conjunto de dados.| UTF-8
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Use cabeçalhos do primeiro ficheiro
         Saltar filas | Indica quantas, se houver, são ignoradas no conjunto de dados.| Nenhum
 
@@ -144,12 +145,12 @@ Complete a configuração para a sua experiência automatizada de ML especifican
     Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|Raiz normalizada significa erro quadrado
     Explicar o melhor modelo| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar
     Algoritmos bloqueados | Algoritmos que pretende excluir do trabalho de formação| Árvores aleatórias extremas
-    Definições de previsão adicionais| Estas definições ajudam a melhorar a precisão do seu modelo <br><br> _**Previsão de meta fica para trás:**_ até onde quer construir os lags da variável-alvo <br> _**Janela de rolamento do alvo**_: especifica o tamanho da janela rolante sobre as características, tais como o *máximo, min* e *soma,* que serão geradas. | <br><br>Previsões &nbsp; de metas &nbsp; desfasamento: Nenhuma <br> Tamanho &nbsp; da janela de rolamento do &nbsp; &nbsp; alvo: Nenhum
+    Definições de previsão adicionais| Estas definições ajudam a melhorar a precisão do seu modelo <br><br> _**Previsão de meta fica para trás:**_ até onde quer construir os lags da variável-alvo <br> _**Janela de rolamento do alvo**_ : especifica o tamanho da janela rolante sobre as características, tais como o *máximo, min* e *soma,* que serão geradas. | <br><br>Previsões &nbsp; de metas &nbsp; desfasamento: Nenhuma <br> Tamanho &nbsp; da janela de rolamento do &nbsp; &nbsp; alvo: Nenhum
     Critério de saída| Se um critério for cumprido, o trabalho de formação é interrompido. |Tempo &nbsp; de trabalho de &nbsp; formação (horas): 3 <br> Limiar de &nbsp; pontuação &nbsp; métrica: Nenhum
     Validação | Escolha um tipo de validação cruzada e número de testes.|Tipo de validação:<br>&nbsp;k-dobrar &nbsp; validação cruzada <br> <br> Número de validações: 5
     Simultaneidade| O número máximo de iterações paralelas executadas por iteração| &nbsp;Iterações &nbsp; concorrâneas máximas: 6
     
-    Selecione **Guardar**.
+    Selecione **Save** (Guardar).
 
 ## <a name="run-experiment"></a>Experiência de execução
 
@@ -224,7 +225,7 @@ Elimine apenas a instância de implantação do estúdio Azure Machine Learning,
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste tutorial, você usou ML automatizado no estúdio Azure Machine Learning para criar e implementar um modelo de previsão de séries temporizadas que prevê a procura de aluguer de partilha de bicicletas. 
 

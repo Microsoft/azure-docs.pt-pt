@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/26/2020
 ms.author: memildin
-ms.openlocfilehash: 549a95b0b2ffc2b2d2bf5670a961e0454683e33a
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 99ede5650cb3250720a75adc6626e08dd0da9897
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026722"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358291"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -31,50 +31,8 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 ## <a name="planned-changes"></a>Alterações planeadas
 
-### <a name="recommendations-related-to-azure-security-benchmark-to-be-added-preview"></a>Recomendações relacionadas com o Benchmark de Segurança Azure a adicionar (pré-visualização)
+Nada para partilhar neste momento. 
 
-| Aspeto | Detalhes |
-|---------|---------|
-|Data do anúncio | 26 de outubro de 2020  |
-|Data para esta alteração  |  novembro de 2020 |
-|Impacto     | Potencialmente, mais recomendações para rever.<br>Sem impacto imediato na pontuação segura - As recomendações de pré-visualização não afetam a sua pontuação segura.<br>Sem impacto imediato no estado de saúde dos seus recursos - As recomendações de pré-visualização não tornam um recurso "insalubre".|
-|  |  |
-
-A azure Security Benchmark é o conjunto de diretrizes específicas da Microsoft para a segurança e conformidade das melhores práticas com base em quadros comuns de conformidade. [Saiba mais sobre a Referência de Segurança do Azure](../security/benchmarks/introduction.md).
-
-As seguintes 18 novas recomendações serão adicionadas ao Centro de Segurança para aumentar a cobertura do benchmark.
-
-As recomendações de pré-visualização não tornam um recurso insalubre, e não estão incluídas nos cálculos da sua pontuação segura. Remedia-os sempre que possível, para que quando o período de pré-visualização terminar contribuam para a sua pontuação. Saiba mais sobre como responder a estas recomendações em [recomendações remedias no Azure Security Center](security-center-remediate-recommendations.md).
-
-- A azure Backup deve ser ativado para máquinas virtuais
-- A ligação SSL da Aplicação deve ser ativada para servidores de base de dados MySQL
-- A ligação SSL da Aplicação deve ser ativada para servidores de base de dados PostgreSQL
-- Backup geo-redundante deve ser ativado para Azure Database for MariaDB
-- Backup geo-redundante deve ser ativado para Azure Database para MySQL
-- A cópia de segurança geo-redundante deve ser ativada para a Base de Dados Azure para PostgreSQL
-- Java deve ser atualizado para a versão mais recente para a sua aplicação API
-- Java deve ser atualizado para a versão mais recente para a sua aplicação de função
-- Java deve ser atualizado para a versão mais recente para a sua aplicação web
-- PHP deve ser atualizado para a versão mais recente para a sua aplicação API
-- PHP deve ser atualizado para a versão mais recente para a sua aplicação web
-- O ponto final privado deve ser ativado para servidores MariaDB
-- O ponto final privado deve ser ativado para servidores MySQL
-- O ponto final privado deve ser ativado para servidores PostgreSQL
-- Python deve ser atualizado para a versão mais recente para a sua aplicação API
-- Python deve ser atualizado para a versão mais recente para a sua aplicação de função
-- Python deve ser atualizado para a versão mais recente para a sua aplicação web
-- As aplicações web devem solicitar um certificado SSL para todos os pedidos de entrada
-
-Links relacionados:
-
-- [Saiba mais sobre a Azure Security Benchmark](../security/benchmarks/introduction.md)
-- [Saiba mais sobre as aplicações AZURE API](../app-service/app-service-web-tutorial-rest-api.md)
-- [Saiba mais sobre aplicações de função Azure](../azure-functions/functions-overview.md)
-- [Saiba mais sobre as aplicações web Azure](../app-service/overview.md)
-- [Saiba mais sobre a Azure Database for MariaDB](../mariadb/overview.md)
-- [Saiba mais sobre a Base de Dados Azure para o MySQL](../mysql/overview.md)
-- [Saiba mais sobre a Base de Dados Azure para PostgreSQL](../postgresql/overview.md)
-
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para todas as alterações recentes ao produto, veja [o que há de novo no Azure Security Center?](release-notes.md)

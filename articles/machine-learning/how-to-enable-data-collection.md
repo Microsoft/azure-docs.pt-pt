@@ -10,13 +10,13 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: be2afad7e7cb08d9c677e589846f3d67cf43e708
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: 9a9ef4dbe7f6b97675d395baf441530e5bd79320
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314230"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357648"
 ---
 # <a name="collect-data-from-models-in-production"></a>Recolher dados de modelos em produção
 
@@ -210,6 +210,6 @@ Pode escolher uma ferramenta da sua preferência para analisar os dados recolhid
 
 1. Siga os passos no modelo para visualizar e analisar os seus dados.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Detete a deriva de dados](how-to-monitor-datasets.md) nos dados recolhidos.

@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348071"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358461"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Criar ciclos que repetem as ações do fluxo de trabalho e processam as matrizes no Azure Logic Apps
 
 Para processar um conjunto na sua aplicação lógica, pode criar um [loop "Foreach".](#foreach-loop) Este loop repete uma ou mais ações em cada item da matriz. Para o limite do número de itens de matriz que um laço "Foreach" pode processar, consulte [Concurrency, looping e limites de debacação](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Para repetir ações até que uma condição seja satisfeita ou um estado mude, pode criar um [loop "Até".](#until-loop) A sua aplicação lógica executa primeiro todas as ações dentro do loop, e depois verifica a condição ou estado. Se a condição for cumprida, o ciclo para. Caso contrário, o laço repete-se. Para o limite do número de loops "Até" que uma aplicação lógica pode ter, ver [Concurrency, looping e debatching limites](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Para repetir ações até que uma condição seja satisfeita ou um estado mude, pode criar um [loop "Até".](#until-loop) A sua aplicação lógica executa primeiro todas as ações dentro do loop, e depois verifica a condição ou estado. Se a condição for cumprida, o ciclo para. Caso contrário, o laço repete-se. Para os limites padrão e máximos no número de loops "Até" que uma aplicação lógica pode ter, consulte [Concurrency, looping e debatching limites](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
 > Se tiver um gatilho que receba uma matriz e queira executar um fluxo de trabalho para cada item de matriz, pode *debaste* essa matriz com a propriedade do gatilho [ **SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
@@ -152,7 +152,7 @@ Se estiver a trabalhar com a definição JSON da sua aplicação lógica, pode u
 
 ## <a name="until-loop"></a>Loop "Até"
   
-Para executar e repetir ações até que uma condição seja satisfeita ou um estado mude, coloque essas ações num loop "Até". A sua aplicação lógica executa primeiro todas e quaisquer ações dentro do loop, e depois verifica a condição ou estado. Se a condição for cumprida, o ciclo para. Caso contrário, o laço repete-se. Para o limite do número de loops "Até" que uma aplicação lógica pode ter, ver [Concurrency, looping e debatching limites](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Para executar e repetir ações até que uma condição seja satisfeita ou um estado mude, coloque essas ações num loop "Até". A sua aplicação lógica executa primeiro todas e quaisquer ações dentro do loop, e depois verifica a condição ou estado. Se a condição for cumprida, o ciclo para. Caso contrário, o laço repete-se. Para os limites padrão e máximos no número de loops "Até" que uma aplicação lógica pode ter, consulte [Concurrency, looping e debatching limites](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Aqui estão alguns cenários comuns onde você pode usar um loop "Até":
 
@@ -245,17 +245,19 @@ A partir das 8:00 todos os dias, este exemplo de aplicação lógica incrementa 
 
       ![E-mail recebido](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
+<a name="prevent-endless-loops"></a>
+
 ## <a name="prevent-endless-loops"></a>Evitar ciclos intermináveis
 
-Um ciclo "Até" tem limites predefinidos que impedem a execução se alguma destas condições acontecer:
+O laço "Até" para a execução com base nestas propriedades, por isso certifique-se de que define os seus valores em conformidade:
 
-| Propriedade | Valor predefinido | Descrição | 
-| -------- | ------------- | ----------- | 
-| **Contagem** | 60 | O maior número de loops que correm antes da saída do loop. O padrão é de 60 ciclos. | 
-| **Intervalo de tempo** | PT1H | A maior quantidade de tempo para dar um loop antes da saída do circuito. O padrão é de uma hora e é especificado no formato ISO 8601. <p>O valor de tempo limite é avaliado para cada ciclo de ciclo. Se qualquer ação no circuito demorar mais do que o limite de tempo, o ciclo atual não para. No entanto, o próximo ciclo não começa porque a condição limite não está cumprida. | 
-|||| 
+* **Contagem** : Este valor é o maior número de loops que funcionam antes da saída do loop. Para os limites padrão e máximos no número de loops "Até" que uma aplicação lógica pode ter, consulte [Concurrency, looping e debatching limites](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Para alterar estes limites predefinidos, escolha **Mostrar opções avançadas** na forma de ação do loop.
+* **Tempo limite** : Este valor é o maior tempo que o loop corre antes de sair e é especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Para os limites padrão e máximos no valor **timeout,** consulte [Os limites de Concurrency, looping e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+  O valor de tempo limite é avaliado para cada ciclo de ciclo. Se qualquer ação no circuito demorar mais do que o limite de tempo, o ciclo atual não para. No entanto, o próximo ciclo não começa porque a condição limite não está cumprida.
+
+Para alterar estes limites, na ação em loop, selecione **Limites de alteração**.
 
 <a name="until-json"></a>
 

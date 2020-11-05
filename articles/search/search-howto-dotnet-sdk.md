@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 47cface4efbf38f2cec630745d498db674c936d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4b3256591c0aa2536fd42bcdbb2ef339fc1d5c48
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791958"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356812"
 ---
 # <a name="how-to-use-azuresearchdocuments-in-a-c-net-application"></a>Como utilizar Azure.Search.Documents numa aplicação C# .NET
 
@@ -60,7 +60,7 @@ Azure SDK para .NET está em conformidade com [a Norma .NET 2.0,](/dotnet/standa
 
 ## <a name="example-application"></a>Aplicação de exemplo
 
-Este artigo "ensina por exemplo", baseando-se no exemplo de código [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo/v11) no GitHub para ilustrar conceitos fundamentais na Pesquisa Cognitiva Azure - especificamente, como criar, carregar e consultar um índice de pesquisa.
+Este artigo "ensina por exemplo", baseando-se no exemplo de código [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) no GitHub para ilustrar conceitos fundamentais na Pesquisa Cognitiva Azure - especificamente, como criar, carregar e consultar um índice de pesquisa.
 
 Para o resto deste artigo, assuma um novo índice denominado "hotéis", povoado com alguns documentos, com várias consultas que coincidem com os resultados.
 
@@ -621,7 +621,7 @@ WriteDocuments(results);
 
 Esta secção conclui esta introdução ao .NET SDK, mas não pares aqui. A próxima secção sugere recursos adicionais para aprender mais sobre programação com Azure Cognitive Search.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 + Consulte a documentação de referência da API para [Azure.Search.Documents](/dotnet/api/azure.search.documents) e [REST API](/rest/api/searchservice/)
 

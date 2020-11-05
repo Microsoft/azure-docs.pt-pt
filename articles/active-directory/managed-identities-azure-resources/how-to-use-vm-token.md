@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0769366ad56e1b7431dbfa7c95f1256c509d24fa
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266294"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358172"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Como utilizar identidades geridas para recursos Azure num VM Azure para adquirir um token de acesso 
 
@@ -64,7 +64,7 @@ Uma aplicação do cliente pode solicitar identidades geridas para [o token de a
 
 A interface fundamental para adquirir um token de acesso baseia-se no REST, tornando-o acessível a qualquer aplicação do cliente em execução no VM que possa fazer chamadas HTTP REST. Isto é semelhante ao modelo de programação AZure AD, exceto que o cliente usa um ponto final na máquina virtual (vs um ponto final AZure AD).
 
-Pedido de amostra utilizando o ponto final do Serviço de Metadados de Instância Azure (IMDS) *(recomendado)*:
+Pedido de amostra utilizando o ponto final do Serviço de Metadados de Instância Azure (IMDS) *(recomendado)* :
 
 ```
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
@@ -81,7 +81,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `client_id` | (Opcional) Um parâmetro de cadeia de consulta, indicando a client_id da identidade gerida para a quais gostaria de ser o símbolo. Necessário, se o seu VM tiver várias identidades geridas atribuídas pelo utilizador.|
 | `mi_res_id` | (Opcional) Um parâmetro de cadeia de consulta, indicando o mi_res_id (ID de recurso Azure) da identidade gerida para a quais gostaria de ser o símbolo. Necessário, se o seu VM tiver várias identidades geridas atribuídas pelo utilizador. |
 
-Pedido de amostra utilizando as identidades geridas para o ponto final de extensão VM dos recursos Azure *(previsto para a depreciação em janeiro de 2019)*:
+Pedido de amostra utilizando as identidades geridas para o ponto final de extensão VM dos recursos Azure *(previsto para a depreciação em janeiro de 2019)* :
 
 ```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
@@ -400,6 +400,6 @@ Para reefaça, recomendamos a seguinte estratégia:
 Consulte [os serviços Azure que suportam a autenticação Azure AD](./services-support-managed-identities.md) para uma lista de recursos que suportam a Azure AD e foram testados com identidades geridas para recursos Azure, e respetivas identidades de recursos.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - Para permitir identidades geridas para recursos Azure num Azure VM, consulte [identidades geridas configure para recursos Azure num VM utilizando o portal Azure](qs-configure-portal-windows-vm.md).

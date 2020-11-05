@@ -1,18 +1,18 @@
 ---
 title: Modelação de dados de gráficos para Azure Cosmos DB Gremlin API
 description: Saiba como modelar uma base de dados de gráficos utilizando a API API API AZure Cosmos DB Gremlin. Este artigo descreve quando usar uma base de dados de gráficos e as melhores práticas para modelar entidades e relacionamentos.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: jasonh
-ms.openlocfilehash: 70cbe3a7dae243105a659e1363a44f17f03758e2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: chrande
+ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129648"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357050"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modelação de dados de gráficos para Azure Cosmos DB Gremlin API
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -36,7 +36,7 @@ Uma solução de base de dados de gráficos pode ser aplicada da melhor forma se
 * Há **muitas relações** entre entidades.
 * Existem **requisitos de escrita e leitura tanto nas entidades como nas relações.** 
 
-Se os critérios acima referidos forem satisfeitos, é provável que uma abordagem de base de dados de gráficos proporcione vantagens para **a complexidade da consulta,** **escalabilidade do modelo de dados** e **desempenho de consulta** .
+Se os critérios acima referidos forem satisfeitos, é provável que uma abordagem de base de dados de gráficos proporcione vantagens para **a complexidade da consulta,** **escalabilidade do modelo de dados** e **desempenho de consulta**.
 
 O próximo passo é determinar se o gráfico vai ser usado para fins analíticos ou transacionais. Se o gráfico se destinar a ser utilizado para trabalhos pesados de cálculo e processamento de dados, valeria a pena explorar o [conector Cosmos DB Spark](./spark-connector.md) e a utilização da [biblioteca GraphX](https://spark.apache.org/graphx/). 
 
@@ -68,7 +68,7 @@ Seguem-se um conjunto de diretrizes para abordar a modelação de dados para uma
 
 ### <a name="modeling-vertices-and-properties"></a>Modelação de vértices e propriedades 
 
-O primeiro passo para um modelo de dados gráficos é mapear todas as entidades identificadas para um **objeto vértice** . Um a um mapeamento de todas as entidades para vértices deve ser um passo inicial e sujeito a mudança.
+O primeiro passo para um modelo de dados gráficos é mapear todas as entidades identificadas para um **objeto vértice**. Um a um mapeamento de todas as entidades para vértices deve ser um passo inicial e sujeito a mudança.
 
 Uma armadilha comum é mapear propriedades de uma única entidade como vértices separados. Considere o exemplo abaixo, onde a mesma entidade está representada de duas maneiras diferentes:
 
@@ -78,7 +78,7 @@ Uma armadilha comum é mapear propriedades de uma única entidade como vértices
 
 * **Vértices incorporados à propriedade** : Esta abordagem tira partido da lista de pares de valores-chave para representar todas as propriedades da entidade dentro de um vértice. Esta abordagem proporciona uma complexidade reduzida do modelo, o que levará a consultas mais simples e a travessias mais económicas.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="O diagrama mostra o vértice Luis do diagrama anterior com i d, etiqueta e propriedades." border="false":::
 
 > [!NOTE]
 > Os exemplos acima mostram um modelo de gráfico simplificado para mostrar apenas a comparação entre as duas formas de dividir as propriedades da entidade.
@@ -106,7 +106,7 @@ A utilização de rótulos de relacionamento descritivos pode melhorar a eficiê
 * Use termos não genéricos para rotular uma relação.
 * Associar o rótulo do vértice de origem ao rótulo do vértice-alvo com o nome da relação.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Modelo de entidade com vértices para propriedades." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Exemplos de rotulagem de relacionamento." border="false":::
 
 Quanto mais específica o rótulo que o atravessador utilizar para filtrar as bordas, melhor. Esta decisão pode ter um impacto significativo também no custo da consulta. Pode avaliar o custo da consulta a qualquer momento [utilizando o passo de execuçãoProfile](graph-execution-profile.md).
 

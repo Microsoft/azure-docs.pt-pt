@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: f1da7149a41ec8dd08e307394cba3e7feabec42a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320708"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357951"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Chaves de acesso à conta de armazenamento regenerar
 
@@ -26,7 +26,8 @@ Saiba como alterar as teclas de acesso para as contas de Armazenamento Azure uti
 Por razões de segurança, poderá ter de alterar as chaves de acesso para uma conta de Armazenamento Azure. Ao regenerar a chave de acesso, o Azure Machine Learning deve ser atualizado para utilizar a nova chave. O Azure Machine Learning pode estar a usar a conta de armazenamento tanto para o armazenamento do modelo como para uma loja de dados.
 
 > [!IMPORTANT]
-> As credenciais registradas com datas são guardadas no seu Cofre chave Azure associado ao espaço de trabalho. Se tiver uma eliminação suave ativada para o seu Cofre de Chaves, [certifique-se](../key-vault/general/soft-delete-overview.md) de seguir este artigo para atualizar as credenciais. Não registar a datastore e reregistrá-la com o mesmo nome falhará.
+
+> As credenciais registadas nas datas são guardadas no cofre da chave Azure associado ao espaço de trabalho. Se tiver [uma eliminação suave](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) ativada para o seu Cofre de Chaves, este artigo fornece instruções para atualizar credenciais. Se não registar a datastore e tentar reregistrá-la com o mesmo nome, esta ação falhará. Consulte [o Soft Delete para obter um cofre de teclas existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) para saber como permitir a eliminação suave neste cenário.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -139,6 +140,6 @@ Para atualizar a Azure Machine Learning para utilizar a nova chave, utilize os s
         
             Se estiver a atualizar credenciais para a sua **datastore predefinido,** complete este passo e repita o passo 2b para ressíncar a sua nova tecla com a datastore predefinido do espaço de trabalho. 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Para obter mais informações sobre o registo de datastores, consulte a [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py) referência de classe.

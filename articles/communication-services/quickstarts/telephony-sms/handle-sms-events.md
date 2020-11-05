@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e66d5c4dd4fc1c6c641da975b0ac2254f459642a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e153c873305cc128ce97ae7c6a907a8f592f8b32
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976934"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357475"
 ---
 # <a name="quickstart-handle-sms-events"></a>Quickstart: Lidar com eventos DE SMS
 
@@ -45,7 +45,7 @@ No portal do Azure:
 4. Localize **Microsoft.EventGrid**.
 5. Se não estiver registado, selecione **Registar**. 
 
-Pode demorar algum tempo para o registo terminar. Selecione **Atualizar** para atualizar o estado. Quando **Estado** for **Registado**, está preparado para continuar.
+Pode demorar algum tempo para o registo terminar. Selecione **Atualizar** para atualizar o estado. Quando **Estado** for **Registado** , está preparado para continuar.
 
 ### <a name="event-grid-viewer-deployment"></a>Implementação do espectador de grelha de evento
 
@@ -63,21 +63,23 @@ Na página **'Criar Subscrição de** Eventos', insira um **nome** para a subscr
 
 Pode subscrever eventos específicos para dizer à Grade de Eventos quais dos eventos SMS que pretende rastrear e para onde enviar os eventos. Selecione os eventos que pretende subscrever no menu suspenso. Para SMS terá a opção de escolher `SMS Received` e `SMS Delivery Report Received` . 
 
+Se for solicitado a fornecer um **Nome tópico do sistema,** sinta-se à vontade para fornecer um identificador único que pode usar opcionalmente para filtrar eventos após a sua emissão.
+
 Confira a lista completa de [eventos suportados pelos Serviços de Comunicação Azure.](../../concepts/event-handling.md)
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Screenshot mostrando a seleção do botão de subscrição do evento dentro da página de eventos de um recurso.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-eventsub.png" alt-text="Screenshot mostrando o relatório de entrega de SMS Recebido e SMS Recebeu tipos de eventos sendo selecionados.":::
 
 Selecione **Web Hook** para **o tipo Endpoint**. 
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Screenshot mostrando a seleção do botão de subscrição do evento dentro da página de eventos de um recurso.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-linkwebhook.png" alt-text="Screenshot mostrando o campo Endpoint Type a ser definido para Web Hook.":::
 
-Para **Endpoint,** clique em **Selecionar um ponto final**e insira o URL da sua aplicação web.
+Para **Endpoint,** clique em **Selecionar um ponto final** e insira o URL da sua aplicação web.
 
 Neste caso, usaremos o URL da amostra de visualização da grelha de [eventos Azure](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que configuramos mais cedo no arranque rápido. O URL da amostra estará no formato: `https://{{site-name}}.azurewebsites.net/api/updates`
 
 Em seguida, **selecione Confirmar Seleção**.
 
-:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Screenshot mostrando a seleção do botão de subscrição do evento dentro da página de eventos de um recurso.":::
+:::image type="content" source="./media/handle-sms-events/select-events-create-selectwebhook-epadd.png" alt-text="Screenshot mostrando um ponto final do Web Hook.":::
 
 ## <a name="viewing-sms-events"></a>Visualização de eventos de SMS
 
@@ -94,17 +96,17 @@ Confira a lista completa de [eventos suportados pelos Serviços de Comunicação
 
 Assim que completares qualquer ação acima, vais reparar nisso `SMS Received` e `SMS Delivery Report Received` os eventos são enviados para o teu ponto final. Estes eventos vão aparecer na amostra de [espectadores de grelha de eventos Azure](https://docs.microsoft.com/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/) que criamos no início. Pode premir o ícone dos olhos ao lado do evento para ver toda a carga útil. Os eventos serão assim:
 
-:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot mostrando a seleção do botão de subscrição do evento dentro da página de eventos de um recurso.":::
+:::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot mostrando o Esquema de Grelha de Evento para um Evento RECEBIDO POR SMS.":::
 
-:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot mostrando a seleção do botão de subscrição do evento dentro da página de eventos de um recurso.":::
+:::image type="content" source="./media/handle-sms-events/sms-delivery-report-received.png" alt-text="Screenshot mostrando o esquema da grelha de evento para um evento de relatório de entrega de SMS.":::
 
 Saiba mais sobre os esquemas de [eventos e outros conceitos de eventos.](../../concepts/event-handling.md)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../create-communication-resource.md#clean-up-resources)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a consumir eventos de SMS. Pode receber mensagens SMS criando uma subscrição de Grade de Eventos.
 
