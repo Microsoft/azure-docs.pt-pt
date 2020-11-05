@@ -1,7 +1,7 @@
 ---
 title: Comboio com conjuntos de dados azureml
 titleSuffix: Azure Machine Learning
-description: Saiba como utilizar conjuntos de dados em formação
+description: Saiba como disponibilizar os seus dados ao seu computação local ou remoto para formação de modelos ML com conjuntos de dados Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,13 +11,13 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 70fd8796eb4d17662697410bf97caee835e998ab
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: bf1dcb34b762c3dcae39316d804b617edbf2302d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311335"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360739"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de dados em Azure Machine Learning
 
@@ -256,7 +256,7 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 Os [cadernos de conjuntos de dados](https://aka.ms/dataset-tutorial) demonstram e expandem-se sobre conceitos neste artigo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Modelos de aprendizagem automática de máquinas](how-to-auto-train-remote.md) de comboio com Separadors.
 

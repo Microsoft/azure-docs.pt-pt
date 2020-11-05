@@ -1,7 +1,7 @@
 ---
 title: Registar experimentações e métricas de ML
 titleSuffix: Azure Machine Learning
-description: Monitorize as suas experimentações do Azure ML e as métricas de execução para melhorar o processo de criação de modelos. Adicione o registo ao script de preparação com run.log, Run.start_logging ou ScriptRunConfig.
+description: Ativar o registo no seu treino de ML para monitorizar as métricas de execução em tempo real e para ajudar a diagnosticar erros e avisos.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,14 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 6680bdc525c6f07b8330277056413f886412551b
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: deeee689c27008ab71df0a050be3d7a6b5109307
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318436"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361068"
 ---
-# <a name="enable-logging-in-azure-ml-training-runs"></a>Ativar o registo nas execuções de preparação do Azure ML
+# <a name="enable-logging-in-ml-training-runs"></a>Permitir o registo em cursos de treino de ML
 
 
 O SDK Python do Azure Machine Learning permite-lhe registar informações em tempo real com o pacote de registos Python predefinido e a funcionalidade específica do SDK. Pode registar localmente e enviar registos para a sua área de trabalho no portal.

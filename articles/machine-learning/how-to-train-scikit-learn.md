@@ -10,12 +10,12 @@ author: jpe316
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0fb7dfb24a3c0a0b73b5fb18924f233080f73e80
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 91a9957c7a68f1752d7a6b9ea66910ec642b7bd1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314450"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360909"
 ---
 # <a name="train-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Treine modelos de aprendizagem de scikit em escala com Azure Machine Learning
 
@@ -71,6 +71,8 @@ Opcionalmente, a Azure ML fornece ambientes pré-construídos e curados se não 
 Se quiser utilizar um ambiente curado, pode executar o seguinte comando:
 
 ```python
+from azureml.core import Environment
+
 sklearn_env = Environment.get(workspace=ws, name='AzureML-Tutorial')
 ```
 
@@ -197,7 +199,7 @@ NOTA: Estas dependências estão incluídas no recipiente de inferência scikit-
 A forma completa [de como](how-to-deploy-and-where.md) fazer cobre a implantação em Azure Machine Learning em maior profundidade.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, treinou e registou um modelo de aprendizagem de scikit, e aprendeu sobre opções de implementação. Veja estes outros artigos para saber mais sobre Azure Machine Learning.
 

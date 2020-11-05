@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Gremlin API com PHP - Azure Cosmos DB'
 description: Este início rápido mostra como utilizar a API do Gremlin do Azure Cosmos DB para criar uma aplicação de consola com o portal do Azure e PHP
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2019
-ms.author: jasonh
-ms.openlocfilehash: f4bf5ebeb3cda8507b79a7021dd506146ecb2a36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: chrande
+ms.openlocfilehash: dfb7b530ce7d907407eef987b5df8af245c90950
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93131314"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360841"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Quickstart: Criar uma base de dados de gráficos em Azure Cosmos DB usando PHP e o portal Azure
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -103,7 +103,7 @@ Este passo é opcional. Se estiver interessado em aprender de que forma os recur
 
 Agora, regresse ao portal do Azure para obter as informações da ligação e copie-as para a aplicação. Estas definições permitem à aplicação comunicar com a base de dados alojada.
 
-1. No [portal do Azure](https://portal.azure.com/), clique em **Chaves** . 
+1. No [portal do Azure](https://portal.azure.com/), clique em **Chaves**. 
 
     Copie a primeira parte do valor do URI.
 
@@ -192,19 +192,19 @@ Agora, regresse ao portal do Azure para obter as informações da ligação e co
 
 Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e adicionar mais pontos de dados.
 
-1. Clique em **Data Explorer** , expanda **sample-graph** , clique em **Gráfico** e clique em **Aplicar Filtro** . 
+1. Clique em **Data Explorer** , expanda **sample-graph** , clique em **Gráfico** e clique em **Aplicar Filtro**. 
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-expanded.png" alt-text="A screenshot mostra gráfico selecionado a partir do A P I com a opção de Aplicar Filtro.":::
 
 2. Na lista **Resultados** , repare nos utilizadores novos que são adicionados ao gráfico. Selecione **Ben** e note que estão ligados ao Robin. Pode mover os vértices ao redor ao arrastar e largar, ampliar e reduzir ao deslocar a roda do rato e expandir o tamanho do gráfico com a seta dupla. 
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer-new.png" alt-text="Vértices novos no gráfico no Data Explorer no portal do Azure":::
 
 3. Vamos adicionar alguns utilizadores novos. Clique no botão **Vértice Novo** para adicionar os dados ao gráfico.
 
-   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
+   :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-new-vertex.png" alt-text="A screenshot mostra o painel New Vertex onde pode introduzir valores.":::
 
-4. Introduza uma etiqueta de *pessoa* .
+4. Introduza uma etiqueta de *pessoa*.
 
 5. Clique **em Adicionar propriedade** para adicionar cada uma das seguintes propriedades. Tenha em atenção que pode criar propriedades exclusivas para cada pessoa no seu gráfico. Só é necessária a chave **de identificação.**
 
@@ -217,11 +217,11 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
     > [!NOTE]
     > Neste guia de introdução, criará uma coleção não particionada. No entanto, se criar uma coleção particionada mediante a especificação de uma chave de partição durante a criação da coleção, terá de incluir a chave da partição como uma chave em cada vértice novo. 
 
-6. Clique em **OK** . Poderá ter de expandir o ecrã para ver **OK** , na parte inferior.
+6. Clique em **OK**. Poderá ter de expandir o ecrã para ver **OK** , na parte inferior.
 
 7. Clique em **Vértice Novo** novamente e adicione outro utilizador. 
 
-8. Introduza uma etiqueta de *pessoa* .
+8. Introduza uma etiqueta de *pessoa*.
 
 9. Clique em **Adicionar propriedade** para adicionar cada uma das seguintes propriedades:
     
@@ -231,23 +231,23 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
     **Género** | masculino | 
     **escola** | MIT | 
 
-10. Clique em **OK** . 
+10. Clique em **OK**. 
 
-11. Clique no botão **Aplicar Filtro** com o filtro `g.V()` predefinido para apresentar todos os valores no gráfico. Todos os utilizadores aparecem agora na lista **Resultados** . 
+11. Clique no botão **Aplicar Filtro** com o filtro `g.V()` predefinido para apresentar todos os valores no gráfico. Todos os utilizadores aparecem agora na lista **Resultados**. 
 
     À medida que adiciona mais dados, pode utilizar filtros para limitar os resultados. Por predefinição, o Data Explorer utiliza o `g.V()` para obter todos os vértices num gráfico. Pode alterá-lo para uma [consulta de gráfico](tutorial-query-graph.md) diferente, como `g.V().count()`, para devolver uma contagem de todos os vértices no gráfico no formato JSON. Se tiver alterado o filtro, altere o filtro de volta para `g.V()` e clique em **Aplicar Filtro** para apresentar todos os resultados novamente.
 
-12. Agora, pode ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados** e clique no botão Editar junto a **Destinos** , no canto inferior direito. Poderá ter de alargar a janela para ver a área **Propriedades** .
+12. Agora, pode ligar rakesh e ashley. Confirme que **ashley** está selecionada na lista **Resultados** e clique no botão Editar junto a **Destinos** , no canto inferior direito. Poderá ter de alargar a janela para ver a área **Propriedades**.
 
-    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png" alt-text="Alterar o destino de um vértice de um gráfico":::
 
 13. Na caixa **Destino** , escreva *rakesh* , na caixa **Etiqueta da extremidade** , escreva *Conhece* e clique no visto.
 
-    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png" alt-text="Adicionar uma ligação entre ashley e rakesh no Data Explorer":::
 
 14. Agora, selecione **rakesh** na lista de resultados e veja se ashley e rakesh estão ligados. 
 
-    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer.png" alt-text="Ver e copiar uma chave de acesso no portal do Azure, página Chaves":::
+    :::image type="content" source="./media/create-graph-php/azure-cosmosdb-graph-explorer.png" alt-text="Dois vértices ligados no Data Explorer":::
 
     Esta ação conclui a parte da criação de recursos deste início rápido. Pode continuar a adicionar vértices ao seu gráfico, modificar os vértices existentes ou alterar as consultas. Agora vamos rever as métricas que o Azure Cosmos DB oferece e, em seguida, limpar os recursos. 
 
@@ -255,11 +255,11 @@ Agora, pode voltar ao Data Explorer e ver os vértices adicionados ao gráfico e
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste guia rápido, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer e a executar uma aplicação. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
 

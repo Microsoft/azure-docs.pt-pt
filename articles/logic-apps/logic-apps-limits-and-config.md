@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 10/09/2020
-ms.openlocfilehash: f722345b5be91a09bc513064b476f0b94eda765d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/04/2020
+ms.openlocfilehash: 7248c82882d32ae0eb225a9ec4c3b48dff3b9fcb
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094511"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360042"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -23,7 +23,7 @@ Este artigo descreve os limites e detalhes de configuração para criar e execut
 
 Aqui estão os limites para uma definição de aplicação lógica única:
 
-| Name | Limite | Notas |
+| Nome | Limite | Notas |
 | ---- | ----- | ----- |
 | Ações por fluxo de trabalho | 500 | Para estender este limite, pode adicionar fluxos de trabalho aninhados conforme necessário. |
 | Permitiu profundidade de nidificação para ações | 8 | Para estender este limite, pode adicionar fluxos de trabalho aninhados conforme necessário. |
@@ -45,7 +45,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 Aqui estão os limites para uma única aplicação lógica executada:
 
-| Name | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
+| Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Duração da execução | 90 dias | 366 dias | A duração da execução é calculada utilizando a hora de início de uma execução e o limite especificado na definição do fluxo de trabalho, [**Executar a retenção**](#change-duration) do histórico em dias nessa hora de início. <p><p>Para alterar o limite por defeito, consulte [alterar a duração do funcional e a retenção do histórico no armazenamento](#change-duration). |
 | Executar retenção de história no armazenamento | 90 dias | 366 dias | Se a duração de uma corrida exceder o limite de retenção do histórico de execução atual, o percurso é removido do histórico de execuções no armazenamento. Quer a execução esteja concluída ou fora do tempo, a retenção do histórico é sempre calculada utilizando o tempo de início da execução e o limite atual especificado na definição do fluxo de trabalho, [**Executar a retenção do histórico em dias**](#change-retention). Independentemente do limite anterior, o limite atual é sempre utilizado para o cálculo da retenção. <p><p>Para alterar o limite de predefinição e para obter mais informações, consulte [alterar a duração e executar a retenção do histórico no armazenamento](#change-retention). Para aumentar o limite máximo, [contacte a equipa da Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos. |
@@ -73,13 +73,13 @@ Por exemplo, suponha que reduza o limite de retenção de 90 dias para 30 dias. 
 
 1. Encontre e selecione a sua aplicação lógica. Abra a sua aplicação lógica no Logic App Designer.
 
-1. No menu da aplicação lógica, selecione **as definições do Fluxo de Trabalho** .
+1. No menu da aplicação lógica, selecione **as definições do Fluxo de Trabalho**.
 
-1. Nas **opções runtime** , a partir da retenção de histórico executar na lista **de dias,** selecione **Custom** .
+1. Nas **opções runtime** , a partir da retenção de histórico executar na lista **de dias,** selecione **Custom**.
 
 1. Arraste o slider para alterar o número de dias que deseja.
 
-1. Quando terminar, na barra de **ferramentas de definição de fluxo de trabalho,** selecione **Guardar** .
+1. Quando terminar, na barra de **ferramentas de definição de fluxo de trabalho,** selecione **Guardar**.
 
 Se gerar um modelo de Gestor de Recursos Azure para a sua aplicação lógica, esta definição aparece como uma propriedade na definição de recursos do seu fluxo de trabalho, que é descrita na referência do [modelo de fluxos de trabalho microsoft.logic](/azure/templates/microsoft.logic/workflows):
 
@@ -108,14 +108,23 @@ Se gerar um modelo de Gestor de Recursos Azure para a sua aplicação lógica, e
 
 Aqui estão os limites para uma única aplicação lógica executada:
 
-| Name | Limite | Notas |
+### <a name="loops"></a>Ciclos
+
+| Nome | Limite | Notas |
 | ---- | ----- | ----- |
-| Concuência do gatilho | - Ilimitado quando o controlo de concordância é desligado <p><p>- 25 é o limite de predefinição quando o controlo de concordância é ligado, o que não pode desfazer depois de permitir a concuência. Pode alterar o padrão para um valor entre 1 e 50 inclusive. | Este limite descreve o maior número de instâncias lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>**Nota:** Quando a concuência é ligada, o limite SplitOn é reduzido a 100 itens para [debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar o limite de incumprimento para um valor entre 1 e 50 de forma inclusiva, consulte [alterar o limite de concuência do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou desencadear [sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Corridas de espera máximas | - Sem concordância, o número mínimo de espera é 1, enquanto o número máximo é de 50. <p><p>- Com concordância, o número mínimo de execuções de espera é de 10 mais o número de execuções simultâneas (concuência do gatilho). Pode alterar o número máximo até 100 inclusive. | Este limite descreve o maior número de instâncias lógicas que podem esperar para correr quando a sua aplicação lógica já está a executar as instâncias mais simultâneas. <p><p>Para alterar o limite de predefinição, consulte [o limite de execuções de espera change](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Itens de matriz de foreach | 100.000 | Este limite descreve o maior número de itens de matriz que um laço "para cada" pode processar. <p><p>Para filtrar matrizes maiores, pode utilizar a [ação de consulta](logic-apps-perform-data-operations.md#filter-array-action). |
-| Conúnva de Foreach | 20 é o limite por defeito quando o controlo de concordância é desligado. Pode alterar o padrão para um valor entre 1 e 50 inclusive. | Este limite é o maior número de iterações em loop "para cada um" que podem ser executadas ao mesmo tempo, ou paralelamente. <p><p>Para alterar o limite de predefinição para um valor entre 1 e 50 de forma inclusiva, consulte [alterar "para cada" limite de concordância](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou [executar sequencialmente os ciclos "para cada um".](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each) |
-| Itens SplitOn | - 100.000 sem concencercação <p><p>- 100 com concência do gatilho | Para os gatilhos que devolvem uma matriz, pode especificar uma expressão que utiliza uma propriedade 'SplitOn' que [divide ou debate itens de matriz em múltiplas instâncias](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) de fluxo de trabalho para processamento, em vez de usar um loop "Foreach". Esta expressão faz referência à matriz a utilizar para criar e executar uma instância de fluxo de trabalho para cada item de matriz. <p><p>**Nota:** Quando a concordância é ligada, o limite SplitOn é reduzido a 100 itens. |
-| Iterações Until | - Predefinição: 60 <p><p>- Máximo: 5.000 | |
+| Conúnva de Foreach | Com concurrency fora: 20 <p><p>Com concordância em: <p><p>- Predefinição: 20 <br>- Min: 1 <br>- Máx: 50 | Este limite é o maior número de iterações em loop "para cada um" que podem ser executadas ao mesmo tempo, ou paralelamente. <p><p>Para alterar este limite, consulte [alterar o limite de conuncy "para cada um"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) ou executar [sequencialmente os ciclos "para cada um".](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each) |
+| Iterações Until | - Predefinição: 60 <br>- Min: 1 <br>- Máx: 5.000 | O maior número de ciclos que um loop "Até" pode ter durante uma aplicação lógica executada. <p><p>Para alterar este limite, na forma do loop "Até", selecione **Limites de alteração** e especifique o valor da propriedade **Count.** |
+| Até o intervalo | - Predefinição: PT1H (1 hora) | O maior número de tempo que o laço "Até" pode ser executado antes de sair e é especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor de tempo limite é avaliado para cada ciclo de ciclo. Se qualquer ação no circuito demorar mais do que o limite de tempo, o ciclo atual não para. No entanto, o próximo ciclo não começa porque a condição limite não está cumprida. <p><p>Para alterar este limite, na forma do loop "Até", selecione **Limites de alteração** e especifique o valor da propriedade **Timeout.** |
+||||
+
+### <a name="concurrency-and-debatching"></a>Concurrency e debatching
+
+| Nome | Limite | Notas |
+| ---- | ----- | ----- |
+| Concuência do gatilho | Com concurrency off: Unlimited <p><p>Com concuência, que não pode desfazer depois de permitir: <p><p>- Predefinição: 25 <br>- Min: 1 <br>- Máx: 50 | Este limite é o maior número de instâncias lógicas que podem ser executadas ao mesmo tempo, ou em paralelo. <p><p>**Nota:** Quando a concuência é ligada, o limite SplitOn é reduzido a 100 itens para [debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Para alterar este limite, consulte [alterar o limite de concordância do gatilho](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) ou desencadear [casos sequencialmente](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Corridas de espera máximas | Com a concordância fora: <p><p>- Min: 1 <br>- Máx: 50 <p><p>Com concordância em: <p><p>- Min: 10 mais o número de execuções simultâneas (concuência do gatilho) <br>- Máx: 100 | Este limite é o maior número de instâncias de aplicações lógicas que podem esperar para correr quando a sua aplicação lógica já está a executar as instâncias mais simultâneas. <p><p>Para alterar este limite, consulte [o limite de execuções de espera change](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Itens SplitOn | Com concordância fora: 100.000 <p><p>Com concordância em: 100 | Para os gatilhos que devolvem uma matriz, pode especificar uma expressão que utiliza uma propriedade 'SplitOn' que [divide ou debate itens de matriz em múltiplas instâncias](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) de fluxo de trabalho para processamento, em vez de usar um loop "Foreach". Esta expressão faz referência à matriz a utilizar para criar e executar uma instância de fluxo de trabalho para cada item de matriz. <p><p>**Nota:** Quando a concordância é ligada, o limite SplitOn é reduzido a 100 itens. |
 ||||
 
 <a name="throughput-limits"></a>
@@ -126,7 +135,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 ### <a name="multi-tenant-logic-apps-service"></a>Serviço de Apps Lógicas Multi-inquilinos
 
-| Name | Limite | Notas |
+| Nome | Limite | Notas |
 | ---- | ----- | ----- |
 | Ação: Execuções por 5 minutos | 100.000 é o limite de incumprimento, mas 300.000 é o limite máximo. | Para alterar o limite padrão, consulte [executar a sua aplicação lógica no modo "alta produção",](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)que está em pré-visualização. Ou, pode distribuir a carga de trabalho por mais do que uma aplicação lógica, se necessário. |
 | Ação: Chamadas de saída simultâneas | ~2500 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração, se necessário. |
@@ -140,7 +149,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 Aqui estão os limites de produção para o [Premium ISE SKU:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
 
-| Name | Limite | Notas |
+| Nome | Limite | Notas |
 |------|-------|-------|
 | Limite de execução da unidade de base | Sistema acelerado quando a capacidade de infraestrutura atinge os 80% | Fornece ~4.000 execuções de ação por minuto, que é ~160 milhões de execuções de ação por mês | |
 | Limite de execução da unidade de escala | Sistema acelerado quando a capacidade de infraestrutura atinge os 80% | Cada unidade de escala pode fornecer ~2.000 execuções de ação adicionais por minuto, que é ~80 milhões mais execuções de ação por mês | |
@@ -168,9 +177,9 @@ Aqui estão os limites para uma única chamada HTTP de saída ou entrada:
 
 Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de webhook, pelo que o tempo limite para estas operações pode ser maior do que estes limites. Para mais informações, consulte os detalhes técnicos do conector específico e também [os gatilhos e ações do Fluxo de Trabalho.](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-| Name | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
+| Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
-| Pedido de saída | 120 Segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de saída incluem chamadas feitas por triggers HTTP. <p><p>**Dica** : Para operações mais longas, utilize um [padrão de sondagem assíncronos](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [loop até ao loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para trabalhar em torno de limites de tempo quando você chama outra aplicação lógica que tem um [ponto final chamado,](logic-apps-http-endpoint.md)você pode usar a ação incorporada Azure Logic Apps, que você pode encontrar no conector picker em **incorporado** . |
+| Pedido de saída | 120 Segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de saída incluem chamadas feitas por triggers HTTP. <p><p>**Dica** : Para operações mais longas, utilize um [padrão de sondagem assíncronos](../logic-apps/logic-apps-create-api-app.md#async-pattern) ou um [loop até ao loop](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Para trabalhar em torno de limites de tempo quando você chama outra aplicação lógica que tem um [ponto final chamado,](logic-apps-http-endpoint.md)você pode usar a ação incorporada Azure Logic Apps, que você pode encontrar no conector picker em **incorporado**. |
 | Pedido de entrada | 120 Segundos <br>(2 minutos) | 240 segundos <br>(4 minutos) | Exemplos de pedidos de entrada incluem chamadas recebidas por pedido de triggers e detonadores webhook. <p><p>**Nota:** Para que o chamador original obtenha a resposta, todos os passos na resposta devem terminar dentro do limite, a menos que chame outra aplicação lógica como um fluxo de trabalho aninhado. Para obter mais informações, consulte [aplicações lógicas Call, Trigger ou Nest.](../logic-apps/logic-apps-http-endpoint.md) |
 |||||
 
@@ -178,7 +187,7 @@ Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de 
 
 #### <a name="message-size"></a>Tamanho da mensagem
 
-| Name | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
+| Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Tamanho da mensagem | 100 MB | 200 MB | Para contornar este limite, consulte [Handle big messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). No entanto, alguns conectores e APIs podem não suportar a chunking ou mesmo o limite padrão. <p><p>- Conectores como AS2, X12 e EDIFACT têm os seus [próprios limites de mensagem B2B](#b2b-protocol-limits). <br>- Os conectores ISE utilizam o limite ISE, não os seus limites de conector não ISE. |
 | Tamanho da mensagem com chunking | 1 GB | 5 GB | Este limite aplica-se a ações que suportam de forma nativa o chunking ou permitem que possassar a sua configuração de tempo de execução. <p><p>Se estiver a utilizar um ISE, o motor Logic Apps suporta este limite, mas os conectores têm os seus próprios limites de rutura até ao limite do motor, por exemplo, consulte a [referência API do conector Azure Blob Storage](/connectors/azureblob/). Para obter mais informações sobre o chunking, consulte [Handle big messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). |
@@ -186,7 +195,7 @@ Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de 
 
 #### <a name="character-limits"></a>Limites de caracteres
 
-| Name | Notas |
+| Nome | Notas |
 |------|-------|
 | Limite de avaliação da expressão | 131 072 carateres | As `@concat()` `@base64()` `@string()` expressões não podem ser mais longas do que este limite. |
 | Pedido limite de caracteres URL | 16.384 caracteres |
@@ -196,7 +205,7 @@ Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de 
 
 #### <a name="retry-policy"></a>Política de Repetição
 
-| Name | Limite | Notas |
+| Nome | Limite | Notas |
 | ---- | ----- | ----- |
 | Tentativas de repetição | 90 | A predefinição é 4. Para alterar o padrão, utilize o [parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Intervalo máx. de repetição | 1 dia | Para alterar o padrão, utilize o [parâmetro de política de repetição](../logic-apps/logic-apps-workflow-actions-triggers.md). |
@@ -209,7 +218,7 @@ Algumas operações de conector fazem chamadas assíncronos ou ouvem pedidos de 
 
 Aqui estão os limites para uma aplicação lógica que começa com um gatilho request e permite [a autenticação aberta do Diretório Ativo Azure](../active-directory/develop/index.yml) (Azure AD OAuth) para autorizar chamadas de entrada para o gatilho do Pedido:
 
-| Name | Limite | Notas |
+| Nome | Limite | Notas |
 | ---- | ----- | ----- |
 | Políticas de autorização Azure AD | 5 | |
 | Reclamações por política de autorização | 10 | |
@@ -221,7 +230,7 @@ Aqui estão os limites para uma aplicação lógica que começa com um gatilho r
 
 Aqui estão os limites para conectores personalizados que pode criar a partir de APIs web.
 
-| Name | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
+| Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | Número de conectores personalizados | 1000 por subscrição do Azure | 1000 por subscrição do Azure ||
 | Número de pedidos por minuto para um conector personalizado | 500 pedidos por minuto por ligação | 2.000 pedidos por minuto por *conector personalizado* ||
@@ -231,7 +240,7 @@ Aqui estão os limites para conectores personalizados que pode criar a partir de
 
 ## <a name="managed-identities"></a>Identidades geridas
 
-| Name | Limite |
+| Nome | Limite |
 |------|-------|
 | Identidades geridas por app lógica | Ou a identidade atribuída ao sistema ou 1 identidade atribuída ao utilizador |
 | Número de aplicações lógicas que têm uma identidade gerida numa subscrição do Azure por região | 1,000 |
@@ -307,7 +316,7 @@ Para taxas de preços, consulte [os preços das Aplicações Lógicas.](https://
 
 Aqui estão os limites de tamanho da mensagem que se aplicam aos protocolos B2B:
 
-| Name | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
+| Nome | Limite de vários inquilinos | Limite de ambiente de serviço de integração | Notas |
 |------|--------------------|---------------------------------------|-------|
 | AS2 | v2 - 100 MB<br>v1 - 25 MB | v2 - 200 MB <br>v1 - 25 MB | Aplica-se para descodificar e codificar |
 | X12 | 50 MB | 50 MB | Aplica-se para descodificar e codificar |
@@ -475,7 +484,7 @@ Esta secção lista os endereços IP de saída para o serviço Azure Logic Apps 
 | US Gov - Virginia | 13.72.54.205, 52.227.138.30, 52.227.152.44 | 52.127.42.128 - 52.127.42.143, 52.227.143.61, 52.227.162.91 |
 ||||
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Saiba como [criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * Conheça os [exemplos e cenários comuns](../logic-apps/logic-apps-examples-and-scenarios.md)

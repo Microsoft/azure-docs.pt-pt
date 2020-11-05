@@ -1,20 +1,20 @@
 ---
 title: Utilize o executor a granel de gráficos .NET library com Azure Cosmos DB Gremlin API
 description: Aprenda a usar a biblioteca de executores a granel para importar massivamente dados de gráficos num recipiente Azure Cosmos DB Gremlin API.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 05/28/2019
-ms.author: jasonh
+ms.author: chrande
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eb611c77abe5bf9067bfdbabd1e2c5d2ee90ac23
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b31cb33e09158de5912132d0fb7bd31a62131181
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100495"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360518"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Utilização do executor a granel de gráficos .NET library para realizar operações a granel em Azure Cosmos DB Gremlin API
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -118,7 +118,7 @@ e.AddProperty("customProperty", "value");
 ### <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2019 com a carga de trabalho de desenvolvimento Azure. Pode começar com a [Edição Comunitária do Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) gratuitamente.
 * Uma subscrição do Azure. Pode criar uma [conta do Azure gratuita aqui](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Em alternativa, pode criar uma conta de base de dados cosmos com [Try Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma subscrição do Azure.
-* Uma base de dados da API Gremlin do Azure Cosmos DB com uma **coleção ilimitada** . Este guia mostra como começar a utilizar a [API Gremlin do Azure Cosmos DB em .NET](./create-graph-dotnet.md).
+* Uma base de dados da API Gremlin do Azure Cosmos DB com uma **coleção ilimitada**. Este guia mostra como começar a utilizar a [API Gremlin do Azure Cosmos DB em .NET](./create-graph-dotnet.md).
 * Git. Para obter mais informações, veja a página[Git Downloads](https://git-scm.com/downloads) (Transferências do Git).
 
 ### <a name="clone-the-sample-application"></a>Clonar a aplicação de exemplo
@@ -130,7 +130,7 @@ git clone https://github.com/Azure-Samples/azure-cosmosdb-graph-bulkexecutor-dot
 
 Este repositório contém o exemplo GraphBulkExecutor com os seguintes ficheiros:
 
-Ficheiro|Description
+Ficheiro|Descrição
 ---|---
 `App.config`|É aqui que é especificada a aplicação e os parâmetros específicos da mesma. Este ficheiro deve ser modificado primeiro para ligar à base de dados e às coleções de destino.
 `Program.cs`| Este ficheiro contém a lógica por trás da criação da `DocumentClient` coleção, manuseamento das limpezas e envio dos pedidos do executor a granel.
@@ -142,7 +142,7 @@ Definições|Descrição
 ---|---
 `EndPointUrl`|Este é o **ponto final do SDK .NET** que está disponível no painel Descrição Geral da sua conta de base de dados da API Gremlin do Azure Cosmos DB. Tem o formato `https://your-graph-database-account.documents.azure.com:443/`.
 `AuthorizationKey`|Esta é a chave Primária ou Secundária que aparece na sua conta do Azure Cosmos DB. Saiba mais sobre a proteção do acesso a dados do Azure Cosmos DB em [Securing Access to Azure Cosmos DB data](./secure-access-to-data.md#primary-keys) (Proteger o Acesso a dados do Azure Cosmos DB)
-`DatabaseName`, `CollectionName`|Estes são os **nomes da base de dados e da coleção de destino** . Se `ShouldCleanupOnStart` estiver definido como `true`, estes valores, juntamente com `CollectionThroughput`, serão utilizados para remover essa base de dados e essa coleção e criar uma base de dados e uma coleção nova. Do mesmo modo, se `ShouldCleanupOnFinish` estiver definido como `true`, serão utilizados para eliminar a base de dados assim que a ingestão terminar. Tenha em conta que a coleção de destino tem de ser uma **coleção ilimitada** .
+`DatabaseName`, `CollectionName`|Estes são os **nomes da base de dados e da coleção de destino**. Se `ShouldCleanupOnStart` estiver definido como `true`, estes valores, juntamente com `CollectionThroughput`, serão utilizados para remover essa base de dados e essa coleção e criar uma base de dados e uma coleção nova. Do mesmo modo, se `ShouldCleanupOnFinish` estiver definido como `true`, serão utilizados para eliminar a base de dados assim que a ingestão terminar. Tenha em conta que a coleção de destino tem de ser uma **coleção ilimitada**.
 `CollectionThroughput`|É utilizado para criar uma coleção nova se a opção `ShouldCleanupOnStart` estiver definida como `true`.
 `ShouldCleanupOnStart`|Remove a conta da base de dados e as coleções antes de o programa ser executado e, depois, criar uma conta e uma coleção com os valores `DatabaseName`, `CollectionName` e `CollectionThroughput`.
 `ShouldCleanupOnFinish`|Remove a conta da base de dados e as coleções com `DatabaseName` e `CollectionName` especificados depois de o programa ser executado.
@@ -156,7 +156,7 @@ Definições|Descrição
 2. Execute a aplicação. `BulkImportAsync` vai ser chamado duas vezes, uma para importar Vértices e outra para importar Arestas. Se algum dos objetos gerar um erro quando for inserido, será adicionado a `.\BadVertices.txt` ou a `.\BadEdges.txt`.
 3. Consulte a base de dados de grafo para avaliar os resultados. Se a opção `ShouldCleanupOnFinish` estiver definida como verdadeira, a base de dados será eliminada de forma automática.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para saber mais sobre os detalhes do pacote NuGet e lançar notas do executor a granel .NET library, consulte [detalhes do executor a granel SDK](sql-api-sdk-bulk-executor-dot-net.md). 
 * Consulte as [Dicas de Desempenho](./bulk-executor-dot-net.md#performance-tips) para otimizar ainda mais a utilização do executor a granel.

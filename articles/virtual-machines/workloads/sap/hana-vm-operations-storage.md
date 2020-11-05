@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0861d1fd3ab2a378f0b9afc4e8b35b32badfc3db
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 99c94528c13228e07327b529782f211ec92a08ea
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670669"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359855"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -44,9 +44,9 @@ As condições mínimas certificadas SAP HANA para os diferentes tipos de armaze
 
 - Armazenamento premium Azure - **/hana/log** é necessário para ser suportado pelo Acelerador de [Escrita](../../how-to-enable-write-accelerator.md)Azure . O volume **/hana/dados** poderia ser colocado em armazenamento premium sem acelerador de escrita Azure ou em disco ultra
 - Disco Azure Ultra pelo menos para o volume **/hana/log.** O volume **/hana/dados** pode ser colocado em armazenamento premium sem acelerador de escrita Azure ou para obter tempos de reinício mais rápidos Disco ultra
-- **Volumes NFS v4.1** em cima de Ficheiros Azure NetApp para **/hana/log e /hana/data** . O volume de /hana/partilhado pode utilizar o protocolo NFS v3 ou NFS v4.1
+- **Volumes NFS v4.1** em cima de Ficheiros Azure NetApp para **/hana/log e /hana/data**. O volume de /hana/partilhado pode utilizar o protocolo NFS v3 ou NFS v4.1
 
-Alguns dos tipos de armazenamento podem ser combinados. Por exemplo, é possível colocar **/hana/dados** no armazenamento premium e **/hana/log** pode ser colocado no armazenamento de disco ultra para obter a latência baixa necessária. Se utilizar um volume baseado em ANF para **/hana/dados,** o volume  **/hana/log** também tem de ser baseado em NFS em cima da ANF. A utilização de NFS em cima da ANF para um dos volumes (como /hana/dados) e o armazenamento premium Azure ou disco Ultra para o outro volume (como **/hana/log)** não é **suportado** .
+Alguns dos tipos de armazenamento podem ser combinados. Por exemplo, é possível colocar **/hana/dados** no armazenamento premium e **/hana/log** pode ser colocado no armazenamento de disco ultra para obter a latência baixa necessária. Se utilizar um volume baseado em ANF para **/hana/dados,** o volume  **/hana/log** também tem de ser baseado em NFS em cima da ANF. A utilização de NFS em cima da ANF para um dos volumes (como /hana/dados) e o armazenamento premium Azure ou disco Ultra para o outro volume (como **/hana/log)** não é **suportado**.
 
 No mundo dos locais, raramente se preocupava com os subsistemas de E/S e as suas capacidades. A razão foi que o vendedor de aparelhos precisava de se certificar de que os requisitos mínimos de armazenamento são cumpridos para o SAP HANA. Ao construir a infraestrutura Azure, deve estar ciente de alguns destes requisitos emitidos pela SAP. Algumas das características mínimas de produção que a SAP recomenda são:
 
@@ -93,7 +93,7 @@ As recomendações de cache para discos premium Azure abaixo assumem as caracter
 - **Disco oss** - não altere o cache padrão que é definido por Azure no tempo de criação do VM
 
 
-Se estiver a utilizar LVM ou mdadm para construir conjuntos de listras em vários discos premium Azure, precisa de definir tamanhos de listras. Estes tamanhos diferem entre **/hana/data** e **/hana/log** . **Recomendação: Como tamanhos de listras, a recomendação é usar:**
+Se estiver a utilizar LVM ou mdadm para construir conjuntos de listras em vários discos premium Azure, precisa de definir tamanhos de listras. Estes tamanhos diferem entre **/hana/data** e **/hana/log**. **Recomendação: Como tamanhos de listras, a recomendação é usar:**
 
 - 256 KB para **/hana/dados**
 - 64 KB para **/hana/log**
@@ -179,8 +179,8 @@ Para os outros volumes, a configuração seria como:
 
 | SKU da VM | RAM | Um máximo de VM I/O<br /> Débito | /hana/compartilhado | /volume de raiz | /usr/seiva |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts | GiB de 192 | 500 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
-| M32ls | 256 GiB | 500 MBps |  1 x P20 | 1 x P6 | 1 x P6 |
+| M32ts | GiB de 192 | 500 MBps | 1 x P15 | 1 x P6 | 1 x P6 |
+| M32ls | 256 GiB | 500 MBps |  1 x P15 | 1 x P6 | 1 x P6 |
 | M64ls | 512 GiB | 1000 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
 | M64s | 1.000 GiB | 1.000 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
 | M64ms | 1.750 GiB | 1.000 MBps | 1 x P30 | 1 x P6 | 1 x P6 | 
@@ -309,7 +309,7 @@ No caso de combinar os dados e o volume de registo para o SAP HANA, os discos qu
 Existem tipos de VM listados que não são certificados com SAP e, como tal, não estão listados no chamado [diretório de hardware SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). O feedback dos clientes foi o de que esses tipos de VM não listados foram utilizados com sucesso para algumas tarefas não-produção.
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Para obter mais informações, consulte:
 
 - [Guia de alta disponibilidade SAP HANA para máquinas virtuais Azure](./sap-hana-availability-overview.md).

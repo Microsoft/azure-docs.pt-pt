@@ -6,14 +6,14 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 09/02/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f439fcd8b2aa1c75e1aff2c6b775921beabbcddf
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: cf9d0aea9ab9e79a5f184a42e1bb785b6fb870a7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340561"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360093"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Time to Live [TTL] no Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -22,7 +22,7 @@ Com **o Time to Live** ou TTL, o Azure Cosmos DB fornece a capacidade de elimina
 
 A eliminação de itens caducados é uma tarefa de fundo que consome [Unidades de Pedido](request-units.md)sobrantes, ou seja, Unidades de Pedido que não tenham sido consumidas por solicitações do utilizador. Mesmo depois de expirado o TTL, se o contentor estiver sobrecarregado com pedidos e se não houver RU suficiente disponível, a eliminação de dados é retardada. Os dados são eliminados uma vez que existam RUs suficientes disponíveis para executar a operação de eliminação. Embora a eliminação de dados seja adiada, os dados não são devolvidos por quaisquer consultas (por qualquer API) depois de expirado o TTL.
 
-> Este conteúdo está relacionado com a loja de transações Azure Cosmos DB TTL. Se procura uma loja analidade TTL, que permite cenários noETL HTAP através do [Azure Synapse Link,](./synapse-link.md)clique [aqui.](./analytical-store-introduction.md#analytical-ttl)
+> Este conteúdo está relacionado com a loja de transações Azure Cosmos DB TTL. Se procura uma loja analítica TTL, que permite cenários noETL HTAP através do [Azure Synapse Link,](./synapse-link.md)clique [aqui.](./analytical-store-introduction.md#analytical-ttl)
 
 ## <a name="time-to-live-for-containers-and-items"></a>Tempo de viver para contentores e itens
 
@@ -34,7 +34,7 @@ O valor do tempo de vida é definido em segundos, e é interpretado como um delt
 
    - Se presente e o valor for definido para "-1", é igual ao infinito, e os itens não expiram por predefinição.
 
-   - Se o presente e o valor estiver definido para algum número *"n"* – os itens expirarão *"n"* segundos após o seu último tempo modificado.
+   - Se o presente e o valor estiver definido para algum número *"n"* *não zero* – os itens expirarão *"n"* segundos após o seu último tempo modificado.
 
 2. **Tempo para viver num item** (conjunto de utilização): `ttl`
 
@@ -44,11 +44,11 @@ O valor do tempo de vida é definido em segundos, e é interpretado como um delt
 
 ## <a name="time-to-live-configurations"></a>Configurações tempo para viver
 
-* Se o TTL estiver definido para *"n"* num recipiente, os artigos desse recipiente expirarão após *n* segundos.  Se houver itens no mesmo recipiente que tenham tempo próprio para viver, definidos para -1 (indicando que não expiram) ou se alguns itens ultrapassaram o tempo de vida com um número diferente, estes itens expiram com base no seu próprio valor TTL configurado. 
+- Se o TTL estiver definido para *"n"* num recipiente, os artigos desse recipiente expirarão após *n* segundos.  Se houver itens no mesmo recipiente que tenham tempo próprio para viver, definidos para -1 (indicando que não expiram) ou se alguns itens ultrapassaram o tempo de vida com um número diferente, estes itens expiram com base no seu próprio valor TTL configurado.
 
-* Se a TTL não estiver colocada num recipiente, então a hora de viver num item neste recipiente não tem efeito. 
+- Se a TTL não estiver colocada num recipiente, então a hora de viver num item neste recipiente não tem efeito.
 
-* Se a TTL num recipiente estiver definida para -1, um item neste recipiente que tenha tempo de vida definido para n, expirará após n segundos, e os restantes itens não expirarão.
+- Se a TTL num recipiente estiver definida para -1, um item neste recipiente que tenha tempo de vida definido para n, expirará após n segundos, e os restantes itens não expirarão.
 
 ## <a name="examples"></a>Exemplos
 
@@ -60,10 +60,9 @@ TTL no recipiente é definido para nulo (DefaultTimeToLive = nulo)
 
 |TTL no item| Resultado|
 |---|---|
-|ttl = nulo|    A TTL está desativada. O item nunca expirará (predefinição).|
-|ttl = -1   |A TTL está desativada. O artigo nunca expirará.|
-|ttl = 2000 |A TTL está desativada. O artigo nunca expirará.|
-
+|ttl = nulo|A TTL está desativada. O item nunca expirará (predefinição).|
+|ttl = -1|A TTL está desativada. O artigo nunca expirará.|
+|ttl = 2000|A TTL está desativada. O artigo nunca expirará.|
 
 ### <a name="example-2"></a>Exemplo 2
 
@@ -71,10 +70,9 @@ TTL no recipiente é definido para -1 (DefaultTimeToLive = -1)
 
 |TTL no item| Resultado|
 |---|---|
-|ttl = nulo |O TTL está ativado. O item nunca expirará (predefinição).|
-|ttl = -1   |O TTL está ativado. O artigo nunca expirará.|
-|ttl = 2000 |O TTL está ativado. O artigo expirará após 2000 segundos.|
-
+|ttl = nulo|O TTL está ativado. O item nunca expirará (predefinição).|
+|ttl = -1|O TTL está ativado. O artigo nunca expirará.|
+|ttl = 2000|O TTL está ativado. O artigo expirará após 2000 segundos.|
 
 ### <a name="example-3"></a>Exemplo 3
 
@@ -82,12 +80,12 @@ TTL no recipiente é definido para 1000 (DefaultTimeToLive = 1000)
 
 |TTL no item| Resultado|
 |---|---|
-|ttl = nulo|    O TTL está ativado. O artigo expirará após 1000 segundos (predefinição).|
-|ttl = -1   |O TTL está ativado. O artigo nunca expirará.|
-|ttl = 2000 |O TTL está ativado. O artigo expirará após 2000 segundos.|
+|ttl = nulo|O TTL está ativado. O artigo expirará após 1000 segundos (predefinição).|
+|ttl = -1|O TTL está ativado. O artigo nunca expirará.|
+|ttl = 2000|O TTL está ativado. O artigo expirará após 2000 segundos.|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba como configurar o tempo para viver nos seguintes artigos:
 
-* [Como configurar o tempo para viver](how-to-time-to-live.md)
+- [Como configurar o tempo para viver](how-to-time-to-live.md)

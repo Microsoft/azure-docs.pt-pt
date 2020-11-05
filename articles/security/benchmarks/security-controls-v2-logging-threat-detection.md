@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b26979f424798bacf6b40d43e5ab603844f595c3
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295469"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360858"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controlo de Segurança V2: Registo e deteção de ameaças
 
@@ -38,7 +38,7 @@ Além disso, use o Azure Sentinel para construir regras de análise, que caçam 
 
 - [Inteligência de ameaça cibernética com Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -75,7 +75,7 @@ O Azure Security Center também pode alertar para certas atividades suspeitas, c
 
 - [Proteção contra ameaças no Centro de Segurança do Azure](../../security-center/threat-protection.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -109,7 +109,7 @@ Ativar e recolher registos de recursos do grupo de segurança da rede (NSG), reg
 
 - [Recolha informações sobre a sua infraestrutura DNS com a solução DNS Analytics](../../azure-monitor/insights/dns-analytics.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -137,9 +137,7 @@ Pode utilizar o Azure Security Center e a Azure Policy para permitir registos de
 
 - [Compreender a recolha de dados do Centro de Segurança Azure](../../security-center/security-center-enable-data-collection.md)
 
-- [Permitir e configurar a monitorização antimalware](../fundamentals/antimalware.md#enable-and-configure-antimalware-monitoring-using-powershell-cmdlets)
-
-**Responsabilidade**: Compartilhado
+**Responsabilidade** : Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -169,7 +167,7 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 - [Como embarcar Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -195,7 +193,7 @@ No Azure Monitor, pode definir o período de retenção do espaço de trabalho d
 
 - [Alertas e recomendações do Centro de Segurança Azure](../../security-center/continuous-export.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -223,7 +221,7 @@ Todos os registos gerados por recursos dentro do Azure fornecem carimbos de temp
 
 - [Como desativar a UDP de entrada para serviços Azure](https://support.microsoft.com/help/4558520/how-to-disable-inbound-udp-for-azure-services)
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade** : Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 87532876551cacbd4da03b95b10c41600989a947
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186591"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359719"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conhecidos com Azure Data Lake Storage Gen2
 
@@ -62,7 +62,7 @@ Os discos VM não geridos não são suportados em contas que tenham um espaço h
 
 ## <a name="support-for-setting-access-control-lists-acls-recursively"></a>Suporte para definir listas de controlo de acesso (ACLs) de forma recursiva
 
-A capacidade de aplicar alterações ACL recursivamente do diretório dos pais para itens infantis está em [visualização pública](recursive-access-control-lists.md). Na versão atual desta capacidade, pode aplicar alterações ACL utilizando PowerShell, o .NET SDK e o Python SDK. O suporte ainda não está disponível para o Java SDK, Azure CLI, o portal Azure ou Azure Storage Explorer.
+A capacidade de aplicar alterações ACL recorrentemente do diretório dos pais para itens infantis está geralmente disponível. Na versão atual desta capacidade, pode aplicar alterações ACL utilizando PowerShell, Azure CLI e o .NET, Java e Python SDK. O suporte ainda não está disponível para o portal Azure, ou Azure Storage Explorer.
 
 <a id="known-issues-tools"></a>
 

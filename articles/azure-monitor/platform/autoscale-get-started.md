@@ -4,12 +4,12 @@ description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Ma
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342220"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361207"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Começa com a Autoscale em Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
@@ -141,7 +141,21 @@ Se um caso não for saudável durante uma hora, será substituído por uma nova 
 
 Depois de fornecer o caminho de verificação de saúde da sua aplicação, pode monitorizar a saúde do seu site usando o Azure Monitor. A partir da lâmina **de verificação de saúde** no Portal, clique nas **Métricas** na barra de ferramentas superior. Isto abrirá uma nova lâmina onde poderá ver o estado histórico de saúde do site e criar uma nova regra de alerta. Para obter mais informações sobre a monitorização dos seus sites, [consulte o guia no Azure Monitor](../../app-service/web-sites-monitor.md).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="moving-autoscale-to-a-different-region"></a>Mover autoescala para uma região diferente
+Esta secção descreve como mover a autoescala do Azure para outra região sob a mesma Subscrição e Grupo de Recursos. Pode utilizar a API REST para mover configurações de autoescala.
+### <a name="prerequisite"></a>Pré-requisito
+1. Certifique-se de que a subscrição e o Grupo de Recursos estão disponíveis e os detalhes nas regiões de origem e destino são idênticos.
+1. Certifique-se de que a autoestama Azure está disponível na [região de Azure para onde pretende mover-se](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
+
+### <a name="move"></a>Mover
+Utilize [a API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) para criar uma definição de autoescala no novo ambiente. A definição de autoescala criada na região de destino será uma cópia da definição de autoescala na região de origem.
+
+[As definições de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) que foram criadas em associação com a definição de autoescala na região de origem não podem ser movidas. Terá de recriar definições de diagnóstico na região de destino, após a criação de definições de auto-venda. 
+
+### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Saiba mais sobre a movimentação de recursos em todas as regiões de Azure
+Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte a [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+
+## <a name="next-steps"></a>Próximos passos
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações do motor de autoescala na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações falhadas de escala/escala na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

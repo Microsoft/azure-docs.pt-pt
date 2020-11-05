@@ -8,20 +8,16 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1b2773b1d860126748e0dd05134d778073478d9f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 55a49c5f8d066cd6893c46ef9942462bb7911307
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741674"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360620"
 ---
 # <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Utilize o CLI Azure para permitir a dupla encriptação em repouso para discos geridos
 
-O Azure Disk Storage suporta a dupla encriptação em repouso para discos geridos. Para obter informações conceptuais sobre a dupla encriptação em repouso, bem como outros tipos de encriptação de disco gerido, consulte a [encriptação dupla na](disk-encryption.md#double-encryption-at-rest) secção de repouso do nosso artigo de encriptação de disco.
-
-## <a name="supported-regions"></a>Regiões suportadas
-
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+O Azure Disk Storage suporta a dupla encriptação em repouso para discos geridos. Para obter informações conceptuais sobre a dupla encriptação em repouso, bem como outros tipos de encriptação de disco gerido, consulte a [encriptação dupla na](../disk-encryption.md#double-encryption-at-rest) secção de repouso do nosso artigo de encriptação de disco.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -69,7 +65,7 @@ Instale o mais recente [Azure CLI](/cli/azure/install-az-cli2) e faça login num
         az keyvault set-policy -n $keyVaultName -g $rgName --object-id $desIdentity --key-permissions wrapkey unwrapkey get
         ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que criou e configura estes recursos, pode usá-los para proteger os seus discos geridos. Os seguintes links contêm scripts de exemplo, cada um com um cenário respetivo, que pode usar para proteger os seus discos geridos.
 

@@ -1,7 +1,7 @@
 ---
 title: Acesso seguro de dados na nuvem
 titleSuffix: Azure Machine Learning
-description: Saiba como conectar-se de forma segura aos seus dados a partir do Azure Machine Learning e como utilizar conjuntos de dados e datastores para tarefas ML. As lojas de dados podem armazenar dados de um Azure Blob, Azure Data Lake Gen 1 & 2, SQL db e Azure Databricks.
+description: Saiba como ligar-se de forma segura ao seu armazenamento de dados no Azure com as datas de aprendizagem da máquina Azure e conjuntos de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322236"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360178"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Acesso seguro a dados em Azure Machine Learning
 
@@ -121,7 +121,7 @@ No contexto da aprendizagem automática, a deriva de dados é a mudança nos dad
 
 Consulte o artigo [do monitor do conjunto de dados,](how-to-monitor-datasets.md) para saber mais sobre como detetar e alertar para a deriva de dados em novos dados num conjunto de dados.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Próximos passos 
 
 + Crie um conjunto de dados no estúdio Azure Machine Learning ou com o Python SDK [usando estes passos.](how-to-create-register-datasets.md)
 + Experimente exemplos de formação de dataset com os [nossos cadernos de amostras.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

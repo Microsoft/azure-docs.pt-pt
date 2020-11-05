@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295569"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360059"
 ---
 # <a name="input-metadata"></a>Metadados de entrada
 
@@ -65,13 +65,13 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Nome |  | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **FourCC**<br />Necessário |Código de vídeo Código FourCC que é reportado por ffmpeg.<br /><br />Exemplo: `"FourCC": "avc1"` |
 | **Perfil** |Perfil da pista de vídeo. <br /><br />Exemplo: `"Profile": "Main"`|
 | **Nível** |Nível de pista de vídeo. <br /><br />Exemplo: `"Level": "3.2"`|
 | **PixelFormat** |O formato pixel da pista de vídeo. <br /><br />Exemplo: `"PixelFormat": "yuv420p"`|
-| **Largura**<br />Necessário |Largura de vídeo codificada em pixels. <br /><br />Exemplo: `"Width": "1280"`|
+| **Width**<br />Necessário |Largura de vídeo codificada em pixels. <br /><br />Exemplo: `"Width": "1280"`|
 | **Altura**<br />Necessário |A altura de vídeo codificada em pixels.<br /><br />Exemplo: `"Height": "720"` |
 | **DisplayAspectRatioNumerator**<br />Necessário |Numerador de aspeto de visualização de vídeo.<br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0` |
 | **DisplayAspectRatioDenominador**<br />Necessário |Denominador de rácio de aspeto do visualização de vídeo. <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
@@ -240,6 +240,6 @@ Contém uma coleção de elementos AssetFile para o trabalho de codificação.
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Metadados de saída](output-metadata-schema.md)

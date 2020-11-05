@@ -1,7 +1,7 @@
 ---
 title: Ingestão de dados com o Azure Data Factory
 titleSuffix: Azure Machine Learning
-description: Saiba como construir um pipeline de ingestão de dados com a Azure Data Factory.
+description: Conheça as opções disponíveis para a construção de um pipeline de ingestão de dados com a Azure Data Factory e os benefícios de cada um.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,17 +11,17 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8cf0abdeaf3a7fe71213b6fa4f78f057bf2f92eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: 73850d8022618dd6544d19564e425288aff09771
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307361"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360637"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Ingestão de dados com o Azure Data Factory
 
-Neste artigo, aprende-se a construir um pipeline de ingestão de dados com a Azure Data Factory (ADF). Este gasoduto é utilizado para ingerir dados para utilização com a Azure Machine Learning. A Azure Data Factory permite-lhe extrair, transformar e carregar facilmente dados (ETL). Uma vez que os dados foram transformados e carregados em armazenamento, pode ser usado para treinar os seus modelos de aprendizagem automática.
+Neste artigo, você aprende sobre as opções disponíveis para a construção de um pipeline de ingestão de dados com a Azure Data Factory (ADF). Este gasoduto é utilizado para ingerir dados para utilização com a Azure Machine Learning. A Azure Data Factory permite-lhe extrair, transformar e carregar facilmente dados (ETL). Uma vez que os dados foram transformados e carregados em armazenamento, pode ser usado para treinar os seus modelos de aprendizagem automática.
 
 A transformação simples de dados pode ser tratada com atividades autóctones da ADF e instrumentos como [o fluxo de dados.](../data-factory/control-flow-execute-data-flow-activity.md) Quando se trata de cenários mais complicados, os dados podem ser processados com algum código personalizado. Por exemplo, código Python ou R.
 
@@ -95,7 +95,7 @@ Uma vez que os dados são acessíveis através de uma datastore ou conjunto de d
 
 Uma vez que os conjuntos de dados suportam a versão, e cada corrida a partir do pipeline cria uma nova versão, é fácil entender que versão dos dados foi usada para treinar um modelo.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Executar um caderno Databricks na Azure Data Factory](../data-factory/transform-data-using-databricks-notebook.md)
 * [Dados de acesso nos serviços de armazenamento Azure](./how-to-access-data.md#create-and-register-datastores)

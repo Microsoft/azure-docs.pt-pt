@@ -2,28 +2,28 @@
 title: Garantir um serviço ligado
 description: Saiba como providenciar e garantir um serviço ligado com o Managed VNet
 services: synapse-analytics
-author: acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033188"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359974"
 ---
-# <a name="secure-a-linked-service-with-private-links"></a>Garantir um serviço ligado com links privados 
+# <a name="secure-a-linked-service-with-private-links"></a>Garantir um serviço ligado com links privados
 
 Neste artigo, você aprenderá a garantir um serviço ligado em Synapse com um ponto final privado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição Azure**: Se não tiver uma subscrição do Azure, crie uma [conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta Azure Storage**: Utiliza o Azure Data Lake Gen 2 como uma loja de dados *de origem.* Se não tiver uma conta de armazenamento, consulte [criar uma conta de Armazenamento Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter passos para criar uma. Certifique-se de que a Conta de Armazenamento tem a filtragem IP do Estúdio Synapse para aceder à sua aceder e que só permite que **as redes Selecionadas acedam** à conta de Armazenamento. A definição sob as **firewalls** da lâmina e as redes virtuais devem parecer a imagem abaixo.
+* **Subscrição Azure** : Se não tiver uma subscrição do Azure, crie uma [conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta Azure Storage** : Utiliza o Azure Data Lake Gen 2 como uma loja de dados *de origem.* Se não tiver uma conta de armazenamento, consulte [criar uma conta de Armazenamento Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) para obter passos para criar uma. Certifique-se de que a Conta de Armazenamento tem a filtragem IP do Estúdio Synapse para aceder à sua aceder e que só permite que **as redes Selecionadas acedam** à conta de Armazenamento. A definição sob as **firewalls** da lâmina e as redes virtuais devem parecer a imagem abaixo.
 
 ![Conta de Armazenamento Segura](./media/secure-storage-account.png)
 
@@ -32,7 +32,7 @@ Neste artigo, você aprenderá a garantir um serviço ligado em Synapse com um p
 No Azure Synapse Analytics, um serviço ligado é onde define as suas informações de ligação a outros serviços. Nesta secção, você adicionará Azure Synapse Analytics e Azure Data Lake Gen 2 como serviços ligados.
 
 1. Abra o Azure Synapse Studio e vá ao **separador Gerir.**
-1. Em **ligações externas**, selecione **serviços Linked**.
+1. Em **ligações externas** , selecione **serviços Linked**.
 1. Para adicionar um serviço ligado, selecione **New**.
 1. Selecione o azulejo Azure Data Lake Storage Gen2 da lista e selecione **Continue**.
 1. Certifique-se de que ativa **a Autoria Interativa.** Pode levar cerca de 1 minuto para ser ativado. 
@@ -62,12 +62,14 @@ Se não selecionou para a hiperligação ao testar a ligação acima, siga o seg
 ## <a name="check-the-connection-works"></a>Verifique os trabalhos de ligação
 1. Vá ao **separador Gerir** e selecione o serviço ligado que criou.
 1. Certifique-se de que **a autoria interativa** está ativa.
-1. Selecione **Testar ligação**. Devia ver se a ligação tinha sucesso.
+1. Selecione **a ligação de teste**. Devia ver se a ligação tinha sucesso.
 
 Estabeleceu agora uma ligação segura e privada entre a Synapse e o seu serviço ligado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-Para desenvolver uma maior compreensão do ponto final privado gerido no Synapse Analytics, consulte o Conceito em torno do artigo [de ponto final privado gerido pela Synapse.](data-integration-data-lake.md)
+
+Para desenvolver uma maior compreensão do ponto final privado gerido no Synapse Analytics, consulte [os pontos finais privados geridos.](../security/synapse-workspace-managed-private-endpoints.md)
+
 
 Para obter mais informações sobre a integração de dados para a Synapse Analytics, consulte os [dados de Ingeste num](data-integration-data-lake.md) artigo do Data Lake.

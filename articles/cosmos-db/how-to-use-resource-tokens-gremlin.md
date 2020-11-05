@@ -1,19 +1,19 @@
 ---
 title: Use fichas de recursos DB da Azure Cosmos com o Gremlin SDK
 description: Saiba como criar fichas de recursos e usá-las para aceder à base de dados do Gráfico.
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 22c048b748806404ccfa580e660552a1744f3781
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085739"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361698"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Use fichas de recursos DB da Azure Cosmos com o Gremlin SDK
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -101,8 +101,8 @@ Com uma única conta Gremlin, pode emitir um número ilimitado de fichas. No ent
 
 ## <a name="permission"></a>Permissão
 
-Um erro comum que as aplicações encontram enquanto usam fichas de recursos é: "Permissões insuficientes fornecidas no cabeçalho de autorização para o pedido correspondente. Por favor, recaia com outro cabeçalho de autorização. Este erro é devolvido quando um gremlin tenta escrever uma borda ou um vértice, mas o sinal de recurso concede apenas permissões *de leitura.* Inspecione a sua travessia para ver se contém algum dos seguintes passos: *.addV()* , *.addE()* , *.drop()* ou *.property()* .
+Um erro comum que as aplicações encontram enquanto usam fichas de recursos é: "Permissões insuficientes fornecidas no cabeçalho de autorização para o pedido correspondente. Por favor, recaia com outro cabeçalho de autorização. Este erro é devolvido quando um gremlin tenta escrever uma borda ou um vértice, mas o sinal de recurso concede apenas permissões *de leitura.* Inspecione a sua travessia para ver se contém algum dos seguintes passos: *.addV()* , *.addE()* , *.drop()* ou *.property()*.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 * [Controlo de acesso baseado em funções Azure (Azure RBAC)](role-based-access-control.md) em Azure Cosmos DB
 * [Saiba como garantir o acesso aos dados](secure-access-to-data.md) no Azure Cosmos DB

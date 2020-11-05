@@ -4,12 +4,12 @@ description: Saiba como usar o Azure Arc habilitado os servidores a gerir servid
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
 ms.date: 11/04/2020
 ms.topic: overview
-ms.openlocfilehash: 2c92d7c73ab17bd5a7bba980e20baa181899eb4e
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b9d38b2395d922e3e2a7daec654cd73de7267ee1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349159"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360586"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores preparados para o Azure Arc?
 
@@ -32,7 +32,7 @@ Quando liga a sua máquina a servidores ativados do Azure Arc, permite a capacid
 - Utilize [a Gestão de Atualização](../../automation/update-management/update-mgmt-overview.md) na Azure Automation para gerir as atualizações do sistema operativo para os seus servidores Windows e Linux
 
     > [!NOTE]
-    > Neste momento, não é suportado o suporte de gestão de atualização a partir do servidor ativado arcado selecionado. Consulte [a Gestão de Atualização ativar a partir da sua conta Demômes](../../automation/update-management/enable-from-automation-account.md) para compreender os requisitos e como ativar o seu servidor.
+    > Neste momento, não é suportado o modo de ativação da Gestão de Atualização diretamente a partir de um servidor ativado pelo Arc. Consulte [a Gestão de Atualização ativar a partir da sua conta Demômes](../../automation/update-management/enable-from-automation-account.md) para compreender os requisitos e como ativar o seu servidor.
 
 - Inclua os seus servidores não-Azure para deteção de ameaças e monitorize proativamente para potenciais ameaças à segurança usando [o Azure Security Center](../../security-center/security-center-introduction.md).
 

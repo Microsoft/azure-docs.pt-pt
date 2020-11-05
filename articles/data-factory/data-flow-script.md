@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/29/2020
-ms.openlocfilehash: 8310c34e06d52dc12af42f8bc33f4a4d7e99d68d
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 69cc835b37d2405e15638d85309dc89d51c6d043
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "91598097"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360280"
 ---
 # <a name="data-flow-script-dfs"></a>Script de fluxo de dados (DFS)
 
@@ -220,6 +220,17 @@ split(contains(array(columns()),isNull(#item)),
     disjoint: false) ~> LookForNULLs@(hasNULLs, noNULLs)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="automap-schema-drift-with-a-select"></a>Deriva de esquema autoMap com uma seleção
+Quando precisa carregar um esquema de base de dados existente a partir de um conjunto desconhecido ou dinâmico de colunas de entrada, deve mapear as colunas do lado direito na transformação do Lavatório. Isto só é necessário quando se está a carregar uma mesa existente. Adicione este corte antes da pia para criar um Select que mapeia automaticamente as suas colunas. Deixe o mapeamento da Pia para o mapa automático.
+
+```
+select(mapColumn(
+        each(match(true()))
+    ),
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> automap
+```
+
+## <a name="next-steps"></a>Próximos passos
 
 Explore os Fluxos de Dados começando com o artigo de visão geral dos [fluxos de dados](concepts-data-flow-overview.md)

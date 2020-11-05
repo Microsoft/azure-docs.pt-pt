@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f8eae6381a438f6820f525a4d66cb5dc388eefb0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280387"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360076"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -32,7 +32,7 @@ Este artigo centra-se na gestão de gémeos digitais; para trabalhar com relacio
 Para criar um gémeo, utiliza-se o `CreateOrReplaceDigitalTwinAsync()` método no cliente de serviço como este:
 
 ```csharp
-await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
+await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myTwinId", initData);
 ```
 
 Para criar um gémeo digital, é necessário fornecer:
@@ -55,12 +55,7 @@ Pode inicializar as propriedades de um gémeo no momento em que o gémeo é cria
 
 A API de criação gémea aceita um objeto que é serializado numa descrição válida do JSON das propriedades gémeas. Ver [*Conceitos: Gémeos digitais e o gráfico gémeo*](concepts-twins-graph.md) para uma descrição do formato JSON para um gémeo. 
 
-Primeiro, pode criar um objeto de dados para representar o gémeo e os seus dados de propriedade, como este:
-
-```csharp
-await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
-```
-Pode criar um objeto de parâmetro manualmente ou utilizando uma classe de ajudante fornecida. Aqui está um exemplo de cada um.
+Em primeiro lugar, pode criar um objeto de dados para representar o gémeo e os seus dados de propriedade. Pode criar um objeto de parâmetro manualmente ou utilizando uma classe de ajudante fornecida. Aqui está um exemplo de cada um.
 
 #### <a name="create-twins-using-manually-created-data"></a>Criar gémeos usando dados criados manualmente
 
@@ -555,7 +550,7 @@ SELECT *
 FROM DIGITALTWINS
 ``` 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Veja como criar e gerir relações entre os seus gémeos digitais:
 * [*Como fazer: Gerir o gráfico gémeo com relacionamentos*](how-to-manage-graph.md)

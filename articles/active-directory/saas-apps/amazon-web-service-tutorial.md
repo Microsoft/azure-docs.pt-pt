@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: jeedes
-ms.openlocfilehash: eb784d02ec4c380d72438a1c000290fe3a4eea78
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 764342f237452d9322d44c86ebdb41691b44495d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307506"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360722"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Amazon Web Services (AWS)
 
@@ -27,6 +27,9 @@ Neste tutorial, você vai aprender a integrar a Amazon Web Services (AWS) com o 
 * Gerencie as suas contas numa localização central - o portal Azure.
 
 Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
+
+> [!Note]
+> A Azure AD não suporta uma única integração de sign-on com a AWS SSO, é um produto diferente da AWS. Embora a AWS mencione sobre o mesmo [aqui,](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html)a Azure AD recomenda aos clientes que utilizem a integração AWS IAM, em vez disso, para que possa obter melhores controlos de segurança usando políticas de Acesso Condicional em contas individuais e também fazer uma melhor governação destas aplicações.
 
 ![Diagrama da relação Azure AD e AWS](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
@@ -112,7 +115,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
 1. Além de acima, a aplicação AWS espera que alguns mais atributos sejam repercutidos na resposta SAML que são mostrados abaixo. Estes atributos também são pré-povoados, mas pode revê-los de acordo com os seus requisitos.
     
-    | Name  | Atributo de origem  | Espaço de Nomes |
+    | Nome  | Atributo de origem  | Espaço de Nomes |
     | --------------- | --------------- | --------------- |
     | Nome de FunSessionName | user.userprincipalname | `https://aws.amazon.com/SAML/Attributes` |
     | Função            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
@@ -343,7 +346,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
     b. Insira o segredo do utilizador da AWS no campo **Secret Token.**
 
-    c. Selecione **a ligação de teste**.
+    c. Selecione **Testar Ligação**.
 
     d. Guarde a definição selecionando **Guardar**.
 
@@ -393,7 +396,7 @@ Também pode utilizar o Microsoft Access Panel para testar a aplicação em qual
   * As funções devem ter exatamente um fornecedor de saml definido em AWS
   * O comprimento combinado do ARN (Nome de Recursos da Amazon) para o papel e o ARN para o fornecedor de saml associado deve ser inferior a 120 caracteres
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Assim que configurar a Amazon Web Services (AWS) pode impor o Session Control, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 

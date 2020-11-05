@@ -1,20 +1,20 @@
 ---
 title: Construa uma aplicação de DB Node.js Azure Cosmos utilizando a API gremlin
 description: Apresenta um exemplo de código Node.js que pode utilizar para ligar e consultar o Azure Cosmos DB
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
-ms.author: jasonh
+ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: 546187b49e1186d665fe32b3f8d632a0281bffa4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b88456bd245f79c38d7829dca76de702f768c06
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099679"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360144"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Quickstart: Construir uma aplicação Node.js utilizando a conta API API da Azure Cosmos DB Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -162,7 +162,7 @@ Esta aplicação de consola utiliza o controlador [gremlin Node.jsde ](https://w
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Ver e copiar uma chave de acesso no portal Azure, página geral":::
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Lâmina de teclas do portal Azure":::
 
 4. Insira o nome da base de dados e o nome de gráfico (contentor) para o valor de config.database e config.collection. 
 
@@ -192,9 +192,9 @@ module.exports = config;
 
 Agora, pode voltar ao Data Explorer no portal do Azure para ver, consultar, alterar e trabalhar os dados do gráfico novo.
 
-No Data Explorer, a nova base de dados é apresentada no painel **Gráficos** . Expanda a base de dados, seguido do contentor e, em seguida, selecione **Gráfico** .
+No Data Explorer, a nova base de dados é apresentada no painel **Gráficos**. Expanda a base de dados, seguido do contentor e, em seguida, selecione **Gráfico**.
 
-Os dados gerados pela aplicação de exemplo são apresentados no painel seguinte dentro do separador **Gráfico** quando selecionar **Aplicar Filtro** .
+Os dados gerados pela aplicação de exemplo são apresentados no painel seguinte dentro do separador **Gráfico** quando selecionar **Aplicar Filtro**.
 
 Experimente concluir `g.V()` com `.has('firstName', 'Thomas')`, para testar o filtro. Tenha em atenção que o valor é sensível às maiúsculas e minúsculas.
 
@@ -206,7 +206,7 @@ Experimente concluir `g.V()` com `.has('firstName', 'Thomas')`, para testar o fi
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu a criar uma conta DB Azure Cosmos, criar um gráfico utilizando o Data Explorer e executar uma aplicação Node.js para adicionar dados ao gráfico. Agora pode criar consultas mais complexas e implementar a lógica de passagem de gráfico através do Gremlin. 
 

@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 10/30/2020
+ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 3f3196e775ff9e7d8064559069414952f09a3016
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348343"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360229"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro de mercado comercial e atribuição de uso do cliente
 
@@ -48,7 +48,7 @@ Um GUID é um identificador de referência único que tem 32 dígitos hexadémic
 
 Recomendamos que crie um GUID único para cada canal de oferta e distribuição para cada produto. Pode optar por utilizar um único GUID para os múltiplos canais de distribuição do produto se não quiser que o relatório seja dividido.
 
-Se implementar um produto utilizando um modelo e estiver disponível tanto no Azure Marketplace como no GitHub, pode criar e registar dois GUIDS distintos:
+Se implementar um produto utilizando um modelo e estiver disponível tanto no Azure Marketplace como no GitHub, pode criar e registar dois GUIDs distintos:
 
 - Produto A no Mercado Azure
 - Produto A no GitHub
@@ -311,10 +311,6 @@ Os clientes podem acompanhar a sua utilização de recursos individuais ou grupo
 **Esta metodologia é semelhante ao Parceiro Digital da Record (DPOR)?**
 
 Este novo método de ligação da implantação e utilização à solução de um parceiro fornece um mecanismo para ligar uma solução de parceiro à utilização do Azure. A DPOR destina-se a associar um parceiro de consultoria (Systems Integrator) ou de gestão (Managed Service Provider) com a assinatura Azure de um cliente.
-
-**Qual é o benefício de usar o formulário guid generator da Azure Storage?**
-
-O formulário GUID Generator da Azure Storage é garantido para gerar um GUID do formato necessário. Além disso, se estiver a utilizar algum dos métodos de rastreio de planos de dados do Azure Storage, pode aproveitar o mesmo GUID para o rastreio de planos de controlo do Mercado. Isto permite-lhe alavancar um GUID unificado único para a atribuição de parceiros sem ter de manter o GUIDS separado.
 
 **Posso usar um VHD personalizado e privado para uma oferta de modelo de solução no Azure Marketplace?**
 

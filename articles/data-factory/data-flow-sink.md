@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 11/02/2020
+ms.openlocfilehash: 47aada0abe2520ba81689ca8fa17787fde847d83
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147240"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360254"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do sumidouro no fluxo de dados de mapeamento
 
@@ -71,11 +71,13 @@ O vídeo seguinte explica uma série de diferentes opções de pia para tipos de
 
 **Utilizar o TempDB:** Por padrão, a Data Factory utilizará uma tabela temporária global para armazenar dados como parte do processo de carregamento. Em alternativa, pode desmarcar a opção "Use TempDB" e, em vez disso, peça à Data Factory para armazenar a tabela de detenção temporária numa base de dados do utilizador que está localizada na base de dados que está a ser utilizada para esta Pia.
 
-![TempDB](media/data-flow/tempdb.png "TempDB")
+![Use DB temporário](media/data-flow/tempdb.png "Use DB temporário")
 
 ## <a name="cache-sink"></a>Pia cache
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
  
-Um *lavatório de cache* é quando um fluxo de dados escreve dados na cache Spark em vez de uma loja de dados. Ao mapear fluxos de dados, pode referenciar estes dados dentro do mesmo fluxo muitas vezes usando uma *procura de cache* . Isto é útil quando se pretende fazer referência aos dados como parte de uma expressão, mas não quer juntar explicitamente as colunas a ela. Exemplos comuns em que um lavatório de cache pode ajudar estão a procurar um valor máximo numa loja de dados e a combinar códigos de erro para uma base de dados de mensagens de erro. 
+Um *lavatório de cache* é quando um fluxo de dados escreve dados na cache Spark em vez de uma loja de dados. Ao mapear fluxos de dados, pode referenciar estes dados dentro do mesmo fluxo muitas vezes usando uma *procura de cache*. Isto é útil quando se pretende fazer referência aos dados como parte de uma expressão, mas não quer juntar explicitamente as colunas a ela. Exemplos comuns em que um lavatório de cache pode ajudar estão a procurar um valor máximo numa loja de dados e a combinar códigos de erro para uma base de dados de mensagens de erro. 
 
 Para escrever para uma pia de cache, adicione uma transformação de pia e selecione **Cache** como o tipo de pia. Ao contrário de outros tipos de pias, não precisa de selecionar um conjunto de dados ou um serviço ligado porque não está a escrever para uma loja externa. 
 
@@ -92,7 +94,7 @@ Por exemplo, se eu especificar uma única coluna-chave de `column1` um lavatóri
 
 ## <a name="field-mapping"></a>Mapeamento de campos
 
-Semelhante a uma transformação selecionada, no **separador mapeamento** da pia, pode decidir quais colunas de entrada serão escritas. Por predefinição, todas as colunas de entrada, incluindo colunas derivadas, estão mapeadas. Este comportamento é conhecido como *automapping* .
+Semelhante a uma transformação selecionada, no **separador mapeamento** da pia, pode decidir quais colunas de entrada serão escritas. Por predefinição, todas as colunas de entrada, incluindo colunas derivadas, estão mapeadas. Este comportamento é conhecido como *automapping*.
 
 Quando desativar o automatismo, pode adicionar mapeamentos fixos baseados em colunas ou mapeamentos baseados em regras. Com mapeamentos baseados em regras, pode escrever expressões com correspondência de padrões. Mapas de mapeamento fixos nomes de colunas lógicas e físicas. Para obter mais informações sobre o mapeamento baseado em [regras, consulte os padrões da Coluna no fluxo de dados de mapeamento](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 
@@ -102,9 +104,14 @@ Por predefinição, os dados são escritos a vários lavatórios numa ordem não
 
 ![Screenshot que mostra pedido de pia personalizada.](media/data-flow/custom-sink-ordering.png "Screenshot que mostra pedido de pia personalizada.")
 
+> [!NOTE]
+> Ao utilizar [as pesquisas em cache,](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup)certifique-se de que o seu pedido de pia tem os lavatórios em cache definidos para 0.
+
+![Pedido de pia personalizado](media/data-flow/cache-2.png "Pedido de pia personalizado")
+
 ## <a name="data-preview-in-sink"></a>Pré-visualização de dados na pia
 
 Ao obter uma pré-visualização de dados num cluster de depuração, nenhum dado será escrito na sua pia. Uma imagem do aspeto dos dados será devolvida, mas nada será escrito para o seu destino. Para testar os dados de escrita na pia, coloque um depuração de gasoduto a partir da tela do gasoduto.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 Agora que criou o seu fluxo de dados, adicione uma [atividade de fluxo de dados ao seu pipeline](concepts-data-flow-overview.md).

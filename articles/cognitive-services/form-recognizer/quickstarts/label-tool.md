@@ -11,12 +11,12 @@ ms.date: 09/30/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 287315440199c4dc3ded1298532167d37d89a877
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5df8ced885768308369599d94c5734fa0620c507
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976152"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360875"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
@@ -32,11 +32,19 @@ Para completar este arranque rápido, você deve ter:
 * Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
     * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Reconhecimento de Formulários. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
     * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
-* Um conjunto de pelo menos seis formas do mesmo tipo. Usará estes dados para treinar o modelo e testar um formulário. Pode utilizar um [conjunto de dados de amostra](https://go.microsoft.com/fwlink/?linkid=2090451) (descarregar e extrair *sample_data.zip) *para este arranque rápido. Faça o upload dos ficheiros de treino para a raiz de um recipiente de armazenamento de bolhas numa conta de armazenamento Azure de nível de desempenho padrão.
+* Um conjunto de pelo menos seis formas do mesmo tipo. Usará estes dados para treinar o modelo e testar um formulário. Pode utilizar um [conjunto de dados de amostra](https://go.microsoft.com/fwlink/?linkid=2090451) (descarregar e extrair *sample_data.zip)* para este arranque rápido. Faça o upload dos ficheiros de treino para a raiz de um recipiente de armazenamento de bolhas numa conta de armazenamento Azure de nível de desempenho padrão.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulários
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
+
+## <a name="try-it-out"></a>Experimente
+
+Para experimentar online a Ferramenta de Rotulagem da Amostra do Reconhecimento de Formulários, aceda ao site da [FOTT](https://fott-preview.azurewebsites.net/).
+
+> [!div class="nextstepaction"]
+> [Ferramenta de rotulagem de amostra de reconhecimento de formulários](https://fott-preview.azurewebsites.net/)
+
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem da amostra
 
@@ -122,7 +130,7 @@ Preencha os campos com os seguintes valores:
 
 * **Nome do visor** - O nome do visor da ligação.
 * **Descrição** - A descrição do seu projeto.
-* **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Defina o tempo de expiração para algum tempo depois de usar o serviço. Certifique-se de que as permissões **de Ler,** **Escrever,** **Eliminar**e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* **URL SAS** - O URL de assinatura de acesso partilhado (SAS) do seu recipiente de armazenamento Azure Blob. Para recuperar o URL SAS, abra o Microsoft Azure Storage Explorer, clique com o botão direito no seu recipiente e selecione **Obter assinatura de acesso partilhado**. Defina o tempo de expiração para algum tempo depois de usar o serviço. Certifique-se de que as permissões **de Ler,** **Escrever,** **Eliminar** e **Lista** são verificadas e clique em **Criar**. Em seguida, copie o valor na secção **URL.** Deve ter o formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 :::image type="content" source="../media/label-tool/connections.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
 
@@ -139,7 +147,7 @@ Na ferramenta de rotulagem da amostra, os projetos armazenam as suas configuraç
 * **Chave API** - A tecla de subscrição do Reconhecimento de Formulários.
 * **Descrição** - Opcional - Descrição do projeto
 
-:::image type="content" source="../media/label-tool/new-project.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="Nova página do projeto na ferramenta de rotulagem de amostras.":::
 
 ## <a name="label-your-forms"></a>Rotular os seus formulários
 
@@ -155,7 +163,7 @@ Clique **em OCR em todos os ficheiros** do painel esquerdo para obter as informa
 
 Também mostrará quais as tabelas que foram automaticamente extraídas. Clique no ícone de tabela/grelha na mão esquerda do documento para ver a tabela extraída. Neste arranque rápido, uma vez que o conteúdo da tabela é extraído automaticamente, não vamos rotular o conteúdo da tabela, mas sim confiar na extração automatizada.
 
-:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Visualização da tabela na ferramenta de rotulagem da amostra.":::
 
 ### <a name="apply-labels-to-text"></a>Aplicar rótulos no texto
 
@@ -201,7 +209,7 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las aos elementos de texto que
 
 ---
 
-:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Janela principal do editor da ferramenta de rotulagem de amostra.":::
 
 
 Siga os passos acima para rotular pelo menos cinco dos seus formulários.
@@ -256,7 +264,7 @@ Clique no ícone Train no painel esquerdo para abrir a página De Treino. Em seg
 * A lista de etiquetas e a precisão estimada por etiqueta.
 
 
-:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Vista de treino.":::
 
 Após o final do treino, examine o valor **de precisão média.** Se for baixo, deve adicionar mais documentos de entrada e repetir os passos acima. Os documentos que já rotulou permanecerão no índice do projeto.
 
@@ -275,7 +283,7 @@ Com a Composição de Modelo, pode compor até 100 modelos para um único ID de 
 
 Para compor os modelos na ferramenta de rotulagem da amostra, clique no ícone Model Compose (seta de fusão) à esquerda. À esquerda, selecione os modelos que pretende compor em conjunto. Os modelos com o ícone das setas já são modelos compostos. Clique no botão "Compor". No pop-up, nomeie o seu novo modelo composto e clique em "Compor". Quando a operação estiver concluída, o seu novo modelo composto deverá aparecer na lista. 
 
-:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Regulações de ligação da ferramenta de rotulagem da amostra.":::
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Modelo componha a vista UX.":::
 
 ---
 
@@ -306,7 +314,7 @@ Quando pretende retomar o seu projeto, primeiro tem de criar uma ligação ao me
 
 Por fim, vá à página principal (ícone da casa) e clique no Open Cloud Project. Em seguida, selecione a ligação de armazenamento de bolhas e selecione o ficheiro *.fott* do seu projeto. A aplicação irá carregar todas as configurações do projeto porque tem o token de segurança.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste arranque rápido, aprendeu a usar a ferramenta de rotulagem da amostra do Form Recogniser para treinar um modelo com dados etiquetados manualmente. Se quiser construir a sua própria utilidade para rotular dados de treino, use as APIs REST que lidam com a formação de dados rotulados.
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c5c5be89f8a318de8690430d4d248817961fc2
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595873"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360314"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Criar um gateway de aplicação que aloja vários sites através do Azure PowerShell
 
@@ -127,7 +127,7 @@ Crie o primeiro ouvinte utilizando [o New-AzApplicationGatewayHttpListener](/pow
 
 >[!NOTE]
 > Com o Application Gateway ou WAF v2 SKU, também pode configurar até 5 nomes de anfitriões por ouvinte e pode utilizar caracteres wildcard no nome do anfitrião. Consulte [os nomes dos anfitriões wildcard no ouvinte](multiple-site-overview.md#wildcard-host-names-in-listener-preview) para obter mais informações.
->Para utilizar vários nomes de anfitriões e caracteres wildcard num ouvinte usando a Azure PowerShell, deve utilizar `-HostNames` em vez de `-HostName` . Com hostNames, pode mencionar até 5 nomes de anfitriões como valores separados por vírgula. Por exemplo, `-HostNames "*.contoso.com,*.fabrikam.com"`
+>Para utilizar vários nomes de anfitriões e caracteres wildcard num ouvinte usando a Azure PowerShell, deve utilizar `-HostNames` em vez de `-HostName` . Com hostNames, pode mencionar até 5 nomes de anfitriões como valores separados por vírgula. Por exemplo, `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `
@@ -303,6 +303,6 @@ Quando já não for necessário, remova o grupo de recursos, o gateway de aplica
 Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 [Criar um gateway de aplicação com regras de encaminhamento com base no caminho de URL](./tutorial-url-route-powershell.md)

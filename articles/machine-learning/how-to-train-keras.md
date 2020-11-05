@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: c6b65c97fd87d4e3ed84c837d2702395091097fa
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a7d55c6e550000d2dd6c2930d95086ec433c246b
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308056"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361102"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Treinar modelos Keras em escala com Azure Machine Learning
 
@@ -60,6 +60,7 @@ Primeiro, importe as bibliotecas python necessárias.
 import os
 import azureml
 from azureml.core import Experiment
+from azureml.core import Environment
 from azureml.core import Workspace, Run
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
@@ -147,8 +148,6 @@ Crie um ambiente Azure ML a partir desta especificação ambiente conda. O ambie
 Por predefinição, se não for especificada nenhuma imagem de base, o Azure ML utilizará uma imagem cpU `azureml.core.environment.DEFAULT_CPU_IMAGE` como imagem base. Uma vez que este exemplo executa o treino num cluster de GPU, você precisará especificar uma imagem base da GPU que tenha os condutores e dependências de GPU necessários. Azure ML mantém um conjunto de imagens de base publicadas no Microsoft Container Registry (MCR) que pode utilizar, consulte o [Azure/AzureML-Containers](https://github.com/Azure/AzureML-Containers) GitHub repo para obter mais informações.
 
 ```python
-from azureml.core import Environment
-
 keras_env = Environment.from_conda_specification(name='keras-env', file_path='conda_dependencies.yml')
 
 # Specify a GPU base image
@@ -239,7 +238,7 @@ for f in run.get_file_names():
         run.download_file(name=f, output_file_path=output_file_path)
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, treinou e registou um modelo Keras no Azure Machine Learning. Para aprender a implementar um modelo, continue para o nosso artigo de implementação de modelos.
 

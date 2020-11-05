@@ -1,19 +1,19 @@
 ---
 title: Extensão mongoDB ordena a gestão de dados na API da Azure Cosmos para a MongoDB
 description: Este artigo descreve como usar comandos de extensão MongoDB para gerir dados armazenados na API da Azure Cosmos DB para o MongoDB.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.author: jasonh
+ms.author: chrande
 ms.custom: devx-track-js
-ms.openlocfilehash: db230dc0bd1d5cdddf9446b22d8ae682c019c438
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 2fd2fa7620e57c58f72dad73c1012a19190e8fbc
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333014"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359651"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Utilize comandos de extensão MongoDB para gerir os dados armazenados na API da Azure Cosmos para o MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -431,7 +431,7 @@ Por exemplo:
 { "ok" : 1 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Em seguida, você pode proceder para aprender os seguintes conceitos Azure Cosmos DB: 
 

@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 82dd2f16fa43b52ba4c6dfacd26da5da622523b2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 94074c2c5e11187252084832e5a20a197f6723fd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321713"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359821"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de lançamento - Azure Arc habilitado serviços de dados (Pré-visualização)
 
@@ -90,13 +90,13 @@ Para obter [instruções, o que são os serviços de dados habilitados a Azure A
 
 - A pré-visualização não suporta a cópia de segurança/restauro do motor da versão 11 do PostgreSQL. Só suporta backup/restauro para a versão 12 do PostgreSQL.
 - `azdata arc dc debug copy-logs` Ndoes não recolhem registos de motores PostgreSQL no Windows.
-- Recriar um grupo de servidor com o nome de um grupo de servidor que foi eliminado pode falhar ou pendurar. 
+- Recriar um grupo de servidor com o nome de um grupo de servidor que foi apenas eliminado pode falhar ou parar de responder. 
    - **Solução alternativa** Não reutilizar o mesmo nome quando recriar um grupo de servidor ou esperar pelo balanceador de carga/serviço externo do grupo de servidores previamente eliminado. Assumindo que o nome do grupo de servidor que apagou era `postgres01` e que estava hospedado num espaço de nome , antes de recriar um grupo de servidor com o `arc` mesmo nome, espere até que não `postgres01-external-svc` apareça na saída do comando kubectl `kubectl get svc -n arc` .
  - Carregar a página de visão geral e a página de configuração do Computação + Armazenamento no Azure Data Studio é lento. 
 
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
   
 > **Só quer experimentar as coisas?**  
 > Inicie-se rapidamente com [o Azure Arc Jumpstart](https://github.com/microsoft/azure_arc#azure-arc-enabled-data-services) no Azure Kubernetes Service (AKS), AWS Elastic Kubernetes Service (EKS), Google Cloud Kubernetes Engine (GKE) ou num Azure VM.

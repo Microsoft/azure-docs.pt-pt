@@ -1,18 +1,18 @@
 ---
 title: 'Consulta com Azure Cosmos DB Gremlin API usando Consola TinkerPop Gremlin: Tutorial'
 description: Um início rápido do Azure Cosmos DB para criar vértices, margens e consultas com a Gremlin API do Azure Cosmos DB.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/10/2020
-ms.author: jasonh
-ms.openlocfilehash: be93df10614e32fb14e5ca7497461f0f2d6fc93e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.author: chrande
+ms.openlocfilehash: 20cb4cea52317022aea8a5b9e4b8280f8b88ff85
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099721"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361516"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Início Rápido: Criar, consultar e percorrer uma base de dados de grafos do Azure Cosmos DB com a consola do Gremlin
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -57,7 +57,7 @@ Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/downloa
 
     Definição|Valor sugerido|Descrição
     ---|---|---
-    anfitriões|[ *nome da conta* . **gremlin** .cosmos.azure.com]|Veja a captura de ecrã abaixo. Este é o valor **Gremlin URI** na página geral do portal Azure, em parênteses quadrados, com o trailing :443/ removido. Nota: *Certifique-se* de usar o valor Gremlin, e **não** o URI que termina com [nome de conta .documents.azure.com] o que provavelmente resultaria numa exceção "Host não respondeu em tempo útil" ao tentar executar consultas gremlin mais tarde. 
+    anfitriões|[ *nome da conta*. **gremlin**.cosmos.azure.com]|Veja a captura de ecrã abaixo. Este é o valor **Gremlin URI** na página geral do portal Azure, em parênteses quadrados, com o trailing :443/ removido. Nota: *Certifique-se* de usar o valor Gremlin, e **não** o URI que termina com [nome de conta .documents.azure.com] o que provavelmente resultaria numa exceção "Host não respondeu em tempo útil" ao tentar executar consultas gremlin mais tarde. 
     porta|443|Defina como 443.
     nome de utilizador|*O seu nome de utilizador*|O recurso do formulário `/dbs/<db>/colls/<coll>`, em que `<db>` é o nome da base de dados e `<coll>` é o nome da coleção.
     palavra-passe|*A chave primária*| Veja a segunda captura de ecrã abaixo. Esta é a chave primária, que pode ser obtida na página Chaves do portal do Azure, na caixa Chave Primária. Utilize o botão de copiar, no lado esquerdo da caixa, para copiar o valor.
@@ -66,11 +66,11 @@ Também tem de instalar a [consola Gremlin](https://tinkerpop.apache.org/downloa
 
    Para o valor dos anfitriões, copie o valor **Gremlin URI** a partir da página **'Vista Geral':**
 
-   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Azure Cosmos DB a partir da consola Apache Gremlin":::
+   :::image type="content" source="./media/create-graph-gremlin-console/gremlin-uri.png" alt-text="Ver e copiar o valor do URI do Gremlin na página Descrição Geral no portal do Azure":::
 
    Para o valor da palavra-passe, copie a **chave principal** da página **Chaves:**
 
-   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Azure Cosmos DB a partir da consola Apache Gremlin":::
+   :::image type="content" source="./media/create-graph-gremlin-console/keys.png" alt-text="Ver e copiar a sua chave primária no portal Azure, página Chaves":::
 
    O ficheiro remote-secure.yaml deve ter o seguinte aspeto:
 
@@ -109,7 +109,7 @@ g.V().count()
 
 ## <a name="create-vertices-and-edges"></a>Criar vértices e margens
 
-Vamos começar por adicionar cinco vértices de pessoas, para *Thomas* , *Mary Kay* , *Robin* , *Ben* e *Jack* .
+Vamos começar por adicionar cinco vértices de pessoas, para *Thomas* , *Mary Kay* , *Robin* , *Ben* e *Jack*.
 
 Entrada (Thomas):
 
@@ -215,7 +215,7 @@ Resultado:
 
 ## <a name="update-a-vertex"></a>Atualizar um vértice
 
-Vamos atualizar o vértice *Thomas* com uma nova idade de *45* .
+Vamos atualizar o vértice *Thomas* com uma nova idade de *45*.
 
 Entrada:
 ```java
@@ -316,11 +316,11 @@ Parabéns! Concluiu este tutorial do Azure Cosmos DB: Gremlin API!
 
 [!INCLUDE [cosmosdb-tutorial-review-slas](../../includes/cosmos-db-tutorial-review-slas.md)]
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 No guia de introdução, aprendeu a criar uma conta do Azure Cosmos DB, a criar um gráfico com o Data Explorer, a criar vértices e margens e a percorrer o gráfico com a consola Gremlin. Agora, pode criar consultas mais complexas e implementar lógica poderosa para percorrer gráficos com Gremlin. 
 

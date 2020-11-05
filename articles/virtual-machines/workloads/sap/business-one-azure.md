@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: caabaa6fbf65787f90c0033a06af26996c2388f2
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b076045f6a106f77717159d3095ffd5973ab27aa
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994103"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359889"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One em Máquinas Virtuais do Azure
 Este documento fornece orientações para implantar o SAP Business One em Azure Virtual Machines. A documentação não substitui a documentação de instalação do Negócios um para a SAP. A documentação deve abranger as diretrizes básicas de planeamento e implantação para a infraestrutura Azure para executar aplicações do Business One.
@@ -139,7 +139,7 @@ Para o backup e restauro de estratégias de backback SAP HANA, deve ler o guia d
 
  
 ### <a name="business-one-client-server"></a>Servidor de clientes Business One
-Para estes componentes, as considerações de armazenamento não são a principal preocupação. no entanto, quer ter uma plataforma confiável. Portanto, deve utilizar o Azure Premium Storage para este VM, mesmo para o VHD base. Dimensionamento do VM, com os dados dados no [GUIA de Requisitos de Hardware SAP Business One](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Para o Azure, é necessário concentrar-se e calcular com os requisitos indicados no capítulo 2.4 do documento. Ao calcular os requisitos, precisa compará-los com os seguintes documentos para encontrar o VM ideal para si:
+Para estes componentes, as considerações de armazenamento não são a principal preocupação. no entanto, quer ter uma plataforma confiável. Portanto, deve utilizar o Azure Premium Storage para este VM, mesmo para o VHD base. Dimensionamento do VM, com os dados dados no [GUIA de Requisitos de Hardware SAP Business One](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Para o Azure, é necessário concentrar-se e calcular com os requisitos indicados no capítulo 2.4 do documento. Ao calcular os requisitos, precisa compará-los com os seguintes documentos para encontrar o VM ideal para si:
 
 - [Tamanhos de máquinas virtuais do Windows no Azure](../../sizes.md)
 - [Nota SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)

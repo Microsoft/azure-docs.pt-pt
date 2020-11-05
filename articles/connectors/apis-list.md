@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 23e6834f4850cc8f44f563a12f4704fec2e13ef7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8bf91a3b7843d3212b62ced5b6a7c6fa54892ec9
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400813"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359753"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores do Azure Logic Apps
 
@@ -81,12 +81,12 @@ A Logic Apps fornece gatilhos e ações incorporados para que possa criar fluxos
 
 | Nome | Descrição |
 |------|-------------|
-| [![Horário do conector incorporado ][schedule-icon]<br> **Schedule**][schedule-doc] | - Executar uma aplicação lógica numa recorrência especificada, que vai desde horários básicos a horários avançados com o gatilho [ **de Recorrência** ][schedule-recurrence-doc]. <br>- Executar uma aplicação lógica que precisa de lidar com dados em pedaços contínuos com o gatilho [ **da janela deslizante** ][schedule-sliding-window-doc]. <br>- Faça uma pausa na sua aplicação lógica durante uma duração especificada com a ação [ **Delay** ][schedule-delay-doc]. <br>- Faça uma pausa na sua aplicação lógica até à data e hora especificadas com o [ **Atraso até** à ação][schedule-delay-until-doc]. |
+| [![Horário do conector incorporado ][schedule-icon]<br> **Schedule**][schedule-doc] | - Executar uma aplicação lógica numa recorrência especificada, que vai desde horários básicos a horários avançados com o gatilho [ **de Recorrência**][schedule-recurrence-doc]. <br>- Executar uma aplicação lógica que precisa de lidar com dados em pedaços contínuos com o gatilho [ **da janela deslizante**][schedule-sliding-window-doc]. <br>- Faça uma pausa na sua aplicação lógica durante uma duração especificada com a ação [ **Delay**][schedule-delay-doc]. <br>- Faça uma pausa na sua aplicação lógica até à data e hora especificadas com o [ **Atraso até** à ação][schedule-delay-until-doc]. |
 | [![Lote de conector incorporado ][batch-icon]<br> **lote**][batch-doc] | - Processar mensagens em lotes com o gatilho **de mensagens Batch.** <br>- Ligue para aplicações lógicas que tenham gatilhos de lote existentes com as **mensagens Enviar para ação de lote.** |
 | [![HTTP Conector incorporado ][http-icon]<br> **HTTP**][http-doc] | Chamar pontos finais HTTP ou HTTPS com acionadores e ações para HTTP. Outros gatilhos e ações incorporadas http-in incluem [HTTP + Conector incorporado swagger][http-swagger-doc] e HTTP + [Webhook][http-webhook-doc]. |
 | [![Pedido de pedido de ][http-request-icon]<br> **Request** conector incorporado][http-request-doc] | - Tornar a sua aplicação lógica callable a partir de outras aplicações ou serviços, desencadear eventos de recursos de Event Grid ou desencadear respostas aos alertas do Azure Security Center com o gatilho **do Pedido.** <br>- Enviar respostas para uma app ou serviço com a ação **Resposta.** |
 | [![Gestão AZURE API Gestão incorporada ][azure-api-management-icon]<br> **Azure API <br> Management**][azure-api-management-doc] | Chame acionadores e ações definidos pelas suas próprias APIs que gere e publica com a Gestão de API do Azure. |
-| [![Azure App Services serviços de conector ][azure-app-services-icon]<br> ** <br> incorporadoS Azure App Services**][azure-app-services-doc] | Ligue para as Aplicações API do Azure ou as Aplicações Web alojadas no Serviço de Aplicações do Azure. Os gatilhos e ações definidos por estas aplicações aparecem como quaisquer outros gatilhos e ações de primeira classe quando o Swagger está incluído. |
+| [![Azure App Services serviços de conector ][azure-app-services-icon]<br> **<br> incorporadoS Azure App Services**][azure-app-services-doc] | Ligue para as Aplicações API do Azure ou as Aplicações Web alojadas no Serviço de Aplicações do Azure. Os gatilhos e ações definidos por estas aplicações aparecem como quaisquer outros gatilhos e ações de primeira classe quando o Swagger está incluído. |
 | [![Azure Logic Apps incorporado connector ][azure-logic-apps-icon]<br> **Azure Logic <br> Apps**][nested-logic-app-doc] | Ligue para outras aplicações lógicas que começam com o gatilho **Do Pedido.** |
 |||
 
@@ -108,8 +108,8 @@ A Logic Apps fornece ações integradas para estruturar e controlar as ações n
 |------|-------------|
 | [![Condição de ação incorporada ][condition-icon]<br> **Condition**][condition-doc] | Avaliar uma condição e executar diferentes ações com base no facto de a condição ser verdadeira ou falsa. |
 | [![Para cada ação incorporada ][for-each-icon]<br> **para cada**][for-each-doc] | Execute as mesmas ações em cada item de uma matriz. |
-| [![Âmbito de ação incorporado ][scope-icon]<br> **Âmbito**][scope-doc] | Ações de grupo em *âmbitos*, que obtêm o seu próprio estatuto após as ações no âmbito de execução. |
-| [![Switch switch de ação incorporado ][switch-icon]<br> **Switch**][switch-doc] | Ações de grupo em *casos*, que são atribuídos valores únicos, exceto para o caso padrão. Executar apenas aquele caso cujo valor atribuído corresponde ao resultado de uma expressão, objeto ou token. Se não existirem fósforos, execute o caso predefinido. |
+| [![Âmbito de ação incorporado ][scope-icon]<br> **Âmbito**][scope-doc] | Ações de grupo em *âmbitos* , que obtêm o seu próprio estatuto após as ações no âmbito de execução. |
+| [![Switch switch de ação incorporado ][switch-icon]<br> **Switch**][switch-doc] | Ações de grupo em *casos* , que são atribuídos valores únicos, exceto para o caso padrão. Executar apenas aquele caso cujo valor atribuído corresponde ao resultado de uma expressão, objeto ou token. Se não existirem fósforos, execute o caso predefinido. |
 | [![Terminar a ação incorporada ][terminate-icon]<br> **Termina**][terminate-doc] | Pare um fluxo de trabalho de aplicações lógicas ativamente funcionando. |
 | [![Até a ação incorporada ][until-icon]<br> **até**][until-doc] | Repita as ações até que a condição especificada seja verdadeira ou algum estado tenha mudado. |
 |||
@@ -120,9 +120,9 @@ A Logic Apps fornece ações integradas para trabalhar com as saídas de dados e
 
 | Nome | Descrição |
 |------|-------------|
-| [![Operações de dados incorporadas em ][data-operations-icon]<br> **operações de dados**][data-operations-doc] | Realizar operações com dados: <p>- **Compor**: Criar uma única saída a partir de múltiplas entradas com vários tipos. <br>- **Criar tabela CSV**: Criar uma tabela de valor separado em vírgula (CSV) a partir de uma matriz com objetos JSON. <br>- **Criar tabela HTML**: Criar uma tabela HTML a partir de uma matriz com objetos JSON. <br>- **Matriz de filtro**: Crie uma matriz a partir de itens em outra matriz que satisfaça os seus critérios. <br>- **Junte-se:** Crie uma cadeia de todos os itens numa matriz e separe esses itens com olimdidor especificado. <br>- **Parse JSON**: Crie fichas fáceis de utilizar a partir de propriedades e seus valores em conteúdo JSON para que possa utilizar essas propriedades no seu fluxo de trabalho. <br>- **Selecione:** Crie uma matriz com objetos JSON transformando itens ou valores noutra matriz e mapeando esses itens para propriedades especificadas. |
-| ![Data hora incorporada ação][date-time-icon]<br>**Hora da data** | Executar operações com tempotando: <p>- **Adicione ao tempo**: Adicione o número especificado de unidades a uma estampada de tempo. <br>- **Verso horário**: Converta um relógio de tempo do fuso horário de origem para o fuso horário alvo. <br>- **Tempo atual**: Devolva a atual placa de tempo como uma corda. <br>- **Obtenha a hora futura**: Devolva a hora atual mais as unidades de tempo especificadas. <br>- **Passar a tempo**: Devolva o tempo de tempo atual menos as unidades de tempo especificadas. <br>- **Subtrair do tempo**: Subtrair um número de unidades de tempo de um relógio. |
-| [![Variáveis de ação ][variables-icon]<br> **incorporadas**][variables-doc] | Realizar operações com variáveis: <p>- **Apêndice à variável de matriz**: Insira um valor como o último item numa matriz armazenada por uma variável. <br>- **Apêndice à variável de corda**: Insira um valor como o último caracter numa corda armazenada por uma variável. <br>- **Variável de decremento**: Diminua uma variável por um valor constante. <br>- **Variável incremento**: Aumente uma variável por um valor constante. <br>- **Inicializar variável**: Criar uma variável e declarar o seu tipo de dados e valor inicial. <br>- **Variável definida**: Atribua um valor diferente a uma variável existente. |
+| [![Operações de dados incorporadas em ][data-operations-icon]<br> **operações de dados**][data-operations-doc] | Realizar operações com dados: <p>- **Compor** : Criar uma única saída a partir de múltiplas entradas com vários tipos. <br>- **Criar tabela CSV** : Criar uma tabela de valor separado em vírgula (CSV) a partir de uma matriz com objetos JSON. <br>- **Criar tabela HTML** : Criar uma tabela HTML a partir de uma matriz com objetos JSON. <br>- **Matriz de filtro** : Crie uma matriz a partir de itens em outra matriz que satisfaça os seus critérios. <br>- **Junte-se:** Crie uma cadeia de todos os itens numa matriz e separe esses itens com olimdidor especificado. <br>- **Parse JSON** : Crie fichas fáceis de utilizar a partir de propriedades e seus valores em conteúdo JSON para que possa utilizar essas propriedades no seu fluxo de trabalho. <br>- **Selecione:** Crie uma matriz com objetos JSON transformando itens ou valores noutra matriz e mapeando esses itens para propriedades especificadas. |
+| ![Data hora incorporada ação][date-time-icon]<br>**Hora da data** | Executar operações com tempotando: <p>- **Adicione ao tempo** : Adicione o número especificado de unidades a uma estampada de tempo. <br>- **Verso horário** : Converta um relógio de tempo do fuso horário de origem para o fuso horário alvo. <br>- **Tempo atual** : Devolva a atual placa de tempo como uma corda. <br>- **Obtenha a hora futura** : Devolva a hora atual mais as unidades de tempo especificadas. <br>- **Passar a tempo** : Devolva o tempo de tempo atual menos as unidades de tempo especificadas. <br>- **Subtrair do tempo** : Subtrair um número de unidades de tempo de um relógio. |
+| [![Variáveis de ação ][variables-icon]<br> **incorporadas**][variables-doc] | Realizar operações com variáveis: <p>- **Apêndice à variável de matriz** : Insira um valor como o último item numa matriz armazenada por uma variável. <br>- **Apêndice à variável de corda** : Insira um valor como o último caracter numa corda armazenada por uma variável. <br>- **Variável de decremento** : Diminua uma variável por um valor constante. <br>- **Variável incremento** : Aumente uma variável por um valor constante. <br>- **Inicializar variável** : Criar uma variável e declarar o seu tipo de dados e valor inicial. <br>- **Variável definida** : Atribua um valor diferente a uma variável existente. |
 |||
 
 <a name="managed-api-connectors"></a>
@@ -137,12 +137,12 @@ A Logic Apps fornece estes conectores Standard populares para automatizar tarefa
 | [![SQL Server gerido conector ][sql-server-icon]<br> **SQL Server**][sql-server-doc] | Ligue ao seu SQL Server nas instalações ou numa Base de Dados Azure SQL na nuvem para que possa gerir registos, executar procedimentos armazenados ou realizar consultas. |
 | [![Azure Blob Storage gerido conector ][azure-blob-storage-icon]<br> **Azure Blob <br> Storage**][azure-blob-storage-doc] | Ligue-se à sua conta de armazenamento para que possa criar e gerir o conteúdo blob. |
 | [![Office 365 Outlook gerido conector ][office-365-outlook-icon]<br> **Office 365 <br> Outlook**][office-365-outlook-doc] | Conecte-se à sua conta de e-mail de trabalho ou escola para que possa criar e gerir e-mails, tarefas, eventos de calendário e reuniões, contactos, pedidos e muito mais. |
-| [![Conector gerido ][sftp-ssh-icon]<br> **SFTP-SSH SFTP-SSH**][sftp-ssh-doc] | Conecte-se aos servidores SFTP que pode aceder a partir da internet utilizando o SSH para que possa trabalhar com os seus ficheiros e pastas. |
-| [![SharePoint Contacto Gerido Online ][sharepoint-online-icon]<br> **SharePoint <br> Online**][sharepoint-online-doc] | Ligue-se ao SharePoint Online para que possa gerir ficheiros, anexos, pastas e muito mais. |
+| [![Conector gerido ][sftp-ssh-icon]<br> **SFTP-SSH SFTP-SSH**][sftp-ssh-doc] | Ligue-se a servidores SFTP aos quais pode aceder a partir da Internet com o SSH para poder trabalhar com os ficheiros e as pastas. |
+| [![SharePoint Contacto Gerido Online ][sharepoint-online-icon]<br> **SharePoint <br> Online**][sharepoint-online-doc] | Ligue-se ao SharePoint Online para poder gerir ficheiros, anexos, pastas e mais. |
 | [![Azure Queues geriu o conector ][azure-queues-icon]<br> **Azure <br> Queues**][azure-queues-doc] | Ligue-se à sua conta de Armazenamento Azure para que possa criar e gerir filas e mensagens. |
 | [![Conector gerido ][ftp-icon]<br> **FTP FTP**][ftp-doc] | Ligue-se aos servidores FTP que pode aceder a partir da internet para que possa trabalhar com os seus ficheiros e pastas. |
 | [![Sistema de ficheiros gerido sistema de ][file-system-icon]<br> **conector <br> de ficheiros gerido**][file-system-doc] | Ligue-se à partilha de ficheiros no local para que possa criar e gerir ficheiros. |
-| [![Azure Event Hubs geriu o conector ][azure-event-hubs-icon]<br> **Azure Event Hubs**][azure-event-hubs-doc] | Consumir e publicar eventos através de um Centro de Eventos. Por exemplo, utilize o Hubs de Eventos para obter resultados da sua aplicação lógica e, em seguida, envie esses resultados para um fornecedor de análises em tempo real. |
+| [![Azure Event Hubs geriu o conector ][azure-event-hubs-icon]<br> **Azure Event Hubs**][azure-event-hubs-doc] | Consuma e publique eventos através de um Hub de Eventos. Por exemplo, utilize o Hubs de Eventos para obter resultados da sua aplicação lógica e, em seguida, envie esses resultados para um fornecedor de análises em tempo real. |
 | [![Azure Event Grid gerido connector ][azure-event-grid-icon]<br> **Azure Event** <br> **Grid**][azure-event-grid-doc] | Monitorize eventos publicados por uma Grade de Eventos, por exemplo, quando os recursos do Azure ou recursos de terceiros mudam. |
 | [![Salesforce gerido conector ][salesforce-icon]<br> **Salesforce**][salesforce-doc] | Ligue-se à sua conta Salesforce para que possa criar e gerir itens como registos, empregos, objetos e muito mais. |
 |||
@@ -151,7 +151,9 @@ A Logic Apps fornece estes conectores Standard populares para automatizar tarefa
 
 ## <a name="on-premises-connectors"></a>Conectores no local
 
-Aqui estão alguns conectores Standard comumente usados que as Aplicações Lógicas fornecem para aceder a dados e recursos em sistemas no local. Antes de criar uma ligação a um sistema no local, tem primeiro de [descarregar, instalar e configurar um gateway de dados no local.][gateway-doc] Este gateway fornece um canal de comunicação seguro sem ter que configurar a infraestrutura de rede necessária.
+Antes de criar uma ligação a um sistema no local, tem primeiro de [descarregar, instalar e configurar um gateway de dados no local.][gateway-doc] Este gateway fornece um canal de comunicação seguro sem ter que configurar a infraestrutura de rede necessária. 
+
+Aqui estão *alguns* conectores Standard comumente usados que as Aplicações Lógicas fornecem para aceder a dados e recursos em sistemas no local. Para a lista de conectores no local, consulte [fontes de dados suportadas](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::
@@ -178,12 +180,12 @@ Aqui estão alguns conectores Standard comumente usados que as Aplicações Lóg
         [![Postgresql conector ][postgre-sql-icon]<br> **postgresql**][postgre-sql-doc]
     :::column-end:::
     :::column:::
-        [![Servidor do conector do SharePoint ][sharepoint-server-icon]<br> ** <br> SharePoint do SharePoint**][sharepoint-server-doc]
+        [![Servidor do conector do SharePoint ][sharepoint-server-icon]<br> **<br> SharePoint do SharePoint**][sharepoint-server-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![][sql-server-icon]<br>** <br> Servidor SQL** Server][sql-server-doc]
+        [![][sql-server-icon]<br>**<br> Servidor SQL** Server][sql-server-doc]
     :::column-end:::
     :::column:::
         [![Conector ][teradata-icon]<br> **Teradata Teradata**][teradata-doc]
@@ -207,10 +209,10 @@ A Logic Apps fornece conectores Standard para construir soluções business-to-b
         [![Ação de descodição ][as2-icon]<br> **AS2 <br> descodante AS2**][as2-doc]
     :::column-end:::
     :::column:::
-        [![Ação de codificação ][as2-icon]<br> **AS2 AS2 <br> **][as2-doc]
+        [![Ação de codificação ][as2-icon]<br> **AS2 AS2 <br>**][as2-doc]
     :::column-end:::
     :::column:::
-        [![Ação de descodição ][edifact-icon]<br> **do EDIFACT EDIFACT <br> **][edifact-decode-doc]
+        [![Ação de descodição ][edifact-icon]<br> **do EDIFACT EDIFACT <br>**][edifact-decode-doc]
     :::column-end:::
     :::column:::
         [![Ação de codificação ][edifact-icon]<br> **EDIFACT EDIFACT <br> codificação**][edifact-encode-doc]
@@ -218,7 +220,7 @@ A Logic Apps fornece conectores Standard para construir soluções business-to-b
 :::row-end:::
 :::row:::
     :::column:::
-        [![Descodição de ficheiro plano ][flat-file-decode-icon]<br> ** <br> descodimento de ficheiro plano**][flat-file-decode-doc]
+        [![Descodição de ficheiro plano ][flat-file-decode-icon]<br> **<br> descodimento de ficheiro plano**][flat-file-decode-doc]
     :::column-end:::
     :::column:::
         [![Codificação de arquivo plano codificação ][flat-file-encode-icon]<br> **de arquivo plano <br> codificação de ficheiros**][flat-file-encode-doc]
@@ -232,16 +234,16 @@ A Logic Apps fornece conectores Standard para construir soluções business-to-b
 :::row-end:::
 :::row:::
     :::column:::
-        [![X12 descodição de ação ][x12-icon]<br> **X12 <br> **][x12-decode-doc]
+        [![X12 descodição de ação ][x12-icon]<br> **X12 <br>**][x12-decode-doc]
     :::column-end:::
     :::column:::
-        [![Codificação X12 de codificação de ação ][x12-icon]<br> **X12 <br> **][x12-encode-doc]
+        [![Codificação X12 de codificação de ação ][x12-icon]<br> **X12 <br>**][x12-encode-doc]
     :::column-end:::
     :::column:::
         [![XML transforma ação ][xml-transform-icon]<br> **XML** <br> **transforma**][xml-transform-doc]
     :::column-end:::
     :::column:::
-        [![Validação XML de validação de ação de validação ][xml-validate-icon]<br> **XML <br> **][xml-validate-doc]
+        [![Validação XML de validação de ação de validação ][xml-validate-icon]<br> **XML <br>**][xml-validate-doc]
     :::column-end:::
 :::row-end:::
 
@@ -297,15 +299,15 @@ Para aplicações lógicas que cria e execute num ambiente de serviço de integr
         [![Armazenamento de ficheiros Azure ISE connector ][azure-file-storage-icon]<br> **Azure File <br> Storage**][azure-file-storage-doc]
     :::column-end:::
     :::column:::
-        [![Cofre ISE chave Azure ][azure-key-vault-icon]<br> ** <br> **][azure-key-vault-doc]
+        [![Cofre ISE chave Azure ][azure-key-vault-icon]<br> **<br>**][azure-key-vault-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
-        [![Registos de monitores Azure ISE ][azure-monitor-logs-icon]<br> ** <br> Registos monitores Azure Monitor**][azure-monitor-logs-doc]
+        [![Registos de monitores Azure ISE ][azure-monitor-logs-icon]<br> **<br> Registos monitores Azure Monitor**][azure-monitor-logs-doc]
     :::column-end:::
     :::column:::
-        [![Ônibus ise de ônibus ][azure-service-bus-icon]<br> **Azure <br> **][azure-service-bus-doc]
+        [![Ônibus ise de ônibus ][azure-service-bus-icon]<br> **Azure <br>**][azure-service-bus-doc]
     :::column-end:::
     :::column:::
         [![Azure Synapse Analytics ISE conector ][azure-sql-data-warehouse-icon]<br> **Azure SQL Data <br> Warehouse**][azure-sql-data-warehouse-doc]
@@ -322,7 +324,7 @@ Para aplicações lógicas que cria e execute num ambiente de serviço de integr
         [![][edifact-icon]<br>**Conector EDIFACT** ISE EDIFACT][edifact-doc]
     :::column-end:::
     :::column:::
-        [![Sistema de ficheiros ise do sistema de ficheiros do sistema de ficheiros do sistema de ficheiros do sistema de ][file-system-icon]<br> ** <br> ficheiros**][file-system-doc]
+        [![Sistema de ficheiros ise do sistema de ficheiros do sistema de ficheiros do sistema de ficheiros do sistema de ][file-system-icon]<br> **<br> ficheiros**][file-system-doc]
     :::column-end:::
     :::column:::
         [![Conector FTP ISE ][ftp-icon]<br> **FTP**][ftp-doc]
@@ -350,7 +352,7 @@ Para aplicações lógicas que cria e execute num ambiente de serviço de integr
         [![SMTP ISE conector ][smtp-icon]<br> **SMTP SMTP**][smtp-doc]
     :::column-end:::
     :::column:::
-        [![][sql-server-icon]<br>** <br> Servidor SQL** Server ISE][sql-server-doc]
+        [![][sql-server-icon]<br>**<br> Servidor SQL** Server ISE][sql-server-doc]
     :::column-end:::
     :::column:::
         [![Conector X12 ISE ][x12-icon]<br> **X12**][x12-doc]
@@ -373,11 +375,11 @@ Depois de um gatilho, a Azure Logic Apps cria uma instância da sua aplicação 
 
 Aqui estão os tipos gerais de gatilhos que a Azure Logic Apps fornece:
 
-* *Trigger de recorrência*: Este gatilho funciona com um horário especificado e não está fortemente associado a um determinado serviço ou sistema.
+* *Trigger de recorrência* : Este gatilho funciona com um horário especificado e não está fortemente associado a um determinado serviço ou sistema.
 
-* *Gatilho de sondagens*: Este gatilho sonda regularmente um serviço ou sistema específico com base no horário especificado, verificando novos dados ou se um evento específico aconteceu. Se novos dados estiverem disponíveis ou o evento específico acontecer, o gatilho cria e executa uma nova instância da sua aplicação lógica, que pode agora usar os dados que são passados como entrada.
+* *Gatilho de sondagens* : Este gatilho sonda regularmente um serviço ou sistema específico com base no horário especificado, verificando novos dados ou se um evento específico aconteceu. Se novos dados estiverem disponíveis ou o evento específico acontecer, o gatilho cria e executa uma nova instância da sua aplicação lógica, que pode agora usar os dados que são passados como entrada.
 
-* *Acionar o gatilho*: Este gatilho espera e ouve novos dados ou para que um evento aconteça. Quando novos dados estão disponíveis ou quando o evento acontece, o gatilho cria e executa uma nova instância da sua aplicação lógica, que pode agora usar os dados que são passados como entrada.
+* *Acionar o gatilho* : Este gatilho espera e ouve novos dados ou para que um evento aconteça. Quando novos dados estão disponíveis ou quando o evento acontece, o gatilho cria e executa uma nova instância da sua aplicação lógica, que pode agora usar os dados que são passados como entrada.
 
 <a name="connections"></a>
 
@@ -412,7 +414,7 @@ Se a sua organização não permitir a ligação a recursos específicos utiliza
 
 Embora crie ligações a partir de uma aplicação lógica, as ligações são recursos Azure separados com as suas próprias definições de recursos. Para rever estas definições de recursos de conexão, [baixe a sua aplicação lógica do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a forma mais fácil de criar um modelo de aplicação lógica parametrizada válido que esteja maioritariamente pronto para ser implantado.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Ver a [lista completa do conector](/connectors)
 * [Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)

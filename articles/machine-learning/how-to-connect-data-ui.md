@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to
-ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312791"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359872"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Conecte-se aos dados com o estúdio Azure Machine Learning
 
@@ -24,7 +24,7 @@ Neste artigo, aprenda a aceder aos seus dados com o [estúdio Azure Machine Lear
 
 A tabela a seguir define e resume os benefícios das datas-tores e conjuntos de dados. 
 
-|Objeto|Description| Benefícios|   
+|Objeto|Descrição| Benefícios|   
 |---|---|---|
 |Arquivos de dados| Ligue-se de forma segura ao seu serviço de armazenamento no Azure, armazenando as suas informações de conexão, como o seu ID de subscrição e a autorização simbólica no seu [Cofre-Chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho | Porque a sua informação está armazenada de forma segura, <br><br> <li> Não &nbsp; coloque &nbsp; em risco credenciais de autenticação &nbsp; ou &nbsp; &nbsp; fontes de &nbsp; dados originais. <li> Já não precisas de os codificar nos teus scripts.
 |Conjuntos de dados| Ao criar um conjunto de dados, cria uma referência para a localização da origem de dados, juntamente com uma cópia dos metadados. Com conjuntos de dados pode, <br><br><li> Aceder aos dados durante o treino de modelo.<li> Partilhe dados e colabore com outros utilizadores.<li> Alavancar bibliotecas de código aberto, como pandas, para exploração de dados. | Como os conjuntos de dados são avaliados preguiçosamente, e os dados permanecem na sua localização existente, <br><br><li>Guarde uma única cópia de dados no seu armazenamento.<li> Incorrer sem custos de armazenamento extra <li> Não se arrisque a alterar involuntariamente as suas fontes de dados originais.<li>Melhorar as velocidades de desempenho do fluxo de trabalho ML. 
@@ -50,8 +50,6 @@ Para uma primeira experiência de código, consulte os seguintes artigos para ut
 
 Pode criar datastores a partir [destas soluções de armazenamento Azure](how-to-access-data.md#matrix). **Para soluções de armazenamento não suportadas** , e para poupar o custo da saída de dados durante as experiências de ML, deve [mover os seus dados](how-to-access-data.md#move) para uma solução de armazenamento Azure suportada. [Saiba mais sobre datastores.](how-to-access-data.md) 
 
-
-
 Crie uma nova loja de dados em alguns passos com o estúdio Azure Machine Learning.
 
 > [!IMPORTANT]
@@ -60,7 +58,7 @@ Crie uma nova loja de dados em alguns passos com o estúdio Azure Machine Learni
 1. Inscreva-se no [estúdio Azure Machine Learning](https://ml.azure.com/).
 1. Selecione **Datastores** no painel esquerdo em **Manage**.
 1. Selecione **+ Nova loja de dados**.
-1. Preencha o formulário para uma nova datastore. O formulário atualiza-se inteligentemente com base nas suas seleções para o tipo de armazenamento Eszure e tipo de autenticação. Consulte a [secção de acesso ao armazenamento e permissões](#access-validation) para saber onde encontrar as credenciais de autenticação necessárias para preencher este formulário.
+1. Preencha o formulário para criar e registar uma nova datastore. O formulário atualiza-se inteligentemente com base nas suas seleções para o tipo de armazenamento Eszure e tipo de autenticação. Consulte a [secção de acesso ao armazenamento e permissões](#access-validation) para saber onde encontrar as credenciais de autenticação necessárias para preencher este formulário.
 
 O exemplo a seguir demonstra como é a forma quando cria uma loja **de dados azure blob** :
 
@@ -113,7 +111,7 @@ Especificamente, o perfil de dados do conjunto de dados de aprendizagem automát
 >[!NOTE]
 > As entradas em branco aparecem para funcionalidades com tipos irrelevantes.
 
-|Estatística|Description
+|Estatística|Descrição
 |------|------
 |Funcionalidade| Nome da coluna que está a ser resumida.
 |Perfil| Visualização em linha com base no tipo inferido. Por exemplo, cordas, booleanas e datas terão contagens de valor, enquanto decimais (numéricos) têm histogramas aproximados. Isto permite-lhe obter uma compreensão rápida da distribuição dos dados.
@@ -157,17 +155,21 @@ Pode encontrar a chave de conta, o token SAS e informações principais do servi
     * A sua página **geral** correspondente conterá informações necessárias, como iD do inquilino e identificação do cliente.
 
 > [!IMPORTANT]
-> Por razões de segurança, poderá ter de alterar as suas chaves de acesso para uma conta de Armazenamento Azure (chave de conta ou ficha SAS). Ao fazê-lo, certifique-se de sincronizar as novas credenciais com o seu espaço de trabalho e as datas-tores que lhe estão ligadas. Saiba como [sincronizar as suas credenciais atualizadas.](how-to-change-storage-access-key.md)
+> * Se precisar de alterar as suas teclas de acesso para uma conta de Armazenamento Azure (chave de conta ou token SAS), certifique-se de sincronizar as novas credenciais com o seu espaço de trabalho e as lojas de dados ligadas a ela. Saiba como [sincronizar as suas credenciais atualizadas.](how-to-change-storage-access-key.md) <br> <br>
+> * Se não registar e re-registar uma loja de dados com o mesmo nome, e falhar, o Cofre da Chave Azure para o seu espaço de trabalho pode não ter a eliminação suave ativada. Por predefinição, a eliminação suave está ativada para a instância do cofre de chaves criada pelo seu espaço de trabalho, mas pode não ser ativada se utilizar um cofre-chave existente ou se tiver um espaço de trabalho criado antes de outubro de 2020. Para obter informações sobre como permitir a eliminação suave, consulte [Ativar o Soft Delete para obter um cofre de chaves existente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault)."
 
 ### <a name="permissions"></a>Permissões
 
-Para o recipiente blob Azure e o armazenamento do Azure Data Lake Gen 2, certifique-se de que as suas credenciais de autenticação têm acesso **ao Leitor de Dados Blob de Armazenamento.** Saiba mais sobre [o Storage Blob Data Reader](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). 
+Para o recipiente de blob Azure e o armazenamento do Azure Data Lake Gen 2, certifique-se de que as suas credenciais de autenticação têm acesso **ao Leitor de Dados Blob de Armazenamento.** Saiba mais sobre [o Storage Blob Data Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Uma conta SAS não tem permissões. 
+* Para **o acesso à leitura** de dados, as suas credenciais de autenticação devem ter um mínimo de lista e ler permissões para contentores e objetos. 
+
+* Para que os dados **escrevam acesso,** escreva e adicione permissões também são necessárias.
 
 ## <a name="train-with-datasets"></a>Preparar com conjuntos de dados
 
 Utilize os seus conjuntos de dados nas suas experiências de aprendizagem automática para treinar modelos ML. [Saiba mais sobre como treinar com conjuntos de dados](how-to-train-with-datasets.md)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Um exemplo passo-a-passo de formação com OsDatasets Tabular e a aprendizagem automática de máquinas.](tutorial-first-experiment-automated-ml.md)
 

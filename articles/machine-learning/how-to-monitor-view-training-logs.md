@@ -1,7 +1,7 @@
 ---
 title: Monitorar e visualizar registos de execução de ML & métricas
 titleSuffix: Azure Machine Learning
-description: Monitorize as suas experiências Azure ML e veja as métricas de execução para melhorar o processo de criação de modelos. Use widgets e o portal do estúdio para explorar o estado de execução e ver os registos de execução.
+description: Monitorize as suas experiências ml e veja as métricas de execução com widgets Jupyter e o estúdio Azure Machine Learning.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 845160d92100a27c32f16eddcd1f36e9e8624e80
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316679"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360603"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e visualizar ML executar registos e métricas
-
-
 
 Neste artigo, aprende-se a monitorizar o Azure Machine Learning e a visualizar os seus registos. Antes de poder visualizar os registos, tem de os ativar primeiro. Para obter mais informações, consulte [Ativar o registo em treinos Azure ML](how-to-track-experiments.md).
 
@@ -127,7 +125,7 @@ Utilize os seguintes métodos nas APIs de registo para influenciar o estúdio vi
 |Tabela de registo com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linha de duas variáveis|
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Experimente estes próximos passos para aprender a usar a Azure Machine Learning:
 

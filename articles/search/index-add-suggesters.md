@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8959bf84e2b5629e03c2571fa494b96cec4f8e9
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8ae25c63e9c6e3bf6ad363cde9eb641703562811
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347646"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360025"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Crie um sugestivo para permitir resultados autocompletos e sugeridos numa consulta
 
@@ -44,6 +44,8 @@ Para criar um sugestivo, adicione um a um [esquema de índice](/rest/api/searchs
 
 + Utilize o analisador padrão padrão Lucene `"analyzer": null` () ou um [analisador de idioma](index-add-language-analyzers.md) (por exemplo, `"analyzer": "en.Microsoft"` ) no campo
 
+Se tentar criar um sugestivo utilizando campos pré-existentes, a API não o permitirá. Os prefixos são gerados durante a indexação, quando os termos parciais em duas ou mais combinações de caracteres são tokenizados ao lado de termos inteiros. Dado que os campos existentes já estão tokenizados, terá de reconstruir o índice se quiser adicioná-los a um sugestivo. Para obter mais informações, consulte [Como reconstruir um índice de Pesquisa Cognitiva Azure.](search-howto-reindex.md)
+
 ### <a name="choose-fields"></a>Escolha campos
 
 Embora um sugestivo tenha várias propriedades, é principalmente uma coleção de campos de cordas para os quais você está permitindo uma experiência de pesquisa como você-você-tipo. Há um sugestivo para cada índice, pelo que a lista de sugestivos deve incluir todos os campos que contribuam com conteúdo tanto para sugestões como para o preconto automático.
@@ -64,12 +66,6 @@ Os campos que utilizam [analisadores personalizados](index-add-custom-analyzers.
 
 > [!NOTE]
 > Se precisar de trabalhar em torno da restrição do analisador, por exemplo, se precisar de uma palavra-chave ou de um analisador de ngram para determinados cenários de consulta, deve utilizar dois campos separados para o mesmo conteúdo. Isto permitirá que um dos campos tenha um sugestivo, enquanto o outro pode ser configurado com uma configuração de analisador personalizado.
-
-### <a name="when-to-create-a-suggester"></a>Quando criar um sugestivo
-
-A melhor altura para criar um sugestivo é quando também está a criar a própria definição de campo.
-
-Se tentar criar um sugestivo utilizando campos pré-existentes, a API não o permitirá. Os prefixos são gerados durante a indexação, quando os termos parciais em duas ou mais combinações de caracteres são tokenizados ao lado de termos inteiros. Dado que os campos existentes já estão tokenizados, terá de reconstruir o índice se quiser adicioná-los a um sugestivo. Para obter mais informações, consulte [Como reconstruir um índice de Pesquisa Cognitiva Azure.](search-howto-reindex.md)
 
 ## <a name="create-using-rest"></a>Criar usando REST
 

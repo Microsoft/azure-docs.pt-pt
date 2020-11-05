@@ -1,7 +1,7 @@
 ---
 title: Ingestão de dados & automatização
 titleSuffix: Azure Machine Learning
-description: Saiba mais sobre as opções de ingestão de dados para treinar os seus modelos de aprendizagem automática.
+description: Aprenda os prós e contras das opções de ingestão de dados disponíveis para treinar os seus modelos de aprendizagem automática.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: 401398da4d71f32973f720dd0ca5cc9b550892e8
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 60cf97c4cb650120a4b6e2989b93d96ea120d040
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323047"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360127"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opções de ingestão de dados para fluxos de trabalho de aprendizagem automática Azure
 
@@ -74,7 +74,7 @@ No diagrama seguinte, o gasoduto Azure Machine Learning consiste em dois passos:
 
 ![Pipeline Azure + Ingestão de dados SDK](media/concept-data-ingestion/data-ingest-option-two.png)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Siga estes artigos como fazer:
 * [Construir um pipeline de ingestão de dados com a Azure Data Factory](how-to-data-ingest-adf.md)
