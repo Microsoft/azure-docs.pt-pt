@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58aaecaa9f8606399b40fdb1d38a274117ec6a2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bc2c42f407ee31a792a6634a813358d428120b46
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377642"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378623"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Criar um grupo atribuível a funções no Azure Ative Directory
 
@@ -27,7 +27,7 @@ Só é possível atribuir um papel a um grupo que foi criado com a propriedade '
 ## <a name="using-azure-ad-admin-center"></a>Usando o centro de administração Ad da Adure
 
 1. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
-1. Selecione **Groups**  >  **Grupos Todos os grupos**  >  **Novo**grupo .
+1. Selecione **Groups**  >  **Grupos Todos os grupos**  >  **Novo** grupo .
 
     [![Abra o Diretório Ativo Azure e crie um novo grupo.](./media/groups-create-eligible/new-group.png "Abra o Diretório Ativo Azure e crie um novo grupo.")](./media/groups-create-eligible/new-group.png#<lightbox>)
 
@@ -46,7 +46,7 @@ Só é possível atribuir um papel a um grupo que foi criado com a propriedade '
 
 O grupo é criado com quaisquer funções que lhe possas ter atribuído.
 
-## <a name="using-powershell"></a>Utilizar o PowerShell
+## <a name="using-powershell"></a>Com o PowerShell
 
 ### <a name="install-the-azure-ad-preview-module"></a>Instale o módulo de pré-visualização AZure AD
 
@@ -126,6 +126,6 @@ Para este tipo de grupo, `isPublic` será sempre falso e será sempre `isSecurit
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Atribuir um papel a um grupo de nuvens](groups-assign-role.md)
-- [Use grupos de nuvem para gerir atribuições de funções](groups-concept.md)
+- [Atribuir uma função a um grupo da cloud](groups-assign-role.md)
+- [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](groups-faq-troubleshooting.md)

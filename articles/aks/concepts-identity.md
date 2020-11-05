@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: edb6a8e04537a74b7ea7d4c9bd9bd27fdc39e402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5013f8b7dd88340e397fd3d4d4cd93d4b911fbbb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007085"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378232"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Access and identity options for Azure Kubernetes Service (AKS) (Opções de acesso e de identidade do Azure Kubernetes Service (AKS))
 
@@ -101,7 +101,7 @@ O Azure RBAC é um sistema de autorização construído na [Azure Resource Manag
 
  O Azure RBAC foi projetado para trabalhar em recursos dentro da sua subscrição Azure, enquanto kubernetes RBAC é projetado para trabalhar em recursos Kubernetes dentro do seu cluster AKS. 
 
-Com o Azure RBAC, cria-se uma *definição de papel* que descreve as permissões a aplicar. Um utilizador ou grupo é então atribuído esta definição de função através de uma *atribuição de papel* para um determinado *âmbito*, que poderia ser um recurso individual, um grupo de recursos, ou em toda a subscrição.
+Com o Azure RBAC, cria-se uma *definição de papel* que descreve as permissões a aplicar. Um utilizador ou grupo é então atribuído esta definição de função através de uma *atribuição de papel* para um determinado *âmbito* , que poderia ser um recurso individual, um grupo de recursos, ou em toda a subscrição.
 
 Para obter mais informações, consulte [o que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?][azure-rbac]
 
@@ -143,7 +143,7 @@ A AKS fornece os seguintes quatro papéis incorporados. São semelhantes aos [pa
 | Azure Kubernetes Serviço RBAC Administrador  | Permite o acesso a administrador, destinado a ser concedido dentro de um espaço de nome. Permite o acesso de leitura/escrita à maioria dos recursos num espaço de nome (ou âmbito de cluster), incluindo a capacidade de criar papéis e encadernações de papéis dentro do espaço de nomes. Esta função não permite escrever acesso à quota de recursos ou ao próprio espaço de nome. |
 | Azure Kubernetes Serviço RBAC Cluster Admin  | Permite o acesso do super-utilizador para realizar qualquer ação em qualquer recurso. Dá total controlo sobre todos os recursos do cluster e em todos os espaços de nome. |
 
-**Veja como aproveitar a autorização do Azure RBAC para a autorização de Kubernetes [aqui.](manage-azure-rbac.md)**
+**Para aprender como ativar a autorização do Azure RBAC para a Kubernetes, [leia aqui.](manage-azure-rbac.md)**
 
 ## <a name="next-steps"></a>Passos seguintes
 

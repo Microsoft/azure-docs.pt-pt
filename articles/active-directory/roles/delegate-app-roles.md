@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8139dca2896610b8a3a52f1446255bea0031dc11
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9ad21e15d33dabba74d338b339e4b2fdc25df52e
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378277"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379218"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegar permissões de registo de aplicativos no Azure Ative Directory
 
@@ -90,7 +90,7 @@ Siga as instruções nas [funções De atribuir aos utilizadores com diretório 
 Criar funções personalizadas e atribuir funções personalizadas são passos separados:
 
 - [Crie uma definição de *função* personalizada](custom-create.md) e [adicione-lhe permissões a partir de uma lista pré-configurada](custom-available-permissions.md). Estas são as mesmas permissões usadas nas funções incorporadas.
-- [Crie uma *tarefa de função* ](custom-assign-powershell.md) para atribuir o papel personalizado.
+- [Crie uma *tarefa de função*](custom-assign-powershell.md) para atribuir o papel personalizado.
 
 Esta separação permite-lhe criar uma definição de papel única e, em seguida, atribuí-la muitas vezes em *diferentes âmbitos*. Um papel personalizado pode ser atribuído no âmbito da organização, ou pode ser atribuído no âmbito se um único objeto AD Azure. Um exemplo de um âmbito de objeto é um registo de aplicações únicas. Utilizando diferentes âmbitos, a mesma definição de papel pode ser atribuída à Sally em todos os registos de aplicações na organização e, em seguida, à Naveen sobre apenas o registo da app Contoso Expense Reports.
 

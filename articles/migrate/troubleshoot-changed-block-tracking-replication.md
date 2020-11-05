@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314722"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377223"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Problemas de resolução de problemas na migração VMware VM sem agente
 
@@ -29,11 +29,16 @@ Pode ocasionalmente ver ciclos de replicação falhando para um VM. Estas falhas
 Utilize os seguintes passos para monitorizar o estado de replicação das suas máquinas virtuais:
 
   1. Aceda à página de Servidores em Azure Migrate no portal Azure.
-  2. Navegue para a página "Máquinas de replicação" clicando em "Replicating servers" no azulejo de migração do servidor.
-  3. Você verá uma lista de servidores replicando juntamente com informações adicionais como estado, saúde, última hora de sincronização, etc. A coluna de saúde indica a saúde de replicação atual do VM. Um valor 'Crítico' ou 'Aviso' na coluna de saúde normalmente indica que o ciclo de replicação anterior para o VM falhou. Para obter mais detalhes, clique com o botão direito no VM e selecione "Detalhes de erro". A página Error Details contém informações sobre o erro e detalhes adicionais sobre como resolver problemas. Você também verá um link "Eventos Recentes" que pode ser usado para navegar na página de eventos para o VM.
-  4. Clique em "Eventos Recentes" para ver as falhas do ciclo de replicação anteriores para o VM. Na página de eventos, procure o mais recente evento do tipo "Ciclo de replicação falhou" ou "Ciclo de replicação falhou para o disco" para o VM.
-  5. Clique no evento para entender as possíveis causas do erro e recomendou medidas de reparação. Utilize as informações fornecidas para resolver problemas e remediar o erro.
-    
+  ![Imagem 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
+  1. Navegue para a página "Máquinas de replicação" clicando em "Replicating servers" no azulejo de migração do servidor.
+  ![Imagem 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
+  1. Você verá uma lista de servidores replicando juntamente com informações adicionais como estado, saúde, última hora de sincronização, etc. A coluna de saúde indica a saúde de replicação atual do VM. Um valor 'Crítico' ou 'Aviso' na coluna de saúde normalmente indica que o ciclo de replicação anterior para o VM falhou. Para obter mais detalhes, clique com o botão direito no VM e selecione "Detalhes de erro". A página Error Details contém informações sobre o erro e detalhes adicionais sobre como resolver problemas. Você também verá um link "Eventos Recentes" que pode ser usado para navegar na página de eventos para o VM.
+  ![Imagem 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. Clique em "Eventos Recentes" para ver as falhas do ciclo de replicação anteriores para o VM. Na página de eventos, procure o mais recente evento do tipo "Ciclo de replicação falhou" ou "Ciclo de replicação falhou para o disco" para o VM.
+  ![Imagem 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
+  1. Clique no evento para entender as possíveis causas do erro e recomendou medidas de reparação. Utilize as informações fornecidas para resolver problemas e remediar o erro.
+ ![Imagem 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+
 ## <a name="common-replication-errors"></a>Erros de replicação comuns
 
 Esta secção descreve alguns dos erros comuns e como pode resolvê-los.
@@ -54,7 +59,7 @@ Quando o portal cria o cofre de chaves, também adiciona uma política de acesso
 
 - O outro caso em que isto pode acontecer é quando um utilizador (user1) tentou configurar a replicação inicialmente e encontrou uma falha, mas o cofre-chave já foi criado (e a política de acesso ao utilizador adequadamente atribuída a este utilizador). Agora, num ponto posterior, um utilizador diferente (user2) tenta configurar a replicação, mas a conta de armazenamento gerido configure ou a operação de definição SAS falha, uma vez que não existe uma política de acesso ao utilizador correspondente ao utilizador2 no cofre de chaves.
 
-**Resolução**: Para contornar este problema, crie uma política de acesso ao utilizador para o utilizador2 no teclado que concede ao utilizador 2 permissão para configurar a conta de armazenamento gerida e gerar definições SAS. O Utilizador2 pode fazê-lo a partir da Azure PowerShell utilizando os cmdlets abaixo:
+**Resolução** : Para contornar este problema, crie uma política de acesso ao utilizador para o utilizador2 no teclado que concede ao utilizador 2 permissão para configurar a conta de armazenamento gerida e gerar definições SAS. O Utilizador2 pode fazê-lo a partir da Azure PowerShell utilizando os cmdlets abaixo:
 
 $userPrincipalId = $(Get-AzureRmADUser -UserPrincipalName "user2_email_address"). ID
 
@@ -134,7 +139,7 @@ O componente que tenta replicar dados para o Azure está em baixo ou não respon
     
     Este comando tentará uma ligação TCP e devolverá uma saída.
     
-     - Na saída, verifique o campo "_TcpTestSucceed_". Se o valor for "_Verdadeiro_", não há problema de conectividade entre o Aparelho Azure Migrate e o Cofre da Chave Azure. Se o valor for "Falso", há um problema de conectividade.
+     - Na saída, verifique o campo " _TcpTestSucceed_ ". Se o valor for " _Verdadeiro_ ", não há problema de conectividade entre o Aparelho Azure Migrate e o Cofre da Chave Azure. Se o valor for "Falso", há um problema de conectividade.
     
     **Resolução:** Se este teste falhar, existe um problema de conectividade entre o aparelho Azure Migrate e o Cofre da Chave Azure. Envolva a sua equipa de networking local para verificar problemas de conectividade. Normalmente, pode haver algumas definições de firewall que estão a causar as falhas.
     
@@ -220,7 +225,7 @@ As causas possíveis incluem:
     
     Este comando tentará uma ligação TCP e devolverá uma saída.
     
-    1. Na saída, verifique o campo "_TcpTestSucceed_". Se o valor for "_Verdadeiro_", não há problema de conectividade entre o Aparelho Azure Migrate e o Cofre da Chave Azure. Se o valor for "Falso", há um problema de conectividade.
+    1. Na saída, verifique o campo " _TcpTestSucceed_ ". Se o valor for " _Verdadeiro_ ", não há problema de conectividade entre o Aparelho Azure Migrate e o Cofre da Chave Azure. Se o valor for "Falso", há um problema de conectividade.
     
     **Resolução:** Se este teste falhar, existe um problema de conectividade entre o aparelho Azure Migrate e o Cofre da Chave Azure. Envolva a sua equipa de networking local para verificar problemas de conectividade. Normalmente, pode haver algumas definições de firewall que estão a causar as falhas.
     
@@ -271,7 +276,7 @@ Se tiver uma máquina virtual com vários discos, poderá encontrar este erro se
 
 Esta questão ocorre quando a geração instantânea deixa de responder. Quando este problema ocorre, pode ver a criação de paragens de tarefa instantânea a 95% ou 99%. Consulte este [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) para ultrapassar este problema.
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Error Message: Ocorreu um erro interno. [Falhou na consolidação dos discos em VM _[Razões]_]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Error Message: Ocorreu um erro interno. [Falhou na consolidação dos discos em VM _[Razões]_ ]
 
 Quando consolidamos os discos no fim do ciclo de replicação, a operação falha. Siga as instruções no [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) selecionando a _razão_ adequada para resolver o problema.
 

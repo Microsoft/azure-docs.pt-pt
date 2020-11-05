@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424576"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378011"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registo combinado de informações de segurança para a visão geral do Azure Ative Directory
 
@@ -53,15 +53,15 @@ O registo combinado suporta os seguintes métodos e ações de autenticação:
 
 | Método | Registar | Alterar | Eliminar |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | Sim (máximo de 5) | Não | Sim |
-| Outra aplicação autenticadora | Sim (máximo de 5) | Não | Sim |
-| Ficha de hardware | Não | Não | Sim |
+| Microsoft Authenticator | Sim (máximo de 5) | No | Sim |
+| Outra aplicação autenticadora | Sim (máximo de 5) | No | Sim |
+| Ficha de hardware | No | No | Sim |
 | Telefone | Sim | Sim | Sim |
 | Telefone alternativo | Sim | Sim | Sim |
-| Telefone do escritório | Não | Não | Não |
+| Telefone do escritório | Sim | Sim | Sim |
 | E-mail | Sim | Sim | Sim |
-| Perguntas de segurança | Sim | Não | Sim |
-| Palavras-passe da aplicação | Sim | Não | Sim |
+| Perguntas de segurança | Sim | No | Sim |
+| Palavras-passe da aplicação | Sim | No | Sim |
 | Chaves de segurança FIDO2<br />*Modo gerido apenas a partir da página [de informações de Segurança](https://mysignins.microsoft.com/security-info)*| Sim | Sim | Sim |
 
 > [!NOTE]

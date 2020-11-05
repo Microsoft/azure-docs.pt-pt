@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: fd784bb184ff9432efc569ac9fd40de93eec0b53
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287223"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379592"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Azure Functions processamento fiável de eventos
 
@@ -50,7 +50,7 @@ A Azure Functions consome eventos Event Hub enquanto pedala pelos seguintes pass
 
 Este comportamento revela alguns pontos importantes:
 
-- *Exceções não tratadas podem fazer com que perca mensagens.* As execuções que resultam numa exceção continuarão a progredir no ponteiro.  A definição de uma [política de re-julgamento](./functions-bindings-error-pages.md#retry-policies) atrasará a progressão do ponteiro até que toda a política de reagem seja avaliada.
+- *Exceções não tratadas podem fazer com que perca mensagens.* As execuções que resultam numa exceção continuarão a progredir no ponteiro.  A definição de uma [política de re-julgamento](./functions-bindings-error-pages.md#retry-policies-preview) atrasará a progressão do ponteiro até que toda a política de reagem seja avaliada.
 - *As funções garantem, pelo menos, uma vez a entrega.* O seu código e sistemas dependentes podem ter de [explicar o facto de que a mesma mensagem pode ser recebida duas vezes](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Processamento de exceções
@@ -59,7 +59,7 @@ Regra geral, todas as funções devem incluir um [bloco de tentativa/captura](./
 
 ### <a name="retry-mechanisms-and-policies"></a>Mecanismos e políticas de retíria
 
-Algumas exceções são transitórias de natureza e não reaparecem quando uma operação é tentada novamente momentos depois. É por isso que o primeiro passo é sempre voltar a tentar a operação.  Pode alavancar as [políticas de relíparação](./functions-bindings-error-pages.md#retry-policies) da aplicação de função ou a lógica de relempenhá-lo dentro da execução da função.
+Algumas exceções são transitórias de natureza e não reaparecem quando uma operação é tentada novamente momentos depois. É por isso que o primeiro passo é sempre voltar a tentar a operação.  Pode alavancar as [políticas de relíparação](./functions-bindings-error-pages.md#retry-policies-preview) da aplicação de função ou a lógica de relempenhá-lo dentro da execução da função.
 
 A introdução de comportamentos de manuseamento de falhas nas suas funções permite-lhe definir políticas básicas e avançadas de relagem. Por exemplo, pode implementar uma política que siga um fluxo de trabalho ilustrado pelas seguintes regras:
 

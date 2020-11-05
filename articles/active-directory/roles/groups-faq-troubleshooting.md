@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837750d7eeef9bc7a133a54b23a0c52c847364eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377628"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377739"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Resolver problemas de funções atribuídas a grupos de cloud
 
@@ -34,7 +34,7 @@ Aqui estão algumas perguntas comuns e dicas de resolução de problemas para at
 
 **P:** Sou administrador de helpdesk na minha organização mas não posso atualizar a palavra-passe de um utilizador que é um Leitor de Diretório. Porque é que isto acontece?
 
-**R**: O utilizador pode ter obtido o Directory Reader através de um grupo atribuível a funções. Todos os membros e proprietários de um grupo atribuível a papéis estão protegidos. Apenas os utilizadores nas funções de Administrador de Autenticação Privilegiada ou Administrador Global podem redefinir credenciais para um utilizador protegido.
+**R** : O utilizador pode ter obtido o Directory Reader através de um grupo atribuível a funções. Todos os membros e proprietários de um grupo atribuível a papéis estão protegidos. Apenas os utilizadores nas funções de Administrador de Autenticação Privilegiada ou Administrador Global podem redefinir credenciais para um utilizador protegido.
 
 **Q:** Não posso atualizar a palavra-passe de um utilizador. Não têm nenhum papel privilegiado mais elevado atribuído. Porque é que está a acontecer?
 
@@ -89,7 +89,7 @@ Utilizador | Proprietário do catálogo | Só se o dono do grupo | Só se o dono
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e abra o **Azure Ative Directory**.
 1. Selecione os utilizadores e abra um perfil de utilizador.
-1. Selecione **funções atribuídas**e, em seguida,:
+1. Selecione **funções atribuídas** e, em seguida,:
 
     - Em organizações licenciadas Azure AD Premium P1: Selecione o ícone de engrenagem. Abre-se um painel que pode dar esta informação.
     - Em Azure AD Premium P2 organizações licenciadas: Você encontrará informações diretas e herdadas de licença na coluna **Membership.**
@@ -100,5 +100,5 @@ Utilizador | Proprietário do catálogo | Só se o dono do grupo | Só se o dono
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Use grupos de nuvem para gerir atribuições de funções](groups-concept.md)
+- [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Criar um grupo ao qual se pode atribuir funções](groups-create-eligible.md)

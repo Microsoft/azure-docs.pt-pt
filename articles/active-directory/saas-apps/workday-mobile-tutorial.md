@@ -11,147 +11,145 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 256da169761da486d8ac064a2f58a59be43bb5df
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e706649957bf427cd577d7995fb9ce104c687f4b
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754722"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378997"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday-mobile-application"></a>Tutorial: Azure Ative Directory integração única (SSO) com aplicação móvel workday
 
-Neste tutorial, você vai aprender a integrar O Azure Ative Directy (Azure AD), Acesso Condicional e Intune com as Aplicações Móveis Workday. Quando integrar as Aplicações Móveis do Workday com a Microsoft, pode:
+Neste tutorial, você vai aprender a integrar O Azure Ative Directy (Azure AD), Acesso Condicional e Intune com Aplicação Móvel Workday. Quando integrar a Aplicação Móvel workday com a Microsoft, pode:
 
-* Certifique-se de que os dispositivos estão em conformidade com as suas políticas antes de iniciar sôm.
-* Adicione controlos à App workday para garantir que os utilizadores estão a aceder de forma segura aos dados corporativos. 
+* Certifique-se de que os dispositivos estão em conformidade com as suas políticas antes de iniciar a sômposições.
+* Adicione controlos à Aplicação Móvel Workday para garantir que os utilizadores acedem de forma segura aos dados corporativos. 
 * Controlo em Azure AD que tem acesso ao Workday.
-* Ative os seus utilizadores a serem automaticamente inscritos no Workday com as suas contas AD Azure.
-* Gerencie as suas contas numa localização central - o portal Azure.
+* Permita que os seus utilizadores sejam automaticamente inscritos no Workday com as suas contas AD Azure.
+* Gerencie as suas contas num local central: o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para começar, precisa dos seguintes itens:
+Para começar:
 
-* Integrar o Dia de Trabalho com a Azure AD
-* Tutorial: [Azure Ative Directory integração única (SSO) com Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial)
+* Integrar o Workday com a Azure AD.
+* Leia [a integração única do Azure Ative Directory (SSO) com o Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-Neste tutorial, configura e testa as Políticas de Acesso Condicional da Microsoft e Intune com as Aplicações Móveis do Workday.
+Neste tutorial, configura e testa as políticas de acesso condicional Azure AD e Intune com aplicação móvel workday.
 
-* A aplicação federada workday pode agora ser configurada com Azure AD para permitir sSO. Para mais detalhes sobre como configurar, siga [este](workday-tutorial.md) link.
+Para ativar um único sinal de sso, pode configurar a aplicação Federada workday com Azure AD. Para obter mais informações, consulte [a integração única de sign-on (SSO) do Azure Ative Directory com o Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-tutorial).
 
 > [!NOTE] 
-> O Workday não suporta as Políticas de Proteção de Aplicações da Intune. Tem de utilizar a Gestão de Dispositivos Móveis para utilizar o Acesso Condicional.
+> O workday não suporta as políticas de proteção de aplicações do Intune. Tem de utilizar a gestão do dispositivo móvel para utilizar o Acesso Condicional.
 
 
-## <a name="ensure-users-have-access-to-the-workday-mobile-app"></a>Garantir que os utilizadores têm acesso à Aplicação Móvel Workday:
+## <a name="ensure-users-have-access-to-workday-mobile-application"></a>Garantir que os utilizadores têm acesso à Aplicação Móvel workday
 
-Configure o Workday para permitir o acesso às suas ofertas de Aplicações Móveis. Terá de configurar as seguintes políticas para o Mobile:
+Configurar o Workday para permitir o acesso às suas aplicações móveis. Tem de configurar as seguintes políticas para o Workday Mobile:
 
-Pode configurmentar estas as instruções seguindo estas instruções:
-
-1. Aceda ao relatório de Políticas de Segurança do Domínio para Área Funcional.
-2. Selecione uma política de segurança.
+1. Aceda às políticas de segurança do domínio para relatório de área funcional.
+1. Selecione a política de segurança adequada:
     * Utilização móvel - Android
     * Utilização móvel - iPad
     * Utilização móvel - iPhone
-3. Clique em Permissões de Edição.
-4. Selecione a caixa de verificação 'Ver ou Modificar' para permitir aos grupos de segurança o acesso ao relatório ou itens de tarefas securáveis.
-5. Selecione a caixa de verificação Get or Put para garantir aos grupos de segurança acesso à integração e reportar ou ações securáveis da tarefa.
+1. Selecione **Permissões de Edição**.
+1. Selecione a caixa de verificação **'Ver ou Modificar'** para permitir aos grupos de segurança o acesso ao relatório ou itens de tarefas securáveis.
+1. Selecione a caixa de verificação **Get or Put** para garantir aos grupos de segurança acesso à integração e reportar ou ações securáveis da tarefa.
 
-Ative as alterações da política de segurança pendentes executando a tarefa **De alterar a política de segurança pendente.**
+Ativar alterações de política de segurança pendentes executando **Ativar alterações da política de segurança pendentes**.
 
-## <a name="open-workday-login-page-in-mobile-browser"></a>Página de início de sessão aberta no navegador móvel:
+## <a name="open-workday-sign-in-page-in-workday-mobile-browser"></a>Página de s-in open workday no navegador móvel workday
 
-Para aplicar o Acesso Condicional à aplicação móvel do Workday, é necessário que a aplicação abra num navegador externo. Isto pode ser feito verificando a caixa **Enable Mobile Browser SSO para aplicações nativas** na **configuração do inquilino de edição - Segurança.** Isto exigirá a instalação de um navegador aprovado pelo Intune no dispositivo para iOS e no Perfil de Trabalho para Android
+Para aplicar o Acesso Condicional à Aplicação Móvel workday, tem de abrir a aplicação num browser externo. Na **Configuração do Inquilino de Edição - Segurança** , selecione Enable Mobile Browser **SSO for Native Apps**. Isto requer que um navegador aprovado pelo Intune seja instalado no dispositivo para iOS, e no perfil de trabalho para Android.
 
-![Login do Navegador Móvel](./media/workday-tutorial/mobile-browser.png)
+![Screenshot do navegador móvel workday.](./media/workday-tutorial/mobile-browser.png)
 
-## <a name="setup-conditional-access-policy"></a>Política de Acesso Condicional de Configuração:
+## <a name="set-up-conditional-access-policy"></a>Configurar a política de acesso condicional
 
-Esta política apenas irá afetar o login num dispositivo iOS ou Android. Se quiser alargá-lo a todas as plataformas, basta selecionar **Qualquer Dispositivo.** Esta política exigirá que o dispositivo esteja em conformidade com a política e verificará isto através do Microsoft Intune. Devido ao Android ter Perfis de Trabalho, isto deve bloquear qualquer utilizadores de iniciar sessão no Workday (Web ou App), a menos que estejam a iniciar sessão através do seu Perfil de Trabalho e tenham instalado a aplicação através do Portal da Empresa Intune. Há um passo adicional para o iOS garantir que a mesma situação se aplicará. Aqui estão algumas imagens da configuração do Acesso Condicional.
+Esta política apenas afeta a sessão de sessão num dispositivo iOS ou Android. Se quiser alargá-lo a todas as plataformas, selecione **Qualquer Dispositivo**. Esta política requer que o dispositivo esteja em conformidade com a política, e verifica-o através do Intune. Como o Android tem perfis de trabalho, isto impede qualquer utilizadores de iniciar sessão no Workday, a menos que estejam a iniciar sessão através do seu perfil de trabalho e tenham instalado a app através do portal da empresa Intune. Há um passo adicional para o iOS garantir que a mesma situação se aplica.
 
-**O workday suporta os seguintes Controlos de Acesso:**
-* Requerem autenticação de vários fatores
+O workday suporta os seguintes controlos de acesso:
+* Requerem autenticação multifactor
 * Exigir que o dispositivo seja marcado como conforme
 
-**A Aplicação Workday não suporta o seguinte:**
+A Workday App não suporta o seguinte:
 * Requera uma aplicação de cliente aprovada
-* Requerer a política de proteção de aplicações (Pré-visualização)
+* Requerer a política de proteção de aplicações (pré-visualização)
 
-Para configurar o **Workday** como **Dispositivo Gerido** execute os seguintes passos:
+Para configurar o Workday como um dispositivo gerido, execute os seguintes passos:
 
-![Política de Acesso Condicional de Configuração](./media/workday-tutorial/managed-devices-only.png)
+![Screenshot de aplicações ou ações de Dispositivos Geridos e Cloud.](./media/workday-tutorial/managed-devices-only.png)
 
-1. Clique em **Home > Microsoft Intune > apenas Access-Policies > dispositivos geridos condicional** 
+1. Selecione **Home**  >  **Microsoft Intune**  >  **Conditional Access-Policies**. Em seguida, **selecione Apenas dispositivos geridos**. 
 
-1. Na página **'Apenas' dispositivos geridos,** dê o valor do campo **Nome** como `Managed Devices Only` e clique em **aplicações ou ações** cloud .
+1. Apenas em **Dispositivos Geridos** , em **Nome** , selecione **Apenas dispositivos geridos** e, em seguida, selecione **aplicações ou ações cloud**.
 
-1. Execute os seguintes passos em **aplicativos ou ações cloud** .
+1. Em **aplicativos ou ações cloud** :
 
-    a. Switch **Selecione o que esta política aplica como** **aplicações Cloud** .
+    a. Switch **Selecione o que esta política se aplica às** **aplicações Cloud**.
 
-    b. In Include, clique em **Select apps** .
+    b. In **Incluir** , escolha **selecione aplicações**.
 
-    c. Escolha **o Dia de Trabalho** na lista selecionada.
+    c. Na lista **Select,** escolha **Workday**.
 
-    d. Clique em **Done** (Concluído).
+    d. Selecione **Concluído**.
 
-1. Ligue a **política de Ativação** .
+1. Switch **Ativar** a política para **ligar**.
 
-1. Clique em **Guardar** .
+1. Selecione **Save** (Guardar).
 
 Para o acesso **ao Grant,** execute os seguintes passos:
 
-![Política de acesso condicional de configuração do dia de trabalho](./media/workday-tutorial/managed-devices-only-2.png)
+![Screenshot de Apenas dispositivos geridos e Grant.](./media/workday-tutorial/managed-devices-only-2.png)
 
-1. Clique em **Home > Microsoft Intune > apenas Access-Policies > dispositivos geridos condicional** 
+1. Selecione **Home**  >  **Microsoft Intune**  >  **Conditional Access-Policies**. Em seguida, **selecione Apenas dispositivos geridos**. 
 
-1. Na página **'Apenas dispositivos geridos',** dê o valor do campo **Nome** à medida `Managed Devices Only` que clice nos **controlos de acesso > Grant** .
+1. Apenas nos **Dispositivos Geridos** , sob **Nome,** **selecione Apenas dispositivos geridos**. Em **Controlos de acesso** , selecione **Concessão**.
 
-1. Execute os seguintes passos na página **grant.**
+1. Em **Grant:**
 
-    a. Selecione os controlos a aplicar como **acesso grant** .
+    a. Selecione os controlos a aplicar como **acesso grant**.
 
-    b. Verifique se o **dispositivo 'Exigir' deve ser marcado como** caixa conforme.
+    b. Selecione **Pedir que o dispositivo seja marcado como conforme**.
 
-    c. **Selecione Exigir um dos controlos selecionados** .
+    c. **Selecione Exigir um dos controlos selecionados**.
 
-    d. Clique em **Select** .
+    d. Escolha **Selecionar**.
 
-1. Ligue a **política de Ativação** .
+1. Switch **Ativar** a política para **ligar**.
 
-1. Clique em **Guardar**
+1. Selecione **Save** (Guardar).
 
-## <a name="set-up-device-compliance-policy"></a>Configurar a Política de Conformidade do Dispositivo:
+## <a name="set-up-device-compliance-policy"></a>Configurar a política de conformidade do dispositivo
 
-Para garantir que os dispositivos iOS só são capazes de iniciar sessão através de uma App workday gerida pelo MDM, é necessário bloquear a aplicação da App Store adicionando **o com.workday.workdayapp** à lista de aplicações restritas. Isto irá garantir que apenas os dispositivos que tenham a aplicação Workday instalada através do portal da empresa podem aceder ao Workday. Para o navegador, eles só poderão aceder ao Workday se o dispositivo for gerido pelo Intune e estiverem a utilizar um navegador gerido.
+Para garantir que os dispositivos iOS só podem iniciar súplica através do Workday geridos pela gestão de dispositivos móveis, é necessário bloquear a aplicação da App Store adicionando **o com.workday.workdayapp** à lista de aplicações restritas. Isto garante que apenas os dispositivos que tenham o Workday instalado através do portal da empresa podem aceder ao Workday. Para o navegador, os dispositivos só podem aceder ao Workday se o dispositivo for gerido pelo Intune e estiver a utilizar um navegador gerido.
 
-![Política de conformidade do dispositivo de configuração do dia de trabalho](./media/workday-tutorial/ios-policy.png)
+![Screenshot da política de conformidade do dispositivo iOS.](./media/workday-tutorial/ios-policy.png)
 
-## <a name="set-up-microsoft-intune-app-configuration-policies"></a>Configurar as políticas de configuração da aplicação do Microsoft Intune:
+## <a name="set-up-intune-app-configuration-policies"></a>Configurar políticas de configuração de aplicativos Intune
 
 | Cenário | Pares de valor chave |
 |----------------------------------------------------------------------------------------   |-----------|
-| Povoar automaticamente os campos de Endereços De Inquilino e Web para:<br>● Dia de trabalho no Android quando ativa perfis android para trabalho.<br>● Dia de trabalho no iPad e iPhone.     | Utilize estes valores para configurar o seu Inquilino: <br>● Chave de configuração = UserGroupCode<br>● Tipo de Valor = Cadeia <br>● Valor de Configuração = Nome do seu inquilino. Exemplo: gms<br>Utilize estes valores para configurar o seu Endereço Web:<br>● Chave de configuração = AppServiceHost<br>● Tipo de Valor = Cadeia<br>● Valor de Configuração = O URL base para o seu inquilino. Exemplo: https://www.myworkday.com                              |   |
-| Desativar estas ações para o Workday no iPad e iPhone:<br>● Corte, Copie e Pasta<br>● Imprimir                       | Desative o valor (booleano) a Falso nestas teclas para desativar a funcionalidade:<br>● PermitirCutCopyPaste<br>● Permitir a Impressão  |
-| Desative as imagens para workday no Android. |Desative o valor (booleano) para falso na tecla AllowScreenshots para desativar a funcionalidade.|
-| Desative as atualizações sugeridas para os seus utilizadores.|Defina o valor (booleano) para Falso na tecla AllowSuggestedUpdates para desativar a funcionalidade.|
-|Personalize o URL da loja de aplicações para direcionar os utilizadores móveis para a loja de aplicações à sua escolha.|Utilize estes valores para alterar o URL da loja de aplicações:<br>● Chave de configuração = AppUpdateURL<br>● Tipo de Valor = Cadeia<br> ● Valor de Configuração = URL da loja de aplicações|
+| Povoar automaticamente os campos de Endereços De Inquilino e Web para:<br>● Dia de trabalho no Android quando ativa o Android para perfis de trabalho.<br>● Dia de trabalho no iPad e iPhone.     | Utilize estes valores para configurar o seu Inquilino: <br>● Chave de configuração = `UserGroupCode`<br>● Tipo de Valor = Cadeia <br>● Valor de Configuração = Nome do seu inquilino. Exemplo: `gms`<br>Utilize estes valores para configurar o seu Endereço Web:<br>● Chave de configuração = `AppServiceHost`<br>● Tipo de Valor = Cadeia<br>● Valor de Configuração = O URL base para o seu inquilino. Exemplo: `https://www.myworkday.com`                                |   |
+| Desativar estas ações para o Workday no iPad e iPhone:<br>● Corte, Copie e Pasta<br>● Imprimir                       | Desative o valor (Boolean) nestas `False` teclas para desativar a funcionalidade:<br>●   `AllowCutCopyPaste`<br>●    `AllowPrint`    |
+| Desative as imagens para workday no Android. |Desative o valor (Boolean) na `False` `AllowScreenshots` chave para desativar a funcionalidade.|
+| Desative as atualizações sugeridas para os seus utilizadores.|Desative o valor (Boolean) na `False` `AllowSuggestedUpdates` chave para desativar a funcionalidade.|
+|Personalize o URL da loja de aplicações para direcionar os utilizadores móveis para a loja de aplicações à sua escolha.|Utilize estes valores para alterar o URL da loja de aplicações:<br>● Chave de configuração = `AppUpdateURL`<br>● Tipo de Valor = Cadeia<br> ● Valor de Configuração = URL da loja de aplicações|
 |       |
 
 
-## <a name="ios-configuration-policies"></a>Políticas de configuração do iOS:
+## <a name="ios-configuration-policies"></a>Políticas de configuração para iOS
 
-1. Ir https://portal.azure.com/ e fazer login
-2. Procure **por Intune** ou clique no widget da lista.
-3. Vá a aplicações de **> apps -> Políticas de Configuração de Aplicações -> + Adicionar dispositivos geridos de >**
-4. Insira um nome.
-5. Em **Plataforma** , escolha **iOS/iPadOS**
-6. Na **Aplicação Associated** , escolha o Workday para a aplicação iOS que adicionou
-7. Clique em **Definições de Configuração** e no **formato de configuração** escolha introduzir **dados XML**
-8. Aqui está um ficheiro XML exemplo. Adicione as configurações que gostaria de aplicar. Substitua **STRING_VALUE** pela corda que pretende utilizar. Substitua `<true />` ou `<false />` com . `<true />`  `<false />` . Se não adicionar uma configuração, funcionará como se fosse definido para True.
+1. Aceda ao [portal do Azure](https://portal.azure.com/) e inicie sessão.
+1. Procure **por Intune** ou selecione o widget da lista.
+1. Vá **Client Apps** às Políticas de  >  Configuração de **Aplicativos de Aplicações de Aplicações**  >  **de Aplicativos do** Cliente. Em seguida, **selecione + Adicionar**  >  **Dispositivos Geridos**.
+1. Insira um nome.
+1. Em **Plataforma,** escolha **iOS/iPadOS**.
+1. No âmbito **da App Associated** , escolha o Workday para a aplicação iOS que adicionou.
+1. Selecione **Definições de configuração**. No **formato configuração,** selecione **Introduzir dados XML**.
+1. Aqui está um ficheiro XML exemplo. Adicione as configurações que pretende aplicar. `STRING_VALUE`Substitua-a pela corda que pretende utilizar. `<true /> or <false />` `<true />` Substitua-o por ou `<false />` . Se não adicionar uma configuração, este exemplo funciona como se estivesse definido para `True` .
 
     ```
     <dict>
@@ -170,18 +168,18 @@ Para garantir que os dispositivos iOS só são capazes de iniciar sessão atrav�
     </dict>
 
     ```
-9. Clique em Adicionar
-10. Refresque a página e clique na política recém-criada.
-11. Clique em Atribuições e escolha a quem pretende que a aplicação se aplique.
-12. Clique em Guardar.
+1. Selecione **Add** (Adicionar).
+1. Refresque a página e selecione a política recém-criada.
+1. Selecione **Atribuições** e escolha a quem pretende que a aplicação se aplique.
+1. Selecione **Save** (Guardar).
 
-## <a name="android-configuration-policies"></a>Políticas de configuração do Android:
+## <a name="android-configuration-policies"></a>Políticas de configuração para Android
 
-1. Aceda a `https://portal.azure.com/` e inicie sessão.
-2. Procure **por Intune** ou clique no widget da lista.
-3. Vá a aplicações de **> apps -> Políticas de Configuração de Aplicações -> + Adicionar dispositivos geridos de >**
+1. Aceda ao [portal do Azure](https://portal.azure.com/) e inicie sessão.
+2. Procure **por Intune** ou selecione o widget da lista.
+3. Vá **Client Apps** às Políticas de  >  Configuração de **Aplicativos de Aplicações de Aplicações**  >  **de Aplicativos do** Cliente. Em seguida, **selecione + Adicionar**  >  **Dispositivos Geridos**.
 5. Insira um nome. 
-6. Em **Plataforma** , escolha **Android**
-7. No Âmbito **da App Associated** , escolha o Workday para a aplicação Android que adicionou
-8. Clique em **Definições de Configuração** e no **formato de configuração** escolha introduzir **dados JSON**
+6. Em **Plataforma,** escolha **Android.**
+7. No âmbito **da App Associated,** escolha o Workday para a aplicação Android que adicionou.
+8. Selecione **Definições de configuração**. No **formato de definições de configuração** , selecione **Introduzir dados JSON**.
 

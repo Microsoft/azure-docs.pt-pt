@@ -5,20 +5,20 @@ services: active-directory
 author: markwahl-msft
 manager: daveba
 ms.author: curtand
-ms.date: 11/08/2019
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffcbd77997e230b9b21ed29b47e37236de025f6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378179"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378759"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gerir contas de acesso de emergência em Azure AD
 
@@ -87,11 +87,11 @@ As organizações devem monitorizar a atividade de registo de login e auditoria 
 ### <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) com uma conta atribuída à função de Colaborador de Monitorização no Azure Monitor.
-1. Selecione **Todos os serviços**", introduza "log analytics" em Search e, em seguida, selecione **Log Analytics workspaces**.
+1. Selecione **Todos os serviços** ", introduza "log analytics" em Search e, em seguida, selecione **Log Analytics workspaces**.
 1. Selecione uma área de trabalho.
 1. No seu espaço de trabalho, selecione **Alertas**  >  **Nova regra de alerta**.
     1. Em **Recurso,** verifique se a subscrição é aquela com a qual pretende associar a regra de alerta.
-    1. Em **Condição**, selecione **Adicionar**.
+    1. Em **Condição** , selecione **Adicionar**.
     1. Selecione **pesquisa de registo personalizado** no nome **Signal**.
     1. Em **Consulta de Pesquisa,** introduza a seguinte consulta, inserindo os IDs do objeto das duas contas de vidro de rutura.
         > [!NOTE]
@@ -105,14 +105,14 @@ As organizações devem monitorizar a atividade de registo de login e auditoria 
         - Operador: Maior do que
         - Valor limiar: 0
 
-    1. Em **Avaliação com base**em , selecione o Período **(em minutos)** durante quanto tempo pretende que a consulta seja executada, e a **Frequência (em minutos)** para a frequência com que pretende que a consulta seja executada. A frequência deve ser inferior ou igual ao período.
+    1. Em **Avaliação com base** em , selecione o Período **(em minutos)** durante quanto tempo pretende que a consulta seja executada, e a **Frequência (em minutos)** para a frequência com que pretende que a consulta seja executada. A frequência deve ser inferior ou igual ao período.
 
         ![lógica de alerta](./media/security-emergency-access/alert-image2.png)
 
     1. Selecione **Concluído**. Pode agora ver o custo mensal estimado deste alerta.
 1. Selecione um grupo de ação de utilizadores para ser notificado pelo alerta. Se quiser criar um, consulte [criar um grupo de ação](#create-an-action-group).
 1. Para personalizar a notificação de e-mail enviada aos membros do grupo de ação, selecione ações ao abrigo **de Ações Personalizadas**.
-1. Em **Detalhes de Alerta**, especifique o nome da regra de alerta e adicione uma descrição opcional.
+1. Em **Detalhes de Alerta** , especifique o nome da regra de alerta e adicione uma descrição opcional.
 1. Desa estaleia o nível de **Severidade** do evento. Recomendamos que o coloque na **Critical(Sev 0)**.
 1. Sob **a regra Enable após a criação,** deixe-a definida como **sim**.
 1. Para desligar os alertas durante algum tempo, selecione a caixa **de verificação alertas de supressão** e introduza a duração da espera antes de voltar a alertar e, em seguida, selecione **Guardar**.

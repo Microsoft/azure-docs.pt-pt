@@ -3,17 +3,17 @@ title: Use o dashboard para um laboratório de sala de aula nos Serviços de Lab
 description: Aprenda a usar o dashboard para um laboratório de sala de aula nos Serviços de Laboratório Azure.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 607a3e7faaae65adb67afc0ab0ffd5698adf4655
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3834e6910faea38e87489d1ad0075d4bd9b8c6c6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90528266"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376957"
 ---
 # <a name="dashboard-for-classroom-labs"></a>Painel para laboratórios de sala de aula
 Este artigo descreve a visão do painel de um laboratório de sala de aula nos Serviços do Laboratório Azure. 
 
-![A capatura do ecrã mostra a visão do painel de um laboratório de sala de aula nos Serviços do Laboratório Azure.](./media/use-dashboard/dashboard.png)
+![A captura de ecrã mostra a visão do painel de um laboratório de sala de aula nos Serviços do Laboratório Azure](./media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>Custos e azulejos de faturação
 Este azulejo fornece os seguintes detalhes da estimativa de custos:

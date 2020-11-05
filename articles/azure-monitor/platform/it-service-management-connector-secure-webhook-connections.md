@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 64d45861f37e2015b747a4db0feb2d32e68fe893
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5976b70825ac2854e67ddad968752fc87d9e8cea
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427331"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377144"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Ligue o Azure às ferramentas ITSM utilizando a Secure Export
 
@@ -28,8 +28,8 @@ O ITSMC utiliza o nome de utilizador e as credenciais de senha. A Secure Export 
 
 A arquitetura Secure Export introduz as seguintes novas capacidades:
 
-* **Novo grupo de ação**: Os alertas são enviados para a ferramenta ITSM através do grupo de ação Secure Webhook, em vez do grupo de ação ITSM que o ITSMC utiliza.
-* **Autenticação Azure AD**: A autenticação ocorre através do Azure AD em vez de credenciais de nome de utilizador/palavra-passe.
+* **Novo grupo de ação** : Os alertas são enviados para a ferramenta ITSM através do grupo de ação Secure Webhook, em vez do grupo de ação ITSM que o ITSMC utiliza.
+* **Autenticação Azure AD** : A autenticação ocorre através do Azure AD em vez de credenciais de nome de utilizador/palavra-passe.
 
 ## <a name="secure-export-data-flow"></a>Fluxo seguro de dados de exportação
 
@@ -49,9 +49,9 @@ Os passos do fluxo de dados de exportação segura são:
 
 Os principais benefícios da integração são:
 
-* **Melhor autenticação**: A Azure AD proporciona uma autenticação mais segura sem os intervalos que normalmente ocorrem no ITSMC.
-* **Alertas resolvidos na ferramenta ITSM**: Alertas métricos implementam estados "disparados" e "resolvidos". Quando a condição é satisfeita, o estado de alerta é "disparado". Quando a condição já não é cumprida, o estado de alerta é "resolvido". No ITSMC, os alertas não podem ser resolvidos automaticamente. Com a Secure Export, o estado resolvido flui para a ferramenta ITSM e assim é atualizado automaticamente.
-* **[Esquema comum de alerta](./alerts-common-schema.md)**: No ITSMC, o esquema da carga útil de alerta difere com base no tipo de alerta. Na Exportação Segura, há um esquema comum para todos os tipos de alerta. Este esquema comum contém o CI para todos os tipos de alerta. Todos os tipos de alerta poderão ligar o seu CI ao CMDB.
+* **Melhor autenticação** : A Azure AD proporciona uma autenticação mais segura sem os intervalos que normalmente ocorrem no ITSMC.
+* **Alertas resolvidos na ferramenta ITSM** : Alertas métricos implementam estados "disparados" e "resolvidos". Quando a condição é satisfeita, o estado de alerta é "disparado". Quando a condição já não é cumprida, o estado de alerta é "resolvido". No ITSMC, os alertas não podem ser resolvidos automaticamente. Com a Secure Export, o estado resolvido flui para a ferramenta ITSM e assim é atualizado automaticamente.
+* **[Esquema comum de alerta](./alerts-common-schema.md)** : No ITSMC, o esquema da carga útil de alerta difere com base no tipo de alerta. Na Exportação Segura, há um esquema comum para todos os tipos de alerta. Este esquema comum contém o CI para todos os tipos de alerta. Todos os tipos de alerta poderão ligar o seu CI ao CMDB.
 
 Comece a utilizar a ferramenta ITSM Connector com estes passos:
 
@@ -60,6 +60,7 @@ Comece a utilizar a ferramenta ITSM Connector com estes passos:
 3. Configure o ambiente do seu parceiro. 
 
 A Secure Export suporta ligações com as seguintes ferramentas ITSM:
+* [ServiceNow](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-servicenow-to-azure-monitor)
 * [Hélice BMC](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
 
 ## <a name="register-with-azure-active-directory"></a>Registe-se no Azure Ative Directory
@@ -71,7 +72,7 @@ Siga estes passos para registar a candidatura com a Azure AD:
 3. Selecione **Conjunto** para **ID URI de aplicação.**
 
    [![Screenshot da opção para definir o U R I da aplicação I D.](media/it-service-management-connector-secure-webhook-connections/azure-ad.png)](media/it-service-management-connector-secure-webhook-connections/azure-ad-expand.png#lightbox)
-4. Selecione **Guardar**.
+4. Selecione **Save** (Guardar).
 
 ## <a name="create-a-secure-webhook-action-group"></a>Criar um grupo de ação Secure Webhook
 
@@ -101,6 +102,26 @@ Para adicionar um webhook a uma ação, siga estas instruções para Secure Webh
 A configuração contém 2 passos:
 1. Obtenha o URI para a definição de exportação segura.
 2. Definições de acordo com o fluxo da ferramenta ITSM.
+
+
+### <a name="connect-servicenow-to-azure-monitor"></a>Ligue o ServiçoNow ao Monitor Azure
+
+As seguintes secções fornecem detalhes sobre como ligar o seu produto ServiceNow e a Secure Export em Azure.
+
+### <a name="prerequisites"></a>Pré-requisitos
+
+Certifique-se de que cumpriu os seguintes pré-requisitos:
+
+* A Azure AD está registada.
+* Tem a versão suportada da ServiceNow Event Management - ITOM (versão Orlando ou posterior).
+
+### <a name="configure-the-servicenow-connection"></a>Configure a ligação ServiceNow
+
+1.Utilize o link <https:// <instance name> .service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor> o URI para a definição de exportação segura.
+
+2. Siga as instruções de acordo com a versão:
+   * [Paris](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+   * [Rio Orlando](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
 
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>Ligue a Helix BMC ao Monitor Azure
 
@@ -136,14 +157,17 @@ Certifique-se de que cumpriu os seguintes pré-requisitos:
    5. Selecione a nova configuração **de ligação adicionar.**
    6. Preencha as informações para a secção de configuração:
       - **Nome:** Faça o seu próprio.
-      - **Tipo de autorização**: **NENHUM**
+      - **Tipo de autorização** : **NENHUM**
       - **Descrição:** Invente o seu próprio.
-      - **Local**: **Nuvem**
-      - **Número de ocorrências**: **2**, o valor predefinido.
+      - **Local** : **Nuvem**
+      - **Número de ocorrências** : **2** , o valor predefinido.
       - **Verifique:** Selecionado por predefinição para ativar a utilização.
       - O ID do inquilino Azure e o ID do pedido Azure são retirados da aplicação que definiu anteriormente.
 
 ![Screenshot que mostra a configuração do BMC.](media/it-service-management-connector-secure-webhook-connections/bmc-configuration.png)
+
+
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

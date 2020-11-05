@@ -4,14 +4,18 @@ description: Pesquisa de registo4J ou rastreios de logback em Insights de Aplica
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: fca5c9b1bde8429d829ab6113804602c8baa2ebe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d219f4fcfd22d25babd8c9f6564f8dcd11d3144
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87374274"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377926"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore registos de vestígios de Java em Insights de Aplicação
+
+> [!IMPORTANT]
+> A abordagem recomendada para monitorizar as aplicações java é utilizar a auto-instrumentação sem alterar o código. Siga as diretrizes para o [agente Application Insights Java 3.0](./java-in-process-agent.md).
+
 Se estiver a utilizar o Logback ou o Log4J (v1.2 ou v2.0) para rastreio, pode enviar automaticamente os seus registos de rastreios para o Application Insights, onde poderá explorar e pesquisar neles.
 
 > [!TIP]

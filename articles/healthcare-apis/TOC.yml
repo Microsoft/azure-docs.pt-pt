@@ -92,7 +92,7 @@
       href: find-identity-object-ids.md
     - name: Ativar Registo de Diagnósticos no Azure API for FHIR®
       href: enable-diagnostic-logging.md
-    - name: Exportar métricas do Conector IoT do Azure para FHIR (pré-visualização) através das definições Diagnóstico
+    - name: Exportar Métricas do Conector IoT do Azure para FHIR (pré-visualização) através das definições Diagnóstico
       href: iot-metrics-diagnostics-export.md
     - name: Ver e configurar Métricas do Conector IoT do Azure para FHIR (pré-visualização)
       href: iot-metrics-display.md

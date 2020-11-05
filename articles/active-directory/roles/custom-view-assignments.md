@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4267921f123d163a98c7244d009b06430a8717d9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7311f4faf4d8e93c4d3d2724bb9810342a769473
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377437"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379235"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Ver atribuições de funções personalizadas no Azure Ative Directory
 
@@ -32,7 +32,7 @@ Este artigo descreve como visualizar funções personalizadas que atribuiu no Az
 Este procedimento descreve atribuições de visualização de um papel com âmbito de organização.
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
-1. Selecione **Azure Ative Directory**, selecione **Roles e administradores**, e, em seguida, selecione uma função para abri-lo e ver as suas propriedades.
+1. Selecione **Azure Ative Directory** , selecione **Roles e administradores** , e, em seguida, selecione uma função para abri-lo e ver as suas propriedades.
 1. Selecione **Atribuições** para visualizar as atribuições para o papel.
 
     ![Ver atribuições de funções e permissões quando abrir um papel da lista](./media/custom-view-assignments/role-assignments.png)
@@ -105,11 +105,11 @@ HTTP/1.1 200 OK
 Esta secção descreve atribuições de visualização de uma função com âmbito de aplicação única. Esta funcionalidade encontra-se atualmente em visualização pública.
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
-1. Selecione **registos de Aplicações**e, em seguida, selecione o registo da aplicação para ver as suas propriedades. Poderá ter de selecionar **todas as aplicações** para ver a lista completa de registos de aplicações na sua organização AZure AD.
+1. Selecione **registos de Aplicações** e, em seguida, selecione o registo da aplicação para ver as suas propriedades. Poderá ter de selecionar **todas as aplicações** para ver a lista completa de registos de aplicações na sua organização AZure AD.
 
     ![Criar ou editar registos de aplicações a partir da página de registos da App](./media/custom-view-assignments/appreg-all-apps.png)
 
-1. No registo da aplicação, selecione **Roles e administradores**, e, em seguida, selecione uma função para ver as suas propriedades.
+1. No registo da aplicação, selecione **Roles e administradores** , e, em seguida, selecione uma função para ver as suas propriedades.
 
     ![Ver atribuições de funções de registo de aplicativos a partir da página de registos da App](./media/custom-view-assignments/appreg-assignments.png)
 

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d95459797a32ab3e026ee1c3a2cf93fe6e95cc4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480739"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378963"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Backup e restauro na Base de Dados Azure para MariaDB
 
@@ -52,7 +52,7 @@ A retenção de backups a longo prazo para além de 35 dias ainda não é suport
 A Base de Dados Azure para MariaDB proporciona a flexibilidade para escolher entre armazenamento de backup localmente redundante ou geo-redundante nos níveis Geral De Finalidade e Memória Otimizada. Quando as cópias de segurança são armazenadas no armazenamento de backup geo-redundante, não só são armazenadas na região em que o seu servidor está hospedado, como também são replicadas num centro de [dados emparelhado](../best-practices-availability-paired-regions.md). Isto proporciona uma melhor proteção e capacidade de restaurar o seu servidor numa região diferente em caso de desastre. O nível básico só oferece armazenamento de backup localmente redundante.
 
 #### <a name="moving-from-locally-redundant-to-geo-redundant-backup-storage"></a>Passar de localmente redundante para armazenamento de backup geo-redundante
-Configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Uma vez que o servidor é provisionado, não é possível alterar a opção de redundância de armazenamento de cópia de segurança. Para mover o armazenamento de backup do armazenamento localmente redundante para o armazenamento geo-redundante, criar um novo servidor e migrar os dados usando [o despejo e restaurar](howto-migrate-dump-restore.md) é a única opção suportada.
+Só é permitido configurar o armazenamento localmente redundante ou georredundante para cópias de segurança durante a criação do servidor. Assim que o servidor tiver sido aprovisionado, não poderá alterar a opção de redundância do armazenamento de cópias de segurança. Para mover o armazenamento de backup do armazenamento localmente redundante para o armazenamento geo-redundante, criar um novo servidor e migrar os dados usando [o despejo e restaurar](howto-migrate-dump-restore.md) é a única opção suportada.
 
 ### <a name="backup-storage-cost"></a>Custo de armazenamento de backup
 
@@ -90,7 +90,12 @@ Pode restaurar um servidor para outra região do Azure onde o serviço está dis
 
 O geo-restauro é a opção de recuperação padrão quando o seu servidor está indisponível devido a um incidente na região onde o servidor está hospedado. Se um incidente em larga escala numa região resultar na indisponibilidade da sua aplicação de base de dados, pode restaurar um servidor das cópias de segurança geo-redundantes para um servidor em qualquer outra região. Geo-restauro utiliza a cópia de segurança mais recente do servidor. Há um atraso entre quando um backup é tomado e quando é replicado para diferentes regiões. Este atraso pode ser de até uma hora, por isso, se ocorrer uma catástrofe, pode haver até uma hora de perda de dados.
 
+> [!IMPORTANT]
+>Se um geo-restauro for realizado para um servidor recém-criado, a sincronização inicial de backup pode demorar mais de 24 horas, dependendo do tamanho dos dados, uma vez que o tempo inicial de cópia de cópia de cópia de cópia de cópia de instantâneo completo é muito maior. As cópias de segurança instantânea subsequentes são cópias incrementais e, portanto, as restaurações são mais rápidas após 24 horas de criação do servidor. Se estiver a avaliar geo-restauros para definir o seu RTO, recomendamos que espere e avalie o geo-restauro **apenas após 24 horas** de criação do servidor para obter melhores estimativas.
+
 Durante o geo-restauro, as configurações do servidor que podem ser alteradas incluem geração de computação, vCore, período de retenção de backup e opções de redundância de backup. A alteração do nível de preços (Básico, Final geral ou memória otimizada) ou o tamanho do armazenamento durante a geo-restauração não é suportado.
+
+O tempo estimado de recuperação depende de vários fatores, incluindo os tamanhos da base de dados, o tamanho do registo de transações, a largura de banda da rede e o número total de bases de dados que recuperam na mesma região ao mesmo tempo. O tempo de recuperação é geralmente inferior a 12 horas.
 
 ### <a name="perform-post-restore-tasks"></a>Executar tarefas pós-restauro
 

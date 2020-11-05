@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 123595bb6cd0112e597b9d958763900e07b9ff38
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2dc8773dc41493e30f64c0602b4345a9491cd7b7
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633081"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379711"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Create and configure a self-hosted integration runtime (Criar e configurar um runtime de integração autoalojado)
 
@@ -60,30 +60,30 @@ Utilize os seguintes passos para criar um IR auto-hospedado utilizando uI da Fá
 
    ![O botão de gerir a página inicial](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Selecione **os tempos de integração** no painel esquerdo e, em seguida, selecione **+New** .
+1. Selecione **os tempos de integração** no painel esquerdo e, em seguida, selecione **+New**.
 
    ![Criar um integration runtime](media/doc-common-process/manage-new-integration-runtime.png)
 
-1. Na página de configuração do tempo de execução da **Integração,** selecione **Azure, Self-Hosted** e, em seguida, selecione **Continue** . 
+1. Na página de configuração do tempo de execução da **Integração,** selecione **Azure, Self-Hosted** e, em seguida, selecione **Continue**. 
 
-1. Na página seguinte, selecione **Self-Hosted** para criar um Self-Hosted IR e, em seguida, selecione **Continue** .
+1. Na página seguinte, selecione **Self-Hosted** para criar um Self-Hosted IR e, em seguida, selecione **Continue**.
    ![Criar um IR auto-achatado](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
-1. Insira um nome para o seu IR e selecione **Criar** .
+1. Insira um nome para o seu IR e selecione **Criar**.
 
 1. Na página de configuração do tempo de execução da **integração,** selecione o link na **Opção 1** para abrir a configuração expressa no seu computador. Ou siga os passos na **Opção 2** para configurar manualmente. As seguintes instruções baseiam-se na configuração manual:
 
    ![Configuração do runtime de integração](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
-    1. Copiar e colar a chave de autenticação. Selecione **Descarregar e instalar o tempo de execução da integração** .
+    1. Copiar e colar a chave de autenticação. Selecione **Descarregar e instalar o tempo de execução da integração**.
 
     1. Transfira o integration runtime autoalojado num computador windows local. Execute o instalador.
 
-    1. Na página **'Tempo de execução da integração do registo' (auto-hospedado),** cole a chave que guardou anteriormente e selecione **Registar** .
+    1. Na página **'Tempo de execução da integração do registo' (auto-hospedado),** cole a chave que guardou anteriormente e selecione **Registar**.
     
        ![Registar o integration runtime](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
 
-    1. Na página de nó de novo número **de integração (auto-hospedada),** selecione **Finish** .
+    1. Na página de nó de novo número **de integração (auto-hospedada),** selecione **Finish**.
 
 1. Depois de o tempo de integração auto-hospedado ser registado com sucesso, vê a seguinte janela:
 
@@ -109,22 +109,22 @@ Aqui estão os detalhes dos parâmetros e propriedades da aplicação:
 
 | Propriedade                                                    | Descrição                                                  | Obrigatório |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
-| **RegistroNewNode** "`<AuthenticationKey>`"                     | Registe um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada. | Não       |
-| **RegistroNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registe um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada e o nome do nó. | Não       |
-| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Permitir o acesso remoto no nó atual para configurar um cluster de alta disponibilidade. Ou ativar a definição de credenciais diretamente contra o IR auto-hospedado sem passar pela Azure Data Factory. Faz este último utilizando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** a partir de uma máquina remota na mesma rede. | Não       |
-| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Ativar o acesso remoto ao nó de corrente quando o nó estiver num recipiente. | Não       |
-| **DisableRemoteAccess**                                         | Desative o acesso remoto ao nó de corrente. É necessário um acesso remoto para a configuração multinode. O **cmdlet New-AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell ainda funciona mesmo quando o acesso remoto é desativado. Este comportamento é verdadeiro desde que o cmdlet seja executado na mesma máquina que o nó IV auto-hospedado. | Não       |
-| **Chave** "`<AuthenticationKey>`"                                 | Substitua ou atualize a chave de autenticação anterior. Cuidado com esta ação. O seu nó IV auto-hospedado anteriormente pode ficar offline se a chave for de um novo tempo de integração. | Não       |
-| **GerarUpFile** "`<filePath>`" "`<password>`"            | Gere um ficheiro de reserva para o nó atual. O ficheiro de cópia de segurança inclui a chave do nó e as credenciais de loja de dados. | Não       |
-| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Restaurar o nó de um ficheiro de reserva.                          | Não       |
-| **Reiniciar**                                                     | Reinicie o serviço de anfitrião de execução de integração auto-hospedado.   | Não       |
-| **Iniciar**                                                       | Inicie o serviço de anfitrião de execução de integração auto-hospedado.     | Não       |
-| **Parar**                                                        | Pare o serviço de anfitrião de execução de integração auto-hospedado.        | Não       |
-| **StartUpgradeService**                                         | Inicie o serviço de atualização de tempo de integração auto-hospedado.       | Não       |
-| **Serviço stopUpgrade**                                          | Pare o serviço de atualização de tempo de integração auto-hospedado.        | Não       |
-| **TurnOnAutoUpdate**                                            | Ligue a atualização automática do tempo de execução da integração auto-hospedada.        | Não       |
-| **TurnOffAutoUpdate**                                           | Desligue a atualização automática do tempo de execução da integração auto-hospedada.       | Não       |
-| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Defina o DIAHostService para funcionar como uma nova conta. Utilize a palavra-passe vazia "" para contas do sistema e contas virtuais. | Não       |
+| **RegistroNewNode** "`<AuthenticationKey>`"                     | Registe um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada. | No       |
+| **RegistroNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | Registe um nó de tempo de execução de integração auto-hospedado com a chave de autenticação especificada e o nome do nó. | No       |
+| **EnableRemoteAccess** "`<port>`" ["`<thumbprint>`"]            | Permitir o acesso remoto no nó atual para configurar um cluster de alta disponibilidade. Ou ativar a definição de credenciais diretamente contra o IR auto-hospedado sem passar pela Azure Data Factory. Faz este último utilizando o cmdlet **New-AzDataFactoryV2LinkedServiceEncryptedCredential** a partir de uma máquina remota na mesma rede. | No       |
+| **EnableRemoteAccessInContainer** "`<port>`" ["`<thumbprint>`"] | Ativar o acesso remoto ao nó de corrente quando o nó estiver num recipiente. | No       |
+| **DisableRemoteAccess**                                         | Desative o acesso remoto ao nó de corrente. É necessário um acesso remoto para a configuração multinode. O **cmdlet New-AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell ainda funciona mesmo quando o acesso remoto é desativado. Este comportamento é verdadeiro desde que o cmdlet seja executado na mesma máquina que o nó IV auto-hospedado. | No       |
+| **Chave** "`<AuthenticationKey>`"                                 | Substitua ou atualize a chave de autenticação anterior. Cuidado com esta ação. O seu nó IV auto-hospedado anteriormente pode ficar offline se a chave for de um novo tempo de integração. | No       |
+| **GerarUpFile** "`<filePath>`" "`<password>`"            | Gere um ficheiro de reserva para o nó atual. O ficheiro de cópia de segurança inclui a chave do nó e as credenciais de loja de dados. | No       |
+| **ImportBackupFile** "`<filePath>`" "`<password>`"              | Restaurar o nó de um ficheiro de reserva.                          | No       |
+| **Reiniciar**                                                     | Reinicie o serviço de anfitrião de execução de integração auto-hospedado.   | No       |
+| **Iniciar**                                                       | Inicie o serviço de anfitrião de execução de integração auto-hospedado.     | No       |
+| **Parar**                                                        | Pare o serviço de anfitrião de execução de integração auto-hospedado.        | No       |
+| **StartUpgradeService**                                         | Inicie o serviço de atualização de tempo de integração auto-hospedado.       | No       |
+| **Serviço stopUpgrade**                                          | Pare o serviço de atualização de tempo de integração auto-hospedado.        | No       |
+| **TurnOnAutoUpdate**                                            | Ligue a atualização automática do tempo de execução da integração auto-hospedada.        | No       |
+| **TurnOffAutoUpdate**                                           | Desligue a atualização automática do tempo de execução da integração auto-hospedada.       | No       |
+| **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | Defina o DIAHostService para funcionar como uma nova conta. Utilize a palavra-passe vazia "" para contas do sistema e contas virtuais. | No       |
 
 
 ## <a name="command-flow-and-data-flow"></a>Fluxo de comando e fluxo de dados
@@ -147,7 +147,6 @@ Aqui está um resumo de alto nível dos passos de fluxo de dados para copiar com
 - Pode instalar apenas uma instância de um tempo de integração auto-hospedado em qualquer máquina. Se tiver duas fábricas de dados que precisam de aceder a fontes de dados no local, utilize a [funcionalidade de partilha de IR auto-hospedada](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) para partilhar o IR auto-hospedado, ou instale o IR auto-hospedado em dois computadores no local, um para cada fábrica de dados.  
 - O tempo de integração auto-hospedado não precisa de estar na mesma máquina que a fonte de dados. No entanto, ter o tempo de integração auto-hospedado perto da fonte de dados reduz o tempo de tempo de integração auto-hospedado para se ligar à fonte de dados. Recomendamos que instale o tempo de funcionamento de integração auto-hospedado numa máquina que difere da que acolhe a fonte de dados no local. Quando o tempo de integração auto-hospedado e a fonte de dados estão em diferentes máquinas, o tempo de integração auto-hospedado não compete com a fonte de dados para recursos.
 - Pode ter vários tempos de integração auto-hospedados em diferentes máquinas que se ligam à mesma fonte de dados no local. Por exemplo, se tiver dois tempos de integração auto-hospedados que servem duas fábricas de dados, a mesma fonte de dados no local pode ser registada em ambas as fábricas de dados.
-- Se já tiver um gateway instalado no seu computador para servir um cenário Power BI, instale um tempo de integração independente para a Data Factory noutra máquina.
 - Utilize um tempo de integração auto-hospedado para suportar a integração de dados dentro de uma rede virtual Azure.
 - Trate a sua fonte de dados como uma fonte de dados no local que está por trás de uma firewall, mesmo quando utiliza o Azure ExpressRoute. Utilize o tempo de funcionação da integração auto-hospedada para ligar o serviço à fonte de dados.
 - Utilize o tempo de integração auto-hospedado mesmo que a loja de dados esteja na nuvem de uma infraestrutura Azure como máquina virtual de Serviço (IaaS).
@@ -186,12 +185,12 @@ Pode instalar o tempo de integração auto-hospedado descarregando um pacote de 
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Instale e registe um IR auto-hospedado do Microsoft Download Center
 
 1. Aceda à página de [descarregamento de tempo de execução](https://www.microsoft.com/download/details.aspx?id=39717)da integração da Microsoft.
-1. Selecione **Download** , selecione a versão de 64 bits e selecione **Next** . A versão de 32 bits não é suportada.
+1. Selecione **Download** , selecione a versão de 64 bits e selecione **Next**. A versão de 32 bits não é suportada.
 1. Executar o ficheiro Identidade Gerida diretamente, ou guarde-o para o seu disco rígido e execute-o.
-1. Na janela **Welcome,** selecione um idioma e selecione **Seguinte** .
-1. Aceite os Termos de Licença de Software da Microsoft e selecione **Seguinte** .
-1. Selecione **a pasta** para instalar o tempo de execução de integração auto-hospedado e selecione **Next** .
-1. Na página **Pronto para instalar,** selecione **Instalar** .
+1. Na janela **Welcome,** selecione um idioma e selecione **Seguinte**.
+1. Aceite os Termos de Licença de Software da Microsoft e selecione **Seguinte**.
+1. Selecione **a pasta** para instalar o tempo de execução de integração auto-hospedado e selecione **Next**.
+1. Na página **Pronto para instalar,** selecione **Instalar**.
 1. **Selecione Acabamento** para concluir a instalação.
 1. Obtenha a chave de autenticação utilizando o PowerShell. Aqui está um exemplo powerShell para recuperar a chave de autenticação:
 
@@ -205,7 +204,7 @@ Pode instalar o tempo de integração auto-hospedado descarregando um pacote de 
 
     1. Opcionalmente, selecione **Mostrar a chave de autenticação** para ver o texto chave.
 
-    1. Selecione **Registar** .
+    1. Selecione **Registar**.
 
 ## <a name="high-availability-and-scalability"></a>Alta disponibilidade e escalabilidade
 
@@ -220,7 +219,7 @@ Pode associar vários nós instalando o software de execução de integração a
 > Não é necessário criar um novo tempo de integração auto-hospedado para associar cada nó. Pode instalar o tempo de integração auto-hospedado noutra máquina e registá-lo utilizando a mesma chave de autenticação.
 
 > [!NOTE]
-> Antes de adicionar outro nó para alta disponibilidade e escalabilidade, certifique-se de que o acesso remoto à opção **intranet** está ativado no primeiro nó. Para tal, selecione **Microsoft Integration Runtime Configuration Manager**  >  **Configurações** Acesso remoto à  >  **intranet** .
+> Antes de adicionar outro nó para alta disponibilidade e escalabilidade, certifique-se de que o acesso remoto à opção **intranet** está ativado no primeiro nó. Para tal, selecione **Microsoft Integration Runtime Configuration Manager**  >  **Configurações** Acesso remoto à  >  **intranet**.
 
 ### <a name="scale-considerations"></a>Considerações de escala
 
@@ -240,7 +239,7 @@ Aqui estão os requisitos para o certificado TLS/SSL que utiliza para garantir a
 
 - O certificado deve ser um certificado X509 v3 de confiança pública. Recomendamos que utilize certificados emitidos por uma autoridade de certificação de parceiros públicos (CA).
 - Cada nó de tempo de integração deve confiar neste certificado.
-- Não recomendamos certificados de Nome Alternativo Sujeito (SAN) porque apenas o último artigo SAN é usado. Todos os outros itens da SAN são ignorados. Por exemplo, se tiver um certificado SAN cujos SANs são **node1.domain.contoso.com** e **node2.domain.contoso.com,** pode utilizar este certificado apenas numa máquina cujo nome de domínio totalmente qualificado (FQDN) é **node2.domain.contoso.com** .
+- Não recomendamos certificados de Nome Alternativo Sujeito (SAN) porque apenas o último artigo SAN é usado. Todos os outros itens da SAN são ignorados. Por exemplo, se tiver um certificado SAN cujos SANs são **node1.domain.contoso.com** e **node2.domain.contoso.com,** pode utilizar este certificado apenas numa máquina cujo nome de domínio totalmente qualificado (FQDN) é **node2.domain.contoso.com**.
 - O certificado pode utilizar qualquer tamanho de chave suportado pelo Windows Server 2012 R2 para certificados TLS/SSL.
 - Os certificados que usam chaves de CNG não são suportados.  
 
@@ -360,10 +359,10 @@ O serviço de anfitrião de execução de integração reinicia automaticamente 
 
 Depois de registar o tempo de execução de integração auto-hospedado, se pretender visualizar ou atualizar as definições de procuração, utilize o Gestor de Configuração de Tempo de Execução da Integração da Microsoft.
 
-1. Abra **o Gestor de Configuração de Tempo de Execução da Integração da Microsoft** .
+1. Abra **o Gestor de Configuração de Tempo de Execução da Integração da Microsoft**.
 1. Selecione o separador **Settings** (Definições).
 1. Em **HTTP Proxy** , selecione o link **'Alterar'** para abrir a caixa de diálogo **'set HTTP Proxy'.**
-1. Selecione **Seguinte** . Em seguida, vê um aviso que pede a sua permissão para salvar a definição de procuração e reiniciar o serviço de anfitrião de tempo de integração.
+1. Selecione **Seguinte**. Em seguida, vê um aviso que pede a sua permissão para salvar a definição de procuração e reiniciar o serviço de anfitrião de tempo de integração.
 
 Pode utilizar a ferramenta do gestor de configuração para visualizar e atualizar o proxy HTTP.
 
@@ -417,7 +416,7 @@ Também precisa de se certificar de que o Microsoft Azure está na lista de auto
 Se vir mensagens de erro como as seguintes, a razão provável é a configuração imprópria da firewall ou servidor de procuração. Esta configuração impede que o tempo de integração auto-hospedado se conecte à Data Factory para se autenticar. Para garantir que a sua firewall e o servidor proxy estão corretamente configurados, consulte a secção anterior.
 
 * Quando tenta registar o tempo de integração auto-hospedado, recebe a seguinte mensagem de erro: "Falhou no registo deste nó de tempo de execução de integração! Confirme que a chave autenticação é válida e que o serviço de assistência de integração está a funcionar nesta máquina."
-* Quando abre o Gestor de Configuração de Tempo de Execução de Integração, vê um estado de **Desconectado** ou **De Ligação** . Quando visualiza os registos de eventos do Windows, em **Aplicação** e Serviços do Espectador de  >  **Eventos,** o  >  **Microsoft Integration Runtime** , vê mensagens de erro como esta:
+* Quando abre o Gestor de Configuração de Tempo de Execução de Integração, vê um estado de **Desconectado** ou **De Ligação**. Quando visualiza os registos de eventos do Windows, em **Aplicação** e Serviços do Espectador de  >  **Eventos,** o  >  **Microsoft Integration Runtime** , vê mensagens de erro como esta:
 
     ```
     Unable to connect to the remote server
@@ -426,7 +425,7 @@ Se vir mensagens de erro como as seguintes, a razão provável é a configuraç�
 
 ### <a name="enable-remote-access-from-an-intranet"></a>Permitir o acesso remoto a partir de uma intranet
 
-Se utilizar o PowerShell para encriptar credenciais de uma máquina em rede diferente do local onde instalou o tempo de funciona de integração auto-hospedado, pode ativar o acesso remoto a partir da opção **Intranet.** Se executar o PowerShell para encriptar credenciais na máquina onde instalou o tempo de funcionação de integração auto-hospedado, não pode ativar o **Acesso Remoto a partir da Intranet** .
+Se utilizar o PowerShell para encriptar credenciais de uma máquina em rede diferente do local onde instalou o tempo de funciona de integração auto-hospedado, pode ativar o acesso remoto a partir da opção **Intranet.** Se executar o PowerShell para encriptar credenciais na máquina onde instalou o tempo de funcionação de integração auto-hospedado, não pode ativar o **Acesso Remoto a partir da Intranet**.
 
 Ativar **o Acesso Remoto a partir da Intranet** antes de adicionar outro nó para alta disponibilidade e escalabilidade.  
 

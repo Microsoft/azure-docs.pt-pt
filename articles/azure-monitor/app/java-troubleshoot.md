@@ -4,14 +4,18 @@ description: Guia de resolução de problemas - monitorizando aplicações java 
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372523"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379541"
 ---
-# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Resolução de problemas e Perguntas e Respostas para o Application Insights para Java
+# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Resolução de problemas e Q e A para Insights de Aplicações para Java SDK
+
+> [!IMPORTANT]
+> A abordagem recomendada para monitorizar as aplicações java é utilizar a auto-instrumentação sem alterar o código. Siga as diretrizes para o [agente Application Insights Java 3.0](./java-in-process-agent.md).
+
 Perguntas ou problemas com [a Azure Application Insights em Java?][java] Abaixo temos algumas dicas.
 
 ## <a name="build-errors"></a>Criar erros
@@ -85,7 +89,7 @@ Utilizando o método XML, tem de reiniciar a aplicação quando alterar o valor.
 **Como posso alterar para que recurso Azure o meu projeto envia dados?**
 
 * [Obtenha a chave de instrumentação do novo recurso.][java]
-* Se adicionou Insights de Aplicação ao seu projeto utilizando o Azure Toolkit para Eclipse, clique bem no seu projeto web, selecione **Azure**, **Configure Application Insights**, e altere a chave.
+* Se adicionou Insights de Aplicação ao seu projeto utilizando o Azure Toolkit para Eclipse, clique bem no seu projeto web, selecione **Azure** , **Configure Application Insights** , e altere a chave.
 * Se tivesse configurado a Chave de Instrumentação como variável ambiental, por favor atualize o valor da variável ambiental com o novo iKey.
 * Caso contrário, atualize a chave em ApplicationInsights.xml na pasta de recursos do seu projeto.
 

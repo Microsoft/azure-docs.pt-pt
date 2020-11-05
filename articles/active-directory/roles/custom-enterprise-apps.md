@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d83005599c59f6a4249014139b594764df8acf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376316"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378555"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Atribuir funções personalizadas para gerir aplicações empresariais no Azure Ative Directory
 
@@ -46,7 +46,7 @@ A concessão da permissão de atualização é feita em dois passos:
 > As funções personalizadas são criadas e geridas a nível da organização e estão disponíveis apenas a partir da página geral da organização.
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com permissões de Administrador de Função Privilegiada ou Administrador Global na sua organização.
-1. Selecione **Azure Ative Directory**, selecione **Funções e administradores**, e, em seguida, selecione **Nova função personalizada**.
+1. Selecione **Azure Ative Directory** , selecione **Funções e administradores** , e, em seguida, selecione **Nova função personalizada**.
 
     ![Adicione um novo papel personalizado da lista de papéis em Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
@@ -70,7 +70,7 @@ A concessão da permissão de atualização é feita em dois passos:
 
     ![Funções abertas e administradores e pesquisa rumo ao papel personalizado](./media/custom-enterprise-apps/select-custom-role.png)
 
-1. **Selecione Adicionar a atribuição**, selecione o utilizador pretendido e, em seguida, clique em **Selecionar** para adicionar a atribuição de funções ao utilizador.
+1. **Selecione Adicionar a atribuição** , selecione o utilizador pretendido e, em seguida, clique em **Selecionar** para adicionar a atribuição de funções ao utilizador.
 
     ![Adicione uma atribuição para o papel personalizado ao utilizador](./media/custom-enterprise-apps/assign-user-to-role.png)
 

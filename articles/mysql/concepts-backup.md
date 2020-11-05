@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 00cd5a76a52e1b58bc2f01315dd3a1a859074a58
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 283befd08c7802a9df6d2fca78465d50cfb2ba7b
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348462"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376821"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Backup e restauro na Base de Dados Azure para o MySQL
 
@@ -115,7 +115,12 @@ Pode restaurar um servidor para outra região do Azure onde o serviço está dis
 
 O geo-restauro é a opção de recuperação padrão quando o seu servidor está indisponível devido a um incidente na região onde o servidor está hospedado. Se um incidente em larga escala numa região resultar na indisponibilidade da sua aplicação de base de dados, pode restaurar um servidor das cópias de segurança geo-redundantes para um servidor em qualquer outra região. Geo-restauro utiliza a cópia de segurança mais recente do servidor. Há um atraso entre quando um backup é tomado e quando é replicado para diferentes regiões. Este atraso pode ser de até uma hora, por isso, se ocorrer uma catástrofe, pode haver até uma hora de perda de dados.
 
+> [!IMPORTANT]
+>Se um geo-restauro for realizado para um servidor recém-criado, a sincronização inicial de backup pode demorar mais de 24 horas, dependendo do tamanho dos dados, uma vez que o tempo inicial de cópia de cópia de cópia de cópia de cópia de instantâneo completo é muito maior. As cópias de segurança instantânea subsequentes são cópias incrementais e, portanto, as restaurações são mais rápidas após 24 horas de criação do servidor. Se estiver a avaliar geo-restauros para definir o seu RTO, recomendamos que espere e avalie o geo-restauro **apenas após 24 horas** de criação do servidor para obter melhores estimativas.
+
 Durante o geo-restauro, as configurações do servidor que podem ser alteradas incluem geração de computação, vCore, período de retenção de backup e opções de redundância de backup. A alteração do nível de preços (Básico, Final geral ou memória otimizada) ou o tamanho do armazenamento durante a geo-restauração não é suportado.
+
+O tempo estimado de recuperação depende de vários fatores, incluindo os tamanhos da base de dados, o tamanho do registo de transações, a largura de banda da rede e o número total de bases de dados que recuperam na mesma região ao mesmo tempo. O tempo de recuperação é geralmente inferior a 12 horas.
 
 ### <a name="perform-post-restore-tasks"></a>Executar tarefas pós-restauro
 
@@ -126,7 +131,7 @@ Após uma restauração de qualquer mecanismo de recuperação, deve executar as
 - Certifique-se de que estão em vigor logins e permissões de nível de base de dados apropriados
 - Configurar alertas, conforme adequado
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre a continuidade do negócio, consulte a [visão geral](concepts-business-continuity.md)da continuidade do negócio.
 - Para restaurar um ponto no tempo usando o portal Azure, consulte restaurar o [servidor a um ponto no tempo utilizando o portal Azure](howto-restore-server-portal.md).

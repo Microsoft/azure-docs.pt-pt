@@ -4,12 +4,12 @@ description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Ma
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361207"
+ms.locfileid: "93377025"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Começa com a Autoscale em Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
@@ -133,6 +133,9 @@ As equipas de desenvolvimento das grandes empresas precisam frequentemente de ad
 
 Quando o caminho de verificação de saúde é fornecido, o Serviço de Aplicações irá fazer o caminho em todas as instâncias. Se um código de resposta bem sucedido não for recebido após 5 pings, este caso é considerado "insalubre". Casos pouco saudáveis serão excluídos da rotação do balançador de carga. Pode configurar o número necessário de pings falhados com a definição da `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` aplicação. Esta definição de aplicação pode ser definida para qualquer inteiro entre 2 e 10. Por exemplo, se isto for definido `2` para , as suas instâncias serão removidas do equilibrador de carga após dois pings falhados. Além disso, quando estiver a escalonar ou sair, o Serviço de Aplicações irá verificar o caminho da verificação de saúde para garantir que as novas instâncias estão prontas para pedidos antes de serem adicionadas ao equilibrador de carga.
 
+> [!NOTE]
+> Lembre-se que o seu Plano de Serviço de Aplicações deve ser dimensionado para 2 ou mais instâncias para que a exclusão do balançador de carga ocorra. Se tiver apenas 1 instância, não será removido do equilibrador de carga, mesmo que não seja saudável. 
+
 Os casos saudáveis restantes podem experimentar um aumento da carga. Para evitar sobrecarregar as restantes instâncias, não mais de metade dos seus casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para 4 instâncias e 3 não saudáveis, no máximo 2 serão excluídos da rotação do loadbalancer. As outras 2 instâncias (1 saudável e 1 insalubre) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído. Se quiser anular este comportamento, pode definir a definição da `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` aplicação para um valor entre `0` e `100` . Defini-lo para um valor mais elevado significa que mais casos insalubres serão removidos (o valor predefinido é de 50).
 
 Se um caso não for saudável durante uma hora, será substituído por uma nova instância. No máximo, um caso será substituído por hora, com um máximo de três instâncias por dia por Plano de Serviço de Aplicação.
@@ -155,7 +158,7 @@ Utilize [a API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettin
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Saiba mais sobre a movimentação de recursos em todas as regiões de Azure
 Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte a [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações do motor de autoescala na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Registo de Atividade para monitorizar todas as operações falhadas de escala/escala na sua subscrição](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
 

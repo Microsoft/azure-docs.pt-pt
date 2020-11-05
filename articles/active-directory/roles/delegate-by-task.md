@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 05/04/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc33b0bafc0d56ebf1a14769aeaa5a55508fc4a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e83ff37140369cb073f4bdc2bd24ac08ee9b1ab
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377768"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379099"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Azure Ative Directory
 
@@ -72,7 +72,7 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Configure propriedades da empresa | Administrador Global | 
 
-## <a name="connect"></a>Ligar
+## <a name="connect"></a>Ligar-se
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
@@ -351,6 +351,7 @@ Atualizar todas as propriedades, exceto o nome principal do utilizador | Adminis
 Atualizar Nome Principal do Utilizador para administradores limitados (ver documentação) | Administrador de utilizadores | 
 Atualizar propriedade do nome principal do utilizador em administradores privilegiados (ver documentação) | Administrador Global | 
 Atualizar as definições do utilizador | Administrador Global | 
+Atualizar métodos de autenticação | Administrador de Autenticação | Administrador de Autenticação Privilegiada, Administrador Global
 
 
 ## <a name="support"></a>Suporte

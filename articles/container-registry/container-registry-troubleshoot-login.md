@@ -3,12 +3,12 @@ title: Início de sessão de resolução de problemas para o registo
 description: Sintomas, causas e resolução de problemas comuns ao iniciar sessão num registo de contentores Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348904"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379507"
 ---
 # <a name="troubleshoot-registry-login"></a>Login de registo de resolução de problemas
 
@@ -98,7 +98,9 @@ Links relacionados:
 
 Confirme as permissões de registo que estão associadas às credenciais, como o `AcrPull` papel de Azure para retirar imagens do registo, ou a `AcrPush` função de empurrar imagens. 
 
-O acesso a um registo no portal ou na gestão do registo utilizando o CLI Azure requer pelo menos o `Reader` papel para executar operações do Azure Resource Manager.
+O acesso a um registo no portal ou na gestão do registo utilizando o CLI Azure requer pelo menos a `Reader` função ou permissões equivalentes para realizar operações do Azure Resource Manager.
+
+Se as suas permissões foram recentemente alteradas para permitir o acesso ao registo no portal, poderá ter de experimentar uma sessão incógnita ou privada no seu navegador para evitar qualquer cache ou cookies de navegador.
 
 Você ou um proprietário do registo devem ter privilégios suficientes na subscrição para adicionar ou remover atribuições de funções.
 
@@ -135,7 +137,7 @@ Links relacionados:
 * [FaQ do registo de contentores](container-registry-faq.md)
 * [Melhores práticas do Azure Container Registry](container-registry-best-practices.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não resolver o seu problema aqui, consulte as seguintes opções.
 

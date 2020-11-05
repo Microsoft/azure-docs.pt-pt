@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: overview
-ms.date: 09/12/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d45223c3f8b4f457af520950b17f9ef54c4562d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: deb030a708f2df5d95d2261304bb506c4fa5dcc6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379283"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378504"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Funções de administrador personalizado no Azure Ative Directory (pré-visualização)
 

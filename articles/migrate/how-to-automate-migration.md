@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2020
 ms.author: rahugup
-ms.openlocfilehash: 5541d5c3b9beea86f5c76747dd13ffeff1b12d97
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e1b34db7f2473e16d3ebde11376652f654f2f778
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133618"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377960"
 ---
 # <a name="scale-migration-of-vmware-vms"></a>Migração em escala de VMware VMs 
 
 Este artigo ajuda-o a entender como usar scripts para migrar um grande número de máquinas virtuais VMware (VMs) usando o método sem agente. Para escalar as migrações, utiliza-se [o módulo Azure Migrate PowerShell](https://aka.ms/azuremigratepowershellvmware). 
 
-Os scripts de automação de migração Azure Migrate VMware estão disponíveis para download no GitHub [Azure PowerShell https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) Samples]. Os scripts podem ser usados para migrar VMware VMs para Azure usando o método de migração sem agente. Os comandos Azure Migrate PowerShell utilizados nestes scripts estão documentados [aqui.](https://aka.ms/azuremigratepowershellvmware)
+Os scripts de automação de migração Azure Migrate VMware estão disponíveis para download no [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) repo no GitHub. Os scripts podem ser usados para migrar VMware VMs para Azure usando o método de migração sem agente. Os comandos Azure Migrate PowerShell utilizados nestes scripts estão documentados [aqui.](https://aka.ms/azuremigratepowershellvmware)
 
 ## <a name="current-limitations"></a>Limitações atuais
 - Estes scripts suportam a migração de VMware VMs com todos os discos. Pode atualizar os scripts se quiser replicar seletivamente os discos ligados a um VMware VM. 

@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: dfa2752be2da0a89c7246241177b3624984fa0d2
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 303ed66b7d268a5bab33d0d857399e907764d152
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342203"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378861"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -23,7 +23,7 @@ Neste tutorial, você aprenderá a criar um espaço de trabalho Synapse, uma pis
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para completar tudo isto, é necessário ter acesso a um grupo de recursos para o qual lhe é atribuída a função **De proprietário.** Crie o espaço de trabalho synapse neste grupo de recursos.
+Para completar os passos deste tutorial, precisa de ter acesso a um grupo de recursos para o qual lhe é atribuída a função **Proprietário.** Crie o espaço de trabalho synapse neste grupo de recursos.
 
 ## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Criar um espaço de trabalho sinapse no portal Azure
 
@@ -31,7 +31,7 @@ Para completar tudo isto, é necessário ter acesso a um grupo de recursos para 
 1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics (pré-visualização de espaços de trabalho)**.
 1. **Selecione Adicionar** para criar um espaço de trabalho.
 1. No **Básico, insira** a sua **Assinatura** Preferida, **Grupo de Recursos,** **Região,** e, em seguida, escolha um nome de espaço de trabalho. Neste tutorial, usaremos **o meu espaço de trabalho.**
-1. Precisa de uma conta ADLSGEN2 e de um contentor nessa conta para criar um espaço de trabalho. O espaço de trabalho synapse utilizará este recipiente como localização padrão para armazenar registos spark e dados para tabelas Spark.
+1. Precisa de uma conta ADLSGEN2 e de um contentor nessa conta para criar um espaço de trabalho. O espaço de trabalho synapse utilizará este recipiente como localização padrão para armazenar registos e dados de Spark para tabelas Spark.
     1. Navegue para **selecionar data lake storage Gen 2**. 
     1. Clique **em Criar Novo** e nomeie-o **contosolake**.
     1. Clique no **Sistema de Ficheiros** e nomeie os **utilizadores.** Isto irá criar um recipiente chamado **utilizadores**

@@ -13,7 +13,7 @@
       href: quickstart-powershell.md
 - name: Tutoriais
   items:
-    - name: Criar e assinar uma política de atestado
+    - name: Criar uma política de atestado
       href: author-sign-policy.md
     - name: Exemplos de código de atestado SGX
       href: /samples/browse/?expanded=azure&terms=attestation
@@ -47,5 +47,7 @@
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Biblioteca DCAP do Azure para Linux
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
+    - name: Resolver problemas
+      href: troubleshoot-guide.md
     - name: Protocolo de atestado VBS
       href: virtualization-based-security-protocol.md

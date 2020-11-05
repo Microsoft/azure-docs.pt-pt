@@ -13,14 +13,20 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8f573f5f00d266fe5d27857cc9e244d136f61a5
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84488890"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379269"
 ---
-# <a name="enable-kdump-service"></a>Ativar o serviço Kdump
+# <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump para SAP HANA em Azure Large Instances (HLI)
+
+Configurar e ativar o kdump é um passo que é necessário para resolver falhas no sistema que não têm uma causa clara.
+Há momentos em que um sistema irá inesperadamente falhar que não pode ser explicado por um problema de hardware ou infraestrutura.
+Nestes casos pode ser um sistema operativo ou problema de aplicação e a KDump permitirá à SUSE determinar por que um sistema se despenhou.
+
+## <a name="enable-kdump-service"></a>Ativar o serviço Kdump
 
 Este documento descreve os detalhes sobre como ativar o serviço Kdump em Azure HANA Large Instance **(Tipo I e Tipo II).**
 
@@ -62,6 +68,10 @@ Este documento descreve os detalhes sobre como ativar o serviço Kdump em Azure 
 ## <a name="setup-details"></a>Detalhes da configuração
 
 - O script para ativar kdump pode ser encontrado [aqui](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
+> [!NOTE]
+> este script é feito com base na nossa configuração de laboratório e espera-se que o Cliente contacte o fornecedor de OS para qualquer afinação posterior.
+> A LUN separada será a provisionada para os novos servidores existentes para guardar as lixeiras e o script cuidará de configurar o sistema de ficheiros fora do LUN.
+> A Microsoft não será responsável pela análise da lixeira. O cliente tem de abrir um bilhete com o fornecedor de SO para o analisar.
 
 - Execute este script em HANA Large Instance usando o comando abaixo
 
@@ -72,7 +82,7 @@ Este documento descreve os detalhes sobre como ativar o serviço Kdump em Azure 
     sudo bash enable-kdump.sh
     ```
 
-- Se as saídas de comando Kdump estiverem ativadas com sucesso, reinicie o sistema para aplicar a alteração, então o Kdump está ativado com sucesso. Reinicie o sistema para aplicar alterações.
+- Se as saídas de comando Kdump estiverem ativadas com sucesso, certifique-se de reiniciar o sistema para aplicar as alterações com sucesso.
 
 - Se a saída do comando não for conseguida para fazer determinada operação, sair!!!!, então o serviço Kdump não está ativado. Consulte a [questão de suporte da](#support-issue)secção .
 
@@ -104,3 +114,6 @@ Se o script falhar com um erro ou o Kdump não estiver ativado, aumente o pedido
 * Versão do SO
 
 * Versão de kernel
+
+## <a name="related-documents"></a>Documentos Relacionados
+- Saber mais sobre [a configuração do kdump](https://www.suse.com/support/kb/doc/?id=3374462)

@@ -1,37 +1,31 @@
 ---
-title: Monitorizar as APIs publicadas na Gestão de API do Azure | Microsoft Docs
-description: Siga os passos deste tutorial para aprender a monitorizar a sua API na Gestão de API do Azure.
+title: Tutorial - Monitor publicado APIs em Azure API Management / Microsoft Docs
+description: Siga os passos deste tutorial para aprender a usar métricas, alertas, registos de atividades e registos de recursos para monitorizar as suas APIs na Azure API Management.
 services: api-management
 author: vladvino
-manager: cfowler
 ms.service: api-management
-ms.workload: mobile
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 7080bd98bda5c4280ff7b06b235458bea0e9103c
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 2317e61111c3ad328e8f112e7d9567f3f5d47990
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093587"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379420"
 ---
-# <a name="monitor-published-apis"></a>Monitorizar as APIs publicadas
+# <a name="tutorial-monitor-published-apis"></a>Tutorial: Monitor publicado APIs
 
-Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e tomar medidas relativamente a métricas ou registos provenientes de recursos do Azure.
+Com o Azure Monitor, pode visualizar, consultar, encaminhar, arquivar e tomar ações sobre as métricas ou registos provenientes do seu serviço de Gestão API Azure.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Ver registos de atividades
-> * Ver registos de recursos
 > * Ver métricas da API 
-> * Configurar uma regra de alerta quando a API recebe chamadas não autorizadas
-
-O vídeo seguinte mostra como monitorizar a Gestão de API através do Azure Monitor. 
-
-> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Monitor-API-Management-with-Azure-Monitor/player]
+> * Estabeleça uma regra de alerta 
+> * Ver registos de atividades
+> * Ativar e visualizar registos de recursos
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,60 +37,72 @@ O vídeo seguinte mostra como monitorizar a Gestão de API através do Azure Mon
 
 ## <a name="view-metrics-of-your-apis"></a>Ver métricas das APIs
 
-A Gestão de API emite métricas a cada minuto, o que lhe permite ter visibilidade quase em tempo real sobre o estado geral e o estado de funcionamento das suas APIs. Abaixo estão as duas métricas mais usadas. Para obter uma lista de todas as métricas disponíveis, consulte [as métricas suportadas.](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)
+A API Management emite [métricas](../azure-monitor/platform/data-platform-metrics.md) a cada minuto, dando-lhe quase visibilidade em tempo real para o estado e saúde das suas APIs. Seguem-se as duas métricas mais utilizadas. Para obter uma lista de todas as métricas disponíveis, consulte [as métricas suportadas.](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice)
 
-* Capacidade: ajuda-o a tomar decisões sobre a atualização/degradação dos seus serviços APIM. A métrica é emitida por minuto e reflete a capacidade do gateway no momento da criação de relatórios. A métrica varia entre 0 e 100 e é calculada com base nos recursos do gateway, como a utilização da CPU e da memória.
-* Pedidos: ajuda-o a analisar o tráfego da API através dos seus serviços APIM. A métrica é emitida por minuto e relata o número de pedidos de gateway com dimensões, incluindo códigos de resposta, localização, nome de hospedeiro e erros. 
+* **Capacidade** - ajuda-o a tomar decisões sobre a atualização/degradação dos seus serviços APIM. A métrica é emitida por minuto e reflete a capacidade do gateway no momento da criação de relatórios. A métrica varia entre 0 e 100 e é calculada com base nos recursos do gateway, como a utilização da CPU e da memória.
+* **Pedidos** - ajuda a analisar o tráfego de API através dos seus serviços de Gestão de API. A métrica é emitida por minuto e relata o número de pedidos de gateway com dimensões, incluindo códigos de resposta, localização, nome de hospedeiro e erros. 
 
 > [!IMPORTANT]
 > As seguintes métricas foram depreciadas a partir de maio de 2019 e serão aposentadas em agosto de 2023: Total gateway Requests, Pedidos de Gateway Bem-Sucedidos, Pedidos de Gateway Não Autorizados, Pedidos de Gateway Falhados, Outros Pedidos de Gateway. Por favor, migrar para a métrica Solicitações que fornece funcionalidade equivalente.
 
-![gráfico de métricas](./media/api-management-azure-monitor/apim-monitor-metrics.png)
+:::image type="content" source="media/api-management-howto-use-azure-monitor/apim-monitor-metrics.png" alt-text="Screenshot de Métricas em Visão Geral de Gestão da API":::
 
 Para aceder a métricas:
 
-1. Selecione **Métricas** no menu junto à parte inferior da página.
+1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Gestão API. Na página **'Visão Geral',** reveja as métricas-chave para as suas APIs.
+1. Para investigar as métricas em detalhe, selecione **Métricas** do menu perto da parte inferior da página.
 
-    ![metrics](./media/api-management-azure-monitor/api-management-metrics-blade.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-metrics-blade.png" alt-text="Screenshot do item métricas no menu de monitorização":::
 
-2. Na lista pendente, selecione as métricas que lhe interessam. Por exemplo, **Pedidos**. 
-3. O gráfico mostra o número total de chamadas à API.
-4. O gráfico pode ser filtrado utilizando as dimensões da métrica **Solicitações.** Por exemplo, clique no **filtro Adicionar,** escolha **o Código de Resposta de Backend,** introduza 500 como valor. Agora, o gráfico mostra o número de pedidos que foram falhados no backend da API.   
+1. Na lista pendente, selecione as métricas que lhe interessam. Por exemplo, **Pedidos**. 
+1. O gráfico mostra o número total de chamadas à API.
+1. O gráfico pode ser filtrado utilizando as dimensões da métrica **Solicitações.** Por exemplo, **selecione Adicionar filtro** , selecione **Backend Response Code Category** , introduza 500 como valor. Agora, o gráfico mostra o número de pedidos que foram falhados no backend da API.   
 
-## <a name="set-up-an-alert-rule-for-unauthorized-request"></a>Configurar uma regra de alerta para um pedido não autorizado
+## <a name="set-up-an-alert-rule"></a>Estabeleça uma regra de alerta 
 
-Pode configurar a receção de alertas com base em métricas e registos de atividades. O Azure Monitor permite-lhe configurar um alerta para fazer o seguinte quando é acionado:
+Pode receber [alertas](../azure-monitor/platform/alerts-metric-overview.md) com base em métricas e registos de atividade. O Azure Monitor [permite-lhe configurar um alerta](../azure-monitor/platform/alerts-metric.md) para fazer o seguinte quando ativa:
 
 * Enviar uma notificação por e-mail
 * Chamar um webhook
 * Invocar uma Aplicação Lógica do Azure
 
-Para configurar alertas:
+Para configurar uma regra de alerta de exemplo com base numa métrica de pedido:
 
+1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Gestão API.
 1. Selecione **Alertas** da barra de menus perto da parte inferior da página.
 
-    ![Screenshot que mostra Alertas no menu perto da parte inferior da página.](./media/api-management-azure-monitor/alert-menu-item.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/alert-menu-item.png" alt-text="Screenshot da opção Alertas no menu de monitorização":::
 
-2. Clique numa **nova regra de alerta** para este alerta.
-3. Clique na **condição de adicionar**.
-4. Selecione **métricas** no tipo sinal cair para baixo.
-5. Selecione **Pedido de Gateway Não Autorizado** como o sinal para monitorizar.
+1. Selecione **+ Nova regra de alerta**.
+1. Na janela **de regras de alerta Criar,** **selecione a condição**.
+1. Na janela lógica de **sinal de configuração:**
+    1. No **tipo sinal,** selecione **Métricas**.
+    1. No **nome Signal** , selecione **Pedidos**.
+    1. Em **Divisão por dimensões,** em **nome Dimension,** selecione **Gateway Response Code Category**.
+    1. Em **Valores de Dimensão** , selecione **4xx,** para erros do cliente, tais como pedidos não autorizados ou inválidos.
+    1. Na **lógica de alerta** , especifique um limiar após o qual o alerta deve ser acionado e selecione **Feito**.
 
-    ![Screenshot que realça o campo Signal Type e o nome de sinal de gateway não autorizado.](./media/api-management-azure-monitor/signal-type.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold.png" alt-text="Screenshot das janelas Configure Signal Logic":::
 
-6. Na **visão lógica do sinal de configuração,** especifique um limiar após o qual o alerta deve ser acionado e clique em **'Fazer'.**
+1. Selecione um grupo de ação existente ou crie um novo. No exemplo seguinte, é criado um novo grupo de ação. Será enviado um e-mail de notificação para admin@contoso.com . 
 
-    ![Screenshot que mostra a visão lógica do sinal de configuração.](./media/api-management-azure-monitor/threshold.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/action-details.png" alt-text="Screenshot das notificações para novo grupo de ação":::
 
-7. Selecione um Grupo de Ação existente ou crie um novo. No exemplo abaixo, será enviado um e-mail para os administradores. 
+1. Introduza um nome e descrição da regra de alerta e selecione o nível de gravidade. 
+1. Selecione **Criar regra de alerta**.
+1. Agora, teste a regra de alerta chamando a Conferência API sem uma chave API. Por exemplo:
 
-    ![alerts](./media/api-management-azure-monitor/action-details.png)
+    ```bash
+    curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 
+    ```
 
-8. Forneça um nome, descrição da regra de alerta e escolha o nível de gravidade. 
-9. Pressione **Criar regra de alerta**.
-10. Agora, tente ligar para a Conferência API sem uma chave API. O alerta será desencadeado e o e-mail será enviado para os administradores. 
+    Um alerta será desencadeado com base no período de avaliação, e o e-mail será enviado para admin@contoso.com . 
 
-## <a name="activity-logs"></a>Registos de Atividade
+    Também aparecem alertas na página **alertas** para a instância de Gestão da API.
+
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/portal-alerts.png" alt-text="Screenshot de alertas no portal":::
+
+## <a name="activity-logs"></a>Registos de atividade
 
 Os registos de atividades fornecem informações aprofundadas sobre as operações executadas nos serviços de Gestão de API. Ao utilizar registos de atividades, pode determinar o "quê, quem e quando" de quaisquer operações de escrita (PUT, POST, DELETE) efetuadas nos seus serviços de Gestão de API.
 
@@ -105,127 +111,104 @@ Os registos de atividades fornecem informações aprofundadas sobre as operaçõ
 
 Pode aceder aos registos de atividades no serviço de Gestão de API ou aceder aos registos de todos os recursos do Azure no Azure Monitor. 
 
-![registos de atividades](./media/api-management-azure-monitor/apim-monitor-activity-logs.png)
+:::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs.png" alt-text="Screenshot do login de atividade no portal":::
 
-Para ver registos de atividades:
+Para ver o registo de atividade:
 
-1. Selecione a instância de serviço APIM.
-2. Clique em **Registo de atividades**.
+1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Gestão API.
 
-    ![registo de atividades](./media/api-management-azure-monitor/api-management-activity-logs-blade.png)
+1. Selecione **registo de atividades**.
 
-3. Selecione o âmbito de filtragem pretendido e clique em **Aplicar**.
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs-blade.png" alt-text="Screenshot do item de registo de atividade no menu de monitorização":::
+1. Selecione o âmbito de filtragem pretendido e, em seguida, **aplique**.
 
-## <a name="resource-logs"></a>Registos de Recursos
+## <a name="resource-logs"></a>Registos do recurso
 
-Os registos de recursos fornecem informações ricas sobre operações e erros que são importantes para a auditoria, bem como para efeitos de resolução de problemas. Os registos de recursos diferem dos registos de atividade. Os registos de atividade fornecem informações sobre as operações que foram realizadas nos seus recursos Azure. Os registos de recursos fornecem informações sobre as operações que o seu recurso realizou.
+Os registos de recursos fornecem informações ricas sobre operações e erros que são importantes para a auditoria, bem como para efeitos de resolução de problemas. Os registos de recursos diferem dos registos de atividade. O registo de atividades fornece informações sobre as operações que foram realizadas nos seus recursos Azure. Os registos de recursos fornecem informações sobre as operações que o seu recurso realizou.
 
 Para configurar registos de recursos:
 
-1. Selecione a instância de serviço APIM.
-2. Clique em **Definições de diagnóstico**.
+1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Gestão API.
+2. Selecione **definições de diagnóstico**.
 
-    ![registos de recursos](./media/api-management-azure-monitor/api-management-diagnostic-logs-blade.png)
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Screenshot do item de definições de diagnóstico no menu de monitorização":::
 
-3. Clique em **Ativar diagnósticos**. Pode arquivar registos de recursos juntamente com métricas para uma conta de armazenamento, transmiti-los para um Centro de Eventos ou enviá-los para registos do Azure Monitor. 
+1. **Selecione + Adicione a definição de diagnóstico**.
+1. Selecione os registos ou métricas que pretende recolher.
 
-A API Management fornece atualmente registos de recursos (lotados por hora) sobre cada pedido de API individual, tendo cada entrada o seguinte esquema:
+   Pode arquivar registos de recursos juntamente com métricas para uma conta de armazenamento, transmiti-los para um Centro de Eventos ou enviá-los para um espaço de trabalho Log Analytics. 
 
-```json
-{  
-    "isRequestSuccess" : "",
-    "time": "",
-    "operationName": "",
-    "category": "",
-    "durationMs": ,
-    "callerIpAddress": "",
-    "correlationId": "",
-    "location": "",
-    "httpStatusCodeCategory": "",
-    "resourceId": "",
-    "properties": {   
-        "method": "", 
-        "url": "", 
-        "clientProtocol": "", 
-        "responseCode": , 
-        "backendMethod": "", 
-        "backendUrl": "", 
-        "backendResponseCode": ,
-        "backendProtocol": "",  
-        "requestSize": , 
-        "responseSize": , 
-        "cache": "", 
-        "cacheTime": "", 
-        "backendTime": , 
-        "clientTime": , 
-        "apiId": "",
-        "operationId": "", 
-        "productId": "", 
-        "userId": "", 
-        "apimSubscriptionId": "", 
-        "backendId": "",
-        "lastError": { 
-            "elapsed" : "", 
-            "source" : "", 
-            "scope" : "", 
-            "section" : "" ,
-            "reason" : "", 
-            "message" : ""
-        } 
-    }      
-}  
+Para obter mais informações, consulte [Criar configurações de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos.](../azure-monitor/platform/diagnostic-settings.md)
+
+## <a name="view-diagnostic-data-in-azure-monitor"></a>Ver dados de diagnóstico no Azure Monitor
+
+Se ativar a recolha de GatewayLogs ou métricas num espaço de trabalho do Log Analytics, pode demorar alguns minutos para que os dados apareçam no Azure Monitor. Para ver os dados:
+
+1. No [portal Azure,](https://portal.azure.com)navegue para o seu caso de Gestão API.
+1. Selecione **Registos** do menu perto da parte inferior da página.
+
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot do item de Logs no menu de monitorização":::
+
+Executar consultas para ver os dados. Várias consultas de amostra são [fornecidas,](../azure-monitor/log-query/saved-queries.md) ou executar as suas próprias. Por exemplo, a seguinte consulta recupera as 24 horas mais recentes de dados da tabela GatewayLogs:
+
+```kusto
+ApiManagementGatewayLogs
+| where TimeGenerated > ago(1d) 
 ```
 
-| Propriedade  | Tipo | Description |
-| ------------- | ------------- | ------------- |
-| isRequestSuccess | boolean | “Verdadeiro” se o pedido HTTP for concluído com o código de estado de resposta no intervalo 2xx ou 3xx |
-| hora | date-time | Timetamp de quando o gateway começa a processar o pedido |
-| operationName | cadeia | Valor constante “Microsoft.ApiManagement/GatewayLogs” |
-| categoria | cadeia | Valor constante “GatewayLogs” |
-| durationMs | número inteiro | Número de milissegundos a partir do momento em que gateway recebeu pedido até ao momento em que a resposta foi enviada na íntegra. Inclui clienTime, cacheTime e backendTime. |
-| callerIpAddress | cadeia | Endereço IP do chamador de Gateway de imediato (pode ser um intermediário) |
-| correlationId | cadeia | Identificador de pedido http exclusivo atribuído pela Gestão de API |
-| localização | cadeia | Nome da região do Azure em que o Gateway que processou o pedido estava localizado |
-| httpStatusCodeCategory | cadeia | Categoria do código de estado da resposta http: bem-sucedida (301 ou menos ou 304 ou 307), não autorizada (401, 403, 429), Errónea (400, entre 500 e 600), Outro |
-| resourceId | cadeia | ID do recurso de Gestão da API /SUBSCRIÇÕES/ \<subscription> /RESOURCEGROUPS/ \<resource-group> /PROVIDERS/MICROSOFT. APIMANAGEMENT/SERVICE/\<name> |
-| propriedades | objeto | Propriedades do pedido atual |
-| método | cadeia | Método HTTP do pedido a receber |
-| url | cadeia | URL do pedido a receber |
-| clientProtocol | cadeia | Versão do protocolo HTTP do pedido a receber |
-| responseCode | número inteiro | Código de estado da resposta  HTTP enviada para um cliente |
-| backendMethod | cadeia | Método HTTP do pedido enviado para um back-end |
-| backendUrl | cadeia | URLdo pedido enviado para um back-end |
-| backendResponseCode | número inteiro | Código da resposta HTTP recebido a partir de um back-end |
-| backendProtocol | cadeia | Versão do protocolo HTTP do pedido enviado para um back-end | 
-| requestSize | número inteiro | Número de bytes recebidos de um cliente durante o processamento do pedido | 
-| responseSize | número inteiro | Número de bytes enviados para um cliente durante o processamento do pedido | 
-| cache | cadeia | Estado do envolvimento da cache da Gestão de API no processamento do pedido (ou seja, hit, miss, none) | 
-| cacheTime | número inteiro | Número de milissegundos despendidos na E/S de cache da Gestão de API global (ligar, enviar e receber bytes) | 
-| backendTime | número inteiro | Número de milissegundos despendidos na E/S de back-end global (ligar, enviar e receber bytes) | 
-| clientTime | número inteiro | Número de milissegundos despendidos na E/S de cliente global (ligar, enviar e receber bytes) | 
-| apiId | cadeia | Identificador da entidade de API do pedido atual | 
-| operationId | cadeia | Identificador da entidade de operação do pedido atual | 
-| productId | cadeia | Identificador da entidade de produto do pedido atual | 
-| userId | cadeia | Identificador da entidade de utilizador do pedido atual | 
-| apimSubscriptionId | cadeia | Identificador da entidade de subscrição do pedido atual | 
-| backendId | cadeia | Identificador da entidade de back-end do pedido atual | 
-| LastError | objeto | Último erro de processamento de pedido | 
-| elapsed | número inteiro | Número de milissegundos decorrido entre quando o portal recebeu o pedido e o momento em que ocorreu o erro | 
-| source | cadeia | Nome da política ou processador interno provocou o erro | 
-| scope | cadeia | Âmbito do documento da política que contém a política que provocou o erro | 
-| section | cadeia | Secção do documento da política que contém a política que provocou o erro | 
-| reason | cadeia | Motivo do erro | 
-| message | cadeia | Mensagem de erro | 
+Para obter mais informações sobre a utilização de registos de recursos para a Gestão da API, consulte:
+
+* [Começa com o Azure Monitor Log Analytics,](../azure-monitor/log-query/get-started-portal.md)ou experimente o [ambiente de demonstração do Log Analytics](https://portal.loganalytics.io/demo).
+
+* [Visão geral das consultas de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+
+O seguinte JSON indica uma entrada de amostra em GatewayLogs para um pedido de API bem sucedido. Para mais detalhes, consulte a [referência de esquema](gateway-log-schema-reference.md). 
+
+```json
+{
+    "Level": 4,
+    "isRequestSuccess": true,
+    "time": "2020-10-14T17:xx:xx.xx",
+    "operationName": "Microsoft.ApiManagement/GatewayLogs",
+    "category": "GatewayLogs",
+    "durationMs": 152,
+    "callerIpAddress": "xx.xx.xxx.xx",
+    "correlationId": "3f06647e-xxxx-xxxx-xxxx-530eb9f15261",
+    "location": "East US",
+    "properties": {
+        "method": "GET",
+        "url": "https://apim-hello-world.azure-api.net/conference/speakers",
+        "backendResponseCode": 200,
+        "responseCode": 200,
+        "responseSize": 41583,
+        "cache": "none",
+        "backendTime": 87,
+        "requestSize": 526,
+        "apiId": "demo-conference-api",
+        "operationId": "GetSpeakers",
+        "apimSubscriptionId": "master",
+        "clientTime": 65,
+        "clientProtocol": "HTTP/1.1",
+        "backendProtocol": "HTTP/1.1",
+        "apiRevision": "1",
+        "clientTlsVersion": "1.2",
+        "backendMethod": "GET",
+        "backendUrl": "https://conferenceapi.azurewebsites.net/speakers"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/APIM-HELLO-WORLD"
+}
+```
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Ver registos de atividades
-> * Ver registos de recursos
 > * Ver métricas da API
-> * Configurar uma regra de alerta quando a API recebe chamadas não autorizadas
+> * Estabeleça uma regra de alerta 
+> * Ver registos de atividades
+> * Ativar e visualizar registos de recursos
+
 
 Avance para o tutorial seguinte:
 

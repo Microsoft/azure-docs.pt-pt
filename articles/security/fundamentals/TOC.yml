@@ -68,6 +68,8 @@
   items:
     - name: Microsoft Antimalware
       href: antimalware.md
+    - name: Amostras de código de Microsoft Antimalware
+      href: antimalware-code-samples.md
     - name: Descrição geral de segurança de máquinas virtuais
       href: virtual-machines-overview.md
     - name: Melhores práticas - Cargas de trabalho de IaaS

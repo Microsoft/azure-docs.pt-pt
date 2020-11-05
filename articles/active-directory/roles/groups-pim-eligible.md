@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23243de192683a4811eb569b17425701381c4cd1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 74ad503374e0148e9813508b6c7f8b21e2dca7a3
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377577"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379167"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Atribuir um papel a um grupo que utilize a Gestão de Identidade Privilegiada
 
@@ -41,7 +41,7 @@ Este artigo descreve como pode atribuir um papel de Azure Ative Directory (Azure
 
     ![selecione o utilizador a quem está a atribuir a função](./media/groups-pim-eligible/set-assignment-settings.png)
 
-## <a name="using-powershell"></a>Utilizar o PowerShell
+## <a name="using-powershell"></a>Com o PowerShell
 
 ### <a name="download-the-azure-ad-preview-powershell-module"></a>Descarregue o módulo PowerShell de pré-visualização Azure AD
 
@@ -103,7 +103,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Use grupos de nuvem para gerir atribuições de funções](groups-concept.md)
+- [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](groups-faq-troubleshooting.md)
 - [Configurar configurações de função de administrador a Ad AD em Gestão de Identidade Privilegiada](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Atribuir funções de recursos da Azure na Gestão de Identidade Privilegiada](../privileged-identity-management/pim-resource-roles-assign-roles.md)

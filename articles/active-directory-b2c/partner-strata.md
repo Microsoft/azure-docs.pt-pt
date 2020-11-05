@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: e3f067647eb7bdb33b06a9ebdefd8fdd0485e4c6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0fd2312df31e61ae30f4c3fd04dc0991ac0f4675
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294291"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376860"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Tutorial para alargar a Azure AD B2C para proteger aplicações no local utilizando estratos
 
@@ -57,7 +57,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 
 ![A imagem mostra a arquitetura de uma integração AD B2C Azure com Strata Maverics para permitir o acesso a aplicações híbridas](./media/partner-strata/strata-architecture-diagram.png)
 
-| Passos | Description |
+| Passos | Descrição |
 |:-------|:---------------|
 | 1. | O utilizador faz um pedido de acesso à aplicação hospedada no local. O Orquestrador de Identidade Maverics solicita o pedido feito pelo utilizador à aplicação.|
 | 2. | O Orquestrador verifica o estado de autenticação do utilizador. Se não receber um token de sessão, ou o token da sessão fornecido for inválido, então envia o utilizador para Azure AD B2C para autenticação.|
@@ -65,13 +65,11 @@ O seguinte diagrama de arquitetura mostra a implementação.
 | 4. | O IdP desafia o utilizador para obter credenciais. Dependendo do IdP, o utilizador poderá necessitar de autenticação multi-factor (MFA).|
 | 5. | O IdP remete a resposta de autenticação para Azure AD B2C. Opcionalmente, o utilizador pode criar uma conta local no diretório Azure AD B2C durante este passo.|
 | 6. | A Azure AD B2C envia o pedido do utilizador para o ponto final especificado durante o registo da app Orchestrator no inquilino Azure AD B2C.|
-| 7. | O Orquestrador avalia as políticas de acesso e calcula valores de atributos a incluir nos cabeçalhos HTTP reencaminhados para a app. Durante este passo, o Orquestrador pode chamar os fornecedores de atributos adicionais para recuperar as informações necessárias para definir corretamente os valores do cabeçalho.|
-| 8. | O Orquestrador define os valores do cabeçalho e envia o pedido para a aplicação.|
-| 9. | O utilizador está agora autenticado e tem acesso à aplicação.|
+| 7. | O Orquestrador avalia as políticas de acesso e calcula valores de atributos a incluir nos cabeçalhos HTTP reencaminhados para a app. Durante este passo, o Orquestrador pode chamar os fornecedores de atributos adicionais para recuperar as informações necessárias para definir corretamente os valores do cabeçalho. O Orquestrador define os valores do cabeçalho e envia o pedido para a aplicação.|
+| 8. | O utilizador está agora autenticado e tem acesso à aplicação.|
 
 ## <a name="get-maverics-identity-orchestrator"></a>Obter Maverics Identity Orchestrator
 
-Para obter o software que utilizará para integrar a sua aplicação de legado no local com a Azure AD B2C, contacte [a Strata](https://www.strata.io/contact/). Depois de obter o software, siga os passos abaixo para determinar os pré-requisitos específicos do Orquestrador e execute os passos de instalação e configuração necessários.
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>Configure o seu inquilino Azure AD B2C
 

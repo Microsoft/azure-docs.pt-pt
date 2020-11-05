@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 11/08/2019
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 241858caef2129a0651c2118c09e5e7f1e1e3e01
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8178f0753cd6a93caac2f9dece62f21e1c1b311d
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377544"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378895"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Funções de administrador para serviços Microsoft 365
 

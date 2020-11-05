@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7f441930d9d99f35c2e53bb040b0db0a427659
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d58465c56be310d3f9d500ab551c7d2b19ffaa83
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377572"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378385"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Remover atribuições de funções de um grupo no Azure Ative Directory
 
@@ -28,7 +28,7 @@ Este artigo descreve como um administrador de TI pode remover as funções AD AZ
 
 1. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
 
-1. Selecione **Funções e administradores** > **_nome de função_*_.
+1. Selecione **Funções e administradores** > * *_nome de função_* _.
 
 1. Selecione o grupo a partir do qual pretende remover a atribuição de funções e selecione _*Remover a atribuição**.
 
@@ -36,7 +36,7 @@ Este artigo descreve como um administrador de TI pode remover as funções AD AZ
 
 1. Quando lhe pedirem para confirmar a sua ação, selecione **Sim**.
 
-## <a name="using-powershell"></a>Utilizar o PowerShell
+## <a name="using-powershell"></a>Com o PowerShell
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>Criar um grupo que possa ser atribuído ao papel
 
@@ -107,5 +107,5 @@ DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Use grupos de nuvem para gerir atribuições de funções](groups-concept.md)
+- [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](groups-faq-troubleshooting.md)

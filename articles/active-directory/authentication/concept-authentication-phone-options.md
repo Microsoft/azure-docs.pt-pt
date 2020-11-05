@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165519"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377756"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Métodos de autenticação em Diretório Ativo Azure - opções de telefone
 
@@ -50,8 +50,6 @@ Com a verificação de chamadas telefónicas durante a Autenticação Multi-Fact
 
 ## <a name="office-phone-verification"></a>Verificação do telefone do escritório
 
-O atributo do telefone do escritório é gerido pelo administrador AZure AD e não pode ser registado por um utilizador.
-
 Com a verificação de chamadas telefónicas durante a Autenticação Multi-Factor SSPR ou Azure, é feita uma chamada de voz automatizada para o número de telefone registado pelo utilizador. Para completar o processo de inscrição, o utilizador é solicitado a introduzir o seu número de pino seguido de # no teclado.
 
 ## <a name="troubleshooting-phone-options"></a>Troubleshooting phone options (Resolução de problemas das opções de telefone)
@@ -81,7 +79,7 @@ Para saber mais sobre os conceitos SSPR, consulte [como funciona o reset da pala
 
 Para saber mais sobre os conceitos de MFA, consulte [como funciona a autenticação multi-factor Azure.][concept-mfa]
 
-Saiba mais sobre a configuração dos métodos de autenticação utilizando a [beta API do Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Saiba mais sobre a configuração dos métodos de autenticação utilizando a [beta API do Microsoft Graph REST](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

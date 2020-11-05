@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: quickstart
-ms.date: 08/07/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd764417a4598899bf17dc6a00c633f19d64fa6f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4a78296d3fd040b047c2a6cc3761d429883aa9d1
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379314"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378793"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Quickstart: Conceder permissão para criar registos ilimitados de aplicações
 
@@ -29,7 +29,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 ## <a name="create-a-custom-role-using-the-azure-ad-portal"></a>Crie um papel personalizado usando o portal AD Azure
 
 1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com o administrador de função privilegiada ou permissões de administrador global na organização Azure AD.
-1. Selecione **Azure Ative Directory**, selecione **Funções e administradores**, e, em seguida, selecione **Nova função personalizada**.
+1. Selecione **Azure Ative Directory** , selecione **Funções e administradores** , e, em seguida, selecione **Nova função personalizada**.
 
     ![Criar ou editar funções a partir da página Funções e administradores](./media/quickstart-app-registration-limits/new-custom-role.png)
 

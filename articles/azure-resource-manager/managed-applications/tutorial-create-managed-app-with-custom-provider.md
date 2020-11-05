@@ -6,12 +6,12 @@ ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a92382f397eee5e0315dda73d33f968dafa4b496
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: f327749d1bdfb8cf2cba00cf4c5f68b4b2b77999
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041712"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379558"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>Tutorial: Criar aplicação gerida com ações e recursos personalizados
 
@@ -41,7 +41,7 @@ Para completar este tutorial, precisa de saber:
 
 Neste tutorial, cria-se uma aplicação gerida e o seu grupo de recursos geridos conterá a instância personalizada do fornecedor, a conta de armazenamento e a função. A Função Azure utilizada neste exemplo implementa uma API que trata de operações personalizadas de fornecedores para ações e recursos. A Conta de Armazenamento Azure é usada como armazenamento básico para os seus recursos de fornecedor personalizados.
 
-A definição de interface de utilizador para criar uma instância de aplicação gerida inclui `funcname` e `storagename` elementos de entrada. O nome e o nome da função de armazenamento devem ser globalmente únicos. Por predefinição, os ficheiros de função serão implantados a partir do pacote de função da [amostra,](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip)mas pode alterá-lo adicionando um elemento de entrada para um link de pacotecreateUIDefinition.js *em* :
+A definição de interface de utilizador para criar uma instância de aplicação gerida inclui `funcname` e `storagename` elementos de entrada. O nome e o nome da função de armazenamento devem ser globalmente únicos. Por predefinição, os ficheiros de função serão implantados a partir do pacote de função da [amostra,](https://github.com/Azure/azure-quickstart-templates/tree/master/101-custom-rp-with-function/artifacts/functionzip)mas pode alterá-lo adicionando um elemento de entrada para um link de pacotecreateUiDefinition.js *em* :
 
 ```json
 {
@@ -74,7 +74,7 @@ A definição de interface de utilizador para criar uma instância de aplicaçã
 }
 ```
 
-e a produção em *createUIDefinition.jsem:*
+e a produção em *createUiDefinition.jsem:*
 
 ```json
   "funcname": "[steps('applicationSettings').funcname]",
@@ -82,13 +82,13 @@ e a produção em *createUIDefinition.jsem:*
   "zipFileBlobUri": "[steps('applicationSettings').zipFileBlobUri]"
 ```
 
-A *createUIDefinition.js* completa na amostra pode ser encontrada em [Referência: Artefactos de elementos de interface do utilizador](reference-createuidefinition-artifact.md).
+A *createUiDefinition.js* completa na amostra pode ser encontrada em [Referência: Artefactos de elementos de interface do utilizador](reference-createuidefinition-artifact.md).
 
 ## <a name="template-with-custom-provider"></a>Modelo com provedor personalizado
 
-Para criar uma instância de aplicação gerida com fornecedor personalizado, é necessário definir o recurso personalizado do fornecedor com o nome **público** e escrever **Microsoft.CustomProviders/resourceProviders** no seu **mainTemplate.jsem** . Nesse recurso, define os tipos de recursos e ações para o seu serviço. Para implementar a Função Azure e as instâncias da Conta de Armazenamento Azure definem recursos de tipo `Microsoft.Web/sites` `Microsoft.Storage/storageAccounts` e, respectivamente.
+Para criar uma instância de aplicação gerida com fornecedor personalizado, é necessário definir o recurso personalizado do fornecedor com o nome **público** e escrever **Microsoft.CustomProviders/resourceProviders** no seu **mainTemplate.jsem**. Nesse recurso, define os tipos de recursos e ações para o seu serviço. Para implementar a Função Azure e as instâncias da Conta de Armazenamento Azure definem recursos de tipo `Microsoft.Web/sites` `Microsoft.Storage/storageAccounts` e, respectivamente.
 
-Neste tutorial, irá criar um `users` tipo de recurso, `ping` ação personalizada e `users/contextAction` ação personalizada que será realizada num contexto de `users` recurso personalizado. Para cada tipo de recurso e ação fornecem um ponto final que aponta para a função com o nome fornecido em [createUIDefinition.jsem](#user-interface-definition). Especificar o **RoteamentoType** como `Proxy,Cache` para tipos de recursos e para `Proxy` ações:
+Neste tutorial, irá criar um `users` tipo de recurso, `ping` ação personalizada e `users/contextAction` ação personalizada que será realizada num contexto de `users` recurso personalizado. Para cada tipo de recurso e ação fornecem um ponto final que aponta para a função com o nome fornecido em [createUiDefinition.jsem](#user-interface-definition). Especificar o **RoteamentoType** como `Proxy,Cache` para tipos de recursos e para `Proxy` ações:
 
 ```json
 {
@@ -247,8 +247,8 @@ az managedapp definition create \
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. No portal Azure, selecione **Todos os serviços** . Na lista de recursos, escreva e selecione Centro de **Aplicações Geridas.**
-2. No **Centro de Aplicações Geridas,** escolha **a definição de aplicação do Catálogo** de Serviços e clique em **Adicionar** . 
+1. No portal Azure, selecione **Todos os serviços**. Na lista de recursos, escreva e selecione Centro de **Aplicações Geridas.**
+2. No **Centro de Aplicações Geridas,** escolha **a definição de aplicação do Catálogo** de Serviços e clique em **Adicionar**. 
     
     ![Adicionar Catálogo de Serviços](./media/tutorial-create-managed-app-with-custom-provider/service-catalog-managed-application.png)
 
@@ -260,15 +260,15 @@ az managedapp definition create \
 
     ![Fornecer valores](./media/tutorial-create-managed-app-with-custom-provider/add-service-catalog-managed-application.png)
 
-4. Quando chegar à secção de Autenticação e Nível de Bloqueio, **selecione Adicionar Autorização** .
+4. Quando chegar à secção de Autenticação e Nível de Bloqueio, **selecione Adicionar Autorização**.
 
     ![Adicionar autorização](./media/tutorial-create-managed-app-with-custom-provider/add-authorization.png)
 
-5. Selecione um grupo de Diretório Ativo Azure para gerir os recursos e selecione **OK** .
+5. Selecione um grupo de Diretório Ativo Azure para gerir os recursos e selecione **OK**.
 
    ![Adicionar grupo de autorização](./media/tutorial-create-managed-app-with-custom-provider/add-auth-group.png)
 
-6. Quando tiver fornecido todos os valores, **selecione Criar** .
+6. Quando tiver fornecido todos os valores, **selecione Criar**.
 
    ![Criar definição de aplicação gerida](./media/tutorial-create-managed-app-with-custom-provider/create-service-catalog-definition.png)
 
@@ -303,8 +303,8 @@ az managedapp create \
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
-1. No portal Azure, selecione **Todos os serviços** . Na lista de recursos, escreva e selecione Centro de **Aplicações Geridas.**
-2. No **Centro de Aplicações Geridas,** escolha **aplicações de Catálogo de Serviços** e clique em **Adicionar** . 
+1. No portal Azure, selecione **Todos os serviços**. Na lista de recursos, escreva e selecione Centro de **Aplicações Geridas.**
+2. No **Centro de Aplicações Geridas,** escolha **aplicações de Catálogo de Serviços** e clique em **Adicionar**. 
 
     ![Adicionar aplicação gerida](./media/tutorial-create-managed-app-with-custom-provider/add-managed-application.png)
 

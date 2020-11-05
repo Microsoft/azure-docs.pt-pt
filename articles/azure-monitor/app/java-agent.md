@@ -4,17 +4,19 @@ description: Monitorização alargada de desempenho e utilização do seu websit
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 9cce87fa742df2e623217b5b0f72ad19814fd3b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e91e0252ac2af02157c30fe025e75b6cfee7de6e
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87371367"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378487"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Monitorizar dependências, exceções capturadas e tempos de execução de métodos em aplicações web java
 
+> [!IMPORTANT]
+> A abordagem recomendada para monitorizar as aplicações java é utilizar a auto-instrumentação sem alterar o código. Siga as diretrizes para o [agente Application Insights Java 3.0](./java-in-process-agent.md).
 
-Se tiver [instrumentado a sua aplicação web Java com Application Insights,][java]pode utilizar o Agente Java para obter informações mais profundas, sem alterações de código:
+Se tiver [instrumentado a sua aplicação web Java com App Insights SDK,][java]pode utilizar o Agente Java para obter informações mais profundas, sem alterações de código:
 
 * **Dependências:** Dados sobre chamadas que a sua aplicação faz a outros componentes, incluindo:
   * **Chamadas HTTP de saída feitas** via Apache HttpClient, OkHttp, e `java.net.HttpURLConnection` são capturadas.

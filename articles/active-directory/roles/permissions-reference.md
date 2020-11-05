@@ -7,19 +7,19 @@ manager: daveba
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ece458960002fb6af9e0ef5065e6e926a9fc17d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d55e7f29c9ecefa7cfcf98ef890d9982b044ef30
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378300"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378827"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -69,7 +69,7 @@ Os utilizadores desta função podem criar registos de aplicações quando a def
 
 ### <a name="authentication-administrator"></a>[Administrador de Autenticação](#authentication-administrator-permissions)
 
-Os utilizadores com esta função podem definir ou redefinir credenciais de não senha para alguns utilizadores e podem atualizar palavras-passe para todos os utilizadores. Os administradores de autenticação podem exigir que os utilizadores que não sejam administradores ou que sejam designados para algumas funções se re-registem contra as credenciais não senhas existentes (por exemplo, MFA ou FIDO), podendo também revogar **o remember MFA no dispositivo**, que solicita mFA no próximo registo. Estas ações aplicam-se apenas aos utilizadores que não sejam administradores ou que lhes sejam atribuídas uma ou mais das seguintes funções:
+Os utilizadores com esta função podem definir ou redefinir credenciais de não senha para alguns utilizadores e podem atualizar palavras-passe para todos os utilizadores. Os administradores de autenticação podem exigir que os utilizadores que não sejam administradores ou que sejam designados para algumas funções se re-registem contra as credenciais não senhas existentes (por exemplo, MFA ou FIDO), podendo também revogar **o remember MFA no dispositivo** , que solicita mFA no próximo registo. Estas ações aplicam-se apenas aos utilizadores que não sejam administradores ou que lhes sejam atribuídas uma ou mais das seguintes funções:
 
 * Administrador de Autenticação
 * Leitores de Diretório
@@ -311,7 +311,7 @@ Os utilizadores desta função podem monitorizar notificações e atualizações
 
 Não utilizar. Esta função é automaticamente atribuída ao Comércio, e não se destina ou é suportada para qualquer outra utilização. Veja os detalhes abaixo.
 
-A função de Utilizador do Comércio Moderno dá a certos utilizadores permissão para aceder ao centro de administração microsoft 365 e ver as entradas de navegação esquerda para **Home**, **Billing**e **Support**. O conteúdo disponível nestas áreas é controlado por [funções específicas do comércio](../../cost-management-billing/manage/understand-mca-roles.md) atribuídas aos utilizadores para gerir produtos que compraram para si ou para a sua organização. Isto pode incluir tarefas como pagar contas ou acesso a contas de faturação e perfis de faturação. 
+A função de Utilizador do Comércio Moderno dá a certos utilizadores permissão para aceder ao centro de administração microsoft 365 e ver as entradas de navegação esquerda para **Home** , **Billing** e **Support**. O conteúdo disponível nestas áreas é controlado por [funções específicas do comércio](../../cost-management-billing/manage/understand-mca-roles.md) atribuídas aos utilizadores para gerir produtos que compraram para si ou para a sua organização. Isto pode incluir tarefas como pagar contas ou acesso a contas de faturação e perfis de faturação. 
 
 Os utilizadores com a função de Utilizador de Comércio Moderno normalmente têm permissões administrativas em outros sistemas de compra da Microsoft, mas não têm funções de administrador global ou administrador de faturação usadas para aceder ao centro de administração. 
 

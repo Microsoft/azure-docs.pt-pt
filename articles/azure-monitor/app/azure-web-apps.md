@@ -4,12 +4,12 @@ description: Monitorização do desempenho da aplicação para serviços de apli
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875613"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377807"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -100,7 +100,8 @@ A partir da sua aplicação web do Serviço de Aplicações em **Definições** 
 
 # <a name="java"></a>[Java](#tab/java)
 
-As aplicações web baseadas no Java App Service não suportam atualmente a monitorização automática baseada em agente/extensão. Para ativar a monitorização da sua aplicação Java, é necessário [instrumentar manualmente a sua aplicação](./java-get-started.md).
+Siga as diretrizes para o [agente Application Insights Java 3.0](./java-in-process-agent.md) para permitir a auto-instrumentação para as suas aplicações Java sem alterar o seu código.
+A integração automática ainda não está disponível para o Serviço de Aplicações.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -127,7 +128,7 @@ Para desativar a monitorização do lado do cliente, remova o par de valor da ch
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-A monitorização do lado do cliente é **ativada por padrão** para aplicações .NET Core com **recolha recomendada**, independentemente de a definição da aplicação 'APPINSIGHTS_JAVASCRIPT_ENABLED' estar presente.
+A monitorização do lado do cliente é **ativada por padrão** para aplicações .NET Core com **recolha recomendada** , independentemente de a definição da aplicação 'APPINSIGHTS_JAVASCRIPT_ENABLED' estar presente.
 
 Se por alguma razão pretender desativar a monitorização do lado do cliente:
 
@@ -350,7 +351,8 @@ Se a atualização for feita a partir de uma versão anterior ao 2.5.1, verifiqu
 Abaixo está o nosso guia de resolução de problemas passo a passo para monitorização baseada em extensões/agentes para aplicações baseadas em .NET e .NET Core em execução nos Serviços de Aplicações Azure.
 
 > [!NOTE]
-> As aplicações java são suportadas apenas nos Serviços de Aplicações Azure através de instrumentação manual baseada em SDK e, portanto, os passos abaixo não se aplicam a estes cenários.
+> A abordagem recomendada para monitorizar as aplicações java é utilizar a auto-instrumentação sem alterar o código. Siga as diretrizes para o [agente Application Insights Java 3.0](./java-in-process-agent.md).
+
 
 1. Verifique se a aplicação é monitorizada via `ApplicationInsightsAgent` .
     * Verifique se a `ApplicationInsightsAgent_EXTENSION_VERSION` definição da aplicação está definida para um valor de "~2".
@@ -401,7 +403,7 @@ Se desejar testar o servidor sem código e a monitorização do lado do cliente 
 
 ### <a name="php-and-wordpress-are-not-supported"></a>PHP e WordPress não são suportados
 
-Os sites PHP e WordPress não são suportados. Atualmente, não existe um SDK/agente suportado oficialmente para monitorização do lado do servidor destas cargas de trabalho. No entanto, instrumentar manualmente as transações do lado do cliente num site PHP ou WordPress adicionando o javascript do lado do cliente às suas páginas web pode ser realizado utilizando o [JavaScript SDK](./javascript.md).
+Os sites PHP e WordPress não são suportados. Atualmente, não existe um SDK/agente suportado oficialmente para monitorização do lado do servidor destas cargas de trabalho. No entanto, instrumentar manualmente as transações do lado do cliente num site PHP ou WordPress adicionando o JavaScript do lado do cliente às suas páginas web pode ser realizado utilizando o [JavaScript SDK](./javascript.md).
 
 ### <a name="connection-string-and-instrumentation-key"></a>Chave de ligação e instrumentação
 

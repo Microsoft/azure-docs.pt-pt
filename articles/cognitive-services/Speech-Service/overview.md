@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7d31649e18f8cc687a9716c8ecafe556fa250de6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521514"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377892"
 ---
 # <a name="what-is-the-speech-service"></a>O que é o serviço de Voz?
 
@@ -30,14 +30,14 @@ As seguintes funcionalidades fazem parte do serviço Speech. Utilize os links de
 |---------|---------|-------------|-----|------|
 | [Discurso-a-Texto](speech-to-text.md) | Discurso-a-texto em tempo real | A palavra-para-texto transcreve ou traduz streams de áudio ou ficheiros locais para texto em tempo real que as suas aplicações, ferramentas ou dispositivos podem consumir ou exibir. Use o discurso-a-texto com [a Compreensão da Linguagem (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/) para obter as intenções dos utilizadores da fala transcrita e agir em comandos de voz. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Lote Discurso-a-Texto](batch-transcription.md) | Lote O discurso-a-texto permite a transcrição assíncrona de discurso a texto de grandes volumes de dados áudio da fala armazenados no Azure Blob Storage. Além de converter áudio de fala em texto, o Batch Speech-to-text também permite a diarização e a análise de sentimentos. | No | [Sim](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
-| | [Conversa multi-dispositivo](multi-device-conversation.md) | Conecte vários dispositivos ou clientes numa conversação para enviar mensagens baseadas em discursos ou textos, com suporte fácil para transcrição e tradução| Yes | No |
-| | [Transcrição de conversa](conversation-transcription-service.md) | Permite o reconhecimento da fala em tempo real, a identificação e a diarização dos altifalantes. É perfeito para transcrever reuniões presenciais com a capacidade de distinguir os falantes. | Yes | No |
+| | [Conversa multi-dispositivo](multi-device-conversation.md) | Conecte vários dispositivos ou clientes numa conversação para enviar mensagens baseadas em discursos ou textos, com suporte fácil para transcrição e tradução| Sim | No |
+| | [Transcrição de conversa](conversation-transcription-service.md) | Permite o reconhecimento da fala em tempo real, a identificação e a diarização dos altifalantes. É perfeito para transcrever reuniões presenciais com a capacidade de distinguir os falantes. | Sim | No |
 | | [Criar modelos de discurso personalizados](#customize-your-speech-experience) | Se estiver a usar texto-a-texto para reconhecimento e transcrição num ambiente único, pode criar e formar modelos acústicos, linguísticos e de pronúncia personalizados para abordar o ruído ambiente ou o vocabulário específico da indústria. | No | [Sim](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0) |
 | [Texto-a-Discurso](text-to-speech.md) | Conversão de texto em voz | O texto-a-discurso converte o texto de entrada em linguagem humana sintetizada utilizando [a linguagem de marcação da síntese de fala (SSML)](speech-synthesis-markup.md). Escolha entre vozes padrão e vozes neurais (ver [suporte linguístico).](language-support.md) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [Criar vozes personalizadas](#customize-your-speech-experience) | Crie fontes de voz personalizadas únicas à sua marca ou produto. | No | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Tradução de Voz](speech-translation.md) | Tradução de voz | A tradução da fala permite a tradução em tempo real, multi-linguístico da fala para as suas aplicações, ferramentas e dispositivos. Utilize este serviço para tradução fala-a-fala e discurso-a-texto. | [Sim](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | No |
 | [Assistentes de voz](voice-assistants.md) | Assistentes de voz | Os assistentes de voz que usam o serviço Speech capacitam os desenvolvedores para criar interfaces de conversação naturais e humanas para as suas aplicações e experiências. O serviço de assistente de voz proporciona uma interação rápida e fiável entre um dispositivo e uma implementação de assistente que utiliza o canal de Fala de Linha Direta do Quadro Bot ou o serviço de Comandos Personalizados integrados (Pré-visualização) para a conclusão da tarefa. | [Sim](voice-assistants.md) | No |
-| [Reconhecimento de Orador](speaker-recognition-overview.md) | Verificação de & de verificação de altifalantes | O serviço de Reconhecimento de Altifalantes fornece algoritmos que verificam e identificam os altifalantes pelas suas características de voz únicas. O Reconhecimento dos Oradores é usado para responder à pergunta "quem está a falar?". | Yes | [Sim](https://docs.microsoft.com/rest/api/speakerrecognition/) |
+| [Reconhecimento de Orador](speaker-recognition-overview.md) | Verificação de & de verificação de altifalantes | O serviço de Reconhecimento de Altifalantes fornece algoritmos que verificam e identificam os altifalantes pelas suas características de voz únicas. O Reconhecimento dos Oradores é usado para responder à pergunta "quem está a falar?". | Sim | [Sim](https://docs.microsoft.com/rest/api/speakerrecognition/) |
 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
@@ -46,14 +46,12 @@ As seguintes funcionalidades fazem parte do serviço Speech. Utilize os links de
 
 Para os seguintes passos, precisa tanto de uma conta Microsoft como de uma conta Azure. Se não tiver uma conta Microsoft, pode inscrever-se gratuitamente no portal da conta da [Microsoft.](https://account.microsoft.com/account) Selecione **Iniciar sessão com** a Microsoft e, quando lhe pedirem para iniciar sessão, selecione **Criar uma conta Microsoft**. Siga os passos para criar e verificar a sua nova conta Microsoft.
 
-Assim que tiver uma conta Microsoft, vá à página de inscrição do [Azure](https://azure.microsoft.com/free/ai/), selecione **Iniciar gratuitamente**e crie uma nova conta Azure utilizando uma conta Microsoft.
+Assim que tiver uma conta Microsoft, vá à página de inscrição do [Azure](https://azure.microsoft.com/free/ai/), selecione **Iniciar gratuitamente** e crie uma nova conta Azure utilizando uma conta Microsoft. Aqui está um vídeo de [como se inscrever para a conta gratuita do Azure.](https://www.youtube.com/watch?v=GWT2R1C_uUU)
 
 > [!NOTE]
-> O serviço Discurso tem dois níveis de serviço: gratuito e subscrição, que têm diferentes limitações e benefícios. Quando se inscreve numa conta Azure gratuita, vem com 200 dólares no crédito de serviço que pode candidatar-se a uma subscrição de serviço de Discurso pago, válida até 30 dias.
+> Quando se inscreve numa conta Azure gratuita, ele vem com $200 em crédito de serviço que você pode aplicar para uma subscrição de serviço de discurso pago, válido por até 30 dias. Os seus serviços Azure são desativados quando o seu crédito se esgota ou expira no final dos 30 dias. Para continuar a utilizar os serviços do Azure, deverá atualizar a conta. Para mais informações, consulte [Como atualizar a sua conta gratuita da Azure.](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) 
 >
-> Se utilizar o nível de serviço de fala gratuito e de baixo volume, pode manter esta subscrição gratuita mesmo depois de expirar o seu crédito gratuito de teste ou serviço.
->
-> Para mais informações, consulte [os preços dos Serviços Cognitivos - Serviço de Fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> O serviço Discurso tem dois níveis de serviço: gratuito(f0) e subscrição(s0), que têm diferentes limitações e benefícios. Se utilizar o nível de serviço de fala gratuito e de baixo volume, pode manter esta subscrição gratuita mesmo depois de expirar o seu crédito gratuito de teste ou serviço. Para mais informações, consulte [os preços dos Serviços Cognitivos - Serviço de Fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="create-the-azure-resource"></a>Criar o recurso Azure
 
@@ -72,11 +70,11 @@ Para adicionar um recurso de serviço de discurso (nível gratuito ou pago) à s
 1. Selecione **Criar,** em seguida:
 
    - Dê um nome único para o seu novo recurso. O nome ajuda-o a distinguir entre várias subscrições ligadas ao mesmo serviço.
-   - Escolha a subscrição Azure a que o novo recurso está associado para determinar como as taxas são cobradas.
-   - Escolha a [região](regions.md) onde o recurso será utilizado.
-   - Escolha um preço gratuito (F0) ou pago (S0). Para obter informações completas sobre preços e quotas de utilização para cada nível, **selecione Ver todos os detalhes dos preços**. Para limites de recursos que pode criar para cada subscrição, consulte [Azure Cognitive Services Limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
+   - Escolha a subscrição Azure a que o novo recurso está associado para determinar como as taxas são cobradas. Aqui está a introdução [de como criar uma subscrição do Azure](https://docs.microsoft.com/azure/cost-management-billing/manage/create-subscription#create-a-subscription-in-the-azure-portal) no portal Azure.
+   - Escolha a [região](regions.md) onde o recurso será utilizado. O Azure é uma plataforma global de nuvem que está geralmente disponível em muitas regiões do mundo. Para obter o melhor desempenho, selecione uma região mais próxima de si ou onde a sua aplicação é executado. As disponibilidades do serviço Speech variam de diferentes regiões. Certifique-se de que cria o seu recurso numa região apoiada. Consulte [o apoio da região aos serviços de fala.](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-to-text-text-to-speech-and-translation)
+   - Escolha um preço gratuito (F0) ou pago (S0). Para obter informações completas sobre preços e quotas de utilização para cada nível, **selecione Ver todos os detalhes dos preços** ou consulte os preços dos [serviços de fala](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/). Para limites de recursos, consulte [os Limites dos Serviços Cognitivos Azure.](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits)
    - Crie um novo grupo de recursos para esta subscrição do Discurso ou atribua a subscrição a um grupo de recursos existente. Os grupos de recursos ajudam-no a manter as suas várias subscrições Azure organizadas.
-   - Selecione **Criar**. Isto irá levá-lo à visão geral da implementação e exibir mensagens de progresso de implantação.
+   - Selecione **Criar**. Isto irá levá-lo à visão geral da implementação e exibir mensagens de progresso de implantação.  
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
@@ -89,7 +87,7 @@ Para encontrar as chaves e a região de uma implantação concluída, siga estes
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua conta Microsoft.
 
-2. Selecione **Todos os recursos**e selecione o nome do seu recurso Serviços Cognitivos.
+2. Selecione **Todos os recursos** e selecione o nome do seu recurso Serviços Cognitivos.
 
 3. No painel esquerdo, em **GESTÃO DE RECURSOS,** selecione **Keys e Endpoint**.
 

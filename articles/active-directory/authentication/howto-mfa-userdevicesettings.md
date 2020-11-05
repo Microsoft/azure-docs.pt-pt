@@ -1,26 +1,88 @@
 ---
-title: Gerir as definições do utilizador para autenticação multi-factor Azure - Diretório Ativo Azure
+title: Gerir métodos de autenticação para autenticação multi-factor Azure - Diretório Ativo Azure
 description: Saiba como pode configurar as definições do utilizador do Azure Ative Directory para autenticação multi-factor Azure
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: michmcla
+ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2006422d3516aa67076233b0b4b9d3e7c58a7232
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6309ef6793858051ceaf3c3b33edb9f830b26710
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166522"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378050"
 ---
-# <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gerir as definições do utilizador para autenticação multi-factor Azure
+# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>Gerir os métodos de autenticação do utilizador para autenticação multi-factor Azure
 
-Para ajudar a gerir os utilizadores da Autenticação Multi-Factor Azure, pode exigir que os utilizadores reiniciem a sua palavra-passe, re-registem-se para MFA ou revoguem as sessões de MFA existentes. Para os utilizadores que tenham definido as palavras-passe da aplicação, também pode optar por eliminar estas palavras-passe, fazendo com que a autenticação antiga falhe nessas aplicações. Estas ações podem ser necessárias se precisar de prestar assistência a um utilizador ou quiser redefinir o seu estado de segurança.
+Os utilizadores em Azure AD têm dois conjuntos distintos de informações de contacto:  
+
+- Informações de contacto de perfil público, que são geridas no perfil do utilizador e visíveis aos membros da sua organização. Para os utilizadores sincronizados a partir de ative directy no local, esta informação é gerida em serviços de domínio de diretório ativo do Windows Server.
+- Métodos de autenticação, que são sempre mantidos privados e utilizados apenas para a autenticação, incluindo a autenticação de vários fatores (MFA). Os administradores podem gerir estes métodos na lâmina do método de autenticação de um utilizador e os utilizadores podem gerir os seus métodos na página de Informações de Segurança do MyAccount.
+
+Ao gerir os métodos de autenticação multi-factor Azure para os seus utilizadores, os administradores de autenticação podem: 
+
+1. Adicione métodos de autenticação para um utilizador específico, incluindo números de telefone utilizados para MFA.
+1. Redefinir a palavra-passe de um utilizador.
+1. Exigir que um utilizador se registe para MFA.
+1. Revogar as sessões de MFA existentes.
+1. Eliminar as palavras-passe de aplicações existentes de um utilizador  
+
+## <a name="add-authentication-methods-for-a-user"></a>Adicionar métodos de autenticação para um utilizador 
+
+Pode adicionar métodos de autenticação para um utilizador através do portal Azure ou do Microsoft Graph.  
+
+> [!NOTE]
+> Por razões de segurança, os campos de informações de contacto do utilizador público não devem ser utilizados para a realização de MFA. Em vez disso, os utilizadores devem preencher os seus números de métodos de autenticação para serem utilizados para mFA.  
+
+:::image type="content" source="media/howto-mfa-userdevicesettings/add-authentication-method-detail.png" alt-text="Adicionar métodos de autenticação do portal Azure":::
+
+Para adicionar métodos de autenticação para um utilizador através do portal Azure:  
+
+1. Inicie sessão no **portal do Azure**. 
+1. Navegue para Utilizadores **de Diretório Ativo Azure** Todos os  >  **Users**  >  **utilizadores**. 
+1. Escolha o utilizador para quem deseja adicionar um método de autenticação e selecione **métodos de autenticação.**  
+1. Na parte superior da janela, selecione **+ Adicione o método de autenticação**.
+   1. Selecione um método (número de telefone ou e-mail). O e-mail pode ser usado para reiniciar a auto-senha, mas não para autenticação. Ao adicionar um número de telefone, selecione um tipo de telefone e introduza o número de telefone com formato válido (por exemplo, +1 42555551234).
+   1. Selecione **Add** (Adicionar).
+
+> [!NOTE]
+> A experiência de pré-visualização permite aos administradores adicionar quaisquer métodos de autenticação disponíveis para os utilizadores, enquanto a experiência original apenas permite a atualização de métodos de telefone e telefone alternativos.
+
+### <a name="manage-methods-using-powershell"></a>Gerir métodos utilizando o PowerShell:  
+
+Instale o módulo Microsoft.Graph.Identity.Signins PowerShell utilizando os seguintes comandos. 
+
+```powershell
+Install-module Microsoft.Graph.Identity.Signins
+Connect-MgGraph -Scopes UserAuthenticationMethod.ReadWrite.All
+Select-MgProfile -Name beta
+```
+
+Listar métodos de autenticação baseados no telefone para um utilizador específico.
+
+```powershell
+Get-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com
+```
+
+Crie um método de autenticação de telemóvel para um utilizador específico.
+
+```powershell
+New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType “mobile” -phoneNumber "+1 7748933135"
+```
+
+Remova um método de telefone específico para um utilizador
+
+```powershell
+Remove-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -PhoneAuthenticationMethodId 3179e48a-750b-4051-897c-87b9720928f7
+```
+
+Os métodos de autenticação também podem ser geridos usando APIs do Microsoft Graph, mais informações podem ser encontradas no documento [Azure AD métodos de autenticação API visão geral](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true)
 
 ## <a name="manage-user-authentication-options"></a>Gerir opções de autenticação do utilizador
 
@@ -39,9 +101,9 @@ Se lhe for atribuída a função *de Administrador de Autenticação,* pode exig
    
     :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Gerir métodos de autenticação a partir do portal Azure":::
 
-## <a name="delete-users-existing-app-passwords"></a>Eliminar as palavras-passe de aplicações existentes dos utilizadores
+## <a name="delete-users-existing-app-passwords"></a>Eliminar as palavras-passe existentes dos utilizadores
 
-Se necessário, pode eliminar todas as palavras-passe da aplicação que um utilizador criou. As aplicações que não foram associadas a estas palavras-passe deixam de funcionar até que seja criada uma nova senha de aplicação. As permissões *globais de administrador* são necessárias para realizar esta ação.
+Para os utilizadores que tenham definido as palavras-passe da aplicação, os administradores também podem optar por eliminar estas palavras-passe, fazendo com que a autenticação antiga falhe nessas aplicações. Estas ações podem ser necessárias se precisar de prestar assistência a um utilizador, ou precisar de redefinir os seus métodos de autenticação. As aplicações não-navegador que estavam associadas a estas palavras-passe de apps vão deixar de funcionar até que seja criada uma nova senha de aplicação. 
 
 Para eliminar as palavras-passe da aplicação de um utilizador, complete os seguintes passos:
 
@@ -49,8 +111,8 @@ Para eliminar as palavras-passe da aplicação de um utilizador, complete os seg
 1. No lado esquerdo, selecione **Utilizadores do Diretório Azure Ative**  >  **Users**  >  **Todos os utilizadores**.
 1. Selecione **Multi-Factor Authentication**. Pode ser necessário deslocar-se para a direita para ver esta opção de menu. Selecione a imagem de exemplo abaixo para ver a janela completa do portal Azure e a localização do menu: [ ![ Selecione a autenticação multi-factor da janela do Utilizadores em Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Verifique a caixa ao lado do utilizador ou utilizadores que deseja gerir. Uma lista de opções de passo rápido aparece à direita.
-1. **Selecione Gerir as definições**do utilizador, em seguida, verifique a caixa para Eliminar todas as **palavras-passe de aplicações existentes geradas pelos utilizadores selecionados**, como mostrado no exemplo seguinte: ![ Eliminar todas as palavras-passe de aplicações existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-1. Selecione **guardar**e, em seguida, **fechar**.
+1. **Selecione Gerir as definições** do utilizador, em seguida, verifique a caixa para Eliminar todas as **palavras-passe de aplicações existentes geradas pelos utilizadores selecionados** , como mostrado no exemplo seguinte: ![ Eliminar todas as palavras-passe de aplicações existentes](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+1. Selecione **guardar** e, em seguida, **fechar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

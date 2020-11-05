@@ -3,15 +3,17 @@ title: Monitor Java web app performance em Linux - Azure / Microsoft Docs
 description: Monitorização alargada do desempenho da aplicação do seu website Java com o plug-in CollectD para Insights de Aplicações.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: fd061d6dd1f87456b92a61c9a62caaf3ef3189b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63b64226c9e788e060298050a74d9009c8035b89
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761027"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379014"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>recolhido: Métricas de desempenho do Linux em Insights de Aplicação
 
+> [!IMPORTANT]
+> A abordagem recomendada para monitorizar as aplicações java é utilizar a auto-instrumentação sem alterar o código. Siga as diretrizes para o [agente Application Insights Java 3.0](./java-in-process-agent.md).
 
 Para explorar as métricas de desempenho do sistema Linux no [Application Insights,](./app-insights-overview.md)instale [colecionada,](https://collectd.org/)juntamente com o plug-in Application Insights. Esta solução de código aberto reúne várias estatísticas de sistema e rede.
 

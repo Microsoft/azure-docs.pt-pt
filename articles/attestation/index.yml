@@ -10,12 +10,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 07/20/2020
-  ms.openlocfilehash: 984fecd947cb174ab6663a874071926d16f657bd
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: e5bf0981d267dca9a6ef43880d879391b837faba
+  ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91285406"
+  ms.lasthandoff: 11/04/2020
+  ms.locfileid: "93341795"
 landingContent:
 - title: Acerca do Microsoft Azure Attestation
   linkLists:
@@ -47,7 +47,7 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Criar e assinar uma política de atestado
+    - text: Criar uma política de atestado
       url: author-sign-policy.md
     - text: Exemplos de código de atestado SGX
       url: /samples/browse/?expanded=azure&terms=attestation

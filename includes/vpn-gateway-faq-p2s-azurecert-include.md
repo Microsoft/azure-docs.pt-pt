@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ef67580928a45609f50d3fe798eb9d054265c0a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75751468"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376229"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -23,7 +23,7 @@ Desmarque **"Verifique a identidade do servidor validando o certificado"** ou **
 
 Contornar a validação da identidade do servidor não é recomendado em geral, mas com a autenticação do certificado Azure, o mesmo certificado está a ser utilizado para validação do servidor no protocolo de túnel VPN (IKEv2/SSTP) e no protocolo EAP. Uma vez que o certificado de servidor e fQDN já é validado pelo protocolo de túnel VPN, é redundante validar o mesmo novamente em EAP.
 
-![ponto a local](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificado de Servidor")
+![auth ponto a-local](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificado de Servidor")
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>Posso usar o meu próprio CA de raiz PKI interno para gerar certificados para a conectividade ponto-a-local?
 
@@ -31,7 +31,7 @@ Sim. Anteriormente, só podiam ser utilizados os certificados de raiz autoassina
 
 ### <a name="can-i-use-certificates-from-azure-key-vault"></a>Posso usar certificados do Azure Key Vault?
 
-N.º
+Não.
 
 ### <a name="what-tools-can-i-use-to-create-certificates"></a>Que ferramentas posso utilizar para criar certificados?
 
@@ -52,4 +52,4 @@ Pode utilizar a sua solução de PKI de Empresa (o PKI interno), o Azure PowerSh
     * Para o certificado de cliente:
 
       * Ao criar a chave privada, especifique o comprimento como 4096.
-      * Ao criar o certificado para o parâmetro *-extensions*, especifique *usr_cert*.
+      * Ao criar o certificado para o parâmetro *-extensions* , especifique *usr_cert*.

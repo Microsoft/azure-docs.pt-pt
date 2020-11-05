@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28df0e420183239eae21aa18c807bb82b4ec7649
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb81b5dc98bf75a17e55abafdebfbeca68774a99
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377675"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379150"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Atribuir um papel a um grupo de nuvem no Azure Ative Directory
 
@@ -30,7 +30,7 @@ Atribuir um grupo a uma função AD Azure é semelhante à atribuição de utili
 
 1. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com o administrador privilegiado ou permissões de administrador global na organização Azure AD.
 
-1. Selecione **Azure Ative Directory**  >  **Roles and administrators**, e selecione a função que pretende atribuir.
+1. Selecione **Azure Ative Directory**  >  **Roles and administrators** , e selecione a função que pretende atribuir.
 
 1. Na **página _do nome da função_*_, selecione > _* Adicionar a atribuição**.
 
@@ -40,11 +40,11 @@ Atribuir um grupo a uma função AD Azure é semelhante à atribuição de utili
 
     [![Apenas os grupos que são atribuíveis são mostrados para uma nova atribuição de funções.](./media/groups-assign-role/eligible-groups.png "Apenas os grupos que são atribuíveis são mostrados para uma nova atribuição de funções.")](./media/groups-assign-role/eligible-groups.png#lightbox)
 
-1. Selecione **Adicionar**.
+1. Selecione **Add** (Adicionar).
 
 Para obter mais informações sobre a atribuição de permissões de funções, consulte [as funções de administrador de atribuição e não administrador para os utilizadores](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-## <a name="using-powershell"></a>Utilizar o PowerShell
+## <a name="using-powershell"></a>Com o PowerShell
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>Criar um grupo que possa ser atribuído ao papel
 
@@ -101,5 +101,5 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Use grupos de nuvem para gerir atribuições de funções](groups-concept.md)
+- [Utilizar os grupos da cloud para gerir atribuições de funções](groups-concept.md)
 - [Resolver problemas de funções atribuídas a grupos de cloud](groups-faq-troubleshooting.md)
