@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: iot-accelerators
 author: dominicbetts
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 078d9548b4fd7e2a73fc4b71cd4774986ccceaee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c80ce3e6c98bf09f727604281469b86b6f43a862
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184690"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93354053"
 ---
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -27,4 +27,4 @@ Se já não precisar do acelerador de soluções, elimine-o na página [Soluçõ
 
 ![Eliminar solução](media/iot-accelerators-tutorial-cleanup/deletesolution.png)
 
-![Eliminar solução](media/iot-accelerators-tutorial-cleanup/deletesolution-provision.png)
+![Eliminar solução 2](media/iot-accelerators-tutorial-cleanup/deletesolution-provision.png)
