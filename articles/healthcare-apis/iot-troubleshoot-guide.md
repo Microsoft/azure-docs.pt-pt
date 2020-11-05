@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558521"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394225"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Conector Azure IoT para guia de resolução de problemas FHIR (pré-visualização)
 
@@ -91,7 +91,7 @@ As cópias do ficheiro de mapeamento devem ser fornecidas ao Suporte Técnico do
 > JSON é o único formato suportado para ficheiros de mapeamento de Dispositivos e FHIR neste momento.
 
 > [!TIP]
-> Saiba mais sobre o Conector Azure IoT para dispositivo FHIR [e mapeamento de conversão FHIR JSON](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
+> Saiba mais sobre o Conector Azure IoT para dispositivo FHIR [e mapeamento de conversão FHIR JSON](./iot-mapping-templates.md)
 
 1. Selecione **"IoT Connector (pré-visualização)"** no lado inferior esquerdo da AZure API para o painel de recursos FHIR na secção **"Add-ins".**
 
@@ -99,18 +99,18 @@ As cópias do ficheiro de mapeamento devem ser fornecidas ao Suporte Técnico do
 
 2. Selecione o **"Conector"** do qual estará a copiar o mapeamento de conversão JSON.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Conector IoT1" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Conector IoT2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > Este processo também pode ser utilizado para copiar e guardar o conteúdo do **"Configure FHIR mapping"** JSON.
 
 3. Selecione **"Configure o mapeamento do dispositivo".**
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Conector IoT1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Conector IoT3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Selecione o conteúdo do JSON e faça uma operação de cópia (por exemplo: Selecione Ctrl + c). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Conector IoT1" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Conector IoT4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Faça uma operação de pasta (por exemplo: Selecione Ctrl + v) num novo ficheiro dentro de um editor (por exemplo: Visual Studio Code, Notepad) e guarde o ficheiro com uma extensão *.json.
 

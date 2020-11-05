@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b60be1b3d30ab462f89dd4d72ab67d43393740b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740169"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393375"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Fichas de acesso à plataforma de identidade da Microsoft
 
@@ -33,7 +33,7 @@ Consulte as seguintes secções para saber como um recurso pode validar e utiliz
 > [!IMPORTANT]
 > Os tokens de acesso são criados com base no *público* do token, o que significa a aplicação que detém os âmbitos no token.  É assim que uma definição de recursos `accessTokenAcceptedVersion` na [aplicação se manifesta](reference-app-manifest.md#manifest-reference) para permitir que um cliente que liga para o ponto final `2` v1.0 receba um token de acesso v2.0.  Da mesma forma, é por isso que a alteração das [reclamações opcionais](active-directory-optional-claims.md) de acesso ao seu cliente não altera o token de acesso recebido quando é solicitado um token `user.read` , que é propriedade do recurso.
 >
-> Pela mesma razão, ao testar a sua aplicação de cliente com uma API da Microsoft que suporta uma conta pessoal (como hotmail.com ou outlook.com), irá descobrir que o token de acesso recebido pelo seu cliente é uma cadeia opaca. Isto porque o recurso que está a ser acedido utiliza fichas encriptadas e não pode ser compreendido pelo cliente.  Isto é esperado, e não deve ser um problema para a sua app - as aplicações do cliente nunca devem ter uma dependência do formato do token de acesso. 
+> Pela mesma razão, ao testar a sua aplicação de cliente com uma API da Microsoft que suporta uma conta pessoal (como hotmail.com ou outlook.com), irá descobrir que o token de acesso recebido pelo seu cliente é uma cadeia opaca. Isto porque o recurso que está a ser acedido utiliza fichas encriptadas e não pode ser compreendido pelo cliente.  Isto é esperado, e não deve ser um problema para a sua app - as aplicações do cliente nunca devem ter uma dependência do formato do token de acesso.
 
 ## <a name="sample-tokens"></a>Fichas de amostra
 
@@ -72,7 +72,7 @@ As reclamações só estão presentes se existir um valor para preenchê-lo. Por
 
 ### <a name="header-claims"></a>Reclamações de cabeçalho
 
-|Afirmação | Formato | Descrição |
+|Afirmação | Formato | Description |
 |--------|--------|-------------|
 | `typ` | String - sempre "JWT" | Indica que o símbolo é um JWT.|
 | `nonce` | String | Um identificador único usado para proteger contra ataques de repetição de símbolos. O seu recurso pode registar este valor para proteger contra repetições. |
@@ -82,7 +82,7 @@ As reclamações só estão presentes se existir um valor para preenchê-lo. Por
 
 ### <a name="payload-claims"></a>Reclamações de carga útil
 
-| Afirmação | Formato | Descrição |
+| Afirmação | Formato | Description |
 |-----|--------|-------------|
 | `aud` | String, um ID URI de aplicativo | Identifica o destinatário pretendido do token. Em fichas de identificação, o público é o ID da aplicação da sua aplicação, atribuído à sua aplicação no portal Azure. A sua aplicação deve validar este valor e rejeitar o token se o valor não corresponder. |
 | `iss` | String, um STS URI | Identifica o serviço de fichas de segurança (STS) que constrói e devolve o token, e o inquilino AD AZure em que o utilizador foi autenticado. Se o token emitido for um sinal v2.0 (ver `ver` reclamação), o URI terminará em `/v2.0` . O GUID que indica que o utilizador é um utilizador consumidor de uma conta microsoft é `9188040d-6c67-4c5b-b112-36a304b66dad` . A sua aplicação deve utilizar a parte GUID da reivindicação para restringir o conjunto de inquilinos que podem iniciar sôm na app, se aplicável. |
@@ -140,7 +140,7 @@ Pode utilizar a `BulkCreateGroups.ps1` pasta de [Scripts de Criação de Aplica�
 
 As seguintes reclamações serão incluídas em fichas v1.0, se aplicável, mas não estão incluídas em fichas v2.0 por padrão. Se estiver a utilizar o v2.0 e precisar de uma destas reclamações, solicite-os usando [reclamações opcionais](active-directory-optional-claims.md).
 
-| Afirmação | Formato | Descrição |
+| Afirmação | Formato | Description |
 |-----|--------|-------------|
 | `ipaddr`| String | O endereço IP do utilizador autenticado. |
 | `onprem_sid`| String, em [formato SID](/windows/desktop/SecAuthZ/sid-components) | Nos casos em que o utilizador tenha uma autenticação no local, esta alegação fornece o seu SID. Pode usar `onprem_sid` para autorização em aplicações antigas.|
@@ -178,7 +178,7 @@ Fornecemos bibliotecas e amostras de código que mostram como lidar com a valida
 
 ### <a name="validating-the-signature"></a>Validação da assinatura
 
-Um JWT contém três segmentos, que são separados pelo `.` personagem. O primeiro segmento é conhecido como o **cabeçalho** , o segundo como o **corpo** , e o terceiro como **a assinatura** . O segmento de assinatura pode ser usado para validar a autenticidade do token para que possa ser confiável pela sua app.
+Um JWT contém três segmentos, que são separados pelo `.` personagem. O primeiro segmento é conhecido como o **cabeçalho** , o segundo como o **corpo** , e o terceiro como **a assinatura**. O segmento de assinatura pode ser usado para validar a autenticidade do token para que possa ser confiável pela sua app.
 
 Os tokens emitidos pela Azure AD são assinados usando algoritmos de encriptação assimétrica padrão da indústria, tais como RS256. O cabeçalho do JWT contém informações sobre a chave e o método de encriptação utilizado para assinar o token:
 
@@ -245,7 +245,7 @@ As fichas de atualização podem ser invalidadas ou revogadas a qualquer momento
 
 ### <a name="token-timeouts"></a>Intervalos de tempo simbólicos
 
-Utilizando [a configuração de vida útil simbólica,](active-directory-configurable-token-lifetimes.md)a vida útil dos tokens de atualização pode ser alterada.  É normal e espera-se que alguns tokens não sejam utilizados (por exemplo, o utilizador não abre a app durante 3 meses) e, portanto, expira.  As aplicações vão encontrar cenários em que o servidor de login rejeita um token de atualização devido à sua idade. 
+Utilizando [a configuração de vida útil simbólica,](active-directory-configurable-token-lifetimes.md)a vida útil dos tokens de atualização pode ser alterada.  É normal e espera-se que alguns tokens não sejam utilizados (por exemplo, o utilizador não abre a app durante 3 meses) e, portanto, expira.  As aplicações vão encontrar cenários em que o servidor de login rejeita um token de atualização devido à sua idade.
 
 * MaxInactiveTime: Se o token de atualização não tiver sido utilizado dentro do tempo ditado pelo MaxInactiveTime, o Token Refresh deixará de ser válido.
 * MaxSessionAge: Se MaxAgeSessionMultiFactor ou MaxAgeSessionSingleFactor foram definidos para algo diferente do seu padrão (Até revogação), então a reautição será necessária após o tempo definido no MaxAgeSession* decorrer.
@@ -255,7 +255,7 @@ Utilizando [a configuração de vida útil simbólica,](active-directory-configu
 
 ### <a name="revocation"></a>Revogação
 
-As fichas de atualização podem ser revogadas pelo servidor devido a uma alteração de credenciais, ou devido à utilização ou ação de administração.  Os tokens de atualização caem em duas classes - as emitidas a clientes confidenciais (a coluna mais à direita) e as emitidas a clientes públicos (todas as outras colunas).   
+As fichas de atualização podem ser revogadas pelo servidor devido a uma alteração de credenciais, ou devido à utilização ou ação de administração.  Os tokens de atualização caem em duas classes - as emitidas a clientes confidenciais (a coluna mais à direita) e as emitidas a clientes públicos (todas as outras colunas).
 
 | Alterar | Cookie baseado em palavra-passe | Ficha baseada em palavra-passe | Cookie não baseado em palavra-passe | Token não baseado em palavra-passe | Ficha de cliente confidencial |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -275,12 +275,12 @@ Um *login não baseado em palavra-passe* é aquele em que o utilizador não digi
 - Chave FIDO2
 - SMS
 - Voz
-- PIN 
+- PIN
 
 > [!NOTE]
 > Os Tokens de Atualização Primária (PRT) no Windows 10 são segregados com base na credencial. Por exemplo, o Windows Hello e a palavra-passe têm os respetivos PRTs, isolados uns dos outros. Quando um utilizador se inscreve com uma credencial Hello (PIN ou biometria) e, em seguida, altera a palavra-passe, o PRT baseado na palavra-passe obtido anteriormente será revogado. Entrar de volta com uma senha invalida o antigo PRT e pede um novo.
 >
-> Os tokens de atualização não são invalidados ou revogados quando usados para obter um novo token de acesso e atualização token.  No entanto, a sua aplicação deve descartar a antiga assim que for utilizada e substituí-la pela nova, uma vez que o novo token tem um novo tempo de validade na sua. 
+> Os tokens de atualização não são invalidados ou revogados quando usados para obter um novo token de acesso e atualização token.  No entanto, a sua aplicação deve descartar a antiga assim que for utilizada e substituí-la pela nova, uma vez que o novo token tem um novo tempo de validade na sua.
 
 ## <a name="next-steps"></a>Passos seguintes
 

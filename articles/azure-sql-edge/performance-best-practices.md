@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 35985404d5ac97940c324c3ad7f7d46c959b4902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02f22883a0989714d8b74f778cacf1ba2c65d0b4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940669"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392016"
 ---
 # <a name="performance-best-practices-and-configuration-guidelines"></a>Melhores práticas de desempenho e diretrizes de configuração
 
@@ -28,13 +28,13 @@ Azure SQL Edge por predefinição cria apenas um ficheiro de dados temporário c
 
 ### <a name="use-clustered-columnstore-indexes-where-possible"></a>Utilizar índices de loja de colunas agrupados sempre que possível
 
-Os dispositivos IoT e Edge tendem a gerar um elevado volume de dados que é tipicamente agregado ao longo de algum tempo para análise. As linhas de dados individuais raramente são usadas para qualquer análise. Os índices de loja de colunas são ideais para armazenar e consultar conjuntos de dados tão grandes. Este índice utiliza o armazenamento de dados baseado em colunas e o processamento de consultas para obter ganhos até 10 vezes o desempenho da consulta sobre o armazenamento tradicional orientado para a linha. Também pode obter ganhos até 10 vezes a compressão de dados sobre o tamanho de dados não comprimidos. Para mais informações, consulte [índices de loja de colunas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)
+Os dispositivos IoT e Edge tendem a gerar um elevado volume de dados que é tipicamente agregado ao longo de algum tempo para análise. As linhas de dados individuais raramente são usadas para qualquer análise. Os índices de loja de colunas são ideais para armazenar e consultar conjuntos de dados tão grandes. Este índice utiliza o armazenamento de dados baseado em colunas e o processamento de consultas para obter ganhos até 10 vezes o desempenho da consulta sobre o armazenamento tradicional orientado para a linha. Também pode obter ganhos até 10 vezes a compressão de dados sobre o tamanho de dados não comprimidos. Para mais informações, consulte [índices de loja de colunas](/sql/relational-databases/indexes/columnstore-indexes-overview)
 
 Além disso, outras funcionalidades do Azure SQL Edge, como o streaming de dados e a retenção de dados, beneficiam das otimizações da loja de colunas em torno da inserção de dados e da remoção de dados. 
 
 ### <a name="simple-recovery-model"></a>Modelo de recuperação simples
 
-Uma vez que o armazenamento pode ser limitado em dispositivos de borda, todas as bases de dados do utilizador em Azure SQL Edge utilizam o modelo de Recuperação Simples por padrão. O modelo de recuperação simples recupera automaticamente o espaço de log para manter os requisitos de espaço pequenos, essencialmente eliminando a necessidade de gerir o espaço de registo de transações. Em dispositivos de borda com armazenamento limitado disponível, isto pode ser útil. Para obter mais informações sobre o modelo de recuperação simples e outros modelos de recuperação disponíveis, consulte [Modelos de Recuperação](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server)
+Uma vez que o armazenamento pode ser limitado em dispositivos de borda, todas as bases de dados do utilizador em Azure SQL Edge utilizam o modelo de Recuperação Simples por padrão. O modelo de recuperação simples recupera automaticamente o espaço de log para manter os requisitos de espaço pequenos, essencialmente eliminando a necessidade de gerir o espaço de registo de transações. Em dispositivos de borda com armazenamento limitado disponível, isto pode ser útil. Para obter mais informações sobre o modelo de recuperação simples e outros modelos de recuperação disponíveis, consulte [Modelos de Recuperação](/sql/relational-databases/backup-restore/recovery-models-sql-server)
 
 Operações como o Log Shipping e os restauros pontuais, que requerem cópias de segurança de registo de transações não são suportadas pelo modelo simples de recuperação.  
 
@@ -56,16 +56,9 @@ As transações em Azure SQL Edge podem ser totalmente duráveis, o padrão do S
 
 Os compromissos de transação totalmente duráveis são sincronizados e reportam um compromisso como bem sucedido e devolvam o controlo ao cliente apenas após os registos de registo da transação serem escritos em disco. Os compromissos de transações duradouras retardados são assíncronos e reportam um compromisso como bem sucedido antes que os registos de registo da transação sejam escritos em disco. A escrita das entradas de registo de transações no disco é necessária para que uma transação seja duradoura. As transações duradouras atrasadas tornam-se duráveis quando as entradas de registo de transações são lavadas para o disco. 
 
-Em implementações onde **alguma perda de dados** pode ser tolerada ou em dispositivos de borda com armazenamento lento, a durabilidade retardada pode ser usada para otimizar a ingestão de dados e a limpeza baseada na retenção de dados. Para obter mais informações, consulte [a Durabilidade da Transação de Controlo.](https://docs.microsoft.com/sql/relational-databases/logs/control-transaction-durability)
+Em implementações onde **alguma perda de dados** pode ser tolerada ou em dispositivos de borda com armazenamento lento, a durabilidade retardada pode ser usada para otimizar a ingestão de dados e a limpeza baseada na retenção de dados. Para obter mais informações, consulte [a Durabilidade da Transação de Controlo.](/sql/relational-databases/logs/control-transaction-durability)
 
 
 ### <a name="linux-os-configurations"></a>Configurações linux OS 
 
-Considere utilizar as seguintes [definições de configuração do Sistema Operativo Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration) para experimentar o melhor desempenho para uma instalação SQL.
-
-
-
-
-
-
-
+Considere utilizar as seguintes [definições de configuração do Sistema Operativo Linux](/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration) para experimentar o melhor desempenho para uma instalação SQL.

@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c877878fe25d4c6c8904840c3c3350fbe2acf7b5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b490e03ea7ac0a3bc780fa731629217126b6828a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026671"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395534"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerir utilizadores numa unidade administrativa no Azure Ative Directory
 
@@ -39,7 +39,7 @@ Pode atribuir os utilizadores a unidades administrativas individualmente ou como
 
    1. Selecione **Utilizadores** e, em seguida, para abrir o perfil do utilizador, selecione o utilizador a atribuir a uma unidade administrativa.
    
-   1. Selecione **unidades administrativas** . 
+   1. Selecione **unidades administrativas**. 
    
    1. Para atribuir o utilizador a uma ou mais unidades administrativas, selecione **Atribua à unidade administrativa** e, em seguida, no painel direito, selecione as unidades administrativas às quais pretende atribuir o utilizador.
 
@@ -57,11 +57,11 @@ Pode atribuir os utilizadores a unidades administrativas individualmente ou como
 
    1. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com) com permissões de Administrador de Função Privilegiada.
 
-   1. Selecione **unidades administrativas** .
+   1. Selecione **unidades administrativas**.
 
    1. Selecione a unidade administrativa à qual pretende adicionar utilizadores.
 
-   1. Selecione **Utilizadores**  >  **A granel** adicionar  >  **membros** . Em seguida, pode descarregar o modelo de valores separados por vírgula (CSV) e editar o ficheiro. O formato é simples e precisa de um único nome principal de utilizador para ser adicionado em cada linha. Depois de o ficheiro estar pronto, guarde-o para um local apropriado e, em seguida, carrefique-o como parte deste passo.
+   1. Selecione **Utilizadores**  >  **A granel** adicionar  >  **membros**. Em seguida, pode descarregar o modelo de valores separados por vírgula (CSV) e editar o ficheiro. O formato é simples e precisa de um único nome principal de utilizador para ser adicionado em cada linha. Depois de o ficheiro estar pronto, guarde-o para um local apropriado e, em seguida, carrefique-o como parte deste passo.
 
       ![Screenshot do painel "Utilizadores" para atribuir utilizadores a uma unidade administrativa como uma operação a granel.](./media/admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
@@ -103,7 +103,7 @@ Exemplo:
 
 No portal Azure, pode abrir o perfil de um utilizador fazendo o seguinte:
 
-1. Vá ao **Azure AD** e, em seguida, selecione **Utilizadores** .
+1. Vá ao **Azure AD** e, em seguida, selecione **Utilizadores**.
 
 1. Selecione o utilizador cujo perfil pretende visualizar.
 
@@ -135,15 +135,15 @@ https://graph.microsoft.com/v1.0/users/{id}/memberOf/$/Microsoft.Graph.Administr
 
 Pode remover um utilizador de uma unidade administrativa de duas formas: 
 
-* No portal Azure, vá ao **Azure AD** e, em seguida, selecione **Utilizadores** . 
+* No portal Azure, vá ao **Azure AD** e, em seguida, selecione **Utilizadores**. 
   1. Selecione o utilizador para abrir o perfil do utilizador. 
-  1. Selecione a unidade administrativa de onde pretende remover o utilizador e, em seguida, selecione **Remover da unidade administrativa** .
+  1. Selecione a unidade administrativa de onde pretende remover o utilizador e, em seguida, selecione **Remover da unidade administrativa**.
 
      ![Screenshot mostrando como remover um utilizador de uma unidade administrativa do painel de perfil do utilizador.](./media/admin-units-add-manage-users/user-remove-admin-units.png)
 
-* No portal Azure, vá ao **Azure AD,** e depois selecione **unidades administrativas** .
+* No portal Azure, vá ao **Azure AD,** e depois selecione **unidades administrativas**.
   1. Selecione a unidade administrativa de onde pretende remover o utilizador. 
-  1. Selecione o utilizador e, em seguida, **selecione Remover o membro** .
+  1. Selecione o utilizador e, em seguida, **selecione Remover o membro**.
   
      ![Screenshot mostrando como remover um utilizador ao nível da unidade administrativa.](./media/admin-units-add-manage-users/admin-units-remove-user.png)
 
@@ -177,7 +177,7 @@ Para remover vários utilizadores de uma unidade administrativa, faça o seguint
 
    ![Screenshot de um ficheiro CSV editado para remover utilizadores de uma unidade administrativa a granel.](./media/admin-units-add-manage-users/bulk-user-entries.png)
 
-1. Guarde as alterações, faça o upload do ficheiro e, em seguida, **selecione Enviar por isso** .
+1. Guarde as alterações, faça o upload do ficheiro e, em seguida, **selecione Enviar por isso**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

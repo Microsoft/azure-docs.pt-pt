@@ -9,12 +9,12 @@ ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 7720238bb7e2ff133935b9af545628f744d828d1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4beb1c31f34ec4e8d26228cfe4f30f5109a1b60c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88642321"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394548"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Início Rápido: Executar um fluxo de trabalho através do serviço Microsoft Genomics
 
@@ -36,7 +36,7 @@ Configure a conta do Genomics com as informações seguintes, conforme mostrado 
  |**Definição**          |  **Valor sugerido**  | **Descrição do campo** |
  |:-------------       |:-------------         |:----------            |
  |Subscrição         | Nome da sua subscrição|Trata-se da unidade de faturação dos serviços do Azure. Para obter detalhes sobre a sua subscrição, veja [Subscrições](https://account.azure.com/Subscriptions) |      
- |Grupo de recursos       | MyResourceGroup       |  Os grupos de recursos permitem-lhe agrupar múltiplos recursos do Azure (conta de armazenamento, conta do Genomics, etc.) num único grupo de gestão simples. Para obter mais informações, veja [Grupos de Recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). Para obter os nomes de grupos de recursos válidos, veja [Regras de Nomenclatura](/azure/architecture/best-practices/resource-naming) |
+ |Grupo de recursos       | MyResourceGroup       |  Os grupos de recursos permitem-lhe agrupar múltiplos recursos do Azure (conta de armazenamento, conta do Genomics, etc.) num único grupo de gestão simples. Para obter mais informações, veja [Grupos de Recursos](../azure-resource-manager/management/overview.md#resource-groups). Para obter os nomes de grupos de recursos válidos, veja [Regras de Nomenclatura](/azure/architecture/best-practices/resource-naming) |
  |Nome da conta         | MyGenomicsAccount     |Escolha um identificador de conta exclusivo. Para obter os nomes válidos, veja [Regras de Nomenclatura](/azure/architecture/best-practices/resource-naming) |
  |Localização                   | E.U.A. Oeste 2                    |    O serviço está disponível nas regiões E.U.A. Oeste 2, Europa Ocidental e Ásia Sudeste |
 
@@ -74,7 +74,7 @@ Para testar o cliente microsoft Genomics, descarregue o ficheiro config da sua c
 
 ![Encontre a Microsoft Genomics no portal Azure](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Encontre a Microsoft Genomics no portal Azure")
 
-Selecione a conta Genomics que acabou de fazer, navegue para **As Teclas de Acesso**e descarregue o ficheiro de configuração.
+Selecione a conta Genomics que acabou de fazer, navegue para **As Teclas de Acesso** e descarregue o ficheiro de configuração.
 
 ![Descarregue o ficheiro config da Microsoft Genomics](./media/quickstart-run-genomics-workflow-portal/genomics-mygenomicsaccount-box.png "Descarregue o ficheiro config da Microsoft Genomics")
 
@@ -86,7 +86,7 @@ msgen list -f "<full path where you saved the config file>"
 
 ## <a name="create-a-microsoft-azure-storage-account"></a>Criar uma conta de Armazenamento Microsoft Azure 
 O serviço Microsoft Genomics espera que as entradas sejam armazenadas como blobs de blocos numa conta de armazenamento do Azure. Também escreve os ficheiros de saída como blobs de blocos num contentor especificado pelo utilizador numa conta de armazenamento do Azure. As entradas e saídas podem residir em contas de armazenamento diferentes.
-Se já tiver os dados numa conta de armazenamento do Azure, basta certificar-se de que está na mesma localização da conta do Genomics. Caso contrário, as taxas de saída são incorridos ao executar o serviço Microsoft Genomics. Se ainda não tem uma conta de armazenamento Azure, tem de criar uma e fazer o upload dos seus dados. Pode encontrar mais informações sobre as contas de armazenamento da Azure [aqui,](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)incluindo o que é uma conta de armazenamento e quais os serviços que fornece. Para criar uma conta de armazenamento Azure, navegue para [criar conta de armazenamento](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) no portal Azure.  
+Se já tiver os dados numa conta de armazenamento do Azure, basta certificar-se de que está na mesma localização da conta do Genomics. Caso contrário, as taxas de saída são incorridos ao executar o serviço Microsoft Genomics. Se ainda não tem uma conta de armazenamento Azure, tem de criar uma e fazer o upload dos seus dados. Pode encontrar mais informações sobre as contas de armazenamento da Azure [aqui,](../storage/common/storage-account-create.md)incluindo o que é uma conta de armazenamento e quais os serviços que fornece. Para criar uma conta de armazenamento Azure, navegue para [criar conta de armazenamento](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM) no portal Azure.  
 
 ![Página de criação de conta de armazenamento](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade1.png "Página de criação de conta de armazenamento")
 
@@ -98,9 +98,9 @@ Configure a sua conta de armazenamento com as seguintes informações, como most
  |Grupo de recursos       | MyResourceGroup       |  Pode selecionar o mesmo grupo de recursos que a sua conta Genomics. Para obter nomes de grupos de recursos válidos, consulte [as regras de nomeação](/azure/architecture/best-practices/resource-naming) |
  |Nome da conta de armazenamento         | MyStorageAccount     |Escolha um identificador de conta exclusivo. Para obter nomes válidos, consulte [as regras de nomeação](/azure/architecture/best-practices/resource-naming) |
  |Localização                  | E.U.A. Oeste 2                  | Use a mesma localização da sua conta Genomics, para reduzir os encargos de saída e reduzir a latência.  | 
- |Desempenho                  | Standard                   | A predefinição é Standard. Para obter mais detalhes sobre contas de armazenamento standard e premium, consulte [Introdução ao armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction)    |
+ |Desempenho                  | Standard                   | A predefinição é Standard. Para obter mais detalhes sobre contas de armazenamento standard e premium, consulte [Introdução ao armazenamento do Microsoft Azure](../storage/common/storage-introduction.md)    |
  |Tipo de conta       | BlobStorage       |  O armazenamento de blobs pode ser entre duas e cinco vezes mais rápido do que para fins gerais para transferências e carregamentos. |
- |Replicação                  | Armazenamento localmente redundante                  | O armazenamento localmente redundante replica os dados no datacenter na região em que foi criada a conta de armazenamento. Para mais informações, consulte [a replicação do Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy)    |
+ |Replicação                  | Armazenamento localmente redundante                  | O armazenamento localmente redundante replica os dados no datacenter na região em que foi criada a conta de armazenamento. Para mais informações, consulte [a replicação do Azure Storage](../storage/common/storage-redundancy.md)    |
  |Camada de acesso                  | Frequente                   | Um acesso frequente indica que os objetos na conta de armazenamento serão acedidos com mais frequência.    |
 
 Em seguida, selecione **Rever + criar** para criar a sua conta de armazenamento. Tal como fez com a criação da sua conta Genomics, pode selecionar **Notificações** na barra de menu superior para monitorizar o processo de implementação. 
@@ -112,7 +112,7 @@ O serviço Microsoft Genomics espera leituras finais emparelhadas (ficheiros fas
 [https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_1.fq.gz)
 [https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz](https://msgensampledata.blob.core.windows.net/small/chr21_2.fq.gz)
 
-Na sua conta de armazenamento, tem de criar um contentor de blobs para os dados de entrada e um segundo contentor de blobs para os dados de saída.  Carregue os dados de entrada para o contentor de blobs de entrada. Várias ferramentas podem ser usadas para o fazer, incluindo [o Microsoft Azure Storage Explorer,](https://azure.microsoft.com/features/storage-explorer/) [BlobPorter](https://github.com/Azure/blobporter)ou [AzCopy.](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 
+Na sua conta de armazenamento, tem de criar um contentor de blobs para os dados de entrada e um segundo contentor de blobs para os dados de saída.  Carregue os dados de entrada para o contentor de blobs de entrada. Várias ferramentas podem ser usadas para o fazer, incluindo [o Microsoft Azure Storage Explorer,](https://azure.microsoft.com/features/storage-explorer/) [BlobPorter](https://github.com/Azure/blobporter)ou [AzCopy.](../storage/common/storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) 
 
 ## <a name="run-a-workflow-through-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Faça um fluxo de trabalho através do serviço Microsoft Genomics usando o `msgen` cliente Python
 
@@ -125,7 +125,7 @@ Se quiser executar o GATK4, desa um `process_name` parâmetro para `gatk4` .
 
 Por predefinição, o serviço Genomics produz ficheiros VCF. Se quiser uma saída de gVCF em vez de uma saída de VCF (equivalente a `-emitRefConfidence` GATK 3.x e `emit-ref-confidence` em GATK 4.x), adicione o `emit_ref_confidence` parâmetro à sua *config.txt* e desafaça-a para , como mostrado na `gvcf` figura anterior.  Para voltar a alterar para a saída de VCF, retire-o do ficheiro *config.txt* ou desfase `emit_ref_confidence` o parâmetro para `none` . 
 
-`bgzip` é uma ferramenta que comprime o ficheiro vcf ou gvcf, e `tabix` cria um índice para o ficheiro comprimido. Por predefinição, o serviço Genomics funciona `bgzip` seguido por `tabix` saída ".g.vcf", mas não executa estas ferramentas por defeito para a saída ".vcf". Quando executado, o serviço produz ficheiros ".gz" (saída bgzip) e ".tbi" (saída tabix). O argumento é um booleano, que é definido como falso por padrão para a saída ".vcf", e para ser verdadeiro por padrão para a saída ".g.vcf". Para utilizar na linha de comando, especifique `-bz` ou `--bgzip-output` como `true` (executar bgzip e tabix) ou `false` . Para utilizar este argumento no ficheiro *config.txt, * adicione `bgzip_output: true` ou adicione ao `bgzip_output: false` ficheiro.
+`bgzip` é uma ferramenta que comprime o ficheiro vcf ou gvcf, e `tabix` cria um índice para o ficheiro comprimido. Por predefinição, o serviço Genomics funciona `bgzip` seguido por `tabix` saída ".g.vcf", mas não executa estas ferramentas por defeito para a saída ".vcf". Quando executado, o serviço produz ficheiros ".gz" (saída bgzip) e ".tbi" (saída tabix). O argumento é um booleano, que é definido como falso por padrão para a saída ".vcf", e para ser verdadeiro por padrão para a saída ".g.vcf". Para utilizar na linha de comando, especifique `-bz` ou `--bgzip-output` como `true` (executar bgzip e tabix) ou `false` . Para utilizar este argumento no ficheiro *config.txt,* adicione `bgzip_output: true` ou adicione ao `bgzip_output: false` ficheiro.
 
 ### <a name="submit-your-workflow-to-the-microsoft-genomics-service-using-the-msgen-python-client"></a>Envie o seu fluxo de trabalho para o serviço Microsoft Genomics utilizando o `msgen` cliente Python
 
@@ -144,4 +144,4 @@ Uma vez concluído o seu fluxo de trabalho, pode visualizar os ficheiros de saí
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste artigo, você carregou dados de entrada de amostras para o armazenamento Azure e submeteu um fluxo de trabalho para o serviço Microsoft Genomics através do `msgen` cliente Python. Para saber mais sobre outros tipos de ficheiros de entrada que podem ser utilizados com o serviço Microsoft Genomics, consulte as seguintes páginas: [FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple FASTQ ou BAM](quickstart-input-multiple.md). Você também pode explorar este tutorial usando o nosso [exemplo Azure Notebooks,](https://aka.ms/genomicsnotebook) descarregando o arquivo "Genomics Tutorial.ipynb" e usando um leitor de portátil como [o Jupyter](https://docs.microsoft.com/azure/notebooks/tutorial-create-run-jupyter-notebook) para abrir o ficheiro e passar por ele.
+Neste artigo, você carregou dados de entrada de amostras para o armazenamento Azure e submeteu um fluxo de trabalho para o serviço Microsoft Genomics através do `msgen` cliente Python. Para saber mais sobre outros tipos de ficheiros de entrada que podem ser utilizados com o serviço Microsoft Genomics, consulte as seguintes páginas: [FASTQ](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [Multiple FASTQ ou BAM](quickstart-input-multiple.md). Você também pode explorar este tutorial usando o nosso [exemplo Azure Notebooks,](https://aka.ms/genomicsnotebook) descarregando o arquivo "Genomics Tutorial.ipynb" e usando um leitor de portátil como [o Jupyter](../notebooks/tutorial-create-run-jupyter-notebook.md) para abrir o ficheiro e passar por ele.

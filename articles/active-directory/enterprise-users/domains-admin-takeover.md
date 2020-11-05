@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 11/04/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 11708aeb434f3b258377c02f15214f1ac9ae4295
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377012"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393630"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Assumir um diretório não gerido como administrador no Azure Active Directory
 
@@ -63,16 +63,16 @@ Quando completar os passos anteriores, é agora o administrador global da organi
   
    ![Remova o nome de domínio da Microsoft 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Se tiver algum utilizadores ou grupos no Microsoft 365 que refiram o nome de domínio removido, devem ser renomeados para o domínio .onmicrosoft.com. Se forçar a eliminação do nome de domínio, todos os utilizadores serão automaticamente renomeados, neste exemplo para * \@ fourthcoffeexyz.onmicrosoft.com do utilizador*.
+5. Se tiver algum utilizadores ou grupos no Microsoft 365 que refiram o nome de domínio removido, devem ser renomeados para o domínio .onmicrosoft.com. Se forçar a eliminação do nome de domínio, todos os utilizadores serão automaticamente renomeados, neste exemplo para *\@ fourthcoffeexyz.onmicrosoft.com do utilizador*.
   
 6. Inscreva-se no [centro de administração Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) com uma conta que é o administrador global da organização Azure AD.
   
-7. Selecione **nomes de domínio personalizados**e, em seguida, adicione o nome de domínio. Terá de introduzir os registos DNS TXT para verificar a propriedade do nome de domínio. 
+7. Selecione **nomes de domínio personalizados** e, em seguida, adicione o nome de domínio. Terá de introduzir os registos DNS TXT para verificar a propriedade do nome de domínio. 
   
    ![domínio verificado como adicionado ao Azure AD](./media/domains-admin-takeover/add-domain-to-azure-ad.png)
   
 > [!NOTE]
-> Qualquer utilizadores do serviço Power BI ou Azure Rights Management que tenham licenças atribuídas na organização Microsoft 365 devem guardar os seus dashboards se o nome de domínio for removido. Devem iniciar sposição com um nome de utilizador como * \@ utilizador fourthcoffeexyz.onmicrosoft.com* em vez de utilizador * \@ quartocoffee.xyz*.
+> Qualquer utilizadores do serviço Power BI ou Azure Rights Management que tenham licenças atribuídas na organização Microsoft 365 devem guardar os seus dashboards se o nome de domínio for removido. Devem iniciar sposição com um nome de utilizador como *\@ utilizador fourthcoffeexyz.onmicrosoft.com* em vez de utilizador *\@ quartocoffee.xyz*.
 
 ## <a name="external-admin-takeover"></a>Aquisição de administrador externo
 
@@ -100,7 +100,7 @@ Os planos de serviço apoiados incluem:
 
 A aquisição de administração externa não é suportada por qualquer serviço que tenha planos de serviço que incluam SharePoint, OneDrive ou Skype For Business; por exemplo, através de uma subscrição gratuita do Office. 
 
-Pode utilizar opcionalmente a [opção **ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio da organização não gerida e verificar na organização pretendida. 
+Pode utilizar opcionalmente a [opção **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) para remover o nome de domínio da organização não gerida e verificar na organização pretendida. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Mais informações sobre RMS para indivíduos
 
@@ -174,7 +174,7 @@ Um desafio bem sucedido devolve-lhe o pedido sem um erro.
 * [Como instalar e configurar o Azure PowerShell](/powershell/azure/)
 * [Azure PowerShell](/powershell/azure/)
 * [Referência de Cmdlet do Azure](/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0&preserve-view=true)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png

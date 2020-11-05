@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: abd1bc9b53c303d094d74683da0d6e3fad4d715f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7bb5d58e0c11ef65a6839383f79d32def4fa67a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90887464"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392100"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Implementar o modelo ML na Borda Azure SQL utilizando ONNX 
 
@@ -135,7 +135,7 @@ Introduza o seguinte código Python no caderno do Azure Data Studio e execute-o.
    df.describe()
    ```
 
-1. Inicie a experiência AzureML para encontrar e treinar o melhor algoritmo. Neste caso, está a testar com todos os algoritmos de regressão, com uma métrica primária de Erro Quadrado Médio de Raiz Normalizado (NRMSE). Para obter mais informações, consulte [a Métrica Primária de Experiências Azure ML](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#primary-metric). O seguinte código iniciará uma execução local da experiência ML.
+1. Inicie a experiência AzureML para encontrar e treinar o melhor algoritmo. Neste caso, está a testar com todos os algoritmos de regressão, com uma métrica primária de Erro Quadrado Médio de Raiz Normalizado (NRMSE). Para obter mais informações, consulte [a Métrica Primária de Experiências Azure ML](../machine-learning/how-to-configure-auto-train.md#primary-metric). O seguinte código iniciará uma execução local da experiência ML.
 
    ```python
    ## Define the X_train and the y_train data sets for the AutoML experiments. X_Train are the inputs or the features, while y_train is the outcome or the prediction result. 

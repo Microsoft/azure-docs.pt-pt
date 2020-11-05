@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902496"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395160"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Permitir e desativar políticas de retenção de dados
 
@@ -22,7 +22,7 @@ Este tópico descreve como ativar e desativar políticas de retenção de dados 
 
 ## <a name="enable-data-retention-for-a-database"></a>Permitir a retenção de dados para uma base de dados
 
-O exemplo a seguir mostra como permitir a retenção de dados utilizando [a Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
+O exemplo a seguir mostra como permitir a retenção de dados utilizando [a Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -38,9 +38,9 @@ FROM sys.databases;
 
 ## <a name="enable-data-retention-for-a-table"></a>Permitir a retenção de dados para uma tabela
 
-A conservação de dados deve ser ativada para cada tabela para a qual pretende que os dados sejam automaticamente purgados. Quando a Retenção de Dados estiver ativada na base de dados e na tabela, uma tarefa do sistema de fundo digitalizará periodicamente a tabela para identificar e eliminar quaisquer linhas obsoletas (envelhecidas). A conservação de dados pode ser ativada numa tabela durante a criação de tabelas utilizando [a Tabela Criar](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) ou utilizando o Quadro [Alter](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+A conservação de dados deve ser ativada para cada tabela para a qual pretende que os dados sejam automaticamente purgados. Quando a Retenção de Dados estiver ativada na base de dados e na tabela, uma tarefa do sistema de fundo digitalizará periodicamente a tabela para identificar e eliminar quaisquer linhas obsoletas (envelhecidas). A conservação de dados pode ser ativada numa tabela durante a criação de tabelas utilizando [a Tabela Criar](/sql/t-sql/statements/create-table-transact-sql) ou utilizando o Quadro [Alter](/sql/t-sql/statements/alter-table-transact-sql).
 
-O exemplo a seguir mostra como permitir a retenção de dados para uma tabela utilizando [o Quadro Criar](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql). 
+O exemplo a seguir mostra como permitir a retenção de dados para uma tabela utilizando [o Quadro Criar](/sql/t-sql/statements/create-table-transact-sql). 
 
 ```sql
 CREATE TABLE [dbo].[data_retention_table] 
@@ -63,7 +63,7 @@ A `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD = 
     - Início de execução de tempo de data
 - RETENTION_PERIOD - Um valor inteiro seguido por um descritor de unidade. As unidades permitidas são DIAS, DIAS, SEMANA, SEMANAS, MÊS, MESES, ANO E ANOS.
 
-O exemplo a seguir mostra como permitir a retenção de dados para a tabela utilizando [o Quadro Alter](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
+O exemplo a seguir mostra como permitir a retenção de dados para a tabela utilizando [o Quadro Alter](/sql/t-sql/statements/alter-table-transact-sql).  
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -101,7 +101,7 @@ A definição de retenção de dados na base de dados e na tabela, são utilizad
 
 ## <a name="disable-data-retention-on-a-table"></a>Desativar a retenção de dados numa tabela 
 
-A conservação de dados pode ser desativada numa tabela utilizando [o Quadro Alter](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql). O seguinte comando pode ser utilizado para desativar a retenção de dados numa tabela.
+A conservação de dados pode ser desativada numa tabela utilizando [o Quadro Alter](/sql/t-sql/statements/alter-table-transact-sql). O seguinte comando pode ser utilizado para desativar a retenção de dados numa tabela.
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -110,7 +110,7 @@ Set (DATA_DELETION = OFF)
 
 ## <a name="disable-data-retention-on-a-database"></a>Desativar a retenção de dados numa base de dados
 
-A conservação de dados pode ser desativada numa tabela utilizando [a Alter Database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options). O seguinte comando pode ser utilizado para desativar a retenção de dados numa base de dados.
+A conservação de dados pode ser desativada numa tabela utilizando [a Alter Database](/sql/t-sql/statements/alter-database-transact-sql-set-options). O seguinte comando pode ser utilizado para desativar a retenção de dados numa base de dados.
 
 ```sql
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;

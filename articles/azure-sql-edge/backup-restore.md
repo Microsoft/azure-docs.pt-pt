@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f2cc8901ee3952f7d258d768e175412254ec5d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 114be810ea50f984c3211291691b4c4dd45ac2c7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905942"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395245"
 ---
 # <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>Fazer o back up e restaurar bases de dados em Azure SQL Edge 
 
@@ -75,9 +75,9 @@ No exemplo seguinte, utiliza o `BACKUP DATABASE` comando Transact-SQL para criar
 
 ### <a name="back-up-to-url"></a>Voltar para a URL
 
-O Azure SQL Edge suporta backups tanto para as bolhas de página como para as bolhas de bloqueio. Para obter mais informações, consulte [Back up para bloquear blob vs blob de página](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). No exemplo seguinte, a base de *dados IronOreSilicaPrediction* está a ser apoiada até uma bolha de bloco. 
+O Azure SQL Edge suporta backups tanto para as bolhas de página como para as bolhas de bloqueio. Para obter mais informações, consulte [Back up para bloquear blob vs blob de página](/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). No exemplo seguinte, a base de *dados IronOreSilicaPrediction* está a ser apoiada até uma bolha de bloco. 
 
-1. Para configurar cópias de segurança para bloquear bolhas, primeiro gere um sinal de assinatura de acesso partilhado (SAS) que pode utilizar para criar uma credencial SQL Server no Azure SQL Edge. O script cria um SAS que está associado a uma política de acesso armazenada. Para mais informações, consulte [assinaturas de acesso partilhado, parte 1: Compreender o modelo SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/). O script também escreve o comando T-SQL necessário para criar a credencial no SQL Server. O seguinte script pressupõe que você já tem uma subscrição Azure com uma conta de armazenamento, e um recipiente de armazenamento para as cópias de segurança.
+1. Para configurar cópias de segurança para bloquear bolhas, primeiro gere um sinal de assinatura de acesso partilhado (SAS) que pode utilizar para criar uma credencial SQL Server no Azure SQL Edge. O script cria um SAS que está associado a uma política de acesso armazenada. Para mais informações, consulte [assinaturas de acesso partilhado, parte 1: Compreender o modelo SAS](../storage/common/storage-sas-overview.md). O script também escreve o comando T-SQL necessário para criar a credencial no SQL Server. O seguinte script pressupõe que você já tem uma subscrição Azure com uma conta de armazenamento, e um recipiente de armazenamento para as cópias de segurança.
 
     ```PowerShell
     # Define global variables for the script  
@@ -133,7 +133,7 @@ O Azure SQL Edge suporta backups tanto para as bolhas de página como para as bo
 
 ## <a name="restore-a-database-in-azure-sql-edge"></a>Restaurar uma base de dados em Azure SQL Edge
 
-Em Azure SQL Edge, você pode restaurar a partir de um disco local, uma localização de rede ou uma conta de armazenamento Azure Blob. Para obter mais informações sobre a restauração e recuperação no SQL Server, consulte [a visão geral de Restauro e recuperação](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). Para uma visão geral do modelo de recuperação simples no SQL Server, consulte [a base de dados completa (modelo de recuperação simples)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
+Em Azure SQL Edge, você pode restaurar a partir de um disco local, uma localização de rede ou uma conta de armazenamento Azure Blob. Para obter mais informações sobre a restauração e recuperação no SQL Server, consulte [a visão geral de Restauro e recuperação](/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). Para uma visão geral do modelo de recuperação simples no SQL Server, consulte [a base de dados completa (modelo de recuperação simples)](/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
 
 > [!IMPORTANT] 
 > As bases de dados criadas no Azure SQL Edge não podem ser restauradas num caso de Microsoft SQL Server ou Azure SQL. Além disso, uma base de dados criada no Microsoft SQL Server ou Azure SQL pode ser restaurada no Azure SQL Edge, desde que a base de dados não contenha nenhuma das funcionalidades não suportadas pelo Azure SQL Edge. 
@@ -180,5 +180,3 @@ WITH MOVE 'IronOreSilicaPrediction' TO '/var/opt/mssql/data/IronOreSilicaPredict
 MOVE 'IronOreSilicaPrediction_log' TO '/var/opt/mssql/data/IronOreSilicaPrediction_Primary_3.ldf',
 STATS = 10;
 ```
-
-

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5d28b8f2ff3045c9fdf5e8a866419a22bfbc6504
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f2d8953ccae1057d7a7aa2d786fb7b641b3f6284
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321819"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392530"
 ---
 # <a name="connect-to-synapse-studio-workspace-resources-from-a-restricted-network"></a>Ligue-se aos recursos do espaço de trabalho do Synapse Studio a partir de uma rede restrita
 
@@ -26,7 +26,6 @@ A partir deste artigo, você vai aprender a conectar-se ao seu espaço de trabal
 * **Subscrição Azure** : Se não tiver uma subscrição do Azure, crie uma [conta Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Espaço de trabalho Azure Synapse** : Se não tiver um Estúdio Synapse, crie um espaço de trabalho synapse da Azure Synapse Analytics. O nome do espaço de trabalho será necessário no passo seguinte 4.
 * **Uma rede restrita** : A rede restrita é mantida pela administração de TI da empresa. O nome da rede virtual e a sua sub-rede serão necessários no passo seguinte 3.
-
 
 
 ## <a name="step-1-add-network-outbound-security-rules-to-the-restricted-network"></a>Passo 1: Adicionar regras de segurança de saída da rede à rede restrita
@@ -51,9 +50,9 @@ Você precisará criar um Azure Synapse Analytics (centros de ligação privada)
 
 ![Criação de centros de ligação privados Synapse Analytics](./media/how-to-connect-to-workspace-from-restricted-network/private-links.png)
 
-## <a name="step-3-create-private-link-endpoint-for-synapse-studio-gateway"></a>Passo 3: Criar ponto final de ligação privada para porta de entrada do Estúdio Synapse
+## <a name="step-3-create-private-endpoint-for-synapse-studio-gateway"></a>Passo 3: Criar ponto final privado para porta de entrada do Estúdio Synapse
 
-Para aceder ao portal Synapse Studio, terá de criar um ponto final de ligação privada a partir do portal Azure. Procure " **Private Link** " através do portal Azure. Selecione " **Criar ponto final privado** " no " Private Link **Center** " e, em seguida, preencha o campo necessário e crie-o. 
+Para aceder ao portal Synapse Studio, terá de criar um ponto final privado a partir do portal Azure. Procure " **Private Link** " através do portal Azure. Selecione " **Criar ponto final privado** " no " Private Link **Center** " e, em seguida, preencha o campo necessário e crie-o. 
 
 > [!Note]
 > A região deve ser igual à que é o seu espaço de trabalho da Sinapse.
@@ -73,7 +72,7 @@ No separador seguinte da " **Configuração** ",
 
 Após a criação do ponto final do link privado, pode aceder à página de entrada da ferramenta web do estúdio Synapse. No entanto, ainda não poderá aceder aos recursos dentro do seu espaço de trabalho Synapse até que tenha de completar o próximo passo.
 
-## <a name="step-4-create-private-link-endpoints-for-synapse-studio-workspace-resource"></a>Passo 4: Criar pontos finais de ligação privada para recurso de espaço de trabalho do Estúdio Synapse
+## <a name="step-4-create-private-endpoints-for-synapse-studio-workspace-resource"></a>Passo 4: Criar pontos finais privados para o recurso espaço de trabalho do Estúdio Synapse
 
 Para aceder aos recursos dentro do seu recurso de espaço de trabalho Synapse Studio, você precisará criar pelo menos um ponto final de ligação privada com " **Dev** " tipo de " **sub-recurso alvo** " e dois outros pontos finais de ligação privada opcional com tipos de " **Sql** " ou " **SqlOnDemand** " depende de quais os recursos no espaço de trabalho do estúdio Synapse que você gostaria de aceder. Esta criação de ponto final de ligação privada para o espaço de trabalho do estúdio Synapse é semelhante à criação acima do ponto final.  
 
@@ -86,6 +85,30 @@ Preste atenção às áreas abaixo no separador " **Recurso** ":
   * **Dev** : é para aceder a tudo o resto dentro dos espaços de trabalho do Synapse Studio. É necessário criar pelo menos o ponto final de ligação privada com este tipo.
 
 ![Criação de ponto final privado para o espaço de trabalho do estúdio Synapse](./media/how-to-connect-to-workspace-from-restricted-network/plinks-endpoint-ws-1.png)
+
+
+## <a name="step-5-create-private-endpoints-for-synapse-studio-workspace-linked-storage"></a>Passo 5: Criar pontos finais privados para o espaço de trabalho do Synapse Studio ligado ao armazenamento
+
+Para aceder ao armazenamento ligado ao explorador de armazenamento no espaço de trabalho do Estúdio Synapse, terá de criar um ponto final privado com os passos semelhantes acima do passo 3. 
+
+Preste atenção às áreas abaixo no separador " **Recurso** ":
+* Selecione " **Microsoft.Synapse/storageAcounts** " para " **Tipo de recurso** ".
+* Selecione " **YourWorkSpaceName** " para " **Recurso** " que criou antes.
+* Selecione o tipo de ponto final em " **Sub-recurso target** ":
+  * **blob** : é para o armazenamento de bolhas Azure.
+  * **dfs** : é para Azure Data Lake Storage Gen2.
+
+![Criação de ponto final privado para o espaço de trabalho do estúdio Synapse ligado ao armazenamento](./media/how-to-connect-to-workspace-from-restricted-network/plink-endpoint-storage.png)
+
+Agora, você pode aceder ao recurso de armazenamento ligado do explorador de armazenamento no seu espaço de trabalho Synapse Studio dentro do vNet.
+
+Se o seu espaço de trabalho tiver " **Enable managed virtual network** " durante a sua criação de espaço de trabalho como abaixo,
+
+![Criação de ponto final privado para o espaço de trabalho do estúdio Synapse ligado ao armazenamento 1](./media/how-to-connect-to-workspace-from-restricted-network/ws-network-config.png)
+
+E você gostaria que o seu Notebook acedesse aos recursos de armazenamento ligados sob determinada conta de armazenamento, você precisa adicionar um " **Managed private endpoints** " no seu Estúdio Synapse. O " **nome da conta de armazenamento** " deve ser aquele a que o seu caderno precisa de aceder. Conheça os passos detalhados da [Create a Managed private endpoint até à sua fonte de dados](./how-to-create-managed-private-endpoints.md).
+
+Após a criação deste ponto final, o " **estado de aprovação** " será " **Pendente** ", você precisa solicitar ao proprietário desta conta de armazenamento para aprová-lo no separador " **Ligações de ponto final privado** " desta conta de armazenamento no portal Azure. Depois de aprovado, o seu Caderno poderá aceder aos recursos de armazenamento ligados nesta conta de armazenamento.
 
 Agora, tudo pronto. Você pode aceder ao seu recurso de espaço de trabalho do estúdio Synapse.
 

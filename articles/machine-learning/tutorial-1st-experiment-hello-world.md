@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7bee7bede0219f41d9d5e56214a6dc1b94977cb5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 20173c4ba02f53a526167a5a8e22bd0cedc85594
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322736"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393223"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Tutorial: Executar um "Olá mundo!" Escrita python (parte 2 de 4)
 
@@ -138,6 +138,14 @@ Aqui está uma descrição de como o script de controlo funciona:
 ## <a name="submit-and-run-your-code-in-the-cloud"></a>Submeta e execute o seu código na nuvem
 
 Executa o teu script de controlo, que por sua vez funciona `hello.py` no cluster de cálculo que criaste no tutorial de [configuração](tutorial-1st-experiment-sdk-setup-local.md).
+
+A primeira corrida levará 5 a 10 minutos para ser concluída. Isto porque ocorre o seguinte:
+
+* Uma imagem de estiva é construída na nuvem
+* O cluster computacional é redimensionado de 0 a 1 nó
+* A imagem do estivador é transferida para o cálculo. 
+
+As execuções subsequentes são muito mais rápidas (~15 segundos) uma vez que a imagem do estivador está em cache no cálculo - pode testá-lo reensiqar o código abaixo após a primeira execução ter terminado.
 
 ```bash
 python 03-run-hello.py

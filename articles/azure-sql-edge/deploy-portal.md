@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: f90d84b5897175dbda0a24591893c4e41a06822a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5d7d232ada814d5d3c30e7b012c6289f847d641f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973585"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395093"
 ---
 # <a name="deploy-azure-sql-edge"></a>Implementar borda Azure SQL 
 
@@ -212,7 +212,7 @@ Agora, fazer uma consulta para devolver os dados da `Inventory` tabela.
 
 ## <a name="connect-from-outside-the-container"></a>Conecte-se de fora do recipiente
 
-Pode ligar e executar consultas SQL contra a sua instância Azure SQL Edge a partir de qualquer ferramenta externa de Linux, Windows ou macOS que suporte ligações SQL. Para obter mais informações sobre a ligação a um recipiente SQL Edge a partir do exterior, consulte [Connect e Query Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/connect).
+Pode ligar e executar consultas SQL contra a sua instância Azure SQL Edge a partir de qualquer ferramenta externa de Linux, Windows ou macOS que suporte ligações SQL. Para obter mais informações sobre a ligação a um recipiente SQL Edge a partir do exterior, consulte [Connect e Query Azure SQL Edge](./connect.md).
 
 Neste arranque rápido, lançou um Módulo SQL Edge num dispositivo IoT Edge. 
 

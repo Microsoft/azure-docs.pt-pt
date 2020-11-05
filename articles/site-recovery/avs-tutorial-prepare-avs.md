@@ -1,5 +1,5 @@
 ---
-title: Prepare-se para a recuperação de desastres da Solução VMware VMware Azure com recuperação do local de Azure
+title: Preparar Solução Azure VMware para recuperação de desastres para recuperação do local de Azure
 description: Saiba como preparar os servidores Azure VMware Solution para recuperação de desastres para a Azure utilizando o serviço de Recuperação do Site Azure.
 author: Harsha-CS
 manager: rochakm
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 9b04faf6797d04404dc0c5d617af2fd62a68c49a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e77ede7b04c95bfd6b6b8f660c8d811e7434c0f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91814609"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395449"
 ---
-# <a name="prepare-azure-vmware-solution-servers-for-disaster-recovery-to-azure"></a>Prepare os servidores da Azure VMware Solution para a recuperação de desastres para o Azure
+# <a name="prepare-azure-vmware-solution-for-disaster-recovery-to-azure-site-recovery"></a>Preparar Solução Azure VMware para recuperação de desastres para recuperação do local de Azure
 
 Este artigo descreve como preparar servidores Azure VMware Solution para recuperação de desastres para Azure usando os serviços [de Recuperação do Site Azure.](site-recovery-overview.md) 
 
@@ -68,8 +68,8 @@ Prepare a conta da seguinte forma:
 
 Prepare um domínio ou uma conta local com permissões para instalar na VM.
 
-- **VMs do Windows**: para instalar em VMs do Windows, se não estiver a utilizar uma conta de domínio, desative o Controlo de Acesso de Utilizador Remoto no computador local. Para fazer isto, no registo > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System**, adicione a entrada DWORD **LocalAccountTokenFilterPolicy**, com um valor de 1.
-- **VMs do Linux**: para instalar em VMs do Linux, prepare uma conta raiz no servidor Linux de origem.
+- **VMs do Windows** : para instalar em VMs do Windows, se não estiver a utilizar uma conta de domínio, desative o Controlo de Acesso de Utilizador Remoto no computador local. Para fazer isto, no registo > **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System** , adicione a entrada DWORD **LocalAccountTokenFilterPolicy** , com um valor de 1.
+- **VMs do Linux** : para instalar em VMs do Linux, prepare uma conta raiz no servidor Linux de origem.
 
 
 ## <a name="check-vmware-requirements"></a>Verificar os requisitos de VMware
@@ -92,12 +92,12 @@ Depois de falhar, é melhor ligar-se aos VMs Azure da sua rede Azure VMware Solu
 Para ligar às VMs do Windows via RDP após a ativação pós-falha, faça o seguinte:
 
 - **Acesso à Internet**. Antes de falhar, ative o RDP na VM Solução VMware Azure antes de falhar. Confirme que são adicionadas regras de TCP e UDP ao perfil **Público** e que o protocolo RDP é permitido em **Firewall do Windows** > **Aplicações Permitidas** para todos os perfis.
-- **Acesso de rede de VPNs**:
+- **Acesso de rede de VPNs** :
     - Antes de falhar, ative o RDP na VM Solução VMware Azure.
-    - O RDP deve **Windows Firewall**ser permitido nas  ->  **aplicações e funcionalidades permitidas** para o Windows Firewall e para redes **de domínio e privado.**
+    - O RDP deve **Windows Firewall** ser permitido nas  ->  **aplicações e funcionalidades permitidas** para o Windows Firewall e para redes **de domínio e privado.**
     - Verifique se a política de SAN do sistema operativo está definida como **OnlineAll**. [Saiba mais](https://support.microsoft.com/kb/3031135).
 - Não devem haver atualizações do Windows pendentes na VM quando aciona uma ativação pós-falha. Se houver, não poderá iniciar sôs na máquina virtual até que a atualização esteja concluída.
-- Na VM do Azure do Windows após a ativação pós-falha, consulte o **Diagnóstico de arranque ** para ver uma captura de ecrã da VM. Se não conseguir ligar-se, verifique se a VM está em execução e reveja estas [sugestões de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Na VM do Azure do Windows após a ativação pós-falha, consulte o **Diagnóstico de arranque** para ver uma captura de ecrã da VM. Se não conseguir ligar-se, verifique se a VM está em execução e reveja estas [sugestões de resolução de problemas](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 Para ligar às VMs do Linux via SSH após a ativação pós-falha, faça o seguinte:
 

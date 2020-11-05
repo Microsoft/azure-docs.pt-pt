@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/20/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 31c9dcaf6c6f26d28d70e3d1664665c2dbc37ce6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424634"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393086"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
@@ -43,9 +43,7 @@ Para solicitar um conector automático de provisionamento Azure AD para uma apli
 
 ## <a name="authorization"></a>Autorização
 
-São necessárias credenciais para que a Azure AD se conecte à API de gestão de utilizadores da aplicação. Enquanto configurar o fornecimento automático do utilizador para uma aplicação, terá de introduzir credenciais válidas. Pode encontrar tipos e requisitos credenciais para a aplicação, referindo-se ao tutorial da aplicação. No portal Azure, poderá testar as credenciais, tendo a Azure AD tentado ligar-se à app de provisionamento da app utilizando as credenciais fornecidas.
-
-Se o sign-on único baseado em SAML também estiver configurado para a aplicação, o limite interno de armazenamento por aplicação da Azure AD é de 1024 bytes. Este limite inclui todos os certificados, fichas secretas, credenciais e dados de configuração relacionados associados a uma única instância de uma aplicação (também conhecido como registo principal de serviço em Azure AD). Quando o sign-on único baseado em SAML é configurado, o certificado usado para assinar os tokens SAML consome frequentemente mais de 50% do espaço. Quaisquer itens adicionais (tokens secretos, URIs, endereços de e-mail de notificação, nomes de utilizador e palavras-passe) que introduza durante a configuração do fornecimento do utilizador podem exceder o limite de armazenamento. Para obter mais informações, consulte [as credenciais de administrador de poupança de problemas enquanto configura o provisionamento do utilizador](./application-provisioning-config-problem-storage-limit.md).
+São necessárias credenciais para que a Azure AD se conecte à API de gestão de utilizadores da aplicação. Enquanto configurar o fornecimento automático do utilizador para uma aplicação, terá de introduzir credenciais válidas. Para aplicações de galeria, pode encontrar tipos e requisitos credenciais para a aplicação, referindo-se ao tutorial da aplicação. Para aplicações não-galeria, pode consultar a documentação do [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery) para compreender os tipos e requisitos credenciais. No portal Azure, poderá testar as credenciais, tendo a Azure AD tentado ligar-se à app de provisionamento da app utilizando as credenciais fornecidas.
 
 ## <a name="mapping-attributes"></a>Atributos de mapeamento
 
@@ -53,7 +51,7 @@ Quando permite o provisionamento do utilizador para uma aplicação SaaS de terc
 
 Existe um conjunto pré-configurado de atributos e mapeamentos de atributos entre objetos de utilizador AZure AD e objetos de utilizador de cada aplicação SaaS. Algumas aplicações gerem outros tipos de objetos juntamente com os Utilizadores, como grupos.
 
-Ao configurar o provisionamento, é importante rever e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais as propriedades do utilizador (ou grupo) que fluem do Azure AD para a aplicação. Reveja e configuure a propriedade correspondente **(Match objects using this attribute**) que é usada para identificar e combinar exclusivamente utilizadores/grupos entre os dois sistemas.
+Ao configurar o provisionamento, é importante rever e configurar os mapeamentos de atributos e fluxos de trabalho que definem quais as propriedades do utilizador (ou grupo) que fluem do Azure AD para a aplicação. Reveja e configuure a propriedade correspondente **(Match objects using this attribute** ) que é usada para identificar e combinar exclusivamente utilizadores/grupos entre os dois sistemas.
 
 Pode personalizar os mapeamentos de atributos padrão de acordo com as necessidades do seu negócio. Assim, pode alterar ou eliminar os mapeamentos de atributos existentes ou criar novos mapeamentos de atributos. Para mais informações, consulte [personalizar o fornecimento de mapeamentos de atributos para aplicações SaaS](./customize-application-attributes.md).
 
@@ -135,7 +133,7 @@ Após o ciclo inicial, todos os outros ciclos irão:
 10. Persistir uma nova marca de água no final do ciclo incremental, que fornece o ponto de partida para os ciclos incrementais posteriores.
 
 > [!NOTE]
-> Pode desativar opcionalmente as operações **Criar,** **Atualizar**ou **Eliminar** utilizando as ações do **objeto Alvo,** verificar caixas na secção [mapeamentos.](customize-application-attributes.md) A lógica de desativar um utilizador durante uma atualização também é controlada através de um mapeamento de atributos de um campo como "accountEnabled".
+> Pode desativar opcionalmente as operações **Criar,** **Atualizar** ou **Eliminar** utilizando as ações do **objeto Alvo,** verificar caixas na secção [mapeamentos.](customize-application-attributes.md) A lógica de desativar um utilizador durante uma atualização também é controlada através de um mapeamento de atributos de um campo como "accountEnabled".
 
 O serviço de prestação continua a funcionar indefinidamente ciclos incrementais, em intervalos definidos no [tutorial específico de cada aplicação.](../saas-apps/tutorial-list.md) Os ciclos incrementais continuam até que ocorra um dos seguintes eventos:
 
@@ -192,7 +190,7 @@ Os seguintes cenários desencadearão um desativação ou uma eliminação:
 * Um utilizador não é atribuído a partir de uma aplicação.
 * Um utilizador vai de âmbito para fora do alcance (já não passa um filtro de escotagem).
 
-:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Desativar um utilizador" lightbox="./media/how-provisioning-works/delete-user.png":::
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Eliminar um utilizador" lightbox="./media/how-provisioning-works/delete-user.png":::
 
 Por predefinição, o serviço de fornecimento AZure AD elimina ou desativa os utilizadores que ficam fora de alcance. Se quiser anular este comportamento predefinido, pode definir uma bandeira para [saltar as exclusões fora de alcance.](skip-out-of-scope-deletions.md)
 

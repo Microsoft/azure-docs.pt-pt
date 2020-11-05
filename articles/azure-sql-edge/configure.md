@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c49f5ab9f10456c32f7f8516cba0e851fa80e74
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446950"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392338"
 ---
 # <a name="configure-azure-sql-edge"></a>Configure Azure SQL Edge
 
@@ -32,7 +32,7 @@ O Azure SQL Edge expõe várias variáveis ambientais diferentes que podem ser u
 
 As seguintes novas variáveis ambientais foram adicionadas à Azure SQL Edge. 
 
-| Variável de ambiente | Descrição | Valores |     
+| Variável de ambiente | Description | Valores |     
 |-----|-----| ---------- | 
 | **PlanId** | Especifica o Azure SQL Edge SKU para ser utilizado durante a inicialização. Esta variável ambiente só é necessária quando se implanta a Borda Azure SQL utilizando a borda Azure IoT. | **asde-developer-on-iot-edge** ou **asde-premium-on-iot-edge** | 
 | **MSSQL_TELEMETRY_ENABLED** | Ativar ou desativar a recolha de dados de utilização e diagnóstico. | VERDADEIRO ou FALSO |  
@@ -42,7 +42,7 @@ As seguintes novas variáveis ambientais foram adicionadas à Azure SQL Edge.
 
 O seguinte SQL Server na variável ambiente Linux não é suportado para Azure SQL Edge. Se definido, esta variável ambiente será ignorada durante a inicialização do recipiente.
 
-| Variável de ambiente | Descrição |
+| Variável de ambiente | Description |
 |-----|-----|
 | **MSSQL_ENABLE_HADR** | Ativar o grupo de disponibilidade. Por exemplo, **1** está ativado e **0** está desativado. |
 
@@ -66,7 +66,7 @@ Adicione valores em **Opções de Criação de Recipientes.**
 
 ## <a name="configure-by-using-an-mssqlconf-file"></a>Configure usando um ficheiro mssql.conf
 
-O Azure SQL Edge não inclui o [utilitário de configuração mssql-conf](/sql/linux/sql-server-linux-configure-mssql-conf/) como o SQL Server em Linux. É necessário configurar manualmente o ficheiro mssql.conf e colocá-lo na unidade de armazenamento persistente que está mapeada para a pasta /var/opt/mssql/ no módulo SQL Edge. Quando estiver a implantar sql edge a partir do Azure Marketplace, este mapeamento é especificado como a opção **Mounts** nas **Opções de Criação**de Recipientes .
+O Azure SQL Edge não inclui o [utilitário de configuração mssql-conf](/sql/linux/sql-server-linux-configure-mssql-conf/) como o SQL Server em Linux. É necessário configurar manualmente o ficheiro mssql.conf e colocá-lo na unidade de armazenamento persistente que está mapeada para a pasta /var/opt/mssql/ no módulo SQL Edge. Quando estiver a implantar sql edge a partir do Azure Marketplace, este mapeamento é especificado como a opção **Mounts** nas **Opções de Criação** de Recipientes .
 
 ```json
     {
@@ -95,11 +95,11 @@ As seguintes opções mssql.conf não são aplicáveis à SQL Edge:
 |**Comentários dos clientes** | Escolha se o SQL Server envia feedback para a Microsoft. |
 |**Perfil de correio de base de dados** | Desacrie o perfil de correio de base de dados predefinido para o SQL Server no Linux. |
 |**Elevada disponibilidade** | Ativar grupos de disponibilidade. |
-|**Coordenador de transações distribuídas da Microsoft** | Configure e resolva os problemas msdTC em Linux. As opções adicionais de configuração distribuídas relacionadas com transações não são suportadas para o SQL Edge. Para obter mais informações sobre estas opções de configuração adicionais, consulte [Configure MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
+|**Coordenador de transações distribuídas da Microsoft** | Configure e resolva os problemas msdTC em Linux. As opções adicionais de configuração distribuídas relacionadas com transações não são suportadas para o SQL Edge. Para obter mais informações sobre estas opções de configuração adicionais, consulte [Configure MSDTC](/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
 |**Serviços ML EULAs** | Aceite eulas R e Python para pacotes de aprendizagem automática Azure. Aplica-se apenas ao SQL Server 2019.|
 |**saída da rede de trabalho** |Permitir o acesso à rede de saída para [extensões de Serviços de Machine Learning](/sql/linux/sql-server-linux-setup-machine-learning/) R, Python e Java.|
 
-O ficheiro mssql.conf da amostra que se segue funciona para o SQL Edge. Para obter mais informações sobre o formato de um ficheiro mssql.conf, consulte [o formato mssql.conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
+O ficheiro mssql.conf da amostra que se segue funciona para o SQL Edge. Para obter mais informações sobre o formato de um ficheiro mssql.conf, consulte [o formato mssql.conf](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
 
 ```ini
 [EULA]

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
-ms.openlocfilehash: 54c10d7941e053bec928f8f43310218d89124f9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50b88b4af6ea8479097b88b51fe7acfbea355ab8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461736"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392321"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos úteis para trabalhar com Azure Sentinel
 
@@ -62,7 +62,17 @@ As seguintes operações apoiadas podem ser auditadas.
 Pode visualizar estes dados transmitindo-os a partir do login da Azure Activity para o Azure Sentinel, onde poderá então realizar pesquisas e análises sobre os mesmos.
 
 1. Ligue a fonte de dados [da Atividade Azure.](connect-azure-activity.md) Depois disso, os eventos de auditoria são transmitidos para uma nova tabela no ecrã **logs** chamado AzureActivity.
-2. Em seguida, consultar os dados usando KQL, como faria em qualquer outra tabela.
+
+1. Em seguida, consultar os dados usando KQL, como faria em qualquer outra tabela.
+
+    Por exemplo, para saber quem foi o último utilizador a editar uma determinada regra de análise, utilize a seguinte consulta (substituindo `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` a regra ID da regra que pretende verificar):
+
+    ```kusto
+    AzureActivity
+    | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS/ALERTRULES/WRITE"
+    | where Properties contains "alertRules/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    | project Caller , TimeGenerated , Properties
+    ```
 
 
 

@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56bb9ab927c3383c49106a3a7b263ff8e137db9c
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: f585be2057bda19038fff1066e7864c6796576c0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026518"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394684"
 ---
 # <a name="azure-ad-administrative-units-troubleshooting-and-faq"></a>Unidades administrativas AZure AD: Resolução de problemas e FAQ
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: ff14f8a9f236701889aea95911f2a1e381eabf83
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: fce098767fffd36376399bbd9396699e3d9fbfd3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947375"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392083"
 ---
 # <a name="deploy-azure-sql-edge-with-docker"></a>Implementar borda Azure SQL com Docker
 
@@ -28,7 +28,7 @@ Esta imagem é constituída por Azure SQL Edge com base no Ubuntu 18.04. Pode se
 - Docker **sobrepõe-se ao** condutor de armazenamento2. Este é o padrão para a maioria dos utilizadores. Se descobrir que não está a utilizar este fornecedor de armazenamento e precisa de ser alterado, consulte as instruções e avisos na documentação do [estivador para configurar a sobreposição2](https://docs.docker.com/storage/storagedriver/overlayfs-driver/#configure-docker-with-the-overlay-or-overlay2-storage-driver).
 - Mínimo de 10 GB de espaço em disco.
 - Mínimo de 1 GB de RAM.
-- [Requisitos de hardware para Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/features#hardware-support).
+- [Requisitos de hardware para Azure SQL Edge](./features.md#hardware-support).
 
 
 ## <a name="pull-and-run-the-container-image"></a>Puxe e corra a imagem do recipiente
@@ -70,7 +70,7 @@ O comando anterior retira as imagens mais recentes do contentor Azure SQL Edge. 
     | Parâmetro | Descrição |
     |-----|-----|
     | **-e "ACCEPT_EULA=Y"** |  Desa esta **ACCEPT_EULA** variável a qualquer valor que confirme a sua aceitação do [Contrato de Licenciamento do Utilizador Final](https://go.microsoft.com/fwlink/?linkid=2139274). Regulação necessária para a imagem Azure SQL Edge. |
-    | **-e "MSSQL_SA_PASSWORD=yourStrong(!) Palavra-passe"** | Especifique a sua própria senha forte que seja de pelo menos 8 caracteres e cumpra os [requisitos de senha Azure SQL Edge](https://docs.microsoft.com/sql/relational-databases/security/password-policy). Regulação necessária para a imagem Azure SQL Edge. |
+    | **-e "MSSQL_SA_PASSWORD=yourStrong(!) Palavra-passe"** | Especifique a sua própria senha forte que seja de pelo menos 8 caracteres e cumpra os [requisitos de senha Azure SQL Edge](/sql/relational-databases/security/password-policy). Regulação necessária para a imagem Azure SQL Edge. |
     | **-p 1433:1433** | Mapear uma porta TCP no ambiente de acolhimento (primeiro valor) com uma porta TCP no recipiente (segundo valor). Neste exemplo, a Azure SQL Edge está a ouvir no TCP 1433 no recipiente e esta está exposta à porta, 1433, no hospedeiro. |
     | **--nome azuresqledge** | Especifique um nome personalizado para o recipiente em vez de um gerado aleatoriamente. Se executar mais de um recipiente, não poderá reutilizar este mesmo nome. |
     | **-d** | Executar o recipiente ao fundo (daemon) |
@@ -83,7 +83,7 @@ O comando anterior retira as imagens mais recentes do contentor Azure SQL Edge. 
     sudo docker ps -a
    ```
 
-4. Se a coluna **STATUS** mostrar um estado de **Up**, então a Borda Azure SQL está a funcionar no recipiente e a ouvir na porta especificada na coluna **PORTS.** Se a coluna **STATUS** do seu recipiente Azure SQL Edge mostrar **Saída**, consulte a secção de resolução de problemas da Documentação do Aresta Azure SQL.
+4. Se a coluna **STATUS** mostrar um estado de **Up** , então a Borda Azure SQL está a funcionar no recipiente e a ouvir na porta especificada na coluna **PORTS.** Se a coluna **STATUS** do seu recipiente Azure SQL Edge mostrar **Saída** , consulte a secção de resolução de problemas da Documentação do Aresta Azure SQL.
 
     O `-h` parâmetro (nome hospedeiro) também é útil, mas não é usado neste tutorial para a simplicidade. Isto altera o nome interno do recipiente para um valor personalizado. Este é o nome que verá devolvido na seguinte consulta Transact-SQL:
 

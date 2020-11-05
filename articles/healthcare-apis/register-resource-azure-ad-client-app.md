@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: e92fab392dc73d8de0b7b2547e38b3f345562930
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: e22eaacd73bb15ddf43f416831ff5ff42923b6e0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975863"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393392"
 ---
 # <a name="register-a-resource-application-in-azure-active-directory"></a>Registar uma aplicação de recursos no Azure Ative Directory
 
@@ -71,7 +71,7 @@ Uma aplicação de recurso tem um identificador URI (Application ID URI), que os
 
 ### <a name="define-application-roles"></a>Definir funções de aplicação
 
-A Azure API para fHIR e o SERVIDOR OSS FHIR para Azure utilizam [funções de aplicação do Azure Ative Directory](https://docs.microsoft.com/azure/architecture/multitenant-identity/app-roles) para controlo de acesso baseado em funções. Para definir quais as funções que devem estar disponíveis para o seu FHIR Server API, abra o [manifesto](https://docs.microsoft.com/azure/active-directory/active-directory-application-manifest/)da aplicação de recursos:
+A Azure API para fHIR e o SERVIDOR OSS FHIR para Azure utilizam [funções de aplicação do Azure Ative Directory](/azure/architecture/multitenant-identity/app-roles) para controlo de acesso baseado em funções. Para definir quais as funções que devem estar disponíveis para o seu FHIR Server API, abra o [manifesto](/azure/active-directory/active-directory-application-manifest/)da aplicação de recursos:
 
 1. Clique **em Manifesto:**
 

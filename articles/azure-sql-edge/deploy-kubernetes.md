@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 16ad757fc00439bb390a7e0dea902901c468dd1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31a454c93ad5192f387306a8ec557c4e4d3ae991
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90946614"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395296"
 ---
 # <a name="deploy-an-azure-sql-edge-container-in-kubernetes"></a>Implementar um recipiente Azure SQL Edge em Kubernetes
 
@@ -48,7 +48,7 @@ No diagrama seguinte, o nó que alberga o `azure-sql-edge` recipiente falhou. O 
 * **Aglomerado de Kubernetes**
    - O tutorial requer um aglomerado de Kubernetes. Os passos usam [kubectl](https://kubernetes.io/docs/user-guide/kubectl/) para gerir o cluster. 
 
-   - Para efeitos deste tutorial, vamos usar o Serviço Azure Kubernetes para implantar o Azure SQL Edge. Consulte [implementar um cluster Azure Kubernetes Service (AKS)](https://docs.microsoft.com/azure/aks/tutorial-kubernetes-deploy-cluster) para criar e ligar a um cluster kubernetes de nó único em AKS com `kubectl` . 
+   - Para efeitos deste tutorial, vamos usar o Serviço Azure Kubernetes para implantar o Azure SQL Edge. Consulte [implementar um cluster Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-deploy-cluster.md) para criar e ligar a um cluster kubernetes de nó único em AKS com `kubectl` . 
 
    >[!NOTE]
    >Para proteger contra a falha do nó, um cluster Kubernetes requer mais do que um nó.
@@ -318,8 +318,7 @@ Neste tutorial, aprendeu a implantar recipientes Azure SQL Edge num cluster Kube
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Introdução ao Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+- [Introdução ao Kubernetes](../aks/intro-kubernetes.md)
 - [Machine Learning e Inteligência Artificial com ONNX em SQL Edge](onnx-overview.md).
 - [Construção de uma solução IoT de ponta a ponta com aresta SQL utilizando IoT Edge](tutorial-deploy-azure-resources.md).
 - [Streaming de dados em Azure SQL Edge](stream-data.md)
-

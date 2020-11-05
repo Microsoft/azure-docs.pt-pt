@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/25/2020
-ms.openlocfilehash: 4548d4956b4cd01886fb1be9a530cc1627f76b2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b56b65261950e9cf534a3755d214229ef7d5bb1e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888229"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395211"
 ---
 # <a name="connect-and-query-azure-sql-edge"></a>Ligar e consultar Azure SQL Edge
 
@@ -29,15 +29,15 @@ No Azure SQL Edge, depois de colocar um contentor, pode ligar-se ao motor da bas
 
 Pode ligar-se a uma instância de Azure SQL Edge a partir de qualquer uma destas ferramentas comuns:
 
-* [sqlcmd:](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools)as ferramentas de cliente sqlcmd já estão incluídas na imagem de contentor de Azure SQL Edge. Se se ligar a um recipiente de corrida com uma casca de pancada interativa, pode executar as ferramentas localmente. As ferramentas de cliente SQL não estão disponíveis na plataforma ARM64, uma vez que não estão incluídas na versão ARM64 dos contentores SQL Edge. 
-* [O SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)
-* [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)
-* [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
+* [sqlcmd:](/sql/linux/sql-server-linux-setup-tools)as ferramentas de cliente sqlcmd já estão incluídas na imagem de contentor de Azure SQL Edge. Se se ligar a um recipiente de corrida com uma casca de pancada interativa, pode executar as ferramentas localmente. As ferramentas de cliente SQL não estão disponíveis na plataforma ARM64, uma vez que não estão incluídas na versão ARM64 dos contentores SQL Edge. 
+* [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms)
+* [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)
+* [Visual Studio Code](/sql/visual-studio-code/sql-server-develop-use-vscode)
 
 Para ligar a um motor de base de dados Azure SQL Edge a partir de uma máquina de rede, precisa do seguinte:
 
-- **Endereço IP ou nome de rede da máquina hospedeira**: Esta é a máquina hospedeira onde o recipiente Azure SQL Edge está em funcionamento.
-- **Mapeamento do porto de anfitrião do recipiente Azure SQL Edge**: Este é o mapeamento da porta de contentores Docker para uma porta no hospedeiro. Dentro do recipiente, a Borda Azure SQL é sempre mapeada para a porta 1433. Pode mudar isto se quiser. Para alterar o número da porta, atualize as **opções de criação** de recipientes para o módulo Azure SQL Edge em Azure IoT Edge. No exemplo seguinte, a porta 1433 do contentor está mapeada para o porto 1600 no hospedeiro.
+- **Endereço IP ou nome de rede da máquina hospedeira** : Esta é a máquina hospedeira onde o recipiente Azure SQL Edge está em funcionamento.
+- **Mapeamento do porto de anfitrião do recipiente Azure SQL Edge** : Este é o mapeamento da porta de contentores Docker para uma porta no hospedeiro. Dentro do recipiente, a Borda Azure SQL é sempre mapeada para a porta 1433. Pode mudar isto se quiser. Para alterar o número da porta, atualize as **opções de criação** de recipientes para o módulo Azure SQL Edge em Azure IoT Edge. No exemplo seguinte, a porta 1433 do contentor está mapeada para o porto 1600 no hospedeiro.
 
     ```JSON
     {
@@ -51,11 +51,11 @@ Para ligar a um motor de base de dados Azure SQL Edge a partir de uma máquina d
     }
     ```
 
-- **Palavra-passe SA para o exemplo Azure SQL Edge**: Este é o valor especificado para a variável ambiental durante a `SA_PASSWORD` implementação do Azure SQL Edge.
+- **Palavra-passe SA para o exemplo Azure SQL Edge** : Este é o valor especificado para a variável ambiental durante a `SA_PASSWORD` implementação do Azure SQL Edge.
 
 ## <a name="connect-to-the-database-engine-from-within-the-container"></a>Ligue ao motor da base de dados a partir do recipiente
 
-As [ferramentas de linha de comando SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) estão incluídas na imagem de contentor do Azure SQL Edge. Se ligar ao recipiente com uma indicação de comando interativo, pode executar as ferramentas localmente. As ferramentas de cliente SQL não estão disponíveis na plataforma ARM64, uma vez que não estão incluídas na versão ARM64 dos contentores SQL Edge. 
+As [ferramentas de linha de comando SQL Server](/sql/linux/sql-server-linux-setup-tools) estão incluídas na imagem de contentor do Azure SQL Edge. Se ligar ao recipiente com uma indicação de comando interativo, pode executar as ferramentas localmente. As ferramentas de cliente SQL não estão disponíveis na plataforma ARM64, uma vez que não estão incluídas na versão ARM64 dos contentores SQL Edge. 
 
 1. Utilize o `docker exec -it` comando para iniciar uma casca de pancada interativa dentro do seu recipiente de funcionamento. No exemplo seguinte, `e69e056c702d` encontra-se a identificação do contentor.
 
@@ -94,7 +94,7 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ## <a name="connect-to-azure-sql-edge-from-another-network-machine"></a>Ligue-se ao Azure SQL Edge a partir de outra máquina de rede
 
-É melhor ligar-se à instância de Azure SQL Edge a partir de outra máquina da rede. Para tal, utilize o endereço IP do anfitrião Docker e a porta de acolhimento para a qual está mapeado o recipiente Azure SQL Edge. Por exemplo, se o endereço IP do anfitrião Docker for *xxx.xxx.xxx.xxx*, e o contentor Azure SQL Edge estiver mapeado para a porta de acolhimento *1600*, então o endereço do servidor, por exemplo, Azure SQL Edge seria *xxx.xxx.xxx.xxx.1600*. O script de python atualizado é:
+É melhor ligar-se à instância de Azure SQL Edge a partir de outra máquina da rede. Para tal, utilize o endereço IP do anfitrião Docker e a porta de acolhimento para a qual está mapeado o recipiente Azure SQL Edge. Por exemplo, se o endereço IP do anfitrião Docker for *xxx.xxx.xxx.xxx* , e o contentor Azure SQL Edge estiver mapeado para a porta de acolhimento *1600* , então o endereço do servidor, por exemplo, Azure SQL Edge seria *xxx.xxx.xxx.xxx.1600*. O script de python atualizado é:
 
 ```python
 
@@ -108,14 +108,14 @@ conn = pyodbc.connect(db_connection_string, autocommit=True)
 
 ```
 
-Para ligar a um exemplo de Azure SQL Edge utilizando o SQL Server Management Studio em execução numa máquina Windows, consulte [o SQL Server Management Studio](https://docs.microsoft.com/sql/linux/sql-server-linux-manage-ssms).
+Para ligar a um exemplo de Azure SQL Edge utilizando o SQL Server Management Studio em execução numa máquina Windows, consulte [o SQL Server Management Studio](/sql/linux/sql-server-linux-manage-ssms).
 
-Para ligar a um exemplo de Azure SQL Edge utilizando o Código de Estúdio Visual numa máquina Windows, Mac ou Linux, consulte [o Código do Estúdio Visual](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode).
+Para ligar a um exemplo de Azure SQL Edge utilizando o Código de Estúdio Visual numa máquina Windows, Mac ou Linux, consulte [o Código do Estúdio Visual](/sql/visual-studio-code/sql-server-develop-use-vscode).
 
-Para ligar a um exemplo de Azure SQL Edge utilizando o Azure Data Studio numa máquina Windows, Mac ou Linux, consulte [o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-server).
+Para ligar a um exemplo de Azure SQL Edge utilizando o Azure Data Studio numa máquina Windows, Mac ou Linux, consulte [o Azure Data Studio](/sql/azure-data-studio/quickstart-sql-server).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Ligar e consultar](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-docker#connect-and-query)
+[Ligar e consultar](/sql/linux/sql-server-linux-configure-docker#connect-and-query)
 
-[Instale ferramentas sql server no Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools)
+[Instale ferramentas sql server no Linux](/sql/linux/sql-server-linux-setup-tools)

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888424"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395228"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Configure a replicação para Azure SQL Edge 
 
@@ -24,8 +24,8 @@ Pode configurar uma instância de Azure SQL Edge como assinante push para replic
   
 - O caso do Azure SQL Edge deve ser um assinante de impulso para uma editora.
 - O editor e o distribuidor podem ser:
-   - Um caso de SQL Server a funcionar no local, ou um caso de SQL Server a funcionar numa máquina virtual Azure. Para obter mais informações, consulte [o SQL Server na visão geral das máquinas virtuais Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). As instâncias do SQL Server devem estar a usar uma versão mais tarde do que o SQL Server 2016.
-   - Um exemplo de Azure SQL Managed Instance. A SQL Managed Instance pode acolher bases de dados de editores, distribuidores e assinantes. Para obter mais informações, consulte [a replicação com a sql Database Managed Instance](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
+   - Um caso de SQL Server a funcionar no local, ou um caso de SQL Server a funcionar numa máquina virtual Azure. Para obter mais informações, consulte [o SQL Server na visão geral das máquinas virtuais Azure](../azure-sql/virtual-machines/index.yml). As instâncias do SQL Server devem estar a usar uma versão mais tarde do que o SQL Server 2016.
+   - Um exemplo de Azure SQL Managed Instance. A SQL Managed Instance pode acolher bases de dados de editores, distribuidores e assinantes. Para obter mais informações, consulte [a replicação com a sql Database Managed Instance](/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - A base de dados de distribuição e os agentes de replicação não podem ser colocados num caso de Azure SQL Edge.  
 
@@ -36,7 +36,7 @@ Pode configurar uma instância de Azure SQL Edge como assinante push para replic
 
 Os seguintes requisitos e boas práticas são importantes para entender à medida que configura a replicação:
 
-- Pode configurar a replicação utilizando [o SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). Também pode fazê-lo executando declarações Transact-SQL na editora, utilizando o SQL Server Management Studio ou [o Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio).
+- Pode configurar a replicação utilizando [o SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). Também pode fazê-lo executando declarações Transact-SQL na editora, utilizando o SQL Server Management Studio ou [o Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 - Para replicar a uma instância de Azure SQL Edge, tem de utilizar a autenticação do SQL Server para iniciar sedições.
 - As mesas replicadas devem ter uma chave primária.
 - Uma única publicação no SQL Server pode suportar tanto os subscritores Azure SQL Edge como SQL Server (no local e o SQL Server numa máquina virtual Azure).  
@@ -82,15 +82,13 @@ As seguintes opções não são suportadas para subscrições Azure SQL Edge:
 
 Crie uma publicação e uma subscrição push. Para obter mais informações, consulte:
   
-- [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Crie uma subscrição push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) utilizando o nome do servidor Azure SQL Edge e IP como assinante (por exemplo, **myEdgeinstance,1433),** e um nome de base de dados na instância Azure SQL Edge como base de dados de destino (por exemplo, **AdventureWorks).**  
+- [Criar uma publicação](/sql/relational-databases/replication/publish/create-a-publication)
+- [Crie uma subscrição push](/sql/relational-databases/replication/create-a-push-subscription/) utilizando o nome do servidor Azure SQL Edge e IP como assinante (por exemplo, **myEdgeinstance,1433),** e um nome de base de dados na instância Azure SQL Edge como base de dados de destino (por exemplo, **AdventureWorks).**  
 
 ## <a name="next-steps"></a>Passos seguintes  
 
-- [Criar uma publicação](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Criar uma subscrição push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Tipos de replicação](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitorização (replicação)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inicializar uma subscrição](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
-
-
+- [Criar uma publicação](/sql/relational-databases/replication/publish/create-a-publication)
+- [Criar uma subscrição push](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Tipos de replicação](/sql/relational-databases/replication/types-of-replication)
+- [Monitorização (replicação)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inicializar uma subscrição](/sql/relational-databases/replication/initialize-a-subscription)

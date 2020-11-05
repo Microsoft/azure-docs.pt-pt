@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: quickstart
 ms.date: 09/08/2020
 ms.author: punagpal
-ms.openlocfilehash: 3b6db74d637ac17ef5d09e1d9c5d3dac30ba8ba9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1e3101c8abcaef52c0ae9aaafef36b23aa45b586
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89594378"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394514"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Quickstart: Implementar o Conector Azure IoT para FHIR (pré-visualização) utilizando o portal Azure
 
@@ -163,16 +163,16 @@ Preservar este fio de ligação para ser utilizado num passo posterior.
 
 O Azure oferece um vasto conjunto de produtos IoT para conectar e gerir os seus dispositivos IoT. Você pode construir a sua própria solução com base no PaaS usando Azure IoT Hub, ou começar com uma plataforma de aplicações IoT gerida com Azure IoT Central. Para este tutorial, vamos aproveitar o Azure IoT Central, que tem modelos de solução focados na indústria para ajudá-lo a começar.
 
-Implemente o [modelo de aplicação de monitorização contínua do paciente.](https://docs.microsoft.com/azure/iot-central/healthcare/tutorial-continuous-patient-monitoring#create-an-application-template) Este modelo inclui dois dispositivos simulados que produzem dados em tempo real para ajudá-lo a começar: **Smart Vitals Patch** e **Smart Knee Brace**.
+Implemente o [modelo de aplicação de monitorização contínua do paciente.](../iot-central/healthcare/tutorial-continuous-patient-monitoring.md#create-an-application-template) Este modelo inclui dois dispositivos simulados que produzem dados em tempo real para ajudá-lo a começar: **Smart Vitals Patch** e **Smart Knee Brace**.
 
 > [!NOTE]
-> Sempre que os seus dispositivos reais estiverem prontos, pode utilizar a mesma aplicação IoT Central para [embarcar nos seus dispositivos](https://docs.microsoft.com/azure/iot-central/core/howto-set-up-template) e substituir simuladores de dispositivos. Os dados do seu dispositivo começarão automaticamente a fluir para fHIR também. 
+> Sempre que os seus dispositivos reais estiverem prontos, pode utilizar a mesma aplicação IoT Central para [embarcar nos seus dispositivos](../iot-central/core/howto-set-up-template.md) e substituir simuladores de dispositivos. Os dados do seu dispositivo começarão automaticamente a fluir para fHIR também. 
 
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Ligue os seus dados IoT ao Conector Azure IoT para FHIR (pré-visualização)
 > [!WARNING]
 > O modelo de mapeamento do dispositivo fornecido neste guia foi concebido para trabalhar com a Data Export (legado) dentro da IoT Central.
 
-Assim que tiver implantado a sua aplicação IoT Central, os seus dois dispositivos simulados fora da caixa começarão a gerar telemetria. Para este tutorial, vamos ingerir a telemetria do simulador *Smart Vitals Patch* em FHIR através do Conector Azure IoT para FHIR. Para exportar os seus dados IoT para o Conector Azure IoT para FHIR, vamos querer [configurar uma exportação contínua de dados dentro da IoT Central](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-legacy). Na página contínua de exportação de dados:
+Assim que tiver implantado a sua aplicação IoT Central, os seus dois dispositivos simulados fora da caixa começarão a gerar telemetria. Para este tutorial, vamos ingerir a telemetria do simulador *Smart Vitals Patch* em FHIR através do Conector Azure IoT para FHIR. Para exportar os seus dados IoT para o Conector Azure IoT para FHIR, vamos querer [configurar uma exportação contínua de dados dentro da IoT Central](../iot-central/core/howto-export-data-legacy.md). Na página contínua de exportação de dados:
 - Escolha *a Azure Event Hubs* como destino de exportação.
 - Selecione Utilize um valor *de cadeia de ligação* para o campo de espaço de nome de **Centros de Evento.**
 - Forneça o Conector Azure IoT para a cadeia de ligação do FHIR obtida num passo anterior para o campo **de cordas de ligação.**
@@ -185,7 +185,7 @@ Pode ver os recursos de observação baseados em FHIR criados pela Azure IoT Con
 > [!TIP]
 > Certifique-se de que o seu utilizador tem acesso adequado à Azure API para o plano de dados FHIR. Utilize [o controlo de acesso baseado em funções Azure (Azure RBAC)](configure-azure-rbac.md) para atribuir as funções necessárias do plano de dados.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, pode eliminar uma instância do Conector Azure IoT para fHIR removendo o grupo de recursos associado, ou o AZure API associado para o serviço FHIR, ou o Conector Azure IoT para a própria instância FHIR. 
 

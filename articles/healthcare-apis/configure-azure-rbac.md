@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.reviewer: dseven
-ms.openlocfilehash: 1df2d112814c93261c364883f4b834e0bdb657bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cadfad445c76726b1b825b131de4016a57979fa
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839916"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391845"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Configure Azure RBAC para FHIR 
 
-Neste artigo, você aprenderá a usar o [controlo de acesso baseado em funções Azure (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/) para atribuir acesso à AZure API para plano de dados FHIR. O Azure RBAC é o método preferido para atribuir o acesso a um plano de dados quando os utilizadores de planos de dados são geridos no inquilino do Azure Ative Directory associado à sua assinatura Azure. Se estiver a utilizar um inquilino externo do Azure Ative Directory, consulte a [referência de atribuição local do RBAC](configure-local-rbac.md).
+Neste artigo, você aprenderá a usar o [controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/index.yml) para atribuir acesso à AZure API para plano de dados FHIR. O Azure RBAC é o método preferido para atribuir o acesso a um plano de dados quando os utilizadores de planos de dados são geridos no inquilino do Azure Ative Directory associado à sua assinatura Azure. Se estiver a utilizar um inquilino externo do Azure Ative Directory, consulte a [referência de atribuição local do RBAC](configure-local-rbac.md).
 
 ## <a name="confirm-azure-rbac-mode"></a>Confirme o modo Azure RBAC
 
@@ -29,13 +29,13 @@ A **Autoridade** deve ser definida para o inquilino do diretório Azure Ative as
 
 ## <a name="assign-roles"></a>Atribuir funções
 
-Para conceder aos utilizadores, principais de serviço ou grupos acesso ao plano de dados FHIR, clique no **controlo de acesso (IAM)**, clique em **atribuições de Role** e clique + **Adicionar**:
+Para conceder aos utilizadores, principais de serviço ou grupos acesso ao plano de dados FHIR, clique no **controlo de acesso (IAM)** , clique em **atribuições de Role** e clique + **Adicionar** :
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Confirme o modo Azure RBAC":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Adicionar atribuição de função Azure":::
 
 Na seleção **Role,** procure uma das funções incorporadas para o plano de dados FHIR:
 
-:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Confirme o modo Azure RBAC":::
+:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Funções de dados do FHIR incorporados":::
 
 Pode escolher entre:
 
@@ -44,7 +44,7 @@ Pode escolher entre:
 * FHIR Data Exporter: Pode ler e exportar `$export` dados (operador).
 * Colaborador de dados da FHIR: Pode efetuar todas as operações do plano de dados.
 
-Se estas funções não forem suficientes para a sua necessidade, também pode [criar funções personalizadas](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell).
+Se estas funções não forem suficientes para a sua necessidade, também pode [criar funções personalizadas](../role-based-access-control/tutorial-custom-role-powershell.md).
 
 Na caixa **Select,** procure um utilizador, um responsável de serviço ou um grupo a que deseje atribuir a função.
 

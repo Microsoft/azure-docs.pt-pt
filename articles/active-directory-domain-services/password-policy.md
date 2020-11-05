@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 240b96a47c84ec3b15a356edc35549a4a197b219
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967972"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393171"
 ---
-# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Políticas de bloqueio de passwords e de conta em domínios geridos por Serviços de Domínio de Diretório Ativo
+# <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Políticas de bloqueio de passwords e de conta nos domínios geridos pelo Azure Ative Directory Domain Services
 
 Para gerir a segurança do utilizador nos Serviços de Domínio do Diretório Ativo Azure (Azure AD DS), pode definir políticas de palavra-passe de grãos finos que controlam as definições de bloqueio de conta ou o comprimento e complexidade mínimos da palavra-passe. Uma política de senha fina padrão é criada e aplicada a todos os utilizadores num domínio gerido por Azure AD DS. Para fornecer controlo granular e satisfazer necessidades específicas de negócio ou conformidade, políticas adicionais podem ser criadas e aplicadas a grupos específicos de utilizadores.
 

@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232313"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394735"
 ---
 # <a name="email-notifications-in-pim"></a>Notificações de e-mail em PIM
 
@@ -50,11 +50,11 @@ Quem recebe estes e-mails para funções Ad Azure depende do seu papel, do event
 
 | Utilizador | A ativação de funções está pendente de aprovação | O pedido de ativação de funções está concluído | PIM está ativado |
 | --- | --- | --- | --- |
-| Administrador privilegiado</br>(Ativado/Elegível) | Sim</br>(apenas se não forem especificados aprovadores explícitos) | Sim* | Sim |
-| Administrador de Segurança</br>(Ativado/Elegível) | Não | Sim* | Sim |
-| Administrador Global</br>(Ativado/Elegível) | Não | Sim* | Sim |
+| Administrador privilegiado</br>(Ativado/Elegível) | Yes</br>(apenas se não forem especificados aprovadores explícitos) | Sim* | Yes |
+| Administrador de Segurança</br>(Ativado/Elegível) | No | Sim* | Yes |
+| Administrador Global</br>(Ativado/Elegível) | No | Sim* | Yes |
 
-\*Se a [definição **de Notificações** ](pim-how-to-change-default-settings.md#notifications) estiver definida para **Ativar**.
+\*Se a [definição **de Notificações**](pim-how-to-change-default-settings.md#notifications) estiver definida para **Ativar**.
 
 O seguinte mostra um e-mail de exemplo que é enviado quando um utilizador ativa um papel AD Azure para a organização ficcional Contoso.
 
@@ -68,7 +68,7 @@ Um e-mail de gestão de identidade privilegiada semanal para funções Azure AD 
 
 O e-mail inclui quatro azulejos:
 
-| Mosaico | Descrição |
+| Mosaico | Description |
 | --- | --- |
 | **Utilizadores ativados** | Número de vezes que os utilizadores ativaram o seu papel elegível dentro da organização. |
 | **Utilizadores tornados permanentes** | O número de vezes que os utilizadores com uma atribuição elegível são permanentes. |
@@ -79,10 +79,13 @@ A visão geral da sua secção **de papéis principais** lista as cinco principa
 
 ## <a name="email-timing-for-activation-approvals"></a>Tempo de e-mail para aprovações de ativação
 
-Quando os utilizadores ativarem a sua função e a definição de função necessitar de aprovação, os aprovadores receberão três e-mails para cada aprovação:
+Quando os utilizadores ativarem a sua função e a definição de função necessitar de aprovação, os aprovadores receberão dois e-mails para cada aprovação:
 
 - Pedido de aprovação ou negação do pedido de ativação do utilizador (enviado pelo motor de aprovação do pedido)
 - O pedido do utilizador é aprovado (enviado pelo motor de aprovação do pedido)
+
+Além disso, administradores globais e administradores de funções privilegiadas recebem um e-mail para cada aprovação:
+
 - A função do utilizador é ativada (enviada pela Gestão de Identidade Privilegiada)
 
 Os dois primeiros e-mails enviados pelo motor de aprovação do pedido podem ser atrasados. Atualmente, 90% dos e-mails demoram de três a dez minutos, mas para 1% os clientes pode ser muito mais longo, até 15 minutos.

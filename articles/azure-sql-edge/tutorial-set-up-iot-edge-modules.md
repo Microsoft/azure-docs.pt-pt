@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 7b2432fda70e8f9a5fa8bc64ede846d977672e9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8c5b20f833ab09463e1ae8b5bd3825c7c23f85e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886488"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394935"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Configurar módulos e ligações IoT Edge
 
@@ -44,7 +44,7 @@ Agora, especifique as credenciais do recipiente no módulo IoT Edge.
 
    _Campo_|_Valor_
    -------|-------
-   Nome|Nome de registo
+   Name|Nome de registo
    Endereço|Servidor de início de sessão
    Nome de Utilizador|Nome de utilizador
    Palavra-passe|Palavra-passe
@@ -58,7 +58,7 @@ Agora, especifique as credenciais do recipiente no módulo IoT Edge.
 3. Forneça um nome e imagem válidos URI para o módulo IoT Edge.
    O Image URI pode ser encontrado no registo de contentores no grupo de recursos criado na primeira parte deste tutorial. Selecione a secção **repositórios** em **Serviços**. Para este tutorial, escolha o repositório `silicaprediction` nomeado. Selecione a etiqueta apropriada. O Image URI será do formato:
 
-   *servidor de login da regiessão de* / contentores *nome do repositório*:*nome da etiqueta*
+   *servidor de login da regiessão de* / contentores *nome do repositório* : *nome da etiqueta*
 
    Por exemplo:
 
@@ -77,7 +77,7 @@ Agora, especifique as credenciais do recipiente no módulo IoT Edge.
 
 2. Na lâmina **IoT Edge Module Marketplace,** procure *o Azure SQL Edge* e escolha *O Azure SQL Edge Developer*. 
 
-3. Clique no módulo *Azure SQL Edge* recém-adicionado em **Módulos IoT Edge** para configurar o módulo Azure SQL Edge. Para obter mais informações sobre as opções de configuração, consulte [Implementar Azure SQL Edge](https://docs.microsoft.com/azure/azure-sql-edge/deploy-portal).
+3. Clique no módulo *Azure SQL Edge* recém-adicionado em **Módulos IoT Edge** para configurar o módulo Azure SQL Edge. Para obter mais informações sobre as opções de configuração, consulte [Implementar Azure SQL Edge](./deploy-portal.md).
 
 4. Adicione a `MSSQL_PACKAGE` variável ambiental à implementação do módulo *Azure SQL Edge* e especifique o URL SAS do ficheiro dacpac da base de dados criado no passo 8 da [Parte um](tutorial-deploy-azure-resources.md) deste tutorial.
 

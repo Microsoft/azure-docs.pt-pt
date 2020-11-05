@@ -1,5 +1,5 @@
 ---
-title: Prepare recursos da Azure para a recuperação de desastres da Solução VMware Azure com recuperação do site Azure
+title: Preparar recursos de recuperação do local de Azure para a recuperação de desastres de VMs de Solução VMware Azure
 description: Saiba como preparar recursos Azure para a recuperação de desastres das máquinas Azure VMware Solution utilizando a Recuperação do Site Azure.
 services: site-recovery
 author: Harsha-CS
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: harshacs
 ms.custom: MVC
-ms.openlocfilehash: 83e2c46e1ce1977d0dd136e821c90843ce2de481
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bd305e3760a8c3d743037e7d90b71f5e9579eda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91814606"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395483"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-azure-vmware-solution-to-azure"></a>Prepare recursos da Azure para a recuperação de desastres da Azure VMware Solution to Azure
+# <a name="prepare-azure-site-recovery-resources-for-disaster-recovery-of-azure-vmware-solution-vms"></a>Preparar recursos de recuperação do local de Azure para a recuperação de desastres de VMs de Solução VMware Azure
 
 Este artigo descreve como preparar recursos e componentes do Azure para que possa configurar a recuperação de desastres dos VMS de Solução VMware Azure utilizando o serviço [de Recuperação do Local Azure.](site-recovery-overview.md) [A Azure VMware Solution](../azure-vmware/introduction.md) fornece nuvens privadas em Azure. Estas nuvens privadas contêm aglomerados vSphere, construídos a partir de uma infraestrutura dedicada de Azure de metal nu.
 
@@ -77,9 +77,9 @@ Para concluir estas tarefas, a conta deve estar atribuída à função incorpora
 
 1. No [portal do Azure](https://portal.azure.com), selecione **Criar um recurso** > **Rede** > **Rede virtual**.
 2. Mantenha o **Gestor de Recursos** selecionado como modelo de implementação.
-3. Em **Nome**, introduza um nome de rede. O nome tem de ser exclusivo dentro do grupo de recursos do Azure. Estamos a utilizar **ContosoASRnet** neste tutorial.
-4. No **espaço Address**, insira a gama de endereços da rede virtual na notação CDR. Estamos a usar **10.1.0.0/24.**
-5. Em **Subscrição**, selecione a subscrição na qual vai criar a rede.
+3. Em **Nome** , introduza um nome de rede. O nome tem de ser exclusivo dentro do grupo de recursos do Azure. Estamos a utilizar **ContosoASRnet** neste tutorial.
+4. No **espaço Address** , insira a gama de endereços da rede virtual na notação CDR. Estamos a usar **10.1.0.0/24.**
+5. Em **Subscrição** , selecione a subscrição na qual vai criar a rede.
 6. Especifique o **grupo de recursos** no qual a rede será criada. Estamos a utilizar o grupo de recursos **contosoRG** existente.
 7. Em **Localização,** selecione a mesma região em que o cofre dos Serviços de Recuperação foi criado. No nosso tutorial é a **Europa Ocidental.** A rede deve estar na mesma região que o cofre.
 8. No **intervalo Address,** insira o intervalo para a rede. Estamos a usar **10.1.0.0/24,** e não estamos a usar uma sub-rede.

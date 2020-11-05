@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513383"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394871"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Fluxo de dados do Conector IoT do Azure para o FHIR (pré-visualização)
 
@@ -26,7 +26,7 @@ O diagrama acima mostra fluxos de dados comuns utilizando o Conector Azure IoT p
 Abaixo estão diferentes fases que os dados passam uma vez recebidos pelo Azure IoT Connector para FHIR.
 
 ## <a name="ingest"></a>Ingerir
-Ingest é a primeira fase em que os dados do dispositivo são recebidos no Conector Azure IoT para FHIR. O ponto final de ingestão para dados do dispositivo está hospedado num [Hub de Eventos Azure](https://docs.microsoft.com/azure/event-hubs/). A plataforma Azure Event Hub suporta alta escala e produção com capacidade de receber e processar milhões de mensagens por segundo. Também permite que o Conector Azure IoT para o FHIR consuma mensagens assíncronamente, removendo a necessidade de os dispositivos esperarem enquanto os dados do dispositivo são tratados.
+Ingest é a primeira fase em que os dados do dispositivo são recebidos no Conector Azure IoT para FHIR. O ponto final de ingestão para dados do dispositivo está hospedado num [Hub de Eventos Azure](../event-hubs/index.yml). A plataforma Azure Event Hub suporta alta escala e produção com capacidade de receber e processar milhões de mensagens por segundo. Também permite que o Conector Azure IoT para o FHIR consuma mensagens assíncronamente, removendo a necessidade de os dispositivos esperarem enquanto os dados do dispositivo são tratados.
 
 > [!NOTE]
 > JSON é o único formato suportado neste momento para os dados do dispositivo.

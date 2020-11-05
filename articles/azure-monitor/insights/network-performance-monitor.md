@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: c8dcddcd3d928758557074bf01d92e4bcc57ee1d
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 1bb2b7ca22896ed279c8aac215109b7f7bc7854c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279444"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394276"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução monitor de desempenho de rede em Azure
 
@@ -100,11 +100,11 @@ Para as máquinas Linux, os portNumbers devem ser utilizados manualmente.
 
 O script cria chaves de registo necessárias pela solução. Também cria regras do Windows Firewall para permitir que os agentes criem ligações TCP entre si. As teclas de registo criadas pelo script especificam se registam os registos de depurg e o caminho para o ficheiro de registos. O script também define a porta TCP do agente utilizada para a comunicação. Os valores destas teclas são automaticamente definidos pelo script. Não mude manualmente estas chaves. A porta aberta por defeito é 8084. Pode utilizar uma porta personalizada fornecendo o parâmetro portNumber ao script. Use a mesma porta em todos os computadores onde o script é executado. 
 
-    >[!NOTE]
-    > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
+   >[!NOTE]
+   > O script configura apenas o Windows Firewall localmente. Se tiver uma firewall de rede, certifique-se de que permite o tráfego destinado à porta TCP utilizada pelo Network Performance Monitor.
 
-    >[!NOTE]
-    > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Connectivity Monitor.
+   >[!NOTE]
+   > Não é necessário executar o [EnableRules.ps1](https://aka.ms/npmpowershellscript ) script PowerShell para o Monitor de Conectividade de Serviço.
 
     
 
@@ -167,7 +167,7 @@ Todos os nós que têm um agente instalado neles estão listados no **separador 
 
 1. Selecione ou limpe os nós que pretende monitorizar ou pare de monitorizar. 
 2. Selecione **Utilização para Monitorização,** ou limpe-o, conforme apropriado. 
-3. Selecione **Guardar**. 
+3. Selecione **Save** (Guardar). 
 
 
 Configure as capacidades que deseja:
@@ -183,7 +183,7 @@ Para recolher informações sobre perdas e latência, o Network Performance Moni
 
 A tabela seguinte mostra métodos de recolha de dados e outros detalhes sobre como os dados são recolhidos para o Monitor de Desempenho da Rede.
 
-| Plataforma | Agente direto | Agente gestor de operações do Centro de Sistema | Storage do Azure | Diretor de Operações necessário? | Dados de agente do Gestor de Operações enviados através do grupo de gestão | Frequência da recolha |
+| Plataforma | Agente direto | Agente gestor de operações do Centro de Sistema | Armazenamento do Azure | Diretor de Operações necessário? | Dados de agente do Gestor de Operações enviados através do grupo de gestão | Frequência da recolha |
 | --- | --- | --- | --- | --- | --- | --- |
 | Windows | &#8226; | &#8226; |  |  |  |Apertos de mão TCP/ICMP MENSAGEns ECHO a cada 5 segundos, dados enviados a cada 3 minutos |
  

@@ -11,12 +11,12 @@ ms.topic: end-user-help
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 04076ed5b91f8e840a084b784477d07eea5adee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cba8837fc738884fc187b13083487c2ab62d25f0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015975"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392582"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Adicionar contas não Microsoft à aplicação Microsoft Authenticator
 
@@ -36,7 +36,7 @@ Geralmente, para todas as suas contas pessoais, deve:
     >[!Note]
     >Se esta for a primeira vez que está a configurar a aplicação Microsoft Authenticator, poderá receber uma solicitação a perguntar se permite que a app aceda à sua câmara (iOS) ou se permite que a app tire fotografias e grave vídeos (Android). Tem de selecionar **Permitir** que a aplicação autenticadora possa aceder à sua câmara para tirar uma fotografia do código QR no passo seguinte. Se não permitir a câmara, ainda pode configurar a aplicação autenticadora, mas terá de adicionar manualmente a informação de código. Para obter informações sobre como adicionar o código manualmente, consulte [manualmente adicionar uma conta à aplicação.](user-help-auth-app-add-account-manual.md)
 
-Estamos a fornecer o processo para as suas contas de Facebook, Google, GitHub e Amazon, mas este processo é o mesmo para qualquer outra app, como o Instagram, Netflix ou Adobe.
+Estamos a fornecer o processo para as suas contas de Facebook, Google, GitHub e Amazon, mas o processo é o mesmo para outras apps, como o Instagram e a Adobe.
 
 ## <a name="add-your-google-account"></a>Adicione a sua conta Google
 
@@ -44,7 +44,7 @@ Adicione a sua conta Google ligando a verificação de dois fatores e adicionand
 
 ### <a name="turn-on-two-factor-verification"></a>Ligue a verificação de dois fatores
 
-1. No seu computador, vá https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome para, **selecione Get Started**, e, em seguida, verifique a sua identidade.
+1. No seu computador, vá https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome para, **selecione Get Started** , e, em seguida, verifique a sua identidade.
 
 2. Siga os passos na página para ligar a verificação em duas etapas para a sua conta pessoal do Google.
 

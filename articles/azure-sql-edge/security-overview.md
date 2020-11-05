@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 737c7e61a7ae0573ca6de0d6daa8288313f70741
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: cb673efb3e5d14e72e945bcf8c23d57495823720
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201907"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394956"
 ---
 # <a name="securing-azure-sql-edge"></a>Segurança Azure SQL Edge
 
@@ -34,7 +34,7 @@ A implementação da segurança da plataforma começa por manter os utilizadores
 - Especificar e restringir portas hospedeiras que estão a usar para Azure SQL Edge
 - Garantindo que o controlo adequado do acesso é aplicado a todos os volumes de dados que acolhem dados do Azure SQL Edge. 
 
-Para obter mais informações sobre os protocolos de rede Azure SQL Edge e pontos finais TDS consulte, [Protocolos de Rede e Pontos Finais TDS](https://docs.microsoft.com//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
+Para obter mais informações sobre os protocolos de rede Azure SQL Edge e pontos finais TDS consulte, [Protocolos de Rede e Pontos Finais TDS](//previous-versions/sql/sql-server-2008-r2/ms191220(v=sql.105)).
 
 ## <a name="authentication-and-authorization"></a>Autenticação e autorização 
 
@@ -45,13 +45,13 @@ A autenticação é o processo de provar que o utilizador é quem diz ser. A Azu
 
     A autenticação SQL refere-se à autenticação de um utilizador ao ligar-se ao Azure SQL Edge utilizando o nome de utilizador e a palavra-passe. A palavra-passe de login SQL **sa** deve ser especificada durante a implementação do SQL Edge. Depois disso, podem ser criados logins e utilizadores SQL adicionais pela administração do servidor, que permitem aos utilizadores conectar-se usando o nome de utilizador e a palavra-passe.
 
-    Para obter mais informações sobre a criação e gestão de logins e utilizadores em SQL Edge, consulte [Criar um Utilizador de Login](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) e Criar Base de [Dados](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-database-user).
+    Para obter mais informações sobre a criação e gestão de logins e utilizadores em SQL Edge, consulte [Criar um Utilizador de Login](/sql/relational-databases/security/authentication-access/create-a-login) e Criar Base de [Dados](/sql/relational-databases/security/authentication-access/create-a-database-user).
 
 ### <a name="authorization"></a>Autorização   
 
-A autorização refere-se às permissões atribuídas a um utilizador dentro de uma base de dados em Azure SQL Edge, e determina o que o utilizador está autorizado a fazer. As permissões são controladas adicionando contas de utilizador às [funções de base](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) de dados e atribuindo permissões de nível de base a essas funções ou concedendo ao utilizador [determinadas permissões ao nível dos objetos](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine). Para mais informações, consulte [Logins e utilizadores.](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage)
+A autorização refere-se às permissões atribuídas a um utilizador dentro de uma base de dados em Azure SQL Edge, e determina o que o utilizador está autorizado a fazer. As permissões são controladas adicionando contas de utilizador às [funções de base](/sql/relational-databases/security/authentication-access/database-level-roles) de dados e atribuindo permissões de nível de base a essas funções ou concedendo ao utilizador [determinadas permissões ao nível dos objetos](/sql/relational-databases/security/permissions-database-engine). Para mais informações, consulte [Logins e utilizadores.](../azure-sql/database/logins-create-manage.md)
 
-Como uma boa prática, crie papéis personalizados quando necessário. Adicione os utilizadores ao papel com os privilégios menos necessários para fazer a sua função de trabalho. Não adtribua permissões diretamente aos utilizadores. A conta de administração do servidor é um membro da função de db_owner incorporada, que tem permissões extensivas e só deve ser concedida a poucos utilizadores com funções administrativas. Para aplicações, utilize o [EXECUTE AS](https://docs.microsoft.com/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar o contexto de execução do módulo ou utilizar [funções de aplicação](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/application-roles) com permissões limitadas. Esta prática garante que a aplicação que se liga à base de dados tem os privilégios menos necessários pela aplicação. Seguir estas boas práticas também fomenta a separação de deveres.
+Como uma boa prática, crie papéis personalizados quando necessário. Adicione os utilizadores ao papel com os privilégios menos necessários para fazer a sua função de trabalho. Não adtribua permissões diretamente aos utilizadores. A conta de administração do servidor é um membro da função de db_owner incorporada, que tem permissões extensivas e só deve ser concedida a poucos utilizadores com funções administrativas. Para aplicações, utilize o [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) para especificar o contexto de execução do módulo ou utilizar [funções de aplicação](/sql/relational-databases/security/authentication-access/application-roles) com permissões limitadas. Esta prática garante que a aplicação que se liga à base de dados tem os privilégios menos necessários pela aplicação. Seguir estas boas práticas também fomenta a separação de deveres.
 
 ## <a name="database-object-security"></a>Segurança de objetos de base de dados
 
@@ -59,8 +59,8 @@ Os principais são os indivíduos, grupos e processos que têm acesso ao SQL Edg
 
 |Para obter informações sobre|Consulte|  
 |---------------------------|---------|  
-|Utilizadores, funções e processos de servidor e base de dados|[Motor de base de dados dos principais](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/principals-database-engine)|  
-|Segurança de objetos de servidor e de base de dados|[Garantias](https://docs.microsoft.com/sql/relational-databases/security/securables)|
+|Utilizadores, funções e processos de servidor e base de dados|[Motor de base de dados dos principais](/sql/relational-databases/security/authentication-access/principals-database-engine)|  
+|Segurança de objetos de servidor e de base de dados|[Garantias](/sql/relational-databases/security/securables)|
 | &nbsp; | &nbsp; |
 
 ### <a name="encryption-and-certificates"></a>Encriptação e certificados  
@@ -69,47 +69,46 @@ A encriptação não resolve problemas de controlo de acesso. No entanto, aument
   
 |Para obter informações sobre|Consulte|  
 |---------------------------|---------|  
-|Implementação de ligações seguras|[Encriptação de Ligações](https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections)|  
-|Funções de encriptação|[Funções Criptográficas &#40;&#41;Transact-SQL ](https://docs.microsoft.com/sql/t-sql/functions/cryptographic-functions-transact-sql)|
-|Encriptação de dados em repouso|[Encriptação de Dados Transparente](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption)|
-|Sempre Encriptado|[Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)|
+|Implementação de ligações seguras|[Encriptação de Ligações](/sql/linux/sql-server-linux-encrypted-connections)|  
+|Funções de encriptação|[Funções Criptográficas &#40;&#41;Transact-SQL ](/sql/t-sql/functions/cryptographic-functions-transact-sql)|
+|Encriptação de dados em repouso|[Encriptação de Dados Transparente](/sql/relational-databases/security/encryption/transparent-data-encryption)|
+|Sempre Encriptado|[Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)|
 | &nbsp; | &nbsp; |
 
 > [!NOTE]
-> As limitações de segurança descritas para [o SQL Server em Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-security-overview) também se aplicam ao Azure SQL Edge. 
+> As limitações de segurança descritas para [o SQL Server em Linux](/sql/linux/sql-server-linux-security-overview) também se aplicam ao Azure SQL Edge. 
 
 
 > [!NOTE]
 > A Azure SQL Edge não inclui o utilitário mssql-conf. Todas as configurações, incluindo a configuração relacionada com encriptação, devem ser executadas através do [ficheiro mssql.conf](configure.md#configure-by-using-an-mssqlconf-file) ou [das variáveis ambientais](configure.md#configure-by-using-environment-variables). 
 
 
-Semelhante ao Azure SQL e ao Microsoft SQL Server, o Azure SQL Edge fornece o mesmo mecanismo para criar e utilizar certificados para melhorar a segurança de objetos e ligações. Para obter mais informações, consulte, [CRIE CERTIFICADO (TRANSACT-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql).
+Semelhante ao Azure SQL e ao Microsoft SQL Server, o Azure SQL Edge fornece o mesmo mecanismo para criar e utilizar certificados para melhorar a segurança de objetos e ligações. Para obter mais informações, consulte, [CRIE CERTIFICADO (TRANSACT-SQL)](/sql/t-sql/statements/create-certificate-transact-sql).
 
 
 ## <a name="application-security"></a>Segurança de aplicações
 
 ### <a name="client-programs"></a>Programas de clientes
 
-As melhores práticas de segurança da Azure SQL Edge incluem a escrita de aplicações seguras para clientes. Para obter mais informações sobre como ajudar a proteger as aplicações do cliente na camada de rede, consulte a [Configuração da Rede do Cliente.](https://docs.microsoft.com/sql/database-engine/configure-windows/client-network-configuration)
+As melhores práticas de segurança da Azure SQL Edge incluem a escrita de aplicações seguras para clientes. Para obter mais informações sobre como ajudar a proteger as aplicações do cliente na camada de rede, consulte a [Configuração da Rede do Cliente.](/sql/database-engine/configure-windows/client-network-configuration)
 
 ### <a name="security-catalog-views-and-functions"></a>Vistas e funções do catálogo de segurança  
 As informações de segurança são expostas em várias vistas e funções otimizadas para desempenho e utilidade. A tabela seguinte contém informações sobre vistas e funções de segurança em Azure SQL Edge.  
   
 |Funções e vistas|Ligações|  
 |---------------------------|---------|  
-|Vistas de catálogo de segurança, que devolvem informações sobre permissões de nível de base de dados e servidores, principais, funções, e assim por diante. Além disso, existem vistas de catálogo que fornecem informações sobre chaves de encriptação, certificados e credenciais.|[Vistas do catálogo de segurança &#40;&#41;Transact-SQL ](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/security-catalog-views-transact-sql)|  
-|Funções de segurança, que devolvem informações sobre o utilizador atual, permissões e esquemas.|[Funções de Segurança &#40;&#41;Transact-SQL ](https://docs.microsoft.com/sql/t-sql/functions/security-functions-transact-sql)|  
-|Pontos de vista dinâmicos de gestão de segurança.|[Vistas e funções dinâmicas relacionadas com a segurança &#40;&#41;Transact-SQL ](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)|  
+|Vistas de catálogo de segurança, que devolvem informações sobre permissões de nível de base de dados e servidores, principais, funções, e assim por diante. Além disso, existem vistas de catálogo que fornecem informações sobre chaves de encriptação, certificados e credenciais.|[Vistas do catálogo de segurança &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/security-catalog-views-transact-sql)|  
+|Funções de segurança, que devolvem informações sobre o utilizador atual, permissões e esquemas.|[Funções de Segurança &#40;&#41;Transact-SQL ](/sql/t-sql/functions/security-functions-transact-sql)|  
+|Pontos de vista dinâmicos de gestão de segurança.|[Vistas e funções dinâmicas relacionadas com a segurança &#40;&#41;Transact-SQL ](/sql/relational-databases/system-dynamic-management-views/security-related-dynamic-management-views-and-functions-transact-sql)|  
 | &nbsp; | &nbsp; |
 
 ### <a name="auditing"></a>Auditoria 
 
-O Azure SQL Edge fornece os mesmos mecanismos de auditoria que o SQL Server. Para obter mais informações, consulte [a Auditoria do Servidor SQL (Motor de Base de Dados)](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine).
+O Azure SQL Edge fornece os mesmos mecanismos de auditoria que o SQL Server. Para obter mais informações, consulte [a Auditoria do Servidor SQL (Motor de Base de Dados)](/sql/relational-databases/security/auditing/sql-server-audit-database-engine).
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Começar com funcionalidades de segurança](https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started)
+- [Começar com funcionalidades de segurança](/sql/linux/sql-server-linux-security-get-started)
 - [Executando Azure SQL Edge como um utilizador sem raízes](configure.md#run-azure-sql-edge-as-non-root-user)
-- [Centro de Segurança Azure para IoT](https://docs.microsoft.com/azure/asc-for-iot/overview)
-
+- [Centro de Segurança Azure para IoT](../defender-for-iot/overview.md)
