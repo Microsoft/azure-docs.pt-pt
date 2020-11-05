@@ -147,8 +147,6 @@
       items:
         - name: Publicar na Origem de Dados da Aplicações
           href: howto-get-appsource-certified.md
-        - name: Publicar na Galeria da Aplicação Azure AD
-          href: howto-app-gallery-listing.md
         - name: "Publicar no Dashboard de Vendedor do Office\_365"
           href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
     - name: Serviço de Controlo de Acesso do Azure
