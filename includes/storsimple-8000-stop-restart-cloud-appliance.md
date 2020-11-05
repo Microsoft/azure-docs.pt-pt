@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c10482029e6cfce7063d205161fed54030919c48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a01f91a81629800d3f03b907c65f05433b6163e6
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184317"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376162"
 ---
 #### <a name="to-stop-and-start-a-cloud-appliance"></a>Para parar e iniciar uma aplicação da cloud
 
@@ -18,19 +18,19 @@ ms.locfileid: "67184317"
 
 2. A partir da barra de comandos, clique em **Parar**.
 
-    ![Máquina Virtual do StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart2.png)
+    ![Máquina virtual de eletrodoméstico storSimple cloud 2](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart2.png)
 
 3. Quando lhe for pedida a confirmação, clique em **Sim**.
 
-    ![Máquina Virtual do StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart3.png)
+    ![Máquina virtual de aparelho em nuvem StorSimple 3](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart3.png)
 
 4. Quando parar uma VM, esta é desalocada. Enquanto a aplicação da cloud está a parar, o respetivo estado é **A desalocar**. Depois de a aplicação da cloud estar parada, o respetivo estado é **Parada (desalocada)**.
 
-    ![Máquina Virtual do StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
+    ![Máquina virtual de aparelho em nuvem StorSimple 4](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart4.png)
 
 5. Depois de uma VM estar parada, clique em **Iniciar** (o botão torna-se disponível) para iniciar a VM. Depois de a aplicação da cloud ter iniciado, o respetivo estado é **Iniciado**.
 
-    ![Máquina Virtual do StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart5.png)
+    ![Máquina virtual de aparelho em nuvem StorSimple 5](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart5.png)
 
 Utilize os seguintes cmdlets para parar e iniciar uma aplicação da cloud.
 
@@ -42,7 +42,7 @@ Utilize os seguintes cmdlets para parar e iniciar uma aplicação da cloud.
 
 Para reiniciar uma aplicação da cloud, vá para a VM da mesma. A partir da barra de comandos, clique em **Reiniciar**. Quando lhe for perguntado, confirme o reinício. Quando a aplicação da cloud estiver pronta para ser utilizada, o seu estado será **Em Execução**.
 
-![Máquina Virtual do StorSimple Cloud Appliance](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart6.png)
+![Máquina virtual de aparelho em nuvem StorSimple 6](./media/storsimple-8000-stop-restart-cloud-appliance/sca-stop-restart6.png)
 
 Utilize os seguintes cmdlets para reiniciar uma aplicação da cloud.
 

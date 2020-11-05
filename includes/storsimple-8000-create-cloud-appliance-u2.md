@@ -4,21 +4,21 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d1ca6d37d6133786aff7ad3156fea2a0c22dfb97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184323"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376141"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>Para criar uma aplicação da cloud
 
 1. No portal do Azure, aceda ao serviço **Gestor de Dispositivos do StorSimple**.
 2. Aceda ao painel **Dispositivos**. A partir da barra de comando no painel de resumo de serviço, clique em **Criar aplicação da cloud**.
     ![StorSimple cria aplicação da cloud](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
-3. No painel **Criar aplicação da cloud**, especifique os seguintes detalhes.
+3. No painel **Criar aplicação da cloud** , especifique os seguintes detalhes.
    
-    ![StorSimple cria aplicação da cloud](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
+    ![StorSimple criar aparelho em nuvem 2](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
    1. **Nome** – um nome exclusivo para a sua aplicação da cloud.
    2. **Modelo** – escolha o modelo da aplicação da cloud. Um dispositivo 8010 oferece 30 TB de armazenamento Standard ao passo que o 8020 tem 64 TB de armazenamento Premium. Especifique o 8010 para implementar cenários de obtenção ao nível de itens a partir de cópias de segurança. Selecione 8020 para implementar cargas de trabalho de elevado desempenho e de baixa latência ou para utilizar como um dispositivo secundário para recuperação após desastre.

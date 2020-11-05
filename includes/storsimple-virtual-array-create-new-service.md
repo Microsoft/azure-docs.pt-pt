@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bdbfd8ffd44f9515ae4df20c55b09c8a0adcaef
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507424"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375776"
 ---
 #### <a name="to-create-a-new-service"></a>Para criar um novo serviço
 
@@ -45,7 +45,7 @@ ms.locfileid: "87507424"
 
     7.  Clique em **Criar** para criar o Gestor de Dispositivos do StorSimple.
 
-        ![Criar novo serviço](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
+        ![Criar novo serviço 2](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 Você está direcionado para a página de aterragem do **Serviço.** A criação do serviço demora alguns minutos. Após criar o serviço com êxito, será devidamente notificado e o estado do serviço será alterado para **Ativo**.
 
