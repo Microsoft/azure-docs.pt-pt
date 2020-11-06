@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 75e24f9437257769a3d9bfd69980a9b8606d0563
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 0670107d84374589aa60cc18f184b9b3d3facce1
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424116"
+ms.locfileid: "94331809"
 ---
 # <a name="azure-database-for-mysql-versioning-policy"></a>Base de dados Azure para a política de versão MySQL
 
@@ -48,12 +48,13 @@ O quadro abaixo fornece os detalhes da reforma para as principais versões do My
 ## <a name="retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql"></a>Versões de motor MySQL aposentadas não suportadas na Base de Dados Azure para o MySQL
 
 Após a data de aposentadoria de cada versão da base de dados MySQL, se continuar a executar a versão aposentada, note as seguintes restrições:
-- Uma vez que a comunidade não irá lançar quaisquer correções de bugs ou correções de segurança, o Azure para o MySQL não irá corrigir o motor de base de dados reformado para quaisquer bugs ou problemas de segurança ou de outra forma tomar medidas de segurança no que diz respeito ao motor de base de dados reformado. No entanto, o Azure continuará a realizar manutenção e remendos periódicos para o hospedeiro, os contentores e quaisquer outros componentes relacionados com o serviço.
+- Uma vez que a comunidade não irá lançar quaisquer correções de bugs ou correções de segurança, a Azure Database for MySQL não irá corrigir o motor de base de dados reformado para quaisquer problemas de segurança ou tomar medidas de segurança no que diz respeito ao motor de base de dados reformado. No entanto, o Azure continuará a realizar manutenção e remendos periódicos para o hospedeiro, os contentores e quaisquer outros componentes relacionados com o serviço.
 - Se algum problema de suporte que possa ter relacionado com a base de dados MySQL, poderemos não ser capazes de lhe fornecer suporte. Nesses casos, terá de atualizar a sua base de dados para que lhe forneçamos qualquer suporte.
 - Não será possível criar novos servidores de base de dados para a versão reformada. No entanto, poderá realizar recuperações pontuais e criar réplicas de leitura para os seus servidores existentes.
 - As novas capacidades de serviço desenvolvidas pela Azure Database para o MySQL só podem estar disponíveis para versões suportadas do servidor de bases de dados.
 - As SLAs de uptime aplicar-se-ão exclusivamente à Base de Dados Azure para problemas relacionados com o serviço MySQL e não a qualquer tempo de inatividade causado por erros relacionados com o motor da base de dados.  
-- No caso extremo de uma ameaça séria ao serviço causado pela vulnerabilidade do motor de base de dados MySQL identificada na versão de base de dados aposentada, o Azure pode optar por parar o nó de computação do seu servidor de base de dados para garantir primeiro o serviço. Será solicitado que atualize o servidor antes de colocar o servidor on-line. Durante o processo de atualização, os seus dados serão sempre protegidos utilizando cópias de segurança automáticas realizadas no serviço que podem ser utilizadas para restaurar a versão mais antiga, se desejar.
+- No caso extremo de uma ameaça séria ao serviço causado pela vulnerabilidade do motor de base de dados MySQL identificada na versão de base de dados aposentada, a Azure pode optar por parar o nó de computação do seu servidor de base de dados para garantir primeiro o serviço. Será solicitado que atualize o servidor antes de colocar o servidor on-line. Durante o processo de atualização, os seus dados serão sempre protegidos utilizando cópias de segurança automáticas realizadas no serviço que podem ser utilizadas para restaurar a versão mais antiga, se desejar. 
+
 
 
 ## <a name="next-steps"></a>Passos seguintes

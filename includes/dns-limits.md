@@ -2,14 +2,14 @@
 author: rothja
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 2/14/2020
+ms.date: 11/05/2020
 ms.author: rohink
-ms.openlocfilehash: 0f7187300ec96ce417866c4fb8fa02783c1da63a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7011b92485c56187021c9043ba84bc85e448a98f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86515887"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329600"
 ---
 **Zonas públicas de DNS**
 
@@ -33,7 +33,7 @@ ms.locfileid: "86515887"
 | Links de redes virtuais por zonas privadas de DNS com registo automático |100|
 | Número de zonas privadas de DNS a que uma rede virtual pode ficar ligada com o registo automático ativado |1|
 | Número de zonas privadas de DNS uma rede virtual pode ficar ligada |1000|
-| Número de consultas dns uma máquina virtual pode enviar para Azure DNS resolver, por segundo |500 <sup>1</sup> |
+| Número de consultas dns uma máquina virtual pode enviar para Azure DNS resolver, por segundo |1000 <sup>1</sup> |
 | Número máximo de consultas dns em fila (resposta pendente) por máquina virtual |200 <sup>1</sup> |
 
 <sup>1</sup> Estes limites são aplicados a cada máquina virtual individual e não ao nível da rede virtual. As consultas de DNS que excedam estes limites são retiradas.

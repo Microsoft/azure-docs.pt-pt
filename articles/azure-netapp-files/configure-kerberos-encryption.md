@@ -12,18 +12,22 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: edb084a3539f4ab25f328d4cc59ee4ef3279bf07
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f4b485e79bfa89fe293c99fc4e84fc8c0729396a
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217053"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331894"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configure encriptação NFSv4.1 Kerberos para ficheiros Azure NetApp
 
 O Azure NetApp Files suporta a encriptação do cliente NFS nos modos Kerberos (krb5, krb5i e krb5p) com encriptação AES-256. Este artigo descreve as configurações necessárias para a utilização de um volume NFSv4.1 com encriptação Kerberos.
+
+## <a name="considerations"></a>Considerações
+
+* Os volumes de encriptação NFSv4.1 Kerberos não suportam atualmente os Serviços de Domínio do Diretório Ativo Azure (AADDS). 
 
 ## <a name="requirements"></a>Requisitos
 
@@ -40,7 +44,7 @@ Os seguintes requisitos aplicam-se à encriptação do cliente NFSv4.1:
 
 1.  Siga os passos na [Criação de um volume NFS para ficheiros Azure NetApp](azure-netapp-files-create-volumes.md) para criar o volume NFSv4.1.   
 
-    Na página Criar um Volume, desabrava a versão **NFS para NFSv4.1**, e desembrasse Kerberos para **Enabled**.
+    Na página Criar um Volume, desabrava a versão **NFS para NFSv4.1** , e desembrasse Kerberos para **Enabled**.
 
     > [!IMPORTANT] 
     > Não é possível modificar a seleção de ativação Kerberos após a criação do volume.

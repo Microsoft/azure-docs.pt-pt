@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 12bec5af95e7da595d5af09fe9020992b1cf839d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 99fa8d4cf8f48d0fe72da36baef20c83add438c0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367997"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330262"
 ---
 # <a name="azure-expressroute-with-azure-site-recovery"></a>Azure ExpressRoute com recuperação do local de Azure
 
@@ -31,7 +31,7 @@ Um circuito ExpressRoute tem vários domínios de encaminhamento associados. Sai
 
 A recuperação do site Azure permite a recuperação de desastres e migração para Azure para [máquinas virtuais Hiper-V](hyper-v-azure-architecture.md)no local, [máquinas virtuais VMware](vmware-azure-architecture.md)e [servidores físicos](physical-azure-architecture.md). Para todos os cenários do Azure, os dados de replicação são enviados e armazenados numa conta de Armazenamento Azure. Durante a replicação, não se paga qualquer carga de máquina virtual. Quando corre uma falha no Azure, a Recuperação do Site cria automaticamente máquinas virtuais Azure IaaS.
 
-A Recuperação do Site replica dados numa conta de Armazenamento Azure ou réplica do Disco Gerido na região de Azure alvo sobre um ponto final público. Para utilizar o Tráfego de Replicação do ExpressRoute para recuperação de locais, pode utilizar [o espreitamento](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) da Microsoft ou um [espremo público](../expressroute/about-public-peering.md) existente (precotado para novas criações). O espreitamento da Microsoft é o domínio de encaminhamento recomendado para replicação. Note que a replicação não é suportada sobre o espreitamento privado.
+A Recuperação do Site replica dados numa conta de Armazenamento Azure ou réplica do Disco Gerido na região de Azure alvo sobre um ponto final público. Para utilizar o Tráfego de Replicação do ExpressRoute para recuperação de locais, pode utilizar [o espreitamento](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) da Microsoft ou um [espremo público](../expressroute/about-public-peering.md) existente (precotado para novas criações). O espreitamento da Microsoft é o domínio de encaminhamento recomendado para replicação. Note que a replicação só é suportada em observação privada quando [os pontos de extremidades privadas são ativados para o cofre](hybrid-how-to-enable-replication-private-endpoints.md).
 
 Certifique-se de que os [requisitos de rede](vmware-azure-configuration-server-requirements.md#network-requirements) para o servidor de configuração também estão cumpridos. A conectividade com URLs específicos é necessária pelo Servidor de Configuração para orquestração da replicação da recuperação do local. O ExpressRoute não pode ser utilizado para esta conectividade. 
 

@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: networking
 author: anavinahar
 ms.service: networking
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: baf3d02e1c0ecf51ddea043ee560d5054f09d057
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d5c9c4a0191c6d5effd8f6067cb6602ed239125
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91936080"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94329471"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede - Gestor de Recursos Azure
 Os seguintes limites aplicam-se apenas aos recursos de rede geridos através **do Azure Resource Manager** por região por subscrição. Saiba como ver o [uso do seu recurso atual contra os limites de subscrição.](../articles/networking/check-usage-against-limits.md)
@@ -55,6 +55,7 @@ Os seguintes limites aplicam-se apenas aos recursos de rede geridos através **d
 | Endereços IP públicos<sup>1</sup> | 10 para o Básico. | Contacte o suporte. |
 | Endereços IP públicos estáticos<sup>1</sup> | 10 para o Básico. | Contacte o suporte. |
 | Endereços IP públicos<sup>padrão 1</sup> | 10 | Contacte o suporte. |
+| [Endereços IP públicos por Grupo de Recursos](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md#microsoftnetwork) | 800 | Contacte o suporte. | 
 | Prefixos de IP Públicos | limitado pelo número de IPs públicos padrão numa subscrição | Contacte o suporte. |
 | Comprimento do prefixo IP público | /28 | Contacte o suporte. |
 
@@ -106,6 +107,6 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Rotas definidas pelo utilizador por tabela de rotas |400 |400 |
 | Endereços IP públicos (dinâmico) |500 |500 |
 | Endereços IP públicos reservados |500 |500 |
-| VIP público por implementação |5 |Contactar o suporte |
-| VIP privado (equilíbrio interno da carga) por implantação |1 |1 |
+| IP público por implantação |5 |Contactar o suporte |
+| IP privado (equilíbrio interno da carga) por implantação |1 |1 |
 | Listas de controlo de acesso ao ponto final (ACLs) |50 |50 |

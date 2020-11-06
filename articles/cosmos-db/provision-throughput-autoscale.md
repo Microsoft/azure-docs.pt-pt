@@ -6,21 +6,19 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 78fbdbb91925bbe9954cc7a17e194de9c78c6389
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ada16c98eef516056bd3c139bddc8187fb0fe38
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097350"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330619"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contentores e bases de dados da Azure Cosmos com produção de escala automática
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-O Azure Cosmos DB permite definir o débito aprovisionado padrão (manual) ou de dimensionamento automático nas bases de dados e nos contentores. Este artigo descreve os benefícios e os casos de utilização do débito aprovisionado de dimensionamento automático. 
+Na Azure Cosmos DB, pode configurar o rendimento padrão (manual) ou autoescalado nas suas bases de dados e contentores. A produção provisitada por autoescalação na Azure Cosmos DB **permite-lhe escalar a produção (RU/s) da sua base de dados ou contentor automaticamente e instantaneamente**. A produção é dimensionada com base na utilização, sem afetar a disponibilidade, latência, produção ou desempenho da carga de trabalho.
 
-A produção de autoescalação é adequada para cargas de trabalho críticas de missão que têm padrões de tráfego variáveis ou imprevisíveis, e requerem SLAs em alto desempenho e escala. 
-
-Com a autoescala, a Azure Cosmos DB **escala automaticamente e instantaneamente a produção (RU/s)** da sua base de dados ou contentor com base na utilização, sem afetar a disponibilidade, latência, produção ou desempenho da carga de trabalho. 
+A produção de autoescalação é adequada para cargas de trabalho críticas de missão que têm padrões de tráfego variáveis ou imprevisíveis, e requerem SLAs em alto desempenho e escala. Este artigo descreve os benefícios e os casos de utilização do débito aprovisionado de dimensionamento automático.
 
 ## <a name="benefits-of-autoscale"></a>Benefícios da autoescala
 

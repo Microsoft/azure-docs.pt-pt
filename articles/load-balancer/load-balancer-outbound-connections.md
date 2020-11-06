@@ -1,6 +1,6 @@
 ---
-title: Esquilibrador de carga de azure de saída
-description: Descreve como o Azure Load Balancer é usado como um proxy para a conectividade de saída da Internet
+title: SNAT para ligações de saída
+description: Descreve como o Azure Load Balancer é usado para executar SNAT para conectividade de internet de saída
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -8,28 +8,31 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 185bb47677e978a3098f39024995da6399f90658
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b3924a563d8266cfa38f24106dbb84102031a182
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241774"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331877"
 ---
-# <a name="outbound-proxy-azure-load-balancer"></a>Esquilibrador de carga de azure de saída
+# <a name="using-snat-for-outbound-connections"></a>Utilização de SNAT para ligações de saída
 
-Um equilibrador de carga Azure pode ser usado como um proxy para a conectividade de saída da Internet. O equilibrador de carga fornece a conectividade de saída para as instâncias de backend. 
+Os IPs frontend de um equilibrador de carga pública Azure podem ser usados para fornecer conectividade de saída à internet para instâncias de backend. Esta configuração utiliza **tradução de endereço de rede de origem (SNAT)**. O SNAT reescreve o endereço IP do backend para o endereço IP público do seu equilibrador de carga. 
 
-Esta configuração utiliza **tradução de endereço de rede de origem (SNAT)** . O SNAT reescreve o endereço IP do backend para o endereço IP público do seu equilibrador de carga. 
+O SNAT permite **mascarar IP** da instância backend. Esta mascarada impede que fontes externas tenham um endereço direto para as instâncias de backend. A partilha de um endereço IP entre instâncias de backend reduz o custo dos IPs públicos estáticos e suporta cenários como a simplificação de IP permite listas com tráfego de IPs públicos conhecidos. 
 
-O SNAT permite **mascarar IP** da instância backend. Esta mascarada impede que fontes externas tenham um endereço direto para as instâncias de backend. 
+>[!Note]
+> Para aplicações com isso requerem um grande número de ligações de saída ou clientes empresariais que exigem que um único conjunto de IPs sejam usados a partir de uma determinada rede virtual, [o VIRTUAL Network NAT](https://docs.microsoft.com/azure/virtual-network/nat-overview) é a solução recomendada. A sua alocação dinâmica permite uma configuração simples e > a utilização mais eficiente das portas SNAT a partir de cada endereço IP. Também permite que todos os recursos da rede virtual partilhem um conjunto de endereços IP sem necessidade de partilhar > um equilibrador de carga.
 
-A partilha de um endereço IP entre instâncias de backend reduz o custo dos IPs públicos estáticos e suporta cenários como a simplificação de IP permite listas com tráfego de IPs públicos conhecidos. 
+>[!Important]
+> Mesmo sem o SNAT de saída configurado, as contas de armazenamento do Azure na mesma região continuarão a ser acessíveis e os recursos de backend continuarão a ter acesso a serviços da Microsoft, como o Windows Updates.
 
-## <a name="sharing-ports-across-resources"></a><a name ="snat"></a> Partilha de portos através de recursos
+>[!NOTE] 
+>Este artigo abrange apenas as implementações do Azure Resource Manager. Reveja [as ligações de saída (Classic)](load-balancer-outbound-connections-classic.md) para todos os cenários clássicos de implantação em Azure.
 
-Se os recursos de backend de um balanceador de carga não tiverem endereços IP públicos de nível de instância (ILPIP), eles estabelecem conectividade de saída através do IP frontal do esquilibrista de carga pública.
+## <a name="sharing-frontend-ip-address-across-backend-resources"></a><a name ="snat"></a> Partilha de endereço IP frontend através de recursos backend
 
-As portas são usadas para gerar identificadores únicos usados para manter fluxos distintos. A internet usa um cinco tuple para fornecer esta distinção.
+Se os recursos de backend de um balanceador de carga não tiverem endereços IP públicos de nível de instância (ILPIP), eles estabelecem conectividade de saída através do IP frontal do esquilibrista de carga pública. As portas são usadas para gerar identificadores únicos usados para manter fluxos distintos. A internet usa um cinco tuple para fornecer esta distinção.
 
 O cinco tuple consiste em:
 
@@ -38,21 +41,96 @@ O cinco tuple consiste em:
 * IP de origem
 * Fonte portuária e protocolo para fornecer esta distinção.
 
-Se uma porta for utilizada para ligações de entrada, terá um **ouvinte** para pedidos de ligação de entrada nessa porta e não pode ser utilizada para ligações de saída. 
+Se uma porta for utilizada para ligações de entrada, terá um **ouvinte** para pedidos de ligação de entrada nessa porta e não pode ser utilizada para ligações de saída. Para estabelecer uma ligação de saída, deve ser utilizado um **porto efémero** para fornecer ao destino um porto para comunicar e manter um fluxo de tráfego distinto. Quando estas portas efémeras são usadas para executar SNAT, são chamadas **portas SNAT** 
 
-Para estabelecer uma ligação de saída, deve ser utilizado um **porto efémero** para fornecer ao destino um porto para comunicar e manter um fluxo de tráfego distinto. 
+Por definição, cada endereço IP tem 65.535 portas. Cada porta pode ser utilizada para ligações de entrada ou saída para TCP (Protocolo de Controlo de Transmissão) e UDP (Protocolo de Datagrama do Utilizador). Quando um endereço IP público é adicionado como um FRONTend IP a um balanceador de carga, a Azure dá 64.000 elegíveis para uso como portas SNAT. 
 
-Cada endereço IP tem 65.535 portas. As primeiras portas 1024 são reservadas como **portas de sistema.** Cada porta pode ser utilizada para ligações de entrada ou saída para TCP e UDP. 
+>[!NOTE]
+> Cada porta utilizada para uma regra DE NA de equilíbrio de carga ou entrada consumirá uma gama de oito portas destes 64.000 portos, reduzindo o número de portos elegíveis para o SNAT. Se uma regra de equilíbrio > de carga ou nat estiver na mesma gama de oito que outra, não consumirá portas adicionais. 
 
-Dos restantes portos, a Azure dá 64.000 para utilização como **portos efémeros.** Quando um endereço IP é adicionado como uma configuração IP frontend, estas portas efémeras podem ser usadas para SNAT.
+Através [de regras de saída](https://docs.microsoft.com/azure/load-balancer/outbound-rules) e regras de equilíbrio de carga, estas portas SNAT podem ser distribuídas para backend instances para permitir-lhes partilhar os IPs públicos do equilibrador de carga para ligações de saída.
 
-Através de regras de saída, estas portas SNAT podem ser distribuídas para backend instances para permitir-lhes partilhar o IP(s) público do balançador de carga para ligações de saída.
+Quando [o cenário 2](#scenario2) abaixo estiver configurado, o anfitrião de cada instância de backend executará SNAT em pacotes que fazem parte de uma ligação de saída. Ao executar SNAT numa ligação de saída a partir de uma instância de backend, o anfitrião reescreve o IP de origem para um dos IPs frontend. Para manter fluxos únicos, o hospedeiro reescreve a porta de origem de cada pacote de saída para uma das portas SNAT atribuídas para a instância de backend.
 
-A ligação em rede no anfitrião para cada instância de backend fará SNAT para pacotes que fazem parte de uma ligação de saída. O anfitrião reescreve o IP de origem a um dos IPs públicos. O hospedeiro reescreve a porta de origem de cada pacote de saída para uma das portas SNAT.
+## <a name="outbound-connection-behavior-for-different-scenarios"></a>Comportamento de ligação de saída para diferentes cenários
+  * Máquina virtual com IP público.
+  * Máquina virtual sem IP público.
+  * Máquina virtual sem IP público e sem balanceador de carga padrão.
+        
+
+ ### <a name="scenario-1-virtual-machine-with-public-ip"></a><a name="scenario1"></a> Cenário 1: Máquina virtual com IP público
+
+
+ | Associações | Método | Protocolos IP |
+ | ---------- | ------ | ------------ |
+ | Equilibrador de carga pública ou autónomo | [SNAT (Tradução de endereços de rede de origem)](#snat) </br> não usado. | TCP (Protocolo de Controlo de Transmissão) </br> UDP (Protocolo de Datagrama do Utilizador) </br> ICMP (Protocolo de Mensagem de Controlo de Internet) </br> ESP (Encapsulamento da Carga útil de segurança) |
+
+
+ #### <a name="description"></a>Descrição
+
+
+ O Azure utiliza o IP público atribuído à configuração IP do NIC da instância para todos os fluxos de saída. O caso tem todas as portas efémeras disponíveis. Não importa se o VM é equilibrado ou não. Este cenário tem precedência sobre os outros. 
+
+
+ Um IP público atribuído a um VM é uma relação 1:1 (em vez de 1: muitos) e implementado como um APÁtrida 1:1 NAT.
+
+
+ ### <a name="scenario-2-virtual-machine-without-public-ip-and-behind-standard-public-load-balancer"></a><a name="scenario2"></a>Cenário 2: Máquina virtual sem IP público e atrás do Balanceador público Padrão de Carga
+
+
+ | Associações | Método | Protocolos IP |
+ | ------------ | ------ | ------------ |
+ | Balanceador de carga público | Utilização de IPs frontend do balançador de carga para [SNAT](#snat).| TCP </br> UDP |
+
+
+ #### <a name="description"></a>Descrição
+
+
+ O recurso do balançador de carga é configurado com uma regra de saída ou uma regra de equilíbrio de carga que permite o SNAT predefinido. Esta regra é usada para criar uma ligação entre o frontend IP público com o pool backend. 
+
+
+ Se não completar esta configuração de regra, o comportamento é descrito no cenário 3. 
+
+
+ Uma regra com um ouvinte não é necessária para que a sonda de saúde tenha sucesso.
+
+
+ Quando um VM cria um fluxo de saída, o Azure traduz o endereço IP de origem para o endereço IP público do frontend do balançador de carga pública. Esta tradução é feita via [SNAT.](#snat) 
+
+
+ As portas efémeras do endereço IP público frontend do balançador de carga são utilizadas para distinguir os fluxos individuais originados pelo VM. O SNAT utiliza dinamicamente [portas efémeras pré-alitadas](#preallocatedports) quando os fluxos de saída são criados. 
+
+
+ Neste contexto, as portas efémeras utilizadas para o SNAT são chamadas portas SNAT. Recomenda-se vivamente que uma [regra de saída](https://docs.microsoft.com/azure/load-balancer/outbound-rules) seja explicitamente configurada. Se utilizar o SNAT predefinido através de uma regra de equilíbrio de carga, as portas SNAT são pré-atribuídas conforme descrito no [quadro de atribuição de portas SNAT predefinido](#snatporttable).
+
+
+ ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>Cenário 3: Máquina virtual sem IP público e por trás do Balanceador de Carga Básico
+
+
+ | Associações | Método | Protocolos IP |
+ | ------------ | ------ | ------------ |
+ |Nenhum </br> Balanceador de carga básico | [SNAT](#snat) com endereço IP dinâmico de nível de instância| TCP </br> UDP | 
+
+ #### <a name="description"></a>Descrição
+
+
+ Quando o VM cria um fluxo de saída, o Azure traduz o endereço IP de origem para um endereço IP de fonte pública dinamicamente atribuído. Este endereço IP público **não é configurável** e não pode ser reservado. Este endereço não conta com o limite de recursos IP públicos da subscrição. 
+
+
+ O endereço IP público será divulgado e um novo IP público solicitado se recolocar o: 
+
+
+ * Máquina Virtual
+ * Conjunto de disponibilidade
+ * Conjuntos de dimensionamento de máquinas virtuais 
+
+
+ Não utilize este cenário para adicionar IPs a uma lista de autorizações. Use o cenário 1 ou 2 onde declara explicitamente o comportamento de saída. As portas [SNAT](#snat) são pré-locadas como descrito na [tabela de atribuição de portas SNAT predefinido](#snatporttable).
+
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Portas exaustivas
 
-Todas as ligações ao mesmo destino IP e porto de destino usarão uma porta SNAT. Esta ligação mantém um fluxo de **tráfego** distinto da instância de backend ou **cliente** para um **servidor** . Este processo dá ao servidor uma porta distinta para abordar o tráfego. Sem este processo, a máquina cliente desconhece de que fluxo um pacote faz parte.
+Todas as ligações ao mesmo destino IP e porto de destino usarão uma porta SNAT. Esta ligação mantém um fluxo de **tráfego** distinto da instância de backend ou **cliente** para um **servidor**. Este processo dá ao servidor uma porta distinta para abordar o tráfego. Sem este processo, a máquina cliente desconhece de que fluxo um pacote faz parte.
 
 Imagine ter vários navegadores https://www.microsoft.com indo, que é:
 
@@ -72,7 +150,7 @@ Para ligações UDP, o balanceador de carga utiliza um algoritmo **NAT cone rest
 
 Uma porta é reutilizada para um número ilimitado de ligações. A porta só é reutilizada se o destino IP ou porta for diferente.
 
-## <a name="port-allocation"></a><a name="preallocatedports"></a> Dotação portuária
+## <a name="default-port-allocation"></a><a name="preallocatedports"></a> Alocação portuária predefinido
 
 Cada IP público atribuído como um IP frontal do seu balanceador de carga recebe 64.000 portas SNAT para os seus membros de pool backend. Os portos não podem ser partilhados com membros da piscina de backend. Uma gama de portas SNAT só pode ser utilizada por uma única instância de backend para garantir que os pacotes de devolução são encaminhados corretamente. 
 

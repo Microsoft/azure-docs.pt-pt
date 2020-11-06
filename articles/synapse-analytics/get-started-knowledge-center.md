@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.openlocfilehash: 2857989fb09555ecd808bfdba95bcf58e4444594
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 461fabd0dd9948e8967ac61919f77e3e23a981b9
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93304895"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331962"
 ---
 # <a name="explore-the-synapse-knowledge-center"></a>Explore o Centro de Conhecimento sinapse
 
@@ -39,7 +39,7 @@ O **Centro de Conhecimento** permite-lhe fazer três coisas:
 
 ## <a name="exploring-blob-storage-with-serverless-sql-pool"></a>Explorando o armazenamento de bolhas com piscina SQL sem servidor
 
-1. O **Centro de Conhecimento,** clique em **Utilizar amostras imediatamente**
+1. Ir ao Centro de **Conhecimento,** clicar **Use amostras imediatamente**
 1. **Selecione dados de consulta com SQL** 
 1. Clique **em Utilizar amostras imediatamente**
 1. Criará um novo script SQL.
@@ -47,7 +47,7 @@ O **Centro de Conhecimento** permite-lhe fazer três coisas:
 1. Clique em Run (Executar). Irá executar o texto que selecionou.
 
 ## <a name="loading-more-nyc-taxi-data"></a>Carregar mais dados de táxi de NYC
-1. O **Knowledge Center,** clique em **procurar amostras disponíveis** 
+1. Vá ao **Knowledge Center,** clique em **procurar amostras disponíveis** 
 1. Selecione o separador **de scripts SQL** no topo
 1. Selecione **Carregar o conjunto de dados do Táxi de Nova Iorque**
 1. Em **Entradas** , escolha **selecionar uma piscina existente** e selecione **SQLDB1**
@@ -60,4 +60,4 @@ O **Centro de Conhecimento** permite-lhe fazer três coisas:
 
 * [Começa com o Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)
-* [Use a piscina SQL sem servidor](quickstart-sql-on-demand.md)
+* [Utilizar conjunto de SQL sem servidor](quickstart-sql-on-demand.md)

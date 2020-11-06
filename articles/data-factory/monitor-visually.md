@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 48373c9ffc9146b6e62b62fb7d7fe10d571ce27f
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ecb066c7269217af3f8cc84e0f59ab29b4b39a9e
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638113"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331617"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorizar visualmente o Azure Data Factory
 
@@ -23,17 +23,21 @@ ms.locfileid: "92638113"
 
 Uma vez criado e publicado um oleoduto na Azure Data Factory, pode associá-lo a um gatilho ou iniciar manualmente uma corrida ad hoc. Pode monitorizar todo o seu oleoduto funciona de forma nativa na experiência do utilizador da Azure Data Factory. Para abrir a experiência de monitorização, selecione o **telha Monitor & Gerir** na lâmina de fábrica de dados do [portal Azure](https://portal.azure.com/). Se já estiver no ADF UX, clique no ícone **Monitor** na barra lateral esquerda.
 
-Todas as operações da fábrica de dados são exibidas no fuso horário local do navegador. Se alterar o fuso horário, todos os campos de data/hora encaixam-se no que selecionou.
+Por padrão, todas as operações da fábrica de dados são exibidas no fuso horário local do navegador. Se alterar o fuso horário, todos os campos de data/hora encaixam-se no que selecionou.
 
 ## <a name="monitor-pipeline-runs"></a>Monitorizar execuções de pipeline
 
-A visão de monitorização predefinida é a lista de gasodutos executados no período de tempo selecionado. São apresentadas as seguintes colunas:
+A visão de monitorização predefinida é a lista de gasodutos desencadeados no período de tempo selecionado. Pode alterar o intervalo de tempo e filtrar por estado, nome do gasoduto ou anotação. Hover sobre o gasoduto específico executado para obter ações específicas, tais como a repetição e o relatório de consumo.
+
+![Vista da lista para monitorização de gasodutos](media/monitor-visually/pipeline-runs.png)
+
+A grelha de funcionação do gasoduto contém as seguintes colunas:
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
 | Nome do pipeline | Nome do oleoduto |
-| Ações | Ícones que lhe permitem ver detalhes da atividade, cancelar ou refazer o pipeline |
 | Início de execução | Data e hora de início para a execução do gasoduto (MM/DD/YYYY, HH:MM:SS AM/PM) |
+| Fim de execução | Data e hora de fim do gasoduto (MM/DD/YYYY, HH:MM:SS AM/PM) |
 | Duração | Duração da execução (HH:MM:SS) |
 | Desencadeado por | O nome do gatilho que iniciou o oleoduto |
 | Estado | **Falhado,** **Bem sucedido,** **Em Curso,** **Cancelado,** ou **Em Fila** |
@@ -42,15 +46,23 @@ A visão de monitorização predefinida é a lista de gasodutos executados no pe
 | Erro | Se o gasoduto falhou, o erro de execução |
 | o ID da Execução | ID da corrida do gasoduto |
 
-![Vista da lista para monitorização de gasodutos](media/monitor-visually/pipeline-runs.png)
-
 É necessário selecionar manualmente o botão **Refresh** para atualizar a lista de gasodutos e de execuções de atividade. A autorefresh não está atualmente apoiada.
 
 ![Botão Atualizar](media/monitor-visually/refresh.png)
 
+Para ver os resultados de uma execução de depurar, selecione o **separador Debug.**
+
+![Selecione o ícone de depurar ativo ver corre](media/iterative-development-debugging/view-debug-runs.png)
+
 ## <a name="monitor-activity-runs"></a>Monitorização de execuções de atividade
 
-Para visualizar as operações executadas para cada corrida de gasoduto, selecione o ícone **de atividade 'Ver' corre** sob a coluna **Ações.** A visualização da lista mostra que as operações correspondem a cada corrida de gasodutos.
+Para obter uma visão detalhada das operações individuais de uma corrida específica do gasoduto, clique no nome do gasoduto.
+
+![Ver execuções de atividades](media/monitor-visually/view-activity-runs.png)
+
+A visualização da lista mostra que as operações correspondem a cada corrida de gasodutos. Hover sobre a atividade específica executada para obter informações específicas de execução, tais como a entrada JSON, saída JSON, e experiências de monitorização detalhadas específicas da atividade.
+
+![A vista da lista para monitorização da atividade corre](media/monitor-visually/activity-runs.png)
 
 | **Nome da coluna** | **Descrição** |
 | --- | --- |
@@ -65,60 +77,40 @@ Para visualizar as operações executadas para cada corrida de gasoduto, selecio
 | Erro | Se a atividade falhou, o erro de execução |
 | o ID da Execução | ID da atividade executado |
 
-![A vista da lista para monitorização da atividade corre](media/monitor-visually/activity-runs.png)
+Se uma atividade falhar, pode ver a mensagem de erro detalhada clicando no ícone na coluna de erro. 
+
+![A vista da lista para monitorização da atividade corre](media/monitor-visually/activity-run-error.png)
 
 ### <a name="promote-user-properties-to-monitor"></a>Promover propriedades de utilizadores para monitorizar
 
-Promover qualquer propriedade de atividade de pipeline como propriedade do utilizador para que se torne uma entidade que você monitorize. Por exemplo, pode promover as propriedades **de Origem** e **Destino** da atividade de cópia no seu pipeline como propriedades do utilizador. Selecione **Auto Generate** para gerar as propriedades do utilizador **Source** and **Destination** para uma atividade de cópia.
-
-![Criar propriedades de utilizador](media/monitor-visually/monitor-user-properties-image1.png)
+Promover qualquer propriedade de atividade de pipeline como propriedade do utilizador para que se torne uma entidade que você monitorize. Por exemplo, pode promover as propriedades **de Origem** e **Destino** da atividade de cópia no seu pipeline como propriedades do utilizador.
 
 > [!NOTE]
 > Só é possível promover até cinco propriedades de atividade de gasoduto como propriedades do utilizador.
 
-Depois de criar as propriedades do utilizador, pode monitorá-las nas vistas da lista de monitorização. Se a fonte para a atividade da cópia for um nome de mesa, pode monitorizar o nome da tabela de origem como uma coluna na vista da lista para a atividade.
+![Criar propriedades de utilizador](media/monitor-visually/promote-user-properties.png)
 
-![A atividade executa a lista sem propriedades do utilizador](media/monitor-visually/monitor-user-properties-image2.png)
+Depois de criar as propriedades do utilizador, pode monitorá-las nas vistas da lista de monitorização.
 
-![Adicione colunas para propriedades de utilizador à lista de execuções de atividades](media/monitor-visually/monitor-user-properties-image3.png)
+![Adicione colunas para propriedades de utilizador à lista de execuções de atividades](media/monitor-visually/choose-user-properties.png)
 
-![A atividade executa a lista com colunas para propriedades do utilizador](media/monitor-visually/monitor-user-properties-image4.png)
+ Se a fonte para a atividade da cópia for um nome de mesa, pode monitorizar o nome da tabela de origem como uma coluna na vista da lista para a atividade.
 
-## <a name="configure-the-list-view"></a>Configurar a vista da lista
+![A atividade executa a lista com colunas para propriedades do utilizador](media/monitor-visually/view-user-properties.png)
 
-### <a name="order-and-filter"></a>Encomendar e filtrar
+## <a name="rerun-pipelines-and-activities"></a>Re-run de gasodutos e atividades
 
-Alternar se o gasoduto funciona em descida ou subida de acordo com a hora de início de funcionação. O gasoduto do filtro funciona utilizando as seguintes colunas:
+Para refazer um gasoduto que já tenha corrido desde o início, paire sobre a corrida específica do gasoduto e selecione **Rerun**. Se selecionar vários oleodutos, pode utilizar o botão **Rerun** para executá-los todos.
 
-| **Nome da coluna** | **Descrição** |
-| --- | --- |
-| Nome do pipeline | Filtrar pelo nome do oleoduto. |
-| Início de execução |  Determine o intervalo de tempo dos cursos de conduta visualizados. As opções incluem filtros rápidos para **as últimas 24 horas** , **última semana,** e **últimos 30 dias** ou para selecionar uma data e hora personalizadas. |
-| Estado de execução | Filtro funciona por estado: **Bem sucedido,** **Falhado,** **Em Fila,** **Cancelado** ou **Em Curso** . |
-| Anotações | Filtro por etiquetas aplicadas a cada oleoduto |
-| Execuções | Filtre se deseja ver os oleodutos reran |
+![Reencaúndio de um oleoduto](media/monitor-visually/rerun-pipeline.png)
 
-![Opções de filtragem](media/monitor-visually/filter.png)
+Se desejar refazer a partir de um ponto específico, pode fazê-lo a partir da vista da atividade. Selecione a atividade a partir daí iniciada e selecione **Rerun da atividade**. 
 
-### <a name="add-or-remove-columns"></a>Adicionar ou remover colunas
-Clique com o botão direito no cabeçalho da lista e escolha as colunas que pretende aparecer na vista da lista.
-
-![Opções para colunas](media/monitor-visually/columns.png)
-
-### <a name="adjust-column-widths"></a>Ajustar larguras de coluna
-Aumente e diminua as larguras da coluna na vista da lista, pairando sobre o cabeçalho da coluna.
-
-## <a name="rerun-activities-inside-a-pipeline"></a>Repercutam atividades dentro de um oleoduto
-
-Pode refazer atividades dentro de um oleoduto. Selecione **A atividade de 'Ver' é executado** e, em seguida, selecione a atividade no seu pipeline a partir do qual pretende voltar a fazer a sua tubagem.
-
-![Ver execuções de atividades](media/monitor-visually/rerun-activities-image1.png)
-
-![Selecione uma atividade executada](media/monitor-visually/rerun-activities-image2.png)
+![Repercuta uma atividade](media/monitor-visually/rerun-activity.png)
 
 ### <a name="rerun-from-failed-activity"></a>Repetição da atividade falhada
 
-Se uma atividade falhar, o tempo fora ou for cancelada, pode voltar a fazer o pipeline a partir dessa atividade falhada selecionando **a Repetição da atividade falhada** .
+Se uma atividade falhar, o tempo fora ou for cancelada, pode voltar a fazer o pipeline a partir dessa atividade falhada selecionando **a Repetição da atividade falhada**.
 
 ![Rerun atividade falhada](media/monitor-visually/rerun-failed-activity.png)
 
@@ -126,11 +118,11 @@ Se uma atividade falhar, o tempo fora ou for cancelada, pode voltar a fazer o pi
 
 Pode ver o histórico de repetição de todas as correções de pipeline na vista da lista.
 
-![Ver histórico](media/monitor-visually/rerun-history-image1.png)
+![Ver histórico](media/monitor-visually/rerun-history-1.png)
 
 Também pode ver a história da repetição para uma determinada corrida de gasodutos.
 
-![Ver história para uma corrida de gasodutos](media/monitor-visually/rerun-history-image2.png)
+![Ver história para uma corrida de gasodutos](media/monitor-visually/view-rerun-history.png)
 
 ## <a name="monitor-consumption"></a>Monitorizar o consumo
 
@@ -149,22 +141,13 @@ Pode ligar estes valores à [calculadora de preços Azure](https://azure.microso
 
 ## <a name="gantt-views"></a>Vistas de Gantt
 
-Utilize vistas gantt para visualizar rapidamente os seus oleodutos e operações.
+Um gráfico gantt é uma vista que permite ver a história da corrida ao longo de um intervalo de tempo. Ao mudar para uma vista de Gantt, você verá todas as corridas de gasodutos agrupadas pelo nome apresentado como barras em relação ao tempo que o percurso demorou. Também pode agrupar-se por anotações/tags que criou no seu oleoduto. A vista Gantt também está disponível ao nível da atividade.
 
-![Exemplo de um gráfico de Gantt](media/monitor-visually/gantt1.png)
-
-Pode olhar para a vista Gantt por oleoduto ou grupo através de anotações/tags que criou nos seus oleodutos.
-
-![Anotações de gráfico de Gantt](media/monitor-visually/gantt2.png)
+![Exemplo de um gráfico de Gantt](media/monitor-visually/select-gantt.png)
 
 O comprimento da barra informa a duração do gasoduto. Também pode selecionar a barra para ver mais detalhes.
 
-![Duração do gráfico de Gantt](media/monitor-visually/gantt3.png)
-
-## <a name="guided-tours"></a>Visitas guiadas
-Selecione o ícone **Informação** no lado inferior esquerdo. Em seguida, **selecione Visitas Guiadas** para obter instruções passo a passo sobre como monitorizar o seu oleoduto e a sua atividade.
-
-![Visitas guiadas](media/monitor-visually/guided-tours.png)
+![Duração do gráfico de Gantt](media/monitor-visually/view-gantt-run.png)
 
 ## <a name="alerts"></a>Alertas
 

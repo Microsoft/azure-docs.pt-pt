@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740149"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331611"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Apoie políticas únicas de segurança de assinatura e aplicações em aplicações móveis que desenvolver
 
@@ -30,7 +30,7 @@ Este artigo explica porque é que o SSO e a APP são importantes e fornece orien
 
 Além disso, ativar um único login na sua aplicação desbloqueia novos mecanismos de autenticação que vêm com a autenticação moderna, como [logins sem palavras-passe](../authentication/concept-authentication-passwordless.md). Os nomes de utilizador e as palavras-passe são um dos vetores de ataque mais populares contra aplicações, e permitir que o SSO permita mitigar este risco, aplicando acessos condicional ou logins sem palavras-passe que adicionam segurança adicional ou dependem de mecanismos de autenticação mais seguros. Por último, a ativação de um único sinal permite uma [única sação.](v2-protocols-oidc.md#single-sign-out) Isto é útil em situações como aplicações de trabalho que serão usadas em dispositivos partilhados.
 
-[As políticas de proteção de aplicações (APP)](/mem/intune/apps/app-protection-policy) garantem que os dados de uma organização permanecem seguros e contidos. Permitem que as empresas gerem e protejam os seus dados dentro de uma app e permitem controlar quem pode aceder à app e aos seus dados. Implementar políticas de proteção de aplicações permite que a sua app conecte os utilizadores a recursos protegidos pelas políticas de Acesso Condicional e transfira de forma segura dados de e para outras aplicações protegidas. Os cenários desbloqueados pelas políticas de proteção de apps incluem exigir que um PIN abra uma app, controlar a partilha de dados entre apps e impedir que os dados das aplicações da empresa sejam guardados para um local de armazenamento pessoal no dispositivo.
+[As políticas de proteção de aplicações (APP)](/mem/intune/apps/app-protection-policy) garantem que os dados de uma organização permanecem seguros e contidos. Permitem que as empresas gerem e protejam os seus dados dentro de uma app e permitem controlar quem pode aceder à app e aos seus dados. Implementar políticas de proteção de aplicações permite que a sua app conecte os utilizadores a recursos protegidos pelas políticas de Acesso Condicional e transfira de forma segura dados de e para outras aplicações protegidas. Os cenários desbloqueados pelas políticas de proteção de apps incluem exigir que um PIN abra uma app, controlar a partilha de dados entre apps e impedir que os dados das aplicações da empresa sejam guardados para locais de armazenamento pessoal.
 
 ## <a name="implementing-single-sign-on"></a>Implementação de um único sinal
 

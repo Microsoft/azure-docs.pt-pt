@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042907"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331860"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Redirecionar restrições e limitações URI (URL de resposta)
 
@@ -32,7 +32,7 @@ Um URI de redirecionamento, ou URL de resposta, é o local onde o servidor de au
 
 Esta tabela mostra o número máximo de URIs de redirecionamento que pode adicionar a um registo de aplicações na plataforma de identidade da Microsoft.
 
-| Contas a serem assinadas | Número máximo de URIs de redirecionamento | Description |
+| Contas a serem assinadas | Número máximo de URIs de redirecionamento | Descrição |
 |--------------------------|---------------------------------|-------------|
 | Trabalho da Microsoft ou contas escolares em qualquer inquilino do Azure Ative Directory (Azure AD) de qualquer organização | 256 | `signInAudience` campo no manifesto de aplicação é definido para *AzureADMyOrg* ou *AzureADMultipleOrgs* |
 | Contas pessoais da Microsoft e contas de trabalho e escola | 100 | `signInAudience` campo no manifesto de aplicação é definido para *AzureADandPersonalMicrosoftAccount* |
@@ -62,7 +62,9 @@ Por [RFC 8252 secções 8.3](https://tools.ietf.org/html/rfc8252#section-8.3) e 
 
 Do ponto de vista do desenvolvimento, isto significa algumas coisas:
 
-* Não registe uris de redirecionamento múltiplo onde apenas a porta difere. O servidor de login escolherá um arbitrariamente e utilizará o comportamento associado a esse URI redirecionado (por exemplo, seja `web` -, `native` ou `spa` -type redirect).
+* Não registe uris de redirecionamento múltiplo onde apenas a porta difere. O servidor de login escolherá um arbitrariamente e utilizará o comportamento associado a esse URI redirecionado (por exemplo, seja um redirecionamento de `web` `native` tipo -, ou `spa` -tipo).
+
+    Isto é especialmente importante quando pretende utilizar diferentes fluxos de autenticação no mesmo registo de pedidos, por exemplo, tanto o código de autorização como o fluxo implícito. Para associar o comportamento correto de resposta a cada URI de redirecionamento, o servidor de login deve ser capaz de distinguir entre os URIs de redirecionamento e não pode fazê-lo quando apenas a porta difere.
 * Se precisar de registar uris de redirecionamento múltiplo na localidade local para testar diferentes fluxos durante o desenvolvimento, diferenciá-los utilizando o componente de *caminho* do URI. Por exemplo, `http://127.0.0.1/MyWebApp` não `http://127.0.0.1/MyNativeApp` corresponde.
 * O endereço de backback IPv6 `[::1]` não está atualmente suportado.
 * Para evitar que a sua aplicação seja quebrada por firewalls mal configuradas ou interfaces de rede renomeadas, utilize o endereço IP literal `127.0.0.1` loopback no seu URI de redirecionamento em vez de `localhost` .

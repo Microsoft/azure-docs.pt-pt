@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: a04088fc1074949a1228794c22c1fa65a0b736a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370073"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330942"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Melhorar a síntese com a ferramenta de Criação de Conteúdos Áudio
 
@@ -131,16 +131,16 @@ Se mais do que um utilizador quiser utilizar a Criação de Conteúdos Áudio, p
 
 Siga estes passos para adicionar um utilizador a um recurso de fala para que possa utilizar a Criação de Conteúdo Sonoro.
 
-1. Procure **serviços cognitivos** no portal Azure, selecione o recurso de fala a que pretende adicionar os utilizadores.
+1. Procure **serviços cognitivos** no [portal Azure,](https://portal.azure.com/)selecione o recurso de voz a que pretende adicionar os utilizadores.
 2. Clique em **Controlo de acesso (IAM)** . Clique no separador **Atribuições de funções** para ver todas as atribuições de funções para esta subscrição.
-    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Um diagrama dos passos que é preciso para afinar as saídas de texto para discurso":::
+    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Separador de atribuição de funções":::
 1. Clique em **Adicionar** > **Adicionar atribuição de funções** para abrir o painel Adicionar atribuição de funções. Na lista de drop-down role, selecione a função **utilizador do serviço cognitivo.** Se quiser dar ao utilizador a propriedade deste recurso de fala, pode selecionar a função **Proprietário.**
 1. Na lista, selecione um utilizador. Se não vir o utilizador na lista, pode escrever na caixa Select para pesquisar nomes de exibição e endereços de e-mail. Se o utilizador não estiver neste diretório, pode inserir a [conta Microsoft](https://account.microsoft.com/account) do utilizador (que é fidedigna pelo diretório ativo da Azure).
 1. Clique em **Guardar** para atribuir a função. Após alguns momentos, o utilizador é atribuído ao utilizador do Serviço Cognitivo no âmbito do recurso de voz.
 
-    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Um diagrama dos passos que é preciso para afinar as saídas de texto para discurso":::
+    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Adicionar diálogo de função":::
 
-1. Os utilizadores que adicionar receberão um e-mail de convite. Depois de clicarem **em Aceitar convite**Aceite para se juntar ao  >  **Azure,** então eles podem usar a [Criação de Conteúdo Sonoro](https://aka.ms/audiocontentcreation).
+1. Os utilizadores que adicionar receberão um e-mail de convite. Depois de clicarem **em Aceitar convite** Aceite para se juntar ao  >  **Azure,** então eles podem usar a [Criação de Conteúdo Sonoro](https://aka.ms/audiocontentcreation).
 
 Os utilizadores que estejam no mesmo recurso de fala verão o trabalho uns dos outros no estúdio audio content Creation. Se quiser que cada utilizador tenha um local de trabalho único e privado na Criação de Conteúdos Áudio, por favor [crie um novo recurso](#step-2---create-a-speech-resource) de fala para cada utilizador e dê a cada utilizador o acesso único ao recurso de voz. 
 
@@ -148,13 +148,13 @@ Os utilizadores que estejam no mesmo recurso de fala verão o trabalho uns dos o
 1. Procure **serviços cognitivos** no portal Azure, selecione o recurso de voz de onde pretende remover os utilizadores.
 2. Clique em **Controlo de acesso (IAM)** . Clique no **separador atribuições de funções** para ver todas as atribuições de funções para este recurso de fala.
 3. Selecione os utilizadores que pretende remover, clique em **Remover**  >  **Ok**.
-    :::image source="media/audio-content-creation/remove-user.png" alt-text="Um diagrama dos passos que é preciso para afinar as saídas de texto para discurso":::
+    :::image source="media/audio-content-creation/remove-user.png" alt-text="Remover botão":::
 
 ### <a name="enable-users-to-grant-access"></a>Permitir que os utilizadores concedam acesso
 Se pretender que um dos utilizadores dê acesso a outros utilizadores, tem de dar ao utilizador o papel de proprietário para o recurso de fala e definir o utilizador como leitor de diretórios Azure. 
 1. Adicione o utilizador como proprietário do recurso de fala. Veja [como adicionar os utilizadores a um recurso de fala](#add-users-to-a-speech-resource).
-    :::image source="media/audio-content-creation/add-role.png" alt-text="Um diagrama dos passos que é preciso para afinar as saídas de texto para discurso":::
-1. Selecione o menu colapsado na parte superior esquerda. Clique **em Azure Ative Directory**e, em seguida, clique nos **Utilizadores**.
+    :::image source="media/audio-content-creation/add-role.png" alt-text="Fun Owner field":::
+1. Selecione o menu colapsado na parte superior esquerda. Clique **em Azure Ative Directory** e, em seguida, clique nos **Utilizadores**.
 1. Pesse na conta microsoft do utilizador e aceda à página de detalhes do utilizador. Clique **em funções atribuídas**.
 1. Clique **em Adicionar atribuições**  ->  **Leitores de Diretórios**.
 

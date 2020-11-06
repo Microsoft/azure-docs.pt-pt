@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/27/2020
-ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230811"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331979"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Aplicações lógicas de chamada, gatilho ou ninho utilizando pontos finais HTTPS em Azure Logic Apps
 
@@ -23,7 +23,8 @@ Para tornar a sua aplicação lógica callable através de um URL e capaz de rec
 
 Este artigo mostra como criar um ponto final chamado na sua aplicação lógica, utilizando o gatilho 'Pedido' e chamando esse ponto final de outra aplicação lógica. Todos os princípios aplicam-se de forma idêntica aos outros tipos de gatilho que pode utilizar para receber pedidos de entrada.
 
-Para obter informações sobre encriptação, segurança e autorização para chamadas de entrada para a sua aplicação lógica, como [a Transport Layer Security (TLS),](https://en.wikipedia.org/wiki/Transport_Layer_Security)anteriormente conhecida como Secure Sockets Layer (SSL), ou [Azure Ative Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), consulte [acesso seguro e dados - Acesso a chamadas de entrada para gatilhos baseados em pedidos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
+Para mais informações sobre segurança, autorização e encriptação para chamadas de entrada para a sua aplicação lógica, como [a Transport Layer Security (TLS),](https://en.wikipedia.org/wiki/Transport_Layer_Security)anteriormente conhecida como Secure Sockets Layer (SSL), [Azure Ative Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), expondo a sua aplicação lógica com a Azure API Management, ou restringindo os endereços IP que originam chamadas de entrada, ver acesso seguro e dados - Acesso a chamadas de [entrada para pedidos baseados em gatilhos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -115,7 +116,7 @@ Para obter informações sobre encriptação, segurança e autorização para ch
 
         ![Obtenha URL de ponto final do portal Azure](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
-     1. Em **url callback [POST]**, copiar o URL:
+     1. Em **url callback [POST]** , copiar o URL:
 
         ![Cópia URL de ponto final do portal Azure](./media/logic-apps-http-endpoint/copy-manual-trigger-callback-url-post.png)
 
@@ -159,7 +160,7 @@ Quando pretende aceitar valores de parâmetros através do URL do ponto final, t
 
 1. No detonador 'Pedido', adicione a ação onde pretende utilizar o valor do parâmetro. Para este exemplo, adicione a ação **Resposta.**
 
-   1. No âmbito do gatilho 'Pedido', selecione **Novo passo**Adicione  >  **uma ação**.
+   1. No âmbito do gatilho 'Pedido', selecione **Novo passo** Adicione  >  **uma ação**.
    
    1. Em **Escolha uma ação,** na caixa de pesquisa, introduza `response` como filtro. Na lista de ações, selecione a ação **Resposta.**
 
@@ -226,7 +227,7 @@ Quando pretende aceitar valores de parâmetros através do URL do ponto final, t
 
 1. No detonador 'Pedido', adicione a ação onde pretende utilizar o valor do parâmetro. Para este exemplo, adicione a ação **Resposta.**
 
-   1. No âmbito do gatilho 'Pedido', selecione **Novo passo**Adicione  >  **uma ação**.
+   1. No âmbito do gatilho 'Pedido', selecione **Novo passo** Adicione  >  **uma ação**.
 
    1. Em **Escolha uma ação,** na caixa de pesquisa, introduza `response` como filtro. Na lista de ações, selecione a ação **Resposta.**
 
@@ -303,9 +304,9 @@ Por exemplo, se adicionar mais propriedades, `"suite"` como, por exemplo, ao seu
 
 Pode nidificar fluxos de trabalho na sua aplicação lógica adicionando outras aplicações lógicas que podem receber pedidos. Para incluir estas aplicações lógicas, siga estes passos:
 
-1. Sob o passo em que pretende chamar outra aplicação lógica, selecione **Novo passo**Adicione  >  **uma ação**.
+1. Sob o passo em que pretende chamar outra aplicação lógica, selecione **Novo passo** Adicione  >  **uma ação**.
 
-1. Em **Escolha uma ação**, selecione **Built-in**. Na caixa de pesquisa, introduza `logic apps` como filtro. A partir da lista de ações, **selecione Escolha um fluxo de trabalho de Apps Lógicas.**
+1. Em **Escolha uma ação** , selecione **Built-in**. Na caixa de pesquisa, introduza `logic apps` como filtro. A partir da lista de ações, **selecione Escolha um fluxo de trabalho de Apps Lógicas.**
 
    ![App lógica ninho dentro da app lógica atual](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
@@ -383,13 +384,15 @@ Para ver a definição JSON para a ação Resposta e a definição completa de J
 
 #### <a name="q-what-about-url-security"></a>P: E a segurança da URL?
 
-**A**: Azure gera de forma segura URLs de callback de aplicações lógicas utilizando [a Assinatura de Acesso Partilhado (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Esta assinatura passa como parâmetro de consulta e deve ser validada antes que a sua aplicação lógica possa ser executada. O Azure gera a assinatura usando uma combinação única de uma chave secreta por aplicação lógica, o nome do gatilho e a operação que é realizada. Portanto, a menos que alguém tenha acesso à chave de aplicações lógicas secretas, não pode gerar uma assinatura válida.
+**A** : Azure gera de forma segura URLs de callback de aplicações lógicas utilizando [a Assinatura de Acesso Partilhado (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Esta assinatura passa como parâmetro de consulta e deve ser validada antes que a sua aplicação lógica possa ser executada. O Azure gera a assinatura usando uma combinação única de uma chave secreta por aplicação lógica, o nome do gatilho e a operação que é realizada. Portanto, a menos que alguém tenha acesso à chave de aplicações lógicas secretas, não pode gerar uma assinatura válida.
 
 > [!IMPORTANT]
 > Para a produção e sistemas de segurança mais elevados, aconselhamos veementemente que não chame a sua aplicação lógica diretamente do navegador por estas razões:
 >
 > * A chave de acesso partilhada aparece na URL.
 > * Não é possível gerir políticas de conteúdo de segurança devido a domínios partilhados em todos os clientes da Azure Logic Apps.
+
+Para mais informações sobre segurança, autorização e encriptação para chamadas de entrada para a sua aplicação lógica, como [a Transport Layer Security (TLS),](https://en.wikipedia.org/wiki/Transport_Layer_Security)anteriormente conhecida como Secure Sockets Layer (SSL), [Azure Ative Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), expondo a sua aplicação lógica com a Azure API Management, ou restringindo os endereços IP que originam chamadas de entrada, ver acesso seguro e dados - Acesso a chamadas de [entrada para pedidos baseados em gatilhos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>P: Posso configurar ainda mais os pontos finais callable?
 
@@ -403,4 +406,4 @@ Para ver a definição JSON para a ação Resposta e a definição completa de J
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Receber e responder às chamadas HTTPS recebidas utilizando apps Azure Logic](../connectors/connectors-native-reqres.md)
-* [Acesso seguro e dados em Azure Logic Apps - Acesso - Acesso a chamadas de entrada para gatilhos baseados em pedidos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Acesso seguro e dados em Azure Logic Apps - Acesso a chamadas de entrada para gatilhos baseados em pedidos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

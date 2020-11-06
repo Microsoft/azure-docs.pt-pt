@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/18/2020
+ms.date: 11/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 59f8148cf6e1d705094e8a6c4ee267b6c77ab7da
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ac7382f60d5c49ac8c784566af4d9db8ea78956b
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518420"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331309"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>Tutorial: Integração do Azure Ative Directory com o Citrix ShareFile
 
@@ -26,9 +26,6 @@ A integração do Citrix ShareFile com a Azure AD proporciona-lhe os seguintes b
 * Você pode controlar em Azure AD que tem acesso ao Citrix ShareFile.
 * Pode permitir que os seus utilizadores sejam automaticamente inscritos no Citrix ShareFile (Sign-On Único) com as suas contas AD Azure.
 * Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,13 +39,12 @@ Para configurar a integração AZure AD com o Citrix ShareFile, precisa dos segu
 Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um ambiente de teste.
 
 * Citrix ShareFile suporta **SSO** iniciado SP
-* Uma vez configurado citrix ShareFile, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-citrix-sharefile-from-the-gallery"></a>Adicionar Citrix ShareFile da galeria
 
 Para configurar a integração do Citrix ShareFile no AD Azure, é necessário adicionar o Citrix ShareFile da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
@@ -60,7 +56,7 @@ Para configurar a integração do Citrix ShareFile no AD Azure, é necessário a
 Nesta secção, configura e testa o Azure AD com citrix ShareFile com base num utilizador de teste chamado **Britta Simon**.
 Para um único sinal de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado no Citrix ShareFile.
 
-Para configurar e testar o Azure AD com citrix ShareFile, é necessário completar os seguintes blocos de construção:
+Para configurar e testar o Azure AD com citrix ShareFile, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     
@@ -74,7 +70,7 @@ Para configurar e testar o Azure AD com citrix ShareFile, é necessário complet
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Citrix ShareFile,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. No portal Azure, na página de integração da aplicação **Citrix ShareFile,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
 1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
 
@@ -109,20 +105,14 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
-
-    b. Identificador Azure Ad
-
-    c. Logout URL
-
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD 
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome** , introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
@@ -131,25 +121,23 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Citrix ShareFile.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Citrix ShareFile**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-citrix-sharefile-sso"></a>Configure Citrix ShareFile SSO
 
 1. Numa janela diferente do navegador web, inicie sessão no site da empresa **Citrix ShareFile** como administrador.
 
-1. No menu do lado esquerdo, clique em **Definições De**  ->  **Início**  ->  **de Sessão de Segurança do**Ícone & Política de Segurança .
+1. No **painel de instrumentos** , clique em **Definições** e selecione **Definições de Administração**
+
+    ![Administração](./media/sharefile-tutorial/settings.png)
+
+1. Nas Definições de Administração, aceda **à**  ->  **Política de Segurança & Segurança**.
    
     ![Administração de Conta](./media/sharefile-tutorial/settings-security.png "Administração de Conta")
 
@@ -175,7 +163,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 1. Faça login no seu inquilino **Citrix ShareFile.**
 
-2. Clique **em Pessoas**  ->  **Gerir utilizadores em casa**Criar novos  ->  **utilizadores**Criar  ->  **funcionários**.
+2. Clique **em Pessoas**  ->  **Gerir utilizadores em casa** Criar novos  ->  **utilizadores** Criar  ->  **funcionários**.
    
     ![Criar Empregado](./media/sharefile-tutorial/create-user.png "Criar Empregado")
 
@@ -187,7 +175,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
    
     b.  Na caixa de texto **Do Último Nome,** escreva **o apelido** do utilizador como **Simon**.
    
-    c. Na caixa de texto **do Endereço de E-mail,** digite o endereço de e-mail de Britta Simon como ** \@ contoso.com**.
+    c. Na caixa de texto **do Endereço de E-mail,** digite o endereço de e-mail de Britta Simon como **\@ contoso.com**.
 
 4. Clique em **Adicionar Utilizador**.
   
@@ -196,14 +184,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar no azulejo Citrix ShareFile no Painel de Acesso, deverá ser automaticamente inscrito no Citrix ShareFile para o qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+1. Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para citrix ShareFile Url de entrada, onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos Adicionais
+2. Vá diretamente ao URL de inscrição do Citrix ShareFile e inicie o fluxo de login a partir daí.
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+3. Pode utilizar o Microsoft Access Panel. Quando clicar no azulejo Citrix ShareFile no Painel de Acesso, este irá redirecionar para o URL de inscrição do Citrix ShareFile. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+## <a name="next-steps"></a>Passos seguintes
+
+Uma vez configurado citrix ShareFile, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

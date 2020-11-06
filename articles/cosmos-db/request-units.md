@@ -6,19 +6,19 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 52d7bc9ed4068d6a2e697cece7ca6cd0b12876c3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ddbfb08370b73ef8fa023816a7362f671b33d3a0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085450"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331010"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Pedido no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB suporta muitas APIs, tais como SQL, MongoDB, Cassandra, Gremlin e Table. Cada API tem o seu próprio conjunto de operações de base de dados. Estas operações vão desde leituras simples de pontos e escritas a consultas complexas. Cada operação de base de dados consome recursos do sistema com base na complexidade da operação.
 
-O custo de todas as operações de base de dados é normalizado pela Azure Cosmos DB e é expresso por *Unidades de Pedido* (ou RUs, para abreviar). Pode pensar em RUs como uma moeda de desempenho que abstrai os recursos do sistema, tais como CPU, IOPS e memória que são necessárias para executar as operações de base de dados suportadas pela Azure Cosmos DB.
+O custo de todas as operações de bases de dados é regulado pelo Azure Cosmos DB e é expresso por Unidades de Pedido (ou RUs, abreviatura em inglês). A unidade de pedido é uma moeda de desempenho que abstrai os recursos do sistema tais como CPU, IOPS e memória que são necessárias para executar as operações de base de dados suportadas por Azure Cosmos DB.
 
 O custo para fazer uma leitura de ponto (isto é, buscar um único item pelo seu valor de ID e chave de partição) para um item de 1 KB é 1 Unidade de Pedido (ou 1 RU). É atribuído um custo através das RUs, de forma semelhante, a todas as outras operações de bases de dados. Não interessa que API utiliza para interagir com o contentor do Azure Cosmos: os custos são sempre medidos por RUs. Quer a operação da base de dados seja uma escrita, leitura de ponto ou consulta, os custos são sempre medidos em RUs.
 
@@ -75,7 +75,7 @@ Embora calcule o número de RUs consumidos pela sua carga de trabalho, considere
 
 Se você *fornecer RUs 'R'* num recipiente Cosmos (ou base de dados), a Cosmos DB garante que as RUs *'R'* estão disponíveis em *cada* região associada à sua conta Cosmos. Não se pode atribuir RUs seletivamente a uma região específica. As RUs a provisionadas num contentor cosmos (ou base de dados) são a provisionadas em todas as regiões associadas à sua conta Cosmos.
 
-Assumindo que um recipiente Cosmos está configurado com *RUs 'R'* e existem regiões *'N'* associadas à conta Cosmos, o total de RUs disponível globalmente no recipiente = *R* x *N* .
+Assumindo que um recipiente Cosmos está configurado com *RUs 'R'* e existem regiões *'N'* associadas à conta Cosmos, o total de RUs disponível globalmente no recipiente = *R* x *N*.
 
 A sua escolha de modelo de [consistência](consistency-levels.md) também afeta a produção. Pode obter aproximadamente 2x de produção de leitura para os níveis de consistência mais descontraídos (por exemplo, *sessão,* *prefixo consistente* e *consistência eventual)* em comparação com níveis de consistência mais fortes (por exemplo, *estagnação limitada* ou *forte* consistência).
 

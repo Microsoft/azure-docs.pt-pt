@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 0fd2312df31e61ae30f4c3fd04dc0991ac0f4675
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6276bd0db9bfb93897f7350b87d208ac2951c859
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376860"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330330"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Tutorial para alargar a Azure AD B2C para proteger aplicações no local utilizando estratos
 
@@ -69,7 +69,7 @@ O seguinte diagrama de arquitetura mostra a implementação.
 | 8. | O utilizador está agora autenticado e tem acesso à aplicação.|
 
 ## <a name="get-maverics-identity-orchestrator"></a>Obter Maverics Identity Orchestrator
-
+Para obter o software que utilizará para integrar a sua aplicação de legado no local com a Azure AD B2C, contacte [a Strata](https://www.strata.io/contact/). Depois de obter o software, siga os passos abaixo para determinar os pré-requisitos específicos do Orquestrador e execute os passos de instalação e configuração necessários.
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>Configure o seu inquilino Azure AD B2C
 

@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 3a195f9dd74353734ff65f0d5f210d861fa29a26
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6f16e4b1f9728ae8d9cb36ab442603083e83eb92
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632588"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331384"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Resolver Problemas do Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -522,79 +522,30 @@ A tabela a seguir aplica-se ao Azure Batch.
  
 ## <a name="hdinsight"></a>HDInsight
 
-### <a name="error-code-200"></a>Código de erro: 200
-
-- **Mensagem:**`Unexpected error happened: '%error;'.`
-
-- **Causa:** Há um problema de serviço interno.
-
-- **Recomendação** : Contacte o apoio da ADF para mais assistência.
-
-### <a name="error-code-201"></a>Código de erro: 201
-
-- **Mensagem:**`JobType %jobType; is not found.`
-
-- **Causa:** Há um novo tipo de trabalho que não é apoiado pela ADF.
-
-- **Recomendação** : Contacte a equipa de apoio da ADF para mais assistência.
-
-### <a name="error-code-202"></a>Código de erro: 202
-
-- **Mensagem:**`Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Causa** : A mensagem de erro inclui os detalhes do que correu mal.
-
-- **Recomendação** : Os detalhes da mensagem de erro devem ajudá-lo a resolver o problema. Se não houver informações suficientes, contacte o suporte da ADF para obter mais ajuda.
-
-### <a name="error-code-203"></a>Código de erro: 203
-
-- **Mensagem:**`Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Causa** : A mensagem de erro inclui os detalhes do que correu mal.
-
-- **Recomendação** : Os detalhes da mensagem de erro devem ajudá-lo a resolver o problema. Se não houver informações suficientes, contacte o suporte da ADF para obter mais ajuda.
-
-### <a name="error-code-204"></a>Código de erro: 204
-
-- **Mensagem:**`The resumption token is missing for runId '%runId;'.`
-
-- **Causa:** Há um problema de serviço interno.
-
-- **Recomendação** : Contacte o apoio da ADF para mais assistência.
-
-### <a name="error-code-205"></a>Código de erro: 205
-
-- **Mensagem:**`Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
-
-- **Causa** : Houve um erro ao criar o cluster on demand do HDI.
-
-- **Recomendação** : Contacte o apoio da ADF para mais assistência.
-
 ### <a name="error-code-206"></a>Código de erro: 206
 
-- **Mensagem:**`The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **Mensagem:**`The batch ID for Spark job is invalid. Please retry your job.`
 
 - **Causa** : Houve um problema interno com o serviço que causou este erro.
 
-- **Recomendação:** Esta questão pode ser transitória. Recandidutar o seu trabalho, e se o problema persistir, contacte o apoio da ADF para mais assistência.
+- **Recomendação:** Esta questão pode ser transitória. Recandidutar o seu trabalho depois de algum tempo.
 
 ### <a name="error-code-207"></a>Código de erro: 207
 
-- **Mensagem:**`Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **Mensagem:**`Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
 
 - **Causa:** Houve um erro interno ao tentar determinar a região a partir da conta de armazenamento primário.
 
-- **Recomendação:** Tente outro armazenamento. Se esta opção não for uma solução aceitável, contacte a equipa de apoio da ADF para mais assistência.
+- **Recomendação:** Tente outro armazenamento. 
 
 ### <a name="error-code-208"></a>Código de erro: 208
 
-- **Mensagem:**`Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **Mensagem:**`Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
 
 - **Causa** : Houve um erro interno ao tentar ler o Diretor de Serviço ou instantaneamente a autenticação MSI.
 
 - **Recomendação** : Considere fornecer um principal de serviço, que tenha permissões para criar um cluster HDInsight na subscrição fornecida e tente novamente. Verifique se [as identidades de gestão estão corretamente configurada](../hdinsight/hdinsight-managed-identities.md).
 
-   Se esta opção não for uma solução aceitável, contacte a equipa de apoio da ADF para mais assistência.
 
 ### <a name="error-code-2300"></a>Código de erro: 2300
 
@@ -612,7 +563,7 @@ A tabela a seguir aplica-se ao Azure Batch.
 
 - **Recomendação** : O problema pode ser a conectividade geral hdInsight ou a conectividade da rede. Primeiro confirme que o HDInsight Ambari UI está disponível em qualquer navegador. Então verifique se as suas credenciais ainda são válidas.
    
-   Se estiver a utilizar um tempo de execução integrado auto-hospedado (IR), execute este passo a partir do VM ou da máquina onde o IR auto-hospedado está instalado. Então tente submeter o trabalho da Data Factory novamente. Se ainda falhar, contacte a equipa da Data Factory para obter apoio.
+   Se estiver a utilizar um tempo de execução integrado auto-hospedado (IR), execute este passo a partir do VM ou da máquina onde o IR auto-hospedado está instalado. Então tente submeter o trabalho da Data Factory novamente.
 
    Para mais informações, leia [Ambari Web UI.](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui)
 
@@ -1024,17 +975,17 @@ Utilizar **o Fiddler** para criar uma sessão HTTP da aplicação web monitoriza
 
 1. Descarregue, instale e abra [o Violinista.](https://www.telerik.com/download/fiddler)
 
-1. Se a sua aplicação web **Tools** utilizar HTTPS, aceda a  >  **Opções de Violino de**  >  **Ferramentas HTTPS** .
+1. Se a sua aplicação web **Tools** utilizar HTTPS, aceda a  >  **Opções de Violino de**  >  **Ferramentas HTTPS**.
 
-   1. No separador HTTPS, selecione ambos **os CONNECTs de captura** e **desencriptar o tráfego HTTPS** .
+   1. No separador HTTPS, selecione ambos **os CONNECTs de captura** e **desencriptar o tráfego HTTPS**.
 
       ![Opções de violino](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 1. Se a sua aplicação utilizar certificados TLS/SSL, adicione o certificado Fiddler ao seu dispositivo.
 
-   Ir para: **Opções** de Violino de  >  **Fiddler Options**  >  **Ferramentas HTTPS**  >  **Actions**  >  **Export Root Certificate to Desktop** .
+   Ir para: **Opções** de Violino de  >  **Fiddler Options**  >  **Ferramentas HTTPS**  >  **Actions**  >  **Export Root Certificate to Desktop**.
 
-1. Desligue a captura indo para o **File**  >  **Tráfego de Captura de Ficheiros** . Ou prima **F12** .
+1. Desligue a captura indo para o **File**  >  **Tráfego de Captura de Ficheiros**. Ou prima **F12**.
 
 1. Limpe a cache do seu navegador para que todos os itens em cache sejam removidos e devem ser descarregados novamente.
 
@@ -1050,7 +1001,7 @@ Utilizar **o Fiddler** para criar uma sessão HTTP da aplicação web monitoriza
 
 1. Ligue a captura de tráfego novamente e complete a transação problemática na sua página.
 
-1. Ir para: **Arquivar**  >  **Guardar**  >  **todas as sessões** .
+1. Ir para: **Arquivar**  >  **Guardar**  >  **todas as sessões**.
 
 Para mais informações, consulte [Começar com o Violinista.](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 11/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 7690977f23b193bb3ba282df14d348b3fac0ad6b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: fe83a012cac68f705bc9fabc7748f5a7c7c61bbb
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457542"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330568"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Tutorial: Integre a nuvem atlassiana com diretório ativo Azure
 
@@ -158,7 +158,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
    
 1. A sua aplicação Atlassian Cloud espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. Pode editar o mapeamento do atributo clicando no ícone **Editar.** 
 
-   ![atributos](./media/atlassian-cloud-tutorial/default-attributes.png)
+   ![atributos](./media/atlassian-cloud-tutorial/edit-attribute.png)
    
    1. Atribuir mapeamento para um inquilino AD Azure com uma licença Microsoft 365
       
@@ -166,13 +166,13 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
       ![atributos e reclamações](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
       
-      b. A Atlassian Cloud espera que o identificador de **nomes** (**Identificador único**do utilizador) seja mapeado para o e-mail do utilizador **(user.email).** Editar o **atributo Fonte** e alterá-lo para **user.mail**. Guarde as alterações à reclamação.
+      b. A Atlassian Cloud espera que o identificador de **nomes** ( **Identificador único** do utilizador) seja mapeado para o e-mail do utilizador **(user.email).** Editar o **atributo Fonte** e alterá-lo para **user.mail**. Guarde as alterações à reclamação.
 
       ![ID do utilizador único](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
       
       c. Os mapeamentos de atributos finais devem ser os seguintes.
 
-      ![imagem 2](common/default-attributes.png)
+      ![imagem 2](./media/atlassian-cloud-tutorial/default-attributes-1.png)
       
    1. Atribuir mapeamento para um inquilino AD Azure sem licença Microsoft 365 
 
@@ -180,22 +180,22 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
       ![imagem 3](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Embora o Azure não preencha o atributo **user.mail** para utilizadores criados em Azure AD inquilinos sem licenças Microsoft 365 e armazena o e-mail para esses utilizadores no atributo **userprincipalname.** A Atlassian Cloud espera que o identificador de **nomes** (**Identificador de Utilizador Exclusivo)** seja mapeado para o e-mail do utilizador **(user.userprincipalname).**  Editar o **atributo Fonte**  e alterá-lo para **user.userprincipalname**. Guarde as alterações à reclamação.
+      b. Embora o Azure não preencha o atributo **user.mail** para utilizadores criados em Azure AD inquilinos sem licenças Microsoft 365 e armazena o e-mail para esses utilizadores no atributo **userprincipalname.** A Atlassian Cloud espera que o identificador de **nomes** ( **Identificador de Utilizador Exclusivo)** seja mapeado para o e-mail do utilizador **(user.userprincipalname).**  Editar o **atributo Fonte**  e alterá-lo para **user.userprincipalname**. Guarde as alterações à reclamação.
 
       ![definir e-mail](./media/atlassian-cloud-tutorial/set-email.png)
          
       c. Os mapeamentos de atributos finais devem ser os seguintes.
 
-      ![imagem 4](common/default-attributes.png)
+      ![imagem 4](./media/atlassian-cloud-tutorial/default-attributes-2.png)
      
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome** , introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
@@ -204,7 +204,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Nuvem Atlassiana.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de aplicações, selecione **Atlassian Cloud**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
@@ -250,6 +250,6 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 Também pode utilizar o Microsoft Access Panel para testar a aplicação em qualquer modo. Quando clicar no azulejo da Nuvem Atlassiana no Painel de Acesso, se configurado no modo SP, será redirecionado para o sinal de aplicação na página para iniciar o fluxo de login e se configurado no modo IDP, deverá ser automaticamente inscrito na Nuvem Atlassiana para a qual configura o SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
 
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado Atlassian Cloud, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

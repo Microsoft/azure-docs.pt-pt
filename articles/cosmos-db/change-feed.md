@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6d0ae81177ca8488c410e40ca56642199694c08c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8c9007cf14b485c37b94e9f475e2ce890ea0ea2b
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072659"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330806"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Feed de alterações no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-O suporte do feed de alterações no Azure Cosmos DB funciona através da escuta de alterações num contentor do Azure Cosmos. Em seguida, disponibiliza a lista ordenada dos documentos que foram alterados, pela ordem pela qual foram modificados. As alterações são preservadas, podem ser processadas de forma assíncrona e incremental e o resultado pode ser distribuído por um ou mais consumidores para processamento paralelo.
+Alterar o feed em Azure Cosmos DB é um registo persistente de alterações num recipiente na ordem em que ocorrem. O suporte do feed de alterações no Azure Cosmos DB funciona através da escuta de alterações num contentor do Azure Cosmos. Em seguida, disponibiliza a lista ordenada dos documentos que foram alterados, pela ordem pela qual foram modificados. As alterações persistiu podem ser processadas de forma assíncronea e incremental, e a produção pode ser distribuída por um ou mais consumidores para processamento paralelo.
 
 Saiba mais sobre [mudar padrões de design de feed.](change-feed-design-patterns.md)
 
@@ -28,10 +28,10 @@ Esta funcionalidade é atualmente suportada pelas seguintes APIs DB da Azure Cos
 
 | **Motoristas de clientes** | **SQL API** | **A API de Azure Cosmos DB para Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | Yes | Yes | Yes | Yes | No |
-|Java|Yes|Yes|Yes|Yes|No|
-|Python|Yes|Yes|Yes|Yes|No|
-|Nó/JS|Yes|Yes|Yes|Yes|No|
+| .NET | Sim | Sim | Sim | Sim | Não |
+|Java|Sim|Sim|Sim|Sim|Não|
+|Python|Sim|Sim|Sim|Sim|Não|
+|Nó/JS|Sim|Sim|Sim|Sim|Não|
 
 ## <a name="change-feed-and-different-operations"></a>Alterar feed e diferentes operações
 

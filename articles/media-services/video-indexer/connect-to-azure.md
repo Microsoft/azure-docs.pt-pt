@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: 8cd5969e4362b1581a7b9aebf39f8c6871839918
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: a101afb2089e4ab1fa32bd0668c60b477039b566
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558763"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330585"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta de Indexer de Vídeo ligada ao Azure
 
@@ -53,9 +53,9 @@ Se estiver a passar de um *ensaio* para uma conta de Indexer de Vídeo *paga,* p
 
 * Registe o fornecedor de recursos EventGrid utilizando o portal Azure.
 
-    No [portal Azure](https://portal.azure.com/), vá a **Subscrições** ->[subscrição]-> **ResourceProviders** .
+    No [portal Azure](https://portal.azure.com/), vá a **Subscrições** ->[subscrição]-> **ResourceProviders**.
 
-    Procure por **Microsoft.Media** e **Microsoft.EventGrid** . Se não estiver no estado "Registado", clique em **Registar** . Leva alguns minutos para se registar.
+    Procure por **Microsoft.Media** e **Microsoft.EventGrid**. Se não estiver no estado "Registado", clique em **Registar**. Leva alguns minutos para se registar.
 
     ![EventGrid](./media/create-account/event-grid.png)
 
@@ -82,7 +82,7 @@ Se estiver a passar de um *ensaio* para uma conta de Indexer de Vídeo *paga,* p
         A sua conta de Media Services deve ter a mesma região que a sua conta de Indexer de Vídeo.
 
         > [!NOTE]
-        > Para minimizar a duração da indexação e baixa produção, é altamente recomendado ajustar o tipo e o número de [Unidades Reservadas](../previous/media-services-scale-media-processing-overview.md ) na sua conta de Serviços de Mídia a **10 Unidades Reservadas S3** . Consulte [o portal Utilizar para alterar unidades reservadas](../previous/media-services-portal-scale-media-processing.md). As unidades reservadas são cobradas na sua conta, ver [detalhes de preços](https://azure.microsoft.com/pricing/details/media-services/#analytics).
+        > Para minimizar a duração da indexação e baixa produção, é altamente recomendado ajustar o tipo e o número de [Unidades Reservadas](../previous/media-services-scale-media-processing-overview.md ) na sua conta de Serviços de Mídia a **10 Unidades Reservadas S3**. Consulte [o portal Utilizar para alterar unidades reservadas](../previous/media-services-portal-scale-media-processing.md). As unidades reservadas são cobradas na sua conta, ver [detalhes de preços](https://azure.microsoft.com/pricing/details/media-services/#analytics).
     * Para configurar manualmente a sua ligação, selecione o Interruptor para o link **de configuração manual.**
 
         Para obter informações detalhadas, consulte a secção ['Ligar ao Azure' manualmente](#connect-to-azure-manually-advanced-option) (opção avançada) que se segue.
@@ -94,7 +94,7 @@ Se estiver a passar de um *ensaio* para uma conta de Indexer de Vídeo *paga,* p
 1. Certifique-se de que o Ponto final de streaming da conta Media Services está a funcionar antes de poder reproduzir os seus vídeos na aplicação web do Indexer de Vídeo (prima o início se for o estado parado).
 
 > [!TIP]
-> Para dar um hame de exibição amigável à sua conta aceda a **Definições** .
+> Para dar um hame de exibição amigável à sua conta aceda a **Definições**.
 
 ## <a name="connect-to-azure-manually-advanced-option"></a>Ligue-se ao Azure manualmente (opção avançada)
 
@@ -118,12 +118,12 @@ Se a ligação ao Azure falhar, pode tentar resolver o problema ligando manualme
     As unidades reservadas são cobradas na sua conta, ver [detalhes de preços](https://azure.microsoft.com/pricing/details/media-services/#analytics).s
 1. Antes de poder reproduzir os seus vídeos na aplicação web do Video Indexer, tem de iniciar o **ponto final** de streaming predefinido da nova conta de Media Services.
 
-    Na nova conta dos Serviços de Comunicação Social, selecione **Streaming endpoints** . Em seguida, selecione o ponto final de streaming e prima o início.
+    Na nova conta dos Serviços de Comunicação Social, selecione **Streaming endpoints**. Em seguida, selecione o ponto final de streaming e prima o início.
 
     ![Pontos finais de transmissões em fluxo](./media/create-account/create-ams-account2.png)
 4. Para que o Indexante de Vídeo autentica com a API dos Serviços de Mídia, é necessário criar uma aplicação AD. Os seguintes passos guiam-no através do processo de autenticação AD Azure descrito em [Get start with Azure AD authentication utilizando o portal Azure:](../previous/media-services-portal-get-started-with-aad.md)
 
-    1. Na nova conta dos Serviços de Comunicação Social, selecione **acesso API** .
+    1. Na nova conta dos Serviços de Comunicação Social, selecione **acesso API**.
     2. Selecione [o método de autenticação principal do Serviço](../previous/media-services-portal-get-started-with-aad.md).
     3. Obtenha a iD do cliente e o segredo do cliente
 
@@ -163,7 +163,7 @@ A capacidade de importar o conteúdo é válida para abordagens automatizadas e 
 
 Se mais tarde pretender apagar a conta, pode eliminar a conta do website do Indexer de Vídeo. Para apagar a conta, tem de ser o proprietário.
 
-Selecione a conta -> **Definições**  ->  **Elimine esta conta** . 
+Selecione a conta -> **Definições**  ->  **Elimine esta conta**. 
 
 A conta será permanentemente apagada em 90 dias.
 
@@ -184,6 +184,15 @@ Aplicam-se as seguintes considerações relacionadas com os Serviços de Comunic
 * Se ligar automaticamente, o Indexante de Vídeo define as **unidades reservadas** para 10 unidades S3:
 
     ![Unidades reservadas dos Serviços de Mídia](./media/create-account/ams-reserved-units.png)
+    
+## <a name="automate-creation-of-the-video-indexer-account"></a>Automatizar a criação da conta do Indexador de Vídeo
+
+Automatizar a criação da conta é um processo de duas etapas:
+ 
+1. Utilize o Azure Resource Manager para criar uma conta Azure Media Services + aplicação AZure AD.
+
+    Veja um exemplo do modelo de criação de [conta dos Media Services.](https://github.com/Azure-Samples/media-services-v3-arm-templates)
+1. Ligue para [Criar Conta com os Serviços de Comunicação Social e a aplicação AD Azure](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account).
 
 ## <a name="next-steps"></a>Passos seguintes
 
