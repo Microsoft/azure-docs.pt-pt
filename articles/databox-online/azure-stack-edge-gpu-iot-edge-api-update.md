@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: overview
 ms.date: 10/26/2020
 ms.author: alkohli
-ms.openlocfilehash: a86c4c9c32f78cda1b5183a8651783fdcbb20e85
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 4b54f75b7d90e4b3a0a11d2ecdc676bb48eeee99
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92754747"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335687"
 ---
 # <a name="iot-edge-role-management-changes-for-your-azure-stack-edge"></a>IoT Edge Role alterações na gestão do seu Azure Stack Edge
 
@@ -41,7 +41,7 @@ Se estava a realizar a gestão IoT Edge Role via API, deverá utilizar a nova ve
 
 #### <a name="current-http-request"></a>Pedido de http atual 
 
-- As chamadas da API são feitas neste URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
+- As chamadas da API são feitas neste URI: https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01 '
 
 - O corpo do pedido é assim:
 
@@ -86,7 +86,7 @@ Se estava a realizar a gestão IoT Edge Role via API, deverá utilizar a nova ve
 
 #### <a name="upcoming-http-request"></a>Próximo pedido de http 
 
-- A API apela ao papel de Kubernetes no seguinte URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01)
+- A API apela ao papel de Kubernetes no seguinte URI: https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1?api-version=2020-12-01 '
 
     O corpo do pedido é assim:
 
@@ -110,7 +110,7 @@ Se estava a realizar a gestão IoT Edge Role via API, deverá utilizar a nova ve
     }
     ```
 
-- As chamadas da API para o addon IoT Edge são feitas no seguinte URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
+- Os pedidos da API para o addon IoT Edge são feitos no seguinte URI: https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01 '
 
 
     O corpo do pedido é assim:
@@ -156,7 +156,7 @@ Se estava a realizar a gestão IoT Edge Role via API, deverá utilizar a nova ve
 
 #### <a name="current-http-response"></a>Resposta http atual
 
-- As chamadas da API são feitas no seguinte URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
+- As chamadas da API são feitas no seguinte URI: https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01 '
 
 
 - O corpo de resposta é assim:
@@ -192,7 +192,7 @@ Se estava a realizar a gestão IoT Edge Role via API, deverá utilizar a nova ve
 
 #### <a name="upcoming-http-response"></a>Próxima resposta http
 
-- As chamadas da API são feitas no seguinte URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
+- As chamadas da API são feitas no seguinte URI: https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01 '
 - O corpo de resposta é assim: 
 
     ```json
@@ -228,11 +228,11 @@ Se estava a realizar a gestão IoT Edge Role via API, deverá utilizar a nova ve
 
 ### <a name="current"></a>Atual
 
-As chamadas da API são feitas no seguinte URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01)
+As chamadas da API são feitas no seguinte URI: https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/IoTRole1?api-version=2019-08-01 '
 
 ### <a name="upcoming"></a>A seguir
 
-As chamadas da API são feitas no seguinte URI: [https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01](https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01)
+As chamadas da API são feitas no seguinte URI: https://management.azure.com/subscriptions/4385cf00-2d3a-425a-832f-f4285b1c9dce/resourceGroups/GroupForEdgeAutomation/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/testedgedevice/roles/KubernetesRole1/addons/iotaddon?api-version=2020-12-01 '
 
 
 ## <a name="sdk-usage"></a>Utilização do SDK

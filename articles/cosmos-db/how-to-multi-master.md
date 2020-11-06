@@ -7,13 +7,13 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 109ce54b48df0724c0d4ba64c02721088ed7ffad
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, "seo-nov-2020"
+ms.openlocfilehash: 6f71f4c0ec353f36614ea6dcabf4d698b31baacb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330636"
+ms.locfileid: "94336731"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configure várias regiões escreve nas suas aplicações que usam Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

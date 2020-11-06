@@ -3,13 +3,13 @@ title: Implementar e configurar a solução VMware Azure
 description: Saiba como utilizar as informações recolhidas na fase de planeamento para implementar a nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.author: tredavis
-ms.date: 10/02/2020
-ms.openlocfilehash: 0839048c2d0ad5944566a48f54cca07a4daeb754
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.date: 11/09/2020
+ms.openlocfilehash: 264ad99b21150f391c367eba2da31f0d08f4ab08
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152023"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336340"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementar e configurar a solução VMware Azure
 
@@ -59,7 +59,7 @@ A caixa de salto encontra-se na rede virtual onde a Azure VMware Solution se con
 
 Na lista de rotas eficazes, deverá ver as redes criadas como parte da implementação da Solução VMware Azure. Você verá várias redes que foram derivadas da [ `/22` rede que definiu](production-ready-deployment-steps.md#ip-address-segment) durante o [passo de implementação](#deploy-azure-vmware-solution) mais cedo neste artigo.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Crie a caixa de salto Azure VMware Solution" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verifique as rotas de rede anunciadas da Solução VMware Azure para a Rede Virtual Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
 Neste exemplo, a rede 10.74.72.0/22 foi a entrada durante a implantação deriva das redes /24.  Se vir algo semelhante, pode ligar-se ao vCenter na Solução VMware Azure.
 
@@ -97,10 +97,10 @@ Como o DNS é necessário, identifique o servidor DNS que pretende utilizar.
 
 Se pretender utilizar o DHCP no seu segmento NSX-T, continue com esta secção. Caso contrário, salte para o Add a VM na secção [de segmento de rede NSX-T.](#add-a-vm-on-the-nsx-t-network-segment)  
 
-Agora que criou o seu segmento de rede NSX-T, pode fazer uma das seguintes formas:
+Agora que criou o seu segmento de rede NSX-T, pode criar e gerir o DHCP na Azure VMware Solution de duas formas:
 
-* Utilize o NSX-T como servidor DHCP para o segmento(s) criado. Para esta opção, pretende [criar um servidor DHCP em NSX-T](manage-dhcp.md#create-dhcp-server) e [retransmitir para esse servidor.](manage-dhcp.md#create-dhcp-relay-service)
-* Relay os pedidos dhCP do segmento NSX-T para um servidor DHCP em outro lugar do seu ambiente. Para esta opção, [faça apenas a configuração do retransmissor](manage-dhcp.md#create-dhcp-relay-service).
+* Se estiver a utilizar o NSX-T para hospedar o seu servidor DHCP, terá de [criar um servidor DHCP](manage-dhcp.md#create-a-dhcp-server) e [retransmitir para esse servidor.](manage-dhcp.md#create-dhcp-relay-service) 
+* Se estiver a utilizar um servidor DHCP externo de terceiros na sua rede, terá de criar um serviço de [retransmissão DHCP](manage-dhcp.md#create-dhcp-relay-service).  Para esta opção, [faça apenas a configuração do retransmissor](manage-dhcp.md#create-dhcp-relay-service).
 
 
 ## <a name="add-a-vm-on-the-nsx-t-network-segment"></a>Adicione um VM no segmento de rede NSX-T

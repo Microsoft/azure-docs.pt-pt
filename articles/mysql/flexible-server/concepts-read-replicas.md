@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 9d683f96f31d3b34ac311251f45456551148ca26
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: ae73885016a40cd3cf79de968ca7c07c51f1400a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420891"
+ms.locfileid: "94336068"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Leia réplicas na Base de Dados Azure para MySQL - Servidor Flexível
 
@@ -125,7 +125,7 @@ Uma vez que a sua aplicação esteja a processar com sucesso as leituras e as es
 | Réplicas paradas | Se parar a replicação entre um servidor de origem e uma réplica de leitura, a réplica parada torna-se um servidor autónomo que aceita tanto as leituras como as escritas. O servidor autónomo não pode ser transformado numa réplica novamente. |
 | Fonte eliminada e servidores autónomos | Quando um servidor de origem é eliminado, a replicação é interrompida para todas as réplicas lidas. Estas réplicas tornam-se automaticamente servidores autónomos e podem aceitar tanto as leituras como as escritas. O servidor de origem em si é eliminado. |
 | Contas de utilizador | Os utilizadores do servidor de origem são replicados nas réplicas de leitura. Só é possível ligar-se a uma réplica de leitura utilizando as contas de utilizador disponíveis no servidor de origem. |
-| Parâmetros do servidor | Para impedir que os dados fiquem dessincronizados e evitar potenciais perdas de dados ou corrupção, a atualização de alguns parâmetros de servidor é bloqueada ao utilizar réplicas de leitura. <br> Os seguintes parâmetros do servidor estão bloqueados tanto nos servidores de origem como em réplicas:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parâmetro está bloqueado nos servidores de réplicas. <br> Para atualizar um dos parâmetros acima no servidor de origem, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro na fonte e recrie réplicas. |
+| Parâmetros do servidor | Para impedir que os dados fiquem dessincronizados e evitar potenciais perdas de dados ou corrupção, a atualização de alguns parâmetros de servidor é bloqueada ao utilizar réplicas de leitura. <br> Os seguintes parâmetros do servidor estão bloqueados tanto nos servidores de origem como em réplicas:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/8.0/en/innodb-file-per-table-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parâmetro está bloqueado nos servidores de réplicas. <br> Para atualizar um dos parâmetros acima no servidor de origem, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro na fonte e recrie réplicas. |
 | Outro | - A criação de uma réplica de uma réplica não é suportada. <br> - As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MySQL. Leia mais na documentação de referência do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para obter mais informações. <br>- Certifique-se de que as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a fonte e as réplicas.<br>- Rever a lista completa das limitações de replicação do MySQL na [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
 
 ## <a name="next-steps"></a>Passos seguintes

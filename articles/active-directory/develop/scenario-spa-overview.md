@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 658e7f206f892c9dc241aab228aa933884f95b94
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 11a295402c925f5b8244eb3294097ff2271b5d68
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675638"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335269"
 ---
 # <a name="scenario-single-page-application"></a>Cenário: Aplicação de página única
 
@@ -38,7 +38,7 @@ A plataforma de identidade da Microsoft fornece **duas** opções para permitir 
 
 ![Aplicações de uma só página-auth](./media/scenarios/spa-app-auth.svg)
 
-- [OAuth 2.0 fluxo implícito](./v2-oauth2-implicit-grant-flow.md). O fluxo de subvenção implícita permite que a aplicação obtenha **ID** e tokens de **acesso.** Ao contrário do fluxo de código de autorização, o fluxo de subvenção implícita não devolve um **token Refresh** .
+- [OAuth 2.0 fluxo implícito](./v2-oauth2-implicit-grant-flow.md). O fluxo de subvenção implícita permite que a aplicação obtenha **ID** e tokens de **acesso.** Ao contrário do fluxo de código de autorização, o fluxo de subvenção implícita não devolve um **token Refresh**.
 
 ![Aplicações de uma página única implícitas](./media/scenarios/spa-app.svg)
 
@@ -58,5 +58,4 @@ Para ativar este cenário para a sua aplicação, precisa:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
-> [Registo da aplicação](scenario-spa-app-registration.md)
+[Registo de aplicações](scenario-spa-app-registration.md)

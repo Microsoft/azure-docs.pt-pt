@@ -3,12 +3,12 @@ title: Sobre repositórios & imagens
 description: Introdução a conceitos-chave de registos de contentores Azure, repositórios e imagens de contentores.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390453"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335899"
 ---
 # <a name="about-registries-repositories-and-images"></a>Sobre registos, repositórios e imagens
 

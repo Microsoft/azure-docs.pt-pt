@@ -3,12 +3,12 @@ title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos Azure que podem ser transferidos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d5875287c7af905579397164029ef0504d6b9dc
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627113"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337955"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover suporte de operação para recursos
 
@@ -205,71 +205,71 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | serviços de domínio | Não | Não |
+> | serviços de domínio | No | No |
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | diagnósticos | Não | Não |
-> | diagnósticoscategorias | Não | Não |
-> | privatelinkforazuread | Sim | Sim |
-> | inquilinos | Sim | Sim |
+> | diagnósticos | No | No |
+> | diagnósticoscategorias | No | No |
+> | privatelinkforazuread | Yes | Yes |
+> | inquilinos | Yes | Yes |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | supportproviders | Não | Não |
+> | supportproviders | No | No |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aadsupportcases | Não | Não |
-> | adds serviços | Não | Não |
-> | agentes | Não | Não |
-> | anónimos | Não | Não |
-> | configuração | Não | Não |
-> | registos | Não | Não |
-> | relatórios | Não | Não |
-> | serviços de saúde | Não | Não |
-> | services | Não | Não |
+> | aadsupportcases | No | No |
+> | adds serviços | No | No |
+> | agentes | No | No |
+> | anónimos | No | No |
+> | configuração | No | No |
+> | registos | No | No |
+> | relatórios | No | No |
+> | serviços de saúde | No | No |
+> | services | No | No |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | configurações | Não | Não |
-> | gerar recommendações | Não | Não |
-> | do IdP | Não | Não |
-> | recomendações | Não | Não |
-> | supressões | Não | Não |
+> | configurações | No | No |
+> | gerar recommendações | No | No |
+> | do IdP | No | No |
+> | recomendações | No | No |
+> | supressões | No | No |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | regras de ação | Sim | Sim |
-> | alerts | Não | Não |
-> | lista de alertas | Não | Não |
-> | alertasmetadata | Não | Não |
-> | alertasummary | Não | Não |
-> | alertasummarylista | Não | Não |
-> | smartdetectoralertrules | Sim | Sim |
-> | grupos inteligentes | Não | Não |
+> | regras de ação | Yes | Yes |
+> | alerts | No | No |
+> | lista de alertas | No | No |
+> | alertasmetadata | No | No |
+> | alertasummary | No | No |
+> | alertasummarylista | No | No |
+> | smartdetectoralertrules | Yes | Yes |
+> | grupos inteligentes | No | No |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | servidores | Sim | Sim |
+> | servidores | Yes | Yes |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
@@ -279,23 +279,23 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | reportfeedback | Não | Não |
-> | serviço | Sim | Sim |
+> | reportfeedback | No | No |
+> | serviço | Yes | Yes |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | lojas de configurações | Sim | Sim |
-> | lojas de configurações / filtros de eventos | Não | Não |
+> | lojas de configurações | Yes | Yes |
+> | lojas de configurações / filtros de eventos | No | No |
 
 ## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | primavera | Sim | Sim |
+> | primavera | Yes | Yes |
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 
@@ -305,37 +305,37 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | apiapps | Não | Não |
-> | appidentidades | Não | Não |
-> | portais | Não | Não |
+> | apiapps | No | No |
+> | appidentidades | No | No |
+> | portais | No | No |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | atesstationproviders | Sim | Sim |
+> | atesstationproviders | Yes | Yes |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | classicadministradores | Não | Não |
-> | dataaliases | Não | Não |
-> | denyassignments | Não | Não |
-> | elevateaccess | Não | Não |
-> | findorphanroleassignments | Não | Não |
-> | fechaduras | Não | Não |
-> | permissões | Não | Não |
-> | assinaturas políticas | Não | Não |
-> | definições de políticas | Não | Não |
-> | políticas dedefinições | Não | Não |
-> | privatelinkassociations | Não | Não |
-> | recursos gestagementprivatelinks | Não | Não |
-> | roleassignments | Não | Não |
-> | roleassignmentsusagemetrics | Não | Não |
-> | papéis dedefinições | Não | Não |
+> | classicadministradores | No | No |
+> | dataaliases | No | No |
+> | denyassignments | No | No |
+> | elevateaccess | No | No |
+> | findorphanroleassignments | No | No |
+> | fechaduras | No | No |
+> | permissões | No | No |
+> | assinaturas políticas | No | No |
+> | definições de políticas | No | No |
+> | políticas dedefinições | No | No |
+> | privatelinkassociations | No | No |
+> | recursos gestagementprivatelinks | No | No |
+> | roleassignments | No | No |
+> | roleassignmentsusagemetrics | No | No |
+> | papéis dedefinições | No | No |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -347,120 +347,120 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | contas de automação | Sim | Sim |
-> | contas/configurações de automação | Sim | Sim |
-> | contas de automação / runbooks | Sim | Sim |
+> | contas de automação | Yes | Yes |
+> | contas/configurações de automação | Yes | Yes |
+> | contas de automação / runbooks | Yes | Yes |
 
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | nuvens privadas | Sim | Sim |
+> | nuvens privadas | Yes | Yes |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | b2direões | Sim | Sim |
-> | b2ctenants | Não | Não |
+> | b2direões | Yes | Yes |
+> | b2ctenants | No | No |
 
 ## <a name="microsoftazuredata"></a>Microsoft.AzureData
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | datacontrollers | Não | Não |
-> | híbridos gerentes | Não | Não |
-> | pós-insinstâncias | Não | Não |
-> | sqlinstances | Não | Não |
-> | sqlmanagedinstances | Não | Não |
-> | sqlserverinstances | Não | Não |
-> | sqlserverregistrations | Sim | Sim |
+> | datacontrollers | No | No |
+> | híbridos gerentes | No | No |
+> | pós-insinstâncias | No | No |
+> | sqlinstances | No | No |
+> | sqlmanagedinstances | No | No |
+> | sqlserverinstances | No | No |
+> | sqlserverregistrations | Yes | Yes |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | cloudmanifestfiles | Não | Não |
-> | registos | Sim | Sim |
+> | cloudmanifestfiles | No | No |
+> | registos | Yes | Yes |
 
 ## <a name="microsoftazurestackhci"></a>Microsoft.AzureStackHCI
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aglomerados | Não | Não |
+> | aglomerados | No | No |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | lotaccounts | Sim | Sim |
+> | lotaccounts | Yes | Yes |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | contas de faturação | Não | Não |
-> | faturantes | Não | Não |
-> | faturações | Não | Não |
-> | billingproperty | Não | Não |
-> | billingroleassignments | Não | Não |
-> | billingroledefinitions | Não | Não |
-> | departamentos | Não | Não |
-> | matrículas | Não | Não |
-> | faturas | Não | Não |
-> | transferências | Não | Não |
+> | contas de faturação | No | No |
+> | faturantes | No | No |
+> | faturações | No | No |
+> | billingproperty | No | No |
+> | billingroleassignments | No | No |
+> | billingroledefinitions | No | No |
+> | departamentos | No | No |
+> | matrículas | No | No |
+> | faturas | No | No |
+> | transferências | No | No |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | mapapis | Não | Não |
+> | mapapis | No | No |
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | biztalk | Não | Não |
+> | biztalk | No | No |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | membros blockchain | Não | Não |
-> | cordamembers | Não | Não |
-> | observadores | Não | Não |
+> | membros blockchain | No | No |
+> | cordamembers | No | No |
+> | observadores | No | No |
 
 ## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | serviços de token | Não | Não |
+> | serviços de token | No | No |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | blueprintassignments | Não | Não |
-> | plantas | Não | Não |
+> | blueprintassignments | No | No |
+> | plantas | No | No |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | botservices | Sim | Sim |
+> | botservices | Yes | Yes |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
@@ -470,36 +470,36 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | redis | Sim | Sim |
-> | redisenterprise | Não | Não |
+> | redis | Yes | Yes |
+> | redisenterprise | No | No |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | reservações aplicadas | Não | Não |
-> | calcular a troca | Não | Não |
-> | calcular preço | Não | Não |
-> | calcular o preço da compra | Não | Não |
-> | catálogos | Não | Não |
-> | ordenadores de reservação comercial | Não | Não |
-> | troca | Não | Não |
-> | encomendas de reservas | Não | Não |
-> | reservas | Não | Não |
-> | resources | Não | Não |
-> | validação encomenda de reservas | Não | Não |
+> | reservações aplicadas | No | No |
+> | calcular a troca | No | No |
+> | calcular preço | No | No |
+> | calcular o preço da compra | No | No |
+> | catálogos | No | No |
+> | ordenadores de reservação comercial | No | No |
+> | troca | No | No |
+> | encomendas de reservas | No | No |
+> | reservas | No | No |
+> | resources | No | No |
+> | validação encomenda de reservas | No | No |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | cdnwebapplication firewallmanagedrulesets | Não | Não |
-> | cdnwebapplicationfirewallpolicies | Sim | Sim |
-> | edgenodes | Não | Não |
-> | perfis | Sim | Sim |
-> | perfis / pontos finais | Sim | Sim |
+> | cdnwebapplication firewallmanagedrulesets | No | No |
+> | cdnwebapplicationfirewallpolicies | Yes | Yes |
+> | edgenodes | No | No |
+> | perfis | Yes | Yes |
+> | perfis / pontos finais | Yes | Yes |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
@@ -509,7 +509,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | certificadores | Sim | Sim |
+> | certificadores | Yes | Yes |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
@@ -519,12 +519,12 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | capacidades | Não | Não |
-> | temas de domínio | Sim | Não |
-> | quotas | Não | Não |
-> | recursos | Não | Não |
-> | valida a subscrição demovedabilidade | Não | Não |
-> | virtualmachines | Sim | Sim |
+> | capacidades | No | No |
+> | temas de domínio | Yes | No |
+> | quotas | No | No |
+> | recursos | No | No |
+> | valida a subscrição demovedabilidade | No | No |
+> | virtualmachines | Yes | Yes |
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
 
@@ -534,7 +534,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | classicinfrastructureresources | Não | Não |
+> | classicinfrastructureresources | No | No |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
@@ -544,14 +544,14 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | capacidades | Não | Não |
-> | expressroute crossconnections | Não | Não |
-> | expressroutecrossconnections / peerings | Não | Não |
-> | gatewaysupporteddes | Não | Não |
-> | networksecuritygroups | Não | Não |
-> | quotas | Não | Não |
-> | reservedips | Não | Não |
-> | virtualnetworks | Não | Não |
+> | capacidades | No | No |
+> | expressroute crossconnections | No | No |
+> | expressroutecrossconnections / peerings | No | No |
+> | gatewaysupporteddes | No | No |
+> | networksecuritygroups | No | No |
+> | quotas | No | No |
+> | reservedips | No | No |
+> | virtualnetworks | No | No |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
@@ -561,14 +561,14 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | discos | Não | Não |
-> | imagens | Não | Não |
-> | osimagems | Não | Não |
-> | osplatformimages | Não | Não |
-> | imagens públicas | Não | Não |
-> | quotas | Não | Não |
-> | contas de armazenamento | Sim | Não |
-> | vmimages | Não | Não |
+> | discos | No | No |
+> | imagens | No | No |
+> | osimagems | No | No |
+> | osplatformimages | No | No |
+> | imagens públicas | No | No |
+> | quotas | No | No |
+> | contas de armazenamento | Yes | No |
+> | vmimages | No | No |
 
 ## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
 
@@ -578,22 +578,22 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | operações | Não | Não |
+> | operações | No | No |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Sim | Sim |
+> | accounts | Yes | Yes |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | cartão de taxa | Não | Não |
-> | usageaggregates | Não | Não |
+> | cartão de taxa | No | No |
+> | usageaggregates | No | No |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
@@ -603,438 +603,438 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | conjuntos de disponibilidades | Sim | Sim |
-> | diskaccesses | Não | Não |
-> | conjuntos de diskencrypations | Não | Não |
-> | discos | Sim | Sim |
-> | galerias | Não | Não |
-> | galerias / imagens | Não | Não |
-> | galerias / imagens / versões | Não | Não |
-> | grupos de anfitriões | Não | Não |
-> | grupos de anfitriões / anfitriões | Não | Não |
-> | imagens | Sim | Sim |
-> | grupos de destacamentos de proximidade | Sim | Sim |
-> | restaurar as recordações de pontos | Não | Não |
-> | restaurar acolecções / pontos de restauro | Não | Não |
-> | partilha de milhões de pessoas | Não | Não |
-> | sharedvmimages | Não | Não |
-> | sharedvmimages / versões | Não | Não |
-> | instantâneos | Sim | Sim |
-> | sshpublickeys | Não | Não |
-> | virtualmachines | Sim | Sim |
-> | virtualmachines /extensões | Sim | Sim |
-> | virtualmachinescalesets | Sim | Sim |
+> | conjuntos de disponibilidades | Yes | Yes |
+> | diskaccesses | No | No |
+> | conjuntos de diskencrypations | No | No |
+> | discos | Yes | Yes |
+> | galerias | No | No |
+> | galerias / imagens | No | No |
+> | galerias / imagens / versões | No | No |
+> | grupos de anfitriões | No | No |
+> | grupos de anfitriões / anfitriões | No | No |
+> | imagens | Yes | Yes |
+> | grupos de destacamentos de proximidade | Yes | Yes |
+> | restaurar as recordações de pontos | No | No |
+> | restaurar acolecções / pontos de restauro | No | No |
+> | partilha de milhões de pessoas | No | No |
+> | sharedvmimages | No | No |
+> | sharedvmimages / versões | No | No |
+> | instantâneos | Yes | Yes |
+> | sshpublickeys | No | No |
+> | virtualmachines | Yes | Yes |
+> | virtualmachines /extensões | Yes | Yes |
+> | virtualmachinescalesets | Yes | Yes |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | agregados de cussão | Não | Não |
-> | saldos | Não | Não |
-> | orçamentos | Não | Não |
-> | encargos | Não | Não |
-> | costtags | Não | Não |
-> | créditos | Não | Não |
-> | eventos | Não | Não |
-> | previsões | Não | Não |
-> | lotes | Não | Não |
-> | mercados | Não | Não |
-> | folhas de preços | Não | Não |
-> | produtos | Não | Não |
-> | detalhes de reservas | Não | Não |
-> | reservas recommendaçõesdedetails | Não | Não |
-> | reservas recommendações | Não | Não |
-> | reservas | Não | Não |
-> | transações de reservas | Não | Não |
-> | etiquetas | Não | Não |
-> | inquilinos | Não | Não |
-> | termos | Não | Não |
-> | usagedetails | Não | Não |
+> | agregados de cussão | No | No |
+> | saldos | No | No |
+> | orçamentos | No | No |
+> | encargos | No | No |
+> | costtags | No | No |
+> | créditos | No | No |
+> | eventos | No | No |
+> | previsões | No | No |
+> | lotes | No | No |
+> | mercados | No | No |
+> | folhas de preços | No | No |
+> | produtos | No | No |
+> | detalhes de reservas | No | No |
+> | reservas recommendaçõesdedetails | No | No |
+> | reservas recommendações | No | No |
+> | reservas | No | No |
+> | transações de reservas | No | No |
+> | etiquetas | No | No |
+> | inquilinos | No | No |
+> | termos | No | No |
+> | usagedetails | No | No |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | grupos de contentores | Não | Não |
-> | ligações de serviços de ações | Não | Não |
+> | grupos de contentores | No | No |
+> | ligações de serviços de ações | No | No |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | registos | Sim | Sim |
-> | registos / agentpools | Sim | Sim |
-> | registos / buildtasks | Sim | Sim |
-> | registos / replicações | Sim | Sim |
-> | registos / tarefas | Sim | Sim |
-> | registos / webhooks | Sim | Sim |
+> | registos | Yes | Yes |
+> | registos / agentpools | Yes | Yes |
+> | registos / buildtasks | Yes | Yes |
+> | registos / replicações | Yes | Yes |
+> | registos / tarefas | Yes | Yes |
+> | registos / webhooks | Yes | Yes |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | serviços de contentores | Não | Não |
-> | geremclusters | Não | Não |
-> | aglomerados de gestão de turnos abertos | Não | Não |
+> | serviços de contentores | No | No |
+> | geremclusters | No | No |
+> | aglomerados de gestão de turnos abertos | No | No |
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aplicações | Não | Não |
+> | aplicações | No | No |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Não | Não |
+> | accounts | No | No |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | alerts | Não | Não |
-> | contas de faturação | Não | Não |
-> | orçamentos | Não | Não |
-> | cloudconnectors | Não | Não |
-> | conectores | Sim | Sim |
-> | departamentos | Não | Não |
-> | dimensões | Não | Não |
-> | matrículas | Não | Não |
-> | exportações | Não | Não |
-> | contas de falcão externos | Não | Não |
-> | forecast | Não | Não |
-> | consulta | Não | Não |
-> | registar | Não | Não |
-> | configs relatório | Não | Não |
-> | relatórios | Não | Não |
-> | definições | Não | Não |
-> | showbackrules | Não | Não |
-> | Modos de exibição | Não | Não |
+> | alerts | No | No |
+> | contas de faturação | No | No |
+> | orçamentos | No | No |
+> | cloudconnectors | No | No |
+> | conectores | Yes | Yes |
+> | departamentos | No | No |
+> | dimensões | No | No |
+> | matrículas | No | No |
+> | exportações | No | No |
+> | contas de falcão externos | No | No |
+> | forecast | No | No |
+> | consulta | No | No |
+> | registar | No | No |
+> | configs relatório | No | No |
+> | relatórios | No | No |
+> | definições | No | No |
+> | showbackrules | No | No |
+> | Modos de exibição | No | No |
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | hubs | Não | Não |
+> | hubs | No | No |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | pedidos | Não | Não |
+> | pedidos | No | No |
 
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | associações | Não | Não |
-> | recursosproviders | Sim | Sim |
+> | associações | No | No |
+> | recursosproviders | Yes | Yes |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | empregos | Não | Não |
+> | empregos | No | No |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | availableskus | Não | Não |
-> | databoxedgedevices | Sim | Sim |
+> | availableskus | No | No |
+> | databoxedgedevices | Yes | Yes |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | áreas de trabalho | Não | Não |
+> | áreas de trabalho | No | No |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | catálogos | Sim | Sim |
-> | datacatalogs | Não | Não |
+> | catálogos | Yes | Yes |
+> | datacatalogs | No | No |
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | gerentes de conexão | Não | Não |
+> | gerentes de conexão | No | No |
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | pacotes | Não | Não |
-> | planos | Não | Não |
+> | pacotes | No | No |
+> | planos | No | No |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | datafactories | Sim | Sim |
-> | datafactoryschema | Não | Não |
-> | fábricas | Sim | Sim |
+> | datafactories | Yes | Yes |
+> | datafactoryschema | No | No |
+> | fábricas | Yes | Yes |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | datalakeaccounts | Não | Não |
+> | datalakeaccounts | No | No |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Sim | Sim |
+> | accounts | Yes | Yes |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Sim | Sim |
+> | accounts | Yes | Yes |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | services | Não | Não |
-> | serviços / projetos | Não | Não |
-> | slots | Não | Não |
+> | services | No | No |
+> | serviços / projetos | No | No |
+> | slots | No | No |
 
 ## <a name="microsoftdataprotection"></a>Microsoft.DataProtection
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | backupvaults | Não | Não |
+> | backupvaults | No | No |
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Sim | Sim |
+> | accounts | Yes | Yes |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | servidores | Sim | Sim |
+> | servidores | Yes | Yes |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Sim | Sim |
-> | servidores | Sim | Sim |
+> | flexibleServers | Yes | Yes |
+> | servidores | Yes | Yes |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DbforPostgresql
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Sim | Sim |
-> | grupos de servidores | Não | Não |
-> | servidores | Sim | Sim |
-> | servidorv2 | Sim | Sim |
-> | solteiroservers | Sim | Sim |
+> | flexibleServers | Yes | Yes |
+> | grupos de servidores | No | No |
+> | servidores | Yes | Yes |
+> | servidorv2 | Yes | Yes |
+> | solteiroservers | Yes | Yes |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | artefactos | Sim | Sim |
-> | rollouts | Sim | Sim |
-> | topologias de serviço | Sim | Sim |
-> | topologias de serviços / serviços | Sim | Sim |
-> | topologias de serviços / serviços / unidades de serviço | Sim | Sim |
-> | passos | Sim | Sim |
+> | artefactos | Yes | Yes |
+> | rollouts | Yes | Yes |
+> | topologias de serviço | Yes | Yes |
+> | topologias de serviços / serviços | Yes | Yes |
+> | topologias de serviços / serviços / unidades de serviço | Yes | Yes |
+> | passos | Yes | Yes |
 
 ## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | grupos de aplicações | Sim | Sim |
-> | hostpools | Sim | Sim |
-> | áreas de trabalho | Sim | Sim |
+> | grupos de aplicações | Yes | Yes |
+> | hostpools | Yes | Yes |
+> | áreas de trabalho | Yes | Yes |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | elásticos | Não | Não |
-> | elásticos / iothubtenants | Não | Não |
-> | iothubs | Sim | Sim |
-> | serviços de provisionamento | Sim | Sim |
+> | elásticos | No | No |
+> | elásticos / iothubtenants | No | No |
+> | iothubs | Yes | Yes |
+> | serviços de provisionamento | Yes | Yes |
 
 ## <a name="microsoftdevops"></a>Microsoft.DevOps
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | oleodutos | Sim | Sim |
+> | oleodutos | Yes | Yes |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | controladores | Sim | Sim |
+> | controladores | Yes | Yes |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | centros de laboratório | Não | Não |
-> | laboratórios | Sim | Não |
-> | laboratórios / ambientes | Sim | Sim |
-> | laboratórios / corredores de serviço | Sim | Sim |
-> | laboratórios / virtualmachines | Sim | Não |
-> | horários | Sim | Sim |
+> | centros de laboratório | No | No |
+> | laboratórios | Yes | No |
+> | laboratórios / ambientes | Yes | Yes |
+> | laboratórios / corredores de serviço | Yes | Yes |
+> | laboratórios / virtualmachines | Yes | No |
+> | horários | Yes | Yes |
 
 ## <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | digitaltwinsinstances | Não | Não |
+> | digitaltwinsinstances | No | No |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | números de dados | Não | Não |
-> | contas de base de dados | Sim | Sim |
+> | números de dados | No | No |
+> | contas de base de dados | Yes | Yes |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | domínios | Sim | Sim |
-> | gerassorequest | Não | Não |
-> | topleveldomains | Não | Não |
-> | validação da informação sobreregistration | Não | Não |
+> | domínios | Yes | Yes |
+> | gerassorequest | No | No |
+> | topleveldomains | No | No |
+> | validação da informação sobreregistration | No | No |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | services | Sim | Sim |
+> | services | Yes | Yes |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | domínios | Sim | Sim |
+> | domínios | Yes | Yes |
 > | subscrições de eventos | Não - não pode ser movido de forma independente, mas automaticamente movido com recurso subscrito. | Não - não pode ser movido de forma independente, mas automaticamente movido com recurso subscrito. |
-> | extensõestópicas | Não | Não |
-> | partnernamespaces | Sim | Sim |
-> | registos de parceiros | Não | Não |
-> | partnertopics | Sim | Sim |
-> | sistematópicos | Sim | Sim |
-> | tópicos | Sim | Sim |
-> | tópicos | Não | Não |
+> | extensõestópicas | No | No |
+> | partnernamespaces | Yes | Yes |
+> | registos de parceiros | No | No |
+> | partnertopics | Yes | Yes |
+> | sistematópicos | Yes | Yes |
+> | tópicos | Yes | Yes |
+> | tópicos | No | No |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aglomerados | Sim | Sim |
-> | espaços de nome | Sim | Sim |
-> | sku | Não | Não |
+> | aglomerados | Yes | Yes |
+> | espaços de nome | Yes | Yes |
+> | sku | No | No |
 
 ## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | espaços de trabalho experimenta | Não | Não |
+> | espaços de trabalho experimenta | No | No |
 
 ## <a name="microsoftfalcon"></a>Microsoft.Falcon
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | espaços de nome | Sim | Sim |
+> | espaços de nome | Yes | Yes |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | recursosproviders | Não | Não |
-> | funcionalidades | Não | Não |
-> | fornecedores | Não | Não |
-> | subscrições de registos de assinaturas | Não | Não |
+> | recursosproviders | No | No |
+> | funcionalidades | No | No |
+> | fornecedores | No | No |
+> | subscrições de registos de assinaturas | No | No |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Geómica
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Não | Não |
+> | accounts | No | No |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | auto-administradores | Não | Não |
-> | autogeridavmconfigurationprofils | Não | Não |
-> | convidadoconfigurationasssignments | Não | Não |
-> | software | Não | Não |
-> | softwareupdateprofile | Não | Não |
-> | datas de software | Não | Não |
+> | auto-administradores | No | No |
+> | autogeridavmconfigurationprofils | No | No |
+> | convidadoconfigurationasssignments | No | No |
+> | software | No | No |
+> | softwareupdateprofile | No | No |
+> | datas de software | No | No |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | hanainstances | Não | Não |
-> | sapmonitors | Sim | Sim |
+> | hanainstances | No | No |
+> | sapmonitors | Yes | Yes |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | dedicados | Não | Não |
+> | dedicados | No | No |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
@@ -1046,52 +1046,52 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aglomerados | Sim | Sim |
+> | aglomerados | Yes | Yes |
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | services | Sim | Sim |
+> | services | Yes | Yes |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | máquinas | Sim | Sim |
-> | máquinas / extensões | Sim | Sim |
+> | máquinas | Yes | Yes |
+> | máquinas / extensões | Yes | Yes |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | datamanagers | Sim | Sim |
+> | datamanagers | Yes | Yes |
 
 ## <a name="microsofthybridnetwork"></a>Microsoft.HybridNetwork
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | dispositivos | Não | Não |
-> | vnfs | Não | Não |
+> | dispositivos | No | No |
+> | vnfs | No | No |
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | componentes | Não | Não |
-> | networkscopes | Não | Não |
+> | componentes | No | No |
+> | networkscopes | No | No |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | empregos | Sim | Sim |
+> | empregos | Yes | Yes |
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
@@ -1101,58 +1101,58 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | grupos de ação | Sim | Sim |
-> | activitylogalerts | Não | Não |
-> | alertas | Sim | Sim |
-> | autoescala | Sim | Sim |
-> | linha de base | Não | Não |
-> | componentes | Sim | Sim |
-> | datacollectionrules | Não | Não |
-> | diagnósticos | Não | Não |
-> | diagnósticoscategorias | Não | Não |
-> | eventcategorias | Não | Não |
-> | tipos de eventos | Não | Não |
-> | diagnósticosgnósticos estendidos | Não | Não |
-> | guestdiagnosticsettings | Não | Não |
-> | listmigrationdate | Não | Não |
-> | início de ções | Não | Não |
-> | logprofiles | Não | Não |
-> | registos | Não | Não |
-> | metricalerts | Não | Não |
-> | bases métricas | Não | Não |
-> | metricbatch | Não | Não |
-> | métricas | Não | Não |
-> | espaços de nomes métricos | Não | Não |
-> | metrics | Não | Não |
-> | migratealertrules | Não | Não |
-> | migrar modelo dericing | Não | Não |
-> | livros de trabalho | Não | Não |
-> | grupos de notificações | Não | Não |
-> | privatelinkscopes | Não | Não |
-> | modelo de backbacktolegacypricing | Não | Não |
-> | queryrules agendados | Sim | Sim |
-> | topology | Não | Não |
-> | transações | Não | Não |
-> | vminsightsonboardingstatuses | Não | Não |
-> | webtests | Sim | Sim |
-> | webtests / obtertestesultfile | Não | Não |
-> | livros | Sim | Sim |
-> | estalagens de livros | Sim | Sim |
+> | grupos de ação | Yes | Yes |
+> | activitylogalerts | No | No |
+> | alertas | Yes | Yes |
+> | autoescala | Yes | Yes |
+> | linha de base | No | No |
+> | componentes | Yes | Yes |
+> | datacollectionrules | No | No |
+> | diagnósticos | No | No |
+> | diagnósticoscategorias | No | No |
+> | eventcategorias | No | No |
+> | tipos de eventos | No | No |
+> | diagnósticosgnósticos estendidos | No | No |
+> | guestdiagnosticsettings | No | No |
+> | listmigrationdate | No | No |
+> | início de ções | No | No |
+> | logprofiles | No | No |
+> | registos | No | No |
+> | metricalerts | No | No |
+> | bases métricas | No | No |
+> | metricbatch | No | No |
+> | métricas | No | No |
+> | espaços de nomes métricos | No | No |
+> | metrics | No | No |
+> | migratealertrules | No | No |
+> | migrar modelo dericing | No | No |
+> | livros de trabalho | No | No |
+> | grupos de notificações | No | No |
+> | privatelinkscopes | No | No |
+> | modelo de backbacktolegacypricing | No | No |
+> | queryrules agendados | Yes | Yes |
+> | topology | No | No |
+> | transações | No | No |
+> | vminsightsonboardingstatuses | No | No |
+> | webtests | Yes | Yes |
+> | webtests / obtertestesultfile | No | No |
+> | livros | Yes | Yes |
+> | estalagens de livros | Yes | Yes |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | apliques | Não | Não |
-> | iotapps | Sim | Sim |
+> | apliques | No | No |
+> | iotapps | Yes | Yes |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | gráfico | Sim | Sim |
+> | gráfico | Yes | Yes |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -1162,234 +1162,234 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | deletedvaults | Não | Não |
-> | hsmpools | Não | Não |
-> | geredhsmos | Não | Não |
-> | cofres | Sim | Sim |
+> | deletedvaults | No | No |
+> | hsmpools | No | No |
+> | geredhsmos | No | No |
+> | cofres | Yes | Yes |
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aglomerados conectados | Sim | Sim |
-> | assinaturas registadas | Não | Não |
+> | aglomerados conectados | Yes | Yes |
+> | assinaturas registadas | No | No |
 
 ## <a name="microsoftkubernetesconfiguration"></a>Microsoft.KubernetesConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | configurações de controlo de fontes | Não | Não |
+> | configurações de controlo de fontes | No | No |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aglomerados | Sim | Sim |
+> | aglomerados | Yes | Yes |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | contas de laboratório | Não | Não |
-> | utilizadores | Não | Não |
+> | contas de laboratório | No | No |
+> | utilizadores | No | No |
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Não | Não |
+> | accounts | No | No |
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Não | Não |
+> | accounts | No | No |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | hospedar ambientes | Não | Não |
-> | contas de integração | Sim | Sim |
-> | integração de ambientes | Sim | Não |
-> | integração de ambientesvírus /managedapis | Sim | Não |
-> | ambientes isolados | Não | Não |
-> | fluxos de trabalho | Sim | Sim |
+> | hospedar ambientes | No | No |
+> | contas de integração | Yes | Yes |
+> | integração de ambientes | Yes | No |
+> | integração de ambientesvírus /managedapis | Yes | No |
+> | ambientes isolados | No | No |
+> | fluxos de trabalho | Yes | Yes |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | planos de compromisso | Não | Não |
-> | serviços web | Sim | Não |
-> | áreas de trabalho | Sim | Sim |
+> | planos de compromisso | No | No |
+> | serviços web | Yes | No |
+> | áreas de trabalho | Yes | Yes |
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | grupos de operacionalização | Não | Não |
+> | grupos de operacionalização | No | No |
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Não | Não |
-> | contas de equipa | Não | Não |
+> | accounts | No | No |
+> | contas de equipa | No | No |
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Não | Não |
+> | accounts | No | No |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | áreas de trabalho | Não | Não |
+> | áreas de trabalho | No | No |
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | configurações de assinaturas | Não | Não |
-> | configurações de manutenção | Sim | Sim |
-> | atualizações | Não | Não |
+> | configurações de assinaturas | No | No |
+> | configurações de manutenção | Yes | Yes |
+> | atualizações | No | No |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | identidades | Não | Não |
-> | usassignedidentidades | Não | Não |
+> | identidades | No | No |
+> | usassignedidentidades | No | No |
 
 ## <a name="microsoftmanagednetwork"></a>Microsoft.ManagedNetwork
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | managednetworks | Não | Não |
-> | gerednetworks / grupos de redes geridas | Não | Não |
-> | managednetworks / managednetworkpeeringpolicies | Não | Não |
-> | notificação | Não | Não |
+> | managednetworks | No | No |
+> | gerednetworks / grupos de redes geridas | No | No |
+> | managednetworks / managednetworkpeeringpolicies | No | No |
+> | notificação | No | No |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | marketplaceregistrationdefinitions | Não | Não |
-> | inscrições | Não | Não |
-> | definições de registos | Não | Não |
+> | marketplaceregistrationdefinitions | No | No |
+> | inscrições | No | No |
+> | definições de registos | No | No |
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | getentities | Não | Não |
-> | managementgroups | Não | Não |
-> | grupos de gestão / configurações | Não | Não |
-> | resources | Não | Não |
-> | filtro de backback starttenant | Não | Não |
-> | inquilinosfillstatus | Não | Não |
+> | getentities | No | No |
+> | managementgroups | No | No |
+> | grupos de gestão / configurações | No | No |
+> | resources | No | No |
+> | filtro de backback starttenant | No | No |
+> | inquilinosfillstatus | No | No |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Sim | Sim |
-> | contas / privateatlases | Sim | Sim |
+> | accounts | Yes | Yes |
+> | contas / privateatlases | Yes | Yes |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | ofertas | Não | Não |
-> | tipos de ofertas | Não | Não |
-> | privadas | Não | Não |
-> | privatestoreclient | Não | Não |
-> | lojas privadas | Não | Não |
-> | produtos | Não | Não |
-> | editores | Não | Não |
-> | registar | Não | Não |
+> | ofertas | No | No |
+> | tipos de ofertas | No | No |
+> | privadas | No | No |
+> | privatestoreclient | No | No |
+> | lojas privadas | No | No |
+> | produtos | No | No |
+> | editores | No | No |
+> | registar | No | No |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | classicdevservices | Não | Não |
+> | classicdevservices | No | No |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | acordos | Não | Não |
-> | tipos de ofertas | Não | Não |
+> | acordos | No | No |
+> | tipos de ofertas | No | No |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | mediaservices | Sim | Sim |
-> | mediaservices / liveevents | Sim | Sim |
-> | mediaservices / streamingendpoints | Sim | Sim |
+> | mediaservices | Yes | Yes |
+> | mediaservices / liveevents | Yes | Yes |
+> | mediaservices / streamingendpoints | Yes | Yes |
 
 ## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | apclusters | Não | Não |
+> | apclusters | No | No |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | projetos de avaliação | Não | Não |
-> | migrarprojects | Não | Não |
-> | câmaras de mudança | Não | Não |
-> | projetos | Não | Não |
+> | projetos de avaliação | No | No |
+> | migrarprojects | No | No |
+> | câmaras de mudança | No | No |
+> | projetos | No | No |
 
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | holográficosbroscastaccounts | Não | Não |
-> | contas objectunderstanding | Não | Não |
-> | contas de reconeradores remotos | Sim | Sim |
-> | spatialanchorsaccounts | Sim | Sim |
+> | holográficosbroscastaccounts | No | No |
+> | contas objectunderstanding | No | No |
+> | contas de reconeradores remotos | Yes | Yes |
+> | spatialanchorsaccounts | Yes | Yes |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | contas netappac | Não | Não |
-> | contas de netappacs /capacitypools | Não | Não |
-> | contas de netappacs / capacitypools / volumes | Não | Não |
+> | contas netappac | No | No |
+> | contas de netappacs /capacitypools | No | No |
+> | contas de netappacs / capacitypools / volumes | No | No |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -1399,86 +1399,86 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | pistas de aplicação | Não | Não |
-> | applicationgatewaywebapplicationfirewallpolicies | Não | Não |
-> | grupos de aplicações | Sim | Sim |
-> | azurefirewalls | Não | Não |
-> | bastionhosts | Não | Não |
-> | bgpservicecommunidades | Não | Não |
-> | conexões | Sim | Sim |
-> | ddoscustompolicias | Sim | Sim |
-> | ddosprotectionplans | Não | Não |
-> | dnszones | Sim | Sim |
-> | expressroutecircuits | Não | Não |
-> | vias expressas | Não | Não |
-> | expressrouteserviceproviders | Não | Não |
-> | firewallpolicies | Sim | Sim |
-> | frontdoors | Não | Não |
-> | ipallocations | Sim | Sim |
-> | ipgrupos | Sim | Sim |
+> | pistas de aplicação | No | No |
+> | applicationgatewaywebapplicationfirewallpolicies | No | No |
+> | grupos de aplicações | Yes | Yes |
+> | azurefirewalls | No | No |
+> | bastionhosts | No | No |
+> | bgpservicecommunidades | No | No |
+> | conexões | Yes | Yes |
+> | ddoscustompolicias | Yes | Yes |
+> | ddosprotectionplans | No | No |
+> | dnszones | Yes | Yes |
+> | expressroutecircuits | No | No |
+> | vias expressas | No | No |
+> | expressrouteserviceproviders | No | No |
+> | firewallpolicies | Yes | Yes |
+> | frontdoors | No | No |
+> | ipallocations | Yes | Yes |
+> | ipgrupos | Yes | Yes |
 > | loadbalancers | Sim - SKU Básico<br> Sim - SKU Padrão | Sim - SKU Básico<br>Não - SKU Padrão |
-> | vias de rede locais | Sim | Sim |
-> | natgateways | Não | Não |
-> | projetos de bioperiment de rede | Não | Não |
-> | políticas de networkintent | Sim | Sim |
-> | networkinterfaces | Sim | Sim |
-> | redes de mentofils | Não | Não |
-> | networksecuritygroups | Sim | Sim |
-> | observadores de rede | Sim | Não |
-> | observadores de rede / suportes de conexão | Sim | Não |
-> | networkwatchers / fluxologs | Sim | Não |
-> | observadores de rede / pingmeshes | Sim | Não |
-> | p2svpngateways | Não | Não |
-> | zonas privadas | Sim | Sim |
-> | privatednszones / virtualnetworklinks | Sim | Sim |
-> | privatednszonesinternal | Não | Não |
-> | privateendpointredirectmaps | Não | Não |
-> | pontos privados | Sim | Sim |
-> | serviços de privatelink | Não | Não |
+> | vias de rede locais | Yes | Yes |
+> | natgateways | No | No |
+> | projetos de bioperiment de rede | No | No |
+> | políticas de networkintent | Yes | Yes |
+> | networkinterfaces | Yes | Yes |
+> | redes de mentofils | No | No |
+> | networksecuritygroups | Yes | Yes |
+> | observadores de rede | Yes | No |
+> | observadores de rede / suportes de conexão | Yes | No |
+> | networkwatchers / fluxologs | Yes | No |
+> | observadores de rede / pingmeshes | Yes | No |
+> | p2svpngateways | No | No |
+> | zonas privadas | Yes | Yes |
+> | privatednszones / virtualnetworklinks | Yes | Yes |
+> | privatednszonesinternal | No | No |
+> | privateendpointredirectmaps | No | No |
+> | pontos privados | No | No |
+> | serviços de privatelink | No | No |
 > | endereços publicitários | Sim - SKU Básico<br>Sim - SKU Padrão | Sim - SKU Básico<br>Não - SKU Padrão |
-> | publicipprefixos | Sim | Sim |
-> | filtros de rota | Não | Não |
-> | routetables | Sim | Sim |
-> | segurançapartnerproviders | Sim | Sim |
-> | serviceendpointpolicies | Sim | Sim |
-> | trafficmanagergeographichierarchies | Não | Não |
-> | trafficmanagerprofiles | Sim | Sim |
-> | trafficmanagerprofiles / heatmaps | Não | Não |
-> | trafficmanagerusermetricskeys | Não | Não |
-> | virtualhubs | Não | Não |
-> | vias virtualnetworkgateways | Sim | Sim |
-> | virtualnetworks | Sim | Sim |
-> | virtualnetworktaps | Não | Não |
-> | virtualrouters | Sim | Sim |
-> | virtualwans | Não | Não |
-> | VPNgateways (Wan Virtual) | Não | Não |
-> | vpnsnserverconfigurations | Não | Não |
-> | vpnsites (WAN virtual) | Não | Não |
+> | publicipprefixos | Yes | Yes |
+> | filtros de rota | No | No |
+> | routetables | Yes | Yes |
+> | segurançapartnerproviders | Yes | Yes |
+> | serviceendpointpolicies | Yes | Yes |
+> | trafficmanagergeographichierarchies | No | No |
+> | trafficmanagerprofiles | Yes | Yes |
+> | trafficmanagerprofiles / heatmaps | No | No |
+> | trafficmanagerusermetricskeys | No | No |
+> | virtualhubs | No | No |
+> | vias virtualnetworkgateways | Yes | Yes |
+> | virtualnetworks | Yes | Yes |
+> | virtualnetworktaps | No | No |
+> | virtualrouters | Yes | Yes |
+> | virtualwans | No | No |
+> | VPNgateways (Wan Virtual) | No | No |
+> | vpnsnserverconfigurations | No | No |
+> | vpnsites (WAN virtual) | No | No |
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | espaços de nome | Sim | Sim |
-> | espaços de nomes / notificações | Sim | Sim |
+> | espaços de nome | Yes | Yes |
+> | espaços de nomes / notificações | Yes | Yes |
 
 ## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | osnamepas | Sim | Sim |
+> | osnamepas | Yes | Yes |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | hipervsites | Não | Não |
-> | importações | Não | Não |
-> | servidores | Não | Não |
-> | vmwaresites | Não | Não |
+> | hipervsites | No | No |
+> | importações | No | No |
+> | servidores | No | No |
+> | vmwaresites | No | No |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
@@ -1490,91 +1490,91 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aglomerados | Não | Não |
-> | espaços de trabalho apagados | Não | Não |
-> | linktargets | Não | Não |
-> | storageinsightconfigs | Não | Não |
-> | áreas de trabalho | Sim | Sim |
+> | aglomerados | No | No |
+> | espaços de trabalho apagados | No | No |
+> | linktargets | No | No |
+> | storageinsightconfigs | No | No |
+> | áreas de trabalho | Yes | Yes |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | sociedades de gestão | Não | Não |
-> | configurações de gestão | Sim | Sim |
-> | soluções | Sim | Sim |
-> | Modos de exibição | Sim | Sim |
+> | sociedades de gestão | No | No |
+> | configurações de gestão | Yes | Yes |
+> | soluções | Yes | Yes |
+> | Modos de exibição | Yes | Yes |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | legacypeerings | Não | Não |
-> | peerasns | Não | Não |
-> | peeringlocações | Não | Não |
-> | espreiteiros | Não | Não |
-> | países de serviço de peering | Não | Não |
-> | localização de serviços de espre éming | Não | Não |
-> | peeringserviceproviders | Não | Não |
-> | serviços de espreiteiros | Não | Não |
+> | legacypeerings | No | No |
+> | peerasns | No | No |
+> | peeringlocações | No | No |
+> | espreiteiros | No | No |
+> | países de serviço de peering | No | No |
+> | localização de serviços de espre éming | No | No |
+> | peeringserviceproviders | No | No |
+> | serviços de espreiteiros | No | No |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | eventos de política | Não | Não |
-> | estados de política | Não | Não |
-> | recursos de recursos de pista de política | Não | Não |
-> | remediações | Não | Não |
+> | eventos de política | No | No |
+> | estados de política | No | No |
+> | recursos de recursos de pista de política | No | No |
+> | remediações | No | No |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | Consolas do | Não | Não |
-> | dashboards | Sim | Sim |
-> | utilizadores | Não | Não |
+> | Consolas do | No | No |
+> | dashboards | Yes | Yes |
+> | utilizadores | No | No |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | trabalhopascoscollections | Sim | Sim |
+> | trabalhopascoscollections | Yes | Yes |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | capacidades | Sim | Sim |
+> | capacidades | Yes | Yes |
 
 ## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Não | Não |
+> | accounts | No | No |
 
 ## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | contas disponíveis | Não | Não |
-> | registos de fornecedores | Não | Não |
-> | rollouts | Não | Não |
+> | contas disponíveis | No | No |
+> | registos de fornecedores | No | No |
+> | rollouts | No | No |
 
 ## <a name="microsoftquantum"></a>Microsoft.Quantum
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | áreas de trabalho | Não | Não |
+> | áreas de trabalho | No | No |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
@@ -1584,71 +1584,71 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | replicationeligibilityres | Não | Não |
-> | cofres | Sim | Sim |
+> | replicationeligibilityres | No | No |
+> | cofres | Yes | Yes |
 
 ## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatopenShift
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aglomerados de turnos abertos | Não | Não |
+> | aglomerados de turnos abertos | No | No |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | espaços de nome | Sim | Sim |
+> | espaços de nome | Yes | Yes |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | consultas | Sim | Sim |
-> | resourcechangedetails | Não | Não |
-> | mudanças de recursos | Não | Não |
-> | resources | Não | Não |
-> | recursos história | Não | Não |
-> | subscriçõesstatus | Não | Não |
+> | consultas | Yes | Yes |
+> | resourcechangedetails | No | No |
+> | mudanças de recursos | No | No |
+> | resources | No | No |
+> | recursos história | No | No |
+> | subscriçõesstatus | No | No |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | fontes infantis | Não | Não |
-> | emergentes | Não | Não |
-> | eventos | Não | Não |
-> | do IdP | Não | Não |
-> | notificações | Não | Não |
+> | fontes infantis | No | No |
+> | emergentes | No | No |
+> | eventos | No | No |
+> | do IdP | No | No |
+> | notificações | No | No |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | implementações | Não | Não |
-> | descrições de implementação | Não | Não |
-> | implementações / registos | Não | Não |
-> | ligações | Não | Não |
-> | fornecedores | Não | Não |
-> | grupos de recursos | Não | Não |
-> | resources | Não | Não |
-> | assinaturas | Não | Não |
-> | etiquetas | Não | Não |
-> | modelospecs | Não | Não |
-> | modelos / versões | Não | Não |
-> | inquilinos | Não | Não |
+> | implementações | No | No |
+> | descrições de implementação | No | No |
+> | implementações / registos | No | No |
+> | ligações | No | No |
+> | fornecedores | No | No |
+> | grupos de recursos | No | No |
+> | resources | No | No |
+> | assinaturas | No | No |
+> | etiquetas | No | No |
+> | modelospecs | No | No |
+> | modelos / versões | No | No |
+> | inquilinos | No | No |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aplicações | Sim | Não |
-> | saasresources | Não | Não |
+> | aplicações | Yes | No |
+> | saasresources | No | No |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -1658,152 +1658,152 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | resourcehealthmetadata | Não | Não |
-> | serviços de pesquisa | Sim | Sim |
+> | resourcehealthmetadata | No | No |
+> | serviços de pesquisa | Yes | Yes |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | adaptíostas de redes | Não | Não |
-> | advancedthreatprotectionsettings | Não | Não |
-> | alerts | Não | Não |
-> | permitidas ligações | Não | Não |
-> | listas de aplicaçõeswhitelistings | Não | Não |
-> | avaliaçãometadata | Não | Não |
-> | avaliações | Não | Não |
-> | autodismissalertsrules | Não | Não |
-> | automações | Sim | Sim |
-> | autoprovisionings | Não | Não |
-> | resultados de conformidade | Não | Não |
-> | conformidades | Não | Não |
-> | datacollectionagentes | Não | Não |
-> | grupos de dispositivos de insegurança | Não | Não |
-> | descobertas sões de inseguranças | Não | Não |
-> | sões de segurança externa | Não | Não |
-> | políticas de proteção de informação | Não | Não |
-> | soluções de iotsecuritys | Sim | Sim |
-> | iotsecuritysolutions / analyticsmodels | Não | Não |
-> | iotsecuritysolutions / analyticsmodels / agregados | Não | Não |
-> | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | Não | Não |
-> | jitnetworkacsspolicies | Não | Não |
-> | políticas | Não | Não |
-> | preços | Não | Não |
-> | padrões de regulação | Não | Não |
-> | padrões de regulação /regulatórios | Não | Não |
-> | padrões de regulação / regulatórios de controlo /regulatórios | Não | Não |
-> | contactos de segurança | Não | Não |
-> | garantias de segurança | Não | Não |
-> | securitysolutionsreferencedata | Não | Não |
-> | estados de segurança | Não | Não |
-> | securitystatusessummaries | Não | Não |
-> | servidorvulnerabilityaments | Não | Não |
-> | definições | Não | Não |
-> | subassessments | Não | Não |
-> | tarefas | Não | Não |
-> | topologias | Não | Não |
-> | espaços de trabalho | Não | Não |
+> | adaptíostas de redes | No | No |
+> | advancedthreatprotectionsettings | No | No |
+> | alerts | No | No |
+> | permitidas ligações | No | No |
+> | listas de aplicaçõeswhitelistings | No | No |
+> | avaliaçãometadata | No | No |
+> | avaliações | No | No |
+> | autodismissalertsrules | No | No |
+> | automações | Yes | Yes |
+> | autoprovisionings | No | No |
+> | resultados de conformidade | No | No |
+> | conformidades | No | No |
+> | datacollectionagentes | No | No |
+> | grupos de dispositivos de insegurança | No | No |
+> | descobertas sões de inseguranças | No | No |
+> | sões de segurança externa | No | No |
+> | políticas de proteção de informação | No | No |
+> | soluções de iotsecuritys | Yes | Yes |
+> | iotsecuritysolutions / analyticsmodels | No | No |
+> | iotsecuritysolutions / analyticsmodels / agregados | No | No |
+> | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | No | No |
+> | jitnetworkacsspolicies | No | No |
+> | políticas | No | No |
+> | preços | No | No |
+> | padrões de regulação | No | No |
+> | padrões de regulação /regulatórios | No | No |
+> | padrões de regulação / regulatórios de controlo /regulatórios | No | No |
+> | contactos de segurança | No | No |
+> | garantias de segurança | No | No |
+> | securitysolutionsreferencedata | No | No |
+> | estados de segurança | No | No |
+> | securitystatusessummaries | No | No |
+> | servidorvulnerabilityaments | No | No |
+> | definições | No | No |
+> | subassessments | No | No |
+> | tarefas | No | No |
+> | topologias | No | No |
+> | espaços de trabalho | No | No |
 
 ## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | agregações | Não | Não |
-> | alertas | Não | Não |
-> | alertaruletemplas | Não | Não |
-> | regras automation | Não | Não |
-> | marcadores | Não | Não |
-> | casos | Não | Não |
-> | dataconnectors | Não | Não |
-> | entidades | Não | Não |
-> | entidadequeries | Não | Não |
-> | Incidentes | Não | Não |
-> | escritórioconsents | Não | Não |
-> | definições | Não | Não |
-> | ameaçaintelligence | Não | Não |
+> | agregações | No | No |
+> | alertas | No | No |
+> | alertaruletemplas | No | No |
+> | regras automation | No | No |
+> | marcadores | No | No |
+> | casos | No | No |
+> | dataconnectors | No | No |
+> | entidades | No | No |
+> | entidadequeries | No | No |
+> | Incidentes | No | No |
+> | escritórioconsents | No | No |
+> | definições | No | No |
+> | ameaçaintelligence | No | No |
 
 ## <a name="microsoftserialconsole"></a>Microsoft.SerialConsole
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | serviços de consola | Não | Não |
+> | serviços de consola | No | No |
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | portais | Não | Não |
-> | osdes | Não | Não |
+> | portais | No | No |
+> | osdes | No | No |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | espaços de nome | Sim | Sim |
-> | premiummessaging regiões | Não | Não |
-> | sku | Não | Não |
+> | espaços de nome | Yes | Yes |
+> | premiummessaging regiões | No | No |
+> | sku | No | No |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aplicações | Não | Não |
-> | aglomerados | Sim | Sim |
-> | grupos de contentores | Não | Não |
-> | conjuntos de contentores | Não | Não |
-> | edgeclusters | Não | Não |
-> | geremclusters | Não | Não |
-> | redes | Não | Não |
-> | lojas secretas | Não | Não |
-> | volumes | Não | Não |
+> | aplicações | No | No |
+> | aglomerados | Yes | Yes |
+> | grupos de contentores | No | No |
+> | conjuntos de contentores | No | No |
+> | edgeclusters | No | No |
+> | geremclusters | No | No |
+> | redes | No | No |
+> | lojas secretas | No | No |
+> | volumes | No | No |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aplicações | Sim | Sim |
-> | grupos de contentores | Não | Não |
-> | portais | Sim | Sim |
-> | redes | Sim | Sim |
-> | segredos | Sim | Sim |
-> | volumes | Sim | Sim |
+> | aplicações | Yes | Yes |
+> | grupos de contentores | No | No |
+> | portais | Yes | Yes |
+> | redes | Yes | Yes |
+> | segredos | Yes | Yes |
+> | volumes | Yes | Yes |
 
 ## <a name="microsoftservices"></a>Microsoft.Services
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | rollouts | Não | Não |
+> | rollouts | No | No |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | sinaleiro | Sim | Sim |
+> | sinaleiro | Yes | Yes |
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | híbridosbenefits | Não | Não |
+> | híbridosbenefits | No | No |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aplicações dedefinições | Não | Não |
-> | aplicações | Não | Não |
-> | jitrequests | Não | Não |
+> | aplicações dedefinições | No | No |
+> | aplicações | No | No |
+> | jitrequests | No | No |
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
@@ -1813,66 +1813,66 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | instâncias | Não | Não |
-> | Locais | Sim | Sim |
-> | managedinstances | Não | Não |
-> | servidores | Sim | Sim |
-> | servidores / bases de dados | Sim | Sim |
-> | servidores / bases de dados / backuplongtermretentionpolicies | Sim | Sim |
-> | servidores / elásticos | Sim | Sim |
-> | servidores / contas de emprego | Sim | Sim |
-> | servidores / agentes de trabalho | Sim | Sim |
-> | virtualclusters | Sim | Sim |
+> | instâncias | No | No |
+> | Locais | Yes | Yes |
+> | managedinstances | No | No |
+> | servidores | Yes | Yes |
+> | servidores / bases de dados | Yes | Yes |
+> | servidores / bases de dados / backuplongtermretentionpolicies | Yes | Yes |
+> | servidores / elásticos | Yes | Yes |
+> | servidores / contas de emprego | Yes | Yes |
+> | servidores / agentes de trabalho | Yes | Yes |
+> | virtualclusters | Yes | Yes |
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | grupos sqlvirtualmachineinegroups | Sim | Sim |
-> | sqlvirtualmachines | Sim | Sim |
+> | grupos sqlvirtualmachineinegroups | Yes | Yes |
+> | sqlvirtualmachines | Yes | Yes |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | contas de armazenamento | Sim | Sim |
+> | contas de armazenamento | Yes | Yes |
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | caches | Não | Não |
+> | caches | No | No |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | storagesyncservices | Sim | Sim |
+> | storagesyncservices | Yes | Yes |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | storagesyncservices | Não | Não |
+> | storagesyncservices | No | No |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | storagesyncservices | Não | Não |
+> | storagesyncservices | No | No |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | gestores | Não | Não |
+> | gestores | No | No |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
@@ -1882,63 +1882,63 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | aglomerados | Não | Não |
-> | streamingjobs | Sim | Sim |
+> | aglomerados | No | No |
+> | streamingjobs | Yes | Yes |
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | ambientes | Não | Não |
-> | casos | Não | Não |
+> | ambientes | No | No |
+> | casos | No | No |
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscrição
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | assinaturas | Não | Não |
+> | assinaturas | No | No |
 
 ## <a name="microsoftsupport"></a>microsoft.support
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | services | Não | Não |
-> | bilhetes de apoio | Não | Não |
+> | services | No | No |
+> | bilhetes de apoio | No | No |
 
 ## <a name="microsoftsynapse"></a>Microsoft.Synapse
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | áreas de trabalho | Sim | Sim |
-> | espaços de trabalho / bigdatapools | Sim | Sim |
-> | espaços de trabalho / sqlpools | Sim | Sim |
+> | áreas de trabalho | Yes | Yes |
+> | espaços de trabalho / bigdatapools | Yes | Yes |
+> | espaços de trabalho / sqlpools | Yes | Yes |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | ambientes | Sim | Sim |
-> | ambientes / fontes de eventos | Sim | Sim |
-> | ambientes / conjuntos de dados de referência | Sim | Sim |
+> | ambientes | Yes | Yes |
+> | ambientes / fontes de eventos | Yes | Yes |
+> | ambientes / conjuntos de dados de referência | Yes | Yes |
 
 ## <a name="microsofttoken"></a>Microsoft.Token
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | lojas | Sim | Sim |
+> | lojas | Yes | Yes |
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | imagens | Não | Não |
+> | imagens | No | No |
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
@@ -1948,47 +1948,47 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | conta | Não | Não |
-> | conta / extensão | Não | Não |
-> | conta / projeto | Não | Não |
+> | conta | No | No |
+> | conta / extensão | No | No |
+> | conta / projeto | No | No |
 
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | arczones | Não | Não |
-> | recursos | Não | Não |
-> | vcenters | Não | Não |
-> | virtualmachines | Não | Não |
-> | virtualmachinetemplates | Não | Não |
-> | virtualnetworks | Não | Não |
+> | arczones | No | No |
+> | recursos | No | No |
+> | vcenters | No | No |
+> | virtualmachines | No | No |
+> | virtualmachinetemplates | No | No |
+> | virtualnetworks | No | No |
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | não-100 dedicados | Não | Não |
-> | serviços decloud dedicados | Não | Não |
-> | virtualmachines | Não | Não |
+> | não-100 dedicados | No | No |
+> | serviços decloud dedicados | No | No |
+> | virtualmachines | No | No |
 
 ## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | dispositivos | Não | Não |
-> | vnfs | Não | Não |
+> | dispositivos | No | No |
+> | vnfs | No | No |
 
 ## <a name="microsoftvsonline"></a>Microsoft.VSOnline
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | accounts | Não | Não |
-> | planos | Não | Não |
-> | assinaturas registadas | Não | Não |
+> | accounts | No | No |
+> | planos | No | No |
+> | assinaturas registadas | No | No |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
@@ -1998,60 +1998,60 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | disponíveis mochilas | Não | Não |
-> | billingmeters | Não | Não |
-> | certificados | Não | Sim |
-> | vias de conexão | Sim | Sim |
-> | conexões | Sim | Sim |
-> | customapis | Sim | Sim |
-> | deletedsites | Não | Não |
-> | implantações | Não | Não |
-> | geo-regiões | Não | Não |
-> | hospedar ambientes | Não | Não |
-> | kubeenvironments | Sim | Sim |
-> | editores | Não | Não |
-> | recomendações | Não | Não |
-> | resourcehealthmetadata | Não | Não |
-> | tempos de execução | Não | Não |
-> | serverfarms | Sim | Sim |
-> | serverfarms / eventgridfilters | Não | Não |
-> | sites | Sim | Sim |
-> | sites / premieraddons | Sim | Sim |
-> | sites / slots | Sim | Sim |
-> | controlos de fontes | Não | Não |
-> | estáticasites | Não | Não |
+> | disponíveis mochilas | No | No |
+> | billingmeters | No | No |
+> | certificados | No | Yes |
+> | vias de conexão | Yes | Yes |
+> | conexões | Yes | Yes |
+> | customapis | Yes | Yes |
+> | deletedsites | No | No |
+> | implantações | No | No |
+> | geo-regiões | No | No |
+> | hospedar ambientes | No | No |
+> | kubeenvironments | Yes | Yes |
+> | editores | No | No |
+> | recomendações | No | No |
+> | resourcehealthmetadata | No | No |
+> | tempos de execução | No | No |
+> | serverfarms | Yes | Yes |
+> | serverfarms / eventgridfilters | No | No |
+> | sites | Yes | Yes |
+> | sites / premieraddons | Yes | Yes |
+> | sites / slots | Yes | Yes |
+> | controlos de fontes | No | No |
+> | estáticasites | No | No |
 
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | multipleactivationkeys | Não | Não |
+> | multipleactivationkeys | No | No |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | serviços de dispositivos | Não | Não |
+> | serviços de dispositivos | No | No |
 
 ## <a name="microsoftworkloadbuilder"></a>Microsoft.WorkloadBuilder
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | cargas de trabalho | Não | Não |
+> | cargas de trabalho | No | No |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
-> | componentes | Não | Não |
-> | consumada de componentes | Não | Não |
-> | monitorinstâncias | Não | Não |
-> | monitorinstancessummary | Não | Não |
-> | monitores | Não | Não |
+> | componentes | No | No |
+> | consumada de componentes | No | No |
+> | monitorinstâncias | No | No |
+> | monitorinstancessummary | No | No |
+> | monitores | No | No |
 
 ## <a name="third-party-services"></a>Serviços de terceiros
 

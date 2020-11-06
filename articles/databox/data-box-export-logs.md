@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147952"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337513"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rastreio e registo de eventos para a sua Caixa de Dados Azure e Caixa de Dados Azure Encomendas de exportação pesadas
 
@@ -50,11 +50,11 @@ Para obter mais informações sobre a utilização sugerida do Azure RBAC, consu
 
 ## <a name="enable-verbose-log-in-the-order"></a>Ativar o registo verboso na ordem
 
-Ao fazer uma encomenda de exportação para Data Box, tem a opção de ativar a recolha de registo verboso. Aqui está o ecrã de encomenda onde pode ativar o registo verboso:
+Ao fazer uma encomenda de exportação para Data Box, tem a opção de ativar a recolha de um registo verboso. Aqui está o ecrã de encomenda onde pode ativar o registo verboso:
 
-![Selecione opção de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+![Selecione opção de exportação](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-Quando seleciona a opção **de registo verboso,** é gerado um ficheiro de registo verboso ao copiar os dados da sua conta de Armazenamento Azure. Este registo contém uma lista de todos os ficheiros que foram exportados com sucesso.      
+Quando seleciona a opção **de registo verboso,** é gerado um ficheiro de registo verboso ao copiar os dados da sua conta de Armazenamento Azure. Este registo contém uma lista de todos os ficheiros que foram exportados com sucesso.
 
 Para obter mais informações sobre a ordem de exportação, consulte [Criar uma ordem de exportação para caixa de dados](data-box-deploy-export-ordered.md)
 
@@ -252,7 +252,7 @@ Se percorrer o histórico da ordem, verá:
 
 - Informação de rastreio do seu dispositivo.
 - Eventos com atividade *SecureErase.* Estes eventos correspondem ao apagamento dos dados no disco.
-- Links de registo de caixa de dados. São apresentados os caminhos dos registos de *auditoria,* *registos de cópias*e ficheiros *BOM.*
+- Links de registo de caixa de dados. São apresentados os caminhos dos registos de *auditoria,* *registos de cópias* e ficheiros *BOM.*
 
 Aqui está uma amostra do registo de histórico de encomendas do portal Azure:
 

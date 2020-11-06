@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
-ms.custom: seodec18
-ms.openlocfilehash: 8c9007cf14b485c37b94e9f475e2ce890ea0ea2b
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: seodec18, "seo-nov-2020"
+ms.openlocfilehash: c8c479050b434904de57397e5e7d73594090e031
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330806"
+ms.locfileid: "94336136"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Feed de alterações no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -28,10 +28,10 @@ Esta funcionalidade é atualmente suportada pelas seguintes APIs DB da Azure Cos
 
 | **Motoristas de clientes** | **SQL API** | **A API de Azure Cosmos DB para Cassandra** | **API do Azure Cosmos DB para MongoDB** | **API do Gremlin**|**API de Tabela** |
 | --- | --- | --- | --- | --- | --- | --- |
-| .NET | Sim | Sim | Sim | Sim | Não |
-|Java|Sim|Sim|Sim|Sim|Não|
-|Python|Sim|Sim|Sim|Sim|Não|
-|Nó/JS|Sim|Sim|Sim|Sim|Não|
+| .NET | Yes | Yes | Yes | Yes | No |
+|Java|Yes|Yes|Yes|Yes|No|
+|Python|Yes|Yes|Yes|Yes|No|
+|Nó/JS|Yes|Yes|Yes|Yes|No|
 
 ## <a name="change-feed-and-different-operations"></a>Alterar feed e diferentes operações
 

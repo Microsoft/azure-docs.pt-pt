@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40b777342c2c565efc5b40d361a259c98eae693c
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739940"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337729"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Utilize chaves geridas pelo cliente no Cofre da Chave Azure para a Azure Data Box
 
@@ -55,40 +55,40 @@ Configurar a chave gerida pelo cliente para a sua Caixa de Dados Azure é opcion
 
     ![Selecione a chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-5. Na **tecla Select da lâmina Azure Key Vault,** a subscrição é automaticamente povoada. Para **o cofre key,** pode selecionar um cofre de chaves existente na lista de dropdown.
+4. Na **tecla Select da lâmina Azure Key Vault,** a subscrição é automaticamente povoada. Para **o cofre key,** pode selecionar um cofre de chaves existente na lista de dropdown.
 
-    ![Criar novo Cofre de Chaves Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)
+    ![Selecione o cofre de chaves Azure existente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
     Também pode selecionar **Criar novo** para criar um novo cofre de chaves. Na lâmina do **cofre da chave Create,** insira o grupo de recursos e o nome do cofre da chave. Certifique-se de que a proteção **para eliminar** e **purgar** suavemente está ativada. Aceite todos os outros incumprimentos. Selecione **Review + Criar**.
 
-    ![Criar novo Cofre da Chave Azure 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![Reveja e crie o Cofre da Chave Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-7. Reveja as informações associadas ao cofre de chaves e selecione **Criar**. Espere alguns minutos para a criação do cofre de chaves para completar.
+5. Reveja as informações associadas ao cofre de chaves e selecione **Criar**. Espere alguns minutos para a criação do cofre de chaves para completar.
 
-    ![Criar cofre de chaves Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
+    ![Crie o Cofre de Chaves Azure com as suas definições](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
-8. Na **tecla Select a partir do Azure Key Vault,** pode selecionar uma chave no cofre de chaves existente.
+6. Na **tecla Select a partir do Azure Key Vault,** pode selecionar uma chave no cofre de chaves existente.
 
-    ![Criar nova chave no Cofre da Chave Azure 3](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![Selecione a chave do Cofre da Chave Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-9. Se quiser criar uma nova chave, selecione **Criar nova** para criar uma chave. O tamanho da chave RSA pode ser 2048 ou maior.
+7. Se quiser criar uma nova chave, selecione **Criar nova** para criar uma chave. O tamanho da chave RSA pode ser 2048 ou maior.
 
-    ![Criar nova chave no Cofre da Chave Azure 4](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![Criar nova chave no Cofre da Chave Azure](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-10. Forneça o nome da sua chave, aceite as outras predefinições e selecione **Criar**. 
+8. Forneça o nome da sua chave, aceite as outras predefinições e selecione **Criar**.
 
-    ![Criar nova chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
+    ![Nomeie nova chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
 
-11. Foi-lhe notificada que uma chave foi criada no seu cofre. Selecione a **versão** e, em seguida, escolha **Selecione**.
+9. Foi-lhe notificada que uma chave foi criada no seu cofre. Selecione a **versão** e, em seguida, escolha **Selecione**.
 
-    ![Nova chave criada no cofre chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
+    ![Selecione versão para nova chave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-12. No painel **do tipo encriptação,** pode ver o cofre da chave e a chave selecionada para a chave gerida pelo cliente.
+10. No painel **do tipo encriptação,** pode ver o cofre da chave e a chave selecionada para a chave gerida pelo cliente.
 
     ![Chave e cofre chave para chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
-13. Guarde a chave. 
+11. Guarde a chave. 
 
     ![Salvar a chave gerida pelo cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 

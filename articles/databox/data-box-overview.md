@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: f946a657b5129f773319d73fb428fe0108bac20f
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 52772519cc3b9aebc42175e812ad47ae54b529e9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123567"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336700"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -56,7 +56,7 @@ O Data Box foi concebido para mover grandes quantidades de dados para o Azure co
 
 - **Velocidade** - Caixa de Dados utiliza interfaces de rede de 1 Gbps ou 10 Gbps para mover até 80 TB de dados para dentro e para fora de Azure.
 
-- **Seguro**: o Data Box tem proteções de segurança incorporadas para o dispositivo, os dados e o serviço.
+- **Seguro** : o Data Box tem proteções de segurança incorporadas para o dispositivo, os dados e o serviço.
   - O dispositivo é fornecido numa caixa robusta protegida por parafusos resistentes a adulterações e autocolantes invioláveis. 
   - Os dados no dispositivo são sempre protegidos com uma encriptação AES de 256 bits.
   - O dispositivo só pode ser desbloqueado com uma palavra-passe fornecida no portal do Azure.
@@ -69,7 +69,7 @@ O Data Box foi concebido para mover grandes quantidades de dados para o Azure co
 
 O dispositivo Data Box tem as seguintes funcionalidades nesta versão.
 
-| Especificações                                          | Descrição              |
+| Especificações                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | < 23 kg                |
 | Dimensões                                              | Dispositivo – Largura: 309,0 mm Altura: 430,4 mm Profundidade: 502,0 mm |            
@@ -88,14 +88,14 @@ O dispositivo Data Box tem as seguintes funcionalidades nesta versão.
 
 O Data Box inclui os seguintes componentes:
 
-* **Dispositivo Data Box**: um dispositivo físico que fornece armazenamento primário, gere a comunicação com o armazenamento na cloud e ajuda a garantir a segurança e a confidencialidade de todos os dados armazenados no dispositivo. O dispositivo Data Box tem uma capacidade de armazenamento utilizável de 80 TB. 
+* **Dispositivo Data Box** : um dispositivo físico que fornece armazenamento primário, gere a comunicação com o armazenamento na cloud e ajuda a garantir a segurança e a confidencialidade de todos os dados armazenados no dispositivo. O dispositivo Data Box tem uma capacidade de armazenamento utilizável de 80 TB. 
 
-    ![Plano frontal e posterior do Data Box](media/data-box-overview/data-box-combined3.png)
+    ![Plano frontal e posterior do Data Box](media/data-box-overview/data-box-combined.png)
 
     
-* **Serviço Data Box**: uma extensão do portal do Azure que permite gerir um dispositivo Data Box a partir de uma interface Web à qual pode aceder a partir de localizações geográficas diferentes. Utilize o serviço Data Box para a administração diária do seu dispositivo Data Box. As tarefas do serviço incluem criar e gerir pedidos, ver e gerir alertas, e gerir partilhas.  
+* **Serviço Data Box** : uma extensão do portal do Azure que permite gerir um dispositivo Data Box a partir de uma interface Web à qual pode aceder a partir de localizações geográficas diferentes. Utilize o serviço Data Box para a administração diária do seu dispositivo Data Box. As tarefas do serviço incluem criar e gerir pedidos, ver e gerir alertas, e gerir partilhas.  
 
-    ![O serviço Data Box no portal do Azure](media/data-box-overview/data-box-service1.png)
+    ![O serviço Data Box no portal do Azure](media/data-box-overview/data-box-service.png)
 
     Para obter mais informações, aceda a [Utilizar o serviço Data Box para administrar o seu dispositivo Data Box](data-box-portal-ui-admin.md).
 

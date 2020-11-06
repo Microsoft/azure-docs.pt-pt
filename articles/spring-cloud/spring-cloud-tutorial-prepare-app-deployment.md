@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 31e25fb8c67e3d271bc37eb4b0d28c67d94a664f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9e613331760a1715c3821bdc7dbbf0469e8bfd97
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092805"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337615"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparar uma aplicação para implantação em Azure Spring Cloud
 
@@ -30,15 +30,38 @@ Este artigo explica as dependências, configuração e código que são necessá
 Azure Spring Cloud suporta:
 
 * .NET Core 3.1
-* Steeltoe 2.4
+* Steeltoe 2.4 e 3.0
 
 ## <a name="dependencies"></a>Dependências
 
-Instale o pacote [Microsoft.Azure.SpringCloud.Client.](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
+Para steeltoe 2.4, adicione o mais recente pacote [Microsoft.Azure.SpringCloud.Client 1.x.x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) ao ficheiro do projeto:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.ExporterCore" Version="2.4.4" />
+</ItemGroup>
+```
+
+Para steeltoe 3.0, adicione o mais recente pacote [Microsoft.Azure.SpringCloud.Client 2.x.x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) ao ficheiro do projeto:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="3.0.0" />
+</ItemGroup>
+```
 
 ## <a name="update-programcs"></a>Atualizar Program.cs
 
-No `Program.Main` método, chame o `UseAzureSpringCloudService` método:
+No `Program.Main` método, chame o `UseAzureSpringCloudService` método.
+
+Para steeltoe 2.4.4, ligue `UseAzureSpringCloudService` depois e depois se for `ConfigureWebHostDefaults` `AddConfigServer` chamado:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -47,14 +70,28 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         {
             webBuilder.UseStartup<Startup>();
         })
+        .AddConfigServer()
         .UseAzureSpringCloudService();
+```
+
+Para steeltoe 3.0.0, ligue `UseAzureSpringCloudService` antes e antes de qualquer código de `ConfigureWebHostDefaults` configuração Steeltoe:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .UseAzureSpringCloudService()
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        })
+        .AddConfigServer();
 ```
 
 ## <a name="enable-eureka-server-service-discovery"></a>Ativar a descoberta do serviço Eureka Server
 
 Na fonte de configuração que será utilizada quando a aplicação for executada em Azure Spring Cloud, definida `spring.application.name` com o mesmo nome que a aplicação Azure Spring Cloud para a qual o projeto será implementado.
 
-Por exemplo, se implementar um projeto .NET nomeado `EurekaDataProvider` para uma aplicação Azure Spring Cloud com o nome `planet-weather-provider` deappSettings.js* no* ficheiro deve incluir o seguinte JSON:
+Por exemplo, se implementar um projeto .NET nomeado `EurekaDataProvider` para uma aplicação Azure Spring Cloud com o nome `planet-weather-provider` deappSettings.js *no* ficheiro deve incluir o seguinte JSON:
 
 ```json
 "spring": {

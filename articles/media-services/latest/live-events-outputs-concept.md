@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 300d9e433b4c57f2868416d866f1dcff6c189fb7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f7f73efff266e012616ac68d956abd921afaac2a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784461"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337428"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos ao vivo e saídas ao vivo nos Serviços de Media
 
@@ -28,7 +28,7 @@ ms.locfileid: "92784461"
 A Azure Media Services permite-lhe entregar eventos ao vivo aos seus clientes na nuvem Azure. Para configurar os seus eventos de streaming ao vivo nos Media Services v3, precisa entender os conceitos discutidos neste artigo.
 
 > [!TIP]
-> Para os clientes que migram dos Serviços de Media v2 APIs, a entidade **de eventos ao vivo** substitui o **Canal** na V2 e a saída **ao vivo** substitui **o programa** .
+> Para os clientes que migram dos Serviços de Media v2 APIs, a entidade **de eventos ao vivo** substitui o **Canal** na V2 e a saída **ao vivo** substitui **o programa**.
 
 ## <a name="live-events"></a>Live events (Eventos em direto)
 
@@ -150,7 +150,7 @@ Pode utilizar URLs intuitivos ou não intuitivos.
     |---|---|---|
     |REST|[propriedades.vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](/rest/api/media/liveevents/create#liveeventinput)|
     |CLI|[--vaidade-url](/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--token de acesso](/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |.NET|[LiveEvent.VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Regras de nomenclatura dos URLs de ingestão em direto
 

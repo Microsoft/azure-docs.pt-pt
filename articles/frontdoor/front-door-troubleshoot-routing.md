@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: dbce9019e33c07dd4faa91ffd490eba4d313c675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e810a31fab4457e47329e37f54b16e6f488c9da
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630615"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337632"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Resolução de problemas problemas comuns de encaminhamento
 
@@ -103,5 +103,26 @@ Existem várias causas possíveis para este sintoma:
             * *Os protocolos aceites* são HTTP e HTTPS. *O protocolo de reencaminhamento* é HTTP. O pedido de jogo não funcionará, uma vez que HTTPS é um protocolo permitido e se um pedido surgisse como HTTPS, a Porta Frontal tentaria encaminhá-lo usando HTTPS.
 
             * *Os protocolos aceites* são HTTP. *O protocolo de encaminhamento* é um pedido de correspondência ou HTTP.
-
     - *Url Rewrite* é desativado por padrão. Este campo é utilizado apenas se quiser reduzir o âmbito de aplicação dos recursos que pretende disponibilizar. Quando desativado, a Porta Frontal encaminhará o mesmo caminho de pedido que recebe. É possível configurar mal este campo. Assim, quando a Porta Frontal está a solicitar um recurso do backend que não está disponível, irá devolver um código de estado HTTP 404.
+
+## <a name="request-to-frontend-host-name-returns-411-status-code"></a>Pedido para frontend nome anfitrião devolve 411 código de estado
+
+### <a name="symptom"></a>Sintoma
+
+Você criou uma Porta frontal e configura um anfitrião frontal, uma piscina de backend com pelo menos um backend nele, e uma regra de encaminhamento que liga o anfitrião frontal à piscina de backend. O seu conteúdo não parece estar disponível ao enviar um pedido ao anfitrião frontal configurado porque é devolvido um código de estado HTTP 411.
+
+As respostas a estes pedidos podem também conter uma página de erro HTML no organismo de resposta que inclui uma exposição explicativa. Por exemplo: `HTTP Error 411. The request must be chunked or have a content length`
+
+### <a name="cause"></a>Causa
+
+Existem várias causas possíveis para este sintoma; no entanto, a razão geral é que o seu pedido HTTP não é totalmente compatível com RFC. 
+
+Um exemplo de incumprimento é um `POST` pedido enviado sem um ou um `Content-Length` `Transfer-Encoding` cabeçalho (por exemplo, `curl -X POST https://example-front-door.domain.com` utilizando). Este pedido não satisfaz os requisitos estabelecidos no [RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2) e seria bloqueado pela sua Porta da Frente com uma resposta HTTP 411.
+
+Este comportamento é separado da funcionalidade WAF da Porta Frontal. Atualmente, não há como desativar este comportamento. Todos os pedidos HTTP devem satisfazer os requisitos, mesmo que a funcionalidade WAF não esteja a ser utilizada.
+
+### <a name="troubleshooting-steps"></a>Passos de resolução de problemas
+
+- Verifique se os seus pedidos cumprem os requisitos estabelecidos nos RFCs necessários.
+
+- Tome nota de qualquer corpo de mensagem HTML que seja devolvido em resposta ao seu pedido, porque muitas vezes explicam exatamente *como* o seu pedido é incompatível.

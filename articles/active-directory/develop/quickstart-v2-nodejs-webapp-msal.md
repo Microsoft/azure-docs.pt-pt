@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: cfe1b66662d73c18934ef9ecc884adee79493eb6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e223b5ae072a323ad56ed396c06580fea9b8b7ab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92641007"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335252"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso numa aplicação web nó usando o fluxo de código auth
 
@@ -42,13 +42,13 @@ Este quickstart utiliza a Biblioteca de Autenticação da Microsoft para Node.js
 > 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 > 1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a sua conta no topo direito e, em seguida, desacione a sua sessão de portal para o inquilino AD AZure que pretende usar.
 > 1. Selecione [Registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908).
-> 1. Selecione **Novo registo** .
+> 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza um nome para a sua aplicação.
 > 1. Nos **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 > 1. Desa estale o valor **URI de redirecionamento** para `http://localhost:3000/redirect` .
-> 1. Selecione **Registar** . 
+> 1. Selecione **Registar**. 
 > 1. Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
-> 1. Sob **Certificados & segredos** , selecione **Novo segredo do cliente** .  Deixe a descrição em branco e a expiração padrão e, em seguida, clique em **Adicionar** .
+> 1. Sob **Certificados & segredos** , selecione **Novo segredo do cliente**.  Deixe a descrição em branco e a expiração padrão e, em seguida, clique em **Adicionar**.
 > 1. Note o **valor** do Segredo do **Cliente** para posterior utilização.
 
 #### <a name="step-2-download-the-project"></a>Passo 2: Transferir o projeto
@@ -141,4 +141,4 @@ npm install @azure/msal-node
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Adicionar Auth a uma aplicação web existente - a amostra de código GitHub >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code/readme.md)
+> [Adicionar Auth a uma aplicação web existente - a amostra de código GitHub >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/auth-code)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 233af68e4109e53b6bd841f298e9c2728ca5b116
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: baae0f89165e292408150dd419c6de8dc41a320c
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313488"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335563"
 ---
 # <a name="tutorial-integrate-abstract-with-azure-active-directory"></a>Tutorial: Integrar Resumo com Diretório Ativo Azure
 
@@ -114,10 +114,10 @@ Está agora pronto para configurar sSO em resumo:
 
 Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores**.
 1. Selecione **Novo utilizador** na parte superior do ecrã.
 1. Nas propriedades do **Utilizador,** siga estes passos:
-   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **Nome** , introduza `B.Simon`.  
    1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
    1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
    1. Clique em **Criar**.
@@ -126,7 +126,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao Abstract.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, **selecione Resumo**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -146,7 +146,7 @@ Para testar SSO em Resumo:
 
 1. Abra a [aplicação web Abstract](https://app.abstract.com/).
 2. Vá à página **permissões** na barra do lado esquerdo.
-3. Clique **em Testar com a minha conta.** Se o teste falhar, contacte a [nossa equipa de apoio.](https://www.abstract.com/help/contact/)
+3. Clique **em Testar com a minha conta.** Se o teste falhar, contacte a [nossa equipa de apoio.](https://help.abstract.com/hc/)
 
 >[!Note]
 >Terá de autenticar com uma conta de Administração da organização para aceder às definições SSO no Resumo.

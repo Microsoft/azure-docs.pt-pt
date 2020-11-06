@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 9da757e47308fe0fe1a96958e464b440d99f0984
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324734"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334997"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Referência: Máquina Virtual Ubuntu (Linux) Data Science
 
@@ -310,7 +310,7 @@ cd xgboostdemo
 xgboost mushroom.conf
 ```
 
-Um ficheiro .model é escrito para o diretório especificado. Pode encontrar informações sobre este exemplo de demonstração [no GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
+Um ficheiro .model é escrito para o diretório especificado. Pode encontrar informações sobre este exemplo de demonstração [no GitHub](https://github.com/dmlc/xgboost/tree/master/demo/CLI/binary_classification).
 
 Para obter mais informações sobre o xgboost, consulte a [página de documentação xgboost](https://xgboost.readthedocs.org/en/latest/) e o seu [repositório GitHub.](https://github.com/dmlc/xgboost)
 

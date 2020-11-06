@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b6fab2aeebeeb0f39e07a0751e02cefd195b28
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565769"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337363"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Proteção de dados e segurança do Azure Data Box
 
@@ -32,11 +32,11 @@ A solução Microsoft Azure Data Box é composta por quatro componentes principa
 
 O diagrama seguinte indica o fluxo de dados através da solução Azure Data Box, das instalações para o Azure e as várias funcionalidades de segurança em vigor à medida que os dados fluem através da solução. Este fluxo destina-se a uma encomenda de importação para a sua Caixa de Dados.
 
-![Garantia de importação de caixa de dados](media/data-box-security/data-box-security-2.png)
+![Garantia de importação de caixa de dados](media/data-box-security/data-box-security-import.png)
 
 O diagrama a seguir é para a encomenda de exportação da sua Caixa de Dados.
 
-![Garantia de exportação da Caixa de Dados](media/data-box-security/data-box-security-3.png)
+![Garantia de exportação da Caixa de Dados](media/data-box-security/data-box-security-export.png)
 
 À medida que os dados fluem através desta solução, os eventos são registados e os registos são gerados. Para mais informações, aceda a:
 
@@ -106,7 +106,7 @@ Para obter mais informações, reveja a política de privacidade da Microsoft no
 
 As seguintes diretrizes de segurança são implementadas no Data Box: 
 
-|Diretriz   |Descrição   |
+|Diretriz   |Description   |
 |---------|---------|
 |[IEC 60529 IP52](https://www.iec.ch/)    | Para proteção contra água e poeira         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Para resistir a condições de transporte adversas          |

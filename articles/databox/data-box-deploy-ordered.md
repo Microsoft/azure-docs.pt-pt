@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 400c5bd4dd31daaf826ed63ada75266d4ab3099c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a73005580c9b7ddeae17e3e0490aa586bd9b0fbb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93313210"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335835"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Encomendar o Azure Data Box
 
@@ -89,7 +89,7 @@ You have logged in. Now let us find all the subscriptions to which you have acce
 
 **Instale a extensão CLI da Caixa de Dados Azure**
 
-Antes de poder utilizar os comandos CLI da Caixa de Dados Azure, tem de instalar a extensão. As extensões da CLI do Azure dão-lhe acesso a comandos experimentais e de pré-lançamento que ainda não foram enviados como parte do núcleo da CLI. Para obter mais informações sobre extensões, consulte [extensões de utilização com Azure CLI](/cli/azure/azure-cli-extensions-overview).
+Antes de poder utilizar os comandos CLI da Caixa de Dados Azure, tem de instalar a extensão. As extensões da CLI do Azure dão-lhe acesso a comandos experimentais e de pré-lançamento que ainda não foram enviados como parte do núcleo da CLI. Para obter mais informações sobre as extensões, veja [Utilizar extensões com o CLI do Azure](/cli/azure/azure-cli-extensions-overview).
 
 Para instalar a extensão para Azure Data Box, execute o seguinte `az extension add --name databox` comando:
 
@@ -123,7 +123,7 @@ Se a extensão for instalada com sucesso, verá a seguinte saída:
 
 Você pode usar [Azure Cloud Shell](https://shell.azure.com/), um ambiente de concha interativa azure hospedado, através do seu navegador para executar comandos CLI. A Azure Cloud Shell suporta os serviços Bash ou Windows PowerShell com os serviços Azure. O Azure CLI está pré-instalado e configurado para ser utilizado com a sua conta. Selecione o botão Cloud Shell no menu na secção superior direita do portal Azure:
 
-![Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
+![Seleção de menus Cloud Shell](../storage/common/media/storage-quickstart-create-account/cloud-shell-menu.png)
 
 O botão lança uma concha interativa que pode usar para executar os passos descritos neste artigo de como fazer.
 
@@ -215,11 +215,11 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 1. Utilize as suas credenciais do Microsoft Azure para iniciar sessão neste URL: [https://portal.azure.com](https://portal.azure.com).
 2. Selecione **+ Criar um recurso** e procure *Azure Data Box*. Selecione **Azure Data Box**.
 
-   ![Screenshot da nova secção com Azure Data Box no campo de pesquisa.](media/data-box-deploy-ordered/select-data-box-import-02.png)
+   ![Screenshot de nova secção com Caixa de Dados Azure no campo de pesquisa](media/data-box-deploy-ordered/select-data-box-import-02.png)
 
 3. Selecione **Criar**.
 
-   ![Screenshot da secção Caixa de Dados Azure com a opção Criar chamada.](media/data-box-deploy-ordered/select-data-box-import-03.png)
+   ![Screenshot da secção Azure Data Box com opção Criar chamado](media/data-box-deploy-ordered/select-data-box-import-03.png)
 
 4. Verifique se o serviço Data Box está disponível na sua região. Introduza ou selecione as seguintes informações e selecione **Aplicar**.
 
@@ -231,11 +231,11 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
     |País/região de origem    |    Selecione o país/região onde os dados residem atualmente.         |
     |Região do Azure de destino     |     Selecione a região do Azure para onde pretende transferir os dados. <br> Para obter mais informações, aceda a [Disponibilidade de região](data-box-overview.md#region-availability).            |
 
-    [![Pedido de importação da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
+    [![Iniciar uma ordem de importação da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-04b.png)](media/data-box-deploy-ordered/select-data-box-import-04b.png#lightbox)
 
 5. Selecione **Data Box**. A capacidade máxima utilizável para uma única encomenda é de 80 TB. Pode criar várias encomendas para tamanhos de dados maiores.
 
-    ![Screenshot dos diferentes tamanhos de dados que estão disponíveis para seleção: Data Box Disk 40 terabytes, Data Box 100 terabytes, Data Box Heavy, 1000 terabytes e Enviar os seus próprios discos 1 terabyte.](media/data-box-deploy-ordered/select-data-box-import-05.png)
+    ![Tamanhos de dados disponíveis: Disco de caixa de dados, 40 terabytes; Caixa de Dados, 100 terabytes; Caixa de Dados Pesada, 1000 terabytes; Envie os seus próprios discos, 1 terabyte](media/data-box-deploy-ordered/select-data-box-import-05.png)
 
 6. Em **Ordem,** vá ao separador **Básico.** Introduza ou selecione as seguintes informações e selecione **Seguinte: Destino de dados>**.
 
@@ -245,7 +245,7 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
     |Grupo de recursos    | O grupo de recursos que selecionou anteriormente. |
     |Nome da ordem de importação | Forneça um nome amigável para controlar a encomenda. <br> O nome pode ter entre 3 e 24 carateres que podem ser letras, números e hífenes. <br> O nome tem de começar e terminar com uma letra ou um número.    |
 
-    ![Screenshot do assistente da Ordem mostrando o passo básico do assistente com a informação correta preenchida.](media/data-box-deploy-ordered/select-data-box-import-06.png)
+    ![Data Box import Assistente de encomenda, ecrã básico, com informação correta preenchida](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
     Por predefinição, a palavra-passe desbloqueada do dispositivo é encriptada utilizando uma chave gerida pela Microsoft. Depois de completar a encomenda, pode adicionar uma chave gerida pelo cliente. Uma chave gerida pelo cliente permite-lhe utilizar a sua própria chave a partir de uma chave de cofre Azure Key para proteger o seu dispositivo desbloquear a palavra-passe. Para obter mais informações, consulte [as teclas geridas pelo cliente no Cofre de Chaves Azure para a Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
@@ -253,7 +253,7 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
     Se utilizar **a conta de armazenamento** como destino de armazenamento, vê a seguinte imagem:
 
-    ![Destino de dados da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-07.png)
+    ![Data Box importe assistente de encomenda, ecrã de destino de dados, com contas de armazenamento selecionadas](media/data-box-deploy-ordered/select-data-box-import-07.png)
 
     Com base na região do Azure especificada, selecione uma ou mais contas de armazenamento na lista filtrada de uma conta de armazenamento existente. O Data Box pode ser associado a um máximo de 10 contas de armazenamento. Também pode criar uma nova conta de **Fins gerais v1** , **Fins gerais v2** ou **Conta de armazenamento de blobs**.
 
@@ -265,7 +265,7 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
     |---------|---------|
     |Grupos de recursos     | Crie novos grupos de recursos se quiser criar discos geridos a partir dos VHDs no local. Só pode utilizar um grupo de recursos existente se o grupo de recursos tiver sido criado anteriormente ao criar uma encomenda de Caixa de Dados para o disco gerido pelo serviço Data Box. <br> Especifique vários grupos de recursos separados por ponto e vírgula. É suportado um máximo de 10 grupos de recursos.|
 
-    ![Screenshot do assistente da Ordem mostrando o passo de destino de Dados do assistente com a informação correta preenchida.](media/data-box-deploy-ordered/select-data-box-import-07b.png)
+    ![Assistente de encomenda de importação de caixa de dados, ecrã de destino de dados, com Discos Geridos selecionados](media/data-box-deploy-ordered/select-data-box-import-07b.png)
 
     A conta de armazenamento especificada para os discos geridos é utilizada como uma conta de armazenamento de teste. O serviço Data Box carrega os VHDs como blobs de páginas na conta de armazenamento de teste antes de os converter em discos geridos e de os mover para os grupos de recursos. Para obter mais informações, veja [Verificar o carregamento de dados no Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
    > [!NOTE]
@@ -277,23 +277,23 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
     Todas as definições no ecrã **de Segurança** são opcionais. Se não alterar quaisquer definições, aplicar-se-ão as definições predefinidas.
 
-    ![Tela de segurança para uma ordem de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
+    ![Tela de segurança do assistente de encomenda de importação de caixa de dados](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
 
-1. Se não quiser utilizar as palavras-passe geradas pelo sistema que a Azure Data Box utiliza por padrão, **expanda a sua própria palavra-passe**.
+8. Se não quiser utilizar as palavras-passe geradas pelo sistema que a Azure Data Box utiliza por padrão, **expanda a sua própria palavra-passe**.
 
    As palavras-passe geradas pelo sistema são seguras e são recomendadas a menos que a sua organização exija o contrário.
 
-   ![Expandido Traga as suas próprias opções de senha para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
+   ![Expandido Traga as suas próprias opções de senha no ecrã de Segurança para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-02.png)
 
    - Para utilizar a sua própria palavra-passe para o seu novo dispositivo, por **definição de preferência para a palavra-passe do dispositivo** , selecione **Use a sua própria palavra-passe** e escreva uma palavra-passe que satisfaça os requisitos de segurança.
    
-     ![Ecrã de segurança para importação de Caixa de Dados, opções para usar a sua própria senha de dispositivo](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
+     ![Opções para usar a palavra-passe do seu próprio dispositivo no ecrã de Segurança para uma ordem de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
    - Para utilizar as suas próprias palavras-passe para ações:
 
      1. Por **Definir a preferência por palavras-passe de partilha** , selecione Use as suas **próprias palavras-passe** e, em seguida, **selecione palavras-passe para as ações**.
      
-        ![Ecrã de segurança para importação de Caixa de Dados, opções para usar as suas próprias palavras-passe de partilha](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+        ![Opções para usar as suas próprias palavras-passe no ecrã de Segurança para uma encomenda de importação de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
      1. Digite uma palavra-passe para cada conta de armazenamento na encomenda. A palavra-passe será usada em todas as ações para a conta de armazenamento.
      
@@ -303,9 +303,9 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
        No ecrã **'Segurança',** pode utilizar **ver ou alterar palavras-passe** para alterar as palavras-passe.
 
-1. Em **Segurança** , se pretender ativar a dupla encriptação baseada em software, expanda a **encriptação dupla (para ambientes altamente seguros)** e selecione **Ative a dupla encriptação para a encomenda**.
+9. Em **Segurança** , se pretender ativar a dupla encriptação baseada em software, expanda a **encriptação dupla (para ambientes altamente seguros)** e selecione **Ative a dupla encriptação para a encomenda**.
 
-   ![Ecrã de segurança para importação de Data Box, permitindo encriptação baseada em software para uma encomenda de Caixa de Dados](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
+   ![Opções para permitir encriptação baseada em software no ecrã de Segurança para uma ordem de importação de Data Box](media/data-box-deploy-ordered/select-data-box-import-security-07.png)
 
    A encriptação baseada em software é realizada para além da encriptação bit AES-256 dos dados na Caixa de Dados.
 
@@ -314,29 +314,29 @@ Faça os seguintes passos no portal Azure para encomendar um dispositivo.
 
    Selecione **Seguinte: Contacte os dados** para continuar.
 
-8. Em **detalhes de contato** , selecione **+ Adicionar endereço de envio**.
+10. Em **detalhes de contato** , selecione **+ Adicionar endereço de envio**.
 
-    ![Screenshot do assistente de Encomenda mostrando o passo de contato do assistente com a opção 'Endereço de envio' "Adicionar" chamada.](media/data-box-deploy-ordered/select-data-box-import-08a.png)
+    ![A partir do ecrã de detalhes de contato, adicione endereços de envio à sua encomenda de importação da Caixa de Dados Azure](media/data-box-deploy-ordered/select-data-box-import-08a.png)
 
-9. No separador **Endereço para envio** , forneça o seu nome próprio e apelido, o nome e o endereço postal da empresa e um número de telefone válido. Selecione **Validar endereço**. O serviço valida o endereço de envio relativamente à disponibilidade do serviço. Se o serviço estiver disponível para o endereço de envio especificado, receberá uma notificação para o efeito.
+11. No **endereço de Envio,** forneça o seu primeiro e último nome, o nome e endereço postal da empresa, e um número de telefone válido. Em seguida, **selecione O endereço validado**. O serviço verifica a disponibilidade de serviço para o endereço. Se o serviço estiver disponível para o endereço de envio, receberá uma notificação nesse sentido.
 
-   ![Screenshot da caixa de diálogo do endereço de envio de envio com o Navio usando opções e a opção de endereço de envio Adicionar chamada.](media/data-box-deploy-ordered/select-data-box-import-10.png)
+     ![Adicione a caixa de diálogo do endereço de envio, com o Navio usando opções e a opção de endereço de envio Adicionar chamado](media/data-box-deploy-ordered/select-data-box-import-10.png)
 
-   Se selecionar o envio auto-gerido, receberá uma notificação de e-mail após a encomenda ser feita com sucesso. Para obter mais informações sobre o transporte auto-gerido, consulte [use o envio auto-gerido](data-box-portal-customer-managed-shipping.md).
+    Se selecionar o envio auto-gerido, receberá uma notificação de e-mail após a encomenda ser feita com sucesso. Para obter mais informações sobre o transporte auto-gerido, consulte [use o envio auto-gerido](data-box-portal-customer-managed-shipping.md).
 
-10. Selecione **Adicionar Endereço de Envio** assim que os dados de envio tenham sido validados com sucesso. Regressará ao separador **Dados de Contacto.**
+12. Selecione **Adicionar Endereço de Envio** assim que os dados de envio tenham sido validados com sucesso. Regressará ao separador **Dados de Contacto.**
 
-11. Depois de voltar aos **dados de Contato,** adicione um ou mais endereços de e-mail. O serviço envia notificações por e-mail relativamente a todas as atualizações do estado da encomenda para os endereços de e-mail especificados.
+13. Depois de voltar aos **dados de Contato,** adicione um ou mais endereços de e-mail. O serviço envia notificações por e-mail relativamente a todas as atualizações do estado da encomenda para os endereços de e-mail especificados.
 
     Recomendamos que utilize um e-mail de grupo para continuar a receber notificações se um administrador sair do grupo.
 
-    ![Screenshot da secção de email do passo de contacto do assistente de encomenda com a caixa de texto de email e a opção Seguinte: Revisão e Ordem chamada.](media/data-box-deploy-ordered/select-data-box-import-08c.png)
+    ![Secção de email de dados de contacto no assistente da Ordem](media/data-box-deploy-ordered/select-data-box-import-08c.png)
 
 12. Reveja as informações em **Review + Order** relacionadas com os termos de encomenda, contacto, notificação e privacidade. Selecione a caixa correspondente ao contrato de termos de privacidade.
 
 13. Selecione **Encomendar**. A encomenda demora alguns minutos a ser criada.
 
-    ![Screenshot do assistente da Ordem mostrando o passo de Revisão e Ordem e a opção Ordem chamada.](media/data-box-deploy-ordered/select-data-box-import-11.png)
+    ![Rever e encomendar tela do assistente da Ordem](media/data-box-deploy-ordered/select-data-box-import-11.png)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -526,11 +526,11 @@ Se o dispositivo não estiver disponível, receberá uma notificação. Se o dis
 
 Quando a preparação do dispositivo estiver concluída, o portal mostra a encomenda no estado **Processado**.
 
-![Encomenda do Data Box processada](media/data-box-overview/data-box-order-status-processed.png)
+![Uma encomenda de Caixa de Dados que foi processada](media/data-box-overview/data-box-order-status-processed.png)
 
 Em seguida, a Microsoft prepara e expede os seus dispositivos através de uma transportadora regional. Receberá um número de encomenda assim que o dispositivo for enviado. O portal mostra a encomenda no estado **Expedido**.
 
-![Encomenda do Data Box expedida](media/data-box-overview/data-box-order-status-dispatched.png)
+![Uma ordem de caixa de dados que foi despachada](media/data-box-overview/data-box-order-status-dispatched.png)
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 

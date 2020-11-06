@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 09/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 0332400ce6808e92ba09e3bee3277495f6b6d1a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bf819e5cff8c6ef008b0e55e156ba3531936b489
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897477"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337887"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utilize a Azure Machine Learning com o pacote fairlearn open-source para avaliar a equidade dos modelos ML (pré-visualização)
 
@@ -33,7 +33,7 @@ Neste guia de como fazer, você aprenderá a usar o pacote De Pitão de código 
 
 ## <a name="azure-machine-learning-fairness-sdk"></a>Azure Machine Learning Fairness SDK 
 
-O Azure Machine Learning Fairness SDK, `azureml-contrib-fairness` integra o pacote Python de código aberto, [Fairlearn,](http://fairlearn.github.io)no Azure Machine Learning. Para saber mais sobre a integração de Fairlearn no Azure Machine Learning, confira estes [cadernos de amostras.](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) Para obter mais informações sobre Fairlearn, consulte o guia de [exemplo](https://fairlearn.github.io/auto_examples/) e [os cadernos de amostras.](https://github.com/fairlearn/fairlearn/tree/master/notebooks) 
+O Azure Machine Learning Fairness SDK, `azureml-contrib-fairness` integra o pacote Python de código aberto, [Fairlearn,](http://fairlearn.github.io)no Azure Machine Learning. Para saber mais sobre a integração de Fairlearn no Azure Machine Learning, confira estes [cadernos de amostras.](https://github.com/Azure/MachineLearningNotebooks/tree/master/contrib/fairness) Para obter mais informações sobre Fairlearn, consulte o guia de [exemplo](https://fairlearn.github.io/master/auto_examples/) e [os cadernos de amostras.](https://github.com/fairlearn/fairlearn/tree/master/notebooks) 
 
 Utilize os seguintes comandos para instalar as `azureml-contrib-fairness` `fairlearn` embalagens e as embalagens:
 ```bash
@@ -205,7 +205,7 @@ O exemplo a seguir mostra como usar o pacote de equidade para carregar insights 
     1. Se registou o seu modelo original seguindo os passos anteriores, pode selecionar **Modelos** no painel esquerdo para o visualizar.
     1. Selecione um modelo e, em seguida, o **separador Fairness** para visualizar o painel de visualização de explicação.
 
-    Para saber mais sobre o painel de visualização e o que contém, consulte o guia de [utilizador](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard)da Fairlearn.
+    Para saber mais sobre o painel de visualização e o que contém, consulte o guia de [utilizador](https://fairlearn.github.io/master/user_guide/assessment.html#fairlearn-dashboard)da Fairlearn.
 
 ## <a name="upload-fairness-insights-for-multiple-models"></a>Carregar insights de equidade para vários modelos
 
@@ -311,9 +311,9 @@ Se estiver interessado em comparar vários modelos e ver como as suas avaliaçõ
 
 ## <a name="upload-unmitigated-and-mitigated-fairness-insights"></a>Upload insípido e atenuado insights de justiça
 
-Você pode usar os [algoritmos](https://fairlearn.github.io/user_guide/mitigation.html)de mitigação de Fairlearn , comparar os seus modelos(s) gerados mitigados com o modelo original não atenuado, e navegar nas trocas de desempenho/justiça entre modelos comparados.
+Você pode usar os [algoritmos](https://fairlearn.github.io/master/user_guide/mitigation.html)de mitigação de Fairlearn , comparar os seus modelos(s) gerados mitigados com o modelo original não atenuado, e navegar nas trocas de desempenho/justiça entre modelos comparados.
 
-Para ver um exemplo que demonstre a utilização do algoritmo de mitigação [da Pesquisa de Grelha](https://fairlearn.github.io/user_guide/mitigation.html#grid-search) (que cria uma coleção de modelos atenuados com diferentes compensações e trocas de desempenho) consulte este caderno de [amostras.](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb) 
+Para ver um exemplo que demonstre a utilização do algoritmo de mitigação [da Pesquisa de Grelha](https://fairlearn.github.io/master/user_guide/mitigation.html#grid-search) (que cria uma coleção de modelos atenuados com diferentes compensações e trocas de desempenho) consulte este caderno de [amostras.](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb) 
 
 Carregar os conhecimentos de equidade de vários modelos num único Run permitiria comparar modelos no que diz respeito à equidade e desempenho. Pode ainda clicar em qualquer um dos modelos apresentados no gráfico de comparação do modelo de forma a ver as ideias detalhadas de equidade do modelo em particular.
 

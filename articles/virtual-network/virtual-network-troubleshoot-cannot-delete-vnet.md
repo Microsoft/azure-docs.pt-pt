@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167819"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335699"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Resolução de problemas: Falhou em eliminar uma rede virtual em Azure
 
@@ -31,10 +31,11 @@ Pode receber erros quando tentar eliminar uma rede virtual no Microsoft Azure. E
 
 1. [Verifique se um gateway de rede virtual está a funcionar na rede virtual](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
 2. [Verifique se um gateway de aplicações está a funcionar na rede virtual](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
-3. [Verifique se o Azure Ative Directory Domain Service está ativado na rede virtual](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
-4. [Verifique se a rede virtual está ligada a outros recursos](#check-whether-the-virtual-network-is-connected-to-other-resource).
-5. [Verifique se uma máquina virtual ainda está em funcionamento na rede virtual](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
-6. [Verifique se a rede virtual está presa na migração.](#check-whether-the-virtual-network-is-stuck-in-migration)
+3. [Verifique se ainda existem casos de contentores Azure na rede virtual](#check-whether-azure-container-instances-still-exist-in-the-virtual-network).
+4. [Verifique se o Azure Ative Directory Domain Service está ativado na rede virtual](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
+5. [Verifique se a rede virtual está ligada a outros recursos](#check-whether-the-virtual-network-is-connected-to-other-resource).
+6. [Verifique se uma máquina virtual ainda está em funcionamento na rede virtual](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
+7. [Verifique se a rede virtual está presa na migração.](#check-whether-the-virtual-network-is-stuck-in-migration)
 
 ## <a name="troubleshooting-steps"></a>Passos de resolução de problemas
 
@@ -59,6 +60,19 @@ Aceda à página **geral** da rede virtual. Verifique os **dispositivos Connecte
 ![Screenshot da lista de dispositivos Conectados para uma rede virtual no portal Azure. O Gateway application está em destaque na lista.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 Se houver um gateway de aplicação, deve removê-lo antes de poder eliminar a rede virtual.
+
+### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>Verifique se ainda existem casos de contentores Azure na rede virtual
+
+1. No portal Azure, aceda à página **geral** do grupo de recursos.
+1. No cabeçalho para a lista dos recursos do grupo de recursos, selecione **Mostrar os tipos ocultos**. O tipo de perfil de rede está escondido no portal Azure por padrão.
+1. Selecione o perfil de rede relacionado com os grupos de contentores.
+1. Selecione **Eliminar**.
+
+   ![Screenshot da lista de perfis de rede escondidos.](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
+
+1. Elimine novamente a sub-rede ou a rede virtual.
+
+Se estes passos não resolverem o problema, use estes [comandos Azure CLI](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) para limpar recursos. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Verifique se o Azure Ative Directory Domain Service está ativado na rede virtual
 

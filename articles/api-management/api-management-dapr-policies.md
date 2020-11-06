@@ -6,12 +6,12 @@ ms.author: vlvinogr
 ms.date: 10/23/2020
 ms.topic: article
 ms.service: api-management
-ms.openlocfilehash: 2bf9c4d233cfad454d63da4dce30a38af80d24ab
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 16788e3f547c5848893ba3867da4291c45b04408
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558402"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335490"
 ---
 # <a name="api-management-dapr-integration-policies"></a>Políticas de integração da API Management Dapr
 
@@ -25,7 +25,7 @@ Este tópico fornece uma referência para as políticas de gestão da API de int
 
 ## <a name="enable-dapr-support-in-the-self-hosted-gateway"></a>Ativar o suporte da Dapr na porta de entrada auto-hospedada
 
-Para ligar o suporte da Dapr no gateway auto-hospedado adicione as [anotações da Dapr](https://github.com/dapr/docs/blob/master/howto/configure-k8s/README.md) abaixo ao [modelo de implementação de Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md) substituindo "nome de aplicação" por um nome desejado. A passagem completa da configuração e utilização da Gestão da API com a Dapr está disponível [aqui.](https://aka.ms/apim/dapr/walkthru)
+Para ligar o suporte da Dapr no gateway auto-hospedado adicione as [anotações da Dapr](https://github.com/dapr/docs/blob/master/README.md) abaixo ao [modelo de implementação de Kubernetes](how-to-deploy-self-hosted-gateway-kubernetes.md) substituindo "nome de aplicação" por um nome desejado. A passagem completa da configuração e utilização da Gestão da API com a Dapr está disponível [aqui.](https://aka.ms/apim/dapr/walkthru)
 ```yml
 template:
     metadata:
@@ -39,9 +39,9 @@ template:
 
 ## <a name="distributed-application-runtime-dapr-integration-policies"></a>Políticas de integração do Distributed Application Runtime (Dapr)
 
--  [Enviar pedido a um serviço](api-management-dapr-policies.md#invoke): Utiliza o tempo de execução da Dapr para localizar e comunicar de forma fiável com um microserviço Dapr. Para saber mais sobre a invocação de serviço em Dapr, consulte a descrição neste ficheiro [README.](https://github.com/dapr/docs/blob/master/concepts/service-invocation/README.md#service-invocation)
--  [Enviar mensagem para Pub/Sub topic](api-management-dapr-policies.md#pubsub): Usa o tempo de execução da Dapr para publicar uma mensagem para um tópico de publicação/subscrição. Para saber mais sobre publicar/subscrever mensagens em Dapr, consulte a descrição neste ficheiro [README.](https://github.com/dapr/docs/blob/master/concepts/publish-subscribe-messaging/README.md)
--  [Ligação da saída do gatilho](api-management-dapr-policies.md#bind): Utiliza o tempo de execução da Dapr para invocar um sistema externo através da ligação de saída. Para saber mais sobre encadernações em Dapr, consulte a descrição deste ficheiro [README.](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md)
+-  [Enviar pedido a um serviço](api-management-dapr-policies.md#invoke): Utiliza o tempo de execução da Dapr para localizar e comunicar de forma fiável com um microserviço Dapr. Para saber mais sobre a invocação de serviço em Dapr, consulte a descrição neste ficheiro [README.](https://github.com/dapr/docs/blob/master/README.md#service-invocation)
+-  [Enviar mensagem para Pub/Sub topic](api-management-dapr-policies.md#pubsub): Usa o tempo de execução da Dapr para publicar uma mensagem para um tópico de publicação/subscrição. Para saber mais sobre publicar/subscrever mensagens em Dapr, consulte a descrição neste ficheiro [README.](https://github.com/dapr/docs/blob/master/README.md)
+-  [Ligação da saída do gatilho](api-management-dapr-policies.md#bind): Utiliza o tempo de execução da Dapr para invocar um sistema externo através da ligação de saída. Para saber mais sobre encadernações em Dapr, consulte a descrição deste ficheiro [README.](https://github.com/dapr/docs/blob/master/README.md)
 
 ## <a name="send-request-to-a-service"></a><a name="invoke"></a> Enviar pedido para um serviço
 
@@ -92,8 +92,8 @@ A `forward-request` política é mostrada aqui para ser clara. A política é ti
 | Atributo        | Descrição                     | Obrigatório | Predefinição |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | Deve ser definido para "dapr"           | Yes      | N/D     |
-| dapr-app-id      | Nome do microserviço alvo. Mapas para o parâmetro [appId](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) em Dapr.| Yes | N/D |
-| dapr-método      | Nome do método ou url para invocar no microserviço-alvo. Mapeia o parâmetro [do nome-método](https://github.com/dapr/docs/blob/master/reference/api/service_invocation_api.md) em Dapr.| Yes | N/D |
+| dapr-app-id      | Nome do microserviço alvo. Mapas para o parâmetro [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) em Dapr.| Yes | N/D |
+| dapr-método      | Nome do método ou url para invocar no microserviço-alvo. Mapeia o parâmetro [do nome-método](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) em Dapr.| Yes | N/D |
 
 ### <a name="usage"></a>Utilização
 
@@ -120,7 +120,7 @@ A apólice pressupõe que o tempo de funcionamento do Dapr está a funcionar num
 
 #### <a name="example"></a>Exemplo
 
-O exemplo a seguir demonstra o envio do corpo do pedido atual para o [tópico](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters) "novo" do [componente](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md#url-parameters)"encomendas" Pub/Sub . A resposta recebida do tempo de execução da Dapr é armazenada na entrada "dapr-response" da coleção Variables no objeto [de contexto.](api-management-policy-expressions.md#ContextVariables)
+O exemplo a seguir demonstra o envio do corpo do pedido atual para o [tópico](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters) "novo" do [componente](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md#url-parameters)"encomendas" Pub/Sub . A resposta recebida do tempo de execução da Dapr é armazenada na entrada "dapr-response" da coleção Variables no objeto [de contexto.](api-management-policy-expressions.md#ContextVariables)
 
 Se o tempo de execução da Dapr não conseguir localizar o tópico alvo, por exemplo, e responder com um erro, a secção "on-error" é ativada. A resposta recebida do tempo de execução da Dapr é devolvida ao autor da chamada verbatim. Caso contrário, a resposta por defeito `200 OK` é devolvida.
 
@@ -159,8 +159,8 @@ A secção "backend" está vazia e o pedido não é reencaminhado para o backend
 
 | Atributo        | Descrição                     | Obrigatório | Predefinição |
 |------------------|---------------------------------|----------|---------|
-| pubsub-nome      | O nome do componente pubSub alvo. Mapas para o parâmetro [pubsubname](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) em Dapr. Se não estiver presente, o valor do atributo __tópico__ deve ser na forma de `pubsub-name/topic-name` .    | No       | Nenhum    |
-| tópico            | O nome do tópico. Mapas para o parâmetro [tópico](https://github.com/dapr/docs/blob/master/reference/api/pubsub_api.md) em Dapr.               | Yes      | N/D     |
+| pubsub-nome      | O nome do componente pubSub alvo. Mapas para o parâmetro [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) em Dapr. Se não estiver presente, o valor do atributo __tópico__ deve ser na forma de `pubsub-name/topic-name` .    | No       | Nenhum    |
+| tópico            | O nome do tópico. Mapas para o parâmetro [tópico](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) em Dapr.               | Yes      | N/D     |
 | ignorar erro     | Se for definido para `true` instruir a política para não desencadear a secção ["on-error"](api-management-error-handling-policies.md) ao receber erro do tempo de execução da Dapr | No | `false` |
 | resposta-nome variável | Nome da entrada de recolha de [variáveis](api-management-policy-expressions.md#ContextVariables) para utilizar para armazenar resposta a partir do tempo de execução da Dapr | No | Nenhum |
 | tempo limite | Tempo (em segundos) para esperar que o tempo de execução da Dapr responda. Pode variar de 1 a 240 segundos. | No | 5 |
@@ -176,7 +176,7 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 
 ## <a name="trigger-output-binding"></a><a name="bind"></a> Ligação da saída do gatilho
 
-Esta política instrui a porta de entrada da API Management para desencadear uma [ligação](https://github.com/dapr/docs/blob/master/concepts/bindings/README.md)da Dapr de saída. A política realiza-o fazendo um pedido HTTP POST para `http://localhost:3500/v1.0/bindings/{{bind-name}}` substituir o parâmetro do modelo e adicionar conteúdo especificado na declaração de política.
+Esta política instrui a porta de entrada da API Management para desencadear uma [ligação](https://github.com/dapr/docs/blob/master/README.md)da Dapr de saída. A política realiza-o fazendo um pedido HTTP POST para `http://localhost:3500/v1.0/bindings/{{bind-name}}` substituir o parâmetro do modelo e adicionar conteúdo especificado na declaração de política.
 
 A apólice pressupõe que o tempo de funcionamento do Dapr está a funcionar num contentor lateral na mesma cápsula que o portal. O tempo de execução da Dapr é responsável por invocar o recurso externo representado pela ligação.
 
@@ -237,16 +237,16 @@ A secção "backend" está vazia e o pedido não é reencaminhado para o backend
 | Elemento             | Descrição  | Obrigatório |
 |---------------------|--------------|----------|
 | invocar-dapr-binding | Elemento de raiz | Yes      |
-| do IdP            | Ligação de metadados específicos sob a forma de pares chave/valor. Mapeia para a propriedade [de metadados](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | No |
-| dados            | Conteúdo da mensagem. Mapas para a propriedade de [dados](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | No |
+| do IdP            | Ligação de metadados específicos sob a forma de pares chave/valor. Mapeia para a propriedade [de metadados](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | No |
+| dados            | Conteúdo da mensagem. Mapas para a propriedade de [dados](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | No |
 
 
 ### <a name="attributes"></a>Atributos
 
 | Atributo        | Descrição                     | Obrigatório | Predefinição |
 |------------------|---------------------------------|----------|---------|
-| name            | Nome de ligação ao alvo. Deve coincidir com o nome das encadernações [definidas](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#bindings-structure) em Dapr.           | Yes      | N/D     |
-| operation       | Nome de operação-alvo (específico de ligação). Mapas para a propriedade [da operação](https://github.com/dapr/docs/blob/master/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | No | Nenhum |
+| name            | Nome de ligação ao alvo. Deve coincidir com o nome das encadernações [definidas](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#bindings-structure) em Dapr.           | Yes      | N/D     |
+| operation       | Nome de operação-alvo (específico de ligação). Mapas para a propriedade [da operação](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/bindings_api.md#invoking-output-bindings) em Dapr. | No | Nenhum |
 | ignorar erro     | Se for definido para `true` instruir a política para não desencadear a secção ["on-error"](api-management-error-handling-policies.md) ao receber erro do tempo de execução da Dapr | No | `false` |
 | resposta-nome variável | Nome da entrada de recolha de [variáveis](api-management-policy-expressions.md#ContextVariables) para utilizar para armazenar resposta a partir do tempo de execução da Dapr | No | Nenhum |
 | tempo limite | Tempo (em segundos) para esperar que o tempo de execução da Dapr responda. Pode variar de 1 a 240 segundos. | No | 5 |

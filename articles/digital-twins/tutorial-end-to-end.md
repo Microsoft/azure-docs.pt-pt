@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d5467537e105225541ffc501d345fd2fa57e0803
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 689de4d9fbd9eafeda54b8c157e5174d200c93da
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324569"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94338261"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -286,8 +286,8 @@ Numa nova janela do Estúdio Visual, abra (da pasta de solução descarregada) _
 A partir do painel *Solution Explorer* nesta nova janela do Estúdio Visual, selecione _DeviceSimulator/AzureIoTHub.cs **AzureIoTHub.cs**_ para abri-lo na janela de edição. Altere os seguintes valores de cadeia de ligação para os valores acima recolhidos:
 
 ```csharp
-connectionString = <Iot-hub-connection-string>
-deviceConnectionString = <device-connection-string>
+iotHubConnectionString = <your-hub-connection-string>
+deviceConnectionString = <your-device-connection-string>
 ```
 
 Guarde o ficheiro.
@@ -442,7 +442,7 @@ Aqui está uma revisão do cenário que você construiu neste tutorial.
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Gráfico do cenário de construção completo. Retrata dados que fluem de um dispositivo para o IoT Hub, através de uma função Azure (seta B) para uma instância Azure Digital Twins (secção A), em seguida, através da Grade de Evento para outra função Azure para o processamento (seta C)":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se já não necessitar dos recursos criados neste tutorial, siga estes passos para eliminá-los. 
 

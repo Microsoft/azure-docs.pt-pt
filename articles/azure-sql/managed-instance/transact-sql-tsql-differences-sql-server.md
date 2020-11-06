@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790615"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337649"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -52,7 +52,7 @@ Problemas temporários conhecidos que são descobertos em SQL Managed Instance e
 - [GRUPO DE DISPONIBILIDADE DE DROP](/sql/t-sql/statements/drop-availability-group-transact-sql)
 - A cláusula [SET HADR](/sql/t-sql/statements/alter-database-transact-sql-set-hadr) da declaração [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)
 
-### <a name="backup"></a>Cópia de segurança
+### <a name="backup"></a>Backup
 
 SQL Managed Instance tem backups automáticos, para que os utilizadores possam criar `COPY_ONLY` cópias de dados completas. As cópias de segurança diferenciais, de registos e de ficheiros não são suportadas.
 
@@ -153,11 +153,13 @@ A SQL Managed Instance não consegue aceder a ficheiros, por isso os fornecedore
 - Configurar um login AD Azure mapeado para um grupo AZure AD, uma vez que o proprietário da base de dados não é suportado.
 - A personificação dos principais de nível de AD do Azure utilizando outros princípios AD Azure é suportada, como a cláusula [EXECUTE AS.](/sql/t-sql/statements/execute-as-transact-sql) EXECUTE AS limitações são:
 
-  - EXECUTE COMO UTILIZADOR não é suportado para utilizadores Azure AD quando o nome difere do nome de login. Um exemplo é quando o utilizador é criado através da sintaxe CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ] e a personificação é tentada através do EXEC AS USER = _myAadUser_ . Quando criar um **UTILIZADOR** a partir de um servidor AD AD principal (login), especifique a user_name como a mesma login_name do **LOGIN** .
+  - EXECUTE COMO UTILIZADOR não é suportado para utilizadores Azure AD quando o nome difere do nome de login. Um exemplo é quando o utilizador é criado através da sintaxe CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ] e a personificação é tentada através do EXEC AS USER = _myAadUser_. Quando criar um **UTILIZADOR** a partir de um servidor AD AD principal (login), especifique a user_name como a mesma login_name do **LOGIN**.
   - Apenas os principais do nível sql server (logins) que fazem parte do `sysadmin` papel podem executar as seguintes operações que visam os principais AD do Azure:
 
     - EXECUTAR COMO UTILIZADOR
     - EXECUTAR COMO LOGIN
+
+  - Para personificar um utilizador com a declaração EXECUTE AS, o utilizador precisa de ser mapeado diretamente para o principal do servidor AD do Azure (login). Os utilizadores que são membros de grupos AD Azure mapeados nos principais servidores AD do Azure não podem efetivamente ser personificados com a declaração EXECUTE AS, mesmo que o autor da chamada tenha as permissões de personificação no nome de utilizador especificado.
 
 - A exportação/importação de base de dados utilizando ficheiros bacpac são suportadas para utilizadores de Azure AD em SQL Managed Instance utilizando [sSMS V18.4 ou posteriormente](/sql/ssms/download-sql-server-management-studio-ssms), ou [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - As seguintes configurações são suportadas utilizando o ficheiro bacpac da base de dados: 
@@ -300,6 +302,7 @@ Para mais informações, consulte [a ALTER DATABASE](/sql/t-sql/statements/alter
   - Os alertas ainda não estão suportados.
   - Os proxies não são apoiados.
 - O EventLog não é suportado.
+- O utilizador deve ser diretamente mapeado para o principal do servidor AD do Azure (login) para criar, modificar ou executar trabalhos de Agente SQL. Os utilizadores que não estejam diretamente mapeados, por exemplo, utilizadores que pertençam a um grupo AZure AD que tenha o direito de criar, modificar ou executar trabalhos de Agente SQL, não serão efetivamente capazes de executar essas ações. Isto deve-se a imitações de Instâncias Geridas e [A EXECUTE AS limitações](#logins-and-users).
 
 As seguintes funcionalidades do Agente SQL não são suportadas:
 

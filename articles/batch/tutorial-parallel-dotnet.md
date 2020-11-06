@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 8c8dcd01c7e97f77e994d021e39ce6a5e591ff9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ea68b8a6cf26db2e4ba440140cfa900cebbb4aa
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537587"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335660"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Tutorial: Executar uma carga de trabalho paralela com o Azure Batch através da API .NET
 
@@ -35,7 +35,7 @@ Neste tutorial, vai converter ficheiros de multimédia MP4 em paralelo com o for
 
 * Uma conta do Batch e uma conta de Armazenamento do Microsoft Azure associada. Para criar estas contas, veja os inícios rápidos do Batch com o [portal do Azure](quick-create-portal.md) ou com a [CLI do Azure](quick-create-cli.md).
 
-* [Versão do Windows 64-bit de ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip) (.zip). Transfira o ficheiro zip para o seu computador local. Para este tutorial, só precisa do ficheiro zip. Não tem de deszipar o ficheiro ou instalá-lo localmente.
+* [Versão do Windows 64-bit de ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z) (.zip). Transfira o ficheiro zip para o seu computador local. Para este tutorial, só precisa do ficheiro zip. Não tem de deszipar o ficheiro ou instalá-lo localmente.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -45,9 +45,9 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 Utilize o portal do Azure para adicionar o ffmpeg à sua conta do Batch como um [pacote de aplicação](batch-application-packages.md). Os pacotes de aplicação ajudam a gerir aplicações de tarefas e a respetiva implementação em nós de computação do conjunto. 
 
-1. No portal Azure, clique em **Mais**  >  **serviços Contas Lote**e clique no nome da sua conta Batch.
+1. No portal Azure, clique em **Mais**  >  **serviços Contas Lote** e clique no nome da sua conta Batch.
 3. Clique **em Aplicações**  >  **Adicionar**.
-4. Para **aplicação id** insira *ffmpeg*, e uma versão pacote de *4.3.1*. Selecione o ficheiro zip do ffmpeg que transferiu anteriormente e, em seguida, clique em **OK**. O pacote de aplicação do ffmpeg é adicionado à sua conta do Batch.
+4. Para **aplicação id** insira *ffmpeg* , e uma versão pacote de *4.3.1*. Selecione o ficheiro zip do ffmpeg que transferiu anteriormente e, em seguida, clique em **OK**. O pacote de aplicação do ffmpeg é adicionado à sua conta do Batch.
 
 ![Adicionar pacote de aplicação](./media/tutorial-parallel-dotnet/add-application.png)
 
@@ -227,7 +227,7 @@ pool.ApplicationPackageReferences = new List<ApplicationPackageReference>
 await pool.CommitAsync();  
 ```
 
-### <a name="create-a-job"></a>Criar uma tarefa
+### <a name="create-a-job"></a>Criar um trabalho
 
 Um trabalho do Batch especifica um conjunto para executar tarefas e definições opcionais, como uma prioridade e agenda para o trabalho. O exemplo cria um trabalho com uma chamada para `CreateJobAsync`. Este método definido utiliza o método [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) para criar um trabalho no seu conjunto.
 
@@ -309,7 +309,7 @@ batchClient.JobOperations.TerminateJob(jobId);
 
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Depois de executar as tarefas, a aplicação elimina automaticamente o contentor de armazenamento de entrada que criou e dá-lhe a opção de eliminar o conjunto e o trabalho do Batch. As classes [JobOperations](/dotnet/api/microsoft.azure.batch.batchclient.joboperations) e [PoolOperations](/dotnet/api/microsoft.azure.batch.batchclient.pooloperations) do BatchClient têm métodos de eliminação correspondentes, que são chamados se confirmar a eliminação. Apesar de os próprios trabalhos e tarefas não lhe serem cobrados, os nós de computação são cobrados. Assim, recomendamos que atribua conjuntos apenas conforme necessário. Quando eliminar o conjunto, todos os resultados da tarefa nos nós são eliminados. No entanto, os ficheiros de saída permanecem na conta de armazenamento.
 

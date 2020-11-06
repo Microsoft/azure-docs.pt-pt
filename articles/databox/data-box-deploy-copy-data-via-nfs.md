@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: eee5119336be02621a27b315cb26ca8dd1fd9cb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbebe3b3f63e6ccbb5f351abfc9ba3b846ca6fbe
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766264"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337666"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-nfs"></a>Tutorial: Copiar dados para Azure Data Box via NFS
 
@@ -56,13 +56,13 @@ A tabela a seguir mostra o caminho UNC para as partilhas no Data Box e o URL do 
 
 Se estiver a utilizar um computador anfitrião do Linux, execute os passos seguintes para configurar o Data Box para permitir o acesso aos clientes NFS.
 
-1. Forneça os endereços IP dos clientes permitidos que podem aceder à partilha. Na IU Web local, aceda à página **Ligar e copiar**. Em **Definições de NFS**, clique em **Acesso de cliente NFS**. 
+1. Forneça os endereços IP dos clientes permitidos que podem aceder à partilha. Na IU Web local, aceda à página **Ligar e copiar**. Em **Definições de NFS** , clique em **Acesso de cliente NFS**. 
 
     ![Configure o acesso ao cliente NFS](media/data-box-deploy-copy-data/nfs-client-access-1.png)
 
 2. Forneça o endereço IP do cliente NFS e clique em **Adicionar**. Pode configurar o acesso para vários clientes NFS ao repetir este passo. Clique em **OK**.
 
-    ![Configurar o acesso de cliente NFS 2](media/data-box-deploy-copy-data/nfs-client-access2.png)
+    ![Configure endereço IP de um cliente NFS](media/data-box-deploy-copy-data/nfs-client-access2.png)
 
 2. Certifique-se de que o computador anfitrião do Linux tem uma [versão suportada](data-box-system-requirements.md) do cliente NFS instalada. Utilize a versão específica para a distribuição Linux. 
 

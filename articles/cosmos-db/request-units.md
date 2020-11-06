@@ -6,12 +6,13 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: ddbfb08370b73ef8fa023816a7362f671b33d3a0
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: seo-nov-2020
+ms.openlocfilehash: f698c1ac7ab3ad2dbd86710bea9a48d962603d86
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331010"
+ms.locfileid: "94334657"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Pedido no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

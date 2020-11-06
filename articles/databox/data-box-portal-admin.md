@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123720"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336505"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Utilize o portal Azure para administrar a sua Caixa de Dados Azure e caixa de dados Azure Heavy
 
@@ -34,11 +34,11 @@ Execute os seguintes passos para cancelar uma encomenda.
 
 1.  Aceda a **Descrição Geral > Cancelar**.
 
-    ![Cancelar encomenda 1](media/data-box-portal-admin/cancel-order1.png)
+    ![Cancelar o comando no separador Visão Geral para uma encomenda](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  Escreva um motivo para cancelar a encomenda.  
 
-    ![Cancelar encomenda 2](media/data-box-portal-admin/cancel-order2.png)
+    ![Cancelar caixa de diálogo de encomenda](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
 3.  Assim que a encomenda é cancelada, o portal atualiza o estado da encomenda e apresenta-o como **Cancelado**.
 
@@ -53,7 +53,7 @@ Execute os seguintes passos para clonar uma ordem de importação.
 
 1.  Aceda a **Descrição Geral > Clone**. 
 
-    ![Clonar a encomenda 1](media/data-box-portal-admin/clone-order1.png)
+    ![Comando clone no separador Visão Geral para uma encomenda](media/data-box-portal-admin/portal-admin-clone-command.png)
 
 2.  Todos os detalhes da encomenda permanecem iguais. O nome da encomenda é o nome da encomenda original anexada por *-Clone*. Selecione a caixa de verificação para confirmar que reviu as informações de privacidade. Clique em **Criar**.
 
@@ -70,7 +70,7 @@ Só pode eliminar as encomendas que foram concluídas ou canceladas. Execute os 
 
 2. Clique na encomenda que pretende eliminar e aceda a **Descrição Geral**. Na barra de comandos, clique em **Eliminar**.
 
-    ![Eliminar a encomenda do Data Box 1](media/data-box-portal-admin/delete-order1.png)
+    ![Eliminar o comando no separador Visão Geral para uma encomenda](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Introduza o nome da encomenda quando lhe for pedido para confirmar a eliminação da encomenda. Clique em **Eliminar**.
 
@@ -82,11 +82,11 @@ Execute os seguintes passos para transferir uma etiqueta de envio.
 
 1.  Aceda a **Descrição geral > Transferir etiqueta de envio**. Esta opção só fica disponível após o dispositivo ser enviado. 
 
-    ![Transferir etiqueta de envio](media/data-box-portal-admin/download-shipping-label.png)
+    ![Transferir etiqueta de envio](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.  Esta ação transfere a seguinte etiqueta de envio para devolução. Guarde a etiqueta e imprima-a. Dobre e insira a etiqueta na manga clara do aparelho. Certifique-se de que a etiqueta está visível. Remova quaisquer etiquetas de envios anteriores existentes no dispositivo.
 
-    ![Examinar a etiqueta de envio](media/data-box-portal-admin/example-shipping-label.png)
+    ![Examinar a etiqueta de envio](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Editar o endereço de envio
 
@@ -96,11 +96,11 @@ Execute os seguintes passos para editar a encomenda.
 
 1. Aceda a **Detalhes da encomenda > Editar endereço de envio**.
 
-    ![Editar o endereço de envio 1](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![Editar o comando de endereço de envio em detalhes da Ordem](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. Edite e valide o endereço de envio e, em seguida, guarde as alterações.
 
-    ![Editar o endereço de envio 2](media/data-box-portal-admin/edit-shipping-address2.png)
+    ![Editar caixa de diálogo de endereço de envio](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Editar detalhes de notificação
 
@@ -110,11 +110,11 @@ Execute os seguintes passos para editar os detalhes de notificação.
 
 1. Aceda a **Detalhes da encomenda > Editar detalhes de notificação**.
 
-    ![Editar detalhes de notificação 1](media/data-box-portal-admin/edit-notification-details1.png)
+    ![Editar o comando de detalhes de notificação em detalhes da Ordem](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. Pode agora editar os detalhes de notificação e, em seguida, guardar as alterações.
  
-    ![Editar detalhes de notificação 2](media/data-box-portal-admin/edit-notification-details2.png)
+    ![Editar caixa de diálogo de detalhes de notificação](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## <a name="download-order-history"></a>Transferir histórico de encomendas
@@ -125,7 +125,7 @@ Execute os seguintes passos para transferir o histórico de encomendas.
 
 1. Na sua encomenda do Data Box, aceda a **Descrição geral**. Certifique-se de que a encomenda é concluída. Se a encomenda estiver concluída e a limpeza do dispositivo também, então aceda a **Detalhes da encomenda**. A opção **Transferir histórico de encomendas** está disponível.
 
-    ![Transferir histórico de encomendas](media/data-box-portal-admin/download-order-history-1.png)
+    ![Transferir histórico de encomendas](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
 2. Clique em **Transferir histórico de encomendas**. No histórico transferido, verá um registo dos registos de controlo da operadora. Haverá dois conjuntos de registo correspondentes aos dois nós numa Caixa de Dados Pesada. Se deslocar para baixo para a parte inferior deste registo, pode ver as ligações para:
     
@@ -198,11 +198,11 @@ Execute os seguintes passos para transferir o histórico de encomendas.
 
     Pode, em seguida, aceder à sua conta de armazenamento e ver os registos de cópia.
 
-![Registos nas contas de armazenamento](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![Os registos de cópia para uma conta de armazenamento](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-Também pode ver a cadeia de registos de custódia que incluem os registos de auditoria e os ficheiros BOM.
+   Também pode ver a cadeia de registos de custódia, que incluem os registos de auditoria e os ficheiros BOM.
 
-![Registos nas contas de armazenamento 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![Registos de cadeia de custódia para uma conta de armazenamento](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## <a name="view-order-status"></a>Ver o estado da encomenda
 
@@ -212,7 +212,7 @@ Quando o estado do dispositivo no portal mudar, será notificado através de uma
 
 Aqui estão os estatutos de uma ordem de importação.
 
-|Estado da encomenda |Descrição |
+|Estado da encomenda |Description |
 |---------|---------|
 |Encomendado     | Fez uma encomenda com êxito. <br>Se o dispositivo estiver disponível, a Microsoft identifica um dispositivo para envio e prepara-o. <br> Se o dispositivo não estiver disponível de imediato, a encomenda será processada quando o dispositivo ficar disponível. A encomenda pode demorar entre vários dias a alguns meses a ser processada. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma será cancelada e o requerente será notificado.         |
 |Processado     | O processamento da encomenda está concluído. De acordo com a sua encomenda, o dispositivo está preparado para envio no datacenter.         |
@@ -231,7 +231,7 @@ Aqui estão os estatutos de uma ordem de importação.
 
 Aqui estão os estatutos para uma ordem de exportação.
 
-|Estado da encomenda |Descrição |
+|Estado da encomenda |Description |
 |---------|---------|
 |Encomendado     | Com sucesso, escruexou uma ordem de exportação. <br>Se o dispositivo estiver disponível, a Microsoft identifica um dispositivo para envio e prepara-o. <br> Se o dispositivo não estiver disponível de imediato, a encomenda será processada quando o dispositivo ficar disponível. A encomenda pode demorar entre vários dias a alguns meses a ser processada. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma será cancelada e o requerente será notificado.         |
 |Cancelado            |A encomenda foi cancelada. <br> Ou cancelou a encomenda (só pode cancelar antes de a encomenda ser processada) ou foi encontrado um erro e o serviço cancelou a encomenda. Se não for possível satisfazer a encomenda num prazo de 90 dias, a mesma também será cancelada e o requerente será notificado.     |
@@ -254,7 +254,7 @@ Aqui estão os estatutos para uma ordem de exportação.
 
 Se utilizar o envio auto-gerido, depois de a cópia estar completa e antes de receber o dispositivo, verá os seguintes estados (em vez dos mencionados na tabela anterior):
 
-|Estado da encomenda |Descrição |
+|Estado da encomenda |Description |
 |---------|---------|
 |Pronto para recolha no Centro de Dados Azure      |O dispositivo está pronto para ser recolhido no datacenter Azure.        |
 |Recolhido    |Pegou o dispositivo.         |

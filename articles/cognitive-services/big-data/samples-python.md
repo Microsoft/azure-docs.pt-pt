@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: caf492c2cd3940fd7f37e2a4462c8376a127f393
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a4fe2492433aa793d1a7e4be41c5f93043848a5
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86189820"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337870"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>Amostras de Python para serviços cognitivos para big data
 
@@ -78,16 +78,16 @@ sentiment = (TextSentiment()
     .setLanguageCol("language"))
 
 # Show the results of your text query in a table format
-display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("score").alias("sentiment")))
+display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sentiment").alias("sentiment")))
 ```
 
 ### <a name="expected-result"></a>Resultado esperado
 
 | texto                                      | sentimento                                             |
 |:------------------------------------------|:------------------------------------------------------|
-| Estou tão feliz hoje, está ensolarado!           | 0.9789592027664185                                    |
-| Estou frustrado com este tráfego de hora de ponta | 0.023795604705810547                                  |
-| Os serviços cognitivos na faísca aint mau  | 0.8888956308364868                                    |
+| Estou tão feliz hoje, está ensolarado!           | positivo                                              |
+| Estou frustrado com este tráfego de hora de ponta | negativo                                              |
+| Os serviços cognitivos na faísca aint mau  | positivo                                              |
 
 ## <a name="computer-vision-sample"></a>Amostra de Visão de Computador
 
@@ -301,7 +301,7 @@ display(client.transform(df).select("country", udf(get_response_body)(col("respo
 | br | [{"page":1,"pages":1,"per_page":"50","total":1},[{"id":"BRA","iso2Code":"BR","nome":"Brasil","região":{"id":"BRA","iso2Code":"BR","nome":"Brasil","região":{{"id":"BRA","iso2Code":"BR","nome":"Brasil","região":{{"id":"BRA","iso2Code":"BR","nome":"Brasil","região":{"id":"BRA","iso2Code":"BR","nome":"Brasil","região":{"id":"BRA","iso2Code":"BR",""Id":"LCN","iso2code":"ZJ","valor":"América Latina & Caraíbas "}", adminregion":{"id":"LAC","iso2code":"XJ","valor":"Latim":"Latim"America & Caraíbas (excluindo o rendimento elevado)"}"""""incomeLevel":{"id":"UMC","iso2code":"XT","value":"Rendimento médio superior"},"lendingType":{"id":"IBD "Iso2code":"XF","valor":"IBRD"}"capitalCity":"Brasília","longitude":"-47.9292","latitude":"-15.7801"}]] |
 | EUA  | [{"page":1,"pages":1,"per_page":"50","total":1},[{"id":"USA","iso2Code":"US","name":"United States","region"":{"Id":"NAC","iso2code":"XU","value":"América do Norte"}",adminregion":{"id":"id":"""iso2code":"XU","value":"América do Norte"}",adminregion":{"id":"""iso2code":"XU","valor":"América do Norte"}","adminregão":"id":"Id":"""Iso2code":"XU","valor":"América do Norte"}",adminregão":"id":"Id":""""Iso2code":"XU","valor":"América do Norte"}","adminregion":"{"id":"Id":"""""valor":""}""incomeLevel":{"id":"HIC","iso2code":"XD","Valor":"Alto rendimento"},"lendingType":{"id":"LNX","iso2code":"XX","valor":"Não classificado"},"capitalCity":"Washington D.C.""Longitude":"-77.032","latitude":"38.8895"}]} |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Receita: Deteção de Anomalias](./recipes/anomaly-detection.md)
 * [Receita: Explorador de Arte](./recipes/art-explorer.md)

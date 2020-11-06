@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: fecadf3cd6fd0d654315038680b9aa3fa2b71782
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 12eed6aeccffe854810e9c2ddc8a5c4e59b8c312
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913913"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337938"
 ---
 # <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
 
@@ -26,7 +26,7 @@ Os modelos Azure Digital Twins estão representados na **Linguagem de Definiçã
 
 Os modelos para Gémeos Digitais Azure são definidos usando a linguagem de definição de gémeos digitais (DTDL). O DTDL baseia-se no JSON-LD e é independente da linguagem de programação. O DTDL não é exclusivo da Azure Digital Twins, mas também é usado para representar dados de dispositivos em outros serviços IoT, como [ioT Plug e Play.](../iot-pnp/overview-iot-plug-and-play.md) 
 
-Azure Digital Twins usa **a versão DTDL _2_** . Para obter mais informações sobre esta versão do DTDL, consulte a sua documentação de especificação no GitHub: [*Digital Twins Definition Language (DTDL) - versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). A utilização da versão DTDL _1_ com a Azure Digital Twins foi agora depreciada.
+Azure Digital Twins usa **a versão DTDL _2_**. Para obter mais informações sobre esta versão do DTDL, consulte a sua documentação de especificação no GitHub: [*Digital Twins Definition Language (DTDL) - versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). A utilização da versão DTDL _1_ com a Azure Digital Twins foi agora depreciada.
 
 > [!NOTE] 
 > Nem todos os serviços que utilizam o DTDL implementam exatamente as mesmas funcionalidades do DTDL. Por exemplo, o IoT Plug and Play não utiliza as funcionalidades DTDL que são para gráficos, enquanto a Azure Digital Twins não implementa atualmente comandos DTDL.
@@ -35,12 +35,12 @@ Azure Digital Twins usa **a versão DTDL _2_** . Para obter mais informações s
 
 ## <a name="elements-of-a-model"></a>Elementos de um modelo
 
-Dentro de uma definição de modelo, o item de código de nível superior é uma **interface** . Isto encapsula todo o modelo, e o resto do modelo é definido dentro da interface. 
+Dentro de uma definição de modelo, o item de código de nível superior é uma **interface**. Isto encapsula todo o modelo, e o resto do modelo é definido dentro da interface. 
 
 Uma interface de modelo DTDL pode conter zero, um ou muitos dos seguintes campos:
 * **Propriedade** - Propriedades são campos de dados que representam o estado de uma entidade (como as propriedades em muitas linguagens de programação orientadas a objetos). As propriedades têm armazenamento de suporte e podem ser lidas a qualquer momento.
 * **Telemetria** - Os campos de telemetria representam medições ou eventos, e são frequentemente utilizados para descrever leituras de sensores de dispositivos. Ao contrário das propriedades, a telemetria não é armazenada num gémeo digital; é uma série de eventos de dados ligados ao tempo que precisam de ser tratados à medida que ocorrem. Para obter mais informações sobre as diferenças entre propriedade e telemetria, consulte a secção [*Propriedades vs. telemetria*](#properties-vs-telemetry) abaixo.
-* **Componente** - Os componentes permitem-lhe construir a interface do seu modelo como conjunto de outras interfaces, se quiser. Um exemplo de um componente é uma interface *frontCamera* (e outra interface de componente *backCamera)* que são usadas na definição de um modelo para um *telefone* . Primeiro deve definir uma interface para *a FrontCamera* como se fosse o seu próprio modelo, e depois pode remundo-a ao definir *o Telefone* .
+* **Componente** - Os componentes permitem-lhe construir a interface do seu modelo como conjunto de outras interfaces, se quiser. Um exemplo de um componente é uma interface *frontCamera* (e outra interface de componente *backCamera)* que são usadas na definição de um modelo para um *telefone*. Primeiro deve definir uma interface para *a FrontCamera* como se fosse o seu próprio modelo, e depois pode remundo-a ao definir *o Telefone*.
 
     Use um componente para descrever algo que é parte integrante da sua solução, mas que não precisa de uma identidade separada, e não precisa de ser criado, eliminado ou reorganizado no gráfico gémeo de forma independente. Se quiser que as entidades tenham existências independentes no gráfico gémeo, represente-as como gémeas digitais separadas de diferentes modelos, ligadas por *relacionamentos* (ver próxima bala).
     
@@ -74,7 +74,7 @@ Também pode publicar um evento de telemetria da Azure Digital Twins API. Tal co
 Para que um modelo DTDL seja compatível com a Azure Digital Twins, deve satisfazer estes requisitos.
 
 * Todos os elementos DTDL de nível superior num modelo devem ser de *interface* tipo . Isto porque o modelo Azure Digital Twins APIs pode receber objetos JSON que representam uma interface ou um conjunto de interfaces. Como resultado, nenhum outro tipo de elemento DTDL é permitido no nível superior.
-* O DTDL para Azure Digital Twins não deve definir quaisquer *comandos* .
+* O DTDL para Azure Digital Twins não deve definir quaisquer *comandos*.
 * O Azure Digital Twins só permite um único nível de nidificação de componentes. Isto significa que uma interface que está a ser usada como um componente não pode ter nenhum componente em si. 
 * As interfaces não podem ser definidas em linha dentro de outras interfaces DTDL; devem ser definidas como entidades de alto nível separadas com as suas próprias identificações. Então, quando outra interface quiser incluir essa interface como componente ou através de herança, pode referenciar o seu ID.
 
@@ -82,7 +82,7 @@ A Azure Digital Twins também não observa o `writable` atributo sobre proprieda
 
 ## <a name="example-model-code"></a>Código modelo exemplo
 
-Modelos de tipo gémeo podem ser escritos em qualquer editor de texto. A língua DTDL segue a sintaxe JSON, pelo que deve armazenar modelos com a extensão *.json* . A utilização da extensão JSON permitirá que muitos editores de texto de programação forneçam a verificação e a realce básicas de sintaxe para os seus documentos DTDL. Há também uma [extensão DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponível para [Código de Estúdio Visual](https://code.visualstudio.com/).
+Modelos de tipo gémeo podem ser escritos em qualquer editor de texto. A língua DTDL segue a sintaxe JSON, pelo que deve armazenar modelos com a extensão *.json*. A utilização da extensão JSON permitirá que muitos editores de texto de programação forneçam a verificação e a realce básicas de sintaxe para os seus documentos DTDL. Há também uma [extensão DTDL](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-dtdl) disponível para [Código de Estúdio Visual](https://code.visualstudio.com/).
 
 Esta secção contém um exemplo de um modelo típico, escrito como uma interface DTDL. O modelo descreve **planetas,** cada um com um nome, uma massa e uma temperatura.
  
@@ -228,11 +228,17 @@ A interface de extensão não pode alterar nenhuma das definições das interfac
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="converting-industry-standard-models"></a>Converter modelos padrão da indústria
+## <a name="integrating-with-industry-standard-models"></a>Integração com modelos padrão da indústria
 
-Se tiver modelos existentes fora da Azure Digital Twins que se baseiem num padrão da indústria, como RDF ou OWL, terá de **os converter em DTDL** para os utilizar com a Azure Digital Twins. A versão DTDL tornar-se-á então a fonte de verdade para o modelo dentro da Azure Digital Twins.
+A utilização de modelos baseados nos padrões da indústria ou na utilização de uma representação ontrologia padrão, como RDF ou OWL, fornece um ponto de partida rico ao desenhar os seus modelos Azure Digital Twins. A utilização de modelos industriais também ajuda na normalização e partilha de informação.
 
-Para mais informações sobre este processo, consulte [*Como-a-: Converter modelos padrão da indústria.*](how-to-convert-models.md)
+Para ser utilizado com a Azure Digital Twins, um modelo deve ser representado na Linguagem de Definição de [**Gémeos Digitais (DTDL)**](concepts-models.md)baseada em JSON-LD . Por isso, este artigo descreve como representar os seus modelos padrão da indústria em DTDL, integrando os conceitos existentes da indústria com semântica DTDL para que a Azure Digital Twins possa usá-los. O modelo DTDL serve então como fonte de verdade para o modelo dentro da Azure Digital Twins.
+
+Existem dois caminhos principais para integrar modelos padrão da indústria com DTDL, dependendo da sua situação:
+* Se ainda não criou os seus modelos, pode desenhá-los em torno **das intologias DTDL existentes** que contêm linguagem específica para a sua indústria.
+* Se já tem modelos existentes que se baseiam num padrão da indústria, terá de os converter em **DTDL** para os trazer para a Azure Digital Twins.
+
+Para obter mais informações sobre ambos os processos, consulte [*Como integrar modelos padrão da indústria.*](how-to-integrate-models.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

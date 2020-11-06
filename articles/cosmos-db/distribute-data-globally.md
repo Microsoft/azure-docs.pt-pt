@@ -6,12 +6,13 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 45f4b00bcb3bc1c14d49ef1e79b258dc2008882c
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: seo-nov-2020
+ms.openlocfilehash: 7fedd45585698aef9248318a1b055cb656f25d02
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330653"
+ms.locfileid: "94335133"
 ---
 # <a name="distribute-your-data-globally-with-azure-cosmos-db"></a>Distribuir dados globalmente com o Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

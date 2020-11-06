@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 2ad148579daa30d62da01aded0a01ace56f3dcbc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d758d4613f68450be9c444063d3a6188d1aa689
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760568"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337581"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilize gasodutos Azure para construir e implementar soluções HPC
 
@@ -43,7 +43,7 @@ A estrutura da base de código utilizada nesta amostra assemelha-se ao seguinte;
 
 * Uma pasta **de modelos de braço,** contendo uma série de modelos do Gestor de Recursos Azure. Os modelos são explicados neste artigo.
 * Uma pasta **de aplicação ao cliente,** que é uma cópia do Processamento de [Ficheiros Azure Batch .NET com amostra de ffmpeg.](https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial) Isto não é necessário para este artigo.
-* Uma pasta **de aplicação hpc,** que é a versão do Windows 64-bit de [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-09-21-full_build.zip).
+* Uma pasta **de aplicação hpc,** que é a versão do Windows 64-bit de [ffmpeg 4.3.1](https://www.gyan.dev/ffmpeg/builds/packages/ffmpeg-4.3.1-2020-10-01-essentials_build.7z).
 * Uma pasta **de oleodutos.** Isto contém um ficheiro YAML que descreve o nosso processo de construção. Isto é discutido no artigo.
 
 Esta secção pressupõe que está familiarizado com o controlo de versão e projetando modelos de Gestor de Recursos. Se não está familiarizado com estes conceitos, consulte as seguintes páginas para obter mais informações.
@@ -300,7 +300,7 @@ Há quatro secções principais para este repositório:
 * A pasta **de modelos de braço** que armazena a nossa Infraestrutura como Código
 * A pasta **hpc-application** que contém os binários para ffmpeg
 * A pasta **de gasodutos** que contém a definição para o nosso oleoduto de construção.
-* **Opcional**: A pasta **de aplicação ao cliente** que armazenaria código para aplicação .NET. Não o utilizamos na amostra, mas no seu próprio projeto, poderá desejar executar as execuções da Aplicação do Lote HPC através de uma aplicação ao cliente.
+* **Opcional** : A pasta **de aplicação ao cliente** que armazenaria código para aplicação .NET. Não o utilizamos na amostra, mas no seu próprio projeto, poderá desejar executar as execuções da Aplicação do Lote HPC através de uma aplicação ao cliente.
 
 > [!NOTE]
 > Este é apenas um exemplo de uma estrutura para uma base de código. Esta abordagem é utilizada para demonstrar que a aplicação, a infraestrutura e o código do gasoduto são armazenados no mesmo repositório.
@@ -367,35 +367,35 @@ A Azure Pipelines também usado para implantar a sua aplicação e infraestrutur
 
 Há uma série de passos envolvidos na implantação da infraestrutura. Como utilizamos [modelos ligados,](../azure-resource-manager/templates/linked-templates.md)esses modelos terão de estar acessíveis a partir de um ponto final público (HTTP ou HTTPS). Isto pode ser um repositório no GitHub, ou uma conta de armazenamento Azure Blob, ou outro local de armazenamento. Os artefactos do modelo carregados podem permanecer seguros, uma vez que podem ser mantidos em modo privado, mas acedidos usando algum tipo de sinal de assinatura de acesso partilhado (SAS). O exemplo a seguir demonstra como implantar uma infraestrutura com modelos a partir de uma bolha de armazenamento Azure.
 
-1. Crie uma **nova definição de lançamento**e selecione uma definição vazia. Em seguida, precisamos de renomear o ambiente recém-criado para algo relevante para o nosso oleoduto.
+1. Crie uma **nova definição de lançamento** e selecione uma definição vazia. Em seguida, precisamos de renomear o ambiente recém-criado para algo relevante para o nosso oleoduto.
 
     ![Gasoduto de lançamento inicial](media/batch-ci-cd/Release-0.jpg)
 
 1. Crie uma dependência do Pipeline Build para obter a saída para a nossa aplicação HPC.
 
     > [!NOTE]
-    > Mais uma vez, note o **Alias de Origem**, pois será necessário quando as tarefas forem criadas dentro da Definição de Lançamento.
+    > Mais uma vez, note o **Alias de Origem** , pois será necessário quando as tarefas forem criadas dentro da Definição de Lançamento.
 
     ![Criar uma ligação de artefactos ao HPCApplicationPackage no pipeline de construção apropriado](media/batch-ci-cd/Release-1.jpg)
 
 1. Criar uma ligação com outro artefacto, desta vez, um Azure Repo. Isto é necessário para aceder aos modelos do Gestor de Recursos armazenados no seu repositório. Como os modelos do Gestor de Recursos não requerem compilação, não é necessário empurrá-los através de um pipeline de construção.
 
     > [!NOTE]
-    > Mais uma vez, note o **Alias de Origem**, pois será necessário quando as tarefas forem criadas dentro da Definição de Lançamento.
+    > Mais uma vez, note o **Alias de Origem** , pois será necessário quando as tarefas forem criadas dentro da Definição de Lançamento.
 
     ![Criar uma ligação de artefactos ao Azure Repos](media/batch-ci-cd/Release-2.jpg)
 
 1. Navegue para a secção **de variáveis.** É recomendado criar uma série de variáveis no seu oleoduto, por isso não está a inserir a mesma informação em várias tarefas. Estas são as variáveis utilizadas neste exemplo, e como impactam a implantação.
 
-    * **aplicaçõesStorageAccountName**: Nome da Conta de Armazenamento para deter binários de aplicação HPC
-    * **batchAccountApplicationName**: Nome da aplicação na Conta lote Azure
-    * **batchAccountName**: Nome da conta Azure Batch
-    * **batchAccountPoolName**: Nome do pool de VMs que fazem o processamento
-    * **batchApplicationId**: ID exclusivo para a aplicação Azure Batch
-    * **batchApplicationVersion**: Versão semântica da sua aplicação de lote (isto é, os binaries ffmpeg)
-    * **localização**: Localização dos Recursos Azure a implantar
-    * **nome do Grupo de Recursos**: Nome do Grupo de Recursos a criar e onde os seus recursos serão implantados
-    * **armazenamentoSAme**de número : Nome da Conta de Armazenamento para deter modelos de gestor de recursos ligados
+    * **aplicaçõesStorageAccountName** : Nome da Conta de Armazenamento para deter binários de aplicação HPC
+    * **batchAccountApplicationName** : Nome da aplicação na Conta lote Azure
+    * **batchAccountName** : Nome da conta Azure Batch
+    * **batchAccountPoolName** : Nome do pool de VMs que fazem o processamento
+    * **batchApplicationId** : ID exclusivo para a aplicação Azure Batch
+    * **batchApplicationVersion** : Versão semântica da sua aplicação de lote (isto é, os binaries ffmpeg)
+    * **localização** : Localização dos Recursos Azure a implantar
+    * **nome do Grupo de Recursos** : Nome do Grupo de Recursos a criar e onde os seus recursos serão implantados
+    * **armazenamentoSAme** de número : Nome da Conta de Armazenamento para deter modelos de gestor de recursos ligados
 
     ![Exemplo de variáveis definidas para a libertação dos Gasodutos Azure](media/batch-ci-cd/Release-4.jpg)
 
@@ -406,40 +406,40 @@ Há uma série de passos envolvidos na implantação da infraestrutura. Como uti
 1. Adicione a tarefa **de Pipeline Artifact (Pré-visualização)** e desafie as seguintes propriedades:
     * **Nome do visor:** Baixar ApplicationPackage para Agente
     * **O nome do artefacto para descarregar:** hpc-application
-    * **Caminho para download para**: $(System.DefaultWorkingDirectory)
+    * **Caminho para download para** : $(System.DefaultWorkingDirectory)
 
 1. Crie uma Conta de Armazenamento para armazenar os seus artefactos. Uma conta de armazenamento existente da solução poderia ser usada, mas para a amostra autossuficiente e isolamento de conteúdos, estamos fazendo uma conta de armazenamento dedicada para os nossos artefactos (especificamente os modelos do Gestor de Recursos).
 
     Adicione a tarefa **de implantação do Grupo de Recursos Azure** e desenrine as seguintes propriedades:
     * **Nome do visor:** Implementar conta de armazenamento para modelos de gestor de recursos
     * **Assinatura Azure:** Selecione a subscrição Azure apropriada
-    * **Ação**: Criar ou atualizar grupo de recursos
-    * **Grupo de Recursos**: $(nome do Grupo de Recursos)
-    * **Localização**: $(localização)
-    * **Modelo**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/storageAccount.json
-    * **Parâmetros do modelo de substituição**: -contaName $(storageAccountName)
+    * **Ação** : Criar ou atualizar grupo de recursos
+    * **Grupo de Recursos** : $(nome do Grupo de Recursos)
+    * **Localização** : $(localização)
+    * **Modelo** : $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/storageAccount.json
+    * **Parâmetros do modelo de substituição** : -contaName $(storageAccountName)
 
 1. Faça o upload dos artefactos do Controlo de Origem para a Conta de Armazenamento. Há uma tarefa do Azure Pipeline para executar isto. Como parte desta tarefa, o URL do Contentor de Conta de Armazenamento e o Token SAS podem ser desatados para uma variável em Pipelines Azure. Isto significa que pode ser reutilizado durante toda esta fase do agente.
 
     Adicione a tarefa **Azure File Copy** e desaveja as seguintes propriedades:
-    * **Fonte:** $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/
-    * **Tipo de ligação Azure**: Gestor de Recursos Azure
+    * **Fonte:** $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/
+    * **Tipo de ligação Azure** : Gestor de Recursos Azure
     * **Assinatura Azure:** Selecione a subscrição Azure apropriada
-    * **Tipo de destino**: Azure Blob
-    * **Conta de Armazenamento RM**: $(storageAccountName)
-    * **Nome do recipiente**: modelos
-    * **Contentor de Armazenamento URI**: modeloContainerUri
-    * **Contentor de armazenamento SAS Token**: modeloContainerSasToken
+    * **Tipo de destino** : Azure Blob
+    * **Conta de Armazenamento RM** : $(storageAccountName)
+    * **Nome do recipiente** : modelos
+    * **Contentor de Armazenamento URI** : modeloContainerUri
+    * **Contentor de armazenamento SAS Token** : modeloContainerSasToken
 
 1. Desloque o modelo do orquestrador. Lembre-se do modelo do orquestrador de antes, você vai notar que havia parâmetros para o URL do recipiente de conta de armazenamento, além do token SAS. Deve notar que as variáveis exigidas no modelo de Gestor de Recursos são mantidas na secção de variáveis da definição de libertação, ou foram definidas a partir de outra tarefa dos Gasodutos Azure (por exemplo, parte da tarefa Azure Blob Copy).
 
     Adicione a tarefa **de implantação do Grupo de Recursos Azure** e desenrine as seguintes propriedades:
     * **Nome do visor:** Implementar lote Azure
     * **Assinatura Azure:** Selecione a subscrição Azure apropriada
-    * **Ação**: Criar ou atualizar grupo de recursos
-    * **Grupo de Recursos**: $(nome do Grupo de Recursos)
-    * **Localização**: $(localização)
-    * **Modelo**: $(System.ArtifactsDirectory)/**{YourAzureRepoArtifactSourceAlias}**/arm-templates/deployment.json
+    * **Ação** : Criar ou atualizar grupo de recursos
+    * **Grupo de Recursos** : $(nome do Grupo de Recursos)
+    * **Localização** : $(localização)
+    * **Modelo** : $(System.ArtifactsDirectory)/ **{YourAzureRepoArtifactSourceAlias}** /arm-templates/deployment.json
     * **Parâmetros do modelo de substituição:**```-templateContainerUri $(templateContainerUri) -templateContainerSasToken $(templateContainerSasToken) -batchAccountName $(batchAccountName) -batchAccountPoolName $(batchAccountPoolName) -applicationStorageAccountName $(applicationStorageAccountName)```
 
 Uma prática comum é usar tarefas do Cofre da Chave Azure. Se o Diretor de Serviço (ligação à sua Subscrição Azure) tiver um conjunto de políticas de acesso adequadas, pode descarregar segredos a partir de um Cofre chave Azure e ser usado como variáveis no seu pipeline. O nome do segredo será definido com o valor associado. Por exemplo, um segredo de sshPassword poderia ser referenciado com $(sshPassword) na definição de lançamento.
@@ -449,16 +449,16 @@ Uma prática comum é usar tarefas do Cofre da Chave Azure. Se o Diretor de Serv
     Adicione a tarefa **Azure CLI** e desapedaça as seguintes propriedades:
     * **Nome do visor:** Criar aplicação na conta Azure Batch
     * **Assinatura Azure:** Selecione a subscrição Azure apropriada
-    * **Localização do script**: Script inline
-    * **Roteiro inline**: ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
+    * **Localização do script** : Script inline
+    * **Roteiro inline** : ```az batch application create --application-id $(batchApplicationId) --name $(batchAccountName) --resource-group $(resourceGroupName)```
 
 1. O segundo passo é utilizado para carregar pacotes associados à aplicação. No nosso caso, os ficheiros ffmpeg.
 
     Adicione a tarefa **Azure CLI** e desapedaça as seguintes propriedades:
     * **Nome do visor:** Pacote de upload para a conta Azure Batch
     * **Assinatura Azure:** Selecione a subscrição Azure apropriada
-    * **Localização do script**: Script inline
-    * **Roteiro inline**: ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
+    * **Localização do script** : Script inline
+    * **Roteiro inline** : ```az batch application package create --application-id $(batchApplicationId)  --name $(batchAccountName)  --resource-group $(resourceGroupName) --version $(batchApplicationVersion) --package-file=$(System.DefaultWorkingDirectory)/$(Release.Artifacts.{YourBuildArtifactSourceAlias}.BuildId).zip```
 
     > [!NOTE]
     > O número de versão do pacote de aplicações está definido como uma variável. Isto é conveniente se a sobreposição de versões anteriores do pacote funcionar para si, e se quiser controlar manualmente o número de versão do pacote empurrado para O Azure Batch.

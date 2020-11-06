@@ -4,12 +4,12 @@ description: Saiba quais as novidades com o Azure Blockchain Service, como as ú
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 47e0da5a729519f2af3c5b2a2fd3e0f7485624cf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948464"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335031"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Quais as novidades no Serviço Azure Blockchain?
 
@@ -27,7 +27,7 @@ O Azure Blockchain Service recebe melhorias de forma contínua. Para se manter a
 
 ### <a name="version-upgrades"></a>Atualizações de versão
 
-- Atualização da versão Quorum para 2.6.0. Com a versão 2.6.0, pode enviar transações privadas assinadas. Para obter mais informações sobre o envio de transações privadas, consulte a documentação da API do [Qurum.](https://docs.goquorum.com/en/latest/Getting%20Started/api/)
+- Atualização da versão Quorum para 2.6.0. Com a versão 2.6.0, pode enviar transações privadas assinadas. Para obter mais informações sobre o envio de transações privadas, consulte a documentação da API do [Qurum.](https://docs.goquorum.consensys.net/en/latest/Reference/APIs/ContractExtensionAPIs/#apis)
 - A versão Tessera atualização para 0.10.5.
 
 ### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>Dimensão do contrato e dimensão das transações aumentou para 128 KB
@@ -127,5 +127,5 @@ Evite laços ilimitados em contratos inteligentes, uma vez que podem reduzir o d
 
 - [Evite laços sem limites](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [Boas práticas de segurança de contratos inteligentes](https://github.com/ConsenSys/smart-contract-best-practices)
-- [Orientações inteligentes do contrato fornecidas pelo Quorum](http://docs.goquorum.com/en/latest/Security/Framework/Decentralized%20Application/Smart%20Contracts%20Security/)
+- [Orientações inteligentes do contrato fornecidas pelo Quorum](https://docs.goquorum.consensys.net/en/stable/Concepts/Security/Framework/DecentralizedApplication/SmartContractsSecurity/)
 - [Orientações sobre limites de gás e lacetes fornecidos pela Solidity](https://solidity.readthedocs.io/en/develop/security-considerations.html#gas-limit-and-loops)

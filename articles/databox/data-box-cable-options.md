@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: bab81809f42c9afa3d2c701398fa5ff8ffc2800d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2c4cce492c48ebe6e09ad142f97bc6377a8a5e1
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744173"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334621"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opções de cablagem do Azure Data Box
 
@@ -80,8 +80,8 @@ Execute os seguintes passos para instalar os cabos do dispositivo.
 
    - Um **endereço IP** 192.168.100.5
    - Uma **sub-rede** 255.255.255.0.
-
-     ![Configuração de duas portas com um comutador](media/data-box-cable-options/cabling-with-static-ip.png)
+  
+   ![Configuração de duas portas com um interruptor](media/data-box-cable-options/cabling-with-static-ip.png)
 
 3. Aceda à IU Web local do dispositivo em: 192.168.100.10. Inicie sessão e desbloqueie o Data Box com a palavra-passe de desbloqueio no portal do Azure.
 4. Identifique os endereços IP atribuídos pelo servidor DHCP.
@@ -126,6 +126,7 @@ Execute os seguintes passos para instalar os cabos do dispositivo.
 1. Utilize um cabo RJ45 ou SFP+ através de um comutador (em que esteja acessível um servidor DHCP) ligado ao servidor.
 
     ![Configuração de duas portas com um interruptor 3](media/data-box-cable-options/cabling-dhcp-data-only.png)
+
 2. Utilize um servidor DHCP ou DNS para identificar o endereço IP.
 3. A partir de um servidor na mesma rede, aceda à UI Web local do dispositivo com o endereço IP atribuído pelo servidor DHCP. Inicie sessão e desbloqueie o Data Box com a palavra-passe de desbloqueio no portal do Azure.
 

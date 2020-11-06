@@ -4,12 +4,12 @@ description: Aprenda a aceder programáticamente às suas credenciais a partir d
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71e647c05a84c70fe61a66458801bf7390dcb653
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 25cb05374fc0667306e2b1004b3cd237413b4409
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913216"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337496"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Acesso seguro ao Key Vault com o Batch
 
@@ -67,7 +67,7 @@ Os URLs para a aplicação não são importantes, já que só os estamos a usar 
 
 ## <a name="grant-rights-to-key-vault"></a>Direitos de concessão para o Cofre chave
 
-O diretor de serviço criado no passo anterior precisa de permissão para recuperar os segredos do Key Vault. A permissão pode ser concedida através do [portal Azure](/key-vault/general/assign-access-policy-portal.md) ou com o comando PowerShell abaixo.
+O diretor de serviço criado no passo anterior precisa de permissão para recuperar os segredos do Key Vault. A permissão pode ser concedida através do [portal Azure](/azure/key-vault/general/assign-access-policy-portal) ou com o comando PowerShell abaixo.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -77,7 +77,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"
 
 Crie uma piscina de Lote, em seguida, vá ao separador de certificado na piscina e atribua o certificado que criou. O certificado está agora em todos os nós do Lote.
 
-Em seguida, atribua o certificado à conta Batch. A atribuição do certificado à conta permite que o Batch o atribua às piscinas e, em seguida, aos nós. A maneira mais fácil de o fazer é ir à sua conta Batch no portal, navegar para **Certificados,** e selecionar **Adicionar** . Faça o upload do `.pfx` ficheiro que gerou anteriormente e forneça a senha. Uma vez concluído, o certificado é adicionado à lista e pode verificar a impressão digital.
+Em seguida, atribua o certificado à conta Batch. A atribuição do certificado à conta permite que o Batch o atribua às piscinas e, em seguida, aos nós. A maneira mais fácil de o fazer é ir à sua conta Batch no portal, navegar para **Certificados,** e selecionar **Adicionar**. Faça o upload do `.pfx` ficheiro que gerou anteriormente e forneça a senha. Uma vez concluído, o certificado é adicionado à lista e pode verificar a impressão digital.
 
 Agora, quando criar uma piscina de Lote, pode navegar para **certificados** dentro da piscina e atribuir o certificado que criou para essa piscina. Quando o fizer, certifique-se de que seleciona **LocalMachine** para a localização da loja. O certificado é carregado em todos os nós do Lote na piscina.
 

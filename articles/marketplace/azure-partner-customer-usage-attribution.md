@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 3f3196e775ff9e7d8064559069414952f09a3016
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 95ac1abc1f286330bc5e7036f01faa6cf1b22d70
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360229"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337904"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Parceiro de mercado comercial e atribuição de uso do cliente
 
@@ -43,7 +43,7 @@ A atribuição de utilização do cliente suporta três opções de implementaç
 Um GUID é um identificador de referência único que tem 32 dígitos hexadémicos. Para criar GUIDs para rastreio, deve utilizar um gerador GUID, por exemplo através do PowerShell.
 
 ```powershell
-[guid]::NewGuid()]
+[guid]::NewGuid()
 ```
 
 Recomendamos que crie um GUID único para cada canal de oferta e distribuição para cada produto. Pode optar por utilizar um único GUID para os múltiplos canais de distribuição do produto se não quiser que o relatório seja dividido.

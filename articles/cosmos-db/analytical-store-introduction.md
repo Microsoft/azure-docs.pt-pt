@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 60326b0ba06e1642e2831814dd931c69f6a04f3b
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: seo-nov-2020
+ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330908"
+ms.locfileid: "94337411"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>O que é a loja analítica Azure Cosmos DB (Preview)?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -19,7 +20,9 @@ ms.locfileid: "94330908"
 > [!IMPORTANT]
 > A loja analítica Azure Cosmos DB está atualmente em pré-visualização. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A loja analítica Azure Cosmos DB é uma loja de colunas totalmente isolada para permitir análises em larga escala contra dados operacionais no seu Azure Cosmos DB, sem qualquer impacto nas suas cargas de trabalho transacionais. A loja de transações Azure Cosmos DB é schema-agnóstica, e permite-lhe iterar nas suas aplicações transacionais sem ter de lidar com schema ou gestão de índices. Em contraste com isso, a loja analítica Azure Cosmos DB é schematizada para otimizar para o desempenho de consulta analítica. Este artigo descreve detalhadamente sobre o armazenamento analítico.
+A loja analítica Azure Cosmos DB é uma loja de colunas totalmente isolada para permitir análises em larga escala contra dados operacionais no seu Azure Cosmos DB, sem qualquer impacto nas suas cargas de trabalho transacionais. 
+
+A loja de transações Azure Cosmos DB é schema-agnóstica, e permite-lhe iterar nas suas aplicações transacionais sem ter de lidar com schema ou gestão de índices. Em contraste com isso, a loja analítica Azure Cosmos DB é schematizada para otimizar para o desempenho de consulta analítica. Este artigo descreve detalhadamente sobre o armazenamento analítico.
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Desafios com análises em larga escala em dados operacionais
 

@@ -11,14 +11,14 @@ ms.date: 10/30/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6aa94c58dfb051eadc0059aa556383260a00b10
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0d54e1127207f0593f8d345b266d7db6e92b5c0d
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93135381"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335405"
 ---
-# <a name="what-is-identity-lifecycle-management"></a>O que é a gestão do ciclo de vida da identidade?
+# <a name="what-is-identity-lifecycle-management"></a>O que é a gestão do ciclo de vida de identidades?
 
 A Governação da Identidade ajuda as organizações a alcançar um equilíbrio entre produtividade - Quão rapidamente uma pessoa pode ter acesso aos recursos de que precisa, como quando se junta à minha organização? E segurança - Como deve o seu acesso mudar ao longo do tempo, como devido a alterações ao estatuto laboral dessa pessoa?
 
@@ -70,7 +70,7 @@ A Azure AD fornece atualmente estas funcionalidades:
 ## <a name="next-steps"></a>Passos seguintes 
 
 - [O que é o aprovisionamento?](what-is-provisioning.md)
-- [Reger o acesso dos utilizadores externos na gestão dos direitos da AD Azure](/azure/active-directory/governance/entitlement-management-external-users.md)
+- [Reger o acesso dos utilizadores externos na gestão dos direitos da AD Azure](/azure/active-directory/governance/entitlement-management-external-users)
 - [O que é o fornecimento conduzido pela HR?](what-is-hr-driven-provisioning.md)
-- [O que é o provisionamento de aplicativos?](what-is-app-provisioning.md)
-- [O que é o provisionamento inter-directório?](what-is-inter-directory-provisioning.md)
+- [O que é o aprovisionamento de aplicações?](what-is-app-provisioning.md)
+- [O que é o aprovisionamento entre diretórios?](what-is-inter-directory-provisioning.md)

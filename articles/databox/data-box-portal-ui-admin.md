@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 538a650c6063422f89c8ed3d1753981a293693b7
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87924758"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94338174"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Utilizar o portal do Azure para administrar o Data Box Disk
 
@@ -29,15 +29,15 @@ Execute os seguintes passos para cancelar uma encomenda.
 
 1.  Aceda a **Descrição Geral > Cancelar**. 
 
-    ![Cancelar encomenda 1](media/data-box-portal-ui-admin/cancel-order1.png)
+    ![Cancelar o comando no separador Visão Geral para uma encomenda](media/data-box-portal-ui-admin/portal-ui-admin-cancel-command.png)
 
 2.  Escreva um motivo para cancelar a encomenda.  
 
-    ![Cancelar encomenda 2](media/data-box-portal-ui-admin/cancel-order2.png)
+    ![Razão para cancelar uma encomenda](media/data-box-portal-ui-admin/portal-ui-admin-cancel-order-reason.png)
 
 3.  Assim que a encomenda é cancelada, o portal atualiza o estado da encomenda e apresenta-o como **Cancelado**.
 
-    ![Cancelar encomenda 3](media/data-box-portal-ui-admin/cancel-order3.png)
+    ![Encomenda cancelada](media/data-box-portal-ui-admin/portal-ui-admin-canceled-order.png)
 
 Não recebe uma notificação por e-mail quando a encomenda é cancelada.
 
@@ -49,13 +49,13 @@ Execute os seguintes passos para clonar uma encomenda.
 
 1.  Aceda a **Descrição Geral > Clone**. 
 
-    ![Clonar a encomenda 1](media/data-box-portal-ui-admin/clone-order1.png)
+    ![Comando clone no separador Visão Geral para uma encomenda](media/data-box-portal-ui-admin/portal-ui-admin-clone-command.png)
 
 2.  Todos os detalhes da encomenda permanecem iguais. O nome da encomenda é o nome da encomenda original anexada por *-Clone*. Selecione a caixa de verificação para confirmar que reviu as informações de privacidade. Clique em **Criar**.    
 
 O clone é criado em apenas alguns minutos e o portal é atualizado para mostrar a nova encomenda.
 
-[![Ordem clone 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Ordem clonada](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png)](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png#lightbox) 
 
 ## <a name="delete-order"></a>Eliminar encomenda
 
@@ -65,15 +65,15 @@ Só pode eliminar as encomendas que foram concluídas ou canceladas. Execute os 
 
 1. Vá para **Todos os recursos**. Procure a sua encomenda.
 
-    ![Pesquisar encomendas do Data Box Disk](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
+    ![Pedidos de pesquisa](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 
 2. Clique na encomenda que pretende eliminar e aceda a **Descrição Geral**. Na barra de comandos, clique em **Eliminar**.
 
-    ![Eliminar encomenda do Data Box Disk 1](media/data-box-portal-ui-admin/delete-order1.png)
+    ![Apagar uma encomenda](media/data-box-portal-ui-admin/portal-ui-admin-delete-command.png)
 
 3. Introduza o nome da encomenda quando lhe for pedido para confirmar a eliminação da encomenda. Clique em **Eliminar**.
 
-     ![Eliminar encomenda do Data Box Disk 2](media/data-box-portal-ui-admin/delete-order2.png)
+     ![Confirmar a eliminação da ordem](media/data-box-portal-ui-admin/portal-ui-admin-confirm-deletion.png)
 
 
 ## <a name="download-shipping-label"></a>Transferir etiqueta de envio
@@ -83,11 +83,11 @@ Poderá ter de transferir a etiqueta de envio, se a etiqueta de envio para devol
 Execute os seguintes passos para transferir uma etiqueta de envio.
 1.  Aceda a **Descrição geral > Transferir etiqueta de envio**. Esta opção só está disponível após o disco ser enviado. 
 
-    ![Transferir etiqueta de envio](media/data-box-portal-ui-admin/download-shipping-label.png)
+    ![Transferir etiqueta de envio](media/data-box-portal-ui-admin/portal-ui-admin-download-shipping-label.png)
 
 2.  Esta ação transfere a seguinte etiqueta de envio para devolução. Guarde a etiqueta, imprima-a e afixe-a ao pacote para devolução.
 
-    ![Examinar a etiqueta de envio](media/data-box-portal-ui-admin/example-shipping-label.png)
+    ![Examinar a etiqueta de envio](media/data-box-portal-ui-admin/portal-ui-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Editar o endereço de envio
 
@@ -97,11 +97,11 @@ Execute os seguintes passos para editar a encomenda.
 
 1. Aceda a **Detalhes da encomenda > Editar endereço de envio**.
 
-    ![Editar o endereço de envio 1](media/data-box-portal-ui-admin/edit-shipping-address1.png)
+    ![Editar o comando de endereço de envio em detalhes da Ordem](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-command.png)
 
 2. Pode agora editar o endereço de envio e, em seguida, guardar as alterações.
 
-    ![Editar o endereço de envio 2](media/data-box-portal-ui-admin/edit-shipping-address2.png)
+    ![Editar caixa de diálogo de endereço de envio](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Editar detalhes de notificação
 
@@ -111,15 +111,15 @@ Execute os seguintes passos para editar os detalhes de notificação.
 
 1. Aceda a **Detalhes da encomenda > Editar detalhes de notificação**.
 
-    ![Editar detalhes de notificação 1](media/data-box-portal-ui-admin/edit-notification-details1.png)
+    ![Editar o comando de detalhes de notificação em detalhes da Ordem](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-command.png)
 
 2. Pode agora editar os detalhes de notificação e, em seguida, guardar as alterações.
  
-    ![Editar detalhes de notificação 2](media/data-box-portal-ui-admin/edit-notification-details2.png)
+    ![Editar caixa de diálogo de detalhes de notificação](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-dbox.png)
 
 ## <a name="view-order-status"></a>Ver o estado da encomenda
 
-|Estado da encomenda |Descrição |
+|Estado da encomenda |Description |
 |---------|---------|
 |Encomendado     | Fez uma encomenda com êxito. <br> Se os discos não estiverem disponíveis, receberá uma notificação. <br>Se os discos estiverem disponíveis, a Microsoft identifica um disco para envio e prepara o pacote do disco.        |
 |Processado     | O processamento da encomenda está concluído. <br> Durante o processamento da encomenda, ocorrem as ações seguintes:<li>Os discos são encriptados com a encriptação AES-128 BitLocker. </li> <li>O Data Box Disk está bloqueado para impedir qualquer acesso não autorizado.</li><li>A chave de acesso que desbloqueia os discos é gerada durante este processo.</li>        |

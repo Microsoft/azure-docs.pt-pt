@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 09/08/2020
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 2f6051277f1ddb89e67ce8013c78571a2a7314b7
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 55e47b09ac4a6256a125a75c8a0f856e867e7c0e
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089133"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337792"
 ---
 # <a name="quickstart-set-up-azure-spring-cloud-configuration-server"></a>Quickstart: Configurar o servidor de configuração Azure Spring Cloud
 
@@ -70,9 +70,33 @@ Config-servidor com a localização do repositório de git para o projeto:
 ```azurecli
 az spring-cloud config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/piggymetrics-config
 ```
-
 ---
 ::: zone-end
+
+## <a name="troubleshooting-of-azure-spring-cloud-config-server"></a>Resolução de problemas do servidor de config da Cloud da primavera de Azure
+
+O procedimento a seguir explica como resolver problemas as definições do servidor config.
+
+1. No portal Azure, aceda à página **geral** do serviço e selecione **Registos**. 
+1. Selecione **Consultas** e **Mostre os registos de aplicações que contenham os termos de "erro" ou "exceção".** 
+1. Clique em **Run** (Executar). 
+1. Se encontrar o erro **java.lang.ilegalStateException** em registos, isto indica que o serviço de nuvem de mola não consegue localizar propriedades a partir do servidor config.
+
+    [![Consulta de execução do portal ASC ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)](media/spring-cloud-quickstart-setup-config-server/setup-config-server-query.png)
+
+1. Aceda à página **geral** do serviço.
+1. Selecione **Diagnosticar e resolver problemas**. 
+1. Selecione o detetor **Config Server.**
+
+    [![Problemas de diagnóstico do portal ASC ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)](media/spring-cloud-quickstart-setup-config-server/setup-config-server-diagnose.png)
+
+3. Clique **em Config Server Health Check**.
+
+    [![Génio do portal ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png) ASC](media/spring-cloud-quickstart-setup-config-server/setup-config-server-genie.png)
+
+4. Clique **no Estado do Servidor Config** para ver mais detalhes do detetor.
+
+    [Estado de ![ saúde ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png) do portal ASC ](media/spring-cloud-quickstart-setup-config-server/setup-config-server-health-status.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

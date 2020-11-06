@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e426962310417fdca56ea2f7d45a6ea820d41981
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449419"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335881"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gestão de Conector de Insights de Aplicação (Deprecada)
 
@@ -42,12 +42,12 @@ Quando se utiliza a solução, pode:
 
 Ao contrário da maioria das outras soluções de Log Analytics, os dados não são recolhidos para o Conector de Insights de Aplicação por agentes. Todos os dados utilizados pela solução provêm diretamente do Azure.
 
-| Origem Ligada | Suportado | Descrição |
+| Origem Ligada | Suportado | Description |
 | --- | --- | --- |
-| [Agentes do Windows](./agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
-| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações dos agentes linux. |
-| [Grupo de gestão SCOM](./om-agents.md) | Não | A solução não recolhe informações de agentes de um grupo de gestão SCOM ligado. |
-| [Conta de armazenamento Azure](./resource-logs.md#send-to-log-analytics-workspace) | Não | A solução não ressoou informações do armazenamento da Azure. |
+| [Agentes do Windows](./agent-windows.md) | No | A solução não recolhe informações de agentes do Windows. |
+| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | No | A solução não recolhe informações dos agentes linux. |
+| [Grupo de gestão SCOM](./om-agents.md) | No | A solução não recolhe informações de agentes de um grupo de gestão SCOM ligado. |
+| [Conta de armazenamento Azure](./resource-logs.md#send-to-log-analytics-workspace) | No | A solução não ressoou informações do armazenamento da Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,9 +57,9 @@ Ao contrário da maioria das outras soluções de Log Analytics, os dados não s
 
 ## <a name="configuration"></a>Configuração
 
-1. Ativar a solução Azure Web Apps Analytics a partir do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) ou utilizando o processo descrito nas [soluções Add Log Analytics da Galeria de Soluções](../insights/solutions.md).
+1. Ativar a solução Azure Web Apps Analytics a partir do [mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps) ou utilizando o processo descrito nas [soluções Add Log Analytics da Galeria de Soluções](../insights/solutions.md).
 2. Navegue pelo [portal Azure](https://portal.azure.com). Selecione **Todos os serviços** para abrir Insights de Aplicação. Em seguida, procure por Insights de Aplicação. 
-3. Em **Subscrições**, selecione uma subscrição que tenha recursos de Insights de Aplicação e, em seguida, em **Nome**, selecione uma ou mais aplicações.
+3. Em **Subscrições** , selecione uma subscrição que tenha recursos de Insights de Aplicação e, em seguida, em **Nome** , selecione uma ou mais aplicações.
 4. Clique em **Guardar**.
 
 Em aproximadamente 30 minutos, os dados ficam disponíveis e o azulejo application Insights é atualizado com dados, como a seguinte imagem:
@@ -135,7 +135,7 @@ Os componentes da perspetiva são atualizados dependendo da consulta de pesquisa
 
 As lâminas do Conector De Insights de Aplicação foram concebidas para que possa orientar-se para a aplicação de Insights de Aplicação selecionada *quando utilizar o portal Azure*. Pode utilizar a solução como uma plataforma de monitorização de alto nível que o ajuda a resolver problemas numa aplicação. Quando vir um problema potencial em qualquer uma das suas aplicações conectadas, pode perfurar a bola na pesquisa do Log Analytics ou pode orientar-se diretamente para a aplicação Application Insights.
 
-Para pivô, clique nas elipses **(...**) que aparecem no final de cada linha e selecione **Abrir em Insights de Aplicação**.
+Para pivô, clique nas elipses **(...** ) que aparecem no final de cada linha e selecione **Abrir em Insights de Aplicação**.
 
 >[!NOTE]
 >**Aberto em Informações de Aplicação** não está disponível no portal Azure.

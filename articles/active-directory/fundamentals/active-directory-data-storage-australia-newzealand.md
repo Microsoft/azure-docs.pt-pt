@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 7/21/2020
 ms.custom: it-pro, seodec18, references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bbd31bf47c7ce7ae75a6934da0ea769698ef187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 812abe141f8130a198178668dc4f212f373d9bcd
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565115"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334946"
 ---
-# <a name="customer-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Armazenamento de dados de clientes para clientes australianos e neozelandeses em Diretório Ativo Azure
+# <a name="customer-data-storage-for-australian-and-new-zealand-customers-in-azure-active-directory"></a>Armazenamento de dados de clientes para clientes australianos e neozelandeses em Diretório Ativo Azure 
 
 O Azure Ative Directory (Azure AD) armazena os seus Dados de Clientes numa localização geográfica baseada no país que forneceu quando se inscreveu para um serviço Microsoft Online. Os serviços da Microsoft Online incluem o Microsoft 365 e o Azure. 
 
 Para obter informações sobre onde está localizado o Azure AD e outros dados dos serviços da Microsoft, consulte a secção [Onde estão localizados os seus dados?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 
-A partir de 26 de fevereiro de 2020, a Microsoft começou a armazenar dados de clientes da Azure AD para novos inquilinos com um endereço de faturação australiano ou neozelandês dentro dos datacenters australianos. Entre 1 de maio de 2020 e 31 de outubro de 2020, a Microsoft migrará os inquilinos existentes que tenham um endereço de faturação australiano ou neozelandês para os datacenters australianos sem precisar de qualquer ação do cliente. O processo de migração não envolve nenhum tempo de inatividade para os clientes e não terá impacto em nenhuma funcionalidade de um inquilino durante a migração.
+A partir de 26 de fevereiro de 2020, a Microsoft começou a armazenar dados de clientes da Azure AD para novos inquilinos com um endereço de faturação australiano ou neozelandês dentro dos datacenters australianos. Entre 1 de maio de 2020 e 31 de março de 2021, a Microsoft migrará os inquilinos existentes que tenham um endereço de faturação australiano ou neozelandês para os datacenters australianos sem precisar de qualquer ação do cliente. O processo de migração não envolve nenhum tempo de inatividade para os clientes e não terá impacto em nenhuma funcionalidade de um inquilino durante a migração.
 
 Além disso, certas funcionalidades da AD Azure ainda não suportam o armazenamento de dados do cliente na Austrália. Por favor, vá ao mapa de [dados Azure AD,](https://msit.powerbi.com/view?r=eyJrIjoiYzEyZTc5OTgtNTdlZS00ZTVkLWExN2ItOTM0OWU4NjljOGVjIiwidCI6IjcyZjk4OGJmLTg2ZjEtNDFhZi05MWFiLTJkN2NkMDExZGI0NyIsImMiOjV9)para obter informações específicas sobre o recurso. Por exemplo, a Autenticação Multi-Factor do Microsoft Azure armazena dados de clientes nos EUA e processa-os globalmente. Consulte [os dados de residência de dados e os dados do cliente para autenticação multi-factor Azure](../authentication/concept-mfa-data-residency.md).
 

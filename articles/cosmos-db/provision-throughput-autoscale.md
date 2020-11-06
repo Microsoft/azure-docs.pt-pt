@@ -6,12 +6,13 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 3ada16c98eef516056bd3c139bddc8187fb0fe38
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: seo-nov-2020
+ms.openlocfilehash: aaedca5acf7861db05f0ec724e05449316379829
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330619"
+ms.locfileid: "94337547"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Criar contentores e bases de dados da Azure Cosmos com produção de escala automática
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

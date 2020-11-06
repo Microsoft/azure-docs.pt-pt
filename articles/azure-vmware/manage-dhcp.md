@@ -1,105 +1,140 @@
 ---
-title: Como criar e gerir o DHCP
-description: Este artigo explica como gerir o DHCP na Azure VMware Solution.
-ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: cb74ed4474cc14081e59142f2f60915fccd47559
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+title: Gerir o DHCP para a Solução VMware Azure
+description: Aprenda a criar e gerir o DHCP para a sua nuvem privada Azure VMware Solution.
+ms.topic: how-to
+ms.date: 11/09/2020
+ms.openlocfilehash: 9143a8544fe1b98262c3e990ccdf56f5d5f65957
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461061"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335993"
 ---
-# <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Como criar e gerir o DHCP em Azure VMware Solution
+# <a name="manage-dhcp-for-azure-vmware-solution"></a>Gerir o DHCP para a Solução VMware Azure
 
-O NSX-T fornece a capacidade de configurar o DHCP para a sua nuvem privada. Se utilizar o NSX-T para hospedar o seu servidor DHCP, consulte [o servidor Criar DHCP](#create-dhcp-server). Caso contrário, se tiver um servidor DHCP externo de terceiros na sua rede, consulte o [serviço de retransmissão Create DHCP](#create-dhcp-relay-service).
+Aplicações e cargas de trabalho em execução em um ambiente de nuvem privada requerem serviços DHCP para atribuição de endereços IP.  Este artigo mostra-lhe como criar e gerir o DHCP na Azure VMware Solution de duas formas:
 
-## <a name="create-dhcp-server"></a>Criar servidor DHCP
+- Se estiver a utilizar o NSX-T para hospedar o seu servidor DHCP, terá de [criar um servidor DHCP](#create-a-dhcp-server) e [retransmitir para esse servidor.](#create-dhcp-relay-service) Quando criar o servidor DHCP, também adicionará um segmento de rede e especificará a gama de endereços IP DHCP.   
 
-Utilize os seguintes passos para configurar um servidor DHCP em NSX-T.
+- Se estiver a utilizar um servidor DHCP externo de terceiros na sua rede, terá de criar um serviço de [retransmissão DHCP](#create-dhcp-relay-service). Quando criar um retransmissor para um servidor DHCP, quer utilize o NSX-T ou um terceiro para hospedar o seu servidor DHCP, terá de especificar a gama de endereços IP DOHCP.
 
-1. No gestor NSX, navegue no **separador Networking** e selecione **DHCP**. 
-1. Selecione **ADD SERVER** e, em seguida, forneça o nome do servidor e o endereço IP. 
-1. Selecione **Guardar**.
+>[!IMPORTANT]
+>O DHCP não funciona para máquinas virtuais (VMs) na rede de alongamento VMware HCX L2 quando o servidor DHCP está no datacenter no local.  O NSX, por padrão, bloqueia todos os pedidos de DHCP de atravessar o trecho L2. Para obter a solução, consulte os [pedidos de Envio de DHCP para o procedimento do servidor DHCP no local.](#send-dhcp-requests-to-the-on-premises-dhcp-server)
 
-:::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="adicionar servidor DHCP" border="true":::
 
-### <a name="connect-dhcp-server-to-the-tier-1-gateway"></a>Ligue o servidor DHCP ao portal Tier-1.
+## <a name="create-a-dhcp-server"></a>Criar um servidor DHCP
 
-1. Selecione **Gateways Tier 1**, o portal da lista e, em seguida, selecione **Editar**.
+Se pretender utilizar o NSX-T para hospedar o seu servidor DHCP, criará um servidor DHCP. Em seguida, irá adicionar um segmento de rede e especificar a gama de endereços IP DHCP.
 
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="adicionar servidor DHCP" border="true":::
+1. No NSX-T Manager, selecione **Networking**  >  **DHCP** e, em seguida, selecione **Add Server**.
+
+1. Selecione **DHCP** para o **Tipo de Servidor,** forneça o nome do servidor e o endereço IP e, em seguida, selecione **Guardar**.
+
+   :::image type="content" source="./media/manage-dhcp/dhcp-server-settings.png" alt-text="adicionar servidor DHCP" border="true":::
+
+1. Selecione **Gateways de nível 1,** selecione a elipse vertical no gateway Tier-1 e, em seguida, selecione **Editar**.
+
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway.png" alt-text="selecione o portal para usar" border="true":::
 
 1. Selecione **No IP Alocação Definida** para adicionar uma sub-rede.
 
-   :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="adicionar servidor DHCP" border="true":::
+   :::image type="content" source="./media/manage-dhcp/add-subnet.png" alt-text="adicionar uma sub-rede" border="true":::
 
-1. Selecione **o Servidor Local DHCP** para o **tipo**. 
-1. Selecione **DHCP predefinido** para o **servidor DHCP** e, em seguida, selecione **Guardar**.
+1. Para **tipo** , selecione **DHCP Local Server**. 
+   
+1. Para o **servidor DHCP** , selecione **DHCP predefinido** e, em seguida, selecione **Guardar**.
 
-
-1. Na janela **Tier -1 Gateway,** selecione **Guardar**. 
-1. Selecione **Close Editing** para terminar.
+1. **Selecione Guardar** novamente e, em seguida, selecione **Close Editing**.
 
 ### <a name="add-a-network-segment"></a>Adicionar um segmento de rede
 
-Uma vez criado o seu Servidor DHCP, terá de adicionar segmentos de rede ao mesmo.
+[!INCLUDE [add-network-segment-steps](includes/add-network-segment-steps.md)]
 
-1. No NSX-T, selecione o **separador de Rede** e selecione **Segmentos** em **Conectividade**. 
-1. Selecione **ADD SEGMENT** e nomeie o segmento e a ligação ao Gateway Tier-1. 
-1. Selecione **set Subnets** para configurar uma nova sub-rede. 
-
-   :::image type="content" source="./media/manage-dhcp/add-segment.png" alt-text="adicionar servidor DHCP" border="true":::
-
-1. Na janela **'set Subnets',** selecione **ADD SUBNET**. 
-1. Introduza o endereço IP gateway e a gama DHCP e **selecione Adicionar** e, em seguida, **APPLY**
-
-1. **Selecione Guardar** para adicionar o novo segmento de rede.
 
 ## <a name="create-dhcp-relay-service"></a>Criar serviço de retransmissão DHCP
 
-1. Selecione o **separador de Rede** e, em **Gestão IP,** selecione **DHCP**. 
-1. Selecione **ADD SERVER**. 
-1. Selecione o Relé DHCP para o **Tipo de Servidor** e introduza o nome do servidor e o endereço IP para o servidor de retransmissão. 
-1. Selecione **Guardar**.
+Se quiser utilizar um servidor DHCP externo de terceiros, terá de criar um serviço de retransmissão DHCP. Também especificará o intervalo de endereços IP DO DHCP no NSX-T Manager. 
 
-   :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="adicionar servidor DHCP" border="true":::
+1. No NSX-T Manager, selecione **Networking**  >  **DHCP** e, em seguida, selecione **Add Server**.
 
-1. Selecione **Gateways Tier-1** em **conectividade**. 
-1. Selecione a elipse vertical no gateway Tier-1 e **selecione Editar**.
+1. Selecione **o Relé DHCP** para o **tipo de servidor,** forneça o nome do servidor e o endereço IP e, em seguida, selecione **Guardar**.
 
-   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="adicionar servidor DHCP" border="true":::
+   :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="criar serviço de retransmissão dhcp" border="true":::
+
+1. Selecione **Gateways de nível 1,** selecione a elipse vertical no gateway Tier-1 e, em seguida, selecione **Editar**.
+
+   :::image type="content" source="./media/manage-dhcp/edit-tier-1-gateway-relay.png" alt-text="editar porta de entrada de nível 1" border="true":::
 
 1. Selecione **Nenhum Conjunto de Atribuição de IP** para definir a atribuição de endereço IP.
 
-   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="adicionar servidor DHCP" border="true":::
+   :::image type="content" source="./media/manage-dhcp/edit-ip-address-allocation.png" alt-text="editar a atribuição de endereços ip" border="true":::
 
-1. Selecione **o servidor de retransmissão DHCP** para **escrever**.
-1. Selecione o seu servidor de retransmissão DHCP para **o Relé DHCP**. 
-1. Selecione **Guardar**.
+1. Para **tipo** , selecione **O Servidor DHCP**. 
+   
+1. Para o **Servidor DHCP** , selecione **o Relé DHCP** e, em seguida, selecione **Save**.
+
+1. **Selecione Guardar** novamente e, em seguida, selecione **Close Editing**.
 
 
-## <a name="specify-a-dhcp-range-ip-on-a-segment"></a>Especificar um IP de alcance DHCP num segmento
+## <a name="specify-the-dhcp-ip-address-range"></a>Especificar a gama de endereços IP DHCP
 
-> [!NOTE]
-> Esta configuração é necessária para realizar a funcionalidade de retransmissão DHCP no Segmento de Cliente DHCP. 
+1. No NSX-T Manager, selecione **Networking**  >  **Segmentos** de Rede . 
+   
+1. Selecione a elipse vertical no nome do segmento e **selecione Editar**.
+   
+1. Selecione **Sub-redes de Conjunto para** especificar o endereço IP DHCP para a sub-rede. 
+   
+   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="segmentos de rede" border="true":::
+      
+1. Modifique o endereço IP do gateway, se necessário, e introduza o IP de alcance DHCP. 
+      
+   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="editar sub-redes" border="true":::
+      
+1. **Selecione Aplicar** e, em seguida, **Guardar**. O segmento é atribuído a um conjunto de servidor DHCP.
+      
+   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="Piscina de servidor DHCP atribuída ao segmento" border="true":::
 
-1. Em **Conectividade,** selecione **Segmentos.** 
-1. Selecione as elipses verticais e **selecione Editar.** 
 
-   >[!TIP]
-   >Se pretender adicionar um novo segmento, selecione **Add Segment**.
+## <a name="send-dhcp-requests-to-the-on-premises-dhcp-server"></a>Envie pedidos de DHCP para o servidor DHCP no local
 
-1. Adicione detalhes sobre o segmento. 
-1. Selecione o valor nas **sub-redes definidas** para adicionar ou modificar a sub-rede.
+Se pretender enviar pedidos dhCP dos VMs da Solução VMware Azure no segmento L2 estendido para o servidor DHCP no local, criará um perfil de segmento de segurança. 
 
-   :::image type="content" source="./media/manage-dhcp/network-segments.png" alt-text="adicionar servidor DHCP" border="true":::
+1. Inscreva-se no seu vCenter no local, e em **Casa,** selecione **HCX**.
 
-1. Selecione as elipses verticais e escolha **Editar.** Se precisar de criar uma nova sub-rede, selecione **Add Subnet** para criar um gateway e configurar uma gama DHCP. 
-1. Forneça a gama do pool IP e **selecione Aplicar**, e, em seguida, selecione **Guardar**
+1. Selecione **extensão de rede** em **serviços**.
 
-   :::image type="content" source="./media/manage-dhcp/edit-subnet.png" alt-text="adicionar servidor DHCP" border="true":::
+1. Selecione a extensão de rede que pretende suportar os pedidos de DHCP da Azure VMware Solution para o local. 
 
-   Um conjunto de servidor DHCP é atribuído ao segmento.
+1. Tome nota do nome da rede de destino.  
 
-   :::image type="content" source="./media/manage-dhcp/assigned-to-segment.png" alt-text="adicionar servidor DHCP" border="true":::
+   :::image type="content" source="media/manage-dhcp/hcx-find-destination-network.png" alt-text="Screenshot de uma extensão de rede em VMware vSphere Client" lightbox="media/manage-dhcp/hcx-find-destination-network.png":::
+
+1. No Gestor NSX-T da Solução VMware Azure, selecione Perfis de Segmentos **de Segmentos de Rede**  >  **Segments**  >  **Segment Profiles**. 
+
+1. Selecione **adicionar perfil de segmento** e, em seguida, **segmentar segurança**.
+
+   :::image type="content" source="media/manage-dhcp/add-segment-profile.png" alt-text="Screenshot de como adicionar um perfil de segmento em NSX-T" lightbox="media/manage-dhcp/add-segment-profile.png":::
+
+1. Forneça um nome e uma etiqueta e, em seguida, coloque o interruptor do **filtro bpdu** para ON e todos os alternadores DHCP para OFF.
+
+   :::image type="content" source="media/manage-dhcp/add-segment-profile-bpdu-filter-dhcp-options.png" alt-text="Screenshot mostrando o filtro bpdu ligado e o DHCP alterna" lightbox="media/manage-dhcp/add-segment-profile-bpdu-filter-dhcp-options.png":::
+
+1. Remova todos os endereços MAC, se houver, na **lista de autorizações do filtro bpdu**.  Em seguida, selecione **Guardar**.
+
+   :::image type="content" source="media/manage-dhcp/add-segment-profile-bpdu-filter-allow-list.png" alt-text="Screenshot mostrando endereços MAC na lista de autorizações do filtro bpdu":::
+
+1. Em **Segmentos de Segmentos de**  >  **Segments**  >  **Segments** Rede, na área de pesquisa, insira o nome de rede de definição.
+
+   :::image type="content" source="media/manage-dhcp/networking-segments-search.png" alt-text="Screenshot do campo de filtro de segmentos de > de rede":::
+
+1. Selecione a elipse vertical no nome do segmento e **selecione Editar**.
+
+   :::image type="content" source="media/manage-dhcp/edit-network-segment.png" alt-text="Screenshot do botão de edição para o segmento" lightbox="media/manage-dhcp/edit-network-segment.png":::
+
+1. Altere a Segurança do **Segmento** para o perfil de segmento que criou anteriormente.
+
+   :::image type="content" source="media/manage-dhcp/edit-segment-security.png" alt-text="Screenshot do campo de Segurança do Segmento" lightbox="media/manage-dhcp/edit-segment-security.png":::
+
+## <a name="next-steps"></a>Passos seguintes
+
+Saiba mais sobre [manutenção do Anfitrião e gestão do ciclo de vida.](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management)

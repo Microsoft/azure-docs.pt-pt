@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e7713239391b49663328a7a058f8f6fd5b444335
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b08e834233e1ce12392d940cb0ccc0bef7e96158
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341336"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337751"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Como utilizar o OPENROWSET utilizando a piscina SQL sem servidor (pré-visualização) no Azure Synapse Analytics
 
@@ -261,12 +261,12 @@ Os ficheiros parquet contêm descrições de tipo para cada coluna. A tabela a s
 | BINÁRIO |UTF8 |varchar \* (colagem UTF8) |
 | BINÁRIO |CORDA |varchar \* (colagem UTF8) |
 | BINÁRIO |ENUM|varchar \* (colagem UTF8) |
-| BINÁRIO |UUID |uniqueidentifier |
+| FIXED_LEN_BYTE_ARRAY |UUID |uniqueidentifier |
 | BINÁRIO |DECIMAL |decimal |
-| BINÁRIO |JSON |varchar(máx) \* (colagem UTF8) |
-| BINÁRIO |Rio BSON |varbinário(máx) |
+| BINÁRIO |JSON |varchar(8000) \* (colagem UTF8) |
+| BINÁRIO |Rio BSON | Não suportado |
 | FIXED_LEN_BYTE_ARRAY |DECIMAL |decimal |
-| BYTE_ARRAY |INTERVALO |varchar(máx), serializado em formato padronizado |
+| BYTE_ARRAY |INTERVALO | Não suportado |
 | INT32 |INT(8, verdade) |smallint |
 | INT32 |INT(16, verdade) |smallint |
 | INT32 |INT(32, verdade) |int |
@@ -279,10 +279,10 @@ Os ficheiros parquet contêm descrições de tipo para cada coluna. A tabela a s
 | INT64 |INT(64, verdade) |bigint |
 | INT64 |INT(64, falso) |decimal (20,0) |
 | INT64 |DECIMAL |decimal |
-| INT64 |TEMPO (MICROS / NANOS) |hora |
-|INT64 |TIMETAMP (MILLIS / MICROS / NANOS) |datetime2 |
-|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(máx), serializado em JSON |
-|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAPA|varchar(máx), serializado em JSON |
+| INT64 |TEMPO (MICROS) |tempo - TEMPO (NANOS) não é suportado |
+|INT64 |TIMETAMP (MILLIS / MICROS) |datatime2 - TIMESTAMP (NANOS) não é suportado |
+|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#lists) |LISTA |varchar(8000), serializado em JSON |
+|[Tipo complexo](https://github.com/apache/parquet-format/blob/master/LogicalTypes.md#maps)|MAPA|varchar(8000), serializado em JSON |
 
 ## <a name="examples"></a>Exemplos
 
