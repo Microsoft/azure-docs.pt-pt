@@ -12,18 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/30/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 56ae3ac1331ed054a1fb808ae06e990b67c06bae
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 3f13d997f73e9737b8770eec7e0742d50bf1abb8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932418"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421707"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades nos ficheiros Azure NetApp
 
 Os Ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um resumo sobre as novidades e melhorias mais recentes. 
+
+## <a name="november-2020"></a>novembro de 2020
+
+* [Instantâneo reverter](azure-netapp-files-manage-snapshots.md#revert-a-volume-using-snapshot-revert)
+
+    A funcionalidade de reverte instantânea permite-lhe reverter rapidamente um volume para o estado em que estava quando uma determinada imagem foi tirada. Na maioria dos casos, reverter um volume é muito mais rápido do que restaurar ficheiros individuais de uma imagem para o sistema de ficheiros ativos. É também mais eficiente em termos de espaço em comparação com restaurar um instantâneo para um novo volume.
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -46,10 +52,10 @@ Os Ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um 
 * Novas [métricas:](azure-netapp-files-metrics.md)   
 
     * Novas métricas de volume: 
-        * *Tamanho atribuído volume*: Tamanho previsto de um volume
+        * *Tamanho atribuído volume* : Tamanho previsto de um volume
     * Novas métricas da piscina: 
-        * *Tamanho atribuído da piscina*: O tamanho a provisionado da piscina 
-        * *Tamanho total do instantâneo para a piscina*: A soma do tamanho do instantâneo de todos os volumes na piscina
+        * *Tamanho atribuído da piscina* : O tamanho a provisionado da piscina 
+        * *Tamanho total do instantâneo para a piscina* : A soma do tamanho do instantâneo de todos os volumes na piscina
 
 ## <a name="july-2020"></a>Julho de 2020
 

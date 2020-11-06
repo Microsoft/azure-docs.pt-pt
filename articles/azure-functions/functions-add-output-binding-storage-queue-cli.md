@@ -5,20 +5,39 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 3e84db3aa13ae77f931a46683f0c5e4572f6ce44
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c7d41d889692856a9818aacd265e67b0c2d3d1ad
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87852638"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422877"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-command-line-tools"></a>Ligue as funções Azure ao Armazenamento Azure utilizando ferramentas de linha de comando
 
-Neste artigo, integra uma fila de Armazenamento Azure com a função e conta de armazenamento que criou [no arranque rápido anterior.](functions-create-first-azure-function-azure-cli.md) Obtém esta integração utilizando uma *ligação de saída* que escreve dados de um pedido HTTP para uma mensagem na fila. A conclusão deste artigo não incorre em custos adicionais para além dos poucos cêntimos usd do quickstart anterior. Para saber mais sobre encadernações, consulte [a Azure Functions triggers e encaderna os conceitos.](functions-triggers-bindings.md)
+Neste artigo, integra uma fila de Armazenamento Azure com a função e conta de armazenamento que criou no artigo de arranque rápido anterior. Obtém esta integração utilizando uma *ligação de saída* que escreve dados de um pedido HTTP para uma mensagem na fila. A conclusão deste artigo não incorre em custos adicionais para além dos poucos cêntimos usd do quickstart anterior. Para saber mais sobre encadernações, consulte [a Azure Functions triggers e encaderna os conceitos.](functions-triggers-bindings.md)
 
 ## <a name="configure-your-local-environment"></a>Configure o seu ambiente local
 
-Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando](functions-create-first-azure-function-azure-cli.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.
+Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando][previous-quickstart]. Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.
+
+::: zone pivot="programming-language-csharp"  
+Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando](create-first-function-cli-csharp.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.  
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando](create-first-function-cli-node.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.  
+::: zone-end   
+::: zone pivot="programming-language-java"  
+Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando](create-first-function-cli-java.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.  
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando](create-first-function-cli-typescript.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.  
+::: zone-end   
+::: zone pivot="programming-language-python"  
+Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando](create-first-function-cli-python.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.  
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+Antes de começar, tem de completar o artigo, [Quickstart: Criar um projeto Azure Functions a partir da linha de comando](create-first-function-cli-powershell.md). Se já limpou recursos no final desse artigo, passe novamente pelos passos para recriar a app de função e recursos relacionados em Azure.  
+::: zone-end   
 
 [!INCLUDE [functions-cli-get-storage-connection](../../includes/functions-cli-get-storage-connection.md)]
 
@@ -115,7 +134,7 @@ mvn azure-functions:deploy
 
 1. Volte a examinar a fila de armazenamento, tal como descrito na secção anterior, para verificar se contém a nova mensagem escrita na fila.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de terminar, use o seguinte comando para eliminar o grupo de recursos e todos os seus recursos contidos para evitar incorrer em custos adicionais.
 
@@ -129,33 +148,41 @@ Atualizou a sua função HTTP para escrever dados numa fila de armazenamento. Ag
 
 + [Trabalhar com o Azure Functions Core Tools](functions-run-local.md)  
 
++ [Funções Azure dispara e encaderna](functions-triggers-bindings.md)
+
 ::: zone pivot="programming-language-csharp"  
 + [Exemplos de projetos completos de funções em C#](/samples/browse/?products=azure-functions&languages=csharp).
 
 + [Referência do programador Azure Functions C#](functions-dotnet-class-library.md)  
+
+[previous-quickstart]: create-first-function-cli-csharp.md
+
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Exemplos de projetos de função completa no JavaScript.](/samples/browse/?products=azure-functions&languages=javascript)
 
 + [Azure Functions JavaScript guia de desenvolvedores](functions-reference-node.md)  
+
+[previous-quickstart]: create-first-function-cli-javascript.md
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Exemplos de projetos de função completos no TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
 
 + [Guia de desenvolvedores tipo de funções Azure](functions-reference-node.md#typescript)  
+
+[previous-quickstart]: create-first-function-cli-typescript.md
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Exemplos de projetos completos de funções em Python.](/samples/browse/?products=azure-functions&languages=python)
 
 + [Guia de desenvolvedores de Azure Functions Python](functions-reference-python.md)  
+
+[previous-quickstart]: create-first-function-cli-python.md
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Exemplos de projetos de função completos em PowerShell.](/samples/browse/?products=azure-functions&languages=azurepowershell)
 
 + [Guia de desenvolvedores powershell de funções Azure Functions](functions-reference-powershell.md) 
+
+[previous-quickstart]: create-first-function-cli-powershell.md
 ::: zone-end
-+ [Funções Azure dispara e encaderna](functions-triggers-bindings.md)
-
-+ [Página de preços de funções](https://azure.microsoft.com/pricing/details/functions/)
-
-+ [Estimativa dos custos do plano de consumo](functions-consumption-costs.md) 

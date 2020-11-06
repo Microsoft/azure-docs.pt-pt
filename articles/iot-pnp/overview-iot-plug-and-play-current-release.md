@@ -8,14 +8,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 4bd1bb93c9ce0f491c5bf1153917491b88d55109
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5e9d9e762568c01d31f0c3a29be809a5f90b6b44
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043719"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421656"
 ---
-# <a name="whats-in-the-current-iot-plug-and-play-release"></a>O que está no atual lançamento ioT plug e play
+# <a name="what-is-in-the-current-iot-plug-and-play-release"></a>O que está no atual lançamento ioT Plug e Play?
 
 Este artigo resume as ferramentas, SDKs e APIs que suportam a atual versão IoT Plug and Play. Os números de versão mostrados refletem o número da versão no momento em que o IoT Plug e o Play ficaram geralmente disponíveis. Os números da versão podem aumentar após o lançamento.
 
@@ -65,7 +65,7 @@ REST API [2020-09-30](/rest/api/iothub).
 
 Para saber mais, consulte [o guia de desenvolvimento IoT Plug and Play](concepts-developer-guide-service.md).
 
-## <a name="iot-hub"></a>Hub IoT
+## <a name="iot-hub"></a>IoT Hub
 
 IoT Plug and Play é suportado pelo IoT Hub em todas as regiões. IoT Plug and Play só é suportado por hubs IoT standard ou free tier.
 

@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/03/2020
-ms.openlocfilehash: 26154f4501daba373f1f8b108f1ee7105b1b194f
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.date: 11/05/2020
+ms.openlocfilehash: 6dfcf0b2ec1d46821007123908a8e7ba8df29744
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294344"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421775"
 ---
 # <a name="upgrade-your-postgresql-database-using-dump-and-restore"></a>Atualize a sua base de dados PostgreSQL utilizando o despejo e o restauro
 
@@ -81,7 +81,7 @@ Neste método, todo o despejo de base de dados é transmitido diretamente para o
    ```azurecli-interactive
     psql "host=myTargetServer port=5432 dbname=postgres user=myUser password=###### sslmode=mySSLmode"
     ```
-    ```bash
+    ```SQL
     postgres> \l   
     postgres> create database myTargetDB;
    ```

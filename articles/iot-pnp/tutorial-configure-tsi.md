@@ -1,5 +1,5 @@
 ---
-title: Use Time Series Insights para armazenar e analisar a telemetria do seu dispositivo IoT Plug e Play ! Microsoft Docs
+title: Use Time Series Insights para armazenar e analisar a telemetria do seu dispositivo Azure IoT Plug e Play [ Microsoft Docs
 description: Configurar um ambiente de Insights de Séries Tempotamos e ligue o seu Hub IoT para visualizar e analisar a telemetria a partir dos seus dispositivos IoT Plug e Play.
 author: lyrana
 ms.author: lyhughes
@@ -7,12 +7,12 @@ ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 0d4c24ed771b4d112a448ceec0e9fc2f9e8ac359
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: aa99b9059fe8e3cd5b0dfe6f7e62bd02012fd144
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146437"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422268"
 ---
 # <a name="tutorial-create-and-connect-to-time-series-insights-gen2-to-store-visualize-and-analyze-iot-plug-and-play-device-telemetry"></a>Tutorial: Criar e ligar à Série De Tempo Insights Gen2 para armazenar, visualizar e analisar telemetria de dispositivo ioT plug e play
 
@@ -98,7 +98,7 @@ Em seguida, irá traduzir o seu modelo de dispositivo DTDL para o modelo de ativ
 
 ### <a name="define-your-types"></a>Defina os seus tipos
 
-Pode começar a ingerir dados em Azure Time Series Insights Gen2 sem ter um modelo pré-definido. Quando a telemetria chegar, a TSI tentará resolver automaticamente as séries de tempo com base no valor da propriedade de ID TS. Todas as instâncias serão atribuídas ao *Tipo Predefinido* . Terá de criar manualmente um novo Tipo para representar os seus modelos. A imagem abaixo retrata um método simples para sincronizar um modelo DTDL e um Tipo TSM:
+Pode começar a ingerir dados em Azure Time Series Insights Gen2 sem ter um modelo pré-definido. Quando a telemetria chegar, a TSI tentará resolver automaticamente as séries de tempo com base no valor da propriedade de ID TS. Todas as instâncias serão atribuídas ao *Tipo Predefinido*. Terá de criar manualmente um novo Tipo para representar os seus modelos. A imagem abaixo retrata um método simples para sincronizar um modelo DTDL e um Tipo TSM:
 
 ![DTDL para Tipo TSM](./media/tutorial-configure-tsi/DTDL-to-TSM-Type.png)
 
@@ -156,7 +156,7 @@ Deve ver o tipo de termóstato recentemente definido.
 
 Pode, opcionalmente, criar uma hierarquia para organizar os dois componentes do termóstato sob o seu progenitor TemeraptureController.
 
-Clique em *Hierarquias* e *selecione Adicione uma hierarquia* . Insira `Device Fleet` como o nome e crie um nível chamado `Device Name` e, em seguida, clique em *Guardar* .
+Clique em *Hierarquias* e *selecione Adicione uma hierarquia*. Insira `Device Fleet` como o nome e crie um nível chamado `Device Name` e, em seguida, clique em *Guardar*.
 
 ![Adicione uma hierarquia](./media/tutorial-configure-tsi/add-hierarchy.png)
 
@@ -172,7 +172,7 @@ Clique no dropdown do tipo e selecione `Thermostat` .
 
 ![Alterar tipo de instância](./media/tutorial-configure-tsi/change-type.png)
 
-Se criou uma hierarquia, selecione *campos de instância* e verifique a `Device Fleet` caixa. Introduza `Temperature Controller` como valor do seu dispositivo principal e, em seguida, clique em *Guardar* .
+Se criou uma hierarquia, selecione *campos de instância* e verifique a `Device Fleet` caixa. Introduza `Temperature Controller` como valor do seu dispositivo principal e, em seguida, clique em *Guardar*.
 
 ![Atribuir à hierarquia](./media/tutorial-configure-tsi/assign-to-hierarchy.png)
 
@@ -182,7 +182,7 @@ Repita os passos acima para o segundo termóstato.
 
 Navegue de volta para o painel de gráficos e expanda a frota do dispositivo e o Controlador de Temperatura. Clique no termóstato1, selecione a `Temperature` variável e, em seguida, clique em *Adicionar* para traçar o valor. Faça o mesmo com o termostato2.
 
-![Alterar tipo de instância](./media/tutorial-configure-tsi/charting-values.png)
+![Alterar tipo de instância para termóstato2](./media/tutorial-configure-tsi/charting-values.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

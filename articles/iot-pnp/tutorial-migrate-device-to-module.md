@@ -1,18 +1,18 @@
 ---
-title: Ligue um módulo genérico IoT Plug and Play ! Microsoft Docs
-description: Utilize o código do dispositivo IoT Plug e Play da amostra C# num módulo genérico.
+title: Tutorial - Ligue um módulo genérico de Ficha e Reprodução Azure IoT Microsoft Docs
+description: Tutorial - Utilize a amostra C# IoT Plug e o código do dispositivo De reprodução num módulo genérico.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d425152f83821e1d157065370bd02e2d990ec876
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: dc86340026ec7b85afc9e5208ea8ef8c32d8bac6
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426942"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421469"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Ligue um módulo IoT Plug and Play (C#)
 
@@ -37,7 +37,7 @@ Adicione um módulo chamado **meu módulo** ao **meu módulo-dispositivo:**
 
 1. Na ferramenta exploradora Azure IoT, navegue para o dispositivo **do meu módulo.**
 
-1. Selecione **a identidade do módulo**e, em seguida, selecione + **Adicionar**.
+1. Selecione **a identidade do módulo** e, em seguida, selecione + **Adicionar**.
 
 1. Introduza **o meu módulo** como nome de identidade do módulo e selecione **Save**.
 

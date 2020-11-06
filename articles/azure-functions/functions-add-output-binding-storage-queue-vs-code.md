@@ -5,18 +5,18 @@ ms.date: 02/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-js
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 4f4733a52d1d58cbec4413140a613a93c8074188
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b709981e199d63c32426381ba48665402de820ce
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91323435"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422710"
 ---
 # <a name="connect-azure-functions-to-azure-storage-using-visual-studio-code"></a>Ligue as funções Azure ao armazenamento do Azure utilizando o Código do Estúdio Visual
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-Este artigo mostra-lhe como usar o Código do Estúdio Visual para ligar a função que criou no [artigo de arranque rápido anterior](functions-create-first-function-vs-code.md) ao Azure Storage. A vinculação de saída que adiciona a esta função escreve dados do pedido HTTP para uma mensagem numa fila de armazenamento da Fila Azure. 
+Este artigo mostra-lhe como usar o Código do Estúdio Visual para ligar o Azure Storage à função que criou no artigo de arranque rápido anterior. A vinculação de saída que adiciona a esta função escreve dados do pedido HTTP para uma mensagem numa fila de armazenamento da Fila Azure. 
 
 A maioria das ligações requer uma cadeia de ligação armazenada que as funções usam para aceder ao serviço vinculado. Para facilitar, utiliza a conta de Armazenamento que criou com a sua aplicação de função. A ligação a esta conta já está armazenada numa definição de aplicação chamada `AzureWebJobsStorage` .  
 
@@ -32,7 +32,24 @@ Antes de iniciar este artigo, deve cumprir os seguintes requisitos:
 * Instale [as ferramentas .NET Core CLI](/dotnet/core/tools/?tabs=netcore2x).
 ::: zone-end
 
-* Complete os passos na [parte 1 do Quickstart Visual Studio Code](functions-create-first-function-vs-code.md). 
+::: zone pivot="programming-language-csharp"  
+* Complete os passos na [parte 1 do Quickstart Visual Studio Code](create-first-function-vs-code-csharp.md). 
+::: zone-end  
+::: zone pivot="programming-language-javascript"  
+* Complete os passos na [parte 1 do Quickstart Visual Studio Code](create-first-function-vs-code-node.md). 
+::: zone-end   
+::: zone pivot="programming-language-java"  
+* Complete os passos na [parte 1 do Quickstart Visual Studio Code](create-first-function-vs-code-java.md). 
+::: zone-end   
+::: zone pivot="programming-language-typescript"  
+* Complete os passos na [parte 1 do Quickstart Visual Studio Code](create-first-function-vs-code-typescript.md). 
+::: zone-end   
+::: zone pivot="programming-language-python"  
+* Complete os passos na [parte 1 do Quickstart Visual Studio Code](create-first-function-vs-code-python.md). 
+::: zone-end   
+::: zone pivot="programming-language-powershell"  
+* Complete os passos na [parte 1 do Quickstart Visual Studio Code](create-first-function-vs-code-powershell.md). 
+::: zone-end   
 
 Este artigo pressupõe que já assinou a subscrição do Azure do Visual Studio Code. Pode iniciar sôs-se correndo `Azure: Sign In` a partir da paleta de comando. 
 
@@ -165,7 +182,7 @@ Salte esta secção se já tiver instalado o Azure Storage Explorer e ligá-lo �
 
     ![Adicione uma conta Azure ao Microsoft Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-add-account.png)
 
-1. No diálogo **Connect,** escolha **Adicionar uma conta Azure,** escolha o seu **ambiente Azure**e selecione **Iniciar sê-lo...**. 
+1. No diálogo **Connect,** escolha **Adicionar uma conta Azure,** escolha o seu **ambiente Azure** e selecione **Iniciar sê-lo...**. 
 
     ![Inicie sessão na sua conta do Azure](./media/functions-add-output-binding-storage-queue-vs-code/storage-explorer-connect-azure-account.png)
 
@@ -177,7 +194,7 @@ Depois de iniciar seduca na sua conta com sucesso, vê todas as subscrições do
 
 1. Expanda o nó **Filas** nó e, em seguida, selecione a fila com o nome **outqueue**. 
 
-   A fila contém a mensagem que a fila de enlace de saída da fila criou quando executou a função acionada por HTTP. Se invocou a função com o valor predefinido `name` do *Azure*, a mensagem de fila é *Nome transmitido para a função: Azure*.
+   A fila contém a mensagem que a fila de enlace de saída da fila criou quando executou a função acionada por HTTP. Se invocou a função com o valor predefinido `name` do *Azure* , a mensagem de fila é *Nome transmitido para a função: Azure*.
 
     ![Mensagem de fila mostrada no Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
@@ -199,39 +216,48 @@ Agora, é hora de reeditar a aplicação de função atualizada para a Azure.
 
 1. Volte [a ver a mensagem na fila de armazenamento](#examine-the-output-queue) para verificar se a ligação de saída gera novamente uma nova mensagem na fila.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 No Azure, *os recursos* referem-se a apps de função, funções, contas de armazenamento, etc. Estão agrupados em *grupos de recursos,* e podes apagar tudo num grupo, eliminando o grupo.
 
 Criou recursos para concluir estes guias de introdução. Poderá ser-lhe cobrado estes recursos, dependendo do seu [estado da conta](https://azure.microsoft.com/account/) e dos [preços dos serviços](https://azure.microsoft.com/pricing/). Se já não precisar dos recursos, pode eliminá-los da seguinte forma:
 
-[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](../../includes/functions-cleanup-resources-vs-code-inner.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Atualizou a sua função HTTP para escrever dados numa fila de armazenamento. Agora pode aprender mais sobre o desenvolvimento de funções utilizando o Código do Estúdio Visual:
 
 + [Desenvolver funções Azure usando código de estúdio visual](functions-develop-vs-code.md)
+
++ [Funções Azure aciona e encaderna](functions-triggers-bindings.md).
 ::: zone pivot="programming-language-csharp"  
 + [Exemplos de projetos completos de funções em C#](/samples/browse/?products=azure-functions&languages=csharp).
+
 + [Referência do programador Azure Functions C#](functions-dotnet-class-library.md)  
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 + [Exemplos de projetos de função completa no JavaScript.](/samples/browse/?products=azure-functions&languages=javascript)
+
 + [Azure Functions JavaScript guia de desenvolvedores](functions-reference-node.md)  
+::: zone-end  
+::: zone pivot="programming-language-java"  
++ [Exemplos de projetos completos de função em Java.](/samples/browse/?products=azure-functions&languages=java)
+
++ [Guia de desenvolvedores de Java funções Azure Functions](functions-reference-java.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 + [Exemplos de projetos de função completos no TypeScript](/samples/browse/?products=azure-functions&languages=typescript).
+
 + [Guia de desenvolvedores tipo de funções Azure](functions-reference-node.md#typescript)  
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + [Exemplos de projetos completos de funções em Python.](/samples/browse/?products=azure-functions&languages=python)
+
 + [Guia de desenvolvedores de Azure Functions Python](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [Exemplos de projetos de função completos em PowerShell.](/samples/browse/?products=azure-functions&languages=azurepowershell)
+
 + [Guia de desenvolvedores powershell de funções Azure Functions](functions-reference-powershell.md) 
 ::: zone-end
-+ [Funções Azure aciona e encaderna](functions-triggers-bindings.md).
-+ [Página de preços de funções](https://azure.microsoft.com/pricing/details/functions/)
-+ [Estimativa do plano de consumo custa](functions-consumption-costs.md) artigo.

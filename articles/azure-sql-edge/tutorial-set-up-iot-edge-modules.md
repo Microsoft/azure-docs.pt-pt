@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sourabha, sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: a8c5b20f833ab09463e1ae8b5bd3825c7c23f85e
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 75e6ebaea4c5ba883820d2309212b35fed128142
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394935"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422132"
 ---
 # <a name="set-up-iot-edge-modules-and-connections"></a>Configurar módulos e ligações IoT Edge
 
@@ -49,27 +49,30 @@ Agora, especifique as credenciais do recipiente no módulo IoT Edge.
    Nome de Utilizador|Nome de utilizador
    Palavra-passe|Palavra-passe
   
-## <a name="deploy-the-data-generator-module"></a>Implementar o módulo gerador de dados
+## <a name="build-push-and-deploy-the-data-generator-module"></a>Construa, empurre e implemente o Módulo gerador de dados
 
-1. Na secção **IoT Edge,** sob **Gestão Automática de Dispositivos,** clique em **ID do dispositivo**. Para este tutorial, o ID é `IronOrePredictionDevice` e, em seguida, clique em **Definir Módulos**.
-
-2.  Sob a secção **módulos IoT Edge** nos **módulos set no dispositivo:** página, clique **+ ADD** e selecione o **módulo IoT Edge**.
-
-3. Forneça um nome e imagem válidos URI para o módulo IoT Edge.
-   O Image URI pode ser encontrado no registo de contentores no grupo de recursos criado na primeira parte deste tutorial. Selecione a secção **repositórios** em **Serviços**. Para este tutorial, escolha o repositório `silicaprediction` nomeado. Selecione a etiqueta apropriada. O Image URI será do formato:
-
-   *servidor de login da regiessão de* / contentores *nome do repositório* : *nome da etiqueta*
-
-   Por exemplo:
-
+1. Clone os [ficheiros](https://github.com/microsoft/sqlsourabh/tree/main/SQLEdgeSamples/IoTEdgeSamples/IronOreSilica) do projeto para a sua máquina.
+2. Abra o ficheiro **IronOre_Silica_Predict.sln** usando Visual Studio 2019
+3. Atualizar os dados do registo do contentor no **deployment.template.js** 
+   ```json
+   "registryCredentials":{
+        "RegistryName":{
+            "username":"",
+            "password":""
+            "address":""
+        }
+    }
    ```
-   ASEdemocontregistry.azurecr.io/silicaprediction:amd64
+4. Atualizar o **modules.jsno** ficheiro para especificar o registo do contentor-alvo (ou repositório para o módulo)
+   ```json
+   "image":{
+        "repository":"samplerepo.azurecr.io/ironoresilicapercent",
+        "tag":
+    }
    ```
-
-4. Deixe a *Política de Reinício* e os campos *de Estado Desejado* como está.
-
-5. Clique em **Adicionar**.
-
+5. Execute o projeto em modo de depuração ou lançamento para garantir que o projeto funciona sem quaisquer problemas 
+6. Empurre o projeto para o registo do seu contentor clicando com o nome do projeto e selecionando os **Módulos de Borda De IoT .**
+7. Coloque o módulo gerador de dados como um módulo IoT Edge no seu dispositivo Edge. 
 
 ## <a name="deploy-the-azure-sql-edge-module"></a>Implementar o módulo Azure SQL Edge
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: 009018335e57943392b83047702f24890bf714d5
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 825413421bc9025c2912bb790a3166c6e3d34a0f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359617"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421843"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
@@ -117,7 +117,7 @@ Em seguida, determinar onde o modelo será treinado. Pode executar uma experimen
 
     Veja [este bloco de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) para obter um exemplo remoto que utiliza o Azure Machine Learning Managed Compute. 
 
-* Um **cluster Azure Databricks** na sua subscrição Azure. Pode encontrar mais detalhes aqui: [Configurar um cluster do Azure Databricks para ML Automatizado](how-to-configure-environment.md#aml-databricks). Consulte este [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) para ver exemplos de cadernos com Azure Databricks.
+* Um **cluster Azure Databricks** na sua subscrição Azure. Pode encontrar mais detalhes na [Configuração de um cluster Azure Databricks para ML automatizado.](how-to-configure-databricks-automl-environment.md) Consulte este [site do GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) para ver exemplos de cadernos com Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -222,7 +222,7 @@ Em todas as experiências automatizadas de machine learning, os seus dados são 
 
 Ao configurar as suas experiências no `AutoMLConfig` seu objeto, pode ativar/desativar a definição `featurization` . A tabela a seguir mostra as definições aceites para a exibição no [objeto AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). 
 
-|Configuração de exibição | Descrição |
+|Configuração de exibição | Description |
 | ------------- | ------------- |
 |`"featurization": 'auto'`| Indica que, como parte do pré-processamento, [os guarda-dados e as etapas de exibição](how-to-configure-auto-features.md#featurization) são executados automaticamente. **Definição padrão**.|
 |`"featurization": 'off'`| Indica que o passo de exibição não deve ser feito automaticamente.|
@@ -364,7 +364,7 @@ Para obter informações gerais sobre como as explicações dos modelos e a impo
 > [!NOTE]
 > O modelo ForecastTCN não é atualmente suportado pelo Cliente explicação. Este modelo não devolverá um dashboard de explicação se for devolvido como o melhor modelo, e não suporta explicações a pedido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 + Saiba mais sobre [como e onde implementar um modelo.](how-to-deploy-and-where.md)
 

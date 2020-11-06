@@ -1,19 +1,19 @@
 ---
-title: Ligue o código do dispositivo Node.js de componentes IoT Plug e Play Microsoft Docs
-description: Construa e execute a amostra IoT Plug e Play Node.js código do dispositivo que utiliza vários componentes e se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
+title: Tutorial - Ligar ioT plug e reproduzir amostra Node.js código do dispositivo componente ao Azure IoT Hub / Microsoft Docs
+description: Tutorial - Construa e execute a amostra IoT Plug and Play Node.js código do dispositivo que utiliza vários componentes e se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
 author: olivakar
 ms.author: olkar
 ms.date: 07/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 2f0bf3b4b6e7091222b98e1743f0fb4f431fdd12
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: devx-track-js
+ms.openlocfilehash: 70fa10f5319de072ee8ea7dad4e73c58d4bdeede
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736056"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421435"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-nodejs"></a>Tutorial: Ligue uma amostra IoT Plug e jogue a aplicação de vários componentes do dispositivo ao IoT Hub (Node.js)
 
@@ -105,7 +105,7 @@ Abra o ficheiro *pnpTemperatureController.js* num editor de código à sua escol
 
   - Usa `desiredPropertyPatchListener` para ouvir atualizações de propriedade.
 
-  - Desativa todos os ouvintes e tarefas e sai do loop quando pressiona **Q** ou **q** .
+  - Desativa todos os ouvintes e tarefas e sai do loop quando pressiona **Q** ou **q**.
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

@@ -1,6 +1,6 @@
 ---
-title: Interaja com um dispositivo IoT Plug and Play ligado à sua solução Azure IoT (C#) Microsoft Docs
-description: Utilize C# para ligar e interagir com um dispositivo IoT Plug and Play que esteja ligado à sua solução Azure IoT.
+title: Quickstart - Interaja com um dispositivo IoT Plug and Play ligado à sua solução Azure IoT (C#) Microsoft Docs
+description: Quickstart - Use C# para ligar e interagir com um dispositivo IoT Plug and Play que está ligado à sua solução Azure IoT.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 09/21/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: ec38e0849b7f4c1a0ca98d75d4c6c82908c1e16e
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 018edea9a013df55b32ee22020be7226eab27319
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945381"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421554"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-c"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução (C#)
 
@@ -48,7 +48,7 @@ Neste arranque rápido, utilize um dispositivo termóstato de amostra que está 
 
 1. No Estúdio Visual, navegue para **Project > Thermostat Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
@@ -64,7 +64,7 @@ Neste arranque rápido, utilize um dispositivo termóstato de amostra que está 
 
 Em [Configurar o seu ambiente para os quickstarts e tutoriais IoT Plug and Play](set-up-environment.md) criou duas variáveis ambientais para configurar a amostra para ligar ao seu hub e dispositivo IoT:
 
-* **IOTHUB_CONNECTION_STRING**: a cadeia de ligação do hub IoT que fez uma nota anterior.
+* **IOTHUB_CONNECTION_STRING** : a cadeia de ligação do hub IoT que fez uma nota anterior.
 * **IOTHUB_DEVICE_ID:** `"my-pnp-device"` .
 
 Neste arranque rápido, utilize uma solução de IoT de amostra em C# para interagir com o dispositivo de amostra que acabou de configurar.
@@ -73,7 +73,7 @@ Neste arranque rápido, utilize uma solução de IoT de amostra em C# para inter
 
 1. No Estúdio Visual, navegue para **Project > Thermostat Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_ID | my-pnp-dispositivo |
     | IOTHUB_CONNECTION_STRING | O valor que fez notar quando completou [Configurar o seu ambiente](set-up-environment.md) |
@@ -156,7 +156,7 @@ Este código gera a seguinte saída do dispositivo quando o serviço chama o `ge
       Command: MaxMinReport since 21/09/2020 11:25:58: maxTemp=32, minTemp=32, avgTemp=32, startTime=21/09/2020 11:25:59, endTime=21/09/2020 11:26:04
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a ligar um dispositivo IoT Plug e Play a uma solução IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 

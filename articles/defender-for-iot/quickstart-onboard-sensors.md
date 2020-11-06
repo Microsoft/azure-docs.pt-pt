@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: rkarlin
-ms.openlocfilehash: e90bdcfe22828d85ebeeb74314617fc6eac81385
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 28d64f5d9d845c2a14f0277799213501e1d68010
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094861"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421769"
 ---
 # <a name="quickstart-deploy-and-onboard-a-sensor"></a>Quickstart: Implementar e embarcar um sensor
 
@@ -39,7 +39,7 @@ Os sensores de bordo permitem:
 |------ | ----------- |
 | **Definir um nome de sensor** | Nomeie o sensor que está a bordo e associe-o a um Hub IoT ou subscrição.<br /><br />Consulte **os sensores a bordo** para obter mais informações.|
 |**Escolha uma subscrição e número de dispositivos comprometidos**|Selecione uma subscrição e o número de dispositivos abrangidos pela subscrição. Introduza o número em incrementos de 1000.|
-| **Defina um modo de gestão de sensores** | Defina onde o ativo, alerta e outras informações detetadas pelo sensor são apresentados. Isto é determinado com base no **modo de gestão do sensor** que define.<br /><br />**Modo gerido localmente**: A informação detetada pelo sensor é apresentada na consola do sensor. As informações de deteção também são partilhadas com a consola de gestão no local se o sensor estiver ligado à sua.<br /><br />**Modo gerido pela nuvem**: A informação detetada pelo sensor é apresentada na consola do sensor. Além disso, as informações de alerta são entregues através de um Hub IoT e podem ser partilhadas com outros serviços Azure, por exemplo, Azure Sentinel.<br />Consulte **o sensor a bordo** para obter mais informações. |
+| **Defina um modo de gestão de sensores** | Defina onde o ativo, alerta e outras informações detetadas pelo sensor são apresentados. Isto é determinado com base no **modo de gestão do sensor** que define.<br /><br />**Modo gerido localmente** : A informação detetada pelo sensor é apresentada na consola do sensor. As informações de deteção também são partilhadas com a consola de gestão no local se o sensor estiver ligado à sua.<br /><br />**Modo gerido pela nuvem** : A informação detetada pelo sensor é apresentada na consola do sensor. Além disso, as informações de alerta são entregues através de um Hub IoT e podem ser partilhadas com outros serviços Azure, por exemplo, Azure Sentinel.<br />Consulte **o sensor a bordo** para obter mais informações. |
 | **Adquira um ficheiro de ativação de sensores** | Para sensores **geridos localmente,** é utilizado um ficheiro de ativação para gerir períodos de ativação de sensores autorizados.<br /><br />Para os sensores **geridos pela Cloud,** um ficheiro de ativação é utilizado como uma ligação entre o sensor e um Hub IoT. Para mais informações, consulte **os sensores a bordo.** |
 | **Faça o upload de um ficheiro de ativação para o seu sensor** | Os ficheiros de ativação devem ser enviados para os sensores da empresa. A monitorização da rede e o acesso às funcionalidades da consola de sensores não estarão disponíveis até que o ficheiro de ativação seja carregado. Para obter mais informações, consulte **os ficheiros de ativação do sensor upload**. |
 | **Atualizar os parâmetros da rede de sensores antes da ativação** | Atualizar parâmetros definidos durante a instalação do sensor. Para mais informações, consulte **Error! Fonte de referência não encontrada.**|
@@ -57,11 +57,11 @@ Os sensores de bordo permitem:
 
 4. Selecione uma opção para adquirir um sensor.
 
-   ![Azure Defender para a visão do setor da rede IoT](media/updates/image6.png)
+   ![Azure Defender para a visão do sensor de rede IoT](media/updates/image6.png)
 
-  - **Compre um sensor pré-configurado**: A Microsoft e a Arrow têm uma parceria para fornecer sensores pré-configurados. Para adquirir um sensor pré-configurado, contacte a Seta em: <hardware.sales@arrow.com> . O sensor será entregue nas suas instalações. A versão mais atual está instalada.
+  - **Compre um sensor pré-configurado** : A Microsoft e a Arrow têm uma parceria para fornecer sensores pré-configurados. Para adquirir um sensor pré-configurado, contacte a Seta em: <hardware.sales@arrow.com> . O sensor será entregue nas suas instalações. A versão mais atual está instalada.
 
-  - **Traga o seu próprio aparelho (INSTALAÇÃO ISO)**: A solução funciona em aparelhos certificados. Utilize o Guia de Especificações de [Hardware IoT do Azure Defender](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) como referência na compra do seu aparelho certificado.
+  - **Traga o seu próprio aparelho (INSTALAÇÃO ISO)** : A solução funciona em aparelhos certificados. Utilize o Guia de Especificações de [Hardware IoT do Azure Defender](https://aka.ms/AzureDefenderforIoTBareMetalAppliance) como referência na compra do seu aparelho certificado.
 
     - Selecione uma versão do menu **de versão Select.**
 

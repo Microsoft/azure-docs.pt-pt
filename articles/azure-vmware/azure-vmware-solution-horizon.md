@@ -3,12 +3,12 @@ title: Implementar Horizonte na Solução VMware Azure
 description: Saiba como implementar o VMware Horizon na Solução VMware Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321354"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423123"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Implementar Horizonte na Solução VMware Azure 
 
@@ -127,6 +127,18 @@ Os mesmos princípios aplicam-se se implementar duas cápsulas Horizon na mesma 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Solução De Tamanho Azure VMware para implementações horizon 
 
 A metodologia de dimensionamento da Horizon num hospedeiro em execução na Azure VMware Solution é mais simples do que a Horizon no local.  Isto porque o anfitrião Azure VMware Solution está padronizado.  O tamanho exato do hospedeiro ajuda a determinar o número de anfitriões necessários para suportar os seus requisitos de VDI.  É central para determinar o custo por ambiente de trabalho.
+
+### <a name="sizing-tables"></a>Tabelas de dimensionamento
+
+As tabelas mostram as cargas de trabalho comuns para as cargas de trabalho do Trabalhador do Conhecimento de Login VSI e cargas de trabalho do Power Worker.
+
+#### <a name="knowledge-worker-workloads"></a>Cargas de trabalho dos trabalhadores do conhecimento
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Tabela de perfis VDI comuns para VMware Horizon para trabalhos de trabalhadores de login VSI Knowledge" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
+
+#### <a name="power-worker-workloads"></a>Cargas de trabalho dos trabalhadores do poder
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Tabela de perfis VDI comuns para VMware Horizon para trabalhos de trabalhadores vsi power de login" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### <a name="azure-vmware-solution-host-instance"></a>Exemplo de anfitrião da Solução VMware Azure
 

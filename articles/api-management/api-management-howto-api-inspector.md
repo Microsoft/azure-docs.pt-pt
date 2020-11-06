@@ -1,76 +1,86 @@
 ---
-title: Depurar as APIs utilizando o rastreio de pedidos na Gestão de API do Azure | Microsoft Docs
-description: Siga os passos deste tutorial para aprender a inspecionar os passos de processamento de pedidos na Gestão de API do Azure.
+title: Tutorial - Debug APIs in Azure API Management usando rastreio de pedido
+description: Siga os passos deste tutorial para permitir rastrear e inspecionar etapas de processamento de pedidos na Azure API Management.
 services: api-management
 documentationcenter: ''
 author: vladvino
-manager: cfowler
 editor: ''
 ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: fc5e8c7a7aa0d4693d96c3405ec0e180a6d13f8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e9a101de408b506fb5375b5f16c1deff4f67532d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75768537"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422006"
 ---
-# <a name="debug-your-apis-using-request-tracing"></a>Depurar as suas APIs com o rastreio de pedidos
+# <a name="tutorial-debug-your-apis-using-request-tracing"></a>Tutorial: Debug seus APIs usando rastreio de pedido
 
-Este tutorial descreve como inspecionar o processamento de pedidos para ajudá-lo com a depuração e resolução de problemas da API. 
+Este tutorial descreve como inspecionar (rastrear) o processamento de pedidos na Azure API Management para ajudá-lo a depurar e resolver problemas na sua API. 
 
 Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
-> * Rastrear uma chamada
+> * Traçar uma chamada de exemplo
+> * Rever etapas de processamento de pedidos
 
-![Inspetor de API](media/api-management-howto-api-inspector/api-inspector001.PNG)
+:::image type="content" source="media/api-management-howto-api-inspector/api-inspector-001.png" alt-text="Inspetor de API":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conhecer a [terminologia da Gestão de API do Azure](api-management-terminology.md).
 + Conclua o guia de início rápido seguinte: [Criar uma instância da Gestão de API do Azure](get-started-create-service-instance.md).
-+ Conclua também o tutorial seguinte: [Importar e publicar a sua primeira API](import-and-publish.md).
++ Complete o seguinte tutorial: [Importe e publique a sua primeira API.](import-and-publish.md)
+
+## <a name="verify-allow-tracing-setting"></a>Verifique a definição de rastreio de permitir 
+
+A **definição de rastreio de permitir** a subscrição utilizada para a sua API deve ser ativada. Se estiver a utilizar a subscrição incorporada de acesso total, está ativada por padrão. Para verificar no portal, navegue para a sua instância de Gestão de API e selecione **Subscrições.**
+
+   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing.png" alt-text="Permitir rastreio para subscrição":::
 
 ## <a name="trace-a-call"></a>Rastrear uma chamada
 
-![Rastreio da API](media/api-management-howto-api-inspector/06-DebugYourAPIs-01-TraceCall.png)
-
+1. Inscreva-se no [portal Azure](https://portal.azure.com)e navegue para a sua instância de Gestão da API.
 1. Selecione **APIs**.
-2. Clique em **API da Conferência de Demonstração** na lista de API.
-3. Mude para o separador **Teste**.
-4. Selecione a operação **GetSpeakers**.
-5. Certifique-se de que inclui um cabeçalho de HTTP chamado **Ocp-Apim-Trace** com o valor definido para **verdadeiro**.
+1. Selecione API de  **Conferência de Demonstração** da sua lista de API.
+1. Selecione o separador **Teste**.
+1. Selecione a operação **GetSpeakers**.
+1. Confirme que o cabeçalho de pedido HTTP inclui **Ocp-Admin-Trace: Verdadeiro** e um valor válido para **o Ocp-Admin-Subscription-Key**. Se não for, selecione **+ Adicione o cabeçalho** para adicionar o cabeçalho.
+1. Selecione **Enviar** para fazer uma chamada de API.
 
-   > [!NOTE]
-   > * Se Ocp-Apim-Subscription-Key não estiver preenchido automaticamente, pode obtê-lo ao ir ao Portal do Programador e expor as chaves na página de perfil.
-   > * Para obter um rastreio quando o cabeçalho Ocp-Apim-Trace HTTP for utilizado, a definição **de rastreio de permitir** a tecla de subscrição deve ser ativada. Para configurar a **definição de rastreio de permitir,** em **gestão da API** no menu esquerdo, selecione **Subscrições**.
-   >   ![Permitir rastreio no painel de assinaturas de gestão da API](media/api-management-howto-api-inspector/allowtracing.png)
+  :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Configurar o rastreio da API":::
 
-6. Clique **em Enviar** para fazer uma chamada de API. 
-7. Aguarde pela conclusão da chamada. 
-8. Vá para o separador **Rastreio** na **consola API**. Pode clicar em qualquer uma das ligações seguintes para ir para as informações de rastreio de detalhado: **entrada**, **back-end**, **saída**.
+> [!TIP]
+> Se **a chave de subscrição Ocp-Apim não** estiver automaticamente preenchida no pedido HTTP, poderá recuperá-la no portal. Selecione **Subscrições** e abra o menu de contexto **(...** ) para a sua suscriptação. Selecione **as teclas Show/Hide**. Também pode regenerar chaves, se necessário. Em seguida, adicione uma chave ao cabeçalho.
 
-    Na secção **Entrada**, pode ver o pedido original de Gestão de API recebido pelo autor da chamada e todas as políticas aplicadas ao pedido, incluindo as políticas de definição de cabeçalho e de limitação de taxas adicionadas no passo 2.
+## <a name="review-trace-information"></a>Rever informações de vestígios
 
-    Na secção **back-end**, pode ver os pedidos de Gestão de API enviados para o back-end de API e a resposta que recebeu.
+1. Depois de concluída a chamada, aceda ao **separador Trace** na **Resposta HTTP**.
+1. Selecione qualquer uma das seguintes ligações para saltar para informações detalhadas de **rastreá-lo: Entrada,** **Backend,** **Outbound**.
 
-    Na secção **saída**, pode ver todas as políticas aplicadas à resposta antes de devolver ao autor da chamada.
+     :::image type="content" source="media/api-management-howto-api-inspector/response-trace.png" alt-text="Rastreio de resposta de revisão":::
+
+    * **Entrada** - Mostra o pedido original que a API Management recebeu do chamador e as políticas aplicadas ao pedido. Por exemplo, se adicionar políticas em [Tutorial: Transforme e proteja a sua API,](transform-api.md)elas aparecerão aqui.
+
+    * **Backend** - Mostra os pedidos da API Management enviados para o backend da API e a resposta que recebeu.
+
+    * **Saída** - Mostra as políticas aplicadas à resposta antes de enviar de volta para o chamador.
 
     > [!TIP]
     > Cada passo mostra também o tempo decorrido desde que o pedido é recebido através da Gestão de API.
 
+1. No separador **Mensagem,** o cabeçalho **ocp-apim-trace-location** mostra a localização dos dados de vestígios armazenados no armazenamento de blob Azure. Se necessário, vá a este local para recuperar os vestígios.
+
+     :::image type="content" source="media/api-management-howto-api-inspector/response-message.png" alt-text="Localização de vestígios no Armazenamento Azure":::
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
 
 > [!div class="checklist"]
-> * Rastrear uma chamada
+> * Traçar uma chamada de exemplo
+> * Rever etapas de processamento de pedidos
 
 Avance para o tutorial seguinte:
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a668024db126c82f96756555aba513b77f7d7366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89177096"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422965"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Debug PowerShell Azure Funções localmente
 
@@ -38,7 +38,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Esta aplicação de função é semelhante à que obtém quando completa o [arranque rápido powerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+Esta aplicação de função é semelhante à que obtém quando completa o [arranque rápido powerShell](./create-first-function-vs-code-powershell.md).
 
 O código de função `run.ps1` parece o seguinte script:
 
@@ -95,10 +95,10 @@ Com `Wait-Debugger` o lugar, pode agora depurar as funções utilizando o Visual
 Para depurar as suas funções PowerShell no Código do Estúdio Visual, tem de ter as seguintes instaladas:
 
 * [Extensão PowerShell para Código do Estúdio Visual](/powershell/scripting/components/vscode/using-vscode)
-* [Extensão das Funções do Azure para o Visual Studio Code](functions-create-first-function-vs-code.md)
+* [Extensão das Funções do Azure para o Visual Studio Code](./create-first-function-cli-powershell.md)
 * [PowerShell Core 6.2 ou superior](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-Depois de instalar estas dependências, carregue um projeto de Funções PowerShell existente ou [crie o seu primeiro projeto PowerShell Functions](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+Depois de instalar estas dependências, carregue um projeto de Funções PowerShell existente ou [crie o seu primeiro projeto PowerShell Functions](./create-first-function-vs-code-powershell.md).
 
 >[!NOTE]
 > Se o seu projeto não tiver os ficheiros de configuração necessários, é solicitado que os adicione.

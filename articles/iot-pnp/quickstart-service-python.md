@@ -1,6 +1,6 @@
 ---
-title: Interaja com um dispositivo IoT Plug and Play ligado à sua solução Azure IoT (Python) Microsoft Docs
-description: Utilize python para ligar e interagir com um dispositivo IoT Plug and Play que esteja ligado à sua solução Azure IoT.
+title: Quickstart - Interaja com um dispositivo IoT Plug and Play ligado à sua solução Azure IoT (Python) Microsoft Docs
+description: Quickstart - Use Python para ligar e interagir com um dispositivo IoT Plug and Play que está ligado à sua solução Azure IoT.
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 681568c3aee88483c7f9c813529f0eb500a59e93
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741497"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421503"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução (Python)
 

@@ -5,24 +5,27 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/22/2020
-ms.openlocfilehash: 4ab4a64fa395c105ced8e47cdcec019373f7f835
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: 0e9773e5c08f9d07f76a70bc4f899acf5004d3c2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708616"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421814"
 ---
 # <a name="logical-decoding"></a>Descodificação lógica
  
+> [!NOTE]
+> A descodão lógica está em pré-visualização pública na Base de Dados Azure para PostgreSQL - Servidor Único.
+
 [A descodão lógica no PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) permite-lhe transmitir alterações de dados a consumidores externos. A descodão lógica é popularmente usada para streaming de eventos e alterar cenários de captura de dados.
 
-A descodagem lógica utiliza um plugin de saída para converter o registo de escrita de Postgres (WAL) num formato legível. A Azure Database for PostgreSQL fornece os plugins de saída [wal2json,](https://github.com/eulerto/wal2json) [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) e pgoutput. pgoutput é disponibilizado pela Postgres da versão 10 e mais.
+A descodagem lógica utiliza um plugin de saída para converter o registo de escrita de Postgres (WAL) num formato legível. A Azure Database for PostgreSQL fornece os plugins de saída [wal2json,](https://github.com/eulerto/wal2json) [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) e pgoutput. o pgoutput é disponibilizado pela PostgreSQL da versão 10 e mais.
 
 Para uma visão geral de como funciona a descodagem lógica postgres, [visite o nosso blog.](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421) 
 
 > [!NOTE]
-> A descodão lógica está em pré-visualização pública na Base de Dados Azure para PostgreSQL - Servidor Único.
+> A replicação lógica utilizando a publicação/subscrição PostgreSQL não é suportada com base de dados Azure para PostgreSQL - Servidor Único.
 
 
 ## <a name="set-up-your-server"></a>Configurar o seu servidor 
@@ -39,25 +42,29 @@ O servidor precisa de ser reiniciado após uma alteração deste parâmetro. Int
 ### <a name="using-azure-cli"></a>Utilizar a CLI do Azure
 
 1. Desem azure.replication_support para `logical` .
-   ```
+   ```azurecli-interactive
    az postgres server configuration set --resource-group mygroup --server-name myserver --name azure.replication_support --value logical
    ``` 
 
 2. Reinicie o servidor para aplicar a alteração.
-   ```
+   ```azurecli-interactive
    az postgres server restart --resource-group mygroup --name myserver
    ```
+3. Se estiver a executar Postgres 9.5 ou 9.6 e utilizar o acesso à rede pública, adicione a regra de firewall para incluir o endereço IP público do cliente de onde executará a replicação lógica. O nome da regra da firewall deve incluir **_replrule**. Por exemplo, *test_replrule.* Para criar uma nova regra de firewall no servidor, executar o comando [de firewall do servidor az postgres criar.](/cli/azure/postgres/server/firewall-rule) 
 
 ### <a name="using-azure-portal"></a>Com o Portal do Azure
 
-1. Desa parte do suporte de replicação do Azure para **ser lógico**. Selecione **Guardar**.
+1. Desa parte do suporte de replicação do Azure para **ser lógico**. Selecione **Save** (Guardar).
 
    :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Base de Dados Azure para PostgreSQL - Replicação - Suporte de replicação Azure":::
 
 2. Reinicie o servidor para aplicar a alteração selecionando **Sim**.
 
-   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Base de Dados Azure para PostgreSQL - Replicação - Suporte de replicação Azure":::
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Base de Dados Azure para PostgreSQL - Replicação - Confirme o reinício":::
 
+3. Se estiver a executar Postgres 9.5 ou 9.6 e utilizar o acesso à rede pública, adicione a regra de firewall para incluir o endereço IP público do cliente de onde executará a replicação lógica. O nome da regra da firewall deve incluir **_replrule**. Por exemplo, *test_replrule.* Em seguida, clique em **Guardar**.
+
+   :::image type="content" source="./media/concepts-logical/client-replrule-firewall.png" alt-text="Base de Dados Azure para PostgreSQL - Replicação - Adicionar regra de firewall":::
 
 ## <a name="start-logical-decoding"></a>Começar a descodição lógica
 

@@ -1,18 +1,18 @@
 ---
-title: Ligue o código do dispositivo componente IoT Plug e Play C# ao IoT Hub Microsoft Docs
-description: Construa e corra o código do dispositivo IoT Plug e Play, que utiliza vários componentes e se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
+title: Tutorial - Ligar o código do dispositivo componente IoT Plug e Play C# ao Azure IoT Hub [ Microsoft Docs
+description: Tutorial - Construa e execute o código do dispositivo IoT Plug e Play, que utiliza vários componentes e se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 72b85388bf80a6ed2b9617b606940c243c5711f1
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: f7a1aa85c4456bdcf7ed50e42382fc440618ec7d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945537"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421452"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-multiple-component-device-application-running-on-windows-to-iot-hub-c"></a>Tutorial: Ligue uma aplicação de dispositivo ioT plug e play múltiplo componente em execução no Windows ao IoT Hub (C#)
 
@@ -47,7 +47,7 @@ Neste arranque rápido, utilize um dispositivo de controlador de temperatura de 
 
 1. No Estúdio Visual, navegue para **Project > TemperatureController Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |
@@ -134,7 +134,7 @@ Utilize a ferramenta exploradora Azure IoT para visualizar a telemetria e as pro
 
 Também pode utilizar a ferramenta exploradorA Azure IoT para chamar comandos em qualquer um dos dois componentes do termóstato ou no componente predefinido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a ligar um dispositivo IoT Plug and Play com componentes a um hub IoT. Para saber mais sobre os modelos ioT Plug e Play, consulte:
 

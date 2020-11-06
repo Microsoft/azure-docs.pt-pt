@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 76c45e586ea7101015cb878d198cab73ed32498e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d83745db6c720a2fdc2260a07a4e3e66b1a0771d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018251"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422217"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Instale software e crie recursos para o tutorial
 
@@ -23,14 +23,16 @@ Neste tutorial em três partes, você vai criar um modelo de aprendizagem autom�
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/).
-2. Instale [python 3.6.8](https://www.python.org/downloads/release/python-368/).
-      * Utilize o instalador executável Windows x86-x64
-      * Adicione `python.exe` ao ambiente PATH transferências variáveis/). Pode encontrar o download em "Tools For Visual Studio 2019".
-3. Instale [o Controlador Microsoft ODBC 17 para o SQL Server](https://www.microsoft.com/download/details.aspx?id=56567).
-4. Instalar [o Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
-5. Abra o Azure Data Studio e configuure Python para cadernos.Para mais detalhes, consulte [Configure Python para Cadernos.](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks) Este passo pode levar vários minutos.
-6. Instale a versão mais recente do [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Os seguintes scripts exigem que o AZ PowerShell seja a versão mais recente (3.5.0, fev 2020).
-7. Descarregue os ficheiros [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) e [AMD/ARM Docker Image](https://www.docker.com/blog/multi-arch-images/) que serão utilizados no tutorial.
+2. Instalar Visual Studio 2019 com 
+      * Ferramentas Azure IoT Edge
+      * .NET core cross-platform development
+      * Ferramentas de desenvolvimento de contentores
+3. Instalar [o Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
+4. Abra o Azure Data Studio e configuure Python para cadernos. Para mais detalhes, consulte [Configure Python para Cadernos.](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks) Este passo pode levar vários minutos.
+5. Instale a versão mais recente do [Azure CLI](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Os seguintes scripts exigem que o AZ PowerShell seja a versão mais recente (3.5.0, fev 2020).
+6. Confifiquei o ambiente para depurar, executar e testar a solução IoT Edge instalando [a ferramenta Azure IoT EdgeHub Dev Tool](https://pypi.org/project/iotedgehubdev/).
+7. Instale o Docker.
+8. Descarregue o ficheiro [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) que será utilizado no tutorial. 
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>Implementar recursos Azure usando o PowerShell Script
 
@@ -154,26 +156,7 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
    }
    ```
 
-10. Empurre as imagens do estivador ARM/AMD para o registo do contentor.
-
-    ```powershell
-    $containerRegistryCredentials = Get-AzContainerRegistryCredential -ResourceGroupName $ResourceGroup -Name $containerRegistryName
-    
-    $amddockerimageFile = Read-Host "Please Enter the location to the amd docker tar file:"
-    $armdockerimageFile = Read-Host "Please Enter the location to the arm docker tar file:"
-    $amddockertag = $containerRegistry.LoginServer + "/silicaprediction" + ":amd64"
-    $armdockertag = $containerRegistry.LoginServer + "/silicaprediction" + ":arm64"
-    
-    docker login $containerRegistry.LoginServer --username $containerRegistryCredentials.Username --password $containerRegistryCredentials.Password
-    
-    docker import $amddockerimageFile $amddockertag
-    docker push $amddockertag
-    
-    docker import $armdockerimageFile $armdockertag
-    docker push $armdockertag
-    ```
-
-11. Crie o grupo de segurança da rede dentro do grupo de recursos.
+10. Crie o grupo de segurança da rede dentro do grupo de recursos.
 
     ```powershell
     $nsg = Get-AzNetworkSecurityGroup -ResourceGroupName $ResourceGroup -Name $NetworkSecGroup 
@@ -193,7 +176,7 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
     }
     ```
 
-12. Crie uma máquina virtual Azure ativada com SQL Edge. Este VM funcionará como um dispositivo Edge.
+11. Crie uma máquina virtual Azure ativada com SQL Edge. Este VM funcionará como um dispositivo Edge.
 
     ```powershell
     $AzVM = Get-AzVM -ResourceGroupName $ResourceGroup -Name $EdgeDeviceId
@@ -226,7 +209,7 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
     }
     ```
 
-13. Crie um hub IoT dentro do grupo de recursos.
+12. Crie um hub IoT dentro do grupo de recursos.
 
     ```powershell
     $iotHub = Get-AzIotHub -ResourceGroupName $ResourceGroup -Name $IoTHubName
@@ -241,7 +224,7 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
     }
     ```
 
-14. Adicione um dispositivo Edge ao hub IoT. Este passo apenas cria a identidade digital do dispositivo.
+13. Adicione um dispositivo Edge ao hub IoT. Este passo apenas cria a identidade digital do dispositivo.
 
     ```powershell
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
@@ -257,7 +240,7 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
     $deviceIdentity = Get-AzIotHubDevice -ResourceGroupName $ResourceGroup -IotHubName $IoTHubName -DeviceId $EdgeDeviceId
     ```
 
-15. Obtenha a cadeia de ligação primária do dispositivo. Isto será necessário mais tarde para o VM. O seguinte comando utiliza o Azure CLI para implantações.
+14. Obtenha a cadeia de ligação primária do dispositivo. Isto será necessário mais tarde para o VM. O seguinte comando utiliza o Azure CLI para implantações.
 
     ```powershell
     $deviceConnectionString = az iot hub device-identity show-connection-string --device-id $EdgeDeviceId --hub-name $IoTHubName --resource-group $ResourceGroup --subscription $SubscriptionName
@@ -265,18 +248,19 @@ Implemente os recursos Azure exigidos por este tutorial Azure SQL Edge. Estes po
     $connString
     ```
 
-16. Atualize a cadeia de ligação no ficheiro de configuração IoT Edge no dispositivo Edge. Os seguintes comandos utilizam o Azure CLI para implantações.
+15. Atualize a cadeia de ligação no ficheiro de configuração IoT Edge no dispositivo Edge. Os seguintes comandos utilizam o Azure CLI para implantações.
 
     ```powershell
     $script = "/etc/iotedge/configedge.sh '" + $connString + "'"
     az vm run-command invoke -g $ResourceGroup -n $EdgeDeviceId  --command-id RunShellScript --script $script
     ```
 
-17. Crie um espaço de trabalho de aprendizagem automática Azure dentro do grupo de recursos.
+16. Crie um espaço de trabalho de aprendizagem automática Azure dentro do grupo de recursos.
 
     ```powershell
     az ml workspace create -w $MyWorkSpace -g $ResourceGroup
     ```
+
 
 ## <a name="next-steps"></a>Passos Seguintes
 

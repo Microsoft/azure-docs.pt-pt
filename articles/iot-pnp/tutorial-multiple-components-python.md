@@ -1,18 +1,18 @@
 ---
-title: Ligue o código do dispositivo componente IoT Plug e Play Python ao IoT Hub Microsoft Docs
-description: Construa e execute o código do dispositivo IoT Plug e Play Python que utiliza vários componentes e se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
+title: Tutorial - Ligar ioT plug e reproduzir o código do dispositivo componente Python da amostra para O Azure IoT Hub ! Microsoft Docs
+description: Tutorial - Construa e execute o código do dispositivo python de ioT plug e play que utiliza vários componentes e se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 7/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 1b329206dcc41d8f7fcb3874da037f5b57142722
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a4130688d479902f7836ae09c4006bb36fc16d2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91613667"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421401"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-python"></a>Tutorial: Ligue uma amostra IoT Plug e jogue a aplicação de vários componentes do dispositivo ao IoT Hub (Python)
 
@@ -93,7 +93,7 @@ Abra o ficheiro *temp_controller_with_thermostats.py* num editor à sua escolha.
     - Atualiza as propriedades legíveis para os seus componentes chamando `patch_twin_reported_properties` .
 
     - Começa a ouvir pedidos de comando utilizando a `execute_command_listener` função. A função configura um ouvinte para pedidos de comando do serviço. Quando configurar o ouvinte, fornece-se `method_name` `user_command_handler` um, e um opcional `create_user_response_handler` como parâmetros.
-        - O `method_name` define o pedido de comando. Nesta amostra o modelo define o **reboot**de comandos, e **obtém o Relatório DeMaxMin**.
+        - O `method_name` define o pedido de comando. Nesta amostra o modelo define o **reboot** de comandos, e **obtém o Relatório DeMaxMin**.
         - A `user_command_handler` função define o que o dispositivo deve fazer quando recebe um comando.
         - A `create_user_response_handler` função cria uma resposta a ser enviada para o seu hub IoT quando um comando executa com sucesso. Pode ver esta resposta no portal. Se esta função não for fornecida, uma resposta genérica é enviada para o serviço.
 

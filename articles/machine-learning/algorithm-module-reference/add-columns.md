@@ -1,7 +1,7 @@
 ---
 title: 'Adicionar Colunas: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a utilizar o módulo Add Columns em Azure Machine Learning para concatenar dois conjuntos de dados.
+description: Aprenda a utilizar o módulo Add Columns no designer de machine learning Azure para concatenar dois conjuntos de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 17882581c4548996c9a8b2a8670b5f720e64da1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36de827dff239dbeebc66e330a76b7a65fefb909
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899004"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421962"
 ---
 # <a name="add-columns-module"></a>Adicionar módulo de colunas
 
@@ -35,7 +35,7 @@ Utilize este módulo para concatenar dois conjuntos de dados. Combina todas as c
 
 3. Envie o oleoduto.
 
-### <a name="results"></a>Results
+### <a name="results"></a>Resultados
 Depois de ter funcionado o gasoduto:
 
 - Para ver as primeiras linhas do novo conjunto de dados, clique com o botão direito no módulo **Add Columns** e selecione Visualize. Ou selecione o módulo e mude para o **separador Saídas** no painel direito, clique no ícone histograma nas **saídas** da Porta para visualizar o resultado.

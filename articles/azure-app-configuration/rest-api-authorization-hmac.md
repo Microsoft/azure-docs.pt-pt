@@ -1,0 +1,31 @@
+---
+title: Azure App Configuration REST API - Autorização HMAC
+description: Utilize o HMAC para autorização contra a Configuração de Aplicações Azure utilizando a API REST
+author: lisaguthrie
+ms.author: lcozzens
+ms.service: azure-app-configuration
+ms.topic: reference
+ms.date: 08/17/2020
+ms.openlocfilehash: 8d1f8a17f51711cc5c10567797e1224f96eb7630
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.translationtype: MT
+ms.contentlocale: pt-PT
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93424157"
+---
+# <a name="hmac-authorization---rest-api-reference"></a>Autorização HMAC - Referência REST API
+
+Quando a autenticação HMAC é utilizada, as operações enquadram-se numa de duas categorias, ler ou escrever. As chaves de acesso de leitura-escrita concedem permissão para ligar para todas as operações. As chaves de acesso apenas de leitura concedem permissão para ligar apenas para operações de leitura. Se uma chave de acesso é apenas de leitura ou leitura-escrita é determinada pela sua `readOnly` propriedade. Qualquer tentativa de fazer um pedido de escrita com uma chave de acesso apenas de leitura resultará na não autorização do pedido.
+
+## <a name="obtaining-access-keys"></a>Obtenção de chaves de acesso
+
+A especificação que descreve as teclas de acesso e a API utilizada para as obter está detalhada na especificação do fornecedor de recursos de configuração de aplicações Azure [aqui.](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/appconfiguration/resource-manager/Microsoft.AppConfiguration/stable/2019-10-01/appconfiguration.json) As chaves de acesso são obtidas através da operação "ConfigurationStores_ListKeys".
+
+## <a name="errors"></a>Erros
+
+```http
+HTTP/1.1 403 Forbidden
+```
+
+**Razão:** A chave de acesso utilizada para autenticar o pedido não fornece as permissões necessárias para a realização da operação solicitada.
+**Solução:** Obtenha uma chave de acesso que forneça permissão para realizar a operação solicitada e use-a para autenticar o pedido.

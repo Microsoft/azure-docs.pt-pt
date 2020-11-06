@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc, devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: e9bbfd311d6a05d0dd328a63c7d11e14ab0d7e4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca9ce27583168dfee1a597fce559afad38a3a8c7
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069617"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422931"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Tutorial: Aplicar modelos de aprendizagem automática em funções Azure com Python e TensorFlow
 
@@ -133,7 +133,7 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
     func new --name classify --template "HTTP trigger"
     ```
 
-    Este comando cria uma pasta que corresponde ao nome da função, *classifica .* Nessa pasta encontram-se dois ficheiros: * \_ \_ init \_ \_ .py*, que contém o código de função, e *function.jsligados*, que descreve o gatilho da função e as suas ligações de entrada e saída. Para obter mais informações sobre o conteúdo destes ficheiros, consulte [examinar o conteúdo do ficheiro](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) no arranque rápido do Python.
+    Este comando cria uma pasta que corresponde ao nome da função, *classifica .* Nessa pasta encontram-se dois ficheiros: *\_ \_ init \_ \_ .py* , que contém o código de função, e *function.jsligados* , que descreve o gatilho da função e as suas ligações de entrada e saída. Para obter mais informações sobre o conteúdo destes ficheiros, consulte [examinar o conteúdo do ficheiro](./create-first-function-cli-python.md#optional-examine-the-file-contents) no arranque rápido do Python.
 
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente
@@ -214,7 +214,7 @@ Para construir o seu próprio modelo utilizando o nível gratuito do Serviço de
     requests
     ```
     
-1. Salve *requirements.txt. *
+1. Salve *requirements.txt.*
 
 1. Instale as dependências executando o seguinte comando na pasta *inicial.* A instalação pode demorar alguns minutos, durante o qual pode proceder à modificação da função na secção seguinte.
 

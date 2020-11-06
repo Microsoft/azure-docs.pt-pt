@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 148310419ad4f760219003514dbc078b7c675be6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: b57d55e91918ba612ad42acd5e6059ae0dbd0090
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538792"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422455"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral da importação de dados - Azure Cognitive Search
 
@@ -35,7 +35,7 @@ Esta abordagem é mais flexível do que o modelo de extração, pois pode carreg
 Pode utilizar as APIs seguintes para carregar um ou múltiplos documentos para um índice:
 
 + [Adicionar, Atualizar ou Eliminar Documentos (API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Classe indexAction](/dotnet/api/microsoft.azure.search.models.indexaction) ou [classe indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch) 
++ [Classe IndexDocumentsA](/dotnet/api/azure.search.documents.models.indexdocumentsaction) ou [IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) 
 
 Atualmente não existe qualquer suporte de ferramentas para o envio de dados através do portal.
 
@@ -52,7 +52,7 @@ Na API REST, emita http post solicitando aos corpos de pedido json para o URL do
 No .NET SDK, embale os seus dados num `IndexBatch` objeto. Um `IndexBatch` encapsula uma coleção de `IndexAction` objetos, cada um dos quais contém um documento e uma propriedade que diz à Azure Cognitive Search que ação a executar nesse documento. Para um exemplo de código, consulte o [C# Quickstart](search-get-started-dotnet.md).
 
 
-| @search.action | Descrição | Campos necessários para cada documento | Notas |
+| @search.action | Description | Campos necessários para cada documento | Notas |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |Um ação `upload` é semelhante a um "upsert" onde o documento será inserido se for novo e atualizado/substituído se já existir. |chave, juntamente com quaisquer outros campos que pretende definir |Quando atualizar/substituir um documento existente, qualquer campo que não está especificado no pedido terá o respetivo campo definido como `null`. Isto ocorre mesmo quando o campo foi anteriormente definido para um valor não nulo. |
 | `merge` |Atualiza um documento existente com os campos especificados. Se o documento não existe no índice, a intercalação irá falhar. |chave, juntamente com quaisquer outros campos que pretende definir |Qualquer campo que especifique numa intercalação irá substituir o campo existente no documento. No .NET SDK, isto inclui campos de tipo `DataType.Collection(DataType.String)` . Na API REST, isto inclui campos de `Collection(Edm.String)` tipo. Por exemplo, se o documento contém um campo `tags` com o valor `["budget"]` e executar uma intercalação com o valor `["economy", "pool"]` para `tags`, o valor final do campo `tags` será `["economy", "pool"]`. Não será `["budget", "economy", "pool"]`. |
@@ -82,12 +82,11 @@ O modelo de extração pesquisa uma origem de dados suportada e carrega automati
 + [BD do Cosmos para o Azure](search-howto-index-cosmosdb.md)
 + [Base de Dados Azure SQL, SQL Managed Instance e SQL Server em VMs Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
-Os indexadores ligam índices a uma origem de dados (geralmente, uma tabela, vista ou estrutura equivalente) e mapeiam os campos da origem para os campos equivalentes nos índices. Durante a execução, o conjunto de linhas é automaticamente transformado em JSON e carregado para o índice especificado. Todos os indexadores suportam o agendamento, de modo a que possa especificar a frequência com que os dados devem ser atualizados. A maioria dos indexadores disponibilizam o registo de alterações, se as origens de dados o suportarem. Os indexadores, através do registo de alterações e eliminações aos documentos existentes, além do reconhecimento de novos documentos, suprimem a gestão ativa dos dados no índice. 
-
+Os indexadores ligam índices a uma origem de dados (geralmente, uma tabela, vista ou estrutura equivalente) e mapeiam os campos da origem para os campos equivalentes nos índices. Durante a execução, o conjunto de linhas é automaticamente transformado em JSON e carregado para o índice especificado. Todos os indexadores suportam o agendamento, de modo a que possa especificar a frequência com que os dados devem ser atualizados. A maioria dos indexadores disponibilizam o registo de alterações, se as origens de dados o suportarem. Os indexadores, através do registo de alterações e eliminações aos documentos existentes, além do reconhecimento de novos documentos, suprimem a gestão ativa dos dados no índice.
 
 ### <a name="how-to-pull-data-into-an-azure-cognitive-search-index"></a>Como puxar dados para um índice de Pesquisa Cognitiva Azure
 
-A funcionalidade de indexador está exposta no [portal do Azure](search-import-data-portal.md), na [API REST](/rest/api/searchservice/Indexer-operations) e no [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperationsextensions). 
+A funcionalidade de indexador está exposta no [portal do Azure](search-import-data-portal.md), na [API REST](/rest/api/searchservice/Indexer-operations) e no [.NET SDK](/dotnet/api/azure.search.documents.indexes.searchindexerclient).
 
 Uma vantagem para usar o portal é que a Azure Cognitive Search pode normalmente gerar um esquema de índice padrão para si, lendo os metadados do conjunto de dados de origem. Pode modificar o índice gerado até o índice ser processado, após o qual as únicas edições ao esquema permitidas são as que não requerem nova indexação. Se as alterações que quiser fazer influenciarem o esquema diretamente, terá de recriar o índice. 
 
@@ -98,7 +97,7 @@ Uma forma rápida de realizar uma verificação preliminar no upload do document
 > [!TIP]
 > Numerosas amostras de código de [pesquisa cognitiva do Azure](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de dados incorporados ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também disponibiliza um indexador e uma origem de dados de exemplo, que consiste num pequeno conjunto de dados de imobiliário (com o nome “realestate-us-sample"). Quando executam o indexante pré-configurado na fonte de dados da amostra, um índice é criado e carregado com documentos que podem ser consultados no Explorador de Busca ou por código que escreve.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 + [Descrição geral do Indexador](search-indexer-overview.md)
 + [Instruções do portal: criar, carregar e consultar índices](search-get-started-portal.md)

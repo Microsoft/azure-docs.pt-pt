@@ -1,19 +1,19 @@
 ---
-title: Interaja com um dispositivo IoT Plug and Play ligado à sua solução Azure IoT (Node.js) Microsoft Docs
-description: Utilize Node.js para ligar e interagir com um dispositivo IoT Plug and Play que esteja ligado à sua solução Azure IoT.
+title: Quickstart - Interaja com um dispositivo IoT Plug and Play ligado à sua solução Azure IoT (Node.js) Microsoft Docs
+description: Quickstart - Utilize Node.js para ligar e interagir com um dispositivo IoT Plug and Play que esteja ligado à sua solução Azure IoT.
 author: elhorton
 ms.author: elhorton
 ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 9a71a45f69f7a2bd2fbc198292526a6928e421a2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.custom: mvc, devx-track-js
+ms.openlocfilehash: 814221997bc927cf411e531b523d693f3ef5854c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735996"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421520"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-nodejs"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução (Node.js)
 

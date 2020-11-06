@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 5/6/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd96a4e8af5faab618f3302c423675b2dadca79a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a559b8c65ab57b0144b807a3b4cc1faa912d430
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710860"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422744"
 ---
 # <a name="create-and-manage-firewall-rules-in-azure-database-for-postgresql---single-server-using-azure-cli"></a>Criar e gerir regras de firewall na Base de Dados Azure para PostgreSQL - Servidor Único usando Azure CLI
 As regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma Base de Dados Azure para o Servidor PostgreSQL a partir de um endereço IP específico ou intervalo de endereços IP específicos. Utilizando comandos CLI convenientes, pode criar, atualizar, excluir, listar e mostrar regras de firewall para gerir o seu servidor. Para obter uma visão geral das regras de firewall do Azure Database para as regras de firewall postgreSQL, consulte [a Base de Dados Azure para as regras de firewall do Servidor PostgreSQL](concepts-firewall-rules.md).
@@ -40,8 +40,8 @@ az postgres server firewall-rule list --resource-group myresourcegroup --server-
 ## <a name="create-firewall-rule"></a>Criar regra de firewall
 Para criar uma nova regra de firewall no servidor, executar o comando [de firewall do servidor az postgres criar.](/cli/azure/postgres/server/firewall-rule) 
 
-```
-To allow access to a singular IP address, provide the same address in the `--start-ip-address` and `--end-ip-address`, as in this example, replacing the IP shown here with your specific IP.
+
+Para permitir o acesso a um endereço IP singular, forneça o mesmo endereço no `--start-ip-address` `--end-ip-address` e, como neste exemplo, substituindo o IP aqui mostrado pelo seu IP específico.
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myresourcegroup --server-name mydemoserver --name AllowSingleIpAddress --start-ip-address 13.83.152.1 --end-ip-address 13.83.152.1
 ```

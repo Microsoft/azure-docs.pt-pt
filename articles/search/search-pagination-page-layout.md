@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e583cedc04113615c50cc9906cbd11a99ff48683
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934927"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421724"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Como trabalhar com resultados de pesquisa na Azure Cognitive Search
 
 Este artigo explica como obter uma resposta de consulta que volta com uma contagem total de documentos correspondentes, resultados paginados, resultados classificados e termos de sucesso realçados.
 
-A estrutura de uma resposta é determinada por parâmetros na consulta: [Documento de Pesquisa](/rest/api/searchservice/Search-Documents) na API REST, ou Classe [Reulte Deresulto documental](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) no .NET SDK.
+A estrutura de uma resposta é determinada por parâmetros na consulta: [Documento de Pesquisa](/rest/api/searchservice/Search-Documents) na API REST, ou Classe [SearchResults](/dotnet/api/azure.search.documents.models.searchresults-1) no .NET SDK.
 
 ## <a name="result-composition"></a>Composição do resultado
 
@@ -52,7 +52,7 @@ Para devolver um número diferente de documentos correspondentes, adicione `$top
 + Volte a jogar o segundo conjunto, saltando os primeiros 15 para obter os próximos 15: `$top=15&$skip=15` . Faça o mesmo para o terceiro conjunto de 15: `$top=15&$skip=30`
 
 Os resultados das consultas paginadas não são garantidos como estáveis se o índice subjacente estiver a mudar. A paging altera o valor de `$skip` cada página, mas cada consulta é independente e opera na visão atual dos dados tal como existe no índice no momento da consulta (por outras palavras, não há caching ou instantâneo de resultados, como os encontrados numa base de dados para fins gerais).
- 
+ 
 Segue-se um exemplo de como se pode obter duplicados. Assuma um índice com quatro documentos:
 
 ```text
@@ -61,21 +61,21 @@ Segue-se um exemplo de como se pode obter duplicados. Assuma um índice com quat
 { "id": "3", "rating": 2 }
 { "id": "4", "rating": 1 }
 ```
- 
+ 
 Agora assuma que quer resultados devolvidos dois de cada vez, ordenados por classificação. Executaria esta consulta para obter a primeira página de resultados: `$top=2&$skip=0&$orderby=rating desc` , produzindo os seguintes resultados:
 
 ```text
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
- 
+ 
 No serviço, assuma que um quinto documento é adicionado ao índice entre chamadas de consulta: `{ "id": "5", "rating": 4 }` .  Pouco depois, executa-se uma consulta para ir buscar a segunda página: `$top=2&$skip=2&$orderby=rating desc` e obter estes resultados:
 
 ```text
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
- 
+ 
 Note que o documento 2 é recolhido duas vezes. Isto porque o novo documento 5 tem um valor maior para a classificação, por isso classifica antes do documento 2 e aterra na primeira página. Embora este comportamento possa ser inesperado, é típico de como um motor de busca se comporta.
 
 ## <a name="ordering-results"></a>Ordenar resultados
@@ -84,7 +84,7 @@ Para consultas completas de pesquisa de texto, os resultados são automaticament
 
 As pontuações de pesquisa transmitem sentido geral de relevância, refletindo a força da partida em comparação com outros documentos no mesmo conjunto de resultados. As pontuações nem sempre são consistentes de uma consulta para a seguinte, por isso, à medida que trabalha com consultas, poderá notar pequenas discrepâncias na forma como os documentos de pesquisa são encomendados. Há várias explicações para o porquê disto acontecer.
 
-| Causa | Descrição |
+| Causa | Description |
 |-----------|-------------|
 | Volatilidade dos dados | O conteúdo do índice varia à medida que adiciona, modifica ou elimina documentos. As frequências de prazo mudarão à medida que as atualizações de índices forem processadas ao longo do tempo, afetando as pontuações de pesquisa de documentos correspondentes. |
 | Várias réplicas | Para serviços que utilizam réplicas múltiplas, as consultas são emitidas contra cada réplica em paralelo. As estatísticas de índice utilizadas para calcular uma pontuação de pesquisa são calculadas numa base por réplica, com resultados fundidos e encomendados na resposta de consulta. As réplicas são sobretudo espelhos uns dos outros, mas as estatísticas podem diferir devido a pequenas diferenças de estado. Por exemplo, uma réplica poderia ter eliminado documentos que contribuíam para as suas estatísticas, que foram fundidos a partir de outras réplicas. Tipicamente, as diferenças nas estatísticas por réplica são mais percetíveis em índices menores. |

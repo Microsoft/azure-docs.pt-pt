@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 5b9ffdec83fb613b7df0b5a3227ca66c55e54fe9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043111"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422557"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
@@ -20,7 +20,7 @@ Como um Express.js, Node.js ou javaScript developer, se você é novo em Azure F
 
 | Introdução | Conceitos| Aprendizagem guiada |
 | -- | -- | -- | 
-| <ul><li>[Node.js função usando Código de Estúdio Visual](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[Node.js função com o terminal/comando](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guia para programadores](functions-reference.md)</li><li>[Opções de alojamento](functions-scale.md)</li><li>[Funções TypeScript](#typescript)</li><li>[&nbsp;Considerações de desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicações sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js e APIs express a APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js função usando Código de Estúdio Visual](./create-first-function-vs-code-node.md)</li><li>[Node.js função com o terminal/comando](./create-first-function-cli-java.md)</li></ul> | <ul><li>[Guia para programadores](functions-reference.md)</li><li>[Opções de alojamento](functions-scale.md)</li><li>[Funções TypeScript](#typescript)</li><li>[&nbsp;Considerações de desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicações sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js e APIs express a APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Básicos de função JavaScript
 
@@ -107,13 +107,13 @@ No JavaScript, [as ligações](functions-triggers-bindings.md) são configuradas
 
 ### <a name="inputs"></a>Entradas
 A entrada é dividida em duas categorias em Funções Azure: uma é a entrada do gatilho e a outra é a entrada adicional. O gatilho e outras ligações de entrada (encadernações `direction === "in"` de) podem ser lidos por uma função de três maneiras:
- - **_[Recomendado]_ Como parâmetros passados para a sua função.** São passados para a função na mesma ordem em que são definidos em *function.jsem* . A `name` propriedade definida emfunction.js *não* precisa de corresponder ao nome do seu parâmetro, embora deva.
+ - **_[Recomendado]_ Como parâmetros passados para a sua função.** São passados para a função na mesma ordem em que são definidos em *function.jsem*. A `name` propriedade definida emfunction.js *não* precisa de corresponder ao nome do seu parâmetro, embora deva.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Como membros do [`context.bindings`](#contextbindings-property) objeto.** Cada membro é nomeado pela `name` propriedade definida emfunction.js *em* .
+ - **Como membros do [`context.bindings`](#contextbindings-property) objeto.** Cada membro é nomeado pela `name` propriedade definida emfunction.js *em*.
  
    ```javascript
    module.exports = async function(context) { 
@@ -138,7 +138,7 @@ As saídas (encadernações `direction === "out"` de) podem ser escritas por uma
 
 Pode atribuir dados a encadernações de saída de uma das seguintes formas (não combine estes métodos):
 
-- **_[Recomendado para múltiplas saídas]_ Devolvendo um objeto.** Se estiver a utilizar uma função de retorno assínc/Promessa, pode devolver um objeto com dados de saída atribuídos. No exemplo abaixo, as ligações de saída são denominada "httpResponse" e "queueOutput" em *function.jsem* .
+- **_[Recomendado para múltiplas saídas]_ Devolvendo um objeto.** Se estiver a utilizar uma função de retorno assínc/Promessa, pode devolver um objeto com dados de saída atribuídos. No exemplo abaixo, as ligações de saída são denominada "httpResponse" e "queueOutput" em *function.jsem*.
 
   ```javascript
   module.exports = async function(context) {
@@ -358,7 +358,7 @@ Para definir o limiar para todos os vestígios escritos para registos e consola,
 }  
 ```
 
-Valores de **consolaLevel** corresponde aos nomes dos `context.log` métodos. Para desativar todos os vestígios de registo da consola, desative a **consolaLevel** para _desligar_ . Para obter mais informações, consulte [host.jsna referência v1.x](functions-host-json-v1.md).
+Valores de **consolaLevel** corresponde aos nomes dos `context.log` métodos. Para desativar todos os vestígios de registo da consola, desative a **consolaLevel** para _desligar_. Para obter mais informações, consulte [host.jsna referência v1.x](functions-host-json-v1.md).
 
 ---
 
@@ -545,12 +545,12 @@ Existem duas formas de instalar pacotes na sua App de Função:
 ### <a name="using-kudu"></a>Usando Kudu
 1. Aceda a `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Clique **em Debug Console**  >  **CMD** .
+2. Clique **em Debug Console**  >  **CMD**.
 
 3. Vá para `D:\home\site\wwwroot` , e em seguida, arraste o seu package.jsno ficheiro para a pasta **wwwroot** na metade superior da página.  
     Também pode fazer o upload de ficheiros para a sua aplicação de função de outras formas. Para obter mais informações, consulte [Como atualizar ficheiros de aplicações de função.](functions-reference.md#fileupdate) 
 
-4. Depois de o package.jsno ficheiro ser carregado, executa o `npm install` comando na consola de **execução remota kudu** .  
+4. Depois de o package.jsno ficheiro ser carregado, executa o `npm install` comando na consola de **execução remota kudu**.  
     Esta ação descarrega os pacotes indicados no package.jsno ficheiro e reinicia a aplicação de função.
 
 ## <a name="environment-variables"></a>Variáveis de ambiente
@@ -651,7 +651,7 @@ Na versão 1.x, a definição `languageWorkers:node:arguments` não funcionará.
 
 ## <a name="typescript"></a>TypeScript
 
-Quando se destina à versão 2.x do tempo de execução de Funções, tanto as [funções Azure para o Código do Estúdio Visual](functions-create-first-function-vs-code.md) como as [Ferramentas Principais de Funções Azure](functions-run-local.md) permitem criar aplicações de função utilizando um modelo que suporta projetos de aplicações de funções TypeScript. O modelo gera `package.json` e `tsconfig.json` projeta ficheiros que facilitam a transpilagem, execução e publicação de funções JavaScript a partir do código TypeScript com estas ferramentas.
+Quando se destina à versão 2.x do tempo de execução de Funções, tanto as [funções Azure para o Código do Estúdio Visual](./create-first-function-cli-typescript.md) como as [Ferramentas Principais de Funções Azure](functions-run-local.md) permitem criar aplicações de função utilizando um modelo que suporta projetos de aplicações de funções TypeScript. O modelo gera `package.json` e `tsconfig.json` projeta ficheiros que facilitam a transpilagem, execução e publicação de funções JavaScript a partir do código TypeScript com estas ferramentas.
 
 Um ficheiro gerado `.funcignore` é utilizado para indicar quais os ficheiros que são excluídos quando um projeto é publicado no Azure.  
 

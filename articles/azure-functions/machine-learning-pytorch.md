@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/28/2020
 ms.author: gopalv
 ms.custom: devx-track-python, devx-track-azurepowershell
-ms.openlocfilehash: dd8de1b56927e158a181df952ce0dbeed140d6b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8891c29e5d8d06df6292d06ec06e5e57fb9880e7
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078661"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422846"
 ---
 # <a name="tutorial-deploy-a-pre-trained-image-classification-model-to-azure-functions-with-pytorch"></a>Tutorial: Implementar um modelo de classificação de imagem pré-treinado para funções Azure com PyTorch
 
@@ -115,7 +115,7 @@ Em Funções Azure, um projeto de função é um recipiente para uma ou mais fun
     func new --name classify --template "HTTP trigger"
     ```
 
-    Este comando cria uma pasta que corresponde ao nome da função, *classifica .* Nessa pasta encontram-se dois ficheiros: * \_ \_ init \_ \_ .py*, que contém o código de função, e *function.jsligados*, que descreve o gatilho da função e as suas ligações de entrada e saída. Para obter mais informações sobre o conteúdo destes ficheiros, consulte [examinar o conteúdo do ficheiro](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) no arranque rápido do Python.
+    Este comando cria uma pasta que corresponde ao nome da função, *classifica .* Nessa pasta encontram-se dois ficheiros: *\_ \_ init \_ \_ .py* , que contém o código de função, e *function.jsligados* , que descreve o gatilho da função e as suas ligações de entrada e saída. Para obter mais informações sobre o conteúdo destes ficheiros, consulte [examinar o conteúdo do ficheiro](./create-first-function-cli-python.md#optional-examine-the-file-contents) no arranque rápido do Python.
 
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente
@@ -172,7 +172,7 @@ Para modificar a `classify` função para classificar uma imagem com base no seu
     torchvision==0.6.0+cpu
     ```
 
-1. Guarde *requirements.txt, *em seguida, executar o seguinte comando a partir da pasta *de partida* para instalar as dependências.
+1. Guarde *requirements.txt,* em seguida, executar o seguinte comando a partir da pasta *de partida* para instalar as dependências.
 
 
     ```

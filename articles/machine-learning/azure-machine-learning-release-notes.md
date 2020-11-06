@@ -9,18 +9,27 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: a60ca64113bb3f2700e9f521f65780dc8ffbcc54
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 44afcf6883298eb36cd1219e6d60a8444a487412
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307739"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423016"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
 
 Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
+
+## <a name="2020-11-05"></a>2020-11-05
+
+### <a name="data-labeling-for-image-instance-segmentation-polygon-annotation-preview"></a>Rotulagem de dados para segmentação de instância de imagem (anotação de polígono) (pré-visualização)
+
+O tipo de projeto de segmentação de casos de imagem (anotações de polígono) na rotulagem de dados está agora disponível, para que os utilizadores possam desenhar e anotar com polígonos em torno do contorno dos objetos nas imagens. Os utilizadores poderão atribuir uma classe e um polígono a cada objeto que de interesse dentro de uma imagem.
+
+Saiba mais sobre [a rotulagem de segmentação de casos de imagem.](how-to-label-images.md)
+
 
 ## <a name="2020-10-26"></a>2020-10-26
 
@@ -609,7 +618,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
       + Conjuntos de dados como PipelineParameter
       + Novo run_max_retry de parâmetro
       + Nome de ficheiro de saída de saída append_row configurável
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     + Atualize registar a mensagem de exceção e rastrear.
   + **azureml-train-automl-client**
     + Registo melhorado em AutoML
@@ -1913,7 +1922,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + A DBFS Datastore está agora suportada para entradas e saídas em DatabricksStep.
     + Documentação atualizada para o Azure Batch Step no que diz respeito a entradas/saídas.
     + Em AzureBatchStep, alterou *delete_batch_job_after_finish* valor padrão para *verdadeiro*.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     +  Mova os conjuntos de dados azureml-contrib-open para conjuntos de dados abertos azureml.
     + Permitir que as aulas de conjunto de dados abertas sejam registadas no espaço de trabalho Azure Machine Learning e aproveite perfeitamente as capacidades do Conjunto de Dados AML.
     + Melhore o desempenho noaaIsdWeather enriquece significativamente o desempenho na versão não-SPARK.

@@ -1,7 +1,7 @@
 ---
 title: Novidades na gestão de aplicações do Azure Ative Directory
 description: Documentação nova e atualizada para a gestão de aplicações do Azure Ative Directory.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,23 +10,41 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 257057c4688fcf75651df4250c601eb1f1a2e8a3
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428025"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422608"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestão de aplicações do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da documentação de gestão de aplicações do Azure Ative Directory. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de gestão de aplicações, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
+
+## <a name="october-2020"></a>Outubro de 2020
+
+### <a name="new-articles"></a>Artigos novos
+
+- [Gestão de aplicações do Azure Ative Directory: Quais as novidades](whats-new-docs.md)
+- [Compreenda o sign-on único baseado no OIDC](configure-oidc-single-sign-on.md)
+- [Configurar as classificações de permissão](configure-permission-classifications.md)
+- [Configure o consentimento do proprietário do grupo para apps que acedam aos dados do grupo](configure-user-consent-groups.md)
+- [Gerir as políticas de consentimento da aplicação](manage-app-consent-policies.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Problemas de inscrição em aplicações configuradas com base em SAML](application-sign-in-problem-federated-sso-gallery.md)
+- [Problema ao instalar o Conector do Agente do Proxy de Aplicações](application-proxy-connector-installation-problem.md)
+- [Autenticação de aplicações móveis dos Serviços da Federação de Diretórios Ativos para o Diretório Ativo do Azure](migrate-adfs-apps-to-azure.md)
+- [Configurar a forma como os utilizadores finais concedem consentimento às aplicações](configure-user-consent.md)
+
 
 ## <a name="september-2020"></a>Setembro de 2020
 
 ### <a name="new-articles"></a>Artigos novos
 - [Quickstart: Configurar um único sign-on (SSO) baseado no OIDC para uma aplicação no seu inquilino Azure Ative (Azure AD)](add-application-portal-setup-oidc-sso.md)
 - [Quickstart: Atribua os utilizadores a uma app que está a usar o AZure AD como fornecedor de identidade](add-application-portal-assign-users.md)
-- [O que há de novo nos médicos?](whats-new-docs.md)
+- [Novidades no Docs?](whats-new-docs.md)
 
 
 ### <a name="updated-articles"></a>Artigos atualizados

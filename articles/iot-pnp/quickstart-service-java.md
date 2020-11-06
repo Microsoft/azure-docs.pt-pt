@@ -1,6 +1,6 @@
 ---
-title: Interaja com um dispositivo IoT Plug and Play ligado à sua solução Azure IoT (Java) Microsoft Docs
-description: Utilize o Java para ligar e interagir com um dispositivo IoT Plug and Play que esteja ligado à sua solução Azure IoT.
+title: Quickstart - Interaja com um dispositivo IoT Plug and Play ligado à sua solução Azure IoT (Java) Microsoft Docs
+description: Quickstart - Utilize o Java para ligar e interagir com um dispositivo IoT Plug and Play que esteja ligado à sua solução Azure IoT.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 9/17/2020
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: ce41e6b502aef1c44cf96f3b4a5efe401fba3173
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 7229eedc82dfa7b76ae4a22d095f20c41f102e16
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046490"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421537"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-java"></a>Quickstart: Interaja com um dispositivo IoT Plug and Play que está ligado à sua solução (Java)
 
@@ -70,7 +70,7 @@ O dispositivo está agora pronto para receber comandos e atualizações de propr
 
 Em [Configurar o seu ambiente para os quickstarts e tutoriais IoT Plug and Play](set-up-environment.md) criou duas variáveis ambientais para configurar a amostra para ligar ao seu hub e dispositivo IoT:
 
-* **IOTHUB_CONNECTION_STRING**: a cadeia de ligação do hub IoT que fez uma nota anterior.
+* **IOTHUB_CONNECTION_STRING** : a cadeia de ligação do hub IoT que fez uma nota anterior.
 * **IOTHUB_DEVICE_ID:** `"my-pnp-device"` .
 
 Neste arranque rápido, utilize uma solução IoT de amostra escrita em Java para interagir com o dispositivo de amostra que acabou de configurar.

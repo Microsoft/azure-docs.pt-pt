@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108478"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422540"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guia de desenvolvedores powershell de funções Azure Functions
 
@@ -20,7 +20,7 @@ Uma função PowerShell Azure (função) é representada como um script PowerShe
 
 À semelhança de outros tipos de funções, as funções de script PowerShell assumem parâmetros que correspondem aos nomes de todas as ligações de entrada definidas no `function.json` ficheiro. `TriggerMetadata`Também é passado um parâmetro que contém informações adicionais sobre o gatilho que iniciou a função.
 
-Este artigo pressupõe que já leu a referência do [programador Azure Functions](functions-reference.md). Também deve ter concluído o arranque rápido de [Funções para PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) para criar a sua primeira função PowerShell.
+Este artigo pressupõe que já leu a referência do [programador Azure Functions](functions-reference.md). Também deve ter concluído o arranque rápido de [Funções para PowerShell](./create-first-function-vs-code-powershell.md) para criar a sua primeira função PowerShell.
 
 ## <a name="folder-structure"></a>Estrutura de pasta
 
@@ -77,8 +77,8 @@ $TriggerMetadata.sys
 | Propriedade   | Descrição                                     | Tipo     |
 |------------|-------------------------------------------------|----------|
 | UtcNow     | Quando, na UTC, a função foi desencadeada        | DateTime |
-| Nome metóddio | O nome da Função que foi desencadeada     | cadeia   |
-| Rio RandGuid   | um guia único para esta execução da função | cadeia   |
+| Nome metóddio | O nome da Função que foi desencadeada     | string   |
+| Rio RandGuid   | um guia único para esta execução da função | string   |
 
 Cada tipo de gatilho tem um conjunto diferente de metadados. Por exemplo, o `$TriggerMetadata` for contém o , , , , entre `QueueTrigger` `InsertionTime` `Id` `DequeueCount` outras coisas. Para obter mais informações sobre os metadados do gatilho da fila, aceda à [documentação oficial para os gatilhos da fila](functions-bindings-storage-queue-trigger.md#message-metadata). Verifique a documentação dos [gatilhos](functions-triggers-bindings.md) com que está a trabalhar para ver o que vem dentro dos metadados do gatilho.
 
@@ -276,7 +276,7 @@ Existem vários gatilhos e encadernações disponíveis para utilizar com a sua 
 Todos os gatilhos e encadernações são representados em código como alguns tipos reais de dados:
 
 * Haxixe
-* cadeia
+* string
 * byte[]
 * int
 * double
@@ -299,10 +299,10 @@ O objeto de pedido que é passado para o script é do `HttpRequestContext` tipo,
 |-----------|----------------------------------------------------------------|---------------------------|
 | **`Body`**    | Um objeto que contém o corpo do pedido. `Body` é serializado para o melhor tipo com base nos dados. Por exemplo, se os dados são JSON, é passado como um haxixe. Se os dados são uma corda, é passado como uma corda. | objeto |
 | **`Headers`** | Um dicionário que contém os cabeçalhos de pedido.                | Cadeia de<do dicionário,>de cordas <sup>*</sup> |
-| **`Method`** | O método HTTP do pedido.                                | cadeia                    |
+| **`Method`** | O método HTTP do pedido.                                | string                    |
 | **`Params`**  | Um objeto que contém os parâmetros de encaminhamento do pedido. | Cadeia de<do dicionário,>de cordas <sup>*</sup> |
 | **`Query`** | Um objeto que contém os parâmetros de consulta.                  | Cadeia de<do dicionário,>de cordas <sup>*</sup> |
-| **`Url`** | A URL do pedido.                                        | cadeia                    |
+| **`Url`** | A URL do pedido.                                        | string                    |
 
 <sup>*</sup> Todas `Dictionary<string,string>` as chaves são insensíveis.
 
@@ -313,7 +313,7 @@ O objeto de resposta que deve enviar de volta é do `HttpResponseContext` tipo, 
 | Propriedade      | Descrição                                                 | Tipo                      |
 |---------------|-------------------------------------------------------------|---------------------------|
 | **`Body`**  | Um objeto que contém o corpo da resposta.           | objeto                    |
-| **`ContentType`** | Uma mão curta para definir o tipo de conteúdo para a resposta. | cadeia                    |
+| **`ContentType`** | Uma mão curta para definir o tipo de conteúdo para a resposta. | string                    |
 | **`Headers`** | Um objeto que contém os cabeçalhos de resposta.               | Dicionário ou Hashtable   |
 | **`StatusCode`**  | O código de estado HTTP da resposta.                       | corda ou int             |
 
@@ -418,7 +418,7 @@ Utilize os seguintes passos para alterar a versão PowerShell utilizada pela sua
 
 1. No [portal Azure,](https://portal.azure.com)navegue pela sua aplicação de função.
 
-1. Em **Definições**, escolha **Configuração**. No separador **Definições Gerais,** localize a **versão PowerShell**. 
+1. Em **Definições** , escolha **Configuração**. No separador **Definições Gerais,** localize a **versão PowerShell**. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Escolha a versão PowerShell utilizada pela aplicação de função"::: 
 
@@ -525,7 +525,7 @@ Vários módulos são comumente usados pelo trabalhador da língua PowerShell. E
 A lista atual de módulos é a seguinte:
 
 * [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): módulo utilizado para trabalhar com arquivos, `.zip` `.nupkg` como, e outros.
-* **ThreadJob**: Uma implementação baseada em linha das APIs de trabalho powerShell.
+* **ThreadJob** : Uma implementação baseada em linha das APIs de trabalho powerShell.
 
 Por predefinição, as Funções utilizam a versão mais recente destes módulos. Para utilizar uma versão específica do módulo, coloque essa versão específica na `Modules` pasta da sua aplicação de função.
 

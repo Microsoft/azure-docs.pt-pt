@@ -2,25 +2,21 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/28/2020
+ms.date: 10/20/2020
 ms.author: glenga
-ms.openlocfilehash: 0d83f3a92efe7bddcefdeebb5b6d580caf749206
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: af009a3f04f17d9d7e518d2dd02343a8ed54e342
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408593"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93425065"
 ---
-1. No Código do Estúdio Visual, prima <kbd>F1</kbd> para abrir a paleta de comando. Na paleta de comando, procure e selecione `Azure Functions: Open in portal` .
+## <a name="clean-up-resources"></a>Limpar recursos
 
-1. Escolha a sua aplicação de função e prima <kbd>Enter</kbd>. A página de aplicação de função abre no portal Azure.
+Quando continuar até ao [próximo passo](#next-steps) e adicionar uma fila de armazenamento Azure à sua função, terá de manter todos os seus recursos no lugar para se basear no que já fez.
 
-1. No **separador Visão Geral,** selecione o link nomeado ao lado **do grupo De recursos**.
+Caso contrário, pode utilizar os seguintes passos para eliminar a aplicação de função e os seus recursos relacionados para evitar incorrer em custos adicionais.
 
-   :::image type="content" source="./media/functions-cleanup-resources-vs-code/functions-app-delete-resource-group.png" alt-text="Selecione o grupo de recursos a eliminar na página da aplicação de função.":::
+[!INCLUDE [functions-cleanup-resources-vs-code-inner.md](functions-cleanup-resources-vs-code-inner.md)]
 
-1. Na página **Grupo de recursos**, reveja a lista dos recursos incluídos e certifique-se de que são aqueles que pretende eliminar.
- 
-1. Selecione **Eliminar grupo de recursos** e siga as instruções.
-
-   A eliminação pode demorar alguns minutos. Quando terminar, é apresentada uma notificação durante alguns segundos. Também pode selecionar o ícone de sino na parte superior da página para ver a notificação.
+Para saber mais sobre os custos das funções, consulte [os custos do plano de consumo](../articles/azure-functions/functions-consumption-costs.md)estimado.

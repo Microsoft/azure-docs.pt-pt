@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 948e4f74763efd641bc0f089c679cdaf7c2f784e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530073"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423033"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer acesso ao site privado Azure Functions
 
@@ -53,7 +53,7 @@ O primeiro passo neste tutorial é criar uma nova máquina virtual dentro de uma
 
 1. Selecione o botão Criar um botão **de recurso.**
 
-1. No campo de pesquisa, escreva **o Windows Server**e selecione o Windows **Server** nos resultados da pesquisa.
+1. No campo de pesquisa, escreva **o Windows Server** e selecione o Windows **Server** nos resultados da pesquisa.
 
 1. Selecione **o Centro de Dados do Windows Server 2019** a partir da lista de opções do Windows Server e prima o botão **Criar.**
 
@@ -90,7 +90,7 @@ O primeiro passo neste tutorial é criar uma nova máquina virtual dentro de uma
 1. Selecione **OK** para criar a rede virtual.
 1. De volta ao _separador Networking,_ certifique-se de que **nenhum** está selecionado para _IP público_.
 1. Escolha o separador _Gestão_ e, em seguida, na _conta de armazenamento de Diagnóstico,_ escolha Criar **novo** para criar uma nova conta de Armazenamento.
-1. Deixe os valores predefinidos para as secções _Identidade,_ _paragem automática_e _backup._
+1. Deixe os valores predefinidos para as secções _Identidade,_ _paragem automática_ e _backup._
 1. Selecione _Rever + criar_. Após a validação concluída, **selecione Criar**. O processo de criação de VM demora alguns minutos.
 
 ## <a name="configure-azure-bastion"></a>Conigure Bastião Azure
@@ -145,7 +145,7 @@ O próximo passo é criar uma aplicação de função em Azure utilizando o [pla
     | _Região_ | E.U.A. Centro-Norte | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou perto de outros serviços a que as suas funções acedam. |
 
     Selecione o **seguinte: Hospedar >** botão.
-1. Para a secção _de Hospedagem,_ selecione a _conta de armazenamento_adequada, o sistema _operativo_e o _Plano_ conforme descrito na tabela seguinte.
+1. Para a secção _de Hospedagem,_ selecione a _conta de armazenamento_ adequada, o sistema _operativo_ e o _Plano_ conforme descrito na tabela seguinte.
 
     | Definição      | Valor sugerido  | Descrição      |
     | ------------ | ---------------- | ---------------- |
@@ -165,7 +165,7 @@ O próximo passo é configurar restrições de acesso para garantir que [apenas]
 1. A página _de Networking_ é o ponto de partida para configurar a Porta frontal Azure, o Azure CDN, e também restrições de acesso.
 1. Selecione **Configurar restrições** de acesso para configurar o acesso ao site privado.
 1. Na página _'Restrições de Acesso',_ vê apenas a restrição por defeito no lugar. O padrão não coloca quaisquer restrições no acesso à aplicação de função.  **Selecione Adicionar regra** para criar uma configuração de restrição de acesso ao site privado.
-1. No painel _de restrição_ de acesso de adicionar, forneça um _nome,_ _prioridade_e _descrição_ para a nova regra.
+1. No painel _de restrição_ de acesso de adicionar, forneça um _nome,_ _prioridade_ e _descrição_ para a nova regra.
 1. Selecione **a Rede Virtual** a partir da caixa drop-down _tipo,_ em seguida, selecione a rede virtual previamente criada e, em seguida, selecione a sub-rede **Tutorial.** 
     > [!NOTE]
     > Pode levar vários minutos para ativar o ponto de terminação do serviço.
@@ -185,7 +185,7 @@ O próximo passo é configurar restrições de acesso para garantir que [apenas]
 1. Volte ao grupo de recursos e selecione a máquina virtual previamente criada. Para aceder ao site a partir do VM, é necessário ligar-se ao VM através do serviço Azure Bastion.
 1. Selecione **Connect** e, em seguida, escolha **Bastion**.
 1. Forneça o nome de utilizador e a palavra-passe necessários para iniciar sessão na máquina virtual.
-1. Selecione **Ligar**. Uma nova janela do navegador irá aparecer para que possa interagir com a máquina virtual.
+1. Selecione **Connect** (Ligar). Uma nova janela do navegador irá aparecer para que possa interagir com a máquina virtual.
 É possível aceder ao site a partir do navegador web no VM porque o VM está a aceder ao site através da rede virtual.  Enquanto o site só está acessível a partir da rede virtual designada, permanece uma entrada pública de DNS.
 
 ## <a name="create-a-function"></a>Criar uma função
@@ -197,7 +197,7 @@ O próximo passo neste tutorial é criar uma Função Azure acionada por HTTP. I
     * [Visual Studio Code](./functions-create-first-function-vs-code.md)
     * [Visual Studio](./functions-create-your-first-function-visual-studio.md)
     * [Linha de comandos](./functions-create-first-azure-function-azure-cli.md)
-    * [Maven (Java)](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java&tabs=bash,browser)
+    * [Maven (Java)](./create-first-function-cli-java.md?tabs=bash,browser)
 
 1. Ao publicar o seu projeto Azure Functions, escolha o recurso de aplicação de função que criou anteriormente neste tutorial.
 1. Verifique se a função está implantada.

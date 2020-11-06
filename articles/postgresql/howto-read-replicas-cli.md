@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 11/05/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2fa8794066739302d2f32acb13c936c524dc89a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489715"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422353"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Criar e gerir réplicas de leitura do Azure CLI, REST API
 
@@ -27,7 +27,9 @@ Para configurar o nível certo de registo, utilize o parâmetro de suporte de re
 * **Réplica** - Mais verboso do que **desligado**. Este é o nível mínimo de exploração madeireira necessário para [que as réplicas de leitura](concepts-read-replicas.md) funcionem. Esta definição é o padrão na maioria dos servidores.
 * **Lógico** - Mais verboso do que **réplica.** Este é o nível mínimo de exploração madeireira para a descodão lógica para funcionar. As réplicas de leitura também funcionam neste cenário.
 
-O servidor precisa de ser reiniciado após uma alteração deste parâmetro. Internamente, este parâmetro define os parâmetros postgres, `wal_level` `max_replication_slots` e `max_wal_senders` .
+
+> [!NOTE]
+> Ao implementar réplicas de leitura para cargas primárias intensivas persistentes, o lag de replicação pode continuar a crescer e pode nunca ser capaz de recuperar com as primárias. Isto também pode aumentar o uso de armazenamento na primária, uma vez que os ficheiros WAL não são eliminados até que sejam recebidos na réplica.
 
 ## <a name="azure-cli"></a>CLI do Azure
 Pode criar e gerir réplicas de leitura utilizando o Azure CLI.
@@ -62,7 +64,7 @@ Pode criar e gerir réplicas de leitura utilizando o Azure CLI.
 
 A [réplica do servidor az postgres criar](/cli/azure/postgres/server/replica#az-postgres-server-replica-create) o comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Descrição  |
+| Definição | Valor de exemplo | Description  |
 | --- | --- | --- |
 | resource-group | myResourceGroup |  O grupo de recursos onde o servidor de réplica será criado.  |
 | name | réplica mydemoserver | O nome do novo servidor de réplica que é criado. |

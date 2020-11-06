@@ -1,18 +1,18 @@
 ---
-title: Ligue o código do dispositivo IoT Plug e Play C# ao IoT Hub Microsoft Docs
-description: Construa e execute o código do dispositivo de amostra IoT Plug e Play no Windows que se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
+title: Quickstart - Connect IoT Plug and Play sample C# device code to Azure IoT Hub [ Connect IoT Plug and Play sample C# device code to Azure IoT Hub ] Microsoft Docs
+description: Quickstart - Construa e execute o código do dispositivo de amostra IoT Plug e Play no Windows que se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: da1ac77ad2716abf964c835634d049895fe88654
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 01e87b08f8d0abcf3659e0d7bfe081fd3516ff08
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044552"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421622"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-windows-to-iot-hub-c"></a>Quickstart: Conecte uma aplicação de dispositivo IoT Plug e Play de amostra que está a decorrer no Windows ao IoT Hub (C#)
 
@@ -47,7 +47,7 @@ Agora pode construir a amostra no Visual Studio e executá-la em modo de depurar
 
 1. No Estúdio Visual, navegue para **Project > Thermostat Properties > Debug**. Em seguida, adicione as seguintes variáveis ambientais ao projeto:
 
-    | Nome | Valor |
+    | Name | Valor |
     | ---- | ----- |
     | IOTHUB_DEVICE_SECURITY_TYPE | DPS |
     | IOTHUB_DEVICE_DPS_ENDPOINT | global.azure-devices-provisioning.net |

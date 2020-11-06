@@ -1,18 +1,18 @@
 ---
-title: Ligue o código do dispositivo IoT Plug e Play À IoT Hub Microsoft Docs
-description: Construa e execute o código do dispositivo de amostra IoT Plug e Play no Linux ou Windows que se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
+title: Quickstart - Connect IoT Plug and Play sample C device code to Azure IoT Hub [ Connect IoT Plug and Play device code to Azure IoT Hub ] Microsoft Docs
+description: Quickstart - Construa e execute o código do dispositivo de amostra IoT Plug e Play no Linux ou Windows que se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
 author: ericmitt
 ms.author: ericmitt
 ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: e490171fd533783aab9fd44798a9c81c55faf89f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: d69eca10a3ee19919d7cd9e748486e30db95e749
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047935"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421673"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Quickstart: Ligue uma aplicação de dispositivo IoT Plug e Play de amostra em execução no Linux ou Windows ao IoT Hub (C)
 

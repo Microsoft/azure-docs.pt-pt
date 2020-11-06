@@ -1,6 +1,6 @@
 ---
 title: Gerir instantâneos utilizando ficheiros Azure NetApp Microsoft Docs
-description: Descreve como criar e gerir instantâneos utilizando ficheiros Azure NetApp.
+description: Descreve como criar, gerir e utilizar instantâneos utilizando ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 11/05/2020
 ms.author: b-juche
-ms.openlocfilehash: e9f2a1f9125d25caa9506e954cab3b94dfcb5c24
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932282"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421884"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
-O Azure NetApp Files suporta a criação de instantâneos a pedido e a utilização de políticas instantâneas para agendar a criação automática de instantâneos.  Também pode restaurar uma imagem instantânea para um novo volume ou restaurar um único ficheiro utilizando um cliente.  
+O Azure NetApp Files suporta a criação de instantâneos a pedido e a utilização de políticas instantâneas para agendar a criação automática de instantâneos. Também pode restaurar uma imagem instantânea para um novo volume, restaurar um único ficheiro utilizando um cliente, ou reverter um volume existente utilizando um instantâneo.
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Crie um instantâneo a pedido para um volume
 
@@ -49,7 +49,7 @@ Pode agendar as imagens de volume a serem tomadas automaticamente utilizando pol
 
 ### <a name="register-the-feature"></a>Registar a funcionalidade
 
-A funcionalidade **de política instantânea** está atualmente em pré-visualização. Se estiver a utilizar esta funcionalidade pela primeira vez, tem de registar a funcionalidade primeiro. 
+A funcionalidade **de política instantânea** está atualmente em pré-visualização. Se estiver a utilizar esta funcionalidade pela primeira vez, deverá registar a funcionalidade primeiro. 
 
 1. Registar a função: 
 
@@ -77,7 +77,7 @@ Uma política instantânea permite especificar a frequência de criação instan
 
 2.  Na janela Snapshot Policy, desapeiça o Estado de Política **para Ativar**. 
 
-3.  Clique no separador **Hourly,** **Daily,** **Weekly**ou **Monthly** para criar políticas de instantâneos horárias, diárias, semanais ou mensais. Especificar o **número de instantâneos para manter**.  
+3.  Clique no separador **Hourly,** **Daily,** **Weekly** ou **Monthly** para criar políticas de instantâneos horárias, diárias, semanais ou mensais. Especificar o **número de instantâneos para manter**.  
 
     Consulte [os limites de recursos para ficheiros Azure NetApp](azure-netapp-files-resource-limits.md) sobre o número máximo de instantâneos permitidos para um volume. 
 
@@ -218,6 +218,37 @@ Se selecionou a caixa de verificação Hide Snapshot Path quando criou o volume,
 4. Também pode clicar à direita no diretório dos pais, selecionar **Propriedades,** clicar no separador **Versões Anteriores** para ver a lista de instantâneos e selecione **Restaurar** um ficheiro.  
 
     ![Propriedades Versões anteriores](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
+## <a name="revert-a-volume-using-snapshot-revert"></a>Reverta um volume usando instantâneo reverter
+
+A funcionalidade de reverte instantânea permite-lhe reverter rapidamente um volume para o estado em que estava quando uma determinada imagem foi tirada. Na maioria dos casos, reverter um volume é muito mais rápido do que restaurar ficheiros individuais de uma imagem para o sistema de ficheiros ativos. É também mais eficiente em termos de espaço em comparação com restaurar um instantâneo para um novo volume. 
+
+Pode encontrar a opção Revert Volume no menu Snapshots de um volume. Depois de selecionar uma fotografia para a reversão, o Azure NetApp Files reverte o volume para os dados e os bicos de tempo que continha quando a fotografia selecionada foi tirada. 
+
+> [!IMPORTANT]
+> Os dados ativos do sistema de ficheiros e as imagens que foram tiradas após a fotografia selecionada serão perdidos. A operação snapshot reverte substituirá *todos os* dados do volume direcionado com os dados na imagem selecionada. Deve prestar atenção ao conteúdo instantâneo e à data de criação quando selecionar uma fotografia. Não pode desfazer a operação do instantâneo.
+
+1. Aceda ao menu **Snapshots** de um volume.  Clique com o botão direito na imagem que pretende utilizar para a operação reverter. Selecione **o volume reverter**. 
+
+    ![Screenshot que descreve o menu de clique direito de um instantâneo](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. Na janela Revert Volume para Snapshot, digite o nome do volume e clique em **Reverter**.   
+
+    O volume é agora restaurado ao ponto no tempo do instantâneo selecionado.
+
+    ![Screenshot que o volume reverte para a janela instantânea](../media/azure-netapp-files/snapshot-revert-volume.png) 
+
+## <a name="delete-snapshots"></a>Eliminar instantâneos  
+
+Pode apagar imagens que já não precisa de guardar. 
+
+1. Aceda ao menu **Snapshots** de um volume. Clique com o botão direito na imagem que pretende eliminar. Selecione **Eliminar**.
+
+    ![Screenshot que descreve o menu de clique direito de um instantâneo](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. Na janela Delete Snapshot, confirme que pretende eliminar a imagem clicando em **Sim**. 
+
+    ![Screenshot que confirma a eliminação de instantâneos](../media/azure-netapp-files/snapshot-confirm-delete.png)  
 
 ## <a name="next-steps"></a>Passos seguintes
 
