@@ -14,6 +14,7 @@
     - name: Notas de versão
       href: release-notes.md
 - name: Guias de Início Rápido
+  expanded: true
   items:
     - name: Introdução
       href: get-started.md
@@ -170,7 +171,9 @@
           href: sql/overview-features.md
         - name: Modelos de consumo de recursos
           href: sql/resource-consumption-models.md
-        - name: Melhores práticas do conjunto de SQL sem servidor
+        - name: Dados processados
+          href: sql/data-processed.md
+        - name: Melhores práticas de SQL a pedido
           href: sql/best-practices-sql-on-demand.md
         - name: Melhores práticas dos conjuntos de SQL dedicados
           href: sql/best-practices-sql-pool.md

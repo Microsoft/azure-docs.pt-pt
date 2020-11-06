@@ -29,6 +29,9 @@
     - name: Mitigar danos em bases de dados
       href: how-to-fix-corrupt-database.md
       displayName: corrupt data
+    - name: Versioning policy (Política de versões)
+      href: concepts-version-policy.md
+      displayName: version policy
 - name: Servidor Único
   expanded: true
   items:

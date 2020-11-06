@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: d9f08f99b6b8d945243b78cc208a3432e43108b7
-  ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+  ms.openlocfilehash: be59fa95c92fc5913360b967a338ef108946dd02
+  ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/15/2020
-  ms.locfileid: "92074758"
+  ms.lasthandoff: 11/06/2020
+  ms.locfileid: "93422285"
 landingContent:
 - title: Sobre a Configuração da Aplicação Azure
   linkLists:
@@ -143,4 +143,4 @@ landingContent:
     - text: SDK do Azure para JavaScript
       url: https://go.microsoft.com/fwlink/?linkid=2103664
     - text: REST
-      url: https://go.microsoft.com/fwlink/?linkid=2078296
+      url: rest-api.md

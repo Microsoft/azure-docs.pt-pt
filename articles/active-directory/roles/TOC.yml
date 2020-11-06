@@ -11,14 +11,14 @@
 - name: Tutoriais
   items:
     - name: Criar um grupo dinâmico
-      href: /azure/active-directory/enterprise-users/users-revoke-access
+      href: ../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Conceitos
   expanded: true
   items:
     - name: Delegar funções de administrador do Azure AD
       href: concept-delegation.md
     - name: Comparar as permissões predefinidas de utilizador
-      href: /azure/active-directory/fundamentals/users-default-permissions
+      href: ../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Comprar as funções do Azure e Azure AD
       href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
     - name: Compreender as unidades administrativas no Azure AD
@@ -29,15 +29,15 @@
     - name: Utilizadores e funções
       items:
         - name: Atribuir utilizadores a funções de administrador
-          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Revogar o acesso de um utilizador
-          href: /azure/active-directory/enterprise-users/users-revoke-access
+          href: ../enterprise-users/users-revoke-access.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Atribuir uma função ao utilizador convidado
-          href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/roles/context/ugr-context
+          href: ../b2b/add-guest-to-role.md?context=azure/active-directory/roles/context/ugr-context
         - name: Restringir o acesso do utilizador convidado
-          href: /azure/active-directory/enterprise-users/users-restrict-guest-permissions?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
+          href: ../enterprise-users/users-restrict-guest-permissions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Grupos dinâmicos e convidados
-          href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/roles/context/ugr-context
+          href: ../b2b/use-dynamic-groups.md?context=azure/active-directory/roles/context/ugr-context
     - name: Funções e permissões
       expanded: true
       items:
@@ -57,7 +57,7 @@
         - name: Ver atribuições de funções personalizadas
           href: custom-view-assignments.md
         - name: Atribuir funções personalizadas no portal do Azure
-          href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal
+          href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
         - name: Atribuir funções personalizadas no PowerShell
           href: custom-assign-powershell.md
         - name: Atribuir funções personalizadas para aplicações empresariais
@@ -111,7 +111,7 @@
     - name: Resolução de problemas
       items:
         - name: Obter suporte para o Azure AD
-          href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto
+          href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context
 - name: Referência
   items:
     - name: Funções com menores privilégios por função
@@ -125,4 +125,4 @@
     - name: Azure AD PowerShell para Graph
       href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
     - name: Limites do serviço do Azure AD
-      href: /azure/active-directory/enterprise-users/directory-service-limits-restrictions
+      href: ../enterprise-users/directory-service-limits-restrictions.md?context=azure%2factive-directory%2froles%2fcontext%2fugr-context

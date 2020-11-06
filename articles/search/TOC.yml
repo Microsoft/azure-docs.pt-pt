@@ -34,7 +34,7 @@
       href: search-get-started-java.md
     - name: JavaScript
       href: search-get-started-javascript.md
-    - name: Postman
+    - name: REST
       href: search-get-started-postman.md
     - name: PowerShell
       href: search-get-started-powershell.md
@@ -94,6 +94,8 @@
   items:
     - name: Pesquisa em texto completo
       href: search-lucene-query-architecture.md
+    - name: Classificação de relevância
+      href: index-similarity-and-scoring.md
     - name: Indexadores
       href: search-indexer-overview.md
     - name: Melhoramento de IA
@@ -294,8 +296,6 @@
       items:
         - name: Trabalhar com os resultados
           href: search-pagination-page-layout.md
-        - name: Classificação de relevância
-          href: index-similarity-and-scoring.md
         - name: Perfis de classificação
           href: index-add-scoring-profiles.md
         - name: Algoritmo de semelhança
