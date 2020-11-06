@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 285c3bf37e9d6de042cb028745fc8b094d34c3a1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284410"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93406639"
 ---
 Os erros levantados numa Função Azure podem vir de qualquer uma das seguintes origens:
 
@@ -23,15 +23,15 @@ Seguir boas práticas de manuseamento de erros é importante evitar a perda de d
 - [Ativar o Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Utilizar o tratamento de erros estruturados](#use-structured-error-handling)
 - [Design para idempotency](../articles/azure-functions/functions-idempotent.md)
-- [Implementar políticas de reecaçação](#retry-policies) (se for caso disso)
+- [Implementar políticas de reecaçação](#retry-policies-preview) (se for caso disso)
 
 ### <a name="use-structured-error-handling"></a>Utilizar o tratamento de erros estruturados
 
 Capturar e registar erros é fundamental para monitorizar a saúde da sua aplicação. O nível mais alto de qualquer código de função deve incluir um bloco de tentativa/captura. No bloco de captura, pode capturar e registar erros.
 
-## <a name="retry-policies"></a>Políticas de retíria
+## <a name="retry-policies-preview"></a>Políticas de retíria (pré-visualização)
 
-Uma política de repetição pode ser definida em qualquer função para qualquer tipo de gatilho na sua aplicação de função.  A política de re-tentativa re-executa uma função até que a execução seja bem sucedida ou até que ocorra o número máximo de retrações.  As políticas de relícuro podem ser definidas para todas as funções numa aplicação ou para funções individuais.  Por predefinição, uma aplicação de função não recandidulará mensagens (para além dos [gatilhos específicos que têm uma política de repetição na fonte de gatilho).](#trigger-specific-retry-support)  Uma política de repetição é avaliada sempre que uma execução resulta numa exceção não conseguida.  Como uma boa prática, deve pegar todas as exceções no seu código e relançar quaisquer erros que devam resultar numa nova corrida.  Os pontos de verificação de Eventos Hubs e Azure Cosmos DB não serão escritos até que a política de reagem para a execução esteja concluída, o que significa que a progressão nessa partição é interrompida até que o lote atual esteja concluído.
+Uma política de repetição pode ser definida em qualquer função para qualquer tipo de gatilho na sua aplicação de função.  A política de re-tentativa re-executa uma função até que a execução seja bem sucedida ou até que ocorra o número máximo de retrações.  As políticas de relícuro podem ser definidas para todas as funções numa aplicação ou para funções individuais.  Por predefinição, uma aplicação de função não recandidulará mensagens (para além dos [gatilhos específicos que têm uma política de repetição na fonte de gatilho).](#using-retry-support-on-top-of-trigger-resilience)  Uma política de repetição é avaliada sempre que uma execução resulta numa exceção não conseguida.  Como uma boa prática, deve pegar todas as exceções no seu código e relançar quaisquer erros que devam resultar numa nova corrida.  Os pontos de verificação de Eventos Hubs e Azure Cosmos DB não serão escritos até que a política de reagem para a execução esteja concluída, o que significa que a progressão nessa partição é interrompida até que o lote atual esteja concluído.
 
 ### <a name="retry-policy-options"></a>Redatar opções políticas
 
@@ -57,6 +57,8 @@ Uma política de relícuro pode ser definida para uma função específica.  A c
 #### <a name="fixed-delay-retry"></a>Redação de atraso fixo
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+As retrações requerem pacote NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
 ```csharp
 [FunctionName("EventHubTrigger")]
@@ -152,6 +154,8 @@ Aqui está a política de repetição no *function.jsarquivado:*
 #### <a name="exponential-backoff-retry"></a>Relemisso de recuo exponencial
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+As retrações requerem pacote NuGet [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
 ```csharp
 [FunctionName("EventHubTrigger")]
@@ -255,12 +259,27 @@ Aqui está a política de repetição no *function.jsarquivado:*
 |mínimoInterval|n/a|O mínimo de atraso na utilização da `exponentialBackoff` estratégia.|
 |máximoInterval|n/a|O máximo de atraso na utilização da `exponentialBackoff` estratégia.| 
 
-## <a name="trigger-specific-retry-support"></a>Suporte de retíria específico do gatilho
+### <a name="retry-limitations-during-preview"></a>Redaçar limitações durante a pré-visualização
 
-Alguns gatilhos fornecem recauchutagens na fonte do gatilho.  Estas recauchuções de gatilho podem ser usadas para além ou como um substituto para a política de relagem do anfitrião da aplicação de função.  Se desejar um número fixo de retretes, deve utilizar a política de repetição específica do gatilho sobre a política genérica de repetição do hospedeiro.  Os seguintes aciona as recauchutagens de suporte na fonte do gatilho:
+- Para projetos .NET, poderá ser necessário introduzir manualmente uma versão do [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23.
+- No plano de consumo, a aplicação pode ser reduzida a zero enquanto relemissa as mensagens finais numa fila.
+- No plano de consumo, a aplicação pode ser reduzida enquanto executa as retrósmas.  Para obter os melhores resultados, escolha um intervalo de repetição <= 00:01:00 e <= 5 retrírias.
+
+## <a name="using-retry-support-on-top-of-trigger-resilience"></a>Usando o suporte de retíria em cima da resiliência do gatilho
+
+A política de relagem da aplicação de função é independente de qualquer retrete ou resiliência que o gatilho fornece.  A política de relemissão da função só irá camada em cima de uma repetição resiliente do gatilho.  Por exemplo, se utilizar o Azure Service Bus, por predefinição as filas têm uma contagem de entrega de mensagens de 10.  A contagem de entrega por defeito significa que após 10 tentativas de entrega de uma mensagem de fila, a Service Bus irá enviar a mensagem.  Pode definir uma política de repetição para uma função que tenha um gatilho de Service Bus, mas as retrações irão colocar-se em cima das tentativas de entrega do Service Bus.  
+
+Por exemplo, se usou a contagem de entregas de 10 padrão do Service Bus e definiu uma política de relemis de função de 5.  A mensagem seria primeiro deques, aumentando a conta de entrega de autocarros de serviço para 1.  Se cada execução falhasse, após cinco tentativas de desencadear a mesma mensagem, essa mensagem seria marcada como abandonada.  A Service Bus requeiria imediatamente a mensagem, ativaria a função e aumentaria a contagem de entrega para 2.  Finalmente, após 50 tentativas eventuales (10 entregas de autocarros de serviço * cinco recauchutagens por entrega), a mensagem seria abandonada e desencadearia uma carta morta no autocarro de serviço.
+
+> [!WARNING]
+> Não é aconselhável definir a contagem de entrega para um gatilho como as filas de autocarros de serviço para 1, o que significa que a mensagem seria escrita imediatamente após um ciclo de retráfama de função única.  Isto porque os gatilhos proporcionam resiliência com retrações, enquanto a política de relemisão da função é o melhor esforço e pode resultar em menos do que o número total de retrações desejadas.
+
+### <a name="triggers-with-additional-resiliency-or-retries"></a>Gatilhos com resiliência adicional ou retréis
+
+Os seguintes aciona as recauchutagens de suporte na fonte do gatilho:
 
 * [Armazenamento de Blobs do Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
-* [Armazenamento de Filas do Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
+* [Armazenamento da fila Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Autocarro de serviço Azure (fila/tópico)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Por padrão, estes gatilhos relemquem pedidos até cinco vezes. Após a quinta repetição, tanto o armazenamento da Fila Azure como o gatilho do Azure Service Bus escrevem uma mensagem para uma [fila de venenos.](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages)
+Por padrão, a maioria dos pedidos de repetição de pedidos até cinco vezes. Após a quinta repetição, ambos os armazenamentos da Fila Azure escreverão uma mensagem para uma [fila de venenos](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).  A fila padrão do Service Bus e a política de tópicos escreverão uma mensagem para uma [fila de letras mortas](../articles/service-bus-messaging/service-bus-dead-letter-queues.md) após 10 tentativas.
