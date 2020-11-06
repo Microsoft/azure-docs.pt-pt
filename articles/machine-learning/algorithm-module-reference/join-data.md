@@ -1,7 +1,7 @@
 ---
 title: 'Juntar Dados: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo de junção de dados de junção em Azure Machine Learning para fundir conjuntos de dados.
+description: Aprenda a usar o módulo DeDerdes no Azure Machine Learning designer para fundir dois conjuntos de dados juntos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 0cde479e50c67006a9ef1668ba68b211c3a9af93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c23dca40d50c5837bd9ff45bc3c3d7fb2581685b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907898"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420755"
 ---
 # <a name="join-data"></a>Associar dados
 
@@ -49,13 +49,13 @@ Para realizar uma junção em dois conjuntos de dados, devem estar relacionados 
   
     * **Interior :** Uma *junção interior* é a operação de junção mais comum. Só devolve as linhas combinadas quando os valores das colunas-chave coincidem.  
   
-    * **Left Outer Join**: Um *lado esquerdo junta-se* a linhas unidas para todas as linhas da mesa esquerda. Quando uma linha na mesa esquerda não tem linhas correspondentes na mesa direita, a fila retornado contém valores em falta para todas as colunas que vêm da mesa direita. Também pode especificar um valor de substituição para valores em falta.  
+    * **Left Outer Join** : Um *lado esquerdo junta-se* a linhas unidas para todas as linhas da mesa esquerda. Quando uma linha na mesa esquerda não tem linhas correspondentes na mesa direita, a fila retornado contém valores em falta para todas as colunas que vêm da mesa direita. Também pode especificar um valor de substituição para valores em falta.  
   
-    * **Full Outer Join**: Uma *junção exterior completa* retorna todas as linhas da mesa esquerda **(mesa1**) e da mesa direita **(tabela2**).  
+    * **Full Outer Join** : Uma *junção exterior completa* retorna todas as linhas da mesa esquerda **(mesa1** ) e da mesa direita **(tabela2** ).  
   
          Para cada uma das linhas de cada mesa que não têm linhas correspondentes na outra, o resultado inclui uma linha contendo valores em falta.  
   
-    * **Semi-unir à esquerda**: Uma *semi-junção esquerda* retorna apenas os valores da mesa esquerda quando os valores das colunas-chave coincidem.  
+    * **Semi-unir à esquerda** : Uma *semi-junção esquerda* retorna apenas os valores da mesa esquerda quando os valores das colunas-chave coincidem.  
 
 1. Para a opção **Mantenha as colunas-chave certas na tabela unida:**
 

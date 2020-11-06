@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 11/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893582"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420964"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>O Assessor de Métricas frequentemente fez perguntas
 
@@ -88,7 +88,7 @@ Certifique-se de que utiliza a granularidade correta para as suas séries hors d
 
 Note que estas consultas apenas devolvem dados a uma única hora de tempo, e contêm todas as combinações de dimensão a serem ingeridas pelo Metrics Advisor. 
 
-:::image type="content" source="media/query-result.png" alt-text="Mensagem quando um recurso F0 já existe" lightbox="media/query-result.png":::
+:::image type="content" source="media/query-result.png" alt-text="Um resultado de consulta com um timetamp" lightbox="media/query-result.png":::
 
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Como deteto picos & diminui como anomalias?
@@ -104,6 +104,19 @@ A "deteção inteligente" é capaz de aprender o padrão dos seus dados, incluin
 
 Se os seus dados são normalmente bastante instáveis e oscilam muito, e pretende ser alertado quando se torna demasiado estável ou até se torna uma linha plana, "Alterar limiar" é capaz de ser configurado para detetar tais pontos de dados quando a mudança é muito pequena.
 Consulte [as configurações de deteção de anomalias](how-tos/configure-metrics.md#anomaly-detection-methods) para obter mais detalhes.
+
+### <a name="how-to-set-up-email-settings-and-enable-alerting-by-email"></a>Como configurar as definições de e-mail e ativar o alerta por e-mail?
+
+1.  Um utilizador com privilégios de administrador de subscrição ou de administrador de grupo de recursos precisa de navegar para o recurso Metrics Advisor criado no portal Azure e selecionar o **separador Controlo de Acesso (IAM).** 
+2.  Selecione **Adicionar atribuições de funções**
+3.  Escolha um papel de Administrador Conselheiro de **Métricas de Serviços Cognitivos,** selecione a sua conta como na imagem abaixo.
+4.  Clique no botão **Guardar** e, em seguida, foi adicionado com sucesso como administrador do recurso Metrics Advisor. Note que acima de todas as ações devem ser realizadas pelo administrador de subscrição ou administrador do grupo de recursos. 
+
+:::image type="content" source="media/access-control.png" alt-text="Página de menu de controlo de acesso (IAM) com adição de uma atribuição de funções selecionada, seguida de uma caixa com acesso a utilizador selecionado exibido com uma função de acesso do Administrador conselheiro de métricas de serviços cognitivos, seguido do botão de poupança da UI sendo selecionado para ilustrar os passos de procurar um utilizador e adicionar um determinado nível de permissões de acesso." lightbox="media/access-control.png":::
+
+
+5.  Pode levar até um minuto para as permissões se propagarem. Em seguida, selecione o seu espaço de trabalho Metrics Advisor e selecione a opção **de definição de Email** no painel de navegação esquerdo. Preencha os itens necessários, em particular a informação relacionada com o SMTP. 
+6.  **Selecione Guardar,** em seguida, está tudo definido com a configuração de e-mail. Pode criar novos ganchos e subscrever anomalias métricas para alertas quase em tempo real. 
 
 ## <a name="advanced-concepts"></a>Conceitos avançados
 
@@ -127,7 +140,7 @@ Partindo do `Response latency` total, podemos perfurar a métrica `Service` por,
 
 No Metric Advisor, os utilizadores podem especificar qualquer caminho que queiram perfurar ou rolar a partir de um nó da topologia hierárquica. Mais precisamente, a topologia hierárquica é um gráfico acíclico direcionado em vez de uma estrutura de árvore. Há uma topologia hierárquica completa que consiste em todas as combinações de dimensões potenciais, como esta: 
 
-:::image type="content" source="media/dimension-combinations-view.png" alt-text="Mensagem quando um recurso F0 já existe" lightbox="media/dimension-combinations-view.png":::
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="diagrama hierárquico de topologia composto por múltiplos vértices e arestas interligadas com múltiplas dimensões rotuladas S,DC e M com números correspondentes que variam de 1 a 6" lightbox="media/dimension-combinations-view.png":::
 
 Em teoria, se a dimensão `Service` tem `Ls` valores distintos, a dimensão `Data center` tem `Ldc` valores distintos, e a dimensão `Machine` tem `Lm` valores distintos, então pode haver `(Ls + 1) * (Ldc + 1) * (Lm + 1)` combinações de dimensões na topologia hierárquica. 
 

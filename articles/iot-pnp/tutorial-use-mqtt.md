@@ -1,20 +1,20 @@
 ---
-title: Utilize o MQTT para criar um cliente ioT Plug and Play Microsoft Docs
-description: Utilize o protocolo MQTT diretamente para criar um cliente de dispositivo IoT Plug e Play sem utilizar os SDKs de dispositivo IoT Azure
+title: Tutorial - Use mQTT para criar um cliente de dispositivo de plug e reprodução Azure IoT Microsoft Docs
+description: Tutorial - Utilize o protocolo MQTT diretamente para criar um cliente de dispositivo IoT Plug and Play sem utilizar os SDKs de dispositivo IoT Azure
 author: ericmitt
 ms.author: ericmitt
 ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: d0ac0f000b6a096ae3de1f4f00a17b64f1948c1e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6852b0532b23e46c7b986926b21cd0b7e9f9736d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046286"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421384"
 ---
-# <a name="use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Utilize o MQTT para desenvolver um cliente de dispositivo ioT Plug and Play
+# <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Tutorial - Use mQTT para desenvolver um cliente de dispositivo ioT plug e play
 
 Deverá utilizar um dos SDKs de dispositivoS Azure IoT para construir os seus clientes ioT plug e play, se possível. No entanto, em cenários como a utilização de um dispositivo constrangido à memória, poderá ser necessário utilizar uma biblioteca MQTT para comunicar com o seu hub IoT.
 
@@ -38,7 +38,7 @@ Utilize a ferramenta *exploradora Azure IoT* para adicionar um novo dispositivo 
 1. Crie um dispositivo chamado *my-mqtt-dispositivo* que usa uma chave simétrica autogerada.
 1. Na página de identidade do **dispositivo,** expanda **a cadeia de ligação com o token SAS**.
 1. Escolha a **chave primária** para usar como **tecla simétrica,** desajuste o tempo de validade para 60 minutos e selecione **Gerar**.
-1. Copie a cadeia de **conexão de token SAS**gerada, use este valor mais tarde no tutorial.
+1. Copie a cadeia de **conexão de token SAS** gerada, use este valor mais tarde no tutorial.
 
 ## <a name="clone-sample-repo"></a>Repo de amostra de clone
 
@@ -96,7 +96,7 @@ Executar a aplicação (Ctrl+F5), após alguns segundos vê saída que se parece
 
 No explorador Azure IoT, pode ver que o dispositivo não é um dispositivo IoT Plug and Play:
 
-:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Saída da aplicação da amostra MQTT":::
+:::image type="content" source="media/tutorial-use-mqtt/non-pnp-iot-explorer.png" alt-text="Dispositivo de plug e play não IoT no explorador Azure IoT":::
 
 ### <a name="make-the-device-an-iot-plug-and-play-device"></a>Faça do dispositivo um dispositivo IoT Plug and Play
 
@@ -117,11 +117,11 @@ Reconstrua e execute a amostra.
 
 O twin do dispositivo agora inclui o ID do modelo:
 
-:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Saída da aplicação da amostra MQTT":::
+:::image type="content" source="media/tutorial-use-mqtt/model-id-iot-explorer.png" alt-text="Ver o ID do modelo no explorador Azure IoT":::
 
 Agora pode navegar no componente IoT Plug and Play:
 
-:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Saída da aplicação da amostra MQTT":::
+:::image type="content" source="media/tutorial-use-mqtt/components-iot-explorer.png" alt-text="Ver componentes no explorador Azure IoT":::
 
 Pode agora modificar o código do dispositivo para implementar a telemetria, propriedades e comandos definidos no seu modelo. Para ver um exemplo de implementação do dispositivo termóstato utilizando a biblioteca Mosquitto, consulte utilizar o [MQTT PnP com Azure IoTHub sem o IoT SDK no Windows](https://github.com/Azure-Samples/IoTMQTTSample/tree/master/src/Windows/PnPMQTTWin32) no GitHub.
 

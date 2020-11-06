@@ -1,7 +1,7 @@
 ---
 title: One-vs-All Multiclass
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo One-vs-All Multiclass em Azure Machine Learning para criar um modelo de classificação multiclasse a partir de um conjunto de modelos de classificação binária.
+description: Aprenda a usar o módulo One-vs-All Multiclass no Azure Machine Learning designer para criar um conjunto de modelos de classificação binária.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: dfe01e16b55325db03e4150a33ae5c4aa5822ae2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898502"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420687"
 ---
 # <a name="one-vs-all-multiclass"></a>One-vs-All Multiclass
 
@@ -52,7 +52,7 @@ Ao combinar os modelos, o One-vs-All Multiclass cria vários modelos de classifi
 
 5. Envie o oleoduto.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o treino estar completo, pode usar o modelo para fazer previsões multiclasse.
 

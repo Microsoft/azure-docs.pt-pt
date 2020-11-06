@@ -1,20 +1,20 @@
 ---
 title: Iso 27001 CONTROLOs de amostra de amostra de carga de carga DE TRABALHO ISO 27001
 description: Controlo do mapeamento do sistema iso 27001 App Service Environment/SQL Database amostra de amostra de carga de trabalho para Azure Policy e Azure RBAC.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: 662e5dce9c58cec3be36c3e492d7231ed0e83939
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 438f2af05e0c499e9f002b501b97e291705cee9a
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929324"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420415"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Mapeamento de controlo da amostra de projeto de carga de trabalho DA ISO 27001 ASE/SQL
 
 O artigo seguinte detalha como o Azure Blueprints ISO 27001 ASE/SQL Workload mapes para os controlos ISO 27001. Para obter mais informações sobre os controlos, consulte [a ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 
-Os seguintes mapeamentos são para os controlos **ISO 27001:2013.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione os ** \[ \] controlos iso 27001:2013 da Auditoria de Pré-visualização e implemente extensões VM específicas para apoiar os requisitos** de auditoria integrados na iniciativa política.
+Os seguintes mapeamentos são para os controlos **ISO 27001:2013.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione os **\[ \] controlos iso 27001:2013 da Auditoria de Pré-visualização e implemente extensões VM específicas para apoiar os requisitos** de auditoria integrados na iniciativa política.
 
 > [!IMPORTANT]
 > Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/iso27001-ase-sql-workload/control-mapping.md).
@@ -37,8 +37,6 @@ O serviço de Avaliação de [Vulnerabilidades SQL](../../../../azure-sql/databa
 A Azure implementa [o controlo de acesso baseado em funções Azure (Azure RBAC)](../../../../role-based-access-control/overview.md) para gerir quem tem acesso aos recursos Azure. Esta planta ajuda-o a controlar o acesso aos recursos da Azure, atribuindo sete definições [de Política Azure.](../../../policy/overview.md) Estas políticas auditam a utilização de tipos de recursos e configurações que podem permitir um acesso mais permissivo aos recursos.
 Compreender os recursos que estão a violar estas políticas pode ajudá-lo a tomar medidas corretivas para garantir que os recursos Azure de acesso são restritos aos utilizadores autorizados.
 
-- Implementar pré-requisitos para auditar Os VMs do Linux que têm contas sem senhas
-- Implementar pré-requisitos para auditar VMs Linux que permitem ligações remotas a partir de contas sem senhas
 - Mostrar resultados de auditoria de VMs Linux que têm contas sem senhas
 - Mostrar resultados de auditoria de VMs Linux que permitem ligações remotas a partir de contas sem senhas
 - As contas de armazenamento devem ser migradas para novos recursos do Gestor de Recursos Azure
@@ -65,7 +63,6 @@ Este projeto atribui três definições [de Política Azure](../../../policy/ove
 - MFA deve ser ativado em contas com permissões de leitura na sua subscrição
 - A MFA deve ser ativada em contas com permissões de escrita na sua subscrição
 - Mostre os resultados da auditoria dos VMs Linux que não têm as permissões de ficheiros passwd definidas para 0644
-- Implementar pré-requisitos para auditar Os VMs do Linux que não têm as permissões de ficheiros passwd definidas para 0644
 
 ## <a name="a925-review-of-user-access-rights"></a>A.9.2.5 Revisão dos direitos de acesso ao utilizador
 
@@ -100,11 +97,6 @@ Este plano ajuda-o a impor senhas fortes atribuindo 10 definições [de Polític
 - Mostrar os resultados da auditoria dos VM do Windows que não têm uma idade mínima de senha de 1 dia
 - Mostrar os resultados da auditoria dos VM do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
 - Mostrar resultados de auditoria a VMs do Windows que permitem a reutilização das 24 palavras-passe anteriores
-- Implementar pré-requisitos para auditar VMs do Windows que não tenham a definição de complexidade da palavra-passe ativada
-- Implementar pré-requisitos para auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
-- Implementar pré-requisitos para auditar VMs do Windows que não tenham uma idade mínima de senha de 1 dia
-- Implementar pré-requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
-- Implementar pré-requisitos para auditar VMs do Windows que permitam reutilizar as 24 palavras-passe anteriores
 
 ## <a name="a1011-policy-on-the-use-of-cryptographic-controls"></a>A.10.1.1 Política sobre a utilização de controlos criptográficos
 
@@ -114,7 +106,6 @@ Compreender onde os seus recursos Azure podem ter configurações criptográfica
 - A App de função só deve estar acessível através do HTTPS
 - A Aplicação Web só deve ser acessível em HTTPS
 - A API App só deve estar acessível em HTTPS
-- Implementar pré-requisitos para auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
 - Mostrar resultados de auditoria de VMs do Windows que não armazenam senhas usando encriptação reversível
 - A encriptação do disco deve ser aplicada em máquinas virtuais
 - As variáveis de conta de automação devem ser encriptadas

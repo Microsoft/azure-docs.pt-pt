@@ -1,7 +1,7 @@
 ---
 title: Dividir o Diretório da Imagem
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo de Diretório de Imagem Dividida no Azure Machine Learning designer (pré-visualização), para dividir as imagens de um diretório de imagem em dois conjuntos distintos.
+description: Aprenda a usar o módulo de Diretório de Imagem Dividida no designer para dividir as imagens de um diretório de imagem em dois conjuntos distintos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: fe5ba25904298fe1a394a4b01d6bdacc72d599c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ee4dd9b2e344ecb3e1a6424ce7310270e7cd076
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448686"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421197"
 ---
 # <a name="split-image-directory"></a>Dividir o Diretório da Imagem
 
@@ -35,19 +35,19 @@ Este módulo é particularmente útil quando é necessário separar os dados de 
 
 ### <a name="expected-inputs"></a>Entradas esperadas
 
-| Nome                  | Tipo           | Descrição              |
+| Nome                  | Tipo           | Description              |
 | --------------------- | -------------- | ------------------------ |
 | Diretório de imagem de entrada | ImageDirectory | Diretório de imagem para dividir |
 
 ### <a name="module-parameters"></a>Parâmetros do módulo
 
-| Nome                                   | Tipo  | Intervalo | Opcional | Descrição                            | Predefinição |
+| Nome                                   | Tipo  | Intervalo | Opcional | Description                            | Predefinição |
 | -------------------------------------- | ----- | ----- | -------- | -------------------------------------- | ------- |
 | Fração de imagens na primeira saída | Float | 0-1   | Necessário | Fração de imagens na primeira saída | 0,9     |
 
 ### <a name="outputs"></a>Saídas
 
-| Nome                    | Tipo           | Descrição                              |
+| Nome                    | Tipo           | Description                              |
 | ----------------------- | -------------- | ---------------------------------------- |
 | Diretório de imagem de saída1 | ImageDirectory | Diretório de imagem que contém imagens selecionadas |
 | Diretório de imagem de saída2 | ImageDirectory | Diretório de imagem que contém todas as outras imagens |

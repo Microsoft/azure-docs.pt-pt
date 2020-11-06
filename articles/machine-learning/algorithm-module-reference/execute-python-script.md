@@ -1,7 +1,7 @@
 ---
 title: 'Executar script python: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo de Script Execute Python em Azure Machine Learning para executar o código Python.
+description: Aprenda a usar o módulo de Script Execute Python no designer de aprendizagem automática Azure para executar o código Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: e6a7eabec76cf27044b5d0e13acfc2431cb19b77
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e0da478e221fe392135362cd74cbdd8baca101ef
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323751"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421367"
 ---
 # <a name="execute-python-script-module"></a>Execute o módulo de script python
 

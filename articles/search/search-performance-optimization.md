@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 5fd949466978714fe1dc0c4ccc67a3cb8f993314
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 362d5f2046ff4e9ba52dd2e73433cc39e80f7a50
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934961"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420602"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Escala para desempenho na Pesquisa Cognitiva Azure
 
@@ -30,7 +30,7 @@ Antes de realizar um esforço de implantação maior, certifique-se de saber com
 
 1. Comece com um número reduzido de consultas por segundo (QPS) e, em seguida, aumente gradualmente o número executado no teste até que a latência da consulta caia abaixo do alvo predefinido. Esta é uma referência importante para ajudá-lo a planear a escala à medida que a sua aplicação cresce no uso.
 
-1. Sempre que possível, reutilizar as ligações HTTP. Se estiver a utilizar a Azure Cognitive Search .NET SDK, isto significa que deve reutilizar uma instância ou [pesquisaIndexClient,](/dotnet/api/microsoft.azure.search.searchindexclient) e se estiver a utilizar a API REST, deverá reutilizar um único HttpClient.
+1. Sempre que possível, reutilizar as ligações HTTP. Se estiver a utilizar a Azure Cognitive Search .NET SDK, isto significa que deve reutilizar uma instância ou [instância searchClient,](/dotnet/api/azure.search.documents.searchclient) e se estiver a utilizar a API REST, deverá reutilizar um único HttpClient.
 
 1. Varie a substância dos pedidos de consulta para que a pesquisa ocorra em diferentes partes do seu índice. A variação é importante porque se executar continuamente os mesmos pedidos de pesquisa, o caching de dados começará a fazer o desempenho parecer melhor do que poderia com um conjunto de consultas mais díspares.
 
@@ -43,7 +43,7 @@ Ao criar estas cargas de trabalho de teste, existem algumas características da 
 + A Azure Cognitive Search não executa tarefas de indexação em segundo plano. Se o seu serviço tratar de consultas e indexação de cargas de trabalho simultaneamente, tenha isso em conta, introduzindo empregos de indexação nos seus testes de consulta, ou explorando opções para executar trabalhos de indexação durante as horas de ponta.
 
 > [!Tip]
-> Pode simular uma carga de consulta realista utilizando ferramentas de teste de carga. Experimente [o teste de carga com a Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) ou utilize uma [destas alternativas](/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> Pode simular uma carga de consulta realista utilizando ferramentas de teste de carga. Experimente [o teste de carga com a Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) ou utilize uma [destas alternativas](/azure/devops/test/load-test/overview#alternatives).
 
 ## <a name="scale-for-high-query-volume"></a>Escala para volume de consulta elevado
 

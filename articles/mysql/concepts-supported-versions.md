@@ -6,18 +6,19 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 4d5b858e2384ffc7dd531444aaff17ca3739b408
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c4836ad48426bc5f2c8c18b888f0c296a90f222
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84337704"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93417695"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Banco de dados Azure suportado para versões de servidor MySQL
 
 A Azure Database for MySQL foi desenvolvida a partir da [MySQL Community Edition,](https://www.mysql.com/products/community/)utilizando o motor InnoDB.
 
 MySQL usa o esquema de nomeação X.Y.Z. X é a versão principal, Y é a versão menor, e Z é o lançamento da correção de erro. Para obter mais informações sobre o esquema, consulte a [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
+
 
 > [!NOTE]
 > No serviço, é utilizado um gateway para redirecionar as ligações para as instâncias de servidor. Depois de a ligação ser estabelecida, o cliente MySQL apresenta a versão do MySQL definida no gateway, não a versão real em execução na instância do servidor MySQL. Para determinar a versão da instância do servidor MySQL, utilize o comando `SELECT VERSION();` no prompt do MySQL.
@@ -49,4 +50,5 @@ Atualmente, não há suporte para as atualizações das versões principais e se
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter informações sobre quotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [os níveis de serviço](./concepts-pricing-tiers.md)
+- Para obter mais informações sobre a política de versão Azure Database para a versão MySQL, consulte [este documento](concepts-version-policy.md).
+- Para obter informações sobre quotas e limitações específicas de recursos com base no seu **nível de serviço,** consulte [os níveis de serviço](./concepts-pricing-tiers.md)

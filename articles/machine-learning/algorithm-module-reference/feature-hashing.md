@@ -1,7 +1,7 @@
 ---
 title: Referência do módulo hashing de recurso
 titleSuffix: Azure Machine Learning
-description: Saiba como utilizar o módulo de hashing de recurso no Azure Machine Learning para apresentar dados de texto.
+description: Aprenda a usar o módulo de Hashing de Recurso no designer de Aprendizagem automática Azure para apresentar dados de texto.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cd48b32afee320aa3d252540d566317c374c73a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323724"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420789"
 ---
 # <a name="feature-hashing-module-reference"></a>Referência do módulo hashing de recurso
 
@@ -22,7 +22,7 @@ Este artigo descreve um módulo incluído no designer de Aprendizagem automátic
 
 Utilize o módulo hashing de recurso para transformar um fluxo de texto inglês num conjunto de funcionalidades de inteiro. Em seguida, pode passar este conjunto de funcionalidades de haxixe para um algoritmo de aprendizagem automática para treinar um modelo de análise de texto.
 
-A funcionalidade de hashing de funcionalidade fornecida neste módulo baseia-se na estrutura nimbusml. Para mais informações, consulte [a classe NgramHash.](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest)
+A funcionalidade de hashing de funcionalidade fornecida neste módulo baseia-se na estrutura nimbusml. Para mais informações, consulte [a classe NgramHash.](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true)
 
 ## <a name="what-is-feature-hashing"></a>O que é hashing de recurso?
 

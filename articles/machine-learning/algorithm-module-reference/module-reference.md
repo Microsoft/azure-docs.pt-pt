@@ -1,6 +1,6 @@
 ---
 title: Referência de algoritmos e módulos
-description: Conheça os módulos disponíveis no Azure Machine Learning designer
+description: Conheça os módulos de design de machine learning Azure que pode usar para criar os seus próprios projetos de aprendizagem automática.
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 998f9ef7bddfd988dc0af8183fb9c000bf8c79e7
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886392"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421299"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Algoritmo & referência do módulo para o designer de aprendizagem de máquinas Azure
 
@@ -32,7 +32,7 @@ Para ajudar na escolha de algoritmos, consulte
 ## <a name="data-preparation-modules"></a>Módulos de preparação de dados
 
 
-| Funcionalidade | Descrição | Módulo |
+| Funcionalidade | Description | Módulo |
 | --- |--- | --- |
 | Entrada e saída de dados | Mova os dados de fontes de nuvem para o seu oleoduto. Escreva os seus resultados ou dados intermédios para Azure Storage, SQL Database ou Hive, enquanto executa um pipeline, ou utilize o armazenamento em nuvem para trocar dados entre os oleodutos.  | [Introduzir os Dados Manualmente](enter-data-manually.md) <br/> [Dados de Exportação](export-data.md) <br/> [Dados de Importação](import-data.md) |
 | Transformação de Dados | Operações em dados exclusivos da aprendizagem automática, como normalizar ou binar dados, redução de dimensionalidade e conversão de dados entre vários formatos de ficheiros.| [Adicionar Colunas](add-columns.md) <br/> [Adicionar Linhas](add-rows.md) <br/> [Aplicar Operação Matemática](apply-math-operation.md) <br/> [Aplicar Transformação SQL](apply-sql-transformation.md) <br/> [Limpar Dados em Falta](clean-missing-data.md) <br/> [Valores de Clip](clip-values.md) <br/> [Converter para CSV](convert-to-csv.md) <br/> [Converter em Conjunto de Dados](convert-to-dataset.md) <br/> [Converter em Valores Indicadores](convert-to-indicator-values.md) <br/> [Editar Metadados](edit-metadata.md) <br/> [Agrupar Dados em Posições](group-data-into-bins.md) <br/> [Associar dados](join-data.md) <br/> [Normalizar Dados](normalize-data.md) <br/> [Partição e Amostra](partition-and-sample.md)  <br/> [Remover Linhas Duplicadas](remove-duplicate-rows.md) <br/> [SMOTE](smote.md) <br/> [Selecionar Transformação de Colunas](select-columns-transform.md) <br/> [Selecionar Colunas no Conjunto de Dados](select-columns-in-dataset.md) <br/> [Dividir Dados](split-data.md) |
@@ -41,7 +41,7 @@ Para ajudar na escolha de algoritmos, consulte
 
 ## <a name="machine-learning-algorithms"></a>Algoritmos de aprendizagem automática
 
-| Funcionalidade | Descrição | Módulo |
+| Funcionalidade | Description | Módulo |
 | --- |--- | --- |
 | Regressão | Prever um valor. | [Regressão da Árvore de Decisões Elevada](boosted-decision-tree-regression.md) <br/> [Regressão da Floresta de Decisão](decision-forest-regression.md) <br/> [Regressão de Quantil da Floresta Rápida](fast-forest-quantile-regression.md)  <br/> [Regressão Linear](linear-regression.md)  <br/> [Regressão da Rede Neural](neural-network-regression.md)  <br/> [Regressão de Poisson](poisson-regression.md)  <br/>|
 | Clustering | Dados de grupo juntos.| [Clustering K-Means](k-means-clustering.md)
@@ -49,7 +49,7 @@ Para ajudar na escolha de algoritmos, consulte
 
 ## <a name="modules-for-building-and-evaluating-models"></a>Módulos para construção e avaliação de modelos
 
-| Funcionalidade | Descrição | Módulo |
+| Funcionalidade | Description | Módulo |
 | --- |--- | --- |
 | Formação de Modelos | Executar dados através do algoritmo. |  [Train Clustering Model (Preparar Modelo de Clustering)](train-clustering-model.md) <br/> [Preparar Modelo](train-model.md) <br/> [Modelo de Pytorch de comboio](train-pytorch-model.md) <br/> [Ajustar hiperparâmetros do modelo](tune-model-hyperparameters.md) |
 | Pontuação e Avaliação do Modelo | Meça a precisão do modelo treinado. | [Aplicar Transformação](apply-transformation.md) <br/> [Assign Data to Clusters (Atribuir Dados a Clusters)](assign-data-to-clusters.md) <br/> [Modelo de validação cruzada](cross-validate-model.md) <br/> [Avaliar Modelo](evaluate-model.md) <br/> [Classificar o Modelo de Imagem](score-image-model.md) <br/> [Modelo de Classificação](score-model.md) |

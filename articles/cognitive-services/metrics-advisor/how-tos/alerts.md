@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 30d8fdf99da7a4854db0985bed6256ecd6f7a366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046796"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420925"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Como fazer: Configurar alertas e receber notificações usando um gancho
 
@@ -28,7 +28,7 @@ Metrics Advisor suporta três tipos diferentes de ganchos: gancho de e-mail, gan
 ### <a name="email-hook"></a>Gancho de e-mail
 
 > [!Note]
-> Métricas Os administradores de recursos do Advisor precisam de configurar as definições de Email e inserir informações relacionadas com SMTP no Metrics Advisor antes de os alertas de anomalia poderem ser enviados. O administrador do grupo de recursos ou administrador de subscrição precisa de atribuir pelo menos uma função *de Administrador de Consultor de Métricas de Serviços Cognitivos* no separador de controlo de acesso do recurso Metrics Advisor. 
+> Métricas Os administradores de recursos do Advisor precisam de configurar as definições de Email e inserir informações relacionadas com SMTP no Metrics Advisor antes de os alertas de anomalia poderem ser enviados. O administrador do grupo de recursos ou administrador de subscrição precisa de atribuir pelo menos uma função *de Administrador de Consultor de Métricas de Serviços Cognitivos* no separador de controlo de acesso do recurso Metrics Advisor. [Saiba mais sobre a configuração das definições de e-mail](../faq.md#how-to-set-up-email-settings-and-enable-alerting-by-email).
 
 Para criar um gancho de e-mail, estão disponíveis os seguintes parâmetros: 
 
@@ -88,15 +88,15 @@ Para criar um gancho Azure DevOps, terá de adicionar as seguintes informações
 Vá à página de detalhes das métricas para encontrar a secção **de definições de alerta,** no canto inferior esquerdo da página de detalhes das métricas. Lista todas as definições de alerta que se aplicam à configuração de deteção selecionada. Quando uma nova configuração de deteção é criada, não há definição de alerta e nenhum alerta será enviado.  
 Pode utilizar o **add,** **editar** e **eliminar** ícones para modificar as definições de alerta.
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="janela de criação de gancho web.":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Item do menu de definições de alerta.":::
 
 Clique nos botões **de adicionar** ou **editar** para obter uma janela para adicionar ou editar as definições de alerta.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="janela de criação de gancho web.":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Adicionar ou editar definições de alerta":::
 
-**Nome de definição de**alerta : O nome desta definição de alerta. Será exibido no título de e-mail de alerta.
+**Nome de definição de** alerta : O nome desta definição de alerta. Será exibido no título de e-mail de alerta.
 
-**Ganchos**: A lista de ganchos para enviar alertas para.
+**Ganchos** : A lista de ganchos para enviar alertas para.
 
 A secção marcada na imagem acima são as definições para uma configuração de deteção. Pode definir diferentes definições de alerta para diferentes configurações de deteção. Escolha a configuração do alvo utilizando a terceira lista de drop-down nesta janela. 
 
@@ -106,16 +106,16 @@ Seguem-se as definições do filtro para uma configuração de deteção.
 
 **Alerta Para** 4 opções para filtrar anomalias:
 
-* **Anomalias em todas as séries**: Todas as anomalias serão incluídas no alerta.         
-* **Anomalias no grupo da série**: Filtrar série por valores de dimensão. Definir valores específicos para algumas dimensões. As anomalias só serão incluídas no alerta quando a série corresponder ao valor especificado.       
-* **Anomalias nas séries favoritas**: Apenas a série marcada como favorita será incluída no alerta.        |
-* **Anomalias no top N de todas as séries**: Este filtro é para o caso de que você só se importa com a série cujo valor está no top N. Vamos olhar para trás alguns picos de tempo, e verificar se o valor da série nestes horários está no top N. Se a contagem "in top n" for maior do que o número especificado, a anomalia será incluída num alerta.        |
+* **Anomalias em todas as séries** : Todas as anomalias serão incluídas no alerta.         
+* **Anomalias no grupo da série** : Filtrar série por valores de dimensão. Definir valores específicos para algumas dimensões. As anomalias só serão incluídas no alerta quando a série corresponder ao valor especificado.       
+* **Anomalias nas séries favoritas** : Apenas a série marcada como favorita será incluída no alerta.        |
+* **Anomalias no top N de todas as séries** : Este filtro é para o caso de que você só se importa com a série cujo valor está no top N. Vamos olhar para trás alguns picos de tempo, e verificar se o valor da série nestes horários está no top N. Se a contagem "in top n" for maior do que o número especificado, a anomalia será incluída num alerta.        |
 
 **As opções de anomalia do filtro** são um filtro adicional com as seguintes opções:
 
 - **gravidade** : A anomalia só será incluída quando a gravidade da anomalia estiver dentro do intervalo especificado.
 - **Snooze** : Pare temporariamente os alertas para anomalias nos próximos pontos N (período), quando acionado em alerta.
-    - **snooze tipo** : Quando definido para **série,** uma anomalia desencadeada só irá sonecar a sua série. Para **a Metric**, uma anomalia desencadeada irá sonecar todas as séries desta métrica.
+    - **snooze tipo** : Quando definido para **série,** uma anomalia desencadeada só irá sonecar a sua série. Para **a Metric** , uma anomalia desencadeada irá sonecar todas as séries desta métrica.
     - **número de soneca:** o número de pontos (período) para soneca.
     - **reset para não-sucessivas** : Quando selecionado, uma anomalia desencadeada só irá sonecar as próximas anomalias sucessivas. Se um dos seguintes pontos de dados não for uma anomalia, o soneca será reposto a partir desse ponto; Quando não for selecionado, uma anomalia desencadeada irá sonerá os próximos pontos n (período), mesmo que os pontos de dados sucessivos não sejam anomalias.
 - **valor** (opcional) : Filtro por valor. Apenas valores de ponto que satisfaçam a condição, a anomalia será incluída. Se utilizar o valor correspondente de outra métrica, os nomes de dimensão das duas métricas devem ser consistentes.
@@ -134,7 +134,7 @@ O seletor **do operador** é a relação lógica de cada secção, para determin
 |AND     | Envie apenas um alerta se uma série corresponder a cada secção de alerta, e todos os pontos de dados são anomalias. Se as métricas tiverem nomes de dimensão diferentes, um alerta nunca será acionado.         |
 |OR     | Envie o alerta se pelo menos uma secção contiver anomalias.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="janela de criação de gancho web.":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operador para secção de definição de alerta múltiplo":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

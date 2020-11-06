@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class máquina de vetor de suporte: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo **de máquina vetorial de apoio de duas classes** em Azure Machine Learning para criar um modelo que é baseado no algoritmo da máquina vetorial de suporte.
+description: Aprenda a usar o módulo de Two-Class de suporte da máquina de vetor em Azure Machine Learning para criar um classificador binário.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 1dc2f8bdf6ed2823b44d25bdf65766b1f7ae060c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46cfdd319fc89e569d165dc2e11303e67c6dd54e
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907659"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420568"
 ---
 # <a name="two-class-support-vector-machine-module"></a>módulo de máquina de vetor de suporte Two-Class
 
@@ -42,9 +42,9 @@ Para este tipo de modelo, recomenda-se que normalize o conjunto de dados antes d
   
 2.  Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**  
   
-    -   **Parâmetro único**: Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.  
+    -   **Parâmetro único** : Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.  
 
-    -   **Intervalo de parâmetros**: Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
+    -   **Intervalo de parâmetros** : Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
 
 3.  Para **o número de iterações,** escreva um número que denota o número de iterações utilizadas na construção do modelo.  
   
@@ -80,7 +80,7 @@ Para este tipo de modelo, recomenda-se que normalize o conjunto de dados antes d
   
 10. Envie o oleoduto.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o treino estar completo:
 

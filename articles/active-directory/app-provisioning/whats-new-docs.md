@@ -1,7 +1,7 @@
 ---
 title: Novidades no provisionamento de aplicações do Azure Ative Directory
 description: Documentação nova e atualizada para o provisionamento do Azure Ative Directory.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -10,22 +10,42 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 885838e1a517ab4713f1753957f8b85f40297fd2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 83375eebdbe46fc0132f1fcf0b6d11457aa0e897
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424554"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421010"
 ---
 # <a name="azure-active-directory-application-provisioning-whats-new"></a>Provisionamento de aplicações do Azure Ative Directory: Quais as novidades
 
 Bem-vindos às novidades da aplicação Azure Ative Directory que prevê documentação. Este artigo lista novos docs que foram adicionados e aqueles que tiveram atualizações significativas nos últimos três meses. Para saber quais as novidades com o serviço de fornecimento, veja [as novidades do Azure Ative Directory](../fundamentals/whats-new.md).
 
+## <a name="october-2020"></a>Outubro de 2020
+
+### <a name="new-articles"></a>Artigos novos
+
+- [Entenda como o provisionamento se integra com os registos do Azure Monitor](application-provisioning-log-analytics.md)
+
+### <a name="updated-articles"></a>Artigos atualizados
+
+- [Como funciona o aprovisionamento](how-provisioning-works.md)
+- [Entenda como o provisionamento se integra com os registos do Azure Monitor](application-provisioning-log-analytics.md)
+- [Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory](customize-application-attributes.md)
+- [Referência para expressões de escrita para mapeamentos de atributos em Azure AD](functions-for-customizing-application-data.md)
+- [Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD](use-scim-to-provision-users-and-groups.md)
+- [Ativar o fornecimento automático de utilizadores para a sua aplicação multi-inquilino](isv-automatic-provisioning-multi-tenant-apps.md)
+- [Questões conhecidas: Provisionamento de pedidos](known-issues.md)
+- [Planear uma implementação de aprovisionamento automático de utilizadores](plan-auto-user-provisioning.md)
+- [Planeie a aplicação de RH em nuvem para o provisionamento do utilizador do Azure Ative Directory](plan-cloud-hr-provision.md)
+- [Aprovisionamento a pedido](provision-on-demand.md)
+
+
 ## <a name="september-2020"></a>Setembro de 2020
 
 ### <a name="new-articles"></a>Artigos novos
 
-- [O que há de novo nos médicos?](whats-new-docs.md)
+- [Novidades no Docs?](whats-new-docs.md)
 
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Provisionamento de pedidos em estado de quarentena](application-provisioning-quarantine-status.md)

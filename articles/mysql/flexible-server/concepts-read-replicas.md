@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 6f3482bdc608d97e4adba5f99393e74f2e6c7cde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d683f96f31d3b34ac311251f45456551148ca26
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795355"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420891"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Leia réplicas na Base de Dados Azure para MySQL - Servidor Flexível
 
@@ -61,7 +61,7 @@ Saiba como [criar uma réplica de leitura no portal Azure.](how-to-read-replicas
 
 ## <a name="connect-to-a-replica"></a>Ligar-se a uma réplica
 
-Na criação, uma réplica herda o método de conectividade do servidor de origem. Não é possível alterar o método de conectividade da réplica. Por exemplo, se o servidor de origem tiver **acesso privado (VNet Integration)** então a réplica não pode estar no **acesso público (endereços IP permitidos)** .
+Na criação, uma réplica herda o método de conectividade do servidor de origem. Não é possível alterar o método de conectividade da réplica. Por exemplo, se o servidor de origem tiver **acesso privado (VNet Integration)** então a réplica não pode estar no **acesso público (endereços IP permitidos)**.
 
 A réplica herda a conta de administração do servidor de origem. Todas as contas de utilizador no servidor de origem são replicadas nas réplicas de leitura. Só é possível ligar-se a uma réplica de leitura utilizando as contas de utilizador que estão disponíveis no servidor de origem.
 
@@ -117,6 +117,7 @@ Uma vez que a sua aplicação esteja a processar com sucesso as leituras e as es
 | Cenário | Limitação/Consideração |
 |:-|:-|
 | Réplica no servidor com HA redundante de zona ativada | Não suportado |
+| Região transversal leia replicação | Não suportado |
 | Preços | O custo de execução do servidor de réplica baseia-se na região onde o servidor de réplica está em execução |
 | Reinício do servidor de origem | Quando se cria uma réplica para uma fonte que não tem réplicas existentes, a fonte reinicia primeiro para se preparar para a replicação. Tome isto em consideração e execute estas operações durante um período fora do pico |
 | Novas réplicas | Uma réplica de leitura é criada como uma nova Base de Dados Azure para o servidor flexível MySQL. Um servidor existente não pode ser transformado numa réplica. Não se pode criar uma réplica de outra réplica de leitura |
@@ -125,7 +126,7 @@ Uma vez que a sua aplicação esteja a processar com sucesso as leituras e as es
 | Fonte eliminada e servidores autónomos | Quando um servidor de origem é eliminado, a replicação é interrompida para todas as réplicas lidas. Estas réplicas tornam-se automaticamente servidores autónomos e podem aceitar tanto as leituras como as escritas. O servidor de origem em si é eliminado. |
 | Contas de utilizador | Os utilizadores do servidor de origem são replicados nas réplicas de leitura. Só é possível ligar-se a uma réplica de leitura utilizando as contas de utilizador disponíveis no servidor de origem. |
 | Parâmetros do servidor | Para impedir que os dados fiquem dessincronizados e evitar potenciais perdas de dados ou corrupção, a atualização de alguns parâmetros de servidor é bloqueada ao utilizar réplicas de leitura. <br> Os seguintes parâmetros do servidor estão bloqueados tanto nos servidores de origem como em réplicas:<br> - [`innodb_file_per_table`](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) <br> - [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) <br> O [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_event_scheduler) parâmetro está bloqueado nos servidores de réplicas. <br> Para atualizar um dos parâmetros acima no servidor de origem, por favor, elimine os servidores de réplicas, atualize o valor do parâmetro na fonte e recrie réplicas. |
-| Outros | - A criação de uma réplica de uma réplica não é suportada. <br> - As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MySQL. Leia mais na documentação de referência do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para obter mais informações. <br>- Certifique-se de que as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a fonte e as réplicas.<br>- Rever a lista completa das limitações de replicação do MySQL na [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
+| Outro | - A criação de uma réplica de uma réplica não é suportada. <br> - As tabelas de memória podem fazer com que as réplicas fiquem dessincronizadas. Esta é uma limitação da tecnologia de replicação MySQL. Leia mais na documentação de referência do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) para obter mais informações. <br>- Certifique-se de que as tabelas do servidor de origem têm chaves primárias. A falta de chaves primárias pode resultar em latência de replicação entre a fonte e as réplicas.<br>- Rever a lista completa das limitações de replicação do MySQL na [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html) |
 
 ## <a name="next-steps"></a>Passos seguintes
 

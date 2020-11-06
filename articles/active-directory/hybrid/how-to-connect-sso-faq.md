@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f757d8f59c06d573d71099941530dfc28174ac42
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658341"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420494"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Ative Directory Seamless Single Sign-On: Perguntas frequentes
 
@@ -66,7 +66,7 @@ Sim. O SSO sem emenda suporta `Alternate ID` como nome de utilizador quando conf
 
 **P: Qual é a diferença entre a experiência de inscrição única fornecida pela [Azure AD Join](../devices/overview.md) e pela Seamless SSO?**
 
-[O Azure AD Join](../devices/overview.md) fornece SSO aos utilizadores se os seus dispositivos estiverem registados no Azure AD. Estes dispositivos não têm necessariamente de ser unidos pelo domínio. SSO é fornecido usando *tokens* de atualização primária ou *PRTs*, e não Kerberos. A experiência do utilizador é ideal em dispositivos Windows 10. SSO acontece automaticamente no navegador Microsoft Edge. Também funciona no Chrome com o uso de uma extensão de navegador.
+[O Azure AD Join](../devices/overview.md) fornece SSO aos utilizadores se os seus dispositivos estiverem registados no Azure AD. Estes dispositivos não têm necessariamente de ser unidos pelo domínio. SSO é fornecido usando *tokens* de atualização primária ou *PRTs* , e não Kerberos. A experiência do utilizador é ideal em dispositivos Windows 10. SSO acontece automaticamente no navegador Microsoft Edge. Também funciona no Chrome com o uso de uma extensão de navegador.
 
 Você pode usar tanto Azure AD Join como Seamless SSO no seu inquilino. Estas duas características são complementares. Se ambas as funcionalidades estiverem ligadas, então o SSO da Azure AD Join tem precedência sobre o SSO sem emenda.
 
@@ -107,6 +107,9 @@ Siga estes passos no servidor no local onde está a executar Azure AD Connect:
    >Se você não é um administrador de domínio e foi-lhe atribuídas permissões pelo administrador de domínio, você deve ligar para `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Repita os passos anteriores para cada floresta AD em que configurar a funcionalidade.
+   
+  >[!NOTE]
+   >Se estiver a atualizar uma floresta, para além da Azure AD Connect, certifique-se de que a conectividade com o servidor de catálogo global (TCP 3268 e TCP 3269) está disponível.
 
    >[!IMPORTANT]
    >Certifique-se de que _não_ dirige o comando mais de `Update-AzureADSSOForest` uma vez. Caso contrário, a funcionalidade deixa de funcionar até ao momento em que os bilhetes Kerberos dos seus utilizadores expiram e são reemitidos pelo seu Ative Directory no local.

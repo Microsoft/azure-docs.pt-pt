@@ -1,7 +1,7 @@
 ---
 title: 'rede neural Two-Class: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo Two-Class Rede Neural em Azure Machine Learning para criar um modelo de rede neural que pode ser usado para prever um alvo que tem apenas dois valores.
+description: Aprenda a utilizar o módulo Two-Class Rede Neural em Azure Machine Learning para criar um classificador binário.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 2ad4fc575a6e9d07e4e24c2d570f68edbbea46c3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9131a2439facef00cae818bffef38e536a40a2fd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907690"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421163"
 ---
 # <a name="two-class-neural-network-module"></a>Módulo de Rede Neural Two-Class
 
@@ -42,13 +42,13 @@ Para calcular a saída da rede para uma determinada entrada, calcula-se um valor
   
 2.  Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**  
   
-    -   **Parâmetro único**: Escolha esta opção se já sabe como pretende configurar o modelo.
+    -   **Parâmetro único** : Escolha esta opção se já sabe como pretende configurar o modelo.
 
-    -   **Intervalo de parâmetros**: Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.  
+    -   **Intervalo de parâmetros** : Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.  
 
 3.  Para **especificação de camada oculta,** selecione o tipo de arquitetura de rede para criar.  
   
-    -   **Caso totalmente ligado**: Utiliza a arquitetura de rede neural padrão, definida para redes neuronais de duas classes da seguinte forma:
+    -   **Caso totalmente ligado** : Utiliza a arquitetura de rede neural padrão, definida para redes neuronais de duas classes da seguinte forma:
   
         -   Tem uma camada escondida.
   
@@ -62,11 +62,11 @@ Para calcular a saída da rede para uma determinada entrada, calcula-se um valor
 
 5.  Para **a taxa de aprendizagem,** defina o tamanho do passo dado em cada iteração, antes da correção. Um valor maior para a taxa de aprendizagem pode fazer com que o modelo converjam mais rapidamente, mas pode ultrapassar o minima local.
 
-6.  Para **o número de iterações de aprendizagem, especifique**o número máximo de vezes que o algoritmo deve processar os casos de treino.
+6.  Para **o número de iterações de aprendizagem, especifique** o número máximo de vezes que o algoritmo deve processar os casos de treino.
 
 7.  Para **o diâmetro inicial dos pesos de aprendizagem,** especifique os pesos dos nós no início do processo de aprendizagem.
 
-8.  Para **o impulso**, especifique um peso a aplicar durante a aprendizagem aos nóns de iterações anteriores  
+8.  Para **o impulso** , especifique um peso a aplicar durante a aprendizagem aos nóns de iterações anteriores  
 
 10. Selecione a opção **De exemplos Shuffle** para baralhar casos entre iterações. Se desmarcar esta opção, os casos são processados exatamente da mesma ordem sempre que o oleoduto.
   
@@ -90,7 +90,7 @@ Para calcular a saída da rede para uma determinada entrada, calcula-se um valor
   
 14. Envie o oleoduto.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o treino estar completo:
 

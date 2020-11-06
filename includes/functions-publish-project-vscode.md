@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: glenga
-ms.openlocfilehash: f4e58f4f510450db13ae13d3beecba4d55e766bf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a525d1e14e642a64235c263ba29bf7a181bf9e30
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91408596"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420993"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicar o projeto no Azure
 
@@ -25,23 +25,15 @@ Nesta secção, cria uma aplicação de função e recursos relacionados na sua 
 
 1. Fornecer as seguintes informações nas instruções:
 
-    - **Selecione pasta**: Escolha uma pasta do seu espaço de trabalho ou navegue para uma que contenha a sua aplicação de função. Não verá isto se já tiver uma aplicação de função válida aberta.
+    - **Selecione pasta** : Escolha uma pasta do seu espaço de trabalho ou navegue para uma que contenha a sua aplicação de função. Não verá isto se já tiver uma aplicação de função válida aberta.
 
-    - **Selecione subscrição**: Escolha a subscrição para usar. Não verá isto se tiver apenas uma assinatura.
+    - **Selecione subscrição** : Escolha a subscrição para usar. Não verá isto se tiver apenas uma assinatura.
 
-    - **Selecione App de função em Azure**: Escolha `- Create new Function App` . (Não escolha a `Advanced` opção, que não está abrangida por este artigo.)
+    - **Selecione App de função em Azure** : Escolha `- Create new Function App` . (Não escolha a `Advanced` opção, que não está abrangida por este artigo.)
       
-    - **Introduza um nome globalmente único para a aplicação de função**: Escreva um nome que seja válido num caminho URL. O nome que digita é validado para se certificar de que é único em Funções Azure.
+    - **Introduza um nome globalmente único para a aplicação de função** : Escreva um nome que seja válido num caminho URL. O nome que digita é validado para se certificar de que é único em Funções Azure.
     
-    ::: zone pivot="programming-language-python"
-    - **Selecione um tempo de execução**: Escolha a versão de Python que tem vindo a executar localmente. Pode utilizar o `python --version` comando para verificar a sua versão.
-    ::: zone-end
-
-    ::: zone pivot="programming-language-javascript,programming-language-typescript"
-    - **Selecione um tempo de execução**: Escolha a versão de Node.js que tem vindo a executar localmente. Pode utilizar o `node --version` comando para verificar a sua versão.
-    ::: zone-end
-
-    - **Selecione uma localização para novos recursos**: Para um melhor desempenho, escolha uma [região](https://azure.microsoft.com/regions/) perto de si. 
+    - **Selecione uma localização para novos recursos** : Para um melhor desempenho, escolha uma [região](https://azure.microsoft.com/regions/) perto de si. 
     
 1.  Quando concluídos, os seguintes recursos Azure são criados na sua subscrição, utilizando nomes baseados no nome da aplicação da sua função:
     

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893408"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421078"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Using Linux Diagnostic Extension to monitor metrics and logs (Utilizar a Extensão de Diagnóstico do Linux para monitorizar métricas e registos)
 
@@ -70,10 +70,33 @@ Distribuições e versões suportadas:
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* **Azure Linux Agent versão 2.2.0 ou posterior** . A maioria das imagens da galeria Azure VM Linux incluem a versão 2.2.7 ou mais tarde. Corra `/usr/sbin/waagent -version` para confirmar a versão instalada no VM. Se o VM estiver a executar uma versão mais antiga do agente convidado, siga [estas instruções](./update-linux-agent.md) para atualizá-lo.
-* **Azure CLI** . [Confende o ambiente Azure CLI](/cli/azure/install-azure-cli) na sua máquina.
+* **Azure Linux Agent versão 2.2.0 ou posterior**. A maioria das imagens da galeria Azure VM Linux incluem a versão 2.2.7 ou mais tarde. Corra `/usr/sbin/waagent -version` para confirmar a versão instalada no VM. Se o VM estiver a executar uma versão mais antiga do agente convidado, siga [estas instruções](./update-linux-agent.md) para atualizá-lo.
+* **Azure CLI**. [Confende o ambiente Azure CLI](/cli/azure/install-azure-cli) na sua máquina.
 * O comando wget, se ainda não o tem: `sudo apt-get install wget` Corra.
 * Uma subscrição Azure existente e uma conta de armazenamento de finalidade geral existente para armazenar os dados em.  Contas de armazenamento de finalidade geral suportam armazenamento de mesa que é necessário.  Uma conta de armazenamento Blob não funcionará.
+* Python 2
+
+### <a name="python-requirement"></a>Requisito de Python
+
+A extensão de diagnóstico Linux requer Python 2. Se a sua máquina virtual estiver a utilizar um distro que não inclua python 2 por defeito, então deve instalá-lo. Os seguintes comandos de amostra instalarão Python 2 em diferentes distros.    
+
+ - Chapéu Vermelho, CentOS, Oráculo: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+O python2 executável deve ser aliasado a *pitão.* Segue-se um método que pode utilizar para definir este pseudónimo:
+
+1. Executar o seguinte comando para remover quaisquer pseudónimos existentes.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Executar o seguinte comando para criar o pseudónimo.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### <a name="sample-installation"></a>Instalação de amostras
 
@@ -175,7 +198,7 @@ Depois de alterar as definições Protegidas ou Públicas, coloque-as no VM exec
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>Migração de versões anteriores da extensão
 
-A versão mais recente da extensão é **3.0** . **Quaisquer versões antigas (2.x) são depreciadas e podem não ser publicadas em ou após 31 de julho de 2018** .
+A versão mais recente da extensão é **3.0**. **Quaisquer versões antigas (2.x) são depreciadas e podem não ser publicadas em ou após 31 de julho de 2018**.
 
 > [!IMPORTANT]
 > Esta extensão introduz alterações de rutura na configuração da extensão. Uma dessas alterações foi feita para melhorar a segurança da extensão; como resultado, a retrocompatibilidade com 2.x não pôde ser mantida. Além disso, o Editor de Extensão para esta extensão é diferente do editor para as versões 2.x.
@@ -205,7 +228,7 @@ Este conjunto de informações de configuração contém informações sensívei
 }
 ```
 
-Nome | Valor
+Name | Valor
 ---- | -----
 storageAccountName | O nome da conta de armazenamento em que os dados são escritos pela extensão.
 armazenamentoAccountEndPoint | (opcional) O ponto final identificando a nuvem em que a conta de armazenamento existe. Se esta definição estiver ausente, o LAD desrescume da nuvem pública Azure, `https://core.windows.net` . Para utilizar uma conta de armazenamento na Alemanha Azure, no Governo Azure ou na Azure China, decidiu esse valor em conformidade.
@@ -789,7 +812,7 @@ Os dados enviados para as pias JsonBlob são armazenados em bolhas na conta de a
 Além disso, pode utilizar estas ferramentas de UI para aceder aos dados no Azure Storage:
 
 * Explorador visual do servidor do estúdio.
-* [A screenshot mostra contentores e mesas no Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Explorador de Armazenamento do Azure")
+* [A screenshot mostra contentores e mesas no Azure Storage Explorer.](https://azurestorageexplorer.codeplex.com/ "Explorador do Storage do Azure")
 
 Esta imagem de uma sessão do Microsoft Azure Storage Explorer mostra as mesas e recipientes de armazenamento Azure gerados a partir de uma extensão LAD 3.0 corretamente configurada num VM de teste. A imagem não corresponde exatamente à [configuração lad 3.0](#an-example-lad-30-configuration)da amostra .
 

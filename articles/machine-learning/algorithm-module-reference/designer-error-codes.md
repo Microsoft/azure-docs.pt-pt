@@ -1,7 +1,7 @@
 ---
 title: Erros do módulo de design de resolução de problemas
 titleSuffix: Azure Machine Learning
-description: Códigos de erro do módulo de resolução de problemas no designer de aprendizagem de máquinas Azure
+description: Saiba como pode ler e resolver códigos de erro automatizados do módulo no designer de Machine Learning Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 05926f7ce25714fb76415802876db0640eb30aae
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323771"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420840"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Exceções e códigos de erro para o designer
 

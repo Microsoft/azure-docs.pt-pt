@@ -1,7 +1,7 @@
 ---
 title: DenseNet
 titleSuffix: Azure Machine Learning
-description: Aprenda a criar um modelo de classificação de imagem usando o algoritmo DenseNet.
+description: Aprenda a usar o módulo DenseNet no designer Azure Machine Learning para criar um modelo de classificação de imagem usando o algoritmo DenseNet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: 2351012738f4cf5697fb29891c9459e4cc86cd3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d21c7443f6b30d0b7d6e8295c0c9b060a80d9a62
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536635"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421333"
 ---
 # <a name="densenet"></a>DenseNet
 
@@ -35,9 +35,9 @@ Para obter mais informações sobre a DenseNet, consulte o artigo de investigaç
 
 1.  Adicione o módulo **DenseNet** ao seu oleoduto no designer.  
 
-2.  Para **o nome do modelo**, especifique o nome de uma determinada estrutura DenseNet e pode selecionar a partir de DenseNet suportado: 'densenet121', 'densenet161', 'densenet169', 'densenet201'.
+2.  Para **o nome do modelo** , especifique o nome de uma determinada estrutura DenseNet e pode selecionar a partir de DenseNet suportado: 'densenet121', 'densenet161', 'densenet169', 'densenet201'.
 
-3.  Para **pré-treinado**, especifique se deve utilizar um modelo pré-treinado no ImageNet. Se selecionado, pode afinar o modelo com base no modelo pré-treinado selecionado; se desescolhido, pode treinar do zero.
+3.  Para **pré-treinado** , especifique se deve utilizar um modelo pré-treinado no ImageNet. Se selecionado, pode afinar o modelo com base no modelo pré-treinado selecionado; se desescolhido, pode treinar do zero.
 
 4.  Para **a memória eficiente,** especifique se deve utilizar o checkpointing, que é muito mais eficiente em termos de memória, mas mais lento. Para obter mais informações, consulte o trabalho de investigação, [Implementação eficiente da memória das Densanets.](https://arxiv.org/pdf/1707.06990.pdf)
 
@@ -46,7 +46,7 @@ Para obter mais informações sobre a DenseNet, consulte o artigo de investigaç
 6. Envie o oleoduto.
 
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o [Modelo De Pytorch de Comboio](train-pytorch-model.md) ao Modelo de Imagem de [Pontuação,](score-image-model.md)para prever valores para novos exemplos de entrada.
 
@@ -54,7 +54,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 ###  <a name="module-parameters"></a>Parâmetros do módulo  
 
-| Nome             | Intervalo | Tipo    | Predefinição     | Descrição                              |
+| Name             | Intervalo | Tipo    | Predefinição     | Description                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
 | Nome do modelo       | Qualquer   | Modo    | densenet201 | Nome de uma certa estrutura DenseNet     |
 | Pré-treinado       | Qualquer   | Booleano | Verdadeiro        | Se usar um modelo pré-treinado no ImageNet |
@@ -62,7 +62,7 @@ Após a execução do gasoduto, para utilizar o modelo para pontuação, ligue o
 
 ###  <a name="output"></a>Saída  
 
-| Nome            | Tipo                    | Descrição                              |
+| Nome            | Tipo                    | Description                              |
 | --------------- | ----------------------- | ---------------------------------------- |
 | Modelo destreinado | Não treinadoModelDirect | Um modelo de DenseNet destreinado que pode ser ligado ao Modelo Train Pytorch. |
 

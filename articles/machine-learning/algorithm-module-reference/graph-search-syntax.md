@@ -1,7 +1,7 @@
 ---
 title: Sintaxe de consulta de pesquisa do Graph
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar a sintaxe de consulta de pesquisa para procurar nós em gráfico de pipeline.
+description: Aprenda a usar a sintaxe de consulta de pesquisa no designer de Aprendizagem automática Azure para procurar nós em gráfico de pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 166b87159b5ac2434c3ce7a7c66529a4b61ee565
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290505"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420772"
 ---
 # <a name="graph-search-query-syntax"></a>Sintaxe de consulta de pesquisa do Graph
 
@@ -36,7 +36,7 @@ A pesquisa de gráficos utiliza a consulta simples de Lucene como sintaxe de pes
 
  
 - E/OU
-- Wildcard combinando **com?** e **\*** operadores.
+- Wildcard combinando **com?** e *\** operadores.
 
 ### <a name="examples"></a>Exemplos
 
@@ -49,7 +49,7 @@ A pesquisa de gráficos utiliza a consulta simples de Lucene como sintaxe de pes
  
 - Correspondência wildcard: 
     - `machi?e learning`
-    - `mach*ing`
+    - `mach_ing`
  
 >[!NOTE]
 > Não se pode começar uma consulta de Lucene com um caráter "*".

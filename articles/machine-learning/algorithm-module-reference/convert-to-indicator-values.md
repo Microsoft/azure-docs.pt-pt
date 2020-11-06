@@ -1,7 +1,7 @@
 ---
 title: Converter em Valores Indicadores
 titleSuffix: Azure Machine Learning
-description: Aprenda a utilizar o módulo Converte-se a Valores Indicadores na Aprendizagem automática Azure para converter colunas que contenham valores categóricos numa série de colunas de indicadores binários.
+description: Utilize o módulo Converte para Valores Indicadores no designer de aprendizagem automática Azure para converter colunas categóricas numa série de colunas indicadoras binárias.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b3c113f46428327842c1555fdd1934e9ae8762
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79477668"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420857"
 ---
 # <a name="convert-to-indicator-values"></a>Converter em Valores Indicadores
 Este artigo descreve um módulo de Azure Machine Learning designer.
@@ -41,7 +41,7 @@ Este módulo também produz uma definição da transformação usada para conver
 
 1. Envie o oleoduto.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Suponha que tenha uma coluna com pontuações que indiquem se um servidor tem uma probabilidade alta, média ou baixa de falha.  
 
@@ -71,7 +71,7 @@ Agora pode utilizar as três colunas indicadoras como características num model
 
 O módulo devolve duas saídas:
 
-- **Conjunto de dados de resultados**: Conjunto de dados com colunas de valores indicadores convertidos. As colunas não selecionadas para limpeza também são "passadas".
+- **Conjunto de dados de resultados** : Conjunto de dados com colunas de valores indicadores convertidos. As colunas não selecionadas para limpeza também são "passadas".
 - **Transformação dos valores indicador :** Uma transformação de dados usada para converter para valores indicadores, que pode ser guardada no seu espaço de trabalho e aplicada a novos dados mais tarde.
 
 ## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>Aplicar uma operação de valores indicadores guardados a novos dados
@@ -104,7 +104,7 @@ Esta secção contém detalhes de implementação, dicas e respostas a perguntas
 
 -   Não há limite para o número de colunas que pode converter em colunas indicadoras. No entanto, como cada coluna de valores pode produzir várias colunas indicadoras, é possível que queira converter e rever apenas algumas colunas de cada vez.  
 
--   Se a coluna contiver valores em falta, é criada uma coluna indicadora separada para a categoria em falta, com este nome: * \<source column> - Falta*  
+-   Se a coluna contiver valores em falta, é criada uma coluna indicadora separada para a categoria em falta, com este nome: *\<source column> - Falta*  
 
 -   Se a coluna que converte para valores indicadores contiver números, devem ser marcadas como categóricas como qualquer outra coluna de recurso. Depois de o ter feito, os números são tratados como valores discretos. Por exemplo, se tiver uma coluna numérica com valores de MPG que variam entre 25 e 30, será criada uma nova coluna indicadora para cada valor discreto:  
 

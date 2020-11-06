@@ -1,7 +1,7 @@
 ---
 title: Utilize o módulo de recomendador & profundo do comboio
 titleSuffix: Azure Machine Learning
-description: Saiba como utilizar o módulo Train Wide & Deep Recommender para formar um modelo de recomendação.
+description: Saiba como utilizar o módulo Train Wide & Deep Recommender no Azure Machine Learning designer para treinar um modelo de recomendação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce713167272c9e97754fdf6f6d065519aaea3d15
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907787"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421180"
 ---
 # <a name="train-wide--deep-recommender"></a>Train Wide & Recomendador Profundo
 Este artigo descreve como usar o módulo **Train Wide & Deep Recommender** no Azure Machine Learning designer, para treinar um modelo de recomendação. Este módulo é baseado em Wide & Deep learning, que é proposto pela Google.
@@ -77,7 +77,7 @@ O conjunto de dados das características do item deve conter identificadores de 
 
 Por exemplo, um conjunto típico de funcionalidades de item pode ser assim:  
 
-|MovieId|Título|Língua original|Géneros|Anual|
+|MovieId|Título|Língua original|Géneros|Ano|
 |-------------|-------------|-------------------|-----------|---------------|
 |68646|O Padrinho|Inglês|Drama|1972|
 |31381|Foi-se com o Vento|Inglês|Histórico|1939|
@@ -88,30 +88,30 @@ Por exemplo, um conjunto típico de funcionalidades de item pode ser assim:
   
 2. Se tiver um conjunto de dados separado de funcionalidades do utilizador e/ou funcionalidades de produto, conecte-os ao módulo **Train Wide e Deep Recommender.**  
   
-    - **Conjunto de dados de funcionalidades do utilizador**: Ligue o conjunto de dados que descreve os utilizadores à segunda entrada.
-    - **Conjunto de dados de recursos**do item : Ligue o conjunto de dados que descreve os itens à terceira entrada.  
+    - **Conjunto de dados de funcionalidades do utilizador** : Ligue o conjunto de dados que descreve os utilizadores à segunda entrada.
+    - **Conjunto de dados de recursos** do item : Ligue o conjunto de dados que descreve os itens à terceira entrada.  
     
-3.  **Épocas**: indicar quantas vezes o algoritmo deve processar todos os dados de treino. 
+3.  **Épocas** : indicar quantas vezes o algoritmo deve processar todos os dados de treino. 
 
     Quanto maior este número, mais adequado é a formação; no entanto, a formação custa mais tempo e pode causar uma sobremontagem.
 
-4. **Tamanho do lote**: digite o número de exemplos de treino utilizados num único passo de treino. 
+4. **Tamanho do lote** : digite o número de exemplos de treino utilizados num único passo de treino. 
 
      Este hiperparmetro pode influenciar a velocidade de treino. Um tamanho de lote mais alto leva a uma época de custos de tempo menos tempo, mas pode aumentar o tempo de convergência. E se o lote for demasiado grande para caber GPU/CPU, um erro de memória pode ser levantado.
 
-5.  **Otimizador de partes largas**: selecione um optimizador para aplicar gradientes à parte larga do modelo.
+5.  **Otimizador de partes largas** : selecione um optimizador para aplicar gradientes à parte larga do modelo.
 
-6.  **Taxa de aprendizagem otimizadora larga**: insira um número entre 0.0 e 2.0 que define a taxa de aprendizagem do otimizador de larga parte.
+6.  **Taxa de aprendizagem otimizadora larga** : insira um número entre 0.0 e 2.0 que define a taxa de aprendizagem do otimizador de larga parte.
 
     Este hiperparmetro determina o tamanho do passo em cada passo de treino enquanto se move em direção a uma função mínima de perda. Uma taxa de aprendizagem demasiado grande pode causar um salto de aprendizagem sobre o minima, enquanto uma taxa de aprendizagem muito pequena pode causar problemas de convergência.
 
-7.  **Dimensão de característica cruzada**: digite a dimensão introduzindo as ids do utilizador pretendido e as funções de id do item. 
+7.  **Dimensão de característica cruzada** : digite a dimensão introduzindo as ids do utilizador pretendido e as funções de id do item. 
 
     O recomendador Wide & Deep executa a transformação entre produtos em relação às funcionalidades de id do utilizador e id de item por padrão. O resultado cruzado será hashed de acordo com este número para garantir a dimensão.
 
-8.  **Otimizador de partes profundas**: selecione um optimizador para aplicar gradientes na parte profunda do modelo.
+8.  **Otimizador de partes profundas** : selecione um optimizador para aplicar gradientes na parte profunda do modelo.
 
-9.  **Taxa de aprendizagem de otimizador**profundo : insira um número entre 0.0 e 2.0 que define a taxa de aprendizagem do otimizador de partes profundas.
+9.  **Taxa de aprendizagem de otimizador** profundo : insira um número entre 0.0 e 2.0 que define a taxa de aprendizagem do otimizador de partes profundas.
 
 10.  **Dimensão de incorporação do utilizador:** digite um inteiro para especificar a dimensão da incorporação de id do utilizador.
 
@@ -125,13 +125,13 @@ Por exemplo, um conjunto típico de funcionalidades de item pode ser assim:
 
 13.  **Unidades ocultas:** digite o número de nós ocultos de componente profundo. O número de nós em cada camada é separado por vírgulas. Por exemplo, pelo tipo "1000.500.100", especifica-se que o componente profundo tem três camadas, com a primeira camada à última, respectivamente, tem 1000 nós, 500 nós e 100 nós.
 
-14.  **Função de ativação**: selecione uma função de ativação aplicada a cada camada, o padrão é ReLU.
+14.  **Função de ativação** : selecione uma função de ativação aplicada a cada camada, o padrão é ReLU.
 
-15.  **Abandono**: introduza um número entre 0,0 e 1.0 para determinar a probabilidade de as saídas serem deixadas cair em cada camada durante o treino.
+15.  **Abandono** : introduza um número entre 0,0 e 1.0 para determinar a probabilidade de as saídas serem deixadas cair em cada camada durante o treino.
 
      O abandono é um método de regularização para evitar que as redes neurais se desajustem. Uma decisão comum para este valor é começar com 0.5, que parece estar perto do ideal para um vasto leque de redes e tarefas.
 
-16.  **Normalização do lote**: selecione esta opção para utilizar a normalização do lote após cada camada escondida no componente profundo.
+16.  **Normalização do lote** : selecione esta opção para utilizar a normalização do lote após cada camada escondida no componente profundo.
 
      A normalização do lote é uma técnica para combater o problema interno da mudança de covariate durante o treino das redes. Em geral, pode ajudar a melhorar a velocidade, o desempenho e a estabilidade das redes. 
 

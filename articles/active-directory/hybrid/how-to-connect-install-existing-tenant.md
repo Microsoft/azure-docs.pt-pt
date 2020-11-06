@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68251270b6273f5a07391138e5c7210f1c46ba5a
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662253"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420534"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: Quando tiver um inquilino existente
 A maioria dos tópicos para como usar o Azure AD Connect assume que você começa com um novo inquilino AD AZure e que não há utilizadores ou outros objetos lá. Mas se você começou com um inquilino AZure AD, povoou-o com utilizadores e outros objetos, e agora quer usar Connect, então este tópico é para você.
@@ -34,11 +34,11 @@ Pode gerir alguns utilizadores no local e outros na nuvem. Um cenário comum par
 Se começou a gerir utilizadores em Azure AD que também estão no local AD e mais tarde querem usar o Connect, então existem algumas preocupações adicionais que deve considerar.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Sincronizar com os utilizadores existentes no Azure AD
-Quando instala o Azure AD Connect e começa a sincronizar, o serviço de sincronização AZure AD (em Azure AD) verifica cada novo objeto e tenta encontrar um objeto existente para combinar. Existem três atributos utilizados para este processo: **userPrincipalName,** **proxyAddresses**e **sourceAnchor** / **imuttableID**. Uma correspondência no **userPrincipalName** e **proxyAddresses** é conhecida como uma **combinação suave**. Uma correspondência na **fonteAnchor** é conhecida como **hard match**. Para o **proxyAddresses** atribuem apenas o valor com **SMTP:**, este é o endereço de e-mail primário, é usado para a avaliação.
+Quando instala o Azure AD Connect e começa a sincronizar, o serviço de sincronização AZure AD (em Azure AD) verifica cada novo objeto e tenta encontrar um objeto existente para combinar. Existem três atributos utilizados para este processo: **userPrincipalName,** **proxyAddresses** e **sourceAnchor** / **imuttableID**. Uma correspondência no **userPrincipalName** e **proxyAddresses** é conhecida como uma **combinação suave**. Uma correspondência na **fonteAnchor** é conhecida como **hard match**. Para o **proxyAddresses** atribuem apenas o valor com **SMTP:** , este é o endereço de e-mail primário, é usado para a avaliação.
 
 A partida só é avaliada para novos objetos vindos do Connect. Se alterar um objeto existente, por isso corresponde a qualquer um destes atributos, então vê um erro.
 
-Se a Azure AD encontrar um objeto onde os valores do atributo são os mesmos para um objeto proveniente do Connect e que já está presente no Azure AD, então o objeto em Azure AD é assumido pela Connect. O objeto anteriormente gerido pela nuvem é sinalizado como gerido no local. Todos os atributos em AD Azure com um valor em AD no local são substituídos com o valor no local. A exceção é quando um atributo tem um valor **NULO** no local. Neste caso, o valor em Azure AD permanece, mas ainda assim só pode mudá-lo no local para outra coisa.
+Se a Azure AD encontrar um objeto onde os valores do atributo são os mesmos para um objeto proveniente do Connect e que já está presente no Azure AD, então o objeto em Azure AD é assumido pela Connect. O objeto anteriormente gerido pela nuvem é sinalizado como gerido no local. Todos os atributos em AD Azure com um valor em AD no local são substituídos com o valor no local.
 
 > [!WARNING]
 > Uma vez que todos os atributos em AD Azure serão substituídos pelo valor no local, certifique-se de que tem bons dados no local. Por exemplo, se apenas geriu o endereço de e-mail no Microsoft 365 e não o manteve atualizado em DS AD no local, então perde quaisquer valores em Azure AD/Microsoft 365 que não esteja presente em DS AD.

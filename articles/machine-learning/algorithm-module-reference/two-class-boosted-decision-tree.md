@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class Árvore de Decisão Reforçada: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a usar o módulo Two-Class Da Árvore de Decisão Reforçada em Azure Machine Learning para criar um modelo de aprendizagem automática que se baseia no algoritmo de árvores de decisão reforçada.
+description: Aprenda a usar o módulo Two-Class Boosted Decision Tree no designer para criar um classificador binário.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 833caa0cf264fb49d8b32255f429132cd888c6c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 568cd7b280b8fb65b5f75588a2832631361938dd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907738"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420619"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Two-Class módulo de árvore de decisão reforçada
 
@@ -38,9 +38,9 @@ Pode treinar este tipo de modelo utilizando [o Modelo de Comboio.](././train-mod
   
 2.  Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**
   
-    + **Parâmetro único**: Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.
+    + **Parâmetro único** : Se souber como pretende configurar o modelo, pode fornecer um conjunto específico de valores como argumentos.
   
-    + **Intervalo de parâmetros**: Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
+    + **Intervalo de parâmetros** : Se não tiver a certeza dos melhores parâmetros, pode encontrar os parâmetros ideais utilizando o módulo [De Hiperparametros Tune Model.](tune-model-hyperparameters.md) Fornece alguma gama de valores, e o treinador itera sobre várias combinações das definições para determinar a combinação de valores que produz o melhor resultado.
   
 3.  Para **o número máximo de folhas por árvore,** indique o número máximo de nós terminais (folhas) que podem ser criados em qualquer árvore.
   
@@ -77,7 +77,7 @@ Pode treinar este tipo de modelo utilizando [o Modelo de Comboio.](././train-mod
     > 
     > Se selecionar a opção De Alcance de **Parâmetros** e introduzir um único valor para qualquer parâmetro, esse valor único especificado é utilizado ao longo da varredura, mesmo que outros parâmetros se alterem numa gama de valores.  
    
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o treino estar completo:
 

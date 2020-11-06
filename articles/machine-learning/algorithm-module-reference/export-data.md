@@ -1,7 +1,7 @@
 ---
 title: 'Dados de Exportação: Referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a utilizar o módulo de Dados de Exportação em Azure Machine Learning para guardar resultados, dados intermédios e dados de trabalho dos seus oleodutos em destinos de armazenamento em nuvem fora do Azure Machine Learning.
+description: Utilize o módulo de dados de exportação no designer de aprendizagem automática Azure para guardar resultados e dados intermédios fora da Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/28/2020
-ms.openlocfilehash: 5964ed9773d45b809fc79252eabc754b1b04af84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6e3d56958168cd279c98a4ba4c021c2362c2694
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907997"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421316"
 ---
 # <a name="export-data-module"></a>Módulo de Dados de Exportação
 
@@ -54,7 +54,7 @@ Antes de exportar os seus dados, tem de registar primeiro uma loja de dados no s
 1. Defina o caminho na datastore onde os dados estão. O caminho é um caminho relativo. Os caminhos vazios ou os caminhos de URL não são permitidos.
 
 
-1. Para **o formato Ficheiro**, selecione o formato em que os dados devem ser armazenados.
+1. Para **o formato Ficheiro** , selecione o formato em que os dados devem ser armazenados.
  
 1. Envie o oleoduto.
 

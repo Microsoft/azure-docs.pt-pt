@@ -1,20 +1,20 @@
 ---
 title: OFICIAL DO Reino Unido & controlos de amostras de amostras do NHS do Reino Unido
 description: Controlo do mapeamento das amostras de plantas do NHS do Reino Unido e do Reino Unido. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
-ms.date: 07/13/2020
+ms.date: 11/05/2020
 ms.topic: sample
-ms.openlocfilehash: b798ac98e057b85cce0faa835575dbb0d50f9c8c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 352ba30a21c638c68401e2f8e471096a777fbde9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931277"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420262"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Controlo do mapeamento das amostras de plantas do NHS oficial do Reino Unido e do Reino Unido
 
 O artigo seguinte detalha como o mapa de amostras de amostras do NHS oficial do Reino Unido e do Reino Unido para os controlos do NHS oficial e do Reino Unido. Para obter mais informações sobre os controlos, consulte [o UK OFFICIAL](https://www.gov.uk/government/publications/government-security-classifications).
 
-Os seguintes mapeamentos são para os controlos **oficiais** do Reino Unido e **do NhS do Reino Unido.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione os ** \[ \] controlos oficiais do NHS oficiais e britânicos de pré-visualização e implemente extensões VM específicas para apoiar os requisitos** de auditoria integrados na iniciativa política.
+Os seguintes mapeamentos são para os controlos **oficiais** do Reino Unido e **do NhS do Reino Unido.** Utilize a navegação no direito de saltar diretamente para um mapeamento de controlo específico. Muitos dos controlos mapeados são implementados com uma iniciativa [da Política Azure.](../../../policy/overview.md) Para rever a iniciativa completa, abra **a Política** no portal Azure e selecione a página **Definições.** Em seguida, encontre e selecione os **\[ \] controlos oficiais do NHS oficiais e britânicos de pré-visualização e implemente extensões VM específicas para apoiar os requisitos** de auditoria integrados na iniciativa política.
 
 > [!IMPORTANT]
 > Cada controlo abaixo está associado a uma ou mais definições [da Política Azure.](../../../policy/overview.md) Estas políticas podem ajudá-lo a avaliar o [cumprimento](../../../policy/how-to/get-compliance-data.md) do controlo; no entanto, muitas vezes não há um para um ou um jogo completo entre um controlo e uma ou mais políticas. Como tal, **a Conformidade** na Política Azure refere-se apenas às próprias políticas; isto não garante que esteja totalmente em conformidade com todos os requisitos de um controlo. Além disso, a norma de conformidade inclui controlos que não são abordados por nenhuma definição da Política Azure neste momento. Portanto, o cumprimento da Política Azure é apenas uma visão parcial do seu estado de conformidade geral. As associações entre controlos e definições de Política Azure para esta amostra de projeto de conformidade podem mudar ao longo do tempo. Para ver a história da mudança, consulte o [GitHub Commit History](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/ukofficial/control-mapping.md).
@@ -26,7 +26,6 @@ O plano ajuda-o a garantir que a transferência de informação com os serviços
 - Apenas devem ser ativadas ligações seguras à sua Cache Redis
 - A transferência segura para contas de armazenamento deve ser ativada
 - Mostrar os resultados da auditoria dos servidores web do Windows que não estão a utilizar protocolos de comunicação seguros
-- Implementar pré-requisitos para auditar servidores web do Windows que não estão a utilizar protocolos de comunicação seguros
 - A Aplicação Web só deve ser acessível em HTTPS
 - A App de função só deve estar acessível através do HTTPS
 - A API App só deve estar acessível em HTTPS
@@ -55,19 +54,19 @@ Esta planta ajuda-o a gerir as vulnerabilidades do sistema de informação, atri
 - As vulnerabilidades nas suas bases de dados SQL devem ser remediadas
 - As vulnerabilidades devem ser remediadas por uma solução de Avaliação de Vulnerabilidades
 - A avaliação da vulnerabilidade deve ser ativada nos seus servidores SQL
-- A avaliação da vulnerabilidade deve ser ativada nas suas instâncias geridas pelo SQL
+- A avaliação da vulnerabilidade deve ser ativada no seu exemplo gerido pelo SQL
 - As vulnerabilidades na configuração de segurança nos conjuntos de escala de máquina virtual devem ser remediadas
-- A segurança avançada dos dados deve ser ativada nas suas instâncias geridas pelo SQL
+- A segurança avançada dos dados deve ser ativada na sua instância gerida pelo SQL
 - A segurança avançada dos dados deve ser ativada nos seus servidores SQL
 
 ## <a name="53-protective-monitoring"></a>5.3 Monitorização protetora
 
 Esta planta ajuda-o a proteger os ativos do sistema de informação, atribuindo definições [da Política Azure](../../../policy/overview.md) que fornecem monitorização protetora no acesso sem restrições, permitem a atividade da lista e ameaças.
 
-- Auditoria acesso ilimitado à rede a contas de armazenamento
-- Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
+- As contas de armazenamento devem restringir o acesso à rede
+- Os controlos de aplicações adaptativos para definir aplicações seguras devem ser ativados nas suas máquinas
 - Auditar máquinas virtuais sem recuperação de desastres configurada
-- A Norma de Proteção DDoS deve ser ativada
+- A Padrão de Proteção Azure DDoS deve ser ativado
 - Os tipos avançados de proteção de ameaças devem ser definidos para 'All' em definições de segurança de dados avançadas de casos
 - Os tipos avançados de proteção contra ameaças devem ser definidos para 'All' nas definições avançadas de segurança de dados do servidor SQL
 - Implementar deteção de ameaças em servidores SQL
@@ -115,11 +114,6 @@ Esta planta também atribui uma definição de Política Azure que audita permis
 
 Este plano ajuda-o a impor senhas fortes atribuindo definições de Política Azure que auditam VMs do Windows que não impõem a força mínima e outros requisitos de senha. A sensibilização dos VMs em violação da política de força de senha ajuda-o a tomar ações corretivas para garantir que as palavras-passe de todas as contas de utilizador VM estão em conformidade com a política.
 
-- Implementar pré-requisitos para auditar VMs do Windows que não tenham a definição de complexidade da palavra-passe ativada
-- Implementar pré-requisitos para auditar VMs do Windows que não tenham uma idade máxima de senha de 70 dias
-- Implementar pré-requisitos para auditar VMs do Windows que não tenham uma idade mínima de senha de 1 dia
-- Implementar pré-requisitos para auditar VMs do Windows que não restringem o comprimento mínimo da palavra-passe a 14 caracteres
-- Implementar pré-requisitos para auditar VMs do Windows que permitam reutilizar as 24 palavras-passe anteriores
 - Mostrar os resultados da auditoria dos VM do Windows que não têm a definição de complexidade da palavra-passe ativada
 - Mostrar resultados de auditoria de VMs do Windows que não têm uma idade máxima de senha de 70 dias
 - Mostrar os resultados da auditoria dos VM do Windows que não têm uma idade mínima de senha de 1 dia
@@ -128,8 +122,6 @@ Este plano ajuda-o a impor senhas fortes atribuindo definições de Política Az
 
 Esta planta também ajuda a controlar o acesso aos recursos Azure, atribuindo definições de Política Azure. Estas políticas auditam a utilização de tipos de recursos e configurações que podem permitir um acesso mais permissivo aos recursos. Compreender os recursos que estão a violar estas políticas pode ajudá-lo a tomar medidas corretivas para garantir que os recursos Azure de acesso são restritos aos utilizadores autorizados.
 
-- Implementar requisitos para auditar Os VMs do Linux que têm contas sem senhas
-- Implementar requisitos para auditar Os VMs do Linux que permitem ligações remotas a partir de contas sem senhas
 - Mostrar resultados de auditoria de VMs Linux que têm contas sem senhas
 - Mostrar resultados de auditoria de VMs Linux que permitem ligações remotas a partir de contas sem senhas
 - As contas de armazenamento devem ser migradas para novos recursos do Gestor de Recursos Azure
@@ -141,15 +133,15 @@ Esta planta também ajuda a controlar o acesso aos recursos Azure, atribuindo de
 Além de utilizar mais de 25 políticas para uma gestão segura e adequada do utilizador, este plano ajuda-o a proteger as interfaces de serviço do acesso não autorizado, atribuindo uma definição [de Política Azure](../../../policy/overview.md) que monitoriza contas de armazenamento sem restrições.
 As contas de armazenamento com acesso ilimitado podem permitir o acesso não intencional às informações contidas no sistema de informação. Esta planta também atribui uma política que permite controlos de aplicações adaptativos em máquinas virtuais.
 
-- Auditoria acesso ilimitado à rede a contas de armazenamento
-- Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
+- As contas de armazenamento devem restringir o acesso à rede
+- Os controlos de aplicações adaptativos para definir aplicações seguras devem ser ativados nas suas máquinas
 - O acesso através da Internet face ao ponto final deve ser restringido
 - Recomendações de endurecimento de rede adaptativa devem ser aplicadas na internet face a máquinas virtuais
 - A solução de proteção do ponto final deve ser instalada em conjuntos de escala de máquina virtual
-- O controlo de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais
-- Depuragem remota deve ser desligada para a App de Função
-- Depuragem remota deve ser desligada para aplicação web
-- Depuragem remota deve ser desligada para app API
+- As portas de gestão das máquinas virtuais devem ser protegidas com controlo de acesso à rede just-in-time
+- Depuragem remota deve ser desligada para apps de funções
+- Depuragem remota deve ser desligada para aplicações web
+- Depuragem remota deve ser desligada para apps da API
 
 ## <a name="13-audit-information-for-users"></a>13 Informações de Auditoria para Utilizadores
 
@@ -161,6 +153,7 @@ Uma política atribuída também audita se as máquinas virtuais não estiverem 
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux
 - \[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows
 - Implementar o observador de rede quando as redes virtuais forem criadas
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

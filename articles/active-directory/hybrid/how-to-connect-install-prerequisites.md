@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f337a66f50338692508ab2e5b4b7d489c735aa20
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276942"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420500"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
@@ -42,8 +42,8 @@ Antes de instalar o Azure AD Connect, há algumas coisas que precisa.
 
 ### <a name="on-premises-active-directory"></a>Active Directory no local
 * A versão de esquema de Ative Directory e o nível funcional da floresta devem ser o Windows Server 2003 ou mais tarde. Os controladores de domínio podem executar qualquer versão desde que a versão do esquema e os requisitos de nível florestal estejam cumpridos.
-* Se pretender utilizar a gravação da *palavra-passe*de recurso, os controladores de domínio devem estar no Windows Server 2008 R2 ou posteriormente.
-* O controlador de domínio utilizado pela Azure AD deve ser writable. A utilização de um controlador de domínio apenas de leitura (RODC) *não é suportada*, e o Azure AD Connect não segue quaisquer redirecionamentos de escrita.
+* Se pretender utilizar a gravação da *palavra-passe* de recurso, os controladores de domínio devem estar no Windows Server 2012 ou posteriormente.
+* O controlador de domínio utilizado pela Azure AD deve ser writable. A utilização de um controlador de domínio apenas de leitura (RODC) *não é suportada* , e o Azure AD Connect não segue quaisquer redirecionamentos de escrita.
 * Utilizando florestas ou domínios no local utilizando "pontilhados" (o nome contém um período ".") Os nomes da NetBIOS *não são suportados.*
 * Recomendamos que [ative o caixote de reciclagem ative directory](how-to-connect-sync-recycle-bin.md).
 
@@ -106,7 +106,7 @@ Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfíc
   * Se estiver a utilizar a nuvem da Microsoft na Alemanha ou a nuvem do Governo do Microsoft Azure, consulte as considerações do [serviço de sincronização Azure AD Connect](reference-connect-instances.md) para URLs.
 * O Azure AD Connect (versão 1.1.614.0 e depois) utiliza por predefinição o TLS 1.2 para encriptar a comunicação entre o motor de sincronização e o AD AZure. Se o TLS 1.2 não estiver disponível no sistema operativo subjacente, o Azure AD Connect recua gradualmente aos protocolos mais antigos (TLS 1.1 e TLS 1.0).
 * Antes da versão 1.1.614.0, o Azure AD Connect por predefinição utiliza o TLS 1.0 para encriptar a comunicação entre o motor de sincronização e o AD Azure. Para alterar para TLS 1.2, siga os passos em [Enable TLS 1.2 para Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
-* Se estiver a utilizar um representante de saída para se ligar à internet, deve ser adicionada a seguinte definição no ficheiro **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** para que o assistente de instalação e a sincronização AD Connect Azure possam ligar-se à internet e ao Azure AD. Este texto deve ser introduzido na parte inferior do ficheiro. Neste código, * &lt; o PROXYADDRESS &gt; * representa o endereço IP ou nome de anfitrião proxy.
+* Se estiver a utilizar um representante de saída para se ligar à internet, deve ser adicionada a seguinte definição no ficheiro **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** para que o assistente de instalação e a sincronização AD Connect Azure possam ligar-se à internet e ao Azure AD. Este texto deve ser introduzido na parte inferior do ficheiro. Neste código, *&lt; o PROXYADDRESS &gt;* representa o endereço IP ou nome de anfitrião proxy.
 
     ```
         <system.net>
@@ -140,7 +140,7 @@ Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfíc
 Para obter mais informações, consulte a MSDN sobre o [elemento proxy predefinido](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Para obter mais informações quando tiver problemas de conectividade, consulte [problemas de conectividade de resolução de problemas](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 Opcional: Utilize uma conta de utilizador de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos de componentes
@@ -180,7 +180,7 @@ Quando utilizar o Azure AD Connect para implementar O FS AD ou o Proxy da Aplica
   * Na máquina em que o assistente está em funcionamento (se a máquina-alvo não estiver de domínio ou se for um domínio não fided o domínio):
     * Numa janela de comando PowerShell elevada, utilize o comando `Set-Item.WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate` .
     * No gestor do servidor:
-      * Adicione um anfitrião DMZ WAP a uma piscina de máquinas. No gestor do servidor, selecione **Gerir**  >  **Servidores de Adicionar**e, em seguida, use o **separador DNS.**
+      * Adicione um anfitrião DMZ WAP a uma piscina de máquinas. No gestor do servidor, selecione **Gerir**  >  **Servidores de Adicionar** e, em seguida, use o **separador DNS.**
       * No **separador 'Gestor do Servidor' Todos os Servidores,** clique no servidor WAP e selecione **'Gerir's Como**. Introduza credenciais locais (não domínio) para a máquina WAP.
       * Para validar a conectividade remota powerShell, no separador Gestor do **Servidor Todos os Servidores,** clique com o botão direito no servidor WAP e selecione **Windows PowerShell**. Uma sessão powerShell remota deve ser aberta para garantir que sessões remotas do PowerShell possam ser estabelecidas.
 

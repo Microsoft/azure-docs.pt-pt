@@ -1,7 +1,7 @@
 ---
 title: 'Modelo validado cruzado: referência do módulo'
 titleSuffix: Azure Machine Learning
-description: Aprenda a utilizar o módulo Modelo Cross-Valide em Azure Machine Learning para validar estimativas de parâmetros para modelos de classificação ou regressão dividindo os dados.
+description: Utilize o módulo Modelo Cross-Valide no designer Azure Machine Learning para validar estimativas de parâmetros para modelos de classificação ou regressão.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 63c61b12ad68a3add2e7b40ab0bec38d3c2835e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4099ecf6e6bcc6654391e54292878393fb22914
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898574"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421350"
 ---
 # <a name="cross-validate-model"></a>Modelo de validação cruzada
 
@@ -76,7 +76,7 @@ Neste cenário, treina-se e testa o modelo utilizando o Modelo Cross Validate.
 
 7. Consulte a secção [resultados](#results) para obter uma descrição dos relatórios.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Depois de todas as iterações estarem completas, o Modelo Validado Cross cria pontuações para todo o conjunto de dados. Também cria métricas de desempenho que pode usar para avaliar a qualidade do modelo.
 
@@ -86,7 +86,7 @@ A primeira saída do módulo fornece os dados de origem para cada linha, juntame
 
 Para ver os resultados, no pipeline, clique à direita no módulo Modelo Validado Cruz. **Selecione Visualizar Resultados Pontuados**.
 
-| Nome da coluna nova      | Descrição                              |
+| Nome da coluna nova      | Description                              |
 | -------------------- | ---------------------------------------- |
 | Etiquetas Classificadas        | Esta coluna é adicionada no final do conjunto de dados. Contém o valor previsto para cada linha. |
 | Probabilidades Pontuadas | Esta coluna é adicionada no final do conjunto de dados. Indica a probabilidade estimada do valor em **Etiquetas Pontuadas**. |
@@ -101,7 +101,7 @@ Neste relatório, as dobras são listadas pelo valor do índice, por ordem ascen
 Para ver os resultados, no pipeline, clique à direita no módulo Modelo Validado Cruz. Selecione **visualizar os resultados da avaliação por dobra.**
 
 
-|Nome da coluna| Descrição|
+|Nome da coluna| Description|
 |----|----|
 |Número dobrável| Um identificador para cada dobra. Se criasse cinco dobras, haveria cinco subconjuntos de dados, numerados de 0 a 4.
 |Número de exemplos em dobra|O número de linhas atribuídas a cada dobra. Devem ser aproximadamente iguais. |
@@ -109,9 +109,9 @@ Para ver os resultados, no pipeline, clique à direita no módulo Modelo Validad
 
 O módulo também inclui as seguintes métricas para cada dobra, dependendo do tipo de modelo que está a avaliar: 
 
-+ **Modelos de classificação**: Precisão, recordação, pontuação F, AUC, precisão  
++ **Modelos de classificação** : Precisão, recordação, pontuação F, AUC, precisão  
 
-+ **Modelos de regressão**: Erro absoluto, erro quadrado de raiz, erro absoluto relativo, erro quadrado relativo e coeficiente de determinação
++ **Modelos de regressão** : Erro absoluto, erro quadrado de raiz, erro absoluto relativo, erro quadrado relativo e coeficiente de determinação
 
 
 ## <a name="technical-notes"></a>Notas técnicas  
