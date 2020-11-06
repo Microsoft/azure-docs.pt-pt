@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: c63733a66a2bb4e320a24649dfe82eac259e79ae
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 3ffdeb0add8622e1b9f28f9603dc146b78f742cd
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131110"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043298"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-preview-apis"></a>Criar subscrições do Azure através de programação com APIs de pré-visualização
 
@@ -212,7 +212,7 @@ Para ver uma lista completa de todos os parâmetros, veja [az account create](/c
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitações da API de criação de subscrições do Azure Enterprise
 
 - Apenas as subscrições do Azure Enterprise podem ser criadas com esta API.
-- Há um limite de 2000 subscrições por conta de inscrição. Depois disso, só podem ser criadas mais subscrições para a conta no portal do Azure. Se quiser criar mais subscrições através da API, crie outra conta de inscrição.
+- Há um limite de 2000 subscrições por conta de inscrição. Depois disso, só podem ser criadas mais subscrições para a conta no portal do Azure. Se quiser criar mais subscrições através da API, crie outra conta de inscrição. As subscrições canceladas, eliminadas e transferidas contam para o limite de 2000.
 - Os utilizadores que não sejam Proprietários de Conta, mas que tenham sido adicionados a uma conta de inscrição com o RBAC do Azure, não podem criar subscrições no portal do Azure.
 - Não pode selecionar o inquilino onde a subscrição vai ser criada. A subscrição é sempre criada no inquilino principal do Proprietário da Conta. Para mover a assinatura para um inquilino diferente, veja [alterar inquilino de subscrição](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 

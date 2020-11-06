@@ -5,16 +5,16 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 59d3a44b1eff544f7214014f2dd31edc92bfc6bc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7b44abbbf2e7592205d5d5c291ce99d381a283f7
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748169"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043282"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>Criar subscrições do Azure através de programação com as APIs mais recentes
 
@@ -232,7 +232,7 @@ Obtém o subscriptionId como parte da resposta do comando.
 ### <a name="limitations-of-azure-enterprise-subscription-creation-api"></a>Limitações da API de criação de subscrições do Azure Enterprise
 
 - Apenas as subscrições do Azure Enterprise são criadas com esta API.
-- Há um limite de 2000 subscrições por conta de inscrição. Depois disso, só podem ser criadas mais subscrições para a conta no portal do Azure. Para criar mais subscrições através da API, crie outra conta de inscrição.
+- Há um limite de 2000 subscrições por conta de inscrição. Depois disso, só podem ser criadas mais subscrições para a conta no portal do Azure. Para criar mais subscrições através da API, crie outra conta de inscrição. As subscrições canceladas, eliminadas e transferidas contam para o limite de 2000.
 - Os utilizadores que não sejam Proprietários de Conta, mas que tenham sido adicionados a uma conta de inscrição via RBAC do Azure, não podem criar subscrições no portal do Azure.
 - Não pode selecionar o inquilino onde a subscrição vai ser criada. A subscrição é sempre criada no inquilino principal do Proprietário da Conta. Para mover a assinatura para um inquilino diferente, veja [alterar inquilino de subscrição](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -281,7 +281,7 @@ A resposta da API lista as contas de faturação às quais tem acesso.
 }
 ```
 
-Use a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o agreementType da conta é *MicrosoftCustomerAgreement* . Copie o `name` da conta.  Por exemplo, para criar uma subscrição para a conta de faturação `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole o valor algures para que possa utilizá-lo no passo seguinte.
+Use a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o agreementType da conta é *MicrosoftCustomerAgreement*. Copie o `name` da conta.  Por exemplo, para criar uma subscrição para a conta de faturação `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole o valor algures para que possa utilizá-lo no passo seguinte.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts)
@@ -553,7 +553,7 @@ A resposta da API lista as contas de faturação.
 }
 ```
 
-Use a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o agreementType da conta é *MicrosoftPartnerAgreement* . Copie o `name` para a conta. Por exemplo, para criar uma subscrição para a conta de faturação `Contoso`, copie `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole o valor algures para que possa utilizá-lo no passo seguinte.
+Use a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o agreementType da conta é *MicrosoftPartnerAgreement*. Copie o `name` para a conta. Por exemplo, para criar uma subscrição para a conta de faturação `Contoso`, copie `99a13315-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole o valor algures para que possa utilizá-lo no passo seguinte.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts-MPA)
@@ -838,7 +838,7 @@ A resposta da API lista as contas de faturação às quais tem acesso.
 }
 ```
 
-Use a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o agreementType da conta é *MicrosoftCustomerAgreement* . Copie o `name` da conta. Por exemplo, para criar uma subscrição para a conta de faturação `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole o valor algures para que possa utilizá-lo no passo seguinte.
+Use a propriedade `displayName` para identificar a conta de faturação para a qual pretende criar subscrições. Certifique-se de que o agreementType da conta é *MicrosoftCustomerAgreement*. Copie o `name` da conta. Por exemplo, para criar uma subscrição para a conta de faturação `Contoso`, copie `5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx`. Cole o valor algures para que possa utilizá-lo no passo seguinte.
 
 <!--
 ### [PowerShell](#tab/azure-powershell-getBillingAccounts)

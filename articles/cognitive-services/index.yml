@@ -12,12 +12,12 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: ca210f144d56aa56ddbcb959e0240bd4816dc3af
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+  ms.openlocfilehash: b1aa2c098ead7086e670a92ce0657aa5a20a2b61
+  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92547117"
+  ms.lasthandoff: 11/04/2020
+  ms.locfileid: "93323103"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
@@ -118,9 +118,12 @@ conceptualContent:
   - title: Contentores dos Serviços Cognitivos
     summary: O suporte de contentores nos Serviços Cognitivos do Azure permite que os programadores utilizem as mesmas APIs avançadas que estão disponíveis no Azure. Além disso, permite grande flexibilidade em relação ao local onde implementar e alojar os serviços fornecidos com os contentores do Docker.
     links:
+    - url: ./containers/index.yml
+      itemType: overview
+      text: Documentação sobre contentores dos Serviços Cognitivos
     - url: ./cognitive-services-container-support.md
       itemType: overview
-      text: Contentores dos Serviços Cognitivos
+      text: O que são os contentores dos Serviços Cognitivos?
     - url: ./containers/container-reuse-recipe.md
       itemType: learn
       text: Criar contentores para reutilização

@@ -39,8 +39,6 @@
           href: how-to-automatic-language-detection.md
         - name: Utilizar a API da transcrição em lotes
           href: batch-transcription.md
-        - name: Avaliar a pronúncia
-          href: how-to-pronunciation-assessment.md
     - name: Tutoriais
       items:
         - name: Reconhecer a voz armazenada no armazenamento de blobs
@@ -530,6 +528,8 @@
           href: deploy-speech-on-container-instances.md
         - name: FAQ de contentores
           href: speech-container-faq.md
+        - name: Documentação sobre contentores dos Serviços Cognitivos
+          href: ../containers/index.yml
 - name: Dispositivos
   items:
     - name: Documentação dos dispositivos de voz

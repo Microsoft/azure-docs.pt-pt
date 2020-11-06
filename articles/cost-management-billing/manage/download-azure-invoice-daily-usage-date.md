@@ -7,15 +7,15 @@ ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/28/2020
 ms.author: banders
-ms.openlocfilehash: c24af5a9fb1367e00d9a014b1e10f750a38ad30b
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: e380aa1f4d50e6ced34254ceca9d899022142f6d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91270904"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911295"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Transferir ou ver os dados da utilização diária e da faturação do Azure
 
@@ -41,7 +41,7 @@ Para a maioria das subscrições, pode transferir a fatura a partir do portal do
 
     ![Captura de ecrã que mostra a opção Faturação e utilização](./media/download-azure-invoice-daily-usage-date/billingandusage.png)
 
-3. Clique no botão de transferência para transferir uma cópia da sua fatura em PDF e, em seguida, selecione **Transferir fatura**. Se indicar **Não disponível**, veja [Por que motivo não vejo uma fatura para o último período de faturação?](#noinvoice)
+3. Clique no botão de transferência para transferir uma cópia da sua fatura em PDF e, em seguida, selecione **Transferir fatura**. Se indicar **Não disponível** , veja [Por que motivo não vejo uma fatura para o último período de faturação?](#noinvoice)
 
     ![Captura de ecrã que mostra os períodos de faturação, a opção de transferência e os custos totais de cada período de faturação](./media/download-azure-invoice-daily-usage-date/downloadinvoice.png)
 
@@ -107,8 +107,8 @@ Se tiver um Contrato de Cliente da Microsoft, poderá optar por receber a fatura
 
 1. Procure **Cost Management + Faturação**.
 1. Selecione um perfil de faturação.
-1. Em **Definições**, selecione **Propriedades**.
-1. Em **Fatura por E-mail**, selecione **Atualizar preferência de fatura por e-mail**.
+1. Em **Definições** , selecione **Propriedades**.
+1. Em **Fatura por E-mail** , selecione **Atualizar preferência de fatura por e-mail**.
 1. Selecione **Optar por receber**.
 1. Clique em **Atualizar**.
 
@@ -136,9 +136,7 @@ Para ver e transferir os dados de utilização como um cliente do EA, tem de ser
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Procure *Cost Management + Faturação*.
-
-    ![Captura de ecrã a mostrar a pesquisa no portal do Azure](./media/download-azure-invoice-daily-usage-date/portal-cm-billing-search.png)
-
+1. Se tiver acesso a várias contas de faturação, selecione o âmbito de faturação da sua conta de faturação do EA.
 1. Selecione **Utilização + custos**.
 1. Para o mês que pretende transferir, selecione **Transferir**.
 
@@ -161,14 +159,10 @@ Também pode transferir a utilização acumulada até hoje para o período de fa
 
 1. Procure **Cost Management + Faturação**.
 2. Selecione um perfil de faturação.
-3. No painel **Descrição geral**, clique em **Transferir utilização e custos do Azure**.
+3. No painel **Descrição geral** , clique em **Transferir utilização e custos do Azure**.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Verificar o acesso ao Contrato de Cliente da Microsoft
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
-
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
-
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passos seguintes
 

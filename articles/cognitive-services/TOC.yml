@@ -66,6 +66,8 @@
           href: ../container-registry/container-registry-get-started-azure-cli.md
         - name: Serviço de Kubernetes do Azure (AKS)
           href: ../aks/tutorial-kubernetes-prepare-app.md
+    - name: Documentação sobre contentores dos Serviços Cognitivos
+      href: containers/index.yml
 - name: Macrodados
   items:
     - name: Serviços Cognitivos para Macrodados
