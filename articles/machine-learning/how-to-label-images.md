@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: ff8ade938433e09c6b9ff9deffe64d8294d96b8c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 0d0f344e60edfc83c8ac4f79ad18520307b790e3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325556"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396646"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Identifie imagens em um projeto de rotulagem 
 
@@ -126,6 +126,28 @@ Utilize a ferramenta **de caixa baseada no modelo** ferramenta ferramenta ferram
 Para eliminar *todas as* caixas de delimitação na imagem atual, selecione a ferramenta Eliminar todas **as regiões** ![ Eliminar regiões ](./media/how-to-label-images/delete-regions-tool.png) .
 
 Depois de criar as caixas de delimitação para uma imagem, **selecione Submeter-se** para salvar o seu trabalho, ou o seu trabalho em curso não será guardado.
+
+## <a name="tag-images-and-specify-polygons-for-image-segmentation"></a>Marque imagens e especifique polígonos para segmentação de imagem 
+
+Se o seu projeto for do tipo "Segmentação de Exemplo (Polygon)", especificará um ou mais polígonos na imagem e aplicará uma etiqueta a cada polígono. As imagens podem ter vários polígonos delimitadores, cada um com uma única etiqueta. Utilize **instruções detalhadas** para determinar se são utilizados vários polígonos de delimitação no seu projeto.
+
+1. Selecione uma etiqueta para o polígono que pretende criar.
+1. Selecione a ferramenta **da região do poligão Desenhe** ![ a ferramenta da região do polígono ](./media/how-to-label-images/polygon-tool.png) ou selecione "P".
+3. Clique para cada ponto no polígono.  Quando tiver completado a forma, clique duas vezes para terminar.
+
+    :::image type="content" source="media/how-to-label-images/polygon.gif" alt-text="Criar polígonos para Gato e Cão":::
+
+Para eliminar um polígono, clique no alvo em forma de X que aparece ao lado do polígono após a criação.
+
+Se pretender alterar a etiqueta para um polígono, selecione a ferramenta **Move region,** clique no polígono e selecione a etiqueta correta.
+
+Pode editar os polígonos existentes. A ferramenta **lock/desbloqueie regiões** ![ Bloquear/desbloquear regiões ](./media/how-to-label-images/lock-bounding-boxes-tool.png) ferramenta ou "L" alterna esse comportamento. Se as regiões estiverem bloqueadas, só pode alterar a forma ou a localização de um novo polígono.
+
+Utilize a ferramenta Adicionar ou remover pontos **de poligão** ![ Ferramenta de manipulação de regiões ](./media/how-to-label-images/add-remove-points-tool.png) ou "U" para ajustar um polígono existente. Clique no polígono para adicionar ou remover um ponto. Se não consegue editar uma região, provavelmente alterou a ferramenta **de regiões de bloqueio/desbloqueio.**
+
+Para eliminar *todos os* polígonos na imagem atual, selecione a ferramenta Eliminar todas **as regiões** ![ Eliminar regiões ](./media/how-to-label-images/delete-regions-tool.png) .
+
+Depois de criar os polígonos para uma imagem, **selecione Submeter-se** para salvar o seu trabalho, ou o seu trabalho em curso não será guardado.
 
 ## <a name="finish-up"></a>Conclusão
 

@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.date: 07/31/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 37e76f54b9c4fe38c891f7cee7bc443d1b0b20f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a73208ef7014c1f21c78485fc613a26ce3bfc76
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596078"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397183"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Encaminhar o tráfego Web com base no URL com o Azure PowerShell
 
-Pode utilizar o Azure PowerShell para configurar o encaminhamento de tráfego Web para conjuntos dimensionáveis específicos de servidores com base no URL que é utilizado para aceder à sua aplicação. Neste artigo, cria um Gateway de [aplicação Azure](application-gateway-introduction.md) com três piscinas de backend utilizando [conjuntos de balança de máquina virtual.](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) Cada um dos conjuntos de back-end tem um objetivo específico, como dados comuns, imagens e vídeos.  Encaminhar o tráfego para conjuntos separados garante que os seus clientes obtêm as informações de que precisam quando querem.
+Pode utilizar o Azure PowerShell para configurar o encaminhamento de tráfego Web para conjuntos dimensionáveis específicos de servidores com base no URL que é utilizado para aceder à sua aplicação. Neste artigo, cria um Gateway de [aplicação Azure](./overview.md) com três piscinas de backend utilizando [conjuntos de balança de máquina virtual.](../virtual-machine-scale-sets/overview.md) Cada um dos conjuntos de back-end tem um objetivo específico, como dados comuns, imagens e vídeos.  Encaminhar o tráfego para conjuntos separados garante que os seus clientes obtêm as informações de que precisam quando querem.
 
-Para permitir o encaminhamento do tráfego, tem de [criar regras de encaminhamento](application-gateway-url-route-overview.md) que são atribuídas a serviços de escuta que escutam em portas específicas, de modo a garantir que o tráfego Web chega aos servidores adequados nos conjuntos.
+Para permitir o encaminhamento do tráfego, tem de [criar regras de encaminhamento](./url-route-overview.md) que são atribuídas a serviços de escuta que escutam em portas específicas, de modo a garantir que o tráfego Web chega aos servidores adequados nos conjuntos.
 
 Neste artigo, vai aprender a:
 
@@ -85,7 +85,7 @@ $pip = New-AzPublicIpAddress `
 Nesta secção, pode criar recursos que suportam o gateway de aplicação e que, por fim, o criam. Os recursos que cria incluem:
 
 - *Configurações IP e porta frontal* - Associa a sub-rede que criou anteriormente ao gateway de aplicações e atribui uma porta para usar para aceder a ela.
-- *Conjunto predefinido * - todos os gateways de aplicação precisam de ter, pelo menos, um conjunto de servidores de back-end.
+- *Conjunto predefinido* - todos os gateways de aplicação precisam de ter, pelo menos, um conjunto de servidores de back-end.
 - *Serviço de escuta e regra predefinidos* - o serviço de escuta predefinido escuta o tráfego na porta atribuída e a regra predefinida envia o tráfego para o conjunto predefinido.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
@@ -185,7 +185,7 @@ Neste momento, você tem um gateway de aplicação que ouve o tráfego na porta 
 
 ### <a name="add-image-and-video-backend-pools-and-port"></a>Adicionar conjuntos e portas de back-end de imagens e vídeos
 
-Adicione piscinas de backend chamadas *BackendPool* e *videoBackendPool* à sua porta[de aplicação Add-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool). Adicione a porta frontal para as piscinas utilizando [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport). Envie as alterações ao gateway de aplicações utilizando [o Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway).
+Adicione piscinas de backend chamadas *BackendPool* e *videoBackendPool* à sua porta [de aplicação Add-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/add-azapplicationgatewaybackendaddresspool). Adicione a porta frontal para as piscinas utilizando [Add-AzApplicationGatewayFrontendPort](/powershell/module/az.network/add-azapplicationgatewayfrontendport). Envie as alterações ao gateway de aplicações utilizando [o Set-AzApplicationGateway](/powershell/module/az.network/set-azapplicationgateway).
 
 ```azurepowershell-interactive
 $appgw = Get-AzApplicationGateway `
@@ -312,7 +312,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, vai criar três conjuntos de dimensionamento de máquinas virtuais que suportam os três conjuntos de back-end que criou. Os conjuntos de dimensionamento que criar são denominados *myvmss1*, *myvmss2* e *myvmss3*. Pode atribuir o conjunto de dimensionamento ao conjunto de back-end quando configurar as definições de IP.
+Neste exemplo, vai criar três conjuntos de dimensionamento de máquinas virtuais que suportam os três conjuntos de back-end que criou. Os conjuntos de dimensionamento que criar são denominados *myvmss1* , *myvmss2* e *myvmss3*. Pode atribuir o conjunto de dimensionamento ao conjunto de back-end quando configurar as definições de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `

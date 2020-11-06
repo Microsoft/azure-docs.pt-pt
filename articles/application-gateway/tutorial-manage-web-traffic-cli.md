@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 07/20/2019
 ms.author: victorh
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6bc5761f4e629a90dacf06cd7503ca86a5448fe4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d0a130830c8b03fd1f47086b9a997f6fc3df9a4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595878"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396962"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-the-azure-cli"></a>Gerir o tráfego da Web com um gateway de aplicação com a CLI do Azure
 
-O gateway de aplicação serve para gerir e proteger o tráfego da Web para os servidores que mantém. Pode utilizar o CLI Azure para criar um [gateway de aplicações](overview.md) que utiliza uma [balança de máquina virtual definida](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores de backend. Neste exemplo, o conjunto de escala contém duas instâncias de máquina virtual. O conjunto de escala é adicionado ao conjunto de backend padrão do gateway de aplicação.
+O gateway de aplicação serve para gerir e proteger o tráfego da Web para os servidores que mantém. Pode utilizar o CLI Azure para criar um [gateway de aplicações](overview.md) que utiliza uma [balança de máquina virtual definida](../virtual-machine-scale-sets/overview.md) para servidores de backend. Neste exemplo, o conjunto de escala contém duas instâncias de máquina virtual. O conjunto de escala é adicionado ao conjunto de backend padrão do gateway de aplicação.
 
 Neste artigo, vai aprender a:
 
@@ -155,4 +155,4 @@ az group delete --name myResourceGroupAG --location eastus
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Restringir o tráfego da Web com uma firewall de aplicações Web](./tutorial-restrict-web-traffic-cli.md)
+[Restringir o tráfego da Web com uma firewall de aplicações Web](../web-application-firewall/ag/tutorial-restrict-web-traffic-cli.md)

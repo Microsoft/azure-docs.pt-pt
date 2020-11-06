@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 1445d1418bde6d5d15e365c59ceb56e7661faccb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13441899eeb5ca2b7c60977ab2858fe40a398d1a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87088075"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397863"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Crie uma sonda personalizada para Azure Application Gateway (clássico) utilizando o PowerShell
 
@@ -200,7 +200,6 @@ Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se pretender configurar a Segurança da Camada de Transporte (TLS), anteriormente conhecida como descarga Secure Sockets Layer (SSL), consulte [configurar um gateway de aplicações para descarregamento de TLS](application-gateway-ssl.md).
+Se pretender configurar a Segurança da Camada de Transporte (TLS), anteriormente conhecida como descarga Secure Sockets Layer (SSL), consulte [configurar um gateway de aplicações para descarregamento de TLS](./tutorial-ssl-powershell.md).
 
-Se pretender configurar um gateway de aplicação para utilizar com um balanceador de carga interno, veja [Create an application gateway with an internal load balancer (ILB) (Criar um gateway de aplicação com um balanceador de carga interno (ILB))](application-gateway-ilb.md).
-
+Se pretender configurar um gateway de aplicação para utilizar com um balanceador de carga interno, veja [Create an application gateway with an internal load balancer (ILB) (Criar um gateway de aplicação com um balanceador de carga interno (ILB))](./application-gateway-ilb-arm.md).

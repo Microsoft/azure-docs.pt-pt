@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f214b0b0751f44ea1357f569fd814a7621af61ab
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319797"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397625"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configuração da infraestrutura do Gateway de Aplicação
 
@@ -55,15 +55,15 @@ Os grupos de segurança da rede (NSGs) são suportados no Gateway de Aplicaçõe
 Para este cenário, utilize NSGs na sub-rede Do Gateway de Aplicação. Colocar as seguintes restrições à sub-rede nesta ordem de prioridade:
 
 1. Permitir a entrada de tráfego a partir de uma gama IP ou IP de origem com o destino como toda a gama de endereços de sub-rede do Application Gateway e porta de destino como porta de acesso de entrada, por exemplo, porta 80 para acesso HTTP.
-2. Permitir pedidos de entrada de fonte como etiqueta de serviço **GatewayManager** e destino como **Todas** as portas e portos de destino como 65503-65534 para o Gateway de Aplicação v1 SKU, e portas 65200-65535 para v2 SKU para [comunicação de estado de saúde back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Esta gama portuária é necessária para a comunicação da infraestrutura Azure. Estas portas estão protegidas (bloqueadas) pelos certificados Azure. Sem certificados adequados, as entidades externas não podem iniciar alterações nesses pontos finais.
-3. Permitir a entrada de sondas Azure Load Balancer *(AzureLoadBalancer* tag) e o tráfego de rede virtual de entrada *(virtualNetwork* tag) no [grupo de segurança](https://docs.microsoft.com/azure/virtual-network/security-overview)da rede .
+2. Permitir pedidos de entrada de fonte como etiqueta de serviço **GatewayManager** e destino como **Todas** as portas e portos de destino como 65503-65534 para o Gateway de Aplicação v1 SKU, e portas 65200-65535 para v2 SKU para [comunicação de estado de saúde back-end](./application-gateway-diagnostics.md). Esta gama portuária é necessária para a comunicação da infraestrutura Azure. Estas portas estão protegidas (bloqueadas) pelos certificados Azure. Sem certificados adequados, as entidades externas não podem iniciar alterações nesses pontos finais.
+3. Permitir a entrada de sondas Azure Load Balancer *(AzureLoadBalancer* tag) e o tráfego de rede virtual de entrada *(virtualNetwork* tag) no [grupo de segurança](../virtual-network/network-security-groups-overview.md)da rede .
 4. Bloqueie todo o tráfego de entrada usando uma regra de negação.
 5. Permitir tráfego de saída para a Internet para todos os destinos.
 
 ## <a name="supported-user-defined-routes"></a>Rotas suportadas pelo utilizador 
 
 > [!IMPORTANT]
-> A utilização de UDRs na sub-rede Do Gateway de Aplicação pode fazer com que o estado de saúde na [visão de saúde traseira](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) apareça como **Desconhecido**. Também pode causar a falha na geração de registos e métricas do Gateway de Aplicação. Recomendamos que não utilize UDRs na sub-rede Do Gateway de Aplicação para que possa ver a saúde, registos e métricas de back-end.
+> A utilização de UDRs na sub-rede Do Gateway de Aplicação pode fazer com que o estado de saúde na [visão de saúde traseira](./application-gateway-diagnostics.md#back-end-health) apareça como **Desconhecido**. Também pode causar a falha na geração de registos e métricas do Gateway de Aplicação. Recomendamos que não utilize UDRs na sub-rede Do Gateway de Aplicação para que possa ver a saúde, registos e métricas de back-end.
 
 - **v1**
 
@@ -78,7 +78,7 @@ Para este cenário, utilize NSGs na sub-rede Do Gateway de Aplicação. Colocar 
    > Uma configuração incorreta da tabela de rotas pode resultar num encaminhamento assimétrico no Gateway de Aplicação v2. Certifique-se de que todo o tráfego de avião de gestão/controlo é enviado diretamente para a Internet e não através de um aparelho virtual. O registo e as métricas também podem ser afetados.
 
 
-  **Cenário 1**: UDR para desativar o Protocolo de Gateway de Fronteira (BGP) Propagação da rota para a sub-rede do Gateway de Aplicação
+  **Cenário 1** : UDR para desativar o Protocolo de Gateway de Fronteira (BGP) Propagação da rota para a sub-rede do Gateway de Aplicação
 
    Por vezes, a rota de gateway padrão (0.0.0.0/0) é publicitada através dos gateways ExpressRoute ou VPN associados à rede virtual Application Gateway. Isto interrompe a gestão do tráfego de aviões, o que requer um caminho direto para a Internet. Nesses cenários, um UDR pode ser usado para desativar a propagação da rota BGP. 
 
@@ -90,11 +90,11 @@ Para este cenário, utilize NSGs na sub-rede Do Gateway de Aplicação. Colocar 
 
    Permitir a UDR para este cenário não deve quebrar quaisquer configurações existentes.
 
-  **Cenário 2**: UDR para dirigir 0.0.0.0/0 para a Internet
+  **Cenário 2** : UDR para dirigir 0.0.0.0/0 para a Internet
 
    Pode criar um UDR para enviar tráfego de 0.0.0.0/0 diretamente para a Internet. 
 
-  **Cenário 3**: UDR para serviço Azure Kubernetes com kubenet
+  **Cenário 3** : UDR para serviço Azure Kubernetes com kubenet
 
   Se estiver a utilizar kubenet com o Serviço Azure Kubernetes (AKS) e o Controlador de Entradas de Gateway de Aplicação (AGIC), precisará de uma tabela de rotas para permitir que o tráfego enviado para as cápsulas a partir do Application Gateway seja encaminhado para o nó correto. Isto não será necessário se utilizar o Azure CNI. 
 
@@ -109,7 +109,7 @@ Para este cenário, utilize NSGs na sub-rede Do Gateway de Aplicação. Colocar 
     
   **v2 cenários não apoiados**
 
-  **Cenário 1**: UDR para Aparelhos Virtuais
+  **Cenário 1** : UDR para Aparelhos Virtuais
 
   Qualquer cenário em que o 0.0.0.0/0 tenha de ser redirecionado através de qualquer aparelho virtual, de uma rede virtual de hub/spoke, ou no local (túneis forçados) não é suportado para v2.
 

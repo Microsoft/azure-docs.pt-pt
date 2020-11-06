@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 08/26/2020
 ms.author: victorh
-ms.openlocfilehash: 7ccc83a61ac4ffe6e1bb6767a9c611bd3fcc0edf
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 52bc2a20be0d7113583b7f23cc569dbb9503d364
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88892784"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397251"
 ---
 # <a name="what-is-azure-application-gateway"></a>O que é o Gateway de Aplicação do Azure?
 
@@ -28,7 +28,7 @@ Este tipo de encaminhamento é conhecido como balanceamento de carga da camada d
 >[!NOTE]
 > O Azure oferece um conjunto de soluções de balanceamento de carga totalmente geridas para os seus cenários. Se necessitar de equilíbrio de carga de alto desempenho, baixa latência, carga de camada-4, veja [o que é o Balançador de Carga Azure?](../load-balancer/load-balancer-overview.md) Se procura o equilíbrio global de carga de DNS, veja [o que é o Gestor de Tráfego?](../traffic-manager/traffic-manager-overview.md) Os seus cenários de ponta a ponta podem beneficiar da combinação destas soluções.
 >
-> Para uma comparação de opções de equilíbrio de carga Azure, consulte [a visão geral das opções de equilíbrio de carga em Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
+> Para uma comparação de opções de equilíbrio de carga Azure, consulte [a visão geral das opções de equilíbrio de carga em Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="features"></a>Funcionalidades
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f015085baa8fffa6f208e9d8dd749e397c76c3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85125468"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397438"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Descalcificar automaticamente os seus pods AKS utilizando métricas de gateway de aplicação (Beta)
 
@@ -23,7 +23,7 @@ No seguinte tutorial, explicamos como pode usar a métrica do Application Gatewa
 Vamos usar dois componentes:
 
 * [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) - Usaremos o adaptador métrico para expor as métricas do Gateway de Aplicação através do servidor métrico. O Adaptador Métrico Azure Kubernetes é um projeto de código aberto no âmbito do Azure, semelhante ao Controlador de Entradas de Gateway de Aplicação. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) - Utilizaremos o HPA para utilizar as métricas do Gateway de Aplicação e direcionamos uma implementação para dimensionamento.
+* [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) - Utilizaremos o HPA para utilizar as métricas do Gateway de Aplicação e direcionamos uma implementação para dimensionamento.
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Configuração do Adaptador Métrico Azure Kubernetes
 
@@ -92,7 +92,7 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 ## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>Usando a nova métrica para escalar a implantação
 
-Assim que formos capazes de expor `appgw-request-count-metric` através do servidor métrico, estamos prontos a usar [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) para escalar a nossa implementação de alvo.
+Assim que formos capazes de expor `appgw-request-count-metric` através do servidor métrico, estamos prontos a usar [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) para escalar a nossa implementação de alvo.
 
 Seguindo o exemplo, teremos como alvo uma implantação de `aspnet` amostras. Vamos escalar pods quando `appgw-request-count-metric` > 200 por Pod até um máximo de `10` Pods.
 

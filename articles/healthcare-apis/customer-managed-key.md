@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/28/2020
 ms.author: matjazl
-ms.openlocfilehash: 535bb5d21beafaabb50769a6c03478dbd1f942d4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 05c208ba3c9005d38b8924037748764f8d112e3a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92051356"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398186"
 ---
 # <a name="configure-customer-managed-keys"></a>Configurar chaves geridas pelo cliente
 
@@ -21,10 +21,10 @@ Quando cria uma nova API Azure para conta FHIR, os seus dados são encriptados u
 
 Em Azure, isto é normalmente realizado usando uma chave de encriptação no Cofre de Chaves Azure (AKV) do cliente. Azure SQL, Azure Storage e Cosmos DB são alguns exemplos que fornecem esta capacidade hoje em dia. A Azure API para fHIR aproveita este apoio da Cosmos DB. Quando criar uma conta, terá a opção de especificar uma chave AKV URI. Passaremos esta chave para cosmos DB quando a conta DB for abastado. Quando um pedido de FHIR é feito, cosmos DB pega na sua chave e usa-a para encriptar/desencriptar os dados. Para começar, pode consultar os seguintes links:
 
-- [Registe o fornecedor de recursos DB da Azure Cosmos para a sua subscrição Azure](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#register-resource-provider) 
-- [Configure a sua instância AKV](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#configure-your-azure-key-vault-instance)
--  [Adicione uma política de acesso à sua instância AKV](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)
-- [Gerar uma chave em AKV](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#generate-a-key-in-azure-key-vault)
+- [Registe o fornecedor de recursos DB da Azure Cosmos para a sua subscrição Azure](../cosmos-db/how-to-setup-cmk.md#register-resource-provider) 
+- [Configure a sua instância AKV](../cosmos-db/how-to-setup-cmk.md#configure-your-azure-key-vault-instance)
+-  [Adicione uma política de acesso à sua instância AKV](../cosmos-db/how-to-setup-cmk.md#add-an-access-policy-to-your-azure-key-vault-instance)
+- [Gerar uma chave em AKV](../cosmos-db/how-to-setup-cmk.md#generate-a-key-in-azure-key-vault)
 
 Depois de criar a sua API Azure para conta FHIR no portal Azure, pode ver uma opção de configuração de "Encriptação de Dados" no separador "Definições de base" no separador "Definições Adicionais". Por predefinição, a opção chave gerida pelo serviço será escolhida. Pode especificar a sua chave AKV aqui selecionando a opção "chave gerida pelo cliente". Pode introduzir aqui a chave copiada URI.
 
@@ -32,8 +32,10 @@ Depois de criar a sua API Azure para conta FHIR no portal Azure, pode ver uma op
 
 Ou, pode escolher a sua chave no KeyPicker:
 
-:::image type="content" source="media/bring-your-own-key/bring-your-own-key-keypicker.png" alt-text="Criar Azure API para FHIR" como abaixo. A opção de configuração não pode ser modificada uma vez escolhida. No entanto, pode modificar e atualizar a sua chave.
+:::image type="content" source="media/bring-your-own-key/bring-your-own-key-keypicker.png" alt-text="KeyPicker":::
 
-:::image type="content" source="media/bring-your-own-key/bring-your-own-key-database.png" alt-text="Criar Azure API para FHIR":::
+Para as contas FHIR existentes, pode ver a escolha de encriptação chave (chave gerida pelo serviço ou gerida pelo cliente) na lâmina "Database" como abaixo. A opção de configuração não pode ser modificada uma vez escolhida. No entanto, pode modificar e atualizar a sua chave.
+
+:::image type="content" source="media/bring-your-own-key/bring-your-own-key-database.png" alt-text="Base de dados":::
 
 Além disso, pode criar uma nova versão da chave especificada, após a qual os seus dados serão encriptados com a nova versão sem qualquer interrupção de serviço. Também pode remover o acesso à chave para remover o acesso aos dados.

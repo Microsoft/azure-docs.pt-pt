@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: sideeksh
 ms.custom: MVC
-ms.openlocfilehash: 11767e7369648ad2f4dec4480fbad0f6218446fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ae930240872c00c8dbb45857e4e77d82766eadf
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89425420"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398067"
 ---
 # <a name="move-azure-vms-to-another-azure-region"></a>Mover VMs Azure para outra região de Azure
 
@@ -34,7 +34,7 @@ Você pode querer mover a infraestrutura Azure como um serviço (IaaS) máquinas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Certifique-se de que tem VMs Azure na região de Azure *de*que pretende mover-se .
+- Certifique-se de que tem VMs Azure na região de Azure *de* que pretende mover-se .
 - Verifique se a sua escolha da [combinação região-alvo de origem é suportada,](./azure-to-azure-support-matrix.md#region-support)e escolha cuidadosamente a região alvo.
 - Certifique-se de que compreende a [arquitetura e os componentes do cenário](azure-to-azure-architecture.md).
 - Veja os [requisitos e limitações de suporte](azure-to-azure-support-matrix.md).
@@ -53,7 +53,7 @@ Você pode querer mover a infraestrutura Azure como um serviço (IaaS) máquinas
     - Para os VMs do Windows, instale as atualizações mais recentes do Windows de modo a que todos os certificados de raiz fidedignos estejam na máquina. Num ambiente desligado, siga os processos padrão de atualização do Windows e atualização de certificados para a sua organização.
     - Para os VMs Linux, siga a orientação do seu distribuidor Linux para obter os mais recentes certificados de raiz fidedignos e lista de revogação de certificados.
 2. Certifique-se de que não está a usar um representante de autenticação para controlar a conectividade da rede para VMs que planeia mover.
-3. Se um VM que pretende mover não tiver acesso à internet e estiver a utilizar um representante de firewall para controlar o acesso de saída, verifique os [requisitos](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+3. Se um VM que pretende mover não tiver acesso à internet e estiver a utilizar um representante de firewall para controlar o acesso de saída, verifique os [requisitos](azure-to-azure-tutorial-enable-replication.md#set-up-vm-connectivity).
 4. Documente o layout de rede de origem e todos os recursos que está a utilizar atualmente, incluindo (mas não se limitando a) equilibradores de carga, grupos de segurança de rede e endereços IP públicos para verificação.
 
 ## <a name="prepare-the-target-region"></a>Preparar a região alvo
@@ -80,12 +80,12 @@ Os seguintes passos utilizam a Recuperação do Sítio Azure para copiar dados p
 ### <a name="create-the-vault-in-any-region-except-the-source"></a>Crie o cofre em qualquer região, exceto a fonte
 
 1. Inscreva-se nos Serviços de Recuperação [do portal Azure.](https://portal.azure.com)  >  **Recovery Services**
-2. Selecione **Criar uma**cópia de segurança das  >  **ferramentas de gestão**de recursos  >  **e recuperação do site.**
-3. Para **nome**, especifique o nome amigável **ContosoVMVault**. Se tiver mais do que uma subscrição, selecione a que for adequada.
+2. Selecione **Criar uma** cópia de segurança das  >  **ferramentas de gestão** de recursos  >  **e recuperação do site.**
+3. Para **nome** , especifique o nome amigável **ContosoVMVault**. Se tiver mais do que uma subscrição, selecione a que for adequada.
 4. Crie um grupo de recursos **ContosoRG**.
 5. Selecione uma região do Azure. Para verificar as regiões apoiadas, consulte os [detalhes dos preços de recuperação do local do Azure.](https://azure.microsoft.com/pricing/details/site-recovery/)
 6. Para cofres de Serviços de Recuperação, selecione **Overview**  >  **ConsotoVMVault**  >  **+Replicate**.
-7. Para **obter**, selecione **Azure**.
+7. Para **obter** , selecione **Azure**.
 8. Para **a localização da fonte,** selecione a região de Azure de origem onde os seus VMs estão atualmente em funcionamento.
 9. Selecione o modelo de implementação do Gestor de Recursos Azure. Em seguida, selecione a **subscrição Source** e **o grupo de recursos Source**.
 10. Selecione **OK** para guardar as definições.
@@ -95,12 +95,11 @@ Os seguintes passos utilizam a Recuperação do Sítio Azure para copiar dados p
 A Recuperação do Site recupera uma lista dos VMs que estão associados ao grupo de subscrição e recursos.
 
 1. Selecione o VM que pretende mover e, em seguida, selecione **OK**.
-2. Para **Definições**, selecione **Recuperação de desastres**.
-3. Para **configurar a região**alvo de recuperação de  >  **desastres,** selecione a região alvo a que está a replicar.
+2. Para **Definições** , selecione **Recuperação de desastres**.
+3. Para **configurar a região** alvo de recuperação de  >  **desastres,** selecione a região alvo a que está a replicar.
 4. Opte por utilizar os recursos-alvo predefinidos ou aqueles que criou.
 5. **Selecione Ativar** a replicação para iniciar o trabalho.
 
-   ![Ativar a replicação](media/tutorial-migrate-azure-to-azure/settings.png)
 
  
 
@@ -108,11 +107,11 @@ A Recuperação do Site recupera uma lista dos VMs que estão associados ao grup
 
 
 1. Vai para o cofre. Em **Definições**  >  **Itens Replicados,** selecione a máquina virtual que pretende mover-se para a região alvo. Em seguida, selecione **Test Failover**.
-2. No **Teste Failover**, selecione um ponto de recuperação para a falha:
+2. No **Teste Failover** , selecione um ponto de recuperação para a falha:
 
-   - **Processado mais recentemente**: faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo serviço do Site Recovery. O carimbo de data/hora é apresentado. Não é gasto tempo a processar dados, pelo que esta opção proporciona um objetivo de tempo de recuperação baixo (RTO).
-   - **Aplicações mais recentes consistentes**: Falha em todos os VMs até ao mais recente ponto de recuperação consistente com aplicações. O carimbo de data/hora é apresentado.
-   - **Personalizado**: selecione qualquer ponto de recuperação.
+   - **Processado mais recentemente** : faz a ativação pós-falha da VM para o ponto de recuperação mais recente processado pelo serviço do Site Recovery. O carimbo de data/hora é apresentado. Não é gasto tempo a processar dados, pelo que esta opção proporciona um objetivo de tempo de recuperação baixo (RTO).
+   - **Aplicações mais recentes consistentes** : Falha em todos os VMs até ao mais recente ponto de recuperação consistente com aplicações. O carimbo de data/hora é apresentado.
+   - **Personalizado** : selecione qualquer ponto de recuperação.
 
 3. Selecione a rede virtual Target Azure para a qual pretende mover os VMs Azure para testar a configuração.
 
@@ -126,7 +125,7 @@ A Recuperação do Site recupera uma lista dos VMs que estão associados ao grup
 ## <a name="perform-the-move-and-confirm"></a>Execute o movimento e confirme
 
 1. Vá ao cofre em **Definições**  >  **Itens Replicados,** selecione a máquina virtual e, em seguida, selecione **Failover**.
-1. Para **Failover**, selecione **Mais Recente**. 
+1. Para **Failover** , selecione **Mais Recente**. 
 2. Selecione **Encerrar a máquina antes de iniciar a ativação pós-falha**. A Recuperação do Local tenta desligar a fonte VM antes de desencadear a falha. Mas o fracasso continua mesmo que o encerramento falhe. Pode acompanhar o progresso falhado na página **Jobs.**
 3. Quando o trabalho estiver concluído, verifique se o VM aparece na região de Azure alvo, como esperado.
 4. Em **itens replicados,** clique com o botão direito no VM e selecione **Commit**. Isto termina a jogada. Espere até que o trabalho de compromisso termine.

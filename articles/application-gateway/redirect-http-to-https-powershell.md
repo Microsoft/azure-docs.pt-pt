@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: victorh
-ms.openlocfilehash: c4d1d16d07aaf92a0bc3cc365ac094893fc41c79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86eaa645cd6a81b9180d1241695240a71aa8202d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446527"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397268"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-azure-powershell"></a>Criar um gateway de aplicações com HTTP para https redirecionamento usando Azure PowerShell
 
-Pode utilizar o Azure PowerShell para criar um [gateway de aplicação](overview.md) com um certificado de rescisão TLS/SSL. Uma regra de encaminhamento é utilizada para redirecionar o tráfego HTTPS para a porta HTTPS no seu gateway de aplicações. Neste exemplo, também cria uma [balança de máquina virtual definida](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para o pool backend do gateway de aplicações que contém duas instâncias de máquina virtual. 
+Pode utilizar o Azure PowerShell para criar um [gateway de aplicação](overview.md) com um certificado de rescisão TLS/SSL. Uma regra de encaminhamento é utilizada para redirecionar o tráfego HTTPS para a porta HTTPS no seu gateway de aplicações. Neste exemplo, também cria uma [balança de máquina virtual definida](../virtual-machine-scale-sets/overview.md) para o pool backend do gateway de aplicações que contém duas instâncias de máquina virtual. 
 
 Neste artigo, vai aprender a:
 
@@ -34,7 +34,7 @@ Este tutorial requer a versão 1.0 ou mais tarde do módulo Azure PowerShell. Ex
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-Para uso de produção, deve importar um certificado válido assinado por um fornecedor de confiança. Neste tutorial, crie um certificado autoassinado com [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). Pode utilizar [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) com o Thumbprint que foi devolvido para exportar um ficheiro pfx do certificado.
+Para uso de produção, deve importar um certificado válido assinado por um fornecedor de confiança. Neste tutorial, crie um certificado autoassinado com [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate). Pode utilizar [Export-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) com o Thumbprint que foi devolvido para exportar um ficheiro pfx do certificado.
 
 ```powershell
 New-SelfSignedCertificate `

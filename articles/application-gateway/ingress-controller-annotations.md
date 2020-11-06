@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335813"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397455"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Anotações para controlador de entrada de gateway de aplicação 
 
@@ -72,7 +72,7 @@ No exemplo acima, definimos um recurso ingresso nomeado `go-server-ingress-bkpre
 
 ## <a name="tls-redirect"></a>Redirecionamento de TLS
 
-O Gateway de Aplicações [pode ser configurado](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) para redirecionar automaticamente os URLs HTTP para as suas congéneres HTTPS. Quando esta anotação estiver presente e o TLS estiver devidamente configurado, o controlador Kubernetes Ingress criará uma [regra de encaminhamento com uma configuração de redireccionamento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) e aplicará as alterações no seu Gateway de Aplicação. O redirecionamento criado será HTTP `301 Moved Permanently` .
+O Gateway de Aplicações [pode ser configurado](./redirect-overview.md) para redirecionar automaticamente os URLs HTTP para as suas congéneres HTTPS. Quando esta anotação estiver presente e o TLS estiver devidamente configurado, o controlador Kubernetes Ingress criará uma [regra de encaminhamento com uma configuração de redireccionamento](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) e aplicará as alterações no seu Gateway de Aplicação. O redirecionamento criado será HTTP `301 Moved Permanently` .
 
 ### <a name="usage"></a>Utilização
 

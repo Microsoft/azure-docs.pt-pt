@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f29b31b09c2532c336ef2a2d574fab5e000b3e4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e410218117aa0d21167b6d615a3835aeec470e7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595891"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397115"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Gerir o tráfego da Web com um gateway de aplicação com o Azure PowerShell
 
-O gateway de aplicação serve para gerir e proteger o tráfego da Web para os servidores que mantém. Pode utilizar o Azure PowerShell para criar um [gateway de aplicação](overview.md) que utiliza um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) para servidores back-end para gerir o tráfego da Web. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
+O gateway de aplicação serve para gerir e proteger o tráfego da Web para os servidores que mantém. Pode utilizar o Azure PowerShell para criar um [gateway de aplicação](overview.md) que utiliza um [conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/overview.md) para servidores back-end para gerir o tráfego da Web. Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
 
 Neste artigo, vai aprender a:
 
@@ -76,7 +76,7 @@ $pip = New-AzPublicIpAddress `
 Nesta secção, vai criar recursos que suportam o gateway de aplicação e que, por fim, o criam. Os recursos que criar incluem:
 
 - *Configurações de IP e porta de front-end* - associa a sub-rede que criou anteriormente ao gateway de aplicação e atribui uma porta a utilizar para aceder ao mesmo.
-- *Conjunto predefinido * - todos os gateways de aplicação precisam de ter, pelo menos, um conjunto de servidores de back-end.
+- *Conjunto predefinido* - todos os gateways de aplicação precisam de ter, pelo menos, um conjunto de servidores de back-end.
 - *Serviço de escuta e regra predefinidos* - o serviço de escuta predefinido escuta o tráfego na porta atribuída e a regra predefinida envia o tráfego para o conjunto predefinido.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
@@ -257,4 +257,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Restringir o tráfego da Web com uma firewall de aplicações Web](./tutorial-restrict-web-traffic-powershell.md)
+[Restringir o tráfego da Web com uma firewall de aplicações Web](../web-application-firewall/ag/tutorial-restrict-web-traffic-powershell.md)

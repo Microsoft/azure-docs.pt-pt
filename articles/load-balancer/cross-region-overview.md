@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336535"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398016"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga transversal (Pré-visualização)
 
@@ -36,7 +36,7 @@ O Azure Standard Load Balancer suporta o equilíbrio da carga entre regiões, pe
 
 > [!IMPORTANT]
 > O balanceador de carga cross-region está atualmente em pré-visualização e não está geralmente disponível.  Para aceder à pré-visualização do balanceador de carga cross-region, contacte: [crossregionlb@microsoft.com](mailto:crossregionlb@microsoft.com) . </br> </br>
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O equilíbrio entre regiões de carga oferece os mesmos benefícios de alto desempenho e baixa latência que o balanceador regional de carga padrão. 
 
@@ -45,7 +45,7 @@ A configuração IP frontal do seu balanceador de carga cross-region é estátic
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagrama do equilibrador de carga entre regiões." border="true":::
 
 > [!NOTE]
-> O porto de backend de carga a sua regra de equilíbrio no balançador de carga transversal deve coincidir com o porta frontal da regra de equilíbrio de carga/regra nat de entrada no balanceador de carga padrão regional. 
+> A porta de apoio da sua regra de equilíbrio de carga no balançador de carga transversal deve coincidir com a porta frontal da regra de equilíbrio de carga/regra nat de entrada no equilibrador de carga padrão regional. 
 
 ### <a name="regional-redundancy"></a>Redundância regional
 
@@ -55,7 +55,7 @@ Se uma região falhar, o tráfego é encaminhado para o próximo e mais próximo
 
 A sonda de saúde do equilibrador de carga cross-region reúne informações sobre a disponibilidade a cada 20 segundos. Se um equilibrador regional de carga baixar a sua disponibilidade para 0, o equilibrador de carga transversal detetará a falha. O balançador regional de carga é então retirado da rotação. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama do equilibrador de carga entre regiões." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagrama da visão de tráfego da região global." border="true":::
 
 ### <a name="ultra-low-latency"></a>Latência ultra-baixa
 

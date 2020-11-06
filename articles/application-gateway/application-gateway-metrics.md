@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/06/2020
 ms.author: absha
-ms.openlocfilehash: ce349a0539986d88f689c53fc2099877df8030bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c072e7c1339a2217a3c167be3237029bd71429c2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87424397"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397744"
 ---
 # <a name="metrics-for-application-gateway"></a>Métricas para Gateway de Aplicação
 
-Application Gateway publica pontos de dados, chamados métricas, ao [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) para o desempenho do seu Gateway de Aplicação e instâncias de backend. Estas métricas são valores numéricos num conjunto ordenado de dados da série de tempo que descrevem algum aspeto do gateway da sua aplicação num determinado momento. Se houver pedidos que fluam através do Gateway de Aplicação, mede e envia as suas métricas em intervalos de 60 segundos. Se não houver pedidos que fluam através do Gateway de Aplicação ou não houver dados para uma métrica, a métrica não é reportada. Para obter mais informações, consulte as [métricas do Monitor Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)
+Application Gateway publica pontos de dados, chamados métricas, ao [Azure Monitor](../azure-monitor/overview.md) para o desempenho do seu Gateway de Aplicação e instâncias de backend. Estas métricas são valores numéricos num conjunto ordenado de dados da série de tempo que descrevem algum aspeto do gateway da sua aplicação num determinado momento. Se houver pedidos que fluam através do Gateway de Aplicação, mede e envia as suas métricas em intervalos de 60 segundos. Se não houver pedidos que fluam através do Gateway de Aplicação ou não houver dados para uma métrica, a métrica não é reportada. Para obter mais informações, consulte as [métricas do Monitor Azure.](../azure-monitor/platform/data-platform-metrics.md)
 
 ## <a name="metrics-supported-by-application-gateway-v2-sku"></a>Métricas suportadas por Application Gateway V2 SKU
 
@@ -62,7 +62,7 @@ A Application Gateway fornece várias métricas de tempo incorporadas relacionad
 
 Estas métricas podem ser usadas para determinar se o abrandamento observado se deve à rede do cliente, ao desempenho do Gateway de Aplicação, à rede de backend e à saturação da pilha de backend, ao desempenho da aplicação de backend ou ao tamanho do ficheiro grande.
 
-Por exemplo, se houver um pico na tendência do tempo de *resposta do backend first byte,* mas a tendência *do tempo de ligação backend* é estável, então pode ser deduzido que a porta de entrada da Aplicação para retrocedimentar a latência e o tempo necessário para estabelecer a ligação é estável, e o pico é causado devido a um aumento no tempo de resposta da aplicação backend. Por outro lado, se o pico no *tempo de resposta do byte de Backend estiver* associado a um pico correspondente no tempo de *ligação backend*, então pode deduzir-se que a rede entre o Gateway de Aplicação e o servidor backend ou a pilha de backend do servidor TCP saturaram. 
+Por exemplo, se houver um pico na tendência do tempo de *resposta do backend first byte,* mas a tendência *do tempo de ligação backend* é estável, então pode ser deduzido que a porta de entrada da Aplicação para retrocedimentar a latência e o tempo necessário para estabelecer a ligação é estável, e o pico é causado devido a um aumento no tempo de resposta da aplicação backend. Por outro lado, se o pico no *tempo de resposta do byte de Backend estiver* associado a um pico correspondente no tempo de *ligação backend* , então pode deduzir-se que a rede entre o Gateway de Aplicação e o servidor backend ou a pilha de backend do servidor TCP saturaram. 
 
 Se notar um pico no *tempo de resposta do último byte do Backend,* mas o tempo de resposta do *byte backend first* é estável, então pode ser deduzido que o pico é devido a um ficheiro maior sendo solicitado.
 
@@ -214,7 +214,7 @@ O exemplo a seguir acompanha-o através da criação de uma regra de alerta que 
 
 2. Na página **de regras Adicionar,** preencha o nome, condição e notifique secções, e selecione **OK**.
 
-   * No seletor **de Condições,** selecione um dos quatro valores: **Maior do que,** Maior do que **igual,** **inferior**ou **igual a**.
+   * No seletor **de Condições,** selecione um dos quatro valores: **Maior do que,** Maior do que **igual,** **inferior** ou **igual a**.
 
    * No seletor **period,** selecione um período de cinco minutos a seis horas.
 
@@ -230,7 +230,7 @@ Uma lista de alertas aparece depois de criar um alerta métrico. Fornece uma vis
 
 ![Lista de alertas e regras][9]
 
-Para saber mais sobre notificações de alerta, consulte [receber notificações de alerta.](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+Para saber mais sobre notificações de alerta, consulte [receber notificações de alerta.](../azure-monitor/platform/alerts-overview.md)
 
 Para saber mais sobre webhooks e como pode usá-los com alertas, visite [Configure um webhook em um alerta métrico Azure](../azure-monitor/platform/alerts-webhooks.md).
 

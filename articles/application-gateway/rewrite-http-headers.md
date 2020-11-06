@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248688"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397156"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Reescrever cabeçalhos HTTP com Gateway de Aplicação
 
@@ -22,7 +22,7 @@ Os cabeçalhos HTTP permitem que um cliente e servidor passem informações adic
 
 O Gateway de Aplicação permite-lhe adicionar, remover ou atualizar cabeçalhos de pedido e de resposta HTTP enquanto os pacotes de pedido e de resposta se movem entre os conjuntos de cliente e back-end. Além disso, permite-lhe adicionar condições para garantir que os cabeçalhos especificados são reescritos apenas quando forem cumpridas determinadas condições.
 
-O Application Gateway também suporta [várias variáveis de servidor](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) que o ajudam a armazenar informações adicionais sobre pedidos e respostas. Isto facilita-lhe a criação de regras de reescrita poderosas.
+O Application Gateway também suporta [várias variáveis de servidor](#server-variables) que o ajudam a armazenar informações adicionais sobre pedidos e respostas. Isto facilita-lhe a criação de regras de reescrita poderosas.
 
 > [!NOTE]
 >
@@ -49,18 +49,18 @@ Pode utilizar uma condição para avaliar se uma variável especificada está pr
 Utiliza ações de reescrita para especificar os cabeçalhos de pedido e resposta que pretende reescrever e o novo valor para os cabeçalhos. Pode criar um novo cabeçalho, modificar o valor de um cabeçalho existente ou apagar um cabeçalho existente. O valor de um novo cabeçalho ou de um cabeçalho existente pode ser definido para este tipo de valores:
 
 - Texto.
-- Pedido de cabeçalho. Para especificar um cabeçalho de pedido, é necessário utilizar a sintaxe {http_req_*nome do cabeçalho*}.
-- O cabeçalho da resposta. Para especificar um cabeçalho de resposta, é necessário utilizar a sintaxe {http_resp_*nome do cabeçalho*}.
-- Variável do servidor. Para especificar uma variável de servidor, é necessário utilizar a sintaxe {var_*servidorVariable*}.
+- Pedido de cabeçalho. Para especificar um cabeçalho de pedido, é necessário utilizar a sintaxe {http_req_ *nome do cabeçalho* }.
+- O cabeçalho da resposta. Para especificar um cabeçalho de resposta, é necessário utilizar a sintaxe {http_resp_ *nome do cabeçalho* }.
+- Variável do servidor. Para especificar uma variável de servidor, é necessário utilizar a sintaxe {var_ *servidorVariable* }.
 - Uma combinação de texto, um cabeçalho de pedido, um cabeçalho de resposta e uma variável de servidor.
 
 ## <a name="server-variables"></a>Variáveis de servidor
 
-O Application Gateway utiliza variáveis de servidor para armazenar informações úteis sobre o servidor, a ligação com o cliente e o pedido atual na ligação. Exemplos de informação armazenada incluem o endereço IP do cliente e o tipo de navegador web. As variáveis do servidor mudam dinamicamente, por exemplo, quando uma nova página carrega ou quando um formulário é publicado. Pode utilizar estas variáveis para avaliar as condições de reescrita e reescrever cabeçalhos. Para utilizar o valor das variáveis do servidor para reescrever cabeçalhos, terá de especificar estas variáveis na sintaxe {var_*servidorVariável*}
+O Application Gateway utiliza variáveis de servidor para armazenar informações úteis sobre o servidor, a ligação com o cliente e o pedido atual na ligação. Exemplos de informação armazenada incluem o endereço IP do cliente e o tipo de navegador web. As variáveis do servidor mudam dinamicamente, por exemplo, quando uma nova página carrega ou quando um formulário é publicado. Pode utilizar estas variáveis para avaliar as condições de reescrita e reescrever cabeçalhos. Para utilizar o valor das variáveis do servidor para reescrever cabeçalhos, terá de especificar estas variáveis na sintaxe {var_ *servidorVariável* }
 
 O gateway de aplicações suporta estas variáveis de servidor:
 
-| Nome da variável | Descrição                                                  |
+| Nome da variável | Description                                                  |
 | -------------------------- | :----------------------------------------------------------- |
 | add_x_forwarded_for_proxy  | O campo de cabeçalho de pedido de cliente X-Forwarded-For com a `client_ip` variável (ver explicação mais tarde nesta tabela) anexado a ele no formato IP1, IP2, IP3, e assim por diante. Se o campo X-Forwarded-For não estiver no cabeçalho de pedido do cliente, a `add_x_forwarded_for_proxy` variável é igual à `$client_ip` variável. Esta variável é particularmente útil quando pretende reescrever o cabeçalho X-Forwarded-For definido pelo Application Gateway para que o cabeçalho contenha apenas o endereço IP sem a informação da porta. |
 | ciphers_supported          | Uma lista das cifras apoiadas pelo cliente.          |
@@ -70,7 +70,7 @@ O gateway de aplicações suporta estas variáveis de servidor:
 | client_tcp_rtt             | Informação sobre a ligação com a TCP do cliente. Disponível em sistemas que suportam a opção de tomada TCP_INFO. |
 | client_user                | Quando é utilizada a autenticação HTTP, o nome de utilizador fornecido para autenticação. |
 | anfitrião                       | Nesta ordem de precedência: o nome de anfitrião da linha de pedido, o nome de anfitrião do campo de cabeçalho de pedido do anfitrião ou o nome do servidor correspondente a um pedido. Exemplo: no *http://contoso.com:8080/article.aspx?id=123&title=fabrikam* pedido, o valor do anfitrião será *contoso.com* |
-| cookie_*nome*              | O biscoito *de nome.*                                            |
+| cookie_ *nome*              | O biscoito *de nome.*                                            |
 | http_method                | O método usado para fazer o pedido de URL. Por exemplo, GET ou POST. |
 | http_status                | O estado da sessão. Por exemplo, 200, 400 ou 403.                       |
 | http_version               | O protocolo de pedido. Normalmente HTTP/1.0, HTTP/1.1 ou HTTP/2.0. |
@@ -91,19 +91,19 @@ Para configurar a reescrita do cabeçalho HTTP, é necessário completar estes p
 
 1. Crie os objetos necessários para reescrever o cabeçalho HTTP:
 
-   - **Ação de reescrita**: Usado para especificar os campos de pedido e pedido que pretende reescrever e o novo valor para os cabeçalhos. Pode associar uma ou mais condições de reescrita com uma ação de reescrita.
+   - **Ação de reescrita** : Usado para especificar os campos de pedido e pedido que pretende reescrever e o novo valor para os cabeçalhos. Pode associar uma ou mais condições de reescrita com uma ação de reescrita.
 
-   - **Condição de reescrita**: Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
+   - **Condição de reescrita** : Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
 
      Se associar mais do que uma condição a uma ação, a ação ocorre apenas quando todas as condições estão reunidas. Por outras palavras, a operação é uma operação lógica.
 
-   - **Regra de reescrita**: Contém combinações de condição de reescrita múltiplas/ reescrita.
+   - **Regra de reescrita** : Contém combinações de condição de reescrita múltiplas/ reescrita.
 
-   - **Sequência de**regras : Ajuda a determinar a ordem pela qual as regras de reescrita executam. Esta configuração é útil quando tem várias regras de reescrita num conjunto de reescrita. Uma regra de reescrita que tem um valor de sequência de regras mais baixo corre primeiro. Se atribuir a mesma sequência de regras a duas regras de reescrita, a ordem de execução não é determinística.
+   - **Sequência de** regras : Ajuda a determinar a ordem pela qual as regras de reescrita executam. Esta configuração é útil quando tem várias regras de reescrita num conjunto de reescrita. Uma regra de reescrita que tem um valor de sequência de regras mais baixo corre primeiro. Se atribuir a mesma sequência de regras a duas regras de reescrita, a ordem de execução não é determinística.
 
-   - **Conjunto de reescrita**: Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
+   - **Conjunto de reescrita** : Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
 
-2. Fixe o conjunto de*reescrita (reescreversetset)* a uma regra de encaminhamento. A configuração de reescrita é anexada ao ouvinte de origem através da regra de encaminhamento. Quando utiliza uma regra de encaminhamento básico, a configuração de reescrita do cabeçalho está associada a um ouvinte de origem e é uma reescrita global do cabeçalho. Quando utiliza uma regra de encaminhamento baseada no caminho, a configuração de reescrita do cabeçalho é definida no mapa do caminho URL. Nesse caso, aplica-se apenas à área específica do percurso de um sítio.
+2. Fixe o conjunto de *reescrita (reescreversetset)* a uma regra de encaminhamento. A configuração de reescrita é anexada ao ouvinte de origem através da regra de encaminhamento. Quando utiliza uma regra de encaminhamento básico, a configuração de reescrita do cabeçalho está associada a um ouvinte de origem e é uma reescrita global do cabeçalho. Quando utiliza uma regra de encaminhamento baseada no caminho, a configuração de reescrita do cabeçalho é definida no mapa do caminho URL. Nesse caso, aplica-se apenas à área específica do percurso de um sítio.
    > [!NOTE]
    > URL Reescreve os cabeçalhos; não altera o URL para o caminho.
 
@@ -168,5 +168,5 @@ Pode avaliar um pedido HTTP ou cabeçalho de resposta para a presença de uma va
 
 Para aprender a reescrever cabeçalhos HTTP, consulte:
 
-- [Reescrever cabeçalhos de HTTP com o portal do Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Reescrever cabeçalhos de HTTP com o portal do Azure](./rewrite-http-headers-portal.md)
 - [Reescrever cabeçalhos HTTP usando Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

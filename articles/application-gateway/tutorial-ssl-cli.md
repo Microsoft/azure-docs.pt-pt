@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 76fea0c8b6f3c13c9f462ecbb72611c6659c65d0
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595823"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397085"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Criar um gateway de aplicações com rescisão de TLS usando o Azure CLI
 
-Pode utilizar o CLI Azure para criar um [gateway de aplicação](overview.md) com um certificado de [rescisão de TLS](ssl-overview.md). Para servidores backend, pode utilizar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
+Pode utilizar o CLI Azure para criar um [gateway de aplicação](overview.md) com um certificado de [rescisão de TLS](ssl-overview.md). Para servidores backend, pode utilizar um [conjunto de escala de máquina virtual](../virtual-machine-scale-sets/overview.md) . Neste exemplo, o conjunto de dimensionamento contém duas instâncias de máquina virtual que foram adicionadas ao conjunto de back-end predefinido do gateway de aplicação.
 
 Neste artigo, vai aprender a:
 

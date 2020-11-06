@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6ea6f348d796962141bd39ff858d891a29a2f6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628680"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397693"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Suporte de Gateway de aplicações para extremidades traseiras multi-arrendatários, como o serviço app
 
@@ -28,11 +28,11 @@ O Gateway de Aplicação fornece uma capacidade que permite aos utilizadores sub
 
 ## <a name="override-host-header-in-the-request"></a>Anular o cabeçalho do anfitrião no pedido
 
-A capacidade de especificar uma sobreposição de hospedeiro é definida nas [definições HTTP](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) e pode ser aplicada a qualquer piscina de back-end durante a criação de regras. São suportadas as duas formas de sub-cabeçalho do hospedeiro e da extensão SNI para as extremidades traseiras de vários inquilinos:
+A capacidade de especificar uma sobreposição de hospedeiro é definida nas [definições HTTP](./configuration-overview.md#http-settings) e pode ser aplicada a qualquer piscina de back-end durante a criação de regras. São suportadas as duas formas de sub-cabeçalho do hospedeiro e da extensão SNI para as extremidades traseiras de vários inquilinos:
 
 - A capacidade de definir o nome de anfitrião para um valor fixo explicitamente introduzido nas definições HTTP. Esta capacidade garante que o cabeçalho do anfitrião é ultrapassado a este valor para todo o tráfego para a piscina traseira onde são aplicadas as definições HTTP específicas. Ao utilizar o fim para o fim do TLS, este nome de anfitrião ultrapassado é utilizado na extensão SNI. Esta capacidade permite cenários onde uma quinta de piscinas de back-end espera um cabeçalho de anfitrião diferente do cabeçalho do anfitrião do cliente.
 
-- A capacidade de obter o nome do anfitrião a partir do IP ou FQDN dos membros da piscina back-end. As definições HTTP também fornecem uma opção para escolher dinamicamente o nome de anfitrião do FQDN de um membro de piscina de back-end se configurado com a opção de obter o nome de anfitrião de um membro de piscina de back-end individual. Ao utilizar o TLS de ponta para o fim, este nome de hospedeiro é derivado do FQDN e é utilizado na extensão SNI. Esta capacidade permite cenários onde um pool back-end pode ter dois ou mais serviços PaaS multi-inquilinos como aplicações web Azure e o cabeçalho do anfitrião do pedido para cada membro contém o nome de anfitrião derivado do seu FQDN. Para implementar este cenário, utilizamos um interruptor nas Definições HTTP chamada [Nome de anfitrião Pick do endereço backend](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) que irá sobrepor-se dinamicamente ao cabeçalho do anfitrião no pedido original ao mencionado no pool de backend.  Por exemplo, se o seu pool de backend FQDN contiver "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", o cabeçalho de anfitrião do pedido original, que é contoso.com será ultrapassado para contoso11.azurewebsites.net ou contoso22.azurewebsites.net quando o pedido for enviado para o servidor de backend apropriado. 
+- A capacidade de obter o nome do anfitrião a partir do IP ou FQDN dos membros da piscina back-end. As definições HTTP também fornecem uma opção para escolher dinamicamente o nome de anfitrião do FQDN de um membro de piscina de back-end se configurado com a opção de obter o nome de anfitrião de um membro de piscina de back-end individual. Ao utilizar o TLS de ponta para o fim, este nome de hospedeiro é derivado do FQDN e é utilizado na extensão SNI. Esta capacidade permite cenários onde um pool back-end pode ter dois ou mais serviços PaaS multi-inquilinos como aplicações web Azure e o cabeçalho do anfitrião do pedido para cada membro contém o nome de anfitrião derivado do seu FQDN. Para implementar este cenário, utilizamos um interruptor nas Definições HTTP chamada [Nome de anfitrião Pick do endereço backend](./configuration-http-settings.md#pick-host-name-from-back-end-address) que irá sobrepor-se dinamicamente ao cabeçalho do anfitrião no pedido original ao mencionado no pool de backend.  Por exemplo, se o seu pool de backend FQDN contiver "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", o cabeçalho de anfitrião do pedido original, que é contoso.com será ultrapassado para contoso11.azurewebsites.net ou contoso22.azurewebsites.net quando o pedido for enviado para o servidor de backend apropriado. 
 
   ![cenário de aplicação Web](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -59,8 +59,8 @@ Pode haver cenários em que o nome anfitrião na resposta do serviço app pode d
 - Tem a reorientação configurada no seu Serviço de Aplicações. A reorientação pode ser tão simples como adicionar um corte de fuga ao pedido.
 - Tem a autenticação AD AZure que causa a reorientação.
 
-Para resolver estes casos, consulte [a reorientação da Resolução de Problemas para a emissão de URL do serviço app](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
+Para resolver estes casos, consulte [a reorientação da Resolução de Problemas para a emissão de URL do serviço app](./troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como configurar um gateway de aplicações com uma app multi-inquilino, como a app de serviço da App Azure App, como membro de back-end pool, visitando [aplicações web do Configure App Service com App Gateway](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal)
+Saiba como configurar um gateway de aplicações com uma app multi-inquilino, como a app de serviço da App Azure App, como membro de back-end pool, visitando [aplicações web do Configure App Service com App Gateway](./configure-web-app-portal.md)

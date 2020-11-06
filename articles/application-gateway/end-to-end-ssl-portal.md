@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 33240d1f44d2f26569791f72a3d5fc3a6656a757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e2d1828acefacb03cc2f42193b8cd8897578b6f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808042"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397506"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configure o TLS de ponta a ponta utilizando o Gateway de Aplicação com o portal
 
@@ -31,7 +31,7 @@ Para configurar o TLS de ponta a ponta com um gateway de aplicação, precisa de
 
 Para a encriptação TLS de ponta a ponta, os servidores de back-end direito devem ser permitidos no gateway de aplicações. Para permitir este acesso, faça o upload do certificado público dos servidores back-end, também conhecidos como Certificados de Autenticação (v1) ou Certificados de Raiz Fidedigna (v2), para o gateway de aplicações. A adição do certificado garante que o gateway de aplicação comunica apenas com instâncias de back-end conhecidas. Esta configuração assegura ainda mais a comunicação de ponta a ponta.
 
-Para saber mais, consulte [a visão geral da rescisão do TLS e termine o TLS com o Gateway de aplicações.](https://docs.microsoft.com/azure/application-gateway/ssl-overview)
+Para saber mais, consulte [a visão geral da rescisão do TLS e termine o TLS com o Gateway de aplicações.](./ssl-overview.md)
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-tls"></a>Criar uma nova porta de aplicações com TLS de ponta a ponta
 
@@ -39,17 +39,17 @@ Para criar um novo gateway de aplicações com encriptação TLS de ponta a pont
 
 ### <a name="enable-tls-termination-while-creating-a-new-application-gateway"></a>Ativar a rescisão do TLS ao criar um novo gateway de aplicações
 
-Para saber mais, consulte [ativar a rescisão do TLS enquanto cria um novo gateway de aplicações.](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+Para saber mais, consulte [ativar a rescisão do TLS enquanto cria um novo gateway de aplicações.](./create-ssl-portal.md)
 
 ### <a name="add-authenticationroot-certificates-of-back-end-servers"></a>Adicionar certificados de autenticação/raiz de servidores de back-end
 
-1. Selecione **Todos os recursos**e, em seguida, selecione **myAppGateway**.
+1. Selecione **Todos os recursos** e, em seguida, selecione **myAppGateway**.
 
 2. Selecione **as definições HTTP** do menu do lado esquerdo. O Azure criou automaticamente uma definição HTTP predefinida, **appGatewayBackendHttpSettings,** quando criou o gateway de aplicações. 
 
 3. Selecione **appGatewayBackendHttpSettings**.
 
-4. Ao abrigo **do Protocolo**, selecione **HTTPS**. Aparece um painel para **certificados de autenticação backend ou certificados de raiz fidedignos.**
+4. Ao abrigo **do Protocolo** , selecione **HTTPS**. Aparece um painel para **certificados de autenticação backend ou certificados de raiz fidedignos.**
 
 5. Selecione **Criar novo**.
 
@@ -67,7 +67,7 @@ Para saber mais, consulte [ativar a rescisão do TLS enquanto cria um novo gatew
 
    ![Certificado de raiz](./media/end-to-end-ssl-portal/trustedrootcert.png)
 
-8. Selecione **Guardar**.
+8. Selecione **Save** (Guardar).
 
 ## <a name="enable-end-to-end-tls-for-an-existing-application-gateway"></a>Ativar o TLS de ponta a ponta para um gateway de aplicações existente
 
@@ -78,18 +78,18 @@ Terá de utilizar um ouvinte com o protocolo HTTPS e um certificado para permiti
 Se escolher esta última opção, aplique os passos no seguinte procedimento.
 ### <a name="enable-tls-termination-in-an-existing-application-gateway"></a>Ativar a rescisão de TLS num gateway de aplicações existente
 
-1. Selecione **Todos os recursos**e, em seguida, selecione **myAppGateway**.
+1. Selecione **Todos os recursos** e, em seguida, selecione **myAppGateway**.
 
 2. **Selecione Os ouvintes** do menu do lado esquerdo.
 
 3. Selecione **o ouvinte básico** ou **multi-site,** dependendo dos seus requisitos.
 
-4. Ao abrigo **do Protocolo**, selecione **HTTPS**. Aparece um painel para **o Certificado.**
+4. Ao abrigo **do Protocolo** , selecione **HTTPS**. Aparece um painel para **o Certificado.**
 
 5. Faça o upload do certificado PFX que pretende utilizar para a rescisão de TLS entre o cliente e o gateway de aplicações.
 
    > [!NOTE]
-   > Para efeitos de teste, pode utilizar um certificado auto-assinado. No entanto, isto não é aconselhável para cargas de trabalho de produção, porque são mais difíceis de gerir e não são completamente seguros. Para mais informações, consulte [criar um certificado auto-assinado.](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate)
+   > Para efeitos de teste, pode utilizar um certificado auto-assinado. No entanto, isto não é aconselhável para cargas de trabalho de produção, porque são mais difíceis de gerir e não são completamente seguros. Para mais informações, consulte [criar um certificado auto-assinado.](./create-ssl-portal.md#create-a-self-signed-certificate)
 
 6. Adicione outras definições necessárias para o **Ouvinte,** dependendo dos seus requisitos.
 
@@ -97,13 +97,13 @@ Se escolher esta última opção, aplique os passos no seguinte procedimento.
 
 ### <a name="add-authenticationtrusted-root-certificates-of-back-end-servers"></a>Adicionar certificados de autenticação/raiz fidedignos de servidores de back-end
 
-1. Selecione **Todos os recursos**e, em seguida, selecione **myAppGateway**.
+1. Selecione **Todos os recursos** e, em seguida, selecione **myAppGateway**.
 
 2. Selecione **as definições HTTP** do menu do lado esquerdo. Pode colocar certificados numa definição HTTP existente na lista de destinatários seguros ou criar uma nova definição HTTP. (No passo seguinte, o certificado para a definição HTTP predefinida, **appGatewayBackendHttpSettings,** é adicionado à lista de destinatários seguros.)
 
 3. Selecione **appGatewayBackendHttpSettings**.
 
-4. Ao abrigo **do Protocolo**, selecione **HTTPS**. Aparece um painel para **certificados de autenticação backend ou certificados de raiz fidedignos.** 
+4. Ao abrigo **do Protocolo** , selecione **HTTPS**. Aparece um painel para **certificados de autenticação backend ou certificados de raiz fidedignos.** 
 
 5. Selecione **Criar novo**.
 
@@ -119,7 +119,7 @@ Se escolher esta última opção, aplique os passos no seguinte procedimento.
 
    ![Adicionar certificado de raiz fidedigno](./media/end-to-end-ssl-portal/trustedrootcert-portal.png)
 
-8. Selecione **Guardar**.
+8. Selecione **Save** (Guardar).
 
 ## <a name="next-steps"></a>Passos seguintes
 

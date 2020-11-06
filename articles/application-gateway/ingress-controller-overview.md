@@ -7,17 +7,17 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/10/2020
 ms.author: caya
-ms.openlocfilehash: c1bd41587e4f56fb0a7f3eb8285d301751f558d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f53a8f93d4d51ec8f8fd91051496a46670f432
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84668105"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397353"
 ---
 # <a name="what-is-application-gateway-ingress-controller"></a>O que é o Controlador de Entrada de Gateway de Aplicação?
 O Controlador de Entrada de Gateway (AGIC) é uma aplicação kubernetes, que permite aos clientes [do Serviço Azure Kubernetes (AKS)](https://azure.microsoft.com/services/kubernetes-service/) aproveitar o equilibrador de carga de [aplicação](https://azure.microsoft.com/services/application-gateway/) nativa da Azure Gateway L7 para expor o software em nuvem à Internet. A AGIC monitoriza o cluster Kubernetes em que está hospedado e atualiza continuamente um Gateway de aplicações, de modo a que os serviços selecionados sejam expostos à Internet.
 
-O Controlador Ingress funciona na sua própria cápsula na AKS do cliente. A AGIC monitoriza um subconjunto de Recursos Kubernetes para alterações. O estado do cluster AKS é traduzido para configuração específica do Gateway de Aplicação e aplicado ao [Gestor de Recursos Azure (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+O Controlador Ingress funciona na sua própria cápsula na AKS do cliente. A AGIC monitoriza um subconjunto de Recursos Kubernetes para alterações. O estado do cluster AKS é traduzido para configuração específica do Gateway de Aplicação e aplicado ao [Gestor de Recursos Azure (ARM)](../azure-resource-manager/management/overview.md).
 
 ## <a name="benefits-of-application-gateway-ingress-controller"></a>Benefícios do Controlador de Entrada de Gateway de Aplicação
 A AGIC ajuda a eliminar a necessidade de ter outro balanceador de carga/IP público em frente ao cluster AKS e evita vários lúpulo no seu caminho de dados antes que os pedidos cheguem ao cluster AKS. A Application Gateway fala diretamente com os pods que utilizam o seu IP privado e não requer serviços NodePort ou KubeProxy. Isto também traz um melhor desempenho para as suas implementações.
@@ -77,4 +77,3 @@ As tabelas que se seguem classificam quais os cenários que são atualmente supo
 - [**AKS Add-On Implementação brownfield**](tutorial-ingress-controller-add-on-existing.md): Instale o addon AGIC num cluster AKS com um Gateway de aplicação existente.
 - [**Helm Greenfield Deployment**](ingress-controller-install-new.md): Instale o AGIC através do Helm, novo cluster AKS e novo Gateway de aplicações em infraestrutura de ardósia em branco.
 - [**Helm Brownfield Deployment**](ingress-controller-install-existing.md): Deploy AGIC através do Helm em um cluster AKS existente e Gateway de aplicação.
-

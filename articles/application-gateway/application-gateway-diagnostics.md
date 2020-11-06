@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7bd56ea22561d9463bc8430058e692f1c566c38
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86517880"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397829"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Registos de saúde e diagnóstico de back-end para Application Gateway
 
@@ -41,10 +41,10 @@ O relatório de saúde back-end reflete a produção da sonda de saúde Applicat
 
 No portal, a saúde back-end é fornecida automaticamente. Numa porta de aplicação existente, selecione **Monitoring**  >  **Backend health**.
 
-Cada membro da piscina traseira está listado nesta página (seja um NIC, IP ou FQDN). O nome da piscina traseira, a porta, o nome das definições HTTP de back-end e o estado de saúde são mostrados. Valores válidos para o estado de saúde são **saudáveis,** **insalubres**e **desconhecidos.**
+Cada membro da piscina traseira está listado nesta página (seja um NIC, IP ou FQDN). O nome da piscina traseira, a porta, o nome das definições HTTP de back-end e o estado de saúde são mostrados. Valores válidos para o estado de saúde são **saudáveis,** **insalubres** e **desconhecidos.**
 
 > [!NOTE]
-> Se vir um estado de saúde de back-end de **Desconhecido**, certifique-se de que o acesso à parte de trás não é bloqueado por uma regra NSG, uma rota definida pelo utilizador (UDR) ou um DNS personalizado na rede virtual.
+> Se vir um estado de saúde de back-end de **Desconhecido** , certifique-se de que o acesso à parte de trás não é bloqueado por uma regra NSG, uma rota definida pelo utilizador (UDR) ou um DNS personalizado na rede virtual.
 
 ![Saúde de back-end][10]
 
@@ -62,7 +62,7 @@ Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupNa
 az network application-gateway show-backend-health --resource-group AdatumAppGatewayRG --name AdatumAppGateway
 ```
 
-### <a name="results"></a>Results
+### <a name="results"></a>Resultados
 
 O seguinte corte mostra um exemplo da resposta:
 
@@ -95,19 +95,19 @@ O seguinte corte mostra um exemplo da resposta:
 
 Pode utilizar diferentes tipos de registos em Azure para gerir e resolver os serviços de resolução de problemas. Pode aceder a alguns destes registos através do portal. Todos os registos podem ser extraídos do armazenamento do Azure Blob e vistos em diferentes ferramentas, tais como [registos Azure Monitor,](../azure-monitor/insights/azure-networking-analytics.md)Excel e Power BI. Pode saber mais sobre os diferentes tipos de registos da seguinte lista:
 
-* **Registo de atividades**: Pode utilizar [registos de atividade do Azure](../monitoring-and-diagnostics/insights-debugging-with-events.md) (anteriormente conhecidos como registos operacionais e registos de auditoria) para visualizar todas as operações que são submetidas à sua subscrição Azure, e o seu estado. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
-* **Início de sessão**: Pode utilizar este registo para visualizar padrões de acesso do Gateway de Aplicação e analisar informações importantes. Isto inclui o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Um registo de acesso é recolhido a cada 60 segundos. Este registo contém um registo por instância do Gateway de Aplicação. A instância do Gateway de Aplicação é identificada pela propriedade instanceId.
-* **Registo de desempenho**: Pode utilizar este registo para ver como as instâncias do Gateway de Aplicação estão a funcionar. Este registo captura informações de desempenho para cada instância, incluindo o total de pedidos servidos, o produção de bytes, o total de pedidos servidos, a contagem de pedidos falhadas e a contagem saudável e pouco saudável de instâncias de back-end. Um registo de desempenho é recolhido a cada 60 segundos. O registo de desempenho está disponível apenas para o V1 SKU. Para o v2 SKU, utilize [métricas](application-gateway-metrics.md) para dados de desempenho.
-* **Registo de firewall**: Pode utilizar este registo para visualizar os pedidos que são registados através do modo de deteção ou prevenção de um gateway de aplicações configurado com a firewall da aplicação web. Os registos de firewall são recolhidos a cada 60 segundos. 
+* **Registo de atividades** : Pode utilizar [registos de atividade do Azure](../azure-resource-manager/management/view-activity-logs.md) (anteriormente conhecidos como registos operacionais e registos de auditoria) para visualizar todas as operações que são submetidas à sua subscrição Azure, e o seu estado. As entradas de registos de atividades são recolhidas por predefinição e pode visualizá-las no portal do Azure.
+* **Início de sessão** : Pode utilizar este registo para visualizar padrões de acesso do Gateway de Aplicação e analisar informações importantes. Isto inclui o IP do chamador, URL solicitado, latência de resposta, código de devolução e bytes dentro e fora. Um registo de acesso é recolhido a cada 60 segundos. Este registo contém um registo por instância do Gateway de Aplicação. A instância do Gateway de Aplicação é identificada pela propriedade instanceId.
+* **Registo de desempenho** : Pode utilizar este registo para ver como as instâncias do Gateway de Aplicação estão a funcionar. Este registo captura informações de desempenho para cada instância, incluindo o total de pedidos servidos, o produção de bytes, o total de pedidos servidos, a contagem de pedidos falhadas e a contagem saudável e pouco saudável de instâncias de back-end. Um registo de desempenho é recolhido a cada 60 segundos. O registo de desempenho está disponível apenas para o V1 SKU. Para o v2 SKU, utilize [métricas](application-gateway-metrics.md) para dados de desempenho.
+* **Registo de firewall** : Pode utilizar este registo para visualizar os pedidos que são registados através do modo de deteção ou prevenção de um gateway de aplicações configurado com a firewall da aplicação web. Os registos de firewall são recolhidos a cada 60 segundos. 
 
 > [!NOTE]
 > Os registos estão disponíveis apenas para recursos implantados no modelo de implementação do Gestor de Recursos Azure. Não é possível utilizar registos de recursos no modelo clássico de implantação. Para uma melhor compreensão dos dois modelos, consulte a implementação do Understanding Resource Manager e o artigo [de implementação clássico.](../azure-resource-manager/management/deployment-models.md)
 
 Tem três opções para armazenar os registos:
 
-* **Conta de armazenamento**: as contas de armazenamento são ideais para os registos quando estes são armazenados durante um período mais longo e revistos quando necessário.
-* **Centros de eventos**: Os centros de eventos são uma ótima opção para integrar com outras ferramentas de informação de segurança e gestão de eventos (SIEM) para obter alertas sobre os seus recursos.
-* **Registos do Monitor Azure**: Os registos do Monitor Azure são mais utilizados para monitorizar em tempo real geral a sua aplicação ou analisar tendências.
+* **Conta de armazenamento** : as contas de armazenamento são ideais para os registos quando estes são armazenados durante um período mais longo e revistos quando necessário.
+* **Centros de eventos** : Os centros de eventos são uma ótima opção para integrar com outras ferramentas de informação de segurança e gestão de eventos (SIEM) para obter alertas sobre os seus recursos.
+* **Registos do Monitor Azure** : Os registos do Monitor Azure são mais utilizados para monitorizar em tempo real geral a sua aplicação ou analisar tendências.
 
 ### <a name="enable-logging-through-powershell"></a>Ativar o registo através do PowerShell
 
@@ -152,7 +152,7 @@ O registo de atividades é ativado automaticamente para todos os recursos do Res
 
 ### <a name="activity-log"></a>Registo de atividades
 
-O Azure gera o registo de atividade por predefinição. Os registos são preservados durante 90 dias na loja de registos de eventos Azure. Saiba mais sobre estes registos lendo os [eventos e o artigo de registo de atividades.](../monitoring-and-diagnostics/insights-debugging-with-events.md)
+O Azure gera o registo de atividade por predefinição. Os registos são preservados durante 90 dias na loja de registos de eventos Azure. Saiba mais sobre estes registos lendo os [eventos e o artigo de registo de atividades.](../azure-resource-manager/management/view-activity-logs.md)
 
 ### <a name="access-log"></a>Registo de acesso
 
@@ -167,7 +167,7 @@ O registo de acesso só é gerado se o tiver ativado em cada instância do Gatew
 |clientPort     | Porta originária do pedido.       |
 |httpMethod     | Método HTTP utilizado pelo pedido.       |
 |requestUri     | URI do pedido recebido.        |
-|PedidoQuery     | **Server-Routed**: Instância de piscina de back-end que foi enviada o pedido.</br>**X-AzureApplicationGateway-LOG-ID**: ID de correlação utilizado para o pedido. Pode ser usado para resolver problemas de tráfego nos servidores de back-end. </br>**ESTADO DO SERVIDOR**: Código de resposta HTTP que o Gateway de aplicação recebeu a partir da parte de trás.       |
+|PedidoQuery     | **Server-Routed** : Instância de piscina de back-end que foi enviada o pedido.</br>**X-AzureApplicationGateway-LOG-ID** : ID de correlação utilizado para o pedido. Pode ser usado para resolver problemas de tráfego nos servidores de back-end. </br>**ESTADO DO SERVIDOR** : Código de resposta HTTP que o Gateway de aplicação recebeu a partir da parte de trás.       |
 |UserAgent     | Agente utilizador do cabeçalho de pedido HTTP.        |
 |httpStatus     | O código de estado HTTP devolvido ao cliente a partir do Application Gateway.       |
 |httpVersão     | Versão HTTP do pedido.        |
@@ -352,8 +352,8 @@ O registo de firewall só é gerado se o tiver ativado para cada porta de entrad
 
 Pode ver e analisar os dados de registo de atividades através de um dos seguintes métodos:
 
-* **Ferramentas do Azure**: recuperar informações de registo de atividades através do Azure PowerShell, a CLI do Azure, a API REST do Azure ou o portal do Azure. As instruções passo-a-passo para cada método estão detalhadas no artigo [Operações de atividades com o Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
-* **Power BI**: se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), pode experimentá-lo gratuitamente. Ao utilizar as [aplicações do modelo Power BI,](https://docs.microsoft.com/power-bi/service-template-apps-overview)pode analisar os seus dados.
+* **Ferramentas do Azure** : recuperar informações de registo de atividades através do Azure PowerShell, a CLI do Azure, a API REST do Azure ou o portal do Azure. As instruções passo-a-passo para cada método estão detalhadas no artigo [Operações de atividades com o Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+* **Power BI** : se ainda não tiver uma conta do [Power BI](https://powerbi.microsoft.com/pricing), pode experimentá-lo gratuitamente. Ao utilizar as [aplicações do modelo Power BI,](/power-bi/service-template-apps-overview)pode analisar os seus dados.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Ver e analisar os registos de acesso, desempenho e firewall
 

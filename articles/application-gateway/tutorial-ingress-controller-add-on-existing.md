@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/24/2020
 ms.author: caya
-ms.openlocfilehash: d0ce58c5bb6de4712117959f10b48ae3449f0b97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10f78167b9c3f557fa16061cfac8aad080519415
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285661"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397132"
 ---
 # <a name="tutorial-enable-application-gateway-ingress-controller-add-on-for-an-existing-aks-cluster-with-an-existing-application-gateway-through-azure-cli-preview"></a>Tutorial: Ativar o addon do controlador de entrada de aplicativos para um cluster AKS existente com um Gateway de aplicação existente através do Azure CLI (Visualização)
 
@@ -37,17 +37,17 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.4 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
 
-Registar a bandeira de recurso *AKS-IngressApplicationGatewayAddon* utilizando o comando [de registo de funcionalidades AZ,](https://docs.microsoft.com/cli/azure/feature#az-feature-register) como mostra o exemplo seguinte; só terá de o fazer uma vez por subscrição enquanto o add-on ainda está em pré-visualização:
+Registar a bandeira de recurso *AKS-IngressApplicationGatewayAddon* utilizando o comando [de registo de funcionalidades AZ,](/cli/azure/feature#az-feature-register) como mostra o exemplo seguinte; só terá de o fazer uma vez por subscrição enquanto o add-on ainda está em pré-visualização:
 ```azurecli-interactive
 az feature register --name AKS-IngressApplicationGatewayAddon --namespace microsoft.containerservice
 ```
 
-Pode levar alguns minutos para o estado mostrar registado. Pode verificar o estado de registo utilizando o comando [da lista de recursos az:](https://docs.microsoft.com/cli/azure/feature#az-feature-register)
+Pode levar alguns minutos para o estado mostrar registado. Pode verificar o estado de registo utilizando o comando [da lista de recursos az:](/cli/azure/feature#az-feature-register)
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'microsoft.containerservice/AKS-IngressApplicationGatewayAddon')].{Name:name,State:properties.state}"
 ```
 
-Quando estiver pronto, reaprovi o registo do fornecedor de recursos Microsoft.ContainerService utilizando o comando [de registo do fornecedor az:](https://docs.microsoft.com/cli/azure/provider#az-provider-register)
+Quando estiver pronto, reaprovi o registo do fornecedor de recursos Microsoft.ContainerService utilizando o comando [de registo do fornecedor az:](/cli/azure/provider#az-provider-register)
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
 ```
@@ -74,17 +74,17 @@ az group create --name myResourceGroup --location canadacentral
 
 Irá agora implementar um novo cluster AKS, para simular ter um cluster AKS existente para o qual pretende ativar o addon AGIC.  
 
-No exemplo seguinte, estará a implementar um novo cluster AKS chamado *myCluster* usando [Azure CNI](https://docs.microsoft.com/azure/aks/concepts-network#azure-cni-advanced-networking) e [Identidades Geridas](https://docs.microsoft.com/azure/aks/use-managed-identity) no grupo de recursos que criou, *o myResourceGroup.*    
+No exemplo seguinte, estará a implementar um novo cluster AKS chamado *myCluster* usando [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) e [Identidades Geridas](../aks/use-managed-identity.md) no grupo de recursos que criou, *o myResourceGroup.*    
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity 
 ```
 
-Para configurar parâmetros adicionais para o `az aks create` comando, visite referências [aqui.](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create) 
+Para configurar parâmetros adicionais para o `az aks create` comando, visite referências [aqui.](/cli/azure/aks?view=azure-cli-latest#az-aks-create) 
 
 ## <a name="deploy-a-new-application-gateway"></a>Implementar um novo Gateway de Aplicações 
 
-Irá agora implementar um novo Gateway de Aplicações, para simular ter um Gateway de Aplicação existente que pretende utilizar para carregar o tráfego de equilíbrio para o seu cluster AKS, *myCluster*. O nome do Gateway de Aplicação será *myApplicationGateway,* mas primeiro terá de criar um recurso IP público, chamado *myPublicIp,* e uma nova rede virtual chamada *myVnet* com espaço de endereço 11.0.0.0/8, e uma sub-rede com o espaço de endereço 11.1.0.0/16 chamada *mySubnet*, e implementar o seu Gateway de aplicação no *meuSubnet* usando *o meuPubnet*. 
+Irá agora implementar um novo Gateway de Aplicações, para simular ter um Gateway de Aplicação existente que pretende utilizar para carregar o tráfego de equilíbrio para o seu cluster AKS, *myCluster*. O nome do Gateway de Aplicação será *myApplicationGateway,* mas primeiro terá de criar um recurso IP público, chamado *myPublicIp,* e uma nova rede virtual chamada *myVnet* com espaço de endereço 11.0.0.0/8, e uma sub-rede com o espaço de endereço 11.1.0.0/16 chamada *mySubnet* , e implementar o seu Gateway de aplicação no *meuSubnet* usando *o meuPubnet*. 
 
 Ao utilizar um cluster AKS e Gateway de aplicação em redes virtuais separadas, os espaços de endereço das duas redes virtuais não devem sobrepor-se. O espaço de endereço predefinido que um cluster AKS implementa é de 10.0.0.0/8, pelo que definimos o prefixo de endereço virtual do Gateway de Aplicação para 11.0.0.0/8. 
 
@@ -99,7 +99,7 @@ az network application-gateway create -n myApplicationGateway -l canadacentral -
 
 ## <a name="enable-the-agic-add-on-in-existing-aks-cluster-with-existing-application-gateway"></a>Ativar o addon AGIC no cluster AKS existente com o Gateway de aplicação existente 
 
-Agora, você vai ativar o addon AGIC no cluster AKS que criou, *myCluster*, e especificar o addon AGIC para usar o gateway de aplicação existente que você criou, *myApplicationGateway*. Certifique-se de que adicionou/atualizou a extensão de pré-visualização de aks no início deste tutorial. 
+Agora, você vai ativar o addon AGIC no cluster AKS que criou, *myCluster* , e especificar o addon AGIC para usar o gateway de aplicação existente que você criou, *myApplicationGateway*. Certifique-se de que adicionou/atualizou a extensão de pré-visualização de aks no início deste tutorial. 
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n myApplicationGateway -g myResourceGroup -o tsv --query "id") 

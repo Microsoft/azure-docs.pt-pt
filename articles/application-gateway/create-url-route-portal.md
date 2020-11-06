@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 02332e190def7770fa57977461d57766f3dee13a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 407bd5679c6afebf26c2e6b768e0f8513ac39123
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88205571"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397591"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutorial: Criar uma porta de aplicação com regras de encaminhamento baseadas em caminhos usando o portal Azure
 
-Pode utilizar o portal Azure para configurar [regras de encaminhamento baseadas em caminhos DE URL](application-gateway-url-route-overview.md) quando criar um gateway de [aplicações](application-gateway-introduction.md). Neste tutorial, você cria piscinas de backend usando máquinas virtuais. Em seguida, cria regras de encaminhamento que garantem que o tráfego web chega aos servidores apropriados nas piscinas.
+Pode utilizar o portal Azure para configurar [regras de encaminhamento baseadas em caminhos DE URL](./url-route-overview.md) quando criar um gateway de [aplicações](./overview.md). Neste tutorial, você cria piscinas de backend usando máquinas virtuais. Em seguida, cria regras de encaminhamento que garantem que o tráfego web chega aos servidores apropriados nas piscinas.
 
 Neste artigo, vai aprender a:
 
@@ -45,11 +45,11 @@ Neste exemplo, cria-se três máquinas virtuais para serem utilizadas como servi
 2. Selecione **o Centro de Dados do Windows Server 2016** na lista Popular.
 3. Introduza estes valores para a máquina virtual:
 
-    - **Grupo de recursos**, selecione **Criar novo**e, em seguida, digitar *myResourceGroupAG*.
-    - **Nome da máquina virtual**: *myVM1*
-    - **Região**: *(EUA) Leste dos EUA*
-    - **Nome de utilizador**: *azureuser*
-    - **Senha**: *Azure123456!*
+    - **Grupo de recursos** , selecione **Criar novo** e, em seguida, digitar *myResourceGroupAG*.
+    - **Nome da máquina virtual** : *myVM1*
+    - **Região** : *(EUA) Leste dos EUA*
+    - **Nome de utilizador** : *azureuser*
+    - **Senha** : *Azure123456!*
 
 
 4. Selecione **Seguinte:Discos**.
@@ -103,8 +103,8 @@ Neste exemplo, cria-se três máquinas virtuais para serem utilizadas como servi
 
 1. No separador **Básicos, insira** estes valores para as seguintes definições de gateway de aplicação:
 
-   - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos.
-   - **Nome do gateway de aplicação**: Introduza *o myAppGateway* para o nome do gateway de aplicação.
+   - **Grupo de recursos** : Selecione **myResourceGroupAG** para o grupo de recursos.
+   - **Nome do gateway de aplicação** : Introduza *o myAppGateway* para o nome do gateway de aplicação.
    - **Região** - Selecione **(EUA) Leste DOS EUA**.
 
         ![Criar novo gateway de aplicações: Básicos](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
@@ -131,11 +131,11 @@ O pool backend é usado para encaminhar pedidos para os servidores backend que s
 
 2. Na janela **de piscina de backend** que se abre, introduza os seguintes valores para criar uma piscina de backend vazia:
 
-    - **Nome**: *Insira o myBackendPool* para o nome da piscina de backend.
-3. Em **Alvos de Backend**, **Tipo de alvo,** selecione a máquina **virtual** da lista de drop-down.
+    - **Nome** : *Insira o myBackendPool* para o nome da piscina de backend.
+3. Em **Alvos de Backend** , **Tipo de alvo,** selecione a máquina **virtual** da lista de drop-down.
 
 5. No **Target** selecione a interface de rede para **o myVM1**.
-6. Selecione **Adicionar**.
+6. Selecione **Add** (Adicionar).
 7. Repita para adicionar uma piscina de backend *Images* com *o myVM2* como alvo, e uma piscina de backend *vídeo* com *o myVM3* como alvo.
 8. **Selecione Adicionar** para guardar a configuração da piscina de backend e voltar ao **separador Backends.**
 
@@ -151,22 +151,22 @@ No separador **Configuração,** irá ligar o frontend e o pool de backend que c
 
 3. Uma regra de encaminhamento requer um ouvinte. No **separador Ouvinte** dentro da janela De regra de encaminhamento Adicionar uma regra **de encaminhamento,** introduza os seguintes valores para o ouvinte:
 
-    - **Nome do ouvinte**: *Insira o meu Número* para o nome do ouvinte.
-    - **FRONTend IP**: Selecione **Público** para escolher o IP público que criou para o frontend.
-    - **Porta**: Tipo *8080*
+    - **Nome do ouvinte** : *Insira o meu Número* para o nome do ouvinte.
+    - **FRONTend IP** : Selecione **Público** para escolher o IP público que criou para o frontend.
+    - **Porta** : Tipo *8080*
   
         Aceite os valores predefinidos para as outras definições no **separador Listener** e, em seguida, selecione o separador **alvos de Backend** para configurar o resto da regra de encaminhamento.
 
 4. No separador **alvos de Backend,** selecione **myBackendPool** para o **alvo Backend**.
 
-5. Para a **definição HTTP**, selecione **Criar novo** para criar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. 
+5. Para a **definição HTTP** , selecione **Criar novo** para criar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. 
 
 6. Na janela **de definição HTTP** que se abre, introduza *o myHTTPSetting* para o **nome de definição HTTP**. Aceite os valores predefinidos para as outras definições na janela **de definição HTTP** e, em seguida, selecione **Adicionar** para voltar à janela de regra **de encaminhamento Adicionar uma.**
-7. No **roteamento baseado em Path**, selecione Adicione **vários alvos para criar uma regra baseada em caminhos**.
+7. No **roteamento baseado em Path** , selecione Adicione **vários alvos para criar uma regra baseada em caminhos**.
 8. Para **Caminho,** tipo */imagens/* \* .
 9. Para **o nome da regra do caminho,** escreva *Imagens*.
-10. Para **a definição HTTP**, selecione **myHTTPSetting**
-11. Para **o alvo backend**, selecione **Images**.
+10. Para **a definição HTTP** , selecione **myHTTPSetting**
+11. Para **o alvo backend** , selecione **Images**.
 12. **Selecione Adicionar** para guardar a regra do caminho e voltar ao **separador Adicionar uma regra de encaminhamento.**
 13. Repita para adicionar outra regra para Vídeo.
 14. **Selecione Adicionar** para adicionar a regra de encaminhamento e voltar ao **separador Configuração.**
@@ -182,7 +182,7 @@ Reveja as definições no separador **'Rever +' criar** e, em seguida, selecione
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-1. Selecione **Todos os recursos**e, em seguida, selecione **myAppGateway**.
+1. Selecione **Todos os recursos** e, em seguida, selecione **myAppGateway**.
 
     ![Registar o endereço IP público do gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
@@ -192,13 +192,13 @@ Reveja as definições no separador **'Rever +' criar** e, em seguida, selecione
 
    O ouvinte na porta 8080 encaminha este pedido para a piscina de backend predefinido.
 
-3. Altere o URL para *http:// &lt; endereço &gt; ip:8080/images/test.htm, *substituindo &lt; o endereço IP pelo seu endereço &gt; IP, e deverá ver algo como o seguinte exemplo:
+3. Altere o URL para *http:// &lt; endereço &gt; ip:8080/images/test.htm,* substituindo &lt; o endereço IP pelo seu endereço &gt; IP, e deverá ver algo como o seguinte exemplo:
 
     ![Testar o URL de imagens no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest-images.png)
 
    O ouvinte no porto 8080 encaminha este pedido para a piscina de backend *Images.*
 
-4. Altere o URL para *http:// &lt; endereço ip &gt; :8080/video/test.htm, *substituindo o &lt; endereço IP pelo seu endereço &gt; IP, e deverá ver algo como o seguinte exemplo:
+4. Altere o URL para *http:// &lt; endereço ip &gt; :8080/video/test.htm,* substituindo o &lt; endereço IP pelo seu endereço &gt; IP, e deverá ver algo como o seguinte exemplo:
 
     ![Testar o URL de vídeo no gateway de aplicação](./media/application-gateway-create-url-route-portal/application-gateway-iistest-video.png)
 
@@ -211,4 +211,4 @@ Quando já não for necessário, elimine o grupo de recursos e todos os recursos
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Ativar o fim do TLS no Gateway de Aplicações Azure](application-gateway-backend-ssl.md)
+> [Ativar o fim do TLS no Gateway de Aplicações Azure](./ssl-overview.md)

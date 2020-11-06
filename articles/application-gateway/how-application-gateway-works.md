@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9166125fac28f43a93cbee2875b91bee986b1400
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506558"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397472"
 ---
 # <a name="how-an-application-gateway-works"></a>Como funciona um gateway de aplicações
 
@@ -32,7 +32,7 @@ Este artigo explica como um gateway de aplicação aceita pedidos de entrada e o
 
 O Azure Application Gateway pode ser usado como um equilibrador de carga de aplicação interna ou como um equilibrador de carga de aplicação virado para a Internet. Um portal de aplicações virado para a Internet utiliza endereços IP públicos. O nome DNS de um gateway de aplicações virado para a Internet é publicamente resolúvel para o seu endereço IP público. Como resultado, as portas de aplicação viradas para a Internet podem encaminhar os pedidos dos clientes para a internet.
 
-Os gateways de aplicações internas utilizam apenas endereços IP privados. Se estiver a utilizar uma [zona DE DNS](https://docs.microsoft.com/azure/dns/private-dns-overview)personalizada ou privada, o nome de domínio deve ser internamente resolúvel para o endereço IP privado do Gateway de aplicações. Por isso, os equilibradores internos de carga só podem encaminhar pedidos de clientes com acesso a uma rede virtual para o gateway de aplicações.
+Os gateways de aplicações internas utilizam apenas endereços IP privados. Se estiver a utilizar uma [zona DE DNS](../dns/private-dns-overview.md)personalizada ou privada, o nome de domínio deve ser internamente resolúvel para o endereço IP privado do Gateway de aplicações. Por isso, os equilibradores internos de carga só podem encaminhar pedidos de clientes com acesso a uma rede virtual para o gateway de aplicações.
 
 ## <a name="how-an-application-gateway-routes-a-request"></a>Como um gateway de aplicação encaminha um pedido
 

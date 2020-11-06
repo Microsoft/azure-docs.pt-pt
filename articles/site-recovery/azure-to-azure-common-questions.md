@@ -3,317 +3,323 @@ title: Questões comuns sobre recuperação de desastres em Azure VM com recuper
 description: Este artigo responde a perguntas comuns sobre a recuperação de desastres Azure VM quando utiliza a Recuperação do Site Azure.
 author: sideeksh
 manager: rochakm
-ms.date: 04/29/2019
+ms.date: 11/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7bc8427a51a9931ca82155232569767f12a8e266
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4fa7348df647cf699ebd55dd6415a79454ab5f1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534027"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397970"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: recuperação após desastre do Azure para Azure
 
-Este artigo responde a questões comuns sobre a recuperação de desastres de Azure VMs para outra região de Azure para quando utilizar [a Recuperação do Sítio azul](site-recovery-overview.md).
+Este artigo responde a questões comuns sobre a recuperação de desastres de Azure VMs para outra região de Azure, utilizando o serviço [de Recuperação do Local Azure.](site-recovery-overview.md)
 
 ## <a name="general"></a>Geral
 
 ### <a name="how-is-site-recovery-priced"></a>Como é que a Recuperação do Local tem preço?
 
-Rever [os preços de recuperação do local de Azure para VMs](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
+Saiba mais sobre [os custos](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) para a recuperação de desastres da Azure VM.
 
-### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Como funciona o nível gratuito para a Recuperação do Local de Azure?
+### <a name="how-does-the-free-tier-work"></a>Como funciona o nível livre?
 
-Todos os casos protegidos com recuperação do local de Azure são gratuitos durante os primeiros 31 dias de proteção. Após esse período, a proteção para cada instância encontra-se às taxas de fixação do [preço de recuperação do local de Azure para máquinas virtuais Azure](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
+Todos os casos protegidos com recuperação do local são gratuitos para os primeiros 31 dias de proteção. Após esse período, a proteção para cada instância é das taxas resumidas nos [detalhes dos preços](https://azure.microsoft.com/pricing/details/site-recovery/). Pode estimar os custos utilizando [a calculadora de preços Azure](https://azure.microsoft.com/pricing/calculator/?service=site-recovery).
 
-### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante os primeiros 31 dias, vou incorrer em outras acusações do Azure?
+### <a name="do-i-incur-other-azure-charges-in-the-first-31-days"></a>Incorrerei em outras acusações do Azure nos primeiros 31 dias?
 
-Sim. Mesmo que a Recuperação do Site Azure seja gratuita durante os primeiros 31 dias de uma instância protegida, poderá incorrer em encargos para o Armazenamento Azure, transações de armazenamento e transferências de dados. Uma Máquina Virtual recuperada também pode incorrer em taxas de computação Azure. Obtenha detalhes completos sobre os preços nos [preços de recuperação do local de Azure](https://azure.microsoft.com/pricing/details/site-recovery).
+Sim. Mesmo que a Recuperação do Site Azure seja gratuita durante os primeiros 31 dias de uma instância protegida, poderá incorrer em encargos para o Armazenamento Azure, transações de armazenamento e transferências de dados. Um VM recuperado também pode incorrer em taxas de computação Azure. G
 
-### <a name="what-are-the-best-practices-for-azure-virtual-machines-disaster-recovery"></a>Quais são as melhores práticas para a recuperação de desastres das Máquinas Virtuais Azure?
+### <a name="how-do-i-get-started-with-azure-vm-disaster-recovery"></a>Como é que começo com a recuperação de desastres da Azure VM?
 
-1. [Compreender a arquitetura Azure-to-Azure](azure-to-azure-architecture.md)
-1. [Reveja as configurações suportadas e não suportadas](azure-to-azure-support-matrix.md)
-1. [Preparar a recuperação de desastres para os VMs do Azure](azure-to-azure-how-to-enable-replication.md)
-1. [Executar uma ativação pós-falha de teste](azure-to-azure-tutorial-dr-drill.md)
-1. [Falha e falha de volta à região primária](azure-to-azure-tutorial-failover-failback.md)
+1. [Compreenda](azure-to-azure-architecture.md) a arquitetura de recuperação de desastres Azure VM.
+2. [Rever os](azure-to-azure-support-matrix.md) requisitos de apoio.
+3. [Confiúdo](azure-to-azure-how-to-enable-replication.md) de recuperação de desastres para os VMs do Azure.
+4. [Faça um exercício de recuperação de desastres](azure-to-azure-tutorial-dr-drill.md) com um teste falhado.
+5. [Executar um fracasso total](azure-to-azure-tutorial-failover-failback.md) para uma região secundária de Azure.
+6. [Recue](azure-to-azure-tutorial-failback.md) da região secundária para a região primária.
 
-### <a name="how-is-capacity-ensured-in-the-target-region"></a>Como é assegurada a capacidade na região-alvo?
+### <a name="how-do-we-ensure-capacity-in-the-target-region"></a>Como garantir a capacidade na região-alvo?
 
-A equipa de recuperação do local e o plano da equipa de gestão de capacidades da Azure para capacidade de infraestrutura suficiente. Quando iniciar uma falha, as equipas também ajudam a garantir que as instâncias VM protegidas pela Recuperação do Local serão implantadas na região alvo.
+A equipa de Recuperação de Sítios, e a equipa de gestão de capacidades do Azure, planeiam capacidade de infraestrutura suficiente. Quando inicia uma falha, as equipas também ajudam a garantir que as instâncias VM protegidas pela Recuperação do Local se desloquem para a região alvo.
 
 ## <a name="replication"></a>Replicação
 
-### <a name="can-i-replicate-vms-enabled-through-azure-disk-encryption"></a>Posso replicar VMs ativados através da encriptação do disco Azure?
+### <a name="can-i-replicate-vms-with-disk-encryption"></a>Posso replicar VMs com encriptação de disco?
 
-Sim. A Recuperação do Site suporta a recuperação de desastres de VMs que têm encriptação de disco Azure ativada. Quando ativa a replicação, o Azure copia todas as chaves e segredos de encriptação de disco necessários da região de origem para a região alvo no contexto do utilizador. Se não tiver as permissões apropriadas, o seu administrador de segurança pode usar um script para copiar as chaves e segredos.
+Sim. A Recuperação do Site suporta a recuperação de desastres de VMs que têm encriptação de disco Azure (ADE) ativada. Quando ativa a replicação, o Azure copia todas as chaves e segredos de encriptação de disco necessários da região de origem para a região alvo, no contexto do utilizador. Se não tiver permissões necessárias, o seu administrador de segurança pode usar um script para copiar as chaves e segredos.
 
-- A Recuperação do Site suporta a encriptação do disco Azure para VMs Azure que estão a executar o Windows.
-- A Recuperação do Site suporta a versão 0.1 de encriptação do disco Azure, que tem um esquema que requer diretório Azure Ative (Azure AD). A Recuperação do Site também suporta a versão 1.1, que não requer Azure AD. [Saiba mais sobre o esquema de extensão para encriptação do disco Azure](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
-  - Para a versão 1.1 de encriptação do disco Azure, tem de utilizar os VMs do Windows com discos geridos.
-  - [Saiba mais](azure-to-azure-how-to-enable-replication-ade-vms.md) sobre como permitir a replicação de VMs encriptados.
+- A Recuperação do Site suporta ADE para VMs Azure que executam o Windows.
+- Suportes de recuperação do local:
+    - Versão ADE 0.1, que tem um esquema que requer diretório Azure Ative (Azure AD).
+    - Versão ADE 1.1, que não requer Azure AD. Para a versão 1.1, os VMs do Windows Azure devem ter gerido discos.
+    - [Saiba mais](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema). sobre os esquemas de extensão.
 
-### <a name="can-i-select-an-automation-account-from-a-different-resource-group"></a>Posso selecionar uma conta De automação de um grupo de recursos diferente?
+[Saiba mais](azure-to-azure-how-to-enable-replication-ade-vms.md) sobre como permitir a replicação de VMs encriptados.
 
-Atualmente não é suportado via portal, mas pode escolher uma conta Demôm automação de um grupo de recursos diferente através da Powershell.
+### <a name="can-i-select-an-automation-account-from-a-different-resource-group"></a>Posso selecionar uma conta de automação de um grupo de recursos diferente?
 
-### <a name="after-specifying-an-automation-account-that-is-in-a-different-resource-group-than-the-vault-am-i-permitted-to-delete-the-runbook-if-there-is-no-other-vault-to-specify"></a>Depois de especificar uma conta Automation que está num grupo de recursos diferente do cofre, posso apagar o livro de execução se não houver outro cofre para especificar?
+Quando permite a Recuperação de Sítios para gerir atualizações para a extensão do serviço mobility em execução em VMs Azure replicados, implementa um runbook global (usado pelos serviços Azure), através de uma conta de automação Azure. Pode utilizar a conta de automatização que a Recuperação do Site cria ou selecionar para utilizar uma conta de automatização existente. 
 
-O runbook personalizado criado é uma ferramenta e é seguro apagar se o mesmo já não for necessário.
+Atualmente, no portal, só é possível selecionar uma conta de automação no mesmo grupo de recursos que o cofre. Pode selecionar uma conta de automatização de um grupo de recursos diferente utilizando o PowerShell. [Saiba mais](azure-to-azure-autoupdate.md#enable-automatic-updates).
+
+### <a name="if-i-use-a-customer-automation-account-thats-not-in-the-vault-resource-group-can-i-delete-the-default-runbook"></a>Se eu usar uma conta de automação de clientes que não está no grupo de recursos do cofre, posso apagar o livro de contas predefinido?
+
+Sim, pode apagá-lo se não precisar. 
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>Posso replicar VMs para outra subscrição?
 
-Sim, você pode replicar VMs Azure para uma subscrição diferente dentro do mesmo inquilino AZure AD.
+Sim, você pode replicar VMs Azure para qualquer subscrição dentro do mesmo inquilino AZure AD. Quando permite a recuperação de desastres para VMs, por padrão a subscrição-alvo mostrada é a da fonte VM. Pode modificar a subscrição-alvo, e outras configurações (como grupo de recursos e rede virtual), são povoadas automaticamente a partir da subscrição selecionada.
 
-Configure a recuperação de [desastres através](https://azure.microsoft.com/blog/cross-subscription-dr) de subscrições selecionando outra subscrição no momento da replicação.
+### <a name="can-i-replicate-vms-in-an-availability-zone-to-another-region"></a>Posso replicar VMs numa zona de disponibilidade para outra região?
 
-### <a name="can-i-replicate-zone-pinned-azure-vms-to-another-region"></a>Posso replicar VMs Azure presos em zona para outra região?
+Sim, você pode replicar VMs em zonas de disponibilidade para outra região de Azure. O VM-alvo pode ser implantado como um único exemplo, num conjunto de disponibilidade, ou numa zona de disponibilidade se for suportado na região alvo. 
 
-Sim, pode [replicar VMs presos](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) em zona para outra região.
+### <a name="can-i-replicate-non-zone-vms-to-a-zone-within-the-same-region"></a>Posso replicar VMs não-zona para uma zona dentro da mesma região? 
 
-### <a name="can-i-replicate-vms-in-a-region-that-has-zones-from-non-zone-to-zonal-configuration"></a>Posso replicar VMs numa região que tem zonas de não-zona para configuração zonal?
+Isto não é suportado no portal. Pode utilizar a API/PowerShell REST para o fazer.
 
-Não, isto não é apoiado hoje. Como uma solução alternativa, pode replicar o VM usando o ASR para uma configuração zonal noutra região e, em seguida, desativar a replicação. Em seguida, reesibilizar a replicação daquela região para a região original, e escolher uma configuração zonal para failover.
+### <a name="can-i-replicate-zoned-vms-to-a-different-zone-in-the-same-region"></a>Posso replicar VMs de zona para uma zona diferente na mesma região?
 
-### <a name="can-i-exclude-disks"></a>Posso excluir discos?
+O apoio a esta questão limita-se a algumas regiões. [Saiba mais](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
 
-Sim, pode excluir discos no momento da proteção utilizando o PowerShell. Para obter mais informações, consulte [como excluir discos da replicação.](azure-to-azure-exclude-disks.md)
+### <a name="can-i-exclude-disks-from-replication"></a>Posso excluir discos da replicação?
 
-### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>Posso adicionar discos novos a VMs replicados e permitir a replicação para eles?
+Sim, pode excluir discos quando configurar a replicação, utilizando o PowerShell. [Saiba mais](azure-to-azure-exclude-disks.md).
 
-Sim, adicionar novos discos a VMs replicados e permitir a replicação para eles é suportado para VMs Azure com discos geridos. Quando se adiciona um novo disco a um VM Azure que está habilitado para a replicação, a saúde de replicação para o VM mostra um aviso. Este aviso indica que um ou mais discos no VM estão disponíveis para proteção. Pode ativar a replicação para discos adicionados.
+### <a name="can-i-replicate-new-disks-added-to-replicated-vms"></a>Posso replicar discos novos adicionados a VMs replicados?
 
-- Se ativar a proteção dos discos adicionados, o aviso desaparecerá após a replicação inicial.
-- Se não ativar a replicação do disco, pode dispensar o aviso.
-- Se falhar sobre um VM que tenha um disco adicionado e replicação ativado, existem pontos de replicação. Os pontos de replicação mostrarão os discos disponíveis para recuperação.
+Para VMs replicados com discos geridos, pode adicionar novos discos e permitir a replicação para eles. Quando se adiciona um disco novo, o VM replicado mostra uma mensagem de aviso de que um ou mais discos no VM estão disponíveis para proteção. 
 
-Por exemplo, digamos que um VM tem um único disco e adiciona-se um novo. Pode haver um ponto de replicação que foi criado antes de adicionar o disco. Este ponto de replicação mostrará que consiste em "1 de 2 discos".
+- Se ativar a replicação dos discos adicionados, o aviso desaparece após a replicação inicial.
+- Se não quiser ativar a replicação do disco, pode dispensar o aviso.
+- Se falhar sobre um VM com discos adicionados, os pontos de replicação mostram os discos disponíveis para recuperação. Por exemplo, se adicionar um segundo disco a um VM com um disco, um ponto de replicação criado antes de adicionar mostra como "1 de 2 discos".
 
-A Recuperação do Site não suporta a "remoção a quente" de um disco de um VM replicado. Se remover um disco VM, tem de desativar e, em seguida, voltar a ativar a replicação para o VM.
+A Recuperação do Site não suporta a "remoção a quente" dos discos de um VM replicado. Se remover um disco VM, tem de desativar e, em seguida, a replicação reenerável para o VM.
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Com que frequência posso replicar-me ao Azure?
 
-A replicação é contínua quando se está a replicar VMs Azure para outra região de Azure. Para mais informações, consulte a [arquitetura de replicação Azure-to-Azure.](./azure-to-azure-architecture.md#replication-process)
+A replicação é contínua ao replicar VMs Azure para outra região do Azure. [Saiba mais](./azure-to-azure-architecture.md#replication-process) sobre como funciona a replicação.
 
-### <a name="can-i-replicate-virtual-machines-within-a-region-i-need-this-functionality-to-migrate-vms"></a>Posso replicar máquinas virtuais dentro de uma região? Preciso desta funcionalidade para migrar VMs.
+### <a name="can-i-replicate-virtual-machines-within-a-region"></a>Posso replicar máquinas virtuais dentro de uma região? 
 
-Não é possível utilizar uma solução de recuperação de disco Azure-to-Azure para replicar VMs dentro de uma região.
+Não é possível utilizar a Recuperação do Site para replicar discos dentro de uma região.
 
 ### <a name="can-i-replicate-vm-instances-to-any-azure-region"></a>Posso replicar os casos de VM em qualquer região de Azure?
 
-Ao utilizar a Recuperação do Local, pode replicar e recuperar VMs entre duas regiões dentro do mesmo cluster geográfico. Os aglomerados geográficos são definidos com a latência dos dados e a soberania em mente. Para obter mais informações, consulte a matriz de suporte da [região](./azure-to-azure-support-matrix.md#region-support)de Recuperação do Local.
+Pode replicar e recuperar VMs entre duas regiões dentro do mesmo aglomerado geográfico. Os aglomerados geográficos são definidos com a latência dos dados e a soberania em mente. [Saiba mais](./azure-to-azure-support-matrix.md#region-support) sobre o apoio à região.
 
-### <a name="does-site-recovery-require-internet-connectivity"></a>A Recuperação do Site requer conectividade à Internet?
+### <a name="does-site-recovery-need-internet-connectivity"></a>A Recuperação do Site precisa de conectividade com a Internet?
 
-Não, a Recuperação do Site não requer conectividade na Internet. Mas requer acesso a URLs de Recuperação de Sítios e gamas IP, como mencionado em rede na recuperação de [desastres Azure VM](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls).
+Não, mas os VMs precisam de acesso a URLs de Recuperação de Locais e gamas IP. [Saiba mais](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls).
 
-### <a name="can-i-replicate-an-application-that-has-a-separate-resource-group-for-separate-tiers"></a>Posso replicar uma aplicação que tem um grupo de recursos separado para níveis separados?
+### <a name="can-i-replicate-an-application-tiered-across-resource-groups"></a>Posso replicar uma aplicação espalhada por grupos de recursos?
 
-Sim, pode replicar a aplicação e manter a configuração de recuperação de desastres num grupo de recursos separado também.
+Sim, pode replicar a aplicação e manter a configuração de recuperação de desastres num grupo de recursos separado.
 
-Por exemplo, se a sua aplicação tiver a aplicação, base de dados e web de cada nível num grupo de recursos separados, então terá de selecionar o [assistente de replicação](./azure-to-azure-how-to-enable-replication.md#enable-replication) três vezes para proteger todos os níveis. A Recuperação do Site irá replicar estes três níveis em três grupos de recursos diferentes.
+Por exemplo, se as aplicações tão bem têm três níveis (aplicação/base de dados/web) em diferentes grupos de recursos, é necessário ativar a replicação três vezes, para proteger todos os níveis. A Recuperação do Site replica os três níveis em três grupos de recursos diferentes.
 
 ### <a name="can-i-move-storage-accounts-across-resource-groups"></a>Posso mover contas de armazenamento entre grupos de recursos?
 
-Não, este é um cenário não apoiado. No entanto, se mover acidentalmente as contas de armazenamento para um grupo de recursos diferentes e eliminar o grupo de recursos originais, então pode criar um novo grupo de recursos com o mesmo nome que o antigo grupo de recursos e, em seguida, mover a conta de armazenamento para este grupo de recursos.
+Não, isto não é suportado. Se mover acidentalmente as contas de armazenamento para um grupo de recursos diferente e eliminar o grupo de recursos original, então pode criar um novo grupo de recursos com o mesmo nome que o antigo grupo de recursos e, em seguida, mover a conta de armazenamento para este grupo de recursos.
 
 ## <a name="replication-policy"></a>Política de replicação
 
 ### <a name="what-is-a-replication-policy"></a>O que é uma política de replicação?
 
-Uma política de replicação define as definições para o histórico de retenção dos pontos de recuperação. A política também define a frequência de instantâneos consistentes com aplicações. Por predefinição, a Azure Site Recovery cria uma nova política de replicação com definições predefinidas de:
+Uma política de replicação define o histórico de retenção dos pontos de recuperação e a frequência de instantâneos consistentes com aplicações.  A Recuperação do Site cria uma política de replicação padrão da seguinte forma:
 
-- 24 horas para o histórico de retenção de pontos de recuperação.
-- 4 horas para a frequência de instantâneos consistentes com aplicações.
+- Mantenha os pontos de recuperação durante 24 horas.
+- Tire fotos consistentes de aplicativos a cada quatro horas.
 
-[Saiba mais sobre as definições de replicação.](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings)
+[Saiba mais](azure-to-azure-how-to-enable-replication.md#customize-target-resources) sobre as definições de replicação.
 
-### <a name="what-is-a-crash-consistent-recovery-point"></a>O que é um ponto de recuperação consistente?
+### <a name="whats-a-crash-consistent-recovery-point"></a>O que é um ponto de recuperação consistente?
 
-Um ponto de recuperação consistente com falhas tem os dados do disco como se tivesse retirado o cabo de alimentação do servidor durante a imagem. O ponto de recuperação consistente não inclui nada que estivesse na memória quando a foto foi tirada.
+Um ponto de recuperação consistente contém dados no disco, como se tivesse retirado o cabo de alimentação do servidor durante a imagem. Não inclui nada que estivesse na memória quando a foto foi tirada.
 
-Hoje, a maioria das aplicações pode recuperar bem de instantâneos consistentes. Um ponto de recuperação consistente com falhas é geralmente suficiente para sistemas operativos sem base de dados e aplicações como servidores de ficheiros, servidores DHCP e servidores de impressão.
+Hoje em dia, a maioria das aplicações pode recuperar bem de instantâneos consistentes com falhas. Um ponto de recuperação consistente com falhas é geralmente suficiente para sistemas operativos não-base, e aplicações como servidores de ficheiros, servidores DHCP e servidores de impressão.
 
-### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Qual é a frequência da geração de pontos de recuperação consistentes?
+A Recuperação do Site cria automaticamente um ponto de recuperação consistente a cada cinco minutos.
 
-A Recuperação do Local cria um ponto de recuperação consistente a cada 5 minutos.
+### <a name="whats-an-application-consistent-recovery-point"></a>O que é um ponto de recuperação consistente de aplicações?
 
-### <a name="what-is-an-application-consistent-recovery-point"></a>O que é um ponto de recuperação consistente de aplicações?
+Os pontos de recuperação consistentes da aplicação são criados a partir de instantâneos consistentes com aplicações. Capturam os mesmos dados que os instantâneos consistentes com falhas e, além disso, capturam dados na memória e todas as transações em processo.
 
-Os pontos de recuperação consistentes da aplicação são criados a partir de instantâneos consistentes com aplicações. Os pontos de recuperação consistentes da aplicação captam os mesmos dados que os instantâneos consistentes com falhas, ao mesmo tempo que capturam dados na memória e todas as transações em processo.
+Devido a conteúdoexuais, as fotos consistentes com aplicações são as mais envolvidas e demoram mais tempo. Recomendamos pontos de recuperação consistentes de aplicações para sistemas operativos de base de dados e aplicações como o SQL Server. Para o Windows, as imagens consistentes com aplicações utilizam o Serviço de Cópia Sombra de Volume (VSS).
 
-Devido ao seu conteúdo extra, as fotos consistentes com aplicações são as mais envolvidas e demoram mais tempo. Recomendamos pontos de recuperação consistentes de aplicações para sistemas operativos de base de dados e aplicações como o SQL Server.
+### <a name="do-app-consistent-recovery-points-impact-performance"></a>Os pontos de recuperação consistentes da aplicação têm um desempenho de impacto?
 
-### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Qual é o impacto dos pontos de recuperação consistentes da aplicação no desempenho da aplicação?
+ Como os pontos de recuperação consistentes da aplicação captam todos os dados na memória e no processo, se capturarem com frequência, pode afetar o desempenho quando a carga de trabalho já está ocupada. Não recomendamos que capture com demasiada frequência para cargas de trabalho não-base. Mesmo para as cargas de dados, uma hora deve ser suficiente.
 
-Os pontos de recuperação consistentes da aplicação captam todos os dados na memória e no processo. Como os pontos de recuperação capturam esses dados, eles requerem uma estrutura como o Serviço de Cópia Sombra de Volume no Windows para quiesce a aplicação. Se o processo de captura for frequente, pode afetar o desempenho quando a carga de trabalho já está ocupada. Não recomendamos que utilize baixa frequência para pontos de recuperação consistentes com aplicações para cargas de trabalho não-base. Mesmo para a carga de trabalho da base de dados, uma hora é suficiente.
+### <a name="whats-the-minimum-frequency-for-generating-app-consistent-recovery-points"></a>Qual é a frequência mínima para gerar pontos de recuperação consistentes com aplicações?
 
-### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Qual é a frequência mínima de geração de pontos de recuperação consistentes de aplicação?
+A Recuperação do Site pode criar pontos de recuperação consistentes com uma frequência mínima de uma hora.
 
-A Recuperação do Site pode criar um ponto de recuperação consistente com uma frequência mínima de 1 hora.
+### <a name="can-i-enable-app-consistent-replication-for-linux-vms"></a>Posso permitir a replicação consistente de aplicativos para Os VMs Linux?
+
+Sim. O agente de mobilidade para o Linux suporta scripts personalizados para consistência de aplicações. Um script personalizado com pré e pós-opções é usado pelo agente. [Saiba mais](site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>Como são gerados e salvos pontos de recuperação?
 
-Para entender como a Recuperação do Site gera pontos de recuperação, vamos ver um exemplo de uma política de replicação. Esta política de replicação tem um ponto de recuperação com uma janela de retenção de 24 horas e um instantâneo de frequência consistente de 1 hora.
+Para entender como a Recuperação do Site gera pontos de recuperação, vamos usar um exemplo. 
 
-A Recuperação do Local cria um ponto de recuperação consistente a cada 5 minutos. Não pode mudar esta frequência. Durante a última hora, pode escolher entre 12 pontos consistentes com falhas e 1 ponto consistente com aplicações. À medida que o tempo avança, a Recuperação do Local adcade todos os pontos de recuperação para além da última hora e poupa apenas 1 ponto de recuperação por hora.
+- Uma política de replicação mantém os pontos de recuperação durante 24 horas, e leva uma imagem de frequência consistente a cada hora.
+- A Recuperação do Local cria um ponto de recuperação consistente a cada cinco minutos. Não pode mudar esta frequência.
+- A recuperação do local atinge os pontos de recuperação após uma hora, poupando um ponto por hora.
 
-A imagem que se segue ilustra o exemplo. Na imagem:
+Assim, na última hora, pode escolher entre 12 pontos consistentes com falhas e um ponto consistente de aplicação, como mostra o gráfico.
 
-- Na última hora, há pontos de recuperação com uma frequência de 5 minutos.
-- Além da última hora, a Recuperação do Local mantém apenas 1 ponto de recuperação.
-
-   ![Lista de pontos de recuperação gerados](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![Lista de pontos de recuperação gerados](./media/azure-to-azure-common-questions/recovery-points.png)
 
 ### <a name="how-far-back-can-i-recover"></a>Até onde posso me recuperar?
 
 O ponto de recuperação mais antigo que pode usar é de 72 horas.
 
-### <a name="i-have-a-replication-policy-of-24-hours-what-will-happen-if-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Tenho uma política de replicação de 24 horas. O que acontecerá se um problema impedir a Recuperação do Local de gerar pontos de recuperação por mais de 24 horas? Os meus pontos de recuperação anteriores vão perder-se?
+### <a name="what-happens-if-site-recovery-cant-generate-recovery-points-for-more-than-24-hours"></a>O que acontece se a Recuperação do Site não conseguir gerar pontos de recuperação por mais de 24 horas? 
 
-Não, a Recuperação do Site manterá todos os seus pontos de recuperação anteriores. Dependendo da janela de retenção dos pontos de recuperação, a Recuperação do Local substitui o ponto mais antigo apenas se gerar novos pontos. Devido ao problema, a Recuperação do Site não pode gerar novos pontos de recuperação. Até que haja novos pontos de recuperação, todos os pontos antigos permanecerão depois de chegar à janela de retenção.
+Se tiver uma política de replicação de 24 horas, e a Recuperação do Local não puder gerar pontos de recuperação por mais de 24 horas, os seus antigos pontos de recuperação permanecem. A Recuperação do Site só substitui o ponto mais antigo se gerar novos pontos. Até que haja novos pontos de recuperação, todos os pontos antigos permanecem depois de chegar à janela de retenção.
 
-### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Depois de a replicação ser ativada num VM, como posso alterar a política de replicação?
+### <a name="can-i-change-the-replication-policy-after-replication-is-enabled"></a>Posso alterar a política de replicação após a replicação?
 
-Aceda às políticas **de**  >  replicação da infraestrutura do local**de recuperação do local de recuperação do local.**  >  **Replication policies** Selecione a política que pretende editar e guarde as alterações. Qualquer alteração aplicar-se-á também a todas as replicações existentes.
+Sim. No cofre > políticas de replicação **da infraestrutura de**  >  **recuperação** do local, selecione e edite a política. As alterações aplicam-se também às políticas existentes.
 
-### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Todos os pontos de recuperação são uma cópia completa do VM ou um diferencial?
+### <a name="are-all-recovery-points-a-complete-vm-copy"></a>Todos os pontos de recuperação são uma cópia VM completa?
 
-O primeiro ponto de recuperação gerado tem a cópia completa. Quaisquer pontos de recuperação sucessivos têm mudanças delta.
+O primeiro ponto de recuperação gerado tem a cópia completa. Os sucessivos pontos de recuperação têm mudanças delta.
 
-### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>O aumento do período de retenção dos pontos de recuperação aumenta o custo de armazenamento?
+### <a name="do-increases-in-recovery-point-retention-increase-storage-costs"></a>Os aumentos na retenção de pontos de recuperação aumentam os custos de armazenamento?
 
-Sim, se aumentar o período de retenção de 24 horas para 72 horas, a Recuperação do Local poupará os pontos de recuperação por mais 48 horas. O tempo adicional incorrerá em taxas de armazenamento. Por exemplo, um único ponto de recuperação pode ter alterações delta de 10 GB com um custo por GB de $0,16 por mês. Os custos adicionais seriam $1,60 × 48 por mês.
-
-### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>Posso permitir a replicação com consistência de aplicações nos servidores Linux?
-
-Sim. A Azure Site Recovery for Linux Operation System suporta scripts personalizados de aplicações para consistência de aplicações. O script personalizado com pré e pós-opções será usado pelo Agente de Mobilidade de Recuperação do Site Azure durante a consistência da aplicação. [Saiba mais](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
+Sim. Por exemplo, se aumentar a retenção de 24 horas para 72, a Recuperação do Site guarda pontos de recuperação por mais 48 horas. O tempo adicional incorre em alterações de armazenamento. Como exemplo, se um único ponto de recuperação tivesse alterações delta de 10 GB, com um custo por GB de $0,16 por mês, então os encargos adicionais seriam $1,60 × 48 por mês.
 
 ## <a name="multi-vm-consistency"></a>Consistência multi-VM
 
 ### <a name="what-is-multi-vm-consistency"></a>O que é consistência multi-VM?
 
-A consistência multi-VM garante que o ponto de recuperação é consistente em todas as máquinas virtuais replicadas.
+A consistência multi-VM garante que os pontos de recuperação são consistentes em todas as máquinas virtuais replicadas.
 
-A Recuperação do Site fornece uma opção **de consistência Multi-VM,** que cria um grupo de replicação de todas as máquinas.
+- Quando ativa a consistência multi-VM, a Recuperação do Site cria um grupo de replicação de todas as máquinas com a opção ativada. 
+- Quando falhas nas máquinas do grupo de replicação, elas têm pontos de recuperação consistentes e consistentes com falhas.
 
-Quando falhares nas máquinas virtuais, elas terão partilhado pontos de recuperação consistentes e consistentes com aplicações.
+[Saiba](azure-to-azure-tutorial-enable-replication.md#enable-replication) como ativar a consistência multi-VM.
 
-Passe pelo tutorial para permitir a [consistência multi-VM](./azure-to-azure-tutorial-enable-replication.md#enable-replication-for-a-vm).
+### <a name="can-i-fail-over-a-single-vm-in-a-replication-group"></a>Posso falhar por causa de um único VM num grupo de replicação?
 
-### <a name="can-i-fail-over-a-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>Posso falhar com uma única máquina virtual dentro de um grupo de replicação de consistência multi-VM?
+Não. Quando ativa a consistência multi-VM, infere que uma aplicação tem uma dependência de todos os VMs do grupo de replicação, e não é permitida uma falha de VM única.
 
-Ao selecionar a opção **de consistência Multi-VM,** afirma que a aplicação tem uma dependência de todas as máquinas virtuais dentro de um grupo. A falha da máquina virtual não é permitida.
+### <a name="how-many-vm-can-i-replicate-together-in-a-group"></a>Quantos VM posso replicar juntos num grupo?
 
-### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-a-multi-vm-consistency-replication-group"></a>Quantas máquinas virtuais posso replicar como parte de um grupo de replicação de consistência multi-VM?
-
-Pode replicar 16 máquinas virtuais juntas num grupo de replicação.
+Pode replicar 16 VMs juntos num grupo de replicação.
 
 ### <a name="when-should-i-enable-multi-vm-consistency"></a>Quando devo permitir a consistência multi-VM?
 
-Como a consistência multi-VM é intensiva em CPU, permitindo que possa afetar o desempenho da carga de trabalho. Utilize consistência multi-VM apenas se as máquinas estiverem a executar a mesma carga de trabalho e necessitar de consistência em várias máquinas. Por exemplo, se tiver duas instâncias do SQL Server e dois servidores web numa aplicação, deverá ter consistência multi-VM apenas para as instâncias do SQL Server.
+A consistência multi-VM é intensiva em CPU, e permitir que possa afetar o desempenho da carga de trabalho. Ativar apenas se os VMs estiverem a executar a mesma carga de trabalho e necessitar de consistência em várias máquinas. Por exemplo, se tiver duas instâncias do SQL Server e dois servidores web numa aplicação, ative a consistência multi-VM apenas para as instâncias do SQL Server.
 
-### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>Pode adicionar um VM já replicado a um grupo de replicação?
-Pode adicionar um VM a um novo grupo de replicação, permitindo a replicação. Também pode adicionar um VM a um grupo de replicação existente, permitindo a replicação. No entanto, não é possível adicionar um VM já replicado a um novo grupo de replicação ou a um grupo de replicação existente.
+### <a name="can-i-add-a-replicating-vm-to-a-replication-group"></a>Posso adicionar um VM replicador a um grupo de replicação?
+
+Quando ativa a replicação de um VM, pode adicioná-la a um novo grupo de replicação ou a um grupo existente. Não se pode adicionar um VM que já está a replicar-se num grupo. 
  
 ## <a name="failover"></a>Ativação pós-falha
 
+### <a name="how-do-we-ensure-capacity-in-the-target-region"></a>Como garantir a capacidade na região-alvo?
 
-### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Como é assegurada a capacidade na região-alvo dos VMs do Azure?
-
-A equipa de recuperação do local e o plano da equipa de gestão de capacidades da Azure para capacidade de infraestrutura suficiente. Quando iniciar uma falha, as equipas também ajudam a garantir que as instâncias VM protegidas pela Recuperação do Local serão implantadas na região alvo.
+A equipa de Recuperação de Sítios, e a equipa de gestão de capacidades da Azure, planeiam capacidade de infraestrutura suficiente. Quando inicia uma falha, as equipas também ajudam a garantir que as instâncias VM protegidas pela Recuperação do Site possam ser implantadas na região alvo.
 
 ### <a name="is-failover-automatic"></a>A ativação pós-falha é automática?
 
-A ativação pós-falha não é automática. Pode iniciar falhas com um único clique no portal, ou pode utilizar o [PowerShell](azure-to-azure-powershell.md) para desencadear uma falha.
+A ativação pós-falha não é automática. Pode iniciar uma falha com um único clique no portal ou utilizar o  [PowerShell](azure-to-azure-powershell.md) para desencadear uma falha.
 
-### <a name="can-i-keep-a-public-ip-address-after-a-failover"></a>Posso manter um endereço IP público depois de uma falha?
+### <a name="can-i-keep-a-public-ip-address-after--failover"></a>Posso manter um endereço IP público depois do fracasso?
 
-Não é possível manter o endereço IP público da aplicação de produção depois de uma falha.
+Não é possível manter o endereço IP público para uma aplicação de produção depois de uma falha.
 
-Quando você traz uma carga de trabalho como parte do processo de failover, você precisa atribuir um recurso IP público Azure à carga de trabalho. O recurso IP público Azure tem de estar disponível na região-alvo. Pode atribuir manualmente o recurso IP público Azure ou automatizá-lo com um plano de recuperação. Saiba como [configurar endereços IP públicos após o failover](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).
+Quando você levantar uma carga de trabalho como parte do processo de failover, você precisa atribuir um recurso de endereço IP público Azure para ele. O recurso deve estar disponível na região-alvo. Pode atribuir manualmente o recurso ip público Azure ou automatizá-lo com um plano de recuperação. [Saiba](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan) como configurar endereços IP públicos após o failover.
 
-### <a name="can-i-keep-a-private-ip-address-during-a-failover"></a>Posso manter um endereço IP privado durante uma falha?
+### <a name="can-i-keep-a-private-ip-address-after-failover"></a>Posso manter um endereço IP privado depois de ter falhado?
 
-Sim, pode ficar com um endereço IP privado. Por predefinição, quando permite a recuperação de desastres para VMs Azure, a Recuperação do Site cria recursos-alvo baseados nas definições de recursos de origem. Para máquinas virtuais Azure configuradas com endereços IP estáticos, a Recuperação do Site tenta providenciar o mesmo endereço IP para o VM-alvo se não estiver a ser utilizado.
-Saiba como [manter os endereços IP durante o failover](site-recovery-retain-ip-azure-vm-failover.md).
+Sim. Por predefinição, quando permite a recuperação de desastres para VMs Azure, a Recuperação do Site cria recursos-alvo, com base nas definições de recursos de origem. Para VMs Azure configurados com endereços IP estáticos, a Recuperação do Site tenta providenciar o mesmo endereço IP para o VM alvo, se não estiver a ser utilizado.
+[Saiba mais sobre](site-recovery-retain-ip-azure-vm-failover.md) manter os endereços IP após o failover.
 
-### <a name="after-a-failover-why-is-the-server-assigned-a-new-ip-address"></a>Depois de uma falha, por que razão o servidor é atribuído um novo endereço IP?
+### <a name="why-is-a-vm-assigned-a-new-ip-address-after-failover"></a>Por que é atribuído um VM um novo endereço IP após falha?
 
-A Recuperação do Site tenta fornecer o endereço IP no momento da falha. Se outra máquina virtual estiver a tomar esse endereço, a Recuperação do Site define o próximo endereço IP disponível como alvo.
+A Recuperação do Site tenta fornecer o endereço IP no momento da falha. Se outro VM utilizar esse endereço, a Recuperação do Site define o próximo endereço IP disponível como alvo.
 
-Saiba mais sobre [a criação de mapeamento de rede e endereço IP para redes virtuais.](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms)
+[Saiba mais sobre](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms) a criação de mapeamento de rede e endereço IP para redes virtuais.
 
-### <a name="what-are-latest-lowest-rpo-recovery-points"></a>Quais são os pontos de recuperação **mais recentes (mais baixos de RPO)** de recuperação?
+### <a name="whats-the-latest-recovery-point"></a>Qual é o *último* ponto de recuperação?
 
-A opção **mais recente (mais baixa RPO)** processa primeiro todos os dados que foram enviados para a Recuperação do Site. Após o serviço processar os dados, cria um ponto de recuperação para cada VM antes de falhar para o VM. Esta opção fornece o objetivo de ponto de recuperação mais baixo (RPO). O VM criado após o failover tem todos os dados replicados para a Recuperação do Local a partir do momento em que a falha foi desencadeada.
+A *última opção (mais baixa do* ponto de recuperação de RPO) faz o seguinte:
 
-### <a name="do-latest-lowest-rpo-recovery-points-have-an-impact-on-failover-rto"></a>Os últimos pontos de recuperação **(rpo mais baixos)** têm impacto no RTO de falha?
+1. Primeiro processa todos os dados que foram enviados para a Recuperação do Site.
+2. Após o serviço processar os dados, cria um ponto de recuperação para cada VM, antes de falhar para o VM. Esta opção fornece o objetivo de ponto de recuperação mais baixo (RPO).
+3. O VM criado após o failover tem todos os dados replicados para a Recuperação do Local, a partir do momento em que a falha foi desencadeada.
 
-Sim. A Recuperação do Site processa todos os dados pendentes antes de falhar, pelo que esta opção tem um maior objetivo de tempo de recuperação (RTO) em comparação com outras opções.
+### <a name="do-latest-recovery-points-impact-failover-rto"></a>Os *últimos* pontos de recuperação têm impacto no RTO?
 
-### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>O que significa a última opção **processada** em pontos de recuperação?
+Sim. A Recuperação do Site processa todos os dados pendentes antes de falhar, pelo que esta opção tem um objetivo de tempo de recuperação mais elevado (RTO) do que outras opções.
 
-A última opção **processada** falha em todos os VMs do plano até ao último ponto de recuperação que a Recuperação do Site processou. Para ver o último ponto de recuperação de um VM específico, consulte os **pontos de recuperação mais recentes** nas definições de VM. Esta opção fornece um RTO baixo, porque não é gasto tempo a processar dados não processados.
+### <a name="whats-the-latest-processed-recovery-option"></a>Qual é a última opção de recuperação *processada?*
 
-### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>O que acontece se a minha região primária sofrer uma paragem inesperada?
+A última opção *processada* faz o seguinte:
 
-Pode desencadear uma falha após a paragem. A Recuperação do Local não precisa de conectividade da região primária para fazer o failover.
+1. Falha em todos os VMs até ao último ponto de recuperação processado pela Recuperação do Local. Esta opção fornece um RTO baixo, porque não é gasto tempo a processar dados não processados.
 
-### <a name="what-is-an-rto-of-a-vm-failover"></a>O que é um RTO de um VM failover?
+### <a name="what-if-theres-an-unexpected-outage-in-the-primary-region"></a>E se houver uma paragem inesperada na região primária?
 
-A Recuperação do Site tem um [RTO SLA de 2 horas.](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) No entanto, na maior parte do tempo, a Recuperação do Site falha sobre máquinas virtuais em minutos. Pode calcular o RTO indo para os trabalhos de failover, que mostram o tempo que demorou a trazer o VM. Para o plano de recuperação RTO, consulte a secção seguinte.
+Pode começar a falhar. A Recuperação do Local não precisa de conectividade da região primária para fazer o failover.
+
+### <a name="what-is-the-rto-of-a-vm-failover"></a>O que é o RTO de um VM failover?
+
+A Recuperação do Site tem um RTO SLA de [duas horas.](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/) Na maior parte do tempo, a Recuperação do Site falha sobre os VMs em poucos minutos. Para calcular o RTO, reveja o trabalho de failover, o que mostra o tempo que demorou a apresentar um VM. 
 
 ## <a name="recovery-plans"></a>Planos de recuperação
 
-### <a name="what-is-a-recovery-plan"></a>O que é um plano de recuperação?
+### <a name="whats-a-recovery-plan"></a>O que é um plano de recuperação?
 
-Um plano de recuperação no Local de Recuperação orquestra a recuperação falhada dos VMs. Ajuda a tornar a recuperação consistentemente precisa, repetível e automatizada. Um plano de recuperação aborda as seguintes necessidades:
+Um [plano de recuperação](site-recovery-create-recovery-plans.md) no Local de Recuperação orquestra o failover e a recuperação de VMs. Ajuda a tornar a recuperação consistentemente precisa, repetível e automatizada. Faz o seguinte:
 
-- Definindo um grupo de máquinas virtuais que falham juntas
-- Definindo as dependências entre máquinas virtuais para que a aplicação apareça com precisão
-- Automatizar a recuperação juntamente com ações manuais personalizadas para realizar tarefas que não o failover de máquinas virtuais
+- Define um grupo de VMs que falham juntos
+- Define as dependências entre VMs, de modo que a aplicação surge com precisão.
+- Automatiza a recuperação, com a opção de ações manuais personalizadas para tarefas que não a VM falha. 
 
-Saiba mais [sobre a criação de planos de recuperação.](site-recovery-create-recovery-plans.md)
 
-### <a name="how-is-sequencing-achieved-in-a-recovery-plan"></a>Como é que a sequência é conseguida num plano de recuperação?
+### <a name="how-does-sequencing-work"></a>Como funciona a sequenciação?
 
-Num plano de recuperação, pode criar vários grupos para alcançar a sequência. Todos os grupos falham de uma vez. Máquinas virtuais que fazem parte do mesmo grupo falham juntas, seguidas por outro grupo. Para aprender a modelar uma aplicação utilizando um plano de recuperação, consulte [Planos de recuperação](recovery-plan-overview.md#model-apps).
+Num plano de recuperação, pode criar vários grupos de VM para sequenciação. Os grupos falham ao longo de um de cada vez, de modo que os VMs que fazem parte do mesmo grupo falham juntos. [Saiba mais](recovery-plan-overview.md#model-apps).
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>Como posso encontrar o RTO de um plano de recuperação?
 
-Para verificar o RTO de um plano de recuperação, faça um teste de failover para o plano de recuperação e vá para **os trabalhos de Recuperação do Local**.
-No exemplo seguinte, consulte o trabalho **SAPTestRecoveryPlan**. O trabalho demorou 8 minutos e 59 segundos a falhar em todas as máquinas virtuais e a fazer ações especificadas.
+Para verificar o RTO de um plano de recuperação, faça um teste de failover para o plano de recuperação. Nos **trabalhos de recuperação do local,** verifique a duração do teste de failover. No exemplo, o teste **SAPTestRecoveryPlan** decorreu 8 minutos e 59 segundos.
 
-![Lista de trabalhos de recuperação de locais](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)
+![Lista de trabalhos que mostram a duração do teste de failover para RTO](./media/azure-to-azure-common-questions/recovery-plan-rto.png)
 
-### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>Posso adicionar livros de automação ao plano de recuperação?
+### <a name="can-i-add-automation-runbooks-to-recovery-plans"></a>Posso adicionar livros de automação a planos de recuperação?
 
-Sim, pode integrar os runbooks da Azure Automation no seu plano de recuperação. Saiba mais sobre [a adição de livros de azure Automation](site-recovery-runbook-automation.md).
+Sim. [Saiba mais](site-recovery-runbook-automation.md).
 
 ## <a name="reprotection-and-failback"></a>Reproteção e recuo
 
-### <a name="i-failed-over-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Falhei da região primária para uma região de recuperação de desastres. Os VMs numa região dr são protegidos automaticamente?
+### <a name="after-failover-are-vms-in-the-secondary-region-protected-automatically"></a>Após o fracasso, os VM na região secundária estão protegidos automaticamente? 
 
-N.º Quando [se falha sobre](./azure-to-azure-tutorial-failover-failback.md) os VMs de uma região para outra, os VMs começam na região dr em um estado desprotegido. Para reprotecer os VMs para a região primária, é necessário [reprotecer](./azure-to-azure-how-to-reprotect.md) os VMs na região secundária.
+Não. Quando se falham sobre os VM de uma região para outra, os VMs começam na região de recuperação de desastres alvo num estado desprotegido. Para [reprotecer](./azure-to-azure-how-to-reprotect.md) os VMs na região secundária, permite a replicação de volta à região primária.
 
-### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>No momento da reprotecção, a Recuperação do Sítio replica dados completos da região secundária para a região primária?
+### <a name="when-i-reprotect-is-all-data-replicated-from-the-secondary-region-to-primary"></a>Quando reproteto, todos os dados são replicados da região secundária para o primário? 
 
-Depende da situação. Se a região de origem VM existir, apenas as alterações entre o disco de origem e o disco-alvo são sincronizadas. A Recuperação do Site calcula os diferenciais comparando os discos e, em seguida, transfere os dados. Este processo geralmente leva algumas horas. Para obter mais informações sobre o que acontece durante a reproteção, consulte [Reprotect falhou sobre as instâncias VM de Azure para a região primária.](./azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection)
+Depende. Se a região de origem VM existir, apenas as alterações entre o disco de origem e o disco-alvo são sincronizadas. A Recuperação do Site compara os discos com o que é diferente e depois transfere os dados. Este processo geralmente leva algumas horas. [Saiba mais](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
 
-### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo demora a reativação pós-falha?
+### <a name="how-long-does-it-take-fail-back"></a>Quanto tempo demora a falhar?
 
-Após a reproteção, o recuo leva cerca do mesmo tempo que leva para falhar da região primária para uma região secundária.
+Após a reproteção, o recuo leva cerca do mesmo tempo que levou a falhar da região primária para uma região secundária.
 
 ## <a name="capacity"></a><a name="capacity"></a>Capacidade
 
-### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Como é assegurada a capacidade na região-alvo dos VMs do Azure?
+### <a name="how-do-we-ensure-capacity-in-the-target-region"></a>Como garantir a capacidade na região-alvo?
 
-A equipa de recuperação do local e o plano da equipa de gestão de capacidades da Azure para capacidade de infraestrutura suficiente. Quando iniciar uma falha, as equipas também ajudam a garantir que as instâncias VM protegidas pela Recuperação do Local serão implantadas na região alvo.
+A equipa de recuperação do local e o plano da equipa de gestão de capacidades da Azure para capacidade de infraestrutura suficiente. Quando inicia uma falha, as equipas também ajudam a garantir que as instâncias VM protegidas pela Recuperação do Site possam ser implantadas na região alvo.
 
 ### <a name="does-site-recovery-work-with-reserved-instances"></a>A Recuperação do Local funciona com instâncias reservadas?
 
-Sim, você pode comprar [VMs Azure reservados](https://azure.microsoft.com/pricing/reserved-vm-instances/) na região de recuperação de desastres, e as operações de failover de recuperação de locais irão usá-los. Não é necessária nenhuma configuração adicional.
+Sim, você pode comprar [VMs Azure reservados](https://azure.microsoft.com/pricing/reserved-vm-instances/) na região de recuperação de desastres, e as operações de failover de recuperação de locais usá-los. Não é necessária nenhuma configuração adicional.
 
 ## <a name="security"></a>Segurança
 

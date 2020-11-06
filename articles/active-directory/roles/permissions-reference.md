@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d55e7f29c9ecefa7cfcf98ef890d9982b044ef30
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378827"
+ms.locfileid: "93396520"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -90,7 +90,7 @@ A [função de administrador de autenticação privilegiada](#privileged-authent
 
 ### <a name="azure-devops-administrator"></a>[Administrador da Azure DevOps](#azure-devops-administrator-permissions)
 
-Os utilizadores com esta função podem gerir a política Azure DevOps para restringir a criação de uma nova organização Azure DevOps a um conjunto de utilizadores ou grupos configuráveis. Os utilizadores desta função podem gerir esta política através de qualquer organização da Azure DevOps que seja apoiada pela organização Azure AD da empresa.
+Os utilizadores com esta função podem gerir a política Azure DevOps para restringir a criação de uma nova organização Azure DevOps a um conjunto de utilizadores ou grupos configuráveis. Os utilizadores desta função podem gerir esta política através de qualquer organização da Azure DevOps que seja apoiada pela organização Azure AD da empresa. Esta função não concede outras permissões específicas da Azure DevOps (por exemplo, Administradores de Cobrança de Projetos) dentro de qualquer uma das organizações Azure DevOps apoiadas pela organização Azure AD da empresa.
 
 Todas as políticas da empresa Azure DevOps podem ser geridas pelos utilizadores neste papel.
 

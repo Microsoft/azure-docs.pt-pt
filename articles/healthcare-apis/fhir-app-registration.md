@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: 22f31cf3911b5ea24e8798fb226e389071fadd0b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa95dc5cc052fbff6c553de50f4f52dc5df850a5
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87848983"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398118"
 ---
 # <a name="register-the-azure-active-directory-apps-for-azure-api-for-fhir"></a>Registe as aplicações Azure Ative Directory para Azure API para FHIR
 
@@ -31,9 +31,9 @@ Para que um pedido de interação com a Azure AD, tem de ser registado. No conte
 
 *As candidaturas* ao cliente são registos dos clientes que vão solicitar fichas. Muitas vezes em OAuth 2.0, distinguimos entre pelo menos três tipos diferentes de aplicações:
 
-1. **Clientes confidenciais**, também conhecidos como web apps em Azure AD. Os clientes confidenciais são aplicações que utilizam [o fluxo de código](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code) de autorização para obter um token em nome de um utilizador assinado em suporte válido. São chamados clientes confidenciais porque são capazes de guardar um segredo e apresentarão este segredo à Azure AD ao trocar o código de autenticação por um símbolo. Uma vez que os clientes confidenciais são capazes de se autenticar usando o segredo do cliente, eles são confiáveis mais do que os clientes públicos e podem ter tokens de vida mais longo e receber um token de atualização. Leia os detalhes sobre como [registar um cliente confidencial.](register-confidential-azure-ad-client-app.md) Note que é importante registar o url de resposta no qual o cliente receberá o código de autorização.
+1. **Clientes confidenciais** , também conhecidos como web apps em Azure AD. Os clientes confidenciais são aplicações que utilizam [o fluxo de código](../active-directory/azuread-dev/v1-protocols-oauth-code.md) de autorização para obter um token em nome de um utilizador assinado em suporte válido. São chamados clientes confidenciais porque são capazes de guardar um segredo e apresentarão este segredo à Azure AD ao trocar o código de autenticação por um símbolo. Uma vez que os clientes confidenciais são capazes de se autenticar usando o segredo do cliente, eles são confiáveis mais do que os clientes públicos e podem ter tokens de vida mais longo e receber um token de atualização. Leia os detalhes sobre como [registar um cliente confidencial.](register-confidential-azure-ad-client-app.md) Note que é importante registar o url de resposta no qual o cliente receberá o código de autorização.
 1. **Clientes públicos.** Estes são clientes que não podem guardar um segredo. Normalmente, esta seria uma aplicação de dispositivo móvel ou uma aplicação JavaScript de uma única página, onde um segredo no cliente poderia ser descoberto por um utilizador. Os clientes públicos também usam o fluxo de código de autorização, mas não estão autorizados a apresentar um segredo quando obtêm um token e podem ter fichas de vida mais curtas e nenhum token de atualização. Leia os detalhes sobre como [registar um cliente público.](register-public-azure-ad-client-app.md)
-1. Clientes de serviço. Estes clientes obtêm fichas em nome de si próprios (não em nome de um utilizador) utilizando o fluxo de credenciais do [cliente.](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) Normalmente representam aplicações que acedem ao servidor FHIR de forma não interativa. Um exemplo seria um processo de ingestão. Ao utilizar um cliente de serviço, não é necessário iniciar o processo de obtenção de um token com uma chamada para o `/authorize` ponto final. Um cliente de serviço pode ir diretamente para o `/token` ponto final e apresentar identificação do cliente e segredo de cliente para obter um símbolo. Leia os detalhes sobre como [registar um cliente de serviço](register-service-azure-ad-client-app.md)
+1. Clientes de serviço. Estes clientes obtêm fichas em nome de si próprios (não em nome de um utilizador) utilizando o fluxo de credenciais do [cliente.](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) Normalmente representam aplicações que acedem ao servidor FHIR de forma não interativa. Um exemplo seria um processo de ingestão. Ao utilizar um cliente de serviço, não é necessário iniciar o processo de obtenção de um token com uma chamada para o `/authorize` ponto final. Um cliente de serviço pode ir diretamente para o `/token` ponto final e apresentar identificação do cliente e segredo de cliente para obter um símbolo. Leia os detalhes sobre como [registar um cliente de serviço](register-service-azure-ad-client-app.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

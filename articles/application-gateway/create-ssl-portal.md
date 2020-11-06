@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 08/14/2020
 ms.author: victorh
-ms.openlocfilehash: 0d0522dd2f206e02ad8b63b13a9537c049232db2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96b33c619ecfde8d1a470069f7fab4d840536b46
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88245745"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397659"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configurar um gateway de aplicações com rescisão de TLS usando o portal Azure
 
@@ -36,7 +36,7 @@ Inscreva-se no portal Azure em [https://portal.azure.com](https://portal.azure.c
 
 ## <a name="create-a-self-signed-certificate"></a>Criar um certificado autoassinado
 
-Nesta secção, você usa [o Certificado Novo-Auto-Assinado](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) para criar um certificado auto-assinado. Faça o upload do certificado para o portal Azure quando criar o ouvinte para o gateway de aplicação.
+Nesta secção, você usa [o Certificado Novo-Auto-Assinado](/powershell/module/pkiclient/new-selfsignedcertificate) para criar um certificado auto-assinado. Faça o upload do certificado para o portal Azure quando criar o ouvinte para o gateway de aplicação.
 
 No seu computador local, abra uma janela Windows PowerShell como administrador. Executar o seguinte comando para criar o certificado:
 
@@ -56,7 +56,7 @@ Thumbprint                                Subject
 E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 ```
 
-Utilize [exporte-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi devolvida para exportar um ficheiro pfx do certificado. Certifique-se de que a sua palavra-passe tem 4 - 12 caracteres de comprimento:
+Utilize [exporte-PfxCertificate](/powershell/module/pkiclient/export-pfxcertificate) com a impressão digital que foi devolvida para exportar um ficheiro pfx do certificado. Certifique-se de que a sua palavra-passe tem 4 - 12 caracteres de comprimento:
 
 
 ```powershell
@@ -77,8 +77,8 @@ Export-PfxCertificate `
 
 1. No separador **Básicos, insira** estes valores para as seguintes definições de gateway de aplicação:
 
-   - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos. Se não existir, selecione **Criar novo** para criá-lo.
-   - **Nome do gateway de aplicação**: Introduza *o myAppGateway* para o nome do gateway de aplicação.
+   - **Grupo de recursos** : Selecione **myResourceGroupAG** para o grupo de recursos. Se não existir, selecione **Criar novo** para criá-lo.
+   - **Nome do gateway de aplicação** : Introduza *o myAppGateway* para o nome do gateway de aplicação.
 
         ![Criar novo gateway de aplicações: Básicos](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
@@ -86,7 +86,7 @@ Export-PfxCertificate `
 
     No **âmbito da rede virtual Configure,** crie uma nova rede virtual selecionando Criar **novo**. Na janela **de rede virtual Create** que se abre, introduza os seguintes valores para criar a rede virtual e duas sub-redes:
 
-    - **Nome**: Introduza *o myVNet* para o nome da rede virtual.
+    - **Nome** : Introduza *o myVNet* para o nome da rede virtual.
 
     - **Nome da sub-rede (sub-rede** Do Gateway de aplicação): A grelha **das sub-redes** apresentará uma sub-rede chamada *Predefinição*. Mude o nome desta sub-rede para *myAGSubnet*.<br>A sub-rede de gateway de aplicação pode conter apenas portais de aplicação. Não são permitidos outros recursos.
 
@@ -120,8 +120,8 @@ O pool backend é usado para encaminhar pedidos para os servidores backend que s
 
 2. Na janela **de piscina de backend** que se abre, introduza os seguintes valores para criar uma piscina de backend vazia:
 
-    - **Nome**: *Insira o myBackendPool* para o nome da piscina de backend.
-    - **Adicionar pool de backend sem alvos**: Selecione **Sim** para criar um pool de backend sem alvos. Irá adicionar alvos de backend depois de criar o gateway de aplicação.
+    - **Nome** : *Insira o myBackendPool* para o nome da piscina de backend.
+    - **Adicionar pool de backend sem alvos** : Selecione **Sim** para criar um pool de backend sem alvos. Irá adicionar alvos de backend depois de criar o gateway de aplicação.
 
 3. Na janela **de reserva do pool,** selecione **Adicione** para guardar a configuração da piscina de backend e volte ao separador **Backends.**
 
@@ -139,12 +139,12 @@ No separador **Configuração,** irá ligar o frontend e o pool de backend que c
 
 3. Uma regra de encaminhamento requer um ouvinte. No **separador Ouvinte** dentro da janela De regra de encaminhamento Adicionar uma regra **de encaminhamento,** introduza os seguintes valores para o ouvinte:
 
-    - **Nome do ouvinte**: *Insira o meu Número* para o nome do ouvinte.
-    - **FRONTend IP**: Selecione **Público** para escolher o IP público que criou para o frontend.
-    - **Protocolo**: Selecione **HTTPS**.
-    - **Porta**: Verifique se o 443 está inscrito para a porta.
+    - **Nome do ouvinte** : *Insira o meu Número* para o nome do ouvinte.
+    - **FRONTend IP** : Selecione **Público** para escolher o IP público que criou para o frontend.
+    - **Protocolo** : Selecione **HTTPS**.
+    - **Porta** : Verifique se o 443 está inscrito para a porta.
 
-   No **certificado HTTPS**:
+   No **certificado HTTPS** :
 
    - **Ficheiro de certificado PFX** - Navegue e selecione o ficheiro c:\appgwcert.pfx que cria anteriormente.
    - **Nome do** certificado - *Digite mycert1* para o nome do certificado.
@@ -156,7 +156,7 @@ No separador **Configuração,** irá ligar o frontend e o pool de backend que c
 
 4. No separador **alvos de Backend,** selecione **myBackendPool** para o **alvo Backend**.
 
-5. Para a **definição HTTP**, selecione **Criar novo** para criar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. Na janela **de definição HTTP** que se abre, introduza *o myHTTPSetting* para o **nome de definição HTTP**. Aceite os valores predefinidos para as outras definições na janela **de definição HTTP** e, em seguida, selecione **Adicionar** para voltar à janela de regra **de encaminhamento Adicionar uma.** 
+5. Para a **definição HTTP** , selecione **Criar novo** para criar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. Na janela **de definição HTTP** que se abre, introduza *o myHTTPSetting* para o **nome de definição HTTP**. Aceite os valores predefinidos para as outras definições na janela **de definição HTTP** e, em seguida, selecione **Adicionar** para voltar à janela de regra **de encaminhamento Adicionar uma.** 
 
    :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Criar novo gateway de aplicações: definição HTTP":::
 
@@ -189,10 +189,10 @@ Para fazer isto, vai:
 
 1. Introduza estes valores no separador **Básicos** para as seguintes definições de máquina virtual:
 
-    - **Grupo de recursos**: Selecione **myResourceGroupAG** para o nome do grupo de recursos.
-    - **Nome da máquina virtual**: Introduza *o myVM* para o nome da máquina virtual.
-    - **Nome de utilizador**: *Introduza o nome de* utilizador do administrador.
-    - **Senha**: Introduza uma palavra-passe para a conta do administrador.
+    - **Grupo de recursos** : Selecione **myResourceGroupAG** para o nome do grupo de recursos.
+    - **Nome da máquina virtual** : Introduza *o myVM* para o nome da máquina virtual.
+    - **Nome de utilizador** : *Introduza o nome de* utilizador do administrador.
+    - **Senha** : Introduza uma palavra-passe para a conta do administrador.
 1. Aceite as outras predefinições e, em seguida, selecione **Seguinte: Discos**.  
 2. Aceite as falhas do separador **Discos** e, em seguida, selecione **Seguinte: Networking**.
 3. No **separador Networking,** verifique se o **myVNet** está selecionado para a **rede Virtual** e a **sub-rede** está definida para **o myBackendSubnet**. Aceite os outros incumprimentos e, em seguida, selecione **Seguinte: Gestão**.
@@ -206,7 +206,7 @@ Para fazer isto, vai:
 
 Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o Azure criou o gateway de aplicações com sucesso.
 
-1. Abrir [a azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Para tal, selecione **Cloud Shell** a partir da barra de navegação superior do portal Azure e, em seguida, selecione **PowerShell** da lista de drop-down. 
+1. Abrir [a azure PowerShell](../cloud-shell/quickstart-powershell.md). Para tal, selecione **Cloud Shell** a partir da barra de navegação superior do portal Azure e, em seguida, selecione **PowerShell** da lista de drop-down. 
 
     ![Instalar uma extensão personalizada](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -228,29 +228,29 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 
 ### <a name="add-backend-servers-to-backend-pool"></a>Adicione servidores backend para backend pool
 
-1. Selecione **Todos os recursos**e, em seguida, selecione **myAppGateway**.
+1. Selecione **Todos os recursos** e, em seguida, selecione **myAppGateway**.
 
 2. Selecione **piscinas backend** do menu esquerdo.
 
 3. Selecione **myBackendPool**.
 
-4. Em **'Alvos'**, selecione **a máquina virtual** da lista de drop-down.
+4. Em **'Alvos'** , selecione **a máquina virtual** da lista de drop-down.
 
 5. Em INTERFACES **DE MÁQUINA VIRTUAL** e **REDE,** selecione as máquinas virtuais **myVM** e **myVM2** e as suas interfaces de rede associadas a partir das listas de drop-down.
 
     ![Adicionar servidores back-end](./media/application-gateway-create-gateway-portal/application-gateway-backend.png)
 
-6. Selecione **Guardar**.
+6. Selecione **Save** (Guardar).
 
 7. Aguarde que a colocação esteja concluída antes de avançar para o próximo passo.
 
 ## <a name="test-the-application-gateway"></a>Testar o gateway de aplicação
 
-1. Selecione **Todos os recursos**e, em seguida, selecione **myAGPublicIPAddress**.
+1. Selecione **Todos os recursos** e, em seguida, selecione **myAGPublicIPAddress**.
 
     ![Registar o endereço IP público do gateway de aplicação](./media/create-ssl-portal/application-gateway-ag-address.png)
 
-2. Na barra de endereços do seu navegador, escreva *https:// \<your application gateway ip address\> *.
+2. Na barra de endereços do seu navegador, escreva *https:// \<your application gateway ip address\>*.
 
    Para aceitar o aviso de segurança se usou um certificado auto-assinado, selecione **Detalhes** (ou **Avançado** no Chrome) e, em seguida, vá para a página web:
 

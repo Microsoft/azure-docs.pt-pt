@@ -4,12 +4,12 @@ description: Disponibilidade de recursos de computação e memória para o servi
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1ed3f50198c0410d9c893fe87523fa214ca03d88
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521463"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395874"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores Azure nas regiões de Azure
 
@@ -29,7 +29,7 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 > [!IMPORTANT]
 > Os recursos máximos numa região são diferentes dependendo da sua implantação. Por exemplo, uma região pode ter um tamanho máximo de CPU e memória diferente numa implementação de rede virtual Azure do que para uma implantação geral. Essa mesma região pode também ter um conjunto diferente de valores máximos para uma implantação com recursos de GPU. Verifique o seu tipo de implantação antes de verificar as tabelas abaixo para obter os valores máximos na sua região.
 
-| Region | CPU Máxima | Memória Máxima (GB) | VNET Max CPU | Memória Máxima VNET (GB) | Armazenamento (GB) | GPU SKUs (pré-visualização) |
+| Região | CPU Máxima | Memória Máxima (GB) | VNET Max CPU | Memória Máxima VNET (GB) | Armazenamento (GB) | GPU SKUs (pré-visualização) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
 | Leste da Austrália | 4 | 16 | 4 | 16 | 50 | N/D |
 | Sul do Brasil | 4 | 16 | 2 | 8 | 50 | N/D |
@@ -37,19 +37,20 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 | Índia Central | 4 | 16 | N/D | N/D | 50 | V100 |
 | E.U.A. Central | 4 | 16 | 4 | 16 | 50 | N/D |
 | Ásia Leste | 4 | 16 | 4 | 16 | 50 | N/D |
-| E.U.A Leste | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| E.U.A. Leste | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | E.U.A. Leste 2 | 4 | 16 | 4 | 16 | 50 | N/D |
+| França Central | 4 | 16 | 4 | 16 | 50 | N/D |
 | Leste do Japão | 2 | 8 | 4 | 16 | 50 | N/D |
 | Coreia do Sul Central | 4 | 16 | N/D | N/D | 50 | N/D |
-| E.U.A. Centro-Norte | 2 | 3.5 | 4 | 16 | 50 | N/D |
+| E.U.A. Centro-Norte | 2 | 3.5 | 4 | 16 | 50 | K80, P100, V100 |
 | Europa do Norte | 4 | 16 | 4 | 16 | 50 | K80 |
 | E.U.A. Centro-Sul | 4 | 16 | 4 | 16 | 50 | N/D |
 | Sudeste Asiático | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | Sul da Índia | 4 | 16 | N/D | N/D | 50 | N/D |
 | Sul do Reino Unido | 4 | 16 | 4 | 16 | 50 | N/D |
-| E.U.A. Centro-Oeste| 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| E.U.A. Centro-Oeste| 4 | 16 | 4 | 16 | 50 | N/D |
 | Europa Ocidental | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| E.U.A. Oeste | 4 | 16 | 2 | 4 | 16| N/D |
+| E.U.A. Oeste | 4 | 16 | 4 | 16 | 50 | N/D |
 | E.U.A. Oeste 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
 Estão disponíveis os seguintes recursos máximos para um grupo de contentores implantado com [recursos gpu](container-instances-gpu.md) (pré-visualização).
@@ -67,29 +68,63 @@ Estão disponíveis os seguintes recursos máximos para um grupo de contentores 
 
 As seguintes regiões e recursos máximos estão disponíveis para grupos de contentores com recipientes [suportados e de pré-visualização](container-instances-faq.md#what-windows-base-os-images-are-supported) do Windows Server.
 
-| Region | Windows Server 2016 Max CPU | Windows Server 2016 Max Memory (GB) | Windows Server 2019 LTSC Max CPU | Windows Server 2019 LTSC Max Memory (GB) | Armazenamento (GB) |
+###  <a name="windows-server-2016"></a>Windows Server 2016
+
+> [!NOTE]
+> Consulte [a compatibilidade da versão host e do recipiente](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) para obter mais informações sobre os anfitriões 1B, 2B e 3B.
+
+| Região | 1B/2B Max CPU | 1B/2B Memória Máxima (GB) |3B Max CPU | 3B Memória Máxima (GB) | Armazenamento (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Leste da Austrália | 2 | 3.5 | 4 | 16 | 20 |
+| Leste da Austrália | 2 | 8 | 2 | 3.5 | 20 |
 | Sul do Brasil | 4 | 16 | 4 | 16 | 20 |
-| Canadá Central | 2 | 3.5 | 4 | 16 | 20 |
-| Índia Central | 2 | 3.5 | 4 | 16 | 20 |
-| E.U.A. Central | 2 | 3.5 | 4 | 16 | 20 |
-| Ásia Leste | 2 | 3.5 | 4 | 16 | 20 |
-| E.U.A Leste | 2 | 8 | 4 | 16 | 20 |
-| E.U.A. Leste 2 | 2 | 3.5 | 2 | 3.5 | 20 |
-| França Central | 4 | 16 | 4 | 16 | 20 |
+| Canadá Central | 2 | 3.5 | 2 | 3.5 | 20 |
+| Índia Central | 2 | 3.5 | 2 | 3.5 | 20 |
+| E.U.A. Central | 2 | 3.5 | 2 | 3.5 | 20 |
+| Ásia Leste | 2 | 3.5 | 2 | 3.5 | 20 |
+| E.U.A. Leste | 4 | 16 | 2 | 8 | 20 |
+| E.U.A. Leste 2 | 2 | 3.5 | 4 | 16 | 20 |
 | Leste do Japão | 4 | 16 | 4 | 16 | 20 |
 | Coreia do Sul Central | 4 | 16 | 4 | 16 | 20 |
-| E.U.A. Centro-Norte | 2 | 3.5 | 4 | 16 | 20 |
-| Europa do Norte | 2 | 3.5 | 4 | 16 | 20 |
-| E.U.A. Centro-Sul | 2 | 3.5 | 4 | 16 | 20 |
-| Sul da Índia | 2 | 3.5 | 4 | 16 | 20 |
-| Sudeste Asiático | 2 | 3.5 | 4 | 16 | 20 |
-| Sul do Reino Unido | 2 | 3.5 | 4 | 16 | 20 |
+| E.U.A. Centro-Norte | 4 | 16 | 4 | 16 | 20 |
+| Europa do Norte | 2 | 3.5 | 2 | 8 | 20 |
+| E.U.A. Centro-Sul | 2 | 3.5 | 2 | 3.5 | 20 |
+| Sudeste Asiático | N/D | N/D | 2 | 3.5 | 20 |
+| Sul da Índia | 2 | 3.5 | 2 | 3.5 | 20 |
+| Sul do Reino Unido | 2 | 8 | 2 | 3.5 | 20 |
 | E.U.A. Centro-Oeste | 4 | 16 | 4 | 16 | 20 |
 | Europa Ocidental | 4 | 16 | 4 | 16 | 20 |
-| E.U.A. Oeste | 4 | 14 | N/D | N/D | 20 |
+| E.U.A. Oeste | 4 | 16 | 2 | 8 | 20 |
 | E.U.A. Oeste 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+
+
+### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC
+
+> [!NOTE]
+> Consulte [a compatibilidade da versão host e do recipiente](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) para obter mais informações sobre os anfitriões 1B, 2B e 3B.
+
+| Região | 1B/2B Max CPU | 1B/2B Memória Máxima (GB) |3B Max CPU | 3B Memória Máxima (GB) | Armazenamento (GB) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: |
+| Leste da Austrália | 4 | 16 | 4 | 16 | 20 |
+| Sul do Brasil | 4 | 16 | 4 | 16 | 20 |
+| Canadá Central | 4 | 16 | 4 | 16 | 20 |
+| Índia Central | 4 | 16 | 4 | 16 | 20 |
+| E.U.A. Central | 4 | 16 | 4 | 16 | 20 |
+| Ásia Leste | 4 | 16 | 4 | 16 | 20 |
+| E.U.A. Leste | 4 | 16 | 4 | 16 | 20 |
+| E.U.A. Leste 2 | 2 | 3.5 | 2 | 3.5 | 20 |
+| França Central | 4 | 16 | 4 | 16 | 20 |
+| Leste do Japão | N/D | N/D | 4 | 16 | 20 |
+| Coreia do Sul Central | 4 | 16 | 4 | 16 | 20 |
+| E.U.A. Centro-Norte | 4 | 16 | 4 | 16 | 20 |
+| Europa do Norte | 4 | 16 | 4 | 16 | 20 |
+| E.U.A. Centro-Sul | 4 | 16 | 4 | 16 | 20 |
+| Sudeste Asiático | 4 | 16 | 4 | 16 | 20 |
+| Sul da Índia | 4 | 16 | 4 | 16 | 20 |
+| Sul do Reino Unido | 4 | 16 | 4 | 16 | 20 |
+| E.U.A. Centro-Oeste | 4 | 16 | 4 | 16 | 20 |
+| Europa Ocidental | 4 | 16 | 4 | 16 | 20 |
+| E.U.A. Oeste | 4 | 16 | 4 | 16 | 20 |
+| E.U.A. Oeste 2 | 2 | 8 | 4 | 16 | 20 |
 
 ## <a name="next-steps"></a>Passos seguintes
 

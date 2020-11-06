@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: b7ae2543cfa9226064a2890b95dcc96be85fe56d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81c936acc00801f8473c1ec74aa50dbf2abb4936
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497227"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397030"
 ---
 # <a name="manage-web-traffic-using-the-azure-cli"></a>Gerir o tráfego da Web com a CLI do Azure
 
@@ -45,16 +45,16 @@ Este script utiliza os seguintes comandos para criar a implementação. Cada ite
 
 | Comando | Notas |
 |---|---|
-| [az group create](https://docs.microsoft.com/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Cria uma rede virtual. |
-| [az network vnet subnet create](https://docs.microsoft.com/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Cria uma sub-rede numa rede virtual. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest) | Cria o endereço IP público do gateway de aplicação. |
-| [az network application-gateway create](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest) | Cria um gateway de aplicação. |
-| [az vmss create](https://docs.microsoft.com/cli/azure/vmss) | Cria um conjunto de dimensionamento de máquinas virtuais. |
-| [az network public-ip show](https://docs.microsoft.com/cli/azure/network/public-ip) | Obtém o endereço IP público do gateway de aplicação. |
+| [az group create](/cli/azure/group) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az network vnet create](/cli/azure/network/vnet) | Cria uma rede virtual. |
+| [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) | Cria uma sub-rede numa rede virtual. |
+| [az network public-ip create](/cli/azure/network/public-ip?view=azure-cli-latest) | Cria o endereço IP público do gateway de aplicação. |
+| [az network application-gateway create](/cli/azure/network/application-gateway?view=azure-cli-latest) | Cria um gateway de aplicação. |
+| [az vmss create](/cli/azure/vmss) | Cria um conjunto de dimensionamento de máquinas virtuais. |
+| [az network public-ip show](/cli/azure/network/public-ip) | Obtém o endereço IP público do gateway de aplicação. |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
+Para obter mais informações sobre a CLI do Azure, veja [Documentação da CLI do Azure](/cli/azure/overview).
 
 Pode ver exemplos do script da CLI do gateway de aplicação adicionais na [Documentação da VM do Windows do Azure](../cli-samples.md).

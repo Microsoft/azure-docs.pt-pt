@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 03/31/2020
 ms.author: victorh
-ms.openlocfilehash: 653e432ca445451fc9da7155137052b9916d0d92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dd46f4033a568a278d7006c0d5aab451496ff47
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311602"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397228"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrar gateway de aplicações Azure e Firewall de aplicação web de v1 para v2
 
@@ -125,7 +125,7 @@ Para executar o script:
       $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
       ```
 
-      Para criar uma lista de objetos PSApplicationGatewayTrustedRootCertificate, consulte [New-AzApplicationGatewayTrustedRootCertificate .](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0)
+      Para criar uma lista de objetos PSApplicationGatewayTrustedRootCertificate, consulte [New-AzApplicationGatewayTrustedRootCertificate .](/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0)
    * **privateIpAddress: [String]: Opcional**. Um endereço IP privado específico que pretende associar ao seu novo gateway V2.  Isto deve ser do mesmo VNet que atribui para o seu novo portal V2. Se isto não for especificado, o script atribui um endereço IP privado para o seu gateway V2.
    * **publicIpResourceId: [String]: Opcional**. Os recursosidários existentes do endereço IP público (standard SKU) na sua subscrição que pretende atribuir ao novo gateway v2. Se isto não for especificado, o script atribui um novo IP público no mesmo grupo de recursos. O nome é o nome do gateway v2 com *-IP* anexado.
    * **validarIgação: [comutação]: Opcional**. Utilize este parâmetro se quiser que o script faça algumas validações básicas de comparação de configuração após a criação do gateway V2 e a cópia de configuração. Por padrão, não é feita nenhuma validação.
@@ -182,7 +182,7 @@ Sim.
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-v1-gateway-to-the-newly-created-v2-gateway"></a>O script Azure PowerShell também muda o tráfego da minha porta de entrada V1 para o recém-criado gateway V2?
 
-N.º O script Azure PowerShell apenas migra a configuração. A migração real do tráfego é da sua responsabilidade e do seu controlo.
+Não. O script Azure PowerShell apenas migra a configuração. A migração real do tráfego é da sua responsabilidade e do seu controlo.
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>O novo gateway V2 é criado pelo script Azure PowerShell de tamanho adequado para lidar com todo o tráfego que é atualmente servido pelo meu gateway v1?
 
@@ -190,11 +190,11 @@ O script Azure PowerShell cria um novo gateway V2 com um tamanho adequado para l
 
 ### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>Configurei o meu portal V1 para enviar registos para o armazém do Azure. O script também replica esta configuração para v2?
 
-N.º O script não replica esta configuração para v2. Deve adicionar a configuração do registo separadamente ao gateway v2 migrado.
+Não. O script não replica esta configuração para v2. Deve adicionar a configuração do registo separadamente ao gateway v2 migrado.
 
 ### <a name="does-this-script-support-certificates-uploaded-to-azure-keyvault-"></a>Este script suporta certificados enviados para Azure KeyVault?
 
-N.º Atualmente o script não suporta certificados em KeyVault. No entanto, isto está a ser considerado para uma versão futura.
+Não. Atualmente o script não suporta certificados em KeyVault. No entanto, isto está a ser considerado para uma versão futura.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>Dei conta de alguns problemas com a utilização deste guião. Como posso conseguir ajuda?
   

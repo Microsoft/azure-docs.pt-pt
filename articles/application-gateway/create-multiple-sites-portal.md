@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 6fb613578e520f50701c9a09169f2d78c0c08c4f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16f55dc88ed2d2d019a2fed355a14741263c20af
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88724001"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397608"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Tutorial: Criar e configurar uma porta de aplicação para hospedar vários web sites usando o portal Azure
 
@@ -47,16 +47,16 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 1. No separador **Básicos, insira** estes valores para as seguintes definições de gateway de aplicação:
 
-   - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos. Se não existir, selecione **Criar novo** para criá-lo.
-   - **Nome do gateway de aplicação**: Introduza *o myAppGateway* para o nome do gateway de aplicação.
+   - **Grupo de recursos** : Selecione **myResourceGroupAG** para o grupo de recursos. Se não existir, selecione **Criar novo** para criá-lo.
+   - **Nome do gateway de aplicação** : Introduza *o myAppGateway* para o nome do gateway de aplicação.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Gateway de aplicação multi-site":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png" alt-text="Criar Gateway de Aplicações":::
 
 2.  Para que o Azure comunique entre os recursos que cria, precisa de uma rede virtual. Pode criar uma nova rede virtual ou utilizar uma existente. Neste exemplo, irá criar uma nova rede virtual ao mesmo tempo que cria o gateway de aplicações. As instâncias do Gateway de Aplicação são criadas em sub-redes separadas. Cria duas sub-redes neste exemplo: uma para o gateway de aplicações e outra para os servidores backend.
 
     No **âmbito da rede virtual Configurar,** selecione Criar **novos** para criar uma nova rede virtual. Na janela **de rede virtual Create** que se abre, introduza os seguintes valores para criar a rede virtual e duas sub-redes:
 
-    - **Nome**: Introduza *o myVNet* para o nome da rede virtual.
+    - **Nome** : Introduza *o myVNet* para o nome da rede virtual.
 
     - **Nome da sub-rede (sub-rede** Do Gateway de aplicação): A grelha **das sub-redes** apresentará uma sub-rede chamada *Predefinição*. Mude o nome desta sub-rede para *myAGSubnet*.<br>A sub-rede de gateway de aplicação pode conter apenas portais de aplicação. Não são permitidos outros recursos.
 
@@ -66,7 +66,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
     Selecione **OK** para fechar a janela **de rede virtual Create** e guardar as definições de rede virtual.
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Gateway de aplicação multi-site":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png" alt-text="Criar VNet":::
     
 3. No **separador Básicos,** aceite os valores predefinidos para as outras definições e, em seguida, selecione **Seguinte: Frontends**.
 
@@ -78,7 +78,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 
 2. Escolha **Criar novo** para o endereço IP **público** e insira o *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
 
-     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Gateway de aplicação multi-site":::
+     :::image type="content" source="./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png" alt-text="Criar outro VNet":::
 
 3. Selecione **Seguinte: Backends**.
 
@@ -90,13 +90,13 @@ O pool backend é usado para encaminhar pedidos para os servidores backend que s
 
 2. Na janela **de piscina de backend** que se abre, introduza os seguintes valores para criar uma piscina de backend vazia:
 
-    - **Nome**: *Insira contosoPool* para o nome da piscina de backend.
-    - **Adicionar pool de backend sem alvos**: Selecione **Sim** para criar um pool de backend sem alvos. Irá adicionar alvos de backend depois de criar o gateway de aplicação.
+    - **Nome** : *Insira contosoPool* para o nome da piscina de backend.
+    - **Adicionar pool de backend sem alvos** : Selecione **Sim** para criar um pool de backend sem alvos. Irá adicionar alvos de backend depois de criar o gateway de aplicação.
 
 3. Na janela **de reserva do pool,** selecione **Adicione** para guardar a configuração da piscina de backend e volte ao separador **Backends.**
 4. Agora adicione outra piscina de backend chamada *fabrikamPool*.
 
-    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Gateway de aplicação multi-site":::
+    :::image type="content" source="./media/create-multiple-sites-portal/backend-pools.png" alt-text="Criar backends":::
 
 4. No **separador Backends,** selecione **Seguinte: Configuração**.
 
@@ -110,25 +110,25 @@ No separador **Configuração,** irá ligar as piscinas fronte e backend criadas
 
 3. Uma regra de encaminhamento requer um ouvinte. No **separador Ouvinte** dentro da janela De regra de encaminhamento Adicionar uma regra **de encaminhamento,** introduza os seguintes valores para o ouvinte:
 
-    - **Nome do ouvinte**: *Introduza o nome* do ouvinte.
-    - **FRONTend IP**: Selecione **Público** para escolher o IP público que criou para o frontend.
+    - **Nome do ouvinte** : *Introduza o nome* do ouvinte.
+    - **FRONTend IP** : Selecione **Público** para escolher o IP público que criou para o frontend.
 
    Em **definições adicionais:**
-   - **Tipo de ouvinte**: Vários sites
-   - **Nome do anfitrião**: **www.contoso.com**
+   - **Tipo de ouvinte** : Vários sites
+   - **Nome do anfitrião** : **www.contoso.com**
 
    Aceite os valores predefinidos para as outras definições no **separador Listener** e, em seguida, selecione o separador **alvos de Backend** para configurar o resto da regra de encaminhamento.
 
-   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Gateway de aplicação multi-site":::
+   :::image type="content" source="./media/create-multiple-sites-portal/routing-rule.png" alt-text="Criar regra de encaminhamento":::
 
 4. No separador **alvos de Backend,** selecione **contosoPool** para o **alvo Backend**.
 
-5. Para a **definição HTTP**, selecione **Criar novo** para criar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. Na janela **de definição HTTP** que se abre, *introduza o contosoHTTPSetting* para o **nome de definição HTTP**. Aceite os valores predefinidos para as outras definições na janela **de definição HTTP** e, em seguida, selecione **Adicionar** para voltar à janela de regra **de encaminhamento Adicionar uma.** 
+5. Para a **definição HTTP** , selecione **Criar novo** para criar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. Na janela **de definição HTTP** que se abre, *introduza o contosoHTTPSetting* para o **nome de definição HTTP**. Aceite os valores predefinidos para as outras definições na janela **de definição HTTP** e, em seguida, selecione **Adicionar** para voltar à janela de regra **de encaminhamento Adicionar uma.** 
 
 6. Na janela **de regra de encaminhamento,** selecione **Adicione** para guardar a regra de encaminhamento e volte ao **separador Configuração.**
 7. **Selecione Adicione uma regra** e adicione uma regra semelhante, ouvinte, alvo de backend e definição HTTP para Fabrikam.
 
-     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Gateway de aplicação multi-site":::
+     :::image type="content" source="./media/create-multiple-sites-portal/fabrikam-rule.png" alt-text="Regra de Fabrikam":::
 
 7. Selecione **Seguinte: Tags** e depois **Seguinte: Rever + criar**.
 
@@ -154,10 +154,10 @@ Para adicionar alvos de backend, você:
 2. Selecione **Compute** e, em seguida, selecione **o Centro de Dados do Windows Server 2016** na lista **Popular.** Aparece a página **de máquina virtual Create a.**<br>O Application Gateway pode encaminhar o tráfego para qualquer tipo de máquina virtual utilizada na sua piscina de backend. Neste exemplo, utiliza um Datacenter Windows Server 2016.
 3. Introduza estes valores no separador **Básicos** para as seguintes definições de máquina virtual:
 
-    - **Grupo de recursos**: Selecione **myResourceGroupAG** para o nome do grupo de recursos.
-    - **Nome da máquina virtual**: *Introduza contosoVM* para o nome da máquina virtual.
-    - **Nome de utilizador**: Introduza um nome para o nome de utilizador do administrador.
-    - **Senha**: Introduza uma palavra-passe para o administrador.
+    - **Grupo de recursos** : Selecione **myResourceGroupAG** para o nome do grupo de recursos.
+    - **Nome da máquina virtual** : *Introduza contosoVM* para o nome da máquina virtual.
+    - **Nome de utilizador** : Introduza um nome para o nome de utilizador do administrador.
+    - **Senha** : Introduza uma palavra-passe para o administrador.
 1. Aceite as outras predefinições e, em seguida, selecione **Seguinte: Discos**.  
 2. Aceite as falhas do separador **Discos** e, em seguida, selecione **Seguinte: Networking**.
 3. No **separador Networking,** verifique se o **myVNet** está selecionado para a **rede Virtual** e a **sub-rede** está definida para **o myBackendSubnet**. Aceite os outros incumprimentos e, em seguida, selecione **Seguinte: Gestão**.<br>O Application Gateway pode comunicar com casos fora da rede virtual em que se encontra, mas é preciso garantir que existe conectividade IP.
@@ -169,7 +169,7 @@ Para adicionar alvos de backend, você:
 
 Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o Azure criou o gateway de aplicações com sucesso.
 
-1. Abrir [a azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Para tal, selecione **Cloud Shell** a partir da barra de navegação superior do portal Azure e, em seguida, selecione **PowerShell** da lista de drop-down. 
+1. Abrir [a azure PowerShell](../cloud-shell/quickstart-powershell.md). Para tal, selecione **Cloud Shell** a partir da barra de navegação superior do portal Azure e, em seguida, selecione **PowerShell** da lista de drop-down. 
 
     ![Instalar uma extensão personalizada](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
@@ -191,19 +191,19 @@ Neste exemplo, instala o IIS nas máquinas virtuais apenas para verificar se o A
 
 ### <a name="add-backend-servers-to-backend-pools"></a>Adicione servidores de backend para backend pools
 
-1. Selecione **Todos os recursos**e, em seguida, selecione **myAppGateway**.
+1. Selecione **Todos os recursos** e, em seguida, selecione **myAppGateway**.
 
 2. Selecione **piscinas backend** do menu esquerdo.
 
 3. **Selecione contosoPool**.
 
-4. Em **'Alvos'**, selecione **a máquina virtual** da lista de drop-down.
+4. Em **'Alvos'** , selecione **a máquina virtual** da lista de drop-down.
 
 5. Em **INTERFACES DE MÁQUINA VIRTUAL** e **REDE,** selecione a máquina virtual **contosoVM** e a sua interface de rede associada a partir das listas de drop-down.
 
     ![Adicionar servidores back-end](./media/create-multiple-sites-portal/edit-backend-pool.png)
 
-6. Selecione **Guardar**.
+6. Selecione **Save** (Guardar).
 7. Repita para adicionar o *fabrikamVM* e interface à *fabrikamPool*.
 
 Aguarde que a colocação esteja concluída antes de avançar para o próximo passo.
@@ -212,7 +212,7 @@ Aguarde que a colocação esteja concluída antes de avançar para o próximo pa
 
 Após a criação do gateway de aplicações com o seu endereço IP público, pode obter o endereço IP e usá-lo para criar um registo A nos seus domínios. 
 
-1. Clique **em Todos os recursos**e, em seguida, clique no **myAGPublicIPAddress**.
+1. Clique **em Todos os recursos** e, em seguida, clique no **myAGPublicIPAddress**.
 
     ![Endereço DNS do gateway de aplicação de registo](./media/create-multiple-sites-portal/public-ip.png)
 
@@ -236,10 +236,10 @@ Para remover o grupo de recursos:
 
 1. No menu esquerdo do portal Azure, selecione **Grupos de Recursos**.
 2. Na página **de grupos de recursos,** procure **o myResourceGroupAG** na lista e, em seguida, selecione-o.
-3. Na **página**do grupo Recursos , selecione **Eliminar grupo de recursos**.
+3. Na **página** do grupo Recursos , selecione **Eliminar grupo de recursos**.
 4. Introduza *o myResourceGroupAG* para **escrever o nome do grupo de recursos** e, em seguida, selecione **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o que pode fazer com o Azure Application Gateway](application-gateway-introduction.md)
+> [Saiba mais sobre o que pode fazer com o Azure Application Gateway](./overview.md)

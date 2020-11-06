@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cffc15974bf5a016a4584f5c5f3dcc8a185c9824
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85556170"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397336"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Ativar vários suportes namespace num cluster AKS com controlador de entrada de gateway de aplicação
 
@@ -35,7 +35,7 @@ Uma vez implantado com a capacidade de observar vários espaços de nome, a AGIC
   - listar recursos ingress de todos os espaços de nome acessíveis
   - filtro para recursos ingresss anotados com `kubernetes.io/ingress.class: azure/application-gateway`
   - compor combinado [Application Gateway config](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744)
-  - aplicar o config ao Portal de Aplicação associado via [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+  - aplicar o config ao Portal de Aplicação associado via [ARM](../azure-resource-manager/management/overview.md)
 
 ## <a name="conflicting-configurations"></a>Configurações conflituosas
 Vários [recursos de entrada com nomes](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) poderiam instruir a AGIC a criar configurações conflituosas para um único Gateway de aplicação. (Duas ingresses que reivindicam o mesmo domínio, por exemplo.)
@@ -99,7 +99,7 @@ Por exemplo, se adicionar `staging` primeiro, a AGIC configurará o Application 
 ## <a name="restrict-access-to-namespaces"></a>Restringir o acesso aos espaços de nome
 Por predefinição, a AGIC configurará o Gateway de Aplicação com base em Ingress anotado dentro de qualquer espaço de nome. Caso pretenda limitar este comportamento, tem as seguintes opções:
   - limitar os espaços de nome, definindo explicitamente os espaços de nomeS AGIC deve observar através da `watchNamespace` chave YAML em [helm-config.yaml](#sample-helm-config-file)
-  - utilizar [Role/RoleBinding](https://docs.microsoft.com/azure/aks/azure-ad-rbac) para limitar a AGIC a espaços de nome específicos
+  - utilizar [Role/RoleBinding](../aks/azure-ad-rbac.md) para limitar a AGIC a espaços de nome específicos
 
 ## <a name="sample-helm-config-file"></a>Arquivo config de amostra helm
 
@@ -155,4 +155,3 @@ Por predefinição, a AGIC configurará o Gateway de Aplicação com base em Ing
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
 ```
-

@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: f39fb5766965e3881068bd6d2fd3a8142f9eb2ac
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ff7bb6084839af56b5f6e874b39929021f23f8a1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91975914"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398084"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registar um pedido de cliente público no Azure Ative Directory
 
@@ -21,7 +21,7 @@ Neste artigo, você vai aprender a registar uma aplicação pública no Azure At
 
 Os registos de pedidos de cliente são representações do Azure Ative Directory de aplicações que podem autenticar e pedir permissões de API em nome de um utilizador. Os clientes públicos são aplicações como aplicações móveis e aplicações JavaScript de página única que não conseguem manter segredos confidenciais. O procedimento é semelhante ao [registo de um cliente confidencial,](register-confidential-azure-ad-client-app.md)mas como não se pode confiar nos clientes públicos para guardar um segredo de aplicação, não há necessidade de adicionar um.
 
-O quickstart fornece informações gerais sobre como [registar uma aplicação com a plataforma de identidade microsoft.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)
+O quickstart fornece informações gerais sobre como [registar uma aplicação com a plataforma de identidade microsoft.](../active-directory/develop/quickstart-register-app.md)
 
 ## <a name="app-registrations-in-azure-portal"></a>Inscrições de aplicativos no portal Azure
 
@@ -42,7 +42,7 @@ O quickstart fornece informações gerais sobre como [registar uma aplicação c
     ![Portal Azure. Novo Registo de Aplicações públicas.](media/how-to-aad/portal-aad-register-new-app-registration-PUB-CLIENT-NAME.png)
 
 
-Para configurar o seu [ambiente de trabalho,](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)aplicação [móvel](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-app-registration) ou de uma [página como](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) aplicação pública:
+Para configurar o seu [ambiente de trabalho,](../active-directory/develop/scenario-desktop-app-registration.md)aplicação [móvel](../active-directory/develop/scenario-mobile-app-registration.md) ou de uma [página como](../active-directory/develop/scenario-spa-app-registration.md) aplicação pública:
 
 1. No [portal Azure](https://portal.azure.com), nas **inscrições da App,** selecione a sua aplicação e, em seguida, selecione **Autenticação**.
 
@@ -62,7 +62,7 @@ Da mesma forma com a [aplicação confidencial](register-confidential-azure-ad-c
     Se estiver a utilizar a API Azure para FHIR, adicionará uma permissão às APIs de Cuidados de Saúde Azure, procurando APIs de Azure Healthcare ao abrigo **de APIs que a minha organização utiliza.** Só poderá encontrá-lo se já tiver [implantado a API Azure para fHIR.](fhir-paas-powershell-quickstart.md)
 
     
-    Se estiver a fazer referência a uma aplicação de recursos diferente, selecione o [registo de aplicação de recursos da FHIR API](register-resource-azure-ad-client-app.md) que criou anteriormente ao abrigo **das Minhas APIs**:
+    Se estiver a fazer referência a uma aplicação de recursos diferente, selecione o [registo de aplicação de recursos da FHIR API](register-resource-azure-ad-client-app.md) que criou anteriormente ao abrigo **das Minhas APIs** :
 
     ![Portal Azure. Novas permissões públicas da API - Azure API para FHIR Predefinido](media/public-client-app/api-permissions.png)
 

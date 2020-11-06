@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 3109ada2c905a9f11169a462284d22b9e9604494
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb0f9ef64cb8032c02f2ccd4b42028103b6d3ec6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808232"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397931"
 ---
 # <a name="configure-tls-policy-versions-and-cipher-suites-on-application-gateway"></a>Configurar versões políticas tLS e suítes de cifra no Application Gateway
 
@@ -191,7 +191,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 
 ## <a name="update-an-existing-application-gateway-with-a-pre-defined-tls-policy"></a>Atualizar um portal de aplicações existente com uma política TLS pré-definida
 
-Para definir uma política de TLS personalizada, passe os seguintes parâmetros: **PolicyType**, **MinProtocolVersion,** **CipherSuite**e **ApplicationGateway**. Para definir uma política TLS predefinida, passe os seguintes parâmetros: **PolicyType,** **PolicyName**e **ApplicationGateway**. Se tentar passar outros parâmetros, obtém-se um erro ao criar ou atualizar o Gateway de Aplicação.
+Para definir uma política de TLS personalizada, passe os seguintes parâmetros: **PolicyType** , **MinProtocolVersion,** **CipherSuite** e **ApplicationGateway**. Para definir uma política TLS predefinida, passe os seguintes parâmetros: **PolicyType,** **PolicyName** e **ApplicationGateway**. Se tentar passar outros parâmetros, obtém-se um erro ao criar ou atualizar o Gateway de Aplicação.
 
 No exemplo seguinte, existem amostras de código tanto para a Política Personalizada como para a Política Predefinida. Descomprimir a política que quer usar.
 
@@ -217,4 +217,4 @@ $SetGW = Set-AzApplicationGateway -ApplicationGateway $AppGW
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Visite [o Application Gateway redirecionando](application-gateway-redirect-overview.md) a visão geral para saber como redirecionar o tráfego HTTPS para um ponto final HTTPS.
+Visite [o Application Gateway redirecionando](./redirect-overview.md) a visão geral para saber como redirecionar o tráfego HTTPS para um ponto final HTTPS.

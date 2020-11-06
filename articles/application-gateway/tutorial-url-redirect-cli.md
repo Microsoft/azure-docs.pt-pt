@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 66c725e8d6c28137db5c3220e0a6548714da0911
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da6d02e620c33610770c71f0c0e3ae68e70ee317
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959600"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397065"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Tutorial:Criar um gateway de aplicação com o redirecionamento com base no caminho do URL, com a CLI do Azure
 
-Pode utilizar a CLI do Azure para configurar [regras de encaminhamento com base no caminho do URL](tutorial-url-route-cli.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste tutorial, você cria piscinas de backend usando [conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, vai criar regras de encaminhamento de URL que asseguram que o tráfego da Web é redirecionado para o conjunto de back-end adequado.
+Pode utilizar a CLI do Azure para configurar [regras de encaminhamento com base no caminho do URL](tutorial-url-route-cli.md) quando cria um [gateway de aplicação](./overview.md). Neste tutorial, você cria piscinas de backend usando [conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/overview.md). Em seguida, vai criar regras de encaminhamento de URL que asseguram que o tráfego da Web é redirecionado para o conjunto de back-end adequado.
 
 Neste tutorial, ficará a saber como:
 
@@ -160,7 +160,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-default-url-path-map"></a>Adicionar o mapa de caminho de URL predefinido
 
-Os mapas do caminho url certifiquem-se de que urls específicos são encaminhados para piscinas de backend específicas. Pode criar o URL de mapas de caminho denominados *imagePathRule* e *videoPathRule*, com [az network application-gateway url-path-mau create](/cli/azure/network/application-gateway/url-path-map) e [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
+Os mapas do caminho url certifiquem-se de que urls específicos são encaminhados para piscinas de backend específicas. Pode criar o URL de mapas de caminho denominados *imagePathRule* e *videoPathRule* , com [az network application-gateway url-path-mau create](/cli/azure/network/application-gateway/url-path-map) e [az network application-gateway url-path-map rule create](/cli/azure/network/application-gateway/url-path-map/rule)
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -236,7 +236,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, vai criar três conjuntos de dimensionamento de máquinas virtuais que suportam os três conjuntos de back-end que criou. Os conjuntos de dimensionamento que criar são denominados *myvmss1*, *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o NGINX.
+Neste exemplo, vai criar três conjuntos de dimensionamento de máquinas virtuais que suportam os três conjuntos de back-end que criou. Os conjuntos de dimensionamento que criar são denominados *myvmss1* , *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -318,4 +318,4 @@ az group delete --name myResourceGroupAG
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o que pode fazer com o gateway de aplicação](application-gateway-introduction.md)
+> [Saiba mais sobre o que pode fazer com o gateway de aplicação](./overview.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd1ca218d9c079e26f8424a36b90b9b657690b41
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808147"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397710"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Resolução de problemas de erros de gateway incorreto no Gateway de Aplicação
 
@@ -95,8 +95,8 @@ A tabela a seguir lista os valores associados à sonda de saúde padrão:
 * Se o BackendHttpSetting especificar uma porta que não seja 80, o local predefinido deve ser configurado para ouvir nessa porta.
 * A chamada `http://127.0.0.1:port` deve devolver um código de resultados HTTP de 200. Isto deve ser devolvido dentro do período de tempo de 30 segundos.
 * Certifique-se de que a porta está aberta e que não existem regras de firewall ou grupos de segurança da rede Azure, que bloqueiam o tráfego de entrada ou saída na porta configurado.
-* Se os VMs clássicos do Azure ou o Cloud Service forem utilizados com um FQDN ou um IP público, certifique-se de que o [ponto final](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) correspondente é aberto.
-* Se o VM estiver configurado através do Azure Resource Manager e estiver fora do VNet onde o gateway de aplicação é implantado, um [Grupo de Segurança de Rede](../virtual-network/security-overview.md) deve ser configurado para permitir o acesso na porta desejada.
+* Se os VMs clássicos do Azure ou o Cloud Service forem utilizados com um FQDN ou um IP público, certifique-se de que o [ponto final](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json) correspondente é aberto.
+* Se o VM estiver configurado através do Azure Resource Manager e estiver fora do VNet onde o gateway de aplicação é implantado, um [Grupo de Segurança de Rede](../virtual-network/network-security-groups-overview.md) deve ser configurado para permitir o acesso na porta desejada.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemas com sonda de saúde personalizada
 
@@ -195,4 +195,3 @@ Certifique-se de que as ocorrências são saudáveis e que a aplicação está d
 ## <a name="next-steps"></a>Passos seguintes
 
 Se os passos anteriores não resolverem o problema, abra um [bilhete de apoio](https://azure.microsoft.com/support/options/).
-

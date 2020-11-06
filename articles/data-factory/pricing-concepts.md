@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13a05089ae6365bb5d279105f8c010278bd0adb8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983622"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396010"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Compreender os preços do Data Factory através de exemplos
 
@@ -48,7 +48,7 @@ Para realizar o cenário, é necessário criar um oleoduto com os seguintes iten
 | Obter Pipeline | 1 Entidade de leitura/escrita |
 | Executar Pipeline | 2 A atividade é executada (1 para o gatilho, 1 para execuções de atividade) |
 | Copiar Dados Pressuposto: tempo de execução = 10 min | 10 \* 4 Tempo de execução da integração Azure (definição padrão de DI = 4) Para obter mais informações sobre unidades de integração de dados e otimizar o desempenho da cópia, consulte [este artigo](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Apenas 1 corrida ocorreu | 2 Registos de execução de monitorização novamente julgados (1 para o gasoduto, 1 para execução de atividade) |
+| Monitor Pipeline Assumption: Apenas 1 corrida ocorreu | 2 Registos de execução de monitorização recuperados (1 para o gasoduto, 1 para a execução da atividade) |
 
 **Preço total do cenário: $0.16811**
 
@@ -79,7 +79,7 @@ Para realizar o cenário, é necessário criar um oleoduto com os seguintes iten
 | Obter Pipeline | 1 Entidade de leitura/escrita |
 | Executar Pipeline | 3 Funciona a atividade (1 para o gatilho, 2 para execuções de atividade) |
 | Copiar Dados Pressuposto: tempo de execução = 10 min | 10 \* 4 Tempo de execução da integração Azure (definição padrão de DI = 4) Para obter mais informações sobre unidades de integração de dados e otimizar o desempenho da cópia, consulte [este artigo](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Apenas 1 corrida ocorreu | 3 Registos de execução de monitorização novamente julgados (1 para o gasoduto, 2 para execução de atividade) |
+| Monitor Pipeline Assumption: Apenas 1 corrida ocorreu | 3 Registos de execução de monitorização recuperados (1 para o gasoduto, 2 para a execução da atividade) |
 | Executar atividade databricks Suposição: tempo de execução = 10 min | Execução da atividade do gasoduto externo de 10 min |
 
 **Preço total do cenário: $0.16916**
@@ -113,7 +113,7 @@ Para realizar o cenário, é necessário criar um oleoduto com os seguintes iten
 | Obter Pipeline | 1 Entidade de leitura/escrita |
 | Executar Pipeline | 4 Operações executadas (1 para o gatilho, 3 para execuções de atividade) |
 | Copiar Dados Pressuposto: tempo de execução = 10 min | 10 \* 4 Tempo de execução da integração Azure (definição padrão de DI = 4) Para obter mais informações sobre unidades de integração de dados e otimizar o desempenho da cópia, consulte [este artigo](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Apenas 1 corrida ocorreu | 4 Registos de execução de monitorização novamente julgados (1 para o gasoduto, 3 para execução de atividade) |
+| Monitor Pipeline Assumption: Apenas 1 corrida ocorreu | 4 Registos de execução de monitorização recuperados (1 para o gasoduto, 3 para a execução da atividade) |
 | Executar Atividade de procuração Suposição: tempo de execução = 1 min | Execução de atividade de 1 min pipeline |
 | Executar atividade databricks Suposição: tempo de execução = 10 min | Execução da atividade do gasoduto externo de 10 min |
 
@@ -160,7 +160,7 @@ Para realizar o cenário, é necessário criar um oleoduto com os seguintes iten
 | Obter Pipeline | 1 Entidade de leitura/escrita |
 | Executar Pipeline | 2 A atividade é executada (1 para o gatilho, 1 para execuções de atividade) |
 | Pressupostos do fluxo de dados: tempo de execução = 10 min + 10 min TTL | 10 \* 16 núcleos de Computação Geral com TTL de 10 |
-| Monitor Pipeline Assumption: Apenas 1 corrida ocorreu | 2 Registos de execução de monitorização novamente julgados (1 para o gasoduto, 1 para execução de atividade) |
+| Monitor Pipeline Assumption: Apenas 1 corrida ocorreu | 2 Registos de execução de monitorização recuperados (1 para o gasoduto, 1 para a execução da atividade) |
 
 **Preço total do cenário: $1.4631**
 
@@ -189,7 +189,7 @@ Neste cenário, pretende eliminar ficheiros originais sobre o Armazenamento Azur
 | Executar Pipeline | 6 Funciona a atividade (2 para o gatilho, 4 para execuções de atividade) |
 | Executar Apagar Atividade: cada tempo de execução = 5 min. A execução da Atividade de Eliminação no primeiro oleoduto é das 10:00 AM UTC às 10:05 UTC. A execução da Atividade de Eliminação no segundo oleoduto é das 10:02 AM UTC às 10:07 UTC.|Total de 7 min execução da atividade do gasoduto em VNET gerido. A atividade do gasoduto suporta até 50 concurrency em VNET gerido. |
 | Copiar Dados Pressuposto: cada tempo de execução = 10 min. A execução da Cópia no primeiro oleoduto é das 10:06 AM UTC às 10:15 UTC. A execução da Atividade de Eliminação no segundo oleoduto é das 10:08 AM UTC às 10:17 UTC. | 10 * 4 Tempo de execução da integração Azure (definição padrão de DI = 4) Para obter mais informações sobre unidades de integração de dados e otimizar o desempenho da cópia, consulte [este artigo](copy-activity-performance.md) |
-| Monitor Pipeline Assumption: Apenas 2 corridas ocorreram | 6 Registos de execução de monitorização novamente julgados (2 para o gasoduto, 4 para execução de atividade) |
+| Monitor Pipeline Assumption: Apenas 2 corridas ocorreram | 6 Registos de execução de monitorização recuperados (2 para o gasoduto, 4 para execução de atividade) |
 
 
 **Preço total do cenário: $0.45523**

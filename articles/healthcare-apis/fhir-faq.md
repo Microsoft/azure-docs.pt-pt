@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/03/2020
 ms.author: matjazl
-ms.openlocfilehash: 20bf72c55a5b6d76a3b214f0a679e28da81e41e2
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 66ea8692fd3d93b8de9740e145404a8db50ebfdf
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558572"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398101"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Perguntas frequentes sobre a AZure API para FHIR
 
@@ -52,7 +52,7 @@ Para ver um pouco do que está a ser lançado na API Azure para FHIR, consulte a
 
 ### <a name="in-which-regions-is-azure-api-for-fhir-available"></a>Em que regiões está disponível a Azure API para a FHIR?
 
-Atualmente, temos disponibilidade geral para o público e para o governo em [várias geo-regiões.](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia) Para obter informações sobre serviços de nuvem do governo na Microsoft, consulte [os serviços Azure da FedRAMP.](https://docs.microsoft.com/azure/azure-government/compliance/azure-services-in-fedramp-auditscope)
+Atualmente, temos disponibilidade geral para o público e para o governo em [várias geo-regiões.](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir&regions=non-regional,us-east,us-east-2,us-central,us-north-central,us-south-central,us-west-central,us-west,us-west-2,canada-east,canada-central,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia) Para obter informações sobre serviços de nuvem do governo na Microsoft, consulte [os serviços Azure da FedRAMP.](../azure-government/compliance/azure-services-in-fedramp-auditscope.md)
 
 ### <a name="where-can-i-see-what-is-releasing-into-the-azure-api-for-fhir"></a>Onde posso ver o que está a libertar na API azul para a FHIR?
 
@@ -97,17 +97,17 @@ Alguns exemplos disso estão abaixo:
 
 ### <a name="what-is-the-default-sort-when-searching-for-resources-in-azure-api-for-fhir"></a>Qual é o tipo de incumprimento ao procurar recursos na Azure API para fHIR?
 
-Apoiamos a triagem até à data atualizada pela última vez: _sort=_lastUpdated. Para obter mais informações sobre outros parâmetros de pesquisa suportados, consulte a [página de funcionalidades suportadas.](https://docs.microsoft.com/azure/healthcare-apis/fhir-features-supported#search)
+Apoiamos a triagem até à data atualizada pela última vez: _sort=_lastUpdated. Para obter mais informações sobre outros parâmetros de pesquisa suportados, consulte a [página de funcionalidades suportadas.](./fhir-features-supported.md#search)
 
 ### <a name="how-does-export-work"></a>Como funciona $export?
 
-$export faz parte da especificação FHIR: https://hl7.org/fhir/uv/bulkdata/export/index.html . Se o serviço FHIR estiver configurado com uma identidade gerida e uma conta de armazenamento, e se a identidade gerida tiver acesso a essa conta de armazenamento - pode simplesmente ligar para $export na API do FHIR e todos os recursos FHIR serão exportados para a conta de armazenamento. Para mais informações, consulte o nosso [artigo sobre $export.](https://docs.microsoft.com/azure/healthcare-apis/export-data)
+$export faz parte da especificação FHIR: https://hl7.org/fhir/uv/bulkdata/export/index.html . Se o serviço FHIR estiver configurado com uma identidade gerida e uma conta de armazenamento, e se a identidade gerida tiver acesso a essa conta de armazenamento - pode simplesmente ligar para $export na API do FHIR e todos os recursos FHIR serão exportados para a conta de armazenamento. Para mais informações, consulte o nosso [artigo sobre $export.](./export-data.md)
 
 ## <a name="using-azure-api-for-fhir"></a>Utilização da AZure API para FHIR
 
 ### <a name="how-do-i-enable-log-analytics-for-azure-api-for-fhir"></a>Como posso permitir a análise de registo para Azure API para FHIR?
 
-Permitimos a verificação de registos de diagnóstico e permitimos a revisão de consultas de amostras para estes registos. Para obter mais informações sobre a ativação de registos de auditoria e consultas de amostras, consulte [esta secção](https://docs.microsoft.com/azure/healthcare-apis/enable-diagnostic-logging). Se pretender incluir informações adicionais nos registos, consulte [os cabeçalhos HTTP personalizados.](https://docs.microsoft.com/azure/healthcare-apis/use-custom-headers)
+Permitimos a verificação de registos de diagnóstico e permitimos a revisão de consultas de amostras para estes registos. Para obter mais informações sobre a ativação de registos de auditoria e consultas de amostras, consulte [esta secção](./enable-diagnostic-logging.md). Se pretender incluir informações adicionais nos registos, consulte [os cabeçalhos HTTP personalizados.](./use-custom-headers.md)
 
 ### <a name="where-can-i-see-some-examples-of-using-the-azure-api-for-fhir-within-a-workflow"></a>Onde posso ver alguns exemplos de utilização da API Azure para FHIR dentro de um fluxo de trabalho?
 
@@ -121,7 +121,7 @@ Temos uma [página gitHub de arquitetura de saúde](https://github.com/microsoft
 
 ### <a name="is-there-a-way-to-encrypt-my-data-using-my-personal-key-not-a-default-key"></a>Existe uma maneira de encriptar os meus dados usando a minha chave pessoal e não uma chave padrão?
 
-Sim, a Azure API para FHIR permite configurar chaves geridas pelo cliente, aproveitando o suporte da Cosmos DB. Para obter mais informações sobre encriptar os seus dados com uma chave pessoal, consulte [esta secção.](https://docs.microsoft.com/azure/healthcare-apis/customer-managed-key)
+Sim, a Azure API para FHIR permite configurar chaves geridas pelo cliente, aproveitando o suporte da Cosmos DB. Para obter mais informações sobre encriptar os seus dados com uma chave pessoal, consulte [esta secção.](./customer-managed-key.md)
 
 ## <a name="azure-api-for-fhir-preview-features"></a>Azure API para FHIR: Funcionalidades de pré-visualização
 

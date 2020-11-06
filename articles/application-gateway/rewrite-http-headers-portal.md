@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79314db13531f1fcf518c7931d4a1aa9158a172b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807902"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397200"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescreva os cabeçalhos de pedido e resposta HTTP com gateway de aplicação Azure - portal Azure
 
-Este artigo descreve como usar o portal Azure para configurar uma instância [SKU do Gateway de Aplicação v2](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) para reescrever os cabeçalhos HTTP em pedidos e respostas.
+Este artigo descreve como usar o portal Azure para configurar uma instância [SKU do Gateway de Aplicação v2](./application-gateway-autoscaling-zone-redundant.md) para reescrever os cabeçalhos HTTP em pedidos e respostas.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Precisa de um exemplo de SKU do Gateway v2 para completar os passos deste artigo. Reescrevendo cabeçalhos não é suportado no V1 SKU. Se não tiver o V2 SKU, crie uma [instância SKU SKU do Gateway v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) antes de começar.
+Precisa de um exemplo de SKU do Gateway v2 para completar os passos deste artigo. Reescrevendo cabeçalhos não é suportado no V1 SKU. Se não tiver o V2 SKU, crie uma [instância SKU SKU do Gateway v2](./tutorial-autoscale-ps.md) antes de começar.
 
 ## <a name="create-required-objects"></a>Criar objetos necessários
 
@@ -31,17 +31,17 @@ Para configurar a reescrita do cabeçalho HTTP, é necessário completar estes p
 
 1. Crie os objetos necessários para reescrever o cabeçalho HTTP:
 
-   - **Ação de reescrita**: Usado para especificar os campos de pedido e pedido que pretende reescrever e o novo valor para os cabeçalhos. Pode associar uma ou mais condições de reescrita com uma ação de reescrita.
+   - **Ação de reescrita** : Usado para especificar os campos de pedido e pedido que pretende reescrever e o novo valor para os cabeçalhos. Pode associar uma ou mais condições de reescrita com uma ação de reescrita.
 
-   - **Condição de reescrita**: Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
+   - **Condição de reescrita** : Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
 
      Se associar mais do que uma condição a uma ação, a ação ocorre apenas quando todas as condições estão reunidas. Por outras palavras, a operação é uma operação lógica.
 
-   - **Regra de reescrita**: Contém combinações de condição de reescrita múltiplas/ reescrita.
+   - **Regra de reescrita** : Contém combinações de condição de reescrita múltiplas/ reescrita.
 
-   - **Sequência de**regras : Ajuda a determinar a ordem pela qual as regras de reescrita executam. Esta configuração é útil quando tem várias regras de reescrita num conjunto de reescrita. Uma regra de reescrita que tem um valor de sequência de regras mais baixo corre primeiro. Se atribuir o mesmo valor de sequência de regras a duas regras de reescrita, a ordem de execução não é determinística.
+   - **Sequência de** regras : Ajuda a determinar a ordem pela qual as regras de reescrita executam. Esta configuração é útil quando tem várias regras de reescrita num conjunto de reescrita. Uma regra de reescrita que tem um valor de sequência de regras mais baixo corre primeiro. Se atribuir o mesmo valor de sequência de regras a duas regras de reescrita, a ordem de execução não é determinística.
 
-   - **Conjunto de reescrita**: Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
+   - **Conjunto de reescrita** : Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
 
 2. Fixe o conjunto de reescrita a uma regra de encaminhamento. A configuração de reescrita é anexada ao ouvinte de origem através da regra de encaminhamento. Quando utiliza uma regra de encaminhamento básico, a configuração de reescrita do cabeçalho está associada a um ouvinte de origem e é uma reescrita global do cabeçalho. Quando utiliza uma regra de encaminhamento baseada no caminho, a configuração de reescrita do cabeçalho é definida no mapa do caminho URL. Nesse caso, aplica-se apenas à área específica do percurso de um sítio.
 
@@ -55,11 +55,11 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/) com a sua conta d
 
 Neste exemplo, vamos modificar um URL de reorientação reescrevendo o cabeçalho de localização na resposta HTTP enviada por uma aplicação de back-end.
 
-1. Selecione **Todos os recursos**e, em seguida, selecione o seu gateway de aplicações.
+1. Selecione **Todos os recursos** e, em seguida, selecione o seu gateway de aplicações.
 
 2. **Selecione Reescreve** no painel esquerdo.
 
-3. Selecione **Conjunto de reescrita**:
+3. Selecione **Conjunto de reescrita** :
 
    ![Adicione conjunto de reescrita](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
@@ -111,7 +111,7 @@ Neste exemplo, vamos modificar um URL de reorientação reescrevendo o cabeçalh
 
    - Na lista de **tipos do cabeçalho,** selecione **Response**.
 
-   - No **nome do cabeçalho**, selecione **Common header**.
+   - No **nome do cabeçalho** , selecione **Common header**.
 
    - Na lista **de cabeçalhos comuns,** selecione **Localização**.
 
@@ -131,4 +131,4 @@ Neste exemplo, vamos modificar um URL de reorientação reescrevendo o cabeçalh
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como configurar alguns casos de uso comum, consulte [cenários comuns de reescrita do cabeçalho](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Para saber mais sobre como configurar alguns casos de uso comum, consulte [cenários comuns de reescrita do cabeçalho](./rewrite-http-headers.md).

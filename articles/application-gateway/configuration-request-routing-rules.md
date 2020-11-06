@@ -7,20 +7,20 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 20a665eefbb73f062f1f036e17b16da891a43eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89653210"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397540"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Aplicação Gateway solicita regras de encaminhamento
 
-Quando cria um gateway de aplicação utilizando o portal Azure, cria uma regra padrão *(regra 1).* Esta regra liga o ouvinte predefinido *(appGatewayHttpListener*) com o pool back-end padrão *(appGatewayBackendPool*) e as definições HTTP de back-end predefinidos *(appGatewayBackendHttpSettings).* Depois de criar o gateway, pode editar as definições da regra padrão ou criar novas regras.
+Quando cria um gateway de aplicação utilizando o portal Azure, cria uma regra padrão *(regra 1).* Esta regra liga o ouvinte predefinido *(appGatewayHttpListener* ) com o pool back-end padrão *(appGatewayBackendPool* ) e as definições HTTP de back-end predefinidos *(appGatewayBackendHttpSettings).* Depois de criar o gateway, pode editar as definições da regra padrão ou criar novas regras.
 
 ## <a name="rule-type"></a>Tipo de regra
 
-Quando se cria uma regra, [ *escolhe-se*entre o *básico* e o caminho.](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules)
+Quando se cria uma regra, [ *escolhe-se* entre o *básico* e o caminho.](./application-gateway-components.md#request-routing-rules)
 
 - Escolha o básico se quiser encaminhar todos os pedidos no ouvinte associado (por exemplo, *blog <i></i> .contoso.com/ \* )* para um único pool back-end.
 - Escolha o caminho baseado se quiser encaminhar pedidos de caminhos de URL específicos para piscinas específicas de back-end. O padrão do caminho é aplicado apenas ao caminho do URL, não aos seus parâmetros de consulta.
@@ -51,13 +51,13 @@ Para uma regra baseada em caminhos, adicione várias definições HTTP de back-e
 
 ## <a name="redirection-setting"></a>Definição de redirecionamento
 
-Se a reorientação for configurada para uma regra básica, todos os pedidos no ouvinte associado são redirecionados para o alvo. Isto é reorientação *global.* Se a reorientação for configurada para uma regra baseada em caminhos, apenas os pedidos numa área específica do site são redirecionados. Um exemplo é uma área de carrinhos de compras que é denotada por */carrinho/ \* *. Esta é a reorientação *baseada no caminho.*
+Se a reorientação for configurada para uma regra básica, todos os pedidos no ouvinte associado são redirecionados para o alvo. Isto é reorientação *global.* Se a reorientação for configurada para uma regra baseada em caminhos, apenas os pedidos numa área específica do site são redirecionados. Um exemplo é uma área de carrinhos de compras que é denotada por */carrinho/ \**. Esta é a reorientação *baseada no caminho.*
 
 Para obter mais informações sobre redirecionamentos, consulte [a visão geral do redirecionamento do Gateway de Aplicação](redirect-overview.md).
 
 ### <a name="redirection-type"></a>Tipo de redirecionamento
 
-Escolha o tipo de reorientação necessária: *Permanente(301)*, *Temporário(307)*, *Encontrado(302)* ou *Ver outro(303)*.
+Escolha o tipo de reorientação necessária: *Permanente(301)* , *Temporário(307)* , *Encontrado(302)* ou *Ver outro(303)*.
 
 ### <a name="redirection-target"></a>Alvo de redirecionamento
 

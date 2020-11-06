@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8acf1b025a5943773821c8ab78de6288eb6bec2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132046"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397903"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Problemas de saúde na resolução de problemas de saúde no Gateway de Aplicação
 ==================================================
@@ -24,7 +24,7 @@ Por predefinição, o Azure Application Gateway sonda servidores backend para ve
 
 ### <a name="how-to-check-backend-health"></a>Como verificar a saúde backend
 
-Para verificar a saúde da sua piscina de backend, pode utilizar a página **Backend Health** no portal Azure. Ou, pode utilizar [a Azure PowerShell,](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0) [CLI](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health)ou [REST API](https://docs.microsoft.com/rest/api/application-gateway/applicationgateways/backendhealth).
+Para verificar a saúde da sua piscina de backend, pode utilizar a página **Backend Health** no portal Azure. Ou, pode utilizar [a Azure PowerShell,](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0) [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health)ou [REST API](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 O estado recuperado por qualquer um destes métodos pode ser qualquer um dos seguintes:
 
@@ -91,7 +91,7 @@ A mensagem exibida na coluna **Detalhes** fornece informações mais detalhadas 
 
 **Causa:** Depois de o Application Gateway enviar um pedido de sonda HTTP(S) para o servidor backend, aguarda uma resposta do servidor backend por um período configurado. Se o servidor backend não responder dentro do período configurado (o valor de tempo limite), está marcado como Insalubre até que comece a responder dentro do período de tempo configurado novamente.
 
-**Resolução:** Verifique por que razão o servidor ou aplicação de backend não está a responder dentro do período de tempo configurado e verifique também as dependências da aplicação. Por exemplo, verifique se a base de dados tem algum problema que possa desencadear um atraso na resposta. Se tiver conhecimento do comportamento da aplicação e só responder após o valor do tempo limite, aumente o valor de tempo limite das definições personalizadas da sonda. Deve ter uma sonda personalizada para alterar o valor do tempo limite. Para obter informações sobre como configurar uma sonda personalizada, [consulte a página de documentação](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+**Resolução:** Verifique por que razão o servidor ou aplicação de backend não está a responder dentro do período de tempo configurado e verifique também as dependências da aplicação. Por exemplo, verifique se a base de dados tem algum problema que possa desencadear um atraso na resposta. Se tiver conhecimento do comportamento da aplicação e só responder após o valor do tempo limite, aumente o valor de tempo limite das definições personalizadas da sonda. Deve ter uma sonda personalizada para alterar o valor do tempo limite. Para obter informações sobre como configurar uma sonda personalizada, [consulte a página de documentação](./application-gateway-create-probe-portal.md).
 
 Para aumentar o valor de tempo limite, siga estes passos:
 
@@ -105,7 +105,7 @@ Para aumentar o valor de tempo limite, siga estes passos:
 
 #### <a name="dns-resolution-error"></a>Erro de resolução do DNS
 
-**Mensagem:** O Application Gateway não conseguiu criar uma sonda para este backend. Normalmente, esta situação acontece quando o FQDN do back-end não foi inserido corretamente. 
+**Mensagem:** O Application Gateway não conseguiu criar uma sonda para este backend. Normalmente, esta situação acontece quando o FQDN do back-end não foi inserido corretamente. 
 
 **Causa:** Se o pool de backend for do tipo IP Address/FQDN ou Serviço de Aplicações, o Gateway de aplicações resolve-se para o endereço IP do FQDN introduzido através do Sistema de Nome de Domínio (DNS) (padrão personalizado ou azure) e tenta ligar-se ao servidor na porta TCP mencionada nas Definições HTTP. Mas se esta mensagem for exibida, sugere que o Application Gateway não conseguiu resolver com sucesso o endereço IP do FQDN introduzido.
 
@@ -119,7 +119,7 @@ Para aumentar o valor de tempo limite, siga estes passos:
 
 1.  Se estiver a utilizar o DNS predefinido do Azure, verifique com o seu registo de nome de domínio se foi concluído um registo adequado ou um mapeamento de registo CNAME.
 
-1.  Se o domínio for privado ou interno, tente resolvê-lo a partir de um VM na mesma rede virtual. Se conseguir resolvê-lo, reinicie o Gateway de Aplicação e verifique novamente. Para reiniciar o Gateway de Aplicações, tem de [parar](https://docs.microsoft.com/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) e [começar](https://docs.microsoft.com/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) a utilizar os comandos PowerShell descritos nestes recursos ligados.
+1.  Se o domínio for privado ou interno, tente resolvê-lo a partir de um VM na mesma rede virtual. Se conseguir resolvê-lo, reinicie o Gateway de Aplicação e verifique novamente. Para reiniciar o Gateway de Aplicações, tem de [parar](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) e [começar](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) a utilizar os comandos PowerShell descritos nestes recursos ligados.
 
 #### <a name="tcp-connect-error"></a>Erro de ligação TCP
 
@@ -138,7 +138,7 @@ Verifique também se algum NSG/UDR/Firewall está bloqueando o acesso ao Ip e à
 
 1.  Se também não conseguir ligar a porta da sua máquina local, então:
 
-    a.  Verifique as definições do grupo de segurança da rede (NSG) do adaptador de rede e sub-rede do servidor de backend e se são permitidas ligações de entrada à porta configurada. Se não estiverem, crie uma nova regra para permitir as ligações. Para aprender a criar regras NSG, [consulte a página de documentação](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-security-rules).
+    a.  Verifique as definições do grupo de segurança da rede (NSG) do adaptador de rede e sub-rede do servidor de backend e se são permitidas ligações de entrada à porta configurada. Se não estiverem, crie uma nova regra para permitir as ligações. Para aprender a criar regras NSG, [consulte a página de documentação](../virtual-network/tutorial-filter-network-traffic.md#create-security-rules).
 
     b.  Verifique se as definições NSG da sub-rede Application Gateway permitem tráfego público e privado de saída, para que possa ser feita uma ligação. Consulte a página de documentos fornecida no passo 3a para saber mais sobre como criar regras NSG.
     ```azurepowershell
@@ -185,7 +185,7 @@ Verifique também se algum NSG/UDR/Firewall está bloqueando o acesso ao Ip e à
 
 Ou, se acha que a resposta é legítima e quer que o Application Gateway aceite outros códigos de estado como Healthy, pode criar uma sonda personalizada. Esta abordagem é útil em situações em que o site backend precisa de autenticação. Como os pedidos da sonda não têm credenciais de utilizador, falharão e um código de estado HTTP 401 será devolvido pelo servidor backend.
 
-Para criar uma sonda personalizada, siga [estes passos.](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal)
+Para criar uma sonda personalizada, siga [estes passos.](./application-gateway-create-probe-portal.md)
 
 #### <a name="http-response-body-mismatch"></a>Incompatibilidade do corpo de resposta HTTP
 
@@ -201,7 +201,7 @@ Para criar uma sonda personalizada, siga [estes passos.](https://docs.microsoft.
 
 1.  Se não corresponderem, altere a configuração da sonda de modo a que tenha o valor correto da cadeia a aceitar.
 
-Saiba mais sobre [a correspondência da sonda Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
+Saiba mais sobre [a correspondência da sonda Application Gateway](./application-gateway-probe-overview.md#probe-matching).
 
 >[!NOTE]
 > Para todas as mensagens de erro relacionadas com TLS, para saber mais sobre o comportamento do SNI e as diferenças entre o V1 e v2 SKU, consulte a página geral do [TLS.](ssl-overview.md)
@@ -232,13 +232,13 @@ Para que seja confiável um certificado TLS/SSL, esse certificado do servidor ba
 
 1.  Abra a página **de definições** http do Gateway de Aplicação no portal Azure.
 
-1. Abra as definições HTTP, **selecione Adicionar Certificado**e localize o ficheiro de certificado que acabou de guardar.
+1. Abra as definições HTTP, **selecione Adicionar Certificado** e localize o ficheiro de certificado que acabou de guardar.
 
 1. **Selecione Guardar** para guardar as definições HTTP.
 
 Em alternativa, pode exportar o certificado raiz de uma máquina cliente, acedendo diretamente ao servidor (bypass Application Gateway) através do navegador e exportando o certificado raiz do navegador.
 
-Para obter mais informações sobre como extrair e carregar certificados de raiz fidedignos no Gateway de aplicação, consulte [o certificado de raiz fidedigno de exportação (para v2 SKU)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Para obter mais informações sobre como extrair e carregar certificados de raiz fidedignos no Gateway de aplicação, consulte [o certificado de raiz fidedigno de exportação (para v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
 #### <a name="trusted-root-certificate-mismatch"></a>Incompatibilidade de certificado de raiz fidedigno
 
@@ -253,7 +253,7 @@ O certificado que foi enviado para as definições do Gateway HTTP da Aplicaçã
 
 Siga os passos 1-11 no método anterior para carregar o certificado de raiz de confiança correto para o Gateway de Aplicação.
 
-Para obter mais informações sobre como extrair e carregar certificados de raiz fidedignos no Gateway de aplicação, consulte [o certificado de raiz fidedigno de exportação (para v2 SKU)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Para obter mais informações sobre como extrair e carregar certificados de raiz fidedignos no Gateway de aplicação, consulte [o certificado de raiz fidedigno de exportação (para v2 SKU)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 > [!NOTE]
 > Este erro também pode ocorrer se o servidor backend não trocar a cadeia completa do certificado, incluindo o Root > Intermediate (se aplicável) > Leaf durante o aperto de mão TLS. Para verificar, pode utilizar comandos OpenSSL a partir de qualquer cliente e ligar-se ao servidor backend utilizando as definições configuradas na sonda 'Gateway' de aplicação.
 
@@ -331,7 +331,7 @@ Para o Linux utilizar o OpenSSL:
 
 1.  Abra as definições de Gateway HTTP no portal.
 
-1.  Selecione a definição que tem o certificado caducado, **selecione Add Certificate**e abra o novo ficheiro de certificado.
+1.  Selecione a definição que tem o certificado caducado, **selecione Add Certificate** e abra o novo ficheiro de certificado.
 
 1.  Remova o certificado antigo utilizando o ícone **Eliminar** ao lado do certificado e, em seguida, selecione **Guardar**.
 
@@ -371,9 +371,9 @@ Este comportamento pode ocorrer por uma ou mais das seguintes razões:
 
     e.  Na secção **Regras de Entrada,** adicione uma regra de entrada para permitir a gama de portos de destino 65503-65534 para v1 SKU ou 65200-65535 v2 SKU com o conjunto **de fontes** como **Qualquer** ou **Internet**.
 
-    f.  **Selecione Guardar** e verifique se pode ver o backend como Saudável. Em alternativa, pode fazê-lo através [do PowerShell/CLI](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group).
+    f.  **Selecione Guardar** e verifique se pode ver o backend como Saudável. Em alternativa, pode fazê-lo através [do PowerShell/CLI](../virtual-network/manage-network-security-group.md).
 
-1.  Verifique se o seu UDR tem uma rota predefinido (0.0.0.0/0) com o próximo salto não definido como **Internet**:
+1.  Verifique se o seu UDR tem uma rota predefinido (0.0.0.0/0) com o próximo salto não definido como **Internet** :
     
     a.  Siga os passos 1a e 1b para determinar a sua sub-rede.
 
@@ -381,7 +381,7 @@ Este comportamento pode ocorrer por uma ou mais das seguintes razões:
 
     c.  Verifique se existem rotas predefinidos (0.0.0.0/0) com o próximo salto não definido como **Internet**. Se a definição for **ou Aparelho Virtual** ou Gateway de Rede **Virtual,** certifique-se de que o seu aparelho virtual ou o dispositivo no local podem encaminhar corretamente o pacote de volta para o destino da Internet sem modificar o pacote.
 
-    d.  Caso contrário, altere o próximo salto para a **Internet**, selecione **Save**, e verifique a saúde do backend.
+    d.  Caso contrário, altere o próximo salto para a **Internet** , selecione **Save** , e verifique a saúde do backend.
 
 1.  Rota padrão anunciada pela ligação ExpressRoute/VPN à rede virtual sobre o BGP:
 
@@ -398,4 +398,4 @@ Este comportamento pode ocorrer por uma ou mais das seguintes razões:
 <a name="next-steps"></a>Passos seguintes
 ----------
 
-Saiba mais sobre [diagnósticos e registos de gateway de aplicações.](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
+Saiba mais sobre [diagnósticos e registos de gateway de aplicações.](./application-gateway-diagnostics.md)

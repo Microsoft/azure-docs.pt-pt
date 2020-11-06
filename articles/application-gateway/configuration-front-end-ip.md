@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: d6cfac7f0fb3939e57ce64f552556138ce9feacd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc5efd6ad478710ba839634a49f041211756af71
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89653191"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397676"
 ---
 # <a name="application-gateway-front-end-ip-address-configuration"></a>Configuração de endereço IP frontal do Gateway de aplicação
 
@@ -32,11 +32,11 @@ Um endereço IP público não é necessário para um ponto final interno que nã
 
 Apenas um endereço IP público ou um endereço IP privado é suportado. Escolha o IP frontal quando criar o gateway de aplicações.
 
-- Para um endereço IP público, pode criar um novo endereço IP público ou utilizar um IP público existente no mesmo local que o gateway de aplicações. Para mais informações, consulte [o endereço IP público estático vs. dinâmico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address).
+- Para um endereço IP público, pode criar um novo endereço IP público ou utilizar um IP público existente no mesmo local que o gateway de aplicações. Para mais informações, consulte [o endereço IP público estático vs. dinâmico](./application-gateway-components.md#static-versus-dynamic-public-ip-address).
 
-- Para um endereço IP privado, pode especificar um endereço IP privado a partir da sub-rede onde o gateway de aplicações é criado. Se não especificar um, um endereço IP arbitrário é automaticamente selecionado a partir da sub-rede. O tipo de endereço IP que seleciona (estático ou dinâmico) não pode ser alterado mais tarde. Para obter mais informações, consulte [Criar uma porta de aplicação com um equilibrador de carga interno](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm).
+- Para um endereço IP privado, pode especificar um endereço IP privado a partir da sub-rede onde o gateway de aplicações é criado. Se não especificar um, um endereço IP arbitrário é automaticamente selecionado a partir da sub-rede. O tipo de endereço IP que seleciona (estático ou dinâmico) não pode ser alterado mais tarde. Para obter mais informações, consulte [Criar uma porta de aplicação com um equilibrador de carga interno](./application-gateway-ilb-arm.md).
 
-Um endereço IP frontal está associado a um *ouvinte*, que verifica os pedidos de entrada no IP frontal.
+Um endereço IP frontal está associado a um *ouvinte* , que verifica os pedidos de entrada no IP frontal.
 
 ## <a name="next-steps"></a>Passos seguintes
 

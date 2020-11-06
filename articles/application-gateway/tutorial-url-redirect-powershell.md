@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 8763c07ee91f228f63880c2be16497a7a78c6453
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9606bfe8b4719ed4ab3c51fc177f331b754f7a1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595279"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397073"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Criar um gateway de aplicação com o redirecionamento com base no caminho do URL com o Azure PowerShell
 
-Pode utilizar o Azure PowerShell para configurar [regras de encaminhamento com base no URL](application-gateway-url-route-overview.md) quando cria um [gateway de aplicação](application-gateway-introduction.md). Neste artigo, cria piscinas de backend utilizando  [conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Em seguida, vai criar regras de encaminhamento de URL que asseguram que o tráfego da Web é redirecionado para o conjunto de back-end adequado.
+Pode utilizar o Azure PowerShell para configurar [regras de encaminhamento com base no URL](./url-route-overview.md) quando cria um [gateway de aplicação](./overview.md). Neste artigo, cria piscinas de backend utilizando  [conjuntos de escala de máquina virtual](../virtual-machine-scale-sets/overview.md). Em seguida, vai criar regras de encaminhamento de URL que asseguram que o tráfego da Web é redirecionado para o conjunto de back-end adequado.
 
 Neste artigo, vai aprender a:
 
@@ -79,7 +79,7 @@ New-AzPublicIpAddress `
 Nesta secção, pode criar recursos que suportam o gateway de aplicação e que, por fim, o criam. Os recursos que criar incluem:
 
 - *Configurações de IP e porta de front-end* - associa a sub-rede que criou anteriormente ao gateway de aplicação e atribui uma porta a utilizar para aceder ao mesmo.
-- *Conjunto predefinido * - todos os gateways de aplicação precisam de ter, pelo menos, um conjunto de servidores de back-end.
+- *Conjunto predefinido* - todos os gateways de aplicação precisam de ter, pelo menos, um conjunto de servidores de back-end.
 - *Serviço de escuta e regra predefinidos* - o serviço de escuta predefinido escuta o tráfego na porta atribuída e a regra predefinida envia o tráfego para o conjunto predefinido.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Criar as configurações de IP e a porta de front-end
@@ -390,7 +390,7 @@ Set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste exemplo, vai criar três conjuntos de dimensionamento de máquinas virtuais que suportam os três conjuntos de back-end que criou. Os conjuntos de dimensionamento que criar são denominados *myvmss1*, *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o IIS. Pode atribuir o conjunto de dimensionamento ao conjunto de back-end quando configurar as definições de IP.
+Neste exemplo, vai criar três conjuntos de dimensionamento de máquinas virtuais que suportam os três conjuntos de back-end que criou. Os conjuntos de dimensionamento que criar são denominados *myvmss1* , *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o IIS. Pode atribuir o conjunto de dimensionamento ao conjunto de back-end quando configurar as definições de IP.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -518,4 +518,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Saiba mais sobre o que pode fazer com o gateway de aplicação](application-gateway-introduction.md)
+> [Saiba mais sobre o que pode fazer com o gateway de aplicação](./overview.md)

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d6bcb9125cdfc07eb249353cb85b40a22d3e468c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168193"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397370"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Resolução de problemas comuns ou problemas com o Controlador Ingress
 
@@ -132,7 +132,7 @@ O Controlador de Entradas de Gateway de Aplicação (AGIC) monitoriza continuame
 
 
 Devem estar em vigor para que a AGIC funcione como esperado:
-  1. AKS deve ter uma ou mais **cápsulas**saudáveis.
+  1. AKS deve ter uma ou mais **cápsulas** saudáveis.
      Verifique isto na [Cloud Shell](https://shell.azure.com/) com Se tiver um Pod `kubectl get pods -o wide --show-labels` com `apsnetapp` um, a sua saída pode ficar assim:
      ```bash
      delyan@Azure:~$ kubectl get pods -o wide --show-labels
@@ -150,7 +150,7 @@ Devem estar em vigor para que a AGIC funcione como esperado:
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. **Ingress**, anotado `kubernetes.io/ingress.class: azure/application-gateway` com, referenciando o serviço acima Verifique isto da [Cloud Shell](https://shell.azure.com/) com `kubectl get ingress -o wide --show-labels`
+  3. **Ingress** , anotado `kubernetes.io/ingress.class: azure/application-gateway` com, referenciando o serviço acima Verifique isto da [Cloud Shell](https://shell.azure.com/) com `kubectl get ingress -o wide --show-labels`
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
@@ -243,7 +243,7 @@ A comunidade Kubernetes estabeleceu 9 níveis de registo para a ferramenta [kube
 |  5        | Troncos de objetos de marechal; mostra json config higienizado aplicado à ARM |
 
 
-Os níveis de verbosidade são ajustáveis através da `verbosityLevel` variável no ficheiro [helm-config.yaml.](#sample-helm-config-file) Aumente o nível de verbosidade `5` para que o config JSON despachasse para a [ARM:](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+Os níveis de verbosidade são ajustáveis através da `verbosityLevel` variável no ficheiro [helm-config.yaml.](#sample-helm-config-file) Aumente o nível de verbosidade `5` para que o config JSON despachasse para a [ARM:](../azure-resource-manager/management/overview.md)
   - adicionar `verbosityLevel: 5` em uma linha por si só em [helm-config.yaml](#sample-helm-config-file) e reinstalar
   - obter troncos com `kubectl logs <pod-name>`
 
@@ -300,4 +300,3 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-

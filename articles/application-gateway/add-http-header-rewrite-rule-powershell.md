@@ -7,23 +7,23 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: f205b3a604aa38854969f6f62cbce44f46fa7d25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6938ad55915286af397fee6d72a333e3bb39a1e6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808262"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397921"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Reescrever os cabeçalhos de pedido e resposta HTTP com Gateway de Aplicação Azure - Azure PowerShell
 
-Este artigo descreve como usar a Azure PowerShell para configurar uma [instância SKU do Gateway v2 para](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) reescrever os cabeçalhos HTTP em pedidos e respostas.
+Este artigo descreve como usar a Azure PowerShell para configurar uma [instância SKU do Gateway v2 para](./application-gateway-autoscaling-zone-redundant.md) reescrever os cabeçalhos HTTP em pedidos e respostas.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-- Você precisa executar Azure PowerShell localmente para completar os passos neste artigo. Também precisa de ter a versão 1.0.0 do módulo Az ou posteriormente instalada. Corra `Import-Module Az` e, em seguida, `Get-Module Az` determine a versão que instalou. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](https://docs.microsoft.com/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma ligação ao Azure.
-- Precisa de ter uma instância SKU do Gateway v2. Reescrevendo cabeçalhos não é suportado no V1 SKU. Se não tiver o V2 SKU, crie uma [instância SKU SKU do Gateway v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) antes de começar.
+- Você precisa executar Azure PowerShell localmente para completar os passos neste artigo. Também precisa de ter a versão 1.0.0 do módulo Az ou posteriormente instalada. Corra `Import-Module Az` e, em seguida, `Get-Module Az` determine a versão que instalou. Se precisar de atualizar, veja [Install Azure PowerShell module (Instalar o módulo do Azure PowerShell)](/powershell/azure/install-az-ps). Depois de verificar a versão do PowerShell, execute `Login-AzAccount` para criar uma ligação ao Azure.
+- Precisa de ter uma instância SKU do Gateway v2. Reescrevendo cabeçalhos não é suportado no V1 SKU. Se não tiver o V2 SKU, crie uma [instância SKU SKU do Gateway v2](./tutorial-autoscale-ps.md) antes de começar.
 
 ## <a name="create-required-objects"></a>Criar objetos necessários
 
@@ -31,23 +31,23 @@ Para configurar a reescrita do cabeçalho HTTP, é necessário completar estes p
 
 1. Crie os objetos necessários para reescrever o cabeçalho HTTP:
 
-   - **RequerimentoConfiguration**: Usado para especificar os campos de cabeçalho de pedido que pretende reescrever e o novo valor para os cabeçalhos.
+   - **RequerimentoConfiguration** : Usado para especificar os campos de cabeçalho de pedido que pretende reescrever e o novo valor para os cabeçalhos.
 
-   - **RespostaConfiguration**: Usado para especificar os campos de cabeçalho de resposta que pretende reescrever e o novo valor para os cabeçalhos.
+   - **RespostaConfiguration** : Usado para especificar os campos de cabeçalho de resposta que pretende reescrever e o novo valor para os cabeçalhos.
 
-   - **ActionSet**: Contém as configurações dos cabeçalhos de pedido e resposta especificados anteriormente.
+   - **ActionSet** : Contém as configurações dos cabeçalhos de pedido e resposta especificados anteriormente.
 
-   - **Condição**: Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
+   - **Condição** : Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
 
      Se associar mais do que uma condição a uma ação, a ação ocorre apenas quando todas as condições estão reunidas. Por outras palavras, a operação é uma operação lógica.
 
-   - **ReescritaRule**: Contém combinações de condições de reescrita múltiplas/ reescrita.
+   - **ReescritaRule** : Contém combinações de condições de reescrita múltiplas/ reescrita.
 
-   - **RegraSSequence**: Uma configuração opcional que ajuda a determinar a ordem em que as regras de reescrita executam. Esta configuração é útil quando tem várias regras de reescrita num conjunto de reescrita. Uma regra de reescrita que tem um valor de sequência de regras mais baixo corre primeiro. Se atribuir o mesmo valor de sequência de regras a duas regras de reescrita, a ordem de execução não é determinística.
+   - **RegraSSequence** : Uma configuração opcional que ajuda a determinar a ordem em que as regras de reescrita executam. Esta configuração é útil quando tem várias regras de reescrita num conjunto de reescrita. Uma regra de reescrita que tem um valor de sequência de regras mais baixo corre primeiro. Se atribuir o mesmo valor de sequência de regras a duas regras de reescrita, a ordem de execução não é determinística.
 
      Se não especificar explicitamente a regra, é definido um valor padrão de 100.
 
-   - **ReescreveruleSet**: Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
+   - **ReescreveruleSet** : Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
 
 2. Fixe o RewriteRuleSet a uma regra de encaminhamento. A configuração de reescrita é anexada ao ouvinte de origem através da regra de encaminhamento. Quando utiliza uma regra de encaminhamento básico, a configuração de reescrita do cabeçalho está associada a um ouvinte de origem e é uma reescrita global do cabeçalho. Quando utiliza uma regra de encaminhamento baseada no caminho, a configuração de reescrita do cabeçalho é definida no mapa do caminho URL. Nesse caso, aplica-se apenas à área específica do percurso de um sítio.
 
@@ -104,4 +104,4 @@ set-AzApplicationGateway -ApplicationGateway $appgw
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre como configurar alguns casos de uso comum, consulte [cenários comuns de reescrita do cabeçalho](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Para saber mais sobre como configurar alguns casos de uso comum, consulte [cenários comuns de reescrita do cabeçalho](./rewrite-http-headers.md).

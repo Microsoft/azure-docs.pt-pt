@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 2a269137508feb8a2d2cc0710986e1b74b91c0ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 63f4b28915a932398e5417f8ea9be3fe4d68e705
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186746"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397846"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-by-using-powershell-for-azure-resource-manager"></a>Crie uma sonda personalizada para O Gateway de Aplicações Azure utilizando o PowerShell para O Gestor de Recursos Azure
 
@@ -197,5 +197,4 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Aprenda a configurar a descarga de TLS visitando: [Configure TLS Offload](application-gateway-ssl-arm.md)
-
+Aprenda a configurar a descarga de TLS visitando: [Configure TLS Offload](./tutorial-ssl-powershell.md)

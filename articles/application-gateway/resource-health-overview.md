@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
-ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67659505"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397177"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Visão geral da Saúde do Recurso de Gateway de Aplicação Azure
 
@@ -61,4 +61,4 @@ O estado de saúde **degradado** indica que o seu portal de entrada detetou uma 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre a resolução de problemas da aplicação Gateway Web Application Firewall (WAF), consulte a Firewall de [Aplicação Web de resolução de problemas (WAF) para gateway de aplicações Azure](web-application-firewall-troubleshoot.md).
+Para saber mais sobre a resolução de problemas da aplicação Gateway Web Application Firewall (WAF), consulte a Firewall de [Aplicação Web de resolução de problemas (WAF) para gateway de aplicações Azure](../web-application-firewall/ag/web-application-firewall-troubleshoot.md).

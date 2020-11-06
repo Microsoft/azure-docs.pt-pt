@@ -7,19 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8be37ed1da0da4da3db43ef4c1cd01ed962f24ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84806785"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397313"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Use IP privado para encaminhamento interno para um ponto final ingress 
 
 Esta funcionalidade permite expor o ponto final de entrada dentro do `Virtual Network` uso de um IP privado.
 
 ## <a name="pre-requisites"></a>Pré-requisitos  
-Gateway de aplicação com [configuração IP privada](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
+Gateway de aplicação com [configuração IP privada](./configure-application-gateway-with-private-frontend-ip.md)
 
 Existem duas formas de configurar o controlador para usar o IP privado para a entrada,
 
@@ -66,4 +66,4 @@ Isto fará com que o controlador de entrada filtra as configurações do endere�
 A AGIC entrará em pânico e colidirá se `usePrivateIP: true` e nenhum IP privado for atribuído.
 
 > [!NOTE]
-> Application Gateway v2 SKU requer um IP público. Se necessitar que o Gateway de Aplicação seja privado, anexe [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) a a sub-rede do Gateway de aplicação para restringir o tráfego.
+> Application Gateway v2 SKU requer um IP público. Se necessitar que o Gateway de Aplicação seja privado, anexe [`Network Security Group`](../virtual-network/network-security-groups-overview.md) a a sub-rede do Gateway de aplicação para restringir o tráfego.

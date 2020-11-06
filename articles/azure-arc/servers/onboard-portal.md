@@ -1,14 +1,14 @@
 ---
 title: Ligue máquinas híbridas ao Azure a partir do portal Azure
 description: Neste artigo, aprende-se a instalar o agente e a ligar máquinas ao Azure utilizando servidores ativados pelo Azure Arc a partir do portal Azure.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8769a3b76172bc6508b7c52eda359695c01eaa4b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: ca3c08acdef1b2a1f7c3774f5755967d472c93ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370156"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398033"
 ---
 # <a name="connect-hybrid-machines-to-azure-from-the-azure-portal"></a>Ligue máquinas híbridas ao Azure a partir do portal Azure
 
@@ -113,9 +113,9 @@ Se o agente não iniciar após a configuração terminar, verifique se os regist
 
 O agente da Máquina Conectada para o Linux é fornecido no formato de pacote preferido para a distribuição (. RPM ou . DEB) que está hospedado no [repositório](https://packages.microsoft.com/)de pacotes da Microsoft. O [pacote `Install_linux_azcmagent.sh` de script](https://aka.ms/azcmagent) shell executa as seguintes ações:
 
-- Configura a máquina hospedeira para descarregar o pacote de agente a partir de packages.microsoft.com.
-- Instala o pacote Fornecedor de Recursos Híbridos.
-- Regista a máquina com Arco Azure
+* Configura a máquina hospedeira para descarregar o pacote de agente a partir de packages.microsoft.com.
+
+* Instala o pacote Fornecedor de Recursos Híbridos.
 
 Opcionalmente, pode configurar o agente com as suas informações de procuração, incluindo o `--proxy "{proxy-url}:{proxy-port}"` parâmetro.
 
@@ -131,15 +131,30 @@ wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 bash ~/Install_linux_azcmagent.sh
 ```
 
-Para descarregar e instalar o agente, incluindo o `--proxy` parâmetro para configurar o agente para comunicar através do seu servidor proxy, executar os seguintes comandos:
+1. Para descarregar e instalar o agente, incluindo o `--proxy` parâmetro para configurar o agente para comunicar através do seu servidor proxy, executar os seguintes comandos:
 
-```bash
-# Download the installation package.
-wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
+    ```bash
+    # Download the installation package.
+    wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent. 
-bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
-```
+    # Install the connected machine agent.
+    bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
+    ```
+
+2. Após instalar o agente, terá de configurá-lo para comunicar com o serviço Azure Arc ao executar o seguinte comando:
+
+    ```bash
+    azcmagent connect --resource-group "resourceGroupName" --tenant-id "tenantID" --location "regionName" --subscription-id "subscriptionID" --cloud "cloudName"
+    if [ $? = 0 ]; then echo "\033[33mTo view your onboarded server(s), navigate to https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.HybridCompute%2Fmachines\033[m"; fi
+    ```
+
+### <a name="install-with-the-scripted-method"></a>Instalar com o método scripted
+
+1. Faça login no servidor com uma conta que tenha acesso à raiz.
+
+1. Altere para a pasta ou partilhe para a seguinte cópia do script e execute-o no servidor executando o `./OnboardingScript.sh` script.
+
+Se o agente não iniciar após a configuração terminar, verifique se os registos são informativo de erro. O diretório de registos é *var/opt/azcmagent/log*.
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Verificar a ligação com o Azure Arc
 
