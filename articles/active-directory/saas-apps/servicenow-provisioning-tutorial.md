@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 3b592591f3d2190fdcc9ed7b3b12b2eca20a25a5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1d6213d49c98f5e09f22e7310183315800d0c6f6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675836"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359787"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Tutorial: Configure ServiceNow para o fornecimento automático de utilizadores
 
@@ -58,8 +58,8 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 3. Verifique se as seguintes definições estão **desativadas** no ServiceNow:
 
-   1. Selecione **System Security**  >  **definições de segurança de segurança do** sistema  >  **Requerem autenticação básica para pedidos de SCHEMA de entrada** .
-   2. Selecione **System Properties**  >  **Web Services** Require basic authorization for incoming SOAP  >  **requests** .
+   1. Selecione **System Security**  >  **definições de segurança de segurança do** sistema  >  **Requerem autenticação básica para pedidos de SCHEMA de entrada**.
+   2. Selecione **System Properties**  >  **Web Services** Require basic authorization for incoming SOAP  >  **requests**.
      
    > [!IMPORTANT]
    > Se estas definições *estiverem ativadas,* o motor de a provisionamento deixará de comunicar com o ServiceNow.
@@ -72,7 +72,7 @@ Adicione o ServiceNow da galeria de aplicações AZure AD para começar a gerir 
 
 O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser aprovisionado com base na atribuição à aplicação e/ou com base em atributos do utilizador/grupo. Se optar por determinar quem vai ser aprovisionado na sua aplicação com base na atribuição, pode utilizar os seguintes [passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se escolher determinar quem vai ser aprovisionado com base apenas em atributos do utilizador ou grupo, pode utilizar um filtro de âmbito conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir utilizadores e grupos ao ServiceNow, tem de selecionar outra função que não o **Acesso Predefinido** . Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar funções adicionais. 
+* Ao atribuir utilizadores e grupos ao ServiceNow, tem de selecionar outra função que não o **Acesso Predefinido**. Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar funções adicionais. 
 
 * Comece pequeno. Teste com um pequeno conjunto de utilizadores e grupos antes de implementar para todos. Quando o âmbito do aprovisionamento está definido para os utilizadores e os grupos atribuídos, pode controlar isto ao atribuir um ou dois utilizadores ou grupos à aplicação. Quando o âmbito está definido para todos os utilizadores e grupos, pode especificar um [filtro de âmbito baseado em atributos](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -83,19 +83,19 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-servicenow-in-azure-ad"></a>Para configurar o fornecimento automático do utilizador para o ServiceNow em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações** .
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, selecione **ServiceNow** .
+2. Na lista de candidaturas, selecione **ServiceNow**.
 
     ![O link ServiceNow na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o separador **Aprovisionamento** .
+3. Selecione o separador **Aprovisionamento**.
 
     ![Screenshot das opções De gestão com a opção Provisioning chamada.](common/provisioning.png)
 
-4. Defina o **Modo de Aprovisionamento** como **Automático** .
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
     ![Screenshot da lista de retirada do modo de provisionamento com a opção Automática chamada.](common/provisioning-automatic.png)
 
@@ -103,17 +103,17 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![A screenshot mostra a página de Fornecimento de Serviço, onde pode introduzir Credenciais de Administrador.](./media/servicenow-provisioning-tutorial/provisioning.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha** .
+6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Selecione **Guardar** .
+7. Selecione **Guardar**.
 
-8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to ServiceNow** .
+8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to ServiceNow**.
 
 9. Reveja os atributos do utilizador que são sincronizados de Azure AD para ServiceNow na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador no ServiceNow para operações de atualização. Se optar por alterar o [atributo de alvo correspondente,](../app-provisioning/customize-application-attributes.md)terá de garantir que a API do ServiceNow suporta utilizadores filtrantes com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to ServiceNow** .
+10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to ServiceNow**.
 
 11. Reveja os atributos do grupo que são sincronizados de Azure AD para ServiceNow na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder aos grupos no ServiceNow para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
@@ -127,11 +127,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para aprovisionar, clique em **Guardar** .
+15. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
     ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
-Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições** . O ciclo inicial leva mais tempo a ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do Azure AD esteja em execução. 
+Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições**. O ciclo inicial leva mais tempo a ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do Azure AD esteja em execução. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
 Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:
@@ -151,8 +151,8 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 
    Este erro indica um problema de comunicação com a instância ServiceNow. Verifique duas vezes se as seguintes definições são *desativadas* no ServiceNow:
    
-   1. Selecione **System Security**  >  **definições de segurança de segurança do** sistema  >  **Requerem autenticação básica para pedidos de SCHEMA de entrada** .
-   2. Selecione **System Properties**  >  **Web Services** Require basic authorization for incoming SOAP  >  **requests** .
+   1. Selecione **System Security**  >  **definições de segurança de segurança do** sistema  >  **Requerem autenticação básica para pedidos de SCHEMA de entrada**.
+   2. Selecione **System Properties**  >  **Web Services** Require basic authorization for incoming SOAP  >  **requests**.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

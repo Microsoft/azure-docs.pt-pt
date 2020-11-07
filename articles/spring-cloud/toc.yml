@@ -31,14 +31,10 @@
       href: spring-cloud-tutorial-setup-autoscale.md
     - name: Grupos de alertas e ações
       href: spring-cloud-tutorial-alerts-action-groups.md
-    - name: Utilizar o IntelliJ para implementar aplicações
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Dashboard do Disjuntor Automático
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Nome DNS personalizado
       href: spring-cloud-tutorial-custom-domain.md
-    - name: Aprovisionar uma instância do Azure Spring Cloud com terraform
-      href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Utilizar a identidade gerida para ligar o Key Vault à aplicação Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Implementar o Azure Spring Cloud na rede virtual
@@ -77,6 +73,8 @@
           href: spring-cloud-howto-staging-environment.md
         - name: Iniciar aplicação Java a partir do código fonte
           href: spring-cloud-howto-launch-from-source.md
+        - name: Utilizar o IntelliJ para implementar aplicações
+          href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Configurar
       items:
         - name: 'Iniciar, parar e eliminar uma aplicação'
@@ -115,13 +113,15 @@
           href: spring-cloud-howto-github-actions.md
         - name: Auth com o Key Vault no GitHub Actions
           href: spring-cloud-github-actions-key-vault.md
+        - name: Aprovisionar uma instância do Azure Spring Cloud com terraform
+          href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: Resolução de problemas
       items:
         - name: Diagnosticar e resolver problemas automaticamente
           href: spring-cloud-howto-self-diagnose-solve.md
         - name: Guia de Resolução de Problemas
           href: spring-cloud-troubleshoot.md
-    - name: Migrar
+    - name: Migrate
       items:
         - name: Spring Cloud
           href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud'

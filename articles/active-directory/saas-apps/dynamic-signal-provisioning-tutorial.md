@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 9ebb0927f9721c5c35ee0d83a108efd72732958b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 263a67fd8fba2c336d1ed4d91475386a8ae175dd
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851225"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359022"
 ---
 # <a name="tutorial-configure-dynamic-signal-for-automatic-user-provisioning"></a>Tutorial: Configure o Sinal Dinâmico para o provisionamento automático do utilizador
 
@@ -45,7 +45,7 @@ Antes de configurar o Sinal Dinâmico para o fornecimento automático de utiliza
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -104,7 +104,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     Copie o **URL da API SCIM** para o **URL do inquilino.** Clique em **Gerar Novo Token** para gerar um **Token portador** e copiar o valor para Secret **Token**.
 
-    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Screenshot da consola de administração Dynamic Signal. Avançado é destacado no menu Admin. O menu Avançado também é visível, com A P I em destaque." border="false":::
+    :::image type="content" source="./media/dynamic-signal-provisioning-tutorial/secret-token-2.png" alt-text="Screenshot da página Tokens, com S C I M A P I U R L, Gere novo token, e Bearer token destacado, e um espaço reservado na caixa de token Bearer." border="false":::
 
 7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se ao Sinal Dinâmico. Se a ligação falhar, certifique-se de que a sua conta De Sinal Dinâmico tem permissões de Administração e tente novamente.
 

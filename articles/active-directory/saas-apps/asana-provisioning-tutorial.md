@@ -7,16 +7,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: celested
-ms.openlocfilehash: 11e0606568fdaad20f996a7ae20a622576acea15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4abc117ae0e983cf684f0e70a363758f9be196aa
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549471"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359431"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Tutorial: Configurar Asana para o fornecimento automático de utilizadores
 
@@ -54,7 +54,7 @@ Esta secção guia-o através da ligação do seu AD AZure à conta de utilizado
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-asana-in-azure-ad"></a>Para configurar o fornecimento automático de conta de utilizador à Asana em Azure AD
 
-1. No [portal Azure,](https://portal.azure.com)consulte a secção **Azure Ative Directory**  >  **Enterprise Apps**All  >  **applications.**
+1. No [portal Azure,](https://portal.azure.com)consulte a secção **Azure Ative Directory**  >  **Enterprise Apps** All  >  **applications.**
 
 1. Se já configurar a Asana para um único sinal, procure a sua instância de Asana utilizando o campo de pesquisa. Caso contrário, **selecione Add** e procure por **Asana** na galeria de aplicações. Selecione **Asana** a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
@@ -74,13 +74,13 @@ Esta secção guia-o através da ligação do seu AD AZure à conta de utilizado
 
     d. Selecione **Conta de Serviço de Adicionar**.
 
-    e. Atualizar **Nome** e **Sobre** e a foto de perfil conforme necessário. Copie o token em **Token**e selecione-o em **Alterações de Poupança**.
+    e. Atualizar **Nome** e **Sobre** e a foto de perfil conforme necessário. Copie o token em **Token** e selecione-o em **Alterações de Poupança**.
 
 1. No portal Azure, selecione **Test Connection** para garantir que o Azure AD pode ligar-se à sua aplicação Asana. Se a ligação falhar, certifique-se de que a sua conta Asana tem permissões de administração e tente novamente o passo **de Ligação** de Teste.
 
 1. Insira o endereço de e-mail de uma pessoa ou grupo que pretende receber notificações de erro de provisionamento no  **E-mail de Notificação**. Selecione a caixa de verificação por baixo.
 
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
 1. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Asana**.
 
@@ -88,7 +88,7 @@ Esta secção guia-o através da ligação do seu AD AZure à conta de utilizado
 
 1. Para ativar o serviço de prestação de AD Azure para Asana, na secção **Definições,** altere o **Estado de Provisionamento** para **On**.
 
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
 Agora começa a sincronização inicial para qualquer utilizadores atribuídos a Asana na secção **Utilizadores.** A sincronização inicial demora mais tempo a ser efetuada do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço esteja em funcionamento. Utilize a secção Detalhes da **Sincronização** para monitorizar o progresso e seguir links para os registos de atividade de provisionamento. Os registos de auditoria descrevem todas as ações realizadas pelo serviço de fornecimento na sua app Asana.
 

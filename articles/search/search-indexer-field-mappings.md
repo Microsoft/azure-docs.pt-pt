@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532505"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358937"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapeamentos e transformações de campo usando indexantes de pesquisa cognitiva Azure
 
@@ -81,7 +81,7 @@ Um campo de origem pode ser referenciado em vários mapeamentos de campo. O exem
 
 ## <a name="map-fields-using-the-net-sdk"></a>Campos de mapas usando o .NET SDK
 
-Você define mapeamentos de campo no .NET SDK usando a classe [FieldMapping,](/dotnet/api/microsoft.azure.search.models.fieldmapping) que tem as propriedades `SourceFieldName` e , e uma referência `TargetFieldName` `MappingFunction` opcional.
+Você define mapeamentos de campo no .NET SDK usando a classe [FieldMapping,](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) que tem as propriedades `SourceFieldName` e , e uma referência `TargetFieldName` `MappingFunction` opcional.
 
 Pode especificar mapeamentos de campo ao construir o indexante, ou mais tarde, definindo diretamente a `Indexer.FieldMappings` propriedade.
 

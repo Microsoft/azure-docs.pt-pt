@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2fe0d8e6ad2056a244ec0d811f1b2dcb67e7bd84
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: ac41fb5ed6fd1e46719fcc39ccaf5b29375e7410
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516812"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359906"
 ---
 # <a name="tutorial-configure-meta-networks-connector-for-automatic-user-provisioning"></a>Tutorial: Configurar meta-redes connector para fornecimento automático de utilizadores
 
@@ -68,7 +68,7 @@ Antes de configurar e permitir o fornecimento automático do utilizador, deve de
 
 5.  Clique em **Adicionar**. Copie o **SECRET** e guarde-o pois esta será a única altura em que poderá vê-lo. Este valor será introduzido no campo Secret Token no separador Provisioning da sua aplicação Meta Networks Connector no portal Azure.
 
-    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Screenshot da Consola de Admin Meta Networks Connector com nome chave P I realçado e valores de descrição chave de Azure A D e A P I." border="false":::
+    :::image type="content" source="media/meta-networks-connector-provisioning-tutorial/token.png" alt-text="Screenshot de uma janela a dizer aos utilizadores que a chave A P I foi adicionada. A caixa Secreta contém um valor indecifrável e é realçada." border="false":::
 
 6.  Adicione um IdP navegando para **a Administração > Configurações > IdP > Criar Novo**.
 
@@ -98,7 +98,7 @@ Antes de configurar o Conector Meta Networks para o fornecimento automático de 
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -106,7 +106,7 @@ Antes de configurar o Conector Meta Networks para o fornecimento automático de 
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira o **Conector Meta Networks**, selecione **Meta Networks Connector** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira o **Conector Meta Networks** , selecione **Meta Networks Connector** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Meta Networks Connector na lista de resultados](common/search-new-app.png)
 

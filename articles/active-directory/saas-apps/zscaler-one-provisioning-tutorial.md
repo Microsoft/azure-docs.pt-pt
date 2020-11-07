@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: e306c65735d8a5682cd90a1ce28fceec7d045c4d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b8b6383c7808fd6c298d7776fc10572631bc6ddc
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519763"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359566"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler One para fornecimento automático de utilizadores
 
@@ -47,7 +47,7 @@ Para adicionar Zscaler One do Marketplace, siga estes passos.
 
     ![O ícone do Diretório Ativo Azure](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -80,7 +80,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para zscaler one em Azure AD
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Zscaler One**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Zscaler One**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -98,7 +98,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Sob a secção **credenciais de administrador,** preencha as caixas DE URL e **Token Secreto** do **Arrendatário** com as definições para a sua conta Zscaler One, conforme descrito no Passo 6.
 
-6. Para obter o URL do inquilino **Administration**e o token secreto, vá às  >  **Definições de Autenticação** da Administração no portal Zscaler One UI. No **tipo de autenticação,** selecione **SAML**.
+6. Para obter o URL do inquilino **Administration** e o token secreto, vá às  >  **Definições de Autenticação** da Administração no portal Zscaler One UI. No **tipo de autenticação,** selecione **SAML**.
 
     ![Definições de autenticação Zscaler One](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 
@@ -116,7 +116,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de notificação Zscaler One](./media/zscaler-one-provisioning-tutorial/notification.png)
 
-9. Selecione **Guardar**.
+9. Selecione **Save** (Guardar).
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Zscaler One**.
 

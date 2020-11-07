@@ -7,18 +7,18 @@ ms.service: virtual-wan
 ms.topic: tutorial
 ms.date: 10/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3d03d0267ff4fb16042d5cc2016e87139b88281a
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 645d5beb19b738e2269c0ec9e5b84fb140c7deb8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92056587"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359518"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação VPN do utilizador utilizando a Azure Virtual WAN
 
 Este tutorial mostra como utilizar a WAN Virtual para se ligar aos seus recursos no Azure através de uma ligação VPN IPsec/IKE (IKEv2) ou OpenVPN. Este tipo de ligação exige a configuração de um cliente no computador cliente. Para mais informações sobre o VIRTUAL WAN, consulte a [Visão Geral do WAN Virtual](virtual-wan-about.md)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma WAN
@@ -32,7 +32,9 @@ Neste tutorial, vai aprender a:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[!INCLUDE [Before beginning](../../includes/virtual-wan-before-include.md)]
+Antes de iniciar a configuração, verifique se cumpre os seguintes critérios:
+
+[!INCLUDE [Before you begin](../../includes/virtual-wan-before-include.md)]
 
 ## <a name="create-a-virtual-wan"></a><a name="wan"></a>Criar uma WAN Virtual
 
@@ -50,7 +52,7 @@ Uma configuração ponto-a-local (P2S) define os parâmetros para ligar clientes
 
 ## <a name="specify-dns-server"></a><a name="dns"></a>Especificar o servidor DNS
 
-As portas VPN do utilizador Virtual WAN permitem especificar até 5 Servidores DNS. Pode configurar isto durante o processo de criação do hub ou modificá-lo mais tarde. Para tal, localize o centro virtual. Em **VPN do Utilizador (ponto a site)**, selecione **configuração** e introduza o endereço IP do servidor DNS na caixa de texto **dos Servidores DNS** personalizados(es).
+As portas VPN do utilizador Virtual WAN permitem especificar até 5 Servidores DNS. Pode configurar isto durante o processo de criação do hub ou modificá-lo mais tarde. Para tal, localize o centro virtual. Em **VPN do Utilizador (ponto a site)** , selecione **configuração** e introduza o endereço IP do servidor DNS na caixa de texto **dos Servidores DNS** personalizados(es).
 
    :::image type="content" source="media/virtual-wan-point-to-site-portal/custom-dns.png" alt-text="DNS personalizado" lightbox="media/virtual-wan-point-to-site-portal/custom-dns-expand.png":::
 

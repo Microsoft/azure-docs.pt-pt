@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06a31e61583ac28218b34195dd6e5b7f92776dce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b10cf314bc9394f3297839d45d3497f9f5d3b0e0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541242"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358835"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Como monitorizar o estado e os resultados do indexante de pesquisa cognitiva do Azure
 
@@ -51,7 +51,7 @@ Pode ver o estado atual de todos os seus indexantes na lista **de Indexadores** 
 
    ![Lista de indexantes](media/search-monitor-indexers/indexers-list.png "Lista de indexantes")
 
-Quando um indexante está a executar, o estado da lista mostra **Em Progresso**, e o valor **Docs Succeeded** mostra o número de documentos processados até agora. Pode levar alguns minutos para o portal atualizar os valores de estado do indexante e a contagem de documentos.
+Quando um indexante está a executar, o estado da lista mostra **Em Progresso** , e o valor **Docs Succeeded** mostra o número de documentos processados até agora. Pode levar alguns minutos para o portal atualizar os valores de estado do indexante e a contagem de documentos.
 
 Um indexante cuja execução mais recente foi bem sucedida mostra **sucesso.** Uma execução de indexante pode ser bem sucedida mesmo que os documentos individuais tenham erros, se o número de erros for inferior à definição de **itens falhados** max do indexante.
 
@@ -122,7 +122,7 @@ O histórico de execução contém até as 50 execuções mais recentes, que sã
 
 Note que existem dois valores de estado diferentes. O estado de nível superior é para o próprio indexante. Um estado indexante de **execução** significa que o indexante está configurado corretamente e disponível para ser executado, mas não que esteja atualmente em execução.
 
-Cada execução do indexante também tem o seu próprio estatuto que indica se essa execução específica está em curso (**em execução),** ou já concluída com um **sucesso**, **transientarfailure,** ou o persistente estado **de Produção.** 
+Cada execução do indexante também tem o seu próprio estatuto que indica se essa execução específica está em curso ( **em execução),** ou já concluída com um **sucesso** , **transientarfailure,** ou o persistente estado **de Produção.** 
 
 Quando um indexante é reiniciado para atualizar o seu estado de rastreio de alterações, uma entrada separada do histórico de execução é adicionada com um estado **de Reset.**
 
@@ -132,7 +132,7 @@ Para obter mais detalhes sobre códigos de estado e dados de monitorização do 
 
 ## <a name="monitor-using-the-net-sdk"></a>Monitor utilizando o .NET SDK
 
-Pode definir o calendário de um indexante utilizando o Azure Cognitive Search .NET SDK. Para isso, inclua a propriedade de **agenda ao** criar ou atualizar um Indexer.
+Pode definir o calendário de um indexante utilizando o Azure Cognitive Search .NET SDK. Para isso, inclua a propriedade **Agenda ao** criar ou atualizar um Indexer.
 
 O exemplo C# a seguir escreve informações sobre o estado de um indexante e os resultados da sua mais recente (ou em curso) corrida para a consola.
 

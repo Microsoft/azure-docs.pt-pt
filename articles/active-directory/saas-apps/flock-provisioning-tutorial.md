@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 636bb4c3340f13046706bf887119108b86b6a660
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01c3f6429d2a5c8443ac128d763033dc8c53cbc7
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850908"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359413"
 ---
 # <a name="tutorial-configure-flock-for-automatic-user-provisioning"></a>Tutorial: Configure Flock para o fornecimento automático de utilizadores
 
@@ -52,17 +52,17 @@ Antes de configurar e permitir o fornecimento automático do utilizador, deve de
 
 Antes de configurar o Flock para o fornecimento automático de utilizadores com Azure AD, terá de permitir o fornecimento scim no Flock.
 
-1. Faça login no [Flock.](https://web.flock.com/?) Clique **em Definições Ícone**Gerir a sua  >  **equipa**.
+1. Faça login no [Flock.](https://web.flock.com/?) Clique **em Definições Ícone** Gerir a sua  >  **equipa**.
 
     :::image type="content" source="media/flock-provisioning-tutorial/icon.png" alt-text="Screenshot do site do Flock. O ícone de definições é realçado e o menu de atalho é visível. Nesse menu, destaque para a sua equipa." border="false":::
 
 2. Selecione **Auth e Provisioning**.
 
-    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Screenshot do site do Flock. O ícone de definições é realçado e o menu de atalho é visível. Nesse menu, destaque para a sua equipa." border="false":::
+    :::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Screenshot de um menu no site do Flock. Destaca-se o artigo Auth e o provisionamento." border="false":::
 
 3. Copie o **Token da API**. Estes valores serão inseridos no campo **Secret Token** no separador Provisioning da sua aplicação Flock no portal Azure.
 
-    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Screenshot do site do Flock. O ícone de definições é realçado e o menu de atalho é visível. Nesse menu, destaque para a sua equipa." border="false":::
+    :::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Screenshot de um separador De Provisioning no site do Flock. Sob um símbolo de P I, um valor é realçado. Ao lado do token está um botão copy token." border="false":::
 
 
 ## <a name="add-flock--from-the-gallery"></a>Adicione o rebanho da galeria
@@ -75,7 +75,7 @@ Para configurar o Flock para o fornecimento automático de utilizadores com Azur
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

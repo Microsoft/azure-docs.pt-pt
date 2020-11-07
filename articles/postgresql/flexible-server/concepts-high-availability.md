@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937047"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359549"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Conceitos de alta disponibilidade na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -43,7 +43,7 @@ A saúde da configuração de alta disponibilidade é continuamente monitorizada
 
 As aplicações de clientes PostgreSQL estão ligadas ao servidor primário utilizando o nome do servidor DB. As leituras de aplicações são servidas diretamente a partir do servidor primário, enquanto os compromissos e as escritas são confirmados para a aplicação apenas após a persistência dos dados tanto no servidor primário como na réplica de espera. Devido a este requisito adicional de ida e volta, as aplicações podem esperar uma latência elevada para escritas e compromissos. Pode monitorizar a saúde da elevada disponibilidade no portal.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="zona redundante alta disponibilidade"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="zona redundante alta disponibilidade - estado estável"::: 
 
 1. Os clientes conectam-se ao servidor flexível e realizam operações de escrita.
 2. As alterações são replicadas no local de espera.
@@ -64,7 +64,7 @@ Para outras operações iniciadas pelo utilizador, tais como o cálculo em escal
 
 As interrupções não planeadas incluem bugs de software ou falhas de componentes de infraestrutura que afetam a disponibilidade da base de dados. No caso de a indisponibilidade do servidor ser detetada pelo sistema de monitorização, a replicação da réplica de espera é cortada e a réplica de espera é ativada para ser o servidor de base de dados primário. Os clientes podem voltar a ligar-se ao servidor da base de dados utilizando a mesma cadeia de ligação e retomar as suas operações. Espera-se que o tempo total de insusição de 60-120. No entanto, dependendo da atividade no servidor de base de dados primário no momento da falência, como grandes transações e tempo de recuperação, o failover pode demorar mais tempo.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="zona redundante alta disponibilidade"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="zona redundante alta disponibilidade - failover"::: 
 
 1. O servidor de base de dados primário está em baixo e os clientes perdem a conectividade da base de dados. 
 2. O servidor de espera é ativado para se tornar o novo servidor primário. O cliente liga-se ao novo servidor primário utilizando a mesma cadeia de ligação. Ter a aplicação do cliente na mesma zona que o servidor de base de dados primário reduz a latência e melhora o desempenho.
@@ -112,6 +112,8 @@ Servidores flexíveis configurados com alta disponibilidade, replicam dados em t
 -   A configuração das tarefas de gestão iniciadas pelo cliente não pode ser programada durante a janela de manutenção gerida.
 
 -   Os eventos planeados, como dimensionar a computação e o armazenamento, ocorrem primeiro no servidor de reserva e, em seguida, no servidor primário. O serviço não efetuou a ativação pós-falha. 
+
+-  Se a descodificação lógica ou a replicação lógica forem configuradas com um servidor flexível configurado ha, no caso de uma falha no servidor de espera, as ranhuras de replicação lógica não são copiadas para o servidor de espera.  
 
 ## <a name="next-steps"></a>Passos seguintes
 

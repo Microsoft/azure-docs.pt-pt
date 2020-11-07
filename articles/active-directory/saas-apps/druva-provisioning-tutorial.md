@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 9163c64370e0718d6b9acf37bb7a9fc28c936948
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5579a9d96828caa1453547e7c2e11b8f0d717d2a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851157"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359311"
 ---
 # <a name="tutorial-configure-druva-for-automatic-user-provisioning"></a>Tutorial: Configurar Druva para o fornecimento automático de utilizadores
 
@@ -62,11 +62,11 @@ Antes de configurar a Druva para o fornecimento automático de utilizadores com 
 
 3.  Navegar para **definições**. Clique **em gerar token**.
 
-    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Screenshot da consola de administração Druva. A gestão é realçada e o menu Gerir é visível. Neste menu, em Implementações, destaca-se o Utilizadores." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/settings.png" alt-text="Screenshot de uma página na consola de administração Druva. As definições são realçadas e o separador Definições está aberto. O botão De símbolo gerar é realçado." border="false":::
 
 4.  Copie o valor **simbólico de Auth.** Este valor será introduzido no campo **Secret Token** no separador Provisioning da sua aplicação Druva no portal Azure.
     
-    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Screenshot da consola de administração Druva. A gestão é realçada e o menu Gerir é visível. Neste menu, em Implementações, destaca-se o Utilizadores." border="false":::
+    :::image type="content" source="media/druva-provisioning-tutorial/auth.png" alt-text="Screenshot da página de token Create na consola de administração Druva. Um link marcado Copy Token está disponível para copiar o valor simbólico de Auth." border="false":::
 
 ## <a name="add-druva-from-the-gallery"></a>Adicione Druva da galeria
 
@@ -78,7 +78,7 @@ Para configurar a Druva para o fornecimento automático de utilizadores com Azur
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

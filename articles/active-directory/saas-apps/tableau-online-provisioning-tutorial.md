@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: fa28b299a33f5386edc6ce14c523d2c332b0767b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a42790e079985b003776b381c74f837b0ba619b1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520511"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359209"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: Configurar Tableau Online para fornecimento automático de utilizadores
 
@@ -45,7 +45,7 @@ Para adicionar Tableau Online do Marketplace, siga estes passos.
 
     ![O ícone do Diretório Ativo Azure](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -78,7 +78,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="configure-automatic-user-provisioning-for-tableau-online-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para Tableau Online em Azure AD
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Tableau Online**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Tableau Online**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -125,7 +125,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Email de Notificação Online Tableau](./media/tableau-online-provisioning-tutorial/EmailNotification.png)
 
-9. Selecione **Guardar**.
+9. Selecione **Save** (Guardar).
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Tableau**.
 

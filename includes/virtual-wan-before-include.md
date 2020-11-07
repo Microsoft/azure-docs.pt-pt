@@ -1,24 +1,24 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 10/06/2020
+ms.date: 11/06/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 5a3b9160f1fb28c68bdbaa540c78b2890dbcab82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4940bce453729d13ba76071fa59bcf95c7672a24
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812732"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359508"
 ---
-* Tem uma rede virtual a que pretende ligar. Verifique se nenhuma das sub-redes das suas redes no local se sobrepõe às redes virtuais a que pretende ligar. Para criar uma rede virtual no portal Azure, consulte o [arranque rápido](../articles/virtual-network/quick-create-portal.md).
+* Tem uma assinatura Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A sua rede virtual não tem quaisquer portas de rede virtuais. Se a sua rede virtual tiver um gateway (VPN ou ExpressRoute), deve remover todos os gateways. Esta configuração requer que as redes virtuais estejam ligadas ao gateway do hub Virtual WAN.
+* Tem uma rede virtual a que pretende ligar. Verifique se nenhuma das sub-redes das suas redes no local se sobrepõe às redes virtuais a que pretende ligar. Para criar uma rede virtual no portal Azure, consulte o artigo [Quickstart.](../articles/virtual-network/quick-create-portal.md)
 
-* Obtenha um intervalo de endereços IP para a região do seu hub. O hub é uma rede virtual que é criada e usada pela Virtual WAN. O intervalo de endereços que especifica para o hub não pode sobrepor-se a nenhuma das suas redes virtuais existentes a que se conecta. Também não se pode sobrepor aos intervalos de endereços a que se ligue no local. Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração da rede no local, coordene com alguém que possa fornecer esses detalhes para si.
+* A sua rede virtual não deve ter quaisquer portas de rede virtuais existentes. Se a sua rede virtual já tiver gateways (VPN ou ExpressRoute), deve remover todos os gateways antes de prosseguir. Esta configuração requer que as redes virtuais se conectem apenas ao gateway do hub Virtual WAN.
 
-* Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Um hub virtual é uma rede virtual que é criada e usada pela Virtual WAN. É o núcleo da sua rede Virtual WAN numa região. Obtenha um intervalo de endereços IP para a sua região de hub virtual. O intervalo de endereços que especifica para o hub não pode sobrepor-se a nenhuma das redes virtuais existentes a que se conecta. Também não pode sobrepor-se aos intervalos de endereços no local a que se conecta. Se não estiver familiarizado com os intervalos de endereços IP localizados na configuração da rede no local, coordene com alguém que possa fornecer esses detalhes para si.

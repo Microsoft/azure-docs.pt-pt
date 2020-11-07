@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: 9be2205ad0664d58c7a2ef0c07481b1c7aa02402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4d0a52f06a751fba57a00615e2d57485ff740d04
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273352"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359702"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Tutorial: Configure MerchLogix para o fornecimento automático de utilizadores
 
@@ -39,7 +39,7 @@ Antes de configurar a MerchLogix para o fornecimento automático de utilizadores
 
 **Para adicionar MerchLogix da galeria de aplicações AZure, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.** 
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.** 
 
     ![O botão Azure Ative Directory][1]
 
@@ -53,7 +53,7 @@ Antes de configurar a MerchLogix para o fornecimento automático de utilizadores
 
 4. Na caixa de pesquisa, escreva **MerchLogix.**
 
-5. No painel de resultados, selecione **MerchLogix**e, em seguida, clique no botão **Adicionar** para adicionar MerchLogix à sua lista de aplicações SaaS.
+5. No painel de resultados, selecione **MerchLogix** e, em seguida, clique no botão **Adicionar** para adicionar MerchLogix à sua lista de aplicações SaaS.
 
     ![Screenshot da secção Adicionar da secção de galé com a caixa de texto de nome Inserida chamada.][4]
 

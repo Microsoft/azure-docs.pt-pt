@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 4b0d2c6c3d70e73be25038c763f05ef572b56ebe
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8e73ea3650e631bed277ab95092b714eef7596d4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515684"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359162"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guia de administração Atlassian Jira e Confluence para o Azure Ative Directory
 
@@ -107,41 +107,41 @@ A imagem a seguir mostra o ecrã de configuração tanto em Jira como confluênc
 
 ![Ecrã de configuração plug-in](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-* **URL metadados**: O URL para obter metadados da federação do Azure AD.
+* **URL metadados** : O URL para obter metadados da federação do Azure AD.
 
-* **Identificadores**: O URL que a Azure AD utiliza para validar a origem do pedido. Mapeia para o elemento **identificador** em Azure AD. O plug-in deriva automaticamente este URL como https:// *\<domain:port>* /.
+* **Identificadores** : O URL que a Azure AD utiliza para validar a origem do pedido. Mapeia para o elemento **identificador** em Azure AD. O plug-in deriva automaticamente este URL como https:// *\<domain:port>* /.
 
-* **URL de resposta**: O URL de resposta no seu fornecedor de identidade (IdP) que inicia o início do sº de saúde DOL. Mapeia para o elemento **URL de resposta** em Azure AD. O plug-in deriva automaticamente este URL como https:// *\<domain:port>* /plugins/servlet/saml/auth.
+* **URL de resposta** : O URL de resposta no seu fornecedor de identidade (IdP) que inicia o início do sº de saúde DOL. Mapeia para o elemento **URL de resposta** em Azure AD. O plug-in deriva automaticamente este URL como https:// *\<domain:port>* /plugins/servlet/saml/auth.
 
-* **Sinal em URL**: O URL de inscrição no seu IdP que inicia o início do súps DE SDOL. Ele mapeia para o elemento **Sign On** em Azure AD. O plug-in deriva automaticamente este URL como https:// *\<domain:port>* /plugins/servlet/saml/auth.
+* **Sinal em URL** : O URL de inscrição no seu IdP que inicia o início do súps DE SDOL. Ele mapeia para o elemento **Sign On** em Azure AD. O plug-in deriva automaticamente este URL como https:// *\<domain:port>* /plugins/servlet/saml/auth.
 
-* **IdP Entity ID**: A entidade ID que o seu IdP utiliza. Esta caixa é povoada quando o URL dos metadados é resolvido.
+* **IdP Entity ID** : A entidade ID que o seu IdP utiliza. Esta caixa é povoada quando o URL dos metadados é resolvido.
 
-* **URL de login**: O URL de entrada do seu IdP. Esta caixa é povoada a partir de Azure AD quando o URL de metadados é resolvido.
+* **URL de login** : O URL de entrada do seu IdP. Esta caixa é povoada a partir de Azure AD quando o URL de metadados é resolvido.
 
-* **URL logout**: O URL logout do seu IdP. Esta caixa é povoada a partir de Azure AD quando o URL de metadados é resolvido.
+* **URL logout** : O URL logout do seu IdP. Esta caixa é povoada a partir de Azure AD quando o URL de metadados é resolvido.
 
-* **Certificado X.509**: O certificado X.509 do seu IdP. Esta caixa é povoada a partir de Azure AD quando o URL de metadados é resolvido.
+* **Certificado X.509** : O certificado X.509 do seu IdP. Esta caixa é povoada a partir de Azure AD quando o URL de metadados é resolvido.
 
-* **Início de Sessão Nome do botão**: O nome do botão de início de sessão que a sua organização quer que os utilizadores vejam na página de início de sessão.
+* **Início de Sessão Nome do botão** : O nome do botão de início de sessão que a sua organização quer que os utilizadores vejam na página de início de sessão.
 
-* **Localizações do ID do utilizador SAML**: O local onde o ID do utilizador Jira ou Confluence é esperado na resposta SAML. Pode estar no **NameID** ou num nome de atributo personalizado.
+* **Localizações do ID do utilizador SAML** : O local onde o ID do utilizador Jira ou Confluence é esperado na resposta SAML. Pode estar no **NameID** ou num nome de atributo personalizado.
 
-* **Nome do atributo**: O nome do atributo onde se espera o ID do utilizador.
+* **Nome do atributo** : O nome do atributo onde se espera o ID do utilizador.
 
-* **Enable Home Realm Discovery**: A seleção a fazer se a empresa estiver a utilizar o Ative Directory Federation Services (AD FS)baseado em sind.
+* **Enable Home Realm Discovery** : A seleção a fazer se a empresa estiver a utilizar o Ative Directory Federation Services (AD FS)baseado em sind.
 
-* **Nome do domínio**: O nome de domínio se o srach-in for baseado em FS AD.
+* **Nome do domínio** : O nome de domínio se o srach-in for baseado em FS AD.
 
-* **Ativar o Signout Único**: A seleção a fazer se quiser assinar a partir do Azure AD quando um utilizador assinar fora de Jira ou Confluence.
+* **Ativar o Signout Único** : A seleção a fazer se quiser assinar a partir do Azure AD quando um utilizador assinar fora de Jira ou Confluence.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
-* **Está a obter vários erros**de certificado: Inscreva-se no Azure AD e remova os vários certificados disponíveis contra a app. Certifique-se de que só está presente um certificado.
+* **Está a obter vários erros** de certificado: Inscreva-se no Azure AD e remova os vários certificados disponíveis contra a app. Certifique-se de que só está presente um certificado.
 
-* **Um certificado está prestes a expirar em Azure AD**: Os add-ons cuidam da capotagem automática do certificado. Quando um certificado está prestes a expirar, um novo certificado deve ser marcado ativo e os certificados não reutilizados devem ser eliminados. Quando um utilizador tenta entrar na Jira neste cenário, o plug-in recaem e guarda o novo certificado.
+* **Um certificado está prestes a expirar em Azure AD** : Os add-ons cuidam da capotagem automática do certificado. Quando um certificado está prestes a expirar, um novo certificado deve ser marcado ativo e os certificados não reutilizados devem ser eliminados. Quando um utilizador tenta entrar na Jira neste cenário, o plug-in recaem e guarda o novo certificado.
 
-* **Pretende desativar o WebSudo (desative a sessão de administrador seguro)**:
+* **Pretende desativar o WebSudo (desative a sessão de administrador seguro)** :
 
   * Para jira, as sessões de administrador segura (isto é, confirmação de senha antes de aceder às funções de administração) são ativadas por padrão. Se pretender remover esta capacidade no seu caso Jira, especifique a seguinte linha no seu ficheiro jira-config.properties: `jira.websudo.is.disabled = true`
 
@@ -157,9 +157,9 @@ A imagem a seguir mostra o ecrã de configuração tanto em Jira como confluênc
 
 * **Existe um erro de "ID do utilizador não encontrado" quando o utilizador tenta iniciar sessão:** Criar o ID do utilizador em Jira ou Confluence.
 
-* **Existe um erro de "App não encontrado" no Azure AD**: Veja se o URL apropriado está mapeado para a aplicação em Azure AD.
+* **Existe um erro de "App não encontrado" no Azure AD** : Veja se o URL apropriado está mapeado para a aplicação em Azure AD.
 
-* **Precisa de apoio**: Contacte a [Equipa de Integração Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). A equipa responde em 24-48 horas úteis.
+* **Precisa de apoio** : Contacte a [Equipa de Integração Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). A equipa responde em 24-48 horas úteis.
 
   Também pode levantar um bilhete de suporte com a Microsoft através do canal do portal Azure.
 

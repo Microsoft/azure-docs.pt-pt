@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: a1428a92857f48920c86ed7a3f0719fa42b38b24
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c65fddcc90b25f70759fb038a72dad0facfa99a9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072038"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359736"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Tutorial: Configurar a gravação do atributo Azure AD para o Workday
 O objetivo deste tutorial é mostrar os passos que precisa de executar para escrever atributos de Azure AD a Workday. A aplicação de writeback Workday suporta atribuir valores aos seguintes atributos workday:
@@ -58,9 +58,9 @@ Siga estas instruções para configurar a gravação dos endereços de e-mail do
 
 3. Selecione **Aplicações empresariais,** em seguida, **todas as aplicações**.
 
-4. **Selecione Adicione uma aplicação**e, em seguida, selecione a categoria **'Todos'.**
+4. **Selecione Adicione uma aplicação** e, em seguida, selecione a categoria **'Todos'.**
 
-5. Procure por **Workday Writeback**e adicione a aplicação na galeria.
+5. Procure por **Workday Writeback** e adicione a aplicação na galeria.
 
 6. Depois de adicionar a aplicação e mostrar o ecrã de detalhes da aplicação, selecione **Provisioning**.
 

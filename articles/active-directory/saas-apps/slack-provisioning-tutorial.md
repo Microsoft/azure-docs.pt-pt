@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: arvinh
-ms.openlocfilehash: 41ed942ea8962e845b7392656639e0d6bcdccbf5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 58fe99164c390d8a9435e5aa65e55fe7fca5d6db
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515928"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359481"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar o Slack para o aprovisionamento automático de utilizadores
 
@@ -79,7 +79,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD à API de aprovisionam
 
     ![Screenshot da lista de retirada do modo de provisionamento com a opção Automática chamada.](common/provisioning-automatic.png)
 
-5. Na secção **Credenciais de Administrador**, clique em **Autorizar**. Esta ação abre uma caixa de diálogo de autorização do Slack numa nova janela do browser.
+5. Na secção **Credenciais de Administrador** , clique em **Autorizar**. Esta ação abre uma caixa de diálogo de autorização do Slack numa nova janela do browser.
 
     ![A captura de ecrã mostra o botão Autorizar Credenciais de Administrador.](media/slack-provisioning-tutorial/authorization.png)
 
@@ -90,7 +90,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD à API de aprovisionam
 
 7. No portal do Azure, clique em **Testar Ligação** para garantir que o Azure AD consegue ligar à sua aplicação Slack. Se a ligação falhar, confirme que a sua conta do Slack tem permissões de Administrador de Equipa e tente novamente o passo "Autorizar".
 
-8. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+8. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
@@ -98,7 +98,7 @@ Esta secção orienta-o ao longo da ligação do Azure AD à API de aprovisionam
 
 10. Na secção Mapeamentos, selecione **Sincronizar Utilizadores do Azure Active Directory com o Slack**.
 
-11. Na secção **Mapeamentos de Atributos**, reveja os atributos de utilizadores que vão ser sincronizados a partir do Azure AD para o Slack. Observe que os atributos selecionados como propriedades **Correspondentes** vão servir para fazer corresponder as contas de utilizador no Slack para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
+11. Na secção **Mapeamentos de Atributos** , reveja os atributos de utilizadores que vão ser sincronizados a partir do Azure AD para o Slack. Observe que os atributos selecionados como propriedades **Correspondentes** vão servir para fazer corresponder as contas de utilizador no Slack para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
 
    |Atributo|Tipo|
    |---|---|
@@ -132,9 +132,9 @@ Esta secção orienta-o ao longo da ligação do Azure AD à API de aprovisionam
    |urn:scim:schemas:extension:enterprise:1.0.organization|String|
    |urn:scim:schemas:extension:enterprise:1.0.division|String|
 
-12. Na secção **Mapeamentos**, selecione **Sincronizar Grupos do Azure Active Directory com o Slack**.
+12. Na secção **Mapeamentos** , selecione **Sincronizar Grupos do Azure Active Directory com o Slack**.
 
-13. Na secção **Mapeamentos de Atributos**, reveja os atributos de grupos que vão ser sincronizados a partir do Azure AD para o Slack. Observe que os atributos selecionados como propriedades **Correspondentes** vão servir para fazer corresponder os grupos no Slack para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
+13. Na secção **Mapeamentos de Atributos** , reveja os atributos de grupos que vão ser sincronizados a partir do Azure AD para o Slack. Observe que os atributos selecionados como propriedades **Correspondentes** vão servir para fazer corresponder os grupos no Slack para operações de atualização. Selecione o botão Guardar para confirmar as alterações.
 
       |Atributo|Tipo|
       |---|---|

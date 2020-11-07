@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: 5596dfab98f6826cd61241441a9ddade72e36674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8ca7654d930247f70d85cbc20fbbeb961223f05f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851276"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359804"
 ---
 # <a name="tutorial-configure-federated-directory-for-automatic-user-provisioning"></a>Tutorial: Configure Diretório Federado para fornecimento automático de utilizadores
 
@@ -57,20 +57,20 @@ Antes de configurar o Diretório Federado para o fornecimento automático de uti
 
 2. Navegue para **Diretórios > Diretórios de utilizadores** e selecione o seu inquilino. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Screenshot da consola de administração federada mostrando um campo para introduzir um nome da empresa. Os botões de inscrição também são visíveis." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/ad-user-directories.png" alt-text="Screenshot da consola de administração federada, com Diretórios e Diretório Federado Azure A D Test em destaque." border="false":::
 
 3.  Para gerar um token portador permanente, navegue até **Diretório Keys > Criar Nova Chave.** 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Screenshot da consola de administração federada mostrando um campo para introduzir um nome da empresa. Os botões de inscrição também são visíveis." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated01.png" alt-text="Screenshot da página de chaves do Diretório da consola de administração federada. Destaca-se o novo botão de tecla Create." border="false":::
 
 4. Crie uma chave de diretório. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Screenshot da consola de administração federada mostrando um campo para introduzir um nome da empresa. Os botões de inscrição também são visíveis." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated02.png" alt-text="Screenshot da página chave do diretório Create da consola de administração federada, com campos de nome e descrição e um botão de chave Criar." border="false":::
     
 
 5. Copie o valor **do Token de acesso.** Este valor será introduzido no campo **Secret Token** no separador Provisioning da sua aplicação de Diretório Federado no portal Azure. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Screenshot da consola de administração federada mostrando um campo para introduzir um nome da empresa. Os botões de inscrição também são visíveis." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated03.png" alt-text="Screenshot de uma página na consola de administração federada. Um espaço reservado de acesso e um nome chave, descrição e emitente são visíveis." border="false":::
     
 ## <a name="add-federated-directory-from-the-gallery"></a>Adicione diretório federado da galeria
 
@@ -82,7 +82,7 @@ Para configurar o Diretório Federado para o fornecimento automático de utiliza
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -96,15 +96,15 @@ Para configurar o Diretório Federado para o fornecimento automático de utiliza
 
 5. Navegue para o **URL** realçado abaixo num navegador separado. 
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Screenshot da consola de administração federada mostrando um campo para introduzir um nome da empresa. Os botões de inscrição também são visíveis." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage1.png" alt-text="Screenshot de uma página no portal Azure que exibe informações sobre o Diretório Federado. O valor U R L está em destaque." border="false":::
 
-6. CLIQUE **EM REGISTAR**-
+6. CLIQUE **EM REGISTAR** -
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Screenshot da consola de administração federada mostrando um campo para introduzir um nome da empresa. Os botões de inscrição também são visíveis." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/federated04.png" alt-text="Screenshot do menu principal no site do Diretório Federado. O botão 'Iniciar sessão' está realçado." border="false":::
 
 7.  Como o Diretório Federado é uma aplicação OpenIDConnect, opte por iniciar sessão no Diretório Federado utilizando a sua conta de trabalho da Microsoft.
     
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Screenshot da consola de administração federada mostrando um campo para introduzir um nome da empresa. Os botões de inscrição também são visíveis." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/loginpage3.png" alt-text="Screenshot da página de teste S C I M A D no site do Diretório Federado. O login na sua conta Microsoft está em destaque." border="false":::
  
 8. Após uma autenticação bem sucedida, aceite o pedido de consentimento para a página de consentimento. A aplicação será então automaticamente adicionada ao seu inquilino e será redirecionado para a sua conta de Diretório Federado.
 
@@ -146,12 +146,12 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Federated Directory**.
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Screenshot da consola de administração federada mostrando um campo para introduzir um nome da empresa. Os botões de inscrição também são visíveis." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-mappings.png" alt-text="Screenshot da secção mappings. Em Nome, é destacado o Synchronize Azure Ative Directory Users to Federated Directory." border="false":::
     
     
 11. Reveja os atributos do utilizador que são sincronizados de Azure AD a Diretório Federado na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas de utilizador no Diretório Federado para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Screenshot da consola de administração federada mostrando um campo para introduzir um nome da empresa. Os botões de inscrição também são visíveis." border="false":::
+    :::image type="content" source="media/federated-directory-provisioning-tutorial/user-attributes.png" alt-text="Screenshot da página De mapeamentos de atributos. Uma tabela lista os atributos do Diretório Ativo Azure e do Diretório Federado e o estado de correspondência." border="false":::
     
 
 12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

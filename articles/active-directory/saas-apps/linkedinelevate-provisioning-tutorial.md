@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: arvinh
-ms.openlocfilehash: 429ccacea8eb4fd66336543615b11179af3e9276
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e972475530ad36a188f73990bb9eca35748c36c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361589"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358954"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Tutorial: Configurar LinkedIn Elevate para fornecimento automático de utilizadores
 
@@ -61,7 +61,7 @@ O primeiro passo é recuperar o seu token de acesso LinkedIn. Se for administrad
 
 1. Inscreva-se no Centro de Contas.
 
-2. Selecione ** &gt; Definições de administração de admin** .
+2. Selecione **&gt; Definições de administração de admin** .
 
 3. Clique em **Integrações Avançadas** na barra lateral esquerda. Está direcionado para o centro de contas.
 

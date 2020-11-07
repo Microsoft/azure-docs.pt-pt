@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 145793d7e451e7db9598118fb3adbd49d1d9c650
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68d084b7fde7d4c28b1c9b1da1e1c66cb6a63dd8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850681"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359447"
 ---
 # <a name="tutorial-configure-mindtickle-for-automatic-user-provisioning"></a>Tutorial: Configurar mindTickle para fornecimento automático de utilizadores
 
@@ -66,7 +66,7 @@ Para configurar o MindTickle para o fornecimento automático de utilizadores com
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -119,7 +119,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 9. Reveja os atributos do utilizador que são sincronizados de Azure AD a MindTickle na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador no MindTickle para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    :::image type="content" source="media/mindtickle-provisioning-tutorial/userattribute.png" alt-text="Screenshot da secção mappings. Em Nome, é visível o Synchronize Azure Ative Directory Users to MindTickle." border="false":::
+    :::image type="content" source="media/mindtickle-provisioning-tutorial/userattribute.png" alt-text="Screenshot da página De mapeamentos de atributos. Uma tabela lista os atributos Azure Ative Directory e MindTickle e a precedência correspondente." border="false":::
 
 12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/06/2020
 ms.author: Zhchia
-ms.openlocfilehash: ebbcb8dd8c895c61858952fbd4498bd57e06d36b
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 6643ec72ec5126866b0ad6e924a92f02170bd278
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92448661"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359668"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configurar suíte G para fornecimento automático de utilizadores
 
@@ -83,7 +83,7 @@ Antes de configurar o G Suite para o fornecimento automático do utilizador com 
 
     ![G Suite Adicionar Domínio](./media/google-apps-provisioning-tutorial/gapps-add-domain.png)
 
-    c. **Selecione Adicione outro domínio**e, em seguida, escreva no nome do domínio que pretende adicionar.
+    c. **Selecione Adicione outro domínio** e, em seguida, escreva no nome do domínio que pretende adicionar.
 
     ![G Suite Adicionar Outro](./media/google-apps-provisioning-tutorial/gapps-add-another.png)
 
@@ -151,7 +151,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 7. No portal Azure, clique em **Test Connection** para garantir que o Azure AD pode ligar-se à Suite G. Se a ligação falhar, certifique-se de que a sua conta G Suite tem permissões de Administração e tente novamente. Então tente o passo **autorizado** novamente.
 
-6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

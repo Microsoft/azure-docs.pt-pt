@@ -1,18 +1,21 @@
 ---
 title: Ativar a extensão de VM a partir do portal Azure
 description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a funcionar em ambientes de nuvem híbrida a partir do portal Azure.
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: dcab7cb441c329a60b2c6fa3256aeedb2bb5b33d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 48d7d4085dce893d94436fe0c6be32cfeea9cda3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462938"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359090"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Ativar extensões VM do Azure a partir do portal Azure
 
 Este artigo mostra-lhe como implementar e desinstalar extensões Azure VM, suportadas por servidores Azure Arc, para uma máquina híbrida Linux ou Windows através do portal Azure.
+
+> [!NOTE]
+> A extensão VM do Cofre-Chave (pré-visualização) não suporta a implantação a partir do portal Azure, apenas utilizando o CLI Azure, o Azure PowerShell, ou utilizando um modelo de Gestor de Recursos Azure.
 
 ## <a name="enable-extensions-from-the-portal"></a>Permitir extensões a partir do portal
 
@@ -22,7 +25,7 @@ As extensões VM podem ser aplicadas ao seu Arco para máquina gerida pelo servi
 
 2. No portal, navegue pelos **Servidores - Azure Arc** e selecione a sua máquina híbrida da lista.
 
-3. Escolha **extensões**e, em seguida, **selecione Adicionar**. Escolha a extensão desejada na lista de extensões disponíveis e siga as instruções no assistente. Neste exemplo, implementaremos a extensão VM do Log Analytics.
+3. Escolha **extensões** e, em seguida, **selecione Adicionar**. Escolha a extensão desejada na lista de extensões disponíveis e siga as instruções no assistente. Neste exemplo, implementaremos a extensão VM do Log Analytics.
 
     ![Selecione extensão VM para máquina selecionada](./media/manage-vm-extensions/add-vm-extensions.png)
 
@@ -45,7 +48,7 @@ Pode remover uma ou mais extensões de um servidor ativado pelo Arco do portal A
 
 2. No portal, navegue pelos **Servidores - Azure Arc** e selecione a sua máquina híbrida da lista.
 
-3. Escolha **extensões**e, em seguida, selecione uma extensão da lista de extensões instaladas.
+3. Escolha **extensões** e, em seguida, selecione uma extensão da lista de extensões instaladas.
 
 4. Selecione **Desinstalar** e quando for solicitado para verificar, selecione **Sim** para prosseguir.
 

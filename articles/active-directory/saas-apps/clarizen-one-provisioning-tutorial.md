@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Clarizen One para fornecimento automático de utilizadores com Diretório Ativo Azure / Microsoft Docs'
-description: Saiba como providenciar e desa provisionar automaticamente as contas de utilizadores do Azure AD para Clarizen One.
+description: Saiba como provisão e desprovisionar automaticamente as contas dos utilizadores do Azure AD para Clarizen One.
 services: active-directory
 documentationcenter: ''
 author: Zhchia
@@ -12,99 +12,99 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2020
 ms.author: Zhchia
-ms.openlocfilehash: 133e12450f01e14f2204810f0d24cd28b5f948f8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9335869797509171c71caffb0062aeccca207803
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795375"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358920"
 ---
 # <a name="tutorial-configure-clarizen-one-for-automatic-user-provisioning"></a>Tutorial: Configure Clarizen One para fornecimento automático de utilizadores
 
-Este tutorial descreve os passos necessários para realizar tanto no Clarizen One como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático do utilizador. Quando configurado, a Azure AD fornece automaticamente e desescvisões utilizadores e grupos para [Clarizen One](https://www.clarizen.com/) usando o serviço de provisionamento Azure AD. Para obter detalhes importantes sobre o que este serviço faz, como funciona e perguntas frequentes, veja [Automatizar o aprovisionamento e desaprovisionamento de utilizadores em aplicações SaaS no Azure Active Directory](../manage-apps/user-provisioning.md). 
+Este tutorial descreve os passos necessários para realizar tanto no Clarizen One como no Azure Ative Directory (Azure AD) para configurar o fornecimento automático do utilizador. Quando configurado, o Azure AD fornece automaticamente e desprovisiona utilizadores e grupos para [Clarizen One](https://www.clarizen.com/) utilizando o serviço de fornecimento AZure AD. Para obter informações sobre o que este serviço faz, como funciona, e perguntas frequentes, consulte [automatizar o fornecimento e desprovisionamento do utilizador para software como aplicações de serviço (SaaS) com Azure AD](../manage-apps/user-provisioning.md).
 
+## <a name="capabilities-supported"></a>Capacidades suportadas
 
-## <a name="capabilities-supported"></a>Capacidades Suportadas
 > [!div class="checklist"]
-> * Criar utilizadores em Clarizen One
-> * Remova os utilizadores em Clarizen One quando já não necessitam de acesso
-> * Mantenha os atributos do utilizador sincronizados entre Azure AD e Clarizen One
-> * Grupos de provisão e membros do grupo na Clarizen One
-> * [Único sinal de](https://docs.microsoft.com/azure/active-directory/saas-apps/clarizen-tutorial) Clarizen One (recomendado)
+> * Crie utilizadores em Clarizen One.
+> * Remova os utilizadores em Clarizen One quando já não necessitam de acesso.
+> * Mantenha os atributos do utilizador sincronizados entre Azure AD e Clarizen One.
+> * Grupos de provisão e membros do grupo no Clarizen One.
+> * Recomenda-se um [único sinal (SSO)](https://docs.microsoft.com/azure/active-directory/saas-apps/clarizen-tutorial) a Clarizen One.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-requisitos:
 
-* [Um inquilino da AD AZure](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) 
-* Uma conta de utilizador em Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento (por exemplo, Administrador de Aplicação, Administrador de Aplicação cloud, Proprietário de Aplicações ou Administrador Global). 
+* [Um inquilino do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+* Uma conta de utilizador em Azure AD com [permissão](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles) para configurar o provisionamento. Exemplos são administrador de aplicação, administrador de aplicação cloud, proprietário de aplicações ou administrador global.
 * Uma conta de utilizador em Clarizen One com [permissões](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support) **de Integração user** e **Lite Admin** .
 
 ## <a name="step-1-plan-your-provisioning-deployment"></a>Passo 1. Planear a sua implementação de aprovisionamento
+
 1. Saiba [como funciona o serviço de aprovisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
-2. Determine quem vai estar no [âmbito do aprovisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
-3. Determine quais os dados a [mapear entre Azure AD e Clarizen One](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
+1. Determine quem vai estar no [âmbito do aprovisionamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+1. Determine quais os dados a [mapear entre Azure AD e Clarizen One](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
 
 ## <a name="step-2-configure-clarizen-one-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure Clarizen One para apoiar o provisionamento com Azure AD
+
 1. Selecione um dos quatro URLs de inquilinos seguintes de acordo com o seu ambiente Clarizen One e centro de dados:
       * Centro de dados de produção dos EUA: https://servicesapp2.clarizen.com/scim/v2
       * Centro de dados de produção da UE: https://serviceseu1.clarizen.com/scim/v2
       * Centro de dados da Caixa de Areia dos EUA: https://servicesapp.clarizentb.com/scim/v2
       * Centro de dados da CAIXA de areia da UE: https://serviceseu.clarizentb.com/scim/v2
 
-2. Gerar uma [chave API](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support). Este valor será introduzido no campo **Secret Token** no separador Provisioning da sua aplicação Clarizen One no portal Azure.
+1. Gerar uma [chave API](https://success.clarizen.com/hc/articles/360011833079-API-Keys-Support). Este valor será introduzido na caixa **Secret Token** no **separador Provisioning** da sua aplicação Clarizen One no portal Azure.
 
 ## <a name="step-3-add-clarizen-one-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione Clarizen One da galeria de aplicações AD Azure
 
-Adicione Clarizen One da galeria de aplicações AZure AD para começar a gerir o fornecimento ao Clarizen One. Se já configurar clarizen One para SSO, pode utilizar a mesma aplicação. No entanto, é recomendável criar uma aplicação separada ao testar a integração inicialmente. Saiba mais sobre como adicionar uma aplicação a partir da galeria [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app). 
+Adicione Clarizen One da galeria de aplicações AZure AD para começar a gerir o fornecimento ao Clarizen One. Se já configurar clarizen One para SSO, pode utilizar a mesma aplicação. Quando testar a integração inicialmente, crie uma aplicação separada. Para saber mais sobre como adicionar uma aplicação na galeria, consulte [adicionar uma aplicação ao seu inquilino AZure AD.](https://docs.microsoft.com/azure/active-directory/manage-apps/add-gallery-app)
 
-## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Determinar quem vai estar no âmbito do aprovisionamento 
+## <a name="step-4-define-who-will-be-in-scope-for-provisioning"></a>Passo 4: Determinar quem vai estar no âmbito do aprovisionamento
 
-O serviço de aprovisionamento do Azure AD permite-lhe determinar quem vai ser aprovisionado com base na atribuição à aplicação e/ou com base em atributos do utilizador/grupo. Se optar por determinar quem vai ser aprovisionado na sua aplicação com base na atribuição, pode utilizar os seguintes [passos](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se escolher determinar quem vai ser aprovisionado com base apenas em atributos do utilizador ou grupo, pode utilizar um filtro de âmbito conforme descrito [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+Com o serviço de prestação de Ad Azure, pode ser aparida quem será a provisionado com base na atribuição à aplicação ou com base em atributos do utilizador ou grupo. Se optar por escolher o âmbito de aplicação de quem será aprovisionado na sua app com base na atribuição, siga os passos na atribuição do [utilizador gerir uma aplicação no Azure Ative Directory](../manage-apps/assign-user-or-group-access-portal.md) para atribuir utilizadores e grupos à aplicação. Se optar por escolher o âmbito de aplicação de quem será provisionado apenas com base em atributos do utilizador ou grupo, utilize um filtro de escoamento, conforme descrito no [provisionamento de aplicações baseados em Atributos com filtros de escoamento](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
-* Ao atribuir utilizadores e grupos ao Clarizen One, tem de selecionar outra função que não o **Acesso Predefinido** . Os utilizadores com a função Acesso Predefinido são excluídos do aprovisionamento e marcados como não autorizados de forma efetiva nos registos de aprovisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar funções adicionais. 
+* Quando atribui utilizadores e grupos ao Clarizen One, tem de selecionar outra função que não o **Acesso Predefinido**. Os utilizadores com a função de acesso predefinido estão excluídos do provisionamento e serão marcados como não efetivamente intitulados nos registos de provisionamento. Se a única função disponível na aplicação for a função de acesso predefinido, pode [atualizar o manifesto de aplicação](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) para adicionar mais funções.
+* Comece pequeno. Teste com um pequeno conjunto de utilizadores e grupos antes de chegar a todos. Quando o âmbito de provisão é definido para utilizadores e grupos atribuídos, pode manter o controlo atribuindo um ou dois utilizadores ou grupos à aplicação. Quando o âmbito é definido para todos os utilizadores e grupos, pode especificar um [filtro de deteção baseado em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 
-* Comece pequeno. Teste com um pequeno conjunto de utilizadores e grupos antes de implementar para todos. Quando o âmbito do aprovisionamento está definido para os utilizadores e os grupos atribuídos, pode controlar isto ao atribuir um ou dois utilizadores ou grupos à aplicação. Quando o âmbito está definido para todos os utilizadores e grupos, pode especificar um [filtro de âmbito baseado em atributos](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
+## <a name="step-5-configure-automatic-user-provisioning-to-clarizen-one"></a>Passo 5. Configure o fornecimento automático de utilizadores ao Clarizen One
 
+Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores ou grupos no TestApp com base em atribuições de utilizador ou grupo em Ad Azure.
 
-## <a name="step-5-configure-automatic-user-provisioning-to-clarizen-one"></a>Passo 5. Configure o fornecimento automático de utilizadores ao Clarizen One 
+### <a name="configure-automatic-user-provisioning-for-clarizen-one-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para clarizen One em Azure AD
 
-Esta secção guia-o através dos passos para configurar o serviço de fornecimento de AD Azure para criar, atualizar e desativar utilizadores e/ou grupos no TestApp com base em atribuições de utilizador e/ou grupo em Azure AD.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**.
 
-### <a name="to-configure-automatic-user-provisioning-for-clarizen-one-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para clarizen One em Azure AD:
+    ![Screenshot que mostra o painel de aplicações da Enterprise.](common/enterprise-applications.png)
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações** .
+1. Na lista de candidaturas, selecione **Clarizen One**.
 
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
+    ![Screenshot que mostra o link Clarizen One na lista de Aplicações.](common/all-applications.png)
 
-2. Na lista de candidaturas, selecione **Clarizen One** .
+1. Selecione o separador **Aprovisionamento**.
 
-    ![O link Clarizen One na lista de Aplicações](common/all-applications.png)
+    ![Screenshot que mostra o separador Provisioning.](common/provisioning.png)
 
-3. Selecione o separador **Aprovisionamento** .
+1. Desa ajuste **o modo de provisionamento** para **automático**.
 
-    ![Separador Aprovisionamento](common/provisioning.png)
+    ![Screenshot que mostra a opção de provisionamento Automático.](common/provisioning-automatic.png)
 
-4. Defina o **Modo de Aprovisionamento** como **Automático** .
+1. Sob a secção **de Credenciais de Administração,** insira o seu URL de **Inquilino** Clarizen One e **o Token Secreto.** Selecione **a Ligação** de Teste para garantir que o Azure AD pode ligar-se ao Clarizen One. Se a ligação falhar, certifique-se de que a sua conta Clarizen One tem permissões de administração e tente novamente.
 
-    ![Separador de provisionamento automático](common/provisioning-automatic.png)
+    ![Screenshot que mostra a caixa do Token Secreto.](common/provisioning-testconnection-tenanturltoken.png)
 
-5. Sob a secção **de Credenciais de Administração,** insira o seu URL de inquilino Clarizen One e o Token Secreto. Clique em **Testar A Ligação** para garantir que o Azure AD pode ligar-se ao Clarizen One. Se a ligação falhar, certifique-se de que a sua conta Clarizen One tem permissões de Administração e tente novamente.
+1. Na caixa de **e-mail de notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento. Selecione a **notificação Enviar uma notificação por e-mail quando ocorrer uma falha** na caixa de verificação.
 
-    ![Token](common/provisioning-testconnection-tenanturltoken.png)
+    ![Screenshot que mostra a caixa de e-mail de notificação.](common/provisioning-notification-email.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha** .
+1. Selecione **Save** (Guardar).
 
-    ![E-mail de Notificação](common/provisioning-notification-email.png)
+1. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Clarizen One**.
 
-7. Selecione **Guardar** .
-
-8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Clarizen One** .
-
-9. Reveja os atributos do utilizador que são sincronizados de Azure AD a Clarizen One na secção **De mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador em Clarizen One para operações de atualização. Se optar por alterar o [atributo de alvo correspondente,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)terá de garantir que a API Clarizen One suporta utilizadores filtrantes com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
+1. Reveja os atributos do utilizador que são sincronizados de Azure AD a Clarizen One na secção **De mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador em Clarizen One para operações de atualização. Se alterar o [atributo de alvo correspondente,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)deve certificar-se de que a API Clarizen One suporta utilizadores filtrantes com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
    |Atributo|Tipo|
    |---|---|
@@ -148,9 +148,9 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
 
-10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Clarizen One** .
+1. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Clarizen One**.
 
-11. Reveja os atributos do grupo que são sincronizados de Azure AD a Clarizen One na secção **De mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar com os grupos em Clarizen One para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
+1. Reveja os atributos do grupo que são sincronizados de Azure AD a Clarizen One na secção **De mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar com os grupos em Clarizen One para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
       |Atributo|Tipo|
       |---|---|
@@ -158,45 +158,45 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
       |externalId|String|
       |membros|Referência|
 
-12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Para configurar filtros de deteção, consulte as instruções no tutorial do  [filtro de escotagem](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-13. Para ativar o serviço de prestação de Ad Azure para Clarizen One, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
+1. Para ativar o serviço de prestação de Ad Azure para Clarizen One, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
-    ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
+    ![Screenshot que mostra o Estado de Provisionamento alternado.](common/provisioning-toggle-on.png)
 
-14. Defina os utilizadores e/ou grupos que deseja prestar à Clarizen One, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+1. Defina os utilizadores ou grupos que pretende prever ao Clarizen One selecionando os valores pretendidos no **Âmbito** na secção **Definições.**
 
-    ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
+    ![Screenshot que mostra o âmbito de provisão.](common/provisioning-scope.png)
 
-15. Quando estiver pronto para aprovisionar, clique em **Guardar** .
+1. Quando estiver pronto para a provisão, **selecione Save**.
 
-    ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
+    ![Screenshot que mostra a poupança da configuração de provisionamento.](common/provisioning-configuration-save.png)
 
-Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições** . O ciclo inicial leva mais tempo a ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do Azure AD esteja em execução. 
+Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições**. O ciclo inicial leva mais tempo a ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do Azure AD esteja em execução.
 
 ## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
-Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:
 
-1. Utilize os [registos de aprovisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
-2. Verifique a [barra de progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
-3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).  
+Depois de configurar o fornecimento, use os seguintes recursos para monitorizar a sua implantação.
 
-## <a name="troubleshooting-tips"></a>Sugestões de Resolução de Problemas
-Ao atribuir um Utilizador à aplicação clarizen One, escolha apenas a função **de Utilizador.** As funções abaixo mostradas são inválidas.
+1. Utilize os [registos de provisionamento](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) para determinar quais os utilizadores que foram a provisionados com sucesso ou sem sucesso.
+1. Verifique a barra de [progresso](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) para ver o estado do ciclo de provisionamento e o quão perto está de ser concluído.
+1. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Para saber mais sobre estados de quarentena, consulte [o provisionamento da aplicação em estado de quarentena](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
-* Administrador (Administrador)
-* Utilizador de relatórios de e-mail
+## <a name="troubleshooting-tips"></a>Sugestões de resolução de problemas
+
+Quando atribuir um utilizador à aplicação clarizen One, selecione apenas a função **Utilizador.** As seguintes funções são inválidas:
+
+* Administrador (administrador)
+* Utilizador de relatório de e-mail
 * Utilizador externo
-* Utilizador Financeiro
-* Utilizador Social
-* Super Utilizador
-* Utilizador de despesas & tempo
-
-
+* Utilizador financeiro
+* Utilizador social
+* Superuser
+* Tempo & Utilizador de Despesas
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Gerir o aprovisionamento de contas de utilizador para Aplicações Empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestão do provisionamento de conta de utilizador para aplicações empresariais](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
 
 ## <a name="next-steps"></a>Passos seguintes

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
-ms.openlocfilehash: 5c038cc309d8f1f13a04de01ed83e04afa70ba6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620dd8fd586352ebeaf097a8f870a606f8e06c01
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546174"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359719"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Tutorial: Configurar Zendesk para o provisionamento automático do utilizador
 
@@ -43,7 +43,7 @@ Para adicionar Zendesk do Marketplace, siga estes passos.
 
     ![O ícone do Diretório Ativo Azure](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -78,7 +78,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para Zendesk em Azure AD
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Zendesk**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Zendesk**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -116,7 +116,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de notificação de Zendesk](./media/zendesk-provisioning-tutorial/ZenDesk9.png)
 
-9. Selecione **Guardar**.
+9. Selecione **Save** (Guardar).
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para Zendesk**.
 
@@ -158,7 +158,7 @@ Para obter informações sobre como ler os registos de provisionamento da AZure 
 
 * Zendesk suporta o uso de grupos apenas para utilizadores com funções **de Agente.** Para mais informações, consulte a [documentação zendesk.](https://support.zendesk.com/hc/en-us/articles/203661966-Creating-managing-and-using-groups)
 
-* Quando uma função personalizada é atribuída a um utilizador ou grupo, o serviço de fornecimento automático de utilizadores Azure AD também atribui o **agente**de função predefinido . Só os agentes podem ser designados para um papel personalizado. Para mais informações, consulte a [documentação zendesk API](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests). 
+* Quando uma função personalizada é atribuída a um utilizador ou grupo, o serviço de fornecimento automático de utilizadores Azure AD também atribui o **agente** de função predefinido . Só os agentes podem ser designados para um papel personalizado. Para mais informações, consulte a [documentação zendesk API](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

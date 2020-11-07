@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 2899121db4b6a3f202be4860e2e4f43027cdef7c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 2dd1b51c6bcdbc531661d9ecf45d3d0282eb5b45
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348773"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358852"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorar registos e métricas do Azure Firewall
 
@@ -50,74 +50,55 @@ Pode demorar alguns minutos até que os dados sejam apresentados nos seus regist
 8. Selecione a sua subscrição.
 9. Selecione **Save** (Guardar).
 
-## <a name="enable-logging-with-powershell"></a>Ativar registo com o PowerShell
+## <a name="enable-diagnostic-logging-by-using-powershell"></a>Ativar a sessão de diagnóstico utilizando o PowerShell
 
 O registo de atividades é ativado automaticamente para todos os recursos do Resource Manager. O registo de diagnósticos tem de estar ativado para iniciar a recolha dos dados disponíveis através desses registos.
 
-Para ativar o registo de diagnósticos, utilize os seguintes passos:
+Para ativar o registo de diagnóstico com o PowerShell, utilize os seguintes passos:
 
-1. Anote o ID de recurso da conta de armazenamento, onde os dados de registo são armazenados. Este valor é do formulário: */subscrições/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.Storage/storageAccounts/ \<storage account name\>*.
+1. Note o seu ID de recursos do espaço de trabalho log Analytics, onde os dados de registo são armazenados. Este valor é do formulário: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>` .
 
-   Pode utilizar qualquer conta de armazenamento na sua subscrição. Pode utilizar o portal do Azure para encontrar estas informações. As informações que estão localizadas na página do recurso **Propriedade**.
+   Pode utilizar qualquer espaço de trabalho na sua subscrição. Pode utilizar o portal do Azure para encontrar estas informações. A informação está localizada na página **propriedades** de recursos.
 
-2. Anote o ID de recurso da Firewall para o qual o registo está ativado. Este valor é do formulário: */subscrições/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.Network/azureFirewalls/ \<Firewall name\>*.
+2. Anote o ID de recurso da Firewall para o qual o registo está ativado. Este valor é do formulário: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
    Pode utilizar o portal para encontrar estas informações.
 
-3. Ative o registo de diagnósticos com o seguinte cmdlet do PowerShell:
+3. Ativar o registo de diagnóstico para todos os registos e métricas utilizando o seguinte cmdlet PowerShell:
 
-    ```powershell
-    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
-   -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
-   -Enabled $true     
-    ```
+   ```powershell
+   $diagSettings = @{
+      Name = 'toLogAnalytics'
+      ResourceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      WorkspaceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      Enabled = $true
+   }
+   Set-AzDiagnosticSetting  @diagSettings 
+   ```
 
-> [!TIP]
->Os registos de diagnóstico não necessitam de uma conta de armazenamento separada. A utilização do armazenamento para registo do acesso e do desempenho incorre em encargos de serviços.
-
-## <a name="enable-diagnostic-logging-by-using-azure-cli"></a>Ativar o registo de diagnóstico utilizando o Azure CLI
+## <a name="enable-diagnostic-logging-by-using-the-azure-cli"></a>Ativar o registo de diagnóstico utilizando o CLI Azure
 
 O registo de atividades é ativado automaticamente para todos os recursos do Resource Manager. O registo de diagnósticos tem de estar ativado para iniciar a recolha dos dados disponíveis através desses registos.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+Para ativar o registo de diagnóstico com o Azure CLI, utilize os seguintes passos:
 
-### <a name="enable-diagnostic-logging"></a>Ativar o registo de diagnósticos
+1. Note o seu ID de recursos do espaço de trabalho log Analytics, onde os dados de registo são armazenados. Este valor é do formulário: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
-Utilize os seguintes comandos para ativar a sessão de diagnóstico.
+   Pode utilizar qualquer espaço de trabalho na sua subscrição. Pode utilizar o portal do Azure para encontrar estas informações. A informação está localizada na página **propriedades** de recursos.
 
-1. Executar as [definições de diagnóstico do monitor az criar](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) comando para permitir a marcação de diagnóstico:
+2. Anote o ID de recurso da Firewall para o qual o registo está ativado. Este valor é do formulário: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
-   ```azurecli
-   az monitor diagnostic-settings create –name AzureFirewallApplicationRule \
-     --resource Firewall07 --storage-account MyStorageAccount
+   Pode utilizar o portal para encontrar estas informações.
+
+3. Ativar o registo de diagnóstico para todos os registos e métricas utilizando o seguinte comando Azure CLI:
+
+   ```azurecli-interactive
+   az monitor diagnostic-settings create -n 'toLogAnalytics'
+      --resource '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      --workspace '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      --logs '[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]' 
+      --metrics '[{\"category\": \"AllMetrics\",\"enabled\": true}]'
    ```
-
-   Executar o comando da [lista de definições de diagnóstico do monitor az](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_list) para ver as definições de diagnóstico de um recurso:
-
-   ```azurecli
-   az monitor diagnostic-settings list --resource Firewall07
-   ```
-
-   Utilize as [definições de diagnóstico do monitor az](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_show) para ver as definições de diagnóstico ativas para um recurso:
-
-   ```azurecli
-   az monitor diagnostic-settings show --name AzureFirewallApplicationRule --resource Firewall07
-   ```
-
-1. Executar o comando [de atualização de definições de diagnóstico do monitor az](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) para atualizar as definições.
-
-   ```azurecli
-   az monitor diagnostic-settings update --name AzureFirewallApplicationRule --resource Firewall07 --set retentionPolicy.days=365
-   ```
-
-   Utilize as [definições de diagnóstico do monitor az eliminar](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_delete) o comando para eliminar uma definição de diagnóstico.
-
-   ```azurecli
-   az monitor diagnostic-settings delete --name AzureFirewallApplicationRule --resource Firewall07
-   ```
-
-> [!TIP]
->Os registos de diagnóstico não necessitam de uma conta de armazenamento separada. A utilização do armazenamento para registo do acesso e do desempenho incorre em encargos de serviços.
 
 ## <a name="view-and-analyze-the-activity-log"></a>Ver e analisar o registo de atividades
 
@@ -133,6 +114,8 @@ Pode ver e analisar os dados de registo de atividades através de um dos seguint
 
 Para consultas de amostras de registo de registo Azure Firewall, consulte [amostras de análise de registo de registos do Azure Firewall](log-analytics-samples.md).
 
+[O Azure Firewall Workbook](firewall-workbook.md) fornece uma tela flexível para a análise de dados do Azure Firewall. Pode usá-lo para criar relatórios visuais ricos dentro do portal Azure. Você pode aceder a várias Firewalls implantadas em Azure, e combiná-las em experiências interativas unificadas.
+
 Também pode ligar à sua conta de armazenamento e obter as entradas de registo JSON para os registos de acesso e desempenho. Depois de transferir os ficheiros JSON, pode convertê-los em CSV e visualizá-los no Excel, Power BI ou qualquer outra ferramenta de visualização de dados.
 
 > [!TIP]
@@ -141,8 +124,10 @@ Também pode ligar à sua conta de armazenamento e obter as entradas de registo 
 ## <a name="view-metrics"></a>Ver métricas
 Navegue por uma Firewall Azure, em **Métricas selecionadas** **de Monitorização** . Para ver os valores disponíveis, selecione a lista pendente **MÉTRICA**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que configuraste a tua firewall para recolher registos, podes explorar registos do Azure Monitor para visualizar os teus dados.
+
+[Monitorize registos usando o Livro de Trabalho da Firewall Azure](firewall-workbook.md)
 
 [Soluções de monitorização de rede nos registos do Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md)

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 8406ee5647d02cc917a0fdb1daf2355611bb781d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a5b995fd273fcfa231e101bc77b11d268be728fb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792213"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359140"
 ---
 # <a name="tutorial-configuring-netsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar o NetSuite para o fornecimento automático de utilizadores
 
@@ -66,7 +66,7 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 1. Selecione a sua instância de NetSuite e, em seguida, selecione o **separador Provisioning.**
 
-1. Defina o **Modo de Aprovisionamento** como **Automático** . 
+1. Defina o **Modo de Aprovisionamento** como **Automático**. 
 
     ![A screenshot mostra a página netSuite Provisioning, com o modo de provisionamento definido para Automático e outros valores que pode definir.](./media/netsuite-provisioning-tutorial/provisioning.png)
 

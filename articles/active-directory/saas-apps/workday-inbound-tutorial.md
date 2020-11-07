@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: e22252ea3e132aee39075d986d7f5a979e14c0a3
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b8560c4890855683e6ebb1c05383db8aa89988c0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520239"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359874"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configurar o Dia de Trabalho para o fornecimento automático de utilizadores
 
@@ -107,7 +107,7 @@ Um requisito comum de todos os conectores de fornecimento de dias de trabalho é
 
 **Para criar um utilizador do sistema de integração:**
 
-1. Inscreva-se no seu inquilino workday usando uma conta de administrador. Na **Aplicação Workday**, insira criar o utilizador na caixa de pesquisa e, em seguida, clique em **Criar Utilizador do Sistema de Integração**.
+1. Inscreva-se no seu inquilino workday usando uma conta de administrador. Na **Aplicação Workday** , insira criar o utilizador na caixa de pesquisa e, em seguida, clique em **Criar Utilizador do Sistema de Integração**.
 
    >[!div class="mx-imgBorder"] 
    >![Criar utilizador](./media/workday-inbound-tutorial/wd_isu_01.png "Criar utilizador")
@@ -152,7 +152,7 @@ Neste passo, você concederá permissões políticas de "segurança de domínio"
 
 **Para configurar permissões de política de segurança de domínio:**
 
-1. Introduza a **configuração de segurança** do domínio na caixa de pesquisa e, em seguida, clique no relatório de **configuração de segurança do domínio do**link .  
+1. Introduza a **configuração de segurança** do domínio na caixa de pesquisa e, em seguida, clique no relatório de **configuração de segurança do domínio do** link .  
    >[!div class="mx-imgBorder"]
    >![Screenshot que mostra "configuração de segurança de domínio" na caixa de pesquisa, com "Configuração de Segurança do Domínio - Relatório" apresentado nos resultados.](./media/workday-inbound-tutorial/wd_isu_06.png "Políticas de Segurança de Domínio")  
 2. Na caixa de texto **do Domínio,** procure os seguintes domínios e adicione-os ao filtro um a um.  
@@ -236,7 +236,7 @@ Neste passo, você concederá permissões políticas de "segurança do processo 
    >![Ativar](./media/workday-inbound-tutorial/wd_isu_16.png "Ativar")
 
 1. Inicie a tarefa De alterar a política de segurança pendente, introduzindo um comentário para efeitos de auditoria e, em seguida, clique em **OK**.
-1. Complete a tarefa no ecrã seguinte verificando a caixa de verificação **Confirmar**e, em seguida, clique em **OK**.
+1. Complete a tarefa no ecrã seguinte verificando a caixa de verificação **Confirmar** e, em seguida, clique em **OK**.
 
    >[!div class="mx-imgBorder"]
    >![Ativar segurança pendente](./media/workday-inbound-tutorial/wd_isu_18.png "Ativar segurança pendente")  
@@ -292,9 +292,9 @@ Esta secção fornece passos para o fornecimento de conta de utilizador de Workd
 
 3. Selecione **Aplicações empresariais,** em seguida, **todas as aplicações**.
 
-4. **Selecione Adicione uma aplicação**e selecione a categoria **'Todos'.**
+4. **Selecione Adicione uma aplicação** e selecione a categoria **'Todos'.**
 
-5. Procure por **Workday para Ative Directory User Provisioning**, e adicione essa aplicação na galeria.
+5. Procure por **Workday para Ative Directory User Provisioning** , e adicione essa aplicação na galeria.
 
 6. Depois de adicionar a aplicação e mostrar o ecrã de detalhes da aplicação, selecione **Provisioning**.
 
@@ -751,7 +751,7 @@ A solução atualmente não suporta a definição de atributos binários, tais c
 
 * Vá à lâmina "Provisioning" da sua App de Provisionamento workday.
 * Clique nos Mapeamentos de Atributos 
-* Em **Mapeamentos**, selecione **Synchronize Workday Workers to On Premises Ative Directory** (ou **Synchronize Workday Workers to Azure AD).**
+* Em **Mapeamentos** , selecione **Synchronize Workday Workers to On Premises Ative Directory** (ou **Synchronize Workday Workers to Azure AD).**
 * Na página 'Mappings' De atributos, desloque-se para baixo e verifique a caixa "Mostrar Opções Avançadas".  Clique na **lista de atributos editar para Workday**
 * Na lâmina que se abre, localiza o atributo "Mobile" e clica na linha para que possa editar o RGPD Móvel **de Expressão API** ![](./media/workday-inbound-tutorial/mobile_gdpr.png)
 
@@ -771,7 +771,7 @@ A solução atualmente não suporta a definição de atributos binários, tais c
 
 Eis como pode lidar com tais requisitos para construir *CN* ou *displayName* para incluir atributos como empresa, unidade de negócio, cidade ou país/região.
 
-* Cada atributo Workday é recuperado usando uma expressão API XPATH subjacente, que é configurável em  **Atributo Mapping -> Secção Avançada -> Editar lista de atributos para Workday**. Aqui está a expressão padrão XPATH API para Workday *PreferredFirstName*, *PreferredLastName*, *Atributos de Organização de Empresa* e *Supervisão.*
+* Cada atributo Workday é recuperado usando uma expressão API XPATH subjacente, que é configurável em  **Atributo Mapping -> Secção Avançada -> Editar lista de atributos para Workday**. Aqui está a expressão padrão XPATH API para Workday *PreferredFirstName* , *PreferredLastName* , *Atributos de Organização de Empresa* e *Supervisão.*
 
      | Atributo workday | Expressão XPATH da API |
      | ----------------- | -------------------- |
@@ -796,14 +796,14 @@ Eis como pode lidar com tais requisitos para construir *CN* ou *displayName* par
 
   Confirme com a sua equipa workday que as expressões API acima são válidas para a configuração do seu inquilino workday. Se necessário, pode editá-los conforme descrito na secção [Personalizar a lista de atributos do utilizador do Workday](#customizing-the-list-of-workday-user-attributes).
 
-* Para construir a expressão de mapeamento de atributos certos, identifique qual o atributo Workday "autoritariamente" que representa o primeiro nome do utilizador, apelido, país/região e departamento. Digamos que os atributos são *PreferredFirstName*, *PreferredLastName*, *CountryReferenceTwoLetter* e *SupervisyOrganization,* respectivamente. Pode usar isto para construir uma expressão para o *atributo ADName* como se segue para obter um nome de exibição como *Smith, John (Marketing-US)*.
+* Para construir a expressão de mapeamento de atributos certos, identifique qual o atributo Workday "autoritariamente" que representa o primeiro nome do utilizador, apelido, país/região e departamento. Digamos que os atributos são *PreferredFirstName* , *PreferredLastName* , *CountryReferenceTwoLetter* e *SupervisyOrganization,* respectivamente. Pode usar isto para construir uma expressão para o *atributo ADName* como se segue para obter um nome de exibição como *Smith, John (Marketing-US)*.
 
     ```
      Append(Join(", ",[PreferredLastName],[PreferredFirstName]), Join(""," (",[SupervisoryOrganization],"-",[CountryReferenceTwoLetter],")"))
     ```
     Uma vez que tenha a expressão certa, edite a tabela De Mapeamentos de Atributos e modifique o mapeamento do atributo *displayName* como mostrado abaixo:   ![ DisplayName Mapping](./media/workday-inbound-tutorial/wd_displayname_map.png)
 
-* Estendendo o exemplo acima, digamos que gostaria de converter nomes da cidade vindos do Workday em valores de abreviação e depois usá-lo para construir nomes de exibição como *Smith, John (CHI)* ou *Doe, Jane (NYC)*, então este resultado pode ser alcançado usando uma expressão Switch com o atributo *Workday Município* como a variável determinante.
+* Estendendo o exemplo acima, digamos que gostaria de converter nomes da cidade vindos do Workday em valores de abreviação e depois usá-lo para construir nomes de exibição como *Smith, John (CHI)* ou *Doe, Jane (NYC)* , então este resultado pode ser alcançado usando uma expressão Switch com o atributo *Workday Município* como a variável determinante.
 
      ```
     Switch
@@ -909,7 +909,7 @@ Quando clica em qualquer um dos registos de registos de auditoria, a página Det
 
   ![Localizar](media/workday-inbound-tutorial/wd_event_viewer_02.png)
 
-  Procure a entrada com *o Event ID = 9*, que lhe fornecerá o filtro de pesquisa LDAP utilizado pelo agente para recuperar a conta AD. Pode verificar se este é o filtro de pesquisa certo para recuperar entradas únicas do utilizador.
+  Procure a entrada com *o Event ID = 9* , que lhe fornecerá o filtro de pesquisa LDAP utilizado pelo agente para recuperar a conta AD. Pode verificar se este é o filtro de pesquisa certo para recuperar entradas únicas do utilizador.
 
   ![Pesquisa LDAP](media/workday-inbound-tutorial/wd_event_viewer_03.png)
 
@@ -946,11 +946,11 @@ Quando clica em qualquer um dos registos de registos de auditoria, a página Det
 
   Imediatamente após o evento acima, deve haver outro evento que capte a resposta da operação de conta AD de criação. Este evento devolve o novo objetoGuid criado em AD e é definido como o atributo TargetAnchor no serviço de fornecimento.
 
-  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_06.png" alt-text="Screenshot que mostra o registo 'HTTP POST' no registo 'Provisioning Agent'." lightbox="media/workday-inbound-tutorial/wd_event_viewer_06.png":::
+  :::image type="content" source="media/workday-inbound-tutorial/wd_event_viewer_06.png" alt-text="Screenshot que mostra o registo 'Provisioning Agent' com o objectGuid criado em AD realçado." lightbox="media/workday-inbound-tutorial/wd_event_viewer_06.png":::
 
 ### <a name="understanding-logs-for-manager-update-operations"></a>Compreensão de registos para operações de atualização de gestores
 
-O atributo do gestor é um atributo de referência em AD. O serviço de prestação não define o atributo do gestor como parte da operação de criação de utilizadores. Em vez disso, o atributo do gestor é definido como parte de uma operação de *atualização* após a criação da conta AD para o utilizador. Expandindo o exemplo acima, digamos que uma nova contratação com ID de empregado "21451" é ativada no Workday e o novo gestor de aluguer (*21023)* já tem uma conta AD. Neste cenário, a pesquisa nos registos de Auditoria do utilizador 21451 mostra 5 entradas.
+O atributo do gestor é um atributo de referência em AD. O serviço de prestação não define o atributo do gestor como parte da operação de criação de utilizadores. Em vez disso, o atributo do gestor é definido como parte de uma operação de *atualização* após a criação da conta AD para o utilizador. Expandindo o exemplo acima, digamos que uma nova contratação com ID de empregado "21451" é ativada no Workday e o novo gestor de aluguer ( *21023)* já tem uma conta AD. Neste cenário, a pesquisa nos registos de Auditoria do utilizador 21451 mostra 5 entradas.
 
   [![Atualização do Gestor](media/workday-inbound-tutorial/wd_audit_logs_03.png)](media/workday-inbound-tutorial/wd_audit_logs_03.png#lightbox)
 
@@ -984,8 +984,8 @@ Esta secção abrange erros geralmente vistos com o fornecimento de utilizadores
 |#|Cenário de erro |Causas Prováveis|Resolução Recomendada|
 |--|---|---|---|
 |1.| Erro na instalação do agente de provisionamento com mensagem de erro:  *O Serviço 'Microsoft Azure AD Connect Provisioning Agent' (AADConnectProvisioningAgent) não foi iniciado. Verifique se tem privilégios suficientes para iniciar o sistema.* | Este erro geralmente aparece se estiver a tentar instalar o agente de provisionamento num controlador de domínio e a política de grupo impede o início do serviço.  Também é visto se tem uma versão anterior do agente em execução e não o desinstalou antes de iniciar uma nova instalação.| Instale o agente de provisionamento num servidor não-DC. Certifique-se de que as versões anteriores do agente estão desinstaladas antes de instalar o novo agente.|
-|2.| O Windows Service 'Microsoft Azure AD Connect Provisioning Agent' encontra-se no estado *inicial* e não muda para o estado *de funcionamento.* | Como parte da instalação, o assistente de agente cria uma conta local (**NT Service \\ AADConnectProvisioningAgent**) no servidor e esta é a conta de início de súm em dia útil utilizada para iniciar o serviço. Se uma política de segurança no seu servidor Windows impedir que as contas locais executem os serviços, encontrará este erro. | Abra a *consola Serviços.* Clique no botão direito no Serviço do Windows 'Microsoft Azure AD Connect Provisioning Agent' e no separador logon especificar a conta de um administrador de domínio para executar o serviço. Reinicie o serviço. |
-|3.| Ao configurar o agente de provisionamento com o seu domínio AD no degrau *Connect Ative Directory*, o assistente demora muito tempo a tentar carregar o esquema de AD e, eventualmente, a esgotar-se. | Geralmente, este erro aparece se o assistente não conseguir contactar o servidor de controlador de domínio do AD devido a problemas na firewall. | No ecrã do assistente do *Diretório Ativo Connect,* ao mesmo tempo que fornece as credenciais para o seu domínio AD, existe uma opção chamada *Prioridade do controlador de domínio Select*. Utilize esta opção para selecionar um controlador de domínio que esteja no mesmo site que o servidor do agente e certifique-se de que não existem regras de firewall que bloqueiem a comunicação. |
+|2.| O Windows Service 'Microsoft Azure AD Connect Provisioning Agent' encontra-se no estado *inicial* e não muda para o estado *de funcionamento.* | Como parte da instalação, o assistente de agente cria uma conta local ( **NT Service \\ AADConnectProvisioningAgent** ) no servidor e esta é a conta de início de súm em dia útil utilizada para iniciar o serviço. Se uma política de segurança no seu servidor Windows impedir que as contas locais executem os serviços, encontrará este erro. | Abra a *consola Serviços.* Clique no botão direito no Serviço do Windows 'Microsoft Azure AD Connect Provisioning Agent' e no separador logon especificar a conta de um administrador de domínio para executar o serviço. Reinicie o serviço. |
+|3.| Ao configurar o agente de provisionamento com o seu domínio AD no degrau *Connect Ative Directory* , o assistente demora muito tempo a tentar carregar o esquema de AD e, eventualmente, a esgotar-se. | Geralmente, este erro aparece se o assistente não conseguir contactar o servidor de controlador de domínio do AD devido a problemas na firewall. | No ecrã do assistente do *Diretório Ativo Connect,* ao mesmo tempo que fornece as credenciais para o seu domínio AD, existe uma opção chamada *Prioridade do controlador de domínio Select*. Utilize esta opção para selecionar um controlador de domínio que esteja no mesmo site que o servidor do agente e certifique-se de que não existem regras de firewall que bloqueiem a comunicação. |
 
 #### <a name="connectivity-errors"></a>Erros de conectividade
 
@@ -1038,7 +1038,7 @@ Para tal, tem de utilizar o [Workday Studio](https://community.workday.com/studi
 
 4. A partir da barra de comando, selecione o Serviço Web de teste > workday na opção **Tester.**
 
-5. Selecione **External**, e selecione o ficheiro Human_Resources WSDL que descarregou no passo 2.
+5. Selecione **External** , e selecione o ficheiro Human_Resources WSDL que descarregou no passo 2.
 
     ![Screenshot que mostra o ficheiro "Human_Resources" aberto no Workday Studio.](./media/workday-inbound-tutorial/wdstudio1.png)
 
@@ -1046,7 +1046,7 @@ Para tal, tem de utilizar o [Workday Studio](https://community.workday.com/studi
 
 7. Definir **operação** para **Get_Workers**
 
-8.    Clique no pequeno link **de configuração** abaixo dos painéis de Pedido/Resposta para definir as suas credenciais de dia de trabalho. Verifique **autenticação**e, em seguida, introduza o nome de utilizador e a palavra-passe para a sua conta do sistema de integração workday. Certifique-se de que forma o nome de utilizador como inquilino do nome \@ e deixe a opção **Utilizador-Segurança WS-SecurityToken** selecionada.
+8.    Clique no pequeno link **de configuração** abaixo dos painéis de Pedido/Resposta para definir as suas credenciais de dia de trabalho. Verifique **autenticação** e, em seguida, introduza o nome de utilizador e a palavra-passe para a sua conta do sistema de integração workday. Certifique-se de que forma o nome de utilizador como inquilino do nome \@ e deixe a opção **Utilizador-Segurança WS-SecurityToken** selecionada.
    ![Screenshot que mostra o separador "Segurança" com o "Username" e "Password" introduzidos, e "WS-Security Username Token" selecionado.](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. Selecione **OK**.
@@ -1104,9 +1104,9 @@ Para tal, tem de utilizar o [Workday Studio](https://community.workday.com/studi
 
 1. Lance o [portal Azure](https://portal.azure.com)e navegue para a secção de Provisionamento da sua aplicação de provisionamento workday, como descrito anteriormente neste tutorial.
 
-2. Descoda **o estado de provisionamento** **e**selecione **Guardar**. Este passo ajudará a garantir que as suas alterações só produzirão efeitos quando estiver pronto.
+2. Descoda **o estado de provisionamento** **e** selecione **Guardar**. Este passo ajudará a garantir que as suas alterações só produzirão efeitos quando estiver pronto.
 
-3. Em **Mapeamentos**, selecione **Synchronize Workday Workers to On Premises Ative Directory** (ou **Synchronize Workday Workers to Azure AD).**
+3. Em **Mapeamentos** , selecione **Synchronize Workday Workers to On Premises Ative Directory** (ou **Synchronize Workday Workers to Azure AD).**
 
 4. Percorra a parte inferior do ecrã seguinte e selecione **Mostrar opções avançadas**.
 
@@ -1118,7 +1118,7 @@ Para tal, tem de utilizar o [Workday Studio](https://community.workday.com/studi
 
 7. Para **nome,** introduza um nome de exibição para o seu atributo.
 
-8. Para **tipo**, selecione o tipo que corresponde adequadamente ao seu atributo **(A corda** é mais comum).
+8. Para **tipo** , selecione o tipo que corresponde adequadamente ao seu atributo **(A corda** é mais comum).
 
 9. Para **API Expression,** insira a expressão XPath que copiou do Workday Studio. Exemplo: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
 
@@ -1128,7 +1128,7 @@ Para tal, tem de utilizar o [Workday Studio](https://community.workday.com/studi
 
 11. **Selecione Guardar** acima e, em seguida, **Sim** para o diálogo. Feche o ecrã Attribute-Mapping se ainda estiver aberto.
 
-12. De volta ao separador de **Provisionamento** principal, selecione **Synchronize Workday Workers to On Premises Ative Directory** (ou **Synchronize Workers to Azure AD**) novamente.
+12. De volta ao separador de **Provisionamento** principal, selecione **Synchronize Workday Workers to On Premises Ative Directory** (ou **Synchronize Workers to Azure AD** ) novamente.
 
 13. **Selecione Adicionar novo mapeamento**.
 

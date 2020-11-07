@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: f9d6f58256ccc21e5121a16a429e0f4c3ff1e485
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 19736a37e0da07237f6b112de7da86efe3d8bfe5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323100"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359379"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governação da empresa para a Azure Machine Learning
 
@@ -126,6 +126,7 @@ A `hbi_workspace` bandeira controla a quantidade de [dados que](#microsoft-colle
 * Limpa o disco local de armazenamento temporário entre as execuções
 * Passa credenciais de segurança para a sua conta de armazenamento, registo de contentores e conta SSH da camada de execução para os seus clusters de computação usando o seu cofre-chave
 * Permite a filtragem IP para garantir que os lotes subjacentes não podem ser chamados por outros serviços externos que não o AzureMachineLearningService
+* Por favor, note que as instâncias computacional não são suportadas no espaço de trabalho da HBI
 
 #### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
