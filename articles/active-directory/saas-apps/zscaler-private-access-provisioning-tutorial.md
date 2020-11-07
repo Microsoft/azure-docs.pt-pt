@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/07/2019
 ms.author: Zhchia
-ms.openlocfilehash: 5ecb4d249c8c2167ec61740eb9515fd1937230b0
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a93e2a88201f32ed99698f2bfbab631c81ed8b35
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519746"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357713"
 ---
 # <a name="tutorial-configure-zscaler-private-access-zpa-for-automatic-user-provisioning"></a>Tutorial: Configurar zscaler acesso privado (ZPA) para fornecimento automático de utilizadores
 
@@ -97,7 +97,7 @@ Antes de configurar o Zscaler Private Access (ZPA) para o fornecimento automáti
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -105,7 +105,7 @@ Antes de configurar o Zscaler Private Access (ZPA) para o fornecimento automáti
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **zscaler Private Access (ZPA)**, selecione **Zscaler Private Access (ZPA)** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira **zscaler Private Access (ZPA)** , selecione **Zscaler Private Access (ZPA)** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Zscaler Private Access (ZPA) na lista de resultados](common/search-new-app.png)
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: d92db526e0fa3f3f8898ac2ea264d0b8f37be071
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e0b98f15e03552f27cdd1c9683bdd7e74a1c02df
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458324"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358696"
 ---
 # <a name="tutorial-configure-lucidchart-for-automatic-user-provisioning"></a>Tutorial: Configurar Lucidchart para o provisionamento automático do utilizador
 
@@ -53,7 +53,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 2. Navegue até **SCIM**.
 
-      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Screenshot da consola de administração Lucidchart. O menu Team está em destaque e aberto. No âmbito da Administração, destaca-se a Integração de Aplicações." border="false":::
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Screenshot da consola de administração Lucidchart. Dentro de um grande botão S C I M, o texto S C I M é realçado, e uma bandeira ativada é visível." border="false":::
 
 3. Percorra para baixo para ver o **token do Portador** e **o URL base de Lucidchart.** Copie e guarde o **símbolo do Portador.** Este valor será introduzido no campo **Secret Token** * no separador Provisioning da sua aplicação LucidChart no portal Azure. 
 
@@ -98,7 +98,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
       ![provisionamento](./media/Lucidchart-provisioning-tutorial/lucidchart1.png)
 
-6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

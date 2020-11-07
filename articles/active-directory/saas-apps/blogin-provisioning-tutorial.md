@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4b77208ca7869288ac13e28c6535b1b3972aa22c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: f50c8d612ca088c97754b1eb90ed049113e33c6e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928761"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358325"
 ---
 # <a name="tutorial-configure-blogin-for-automatic-user-provisioning"></a>Tutorial: Configurar blogIn para fornecimento automático de utilizadores
 
@@ -52,8 +52,8 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 Para configurar o fornecimento de utilizadores no **BlogIn,** faça login na sua conta BlogIn e siga estes passos:
 
-1. Navegar para **definições**  >  **Configurações Configurações Configuração Configuração**  >  **Configuração SSO & fornecimento do utilizador** .
-2. Mude para o **separador de provisionamento do Utilizador** e altere o estado de provisionamento do utilizador para **On** .
+1. Navegar para **definições**  >  **Configurações Configurações Configuração Configuração**  >  **Configuração SSO & fornecimento do utilizador**.
+2. Mude para o **separador de provisionamento do Utilizador** e altere o estado de provisionamento do utilizador para **On**.
 3. Clique no botão **Guardar alterações.** Após a primeira salvação, o **símbolo secreto (Portador)** será gerado.
 4. Copiar **base (inquilino) URL** e **valores simbólicos secretos (portador).** Estes valores serão introduzidos nos campos URL e Secret Token no separador Provisioning da sua aplicação BlogIn no portal Azure.
 
@@ -78,19 +78,19 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-blogin-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para blogIn em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações** .
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **BlogIn** .
+2. Na lista de aplicações, selecione **BlogIn**.
 
     ![O link BlogIn na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o separador **Aprovisionamento** .
+3. Selecione o separador **Aprovisionamento**.
 
     ![Separador Aprovisionamento](common/provisioning.png)
 
-4. Defina o **Modo de Aprovisionamento** como **Automático** .
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
     ![Separador de provisionamento automático](common/provisioning-automatic.png)
 
@@ -98,13 +98,13 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha** .
+6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Selecione **Guardar** .
+7. Selecione **Guardar**.
 
-8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para o BlogIn** .
+8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para o BlogIn**.
 
 9. Reveja os atributos do utilizador que são sincronizados de Azure AD para BlogIn na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no BlogIn para operações de atualização. Se optar por alterar o [atributo de alvo correspondente,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)terá de garantir que a API do BlogIn suporta a filtragem dos utilizadores com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
@@ -119,7 +119,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |nome.formatado|String|
    |phoneNumbers[type eq "work"].value|String|
 
-10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups para BlogIn** .
+10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups para BlogIn**.
 
 11. Reveja os atributos do grupo que são sincronizados de Azure AD para BlogIn na secção **Attribute-Mapping.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar com os grupos no BlogIn para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
@@ -138,11 +138,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para aprovisionar, clique em **Guardar** .
+15. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
     ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
-Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições** . O ciclo inicial leva mais tempo a ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do Azure AD esteja em execução. 
+Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições**. O ciclo inicial leva mais tempo a ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do Azure AD esteja em execução. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
 Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:

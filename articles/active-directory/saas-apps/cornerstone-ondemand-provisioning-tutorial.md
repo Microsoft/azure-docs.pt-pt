@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4200bc9879aba5e18282123be03576cc617a5e14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59c599167089d222324ed880c18e68d763f5e468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549233"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358461"
 ---
 # <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Tutorial: Configurar a Cornerstone OnDemand para o fornecimento automático de utilizadores
 
@@ -46,7 +46,7 @@ Para adicionar a Cornerstone OnDemand do Marketplace, siga estes passos.
 
     ![O ícone do Diretório Ativo Azure](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -76,7 +76,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 Para configurar o fornecimento automático de utilizadores para a Cornerstone OnDemand em Azure AD, siga estes passos.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Cornerstone OnDemand**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **aplicações da Empresa**  >  **Todas as aplicações**  >  **Cornerstone OnDemand**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -108,7 +108,7 @@ Para configurar o fornecimento automático de utilizadores para a Cornerstone On
 
     ![E-mail de notificação de StoneStone OnDemand](./media/cornerstone-ondemand-provisioning-tutorial/EmailNotification.png)
 
-8. Selecione **Guardar**.
+8. Selecione **Save** (Guardar).
 
 9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Cornerstone OnDemand**.
 

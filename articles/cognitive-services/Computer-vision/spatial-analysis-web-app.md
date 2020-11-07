@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc03cf03f8a8e0f2a222ca1089618eaade9485d
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 24d4dd4d0caa49b9514bf19f707ea87b0b071a79
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496078"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357101"
 ---
 # <a name="how-to-deploy-a-people-counting-web-application"></a>Como: Implementar uma aplicação web people Counting
 
@@ -64,6 +64,8 @@ az iot hub device-identity create --hub-name "<IoT Hub Name>" --device-id "<Edge
 ### <a name="deploy-the-container-on-azure-iot-edge-on-the-host-computer"></a>Desloque o recipiente no Azure IoT Edge no computador anfitrião
 
 Desloque o recipiente de análise espacial como módulo IoT no computador anfitrião, utilizando o CLI Azure. O processo de implantação requer um ficheiro manifesto de implantação que delineie os recipientes, variáveis e configurações necessários para a sua implantação. Pode encontrar uma amostra [Azure Stack Edge um manifesto de implantação específico,](https://github.com/Azure-Samples/cognitive-services-rest-api-samples/) bem como um [manifesto de implantação específico não-Azure Stack Edge](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) no GitHub, que inclui uma configuração básica de implementação para o recipiente de análise *espacial.* 
+
+Em alternativa, pode utilizar as extensões Azure IoT para o Código do Estúdio Visual para realizar operações com o seu hub IoT. Vá ao [Deploy Azure IoT Edge Modules do Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-vscode) para saber mais.
 
 > [!NOTE] 
 > Os *recipientes* *de diagnóstico de análise espacial-telegraf* e de análise espacial são opcionais. Pode decidir removê-los do *DeploymentManifest.jsarquivado.* Para mais informações consulte o artigo [de telemetria e resolução de problemas.](./spatial-analysis-logging.md) Pode encontrar duas amostras *DeploymentManifest.jsem* ficheiros no Github, para um [dispositivo Azure Stack Edge](https://go.microsoft.com/fwlink/?linkid=2142179) ou outra máquina de [desktop](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)
@@ -170,7 +172,7 @@ docker tag rtvsofficial.azurecr.io/acceleratorapp.personcount:1.0 [desired local
 docker push [desired local image name]
 ```
 
-Para instalar o recipiente, crie uma nova App Web Azure para contentores e preencha os parâmetros necessários. Em seguida, vá ao **separador Docker** e selecione **Single Container**, em seguida, Registo do **Contentor Azure**. Use o seu exemplo de Registo de Contentores Azure onde empurrou a imagem acima.
+Para instalar o recipiente, crie uma nova App Web Azure para contentores e preencha os parâmetros necessários. Em seguida, vá ao **separador Docker** e selecione **Single Container** , em seguida, Registo do **Contentor Azure**. Use o seu exemplo de Registo de Contentores Azure onde empurrou a imagem acima.
 
 ![Insira detalhes de imagem](./media/spatial-analysis/solution-app-create-screen.png)
 
@@ -190,6 +192,9 @@ Assim que estas 2 definições forem adicionadas, clique em **Guardar**. Em segu
 Vá à App Azure Web e verifique se a implementação foi bem sucedida, e a aplicação web está em execução. Navegue para o url configurado: `<yourapp>.azurewebsites.net` para ver a aplicação de execução.
 
 ![Testar a implementação](./media/spatial-analysis/solution-app-output.png)
+
+## <a name="get-the-personcount-source-code"></a>Obtenha o código fonte PersonCount
+Se quiser visualizar ou modificar o código fonte desta aplicação, pode encontrá-lo [no Github](https://github.com/Azure-Samples/cognitive-services-spatial-analysis).
 
 ## <a name="next-steps"></a>Passos seguintes
 

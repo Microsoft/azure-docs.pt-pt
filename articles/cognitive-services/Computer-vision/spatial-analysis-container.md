@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496130"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357118"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instale e execute o recipiente de análise espacial (Pré-visualização)
 
@@ -105,7 +105,7 @@ A análise espacial utiliza as características computacionais do Azure Stack Ed
 
 ### <a name="set-up-an-edge-compute-role-and-create-an-iot-hub-resource"></a>Crie um papel de computação Edge e crie um recurso IoT Hub
 
-No [portal Azure,](https://portal.azure.com/)navegue para o seu recurso Azure Stack Edge. Na página **de visão geral** ou na lista de navegação, clique no botão Edge compute **Get start.** No azulejo **computacional Configure Edge,**   clique em **Configurar**. 
+No [portal Azure,](https://portal.azure.com/)navegue para o seu recurso Azure Stack Edge. Na página **de visão geral** ou na lista de navegação, clique no botão Edge compute **Get start.** No azulejo  **computacional Configure Edge,**   clique em **Configurar**. 
 
 ![Ligação](media/spatial-analysis/configure-edge-compute-tile.png)
 
@@ -289,7 +289,7 @@ sudo apt-get update
 Instale o desbloqueio 1.0.9:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
 Em seguida, registe o computador anfitrião como um dispositivo IoT Edge na sua instância IoT Hub, utilizando uma [cadeia de ligação](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).

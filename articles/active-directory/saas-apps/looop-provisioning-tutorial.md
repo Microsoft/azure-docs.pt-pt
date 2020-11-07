@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 889972f7d94ab960354982275d45bdc5d5726d6e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850698"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356829"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Tutorial: Configure Looop para o fornecimento automático de utilizadores
 
@@ -59,7 +59,7 @@ Antes de configurar o Looop para o fornecimento automático do utilizador com a 
 
 2. Gere um novo token clicando **em Reset Token** em **integração SCIM**.
 
-    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Screenshot da consola de administração Looop. O separador Conta está realçado e aberto. Nas definições de Conta, destaque-se a autenticação." border="false":::
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Screenshot da secção de integração S C I M de uma página na consola de administração Looop. O botão reset token é realçado." border="false":::
 
 3. Copie o **ponto final scim** e **o token**. Estes valores serão introduzidos nos campos **URL** e **Secret Token** no separador Provisioning da sua aplicação Looop no portal Azure. 
 
@@ -73,7 +73,7 @@ Para configurar o Looop para o fornecimento automático de utilizadores com Azur
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

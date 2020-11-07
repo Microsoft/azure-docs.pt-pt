@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8f027ccc577df79e561fca7194c20b6cc7ef2c6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544235"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356778"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Tutorial: Configure Elium para o fornecimento automático de utilizadores
 
@@ -71,7 +71,7 @@ Para configurar o Elium para o fornecimento automático de utilizadores com Azur
 
     ![Item do menu do Diretório Ativo Azure](common/select-azuread.png)
 
-1. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+1. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
      ![Lâmina de aplicações AD Enterprise Azure](common/enterprise-applications.png)
 
@@ -92,7 +92,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 Para configurar o fornecimento automático de utilizadores para Elium em Azure AD, siga estes passos:
 
-1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione **aplicações Enterprise**e, em seguida, selecione **Todas as aplicações**.
+1. Inscreva-se no [portal Azure,](https://portal.azure.com)selecione **aplicações Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![Lâmina de aplicações AD Enterprise Azure](common/enterprise-applications.png)
 
@@ -108,7 +108,7 @@ Para configurar o fornecimento automático de utilizadores para Elium em Azure A
 
     ![Definição automática para modo de provisionamento](common/provisioning-automatic.png)
 
-1. Na secção **Credenciais Admin,** tipo ** \<tenantURL\> /scim/v2** no campo URL do **inquilino.** (O **inquilinoURL** é o valor recuperado anteriormente da consola de administração Elium.) Também digite o valor simbólico elium **secreto** no campo **Secret Token.** Por fim, selecione **a Ligação de Teste** para verificar se o Azure AD pode ligar-se ao Elium. Se a ligação falhar, certifique-se de que a sua conta Elium tem permissões de administração e tente novamente.
+1. Na secção **Credenciais Admin,** tipo **\<tenantURL\> /scim/v2** no campo URL do **inquilino.** (O **inquilinoURL** é o valor recuperado anteriormente da consola de administração Elium.) Também digite o valor simbólico elium **secreto** no campo **Secret Token.** Por fim, selecione **a Ligação de Teste** para verificar se o Azure AD pode ligar-se ao Elium. Se a ligação falhar, certifique-se de que a sua conta Elium tem permissões de administração e tente novamente.
 
     ![URL de inquilino e campos de token secreto em credenciais de administrador](common/provisioning-testconnection-tenanturltoken.png)
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 12/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 6d242fa5ac7257908b4f70d97531a9a1c9c88832
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cee9544dbc2deecafa67d73d3bdea804937c1d7a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457559"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356319"
 ---
 # <a name="tutorial-configure-atlassian-cloud-for-automatic-user-provisioning"></a>Tutorial: Configure nuvem atlassiana para fornecimento automático de utilizadores
 
@@ -47,7 +47,7 @@ O cenário delineado neste tutorial pressupõe que já tem os seguintes pré-req
 
 ## <a name="step-2-configure-atlassian-cloud-to-support-provisioning-with-azure-ad"></a>Passo 2. Configure a Nuvem Atlassiana para apoiar o provisionamento com a Azure AD
 
-1. Navegue para [o Atlassian Organization Manager](https://admin.atlassian.com)> ** selecione o diretório de > org**.
+1. Navegue para [o Atlassian Organization Manager](https://admin.atlassian.com)> **selecione o diretório de > org**.
 
     ![Screenshot da página da Administração com a opção do Diretório chamada.](./media/atlassian-cloud-provisioning-tutorial/select-directory.png)
 
@@ -76,7 +76,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-atlassian-cloud-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para a Nuvem Atlassiana em Azure AD:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações Empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Atlassian Cloud**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações Empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Atlassian Cloud**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

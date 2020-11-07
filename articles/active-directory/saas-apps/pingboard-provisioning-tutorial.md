@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: 29e28e20bd9b471604a450ddb36ef867f0608e06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac36f5d6d1f57fd8453c54bcc8cf19dd964f47f6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553767"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357900"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configure Pingboard para fornecimento automático de utilizadores
 
@@ -53,7 +53,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-pingboard-in-azure-ad"></a>Para configurar o fornecimento automático de conta de utilizador ao Pingboard em Azure AD
 
-1. No [portal Azure,](https://portal.azure.com)consulte a secção **Azure Ative Directory**  >  **Enterprise Apps**All  >  **applications.**
+1. No [portal Azure,](https://portal.azure.com)consulte a secção **Azure Ative Directory**  >  **Enterprise Apps** All  >  **applications.**
 
 1. Se já configurar o Pingboard para um único sinal, procure o seu exemplo de Pingboard utilizando o campo de pesquisa. Caso contrário, **selecione Add** e procure **pingboard** na galeria de aplicações. Selecione **Pingboard** a partir dos resultados da pesquisa e adicione-o à sua lista de aplicações.
 
@@ -79,7 +79,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
 1. Insira o endereço de e-mail de uma pessoa ou grupo que pretende receber notificações de erro de provisionamento no **E-mail de Notificação**. Selecione a caixa de verificação por baixo.
 
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
 1. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Pingboard**.
 

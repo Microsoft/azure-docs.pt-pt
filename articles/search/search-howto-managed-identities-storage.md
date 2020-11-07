@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b877ff912470cc19082410fddab64c84824eb269
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f26ca04955dfa854a8ee17b7aa255a6ed991b8df
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519559"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358376"
 ---
 # <a name="set-up-a-connection-to-an-azure-storage-account-using-a-managed-identity"></a>Configurar uma ligação a uma conta do Armazenamento do Microsoft Azure através de uma identidade gerida
 
@@ -43,7 +43,7 @@ Depois de **selecionar, verá** um ID de objeto que foi atribuído ao seu servi�
 Neste passo, você dará ao seu serviço de Pesquisa Cognitiva Azure permissão para ler dados da sua conta de armazenamento.
 
 1. No portal Azure, navegue para a conta de Armazenamento que contém os dados que pretende indexar.
-2. Selecione **controlo de acesso (IAM)**
+2. Selecione **Controlo de acesso (IAM)**
 3. **Selecione Adicionar** e adicionar a **atribuição de função**
 
     ![Adicionar atribuição de função](./media/search-managed-identities/add-role-assignment-storage.png "Adicionar atribuição de função")
@@ -65,7 +65,7 @@ Neste passo, você dará ao seu serviço de Pesquisa Cognitiva Azure permissão 
 
 ### <a name="3---create-the-data-source"></a>3 - Criar a fonte de dados
 
-A [API REST,](/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados a partir de uma conta de armazenamento usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
+A [API REST,](/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados a partir de uma conta de armazenamento usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
 
 Ao indexar a partir de uma conta de armazenamento, a fonte de dados deve ter as seguintes propriedades necessárias:
 
@@ -77,7 +77,7 @@ Ao indexar a partir de uma conta de armazenamento, a fonte de dados deve ter as 
 * **credenciais**
     * Ao utilizar uma identidade gerida para autenticar, o formato **de credenciais** é diferente do que quando não se utiliza uma identidade gerida. Aqui irá fornecer um ResourceId que não tem chave de conta ou senha. O ResourceId deve incluir o ID de subscrição da conta de armazenamento, o grupo de recursos da conta de armazenamento e o nome da conta de armazenamento.
     * Formato de identidade gerido: 
-        * *ResourceId=/subscrições/**o seu ID**de subscrição /grupos de recursos/ o nome do grupo de**recursos**/fornecedores/Microsoft.Storage/storageAcounts/ o nome da sua conta**de armazenamento**/;*
+        * *ResourceId=/subscrições/ **o seu ID** de subscrição /grupos de recursos/ o nome do grupo de **recursos** /fornecedores/Microsoft.Storage/storageAcounts/ o nome da sua conta **de armazenamento** /;*
 * **O recipiente** especifica um recipiente ou nome de mesa na sua conta de armazenamento. Por predefinição, todas as bolhas dentro do recipiente são recuperáveis. Se quiser apenas indexar bolhas num determinado diretório virtual, pode especificar esse diretório utilizando o parâmetro de **consulta** opcional.
 
 Exemplo de como criar um objeto de origem de dados blob utilizando a [API REST](/rest/api/searchservice/create-data-source):

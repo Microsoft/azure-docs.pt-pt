@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
 keywords: azul, kinect, rgb, IR, gravação, sensor, sdk, acesso, profundidade, vídeo, câmara, imu, movimento, sensor, áudio, microfone, matroska, sensor sdk, download, corpo, rastreamento, suporte
-ms.openlocfilehash: 61d29284bc2ed9e574e8a19561f19ad6f4259908
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2fbfe9c52a46cbf7058e6d5ca91008f1f289bfd2
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277613"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357050"
 ---
 # <a name="azure-kinect-support-options-and-resources"></a>Opções e recursos de suporte da Azure Kinect
 
@@ -32,9 +32,9 @@ Há várias maneiras de obter um apoio assistido para Azure Kinect.
 
 ### <a name="microsoft-qa"></a>Microsoft Q&A
 
-Para respostas rápidas e fiáveis sobre as suas questões técnicas de produtos da Microsoft Engineers, Azure Most Valuable Professionals (MVPs), ou da nossa comunidade especializada, envolva-se connosco no [Microsoft Q&A](https://aka.ms/azureqa), o destino preferido da Azure para apoio à comunidade.
+Para respostas rápidas e fiáveis sobre as suas questões técnicas de produtos da Microsoft Engineers, Azure Most Valuable Professionals (MVPs), ou da nossa comunidade especializada, envolva-se connosco no [Microsoft Q&A](/answers/products/azure), o destino preferido da Azure para apoio à comunidade.
 
-- [Microsoft Q&A para Azure Kinect,](https://docs.microsoft.com/answers/topics/azure-kinect-dk.html)onde pode fazer perguntas ou pesquisar através da biblioteca de perguntas existente.
+- [Microsoft Q&A para Azure Kinect,](/answers/topics/azure-kinect-dk.html)onde pode fazer perguntas ou pesquisar através da biblioteca de perguntas existente.
 
 ### <a name="development-azure-kinect-on-azure"></a>Desenvolvimento Azure Kinect em Azure
 
@@ -50,7 +50,7 @@ Para suporte técnico utilizando o Sensor SDK e o Body Tracking SDK no local, ab
 
 ### <a name="azure-kinect-dk-device"></a>Dispositivo Azure Kinect DK
 
-Antes de contactar o suporte de hardware, certifique-se de que configura e atualizou o Azure Kinect DK. Para testar se o dispositivo está a funcionar, utilize o [visualizador Azure Kinect](azure-kinect-viewer.md). Saiba mais na nossa página [de ajuda do Azure Kinect DK.](https://aka.ms/kinectsupport)
+Antes de contactar o suporte de hardware, certifique-se de que configura e atualizou o Azure Kinect DK. Para testar se o dispositivo está a funcionar, utilize o [visualizador Azure Kinect](azure-kinect-viewer.md). Saiba mais na nossa página [de ajuda do Azure Kinect DK.](./index.yml)
 Você também pode querer verificar os [nossos problemas conhecidos e resolução de problemas](troubleshooting.md).
 
 [Obtenha ajuda](https://support.microsoft.com/supportforbusiness/productselection?sapId=f77b1b95-721e-43a0-2db8-b01e81a3f813) com uma funcionalidade de dispositivo ou sensor, atualizações de firmware ou opções de compra.

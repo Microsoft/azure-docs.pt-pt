@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: Zhchia
-ms.openlocfilehash: 43f5b96c7029da6b49bc9df40d92fbd250145715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e79f21300325c6b451dd564bf2c69830f003f55c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326019"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357866"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Tutorial: Configure Matriz Prioritária para o provisionamento automático do utilizador
 
@@ -71,7 +71,7 @@ Para configurar a Matriz Prioritária para o fornecimento automático de utiliza
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

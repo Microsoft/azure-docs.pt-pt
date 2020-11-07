@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 94f863bd4f016ed1117fa236323b43515fd53797
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0ca0c4eacce88bfb53582f7969ed7acbfd75bb8a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165612"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358716"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o reconhecimento de entidade nomeada em análise de texto
 
@@ -70,7 +70,7 @@ Crie um pedido POST. Pode utilizar o [Carteiro](text-analytics-how-to-call-api.m
 
 #### <a name="version-31-preview2"></a>[Versão 3.1-pré-visualização.2](#tab/version-3-preview)
 
-O Reconhecimento de Entidades `v3.1-preview.2` Nomeadas utiliza pontos finais separados para NER e entidade que ligam pedidos. Utilize um formato URL abaixo baseado no seu pedido:
+O Reconhecimento de Entidades `v3.1-preview.2` Nomeadas utiliza pontos finais separados para NER, PII e entidade que ligam pedidos. Utilize um formato URL abaixo baseado no seu pedido:
 
 Ligação de entidades
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
@@ -82,6 +82,7 @@ NER
 
 [Chamada Entity Recognition versão 3.1-pré-visualização referência para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
+Informação Pessoalmente Identificável (PII)
 * Informação pessoal `PII` - `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 Também pode utilizar o parâmetro opcional `domain=phi` para detetar informações de saúde `PHI` () em texto. 

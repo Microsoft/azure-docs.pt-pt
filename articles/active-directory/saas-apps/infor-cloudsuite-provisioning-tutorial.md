@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 171a96f37d4c1e740e23cc766566d3c1756b6d08
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a62afa9469caa886d86814036017427c0cc0d193
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460191"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357441"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Tutorial: Configurar Infor CloudSuite para fornecimento automático de utilizadores
 
@@ -72,7 +72,7 @@ Antes de configurar e permitir o fornecimento automático do utilizador, deve de
 
 5. Para gerar o token do portador, copie o **Identificador de Utilizador** e **a Palavra-passe SCIM**. Cole-as em bloco de notas++ separadas por um cólon. Codificar o valor da cadeia navegando para **plugins > ferramentas MIME > Basic64 Encode**. 
 
-    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Screenshot da consola de administração Infor CloudSuite mostrando uma linha de mesa realçada. Esta linha contém um identificador de utilizador, senhas e uma hora marcada." border="false":::
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Screenshot de um documento Notepad++. No menu Plugins, destacam-se as ferramentas MIME. No menu de ferramentas MIME, destaca-se o código base64." border="false":::
 
 3.  Copie o símbolo do portador. Este valor será introduzido no campo Secret Token no separador Provisioning da sua aplicação Infor CloudSuite no portal Azure.
 
@@ -86,7 +86,7 @@ Antes de configurar o Infor CloudSuite para o fornecimento automático de utiliz
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -94,7 +94,7 @@ Antes de configurar o Infor CloudSuite para o fornecimento automático de utiliz
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, insira **Infor CloudSuite**, selecione **Infor CloudSuite** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, insira **Infor CloudSuite** , selecione **Infor CloudSuite** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Infor CloudSuite na lista de resultados](common/search-new-app.png)
 

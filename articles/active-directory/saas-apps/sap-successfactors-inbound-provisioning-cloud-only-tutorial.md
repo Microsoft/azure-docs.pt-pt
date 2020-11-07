@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 317fef0381222cc7bd9f86fce13a809aa3c787ea
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a62943c1a808424ded1a5e46ed115cda332bf7d5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676583"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358733"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Tutorial: Configurar os sap successFactors para o fornecimento de utilizadores Azure AD
 O objetivo deste tutorial é mostrar os passos necessários para a disponibilização de dados dos trabalhadores da SuccessFactors Employee Central para o Azure Ative Directory, com a inscrição opcional do endereço de e-mail para o SuccessFactors. 
@@ -94,26 +94,26 @@ Trabalhe com a sua equipa de administradores successFactors ou parceiro de imple
 * Faça login no SAP SuccessFactors com uma conta de utilizador que tenha acesso ao Centro de Administração.
 * Procure por *Gerir funções de permissões* e, em seguida, **selecione 'Gerir funções'** a partir dos resultados da pesquisa.
   ![Gerir funções de permissões](./media/sap-successfactors-inbound-provisioning/manage-permission-roles.png)
-* A partir da Lista de Funções de Permissão, clique em **Criar Novo** .
+* A partir da Lista de Funções de Permissão, clique em **Criar Novo**.
   > [!div class="mx-imgBorder"]
   > ![Criar nova função de permissão](./media/sap-successfactors-inbound-provisioning/create-new-permission-role-1.png)
 * Adicione um nome de **papel** e **descrição** para o novo papel de permissão. O nome e a descrição devem indicar que a função é para permissões de utilização da API.
   > [!div class="mx-imgBorder"]
   > ![Detalhe de função de permissão](./media/sap-successfactors-inbound-provisioning/permission-role-detail.png)
-* Nas definições de Permissão, clique em **Permissão...** e, em seguida, desloque a lista de permissões e clique em **Gerir Ferramentas de Integração** . Verifique a caixa para **permitir o acesso do Administrador à API OData através da Autenticação Básica.**
+* Nas definições de Permissão, clique em **Permissão...** e, em seguida, desloque a lista de permissões e clique em **Gerir Ferramentas de Integração**. Verifique a caixa para **permitir o acesso do Administrador à API OData através da Autenticação Básica.**
   > [!div class="mx-imgBorder"]
   > ![Gerir ferramentas de integração](./media/sap-successfactors-inbound-provisioning/manage-integration-tools.png)
-* Desloque-se na mesma caixa e selecione **API Central do Empregado** . Adicione permissões como mostrado abaixo para ler usando a API ODATA e edite usando a API ODATA. Selecione a opção de edição se pretender utilizar a mesma conta para o cenário De Writeback to SuccessFactors. 
+* Desloque-se na mesma caixa e selecione **API Central do Empregado**. Adicione permissões como mostrado abaixo para ler usando a API ODATA e edite usando a API ODATA. Selecione a opção de edição se pretender utilizar a mesma conta para o cenário De Writeback to SuccessFactors. 
   > [!div class="mx-imgBorder"]
   > ![Ler permissões de escrita](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
-* Clique em **'Feito'.** Clique em **Guardar Alterações** .
+* Clique em **'Feito'.** Clique em **Guardar Alterações**.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>Criar um Grupo de Permissão para o utilizador API
 
 * No Centro de Administração SuccessFactors, procure *grupos de permissões de gestão* e, em seguida, selecione **'Gerir grupos de permissão'** a partir dos resultados da pesquisa.
   > [!div class="mx-imgBorder"]
   > ![Gerir grupos de permissões](./media/sap-successfactors-inbound-provisioning/manage-permission-groups.png)
-* A partir da janela 'Gerir grupos' de permissão, clique em **Criar Novo** .
+* A partir da janela 'Gerir grupos' de permissão, clique em **Criar Novo**.
   > [!div class="mx-imgBorder"]
   > ![Adicionar novo grupo](./media/sap-successfactors-inbound-provisioning/create-new-group.png)
 * Adicione um nome de grupo para o novo grupo. O nome do grupo deve indicar que o grupo é para utilizadores de API.
@@ -135,7 +135,7 @@ Trabalhe com a sua equipa de administradores successFactors ou parceiro de imple
 * Reveja a concessão de função de permissão ao Grupo de Permissão. 
   > [!div class="mx-imgBorder"]
   > ![Papel de Permissão e detalhe de grupo](./media/sap-successfactors-inbound-provisioning/permission-role-group.png)
-* Clique em **Guardar Alterações** .
+* Clique em **Guardar Alterações**.
 
 ## <a name="configuring-user-provisioning-from-successfactors-to-azure-ad"></a>Configurar o fornecimento de utilizadores de SuccessFactors para Azure AD
 
@@ -153,7 +153,7 @@ Esta secção fornece passos para o fornecimento de conta de utilizador de Succe
 
 2. Na barra de navegação à esquerda, selecione **Azure Ative Directory**
 
-3. Selecione **Aplicações empresariais,** em seguida, **todas as aplicações** .
+3. Selecione **Aplicações empresariais,** em seguida, **todas as aplicações**.
 
 4. **Selecione Adicione uma aplicação** e selecione a categoria **'Todos'.**
 
@@ -169,7 +169,7 @@ Esta secção fornece passos para o fornecimento de conta de utilizador de Succe
 
    * **Senha de administração –** Introduza a palavra-passe da conta de utilizador da API do SuccessFactors. 
 
-   * **URL do inquilino –** Insira o nome do ponto final dos serviços OData API dos SuccessFactors. Apenas introduza o nome de anfitrião do servidor sem https ou https. Este valor deve parecer: **api-server-name.successfactors.com** .
+   * **URL do inquilino –** Insira o nome do ponto final dos serviços OData API dos SuccessFactors. Apenas introduza o nome de anfitrião do servidor sem https ou https. Este valor deve parecer: **api-server-name.successfactors.com**.
 
    * **E-mail de notificação –** Insira o seu endereço de e-mail e verifique a caixa de verificação "enviar e-mail se ocorrer falha".
     > [!NOTE]
@@ -185,7 +185,7 @@ Esta secção fornece passos para o fornecimento de conta de utilizador de Succe
 
 Nesta secção, irá configurar como os dados dos utilizadores fluem de SuccessFactors para Ative Directory.
 
-1. No separador De Provisionamento em **Mappings,** clique em **Sincronizar Utilizadores de Sucessofactors para Azure Ative Directory** .
+1. No separador De Provisionamento em **Mappings,** clique em **Sincronizar Utilizadores de Sucessofactors para Azure Ative Directory**.
 
 1. No campo **Origem Object Scope,** pode selecionar quais os conjuntos de utilizadores em SuccessFactors que devem estar em possibilidade de provisão para Azure AD, definindo um conjunto de filtros baseados em atributos. O âmbito padrão é "todos os utilizadores em SuccessFactors". Filtros de exemplo:
 
@@ -255,9 +255,9 @@ Uma vez concluídas as configurações de aplicações do SuccessFactors, pode l
 > [!TIP]
 > Por padrão, quando ligar o serviço de fornecimento, iniciará operações de provisionamento para todos os utilizadores no âmbito. Se houver erros no mapeamento ou problemas de dados do Dia de Trabalho, então o trabalho de provisionamento pode falhar e entrar no estado de quarentena. Para evitar isto, como uma boa prática, recomendamos configurar o filtro **Source Object Scope** e testar os mapeamentos do seu atributo com alguns utilizadores de teste antes de lançar a sincronização completa para todos os utilizadores. Uma vez verificado que os mapeamentos funcionam e lhe estão a dar os resultados desejados, então pode remover o filtro ou expandi-lo gradualmente para incluir mais utilizadores.
 
-1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On** .
+1. No **separador Provisioning,** desa fixação do **Estado de Provisionamento** para **On**.
 
-2. Clique em **Guardar** .
+2. Clique em **Guardar**.
 
 3. Esta operação iniciará a sincronização inicial, que pode demorar um número variável de horas dependendo de quantos utilizadores estão no inquilino successFactors. Pode verificar a barra de progresso para acompanhar o progresso do ciclo de sincronização. 
 

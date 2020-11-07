@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: f87a2347890f8d17e3901c6d8fc168c1d96c7661
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d17d4dd88e29440304989b8c37eaa81125d1812
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91849351"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357560"
 ---
 # <a name="tutorial-configure-bitabiz-for-automatic-user-provisioning"></a>Tutorial: Configurar BitaBIZ para o provisionamento automático do utilizador
 
@@ -58,7 +58,7 @@ Antes de configurar o BitaBIZ para o fornecimento automático de utilizadores co
 
 2.  Navegar para a **INTEGRAÇÃO.**
 
-    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Screenshot da Consola de Administração BitaBIZ, com o administrador de configuração em destaque." border="false":::
+    :::image type="content" source="media/bitabiz-provisioning-tutorial/integration.png" alt-text="Screenshot da Consola de Administração BitaBIZ, com Integração em destaque." border="false":::
 
 2.  Navegue para o **Microsoft Azure AD Provisioning**.  Selecione **Ativado** no fornecimento automático do utilizador. Copie os valores para **SCIM Provisioning ENDpoint URL** e  **Bearer Token**. Estes valores serão introduzidos nos campos URL e Secret Token no separador Provisioning da sua aplicação BitaBIZ no portal Azure.
 
@@ -75,7 +75,7 @@ Para configurar o BitaBIZ para o fornecimento automático de utilizadores com Az
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -151,7 +151,7 @@ Para obter mais informações sobre como ler os registos de provisionamento da A
 
 ## <a name="connector-limitations"></a>Limitações do conector
 
-* O BitaBIZ requer **userName**, **email**, **firstName** e **lastName** como atributos obrigatórios. 
+* O BitaBIZ requer **userName** , **email** , **firstName** e **lastName** como atributos obrigatórios. 
 * O BitaBIZ não suporta eliminações duras atualmente.
 
 ## <a name="additional-resources"></a>Recursos adicionais

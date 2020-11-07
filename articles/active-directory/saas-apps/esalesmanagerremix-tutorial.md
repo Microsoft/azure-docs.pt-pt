@@ -8,15 +8,15 @@ ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/12/2018
 ms.author: jeedes
-ms.openlocfilehash: df993aae4e6c572c8f99688fd0053bdd07aefd56
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c06595b683092abf52300481068daab26394c4cb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92453934"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358750"
 ---
 # <a name="integrate-azure-active-directory-with-e-sales-manager-remix"></a>Integre o Azure Ative Directy com o E Sales Manager Remix
 
@@ -68,7 +68,7 @@ Para configurar a integração do AZure AD com o E Sales Manager Remix, adicione
 
     ![O novo botão de aplicação][3]
 
-1. Na caixa de pesquisa, o Remix do tipo **E Sales Manager**, selecione E Sales Manager **Remix** na lista de resultados e, em seguida, selecione **Add**.
+1. Na caixa de pesquisa, o Remix do tipo **E Sales Manager** , selecione E Sales Manager **Remix** na lista de resultados e, em seguida, selecione **Add**.
 
     ![E Sales Manager Remix na lista de resultados](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_addfromgallery.png)
 
@@ -96,9 +96,9 @@ Ativar o Azure AD num único sinal no portal Azure e configurar um único sinal 
 
     ![E Sales Manager Remix Domain e URLs informações únicas de início de súmito](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_url.png)
 
-    a. Na caixa **URL de entrada de inscrição,** digite um URL no seguinte formato: https:// * \<Server-Based-URL> / \<sub-domain> /esales-pc*.
+    a. Na caixa **URL de entrada de inscrição,** digite um URL no seguinte formato: https:// *\<Server-Based-URL> / \<sub-domain> /esales-pc*.
 
-    b. Na caixa **do identificador,** digite um URL no seguinte formato: * \<Server-Based-URL> / \<sub-domain> / https://*.
+    b. Na caixa **do identificador,** digite um URL no seguinte formato: *\<Server-Based-URL> / \<sub-domain> / https://*.
 
     c. Note o valor **do Identificador** para posterior utilização neste tutorial.
     
@@ -119,7 +119,7 @@ Ativar o Azure AD num único sinal no portal Azure e configurar um único sinal 
 
     ![A janela editar atributo](./media/esalesmanagerremix-tutorial/configure2.png)
 
-1. No **âmbito da configuração do Remix do Gerente de Vendas E**, selecione **Configure E Sales Manager Remix**.
+1. No **âmbito da configuração do Remix do Gerente de Vendas E** , selecione **Configure E Sales Manager Remix**.
 
     ![Screenshot que mostra a secção "E Sales Manager Remix Configuration" com "Configure E Sales Manager Remix" selecionada.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
@@ -127,7 +127,7 @@ Ativar o Azure AD num único sinal no portal Azure e configurar um único sinal 
 
 1. Na secção **referência rápida,** copie o URL de inscrição e o URL de serviço único SAML.
 
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
     ![O botão Guardar](./media/esalesmanagerremix-tutorial/tutorial_general_400.png)
 
@@ -209,7 +209,7 @@ Nesta secção, cria a utilizadora de teste Britta Simon no portal Azure, fazend
 
     ![Configuração remix do gerente de vendas do E](./media/esalesmanagerremix-tutorial/configure4.png)
 
-1. Selecione **as definições da sua empresa**Manutenção de  >  **departamentos e funcionários**, e, em seguida, selecione **Funcionários registados**.
+1. Selecione **as definições da sua empresa** Manutenção de  >  **departamentos e funcionários** , e, em seguida, selecione **Funcionários registados**.
 
     ![O separador "Empregados registados"](./media/esalesmanagerremix-tutorial/user1.png)
 

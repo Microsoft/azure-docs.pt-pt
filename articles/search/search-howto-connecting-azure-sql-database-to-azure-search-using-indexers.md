@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530566"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358631"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Ligue e indexe o conteúdo Azure SQL usando um indexador de pesquisa cognitiva Azure
 
@@ -39,7 +39,7 @@ Um indexador único só pode consumir uma tabela ou uma vista, mas pode criar v�
 Pode configurar e configurar um indexador Azure SQL utilizando:
 
 * Assistente de dados de importação no [portal Azure](https://portal.azure.com)
-* Pesquisa Cognitiva Azure [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer)
+* Pesquisa Cognitiva Azure [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 * Azure Cognitive Search [REST API](/rest/api/searchservice/indexer-operations)
 
 Neste artigo, usaremos a API REST para criar **indexantes** e **fontes de dados.**
@@ -360,7 +360,7 @@ Não diretamente. Não recomendamos nem apoiamos uma ligação direta, pois isso
 
 **P: Posso utilizar o indexador Azure SQL com bases de dados que não o SQL Server em funcionamento em IaaS em Azure?**
 
-N.º Não apoiamos este cenário, porque não testámos o indexante com bases de dados que não o SQL Server.  
+Não. Não apoiamos este cenário, porque não testámos o indexante com bases de dados que não o SQL Server.  
 
 **P: Posso criar vários indexadores em execução num horário?**
 

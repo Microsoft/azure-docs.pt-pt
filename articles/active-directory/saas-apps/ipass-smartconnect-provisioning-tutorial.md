@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: bf779918dbfb9f7b95096f3a5efcc8e64f09c403
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 397aab743da25da3882c66d0fdf32c4c4d202586
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850517"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356999"
 ---
 # <a name="tutorial-configure-ipass-smartconnect-for-automatic-user-provisioning"></a>Tutorial: Configurar iPass SmartConnect para fornecimento automático de utilizadores
 
@@ -65,7 +65,7 @@ Para configurar o iPass SmartConnect para fornecimento automático de utilizador
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -118,7 +118,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 9. Reveja os atributos do utilizador que são sincronizados do AD AD do Azure para o iPass SmartConnect na secção **De Mapeamento** de Atributos. Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador no iPass SmartConnect para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Screenshot da secção mappings. Sob nome, é visível o Synchronize Azure Ative Directory Users para iPass SmartConnect." border="false":::
+    :::image type="content" source="media/ipass-smartconnect-provisioning-tutorial/userattribute.png" alt-text="Screenshot da página De mapeamentos de atributos. Uma tabela lista os atributos Azure Ative Directory e iPass SmartConnect e a precedência correspondente." border="false":::
 
 
 10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

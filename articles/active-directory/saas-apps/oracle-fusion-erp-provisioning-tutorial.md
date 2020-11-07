@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 45a1ae281a8a1acb1cfd12efe500f5a623033ef3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da6e1a8ba31f8f4991bde4803191598a015a68b3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850067"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358444"
 ---
 # <a name="tutorial-configure-oracle-fusion-erp-for-automatic-user-provisioning"></a>Tutorial: Configurar o Oracle Fusion ERP para o fornecimento automático de utilizadores
 
@@ -54,13 +54,13 @@ Antes de configurar o Oracle Fusion ERP para o fornecimento automático do utili
 
 1. Inscreva-se na consola de administração [ERP da Oracle Fusion](https://cloud.oracle.com/sign-in)
 
-2. Clique no Navegador no canto superior esquerdo. Em **Ferramentas**, selecione **Consola de Segurança**.
+2. Clique no Navegador no canto superior esquerdo. Em **Ferramentas** , selecione **Consola de Segurança**.
 
     :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/login.png" alt-text="Screenshot da página Do Navegador na consola de administração Oracle Fusion E R P. As ferramentas e a consola de segurança estão em destaque." border="false":::
 
 3. Navegue para **os Utilizadores**.
     
-    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user.png" alt-text="Screenshot da página Do Navegador na consola de administração Oracle Fusion E R P. As ferramentas e a consola de segurança estão em destaque." border="false":::
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user.png" alt-text="Screenshot de um painel na consola de administração Oracle Fusion E R P. Destaca-se o item Utilizadores." border="false":::
 
 4. Guarde o nome de utilizador e a palavra-passe para a conta de utilizador administrada que utilizará para iniciar sessão na consola de administração ERP da Oracle Fusion. Estes valores devem ser introduzidos nos campos nome de utilizador e **palavra-passe** do **Administrador** no separador De Provisionamento da sua aplicação ERP oracle Fusion no portal Azure.
 
@@ -74,7 +74,7 @@ Para configurar o Oracle Fusion ERP para o fornecimento automático de utilizado
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -116,7 +116,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Sob a secção **de Credenciais de Administração,** entrada `https://ejlv.fa.em2.oraclecloud.com/hcmRestApi/scim/` na URL do **inquilino.** Introduza o nome de utilizador e a palavra-passe de administrador recuperados anteriormente nos campos nome de utilizador e **palavra-passe** do **administrador.** Clique na **ligação de teste** entre Azure AD e Oracle Fusion ERP. 
 
-    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/admin.png" alt-text="Screenshot da página Do Navegador na consola de administração Oracle Fusion E R P. As ferramentas e a consola de segurança estão em destaque." border="false":::
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/admin.png" alt-text="Screenshot da secção de credenciais de administração. Um botão de ligação de teste e campos para um Tenant U R L, nome de utilizador de administração e senha de administração são visíveis." border="false":::
 
 6. No campo **'Email' de Notificação,** insira o endereço de e-mail de uma pessoa ou grupo que deve receber as notificações de erro de provisionamento e verifique a caixa de verificação - **Envie uma notificação de e-mail quando ocorrer uma falha**.
 
@@ -126,11 +126,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users para Oracle Fusion ERP**.
 
-    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png" alt-text="Screenshot da página Do Navegador na consola de administração Oracle Fusion E R P. As ferramentas e a consola de segurança estão em destaque." border="false":::
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-mapping.png" alt-text="Screenshot da secção mappings. Em Nome, é visível o Synchronize Azure Ative Directory Users para a Oracle Fusion E R P." border="false":::
 
 9. Reveja os atributos do utilizador que são sincronizados de Azure AD a Oracle Fusion ERP na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas de utilizador no Oracle Fusion ERP para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png" alt-text="Screenshot da página Do Navegador na consola de administração Oracle Fusion E R P. As ferramentas e a consola de segurança estão em destaque." border="false":::
+    :::image type="content" source="media/oracle-fusion-erp-provisioning-tutorial/user-attribute.png" alt-text="Screenshot da página De mapeamentos de atributos. Uma tabela lista os atributos Azure Ative Directory e Oracle Fusion E R P e a precedência correspondente." border="false":::
 
 10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Oracle Fusion ERP**.
 

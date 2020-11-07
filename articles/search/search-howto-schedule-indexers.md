@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: dffa8393dcfebf1cb73e3ab72890999cfa633b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 80c3f9aa02680097276f966ce6aea02acf1e40fb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532572"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358801"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Como agendar indexadores na Pesquisa Cognitiva Azure
 
@@ -30,7 +30,7 @@ O agendador é uma característica incorporada da Azure Cognitive Search. Não p
 ## <a name="define-schedule-properties"></a>Definir propriedades de agenda
 
 Um calendário indexante tem duas propriedades:
-* **Intervalo**, que define a quantidade de tempo entre execuções indexantes programadas. O menor intervalo permitido é de 5 minutos, e o maior é de 24 horas.
+* **Intervalo** , que define a quantidade de tempo entre execuções indexantes programadas. O menor intervalo permitido é de 5 minutos, e o maior é de 24 horas.
 * **Hora de Início (UTC),** que indica a primeira vez em que o indexante deve ser executado.
 
 Pode especificar um calendário quando criar o indexante pela primeira vez, ou atualizando as propriedades do indexante mais tarde. Os horários dos indexantes podem ser definidos através do [portal,](#portal)da [API REST,](#restApi)ou do [.NET SDK](#dotNetSdk).
@@ -90,30 +90,34 @@ Também pode executar um indexante a pedido a qualquer momento usando a chamada 
 
 ## <a name="schedule-using-the-net-sdk"></a>Agendar utilizando o .NET SDK
 
-Pode definir o calendário de um indexante utilizando o Azure Cognitive Search .NET SDK. Para isso, inclua a propriedade de **agenda ao** criar ou atualizar um Indexer.
+Pode definir o calendário de um indexante utilizando o Azure Cognitive Search .NET SDK. Para isso, inclua a propriedade **Agenda ao** criar ou atualizar um indexante.
 
-O exemplo C# a seguir cria um indexante, utilizando uma fonte de dados predefinida e índice, e define o seu horário para ser executado uma vez por dia a partir de 30 minutos a partir de agora:
+O exemplo C# a seguir cria um indexante de base de dados Azure SQL, utilizando uma fonte de dados e índice predefinidos, e define a sua programação para ser executado uma vez por dia a partir de agora:
 
+```csharp
+var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+{
+    StartTime = DateTimeOffset.Now
+};
+
+var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
+{
+    Description = "Data indexer",
+    Schedule = schedule
+};
+
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
-    Indexer indexer = new Indexer(
-        name: "azure-sql-indexer",
-        dataSourceName: dataSource.Name,
-        targetIndexName: index.Name,
-        schedule: new IndexingSchedule(
-                        TimeSpan.FromDays(1), 
-                        new DateTimeOffset(DateTime.UtcNow.AddMinutes(30))
-                    )
-        );
-    await searchService.Indexers.CreateOrUpdateAsync(indexer);
-```
-Se o parâmetro do **calendário** for omitido, o indexante só funcionará uma vez imediatamente após a sua criação.
 
-O parâmetro **startTime** pode ser definido para uma hora no passado. Nesse caso, a primeira execução está programada como se o indexante estivesse a funcionar continuamente desde o início de **tempo.**
 
-O horário é definido usando a classe [IndexingSchedule.](/dotnet/api/microsoft.azure.search.models.indexingschedule) O **construtor IndexingSchedule** requer um parâmetro **de intervalo** especificado com um objeto **TimeSpan.** O menor valor de intervalo permitido é de 5 minutos, e o maior é de 24 horas. O segundo parâmetro **startTime,** especificado como um objeto **DateTimeOffset,** é opcional.
+Se a propriedade **Schedule** for omitida, o indexante só será executado uma vez imediatamente após a sua criação.
 
-O .NET SDK permite controlar as operações indexantes utilizando a classe [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) e a sua propriedade [Indexers,](/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) que implementa métodos a partir da interface **IIndexersOperations.** 
+O parâmetro **StartTime** pode ser definido para uma hora no passado. Nesse caso, a primeira execução está programada como se o indexante estivesse a funcionar continuamente desde o início de **tempo.**
 
-Pode executar um indexante a pedido a qualquer momento utilizando um dos métodos [Run,](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run) [RunAsync](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync)ou [RunWithHttpMessagesAsync.](/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync)
+O horário é definido usando a classe [IndexingSchedule.](/dotnet/api/azure.search.documents.indexes.models.indexingschedule) O **construtor IndexingSchedule** requer um parâmetro **de intervalo** especificado com um objeto **TimeSpan.** O menor valor de intervalo permitido é de 5 minutos, e o maior é de 24 horas. O segundo parâmetro **StartTime,** especificado como um objeto **DateTimeOffset,** é opcional.
 
-Para obter mais informações sobre a criação, atualização e execução de [indexantes, consulte IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations).
+O .NET SDK permite controlar as operações do indexante utilizando o [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). 
+
+Pode executar um indexante a pedido a qualquer momento utilizando um dos métodos [RunIndexer](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) ou [RunIndexerAsync.](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexerasync)
+
+Para obter mais informações sobre a criação, atualização e execução de indexantes, consulte [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient).

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/15/2019
 ms.author: Zhchia
-ms.openlocfilehash: cf71246caef377fb607a9ca7a765ec9ca5999744
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c984beff630ef90ea33a13e2fef1bca0189c2314
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285968"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357949"
 ---
 # <a name="tutorial-configure-storegate-for-automatic-user-provisioning"></a>Tutorial: Configurar Storegate para fornecimento automático de utilizadores
 
@@ -75,7 +75,7 @@ Para configurar o Storegate para o fornecimento automático de utilizadores com 
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

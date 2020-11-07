@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1405bce6761b6702146418296cb7b47bb9124ee
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940400"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357186"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -66,17 +66,19 @@ Uma ligação PostgreSQL, mesmo inativa, pode ocupar cerca de 10 MB de memória.
 
 - Atualmente, a migração automatizada entre as principais versões do motor da base de dados não é suportada. Se quiser fazer o upgrade para a próxima versão principal, faça uma [lixeira e restaure-a](../howto-migrate-using-dump-and-restore.md) num servidor que foi criado com a nova versão do motor.
 
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Rede
 
 - Atualmente, a deslocação para dentro e para fora do VNET não é suportada.
 - A combinação do acesso público com a implantação dentro de um VNET não é atualmente suportada.
 - As regras de firewall não são suportadas no VNET, os grupos de segurança da rede podem ser usados em vez disso.
 - Os servidores de bases de dados de acesso público podem ligar-se à internet pública, por exemplo `postgres_fdw` através de , e este acesso não pode ser restringido. Os servidores baseados em VNET podem ter acesso de saída restrito usando grupos de segurança de rede.
 
-### <a name="high-availability"></a>Elevada disponibilidade
+### <a name="high-availability-ha"></a>Alta disponibilidade (HA)
 
 - Zone-Redundant HA não é suportado para servidores Burstable.
 - O endereço IP do servidor de base de dados muda quando o seu servidor falha no standby HA. Certifique-se de que utiliza o registo DNS em vez do endereço IP do servidor.
+- Se a replicação lógica for configurada com um servidor flexível configurado ha, no caso de uma falha no servidor de espera, as ranhuras de replicação lógica não são copiadas para o servidor de espera. 
+- Para mais limitações de HA, consulte os conceitos - página [de documentação HA.](concepts-high-availability.md)
 
 ### <a name="availability-zones"></a>Zonas de disponibilidade
 

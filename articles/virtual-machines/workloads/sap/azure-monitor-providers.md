@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/30/2020
 ms.author: radeltch
 ms.reviewer: cynthn
-ms.openlocfilehash: 235572cc4d697e7488765c464b12f9349c1e012b
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f5df8bccc10ca64ee9a04f195299c5228b7274c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994175"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356455"
 ---
 # <a name="azure-monitor-for-sap-solutions-providers-preview"></a>Monitor Azure para fornecedores de soluções SAP (pré-visualização)
 
 ## <a name="overview"></a>Descrição geral  
 
-No contexto do Azure Monitor for SAP Solutions, um *tipo de fornecedor* refere-se a um *fornecedor*específico. Por *exemplo, SAP HANA*, que é configurado para um componente específico dentro da paisagem SAP, como base de dados SAP HANA. Um fornecedor contém as informações de ligação para o componente correspondente e ajuda a recolher dados de telemetria a partir desse componente. Um recurso Azure Monitor for SAP Solutions (também conhecido como recurso de monitor SAP) pode ser configurado com vários fornecedores do mesmo tipo de fornecedor ou vários fornecedores de vários tipos de fornecedores.
+No contexto do Azure Monitor for SAP Solutions, um *tipo de fornecedor* refere-se a um *fornecedor* específico. Por *exemplo, SAP HANA* , que é configurado para um componente específico dentro da paisagem SAP, como base de dados SAP HANA. Um fornecedor contém as informações de ligação para o componente correspondente e ajuda a recolher dados de telemetria a partir desse componente. Um recurso Azure Monitor for SAP Solutions (também conhecido como recurso de monitor SAP) pode ser configurado com vários fornecedores do mesmo tipo de fornecedor ou vários fornecedores de vários tipos de fornecedores.
    
 Os clientes podem optar por configurar diferentes tipos de fornecedores para permitir a recolha de dados a partir da componente correspondente na sua paisagem SAP. Por exemplo, os clientes podem configurar um fornecedor para o tipo de fornecedor SAP HANA, outro fornecedor para o tipo de fornecedor de cluster de alta disponibilidade e assim por diante.  
 
@@ -53,13 +53,24 @@ Na pré-visualização pública, os clientes podem esperar ver os seguintes dado
 
 ![Monitor Azure para fornecedores de soluções SAP - Cluster de Alta Disponibilidade](./media/azure-monitor-sap/azure-monitor-providers-pacemaker-cluster.png)
 
-Para configurar o fornecedor de clusters de alta disponibilidade, existem dois passos primários envolvidos: 
-1. Instale [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) em *cada* nó dentro do cluster Pacemaker 
-    - Os clientes podem usar scripts Azure Automation para implementar clusters de alta disponibilidade. Os scripts instalarão [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) em cada nó de cluster.  
-    - ou os clientes podem realizar a instalação manual, seguindo os passos [nesta página](https://github.com/ClusterLabs/ha_cluster_exporter) 
-2. Configure fornecedor de cluster de alta disponibilidade em *cada* nó dentro do cluster Pacemaker  
-  Para configurar o fornecedor de cluster de alta disponibilidade, é necessário o URL Prometheus, o nome do cluster, o nome do anfitrião e o ID do sistema.   
-  Recomenda-se aos clientes que configuram um fornecedor por nó de cluster.   
+Para configurar um fornecedor de cluster de alta disponibilidade, estão envolvidos dois passos primários:
+
+1. Instale [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) em *cada* nó dentro do cluster Pacemaker.
+
+   Tem duas opções para instalar ha_cluster_exporter:
+   
+   - Utilize scripts Azure Automation para implementar um cluster de alta disponibilidade. Os scripts instalam [ha_cluster_exporter](https://github.com/ClusterLabs/ha_cluster_exporter) em cada nó de cluster.  
+   - Faça uma [instalação manual.](https://github.com/ClusterLabs/ha_cluster_exporter#manual-clone--build) 
+
+2. Configure um fornecedor de cluster de alta disponibilidade para *cada* nó dentro do cluster Pacemaker.
+
+   Para configurar o fornecedor de clusters de alta disponibilidade, são necessárias as seguintes informações:
+   
+   - **Nome**. Um nome para este provedor. Deve ser único para este Azure Monitor para soluções SAP.
+   - **Ponto Final Prometheus.** Normalmente http \: // \<servername or ip address\> :9664/metrics.
+   - **SID**. Para sistemas SAP, utilize o SAP SID. Para outros sistemas (por exemplo, clusters NFS), utilize um nome de três caracteres para o cluster. O SID deve ser distinto dos outros aglomerados que são monitorizados.   
+   - **Nome do cluster**. O nome do cluster usado na criação do cluster. O nome do cluster pode ser encontrado na propriedade do `cluster-name` cluster.
+   - **Nome de anfitrião.** O nome de anfitrião Linux do VM.  
 
 ## <a name="provider-type-microsoft-sql-server"></a>Tipo fornecedor servidor Microsoft SQL
 

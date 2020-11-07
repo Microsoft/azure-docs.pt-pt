@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: 78ba57d485f9842ad8531ce22a2b932aa1a1d28b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b4bfa7e9bf457d79c6c4a0b5255bce4fe36dff4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850460"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358691"
 ---
 # <a name="tutorial-configure-foodee-for-automatic-user-provisioning"></a>Tutorial: Configurar Foodee para o fornecimento automático de utilizadores
 
@@ -57,13 +57,13 @@ Antes de configurar a Foodee para o fornecimento automático de utilizadores uti
 
     :::image type="content" source="media/Foodee-provisioning-tutorial/tenant.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
 
-1. No **portal Enterprise**, selecione Single Sign **On**.
+1. No **portal Enterprise** , selecione Single Sign **On**.
 
     ![O menu de painéis de esquerda do Foodee Enterprise Portal](media/Foodee-provisioning-tutorial/scim.png)
 
 1. Copie o valor na caixa token da **API** para posterior utilização. Você vai inseri-lo na caixa **Secret Token** no **separador Provisioning** da sua aplicação Foodee no portal Azure.
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/token.png" alt-text="Screenshot de uma página no portal da empresa Foodee. Um valor simbólico A P I é destacado." border="false":::
 
 ## <a name="add-foodee-from-the-gallery"></a>Adicione Foodee da galeria
 
@@ -126,24 +126,24 @@ Configure o fornecimento automático de utilizadores para a Foodee em Azure AD, 
 
     ![A caixa de texto de e-mail de notificação](common/provisioning-notification-email.png)
 
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
-1. Em **Mappings**, **selecione Synchronize Azure Ative Directory Users to Foodee**.
+1. Em **Mappings** , **selecione Synchronize Azure Ative Directory Users to Foodee**.
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/usermapping.png" alt-text="Screenshot da secção mappings. Em Nome, destaca-se o Synchronize Azure Ative Directory Users to Foodee." border="false":::
 
 1. Em **'Mappings' de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD a Foodee. Os atributos que são selecionados como propriedades **de correspondência** são *usados* para combinar as contas do utilizador em Foodee para operações de atualização. 
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/userattribute.png" alt-text="Screenshot da página De mapeamentos de atributos. Uma tabela lista os atributos Azure Ative Directory e Foodee e a precedência correspondente." border="false":::
 
 1. Para cometer as suas alterações, **selecione Guardar**.
-1. Em **Mappings**, **selecione Synchronize Azure Ative Directory Groups to Foodee**.
+1. Em **Mappings** , **selecione Synchronize Azure Ative Directory Groups to Foodee**.
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupmapping.png" alt-text="Screenshot da secção mappings. Em Nome, é destacado o Synchronize Azure Ative Directory Groups to Foodee." border="false":::
 
 1. Em **'Mappings' de Atributos,** reveja os atributos do utilizador que são sincronizados de Azure AD a Foodee. Os atributos que são selecionados como propriedades **de correspondência** são *usados* para combinar as contas do grupo em Foodee para operações de atualização.
 
-    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Screenshot do menu principal do portal da empresa Foodee. Um espaço reservado para inquilinos é visível no menu." border="false":::
+    :::image type="content" source="media/Foodee-provisioning-tutorial/groupattribute.png" alt-text="Screenshot da página De mapeamentos de atributos. Uma tabela lista atributos do Azure Ative Directory, atributos Foodee e a precedência correspondente." border="false":::
 
 1. Para cometer as suas alterações, **selecione Guardar**.
 1. Configure os filtros de deteção. Para saber como, consulte as instruções no tutorial do [filtro Scoping](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
@@ -152,7 +152,7 @@ Configure o fornecimento automático de utilizadores para a Foodee em Azure AD, 
 
     ![O interruptor de estado de provisionamento](common/provisioning-toggle-on.png)
 
-1. Em **Definições**, na lista de drop-down **scope,** defina os utilizadores ou grupos que pretende providenciar à Foodee.
+1. Em **Definições** , na lista de drop-down **scope,** defina os utilizadores ou grupos que pretende providenciar à Foodee.
 
     ![A lista de abandono do âmbito de provisão](common/provisioning-scope.png)
 

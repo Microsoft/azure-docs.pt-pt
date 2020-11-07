@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: f6bb119e5e82ce642722d0f739177fc1e4c06c25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10ad06041e8136b5661b1b1ff487cd4d3b0f5153
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255738"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358410"
 ---
 # <a name="tutorial-configure-signagelive--for-automatic-user-provisioning"></a>Tutorial: Configurar Signagelive para o fornecimento automático de utilizadores
 
@@ -64,7 +64,7 @@ Para configurar o Signagelive para o fornecimento automático de utilizadores co
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

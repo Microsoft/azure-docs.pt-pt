@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: rkarlin
-ms.openlocfilehash: 28d64f5d9d845c2a14f0277799213501e1d68010
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: dafa2f231581ee7e7fa7a59a9c9320f6f2a67038
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421769"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357689"
 ---
 # <a name="quickstart-deploy-and-onboard-a-sensor"></a>Quickstart: Implementar e embarcar um sensor
 
@@ -42,7 +42,7 @@ Os sensores de bordo permitem:
 | **Defina um modo de gestão de sensores** | Defina onde o ativo, alerta e outras informações detetadas pelo sensor são apresentados. Isto é determinado com base no **modo de gestão do sensor** que define.<br /><br />**Modo gerido localmente** : A informação detetada pelo sensor é apresentada na consola do sensor. As informações de deteção também são partilhadas com a consola de gestão no local se o sensor estiver ligado à sua.<br /><br />**Modo gerido pela nuvem** : A informação detetada pelo sensor é apresentada na consola do sensor. Além disso, as informações de alerta são entregues através de um Hub IoT e podem ser partilhadas com outros serviços Azure, por exemplo, Azure Sentinel.<br />Consulte **o sensor a bordo** para obter mais informações. |
 | **Adquira um ficheiro de ativação de sensores** | Para sensores **geridos localmente,** é utilizado um ficheiro de ativação para gerir períodos de ativação de sensores autorizados.<br /><br />Para os sensores **geridos pela Cloud,** um ficheiro de ativação é utilizado como uma ligação entre o sensor e um Hub IoT. Para mais informações, consulte **os sensores a bordo.** |
 | **Faça o upload de um ficheiro de ativação para o seu sensor** | Os ficheiros de ativação devem ser enviados para os sensores da empresa. A monitorização da rede e o acesso às funcionalidades da consola de sensores não estarão disponíveis até que o ficheiro de ativação seja carregado. Para obter mais informações, consulte **os ficheiros de ativação do sensor upload**. |
-| **Atualizar os parâmetros da rede de sensores antes da ativação** | Atualizar parâmetros definidos durante a instalação do sensor. Para mais informações, consulte **Error! Fonte de referência não encontrada.**|
+| **Atualizar os parâmetros da rede de sensores antes da ativação** | Atualizar parâmetros definidos durante a instalação do sensor. Para obter mais informações, consulte **os ficheiros de ativação do sensor upload**.|
 
 
 **Para implantar um sensor:**

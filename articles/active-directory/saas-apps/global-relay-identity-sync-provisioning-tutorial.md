@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: bdbda77c45e3b1f1533326483ee19aa8ff4af515
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927996"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358342"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Tutorial: Configurar o Global Relay Identity Sync para o fornecimento automático do utilizador
 
@@ -71,33 +71,33 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-global-relay-identity-sync-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para Global Relay Identity Sync em Azure AD:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações** .
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações Empresariais** e, em seguida, **Todas as aplicações**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de aplicações, selecione **Global Relay Identity Sync** .
+2. Na lista de aplicações, selecione **Global Relay Identity Sync**.
 
     ![O link Global Relay Identity Sync na lista de Aplicações](common/all-applications.png)
 
-3. Selecione o separador **Aprovisionamento** .
+3. Selecione o separador **Aprovisionamento**.
 
     ![Separador Aprovisionamento](common/provisioning.png)
 
-4. Defina o **Modo de Aprovisionamento** como **Automático** .
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
     ![Separador de provisionamento automático](common/provisioning-automatic.png)
 
-5. Sob a secção **de Credenciais de Administração,** insira o url Global Relay Identity Sync **Tenant** . Clique em **'Test Connection'** para garantir que o Azure AD pode ligar-se ao Global Relay Identity Sync. Se a ligação falhar, certifique-se de que a sua conta Global Relay Identity Sync tem permissões de Administração e contacte o seu representante da Global Relay para resolver o problema.
+5. Sob a secção **de Credenciais de Administração,** insira o url Global Relay Identity Sync **Tenant**. Clique em **'Test Connection'** para garantir que o Azure AD pode ligar-se ao Global Relay Identity Sync. Se a ligação falhar, certifique-se de que a sua conta Global Relay Identity Sync tem permissões de Administração e contacte o seu representante da Global Relay para resolver o problema.
 
     ![Botão de autorização](media/global-relay-identity-sync-provisioning-tutorial/authorization.png)
 
-6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha** .
+6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 
-7. Selecione **Guardar** .
+7. Selecione **Guardar**.
 
-8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Global Relay Identity Sync** .
+8. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Global Relay Identity Sync**.
 
 9. Reveja os atributos do utilizador que são sincronizados de Azure AD a Global Relay Identity Sync na secção **De mapeamento de atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para corresponder às contas do utilizador no Global Relay Identity Sync para operações de atualização. Se optar por alterar o [atributo de alvo correspondente,](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)terá de garantir que a API global de sincronização de identidade de retransmissor suporta utilizadores filtrantes com base nesse atributo. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
@@ -173,7 +173,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 
 
-10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Global Relay Identity Sync** .
+10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups to Global Relay Identity Sync**.
 
 11. Reveja os atributos do grupo que são sincronizados de Azure AD a Global Relay Identity Sync na secção **Attribute-Mapping.** Os atributos selecionados como propriedades **correspondentes** são utilizados para corresponder aos grupos no Global Relay Identity Sync para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
@@ -192,11 +192,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-15. Quando estiver pronto para aprovisionar, clique em **Guardar** .
+15. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
     ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
-Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições** . O ciclo inicial leva mais tempo a ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do Azure AD esteja em execução. 
+Esta operação inicia o ciclo de sincronização inicial de todos os utilizadores e grupos definidos no **Âmbito** na secção **Definições**. O ciclo inicial leva mais tempo a ser executado do que os ciclos subsequentes, que ocorrem aproximadamente a cada 40 minutos, desde que o serviço de aprovisionamento do Azure AD esteja em execução. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Passo 6. Monitorizar a implementação
 Depois de configurar o aprovisionamento, utilize os seguintes recursos para monitorizar a sua implementação:

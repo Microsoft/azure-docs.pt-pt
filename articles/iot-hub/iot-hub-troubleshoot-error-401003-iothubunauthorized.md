@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
-ms.date: 01/30/2020
+ms.date: 11/06/2020
 ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8fb891d5a47203c9905a7def9d04199d24327f70
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909646"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357254"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -42,7 +42,7 @@ Os pedidos ao IoT Hub falham com uma das seguintes mensagens de erro:
 
 ### <a name="cause-1"></a>Motivo 1
 
-Para o MQTT, alguns SDKs confiam no IoT Hub para emitir a desconexão quando o token SAS expirar para saber quando o refrescar. Desta forma, 
+Para o MQTT, alguns SDKs confiam no IoT Hub para emitir a desconexão quando o token SAS expirar para saber quando o refrescar. Desta forma,
 
 1. O símbolo SAS expira
 1. IoT Hub nota a expiração e desliga o dispositivo com **401003 IoTHubUnautized**
@@ -58,9 +58,11 @@ IoT Hub não podia autenticar o cabeçalho, regra ou chave do auth. Isto pode se
 
 ### <a name="solution-1"></a>Solução 1
 
-Não é necessária qualquer ação se utilizar o IoT SDK para ligação utilizando a cadeia de ligação do dispositivo. IoT SDK regenera o novo token para reconectar-se na expiração do token SAS. 
+Não é necessária qualquer ação se utilizar o IoT SDK para ligação utilizando a cadeia de ligação do dispositivo. IoT SDK regenera o novo token para reconectar-se na expiração do token SAS.
 
-Se o volume de erros for uma preocupação, mude para o C SDK, que renova o token SAS antes de expirar. Além disso, para AMQP o token SAS pode refrescar-se sem desconexão.
+O tempo de vida útil do símbolo padrão é de 60 minutos através de SDKs; no entanto, para alguns SDKs, o tempo de vida simbólico e o limiar de renovação simbólico são configuráveis. Além disso, os erros gerados quando um dispositivo desliga e reconecta-se na renovação do token diferem para cada SDK. Para saber mais, e para obter informações sobre como determinar que SDK o seu dispositivo está a usar em registos, consulte o [comportamento de desconexão do dispositivo MQTT com SDKs Azure IoT](iot-hub-troubleshoot-connectivity.md#mqtt-device-disconnect-behavior-with-azure-iot-sdks).
+
+Para os desenvolvedores de dispositivos, se o volume de erros for uma preocupação, mude para o C SDK, que renova o token SAS antes de expirar. Para AMQP, o token SAS pode refrescar-se sem desconexão.
 
 ### <a name="solution-2"></a>Solução 2
 

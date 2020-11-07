@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: baa6e10d33d1c0a1a9c367baa8888fdfb5a47c01
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e0409f289289aaebc760473f1f74130b34fbdd39
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746236"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357730"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -123,7 +123,7 @@ Utilize a [encriptação az vm ativar](/cli/azure/vm/encryption#az-vm-encryption
 Pode ativar a encriptação do disco em VMs do IaaS Windows existente ou em execução, utilizando o [modelo de Gestor de Recursos para encriptar um VM do Windows em execução](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad).
 
 
-1. No modelo de arranque rápido Azure, clique em **Implementar para Azure** .
+1. No modelo de arranque rápido Azure, clique em **Implementar para Azure**.
 
 2. Selecione a subscrição, grupo de recursos, localização, configurações, termos legais e acordo. Clique em **Comprar** para ativar a encriptação no IaaS VM existente ou em execução.
 
@@ -158,7 +158,7 @@ Os discos NVMe serão não ininitializados os seguintes cenários:
 
 - Iniciar VM após alocação de negócios
 - Cura de serviço
-- Cópia de segurança
+- Backup
 
 Nestes cenários, os discos NVMe precisam de ser inicializados após o início do VM. Para ativar a encriptação nos discos NVMe, executar o comando para ativar a Encriptação do Disco Azure novamente após a inicialização dos discos NVMe.
 
@@ -266,6 +266,7 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - VMs da série M com discos de acelerador de escrita.
 - Aplicação de ADE a um VM que tenha discos encriptados com [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md) (SSE + CMK). Aplicar SSE + CMK a um disco de dados num VM encriptado com ADE também é um cenário não suportado.
 - Migrar um VM que é encriptado com ADE, ou **que já** foi encriptado com ADE, para [encriptação do lado do servidor com teclas geridas pelo cliente](disk-encryption.md).
+- [Tamanhos Azure VM sem disco temporário local;](../azure-vms-no-temp-disk.md) especificamente, Dv4, Dsv4, Ev4 e Esv4.
 
 ## <a name="next-steps"></a>Passos seguintes
 

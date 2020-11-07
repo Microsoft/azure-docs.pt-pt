@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: jeedes
-ms.openlocfilehash: e08c748dec6d21e1ff5d848257c65aa3f8f5aa63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0165e5191a8cd499b42c14704fdf4f0d79b3f6b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300034"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358546"
 ---
 # <a name="tutorial-configure-leapsome-for-automatic-user-provisioning"></a>Tutorial: Configurar Leapsome para o fornecimento automático de utilizadores
 
@@ -74,7 +74,7 @@ Antes de configurar o Leapsome para o fornecimento automático de utilizadores c
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

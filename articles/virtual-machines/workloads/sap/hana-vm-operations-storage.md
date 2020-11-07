@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/26/2020
+ms.date: 11/05/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99c94528c13228e07327b529782f211ec92a08ea
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: bbaa9d33d3a31b682a66b2a3254fc2265b6f8d7b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359855"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357082"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurações de armazenamento da máquina virtual do Azure do SAP HANA
 
@@ -37,7 +37,7 @@ A Azure oferece dois métodos de implementação para VHDs em Azure Standard e a
 Para obter uma lista de tipos de armazenamento e seus SLAs em IOPS e produção de armazenamento, reveja a [documentação Azure para discos geridos](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 > [!IMPORTANT]
-> Independentemente do tipo de armazenamento Azure escolhido, o sistema de ficheiros utilizado nesse armazenamento tem de ser suportado pela SAP para o sistema operativo específico e o DBMS. [Nota de suporte SAP #405827](https://launchpad.support.sap.com/#/notes/405827) lista os sistemas de ficheiros suportados para diferentes sistemas operativos e bases de dados, incluindo SAP HANA. Isto aplica-se a todos os volumes que o SAP HANA poderá ter acesso para leitura e escrita para qualquer tarefa. Especificamente utilizando NFS on Azure para SAP HANA, restrições adicionais de versões NFS aplicam-se como indicado mais tarde neste artigo 
+> Independentemente do tipo de armazenamento Azure escolhido, o sistema de ficheiros utilizado nesse armazenamento tem de ser suportado pela SAP para o sistema operativo específico e o DBMS. [Nota de suporte SAP #2972496](https://launchpad.support.sap.com/#/notes/2972496) lista os sistemas de ficheiros suportados para diferentes sistemas operativos e bases de dados, incluindo SAP HANA. Isto aplica-se a todos os volumes que o SAP HANA poderá ter acesso para leitura e escrita para qualquer tarefa. Especificamente utilizando NFS on Azure para SAP HANA, restrições adicionais de versões NFS aplicam-se como indicado mais tarde neste artigo 
 
 
 As condições mínimas certificadas SAP HANA para os diferentes tipos de armazenamento são: 
@@ -309,7 +309,7 @@ No caso de combinar os dados e o volume de registo para o SAP HANA, os discos qu
 Existem tipos de VM listados que não são certificados com SAP e, como tal, não estão listados no chamado [diretório de hardware SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). O feedback dos clientes foi o de que esses tipos de VM não listados foram utilizados com sucesso para algumas tarefas não-produção.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter mais informações, consulte:
 
 - [Guia de alta disponibilidade SAP HANA para máquinas virtuais Azure](./sap-hana-availability-overview.md).

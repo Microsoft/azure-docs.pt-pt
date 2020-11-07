@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789dafc61c89515f4b2ef64933262252d1232f16
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850913"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357033"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Tutorial: Configure a Figma para o fornecimento automático de utilizadores
 
@@ -57,19 +57,19 @@ Antes de configurar a Figma para o fornecimento automático do utilizador com a 
 
 2. Navegue para **configurações de início de > de atualização geral**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Screenshot da consola de administração figma. Um inquilino chamado A D Scim Test é visível. Ao lado do inquilino, destaca-se um ícone de engrenagem." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Screenshot do separador geral da consola de administração Figma. Em Início de Sessão e provisionamento, é realçada a atualização das definições de login." border="false":::
 
 3. Copie a identificação do **inquilino.** Este valor será utilizado para construir o URL de ponta final SCIM a ser inserido no campo URL do **inquilino** no separador Provisioning da sua aplicação Figma no portal Azure.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Screenshot da consola de administração figma. Um inquilino chamado A D Scim Test é visível. Ao lado do inquilino, destaca-se um ícone de engrenagem." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Screenshot da secção S A M L S S O na consola de administração figma. Uma etiqueta de identificação do inquilino e um link adjacente que diz Copy são destacados." border="false":::
 
 4. Desloque-se para baixo e clique em **Gerar Token API**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Screenshot da consola de administração figma. Um inquilino chamado A D Scim Test é visível. Ao lado do inquilino, destaca-se um ícone de engrenagem." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Screenshot da secção de provisionamento S C I M na consola de administração Figma. Destaca-se um link com a etiqueta Generate A P I." border="false":::
 
 5. Copie o valor token da **API.** Este valor será introduzido no campo **Secret Token** no separador Provisioning da sua aplicação Figma no portal Azure. 
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Screenshot da consola de administração figma. Um inquilino chamado A D Scim Test é visível. Ao lado do inquilino, destaca-se um ícone de engrenagem." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Screenshot de uma página na consola de administração figma. Sob o seu provisionamento A P I token, um espaço reservado para o token é realçado." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Adicione Figma da galeria
 
@@ -79,7 +79,7 @@ Para configurar a Figma para o fornecimento automático de utilizadores com Azur
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

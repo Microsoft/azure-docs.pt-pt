@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c02a2658325fdd88ef1052937edc3b84c4545872
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 78f228a5e188bc930a9e7484f4c982ba746331dd
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91296842"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357781"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Chaves, segredos e certificados do Azure Key Vault
 
@@ -45,10 +46,10 @@ Segredos|/segredos|Suportado|Não suportado
 Certificados|/certificados|Suportado|Não suportado
 Chaves de contas de armazenamento|/contagem de armazenamento|Suportado|Não suportado
 |||
-- **Teclas criptográficas**: Suporta vários tipos de chaves e algoritmos e permite a utilização de chaves protegidas por software e protegidas por HSM. Para mais informações, consulte [sobre as teclas.](../keys/about-keys.md)
-- **Segredos**: Fornece armazenamento seguro de segredos, tais como palavras-passe e cadeias de conexão de base de dados. Para mais informações, consulte [Sobre os segredos.](../secrets/about-secrets.md)
-- **Certificados**: Suporta certificados, que são construídos em cima de chaves e segredos e adicionam uma funcionalidade de renovação automatizada. Para mais informações, consulte [sobre os certificados.](../certificates/about-certificates.md)
-- **Chaves da conta Azure Storage**: Pode gerir as chaves de uma conta de armazenamento Azure para si. Internamente, o Key Vault pode listar as teclas (sincronização) com uma Conta de Armazenamento Azure e regenerar (rodar) as teclas periodicamente. Para obter mais informações, consulte [Gerir as chaves da conta de armazenamento com o Key Vault](../secrets/overview-storage-keys.md).
+- **Teclas criptográficas** : Suporta vários tipos de chaves e algoritmos e permite a utilização de chaves protegidas por software e protegidas por HSM. Para mais informações, consulte [sobre as teclas.](../keys/about-keys.md)
+- **Segredos** : Fornece armazenamento seguro de segredos, tais como palavras-passe e cadeias de conexão de base de dados. Para mais informações, consulte [Sobre os segredos.](../secrets/about-secrets.md)
+- **Certificados** : Suporta certificados, que são construídos em cima de chaves e segredos e adicionam uma funcionalidade de renovação automatizada. Para mais informações, consulte [sobre os certificados.](../certificates/about-certificates.md)
+- **Chaves da conta Azure Storage** : Pode gerir as chaves de uma conta de armazenamento Azure para si. Internamente, o Key Vault pode listar as teclas (sincronização) com uma Conta de Armazenamento Azure e regenerar (rodar) as teclas periodicamente. Para obter mais informações, consulte [Gerir as chaves da conta de armazenamento com o Key Vault](../secrets/overview-storage-keys.md).
 
 Para obter informações mais gerais sobre o Key Vault, consulte [About Azure Key Vault](overview.md). Para obter mais informações sobre piscinas geridas de HSM, veja o que é [Azure Key Vault Managed HSM?](../managed-hsm/overview.md)
 

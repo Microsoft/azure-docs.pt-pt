@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 10/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea82724ec534aa896fa012332c10e28050caf825
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 27d962a2cf1a1c453d942d320d65b3e9b9a4b959
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909391"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357798"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>Encriptação do disco Azure para VMs windows 
 
@@ -38,6 +38,8 @@ Os VMs do Windows estão disponíveis numa [gama de tamanhos.](../sizes-general.
 A Azure Disk Encryption também está disponível para VMs com armazenamento premium.
 
 A encriptação do disco Azure não está disponível em [VMs da Geração 2](../generation-2.md#generation-1-vs-generation-2-capabilities). Para mais exceções, consulte [encriptação do disco Azure: cenários não suportados](disk-encryption-windows.md#unsupported-scenarios).
+
+A encriptação do disco Azure não está disponível em imagens VM sem discos temporários (Dv4, Dsv4, Ev4 e Esv4).  Consulte [os tamanhos Azure VM sem disco temporário local](../azure-vms-no-temp-disk.md).
 
 ### <a name="supported-operating-systems"></a>Sistemas operativos suportados
 

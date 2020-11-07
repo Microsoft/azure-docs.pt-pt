@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: zhchia
-ms.openlocfilehash: 7475ebc6dd51bbc1c30ee22623c7cbda1a5237ab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b88e618da3f8a23c0517aaeb251e54bf559fc468
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848964"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358495"
 ---
 # <a name="tutorial-configure-dialpad-for-automatic-user-provisioning"></a>Tutorial: Configure o Dialport para o fornecimento automático do utilizador
 
@@ -58,9 +58,9 @@ Antes de configurar o Dialpad para o fornecimento automático do utilizador com 
 
 2. Gere uma nova tecla clicando **Em adicionar uma chave** e configurar as propriedades do seu token secreto.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad02.png" alt-text="Screenshot da página de teclas A P I na consola de administração do Dialpad. Adição de uma chave está realçada." border="false":::
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad03.png" alt-text="Screenshot da página chave Editar A P I na consola de administração do Dialpad. O botão Guardar é realçado." border="false":::
 
 3. Clique no botão **Click para mostrar o botão de valor** para a sua tecla API recentemente criada e copie o valor mostrado. Este valor será introduzido no campo **Secret Token** no separador Provisioning da sua aplicação Dialpad no portal Azure. 
 
@@ -76,7 +76,7 @@ Para configurar o Dialpad para o fornecimento automático de utilizadores com Az
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -89,19 +89,19 @@ Para configurar o Dialpad para o fornecimento automático de utilizadores com Az
 
 5. Navegue para o **URL** realçado abaixo num navegador separado. 
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad05.png" alt-text="Screenshot de uma página que exibe informações sobre a aplicação Dialpad. Sob u R L, um endereço é listado e é destacado." border="false":::
 
 6. No canto superior direito, selecione **Iniciar > Use o Dialpad online**.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/dialpad06.png" alt-text="Screenshot do site do Dialpad. O login é realçado e o separador 'Iniciar sessão' está aberto. O Uso do Dialpad online também está em destaque." border="false":::
 
 7. Como o Dialpad é uma aplicação OpenIDConnect, opte por iniciar sessão no Dialpad utilizando a sua conta de trabalho da Microsoft.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/loginpage.png" alt-text="Screenshot da página Iniciar a fazer chamadas no site do Dialpad. Destaca-se o botão Iniciar sessão com o botão Office 365." border="false":::
 
 8. Após uma autenticação bem sucedida, aceite o pedido de consentimento para a página de consentimento. A aplicação será então automaticamente adicionada ao seu inquilino e será redirecionado para a sua conta Dialpad.
 
-    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Screenshot da consola de administração Dialpad, com o ícone de definições, As teclas My Company, Authentication e A P I em destaque, e a Minha Empresa selecionada." border="false":::
+    :::image type="content" source="media/dialpad-provisioning-tutorial/redirect.png" alt-text="Screenshot mostrando uma página de autenticação da Microsoft indicando que a aplicação Dialpad solicitou acesso a alguns dados. O botão Aceitar é realçado." border="false":::
 
  ## <a name="configure-automatic-user-provisioning-to-dialpad"></a>Configure o fornecimento automático do utilizador ao Dialpad
 

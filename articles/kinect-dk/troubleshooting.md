@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: resolução de problemas, atualização, bug, kinect, feedback, recuperação, registo, dicas
-ms.openlocfilehash: 2db7b17ffc8b6595107dbc52fae719aa9f2d15db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9711968de061956a945fca183444dd6ebde4ca9c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85277607"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356387"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Azure Kinect conhecidos problemas e resolução de problemas
 
-Esta página contém problemas conhecidos e dicas de resolução de problemas ao utilizar o Sensor SDK com Azure Kinect DK. Consulte também [as páginas de suporte do produto](https://aka.ms/kinectsupport) para problemas específicos do hardware do produto.
+Esta página contém problemas conhecidos e dicas de resolução de problemas ao utilizar o Sensor SDK com Azure Kinect DK. Consulte também [as páginas de suporte do produto](./index.yml) para problemas específicos do hardware do produto.
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

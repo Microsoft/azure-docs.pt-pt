@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5858e785b2105d8357ebd478699e2d17768fc25f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2c7f4aebc70ff831459fe111bcc30f5385088028
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519729"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357696"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler para fornecimento automático de utilizadores
 
@@ -43,7 +43,7 @@ Antes de configurar o Zscaler para o fornecimento automático de utilizadores co
 
 **Para adicionar Zscaler da galeria de aplicações AZure, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -55,7 +55,7 @@ Antes de configurar o Zscaler para o fornecimento automático de utilizadores co
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, tipo **Zscaler**, selecione **Zscaler** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, tipo **Zscaler** , selecione **Zscaler** do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Zscaler na lista de resultados](common/search-new-app.png)
 
@@ -82,7 +82,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para zscaler em Azure AD:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Zscaler**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Zscaler**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -108,7 +108,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Screenshot da caixa de diálogo Configure S A M L com as caixas de texto Base U R L e Bearer Token chamadas.](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
-    **Selecione Ative SCIM-Based Provisioning** para recuperar **o URL base** e **o Token do portador**e, em seguida, guarde as definições. Copie o **URL base** para o URL **do inquilino,** e **o Bearer Token**  para **Secret Token** no portal Azure.
+    **Selecione Ative SCIM-Based Provisioning** para recuperar **o URL base** e **o Token do portador** e, em seguida, guarde as definições. Copie o **URL base** para o URL **do inquilino,** e **o Bearer Token**  para **Secret Token** no portal Azure.
 
 7. Ao povoar os campos mostrados no Passo 5, clique em **Test Connection** para garantir que o Azure AD pode ligar-se ao Zscaler. Se a ligação falhar, certifique-se de que a sua conta Zscaler tem permissões de Administração e tente novamente.
 

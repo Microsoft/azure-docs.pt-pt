@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 8350ebc92575911991ca772229912941f2af10e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c428997cfba8871a29d9bfe0df0a6920a1d22f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91851293"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357594"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: Configurar 4me para o provisionamento automático do utilizador
 
@@ -45,7 +45,7 @@ Antes de configurar 4me para o fornecimento automático de utilizadores com Azur
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -53,7 +53,7 @@ Antes de configurar 4me para o fornecimento automático de utilizadores com Azur
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, introduza **4me**, selecione **4me** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, introduza **4me** , selecione **4me** no painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![4me na lista de resultados](common/search-new-app.png)
 
@@ -126,11 +126,11 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
     
 11. Reveja os atributos do utilizador que são sincronizados de AZure AD a 4me na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador em 4me para operações de atualização. Certifique-se de que [o 4me suporta a filtragem](https://developer.4me.com/v1/scim/users/) no atributo correspondente que escolheu. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Screenshot da página Mappings. Em Nome, destaca-se o Synchronize Azure Ative Directory Users to FourMe." border="false":::
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-user-attributes.png" alt-text="Screenshot da página De mapeamentos de atributos. Uma tabela lista atributos do Azure Ative Directory, atributos Correspondentes FourMe e o estado de correspondência." border="false":::
     
 12. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups para 4me**.
 
-    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Screenshot da página Mappings. Em Nome, destaca-se o Synchronize Azure Ative Directory Users to FourMe." border="false":::
+    :::image type="content" source="media/4me-provisioning-tutorial/4me-group-mapping.png" alt-text="Screenshot da página Mappings. Em Nome, é destacado o Synchronize Azure Ative Directory Groups para FourMe." border="false":::
     
 13. Reveja os atributos do grupo que são sincronizados de Azure AD a 4me na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar os grupos em 4me para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 

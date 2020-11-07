@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329266"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358172"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -38,6 +38,8 @@ No Azure Resource Manager, os endereços [IP públicos](virtual-network-public-i
 Os endereços IP públicos são criados com um endereço IPv4 ou IPv6. 
 
 ## <a name="sku"></a>SKU
+
+Para saber mais sobre a atualização do SKU, consulte a [atualização IP pública](../virtual-network/virtual-network-public-ip-address-upgrade.md).
 
 Os endereços IP públicos são criados com um dos SKUs seguintes:
 
@@ -96,7 +98,7 @@ Por exemplo, um recurso IP público é libertado a partir de um recurso chamado 
 O endereço IP é liberado quando o método de atribuição é alterado de **estática** para **dinâmica**. Para garantir que o endereço IP para o recurso associado permanece o mesmo, dedipa o método de atribuição explicitamente para **estático**. É atribuído imediatamente um endereço IP estático.
 
 > [!NOTE]
-> Mesmo se definir o método de alocação como **estático**, não pode especificar o endereço IP real atribuído ao recurso de endereço IP público. O Azure atribui o endereço IP a partir de um conjunto de endereços IP disponíveis na localização do Azure na qual o recurso é criado.
+> Mesmo se definir o método de alocação como **estático** , não pode especificar o endereço IP real atribuído ao recurso de endereço IP público. O Azure atribui o endereço IP a partir de um conjunto de endereços IP disponíveis na localização do Azure na qual o recurso é criado.
 >
 
 Normalmente, os endereços IP públicos são utilizados nos cenários seguintes:
@@ -178,11 +180,11 @@ A tabela a seguir mostra a propriedade através da qual um IP público pode ser 
 
 | Recurso de nível superior | Associação de endereço IP | Dinâmica | Estático |
 | --- | --- | --- | --- |
-| Máquina virtual |Interface de rede |Sim |Sim |
-| Balanceador de carga com acesso à Internet |Configuração de front-end |Sim |Sim |
-| Gateway de VPN |Configuração de IP do gateway |Sim |Não |
+| Máquina virtual |Interface de rede |Yes |Yes |
+| Balanceador de carga com acesso à Internet |Configuração de front-end |Yes |Yes |
+| Gateway de VPN |Configuração de IP do gateway |Yes |No |
 | Gateway de aplicação |Configuração de front-end |Sim (apenas V1) |Sim (apenas V2) |
-| Azure Firewall | Configuração de front-end | Não | Sim|
+| Azure Firewall | Configuração de front-end | No | Yes|
 
 ## <a name="limits"></a>Limites
 

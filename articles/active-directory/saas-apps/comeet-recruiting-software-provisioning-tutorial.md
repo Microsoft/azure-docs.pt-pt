@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 37a446d721b7353c647d7d7e26de79e7038d1a3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300000"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357067"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Tutorial: Configurar o Software de Recrutamento de Comeets para o provisionamento automático do utilizador
 
@@ -45,7 +45,7 @@ Antes de configurar o Software de Recrutamento de Comeets para o fornecimento au
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -98,7 +98,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 5. Sob a secção **de Credenciais de Administração,** insira o URL do **inquilino** e **o Token Secreto** da conta do seu Comeet Recruiting Software, conforme descrito no Passo 6.
 
-6. Na [consola de administração do Comeet Recruiting Software](https://app.comeet.co/), navegue para  **Comeet > Definições > Autenticação > Microsoft Azure**, e copie o **Token Secreto para** o valor da sua empresa para o campo Secret **Token** em Azure AD.
+6. Na [consola de administração do Comeet Recruiting Software](https://app.comeet.co/), navegue para  **Comeet > Definições > Autenticação > Microsoft Azure** , e copie o **Token Secreto para** o valor da sua empresa para o campo Secret **Token** em Azure AD.
 
     ![Fornecimento de software de recrutamento de comeet](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 

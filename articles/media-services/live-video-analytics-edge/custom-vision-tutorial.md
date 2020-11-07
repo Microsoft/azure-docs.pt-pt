@@ -3,12 +3,13 @@ title: Analise o vídeo ao vivo com o Live Video Analytics no IoT Edge e Azure C
 description: Aprenda a usar a Azure Custom Vision para construir um modelo contentorizado que possa detetar um caminhão de brinquedo e usar a capacidade de extensibilidade da IA do Azure Live Video Analytics no Azure IoT Edge para implantar o modelo na borda para detetar camiões de brinquedo a partir de um stream de vídeo ao vivo.
 ms.topic: tutorial
 ms.date: 09/08/2020
-ms.openlocfilehash: 52678d66bd4a91c9308a3cc48fbf784e89a5cfe8
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+zone_pivot_groups: ams-lva-edge-programming-languages
+ms.openlocfilehash: 685aab603b2589a97b4c80ef0f8c5860617f1147
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171506"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358320"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analise vídeo ao vivo com vídeo ao vivo analíticos em IoT Edge e Azure Custom Vision
 
@@ -16,7 +17,13 @@ Neste tutorial, você vai aprender a usar a Azure [Custom Vision](https://azure.
 
 Vamos mostrar-lhe como reunir o poder da Visão Personalizada para construir e treinar um modelo de visão computacional, carregando e rotulando algumas imagens. Não precisa de conhecimentos sobre ciência de dados, aprendizagem automática ou IA. Você também vai aprender sobre as capacidades do Live Video Analytics para facilmente implementar um modelo personalizado como um recipiente no borda e analisar um feed de vídeo simulado ao vivo.
 
-Este tutorial utiliza uma máquina virtual Azure (VM) como um dispositivo IoT Edge e baseia-se no código de amostra escrito em C#. A informação neste tutorial baseia-se no [movimento Detect e emite eventos](detect-motion-emit-events-quickstart.md) rápidos.
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [header](includes/custom-vision-tutorial/csharp/header.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [header](includes/custom-vision-tutorial/python/header.md)]
+::: zone-end
 
 Este tutorial mostra-lhe como:
 
@@ -29,7 +36,7 @@ Este tutorial mostra-lhe como:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="suggested-pre-reading"></a>Pré-leitura sugerida
+## <a name="suggested-pre-reading"></a>Pré-leitura sugerida  
 
 Leia os seguintes artigos antes de começar:
 
@@ -44,21 +51,18 @@ Leia os seguintes artigos antes de começar:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os pré-requisitos para este tutorial são:
 
-* [Código de Estúdio Visual](https://code.visualstudio.com/) na sua máquina de desenvolvimento com as [ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) e extensões [C#.](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
+::: zone-end
 
-    > [!TIP]
-    > Pode ser solicitado a instalar o Docker. Ignore este pedido.
-* [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-windows-x64-installer) na sua máquina de desenvolvimento.
-* Certifique-se de que tem:
-    
-    * [Configurar recursos do Azure](detect-motion-emit-events-quickstart.md#set-up-azure-resources)
-    * [Configurar o ambiente de desenvolvimento](detect-motion-emit-events-quickstart.md#set-up-your-development-environment)
-
+::: zone pivot="programming-language-python"
+[!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
+::: zone-end
 ## <a name="review-the-sample-video"></a>Reveja o vídeo da amostra
 
-Este tutorial usa um ficheiro [de vídeo de inferência de carro de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para simular um fluxo ao vivo. Pode examinar o vídeo através de uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/). Selecione **Ctrl+N**, e, em seguida, cole um link para o [vídeo de inferência](https://lvamedia.blob.core.windows.net/public/t2.mkv) do carro de brinquedo para iniciar a reprodução. Ao ver o vídeo, note que no marcador de 36 segundos um caminhão de brinquedo aparece no vídeo. O modelo personalizado foi treinado para detetar este caminhão de brinquedo específico. Neste tutorial, você usará live video analytics no IoT Edge para detetar tais caminhões de brinquedo e publicar eventos de inferência associados ao hub IoT Edge.
+
+Este tutorial usa um ficheiro [de vídeo de inferência de carro de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para simular um fluxo ao vivo. Pode examinar o vídeo através de uma aplicação como o [leitor de mídia VLC](https://www.videolan.org/vlc/). Selecione **Ctrl+N** , e, em seguida, cole um link para o [vídeo de inferência](https://lvamedia.blob.core.windows.net/public/t2.mkv) do carro de brinquedo para iniciar a reprodução. Ao ver o vídeo, note que no marcador de 36 segundos um caminhão de brinquedo aparece no vídeo. O modelo personalizado foi treinado para detetar este caminhão de brinquedo específico. Neste tutorial, você usará live video analytics no IoT Edge para detetar tais caminhões de brinquedo e publicar eventos de inferência associados ao hub IoT Edge.
 
 ## <a name="overview"></a>Descrição geral
 
@@ -69,7 +73,7 @@ Este diagrama mostra como os sinais fluem neste tutorial. Um [módulo de borda](
 
 O nó de extensão HTTP desempenha o papel de um representante. Converte os quadros de vídeo para o tipo de imagem especificado. Em seguida, transmite a imagem sobre REST para outro módulo de borda que executa um modelo de IA atrás de um ponto final HTTP. Neste exemplo, este módulo de borda é o modelo de detetor de caminhões de brinquedo construído utilizando a Visão Personalizada. O nó do processador de extensão HTTP recolhe os resultados da deteção e publica eventos no nó [de pia Azure IoT Hub.](media-graph-concept.md#iot-hub-message-sink) O nó envia então esses eventos para o [hub IoT Edge.](../../iot-edge/iot-edge-glossary.md#iot-edge-hub)
 
-## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Construa e implemente um modelo de deteção de brinquedos de visão personalizada
+## <a name="build-and-deploy-a-custom-vision-toy-detection-model"></a>Construa e implemente um modelo de deteção de brinquedos de visão personalizada 
 
 Como o nome Custom Vision sugere, pode usá-lo para construir o seu próprio detetor de objetos personalizado ou classificador na nuvem. Fornece uma interface simples, fácil de usar e intuitiva para construir modelos de Visão Personalizada que podem ser implantados na nuvem ou na borda através de contentores.
 
@@ -83,7 +87,33 @@ Notas adicionais:
 Depois de terminar, pode exportar o modelo para um recipiente Docker utilizando o botão **Exportação** no **separador Performance.** Certifique-se de que escolhe o Linux como tipo de plataforma de contentores. Esta é a plataforma em que o contentor vai funcionar. A máquina em que descarrega o recipiente pode ser o Windows ou o Linux. As instruções que se seguem basearam-se no ficheiro do contentor descarregado numa máquina Windows.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Diagrama que mostra uma visão geral personalizada."   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
+> :::image type="content" source="./media/custom-vision-tutorial/docker-file.png" alt-text="Ecrã que mostra Dockerfile selecionado.":::
+ 
+1. Você deve ter um ficheiro zip descarregado na sua máquina local chamado `<projectname>.DockerFile.Linux.zip` . 
+1. Verifique se tem o Docker instalado. Caso contrário, instale [o Docker](https://docs.docker.com/get-docker/) para o seu ambiente de trabalho do Windows.
+1. Desaperte o ficheiro descarregado num local à sua escolha. Utilize a linha de comando para ir para o diretório de pastas desapertado.
+    
+    Execute os seguintes comandos:
+    
+    1. `docker build -t cvtruck` 
+    
+        Este comando descarrega muitos pacotes, constrói a imagem do Docker, e marca-a como `cvtruck:latest` .
+    
+        > [!NOTE]
+        > Se for bem sucedido, deverá ver as seguintes mensagens: `Successfully built <docker image id>` e `Successfully tagged cvtruck:latest` . Se o comando de construção falhar, tente de novo. Às vezes, os pacotes de dependência não descarregam da primeira vez.
+    1. `docker  image ls`
+
+        Este comando verifica se a nova imagem está no seu registo local.
+    1. `docker run -p 127.0.0.1:80:80 -d cvtruck`
+    
+        Este comando deve publicar a porta exposta do Docker (80) na porta da sua máquina local (80).
+    1. `docker container ls`
+    
+        Este comando verifica os mapeamentos da porta e se o contentor Docker estiver a funcionar com sucesso na sua máquina. A saída deve ser algo como:
+
+        ```
+        CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                      NAMES
+        8b7505398367        cvtruck             "/bin/sh -c 'python …"   13 hours ago        Up 25 seconds       127.0.0.1:80->80/tcp   practical_cohen
         ```
       1. `curl -X POST http://127.0.0.1:80/image -F imageData=@<path to any image file that has the toy delivery truck in it>`
             
@@ -97,20 +127,15 @@ Depois de terminar, pode exportar o modelo para um recipiente Docker utilizando 
 
 ## <a name="examine-the-sample-files"></a>Examinar os ficheiros de amostras
 
-1. No Código do Estúdio Visual, navegue para src/edge. Verá o ficheiro .env que criou juntamente com alguns ficheiros de modelos de implementação.
 
-    O modelo de implantação refere-se ao manifesto de implantação do dispositivo de borda com alguns valores de espaço reservado. O ficheiro .env tem os valores para essas variáveis.
-1. Em seguida, navegue na pasta src/cloud-to-device-console-app. Aqui verá o appsettings.jsno ficheiro que criou juntamente com outros ficheiros:
+::: zone pivot="programming-language-csharp"
+[!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/csharp/examine-sample-files.md)]
+::: zone-end
 
-    * c2d-console-app.csproj: Este é o ficheiro do projeto para o Código do Estúdio Visual.
-    * operations.jsem: Este ficheiro lista as diferentes operações que pretende que o programa seja executado.
-    * Program.cs: Este código de programa de amostra:
+::: zone pivot="programming-language-python"
+[!INCLUDE [examine-sample-files](includes/custom-vision-tutorial/python/examine-sample-files.md)]
+::: zone-end
 
-        * Carrega as definições da aplicação.
-        * Invoca o Live Video Analytics nos métodos diretos do módulo IoT Edge para criar topologia, instantaneamente o gráfico e ativar o gráfico.
-        * Pausas para examinar a saída do gráfico na janela **TERMINAL** e os eventos enviados para o hub IoT na janela **OUTPUT.**
-        * Desativa a instância do gráfico, elimina a instância do gráfico e elimina a topologia do gráfico.
-        
 ## <a name="generate-and-deploy-the-deployment-manifest"></a>Gerar e implementar o manifesto de implantação
 
 1. No Código do Estúdio Visual, aceda a src/cloud-to-device-console-app/operations.js.
@@ -124,7 +149,7 @@ Depois de terminar, pode exportar o modelo para um recipiente Docker utilizando 
 1. Clique com o botão direito para o src/edge/ deployment.customvision.template.jsno ficheiro e selecione **Generate IoT Edge Deployment Manifest**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Diagrama que mostra uma visão geral personalizada.":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Screenshot que mostra Manifesto de Implantação de Aresta ioT.":::
   
     Esta ação deve criar um ficheiro manifesto na pasta src/edge/config chamada deployment.customvision.amd64.js.
 1. Abra o src/edge/ deployment.customvision.template.jsno ficheiro e encontre o `registryCredentials` bloco JSON. Neste bloco, encontrará o endereço do seu registo de contentores Azure juntamente com o seu nome de utilizador e senha.
@@ -146,11 +171,11 @@ Depois de terminar, pode exportar o modelo para um recipiente Docker utilizando 
 1. Desagre a cadeia de ligação IoT Hub selecionando o ícone **Mais ações** ao lado do painel **AZURE IOT HUB** no canto inferior esquerdo. Pode copiar o fio do appsettings.jsficheiro. (Aqui está outra abordagem recomendada para garantir que você tem o hub IoT adequado configurado dentro do Código do Estúdio Visual através do [comando Select IoT Hub](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).)
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Diagrama que mostra uma visão geral personalizada.":::
+    > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Screenshot que mostra set IoT Hub Connection String.":::
 1. Em seguida, clique à direita src/edge/config/ deployment.customvision.amd64.jsligado e selecione **Criar Implementação para dispositivo único**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Diagrama que mostra uma visão geral personalizada.":::
+    > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Screenshot que mostra criar implementação para dispositivo único.":::
 1. Em seguida, ser-lhe-á pedido que selecione um dispositivo IoT Hub. Selecione **o dispositivo de amostra de Lva** da lista de drop-down.
 1. Em cerca de 30 segundos, refresque o hub Azure IoT na secção inferior esquerda. Deve ter o dispositivo de borda com os seguintes módulos implantados:
 
@@ -163,7 +188,7 @@ Depois de terminar, pode exportar o modelo para um recipiente Docker utilizando 
 Clique com o botão direito no dispositivo Live Video Analytics e selecione **Start Monitoring Built-in Event Endpoint**. Precisa deste passo para monitorizar os eventos do IoT Hub na janela **OUTPUT** do Código do Estúdio Visual.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Diagrama que mostra uma visão geral personalizada.":::
+> :::image type="content" source="./media/custom-vision-tutorial/start-monitoring.png" alt-text="Screenshot que mostra Start Monitoring Built-in Event Endpoint.":::
 
 ## <a name="run-the-sample-program"></a>Executar o programa de amostragem
 
@@ -173,11 +198,42 @@ Se abrir a topologia do gráfico para este tutorial num browser, verá que o val
 1. Clique com o botão direito e selecione **Definições de extensão**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Diagrama que mostra uma visão geral personalizada.":::
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Screenshot que mostra definições de extensão.":::
 1. Procure e ative **a Mensagem Verbose do Show**.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Diagrama que mostra uma visão geral personalizada."
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Screenshot que mostra Mostrar Mensagem Verbose.":::
+1. Para iniciar uma sessão de depuragem, selecione a tecla **F5.** Vê mensagens impressas na janela **TERMINAL.**
+1. A operations.jsno código começa com chamadas para os métodos diretos `GraphTopologyList` e `GraphInstanceList` . Se tiver limpo os recursos depois de ter concluído os quickstarts anteriores, este processo devolverá listas vazias e, em seguida, fará uma pausa. Para continuar, selecione a tecla **'Entrar'.**
+    
+   A janela **TERMINAL** mostra o próximo conjunto de chamadas de métodos diretos:
+    
+   * Uma chamada para `GraphTopologySet` que usa o `topologyUrl` anterior.
+   * Uma chamada para `GraphInstanceSet` o seguinte corpo:
+        
+   ```
+        {
+          "@apiVersion": "1.0",
+          "name": "Sample-Graph-1",
+          "properties": {
+            "topologyName": "CustomVisionWithHttpExtension",
+            "description": "Sample graph description",
+            "parameters": [
+              { 
+                "name": "inferencingUrl",
+                "value": "http://cv:80/image"
+              },
+              {
+                "name": "rtspUrl",
+                "value": "rtsp://rtspsim:554/media/t2.mkv"
+              },
+              {
+                "name": "rtspUserName",
+                "value": "testuser"
+              },
+              {
+                "name": "rtspPassword",
+                "value": "testpassword"
               }
             ]
           }

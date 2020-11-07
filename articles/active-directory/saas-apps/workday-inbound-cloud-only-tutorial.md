@@ -6,16 +6,16 @@ author: cmmdesai
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 7d47c21da1279271b12933a2e4642abcce622600
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 197b7ff0a6c613a019007ba507d678b619c9afd4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90015488"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358597"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Tutorial: Configurar o Workday para o provisionamento do utilizador Azure AD
 O objetivo deste tutorial é mostrar os passos necessários para a disponibilização de dados dos trabalhadores do Workday para o Azure Ative Directory. 
@@ -97,9 +97,9 @@ As secções seguintes descrevem passos para configurar o fornecimento do utiliz
 
 3. Selecione **Aplicações empresariais,** em seguida, **todas as aplicações**.
 
-4. **Selecione Adicione uma aplicação**e, em seguida, selecione a categoria **'Todos'.**
+4. **Selecione Adicione uma aplicação** e, em seguida, selecione a categoria **'Todos'.**
 
-5. Procure o trabalho para **o azure AD, e**adicione a aplicação da galeria.
+5. Procure o trabalho para **o azure AD, e** adicione a aplicação da galeria.
 
 6. Depois de adicionar a aplicação e mostrar o ecrã de detalhes da aplicação, selecione **Provisioning**.
 
@@ -115,9 +115,9 @@ As secções seguintes descrevem passos para configurar o fornecimento do utiliz
    
      | Formato do URL | Versão API da WWS usada | Alterações XPATH necessárias |
      |------------|----------------------|------------------------|
-     | https://####.workday.com/ccx/service/tenantName | v21.1 | Não |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | Não |
-     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Sim |
+     | https://####.workday.com/ccx/service/tenantName | v21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources | v21.1 | No |
+     | https://####.workday.com/ccx/service/tenantName/Human_Resources/v##.# | v## . # | Yes |
 
       > [!NOTE]
      > Se nenhuma informação de versão for especificada no URL, a aplicação utiliza o Workday Web Services (WWS) v21.1 e não são necessárias alterações nas expressões API padrão enviadas com a aplicação. Para utilizar uma versão API da WWS específica, especifique o número da versão no URL <br>

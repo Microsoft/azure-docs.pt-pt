@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: kinect, firmware, atualização, recuperação
-ms.openlocfilehash: ecfa4a18592d3bc70e3b7cdd66ff6464a54e560d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71557798a584635356cc47fd7c4a0309df4d018a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030689"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356231"
 ---
 # <a name="update-azure-kinect-dk-firmware"></a>Atualizar firmware Azure Kinect DK
 
@@ -82,7 +82,7 @@ As atualizações do Firmware podem falhar por várias razões. Quando uma atual
 
 3. Se tudo o resto falhar, siga os passos [de recuperação](https://support.microsoft.com/help/4494277/reset-azure-kinect-dk) para voltar ao firmware de fábrica e tentar novamente.
 
-Para quaisquer problemas adicionais, consulte [as páginas de suporte da Microsoft](https://aka.ms/kinectsupport)
+Para quaisquer problemas adicionais, consulte [as páginas de suporte da Microsoft](./index.yml)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: Zhchia
-ms.openlocfilehash: 50b0cbe5a29dbfe9bd74974ecf362a0032594965
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 10b7b79ba5081e6133f2e5e94840eddfe403caef
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460413"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357166"
 ---
 # <a name="tutorial-configure-ideo-for-automatic-user-provisioning"></a>Tutorial: Configure IDEO para o fornecimento automático de utilizadores
 

@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 65db3bcbad905626a47b617c3c34935ec5cd0e88
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: edb21287b30f8ba77d6312ec6b456e20aa260598
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455425"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358217"
 ---
 # <a name="tutorial-configure-concur-for-automatic-user-provisioning"></a>Tutorial: Conigure Concur para o fornecimento automático de utilizadores
 
@@ -58,11 +58,11 @@ Para ativar aplicações no Serviço de Despesas, tem de haver uma configuraçã
 
 Os Consultores Concur ou o administrador do cliente devem criar um perfil distinto de Administrador de Serviço Web e o administrador do Cliente deve utilizar este perfil para as funções de Administrador de Serviços Web (por exemplo, ativar aplicações). Estes perfis devem ser mantidos separados do perfil diário de administração T&E do administrador do cliente (o perfil de administração T&E não deve ter a função WSAdmin atribuída).
 
-Quando criar o perfil a utilizar para ativar a aplicação, insira o nome do administrador do cliente nos campos de perfil do utilizador. Isto atribui a propriedade ao perfil. Uma vez criados um ou mais perfis, o cliente deve iniciar sessão com este perfil para clicar no botão "*Enable*" para uma App de Parceiros dentro do menu Serviços Web.
+Quando criar o perfil a utilizar para ativar a aplicação, insira o nome do administrador do cliente nos campos de perfil do utilizador. Isto atribui a propriedade ao perfil. Uma vez criados um ou mais perfis, o cliente deve iniciar sessão com este perfil para clicar no botão " *Enable* " para uma App de Parceiros dentro do menu Serviços Web.
 
 Pelas seguintes razões, esta ação não deve ser feita com o perfil que utilizam para a administração normal de T&E.
 
-* O cliente tem de ser aquele que clica em "*Sim*" na janela de diálogo que é exibida após a ativação de uma aplicação. Este clique reconhece que o cliente está disposto a que a aplicação Partner aceda aos seus dados, para que você ou o Parceiro não possam clicar no botão Sim.
+* O cliente tem de ser aquele que clica em " *Sim* " na janela de diálogo que é exibida após a ativação de uma aplicação. Este clique reconhece que o cliente está disposto a que a aplicação Partner aceda aos seus dados, para que você ou o Parceiro não possam clicar no botão Sim.
 
 * Se um administrador de clientes que tenha ativado uma aplicação utilizando o perfil de administração T&E deixar a empresa (resultando na inatividade do perfil), quaisquer aplicações ativadas através desse perfil não funcionam até que a aplicação esteja ativada com outro perfil de administração WS ativo. É por isso que é suposto criares perfis distintos da WS Admin.
 
@@ -80,7 +80,7 @@ Pelas seguintes razões, esta ação não deve ser feita com o perfil que utiliz
    
     ![Ativar a aplicação de parceiros](./media/concur-provisioning-tutorial/ic721730.png "Ativar a aplicação de parceiros")
 
-4. A partir da lista **de Aplicações Ativa,** selecione **Azure Ative Directory**e, em seguida, clique em **Enable**.
+4. A partir da lista **de Aplicações Ativa,** selecione **Azure Ative Directory** e, em seguida, clique em **Enable**.
    
     ![Microsoft Azure Active Directory](./media/concur-provisioning-tutorial/ic721731.png "Microsoft Azure Active Directory")
 

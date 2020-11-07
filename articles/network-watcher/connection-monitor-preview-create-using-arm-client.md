@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/30/2020
 ms.author: vinigam
-ms.openlocfilehash: 7d35799cd73ff4d065cb58189f2325dc4dac6840
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a30b5c225bcbcb7ca0febad5ae23bce522d2135
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87567999"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357526"
 ---
 # <a name="create-a-connection-monitor-preview-using-the-armclient"></a>Criar um monitor de ligação (pré-visualização) utilizando o ARMClient
 
@@ -60,40 +60,92 @@ properties: {
 
 endpoints: [{
 
-name: 'workspace',
+name: 'endpoint_workspace_machine',
+
+type: 'MMAWorkspaceMachine',
 
 resourceId: '/subscriptions/<subscription id>/resourcegroups/<resource group>/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace',
 
-filter: {
+//Example 1: Choose a machine
 
- items: [{
-
-type: 'AgentAddress',
-
-address: '<FQDN of your on-premises agent>'
-
-}]
-
+address : '<non-Azure machine FQDN>'
 }
 
-          },
+//Example 2: Select IP from chosen machines
 
- {
+address : '<non-Azure machine FQDN>
 
-name: 'vm1',
+"scope": {
+      "include": [
+            {
+                  "address": "<IP belonging to machine chosen above>"  
+        }
+       ]
+      }
+   }    
+   
+name: 'endpoint_workspace_network',
+
+type: 'MMAWorkspaceNetwork',
+
+resourceId: '/subscriptions/<subscription id>/resourcegroups/<resource group>/providers/Microsoft.OperationalInsights/workspaces/sampleWorkspace',
+
+ coverage level : 'high', //Optional
+ 
+ //Include subnets. You can also exclude IPs from subnet to exclude from monitoring
+ 
+ scope: {
+      "include": [
+            {
+                  "address": "<subnet 1 mask>" // Eg: 10.10.1.0/28
+            },
+            {
+                  "address": "<subnet 2 mask>" 
+            }
+      ],
+      "exclude": [
+            { 
+            "address" : "<ip-from-included-subnets-that-should-be-excluded>"
+        }
+      ]
+     }
+},
+
+//Use a Azure VM as an endpoint
+{
+
+name: 'endpoint_virtualmachine',
 
 resourceId: '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<vm-name>'
 
 },
 
+//Use an Azure VNET or Subnet as an endpoint
+
  {
 
-name: 'vm2',
+name: 'endpoint_vnet_subnet',
 
-resourceId: '/subscriptions/<subscription id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<vm-name>'
+resourceId: '<resource id of VNET or subnet'
+coverage level: 'high' //Optional
 
+//Scope is optional.
+
+  "scope": {
+      "include": [
+            {
+                  "address": "<subnet 1 mask>" // Eg: 10.10.1.0/28 .This subnet should match with any existing subnet in vnet
+            }
+      ],
+    "exclude": [
+            {
+                  "address": "<ip-from-included-subnets-that-should-be-excluded>" // If used with include, IP should be part of the subnet defined above. Without include, this could be any address within vnet range or any specific subnet range as a whole.
+            }
+      ]
+  }
    },
 
+//Endpoint as a URL
 {
 
 name: 'azure portal'
@@ -102,6 +154,7 @@ address: '<URL>'
 
    },
 
+//Endpoint as an IP 
  {
 
     name: 'ip',
@@ -167,9 +220,24 @@ address: '<URL>'
     protocol: 'HTTP',
 
     httpConfiguration: {
-
-     preferHTTPS: true
-
+    
+     port: '<port of choice>'
+  
+    preferHTTPS: true // If port chosen is not 80 or 443
+    
+    method: 'GET', //Choose GET or POST
+    
+    path: '/', //Specify path for request
+         
+    requestHeaders: [
+            {
+              "name": "Content-Type",
+              "value": "appication/json"
+            }
+          ],
+          
+    validStatusCodeRanges: [ "102", "200-202", "3xx" ], //Samples
+          
     },
 
     successThreshold: {
@@ -180,7 +248,8 @@ address: '<URL>'
 
     }
 
-   }, {
+   }, 
+   {
 
     name: 'tcpEnabled',
 
@@ -307,9 +376,15 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
     * nome - Nome da configuração do teste.
     * testFrequencySec - Especifique com que frequência as fontes irão pingar destinos no protocolo e na porta que especificou. Pode escolher 30 segundos, 1 minuto, 5 minutos, 15 minutos ou 30 minutos. As fontes testarão a conectividade com destinos com base no valor que escolher. Por exemplo, se selecionar 30 segundos, as fontes verificarão a conectividade com o destino pelo menos uma vez num período de 30 segundos.
     * protocolo - Pode escolher TCP, ICMP, HTTP ou HTTPS. Dependendo do protocolo, pode fazer algumas configurações específicas do protocolo
-        * prefereHTTPS - Especificar se deve utilizar HTTPS em HTTPS
+    
+        * prefereHTTPS - Especificar se deve utilizar HTTPS em HTTP, quando a porta utilizada não é 80 nem 443
         * porta - Especifique o porto de destino à sua escolha.
-        * desativarTraceRoute - Isto aplica-se a grupos de teste cujo protocolo é TCP ou ICMP. Impede que as fontes descubram a topologia e o hop-by-hop RTT.
+        * desativarTraceRoute - Isto aplica-se a configurações de teste cujo protocolo é TCP ou ICMP. Impede que as fontes descubram a topologia e o hop-by-hop RTT.
+        * método - Isto aplicado às configurações de teste cujo protocolo é HTTP. Selecione o método de pedido HTTP-OU GET ou POST
+        * caminho - Especifique os parâmetros do caminho para anexar ao URL
+        * validEsscos - Escolha os códigos de estado aplicáveis. Se o código de resposta não corresponder a esta lista, receberá uma mensagem de diagnóstico
+        * solicitadoresHeaders - Especifique as cordas do cabeçalho de pedido personalizado que farão passar para o destino
+        
     * sucessoThreshold - Pode definir limiares nos seguintes parâmetros de rede:
         * checksFailedPercent - Desefie a percentagem de verificações que podem falhar quando as fontes verificam a conectividade com os destinos utilizando os critérios especificados. No que diz o protocolo TCP ou ICMP, a percentagem de controlos falhados pode ser equiparada à percentagem de perda de pacotes. Para o protocolo HTTP, este campo representa a percentagem de pedidos HTTP que não receberam resposta.
         * roundTripTimeMs - Deslote o RTT em milissegundos para saber quanto tempo as fontes podem demorar a ligar-se ao destino sobre a configuração do teste.

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: eaf54b7f7336619d03ce0fb6ea7fa032d0fcdff7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 528ab93d1cf47d64338ef186a120695681f48e55
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319158"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357220"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Tutorial: Configurar 15Five para fornecimento automático de utilizadores
 
@@ -58,15 +58,15 @@ Antes de configurar 15Five para o fornecimento automático de utilizadores com A
 
 2.  Clique no **SCIM 2.0**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Screenshot da consola de administração 15Five. As integrações aparecem no menu em funcionalidades, e tanto funcionalidades como integrações são destacadas." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Screenshot da página Integrações na consola de administração 15Five. Em Ferramenta, S C I M 2.0 é destacado." border="false":::
 
 3.  Navegue para a **integração SCIM > Gere o símbolo da OAuth**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Screenshot da consola de administração 15Five. As integrações aparecem no menu em funcionalidades, e tanto funcionalidades como integrações são destacadas." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Screenshot da página de integração S C I M na consola de administração 15Five. Geração OAuth token é realçado." border="false":::
 
 4.  Copie os valores para **SCIM 2.0 base URL** e **Access Token**. Este valor será inserido no campo **URL** e **Secret Token** no separador Provisioning da sua aplicação 15Five no portal Azure.
     
-    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Screenshot da consola de administração 15Five. As integrações aparecem no menu em funcionalidades, e tanto funcionalidades como integrações são destacadas." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Imagem de tela da página de integração S C I M. Na tabela Token, destacam-se os valores ao lado de S C I M 2.0 base U R L e Access Token." border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione 15Five da galeria de aplicações Azure AD
 

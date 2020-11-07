@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 0a72ea413e7298c8e6cb622cb985e6516435b451
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8238b9902aafcabc079c551a0eabc7170042209a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91255853"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357628"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>Tutorial: Configurar TheOrgWiki para fornecimento automático de utilizadores
 
@@ -65,7 +65,7 @@ Antes de configurar o TheOrgWiki para o fornecimento automático de utilizadores
 
     ![Screenshot da página 'Contas de Serviço' na Consola Org Wiki Admin.](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. Clique em **+Conta de Serviço.** No **tipo de conta de serviço**,selecione **Token Based**. Clique em **Guardar**.
+4. Clique em **+Conta de Serviço.** No **tipo de conta de serviço** ,selecione **Token Based**. Clique em **Guardar**.
 
     ![Screenshot da caixa de diálogo de nova conta de serviço com as opções de Serviço Tipo de Conta, Token Based e Save.](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -81,7 +81,7 @@ Para configurar o TheOrgWiki para o fornecimento automático de utilizadores com
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

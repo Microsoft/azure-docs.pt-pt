@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: b51b219daec01d0bce3bbfb71c29e9374363665d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8caa39bea2d0d835a94bc95a747f1f870bae3b12
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711595"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357543"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Referência de dados de monitorização de armazenamento Azure Blob
 
@@ -26,7 +26,7 @@ As tabelas a seguir listam as métricas da plataforma recolhidas para o Azure St
 
 ### <a name="capacity-metrics"></a>Métricas de capacidade
 
-Os valores das métricas de capacidade são enviados para o Azure Monitor a cada hora. Os valores são atualizados diariamente. O grão de tempo define o intervalo de tempo para o qual são apresentados os valores das métricas. O grão de tempo suportado para todas as métricas de capacidade é de uma hora (PT1H).
+Os valores das métricas de capacidade são atualizados diariamente (até 24 Horas). O grão de tempo define o intervalo de tempo para o qual são apresentados os valores das métricas. O grão de tempo suportado para todas as métricas de capacidade é de uma hora (PT1H).
 
 O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 
@@ -64,10 +64,10 @@ O Azure Storage suporta as seguintes dimensões para métricas no Azure Monitor.
 
 ### <a name="dimensions-specific-to-blob-storage"></a>Dimensões específicas do armazenamento blob
 
-| Nome da dimensão | Descrição |
+| Nome da dimensão | Description |
 | ------------------- | ----------------- |
-| **BlobType** | O tipo de bolha apenas para métricas Blob. Os valores suportados são **BlockBlob,** **PageBlob**e **Azure Data Lake Storage**. As bolhas de apêndice estão incluídas no **BlockBlob.** |
-| **BlobTier** | O armazenamento Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objetos blob da forma mais rentável. Veja mais na [camada de blob de armazenamento Azure](../blobs/storage-blob-storage-tiers.md). Os valores suportados incluem: <br/> <li>**Quente**: Nível quente</li> <li>**Cool**: Cool tier</li> <li>**Arquivo**: Nível de arquivo</li> <li>**Premium**: Nível premium para bolha de bloco</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipos de nível para bolha de página premium</li> <li>**Standard**: Tipo de nível para página padrão Blob</li> <li>**Untiered**: Tipo de nível para fins gerais conta de armazenamento v1</li> |
+| **BlobType** | O tipo de bolha apenas para métricas Blob. Os valores suportados são **BlockBlob,** **PageBlob** e **Azure Data Lake Storage**. As bolhas de apêndice estão incluídas no **BlockBlob.** |
+| **BlobTier** | O armazenamento Azure oferece diferentes níveis de acesso, que permitem armazenar dados de objetos blob da forma mais rentável. Veja mais na [camada de blob de armazenamento Azure](../blobs/storage-blob-storage-tiers.md). Os valores suportados incluem: <br/> <li>**Quente** : Nível quente</li> <li>**Cool** : Cool tier</li> <li>**Arquivo** : Nível de arquivo</li> <li>**Premium** : Nível premium para bolha de bloco</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60** : Tipos de nível para bolha de página premium</li> <li>**Standard** : Tipo de nível para página padrão Blob</li> <li>**Untiered** : Tipo de nível para fins gerais conta de armazenamento v1</li> |
 
 Para as dimensões de suporte das métricas, é necessário especificar o valor da dimensão para ver os valores das métricas correspondentes. Por exemplo, se olharmos para o valor  **de Transações** para respostas bem sucedidas, precisa filtrar a dimensão **ResponseType** com **Sucesso**. Se olhar para o valor **BlobCount** para Block Blob, tem de filtrar a dimensão **BlobType** com **BlockBlob**.
 
@@ -173,7 +173,7 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - Consulte [o Monitor Azure Storage](monitor-blob-storage.md) para obter uma descrição da monitorização do armazenamento do Azure.
 - Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

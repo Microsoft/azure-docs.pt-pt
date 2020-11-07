@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 49493f47c7178a15e37a54a70dd066690057caba
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519576"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358427"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurar uma ligação indexante à Base de Dados Azure SQL utilizando uma identidade gerida
 
@@ -81,7 +81,7 @@ Siga os passos abaixo para atribuir a permissão do serviço de pesquisa para le
 Neste passo, você dará ao seu serviço de Pesquisa Cognitiva Azure permissão para ler dados do seu SqL Server.
 
 1. No portal Azure navegue para a sua página do Servidor Azure SQL.
-2. Selecione **controlo de acesso (IAM)**
+2. Selecione **Controlo de acesso (IAM)**
 3. **Selecione Adicionar** e adicionar a **atribuição de função**
 
     ![Adicionar atribuição de função](./media/search-managed-identities/add-role-assignment-sql-server.png "Adicionar atribuição de função")
@@ -94,7 +94,7 @@ Neste passo, você dará ao seu serviço de Pesquisa Cognitiva Azure permissão 
 
 ### <a name="5---create-the-data-source"></a>5 - Criar a fonte de dados
 
-A [API REST,](/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados a partir de uma Base de Dados Azure SQL usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
+A [API REST,](/rest/api/searchservice/create-data-source)o portal Azure e o [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) suportam a cadeia de ligação de identidade gerida. Abaixo está um exemplo de como criar uma fonte de dados para indexar dados a partir de uma Base de Dados Azure SQL usando a [API REST](/rest/api/searchservice/create-data-source) e uma cadeia de conexão de identidade gerida. O formato de cadeia de ligação de identidade gerida é o mesmo para a API REST, .NET SDK e o portal Azure.
 
 Ao criar uma fonte de dados utilizando a [API REST,](/rest/api/searchservice/create-data-source)a fonte de dados deve ter as seguintes propriedades necessárias:
 
@@ -103,7 +103,7 @@ Ao criar uma fonte de dados utilizando a [API REST,](/rest/api/searchservice/cre
 * **credenciais**
     * Ao utilizar uma identidade gerida para autenticar, o formato **de credenciais** é diferente do que quando não se usa uma identidade manged. Aqui irá fornecer um nome de Catálogo Inicial ou Base de Dados e um ResourceId que não tenha chave de conta ou senha. O ResourceId deve incluir o ID de subscrição da Base de Dados Azure SQL, o grupo de recursos da Base de Dados SQL e o nome da base de dados SQL. 
     * Formato de cadeia de ligação de identidade gerido:
-        * *Catálogo Inicial Base de**dados= nome da base de dados;** ResourceId=/subscrições/**o seu ID**de subscrição /grupos de recursos/ o nome do grupo de**recursos**/fornecedores/Microsoft.Sql/servers/ o seu**nome SQL Server**/; Intervalo de tempo de**ligação= tempo de intervalo de ligação**;*
+        * *Catálogo Inicial Base de **dados= nome da base de dados;** ResourceId=/subscrições/ **o seu ID** de subscrição /grupos de recursos/ o nome do grupo de **recursos** /fornecedores/Microsoft.Sql/servers/ o seu **nome SQL Server** /; Intervalo de tempo de **ligação= tempo de intervalo de ligação** ;*
 * **o recipiente** especifica o nome da tabela ou vista que gostaria de indexar.
 
 Exemplo de como criar um objeto de origem de dados Azure SQL utilizando a [API REST](/rest/api/searchservice/create-data-source):

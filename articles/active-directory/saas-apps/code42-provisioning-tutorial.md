@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/23/2020
 ms.author: Zhchia
-ms.openlocfilehash: 19e4a6b15f32ea9854801bcf6024577a1697c563
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e7f3817a6db288e93b5e0dc99c7b6c9b7bd2e44b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455668"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355771"
 ---
 # <a name="tutorial-configure-code42-for-automatic-user-provisioning"></a>Tutorial: Configurar o Code42 para o fornecimento automático de utilizadores
 
@@ -102,7 +102,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

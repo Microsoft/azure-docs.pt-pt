@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 7d3aafe93c92a1c756358dfb60a2ca976036d8b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 204cdc689d5a117df428bb314a81a35081f7b13c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273711"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357662"
 ---
 # <a name="tutorial-configure-bluejeans-for-automatic-user-provisioning"></a>Tutorial: Configurar BlueJeans para o fornecimento automático de utilizadores
 
@@ -46,7 +46,7 @@ Antes de configurar blueJeans para fornecimento automático de utilizadores com 
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -81,7 +81,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="to-configure-automatic-user-provisioning-for-bluejeans-in-azure-ad"></a>Para configurar o fornecimento automático de utilizadores para blueJeans em Azure AD:
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **BlueJeans**.
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **BlueJeans**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -97,7 +97,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![Screenshot da página de Provisioning com as secções de adifing Mode e Admin Credentials chamadas.](./media/bluejeans-provisioning-tutorial/Bluejeans1.png)
 
-5. Na secção **Credenciais de Administração,** insira o nome de **utilizador Admin**e **a Palavra-passe de Administrador** da sua conta BlueJeans. Exemplos destes valores são:
+5. Na secção **Credenciais de Administração,** insira o nome de **utilizador Admin** e **a Palavra-passe de Administrador** da sua conta BlueJeans. Exemplos destes valores são:
 
    * No campo nome de **utilizador Admin,** povoe o nome de utilizador da conta de administração no seu inquilino BlueJeans. Exemplo: admin@contoso.com.
 

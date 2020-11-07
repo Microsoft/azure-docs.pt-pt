@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 11f89a0a42a42fd84d1dc0c8606128f5af9e751e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6f4b932bb8f16af3c0368ab219bd8a12bf2face
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711564"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357985"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Azure Files monitorizando a referência de dados
 
@@ -26,7 +26,7 @@ As tabelas seguintes listam as métricas da plataforma recolhidas para os Fichei
 
 ### <a name="capacity-metrics"></a>Métricas de capacidade
 
-Os valores das métricas de capacidade são enviados para o Azure Monitor a cada hora. Os valores são atualizados diariamente. O grão de tempo define o intervalo de tempo para o qual são apresentados os valores das métricas. O grão de tempo suportado para todas as métricas de capacidade é de uma hora (PT1H).
+Os valores das métricas de capacidade são atualizados diariamente (até 24 Horas). O grão de tempo define o intervalo de tempo para o qual são apresentados os valores das métricas. O grão de tempo suportado para todas as métricas de capacidade é de uma hora (PT1H).
 
 A Azure Files fornece as seguintes métricas de capacidade no Azure Monitor.
 
@@ -85,7 +85,7 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - Consulte [os ficheiros Azure monitor de monitorização](storage-files-monitoring-reference.md) para uma descrição da monitorização do Armazenamento Azure.
 - Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.
