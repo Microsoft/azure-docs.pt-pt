@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3c2fba1cba2c06e07b262e37eac651afb5c102cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f465438a6be80a1b487a4df7d3ee8bd38be9c102
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317540"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354233"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Tutorial: Configure Workteam para o fornecimento automático de utilizadores
 
@@ -60,7 +60,7 @@ Antes de configurar a workteam para o fornecimento automático de utilizadores c
 
     ![Screenshot da parte inferior da secção DEFINIÇÕES com o ícone de engrenagem de provisionamento do utilizador S C I M chamado.](media/workteam-provisioning-tutorial/icon.png)
 
-3. Copie o **Url base** e **o Token do Portador.** Estes valores serão inseridos no campo **URL**e **Secret Token** no separador Provisioning da sua aplicação Workteam no portal Azure.
+3. Copie o **Url base** e **o Token do Portador.** Estes valores serão inseridos no campo **URL** e **Secret Token** no separador Provisioning da sua aplicação Workteam no portal Azure.
 
     ![Screenshot da caixa de diálogo S C I M Configurações com as caixas de texto BASE U R L e BEARER TOKEN chamadas.](media/workteam-provisioning-tutorial/scim.png)
 
@@ -75,7 +75,7 @@ Para configurar o Workteam para o fornecimento automático de utilizadores com A
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

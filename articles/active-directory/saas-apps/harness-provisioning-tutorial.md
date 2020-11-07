@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 13ae960f5d259314f00f8f09b2999a36c0919bc5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92445705"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353735"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Tutorial: Configure arnês para o fornecimento automático de utilizadores
 
@@ -49,7 +49,7 @@ Antes de configurar e permitir o fornecimento automático do utilizador, decida 
 
 ## <a name="set-up-harness-for-provisioning"></a>Configurar o Arnês para provisionamento
 
-1. Inscreva-se na sua [Consola de Arnês arnês](https://app.harness.io/#/login)e, em seguida, vá para **a Gestão contínua de**acesso à  >  **segurança.**
+1. Inscreva-se na sua [Consola de Arnês arnês](https://app.harness.io/#/login)e, em seguida, vá para **a Gestão contínua de** acesso à  >  **segurança.**
 
     ![Consola de Admin harness](media/harness-provisioning-tutorial/admin.png)
 
@@ -134,9 +134,9 @@ Para configurar o fornecimento automático do utilizador para o Arnês em Azure 
 
     ![A caixa "Email de Notificação"](common/provisioning-notification-email.png)
 
-1. Selecione **Guardar**.
+1. Selecione **Save** (Guardar).
 
-1. Em **Mapeamentos**, selecione **Synchronize Azure Ative Directory Users to Harness**.
+1. Em **Mapeamentos** , selecione **Synchronize Azure Ative Directory Users to Harness**.
 
     ![Ligação "Synchronize Azure Ative Directory Users to Harness"](media/harness-provisioning-tutorial/usermappings.png)
 
@@ -144,7 +144,7 @@ Para configurar o fornecimento automático do utilizador para o Arnês em Azure 
 
     ![Painel de "Atribuir Mapeamentos" do utilizador do arnês](media/harness-provisioning-tutorial/userattributes.png)
 
-1. Em **Mapeamentos**, selecione **Synchronize Azure Ative Directory Groups to Harness**.
+1. Em **Mapeamentos** , selecione **Synchronize Azure Ative Directory Groups to Harness**.
 
     ![Ligação "Synchronize Azure Ative Directory Groups to Harness"](media/harness-provisioning-tutorial/groupmappings.png)
 
@@ -154,11 +154,11 @@ Para configurar o fornecimento automático do utilizador para o Arnês em Azure 
 
 1. Para configurar filtros de deteção, consulte [o provisionamento de aplicações baseados em Atributos com filtros de escoamento](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. Em **Definições**, para permitir o serviço de prestação de Ad Azure para arnês, alternar o interruptor **de Estado de Provisionamento** para **On**.
+1. Em **Definições** , para permitir o serviço de prestação de Ad Azure para arnês, alternar o interruptor **de Estado de Provisionamento** para **On**.
 
     ![Alternância do Estado de Provisionamento alternada para "On"](common/provisioning-toggle-on.png)
 
-1. Em **Definições**, na lista de **drop-down** scope, selecione como pretende sincronizar os utilizadores ou grupos que está a forragem para o Harness.
+1. Em **Definições** , na lista de **drop-down** scope, selecione como pretende sincronizar os utilizadores ou grupos que está a forragem para o Harness.
 
     ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 

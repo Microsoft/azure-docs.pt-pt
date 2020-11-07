@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55f7b64c9ade91bb2923161d60568e3ea14ee034
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850508"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353524"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Tutorial: Configurar as minhas Políticas para o provisionamento automático do utilizador
 
@@ -66,7 +66,7 @@ Para configurar as minhas Políticas para o fornecimento automático de utilizad
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -129,9 +129,9 @@ Exemplo: `<demo0-qa>` .mypolicies.com.
    |emails[type eq "work"].value|String|
    |name.givenName|String|
    |name.familyName|String|
-   |nome.formatado|Cadeia|
+   |nome.formatado|String|
    |externalId|String|
-   |endereços[tipo eq "work"].país|Cadeia|
+   |endereços[tipo eq "work"].país|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Referência|
 
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/23/2019
 ms.author: Zhchia
-ms.openlocfilehash: 7b4a5e76ec8dad66bf300cc3e1d55471383f83ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7e0db1b0bc1e7aef68ee06f3bdd5e5e0f83b73e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91285847"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354721"
 ---
 # <a name="tutorial-configure-symantec-web-security-service-wss-for-automatic-user-provisioning"></a>Tutorial: Configurar o Serviço de Segurança Web Symantec (WSS) para o provisionamento automático do utilizador
 
@@ -56,7 +56,7 @@ Antes de configurar o Serviço de Segurança Web Symantec (WSS) para o fornecime
 
     ![Serviço de Segurança Web Symantec (WSS)](media/symantec-web-security-service/service.png)
 
-2. Navegar para integrações de **manutenção**de conta  >  **Integrations**  >  **nova integração.**
+2. Navegar para integrações de **manutenção** de conta  >  **Integrations**  >  **nova integração.**
 
     ![Symantec Web Security Service (WSS)](media/symantec-web-security-service/acount.png)
 
@@ -78,7 +78,7 @@ Para configurar o Symantec Web Security Service (WSS) para o fornecimento autom�
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

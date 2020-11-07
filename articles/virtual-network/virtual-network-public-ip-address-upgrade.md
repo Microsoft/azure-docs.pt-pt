@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/07/2020
 ms.author: blehr
 ms.custom: references_regions
-ms.openlocfilehash: 791c9e8ea8f7c8ffbf9268af2b3a93f592a77f9e
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: a1bd303390626eaea71e588e325fedbd2d8fa4b9
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629757"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353361"
 ---
 # <a name="upgrade-public-ip-addresses"></a>Atualizar endereços IP públicos
 
@@ -44,7 +44,7 @@ Para atualizar um IP público, não deve ser associado a qualquer recurso (consu
 ---
 # <a name="basic-to-standard---powershell"></a>[**Básico para Standard - PowerShell**](#tab/option-upgrade-powershell)
 
-O exemplo a seguir pressupõe a criação anterior de um IP público Básico SKU, utilizando o exemplo dado [nesta página](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-basic) com um IP público básico **myBasicPublicIP** no **myResourceGroup** .
+O exemplo a seguir pressupõe a criação anterior de um IP público Básico SKU, utilizando o exemplo dado [nesta página](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-basic) com um IP público básico **myBasicPublicIP** no **myResourceGroup**.
 
 Para atualizar o IP, basta executar os comandos abaixo utilizando o PowerShell.  Note se o endereço IP já está estático, essa secção pode ser ignorada.
 
@@ -66,7 +66,7 @@ Set-AzPublicIpAddress -PublicIpAddress $pubIP
 
 # <a name="basic-to-standard---cli"></a>[**Básico para Standard - CLI**](#tab/option-upgrade-cli)
 
-O exemplo a seguir pressupõe a criação anterior de um IP público Básico SKU, utilizando o exemplo dado [nesta página](https://docs.microsoft.com/azure/virtual-network/create-public-ip-cli?tabs=option-create-public-ip-basic) com um IP público básico **myBasicPublicIP** no **myResourceGroup** .
+O exemplo a seguir pressupõe a criação anterior de um IP público Básico SKU, utilizando o exemplo dado [nesta página](https://docs.microsoft.com/azure/virtual-network/create-public-ip-cli?tabs=option-create-public-ip-basic) com um IP público básico **myBasicPublicIP** no **myResourceGroup**.
 
 Para atualizar o IP, basta executar os comandos abaixo utilizando o Azure CLI.  Note se o endereço IP já está estático, essa secção pode ser ignorada.
 
@@ -98,7 +98,7 @@ Para beneficiar das novas capacidades no Azure Resource Manager, pode migrar o e
 
 # <a name="reserved-to-basic---powershell"></a>[**Reservado ao Básico - PowerShell**](#tab/option-migrate-powershell)
 
-O exemplo a seguir pressupõe a criação anterior de um clássico Azure Reserved IP **myReservedIP** no **myResourceGroup** . Outro pré-requisito para a migração é garantir que a assinatura do Gestor de Recursos Azure se tenha registado para migração. Isto é abordado em detalhe nos passos 3 e 4 [desta página](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-ps).
+O exemplo a seguir pressupõe a criação anterior de um clássico Azure Reserved IP **myReservedIP** no **myResourceGroup**. Outro pré-requisito para a migração é garantir que a assinatura do Gestor de Recursos Azure se tenha registado para migração. Isto é abordado em detalhe nos passos 3 e 4 [desta página](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-ps).
 
 Para migrar o IP Reservado, execute os comandos abaixo utilizando o PowerShell.  Note se o endereço IP não estiver associado a nenhum serviço (abaixo existe um serviço chamado **myService),** esse passo pode ser ignorado.
 
@@ -122,7 +122,7 @@ Um novo grupo de recursos em Azure Resource Manager é criado usando o nome do I
 
 # <a name="reserved-to-basic---cli"></a>[**Reservado ao Básico - CLI**](#tab/option-migrate-cli)
 
-O exemplo a seguir pressupõe a criação anterior de um clássico Azure Reserved IP **myReservedIP** no **myResourceGroup** . Outro pré-requisito para a migração é garantir que a assinatura do Gestor de Recursos Azure se tenha registado para migração. Isto é abordado em detalhe nos passos 3 e 4 [desta página](https://docs.microsoft.com/azure/virtual-machines/linux/migration-classic-resource-manager-cli).
+O exemplo a seguir pressupõe a criação anterior de um clássico Azure Reserved IP **myReservedIP** no **myResourceGroup**. Outro pré-requisito para a migração é garantir que a assinatura do Gestor de Recursos Azure se tenha registado para migração. Isto é abordado em detalhe nos passos 3 e 4 [desta página](https://docs.microsoft.com/azure/virtual-machines/linux/migration-classic-resource-manager-cli).
 
 Para migrar o IP Reservado, execute os comandos abaixo utilizando o CLI Azure.  Note se o endereço IP não estiver associado a nenhum serviço (abaixo existe um serviço chamado **myService** e a implementação **myDeployment),** esse passo pode ser ignorado.
 
@@ -154,11 +154,18 @@ E.U.A. Centro-Norte<br>
 E.U.A. Oeste<br>
 E.U.A. Oeste 2<br>
 Leste da Noruega<br>
+Norte da África do Sul<br>
 E.U.A. Leste<br>
+Europa do Norte<br>
+Coreia do Sul Central<br>
+Centro Indiano<br>
 E.U.A. Leste 2<br>
 Suíça Norte<br>
 Oeste da Índia<br>
-Alemanha Norte
+Alemanha Norte<br>
+Canadá Central<br>
+Sul de França<br>
+Oeste da Índia
 
 * Para atualizar um IP público básico, não pode ser associado a qualquer recurso Azure.  Por favor, [reveja esta página](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) para mais informações sobre como desassociar os IPs públicos.  Da mesma forma, para migrar um IP Reservado, não pode ser associado a qualquer Serviço cloud.  Por favor, [reveja esta página](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) para obter mais informações sobre como desassociar os IPs reservados.  
 * Os IPs públicos atualizados de Basic para Standard SKU continuarão a não ter [zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) e, portanto, não podem ser associados a um recurso Azure que seja redundante ou zonal.  Note que isto se aplica apenas às regiões que oferecem zonas de disponibilidade.

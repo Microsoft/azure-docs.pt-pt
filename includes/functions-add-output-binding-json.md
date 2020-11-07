@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/23/2019
 ms.author: glenga
-ms.openlocfilehash: 8530f4469a0c25f3c32e652e2b0752c51c28ff3f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9b3859d854b3900cc30eda6a95b8425da6763e59
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "78191071"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94341082"
 ---
 Os atributos de ligação são definidos diretamente no function.jsno ficheiro. Dependendo do tipo de encadernação, podem ser necessárias propriedades adicionais. A [configuração de saída da fila](../articles/azure-functions/functions-bindings-storage-queue-output.md#configuration) descreve os campos necessários para uma encadernação de fila de armazenamento Azure. A extensão facilita a adição de encadernações à function.jsem ficheiro. 
 
@@ -25,4 +25,4 @@ Para criar uma ligação, clique à direita (Ctrl+clique no macOS) o `function.j
 
 Uma ligação é adicionada à `bindings` matriz no seu function.js, que deve parecer o seguinte:
 
-:::code language="son" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="18-24":::
+:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="18-24":::

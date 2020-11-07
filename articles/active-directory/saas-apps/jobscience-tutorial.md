@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8dc4087d1a10b4c4af7477a02f397c5a2bc547c2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459395"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355163"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Tutorial: Integração do Diretório Ativo Azure com a Jobscience
 
@@ -55,7 +55,7 @@ Para configurar a integração da Jobscience no Azure AD, é necessário adicion
 
 **Para adicionar Jobscience da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.** 
+1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.** 
 
     ![Active Directory][1]
 
@@ -71,7 +71,7 @@ Para configurar a integração da Jobscience no Azure AD, é necessário adicion
 
     ![Screenshot mostra Adicionar da galeria com a ciência do trabalho inserida.](./media/jobscience-tutorial/tutorial_jobscience_search.png)
 
-1. No painel de resultados, selecione **Jobscience**e, em seguida, clique em **Adicionar** o botão Adicionar a aplicação.
+1. No painel de resultados, selecione **Jobscience** e, em seguida, clique em **Adicionar** o botão Adicionar a aplicação.
 
     ![A screenshot mostra os resultados que incluíam a Jobscience.](./media/jobscience-tutorial/tutorial_jobscience_addfromgallery.png)
 
@@ -135,11 +135,11 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure e configu
    
    ![Meu Domínio](./media/jobscience-tutorial/ic767825.png "Meu Domínio")
 
-1. Para verificar se o seu domínio foi configurado corretamente, certifique-se de que está no "**Passo 4 Implantado para os Utilizadores**" e reveja as suas "**Definições de Domínio**".
+1. Para verificar se o seu domínio foi configurado corretamente, certifique-se de que está no " **Passo 4 Implantado para os Utilizadores** " e reveja as suas " **Definições de Domínio** ".
 
     ![Domínio implantado para utilizador](./media/jobscience-tutorial/ic784377.png "Domínio implantado para utilizador")
 
-1. No site da empresa Jobscience, clique em **Controlos de Segurança**e, em seguida, clique em **Definições de Sign-On Únicas**.
+1. No site da empresa Jobscience, clique em **Controlos de Segurança** e, em seguida, clique em **Definições de Sign-On Únicas**.
     
     ![A screenshot mostra configurações de Sign-On única selecionadas a partir de controlos de segurança.](./media/jobscience-tutorial/ic784364.png "Controlos de Segurança")
 
@@ -202,7 +202,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 **Para criar um utilizador de teste em Azure AD, execute os seguintes passos:**
 
-1. No **portal Azure**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **portal Azure** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![A screenshot mostra o ícone Azure A D no portal Azure.](./media/jobscience-tutorial/create_aaduser_01.png) 
 

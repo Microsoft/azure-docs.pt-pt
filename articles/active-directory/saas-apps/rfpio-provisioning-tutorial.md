@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 98f92a6b0169c573b97788c7ffaf76255796cfa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2792d5cc65e08a23a333deebdb24c0fd869446c3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278945"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352919"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Tutorial: Configurar RFPIO para o provisionamento automático do utilizador
 
@@ -60,7 +60,7 @@ Antes de configurar o RFPIO para o fornecimento automático do utilizador com a 
     
     ![Administrador RFPIO](media/rfpio-provisioning-tutorial/aadtest.png)
 
-3.  Navegar para a **segurança da gestão**do utilizador  >  **SECURITY**  >  **SCIM**.
+3.  Navegar para a **segurança da gestão** do utilizador  >  **SECURITY**  >  **SCIM**.
 
     ![RFPIO Adicionar SCIM](media/rfpio-provisioning-tutorial/scim.png)
 
@@ -82,7 +82,7 @@ Para configurar o RFPIO para o fornecimento automático de utilizadores com Azur
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 

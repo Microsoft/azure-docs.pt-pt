@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: zhchia
-ms.openlocfilehash: fbed4b888c48a518d9f10a91ff0494aa7bdc1843
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdd4fb96a42d154ccd8b508950283978ddf58ef4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532369"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354908"
 ---
 # <a name="tutorial-configuring-velpic-for-automatic-user-provisioning"></a>Tutorial: Configurar Velpic para o Provisionamento Automático do Utilizador
 
@@ -66,7 +66,7 @@ Esta secção guia-o através da ligação do seu AD Azure à conta de utilizado
 
     ![Provisão Velpic](./media/velpic-provisioning-tutorial/Velpic1.png)
 
-5. Sob a secção **de Credenciais de Administração,** insira o URL do **inquilino&Token Secreto** de Velpic. (Pode encontrar estes valores na sua conta Velpic: **Gerir**  >  **Integração**  >  **Plugin**  >  **SCIM**)
+5. Sob a secção **de Credenciais de Administração,** insira o URL do **inquilino&Token Secreto** de Velpic. (Pode encontrar estes valores na sua conta Velpic: **Gerir**  >  **Integração**  >  **Plugin**  >  **SCIM** )
 
     ![Valores de Autorização](./media/velpic-provisioning-tutorial/Velpic2.png)
 

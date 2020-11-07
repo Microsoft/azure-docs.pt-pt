@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: e5b008dd3d3a9d2422cca1fe00329543ed6d362f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 1b603dc4c31cb608a0840da78a2e987b3edd3c1e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517151"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353613"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Tutorial: Configure MediusFlow para o provisionamento automático do utilizador
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. Guarde a configuração.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Screenshot da consola de administração MediusFlow que mostra o quarto passo de integração. O botão de configuração Guardar é realçado." border="false":::
 
 5. Selecione o fornecimento do utilizador e clique **em OK**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Screenshot da consola de administração MediusFlow que mostra o quinto passo de integração. Destacam-se os botões Use user provisioning e Ok." border="false":::
 
 6. Clique em **Gerar Chave Secreta.** Copie e guarde este valor. Este valor será introduzido no campo **Secret Token** no **separador Provisioning** da sua aplicação MediusFLow no portal Azure.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Screenshot do separador de configuração de provisionamento do Utilizador na consola de administração MediusFlow. A tecla secreta Generate e os botões Copy são realçados." border="false":::
 
 7. Clique em **OK**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Screenshot da consola de administração MediusFlow com uma notificação a dizer aos utilizadores para clicarem em Ok para gerarem uma nova chave secreta. O botão Ok está realçado." border="false":::
 
 8. Para que os utilizadores sejam importados com um conjunto pré-definido de funções, empresas e outras configurações gerais no MediusFlow, terá de o configurar primeiro. Comece por adicionar a configuração clicando na **Nova configuração**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Screenshot do separador de configuração de provisionamento do Utilizador na consola de administração MediusFlow. O novo botão de configuração Adicionar está realçado." border="false":::
 
 9. Forneça as definições predefinidos para os utilizadores. Nesta perspetiva, é possível definir o atributo predefinido. Se as definições padrão estiverem bem, basta fornecer apenas um nome de empresa válido. Uma vez que estas configurações são recolhidas a partir do Mediusflow, precisam de ser configuradas primeiro. Para mais informações consulte a secção **Pré-Requisitos** deste artigo.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Screenshot da janela MediusFlow Adicionar nova janela de configuração. Muitas configurações são visíveis, incluindo configurações locais, um filtro e funções do utilizador." border="false":::
 
 10. Clique em **Guardar** para guardar a configuração do utilizador.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Screenshot do separador de configuração de provisionamento do Utilizador na consola de administração MediusFlow. O botão Guardar é realçado." border="false":::
 
 11. Para obter o link de provisionamento do utilizador clique no **Link Copy SCIM**. Copie e guarde este valor. Este valor é introduzido no campo URL do **inquilino** no **separador Provisioning** da sua aplicação MediusFLow no portal Azure.
  
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Screenshot da consola de administração MediusFlow. A caixa de nomes do inquilino MediusFlow e o botão Authenticate são destacados no primeiro passo de integração." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Screenshot do separador de configuração de provisionamento do Utilizador na consola de administração MediusFlow. Destaca-se o botão de ligação Copy S C I M." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>Passo 3. Adicione MediusFlow da galeria de aplicações AZure AD
 
@@ -145,7 +145,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
       ![A screenshot mostra a caixa de diálogo de Admin Credentials, onde pode inserir o seu Inquilino U R L e Secret Token.](./media/mediusflow-provisioning-tutorial/provisioning.png)
 
-6. No campo **E-mail de Notificação**, introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
+6. No campo **E-mail de Notificação** , introduza o endereço de e-mail de uma pessoa ou um grupo que deve receber as notificações de erro de aprovisionamento e marque a caixa de verificação **Enviar uma notificação de e-mail quando ocorre uma falha**.
 
     ![E-mail de Notificação](common/provisioning-notification-email.png)
 

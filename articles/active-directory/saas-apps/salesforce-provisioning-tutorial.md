@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a18984c441f5fe47f6ffd54cccff8c37cb57a038
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676732"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353109"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Tutorial: Configure Salesforce para o fornecimento automático de utilizadores
 
@@ -65,7 +65,7 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
 3. Selecione a sua instância de Salesforce e, em seguida, selecione o **separador Provisioning.**
 
-4. Defina o **Modo de Aprovisionamento** como **Automático** .
+4. Defina o **Modo de Aprovisionamento** como **Automático**.
 
     ![O Screenshot mostra a página de Provisionamento salesforce, com o modo de provisionamento definido para Automático e outros valores que pode definir.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
@@ -75,11 +75,11 @@ O objetivo desta secção é delinear como permitir o fornecimento de contas de 
 
     b. Na caixa de texto da **Palavra-passe Admin,** digite a palavra-passe para esta conta.
 
-6. Para obter o seu token de segurança Salesforce, abra um novo separador e inscreva-se na mesma conta de administração da Salesforce. No canto superior direito da página, clique no seu nome e, em seguida, clique em **Definições** .
+6. Para obter o seu token de segurança Salesforce, abra um novo separador e inscreva-se na mesma conta de administração da Salesforce. No canto superior direito da página, clique no seu nome e, em seguida, clique em **Definições**.
 
     ![A screenshot mostra o link Definições selecionado.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Permitir o fornecimento automático do utilizador")
 
-7. No painel de navegação à esquerda, clique em **My Personal Information** para expandir a secção relacionada e, em seguida, clique em Redefinir o **Token de Segurança** .
+7. No painel de navegação à esquerda, clique em **My Personal Information** para expandir a secção relacionada e, em seguida, clique em Redefinir o **Token de Segurança**.
   
     ![A screenshot mostra reset My Security Token selecionado a partir de My Personal Information.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Permitir o fornecimento automático do utilizador")
 

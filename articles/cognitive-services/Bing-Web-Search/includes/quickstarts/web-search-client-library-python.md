@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
-ms.openlocfilehash: bdbd183ba161c96e0ed8e160ce602da2ec30dfb7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1bc1d455e5597e86a3d5c8d1690fa2daa9097865
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85940421"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94341058"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Python. Neste início rápido, vai aprender como enviar um pedido, receber uma resposta JSON e filtrar e analisar os resultados.
 
@@ -318,6 +318,6 @@ Quando tiver terminado este projeto, certifique-se de que remove a sua chave de 
 > [!div class="nextstepaction"]
 > [Exemplos de SDK do Python nos Serviços Cognitivos](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Referência do SDK Python do Azure](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch)
+* [Referência do SDK Python do Azure](/python/api/azure-cognitiveservices-search-websearch/?view=azure-python)

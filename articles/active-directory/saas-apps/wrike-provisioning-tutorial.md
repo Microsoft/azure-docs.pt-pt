@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 76b5f279294dda0d2b1c01bf8cdd803390b04cec
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 53b1db1a8c4da59055c0af5f448fa0c8a6933daf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520035"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354311"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>Tutorial: Configure Wrike para o fornecimento automático de utilizadores
 
@@ -72,7 +72,7 @@ Antes de configurar a Wrike para o fornecimento automático de utilizadores com 
 
     ![Wrike Criar ficha](media/Wrike-provisioning-tutorial/password.png)
 
-6.  Copie o **Token Secreto**e cole-o em Azure AD. **Selecione Guardar** para terminar a configuração de provisionamento no Wrike.
+6.  Copie o **Token Secreto** e cole-o em Azure AD. **Selecione Guardar** para terminar a configuração de provisionamento no Wrike.
 
     ![Ficha de acesso permanente](media/Wrike-provisioning-tutorial/Wrike-create-token.png)
 
@@ -87,7 +87,7 @@ Para adicionar Wrike da galeria de aplicações AZure AD, siga estes passos.
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Vá às **aplicações da Enterprise**e, em seguida, selecione **Todas as aplicações**.
+2. Vá às **aplicações da Enterprise** e, em seguida, selecione **Todas as aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -109,7 +109,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 ### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Configure o fornecimento automático de utilizadores para wrike em Azure AD
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**  >  **Todas as aplicações**.
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com). Selecione **Aplicações empresariais**  >  **Todas as aplicações**.
 
     ![Todas as aplicações](common/enterprise-applications.png)
 
@@ -133,7 +133,7 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
     ![E-mail de notificação](common/provisioning-notification-email.png)
 
-8. Selecione **Guardar**.
+8. Selecione **Save** (Guardar).
 
 9. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Users to Wrike**.
 

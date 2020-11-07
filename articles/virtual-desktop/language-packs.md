@@ -3,15 +3,15 @@ title: Instale pacotes de idiomas no Windows 10 VMs no Windows Virtual Desktop -
 description: Como instalar pacotes de idiomas para VMs multi-sessão do Windows 10 no Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 11/06/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fbc2aba21212a83bd73d5664f4fe288017954c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d79d08e3f6ed422f0354074ebc6e0acc125553
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084214"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354041"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Adicione pacotes de idiomas a uma imagem multi-sessão do Windows 10
 
@@ -43,6 +43,11 @@ Precisa das seguintes coisas para personalizar as suas imagens multi-sessão do 
      - Aplicativos inbox ISO:
         - [Windows 10, versão 1903 ou 1909 Aplicações inbox ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Windows 10, versão 2004 Inbox Apps ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
+        - [Windows 10, versão 20H2 Aplicações inbox ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+     
+     - Se estiver a utilizar o Windows 10, versão 2004 ou 20H2, pode utilizar isOs Local Experience Pack (LXP) para descarregar novos idiomas. Utilize as informações em [Adicionar idiomas no Windows 10: problemas conhecidos](/windows-hardware/manufacture/desktop/language-packs-known-issue) para descobrir se deve descarregar a versão 9B ou 9C:
+        - [Windows 10, versão 2004 ou 20H2 **9B** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+        - [Windows 10, versão 2004 ou 20H2 **9C** LXP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY) 
 
 - Partilha de ficheiros Azure ou partilha de ficheiros numa máquina virtual do servidor de ficheiros do Windows
 
@@ -164,7 +169,7 @@ Set-WinUserLanguageList $LanguageList -force
 
 O script pode demorar algum tempo, dependendo do número de idiomas que precisa de instalar.
 
-Uma vez que o script esteja terminado, verifique se os pacotes de idiomas instalados corretamente indo para **iniciar**  >  **definições**tempo &  >  **Time & Language**  >  **idioma**. Se os ficheiros linguísticos estiverem lá, está tudo preparado.
+Uma vez que o script esteja terminado, verifique se os pacotes de idiomas instalados corretamente indo para **iniciar**  >  **definições** tempo &  >  **Time & Language**  >  **idioma**. Se os ficheiros linguísticos estiverem lá, está tudo preparado.
 
 Depois de adicionar idiomas adicionais à imagem do Windows, as aplicações da caixa de entrada também são necessárias para serem atualizadas para suportar os idiomas adicionados. Isto pode ser feito refrescando as aplicações pré-instaladas com o conteúdo das aplicações de caixa de entrada ISO. Para realizar esta atualização num ambiente desligado (sem acesso à Internet a partir do VM possível), pode utilizar a seguinte amostra de script PowerShell para automatizar o processo.
 
