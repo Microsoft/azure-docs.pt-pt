@@ -2,13 +2,13 @@
 title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos Azure que podem ser transferidos para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 7d5875287c7af905579397164029ef0504d6b9dc
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.date: 11/06/2020
+ms.openlocfilehash: 5b71c991136533096604c8a35af7989a227b6d2a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337955"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364234"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover suporte de operação para recursos
 
@@ -792,7 +792,6 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Grupo de recursos | Subscrição |
 > | ------------- | ----------- | ---------- |
 > | datafactories | Yes | Yes |
-> | datafactoryschema | No | No |
 > | fábricas | Yes | Yes |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake

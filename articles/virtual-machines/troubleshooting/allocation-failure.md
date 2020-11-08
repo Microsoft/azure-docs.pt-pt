@@ -10,22 +10,27 @@ tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 04/13/2018
+ms.date: 11/06/2020
 ms.author: daberry
-ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc043a991404a3ee9da954b9639bf1a41f2c51
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509363"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365878"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Resolver falhas de alocação ao criar, reiniciar ou redimensionar VMs no Azure
 
 Quando cria uma máquina virtual (VM), reinicie os VMs (deallocados) ou redimensione um VM, o Microsoft Azure atribui recursos de cálculo à sua subscrição. Estamos continuamente a investir em infraestruturas adicionais e funcionalidades para garantir que temos sempre todos os tipos de VM disponíveis para apoiar a procura do cliente. No entanto, pode ocasionalmente sofrer falhas na alocação de recursos devido ao crescimento sem precedentes da procura de serviços Azure em regiões específicas. Este problema pode ocorrer quando tenta criar ou iniciar VMs numa região enquanto os VMs apresentam o seguinte código de erro e mensagem:
 
-**Código de erro**: AtribuiçãoFailada ou ZonalAllocationFailed
+**Código de erro** : AtribuiçãoFailada ou ZonalAllocationFailed
 
-**Error message**: "A atribuição falhou. Não temos capacidade suficiente para a dimensão VM solicitada nesta região. Leia mais sobre a melhoria da probabilidade de alocação de sucesso em https: \/ /aka.ms/allocation-guidance"
+**Error message** : "A atribuição falhou. Não temos capacidade suficiente para a dimensão VM solicitada nesta região. Leia mais sobre a melhoria da probabilidade de alocação de sucesso em https: \/ /aka.ms/allocation-guidance"
+
+> [!NOTE]
+> Se estiver a resolver problemas com um conjunto de escala de máquina virtual (VMSS), o processo é o mesmo que um VM padrão. Para resolver o problema, deve seguir as instruções deste artigo.
+> 
+>**Error message** : "A atribuição falhou. Se estiver a tentar adicionar um novo VM a um Conjunto de Balanças de Máquina Virtual com um único grupo de colocação ou atualizar/redimensionar um VM existente num Conjunto de Balanças de Máquina Virtual com um único grupo de colocação, tenha em atenção que essa alocação é alargada a um único cluster, e é possível que o cluster esteja fora de capacidade. Por favor leia mais sobre a melhoria da probabilidade de alocação de sucesso em http: \/ /aka.ms/allocation-guidance."
 
 Este artigo explica as causas de algumas falhas comuns da atribuição e sugere possíveis soluções.
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: no local, Docker, contentor, análise de sentimento, processamento de linguagem natural
-ms.openlocfilehash: 42b22c94f8f2eed0514906422fe9f1d5e7cd12e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43684e814dd0049a08eacdce50ca6eef17fb7f97
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461500"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363940"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores da Análise de Texto
 
@@ -32,7 +32,7 @@ Os contentores permitem-lhe executar as APIs de Análise de Texto no seu própri
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
 
 > [!IMPORTANT]
-> A conta gratuita está limitada a 5.000 transações por mês e apenas os níveis de preços **Gratuitos** e **Standard** são <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> válidos</a> para contentores. Para obter mais informações sobre as taxas de pedido de transação, consulte [Limites de Dados](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
+> A conta gratuita está limitada a 5.000 transações por mês e apenas os níveis de preços **Gratuitos** e **Standard** são <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> válidos</a> para contentores. Para obter mais informações sobre as taxas de pedido de transação, consulte [Limites de Dados](../overview.md#data-limits).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,7 +46,7 @@ Deve encontrar os seguintes pré-requisitos antes de utilizar os recipientes tex
 |--|--|
 |Motor do Docker| Precisa do Motor Docker instalado num [computador anfitrião.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar recipientes Linux.<br><br>|
 |Familiaridade com Docker | Você deve ter uma compreensão básica de conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.| 
-|Recurso de análise de texto |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure [Text Analytics](../../cognitive-services-apis-create-account.md) para obter a chave API associada e ponto final URI. Ambos os valores estão disponíveis nas páginas de Análise de Texto e Chaves do portal Azure e são obrigados a iniciar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final, conforme fornecido na página **'Vista Geral',**|
+|Recurso de análise de texto |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure [Text Analytics](../../cognitive-services-apis-create-account.md) para obter a chave API associada e ponto final URI. Ambos os valores estão disponíveis nas páginas de Análise de Texto e Chaves do portal Azure e são obrigados a iniciar o contentor.<br><br>**{API_KEY}** : Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}** : O ponto final, conforme fornecido na página **'Vista Geral',**|
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -89,7 +89,7 @@ As imagens do contentor para Análise de Texto estão disponíveis no Registo do
 
 [!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
 
-***
+**_
 
 ## <a name="how-to-use-the-container"></a>Como usar o recipiente
 
@@ -103,7 +103,7 @@ Uma vez que o recipiente esteja no [computador anfitrião,](#the-host-computer)u
 Use o comando de execução do [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar os contentores. O contentor continuará a funcionar até o parar.
 
 > [!IMPORTANT]
-> * Os comandos do estivador nas seguintes secções usam o corte `\` traseiro, como um personagem de continuação de linha. Substitua ou remova isto com base nos requisitos do seu sistema operativo anfitrião. 
+> _ Os comandos do estivador nas seguintes secções utilizam o corte `\` traseiro, como um carácter de continuação de linha. Substitua ou remova isto com base nos requisitos do seu sistema operativo anfitrião. 
 > * As `Eula` `Billing` opções , e `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [Billing.](#billing)
 > * O contentor v3 de análise de sentimento está agora geralmente disponível, que devolve [rótulos de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) na resposta. Os recipientes de extração de frases-chave e de deteção de linguagem utilizam v2 da API e estão em pré-visualização.
 

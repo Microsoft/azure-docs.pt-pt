@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: mbullwin
-ms.openlocfilehash: ae987a4239f478162e1e1f251e0d6607d63e02c5
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: c175a52259e9cfe5b4d03ce0279bbe24d16a48ae
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019754"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363719"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurar contentores do Detetor de Anomalias
 
@@ -27,14 +27,14 @@ Este recipiente tem as seguintes definições de configuração:
 
 |Necessário|Definição|Objetivo|
 |--|--|--|
-|Sim|[ApiKey](#apikey-configuration-setting)|Usado para rastrear informação de faturação.|
-|Não|[ApplicationInsights](#applicationinsights-setting)|Permite-lhe adicionar suporte de telemetria [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) ao seu recipiente.|
-|Sim|[Faturação](#billing-configuration-setting)|Especifica o ponto final URI do recurso de serviço no Azure.|
-|Sim|[Eula](#eula-setting)| Indica que aceitou a licença para o contentor.|
-|Não|[Fluente](#fluentd-settings)|Escreva log e, opcionalmente, dados métricos para um servidor Fluentd.|
-|Não|[Http Proxy](#http-proxy-credentials-settings)|Configure um representante HTTP para fazer pedidos de saída.|
-|Não|[Registo](#logging-settings)|Fornece ASP.NET suporte de registo de registo do núcleo para o seu recipiente. |
-|Não|[Montes](#mount-settings)|Leia e escreva dados do computador anfitrião para o recipiente e do recipiente de volta ao computador anfitrião.|
+|Yes|[ApiKey](#apikey-configuration-setting)|Usado para rastrear informação de faturação.|
+|No|[ApplicationInsights](#applicationinsights-setting)|Permite-lhe adicionar suporte de telemetria [Azure Application Insights](/azure/application-insights) ao seu recipiente.|
+|Yes|[Faturação](#billing-configuration-setting)|Especifica o ponto final URI do recurso de serviço no Azure.|
+|Yes|[Eula](#eula-setting)| Indica que aceitou a licença para o contentor.|
+|No|[Fluente](#fluentd-settings)|Escreva log e, opcionalmente, dados métricos para um servidor Fluentd.|
+|No|[Http Proxy](#http-proxy-credentials-settings)|Configure um representante HTTP para fazer pedidos de saída.|
+|No|[Registo](#logging-settings)|Fornece ASP.NET suporte de registo de registo do núcleo para o seu recipiente. |
+|No|[Montes](#mount-settings)|Leia e escreva dados do computador anfitrião para o recipiente e do recipiente de volta ao computador anfitrião.|
 
 > [!IMPORTANT]
 > As [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting) definições , e [`Eula`](#eula-setting) configurações são utilizadas em conjunto, e deve fornecer valores válidos para os três; caso contrário, o seu recipiente não arranca. Para obter mais informações sobre a utilização destas configurações para instantaneaizar um recipiente, consulte [Billing](anomaly-detector-container-howto.md#billing).
@@ -59,7 +59,7 @@ Esta definição pode ser encontrada no seguinte local:
 
 * Portal Azure: **Visão** geral do Detetor de Anomalias, etiquetada `Endpoint`
 
-|Necessário| Nome | Tipo de dados | Descrição |
+|Necessário| Name | Tipo de dados | Descrição |
 |--|------|-----------|-------------|
 |Sim| `Billing` | String | URI de faturação. Para obter mais informações sobre a obtenção do URI de faturação, consulte [a recolha dos parâmetros necessários](anomaly-detector-container-howto.md#gathering-required-parameters). Para obter mais informações e uma lista completa de pontos finais regionais, consulte [os nomes de subdomínio personalizados para serviços cognitivos.](../cognitive-services-custom-subdomains.md) |
 
@@ -88,17 +88,17 @@ Os recipientes do Detetor de Anomalias não utilizam suportes de entrada ou saí
 
 A sintaxe exata da localização do suporte do hospedeiro varia consoante o sistema operativo do hospedeiro. Além disso, a localização do suporte do [computador anfitrião](anomaly-detector-container-howto.md#the-host-computer)pode não estar acessível devido a um conflito entre permissões utilizadas pela conta de serviço Docker e as permissões de localização do anfitrião. 
 
-|Opcional| Nome | Tipo de dados | Descrição |
+|Opcional| Name | Tipo de dados | Descrição |
 |-------|------|-----------|-------------|
-|Não permitido| `Input` | Cadeia | Os recipientes do Detetor de Anomalias não usam isto.|
-|Opcional| `Output` | Cadeia | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|Não permitido| `Input` | String | Os recipientes do Detetor de Anomalias não usam isto.|
+|Opcional| `Output` | String | O alvo do suporte de saída. O valor predefinido é `/output`. Esta é a localização dos registos. Isto inclui registos de contentores. <br><br>Exemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Exemplo de estivador executar comandos 
 
 Os exemplos a seguir utilizam as definições de configuração para ilustrar como escrever e utilizar `docker run` comandos.  Uma vez em funcionamento, o recipiente continua a funcionar até o [parar.](anomaly-detector-container-howto.md#stop-the-container)
 
-* **Carácter de continuação da linha**: Os comandos do Docker nas seguintes secções usam o corte traseiro, `\` como um personagem de continuação de linha para uma casca de bash. Substitua ou remova isto com base nos requisitos do seu sistema operativo anfitrião. Por exemplo, o carácter de continuação da linha para janelas é um cuidado, `^` . Substitua o corte traseiro pelo cuidado. 
-* **Ordem de argumento**: Não altere a ordem dos argumentos a menos que esteja muito familiarizado com os recipientes docker.
+* **Carácter de continuação da linha** : Os comandos do Docker nas seguintes secções usam o corte traseiro, `\` como um personagem de continuação de linha para uma casca de bash. Substitua ou remova isto com base nos requisitos do seu sistema operativo anfitrião. Por exemplo, o carácter de continuação da linha para janelas é um cuidado, `^` . Substitua o corte traseiro pelo cuidado. 
+* **Ordem de argumento** : Não altere a ordem dos argumentos a menos que esteja muito familiarizado com os recipientes docker.
 
 Substitua o valor nos parênteses, `{}` com os seus próprios valores:
 

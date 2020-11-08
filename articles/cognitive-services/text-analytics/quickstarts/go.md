@@ -10,17 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
-ms.openlocfilehash: 3b922dca46b575abc428aa6e76fb920ffc13d6b0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 06f37404db1c07a97aa1bb2d6b7ca88485dc31a5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86028010"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365186"
 ---
 # <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Início Rápido: Utilizar o Go para chamar o Serviço Cognitivo de Análise de Texto 
 <a name="HOLTop"></a>
 
-Este artigo mostra-lhe como detetar a [linguagem,](#Detect) [analisar sentimentos,](#SentimentAnalysis) [extrair frases-chave,](#KeyPhraseExtraction)e [identificar entidades ligadas](#Entities) usando as [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711)com   Go.
+Este artigo explica como [detetar idiomas](#Detect), [analisar sentimentos](#SentimentAnalysis), [extrair expressões-chave](#KeyPhraseExtraction) e [identificar entidades ligadas](#Entities) através das [APIs de Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759711) com o Go.
 
 [!INCLUDE [text-analytics-api-references](../includes/text-analytics-api-references.md)]
 
@@ -33,7 +33,7 @@ Este artigo mostra-lhe como detetar a [linguagem,](#Detect) [analisar sentimento
 
 <a name="Detect"></a>
 
-## <a name="detect-language"></a>Detetar idioma
+## <a name="detect-language"></a>Detetar Idioma
 
 A API Deteção de Idioma deteta o idioma de um documento de texto através do [método Detetar Idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7).
 
@@ -442,7 +442,7 @@ func main() {
 
 ## <a name="identify-entities"></a>Identificar as entidades
 
-A API de Entidades identifica entidades conhecidas num documento de texto através do [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [As entidades](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraem palavras de texto, como "Estados Unidos", em seguida, dar-lhe o tipo e/ou ligação wikipédia para esta(s) palavras. O tipo de "Estados Unidos" `location` é, enquanto a ligação à Wikipédia é `https://en.wikipedia.org/wiki/United_States` .  O seguinte exemplo identifica as entidades dos documentos em inglês.
+A API de Entidades identifica entidades conhecidas num documento de texto através do [método de Entidades](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/5ac4251d5b4ccd1554da7634). [As entidades](../how-tos/text-analytics-how-to-entity-linking.md) extraem palavras de texto, como "Estados Unidos", em seguida, dar-lhe o tipo e/ou ligação wikipédia para esta(s) palavras. O tipo de "Estados Unidos" `location` é, enquanto a ligação à Wikipédia é `https://en.wikipedia.org/wiki/United_States` .  O seguinte exemplo identifica as entidades dos documentos em inglês.
 
 1. Crie um novo projeto de Go no seu editor de código preferido.
 1. Adicione o código indicado abaixo.
@@ -562,7 +562,7 @@ func main() {
 > [!div class="nextstepaction"]
 > [Análise de Texto com o Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
  [Descrição geral da Análise de Texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)

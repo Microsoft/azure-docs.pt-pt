@@ -10,16 +10,16 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: d497ff1a829902c0623740f01a457e6496db2401
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 924ac3a58a005b84cbf87f833e97862e26a5b8e0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744960"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363362"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorize o seu espaço de trabalho de sinapse
 
-Neste tutorial, você aprenderá a monitorizar atividades no seu espaço de trabalho Synapse. Você pode monitorizar atividades atuais e históricas para SQL, Apache Spark. e Pipelines. 
+Neste tutorial, você aprenderá a monitorizar atividades no seu espaço de trabalho Synapse. Você pode monitorizar atividades atuais e históricas para SQL, Apache Spark e Pipelines. 
 
 ## <a name="introduction-to-the-monitor-hub"></a>Introdução ao Monitor Hub
 
@@ -31,7 +31,7 @@ Abra o Estúdio Synapse e navegue até ao centro **monitor.** Aqui, você pode v
 ## <a name="integration"></a>Integração
 
 1. Navegue para o **Pipeline > integração.** Nesta vista, pode ver sempre que um oleoduto corre no seu espaço de trabalho. 
-1. Encontre o oleoduto que correu no passo anterior e clique no **seu nome Pipeline** .
+1. Encontre o oleoduto que correu no passo anterior e clique no **seu nome Pipeline**.
 1. Agora você pode ver como as atividades individuais dentro do oleoduto funcionam.
 1. Clique **na barra Breadcrumb** perto do topo do Synapse Studio, clique em **Todas as corridas de pipeline** para voltar à vista anterior.
 
@@ -39,7 +39,7 @@ Abra o Estúdio Synapse e navegue até ao centro **monitor.** Aqui, você pode v
 
 1. Navegue para **atividades de > integração > aplicações Apache Spark.** Agora pode ver todas as aplicações Spark que estão em execução ou que correram no seu espaço de trabalho.
 1. Encontre uma aplicação que já não esteja em execução e clique no **nome da sua Aplicação.** Agora pode ver os detalhes da aplicação de faíscas.
-1. Se estiver familiarizado com o Apache Spark, pode encontrar o servidor histórico padrão apache Spark UI clicando no **servidor histórico spark** .
+1. Se estiver familiarizado com o Apache Spark, pode encontrar o servidor histórico padrão apache Spark UI clicando no **servidor histórico spark**.
 
 ## <a name="sql-activities"></a>Atividades SQL
 

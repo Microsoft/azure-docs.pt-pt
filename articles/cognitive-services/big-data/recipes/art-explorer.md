@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 0a94c66eb51298db226ceec5da5c86666576052a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a65ff28a38e42e05844063a330c0325f16b2247
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87850496"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363294"
 ---
 # <a name="recipe-intelligent-art-exploration-with-the-cognitive-services-for-big-data"></a>Receita: Exploração de Arte Inteligente com os Serviços Cognitivos para Big Data
 
@@ -24,7 +24,7 @@ Neste exemplo, vamos usar os Serviços Cognitivos para Big Data para adicionar a
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Deve ter uma chave de subscrição para visão de computador e pesquisa cognitiva. Siga as instruções na [Conta Criar serviços cognitivos](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para subscrever a Visão de Computador e obter a sua chave.
+* Deve ter uma chave de subscrição para visão de computador e pesquisa cognitiva. Siga as instruções na [Conta Criar serviços cognitivos](../../cognitive-services-apis-create-account.md) para subscrever a Visão de Computador e obter a sua chave.
   > [!NOTE]
   > Para obter informações sobre preços, consulte [a Azure Cognitive Search](https://azure.microsoft.com/services/search/#pricing).
 
@@ -118,4 +118,3 @@ requests.post(url, json={"search": "Glass"}, headers = {"api-key": AZURE_SEARCH_
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba como utilizar [serviços cognitivos para big data para deteção de anomalias.](anomaly-detection.md)
-

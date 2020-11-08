@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: quickstart
-ms.openlocfilehash: f24c9c372ff91db5836a62ac2d08b569434ff253
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 4fbac2c2d77d838ac7fc4f3caaa73983633c3e03
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91761584"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366065"
 ---
 # <a name="quickstart-build-deploy-and-use-a-custom-model-for-translation"></a>Quickstart: Construa, implemente e use um modelo personalizado para tradução
 
@@ -22,14 +22,14 @@ Este artigo fornece instruções passo a passo para construir um sistema de trad
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-1. Para utilizar o Portal [do Tradutor Personalizado,](https://portal.customtranslator.azure.ai) necessitará de uma [conta Microsoft](https://signup.live.com) ou de uma [conta AD Azure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) (conta de organização hospedada no Azure) para iniciar sessão.
+1. Para utilizar o Portal [do Tradutor Personalizado,](https://portal.customtranslator.azure.ai) necessitará de uma [conta Microsoft](https://signup.live.com) ou de uma [conta AD Azure](../../../active-directory/fundamentals/active-directory-whatis.md) (conta de organização hospedada no Azure) para iniciar sessão.
 
-2. Uma subscrição da API de Texto tradutor através do portal Azure. Você precisará da chave de subscrição de Texto de Tradutor API para associar-se ao seu espaço de trabalho no Tradutor Personalizado. Veja [como se inscrever para a API de Texto do Tradutor](https://docs.microsoft.com/azure/cognitive-services/translator/translator-text-how-to-signup).
+2. Uma subscrição da API de Texto tradutor através do portal Azure. Você precisará da chave de subscrição de Texto de Tradutor API para associar-se ao seu espaço de trabalho no Tradutor Personalizado. Veja [como se inscrever para a API de Texto do Tradutor](../translator-how-to-signup.md).
 
 3. Quando tiver ambos os dois acima, inscreva-se no portal  [Do Tradutor Personalizado](https://portal.customtranslator.azure.ai) para criar espaços de trabalho, projetos, carregar ficheiros e criar/implementar modelos.
 
 >[!Note]
->O Tradutor Personalizado não suporta a criação de espaço de trabalho para o recurso API de texto de tradutor que foi criado dentro [do VNET Ativado.](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet)
+>O Tradutor Personalizado não suporta a criação de espaço de trabalho para o recurso API de texto de tradutor que foi criado dentro [do VNET Ativado.](../../../api-management/api-management-using-with-vnet.md)
 
 ## <a name="create-a-workspace"></a>Criar uma área de trabalho
 
@@ -92,7 +92,7 @@ Para trocar um modelo implantado com outro dentro de um projeto clique no botão
 
 ## <a name="use-a-deployed-model"></a>Utilize um modelo implantado
 
-Os modelos implantados podem ser acedidos através do Texto API V3 do Texto do Tradutor [da Microsoft, especificando a categoriaID](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl). Mais informações sobre a API de Texto de Tradutor podem ser encontradas na página de Referência da [API.](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+Os modelos implantados podem ser acedidos através do Texto API V3 do Texto do Tradutor [da Microsoft, especificando a categoriaID](../reference/v3-0-translate.md?tabs=curl). Mais informações sobre a API de Texto de Tradutor podem ser encontradas na página de Referência da [API.](../reference/v3-0-reference.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

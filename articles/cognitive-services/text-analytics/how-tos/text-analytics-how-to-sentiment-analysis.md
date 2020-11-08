@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 2b13ac02a8a276b2ef46c8ffd5f13846e394d938
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166935"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366762"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar sentimento usando a API de Análise de Texto
 
@@ -23,7 +23,7 @@ A funcionalidade de Análise de Sentimento da API de Text Analytics avalia os re
 
 Após o envio de um pedido de análise de sentimento, a API devolve rótulos de sentimento (tais como "negativo", "neutro" e "positivo") e pontuações de confiança a nível da frase e do documento.
 
-A Análise de Sentimento suporta uma vasta gama de línguas, com mais na pré-visualização. Para obter mais informações, veja os [Idiomas suportados](../text-analytics-supported-languages.md).
+A Análise de Sentimento suporta uma vasta gama de línguas, com mais na pré-visualização. Para obter mais informações, veja os [Idiomas suportados](../language-support.md).
 
 ## <a name="sentiment-analysis-versions-and-features"></a>Versões e funcionalidades de Análise de Sentimento
 
@@ -40,7 +40,7 @@ A Análise de Sentimento suporta uma vasta gama de línguas, com mais na pré-vi
 
 A Análise de Sentimento na V3 aplica rótulos de sentimento ao texto, que são devolvidos a um nível de frase e documento, com uma pontuação de confiança para cada um. 
 
-Os rótulos são *positivos,* *negativos*e *neutros.* Ao nível do documento, a etiqueta de sentimento *misto* também pode ser devolvida. O sentimento do documento é determinado a seguir:
+Os rótulos são *positivos,* *negativos* e *neutros.* Ao nível do documento, a etiqueta de sentimento *misto* também pode ser devolvida. O sentimento do documento é determinado a seguir:
 
 | Sentimento da sentença                                                                            | Etiqueta de documento devolvido |
 |-----------------------------------------------------------------------------------------------|-------------------------|
@@ -287,7 +287,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para análise de sentimento
 + O pedido do POST é para um `/sentiment` ponto final usando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta, que consiste numa pontuação de sentimento para cada ID do documento, pode ser transmitida para qualquer app que aceite o JSON. Por exemplo, Excel e Power BI.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/text-analytics-sdk.md)

@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: dbd4f32e77dc8d386067987a0ab0436a7875c15e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2a9c6b924f564c96c6018fbc395ad226a383280f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095395"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364654"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Bing Local Business Search API v7 referência
 
@@ -34,7 +34,7 @@ Para obter informações sobre os parâmetros de consulta que os pedidos devem i
   
 Para obter informações sobre os objetos JSON que a resposta inclui, consulte [os objetos de resposta](#response-objects).
 
-Para obter informações sobre a utilização permitida e exibição de [resultados, consulte os requisitos de utilização e exibição](use-display-requirements.md).
+Para obter informações sobre a utilização permitida e exibição de [resultados, consulte os requisitos de utilização e exibição](../bing-web-search/use-display-requirements.md).
 
 
   
@@ -172,10 +172,10 @@ Define o contexto de consulta que Bing usou para o pedido.
   
 |Elemento|Descrição|Tipo|  
 |-------------|-----------------|----------|  
-|adultoIntente|Um valor Boolean que indica se a consulta especificada tem intenção adulta. O valor é **verdadeiro** se a consulta tiver intenção adulta; caso contrário, **falso** .|Booleano|  
-|alterationOverrideQuery|A cadeia de consulta para usar para forçar Bing a usar a corda original. Por exemplo, se a cadeia de consulta estiver *a salar para baixo,* a cadeia de consulta de sobreposição será *+saling downwind* . Lembre-se de codificar a cadeia de consulta que resulta em *%2Bsaling+downwind* .<br /><br /> Este campo só está incluído se a cadeia de consulta original contiver um erro ortográfico.|String|  
+|adultoIntente|Um valor Boolean que indica se a consulta especificada tem intenção adulta. O valor é **verdadeiro** se a consulta tiver intenção adulta; caso contrário, **falso**.|Booleano|  
+|alterationOverrideQuery|A cadeia de consulta para usar para forçar Bing a usar a corda original. Por exemplo, se a cadeia de consulta estiver *a salar para baixo,* a cadeia de consulta de sobreposição será *+saling downwind*. Lembre-se de codificar a cadeia de consulta que resulta em *%2Bsaling+downwind*.<br /><br /> Este campo só está incluído se a cadeia de consulta original contiver um erro ortográfico.|String|  
 |alteradoQuery|A cadeia de consulta utilizada por Bing para realizar a consulta. Bing usa a cadeia de consulta alterada se a cadeia de consulta original contiver erros ortográficos. Por exemplo, se a cadeia de consulta `saling downwind` for, a cadeia de consulta alterada será `sailing downwind` .<br /><br /> Este campo só está incluído se a cadeia de consulta original contiver um erro ortográfico.|String|  
-|askUserForLocation|Um valor Boolean que indica se Bing requer a localização do utilizador para fornecer resultados precisos. Se especificar a localização do utilizador utilizando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location,](#location) pode ignorar este campo.<br /><br /> Para consultas conscientes da localização, como "o tempo de hoje" ou "restaurantes perto de mim" que precisam da localização do utilizador para fornecer resultados precisos, este campo está definido como **verdadeiro.**<br /><br /> Para consultas de localização que incluam a localização (por exemplo, "Seattle weather"), este campo está definido como **falso** . Este campo também é definido como **falso** para consultas que não estão cientes da localização, como os "best sellers".|Booleano|  
+|askUserForLocation|Um valor Boolean que indica se Bing requer a localização do utilizador para fornecer resultados precisos. Se especificar a localização do utilizador utilizando os cabeçalhos [X-MSEdge-ClientIP](#clientip) e [X-Search-Location,](#location) pode ignorar este campo.<br /><br /> Para consultas conscientes da localização, como "o tempo de hoje" ou "restaurantes perto de mim" que precisam da localização do utilizador para fornecer resultados precisos, este campo está definido como **verdadeiro.**<br /><br /> Para consultas de localização que incluam a localização (por exemplo, "Seattle weather"), este campo está definido como **falso**. Este campo também é definido como **falso** para consultas que não estão cientes da localização, como os "best sellers".|Booleano|  
 |OriginalQuery|O string de consulta conforme especificado no pedido.|String|  
 
 ### <a name="identifiable"></a>Identificável

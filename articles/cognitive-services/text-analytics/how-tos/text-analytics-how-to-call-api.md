@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e17f2015ed4428cfd3c1a6c8a7bc4f92854a6b71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ee7272066dbd89e7c0053d51ba039b83fb494f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710605"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363821"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -44,8 +44,8 @@ Atualmente, pode submeter os mesmos documentos para todas as operações de Text
 | Elemento | Valores válidos | Necessário? | Utilização |
 |---------|--------------|-----------|-------|
 |`id` |O tipo de dados é string, mas na prática os IDs de documento tendem a ser inteiros. | Necessário | O sistema utiliza os IDs que fornece para estruturar a saída. Códigos linguísticos, frases-chave e pontuações de sentimento são gerados para cada ID no pedido.|
-|`text` | Texto cru não estruturado, até 5.120 caracteres. | Necessário | Para a deteção de idiomas, o texto pode ser expresso em qualquer língua. Para análise de sentimentos, extração de frases-chave e identificação de entidades, o texto deve estar numa [língua suportada](../text-analytics-supported-languages.md). |
-|`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para uma [língua suportada](../text-analytics-supported-languages.md) | Varia | Necessário para a análise de sentimentos, extração de frases-chave e ligação de entidades; opcional para a deteção de linguagem. Não há erro se o excluirmos, mas a análise é enfraquecida sem ela. O código linguístico deve corresponder ao `text` que fornece. |
+|`text` | Texto cru não estruturado, até 5.120 caracteres. | Necessário | Para a deteção de idiomas, o texto pode ser expresso em qualquer língua. Para análise de sentimentos, extração de frases-chave e identificação de entidades, o texto deve estar numa [língua suportada](../language-support.md). |
+|`language` | Código [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) de 2 caracteres para uma [língua suportada](../language-support.md) | Varia | Necessário para a análise de sentimentos, extração de frases-chave e ligação de entidades; opcional para a deteção de linguagem. Não há erro se o excluirmos, mas a análise é enfraquecida sem ela. O código linguístico deve corresponder ao `text` que fornece. |
 
 Para obter mais informações sobre limites, consulte [a visão geral > limites de dados](../overview.md#data-limits)de texto. 
 
@@ -106,8 +106,8 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 
 5. Cole em alguns documentos JSON num formato válido para a análise pretendida. Para obter mais informações sobre uma análise específica, consulte os tópicos abaixo:
 
-  + [Deteção linguística](text-analytics-how-to-language-detection.md)  
-  + [Extração de frase-chave](text-analytics-how-to-keyword-extraction.md)  
+  + [Deteção de idioma](text-analytics-how-to-language-detection.md)  
+  + [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md)  
   + [Análise de sentimentos](text-analytics-how-to-sentiment-analysis.md)  
   + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)  
 
@@ -116,7 +116,7 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 
    No Carteiro, a resposta é exibida na janela seguinte para baixo, como um único documento JSON, com um item para cada documento ID fornecido no pedido.
 
-## <a name="see-also"></a>Consulte também 
+## <a name="see-also"></a>Ver também 
 
  [Visão geral da análise de texto](../overview.md)  
  [Perguntas Mais Frequentes (FAQ)](../text-analytics-resource-faq.md)
@@ -124,4 +124,4 @@ O serviço aceita pedido até 1 MB de tamanho. Se estiver a utilizar o Carteiro 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Detetar idioma](text-analytics-how-to-language-detection.md)
+> [Detetar Idioma](text-analytics-how-to-language-detection.md)

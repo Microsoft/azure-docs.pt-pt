@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 97327517b40e715294393a97e8a26c078173e762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8a662bf94e958d9e96a454ced9c44058b178a8c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510849"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366847"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Emparelhamento de frases e alinhamento em documentos paralelos
 
@@ -28,7 +28,7 @@ O Tradutor Personalizado aprende traduções de frases uma frase de cada vez. L�
 
 Se souber que tem documentos paralelos, pode anular o alinhamento da frase fornecendo ficheiros de texto pré-alinhados. Pode extrair todas as frases de ambos os documentos em ficheiro de texto, organizar uma frase por linha e fazer upload com uma `.align` extensão. A `.align` extensão indica que o Tradutor Personalizado deve saltar o alinhamento da frase.
 
-Para obter os melhores resultados, tente certificar-se de que tem uma frase por linha nos seus ficheiros.Não tenha caracteres novos dentro de uma frase, pois isso causará maus alinhamentos.
+Para obter os melhores resultados, tente certificar-se de que tem uma frase por linha nos seus ficheiros. Não tenha caracteres novos dentro de uma frase, pois isso causará maus alinhamentos.
 
 ## <a name="suggested-minimum-number-of-sentences"></a>Número mínimo de frases sugerido
 
@@ -44,7 +44,7 @@ Para que uma formação tenha sucesso, a tabela abaixo mostra o número mínimo 
 > [!NOTE]
 > - A formação não começará e falhará se a contagem mínima de 10.000 para a formação não for cumprida. 
 > - Sintonização e Testes são opcionais. Se não os fornecer, o sistema removerá uma percentagem adequada do Treino para utilizar para validação e teste. 
-> - Pode treinar um modelo usando apenas dados de dicionário. Consulte o [Que é Dicionário.](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary)
+> - Pode treinar um modelo usando apenas dados de dicionário. Consulte o [Que é Dicionário.](./what-is-dictionary.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

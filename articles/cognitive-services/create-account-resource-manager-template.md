@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
 ms.custom: subject-armqs
-ms.openlocfilehash: d88d613b6edfc6b08d08410cdc7cf481d973512d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9ca92bf81acd72260d89404051f941b317ee3e1d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91349126"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363396"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-an-arm-template"></a>Quickstart: Criar um recurso de Serviços Cognitivos usando um modelo ARM
 
@@ -45,7 +45,7 @@ O modelo utilizado neste início rápido pertence aos [Modelos de Início Rápid
 :::code language="json" source="~/quickstart-templates/101-cognitive-services-universalkey/azuredeploy.json":::
 
 No modelo, está definido um recurso do Azure:
-* [Microsoft.CognitiveServices/contas:](https://docs.microsoft.com/azure/templates/microsoft.cognitiveservices/accounts)cria um recurso de Serviços Cognitivos.
+* [Microsoft.CognitiveServices/contas:](/azure/templates/microsoft.cognitiveservices/accounts)cria um recurso de Serviços Cognitivos.
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
@@ -73,9 +73,9 @@ No modelo, está definido um recurso do Azure:
 # <a name="azure-cli"></a>[CLI do Azure](#tab/CLI)
 
 > [!NOTE]
-> `az deployment group` criar requer Azure CLI versão 2.6 ou mais tarde. Para visualizar o tipo de versão `az --version` . Para mais informações, consulte a [documentação.](https://docs.microsoft.com/cli/azure/deployment/group)
+> `az deployment group` criar requer Azure CLI versão 2.6 ou mais tarde. Para visualizar o tipo de versão `az --version` . Para mais informações, consulte a [documentação.](/cli/azure/deployment/group)
 
-Execute o seguinte script utilizando a Interface da Linha de Comando Azure (CLI) [na sua máquina local,](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)ou num browser com o botão **Tente.a.** Introduza um nome e localização (por `centralus` exemplo) para um novo grupo de recursos, e o modelo ARM será usado para implantar um recurso de Serviços Cognitivos dentro dele. Lembre-se do nome que usa. Irá usá-lo mais tarde para validar a implementação.
+Execute o seguinte script utilizando a Interface da Linha de Comando Azure (CLI) [na sua máquina local,](/cli/azure/install-azure-cli?view=azure-cli-latest)ou num browser com o botão **Tente.a.** Introduza um nome e localização (por `centralus` exemplo) para um novo grupo de recursos, e o modelo ARM será usado para implantar um recurso de Serviços Cognitivos dentro dele. Lembre-se do nome que usa. Irá usá-lo mais tarde para validar a implementação.
 
 
 ```azurecli-interactive
@@ -121,7 +121,7 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-1. No portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e escolha **Grupos de Recursos**, para apresentar a lista dos seus grupos de recursos.
+1. No portal do Azure, expanda o menu no lado esquerdo para abrir o menu de serviços e escolha **Grupos de Recursos** , para apresentar a lista dos seus grupos de recursos.
 2. Localizar o grupo de recursos que contém o recurso a eliminar
 3. Clique com o botão direito na listagem do grupo de recursos. Selecione **Eliminar grupo de recursos** e confirme.
 
@@ -140,6 +140,6 @@ az group delete --name $resourceGroupName
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Autenticar pedidos aos Serviços Cognitivos da Azure](authentication.md)
-* [O que é a Azure Cognitive Services?](Welcome.md)
+* [O que é a Azure Cognitive Services?](./what-are-cognitive-services.md)
 * [Suporte linguístico natural](language-support.md)
 * [Suporte de contentor estivador](cognitive-services-container-support.md)

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 89bbb16f96d06d1861dabdf89cf690e69c10735c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348921"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364484"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Resolução de problemas partilhadas galerias de imagens em Azure
 
@@ -153,7 +153,7 @@ Se se deparar com problemas ao realizar qualquer operação em galerias de image
 
 *Não é permitido alterar a propriedade 'galleryImageVersion.properties.storageProfile.<diskImage \> .source.id'.*  
 **Causa** : A identificação de origem de uma versão de imagem de galeria não pode ser alterada após a criação.  
-**Resumo :** Certifique-se de que o ID de origem é o mesmo que o ID de origem já existente ou alterar o número de versão da versão de imagem.
+**Resumo :** Certifique-se de que o ID de origem é o mesmo que o ID de origem já existente, altere o número de versão da versão de imagem ou elimine a versão de imagem atual e tente novamente.
 
 *Foram detetados números de lun duplicados nos discos de dados de entrada. O número lun deve ser único para cada disco de dados.*  
 **Causa** : Ao criar uma versão de imagem utilizando uma lista de discos e/ou instantâneos de disco, dois ou mais discos ou instantâneos de disco têm os mesmos números de lúgubre.  
@@ -323,6 +323,6 @@ Utilize a bandeira **replicationStatus** de expansão para verificar se a replic
 [Limites e quotas azure](../azure-resource-manager/management/azure-subscription-service-limits.md) aplicam-se a todos os recursos de galeria de imagens partilhadas, definição de imagem e versão de imagem. Certifique-se de que está dentro dos limites das suas subscrições. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [galerias de imagens partilhadas.](./linux/shared-image-galleries.md)

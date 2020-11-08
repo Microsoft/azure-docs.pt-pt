@@ -11,19 +11,19 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 7fa09ee40ca646be6ee104c7b2d4428c92934337
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f725a4095103a7dcfc3dcdbdcefdc84d16501632
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084634"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366538"
 ---
 # <a name="tutorial-single-page-web-app"></a>Tutorial: Aplicação Web de página única
 
 > [!WARNING]
-> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](https://aka.ms/cogsvcs/bingmove)documentado.
+> As APIs de Pesquisa de Bing estão a mover-se dos Serviços Cognitivos para os Serviços de Pesquisa Bing. A partir **de 30 de outubro de 2020,** quaisquer novos casos de Bing Search devem ser adquir-se na sequência do processo [aqui](/bing/search-apis/bing-web-search/create-bing-search-service-resource)documentado.
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
-> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
+> Para obter instruções de migração, consulte [os Serviços de Busca Bing.](/bing/search-apis/bing-web-search/create-bing-search-service-resource)
 
 A API de Pesquisa de Entidades do Bing permite-lhe procurar informações sobre *entidades* e *locais* na Web. Pode pedir um destes dois tipos de resultados, ou ambos, numa dada consulta. As definições dos locais e das entidades são indicadas abaixo.
 
@@ -57,7 +57,7 @@ A aplicação de tutorial ilustra como:
 
 A página do tutorial é completamente independente. Não utiliza arquiteturas, folhas de estilo nem mesmo ficheiros de imagens externos. Só utiliza funcionalidades da linguagem JavaScript amplamente suportadas e funciona com as versões atuais dos principais browsers.
 
-Neste tutorial, só vamos abordar determinadas partes do código de origem. O código de origem completo está disponível [numa página separada](tutorial-bing-entities-search-single-page-app-source.md). Copie e cole esse código num editor de texto e guarde-o como `bing.html`.
+Neste tutorial, só vamos abordar determinadas partes do código de origem. O código de origem completo está disponível [numa página separada](). Copie e cole esse código num editor de texto e guarde-o como `bing.html`.
 
 > [!NOTE]
 > Este tutorial é bastante parecido com o [tutorial da aplicação de Pesquisa na Web do Bing de página única](../Bing-Web-Search/tutorial-bing-web-search-single-page-app.md), mas lida apenas com resultados da pesquisa de entidades.
@@ -68,8 +68,8 @@ Para acompanhar o tutorial, precisa de chaves de subscrição para a API de Pesq
 
 * Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
 * Assim que tiver a sua assinatura Azure:
-  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso Bing Search "  target="_blank"> Crie um recurso de Pesquisa Bing no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso** .
-  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Criar um recurso de Visão De Computador "  target="_blank"> Crie um recurso Bing Maps no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso** .
+  * <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Criar um recurso Bing Search "  target="_blank"> Crie um recurso de Pesquisa Bing no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
+  * <a href="https://www.microsoft.com/maps/create-a-bing-maps-key.aspx"  title="Criar um recurso de Visão De Computador "  target="_blank"> Crie um recurso Bing Maps no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
 
 ## <a name="app-components"></a>Componentes da aplicação
 
@@ -405,7 +405,7 @@ Os erros são processados mediante a chamada de `renderErrorMessage()` com todos
 
 ## <a name="displaying-search-results"></a>Apresentar os resultados da pesquisa
 
-A API de Pesquisa de Entidades do Bing [requer que os resultados sejam apresentados numa ordem especificada](use-display-requirements.md). Uma vez que a API pode devolver dois tipos diferentes de respostas, não é suficiente para iterar através do nível superior `Entities` ou recolha na resposta `Places` JSON e exibir esses resultados. (Se pretender apenas um tipo de resultado, utilize o parâmetro de consulta `responseFilter`.)
+A API de Pesquisa de Entidades do Bing [requer que os resultados sejam apresentados numa ordem especificada](../bing-web-search/use-display-requirements.md). Uma vez que a API pode devolver dois tipos diferentes de respostas, não é suficiente para iterar através do nível superior `Entities` ou recolha na resposta `Places` JSON e exibir esses resultados. (Se pretender apenas um tipo de resultado, utilize o parâmetro de consulta `responseFilter`.)
 
 Em vez disso, utilizamos a coleção `rankingResponse` nos resultados da pesquisa para ordenar os resultados a apresentar. Este objeto diz respeito aos itens nas coleções `Entitiess` e/ou `Places`.
 

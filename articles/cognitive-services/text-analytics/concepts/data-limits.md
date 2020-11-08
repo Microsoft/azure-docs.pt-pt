@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/14/2020
 ms.author: aahi
 ms.reviewer: chtufts
-ms.openlocfilehash: 068c2dc698e9f0b6d6f2f6486dff863c1343b178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 905dde6932afb440c34bcccb563bfda98f23eb7c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88258271"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363838"
 ---
 # <a name="data-and-rate-limits-for-the-text-analytics-api"></a>Limites de dados e taxas para a API de Análise de Texto
 <a name="data-limits"></a>
@@ -31,7 +31,7 @@ Use este artigo para encontrar os limites para o tamanho e as tarifas que pode e
 
 | Limite | Valor |
 |------------------------|---------------|
-| Tamanho máximo de um documento único | 5.120 caracteres medidos por [StringInfo.LengthInTextElements](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). Aplica-se também ao Text Analytics para recipiente de saúde. |
+| Tamanho máximo de um documento único | 5.120 caracteres medidos por [StringInfo.LengthInTextElements](/dotnet/api/system.globalization.stringinfo.lengthintextelements). Aplica-se também ao Text Analytics para recipiente de saúde. |
 | Tamanho máximo do pedido completo | 1 MB. Aplica-se também ao Text Analytics para recipiente de saúde. |
 
 O número máximo de documentos que pode enviar num único pedido dependerá da versão API e da funcionalidade que estiver a utilizar.
@@ -77,7 +77,7 @@ O seu limite de tarifa variará em função do seu [nível de preços.](https://
 Os pedidos são medidos para cada função de Análise de Texto separadamente. Por exemplo, pode enviar o número máximo de pedidos para o seu nível de preços para cada recurso, ao mesmo tempo.  
 
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [O que é a API de Análise de Texto](../overview.md)
 * [Detalhes dos preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)

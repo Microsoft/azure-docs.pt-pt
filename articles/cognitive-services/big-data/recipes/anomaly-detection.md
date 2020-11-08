@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: aa650fe9cb7df64a6a7a948224be225ecfad9057
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324607"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366286"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Receita: Manutenção preditiva com os Serviços Cognitivos para Big Data
 
@@ -31,13 +31,13 @@ Pode haver fora dos dados numa frequência aleatória. Nestas situações, os va
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
-* [Espaço de trabalho Azure Synapse](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurado com uma [piscina Apache Spark sem servidor](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Espaço de trabalho Azure Synapse](../../../synapse-analytics/quickstart-create-workspace.md) configurado com uma [piscina Apache Spark sem servidor](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
 ## <a name="setup"></a>Configuração
 
 ### <a name="create-an-anomaly-detector-resource"></a>Criar um recurso de detetor de anomalias
 
-Os Serviços Cognitivos Azure são representados por recursos Azure que subscreve. Crie um recurso para Tradutor utilizando o [portal Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) ou [O Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). Também pode:
+Os Serviços Cognitivos Azure são representados por recursos Azure que subscreve. Crie um recurso para Tradutor utilizando o [portal Azure](../../cognitive-services-apis-create-account.md) ou [O Azure CLI](../../cognitive-services-apis-create-account-cli.md). Também pode:
 
 - Ver um recurso existente no  [portal Azure](https://portal.azure.com/).
 

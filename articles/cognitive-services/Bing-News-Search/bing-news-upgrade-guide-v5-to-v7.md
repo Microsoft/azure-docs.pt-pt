@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 564af32b724c8b4883cd27d01813e246e5fa4901
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fe9511df5fb290853dbd6cb8d39fed4e289fca4d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100206"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366422"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guia de atualização de API de pesquisa de notícias
 
@@ -75,24 +75,24 @@ Bloqueado|InvalidRequest.Bloqueado
 
 ### <a name="object-changes"></a>Alterações de objetos
 
-- Adicionei o `contractualRules` campo ao objeto [NewsArticle.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) O `contractualRules` campo contém uma lista de regras que deve seguir (por exemplo, atribuição de artigos). Deve aplicar a atribuição fornecida `contractualRules` em vez de utilizar `provider` . O artigo só inclui `contractualRules` quando a resposta da [API de Pesquisa na Web](../bing-web-search/search-the-web.md) contém uma resposta news.
+- Adicionei o `contractualRules` campo ao objeto [NewsArticle.](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) O `contractualRules` campo contém uma lista de regras que deve seguir (por exemplo, atribuição de artigos). Deve aplicar a atribuição fornecida `contractualRules` em vez de utilizar `provider` . O artigo só inclui `contractualRules` quando a resposta da [API de Pesquisa na Web](../bing-web-search/overview.md) contém uma resposta news.
 
 ## <a name="non-breaking-changes"></a>Alterações não-quebrando
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-- Produtos adicionados como um possível valor para o quais poderá definir o parâmetro de consulta de [categoria.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) Ver [Categorias Por Mercados.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
+- Produtos adicionados como um possível valor para o quais poderá definir o parâmetro de consulta de [categoria.](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category) Ver [Categorias Por Mercados.](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference)
 
-- Adicionei o parâmetro de consulta [SortBy,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) que retorna tópicos de tendência classificados por data com o mais recente primeiro.
+- Adicionei o parâmetro de consulta [SortBy,](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby) que retorna tópicos de tendência classificados por data com o mais recente primeiro.
 
-- Acrescentou o parâmetro [de consulta Desde,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) que devolve tópicos de tendência que foram descobertos por Bing sobre ou após o tempotamp de época unix especificado.
+- Acrescentou o parâmetro [de consulta Desde,](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since) que devolve tópicos de tendência que foram descobertos por Bing sobre ou após o tempotamp de época unix especificado.
 
 ### <a name="object-changes"></a>Alterações de objetos
 
-- Adicionei o `mentions` campo ao objeto [NewsArticle.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) O `mentions` campo contém uma lista de entidades (pessoas ou lugares) que foram encontradas no artigo.
+- Adicionei o `mentions` campo ao objeto [NewsArticle.](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) O `mentions` campo contém uma lista de entidades (pessoas ou lugares) que foram encontradas no artigo.
 
-- Adicionei o `video` campo ao objeto [NewsArticle.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) O `video` campo contém um vídeo relacionado com o artigo de notícias. O vídeo é um \<iframe\> que pode incorporar ou uma miniatura de movimento.
+- Adicionei o `video` campo ao objeto [NewsArticle.](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle) O `video` campo contém um vídeo relacionado com o artigo de notícias. O vídeo é um \<iframe\> que pode incorporar ou uma miniatura de movimento.
 
-- Adicionei o `sort` campo ao objeto [News.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) O `sort` campo mostra a ordem dos artigos. Por exemplo, os artigos são classificados por relevância (padrão) ou data.
+- Adicionei o `sort` campo ao objeto [News.](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news) O `sort` campo mostra a ordem dos artigos. Por exemplo, os artigos são classificados por relevância (padrão) ou data.
 
-- Adicionei o objeto [SortValue,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) que define uma ordem de classificação. O `isSelected` campo indica se a resposta usou a ordem de classificação. Se **for verdade,** a resposta usou a ordem de ordem. Se `isSelected` for **falso,** pode utilizar o URL no `url` campo para solicitar uma ordem de classificação diferente.
+- Adicionei o objeto [SortValue,](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue) que define uma ordem de classificação. O `isSelected` campo indica se a resposta usou a ordem de classificação. Se **for verdade,** a resposta usou a ordem de ordem. Se `isSelected` for **falso,** pode utilizar o URL no `url` campo para solicitar uma ordem de classificação diferente.

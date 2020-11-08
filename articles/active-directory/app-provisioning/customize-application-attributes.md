@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 2f21e4f41814b47d8e630df72c255886ac2af53b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233888"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364297"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
 
@@ -110,7 +110,7 @@ As aplicações e sistemas que suportam a personalização da lista de atributos
 - Dia de trabalho para Diretório Ativo / Dia de Trabalho para Azure Ative Directory
 - SucessoFactors para Diretório Ativo / SuccessFactors para Azure Ative Directory
 - Azure Ative Directy[(São suportados atributos padrão AZURE ADGraph API](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e extensões de diretório personalizados)
-- As aplicações que [suportam o SCIM 2.0,](https://tools.ietf.org/html/rfc7643)onde os atributos definidos no [esquema principal](https://tools.ietf.org/html/rfc7643) precisam de ser adicionados
+- Aplicativos que [suportam SCIM 2.0](https://tools.ietf.org/html/rfc7643)
 - Para a writeback do Azure Ative Directory para Workday ou SuccessFactors, é suportado para atualizar metadados relevantes para atributos suportados (XPATH e JSONPath), mas não é suportado para adicionar novos atributos Workday ou SuccessFactors para além dos incluídos no esquema padrão
 
 
@@ -136,17 +136,17 @@ Ao editar a lista de atributos suportados, são fornecidas as seguintes propried
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisionando um atributo de extensão personalizada a uma aplicação compatível com o SCIM
 O SCIM RFC define um esquema de utilizador e grupo principal, ao mesmo tempo que permite extensões ao esquema para atender às necessidades da sua aplicação. Para adicionar um atributo personalizado a uma aplicação SCIM:
-   1. Inscreva-se no [portal Azure Ative Directory](https://aad.portal.azure.com), selecione **Aplicações empresariais,** selecione a sua aplicação e, em seguida, selecione **Provisioning** .
+   1. Inscreva-se no [portal Azure Ative Directory](https://aad.portal.azure.com), selecione **Aplicações empresariais,** selecione a sua aplicação e, em seguida, selecione **Provisioning**.
    2. Em **Mapeamentos,** selecione o objeto (utilizador ou grupo) para o qual pretende adicionar um atributo personalizado.
-   3. Na parte inferior da página, selecione **Mostrar opções avançadas** .
-   4. **Selecione a lista de atributos editar para AppName** .
-   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, **selecione Adicionar Atributo** .
+   3. Na parte inferior da página, selecione **Mostrar opções avançadas**.
+   4. **Selecione a lista de atributos editar para AppName**.
+   5. Na parte inferior da lista de atributos, insira informações sobre o atributo personalizado nos campos fornecidos. Em seguida, **selecione Adicionar Atributo**.
 
 Para aplicações SCIM, o nome do atributo deve seguir o padrão indicado no exemplo abaixo. O "CustomExtensionName" e "CustomAttribute" podem ser personalizados de acordo com os requisitos da sua aplicação, por exemplo: urna:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
 
 Estas instruções só são aplicáveis às aplicações ativadas pelo SCIM. Aplicações como ServiceNow e Salesforce não estão integradas com Azure AD usando SCIM, e, portanto, não requerem este espaço de nome específico ao adicionar um atributo personalizado.
 
-Os atributos personalizados não podem ser atributos referenciais ou atributos de vário valor. Os atributos personalizados de extensão de vários valores são atualmente suportados apenas para aplicações na galeria.  
+Os atributos personalizados não podem ser atributos referenciais, atributos multi-valor ou de tipo complexo. Os atributos personalizados de extensão multi-valor e complexos são atualmente suportados apenas para aplicações na galeria.  
  
 **Exemplo de representação de um utilizador com um atributo de extensão:**
 

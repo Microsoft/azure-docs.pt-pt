@@ -9,20 +9,20 @@ ms.subservice: translator-text
 ms.date: 12/09/2019
 ms.author: swmachan
 ms.topic: overview
-ms.openlocfilehash: d84a0190e13d7bb7664e8792e0047338fe4bf5e2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 55555d81eb531ae5a4d946fa3f661796b3294897
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85961239"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365504"
 ---
 # <a name="what-is-custom-translator"></a>O que é o Tradutor Personalizado?
 
 [Custom Tradutor](https://portal.customtranslator.azure.ai) é uma característica do serviço Microsoft Tradutor, que permite às empresas de Tradutor, desenvolvedores de aplicações e prestadores de serviços linguísticos construir sistemas de tradução automática neural (NMT) personalizados. Os sistemas de tradução personalizados integram-se perfeitamente em aplicações, fluxos de trabalho e websites existentes. [O Custom Tradutor](https://portal.customtranslator.azure.ai/) oferece capacidades semelhantes ao que o [Microsoft Tradutor Hub](https://hub.microsofttranslator.com/) faz para tradução automática estatística (SMT), mas exclusivamente para sistemas de Tradução Automática Neural (NMT).
 
-Os sistemas de tradução construídos com [Tradutor Personalizado](https://portal.customtranslator.azure.ai) estão disponíveis através do mesmo [texto API V3,](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)baseado em nuvem, [seguro,](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality)de alto desempenho, altamente escalável do Texto do Tradutor da Microsoft, que alimenta milhares de milhões de traduções todos os dias.
+Os sistemas de tradução construídos com [Tradutor Personalizado](https://portal.customtranslator.azure.ai) estão disponíveis através do mesmo [texto API V3,](../reference/v3-0-translate.md?tabs=curl)baseado em nuvem, [seguro,](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality)de alto desempenho, altamente escalável do Texto do Tradutor da Microsoft, que alimenta milhares de milhões de traduções todos os dias.
 
-O Custom Tradutor suporta mais de três dezenas de idiomas, e mapeia diretamente para as línguas disponíveis para NMT. Para obter uma lista completa, consulte [os idiomas do tradutor da Microsoft.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)
+O Custom Tradutor suporta mais de três dezenas de idiomas, e mapeia diretamente para as línguas disponíveis para NMT. Para obter uma lista completa, consulte [os idiomas do tradutor da Microsoft.](../language-support.md#customization)
 
 ## <a name="features"></a>Funcionalidades
 
@@ -34,7 +34,7 @@ O Custom Tradutor fornece diferentes funcionalidades para construir um sistema d
 |[Construa sistemas que conheçam a sua terminologia de negócio](what-are-parallel-documents.md)     |  Personalize e construa sistemas de tradução usando documentos paralelos, que compreendam as terminologias utilizadas no seu próprio negócio e indústria.       |
 |[Use um dicionário para construir os seus modelos](what-is-dictionary.md)     |   Se não tiver um conjunto de dados de treino, pode treinar um modelo apenas com dados de dicionário.       |
 |[Colaborar com outros](how-to-manage-settings.md#share-your-workspace)     |   Colabore com a sua equipa partilhando o seu trabalho com pessoas diferentes.     |
-|[Aceda ao seu modelo de tradução personalizado](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl)     |  O seu modelo de tradução personalizado pode ser acedido a qualquer momento pelas aplicações/programas existentes através do Microsoft Tradutor Text API V3.       |
+|[Aceda ao seu modelo de tradução personalizado](../reference/v3-0-translate.md?tabs=curl)     |  O seu modelo de tradução personalizado pode ser acedido a qualquer momento pelas aplicações/programas existentes através do Microsoft Tradutor Text API V3.       |
 
 ## <a name="get-better-translations"></a>Obtenha melhores traduções
 

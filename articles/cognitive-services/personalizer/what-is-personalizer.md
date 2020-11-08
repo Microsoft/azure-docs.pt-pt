@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 08/27/2020
 ms.custom: cog-serv-seo-aug-2020
 keywords: personalização, personalizador Azure, machine learning
-ms.openlocfilehash: ae17b799c2b222525db53d5bb8e0afdbbcf19975
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: f843e7bfa014ad8391e20efff83a3c21a9de11b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91777246"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363906"
 ---
 # <a name="what-is-personalizer"></a>O que é o Personalizador?
 
@@ -29,7 +29,7 @@ Antes de começar, sinta-se à vontade para experimentar [personalizer com esta 
 
 ## <a name="how-does-personalizer-select-the-best-content-item"></a>Como é que o Personalizer seleciona o melhor item de conteúdo?
 
-O personalização usa a **aprendizagem** de reforço para selecionar o melhor item _(ação_) com base no comportamento coletivo e pontuações de recompensa em todos os utilizadores. As ações são os itens de conteúdo, tais como artigos noticiosos, filmes específicos ou produtos.
+O personalização usa a **aprendizagem** de reforço para selecionar o melhor item _(ação_ ) com base no comportamento coletivo e pontuações de recompensa em todos os utilizadores. As ações são os itens de conteúdo, tais como artigos noticiosos, filmes específicos ou produtos.
 
 A chamada **Rank** leva o item de ação, juntamente com as características da ação, e as funcionalidades de contexto para selecionar o item de ação de topo:
 
@@ -87,7 +87,7 @@ Uma vez que o Personalizer utiliza informação coletiva em quase tempo real par
 
 1. Adicione Personalizer à sua aplicação, website ou sistema:
     1. Adicione uma chamada **rank** ao Personaler na sua aplicação, website ou sistema para determinar o melhor, único item _de conteúdo_ antes que o conteúdo seja mostrado ao utilizador.
-    1. Exibir o melhor item de _conteúdo_ único, que é o _ID_de ação de recompensa devolvido, para o utilizador.
+    1. Exibir o melhor item de _conteúdo_ único, que é o _ID_ de ação de recompensa devolvido, para o utilizador.
     1. Aplicar _lógica de negócio_ para recolher informações sobre como o utilizador se comportou, para determinar a pontuação da **recompensa,** tais como:
 
     |Comportamento|Pontuação de recompensa calculada|
@@ -105,7 +105,7 @@ Uma vez que o Personalizer utiliza informação coletiva em quase tempo real par
 
 Oferecemos quickstarts em C#, JavaScript e Python. Cada quickstart é projetado para ensinar-lhe padrões básicos de design, e fazê-lo executar código em menos de 10 minutos. 
 
-* [Quickstart: Como utilizar a biblioteca de clientes Personalizer](sdk-learning-loop.md)
+* [Quickstart: Como utilizar a biblioteca de clientes Personalizer](./quickstart-personalizer-sdk.md)
 
 Depois de ter tido a oportunidade de começar com o serviço Personalizar, experimente os nossos tutoriais e aprenda a usar o Personalizer em aplicações web, chat bots ou um Azure Notebook.
 
@@ -115,10 +115,10 @@ Depois de ter tido a oportunidade de começar com o serviço Personalizar, exper
 
 ## <a name="reference"></a>Referência 
 
-* [Personalizar C#/.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
+* [Personalizar C#/.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet)
 * [Personaler Go SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/preview/personalizer/v1.0/personalizer)
-* [Personalizer JavaScript SDK](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
-* [Personaler Python SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
+* [Personalizer JavaScript SDK](/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest)
+* [Personaler Python SDK](/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python)
 * [APIs REST](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)
 
 ## <a name="next-steps"></a>Passos seguintes

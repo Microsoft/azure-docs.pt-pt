@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: a8fa86ef33fe7b0d9e97aebca96b3aa5465f24a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7abd67ef072303b7f8156a18c2e3ac34758c03dd
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099866"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364739"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>Tutorial: Compilar um cliente de Verificação Ortográfica de página Web
 
@@ -128,7 +128,7 @@ Primeiro, a função de programa auxiliar getSubscriptionKeyLocalStorage tenta o
     }
 ```
 
-A função auxiliar getSubscriptionKey assume um parâmetro, **invalidate** . Se **invalidate** for **true** , getSubscriptionKey elimina o cookie que contém a chave de API de Verificação de Ortografia do Bing. Se **invalidate** for **true** , getSubscriptionKey devolve o valor da chave de API de Verificação de Ortografia do Bing.
+A função auxiliar getSubscriptionKey assume um parâmetro, **invalidate**. Se **invalidate** for **true** , getSubscriptionKey elimina o cookie que contém a chave de API de Verificação de Ortografia do Bing. Se **invalidate** for **true** , getSubscriptionKey devolve o valor da chave de API de Verificação de Ortografia do Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -242,7 +242,7 @@ Processe também possíveis eventos de erro a partir do objeto XMLHttpRequest.
     });
 ```
 
-Envie o pedido. Feche a função bingSpellCheck, a tag **script** e a tag **head** .
+Envie o pedido. Feche a função bingSpellCheck, a tag **script** e a tag **head**.
 
 ```html
     request.send();
@@ -276,7 +276,7 @@ Crie um formulário HTML com um campo de texto. Manuseie o `onsubmit` evento e l
 </form>
 ```
 
-Adicione a tag **div** de HTML que utilizamos para apresentar os resultados. O JavaScript que definimos anteriormente refere-se a esta tag **div** .
+Adicione a tag **div** de HTML que utilizamos para apresentar os resultados. O JavaScript que definimos anteriormente refere-se a esta tag **div**.
 
 ```html
 <h2>Results</h2>
@@ -293,7 +293,7 @@ Guarde o ficheiro.
 
 ## <a name="display-results"></a>Apresentar os resultados
 
-Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave de subscrição da API de Verificação de Ortografia do Bing. Introduza uma consulta (por exemplo, "Hollo, wlrd!") na caixa de texto **Verificação Ortográfica** e prima **Enter** . Em seguida, a página Web apresenta os resultados da consulta.
+Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave de subscrição da API de Verificação de Ortografia do Bing. Introduza uma consulta (por exemplo, "Hollo, wlrd!") na caixa de texto **Verificação Ortográfica** e prima **Enter**. Em seguida, a página Web apresenta os resultados da consulta.
 
 ```json
 {
@@ -332,4 +332,4 @@ Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Requisitos de utilização e de apresentação](../UseAndDisplayRequirements.md)
+> [Requisitos de utilização e de apresentação](../../bing-web-search/use-display-requirements.md)

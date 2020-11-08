@@ -9,40 +9,40 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: 9660aa3923964392f1789570d26dd825e0fef350
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e33e8fe6e626700790a3b62265c6889f06e0861b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143186"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366609"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Ativar o registo de diagnóstico para serviços cognitivos Azure
 
-Este guia fornece instruções passo a passo para permitir o registo de diagnóstico para um Serviço Cognitivo Azure. Estes registos fornecem dados ricos e frequentes sobre o funcionamento de um recurso que são utilizados para identificar e depurar. Antes de continuar, tem de ter uma conta Azure com uma subscrição de pelo menos um Serviço Cognitivo, como [Bing Web Search,](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/overview) [Speech Services,](https://docs.microsoft.com/azure/cognitive-services/speech-service/overview)ou [LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis).
+Este guia fornece instruções passo a passo para permitir o registo de diagnóstico para um Serviço Cognitivo Azure. Estes registos fornecem dados ricos e frequentes sobre o funcionamento de um recurso que são utilizados para identificar e depurar. Antes de continuar, tem de ter uma conta Azure com uma subscrição de pelo menos um Serviço Cognitivo, como [Bing Web Search,](./bing-web-search/overview.md) [Speech Services,](./speech-service/overview.md)ou [LUIS](./luis/what-is-luis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para ativar a sessão de diagnóstico, precisará de um lugar para armazenar os seus dados de registo. Este tutorial utiliza a Azure Storage e Log Analytics.
 
-* [Armazenamento Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-archive-diagnostic-logs) - Retém registos de diagnóstico para auditoria de política, análise estática ou backup. A conta de armazenamento não tem de estar na mesma subscrição que os registos emissores de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições.
-* [Log Analytics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics) - Uma ferramenta flexível de pesquisa de registos e análise que permite a análise de troncos crus gerados por um recurso Azure.
+* [Armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) - Retém registos de diagnóstico para auditoria de política, análise estática ou backup. A conta de armazenamento não tem de estar na mesma subscrição que os registos emissores de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições.
+* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) - Uma ferramenta flexível de pesquisa de registos e análise que permite a análise de troncos crus gerados por um recurso Azure.
 
 > [!NOTE]
-> Estão disponíveis opções de configuração adicionais. Para saber mais, consulte [Recolher e consumir dados de registo dos seus recursos Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)
+> Estão disponíveis opções de configuração adicionais. Para saber mais, consulte [Recolher e consumir dados de registo dos seus recursos Azure.](../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="enable-diagnostic-log-collection"></a>Ativar a recolha de registos de diagnóstico  
 
 Comecemos por permitir a verificação de registos de diagnóstico utilizando o portal Azure.
 
 > [!NOTE]
-> Para ativar esta funcionalidade utilizando o PowerShell ou o Azure CLI, utilize as instruções fornecidas na [Recolha e consuma os dados de registo dos seus recursos Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+> Para ativar esta funcionalidade utilizando o PowerShell ou o Azure CLI, utilize as instruções fornecidas na [Recolha e consuma os dados de registo dos seus recursos Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 1. Navegue para o portal do Azure. Em seguida, localize e selecione um recurso de Serviços Cognitivos. Por exemplo, a sua subscrição para bing Web Search.   
 2. Em seguida, a partir do menu de navegação à esquerda, **localize as** definições de Monitorização e selecione **As definições de Diagnóstico**. Este ecrã contém todas as definições de diagnóstico previamente criadas para este recurso.
 3. Se houver um recurso previamente criado que gostaria de utilizar, pode selecioná-lo agora. Caso contrário, **selecione + Adicione a definição de diagnóstico**.
 4. Insira um nome para a definição. Em seguida, selecione **Archive para uma conta de armazenamento** e envie para registar a **Analytics**.
 5. Quando solicitado para configurar, selecione a conta de armazenamento e o espaço de trabalho OMS que gostaria de usar para armazenar os seus registos de diagnóstico. **Nota:** Se não tiver uma conta de armazenamento ou espaço de trabalho OMS, siga as indicações para criar uma.
-6. **Selecione Auditoria,** **SolicitaçãoResponse**e **AllMetrics**. Em seguida, desa estale o período de retenção para os seus dados de registo de diagnóstico. Se uma política de retenção for definida como zero, os eventos para essa categoria de registo são armazenados indefinidamente.
+6. **Selecione Auditoria,** **SolicitaçãoResponse** e **AllMetrics**. Em seguida, desa estale o período de retenção para os seus dados de registo de diagnóstico. Se uma política de retenção for definida como zero, os eventos para essa categoria de registo são armazenados indefinidamente.
 7. Clique em **Guardar**.
 
 Pode levar até duas horas antes de os dados de registo estar disponíveis para consulta e análise. Por isso, não te preocupes se não vires nada imediatamente.
@@ -56,7 +56,7 @@ O Azure Storage é uma solução robusta de armazenamento de objetos que é otim
 3. Utilize as reduções disponíveis para configurar a sua consulta. Para este exemplo, vamos definir o intervalo de tempo para **os últimos 30 dias** e a métrica para **a Transação.**
 4. Quando a consulta estiver completa, verá uma visualização da transação nos últimos 30 dias. Para exportar estes dados, utilize o botão **Exportação para Excel** localizado no topo da página.
 
-Saiba mais sobre o que pode fazer com dados de diagnóstico no [Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
+Saiba mais sobre o que pode fazer com dados de diagnóstico no [Azure Storage](../storage/blobs/storage-blobs-introduction.md).
 
 ## <a name="view-logs-in-log-analytics"></a>Ver registos no Log Analytics
 
@@ -113,9 +113,9 @@ by bin(TimeGenerated, 10s), OperationName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para compreender como permitir o registo, bem como as métricas e categorias de registo que são suportadas pelos vários serviços Azure, leia tanto a [visão geral das métricas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) nos artigos microsoft Azure e [Overview of Azure Diagnostic Logs.](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview)
+* Para compreender como permitir o registo, bem como as métricas e categorias de registo que são suportadas pelos vários serviços Azure, leia tanto a [visão geral das métricas](../azure-monitor/platform/data-platform.md) nos artigos microsoft Azure e [Overview of Azure Diagnostic Logs.](../azure-monitor/platform/platform-logs-overview.md)
 * Leia estes artigos para saber sobre os centros de eventos:
-  * [O que são os Hubs de Eventos do Azure?](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
-  * [Introdução ao Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-csharp-ephcs-getstarted)
-* Leia [As métricas de descarregamento e os registos de diagnóstico do Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#download-blobs).
-* Leia [As pesquisas de registo em registos do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search-new).
+  * [O que são os Hubs de Eventos do Azure?](../event-hubs/event-hubs-about.md)
+  * [Introdução ao Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* Leia [As métricas de descarregamento e os registos de diagnóstico do Azure Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
+* Leia [As pesquisas de registo em registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).

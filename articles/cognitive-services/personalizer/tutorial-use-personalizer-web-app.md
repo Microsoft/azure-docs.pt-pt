@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e06d191573219df44631f6ffaee86f895166de57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c004887e3883ae711974b544510dff16a98d4ef9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777263"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363923"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Adicione Personalizer a uma aplicação web .NET
 
@@ -158,7 +158,7 @@ A aplicação web usa Personalizer para selecionar a melhor ação da lista de e
 * **ações** com as suas características, tais como `taste` e `spiceLevel`
 * funcionalidades de **contexto** como `time` o dia, a preferência do utilizador `taste` e as informações do agente de utilizador do navegador, e as funcionalidades de contexto
 * **ações para excluir,** como o sumo
-* **eventId**, que é diferente para cada chamada para Rank API.
+* **eventId** , que é diferente para cada chamada para Rank API.
 
 ## <a name="personalizer-model-features-in-a-web-app"></a>Funcionalidades de modelo personalizado em uma aplicação web
 
@@ -216,7 +216,7 @@ Instale o seguinte software:
 
 * [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.1) - o servidor back-end da amostra utiliza .NET core
 * [Node.js](https://nodejs.org/) - o cliente/front end depende desta aplicação
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)- ou [.NET Core CLI](https://docs.microsoft.com/dotnet/core/tools/) - use o ambiente de desenvolvimento do Visual Studio 2019 ou o .NET Core CLI para construir e executar a app
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)- ou [.NET Core CLI](/dotnet/core/tools/) - use o ambiente de desenvolvimento do Visual Studio 2019 ou o .NET Core CLI para construir e executar a app
 
 ### <a name="set-up-the-sample"></a>Configurar a amostra
 1. Clone o Azure Personalizer Samples repo.
@@ -234,8 +234,8 @@ Instale o seguinte software:
 1. [Crie um recurso Personalizer](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer) no portal Azure.
 
 1. No portal Azure, encontre o `Endpoint` e `Key1` `Key2` (ou funcionará) no **separador Chaves e Pontos Finais.** Estes são os seus `PersonalizerServiceEndpoint` e os `PersonalizerApiKey` seus.
-1. Preencha o `PersonalizerServiceEndpoint` ** inappsettings.jsem**.
-1. Configure os `PersonalizerApiKey` segredos como uma [aplicação](https://docs.microsoft.com/aspnet/core/security/app-secrets) de uma das seguintes formas:
+1. Preencha o `PersonalizerServiceEndpoint` **inappsettings.jsem**.
+1. Configure os `PersonalizerApiKey` segredos como uma [aplicação](/aspnet/core/security/app-secrets) de uma das seguintes formas:
 
     * Se estiver a utilizar o CLI .NET Core, pode utilizar o `dotnet user-secrets set "PersonalizerApiKey" "<API Key>"` comando.
     * Se estiver a utilizar o Visual Studio, pode clicar no projeto e selecionar a opção do menu **Gerir os Segredos do Utilizador** para configurar as teclas Personalizer. Ao fazê-lo, o Visual Studio abrirá um `secrets.json` ficheiro onde pode adicionar as chaves da seguinte forma:
@@ -283,7 +283,7 @@ As seguintes secções explicam as partes do servidor e do cliente que um desenv
 
 ## <a name="rank-api-client-application-sends-context-to-server"></a>API de classificação: A aplicação do cliente envia contexto para servidor
 
-A aplicação do cliente recolhe o _agente_utilizador do navegador do utilizador.
+A aplicação do cliente recolhe o _agente_ utilizador do navegador do utilizador.
 
 > [!div class="mx-imgBorder"]
 > ![Construa e executará o projeto HTTPRequestFeaturesExample. Uma janela do navegador abre para exibir a aplicação de uma página única.](./media/tutorial-web-app/user-agent.png)
@@ -294,7 +294,7 @@ Esta é uma aplicação web típica .NET com uma aplicação de cliente, grande 
 
 ### <a name="create-personalizer-client"></a>Criar cliente personalizador
 
-Nas **Startup.cs**do servidor, o ponto final e a tecla Personalizer são utilizados para criar o cliente Personalizer. A aplicação do cliente não precisa de comunicar com o Personaler nesta aplicação, em vez de depender do servidor para efec se efecer aquelas chamadas SDK.
+Nas **Startup.cs** do servidor, o ponto final e a tecla Personalizer são utilizados para criar o cliente Personalizer. A aplicação do cliente não precisa de comunicar com o Personaler nesta aplicação, em vez de depender do servidor para efec se efecer aquelas chamadas SDK.
 
 O código de arranque .NET do servidor web é:
 
@@ -340,7 +340,7 @@ namespace HttpRequestFeaturesExample
 
 ### <a name="select-best-action"></a>Selecione a melhor ação
 
-No **PersonalizerController.cs**do servidor, a API do servidor **GenerateRank** resume a preparação para chamar a API de classificação
+No **PersonalizerController.cs** do servidor, a API do servidor **GenerateRank** resume a preparação para chamar a API de classificação
 
 * Criar novo `eventId` para a chamada Rank
 * Obtenha a lista de ações
@@ -582,7 +582,7 @@ As definições adicionais para jogar incluem:
 * Percentagem de exploração
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar este tutorial, limpe os seguintes recursos:
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c587bb042601b947b71658bf790e9acdfbdbf742
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855649"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363787"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Compensações de texto na saída da API de Análise de Texto
 
@@ -34,9 +34,9 @@ Sempre que forem devolvidas as compensações, a resposta da API, como [reconhec
 
 ## <a name="extracting-substrings-from-text-with-offsets"></a>Extrair sublagem de texto com compensações
 
-As compensações podem causar problemas ao utilizar métodos de sublagem baseados no carácter, por exemplo, o método [de sublagem](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) .NET(). Um problema é que uma compensação pode fazer com que um método de substring termine no meio de uma codificação de grafeme de vários caracteres em vez do fim.
+As compensações podem causar problemas ao utilizar métodos de sublagem baseados no carácter, por exemplo, o método [de sublagem](/dotnet/api/system.string.substring?view=netframework-4.8) .NET(). Um problema é que uma compensação pode fazer com que um método de substring termine no meio de uma codificação de grafeme de vários caracteres em vez do fim.
 
-Em .NET, considere a utilização da classe [StringInfo,](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) que lhe permite trabalhar com uma corda como uma série de elementos texcionais, em vez de objetos de caracteres individuais. Também pode procurar bibliotecas de splitter de grafeme no seu ambiente de software preferido. 
+Em .NET, considere a utilização da classe [StringInfo,](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) que lhe permite trabalhar com uma corda como uma série de elementos texcionais, em vez de objetos de caracteres individuais. Também pode procurar bibliotecas de splitter de grafeme no seu ambiente de software preferido. 
 
 A API text Analytics devolve estes elementos texcionais também, por conveniência.
 
@@ -50,10 +50,10 @@ Começando pela versão API 3.1-preview.1, todos os pontos finais da API API de 
 
 Se o `stringIndexType` pedido corresponder ao ambiente de programação de eleição, a extração de sub-cordas pode ser feita utilizando métodos de sublagem ou fatias padrão. 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Análise de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detetar idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Detetar Idioma](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Reconhecimento linguístico](../how-tos/text-analytics-how-to-language-detection.md)

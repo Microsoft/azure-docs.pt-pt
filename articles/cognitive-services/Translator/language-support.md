@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bdd12b5c866ee723547513e35a5adcfabb59dab9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669625"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364430"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
@@ -347,7 +347,7 @@ Os seguintes idiomas estão disponíveis para personalização de ou para inglê
 | Galês | `cy` |
 
 ## <a name="speech-translation"></a>Tradução de Voz
-A tradução da fala está disponível utilizando o serviço de Discurso de Tradutor com Serviços Cognitivos. Consulte [a documentação do Serviço de Discurso](https://docs.microsoft.com/azure/cognitive-services/speech-service/) para saber mais sobre a utilização da tradução da fala e para ver todas as [opções linguísticas disponíveis.](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support)
+A tradução da fala está disponível utilizando o serviço de Discurso de Tradutor com Serviços Cognitivos. Consulte [a documentação do Serviço de Discurso](../speech-service/index.yml) para saber mais sobre a utilização da tradução da fala e para ver todas as [opções linguísticas disponíveis.](../speech-service/language-support.md)
 
 ### <a name="speech-to-text"></a>Conversão de voz em texto
 Converta a fala em texto para traduzir para a linguagem de texto à sua escolha. A palavra-a-texto é usada para a tradução de texto ou para tradução fala-a-fala quando usada em conjunto com a síntese da fala.

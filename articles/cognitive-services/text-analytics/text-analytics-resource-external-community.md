@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
-ms.openlocfilehash: 79bbdd109d005b7c6de293aebf50433fb7ea1d91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3908c81e7d89efe3da90f9707023cb7c184795
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291641"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365013"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Conteúdo comunitário de & externo para o Serviço Cognitivo text Analytics
 
@@ -31,11 +31,11 @@ ms.locfileid: "87291641"
 
 + [Análise de sentimento na App Lógica utilizando dados do SQL Server (blog TechNet)](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx)
 
-+ [Análise de sentimento com Dynamics 365 CRM Online (blog MSDN)](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) 
++ [Análise de sentimento com Dynamics 365 CRM Online (blog MSDN)](/archive/blogs/geoffreyinnis/sentiment-analysis-in-usd-with-cognitive-services-text-analytics) 
 
 + Blog Power BI: Extração de frases-chave a partir de mensagens do Facebook: [Parte 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) e [Parte 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-+ [Identifique o sentimento dos comentários num grupo Yammer com a MS Flow (comunidade tecnológica da Microsoft)](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
++ [Identifique o sentimento dos comentários num grupo Yammer com a MS Flow (comunidade tecnológica da Microsoft)](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
 
 
 
@@ -51,7 +51,7 @@ ms.locfileid: "87291641"
 
 Está à procura de informações sobre uma funcionalidade ou caso de uso que não cobrimos? Considere solicitar ou votar a favor no [UserVoice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
  [StackOverflow: Azure Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Azure Cognitive Services](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

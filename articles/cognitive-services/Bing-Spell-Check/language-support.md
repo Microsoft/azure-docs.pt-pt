@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 2b4e4eb84cecf2f68c50f0a40630cc2e6f34554f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38bf38f47e4430c847e54bd89f6bf3cd7be50527
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084211"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367085"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Suporte linguístico e regional para Bing Spell Check API
 
@@ -26,7 +26,7 @@ ms.locfileid: "93084211"
 
 Estes idiomas são suportados pela API de Verificação ortográfica de Bing (apenas no `spell` modo).
 
-Por favor, note que para trabalhar com qualquer outra língua que `en-US` não, o `mkt` deve ser definido e deve ser definido como foi descrito na referência Spell Check `Accept-Language` `setLang` [API v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+Por favor, note que para trabalhar com qualquer outra língua que `en-US` não, o `mkt` deve ser definido e deve ser definido como foi descrito na referência Spell Check `Accept-Language` `setLang` [API v7](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
 
 | Linguagem    | Código do idioma |
 |:----------- |:-------------:|
@@ -73,5 +73,5 @@ Por favor, note que para trabalhar com qualquer outra língua que `en-US` não, 
 
 ## <a name="see-also"></a>Ver também
 
-- [Página de Documentação dos Serviços Cognitivos](https://docs.microsoft.com/azure/cognitive-services/)
+- [Página de Documentação dos Serviços Cognitivos](../index.yml)
 - [Página de Produto dos Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)

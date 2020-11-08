@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e3e0ae444e2b3b6ac195a83653baf4b71bac6644
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173954"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363872"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Como: Utilizar o Text Analytics para a saúde (pré-visualização)
 
@@ -84,7 +84,7 @@ Preencha e envie o formulário de [pedido de solicitação dos recipientes dos S
 Existem várias formas de instalar e executar o recipiente. 
 
 - Utilize o [portal Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) para criar um recurso Text Analytics e use o Docker para obter o seu recipiente.
-- Utilize os seguintes scripts PowerShell e [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) para automatizar a configuração do contentor de implantação de recursos.
+- Utilize os seguintes scripts PowerShell e [Azure CLI](/cli/azure/?view=azure-cli-latest) para automatizar a configuração do contentor de implantação de recursos.
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Instale o recipiente utilizando a Azure Web App para contentores
 
@@ -124,7 +124,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 Também pode utilizar uma Instância de Contentores Azure (ACI) para facilitar a implantação. O ACI é um recurso que permite executar contentores Docker a pedido num ambiente Azure gerido e sem servidor. 
 
 Veja [como utilizar as instâncias do contentor Azure](text-analytics-how-to-use-container-instances.md) para etapas na implantação de um recurso ACI utilizando o portal Azure. Também pode utilizar o script abaixo do PowerShell utilizando o Azure CLI, que criará um ACI na sua subscrição utilizando a imagem do recipiente.  Aguarde que o script esteja completo (aproximadamente 25-30 minutos) antes de submeter o primeiro pedido.  Devido ao limite do número máximo de CPUs por recurso ACI, não selecione esta opção se espera submeter mais de 5 documentos grandes (aproximadamente 5000 caracteres cada) por pedido.
-Consulte o artigo de apoio regional da [ACI](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability) para obter informações sobre a disponibilidade. 
+Consulte o artigo de apoio regional da [ACI](../../../container-instances/container-instances-region-availability.md) para obter informações sobre a disponibilidade. 
 
 > [!NOTE] 
 > As instâncias do recipiente Azure não incluem suporte HTTPS para os domínios construídos. Se precisar de HTTPS, terá de o configurar manualmente, incluindo a criação de um certificado e o registo de um domínio. Pode encontrar instruções para o fazer com o NGINX abaixo.

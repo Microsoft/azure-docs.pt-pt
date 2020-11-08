@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/21/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: a0a973b7981c97aaf0b13feaecd03158ab6ac284
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e74954e33be1b2d24219ca61762dd43941415306
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084022"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366983"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-java"></a>Quickstart: Verifique a ortografia com a API e Java do Bing Spell Check REST e Java
 
@@ -205,4 +205,4 @@ Construa e execute o seu projeto. Se estiver a utilizar a linha de comando, util
 > [Criar uma aplicação web de página única](../tutorials/spellcheck.md)
 
 - [O que é a API de Verificação Ortográfica do Bing?](../overview.md)
-- [Bing Spell Check Referência V7 da API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Bing Spell Check Referência V7 da API](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

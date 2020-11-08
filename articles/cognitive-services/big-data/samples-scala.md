@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 4546ef03c82f19d188a71a86f6964ca87c0f834e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c47aa803774343b39efeabe3452f1b256cc64c0d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90524968"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363277"
 ---
 # <a name="quick-examples"></a>Exemplos Rápidos
 
@@ -49,7 +49,7 @@ val location = "eastus"
 
 ## <a name="text-analytics"></a>Análise de Texto
 
-O serviço [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) fornece vários algoritmos para extrair insights inteligentes do texto. Por exemplo, podemos encontrar o sentimento de texto de entrada dado. O serviço devolverá uma pontuação entre `0.0` e `1.0` onde as pontuações baixas indicam sentimento negativo e pontuação elevada indica um sentimento positivo.  A amostra abaixo usa três frases simples e devolve a pontuação de sentimento para cada um.
+O serviço [Text Analytics](../text-analytics/index.yml) fornece vários algoritmos para extrair insights inteligentes do texto. Por exemplo, podemos encontrar o sentimento de texto de entrada dado. O serviço devolverá uma pontuação entre `0.0` e `1.0` onde as pontuações baixas indicam sentimento negativo e pontuação elevada indica um sentimento positivo.  A amostra abaixo usa três frases simples e devolve a pontuação de sentimento para cada um.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -81,7 +81,7 @@ display(sentiment.transform(df).select(col("text"), col("sentiment")(0).getItem(
 
 ## <a name="computer-vision"></a>Imagem Digitalizada
 
-[A Visão Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analisa imagens para identificar estruturas como rostos, objetos e descrições de linguagem natural.
+[A Visão Computacional](../computer-vision/index.yml) analisa imagens para identificar estruturas como rostos, objetos e descrições de linguagem natural.
 Nesta amostra, marcamos uma lista de imagens. Etiquetas são descrições de uma palavra das coisas na imagem como objetos reconhecíveis, pessoas, cenários e ações.
 
 ```scala
@@ -118,7 +118,7 @@ display(analysis.transform(df).select(col("image"), col("results").getItem("tags
 
 ## <a name="bing-image-search"></a>Pesquisa de Imagens do Bing
 
-[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) procura na web para recuperar imagens relacionadas com a consulta de linguagem natural de um utilizador. Nesta amostra, usamos uma consulta de texto que procura imagens com citações. Devolve uma lista de URLs de imagem que contêm fotos relacionadas com a nossa consulta.
+[Bing Image Search](../bing-image-search/overview.md) procura na web para recuperar imagens relacionadas com a consulta de linguagem natural de um utilizador. Nesta amostra, usamos uma consulta de texto que procura imagens com citações. Devolve uma lista de URLs de imagem que contêm fotos relacionadas com a nossa consulta.
 
 
 ```scala
@@ -163,7 +163,7 @@ display(pipeline.fit(df).transform(df))
 
 ## <a name="speech-to-text"></a>Conversão de Voz em Texto
 
-O [serviço Discurso-a-Texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) converte streams ou ficheiros de áudio falado para texto. Nesta amostra, transcrevemos dois ficheiros áudio. O primeiro ficheiro é fácil de entender, e o segundo é mais desafiante.
+O [serviço Discurso-a-Texto](../speech-service/index-speech-to-text.yml) converte streams ou ficheiros de áudio falado para texto. Nesta amostra, transcrevemos dois ficheiros áudio. O primeiro ficheiro é fácil de entender, e o segundo é mais desafiante.
 
 ```scala
 import org.apache.spark.sql.functions.col
@@ -196,7 +196,7 @@ display(speechToText.transform(df).select(col("url"), col("text").getItem("Displ
 
 ## <a name="anomaly-detector"></a>Detetor de Anomalias
 
-[O Detetor de Anomalias](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) é ótimo para detetar irregularidades nos dados da série de tempo. Nesta amostra, usamos o serviço para encontrar anomalias em toda a série de tempo.
+[O Detetor de Anomalias](../anomaly-detector/index.yml) é ótimo para detetar irregularidades nos dados da série de tempo. Nesta amostra, usamos o serviço para encontrar anomalias em toda a série de tempo.
 
 ```scala
 import org.apache.spark.sql.functions.{col, lit}

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: sample
 ms.date: 07/06/2020
 ms.author: marhamil
-ms.openlocfilehash: 1a4fe2492433aa793d1a7e4be41c5f93043848a5
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 590ddef27315f37719da5b28c68b6c402371e986
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337870"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363260"
 ---
 # <a name="python-samples-for-cognitive-services-for-big-data"></a>Amostras de Python para serviços cognitivos para big data
 
@@ -56,7 +56,7 @@ assert service_key != "ADD_YOUR_SUBSCRIPION_KEY"
 
 ## <a name="text-analytics-sample"></a>Amostra de Análise de Texto
 
-O serviço [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) fornece vários algoritmos para extrair insights inteligentes do texto. Por exemplo, podemos encontrar o sentimento de texto de entrada dado. O serviço devolverá uma pontuação entre 0,0 e 1.0, onde as pontuações baixas indicam sentimento negativo e a pontuação elevada indica um sentimento positivo.  Esta amostra usa três frases simples e devolve o sentimento para cada um.
+O serviço [Text Analytics](../text-analytics/index.yml) fornece vários algoritmos para extrair insights inteligentes do texto. Por exemplo, podemos encontrar o sentimento de texto de entrada dado. O serviço devolverá uma pontuação entre 0,0 e 1.0, onde as pontuações baixas indicam sentimento negativo e a pontuação elevada indica um sentimento positivo.  Esta amostra usa três frases simples e devolve o sentimento para cada um.
 
 ```python
 from pyspark.sql.functions import col
@@ -91,7 +91,7 @@ display(sentiment.transform(df).select("text", col("sentiment")[0].getItem("sent
 
 ## <a name="computer-vision-sample"></a>Amostra de Visão de Computador
 
-[A Visão Computacional](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) analisa imagens para identificar estruturas como rostos, objetos e descrições de linguagem natural. Nesta amostra, marcamos uma lista de imagens. Etiquetas são descrições de uma palavra das coisas na imagem como objetos reconhecíveis, pessoas, cenários e ações.
+[A Visão Computacional](../computer-vision/index.yml) analisa imagens para identificar estruturas como rostos, objetos e descrições de linguagem natural. Nesta amostra, marcamos uma lista de imagens. Etiquetas são descrições de uma palavra das coisas na imagem como objetos reconhecíveis, pessoas, cenários e ações.
 
 ```python
 
@@ -126,7 +126,7 @@ display(analysis.transform(df).select("image", "analysis_results.description.tag
 
 ## <a name="bing-image-search-sample"></a>Amostra de pesquisa de imagem de Bing
 
-[Bing Image Search](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview) procura na web para recuperar imagens relacionadas com a consulta de linguagem natural de um utilizador. Nesta amostra, usamos uma consulta de texto que procura imagens com citações. Devolve uma lista de URLs de imagem que contêm fotos relacionadas com a nossa consulta.
+[Bing Image Search](../bing-image-search/overview.md) procura na web para recuperar imagens relacionadas com a consulta de linguagem natural de um utilizador. Nesta amostra, usamos uma consulta de texto que procura imagens com citações. Devolve uma lista de URLs de imagem que contêm fotos relacionadas com a nossa consulta.
 
 ```python
 from pyspark.ml import PipelineModel
@@ -171,7 +171,7 @@ display(pipeline.transform(bingParameters))
 
 
 ## <a name="speech-to-text-sample"></a>Amostra de discurso para texto
-O [serviço Discurso-a-Texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/index-speech-to-text) converte streams ou ficheiros de áudio falado para texto. Nesta amostra, transcrevemos dois ficheiros áudio. O primeiro ficheiro é fácil de entender, e o segundo é mais desafiante.
+O [serviço Discurso-a-Texto](../speech-service/index-speech-to-text.yml) converte streams ou ficheiros de áudio falado para texto. Nesta amostra, transcrevemos dois ficheiros áudio. O primeiro ficheiro é fácil de entender, e o segundo é mais desafiante.
 
 ```python
 
@@ -205,7 +205,7 @@ display(speech_to_text.transform(df).select("url", "text.DisplayText"))
 
 ## <a name="anomaly-detector-sample"></a>Amostra de detetor de anomalias
 
-[O Detetor de Anomalias](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/) é ótimo para detetar irregularidades nos dados da série de tempo. Nesta amostra, usamos o serviço para encontrar anomalias em toda a série de tempo.
+[O Detetor de Anomalias](../anomaly-detector/index.yml) é ótimo para detetar irregularidades nos dados da série de tempo. Nesta amostra, usamos o serviço para encontrar anomalias em toda a série de tempo.
 
 ```python
 from pyspark.sql.functions import lit

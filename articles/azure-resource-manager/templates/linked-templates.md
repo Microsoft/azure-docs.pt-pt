@@ -2,19 +2,19 @@
 title: Modelos de ligação para implantação
 description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 603445fdd96cc72a2d64bae21a47cfeabd6dd167
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369319"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366342"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados e aninhados ao implementar recursos do Azure
 
 Para implementar soluções complexas, pode quebrar o seu modelo em muitos modelos relacionados e, em seguida, implantá-los juntos através de um modelo principal. Os modelos relacionados podem ser ficheiros separados ou sintaxe de modelo que está incorporado no modelo principal. Este artigo usa o **modelo de ligação** do termo para se referir a um ficheiro de modelo separado que é referenciado através de um link do modelo principal. Ele usa o modelo **aninhado** para se referir à sintaxe do modelo incorporado dentro do modelo principal.
 
-Para soluções pequenas e médias, um único modelo é mais fácil de entender e manter. Pode ver todos os recursos e valores num único ficheiro. Para cenários avançados, os modelos ligados permitem-lhe decompor a solução em componentes direcionados. Pode reutilizar facilmente estes modelos para outros cenários.
+Para obter soluções pequenas a médias, um único modelo é mais fácil de compreender e manter. Pode ver todos os recursos e valores num único ficheiro. Para cenários avançados, os modelos associados permitem-lhe dividir a solução em componentes direcionados. Pode reutilizar facilmente estes modelos para outros cenários.
 
 Para um tutorial, consulte [Tutorial: crie modelos ligados do Gestor de Recursos Azure](./deployment-tutorial-linked-template.md).
 
@@ -96,7 +96,7 @@ O exemplo a seguir implanta uma conta de armazenamento através de um modelo ani
 
 ### <a name="expression-evaluation-scope-in-nested-templates"></a>Âmbito de avaliação de expressão em modelos aninhados
 
-Ao utilizar um modelo aninhado, pode especificar se as expressões do modelo são avaliadas no âmbito do modelo dos pais ou no modelo aninhado. O âmbito determina como os parâmetros, variáveis e funções como [o grupo de recursos](template-functions-resource.md#resourcegroup) e a [subscrição](template-functions-resource.md#subscription) são resolvidos.
+Ao utilizar um modelo aninhado, pode especificar se as expressões do modelo são avaliadas no âmbito do modelo principal ou do modelo aninhado. O âmbito determina como os parâmetros, variáveis e funções como [o grupo de recursos](template-functions-resource.md#resourcegroup) e a [subscrição](template-functions-resource.md#subscription) são resolvidos.
 
 Você define o âmbito através da `expressionEvaluationOptions` propriedade. Por padrão, a `expressionEvaluationOptions` propriedade é definida para , o que significa que usa o âmbito do modelo dos `outer` pais. Desa estariremos o valor `inner` para fazer com que as expressões sejam avaliadas no âmbito do modelo aninhado.
 
@@ -281,9 +281,9 @@ O exemplo seguinte implementa um servidor SQL e recupera um segredo de cofre cha
 >
 > Quando o âmbito está definido `outer` para , não é possível utilizar a `reference` função na secção de saídas de um modelo aninhado para um recurso que implementou no modelo aninhado. Para devolver os valores de um recurso implantado num modelo aninhado, utilize `inner` o âmbito ou converta o seu modelo aninhado num modelo ligado.
 
-## <a name="linked-template"></a>Modelo ligado
+## <a name="linked-template"></a>Modelo associado
 
-Para ligar um modelo, adicione um [recurso de implementações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade **templateLink,** especifique o URI do modelo para incluir. O exemplo a seguir liga-se a um modelo que implementa uma nova conta de armazenamento.
+Para ligar um modelo, adicione um [recurso de implementações](/azure/templates/microsoft.resources/deployments) ao seu modelo principal. Na propriedade **templateLink,** especifique o URI do modelo para incluir. O exemplo a seguir liga-se a um modelo que está numa conta de armazenamento.
 
 ```json
 {
@@ -310,13 +310,17 @@ Para ligar um modelo, adicione um [recurso de implementações](/azure/templates
 }
 ```
 
-Ao fazer referência a um modelo ligado, o valor de `uri` não deve ser um ficheiro local ou um ficheiro que só esteja disponível na sua rede local. Tem de fornecer um valor URI que seja transferível em **http** ou **https**.
+Ao fazer referência a um modelo ligado, o valor de `uri` não pode ser um ficheiro local ou um ficheiro que só está disponível na sua rede local. O Gestor de Recursos Azure deve poder aceder ao modelo. Forneça um valor URI que seja transferível em **http** ou **https**. 
 
-> [!NOTE]
->
-> Pode fazer referências a modelos utilizando parâmetros que, em última análise, se resolvem a algo que utiliza **http** ou **https**, por exemplo, utilizando o `_artifactsLocation` parâmetro como assim: `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+Pode fazer referência a modelos utilizando parâmetros que incluam **http** ou **https**. Por exemplo, um padrão comum é usar o `_artifactsLocation` parâmetro. Pode definir o modelo ligado com uma expressão como:
 
-O Gestor de Recursos deve ser capaz de aceder ao modelo. Uma opção é colocar o seu modelo ligado numa conta de armazenamento e usar o URI para esse item.
+```json
+"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
+```
+
+Se estiver a ligar-se a um modelo no GitHub, utilize o URL cru. O link tem o formato: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json` . Para obter a ligação bruta, selecione **Raw**.
+
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Selecione URL cru":::
 
 ### <a name="parameters-for-linked-template"></a>Parâmetros para o modelo ligado
 
@@ -799,7 +803,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 Os exemplos a seguir mostram utilizações comuns de modelos ligados.
 
-|Modelo principal  |Modelo ligado |Descrição  |
+|Modelo principal  |Modelo associado |Description  |
 |---------|---------| ---------|
 |[Olá, mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a corda do modelo ligado. |
 |[Balanceador de carga com endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado e define esse valor no equilibrador de carga. |

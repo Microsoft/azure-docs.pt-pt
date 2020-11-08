@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffa70afa0edf29181bc622cbef6ff8716134b1f7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73837128"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364943"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Perguntas frequentes (FAQ) sobre o Serviço Cognitivo de Análise de Texto
 
@@ -29,11 +29,11 @@ Há sempre algum grau de imprecisão na análise de sentimentos, mas o modelo é
 
 ## <a name="can-i-add-my-own-training-data-or-models"></a>Posso adicionar os meus próprios dados de treino ou modelos?
 
-Não, os modelos estão pré-treinados. As únicas operações disponíveis em dados carregados são a pontuação, extração de frases-chave e deteção de linguagem. Não acolhemos modelos personalizados. Se pretender criar e hospedar modelos de aprendizagem automática personalizados, considere as [capacidades de aprendizagem](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package)automática no Microsoft R Server .
+Não, os modelos estão pré-treinados. As únicas operações disponíveis em dados carregados são a pontuação, extração de frases-chave e deteção de linguagem. Não acolhemos modelos personalizados. Se pretender criar e hospedar modelos de aprendizagem automática personalizados, considere as [capacidades de aprendizagem](/r-server/r/concept-what-is-the-microsoftml-package)automática no Microsoft R Server .
 
 ## <a name="can-i-request-additional-languages"></a>Posso pedir línguas adicionais?
 
-A análise de sentimentos e a extração de frases-chave estão disponíveis para um [número selecionado de idiomas](text-analytics-supported-languages.md). O processamento de linguagem natural é complexo e requer testes substanciais antes de uma nova funcionalidade poder ser lançada. Por esta razão, evitamos o pré-anúncio de apoio para que ninguém tenha uma dependência da funcionalidade que precisa de mais tempo para amadurecer. 
+A análise de sentimentos e a extração de frases-chave estão disponíveis para um [número selecionado de idiomas](./language-support.md). O processamento de linguagem natural é complexo e requer testes substanciais antes de uma nova funcionalidade poder ser lançada. Por esta razão, evitamos o pré-anúncio de apoio para que ninguém tenha uma dependência da funcionalidade que precisa de mais tempo para amadurecer. 
 
 Para nos ajudar a priorizar quais as línguas a trabalhar a seguir, vote em línguas específicas na [Voz do Utilizador.](https://cognitive.uservoice.com/forums/555922-text-analytics) 
 
@@ -51,7 +51,7 @@ As melhorias nos modelos e algoritmos são anunciadas se a mudança for maior, o
 
 A sua pergunta é sobre uma funcionalidade ou funcionalidade em falta? Considere solicitar ou votar no nosso [site userVoice.](https://cognitive.uservoice.com/forums/555922-text-analytics)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
  [StackOverflow: Text Analytics API](https://stackoverflow.com/questions/tagged/text-analytics-api)   
  [StackOverflow: Serviços Cognitivos](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

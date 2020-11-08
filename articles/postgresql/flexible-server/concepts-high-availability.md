@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359549"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366728"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Conceitos de alta disponibilidade na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -101,17 +101,17 @@ Servidores flexíveis configurados com alta disponibilidade, replicam dados em t
 -   A elevada disponibilidade só é suportada em regiões onde existem várias zonas.
 -   Devido à replicação sincronizada para outra zona de disponibilidade, as aplicações podem experimentar escrita elevada e comprometer latência.
 
--   A réplica de espera não pode ser utilizada para consultas de leitura.
+-   A réplica de espera não pode ser usada para consultas de leitura.
 
--   Dependendo da atividade no servidor primário no momento do failover, pode demorar até dois minutos ou mais para que a falha se complete.
+-   Dependendo da carga de trabalho e da atividade no servidor primário, o processo de failover pode demorar mais de 120 segundos.
 
--   Reiniciar o servidor de base de dados primário para recolher alterações de parâmetros estáticos também reinicia a réplica de espera.
+-   Reiniciar o servidor de base de dados primário também reinicia a réplica de espera. 
 
 -   Configurar réplicas de leitura adicionais não são suportadas.
 
 -   A configuração das tarefas de gestão iniciadas pelo cliente não pode ser programada durante a janela de manutenção gerida.
 
--   Os eventos planeados, como dimensionar a computação e o armazenamento, ocorrem primeiro no servidor de reserva e, em seguida, no servidor primário. O serviço não efetuou a ativação pós-falha. 
+-   Os eventos planeados, como dimensionar a computação e o armazenamento, ocorrem primeiro no servidor de reserva e, em seguida, no servidor primário. O servidor não falha para estas operações planeadas. 
 
 -  Se a descodificação lógica ou a replicação lógica forem configuradas com um servidor flexível configurado ha, no caso de uma falha no servidor de espera, as ranhuras de replicação lógica não são copiadas para o servidor de espera.  
 

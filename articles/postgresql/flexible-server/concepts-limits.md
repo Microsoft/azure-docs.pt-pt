@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: d1405bce6761b6702146418296cb7b47bb9124ee
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: f270ac736bb5dbc429dc8659cc88e63d0b51a523
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357186"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366643"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -78,7 +78,7 @@ Uma ligação PostgreSQL, mesmo inativa, pode ocupar cerca de 10 MB de memória.
 - Zone-Redundant HA não é suportado para servidores Burstable.
 - O endereço IP do servidor de base de dados muda quando o seu servidor falha no standby HA. Certifique-se de que utiliza o registo DNS em vez do endereço IP do servidor.
 - Se a replicação lógica for configurada com um servidor flexível configurado ha, no caso de uma falha no servidor de espera, as ranhuras de replicação lógica não são copiadas para o servidor de espera. 
-- Para mais limitações de HA, consulte os conceitos - página [de documentação HA.](concepts-high-availability.md)
+- Para mais detalhes sobre ha redundante zona, incluindo as limitações, consulte os conceitos - página [de documentação HA.](concepts-high-availability.md)
 
 ### <a name="availability-zones"></a>Zonas de disponibilidade
 

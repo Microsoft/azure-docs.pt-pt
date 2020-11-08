@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: e4a652b146286965c68154bd362525861158ecb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44e81286ffa5930b802df3b3bfe657091175f391
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704383"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363648"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exemplo: Como extrair frases-chave usando a Análise de Texto
 
@@ -23,7 +23,7 @@ A [API de Extração de Expressões-Chave](https://westus2.dev.cognitive.microso
 
 Esta funcionalidade é útil se precisar de identificar rapidamente os pontos principais numa coleção de documentos. Por exemplo, para o texto de entrada "The food was delicious and there were wonderful staff", o serviço devolve os pontos de conversa principais: "food" e "wonderful staff".
 
-Para mais informações, consulte [as línguas apoiadas.](../text-analytics-supported-languages.md)
+Para obter mais informações, veja os [Idiomas suportados](../language-support.md).
 
 > [!TIP]
 > O Text Analytics também fornece uma imagem de recipiente Docker baseada em Linux para a extração de frases-chave, para que possa [instalar e executar o recipiente Text Analytics](text-analytics-how-to-install-containers.md) perto dos seus dados.
@@ -168,7 +168,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para a extração de frases
 + O pedido POST refere-se a um ponto final `/keyphrases` com recurso a uma [chave de acesso personalizada e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 + A saída de resposta, que consiste em palavras-chave e frases para cada ID do documento, pode ser transmitida a qualquer aplicação que aceite o JSON, incluindo o Microsoft Office Excel e o Power BI, para citar alguns.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
  [Visão geral do Text Analytics](../overview.md) Perguntas [frequentes (FAQ)](../text-analytics-resource-faq.md)</br>
  [Página de produto da Análise de Texto](//go.microsoft.com/fwlink/?LinkID=759712)

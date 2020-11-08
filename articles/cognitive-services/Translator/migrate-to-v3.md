@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: fb907e0b9c923a77c6956723f6df397fabd84da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f22213bf192b12e046bab12346e5d5d83fb36b96
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523983"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364280"
 ---
 # <a name="translator-v2-to-v3-migration"></a>Tradução V2 para V3 Migração
 
@@ -37,7 +37,7 @@ O final deste documento contém links úteis para que possa saber mais.
 * Transliterado - Foi adicionado um método transliterado à API. Este método converterá palavras e frases num só roteiro (por exemplo. Árabe) em outro script (por exemplo. Latim).
 * Línguas - Um novo método de "línguas" fornece informações linguísticas, em formato JSON, para utilização com os métodos de "tradução", "dicionário" e "transliterado".
 * Novo para traduzir - Foram adicionadas novas capacidades ao método de 'traduzir' para suportar algumas das funcionalidades que estavam na API V2 como métodos separados. Um exemplo é TranslateArray.
-* Método de fala - A funcionalidade de texto para fala já não é suportada no Tradutor da Microsoft. A funcionalidade de texto para fala está disponível no [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech).
+* Método de fala - A funcionalidade de texto para fala já não é suportada no Tradutor da Microsoft. A funcionalidade de texto para fala está disponível no [Microsoft Speech Service](../speech-service/text-to-speech.md).
 
 A seguinte lista de métodos V2 e V3 identifica os métodos V3 e APIs que fornecerão a funcionalidade que veio com V2.
 
@@ -45,10 +45,10 @@ A seguinte lista de métodos V2 e V3 identifica os métodos V3 e APIs que fornec
 |:----------- |:-------------|
 | `Translate`     | [Traduzir](reference/v3-0-translate.md)          |
 | `TranslateArray`      | [Traduzir](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Linguagens](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Linguagens](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Serviço de Fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Serviço de Fala da Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `GetLanguageNames`      | [Idiomas](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Idiomas](reference/v3-0-languages.md)       |
+| `GetLanguagesForSpeak`      | [Serviço de Fala da Microsoft](../speech-service/language-support.md#text-to-speech)         |
+| `Speak`     | [Serviço de Fala da Microsoft](../speech-service/text-to-speech.md)          |
 | `Detect`     | [Detetar](reference/v3-0-detect.md)         |
 | `DetectArray`     | [Detetar](reference/v3-0-detect.md)         |
 | `AddTranslation`     | Recurso já não é suportado       |
@@ -118,8 +118,8 @@ A tradução neural com o texto V3 API não suporta a utilização de categorias
 
 | Versão | Ponto final | Conformidade do processador do RGPD | Use Centro de Tradutor | Use tradutor personalizado (pré-visualização) |
 | :------ | :------- | :------------------------ | :----------------- | :------------------------------ |
-|Tradução Versão 2|    api.microsofttranslator.com|    Não    |Sim    |Não|
-|Tradução Versão 3|    api.cognitive.microsofttranslator.com|    Sim|    Não|    Sim|
+|Tradução Versão 2|    api.microsofttranslator.com|    No    |Yes    |No|
+|Tradução Versão 3|    api.cognitive.microsofttranslator.com|    Yes|    No|    Yes|
 
 **Tradução Versão 3**
 * Geralmente está disponível e totalmente suportado.

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/31/2020
 ms.author: scottwhi
 ms.custom: devx-track-js
-ms.openlocfilehash: 8ecea9dce3509e064d9244a8b725add21747a03e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a0afee57eaaa0708ebde2a2aeaced76f008ebd9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102209"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366133"
 ---
 # <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutorial: Faça upload de imagens para a API de Pesquisa Visual Bing
 
@@ -477,7 +477,7 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>Mostrar insights para diferentes ações
 
-As seguintes funções exibem insights para diferentes ações. As funções fornecem uma imagem clicável ou um link clicável que o envia para uma página web com mais informações sobre a imagem. Esta página é hospedada por Bing.com ou pelo site original da imagem. Nem todos os dados dos insights são apresentados nesta aplicação. Para ver todos os campos disponíveis para obter uma visão, consulte a referência [Imagens - Procura Visual.](https://aka.ms/bingvisualsearchreferencedoc)
+As seguintes funções exibem insights para diferentes ações. As funções fornecem uma imagem clicável ou um link clicável que o envia para uma página web com mais informações sobre a imagem. Esta página é hospedada por Bing.com ou pelo site original da imagem. Nem todos os dados dos insights são apresentados nesta aplicação. Para ver todos os campos disponíveis para obter uma visão, consulte a referência [Imagens - Procura Visual.](/rest/api/cognitiveservices/bingvisualsearch/images/visualsearch)
 
 > [!NOTE]
 > Há uma quantidade mínima de informação que deve apresentar na página. Consulte os [requisitos de utilização e visualização](../bing-web-search/use-display-requirements.md) da API de pesquisa de Bing para obter mais.

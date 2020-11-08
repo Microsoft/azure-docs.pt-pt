@@ -5,16 +5,16 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 58ce4d7593b23807f4b31e3e71cbfdcd873b1fcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f3249ba2089c3d9650aa46f665353ad392d0e773
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91253501"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365572"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>Pontuações de recompensa indicam sucesso de personalização
 
-A pontuação da recompensa indica o quão bem a escolha de personalização, [RewardActionID,](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response)resultou para o utilizador. O valor da pontuação de recompensa é determinado pela sua lógica de negócio, com base em observações do comportamento do utilizador.
+A pontuação da recompensa indica o quão bem a escolha de personalização, [RewardActionID,](/rest/api/cognitiveservices/personalizer/rank/rank#response)resultou para o utilizador. O valor da pontuação de recompensa é determinado pela sua lógica de negócio, com base em observações do comportamento do utilizador.
 
 O personalizar treina os seus modelos de machine learning avaliando as recompensas.
 
@@ -22,11 +22,11 @@ Saiba como configurar [a](how-to-settings.md#configure-rewards-for-the-feedback-
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>Use a API reward para enviar pontuação de recompensa para Personalizer
 
-As recompensas são enviadas ao Personaler pela [API reward.](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/events/reward) Normalmente, uma recompensa é um número de 0 a 1. Uma recompensa negativa, com o valor de -1, é possível em certos cenários e só deve ser utilizada se tiver experiência com aprendizagem de reforço (RL). Personalizer treina o modelo para obter a maior soma possível de recompensas ao longo do tempo.
+As recompensas são enviadas ao Personaler pela [API reward.](/rest/api/cognitiveservices/personalizer/events/reward) Normalmente, uma recompensa é um número de 0 a 1. Uma recompensa negativa, com o valor de -1, é possível em certos cenários e só deve ser utilizada se tiver experiência com aprendizagem de reforço (RL). Personalizer treina o modelo para obter a maior soma possível de recompensas ao longo do tempo.
 
 As recompensas são enviadas depois do comportamento do utilizador ter ocorrido, o que pode acontecer dias depois. O tempo máximo de tempo que o Personaler aguarda até que um evento seja considerado sem recompensa ou uma recompensa por defeito seja configurada com o Tempo de [Espera de Recompensa](#reward-wait-time) no portal Azure.
 
-Se a pontuação da recompensa de um evento não tiver sido recebida dentro do **Tempo de Espera de Recompensa**, então a Recompensa **Padrão** será aplicada. Normalmente, a **[Recompensa Padrão](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** é configurada para ser zero.
+Se a pontuação da recompensa de um evento não tiver sido recebida dentro do **Tempo de Espera de Recompensa** , então a Recompensa **Padrão** será aplicada. Normalmente, a **[Recompensa Padrão](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** é configurada para ser zero.
 
 
 ## <a name="behaviors-and-data-to-consider-for-rewards"></a>Comportamentos e dados a ter em conta para recompensas
@@ -72,7 +72,7 @@ Também pode ligar para a API reward usando o mesmo ID do evento, enviando difer
 
 Valores de agregação:
 
-*  **Primeiro**: Leva a primeira pontuação de recompensa recebida para o evento, e descarta o resto.
+*  **Primeiro** : Leva a primeira pontuação de recompensa recebida para o evento, e descarta o resto.
 * **Soma:** Leva todas as pontuações de recompensa recolhidas para o eventId, e junta-as.
 
 Todas as recompensas para um evento, que são recebidos após o **Tempo de Espera do Prémio,** são descartadas e não afetam o treino dos modelos.
@@ -81,15 +81,15 @@ Ao somar os resultados das recompensas, a sua recompensa final pode estar fora d
 
 ## <a name="best-practices-for-calculating-reward-score"></a>Boas Práticas para calcular pontuação de recompensa
 
-* **Considere os verdadeiros indicadores de personalização bem-sucedida**: É fácil pensar em termos de cliques, mas uma boa recompensa baseia-se no que pretende que os seus utilizadores *atinjam* em vez do que quer que as pessoas *façam.*  Por exemplo, recompensar cliques pode levar a selecionar conteúdo que é propenso a clickbait.
+* **Considere os verdadeiros indicadores de personalização bem-sucedida** : É fácil pensar em termos de cliques, mas uma boa recompensa baseia-se no que pretende que os seus utilizadores *atinjam* em vez do que quer que as pessoas *façam.*  Por exemplo, recompensar cliques pode levar a selecionar conteúdo que é propenso a clickbait.
 
-* **Use uma pontuação de recompensa para o quão boa a personalização funcionou**: Personalizar uma sugestão de filme resultaria, esperemos, em que o utilizador assistisse ao filme e lhe desse uma classificação elevada. Uma vez que a classificação do filme provavelmente depende de muitas coisas (a qualidade da representação, o humor do utilizador), não é um bom sinal de recompensa pelo funcionamento *da personalização.* O utilizador que assiste aos primeiros minutos do filme, no entanto, pode ser um melhor sinal de eficácia de personalização e enviar uma recompensa de 1 após 5 minutos será um sinal melhor.
+* **Use uma pontuação de recompensa para o quão boa a personalização funcionou** : Personalizar uma sugestão de filme resultaria, esperemos, em que o utilizador assistisse ao filme e lhe desse uma classificação elevada. Uma vez que a classificação do filme provavelmente depende de muitas coisas (a qualidade da representação, o humor do utilizador), não é um bom sinal de recompensa pelo funcionamento *da personalização.* O utilizador que assiste aos primeiros minutos do filme, no entanto, pode ser um melhor sinal de eficácia de personalização e enviar uma recompensa de 1 após 5 minutos será um sinal melhor.
 
-* **As recompensas aplicam-se apenas ao RewardActionID**: O Personalizador aplica as recompensas para compreender a eficácia da ação especificada no RewardActionID. Se optar por exibir outras ações e o utilizador clicar nelas, a recompensa deverá ser zero.
+* **As recompensas aplicam-se apenas ao RewardActionID** : O Personalizador aplica as recompensas para compreender a eficácia da ação especificada no RewardActionID. Se optar por exibir outras ações e o utilizador clicar nelas, a recompensa deverá ser zero.
 
-* **Considere consequências não intencionais**: Crie funções de recompensa que conduzam a resultados responsáveis com [ética e uso responsável](ethics-responsible-use.md).
+* **Considere consequências não intencionais** : Crie funções de recompensa que conduzam a resultados responsáveis com [ética e uso responsável](ethics-responsible-use.md).
 
-* **Utilizar recompensas incrementais**: Adicionar recompensas parciais para comportamentos menores ajuda o Personaler a obter melhores recompensas. Esta recompensa incremental permite que o algoritmo saiba que está cada vez mais perto de envolver o utilizador no comportamento final desejado.
+* **Utilizar recompensas incrementais** : Adicionar recompensas parciais para comportamentos menores ajuda o Personaler a obter melhores recompensas. Esta recompensa incremental permite que o algoritmo saiba que está cada vez mais perto de envolver o utilizador no comportamento final desejado.
     * Se estiver a mostrar uma lista de filmes, se o utilizador pairar sobre o primeiro durante algum tempo para ver mais informações, pode determinar que algum envolvimento do utilizador aconteceu. O comportamento pode contar com uma pontuação de recompensa de 0,1.
     * Se o utilizador abriu a página e saiu, a pontuação da recompensa pode ser de 0.2.
 

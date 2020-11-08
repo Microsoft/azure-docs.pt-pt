@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086444"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366058"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Lidar com problemas de estrangulamento (429 - erros de "muitos pedidos") em Azure Logic Apps
 
@@ -51,15 +51,15 @@ Para lidar com o estrangulamento a este nível, tem estas opções:
 
 * Ativar o modo de produção elevado.
 
-  Uma aplicação lógica tem um [limite padrão para o número de ações que podem passar por um intervalo de 5 minutos de rolamento](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para elevar este limite para o número máximo de ações, ligue o [modo de produção elevado](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) na sua aplicação lógica.
+  Uma aplicação lógica tem um [limite padrão para o número de ações que podem passar por um intervalo de 5 minutos de rolamento](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para elevar este limite para o número máximo de ações, ligue o [modo de produção elevado](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) na sua aplicação lógica.
 
 * Desativar o comportamento de debatching ("split on") nos gatilhos.
 
-  Se um gatilho retornar uma matriz para as restantes ações de fluxo de trabalho processarem, a [ **definição** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) do gatilho divide os itens de matriz e inicia uma instância de fluxo de trabalho para cada item de matriz, desencadeando efetivamente várias corridas simultâneas até ao limite [ **Split On** ](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Para controlar o estrangulamento, desligue o comportamento **Split On** e peça à sua aplicação lógica que processe toda a matriz com uma única chamada, em vez de manusear um único item por chamada.
+  Se um gatilho retornar uma matriz para as restantes ações de fluxo de trabalho processarem, a [ **definição**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) do gatilho divide os itens de matriz e inicia uma instância de fluxo de trabalho para cada item de matriz, desencadeando efetivamente várias corridas simultâneas até ao limite [ **Split On**](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Para controlar o estrangulamento, desligue o comportamento **Split On** e peça à sua aplicação lógica que processe toda a matriz com uma única chamada, em vez de manusear um único item por chamada.
 
 * Refactor ações em apps lógicas mais pequenas.
 
-  Como mencionado anteriormente, uma aplicação lógica está limitada a um [número padrão de ações que podem passar por um período de 5 minutos](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Apesar de poder aumentar este limite, permitindo [um modo de produção elevado,](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode)também pode considerar se pretende quebrar as ações da sua aplicação lógica em aplicações lógicas mais pequenas para que o número de ações que executam em cada aplicação lógica permaneça abaixo do limite. Desta forma, reduz-se o fardo sobre um único recurso de aplicação lógica e distribui a carga através de várias aplicações lógicas. Esta solução funciona melhor para ações que lidam com grandes conjuntos de dados ou giram tantas ações simultaneamente executando, iterações em loop ou ações dentro de cada iteração em loop que excedem o limite de execução de ação.
+  Como mencionado anteriormente, uma aplicação lógica está limitada a um [número padrão de ações que podem passar por um período de 5 minutos](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Apesar de poder aumentar este limite, permitindo [um modo de produção elevado,](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode)também pode considerar se pretende quebrar as ações da sua aplicação lógica em aplicações lógicas mais pequenas para que o número de ações que executam em cada aplicação lógica permaneça abaixo do limite. Desta forma, reduz-se o fardo sobre um único recurso de aplicação lógica e distribui a carga através de várias aplicações lógicas. Esta solução funciona melhor para ações que lidam com grandes conjuntos de dados ou giram tantas ações simultaneamente executando, iterações em loop ou ações dentro de cada iteração em loop que excedem o limite de execução de ação.
 
   Por exemplo, esta aplicação lógica faz todo o trabalho para obter tabelas a partir de uma base de dados SQL Server e obtém as linhas de cada mesa. O **For cada** laço simultânea em cada tabela de modo a que a ação Get **rows** retorne as linhas para cada mesa. Com base nas quantidades de dados nessas tabelas, estas ações podem exceder o limite das execuções de ação.
 
