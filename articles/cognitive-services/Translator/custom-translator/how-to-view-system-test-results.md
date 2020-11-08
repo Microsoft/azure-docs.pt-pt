@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: d0899132f308c7069395738140b35b138571483d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 542f62f04adc7d4858e4b4621b0ae85e906434ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220861"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369329"
 ---
 # <a name="view-system-test-results"></a>Viver resultados do teste do sistema
 
@@ -102,6 +102,6 @@ Para atualizar as definições de implementação:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Comece a utilizar o seu modelo de tradução personalizado implementado através do [Microsoft Tradutor Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comece a utilizar o seu modelo de tradução personalizado implementado através do [Microsoft Tradutor Text API V3](../reference/v3-0-translate.md?tabs=curl).
 - Aprenda [a gerir as definições](how-to-manage-settings.md) para partilhar o seu espaço de trabalho, gerir a chave de subscrição.
 - Saiba [como migrar o seu espaço de trabalho e projeto](how-to-migrate.md) a partir do Microsoft Tradutor [Hub](https://hub.microsofttranslator.com)

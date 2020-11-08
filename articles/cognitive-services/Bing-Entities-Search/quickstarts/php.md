@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.openlocfilehash: 6d994282d2c8d2b97110d57362b95254945daa14
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: eab9492c9d47b87887d486a7c5e7d949ce91fcdf
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084702"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368411"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-php"></a>Quickstart: Enviar um pedido de pesquisa à API de Pesquisa de Entidade Bing usando PHP
 
@@ -159,4 +159,4 @@ echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
 > [Criar uma aplicação web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
 * [O que é a API de Pesquisa de Entidade Bing?](../overview.md )
-* [Bing Entidade Pesquisa referência API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [Bing Entidade Pesquisa referência API](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

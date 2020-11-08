@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: 331b2ffde8d034ba94f5b1adcae5efa223f57594
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e8a8b843345d21d38c11789b09003a4b82f768f5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095123"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369499"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Envio de consultas de pesquisa para a API de Pesquisa Visual Bing
 
@@ -28,7 +28,7 @@ Este artigo descreve os parâmetros e atributos dos pedidos enviados para a API 
 
 Pode obter insights sobre uma imagem de três maneiras:
 
-- Usando um sinal de insights que obtém de uma imagem numa chamada anterior para um dos pontos finais da [API de pesquisa de imagem Bing.](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+- Usando um sinal de insights que obtém de uma imagem numa chamada anterior para um dos pontos finais da [API de pesquisa de imagem Bing.](/rest/api/cognitiveservices/bing-images-api-v7-reference)
 - Enviando a URL de uma imagem.
 - Upload de uma imagem (em formato binário).
 

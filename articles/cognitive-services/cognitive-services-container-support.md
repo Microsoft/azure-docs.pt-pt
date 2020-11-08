@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: no local, Docker, contentor, Kubernetes
-ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a59d9fb4fb15b361259a705a024b9bea975e8072
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677438"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368853"
 ---
-# <a name="azure-cognitive-services-containers"></a>Contentores dos Serviços Cognitivos Azure
+# <a name="azure-cognitive-services-containers"></a>Contentores dos Serviços Cognitivos do Azure
 
 > [!WARNING]
 > A 11 de junho de 2020, a Microsoft anunciou que não irá vender tecnologia de reconhecimento facial a esquadras da polícia nos Estados Unidos até à implementação de uma regulamentação rígida assente nos direitos humanos. Como tal, os clientes não podem utilizar funcionalidades ou funcionalidades de reconhecimento facial incluídas nos Serviços Azure, como o Face ou o Video Indexer, se um cliente estiver, ou estiver a permitir o uso de tais serviços por ou para, um departamento de polícia nos Estados Unidos.
@@ -56,7 +56,7 @@ Os recursos dos Serviços Cognitivos estão disponíveis no [Microsoft Azure.](h
 
 Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipientes Docker, cada um dos quais contém um subconjunto de funcionalidades de serviços nos Serviços Cognitivos Azure:
 
-| Serviço | Nível de Preços Suportados | Contentor | Descrição |
+| Serviço | Nível de Preços Suportados | Contentor | Description |
 |--|--|--|--|
 | [Detetor de anomalias][ad-containers] | F0, S0 | **Detetor de Anomalias** [(imagem)](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector)  | A API do Detetor de Anomalias permite-lhe monitorizar e detetar anomalias nos dados da série de tempo com aprendizagem automática.<br>[Pedir acesso][request-access] |
 | [Imagem Digitalizada][cv-containers] | F0, S1 | **Ler** OCR [(imagem)](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read) | O recipiente Read OCR permite extrair texto impresso e manuscrito de imagens e documentos com suporte para formatos de ficheiro JPEG, PNG, BMP, PDF e TIFF. Para mais informações, consulte a documentação da [API de leitura.](./computer-vision/concept-recognizing-text.md)<br>[Pedir acesso][request-access] |
@@ -71,11 +71,11 @@ Os recipientes Azure Cognitive Services fornecem o seguinte conjunto de recipien
 | [Análise de Texto][ta-containers-keyphrase] | F0, S | **Extração de frases-chave** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409) | Extrai frases-chave para identificar os principais pontos. Por exemplo, para o texto de entrada “The food was delicious and there were wonderful staff”, a API devolve os pontos de conversa principais: “food” e “wonderful staff”. |
 | [Análise de Texto][ta-containers-language] | F0, S | **Deteção de Idiomas** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409) | Para até 120 línguas, deteta em que língua o texto de entrada está escrito e reporta um código linguístico único para cada documento submetido no pedido. O código de idioma é emparelhado com uma pontuação que indica a força da pontuação. |
 | [Análise de Texto][ta-containers-sentiment] | F0, S | **Análise de Sentimento v3** [(imagem)](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409) | Analisa texto cru para pistas sobre sentimento positivo ou negativo. Esta versão da análise de sentimento devolve rótulos de sentimento (por *exemplo, positivos* ou *negativos)* para cada documento e frase dentro dele. |
-| [Análise de Texto][ta-containers-health] | F0, S | **Análise de texto para a saúde** | Extrair e rotular informações médicas de texto clínico não estruturado. |
+| [Análise de Texto][ta-containers-health] | F0, S | **Análise de Texto para a saúde** | Extrair e rotular informações médicas de texto clínico não estruturado. |
 | [Análise Espacial][spa-containers] | S0 | **Análise espacial** | Analisa o streaming de vídeo em tempo real para entender as relações espaciais entre as pessoas, o seu movimento e interações com objetos em ambientes físicos. |
 
 <!--
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
 Além disso, alguns recipientes são suportados em Serviços Cognitivos [**All-In-One oferecendo**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) chaves de recursos. Pode criar um único recurso De Serviços Cognitivos All-In-One e utilizar a mesma chave de faturação através de serviços suportados para os seguintes serviços:
@@ -132,7 +132,7 @@ Instale e explore a funcionalidade fornecida pelos contentores nos Serviços Cog
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
+[spa-containers]: ./computer-vision/spatial-analysis-container.md
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

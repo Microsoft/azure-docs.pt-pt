@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 7dbb7b3fdc15c0a9d502fbe9a0d12d084f9ddf29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 08c1b415ac075429a9bc89098233fffb8c25b710
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760398"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369261"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Recuperação de desastres geridos do HSM
 
@@ -60,8 +60,8 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 
 A saída deste comando mostra propriedades do HSM gerido que criou. As duas propriedades mais importantes são:
 
-* **nome**: No exemplo, o nome é ContosoMHSM. Vais usar este nome para outros comandos do Key Vault.
-* **hsmUri**: No exemplo, o URI é ' https://contosohsm.managedhsm.azure.net .' As aplicações que utilizam o seu HSM através da sua API REST devem utilizar este URI.
+* **nome** : No exemplo, o nome é ContosoMHSM. Vais usar este nome para outros comandos do Key Vault.
+* **hsmUri** : No exemplo, o URI é ' https://contosohsm.managedhsm.azure.net .' As aplicações que utilizam o seu HSM através da sua API REST devem utilizar este URI.
 
 A sua conta Azure está agora autorizada a realizar quaisquer operações neste HSM gerido. Até agora, ninguém mais está autorizado.
 
@@ -86,7 +86,7 @@ O `az keyvault security-domain upload` comando realiza as seguintes operações:
 - Crie uma bolha de upload de domínio de segurança encriptada com a Chave de Troca de Domínio de Segurança que descarregamos no passo anterior e, em seguida,
 - Faça o upload da bolha de segurança para o HSM para concluir a recuperação do domínio de segurança
 
-No exemplo abaixo, utilizamos o Domínio de Segurança a partir do **ContosoMHSM**, os 2 das chaves privadas correspondentes, e enviamo-lo para **ContosoMHSM2,** que está à espera de receber um Domínio de Segurança. 
+No exemplo abaixo, utilizamos o Domínio de Segurança a partir do **ContosoMHSM** , os 2 das chaves privadas correspondentes, e enviamo-lo para **ContosoMHSM2,** que está à espera de receber um Domínio de Segurança. 
 
 ```azurecli-interactive
 az keyvault security-domain upload --hsm-name ContosoMHSM2 --sd-exchange-key ContosoMHSM-SDE.cer --sd-file ContosoMHSM-SD.json --sd-wrapping-keys cert_0.key cert_1.key
@@ -102,11 +102,12 @@ Para criar uma cópia de segurança HSM, vai precisar do seguinte
 - Uma conta de armazenamento onde a cópia de segurança será armazenada
 - Um recipiente de armazenamento de bolhas nesta conta de armazenamento onde o processo de backup criará uma nova pasta para armazenar cópias de segurança encriptadas
 
-Utilizamos `az keyvault backup` o comando para a cópia de segurança HSM no contentor de armazenamento **mhsmbackupcontainer**, que está na conta de armazenamento **ContosoBackup** para o exemplo abaixo. Criamos um token SAS que expira em 30 minutos e fornecemos isso ao Managed HSM para escrever a cópia de segurança.
+Utilizamos `az keyvault backup` o comando para a cópia de segurança HSM no contentor de armazenamento **mhsmbackupcontainer** , que está na conta de armazenamento **ContosoBackup** para o exemplo abaixo. Criamos um token SAS que expira em 30 minutos e fornecemos isso ao Managed HSM para escrever a cópia de segurança.
 
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
+az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
 az keyvault backup start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas
 

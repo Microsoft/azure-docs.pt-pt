@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 887e7432151569eb07e3c9256c7f126e7f884d54
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: a17301e0807877662ae1bf34ade48e90a1d30c0c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017629"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368649"
 ---
 # <a name="tutorial-visualize-anomalies-using-batch-detection-and-power-bi"></a>Tutorial: Visualizar anomalias usando deteção de lotes e Power BI
 
@@ -48,7 +48,7 @@ Na janela principal do Ambiente de Trabalho Power BI, clique na fita **Home.** N
 
 ![Uma imagem do botão "Obter Dados" no Power BI](../media/tutorials/power-bi-get-data-button.png)
 
-Depois do diálogo aparecer, navegue para a pasta onde descarregou o ficheiro exemplo .xlsx e selecione-o. Depois do diálogo **Do Navegador** aparecer, clique em **Sheet1**e, em seguida, **Edite**.
+Depois do diálogo aparecer, navegue para a pasta onde descarregou o ficheiro exemplo .xlsx e selecione-o. Depois do diálogo **Do Navegador** aparecer, clique em **Sheet1** e, em seguida, **Edite**.
 
 ![Uma imagem do ecrã "Navigator" da fonte de dados no Power BI](../media/tutorials/navigator-dialog-box.png)
 
@@ -112,20 +112,20 @@ Dentro do Editor Avançado, utilize o seguinte corte de power query M para extra
  in results
 ```
 
-Invoque a consulta na sua ficha de dados selecionando `Sheet1` abaixo **Enter Parâmetro**, e clique em **Invocar**.
+Invoque a consulta na sua ficha de dados selecionando `Sheet1` abaixo **Enter Parâmetro** , e clique em **Invocar**.
 
 ![Uma imagem da função invocada](../media/tutorials/invoke-function-screenshot.png)
 
 ## <a name="data-source-privacy-and-authentication"></a>Privacidade e autenticação de fontes de dados
 
 > [!NOTE]
-> Esteja atento às políticas da sua organização para a privacidade e acesso dos dados. Consulte [os níveis de privacidade do Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-privacy-levels) para obter mais informações.
+> Esteja atento às políticas da sua organização para a privacidade e acesso dos dados. Consulte [os níveis de privacidade do Power BI Desktop](/power-bi/desktop-privacy-levels) para obter mais informações.
 
 Pode receber uma mensagem de aviso quando tentar executar a consulta, uma vez que utiliza uma fonte de dados externa.
 
 ![Uma imagem mostrando um aviso criado por Power BI](../media/tutorials/blocked-function.png)
 
-Para corrigir isto, clique em **'Ficheiro'** e **Opções e definições**. Em seguida, clique em **Opções**. Abaixo **do Ficheiro Atual**, selecione **Privacidade**e ignore **os Níveis de Privacidade e potencialmente melhore o desempenho**.
+Para corrigir isto, clique em **'Ficheiro'** e **Opções e definições**. Em seguida, clique em **Opções**. Abaixo **do Ficheiro Atual** , selecione **Privacidade** e ignore **os Níveis de Privacidade e potencialmente melhore o desempenho**.
 
 Além disso, pode receber uma mensagem a pedir-lhe que especifique como pretende ligar-se à API.
 
@@ -137,7 +137,7 @@ Em seguida, clique em **Fechar & Aplicar** na fita **Home** para aplicar as alte
 
 ## <a name="visualize-the-anomaly-detector-api-response"></a>Visualizar a resposta da API do Detetor de Anomalias
 
-No ecrã principal do Power BI, comece a utilizar as consultas criadas acima para visualizar os dados. Primeira tabela de **linha** selecionada em **visualizações.** Em seguida, adicione o tempotamp da função invocada ao **eixo**da linha . Clique com o botão direito e selecione **Timetamp**.
+No ecrã principal do Power BI, comece a utilizar as consultas criadas acima para visualizar os dados. Primeira tabela de **linha** selecionada em **visualizações.** Em seguida, adicione o tempotamp da função invocada ao **eixo** da linha . Clique com o botão direito e selecione **Timetamp**.
 
 ![Clicando à direita no valor do timestamp](../media/tutorials/timestamp-right-click.png)
 
@@ -164,7 +164,7 @@ No ecrã que aparece, selecione **o valor filtrado** como o cálculo. Desa estav
 
 ![Uma segunda imagem do novo ecrã de medida rápida](../media/tutorials/new-quick-measure-2.png)
 
-Depois de clicar **em Ok,** terá um `Value for True` campo na parte inferior da lista dos seus campos. Clique com o botão direito e rebatize-o para **Anomalia.** Adicione-o aos **Valores**do gráfico. Em seguida, selecione a ferramenta **Formato** e coloque o tipo de eixo X **em Categorical**.
+Depois de clicar **em Ok,** terá um `Value for True` campo na parte inferior da lista dos seus campos. Clique com o botão direito e rebatize-o para **Anomalia.** Adicione-o aos **Valores** do gráfico. Em seguida, selecione a ferramenta **Formato** e coloque o tipo de eixo X **em Categorical**.
 
 ![Uma imagem do eixo formato x](../media/tutorials/format-x-axis.png)
 

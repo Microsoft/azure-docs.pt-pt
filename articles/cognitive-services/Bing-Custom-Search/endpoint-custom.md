@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a7aa2b75a6f6e95bdeff4176ee2ad852de3d7169
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 80215a22c5af3698aee6719f52e42c457220b7f9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090703"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367465"
 ---
 # <a name="custom-search"></a>Pesquisa Personalizada
 
@@ -33,10 +33,10 @@ Ponto final: Devolve as sugestões de pesquisa como resultados JSON relevantes p
  GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search  
 ```
 
-Por exemplo, que descrevem como configurar fontes de pesquisa personalizadas, consulte o [tutorial](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/tutorials/custom-search-web-page). Para mais detalhes sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a referência [Bing Custom Search API v7.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+Por exemplo, que descrevem como configurar fontes de pesquisa personalizadas, consulte o [tutorial](./tutorials/custom-search-web-page.md). Para mais detalhes sobre cabeçalhos, parâmetros, códigos de mercado, objetos de resposta, erros, etc., consulte a referência [Bing Custom Search API v7.](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
 
 ## <a name="custom-search-response-json"></a>Resposta personalizada JSON
-Um pedido de pesquisa personalizado retorna os resultados como objetos JSON, ver [objetos de resposta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects). 
+Um pedido de pesquisa personalizado retorna os resultados como objetos JSON, ver [objetos de resposta](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#response-objects). 
 
 ## <a name="custom-autosuggest"></a>Autosuggest personalizado
 A API autosusuggest personalizada permite-lhe enviar um termo de consulta parcial de pesquisa para Bing e obter de volta uma lista de consultas sugeridas que você pode configurar. Com o Custom Autosuggest, adiciona sugestões devolvidas pela API e especifica opcionalmente se deve incluir sugestões geradas por Bing.
@@ -60,10 +60,10 @@ Para solicitar imagens a partir da sua instância de Pesquisa Personalizada, env
 https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 ```
 
-Para obter informações sobre a configuração de uma instância de pesquisa personalizada, consulte [configurar a sua experiência de pesquisa personalizada.](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view)
+Para obter informações sobre a configuração de uma instância de pesquisa personalizada, consulte [configurar a sua experiência de pesquisa personalizada.](./define-your-custom-view.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 As **APIs de Bing suportam** ações de pesquisa que devolvem resultados de acordo com o seu tipo. Todos os pontos finais de pesquisa retornam os resultados como objetos de resposta JSON.  Todos os pontos finais suportam consultas que retornem uma linguagem e/ou localização específicas por longitude, latitude e raio de pesquisa.
 
 Para obter informações completas sobre os parâmetros suportados por cada ponto final, consulte as páginas de referência para cada tipo.
-Para, por exemplo, de pedidos básicos que utilizam a API de Pesquisa Personalizada, consulte [o Acesso Rápido de Pesquisa Personalizada](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)
+Para, por exemplo, de pedidos básicos que utilizam a API de Pesquisa Personalizada, consulte [o Acesso Rápido de Pesquisa Personalizada](/azure/cognitive-services/bing-custom-search/)

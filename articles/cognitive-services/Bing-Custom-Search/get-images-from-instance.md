@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 886f04d2ea143b7c6c22aa2e746de179fcf7e7dd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c29e83f7851bc9be1688f3828373942c0e31f4ef
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090652"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367476"
 ---
 # <a name="get-images-from-your-custom-view"></a>Obtenha imagens da sua vista personalizada
 
@@ -26,7 +26,7 @@ ms.locfileid: "93090652"
 
 Bing Custom Images Search permite-lhe enriquecer a sua experiência de pesquisa personalizada com imagens. À semelhança dos resultados da Web, a pesquisa personalizada suporta a pesquisa de imagens na lista de sites da sua instância. Pode obter as imagens utilizando a API de Pesquisa de Imagens Personalizadas de Bing ou através da funcionalidade UI hospedada. A utilização da funcionalidade de UI hospedada é simples de usar e recomendada para obter a sua experiência de pesquisa em funcionamento em curto prazo.  Para obter informações sobre a configuração da sua UI hospedada para incluir imagens, consulte [configurar a sua experiência de UI hospedada](hosted-ui.md).
 
-Se quiser mais controlo sobre a exibição dos resultados da pesquisa, pode utilizar a API de Pesquisa de Imagens Personalizadas de Bing. Porque chamar a API é semelhante a chamar a API de Pesquisa de Imagem Bing, checkout [Bing Image Search](../Bing-Image-Search/overview.md) por exemplos chamando a API. Mas antes de o fazer, familiarize-se com o conteúdo de referência da [API de pesquisa de imagens personalizadas.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) As principais diferenças são os parâmetros de consulta suportados (deve incluir o parâmetro de consulta personalizadaConfig) e o ponto final para o quais envia pedidos.
+Se quiser mais controlo sobre a exibição dos resultados da pesquisa, pode utilizar a API de Pesquisa de Imagens Personalizadas de Bing. Porque chamar a API é semelhante a chamar a API de Pesquisa de Imagem Bing, checkout [Bing Image Search](../Bing-Image-Search/overview.md) por exemplos chamando a API. Mas antes de o fazer, familiarize-se com o conteúdo de referência da [API de pesquisa de imagens personalizadas.](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) As principais diferenças são os parâmetros de consulta suportados (deve incluir o parâmetro de consulta personalizadaConfig) e o ponto final para o quais envia pedidos.
 
 <!--
 ## Next steps

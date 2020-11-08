@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: ff1899fbc89ab4a78bf793a133a7aa9a8f03dd2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337564"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369244"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Resolver problemas dos conjuntos de capacidade
 
@@ -34,6 +34,10 @@ Este artigo descreve resoluções para problemas que você pode ter ao gerir pis
 | A criação ou modificação de volume falha com `Requested throughput not available` erro | A produção disponível para um volume é determinada pelo tamanho da sua capacidade e pelo nível de serviço. Se não tiver produção suficiente, deverá aumentar o tamanho da piscina ou ajustar a potência de volume existente. | 
 
 ## <a name="issues-moving-a-capacity-pool"></a>Problemas em mover um pool de capacidade 
+
+> [!IMPORTANT] 
+> O [Dynamically alterar o nível de serviço de um registo de](dynamic-change-volume-service-level.md) pré-visualização pública de volume está suspenso até novo aviso.
+
 |     Condição de erro    |     Resolução    |
 |-|-|
 | Não é permitida a alteração da capacidade de um volume. | Pode ainda não estar autorizado a utilizar esta funcionalidade. <br> A funcionalidade para mover um volume para outro pool de capacidade está atualmente em pré-visualização. Se estiver a utilizar esta função pela primeira vez, tem de registar a funcionalidade primeiro e definir `-FeatureName ANFTierChange` . Consulte as etapas de registo em [Dinamicamente alterar o nível de serviço de um volume](dynamic-change-volume-service-level.md). |

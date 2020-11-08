@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 9e1b666e8929309778fc7b72e034a425c841fc2f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8d5352a79d2920701c96289f6162c1466f0f9f75
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095922"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367578"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>Tutorial: Obtenha sugestões de pesquisa numa página web
 
@@ -124,7 +124,7 @@ A função auxiliar getSubscriptionKeyLocalStorage, primeiro, tenta obter a chav
     }
 ```
 
-A função auxiliar getSubscriptionKey assume um parâmetro, **invalidate** . Se **invalidate** for **true** , getSubscriptionKey elimina o cookie que contém a chave de API de Sugestão Automática do Bing. Se **invalidate** for **true** , getSubscriptionKey devolve o valor da chave de API de Sugestão Automática do Bing.
+A função auxiliar getSubscriptionKey assume um parâmetro, **invalidate**. Se **invalidate** for **true** , getSubscriptionKey elimina o cookie que contém a chave de API de Sugestão Automática do Bing. Se **invalidate** for **true** , getSubscriptionKey devolve o valor da chave de API de Sugestão Automática do Bing.
 
 ```html
     function getSubscriptionKey(invalidate) {
@@ -238,7 +238,7 @@ Processe também possíveis eventos de erro a partir do objeto XMLHttpRequest.
     });
 ```
 
-Envie o pedido. Feche a função bingAutosuggest, a etiqueta de **script** e a de **cabeçalho** .
+Envie o pedido. Feche a função bingAutosuggest, a etiqueta de **script** e a de **cabeçalho**.
 
 ```html
     request.send();
@@ -272,7 +272,7 @@ Crie um formulário HTML com um campo de texto. Lide com o `oninput` evento e li
 </form>
 ```
 
-Adicione a tag **div** de HTML que utilizamos para apresentar os resultados. O JavaScript que definimos anteriormente refere-se a esta tag **div** .
+Adicione a tag **div** de HTML que utilizamos para apresentar os resultados. O JavaScript que definimos anteriormente refere-se a esta tag **div**.
 
 ```html
 <h2>Results</h2>
@@ -289,7 +289,7 @@ Guarde o ficheiro.
 
 ## <a name="display-results"></a>Apresentar os resultados
 
-Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave de subscrição de API de Sugestão Automática do Bing. Em seguida, introduza uma consulta (por exemplo, "tomar") na caixa de texto de **Sugestão Automática** . À medida que escreve, a página Web é atualizada automaticamente para apresentar os resultados da Sugestão Automática.
+Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave de subscrição de API de Sugestão Automática do Bing. Em seguida, introduza uma consulta (por exemplo, "tomar") na caixa de texto de **Sugestão Automática**. À medida que escreve, a página Web é atualizada automaticamente para apresentar os resultados da Sugestão Automática.
 
 ```json
 {
@@ -358,4 +358,4 @@ Abra a página Web no seu browser. Quando lhe for pedido, introduza a sua chave 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Requisitos de utilização e de apresentação](../UseAndDisplayRequirements.md)
+> [Requisitos de utilização e de apresentação](../../bing-web-search/use-display-requirements.md)

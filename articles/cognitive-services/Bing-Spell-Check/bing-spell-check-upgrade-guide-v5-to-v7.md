@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 43086c245f1d16975eae6951b1e8c2cb56fe5241
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ac581b96ba4e29837570ab8c01bf6c927eb34a28
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098336"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367527"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guia de atualização de API spell Check
 
@@ -77,4 +77,4 @@ Bloqueado|InvalidRequest.Bloqueado
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Requisitos de utilização e de apresentação](./UseAndDisplayRequirements.md)
+> [Requisitos de utilização e de apresentação](../bing-web-search/use-display-requirements.md)

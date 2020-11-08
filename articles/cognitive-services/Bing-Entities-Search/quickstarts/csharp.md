@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 52efd103bf510e7cca8a1e4a1d682948b498d64c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1b0cac94ac3a0c8dff24cf154e4dd7ab7ddf4dd9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084855"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368428"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Quickstart: Enviar um pedido de pesquisa à API de Pesquisa de Entidade Bing usando C #
 
@@ -44,7 +44,7 @@ Embora esta aplicação esteja escrita em C#, a API é um serviço Web RESTful c
 1. Crie uma nova solução de consola C# no Visual Studio. 
 1. Adicione o [Newtonsoft.Jsno](https://www.nuget.org/packages/Newtonsoft.Json/) pacote NuGet.
     1. Clique com o botão direito no seu projeto no **Solution Explorer.**
-    2. **Selecione Gerir pacotes nuget** .
+    2. **Selecione Gerir pacotes nuget**.
     3. Procure e selecione *Newtonsoft.Jse, em* seguida, instale o pacote.
 1. Em seguida, adicione os seguintes espaços de nome no ficheiro de código principal:
     
@@ -185,4 +185,4 @@ Embora esta aplicação esteja escrita em C#, a API é um serviço Web RESTful c
 > [Criar uma aplicação web de página única](../tutorial-bing-entities-search-single-page-app.md)
 
 * [O que é a API de Pesquisa de Entidade Bing?](../overview.md )
-* [Bing Entidade Pesquisa referência API](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+* [Bing Entidade Pesquisa referência API](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

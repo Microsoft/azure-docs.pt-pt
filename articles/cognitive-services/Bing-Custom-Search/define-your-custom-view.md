@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090822"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367561"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure a sua experiência de Pesquisa Personalizada Bing
 
@@ -79,16 +79,16 @@ Depois de adicionar fatias web à lista **Ative,** o portal Bing Custom Search g
 
 ## <a name="search-for-images-and-videos"></a>Pesquisa de imagens e vídeos
 
-Pode pesquisar imagens e vídeos de forma semelhante ao conteúdo web utilizando a [API de Pesquisa de Imagem Personalizada Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) ou a [API de Pesquisa de Vídeo Personalizada Bing.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference) Pode apresentar estes resultados com a [UI hospedada,](hosted-ui.md)ou com as APIs. 
+Pode pesquisar imagens e vídeos de forma semelhante ao conteúdo web utilizando a [API de Pesquisa de Imagem Personalizada Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) ou a [API de Pesquisa de Vídeo Personalizada Bing.](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference) Pode apresentar estes resultados com a [UI hospedada,](hosted-ui.md)ou com as APIs. 
 
-Estas APIs são semelhantes às APIs de pesquisa de [imagem de Bing](../Bing-Image-Search/overview.md) e [Bing Video Search,](../Bing-Video-Search/search-the-web.md) mas procuram em toda a web e não requerem o `customConfig` parâmetro de consulta. Consulte estes conjuntos de documentação para obter mais informações sobre o trabalho com imagens e vídeos. 
+Estas APIs são semelhantes às APIs de pesquisa de [imagem de Bing](../Bing-Image-Search/overview.md) e [Bing Video Search,](../bing-video-search/overview.md) mas procuram em toda a web e não requerem o `customConfig` parâmetro de consulta. Consulte estes conjuntos de documentação para obter mais informações sobre o trabalho com imagens e vídeos. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>Teste o seu caso de pesquisa com o painel de pré-visualização
 
 Pode testar a sua instância de pesquisa utilizando o painel de pré-visualização no lado direito do portal para submeter consultas de pesquisa e ver os resultados. 
 
-1. Abaixo da caixa de pesquisa, selecione **My Instance** . Pode comparar os resultados da sua experiência de pesquisa com bing, selecionando **Bing** . 
-2. Selecione um filtro de pesquisa seguro e qual o mercado a procurar (ver [Parâmetros de Consulta).](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
+1. Abaixo da caixa de pesquisa, selecione **My Instance**. Pode comparar os resultados da sua experiência de pesquisa com bing, selecionando **Bing**. 
+2. Selecione um filtro de pesquisa seguro e qual o mercado a procurar (ver [Parâmetros de Consulta).](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
 3. Introduza uma consulta e prima insira ou clique no ícone de pesquisa para ver os resultados da configuração atual. Pode alterar o seu tipo de pesquisa que executa clicando **em Web,** **Image** ou **Video** para obter resultados correspondentes. 
 
 <a name="adjustrank"></a>
@@ -125,7 +125,7 @@ Pode fixar uma página web no topo de duas maneiras:
 
 * No **separador Pinned,** introduza o URL da página web para fixar na parte superior e a sua consulta correspondente.
 
-* No painel **de pré-visualização,** introduza uma consulta de pesquisa e clique em procurar. Encontre a página web que deseja fixar para a sua consulta e clique em **Pin para cima** . a página web e a consulta serão adicionadas à lista **Pinned.**
+* No painel **de pré-visualização,** introduza uma consulta de pesquisa e clique em procurar. Encontre a página web que deseja fixar para a sua consulta e clique em **Pin para cima**. a página web e a consulta serão adicionadas à lista **Pinned.**
 
 ### <a name="specify-the-pins-match-condition"></a>Especifique a condição de correspondência do pino
 
@@ -165,4 +165,4 @@ Se subscrever a Pesquisa Personalizada ao nível apropriado (ver as [páginas de
 - [Chamar a sua pesquisa personalizada](./search-your-custom-view.md)
 - [Configurar a sua experiência de IU alojada](./hosted-ui.md)
 - [Utilizar marcadores decorativos para realçar o texto](../bing-web-search/hit-highlighting.md)
-- [Paginação de páginas Web](./page-webpages.md)
+- [Paginação de páginas Web](../bing-web-search/paging-search-results.md)

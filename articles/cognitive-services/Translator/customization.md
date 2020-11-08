@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86524000"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368938"
 ---
 # <a name="customize-your-text-translations"></a>Personalize as suas traduções de texto
 
 O Tradutor Personalizado é uma característica do serviço Tradutor, que permite aos utilizadores personalizar a tradução avançada da máquina neural da Microsoft Tradutor ao traduzir texto usando o Tradutor (apenas versão 3).
 
-A funcionalidade também pode ser usada para personalizar a tradução da fala quando usada com [o Discurso dos Serviços Cognitivos.](https://docs.microsoft.com/azure/cognitive-services/speech-service/)
+A funcionalidade também pode ser usada para personalizar a tradução da fala quando usada com [o Discurso dos Serviços Cognitivos.](../speech-service/index.yml)
 
 ## <a name="custom-translator"></a>Custom Translator
 
@@ -37,7 +37,7 @@ O sistema personalizado está então disponível através de uma chamada regular
 
 Dado o tipo e quantidade adequados de dados de formação, não é incomum esperar ganhos entre 5 e 10, ou ainda mais pontos BLEU sobre a qualidade da tradução utilizando o Tradutor Personalizado.
 
-Mais detalhes sobre os vários níveis de personalização com base nos dados disponíveis podem ser encontrados no Guia do [Utilizador do Tradutor Personalizado.](https://aka.ms/CustomTranslatorDocs)
+Mais detalhes sobre os vários níveis de personalização com base nos dados disponíveis podem ser encontrados no Guia do [Utilizador do Tradutor Personalizado.](./custom-translator/overview.md)
 
 
 ## <a name="microsoft-translator-hub"></a>Microsoft Tradutor Hub
@@ -51,10 +51,10 @@ Mais detalhes sobre os vários níveis de personalização com base nos dados di
 | ------- | :-: | :---------------: |
 |Estado do recurso de personalização    | Disponibilidade Geral    | Disponibilidade Geral |
 | Versão API de texto    | Apenas V2    | Apenas V3 |
-| Personalização SMT    | Sim    | Não |
-| Personalização de NMT    | Não    | Sim |
-| Nova personalização unificada de serviços de fala    | Não    | Sim |
-| [Sem vestígios](https://www.aka.ms/notrace) | Sim    | Sim |
+| Personalização SMT    | Yes    | No |
+| Personalização de NMT    | No    | Yes |
+| Nova personalização unificada de serviços de fala    | No    | Yes |
+| [Sem vestígios](https://www.aka.ms/notrace) | Yes    | Yes |
 
 ## <a name="collaborative-translations-framework"></a>Quadro de Traduções Colaborativas
 
@@ -64,4 +64,4 @@ Mais detalhes sobre os vários níveis de personalização com base nos dados di
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Crie um sistema de linguagem personalizado utilizando o Tradutor Personalizado](https://aka.ms/CustomTranslatorDocs)
+> [Crie um sistema de linguagem personalizado utilizando o Tradutor Personalizado](./custom-translator/overview.md)

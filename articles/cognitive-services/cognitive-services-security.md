@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152281"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368785"
 ---
 # <a name="azure-cognitive-services-security"></a>Segurança dos Serviços Cognitivos Azure
 
@@ -222,5 +222,5 @@ O serviço de discurso não suporta atualmente o Lockbox do Cliente. No entanto,
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Explore os vários [Serviços Cognitivos](welcome.md)
+* Explore os vários [Serviços Cognitivos](./what-are-cognitive-services.md)
 * Saiba mais sobre [redes virtuais de serviços cognitivos](cognitive-services-virtual-networks.md)

@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: tradutor, serviço de tradutor, tradução de texto, texto transliterado, deteção de linguagem
-ms.openlocfilehash: 8250141c2baa92478c5929a300ec7b17b8ed7131
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 68bbb31ae87ebbb84cda752c2f4a7c1bd1116dda
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322518"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369533"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Quickstart: Começa com o Tradutor
 
@@ -105,7 +105,7 @@ Ao ligar para o serviço de Tradução via REST, terá de se certificar de que o
   <th>Description</th>
   <tr>
     <td>Cabeçalho de autenticação</td>
-    <td><em>Cabeçalho de pedido necessário</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Cabeçalho de pedido necessário se utilizar um recurso de serviços cognitivos. Opcional se utilizar um recurso tradutor.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a></td>
+    <td><em>Cabeçalho de pedido necessário</em>.<br/><code>Ocp-Apim-Subscription-Key</code><br/><br/><em>Cabeçalho de pedido necessário se utilizar um recurso de serviços cognitivos. Opcional se utilizar um recurso tradutor.</em>.<br/><code>Ocp-Apim-Subscription-Region</code><br/><br/>Consulte <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a></td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -123,7 +123,7 @@ Ao ligar para o serviço de Tradução via REST, terá de se certificar de que o
 
 ## <a name="keys-and-endpoints"></a>Keys and endpoints (Chaves e pontos finais)
 
-As amostras desta página utilizam chaves e pontos finais codificados para a simplicidade. Lembre-se **de remover a chave do seu código quando terminar,** e nunca **postá-la publicamente**. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Consulte o artigo [de segurança](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) dos Serviços Cognitivos para obter mais informações.
+As amostras desta página utilizam chaves e pontos finais codificados para a simplicidade. Lembre-se **de remover a chave do seu código quando terminar,** e nunca **postá-la publicamente**. Para a produção, considere utilizar uma forma segura de armazenar e aceder às suas credenciais. Consulte o artigo [de segurança](../cognitive-services-security.md) dos Serviços Cognitivos para obter mais informações.
 
 ## <a name="translate-text"></a>Traduzir texto 
 
@@ -686,7 +686,7 @@ Após uma chamada bem sucedida, deverá ver a seguinte resposta:
 
 ### <a name="detect-source-language-without-translation"></a>Detetar linguagem de origem sem tradução
 
-É possível usar o serviço de Tradutor para detetar a linguagem do texto de origem sem realizar uma tradução. Para fazer isto, vais usar o [`/detect`](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) ponto final. 
+É possível usar o serviço de Tradutor para detetar a linguagem do texto de origem sem realizar uma tradução. Para fazer isto, vais usar o [`/detect`](./reference/v3-0-detect.md) ponto final. 
 
 # <a name="c"></a>[C#](#tab/csharp)
 

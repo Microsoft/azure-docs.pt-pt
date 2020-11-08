@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 340b0ed02821fb98f271539ac39e0ccad8581082
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27069cf38da2567a3af3ed0fb65baead43665186
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904008"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369482"
 ---
 # <a name="translator-30-breaksentence"></a>Tradutor 3.0: BreakSentence
 
@@ -33,7 +33,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 Os parâmetros de pedido passados na cadeia de consulta são:
 
-| Parâmetro de consulta | Descrição |
+| Parâmetro de consulta | Description |
 | -------| ----------- |
 | api-version <img width=200/>   | **Parâmetro de consulta exigido.**<br/>Versão da API solicitada pelo cliente. O valor deve `3.0` ser. |
 | language | **Parâmetro de consulta opcional.**<br/>Etiqueta linguística que identifica a linguagem do texto de entrada. Se um código não for especificado, aplicar-se-á a deteção automática da linguagem. |
@@ -41,9 +41,9 @@ Os parâmetros de pedido passados na cadeia de consulta são:
 
 Os cabeçalhos de pedido incluem:
 
-| Cabeçalhos | Descrição |
+| Cabeçalhos | Description |
 | ------- | ----------- |
-| Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido necessário**.<br/>Consulte <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
+| Cabeçalho de autenticação <img width=200/>  | **Cabeçalho de pedido necessário**.<br/>Consulte <a href="/azure/cognitive-services/translator/reference/v3-0-reference#authentication">as opções disponíveis para autenticação.</a> |
 | Content-Type | **Cabeçalho de pedido necessário**.<br/>Especifica o tipo de conteúdo da carga útil. Os valores possíveis são: `application/json` . |
 | Comprimento do conteúdo    | **Cabeçalho de pedido necessário**.<br/>O comprimento do corpo do pedido.  | 
 | X-ClientTraceId   | **Opcional.**<br/>Um GUID gerado pelo cliente para identificar exclusivamente o pedido. Note que pode omitir este cabeçalho se incluir o ID de traço na cadeia de consulta utilizando um parâmetro de consulta denominado `ClientTraceId` .  | 
@@ -97,7 +97,7 @@ Um exemplo de resposta JSON é:
 
 <table width="100%">
   <th width="20%">Cabeçalhos</th>
-  <th>Descrição</th>
+  <th>Description</th>
   <tr>
     <td>X-RequestId</td>
     <td>Valor gerado pelo serviço para identificar o pedido. É utilizado para resolução de problemas.</td>
@@ -110,7 +110,7 @@ Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.
 
 <table width="100%">
   <th width="20%">Código de Estado</th>
-  <th>Descrição</th>
+  <th>Description</th>
   <tr>
     <td>200</td>
     <td>Com êxito.</td>
@@ -141,7 +141,7 @@ Seguem-se os possíveis códigos de estado HTTP que um pedido devolve.
   </tr>
 </table> 
 
-Se ocorrer um erro, o pedido também devolverá uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de estado HTTP de 3 dígitos seguido de um número de 3 dígitos para categorizar ainda mais o erro. Os códigos de erro comuns podem ser encontrados na [página de referência do Tradutor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
+Se ocorrer um erro, o pedido também devolverá uma resposta de erro JSON. O código de erro é um número de 6 dígitos que combina o código de estado HTTP de 3 dígitos seguido de um número de 3 dígitos para categorizar ainda mais o erro. Os códigos de erro comuns podem ser encontrados na [página de referência do Tradutor V3](./v3-0-reference.md#errors). 
 
 ## <a name="examples"></a>Exemplos
 
@@ -150,4 +150,3 @@ O exemplo a seguir mostra como obter limites de sentença para uma única frase.
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"
 ```
-

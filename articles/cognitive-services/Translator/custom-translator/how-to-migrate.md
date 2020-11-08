@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 05/26/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 449d57579b802191434cda3e63e103e5f3ef4bc5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 64c449bdefe6fb067a7c0e26b155b58b6f00c399
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220878"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368292"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migrar espaço de trabalho do Hub e projetos para Tradutor Personalizado
 
@@ -27,7 +27,7 @@ Estas ações são realizadas durante a migração:
 * Em qualquer ponto, a pontuação BLEU migrada do treino do Hub pode ser encontrada na página TrainingDetails do modelo na rubrica "Bleu score in MT Hub".
 
 > [!Note] 
-> Para que uma formação tenha sucesso, o Tradutor Personalizado requer um mínimo de 10.000 frases extraídas únicas. O Tradutor Personalizado não pode realizar um treino com menos do que o [mínimo sugerido.](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences)
+> Para que uma formação tenha sucesso, o Tradutor Personalizado requer um mínimo de 10.000 frases extraídas únicas. O Tradutor Personalizado não pode realizar um treino com menos do que o [mínimo sugerido.](./sentence-alignment.md#suggested-minimum-number-of-sentences)
 
 ## <a name="find-custom-translator-workspace-id"></a>Encontre o ID do espaço de trabalho do tradutor personalizado
 
@@ -122,7 +122,7 @@ Se quiser um relatório de migração mais detalhado sobre os seus projetos, for
 * Sistemas com pares de idiomas AINDA não disponíveis no Custom Tradutor só estarão disponíveis para aceder a dados ou despreocupação através do Custom Tradutor. Estes projetos serão marcados como "Indisponível" na página projetos. À medida que possibilitamos novos pares linguísticos com o Custom Tradutor, os projetos tornar-se-ão ativos para treinar e implementar. 
 * A migração de um projeto de Hub para Custom Tradutor não terá qualquer impacto nas suas formações ou projetos do Hub. Não apagamos projetos ou documentos do Hub durante uma migração e não despreocupamos modelos.
 * Só pode migrar uma vez por projeto. Se precisar repetir uma migração num projeto, contacte-nos.
-* O Custom Tradutor suporta pares de idiomas NMT de e para inglês. [Veja a lista completa de línguas suportadas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization) O Hub não requer modelos de base e, portanto, suporta vários milhares de línguas. Pode migrar um par de línguas não suportado, no entanto, apenas realizaremos a migração de documentos e definições de projetos. Não poderemos treinar o novo modelo. Além disso, estes documentos e projetos serão apresentados como inativos, de modo a indicar que não podem ser usados neste momento. Se o apoio for adicionado a estes projetos e/ou documentos, estes tornar-se-ão ativos e treináveis.
+* O Custom Tradutor suporta pares de idiomas NMT de e para inglês. [Veja a lista completa de línguas suportadas.](../language-support.md#customization) O Hub não requer modelos de base e, portanto, suporta vários milhares de línguas. Pode migrar um par de línguas não suportado, no entanto, apenas realizaremos a migração de documentos e definições de projetos. Não poderemos treinar o novo modelo. Além disso, estes documentos e projetos serão apresentados como inativos, de modo a indicar que não podem ser usados neste momento. Se o apoio for adicionado a estes projetos e/ou documentos, estes tornar-se-ão ativos e treináveis.
 * O Tradutor Personalizado não suporta atualmente dados de formação monolingues. Tal como os pares linguísticos não apoiados, pode migrar documentos monolingues, mas eles mostram-se inativos até que os dados monolingues sejam suportados.
 * O Tradutor Personalizado requer 10 mil frases paralelas para treinar. O Microsoft Hub poderia treinar num conjunto menor de dados. Se for migrada uma formação que não satisfaça este requisito, não será treinada.
 
@@ -146,4 +146,4 @@ Se você é uma comunidade ou organização que trabalha na criação de um novo
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Treine um modelo.](how-to-train-model.md)
-- Comece a utilizar o seu modelo de tradução personalizado implantado através [do Tradutor V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Comece a utilizar o seu modelo de tradução personalizado implantado através [do Tradutor V3](../reference/v3-0-translate.md?tabs=curl).

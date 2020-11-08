@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 0033f4919e4e4e5e56e4057e00c393ae7be1ca44
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d5caa9b4168307bb27022b59415e43b37f30bf67
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090567"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367391"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurar a sua experiência de IU alojada
 
@@ -37,7 +37,7 @@ Para configurar um UI hospedado para as suas aplicações web, siga estes passos
   
 2. Selecione a sua instância de Pesquisa Personalizada Bing.
 
-3. Clique no separador **IU Alojada** .  
+3. Clique no separador **IU Alojada**.  
   
 4. Selecione um esquema.
 
@@ -45,7 +45,7 @@ Para configurar um UI hospedado para as suas aplicações web, siga estes passos
     - Apenas resultados: Exibe apenas resultados de pesquisa, sem uma caixa de pesquisa. Ao utilizar este layout, deve fornecer a consulta de pesquisa `&q=<query string>` (). Adicione o parâmetro de consulta ao URL de pedido no snippet JavaScript ou na ligação de ponto final HTML.
     - Pop-over: Fornece uma caixa de pesquisa e exibe os resultados da pesquisa numa sobreposição deslizante.
 
-5. Selecione um tema de cores. Pode personalizar as cores para se adaptar à sua aplicação clicando no **tema Personalizar** . Para alterar uma cor, introduza o valor RGB HEX da cor (por exemplo, `#366eb8` ), ou clique na pré-visualização da cor.
+5. Selecione um tema de cores. Pode personalizar as cores para se adaptar à sua aplicação clicando no **tema Personalizar**. Para alterar uma cor, introduza o valor RGB HEX da cor (por exemplo, `#366eb8` ), ou clique na pré-visualização da cor.
 
    Pode visualizar as alterações no lado direito do portal. Clicar **em Reset para o predefinido** reverterá as suas alterações às cores predefinidas para o tema selecionado.
 
@@ -54,7 +54,7 @@ Para configurar um UI hospedado para as suas aplicações web, siga estes passos
 
 6. Em **Configurações Adicionais,** forneça valores adequados para a sua aplicação. Estas definições são opcionais. Para ver o efeito de aplicá-los ou removê-los, consulte o painel de pré-visualização à direita. As opções de configuração disponíveis são:  
 
-7. Introduza a tecla de subscrição de pesquisa ou escolha uma na lista de dropdown. A lista de dropdown é preenchida com chaves das subscrições da sua conta Azure. Consulte a [conta API dos Serviços Cognitivos.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)  
+7. Introduza a tecla de subscrição de pesquisa ou escolha uma na lista de dropdown. A lista de dropdown é preenchida com chaves das subscrições da sua conta Azure. Consulte a [conta API dos Serviços Cognitivos.](../cognitive-services-apis-create-account.md)  
 
 8. Se ativar o autosuggest, introduza a chave de subscrição autosusou ou escolha uma da lista de dropdown. A lista de dropdown é preenchida com chaves das subscrições da sua conta Azure. Custom Autosuggest requer um nível de subscrição específico, ver o [preço](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
@@ -82,7 +82,7 @@ Para consumir a UI hospedada, também:
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Adicione os seguintes parâmetros de consulta ao URL, se necessário. Para obter informações sobre estes parâmetros, consulte a referência [API de pesquisa personalizada.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
+  > Adicione os seguintes parâmetros de consulta ao URL, se necessário. Para obter informações sobre estes parâmetros, consulte a referência [API de pesquisa personalizada.](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
   >
   > - q
   > - mkt
@@ -115,7 +115,7 @@ As seguintes configurações são mostradas se clicar **em Mostrar configuraçõ
 - Resultados da imagem ativados: Determina se a procura de imagem está ativada (verá um separador Imagens no topo da página).
 - Resultados da imagem por página: Número de resultados de pesquisa de imagem a exibir de cada vez (o máximo é de 150 resultados por página).
 
-A configuração a seguir é mostrada se clicar **em Mostrar configurações avançadas** .  
+A configuração a seguir é mostrada se clicar **em Mostrar configurações avançadas**.  
   
 - Ativar filtros: Adiciona filtros que o utilizador pode utilizar para filtrar as imagens que o Bing devolve. Por exemplo, o utilizador pode filtrar os resultados apenas para GIFs animados.
 
@@ -124,7 +124,7 @@ A configuração a seguir é mostrada se clicar **em Mostrar configurações ava
 - Resultados de vídeo ativados: Determina se a procura de vídeo está ativada (verá um separador Vídeos no topo da página).
 - Resultados do vídeo por página: Número de resultados de pesquisa de vídeo a visualizar de cada vez (o máximo é de 150 resultados por página).
 
-A configuração a seguir é mostrada se clicar **em Mostrar configurações avançadas** .  
+A configuração a seguir é mostrada se clicar **em Mostrar configurações avançadas**.  
   
 - Ativar filtros: Adiciona filtros que o utilizador pode utilizar para filtrar os vídeos que o Bing devolve. Por exemplo, o utilizador pode filtrar os resultados de vídeos com uma resolução ou vídeos específicos descobertos nas últimas 24 horas.
 
@@ -133,7 +133,7 @@ A configuração a seguir é mostrada se clicar **em Mostrar configurações ava
 - Título da página: Texto apresentado na área do título da página de resultados de pesquisa (não para layout pop-over).
 - Tema da barra de ferramentas: Determina a cor de fundo da área do título da página de resultados da pesquisa.
 
-As seguintes configurações são mostradas se clicar **em Mostrar configurações avançadas** .  
+As seguintes configurações são mostradas se clicar **em Mostrar configurações avançadas**.  
 
 |Coluna1  |Coluna2  |
 |---------|---------|
@@ -153,4 +153,4 @@ As seguintes configurações aplicam-se apenas se consumir o UI hospedeiro atrav
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Utilizar marcadores decorativos para realçar o texto](../bing-web-search/hit-highlighting.md)
-- [Paginação de páginas Web](./page-webpages.md)
+- [Paginação de páginas Web](../bing-web-search/paging-search-results.md)

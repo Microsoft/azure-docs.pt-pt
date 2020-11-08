@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: overview
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: 83a398b114a8bf0ac25d875e037208d775debc4b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4490142a278d5e724fade42e697d8cf2206c0da8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077345"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367340"
 ---
 # <a name="what-is-the-bing-custom-search-api"></a>O que é a API de Pesquisa Personalizada do Bing?
 
@@ -50,16 +50,15 @@ Para começar rapidamente, consulte [Criar a primeira instância de Pesquisa Per
 
 Para obter detalhes sobre como personalizar a sua instância de pesquisa, consulte [Definir uma instância de pesquisa personalizada](define-your-custom-view.md).
 
-Certifique-se de que lê [os requisitos de utilização e visualização de Bing](./use-and-display-requirements.md) para utilizar os resultados de pesquisa nos seus serviços e aplicações.
+Certifique-se de que lê [os requisitos de utilização e visualização de Bing](../bing-web-search/use-display-requirements.md) para utilizar os resultados de pesquisa nos seus serviços e aplicações.
 
-Visite a página do hub da [API de Pesquisa de Bing](../bing-web-search/search-the-web.md) para explorar as outras APIs disponíveis.
+Visite a página do hub da [API de Pesquisa de Bing](../bing-web-search/overview.md) para explorar as outras APIs disponíveis.
 
 Familiarize-se com o conteúdo de referência para cada um dos pontos finais da pesquisa personalizada. A referência contém a lista de pontos finais, cabeçalhos e parâmetros de consulta que teria de utilizar para pedir os resultados da pesquisa. Também inclui as definições dos objetos de resposta.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
-- [API de Pesquisa Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
-- [API de Imagem Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
-- [API de Vídeo Personalizado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
-- [API de Sugestão Automática Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)
-
+- [API de Pesquisa Personalizada](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference)
+- [API de Imagem Personalizada](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference)
+- [API de Vídeo Personalizado](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference)
+- [API de Sugestão Automática Personalizada](/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference)

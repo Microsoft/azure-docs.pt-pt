@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: swmachan
-ms.openlocfilehash: 7fa148579e7525933d388b8a93c9a3476f473cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd0dbe5912b7c4df3c666c648dbf9a92d5398cf1
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83588620"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369516"
 ---
 # <a name="translator-v20"></a>Tradutor v2.0
 
@@ -25,7 +25,7 @@ ms.locfileid: "83588620"
 A versão 2 do Tradutor pode ser integrada perfeitamente nas suas apps, websites, ferramentas ou outras soluções para fornecer experiências multi-fiéis ao utilizador. Pode usá-lo em qualquer plataforma de hardware e com qualquer sistema operativo para executar tradução linguística e outras tarefas relacionadas com a linguagem, como deteção de linguagem de texto e texto para a fala, de acordo com os padrões da indústria. Para mais informações, consulte [o Tradutor.](../translator-info-overview.md)
 
 ## <a name="getting-started"></a>Introdução
-Para aceder ao Tradutor, tem de [se inscrever no Microsoft Azure](../translator-text-how-to-signup.md).
+Para aceder ao Tradutor, tem de [se inscrever no Microsoft Azure](../translator-how-to-signup.md).
 
 ## <a name="authentication"></a>Autenticação 
 Todas as chamadas para o Tradutor requerem uma chave de subscrição para a autenticação. A API suporta três métodos de autenticação:
@@ -607,7 +607,7 @@ O `TranslateOptions` objeto contém os valores na lista seguinte. São todas opc
 
 * `Category`: Uma cadeia que contenha a categoria (domínio) da tradução. A predefinição é `general`.
 * `ContentType`: A única opção suportada, e o padrão, é `text/plain` .
-* `IncludeMultipleMTAlternatives`: Uma bandeira booleana para especificar se mais do que uma alternativa deve ser devolvida do motor MT. Valores válidos são `true` e `false` (sensível a maiuscamente). O padrão é `false` , que devolve apenas uma alternativa. A colocação da bandeira `true` permite a criação de alternativas artificiais, totalmente integradas com o Quadro de Tradução Colaborativa (CTF). A funcionalidade permite o regresso de alternativas para frases que não têm traduções no CTF, adicionando alternativas artificiais da lista *n-melhor*do descodificador.
+* `IncludeMultipleMTAlternatives`: Uma bandeira booleana para especificar se mais do que uma alternativa deve ser devolvida do motor MT. Valores válidos são `true` e `false` (sensível a maiuscamente). O padrão é `false` , que devolve apenas uma alternativa. A colocação da bandeira `true` permite a criação de alternativas artificiais, totalmente integradas com o Quadro de Tradução Colaborativa (CTF). A funcionalidade permite o regresso de alternativas para frases que não têm traduções no CTF, adicionando alternativas artificiais da lista *n-melhor* do descodificador.
     - As audiências. As classificações são aplicadas assim: 
          - A melhor tradução automática tem uma classificação de 5.
        - As alternativas da CTF refletem a autoridade do revisor. Variam de -10 a +10.
@@ -719,7 +719,7 @@ Aqui está o formato do corpo de pedido:
 * `Options`: Opcional. Um `Options` objeto que contém os seguintes valores. São todas opcionais e padrão para as configurações mais comuns. Os elementos especificados devem ser listados por ordem alfabética.
     - `Category`: Uma cadeia que contenha a categoria (domínio) da tradução. A predefinição é `general`.
     - `ContentType`: A única opção suportada, e o padrão, é `text/plain` .
-    - `IncludeMultipleMTAlternatives`: Uma bandeira booleana para especificar se mais do que uma alternativa deve ser devolvida do motor MT. Valores válidos são `true` e `false` (sensível a maiuscamente). O padrão é `false` , que devolve apenas uma alternativa. A colocação da bandeira `true` permite a geração de alternativas artificiais na tradução, totalmente integradas com o Quadro de Traduções Colaborativas (CTF). A funcionalidade permite o regresso de alternativas para frases que não têm alternativas no CTF, adicionando alternativas artificiais da lista *n-melhor*do descodificador.
+    - `IncludeMultipleMTAlternatives`: Uma bandeira booleana para especificar se mais do que uma alternativa deve ser devolvida do motor MT. Valores válidos são `true` e `false` (sensível a maiuscamente). O padrão é `false` , que devolve apenas uma alternativa. A colocação da bandeira `true` permite a geração de alternativas artificiais na tradução, totalmente integradas com o Quadro de Traduções Colaborativas (CTF). A funcionalidade permite o regresso de alternativas para frases que não têm alternativas no CTF, adicionando alternativas artificiais da lista *n-melhor* do descodificador.
         - Classificações As classificações são aplicadas desta forma:
           - A melhor tradução automática tem uma classificação de 5.
           - As alternativas da CTF refletem a autoridade do revisor. Variam de -10 a +10.
@@ -804,5 +804,3 @@ Tipo de conteúdo de resposta: aplicação/xml
 
 > [!div class="nextstepaction"]
 > [Migrar para Tradutor v3](../migrate-to-v3.md)
-
-

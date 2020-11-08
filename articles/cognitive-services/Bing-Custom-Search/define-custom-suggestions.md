@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aba990914ea193a7246a24b1502522f6144a0a9c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080979"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367595"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configure a sua experiência autosuggest personalizada
 
@@ -41,7 +41,7 @@ Para ativar as sugestões de Bing, altere as **sugestões Automáticas de Bing**
 
 ## <a name="add-your-own-suggestions"></a>Adicione as suas próprias sugestões
 
-Para adicionar as suas próprias sugestões de cadeia de consulta, adicione-as à lista de acordo com **sugestões definidas pelo Utilizador** . Depois de adicionar uma sugestão na lista, prima a tecla de entrada ou clique no **+** ícone. Pode especificar a sugestão em qualquer idioma. Pode adicionar um máximo de 5.000 sugestões de cordas de consulta.
+Para adicionar as suas próprias sugestões de cadeia de consulta, adicione-as à lista de acordo com **sugestões definidas pelo Utilizador**. Depois de adicionar uma sugestão na lista, prima a tecla de entrada ou clique no **+** ícone. Pode especificar a sugestão em qualquer idioma. Pode adicionar um máximo de 5.000 sugestões de cordas de consulta.
 
 ## <a name="upload-suggestions"></a>Sugestões de upload
 
@@ -53,7 +53,7 @@ Para remover uma sugestão de cadeia de consulta, clique no ícone de remover ao
 
 ## <a name="block-suggestions"></a>Sugestões de blocos
 
-Se incluir sugestões de Bing, pode adicionar uma lista de cadeias de consulta de pesquisa que não quer que bing regresse. Para adicionar cadeias de consulta bloqueadas, clique em **Mostrar sugestões bloqueadas** . Adicione o fio de consulta à lista e pressione a tecla de entrada ou clique no **+** ícone. Pode adicionar um máximo de 50 cadeias de consulta bloqueadas.
+Se incluir sugestões de Bing, pode adicionar uma lista de cadeias de consulta de pesquisa que não quer que bing regresse. Para adicionar cadeias de consulta bloqueadas, clique em **Mostrar sugestões bloqueadas**. Adicione o fio de consulta à lista e pressione a tecla de entrada ou clique no **+** ícone. Pode adicionar um máximo de 50 cadeias de consulta bloqueadas.
 
 
 
@@ -65,7 +65,7 @@ Se incluir sugestões de Bing, pode adicionar uma lista de cadeias de consulta d
 
 ## <a name="enabling-autosuggest-in-hosted-ui"></a>Permitir a Autosuggest em UI hospedado
 
-Para ativar sugestões de cadeias de consulta para a UI hospedada, clique em **UI anfitrião** . Desloque-se para baixo para a secção **de Configuração Adicional.** Em **pesquisa na Web** , selecione **On** for **Enable autosuggest** . Para ativar o Autosuggest, tem de selecionar um layout que inclua uma caixa de pesquisa.
+Para ativar sugestões de cadeias de consulta para a UI hospedada, clique em **UI anfitrião**. Desloque-se para baixo para a secção **de Configuração Adicional.** Em **pesquisa na Web** , selecione **On** for **Enable autosuggest**. Para ativar o Autosuggest, tem de selecionar um layout que inclua uma caixa de pesquisa.
 
 
 ## <a name="calling-the-autosuggest-api"></a>Chamando a API autosuggest
@@ -93,6 +93,6 @@ Se o utilizador selecionar uma cadeia de consulta sugerida a partir da lista de 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Obter sugestões personalizadas](./get-custom-suggestions.md)
+- [Obter sugestões personalizadas]()
 - [Pese na sua instância personalizada](./search-your-custom-view.md)
 - [Configure e consuma uI personalizado hospedado](./hosted-ui.md)

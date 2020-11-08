@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 7dbd9f609944fc63c186ca150d5b9921f3e86622
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0184d1765052510d42337b34094f66b2536c9ec
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090584"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367544"
 ---
 # <a name="get-videos-from-your-custom-view"></a>Obtenha vídeos a partir da sua vista personalizada
 
@@ -26,7 +26,7 @@ ms.locfileid: "93090584"
 
 Bing Vídeos Personalizados A pesquisa permite-lhe enriquecer a sua experiência de pesquisa personalizada com vídeos. À semelhança dos resultados da Web, a pesquisa personalizada suporta a pesquisa de vídeos na lista de sites da sua instância. Pode obter os vídeos utilizando a API de Pesquisa de Vídeos Personalizados de Bing ou através da funcionalidade UI hospedada. A utilização da funcionalidade de UI hospedada é simples de usar e recomendada para obter a sua experiência de pesquisa em funcionamento em curto prazo. Para obter informações sobre a configuração da sua UI hospedada para incluir vídeos, consulte [configurar a sua experiência de UI hospedada](hosted-ui.md).
 
-Se quiser mais controlo sobre a exibição dos resultados da pesquisa, pode utilizar a API de Pesquisa de Vídeos Personalizados do Bing. Porque ligar para a API é semelhante a chamar a API de Pesquisa de Vídeo Bing, checkout [Bing Video Search](../Bing-Video-Search/search-the-web.md) por exemplos chamando a API. Mas antes de o fazer, familiarize-se com o conteúdo de referência de [pesquisa de vídeos personalizados.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference) As principais diferenças são os parâmetros de consulta suportados (deve incluir o parâmetro de consulta personalizadaConfig) e o ponto final para o quais envia pedidos.
+Se quiser mais controlo sobre a exibição dos resultados da pesquisa, pode utilizar a API de Pesquisa de Vídeos Personalizados do Bing. Porque ligar para a API é semelhante a chamar a API de Pesquisa de Vídeo Bing, checkout [Bing Video Search](../bing-video-search/overview.md) por exemplos chamando a API. Mas antes de o fazer, familiarize-se com o conteúdo de referência de [pesquisa de vídeos personalizados.](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference) As principais diferenças são os parâmetros de consulta suportados (deve incluir o parâmetro de consulta personalizadaConfig) e o ponto final para o quais envia pedidos.
 
 <!--
 ## Next steps

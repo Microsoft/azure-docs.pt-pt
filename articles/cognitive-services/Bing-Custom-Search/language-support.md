@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 3519c9d6a62eaff036cf8f7006a0b443383f5131
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2579d24e1a1754e873c6591b6d86ec12dd0dfa60
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090499"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367323"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Suporte linguístico e regional para a API de Pesquisa Personalizada Bing
 
@@ -26,11 +26,11 @@ ms.locfileid: "93090499"
 
 A API de Pesquisa Personalizada Bing suporta mais de três dezenas de países/regiões, muitos com mais de uma língua.
 
-Embora seja opcional, o pedido deve especificar o parâmetro de consulta [mkt,](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) que identifica o mercado de onde deseja que os resultados venham. Para obter uma lista de parâmetros de consulta opcionais, consulte [Parâmetros de Consulta](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
+Embora seja opcional, o pedido deve especificar o parâmetro de consulta [mkt,](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#mkt) que identifica o mercado de onde deseja que os resultados venham. Para obter uma lista de parâmetros de consulta opcionais, consulte [Parâmetros de Consulta](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters)
 
 Pode especificar um país/região utilizando o `cc` parâmetro de consulta. Se especificar um país/região, também deve especificar um ou mais códigos linguísticos utilizando o `Accept-Language` cabeçalho. As línguas apoiadas variam por país/região; são dados para cada país/região na tabela **Mercados.**
 
-O `Accept-Language` cabeçalho e o `setLang` parâmetro de consulta são mutuamente exclusivos — não especifique ambos. Para mais detalhes, consulte [a Língua de Aceitação.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage)
+O `Accept-Language` cabeçalho e o `setLang` parâmetro de consulta são mutuamente exclusivos — não especifique ambos. Para mais detalhes, consulte [a Língua de Aceitação.](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#acceptlanguage)
 
 ## <a name="countriesregions"></a>Países/Regiões
 

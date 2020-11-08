@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e556ca2051fd75eb9bf6411c5479e63554606d48
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757032"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368343"
 ---
 # <a name="how-to-manage-settings"></a>Como gerir as definições
 
@@ -33,7 +33,7 @@ Precisa de ter uma chave de subscrição do Tradutor associada ao seu espaço de
 
 Se não tiver uma subscrição, siga os passos abaixo:
 
-1. Subscreva a criação de um recurso Tradutor. Acompanhe [como se inscrever para que](https://docs.microsoft.com/azure/cognitive-services/translator/translator-how-to-signup) o Tradutor subscreva e adquira uma chave Tradutor.
+1. Subscreva a criação de um recurso Tradutor. Acompanhe [como se inscrever para que](../translator-how-to-signup.md) o Tradutor subscreva e adquira uma chave Tradutor.
 2. Note a chave para a sua assinatura Tradutor. Qualquer uma das Chaves1 ou Key2 são aceitáveis.
 3. Navegue de volta para o portal de Tradutor Personalizado.
 
@@ -52,7 +52,7 @@ Se não tiver uma subscrição, siga os passos abaixo:
     ![Criar novo diálogo de espaço de trabalho](media/how-to/create-new-workspace-dialog.png)
 
 >[!Note]
->O Tradutor Personalizado não suporta a criação de espaço de trabalho para o recurso API de texto tradutor (também conhecido como API. Chave de subscrição Azure) que foi criada dentro [do VNET Ativado](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+>O Tradutor Personalizado não suporta a criação de espaço de trabalho para o recurso API de texto tradutor (também conhecido como API. Chave de subscrição Azure) que foi criada dentro [do VNET Ativado](../../../api-management/api-management-using-with-vnet.md).
 
 ### <a name="modify-existing-key"></a>Modificar a chave existente
 

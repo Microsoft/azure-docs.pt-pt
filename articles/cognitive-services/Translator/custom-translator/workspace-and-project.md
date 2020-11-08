@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 41586b2ec96d30fd583cbc9a746493ed9206548b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28bc07cadf9ffea56059755e243cb3e828077588
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510747"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368972"
 ---
 # <a name="what-is-a-custom-translator-workspace"></a>O que é um espaço de trabalho de tradutor personalizado?
 
@@ -25,7 +25,7 @@ O espaço de trabalho é privado para si e para as pessoas que convida para o se
 
 ## <a name="what-is-a-custom-translator-project"></a>O que é um projeto de Tradutor Personalizado?
 
-Um projeto é um invólucro para um modelo, documentos e testes. Cada projeto inclui automaticamente todos os documentos que são enviados para esse espaço de trabalho que têm o par de linguagem correto. Por exemplo, se tiver um projeto inglês para espanhol e um projeto espanhol para inglês, os mesmos documentos serão incluídos em ambos os projetos. Cada projeto tem uma CategoriaID associada a ele que é usada na consulta da [API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl) para traduções. CategoriaID é o parâmetro usado para obter traduções de um sistema personalizado construído com Tradutor Personalizado.
+Um projeto é um invólucro para um modelo, documentos e testes. Cada projeto inclui automaticamente todos os documentos que são enviados para esse espaço de trabalho que têm o par de linguagem correto. Por exemplo, se tiver um projeto inglês para espanhol e um projeto espanhol para inglês, os mesmos documentos serão incluídos em ambos os projetos. Cada projeto tem uma CategoriaID associada a ele que é usada na consulta da [API V3](../reference/v3-0-translate.md?tabs=curl) para traduções. CategoriaID é o parâmetro usado para obter traduções de um sistema personalizado construído com Tradutor Personalizado.
 
 ## <a name="project-categories"></a>Categorias de projetos
 

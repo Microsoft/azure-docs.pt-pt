@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83590643"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368819"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomes de subdomínio personalizados para Serviços Cognitivos
 
-Os Serviços Cognitivos Azure utilizam nomes de subdomínios personalizados para cada recurso criado através do [portal Azure](https://portal.azure.com) [Cloud Shell,](https://azure.microsoft.com/features/cloud-shell/)ou [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Ao contrário dos pontos finais regionais, que eram comuns para todos os clientes de uma região específica de Azure, os nomes de subdomínios personalizados são exclusivos do recurso. Os nomes de subdomínio personalizados são necessários para ativar funcionalidades como Azure Ative Directory (Azure AD) para a autenticação.
+Os Serviços Cognitivos Azure utilizam nomes de subdomínios personalizados para cada recurso criado através do [portal Azure](https://portal.azure.com) [Cloud Shell,](https://azure.microsoft.com/features/cloud-shell/)ou [Azure CLI](/cli/azure/install-azure-cli). Ao contrário dos pontos finais regionais, que eram comuns para todos os clientes de uma região específica de Azure, os nomes de subdomínios personalizados são exclusivos do recurso. Os nomes de subdomínio personalizados são necessários para ativar funcionalidades como Azure Ative Directory (Azure AD) para a autenticação.
 
 ## <a name="how-does-this-impact-existing-resources"></a>Como é que isto afeta os recursos existentes?
 
@@ -34,7 +34,7 @@ Se quiser migrar um recurso existente para alavancar nomes de subdomínios perso
 
 ## <a name="do-i-need-to-update-my-existing-resources"></a>Preciso atualizar os meus recursos existentes?
 
-N.º O ponto final regional continuará a trabalhar para novos serviços cognitivos existentes e o nome de subdomínio personalizado é opcional. Mesmo que um nome de subdomínio personalizado seja adicionado, o ponto final regional continuará a funcionar com o recurso.
+Não. O ponto final regional continuará a trabalhar para novos serviços cognitivos existentes e o nome de subdomínio personalizado é opcional. Mesmo que um nome de subdomínio personalizado seja adicionado, o ponto final regional continuará a funcionar com o recurso.
 
 ## <a name="what-if-an-sdk-asks-me-for-the-region-for-a-resource"></a>E se um SDK me pedir um recurso para a região?
 
@@ -55,7 +55,7 @@ Um nome subdomínio personalizado é exclusivo do seu recurso. O nome só pode i
 
 ## <a name="can-i-change-a-custom-domain-name"></a>Posso mudar um nome de domínio personalizado?
 
-N.º Depois de um nome de subdomínio personalizado ser criado e associado a um recurso não pode ser alterado.
+Não. Depois de um nome de subdomínio personalizado ser criado e associado a um recurso não pode ser alterado.
 
 ## <a name="can-i-reuse-a-custom-domain-name"></a>Posso reutilizar um nome de domínio personalizado?
 
@@ -68,7 +68,7 @@ Sim. Esta é uma lista de pontos finais regionais que você pode usar com recurs
 > [!NOTE]
 > O serviço de tradutor e as APIs de pesquisa de Bing utilizam pontos finais globais.
 
-| Tipo de ponto final | Region | Ponto final |
+| Tipo de ponto final | Região | Ponto final |
 |---------------|--------|----------|
 | Público | Global (Tradutor & Bing) | `https://api.cognitive.microsoft.com` |
 | | Leste da Austrália | `https://australiaeast.api.cognitive.microsoft.com` |
@@ -84,7 +84,7 @@ Sim. Esta é uma lista de pontos finais regionais que você pode usar com recurs
 | | Coreia do Sul Central | `https://koreacentral.api.cognitive.microsoft.com` |
 | | E.U.A. Centro-Norte | `https://northcentralus.api.cognitive.microsoft.com` |
 | | Europa do Norte | `https://northeurope.api.cognitive.microsoft.com` |
-| | África do Sul Norte | `https://southafricanorth.api.cognitive.microsoft.com` |
+| | Norte da África do Sul | `https://southafricanorth.api.cognitive.microsoft.com` |
 | | E.U.A. Centro-Sul | `https://southcentralus.api.cognitive.microsoft.com` |
 | | Sudeste Asiático | `https://southeastasia.api.cognitive.microsoft.com` |
 | | Sul do Reino Unido | `https://uksouth.api.cognitive.microsoft.com` |
@@ -96,7 +96,7 @@ Sim. Esta é uma lista de pontos finais regionais que você pode usar com recurs
 | China | China Leste 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Norte da China | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-* [O que são os Serviços Cognitivos?](Welcome.md)
+* [O que são os Serviços Cognitivos?](./what-are-cognitive-services.md)
 * [Autenticação](authentication.md)

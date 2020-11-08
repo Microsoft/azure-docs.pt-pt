@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 05/06/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: c8eca53f118fe0b2012ff0b687a939842ebc8576
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 70576017c0ab304c83f70b6c48b12836f2f537b2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101872"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367867"
 ---
 # <a name="quickstart-suggest-search-queries-with-the-bing-autosuggest-rest-api-and-java"></a>Quickstart: Sugerir consultas de pesquisa com a Bing Autosuggest REST API e Java
 
@@ -49,7 +49,7 @@ Siga este quickstart para aprender a fazer chamadas para a Bing Autosuggest API 
     import com.google.gson.JsonParser;
     ```
 
-2. Crie variáveis para a sua chave de subscrição, o anfitrião e caminho da API, o seu [código de mercado](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa. Utilize o ponto final global abaixo ou utilize o ponto final [personalizado subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
+2. Crie variáveis para a sua chave de subscrição, o anfitrião e caminho da API, o seu [código de mercado](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#market-codes)e uma consulta de pesquisa. Utilize o ponto final global abaixo ou utilize o ponto final [personalizado subdomínio](../../../cognitive-services/cognitive-services-custom-subdomains.md) apresentado no portal Azure para o seu recurso.
     
     ```java
     static String subscriptionKey = "enter key here";
@@ -212,4 +212,4 @@ public static String prettify(String json_text) {
 > [Criar uma aplicação web de página única](../tutorials/autosuggest.md)
 
 - [O que é a Sugestão Automática do Bing?](../get-suggested-search-terms.md)
-- [Referência da API de Sugestão Automática do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Referência da API de Sugestão Automática do Bing v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)

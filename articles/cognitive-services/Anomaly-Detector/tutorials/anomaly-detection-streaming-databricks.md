@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 8ef5d8e049ac4a779d5139945bf1073f38eb434c
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017663"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368717"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Deteção de anomalias em dados de streaming utilizando Azure Databricks
 
@@ -47,7 +47,7 @@ Crie uma [subscrição Azure](https://azure.microsoft.com/free/cognitive-service
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um centro de nomes e centro de [eventos Azure Event Hubs.](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+- Um centro de nomes e centro de [eventos Azure Event Hubs.](../../../event-hubs/event-hubs-create.md)
 
 - A [cadeia de ligação](../../../event-hubs/event-hubs-get-connection-string.md) para aceder ao espaço de nomes do Event Hubs. A cadeia de ligação deve ter um formato semelhante a:
 
@@ -109,7 +109,7 @@ Para receber um fluxo de tweets, tem de criar uma aplicação no Twitter. Siga o
 
     ![Criar aplicação twitter](../media/tutorials/databricks-create-twitter-app.png "Criar aplicação twitter")
 
-2. Na página **Criar uma aplicação**, forneça os detalhes da nova aplicação e, em seguida, selecione **Criar a sua aplicação do Twitter**.
+2. Na página **Criar uma aplicação** , forneça os detalhes da nova aplicação e, em seguida, selecione **Criar a sua aplicação do Twitter**.
 
     ![Detalhes da aplicação do Twitter](../media/tutorials/databricks-provide-twitter-app-details.png "Detalhes da aplicação do Twitter")
 
@@ -123,7 +123,7 @@ Guarde os valores que obteve da aplicação do Twitter. Vai precisar dos valores
 
 Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs de Eventos. Também pode utilizar o [Conector de Hubs de eventos do Spark](https://github.com/Azure/azure-event-hubs-spark) para ler e escrever dados em Hubs de Eventos do Azure. Para utilizar estas APIs como parte do cluster, adicione-as como bibliotecas ao Azure Databricks e, em seguida, associe-as ao cluster do Spark. As seguintes instruções mostram como adicionar as bibliotecas à pasta **Partilhada** no seu espaço de trabalho.
 
-1. Na área de trabalho do Azure Databricks, selecione **Área de Trabalho** e, em seguida, clique com botão direito do rato em **Partilhados**. A partir do **Create**menu de contexto, selecione  >  **Criar Biblioteca.**
+1. Na área de trabalho do Azure Databricks, selecione **Área de Trabalho** e, em seguida, clique com botão direito do rato em **Partilhados**. A partir do **Create** menu de contexto, selecione  >  **Criar Biblioteca.**
 
    ![Adicione caixa de diálogo de biblioteca](../media/tutorials/databricks-add-library-option.png "Adicione caixa de diálogo de biblioteca")
 
@@ -151,15 +151,15 @@ Na página da biblioteca, selecione o cluster onde pretende utilizar a bibliotec
 
 Neste tutorial, você usa as APIs do [Detetor de Anomalias de Serviços Cognitivos Azure](../overview.md) para executar a deteção de anomalias num fluxo de tweets em tempo real. Antes de utilizar as APIs, tem de criar um recurso de detetor de anomalias no Azure e recuperar uma chave de acesso para utilizar as APIs do Detetor de Anomalias.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 
 2. Selecione **+ Criar um recurso**.
 
-3. No mercado Azure, selecione **AI + Machine Learning**  >  **Ver todos os**  >  **Serviços Cognitivos - Mais**Detetor de  >  **Anomalias**. Ou pode usar [este link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) para ir diretamente à caixa de diálogo **Create.**
+3. No mercado Azure, selecione **AI + Machine Learning**  >  **Ver todos os**  >  **Serviços Cognitivos - Mais** Detetor de  >  **Anomalias**. Ou pode usar [este link](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector) para ir diretamente à caixa de diálogo **Create.**
 
     ![Criar recurso de detetor de anomalias](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Criar recurso de detetor de anomalias")
 
-4. Na caixa de diálogo **Criar**, forneça os valores seguintes:
+4. Na caixa de diálogo **Criar** , forneça os valores seguintes:
 
     |Valor |Descrição  |
     |---------|---------|
@@ -187,7 +187,7 @@ Nesta secção, vai criar dois blocos de notas na área de trabalho do Databrick
 - **SendTweetsToEventHub** – Um bloco de notas de produtor que utiliza para obter tweets do Twitter e transmiti-los para os Hubs de Eventos.
 - **AnalyzeTweetsFromEventHub** - Um caderno de consumo que usa para ler os tweets dos Event Hubs e executar a deteção de anomalias.
 
-1. No espaço de trabalho Azure Databricks, selecione **Workspace** a partir do painel esquerdo. No menu pendente **Área de Trabalho**, selecione **Criar** e, em seguida, selecione **Bloco de Notas**.
+1. No espaço de trabalho Azure Databricks, selecione **Workspace** a partir do painel esquerdo. No menu pendente **Área de Trabalho** , selecione **Criar** e, em seguida, selecione **Bloco de Notas**.
 
     ![Criar caderno em Databricks](../media/tutorials/databricks-create-notebook.png "Criar caderno em Databricks")
 

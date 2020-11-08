@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: 38191c55afb87151b238069a75a6c86acd8904df
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a27f252f401d0fcf863391a0d45538b01b1141e9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100546"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367289"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Ligue para o seu caso de Pesquisa Personalizada Bing a partir do Portal
 
@@ -31,7 +31,7 @@ Depois de configurar a sua experiência de pesquisa personalizada, pode testá-l
 
 Depois de ter assinado no [portal](https://customsearch.ai)Bing Custom Search, selecione o seu caso de pesquisa e clique no separador **'Produção'.** Em **Endpoints** , selecione um ponto final da API (por exemplo, Web API). A sua subscrição determina quais os pontos finais apresentados.
 
-Para criar uma consulta de pesquisa, introduza os valores de parâmetro para o seu ponto final. Note que os parâmetros apresentados no portal podem ser alterados dependendo do ponto final que escolher. Consulte a [referência API de Pesquisa Personalizada](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a subscrição que a sua instância de pesquisa utiliza, adicione a chave de subscrição adequada e atualize os parâmetros de mercado e/ou idioma apropriados.
+Para criar uma consulta de pesquisa, introduza os valores de parâmetro para o seu ponto final. Note que os parâmetros apresentados no portal podem ser alterados dependendo do ponto final que escolher. Consulte a [referência API de Pesquisa Personalizada](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) para obter mais informações. Para alterar a subscrição que a sua instância de pesquisa utiliza, adicione a chave de subscrição adequada e atualize os parâmetros de mercado e/ou idioma apropriados.
 
 Alguns parâmetros importantes estão abaixo:
 
@@ -65,4 +65,4 @@ Pode alterar a subscrição associada à sua instância de Pesquisa Personalizad
 - [Ligue para a sua vista personalizada com NodeJs](./call-endpoint-nodejs.md)
 - [Ligue para a sua vista personalizada com Python](./call-endpoint-python.md)
 
-- [Ligue para a sua vista personalizada com o C# SDK](./sdk-csharp-quick-start.md)
+- [Ligue para a sua vista personalizada com o C# SDK](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)

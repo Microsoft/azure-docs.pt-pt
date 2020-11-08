@@ -8,14 +8,14 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 05d3ca7cf532b739b943e2a87d5ab29ae66cabd7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4eaa33778287bfcda45547c24e6abe0606b6baa7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548629"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368802"
 ---
-# <a name="cognitive-services-development-options"></a>Opções de desenvolvimento de Serviços Cognitivos
+# <a name="cognitive-services-development-options"></a>Opções de desenvolvimento dos Serviços Cognitivos
 
 Este documento fornece uma visão geral de alto nível das opções de desenvolvimento e implantação para ajudá-lo a começar com os Serviços Cognitivos Azure.
 
@@ -69,7 +69,7 @@ Se quiser saber mais sobre Big Data para Serviços Cognitivos, um bom lugar para
 
 ### <a name="azure-functions-and-azure-service-web-jobs"></a>Funções Azure e Trabalhos Web de Serviço Azure
 
-[As Azure Functions](https://docs.microsoft.com/azure/azure-functions/) e [a Azure App Service Web Jobs](https://docs.microsoft.com/azure/app-service/) fornecem serviços de integração de códigos concebidos para programadores e são construídos em [Serviços de Aplicações Azure](https://docs.microsoft.com/azure/app-service/). Estes produtos fornecem infraestruturas sem servidor para escrever código. Dentro desse código pode escrutinar chamadas para os nossos serviços utilizando as bibliotecas dos nossos clientes e as APIs REST. 
+[As Azure Functions](../azure-functions/index.yml) e [a Azure App Service Web Jobs](../app-service/index.yml) fornecem serviços de integração de códigos concebidos para programadores e são construídos em [Serviços de Aplicações Azure](../app-service/index.yml). Estes produtos fornecem infraestruturas sem servidor para escrever código. Dentro desse código pode escrutinar chamadas para os nossos serviços utilizando as bibliotecas dos nossos clientes e as APIs REST. 
 
 * **Utilizador-alvo:** Desenvolvedores e cientistas de dados
 * **Benefícios** : Serviço de computação sem servidor que permite executar código desencadeado por eventos. 
@@ -78,7 +78,7 @@ Se quiser saber mais sobre Big Data para Serviços Cognitivos, um bom lugar para
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps 
 
-[A Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) partilha o mesmo designer de fluxo de trabalho e conectores que o Power Automamate, mas fornece mais avançados e controlo, incluindo integrações com o Visual Studio e DevOps. O Power Automamate facilita a integração com os seus recursos de serviços cognitivos através de conectores específicos de serviço que fornecem um proxy ou invólucro em torno das APIs. Estes são os mesmos conectores que os disponíveis na Power Automamate. 
+[A Azure Logic Apps](../logic-apps/index.yml) partilha o mesmo designer de fluxo de trabalho e conectores que o Power Automamate, mas fornece mais avançados e controlo, incluindo integrações com o Visual Studio e DevOps. O Power Automamate facilita a integração com os seus recursos de serviços cognitivos através de conectores específicos de serviço que fornecem um proxy ou invólucro em torno das APIs. Estes são os mesmos conectores que os disponíveis na Power Automamate. 
 
 * **Utilizador-alvo:s:** Desenvolvedores, integradores, profissionais de TI, DevOps
 * **Benefícios** : Modelo de desenvolvimento designer-primeiro (declarativo) que proporciona opções avançadas e integração numa solução de baixo código
@@ -87,7 +87,7 @@ Se quiser saber mais sobre Big Data para Serviços Cognitivos, um bom lugar para
 
 ### <a name="power-automate"></a>Power Automate 
 
-Power automamate é um serviço na [Plataforma de Energia](https://docs.microsoft.com/power-platform/) que o ajuda a criar fluxos de trabalho automatizados entre apps e serviços sem código de escrita. Oferecemos vários conectores para facilitar a interação com o seu recurso de Serviços Cognitivos numa solução Power Automamate. Power Automamate é construído em cima de Aplicações Lógicas. 
+Power automamate é um serviço na [Plataforma de Energia](/power-platform/) que o ajuda a criar fluxos de trabalho automatizados entre apps e serviços sem código de escrita. Oferecemos vários conectores para facilitar a interação com o seu recurso de Serviços Cognitivos numa solução Power Automamate. Power Automamate é construído em cima de Aplicações Lógicas. 
 
 * **Utilizador-alvo:** Utilizadores empresariais (analistas) e administradores do Sharepoint
 * **Benefícios** : Automatize tarefas manuais repetitivas simplesmente gravando cliques de rato, teclas e passos de pasta de cópia do seu ambiente de trabalho!
@@ -96,7 +96,7 @@ Power automamate é um serviço na [Plataforma de Energia](https://docs.microsof
 
 ### <a name="ai-builder"></a>AI Builder 
 
-[O AI Builder](https://docs.microsoft.com/ai-builder/overview) é uma capacidade da Microsoft Power Platform que pode utilizar para melhorar o desempenho do negócio, automatizando processos e prevendo resultados. O construtor de IA traz o poder da IA às suas soluções através de uma experiência de ponto e clique. Muitos serviços cognitivos como o Form Recogniser, Text Analytics e Computer Vision foram integrados diretamente aqui e você não precisa criar os seus próprios Serviços Cognitivos. 
+[O AI Builder](/ai-builder/overview) é uma capacidade da Microsoft Power Platform que pode utilizar para melhorar o desempenho do negócio, automatizando processos e prevendo resultados. O construtor de IA traz o poder da IA às suas soluções através de uma experiência de ponto e clique. Muitos serviços cognitivos como o Form Recogniser, Text Analytics e Computer Vision foram integrados diretamente aqui e você não precisa criar os seus próprios Serviços Cognitivos. 
 
 * **Utilizador-alvo:** Utilizadores empresariais (analistas) e administradores do Sharepoint
 * **Benefícios** : Uma solução chave na mão que traz o poder da IA através de uma experiência de ponto e clique. Não são necessárias competências de codificação ou de ciência de dados.
@@ -124,24 +124,24 @@ As ferramentas que vai usar para treinar e configurar modelos são diferentes da
 
 | Pilar | Serviço | UI de personalização | Início Rápido |
 |--------|---------|------------------|------------|
-| Visão | Visão Personalizada | https://www.customvision.ai/ | [Início rápido](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification?pivots=programming-language-csharp) | 
-| Visão | Reconhecedor de Formato | Ferramenta de rotulagem de amostra | [Início rápido](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool?tabs=v2-0) |
-| Decisão | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Início rápido](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop) |
-| Decisão | Assistente de Métricas | https://metricsadvisor.azurewebsites.net/  | [Início rápido](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/web-portal) |
-| Decisão | Personalizador | A UI está disponível no portal Azure sob o seu recurso Personalizer. | [Início rápido](https://docs.microsoft.com/azure/cognitive-services/personalizer/quickstart-personalizer-sdk) |
+| Visão | Visão Personalizada | https://www.customvision.ai/ | [Início rápido](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
+| Visão | Reconhecedor de Formato | Ferramenta de rotulagem de amostra | [Início rápido](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Decisão | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Início rápido](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
+| Decisão | Assistente de Métricas | https://metricsadvisor.azurewebsites.net/  | [Início rápido](./metrics-advisor/quickstarts/web-portal.md) |
+| Decisão | Personalizador | A UI está disponível no portal Azure sob o seu recurso Personalizer. | [Início rápido](./personalizer/quickstart-personalizer-sdk.md) |
 | Linguagem | Compreensão de Idiomas (LUIS) | https://www.luis.ai/ | |
-| Linguagem | Criador de FAQ | https://www.qnamaker.ai/ | [Início rápido](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base) |
-| Linguagem | Tradutor/Tradutor Personalizado | https://portal.customtranslator.azure.ai/ | [Início rápido](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model) |
-| Voz | Comandos Personalizados | https://speech.microsoft.com/ | [Início rápido](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands) |
-| Voz | Discurso personalizado | https://speech.microsoft.com/ | [Início rápido](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech) |
-| Voz | Voz Personalizada | https://speech.microsoft.com/ | [Início rápido](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice) |  
+| Linguagem | Criador de FAQ | https://www.qnamaker.ai/ | [Início rápido](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
+| Linguagem | Tradutor/Tradutor Personalizado | https://portal.customtranslator.azure.ai/ | [Início rápido](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
+| Voz | Comandos Personalizados | https://speech.microsoft.com/ | [Início rápido](./speech-service/custom-commands.md) |
+| Voz | Discurso personalizado | https://speech.microsoft.com/ | [Início rápido](./speech-service/how-to-custom-speech.md) |
+| Voz | Voz Personalizada | https://speech.microsoft.com/ | [Início rápido](./speech-service/how-to-custom-voice.md) |  
 
 ### <a name="continuous-integration-and-delivery-with-devops-and-github-actions"></a>Integração contínua e entrega com DevOps e GitHub Actions
 
 A Compreensão da Linguagem e o serviço de Fala oferecem soluções de integração contínua e implementação contínua que são alimentadas por ações de Azure DevOps e GitHub. Estas ferramentas são utilizadas para treino automatizado, teste e gestão de lançamento de modelos personalizados. 
 
-* [CI/CD para Voz Personalizada](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-* [CI/CD para LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-devops-automation)
+* [CI/CD para Voz Personalizada](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
+* [CI/CD para LUIS](./luis/luis-concept-devops-automation.md)
 
 ## <a name="on-prem-containers"></a>Recipientes em pré-pré 
 
@@ -150,4 +150,4 @@ Muitos dos Serviços Cognitivos podem ser implantados em contentores para acesso
 ## <a name="next-steps"></a>Passos seguintes
 <!--
 * Learn more about low code development options for Cognitive Services -->
-* [Crie um recurso de Serviços Cognitivos e comece a construir](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Clinux)
+* [Crie um recurso de Serviços Cognitivos e comece a construir](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)

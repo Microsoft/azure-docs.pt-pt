@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f4c3d23f6abbdc20d210e5ddda6c527d27654bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14ff76e090e628a880290bb0e9f90026260de0c7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510764"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368989"
 ---
 # <a name="what-is-a-dictionary"></a>O que é um dicionário?
 
 Um dicionário é um par de documentos alinhado que especifica uma lista de frases ou frases e suas traduções correspondentes. Use um dicionário no seu treino, quando quiser que o Microsoft Tradutor traduza sempre quaisquer instâncias da frase ou frase de origem, utilizando a tradução que forneceu no dicionário. Os dicionários são por vezes chamados glossários ou bases de termo. Pode pensar no dicionário como uma força bruta "copiar e substituir" por todos os termos que listar. Além disso, o serviço Microsoft Custom Tradutor constrói e utiliza os seus próprios dicionários para melhorar a qualidade da sua tradução. No entanto, um cliente fornecido dicionário tem precedentes e será procurado primeiro para procurar palavras ou frases.
 
-Os dicionários só funcionam para projetos em pares linguísticos que têm um modelo de rede neural geral da Microsoft totalmente suportado por trás deles. [Veja a lista completa de idiomas.](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization)
+Os dicionários só funcionam para projetos em pares linguísticos que têm um modelo de rede neural geral da Microsoft totalmente suportado por trás deles. [Veja a lista completa de idiomas.](../language-support.md#customization)
 
 ## <a name="phrase-dictionary"></a>Dicionário de frases
 O dicionário de frases é sensível a casos. É uma operação exata de localização e substituição. Quando se inclui um dicionário de frases no treino do seu modelo, qualquer palavra ou frase listada é traduzida da forma como especificou. O resto da frase é traduzido como de costume. Pode utilizar um dicionário de frases para especificar frases que não devem ser traduzidas fornecendo a mesma frase não traduzida no ficheiro de origem e alvo no dicionário.

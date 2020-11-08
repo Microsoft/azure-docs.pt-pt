@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: dba43c9e9b214a1ad077a2a15bdf014e057bb04e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cde7e677bd0121954b01cf9bb8defe45111a5b2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88869886"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369193"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Apoio linguístico natural aos Serviços Cognitivos do Azure
 
@@ -33,37 +33,37 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 * [Imagem Digitalizada](./computer-vision/language-support.md)
 * [Reconhecedor de Formato (Pré-visualização)](./form-recognizer/language-support.md)
 * [Reconhecedor de Tinta Digital (Pré-visualização)](./ink-recognizer/language-support.md)
-* [Indexador de Vídeos](https://docs.microsoft.com/azure/media-services/video-indexer/language-identification-model#guidelines-and-limitations)
+* [Indexador de Vídeos](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
 
-## <a name="language"></a>Idioma
+## <a name="language"></a>Linguagem
 
 * [Leitura Avançada](./immersive-reader/language-support.md)
-* [Compreensão de Idiomas (LUIS)](./luis/luis-supported-languages.md)
-* [Criador de FAQ](./qnamaker/overview/languages-supported.md)
-* [Análise de Texto](./text-analytics/text-analytics-supported-languages.md)
-* [Tradutor](./translator/languages.md)
+* [Compreensão de Idiomas (LUIS)](./luis/luis-language-support.md)
+* [Criador de FAQ](./qnamaker/overview/language-support.md)
+* [Análise de Texto](./text-analytics/language-support.md)
+* [Tradutor](./translator/language-support.md)
 
 ## <a name="speech"></a>Voz
 
-* [Serviço de Fala: Discurso-a-Texto](./speech-service/supported-languages.md#speech-to-text)
-* [Serviço de Fala:Texto-a-Voz](./speech-service/supported-languages.md#text-to-speech)
-* [Serviço de Fala: Tradução da Fala](./speech-service/supported-languages.md#speech-translation)
+* [Serviço de Fala: Discurso-a-Texto](./speech-service/language-support.md#speech-to-text)
+* [Serviço de Fala:Texto-a-Voz](./speech-service/language-support.md#text-to-speech)
+* [Serviço de Fala: Tradução da Fala](./speech-service/language-support.md#speech-translation)
 
-## <a name="search"></a>Pesquisa
+## <a name="search"></a>Pesquisar
 
-* [Pesquisa Personalizada do Bing](./bing-custom-search/supported-countries-markets.md)
-* [Pesquisa de Imagens do Bing](./bing-image-search/supported-countries-markets.md)
-* [Pesquisa do Bing Notícias](./bing-news-search/supported-countries-markets.md)
-* [Sugestão Automática do Bing](./Bing-Autosuggest/bing-autosuggest-supported-languages.md)
-* [Verificação Ortográfica do Bing](./bing-spell-check/bing-spell-check-supported-languages.md)
-* [Pesquisa Visual do Bing](./bing-visual-search/supported-countries-markets.md)
-* [Pesquisa na Web de Bing](./bing-web-search/supported-countries-markets.md)
+* [Pesquisa Personalizada do Bing](./bing-custom-search/language-support.md)
+* [Pesquisa de Imagens do Bing](./bing-image-search/language-support.md)
+* [Pesquisa do Bing Notícias](./bing-news-search/language-support.md)
+* [Sugestão Automática do Bing](./bing-autosuggest/language-support.md)
+* [Verificação Ortográfica do Bing](./bing-spell-check/language-support.md)
+* [Pesquisa Visual do Bing](./bing-visual-search/language-support.md)
+* [Pesquisa na Web do Bing](./bing-web-search/language-support.md)
 
 ## <a name="decision"></a>Decisão
 
-* [Content Moderator](./content-moderator/text-moderation-api-languages.md)
+* [Content Moderator](./content-moderator/language-support.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
-* [O que são os Serviços Cognitivos?](welcome.md)
+* [O que são os Serviços Cognitivos?](./what-are-cognitive-services.md)
 * [Criar uma conta](cognitive-services-apis-create-account.md)

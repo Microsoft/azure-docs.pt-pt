@@ -4,15 +4,15 @@ description: Utilize este quickstart para aprender a criar um Ponto Final Privad
 services: private-link
 author: asudbring
 ms.service: private-link
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-ms.openlocfilehash: 147e646738df9d70355f379a9e64a52116e9f16f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 7add424c23e430a8ca5059d45acd037fff8836ad
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233598"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368666"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Quickstart: Criar um ponto final privado utilizando a Azure PowerShell
 
@@ -153,8 +153,9 @@ Nesta secção, irá criar o ponto final e a ligação privados utilizando:
 * [New-AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint)
 
 ```azurepowershell-interactive
-## Place web app into variable. Replace <your-webapp-name> with your server name ##
-$webapp = Get-AzWebApp -ResourceGroupName CreatePrivateEndpointQS-rg -Name <your-webapp-name>
+## Place web app into variable. Replace <webapp-resource-group-name> with the resource group of your webapp. ##
+## Replace <your-webapp-name> with your webapp name ##
+$webapp = Get-AzWebApp -ResourceGroupName <webapp-resource-group-name> -Name <your-webapp-name>
 
 ## Create private endpoint connection. ##
 $parameters1 = @{
@@ -235,11 +236,11 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
  
 2. Selecione **grupos** de recursos no painel de navegação à esquerda.
 
-3. Selecione **CreatePrivateEndpointQs-rg** .
+3. Selecione **CreatePrivateEndpointQs-rg**.
 
-4. Selecione **myVM** .
+4. Selecione **myVM**.
 
-5. Na página geral do **myVM,** selecione **Connect** e, em **seguida, Bastion** .
+5. Na página geral do **myVM,** selecione **Connect** e, em **seguida, Bastion**.
 
 6. Selecione o botão **azul Use Bastion.**
 
@@ -263,13 +264,13 @@ Nesta secção, utilizará a máquina virtual que criou no passo anterior para l
 
 10. Na ligação de bastião ao **myVM,** abra o Internet Explorer.
 
-11. Introduza o url da sua aplicação web, **https:// \<your-webapp-name> .azurewebsites.net** .
+11. Introduza o url da sua aplicação web, **https:// \<your-webapp-name> .azurewebsites.net**.
 
 12. Receberá a página de aplicações web padrão se a sua aplicação não tiver sido implementada:
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Página de aplicativo web padrão." border="true":::
 
-13. Feche a ligação ao **myVM** .
+13. Feche a ligação ao **myVM**.
 
 ## <a name="clean-up-resources"></a>Limpar recursos 
 Quando terminar de usar o ponto final privado e o VM, utilize o [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para remover o grupo de recursos e todos os recursos que tem:
