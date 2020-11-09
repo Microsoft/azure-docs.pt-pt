@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 14b9d9fe0eb9dfe2f25373c2d87d9b4af15dd0d9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082236"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371979"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:
 
@@ -23,8 +23,8 @@ A utilização da Integração VNet regional permite que a sua aplicação aceda
 
 Quando utilizar a Integração VNet com VNets na mesma região, pode utilizar as seguintes funcionalidades de networking Azure:
 
-* **Grupos de segurança de rede (NSGs)**: Pode bloquear o tráfego de saída com um NSG colocado na sua sub-rede de integração. As regras de entrada não se aplicam porque não pode usar a Integração VNet para fornecer acesso à sua aplicação.
-* **Tabelas de rotas (UDRs)**: Pode colocar uma tabela de rota na sub-rede de integração para enviar o tráfego de saída onde quiser.
+* **Grupos de segurança de rede (NSGs)** : Pode bloquear o tráfego de saída com um NSG colocado na sua sub-rede de integração. As regras de entrada não se aplicam porque não pode usar a Integração VNet para fornecer acesso à sua aplicação.
+* **Tabelas de rotas (UDRs)** : Pode colocar uma tabela de rota na sub-rede de integração para enviar o tráfego de saída onde quiser.
 
 Por padrão, a sua aplicação apenas encaminha o tráfego RFC1918 para o seu VNet. Se quiser encaminhar todo o tráfego de saída para o seu VNet, aplique a definição da aplicação WEBSITE_VNET_ROUTE_ALL para a sua aplicação. Para configurar a definição da aplicação:
 
@@ -42,7 +42,7 @@ Por padrão, a sua aplicação apenas encaminha o tráfego RFC1918 para o seu VN
 Existem algumas limitações com a utilização da Integração VNet com VNets na mesma região:
 
 * Não se pode alcançar recursos através de ligações globais de observação.
-* A funcionalidade está disponível apenas a partir de novas unidades de escala do Azure App Service que suportam planos do Serviço de Aplicações PremiumV2. Note que *isso não significa que a sua aplicação deve funcionar num nível de preços PremiumV2*, apenas que deve funcionar num Plano de Serviço de Aplicações onde a opção PremiumV2 está disponível (o que implica que é uma unidade de escala mais recente onde esta funcionalidade de integração VNet também está disponível).
+* A funcionalidade está disponível apenas a partir de novas unidades de escala do Azure App Service que suportam planos do Serviço de Aplicações PremiumV2. Note que *isso não significa que a sua aplicação deve funcionar num nível de preços PremiumV2* , apenas que deve funcionar num Plano de Serviço de Aplicações onde a opção PremiumV2 está disponível (o que implica que é uma unidade de escala mais recente onde esta funcionalidade de integração VNet também está disponível).
 * A sub-rede de integração pode ser utilizada apenas por um plano de Serviço de Aplicações.
 * A funcionalidade não pode ser utilizada por aplicações de plano isolado que se encontrem num Ambiente de Serviço de Aplicações.
 * A funcionalidade requer uma sub-rede não utilizada que seja uma /27 com 32 endereços ou maior num VNet do Gestor de Recursos Azure.
@@ -82,12 +82,17 @@ As rotas do Border Gateway Protocol (BGP) também afetam o tráfego da sua aplic
 
 ### <a name="azure-dns-private-zones"></a>Zonas Privadas Azure DNS 
 
-Depois de a sua aplicação se integrar com o seu VNet, utiliza o mesmo servidor DNS com o qual o seu VNet está configurado. Por padrão, a sua aplicação não funcionará com as Zonas Privadas Azure DNS. Para trabalhar com as Zonas Privadas Azure DNS, é necessário adicionar as seguintes definições de aplicações:
+Depois de a sua aplicação se integrar com o seu VNet, utiliza o mesmo servidor DNS com o qual o seu VNet está configurado. Por padrão, a sua aplicação não funcionará com as Zonas Privadas Azure DNS. Para trabalhar com as Zonas Privadas Azure DNS, tem de adicionar as seguintes definições de aplicações:
 
-1. WEBSITE_DNS_SERVER com o valor 168.63.129.16 
+1. WEBSITE_DNS_SERVER com o valor 168.63.129.16
 1. WEBSITE_VNET_ROUTE_ALL com o valor 1
 
-Estas definições enviarão todas as suas chamadas de saída da sua app para o seu VNet, além de permitir que a sua aplicação utilize zonas privadas Azure DNS.
+Estas definições enviarão todas as chamadas de saída da sua aplicação para o seu VNet. Além disso, permitirá que a app utilize o Azure DNS consultando a Zona Privada de DNS ao nível do trabalhador. Esta funcionalidade deve ser utilizada quando uma aplicação em execução estiver a aceder a uma Zona Privada de DNS.
+
+> [!NOTE]
+>Tentar adicionar um domínio personalizado a uma Aplicação Web utilizando a Zona Privada de DNS não é possível com a Integração VNET. A validação de domínio personalizado é feita ao nível do controlador, não ao nível do trabalhador, o que impede que os registos dns sejam vistos. Para utilizar um domínio personalizado a partir de uma Zona Privada de DNS, a validação teria de ser contornada usando um Gateway de Aplicações ou um Ambiente de Serviço de Aplicações ILB.
+
+
 
 ### <a name="private-endpoints"></a>Pontos finais privados
 

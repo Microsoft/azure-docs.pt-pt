@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 97853f0524b794169de3aaaec33cf1b30949d930
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: d62ed31a68d9469a1bd1fc66e479b0f91db2f916
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901544"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372273"
 ---
 # <a name="what-is-azure-security-center"></a>O que é o Centro de Segurança do Azure?
 
@@ -54,7 +54,7 @@ Além disso, o Security Center protege servidores e máquinas virtuais não-Azur
 
 Os eventos recolhidos dos agentes e da Azure estão correlacionados no motor de análise de segurança para fornecer-lhe recomendações personalizadas (tarefas de endurecimento), que deve seguir para se certificar de que as suas cargas de trabalho estão seguras e alertas de segurança. Deve investigar tais alertas o mais rápido possível para garantir que ataques maliciosos não ocorram nas suas cargas de trabalho.
 
-Quando ativa o Centro de Segurança, a política de segurança incorporada ao Centro de Segurança reflete-se na Política Azure como uma iniciativa integrada na categoria Centro de Segurança. A iniciativa incorporada é automaticamente atribuída a todas as subscrições registadas do Security Center (níveis de preços gratuitos ou padrão). A iniciativa incorporada contém apenas políticas de auditoria. Para obter mais informações sobre as políticas do Centro de Segurança na Política Azure, consulte [Trabalhar com políticas de segurança.](tutorial-security-policy.md)
+Quando ativa o Centro de Segurança, a política de segurança incorporada ao Centro de Segurança reflete-se na Política de Azure como uma iniciativa integrada na categoria Centro de Segurança. A iniciativa incorporada é automaticamente atribuída a todas as subscrições registadas do Security Center (independentemente de terem ou não o Azure Defender habilitado). A iniciativa incorporada contém apenas políticas de auditoria. Para obter mais informações sobre as políticas do Centro de Segurança na Política Azure, consulte [Trabalhar com políticas de segurança.](tutorial-security-policy.md)
 
 ## <a name="strengthen-security-posture"></a>Reforçar a postura de segurança
 
@@ -68,21 +68,21 @@ O Centro de Segurança Azure permite-lhe reforçar a sua postura de segurança. 
 
 O Security Center ajuda-o a **identificar subscrições de TI shadow.** Ao olhar para as subscrições rotuladas **não abrangidas** pelo seu dashboard, pode saber imediatamente quando há subscrições recém-criadas e certificar-se de que estão cobertas pelas suas políticas e protegidas pelo Azure Security Center.
 
-:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Página de gestão de políticas":::
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Painel de política do Centro de Segurança":::
 
 ### <a name="continuous-assessments"></a>Avaliações contínuas
 
 O Security Center descobre continuamente novos recursos que estão a ser implementados através das suas cargas de trabalho e avalia se estão configurados de acordo com as melhores práticas de segurança, se não, estão sinalizados e obtém uma lista prioritária de recomendações para o que precisa de corrigir para proteger as suas máquinas.
 
-Para ajudá-lo a entender a importância de cada recomendação para a sua postura de segurança geral, o Security Center agrupe as recomendações em controlos de segurança e adiciona um valor **de pontuação seguro** a cada controlo. Isto é crucial para que você **priorize o seu trabalho de segurança** .
+Para ajudá-lo a entender a importância de cada recomendação para a sua postura de segurança geral, o Security Center agrupe as recomendações em controlos de segurança e adiciona um valor **de pontuação seguro** a cada controlo. Isto é crucial para que você **priorize o seu trabalho de segurança**.
 
-:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Página de gestão de políticas":::
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Pontuação segura do Centro de Segurança":::
 
 ### <a name="network-map"></a>Mapa de rede
 
 Uma das ferramentas mais poderosas que o Security Center fornece para monitorizar continuamente o estado de segurança da sua rede é o **mapa da Rede.** O mapa permite-lhe ver a topologia das suas cargas de trabalho, para que possa ver se cada nó está devidamente configurado. Pode ver como os seus nós estão ligados, o que o ajuda a bloquear ligações indesejadas que podem potencialmente facilitar o rastejar por um intruso ao longo da sua rede.
 
-:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Página de gestão de políticas":::
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mapa da rede do Centro de Segurança":::
 
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Otimizar e melhorar a segurança configurando os controlos recomendados
@@ -93,7 +93,7 @@ Desta forma, o Security Center permite-lhe não só definir políticas de segura
 
 As recomendações ajudam-no a reduzir a superfície de ataque em cada um dos seus recursos. Isto inclui máquinas virtuais Azure, servidores não-Azure e serviços Azure PaaS, como contas DE SQL e Armazenamento e muito mais - onde cada tipo de recurso é avaliado de forma diferente e tem os seus próprios padrões.
 
-:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Página de gestão de políticas":::
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Exemplo de recomendação do Centro de Segurança":::
 
 ## <a name="protect-against-threats"></a>Proteger contra ameaças
 
@@ -101,7 +101,7 @@ A proteção contra ameaças do Security Center permite-lhe detetar e prevenir a
 
 A proteção contra ameaças do Security Center inclui análises de cadeia de morte de fusão, que correlaciona automaticamente alertas no seu ambiente com base na análise da cadeia de morte cibernética, para ajudá-lo a entender melhor a história completa de uma campanha de ataque, onde começou e que tipo de impacto teve nos seus recursos.
 
-:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Página de gestão de políticas":::
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Alertas de segurança":::
 
 ### <a name="integration-with-microsoft-defender-for-endpoint"></a>Integração com o Microsoft Defender para Endpoint
 
@@ -133,10 +133,10 @@ O Security Center proporciona uma integração nativa perfeita com os recursos A
 
 Extensa recolha de registos - os registos do Windows e do Linux são todos alavancados no motor de análise de segurança e utilizados para criar recomendações e alertas.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar a utilizar o Centro de Segurança, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 
-- O nível de preços gratuitos do Security Center está ativado em todas as subscrições Azure atuais assim que visitar o dashboard do Centro de Segurança Azure no portal Azure pela primeira vez, ou se ativado programáticamente através da API. Para tirar partido das capacidades avançadas de gestão de segurança e deteção de ameaças, tem de fazer upgrade para o nível de preços padrão. O nível padrão pode ser experimentado gratuitamente durante 30 dias. Veja a [página de preços do Centro de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), para obter mais informações.
+- O nível de preços gratuitos do Security Center está ativado em todas as subscrições Azure atuais assim que visitar o dashboard do Centro de Segurança Azure no portal Azure pela primeira vez, ou se ativado programáticamente através da API. Para tirar partido das capacidades avançadas de gestão de segurança e deteção de ameaças, tem de ativar o Azure Defender. O Azure Defender pode ser julgado gratuitamente durante 30 dias. Veja a [página de preços do Centro de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), para obter mais informações.
 
-- Se está pronto para ativar o padrão do Security Center agora, o [Quickstart: A bordo da sua assinatura Azure para o Security Center Standard](security-center-get-started.md) leva-o através dos degraus.
+- Se está pronto para ativar o Azure Defender agora, [Quickstart: Configurar o Centro de Segurança Azure](security-center-get-started.md) leva-o pelos degraus.

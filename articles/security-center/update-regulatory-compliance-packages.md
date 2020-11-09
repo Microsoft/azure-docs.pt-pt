@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e7e1567a487dc6cadc94a42f02c597ff0e02665b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342200"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372766"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizar o conjunto de padrões no seu painel de conformidade regulamentar
 
@@ -41,7 +41,7 @@ A Microsoft também segue os próprios padrões regulamentares e melhora automat
 
 Pode adicionar padrões como NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official and UK NHS, Canada Federal PBMM, e Azure CIS 1.1.0 (novo) - uma representação mais completa do Azure CIS 1.1.0. 
 
-Além disso, pode adicionar **Azure Security Benchmark**, as diretrizes específicas da Microsoft para segurança e conformidade com base em quadros comuns de conformidade. (Saiba[mais sobre o Azure Security Benchmark](../security/benchmarks/introduction.md).)
+Além disso, pode adicionar **Azure Security Benchmark** , as diretrizes específicas da Microsoft para segurança e conformidade com base em quadros comuns de conformidade. (Saiba[mais sobre o Azure Security Benchmark](../security/benchmarks/introduction.md).)
 
 As normas adicionais serão suportadas no painel de instrumentos à medida que se tornarem disponíveis. 
 
@@ -55,7 +55,7 @@ Os seguintes passos explicam como adicionar um pacote para monitorizar o seu cum
 
 1. A partir da barra lateral do Security Center, **selecione conformidade regulamentar** para abrir o painel de conformidade regulamentar. Aqui pode ver os padrões de conformidade atualmente atribuídos às subscrições atualmente selecionadas.   
 
-1. A partir do topo da página, **selecione Gerir**as políticas de conformidade . Aparece a página de Gestão de Políticas.
+1. A partir do topo da página, **selecione Gerir** as políticas de conformidade . Aparece a página de Gestão de Políticas.
 
 1. Selecione o grupo de subscrição ou gestão para o qual pretende gerir a postura de conformidade regulamentar. 
 
@@ -68,6 +68,7 @@ Os seguintes passos explicam como adicionar um pacote para monitorizar o seu cum
 
     - **Referência de Segurança do Azure**
     - **NIST SP 800-53 R4**
+    - **NIST SP 800 171 R2**
     - **SWIFT CSP CSCF-v2020**
     - **UKO e UK NHS**
     - **Canadá PBMM**
@@ -105,7 +106,7 @@ Para remover uma norma:
 
 1. Para a norma que pretende remover, selecione **Desativar**. Aparece uma janela de confirmação.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Remoção de uma norma regulamentar do seu painel de conformidade regulamentar no Azure Security Center":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confirme que realmente quer remover o padrão regulamentar que selecionou":::
 
 1. Selecione **Sim**. O padrão será removido. 
 
