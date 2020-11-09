@@ -14,12 +14,12 @@ metadata:
   author: aahill
   ms.author: aahi
   ms.date: 11/06/2019
-  ms.openlocfilehash: b7f33420582340125e0c2abff80cce9a67fdcb7f
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 2cfd80e17db1dd611507609e0dff054d22311b42
+  ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "80886539"
+  ms.lasthandoff: 11/05/2020
+  ms.locfileid: "93377722"
 highlightedContent:
   items:
   - title: Comparar as APIs de Pesquisa do Bing
@@ -267,23 +267,23 @@ additionalContent:
     - title: SDK .NET
       links:
       - text: Pesquisa Web do Bing
-        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingwebsearchapi?view=azure-dotnet
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/bing-web-search-api-readme
       - text: Pesquisa Personalizada do Bing
-        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/bing-custom-search-readme
       - text: Pesquisa de Entidades do Bing
-        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingentitysearchapi?view=azure-dotnet
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/bing-entity-search-api-readme
       - text: Pesquisa de Imagens do Bing
-        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/bing-image-search-readme
       - text: Pesquisa do Bing Notícias
-        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingnewssearch?view=azure-dotnet
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/bing-news-search-readme
       - text: Pesquisa de Vídeos do Bing
-        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvideosearch?view=azure-dotnet
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/bing-video-search-readme
       - text: Pesquisa Visual do Bing
-        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/bing-visual-search-readme
       - text: Verificação Ortográfica do Bing
-        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingspellcheck?view=azure-dotnet
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/bing-spell-check-readme
       - text: Sugestão Automática do Bing
-        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
+        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/bing-autosuggest-readme
     - title: SDK Java
       links:
       - text: Pesquisa Web do Bing
@@ -307,19 +307,21 @@ additionalContent:
     - title: SDK Python
       links:
       - text: Pesquisa Web do Bing
-        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch?view=azure-python
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/bing-web-search-api-readme
       - text: Pesquisa Personalizada do Bing
-        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/bing-custom-search-readme
+      - text: Pesquisa Personalizada de Imagens do Bing
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/bing-custom-image-search-readme
       - text: Pesquisa de Entidades do Bing
-        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/entitysearch?view=azure-python
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/bing-entity-search-api-readme
       - text: Pesquisa de Imagens do Bing
-        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/imagesearch?view=azure-python
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/bing-image-search-readme
       - text: Pesquisa do Bing Notícias
-        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/bing-news-search-readme
       - text: Pesquisa de Vídeos do Bing
-        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/bing-video-search-readme
       - text: Pesquisa Visual do Bing
-        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python
+        url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/bing-visual-search-readme
       - text: Verificação Ortográfica do Bing
         url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/spellcheck?view=azure-python
     - title: SDK Node.js

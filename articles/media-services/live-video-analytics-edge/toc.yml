@@ -95,6 +95,8 @@
       href: use-azure-portal-to-invoke-direct-methods.md
     - name: Implementar no Azure Stack Edge
       href: deploy-azure-stack-edge-how-to.md
+    - name: Configurar uma porta de sinal
+      href: configure-signal-gate-how-to.md
     - name: Resolução de problemas
       href: troubleshoot-how-to.md
 - name: Referência

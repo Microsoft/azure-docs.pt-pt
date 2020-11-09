@@ -16,3 +16,5 @@
   href: redhat-rhui.md
 - name: Oferta de Imagens BYOS do Red Hat Enterprise Linux
   href: byos.md
+- name: Suporte de Ciclo de Vida Alargado do Red Hat Enterprise Linux
+  href: redhat-extended-lifecycle-support.md

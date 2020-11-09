@@ -266,8 +266,10 @@
               href: ../service-fabric/service-fabric-tutorial-deploy-api-management.md
 - name: Referência
   items:
+    - name: CLI do Azure
+      href: /cli/azure/apim
     - name: Azure PowerShell
-      href: /powershell/module/az.apimanagement/?view=azps-2.6.0
+      href: /powershell/module/az.apimanagement/
     - name: REST
       href: /rest/api/apimanagement/
     - name: REST (original)
@@ -277,6 +279,8 @@
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-reference.md
+    - name: Esquema do registo de recursos
+      href: gateway-log-schema-reference.md
 - name: Recursos
   items:
     - name: FAQ

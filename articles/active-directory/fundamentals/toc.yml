@@ -120,6 +120,8 @@
           href: customize-branding.md
         - name: Configurar "Manter a sessão iniciada?"
           href: keep-me-signed-in.md
+        - name: Como localizar o ID do inquilino
+          href: active-directory-how-to-find-tenant.md
         - name: Associar uma subscrição do Azure
           href: active-directory-how-subscriptions-associated-directory.md
         - name: Adicionar as suas informações de privacidade

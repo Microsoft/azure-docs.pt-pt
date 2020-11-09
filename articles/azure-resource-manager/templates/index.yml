@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: mumian
   ms.author: jgao
-  ms.date: 10/26/2020
-  ms.openlocfilehash: e69daf8f2756a165b000df271bffa73f8b14a979
-  ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+  ms.date: 11/06/2020
+  ms.openlocfilehash: ed7ab0ab016bdd3ff24a8d303bb29cd2a52741bf
+  ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/27/2020
-  ms.locfileid: "92747258"
+  ms.lasthandoff: 11/07/2020
+  ms.locfileid: "94358665"
 landingContent:
 - title: Acerca de modelos do ARM
   linkLists:
@@ -65,14 +65,8 @@ landingContent:
       url: deployment-manager-tutorial.md
   - linkListType: learn
     links:
-    - text: Infraestrutura consistente
-      url: /learn/modules/create-azure-resource-manager-template-vs-code/
-    - text: Vários ambientes
-      url: /learn/modules/modify-azure-resource-manager-template-reuse/
-    - text: Validar implementações
-      url: /learn/modules/arm-template-test/
-    - text: Implementar modelos
-      url: /learn/modules/deploy-templates-command-line-github-actions/
+    - text: Implementar com modelos do ARM
+      url: /learn/paths/deploy-manage-resource-manager-templates/
 - title: Desenvolver modelos
   linkLists:
   - linkListType: how-to-guide

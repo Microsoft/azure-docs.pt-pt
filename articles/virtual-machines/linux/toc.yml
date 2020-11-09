@@ -36,29 +36,31 @@
       href: tutorial-virtual-network.md
     - name: 9 - Fazer cópias de segurança de máquinas virtuais
       href: tutorial-backup-vms.md
-    - name: 10 - Gerir VMs
+    - name: 10 - Ativar recuperação após desastre
+      href: tutorial-disaster-recovery.md
+    - name: 11 - Gerir VMs
       href: tutorial-govern-resources.md
-    - name: 11 - Controlar e atualizar VMs
+    - name: 12 - Controlar e atualizar VMs
       href: tutorial-config-management.md
-    - name: 12 - Monitorizar VMs
+    - name: 13 - Monitorizar VMs
       href: tutorial-monitor.md
-    - name: 13 - Gerir a segurança das VMs
+    - name: 14 - Gerir a segurança das VMs
       href: tutorial-azure-security.md
-    - name: 14a - Compilar com o Jenkins
+    - name: 15a - Compilar com o Jenkins
       href: /azure/developer/jenkins/pipeline-with-github-and-docker
-    - name: 14b - Integrar o Jenkins com o Azure DevOps
+    - name: 15b - Integrar o Jenkins com o Azure DevOps
       href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-    - name: 15a - Configurar a estratégia de implementação Rolling
+    - name: 16a - Configurar a estratégia de implementação Rolling
       href: tutorial-devops-azure-pipelines-classic.md
-    - name: 15b - Configurar a estratégia de implementação Canary
+    - name: 16b - Configurar a estratégia de implementação Canary
       href: tutorial-azure-devops-canary-strategy.md
-    - name: 15c - Configurar a estratégia de implementação Blue-Green
+    - name: 16c - Configurar a estratégia de implementação Blue-Green
       href: tutorial-azure-devops-blue-green-strategy.md
-    - name: 15d - CI/CD com o Azure Pipelines (YAML)
+    - name: 16d - CI/CD com o Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
-    - name: 16 - Criar pilha LAMP
+    - name: 17 - Criar pilha LAMP
       href: tutorial-lamp-stack.md
-    - name: 17 - Proteger o servidor Web com SSL
+    - name: 18 - Proteger o servidor Web com SSL
       href: tutorial-secure-web-server.md
 - name: Amostras
   items:
@@ -285,7 +287,7 @@
         - name: Instâncias reservadas
           items:
             - name: Pré-pagamento de VMs
-              href: prepay-reserved-vm-instances.md
+              href: ../prepay-reserved-vm-instances.md
             - name: Pré-pagamento de Dedicated Hosts
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: O que são as reservas do Azure?

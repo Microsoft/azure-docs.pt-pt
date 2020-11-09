@@ -36,18 +36,20 @@
       href: tutorial-virtual-network.md
     - name: 9 - Fazer cópias de segurança de máquinas virtuais
       href: tutorial-backup-vms.md
-    - name: 10 - Gerir VMs
+    - name: 10 - Ativar recuperação após desastre
+      href: tutorial-disaster-recovery.md
+    - name: 11 - Gerir VMs
       displayName: scope policy RBAC lock tag
       href: tutorial-govern-resources.md
-    - name: 11 - Controlar e atualizar VMs
+    - name: 12 - Controlar e atualizar VMs
       href: tutorial-config-management.md
-    - name: 12 - Monitorizar VMs
+    - name: 13 - Monitorizar VMs
       href: tutorial-monitor.md
-    - name: 13 - Gerir a segurança das VMs
+    - name: 14 - Gerir a segurança das VMs
       href: tutorial-azure-security.md
-    - name: 14 - instalar uma pilha SQL\IIS\.NET
+    - name: 15 - Instalar uma pilha SQL\IIS\.NET
       href: tutorial-iis-sql.md
-    - name: 15 - Proteger o servidor web com SSL
+    - name: 16 - Proteger o servidor web com SSL
       href: tutorial-secure-web-server.md
 - name: Amostras
   items:
@@ -270,7 +272,7 @@
         - name: Instâncias reservadas
           items:
             - name: Pré-pagamento de VMs
-              href: prepay-reserved-vm-instances.md
+              href: ../prepay-reserved-vm-instances.md
             - name: Pré-pagamento de Dedicated Hosts
               href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
             - name: O que são as reservas do Azure?

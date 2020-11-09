@@ -109,6 +109,8 @@
           href: unresponsive-vm-apply-group-policy.md
         - name: A VM não responde ao aplicar a política de segurança
           href: unresponsive-vm-apply-security-policy.md
+        - name: A VM não responde ao aguardar pelo gestor de sessão local
+          href: vm-unresponsive-wait-local-session-manager.md
         - name: Erro do gestor de arranque do Windows - Estado Hash de Imagem Inválido
           href: windows-boot-error-invalid-image-hash.md
         - name: Erro de paragem do Windows - Informações de Configuração do Sistema Incorretas
@@ -117,6 +119,8 @@
           href: troubleshoot-windows-stop-error.md
         - name: Erro de paragem do Windows - Processo de Sistema Terminado
           href: windows-stop-error-system-process-terminated.md
+        - name: Erro de paragem do Windows - Exceção de thread de sistema não processada
+          href: windows-stop-error-system-thread-exception-not-handled.md
 - name: Não consigo ligar à minha VM
   items:
     - name: RDP
