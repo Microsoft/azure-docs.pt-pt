@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: c61c550e9a09d0f0708e8f1dbc63e76b329a8166
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 1a384eed542d0c09a973e0e68288f9fc1660cc96
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/09/2020
-ms.locfileid: "94375623"
+ms.locfileid: "94380911"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker limites e limites de base de conhecimento
 
@@ -96,17 +96,17 @@ Limites globais sobre o conteúdo na base de conhecimento:
 
 ## <a name="create-knowledge-base-call-limits"></a>Criar limites de chamada base de conhecimento:
 Estes representam os limites para cada um criar ação de base de conhecimento; isto é, clicar em *Criar KB* ou chamar a API createKnowledgeBase.
-* Número máximo de perguntas alternativas por resposta: 300
+* Número máximo recomendado de perguntas alternativas por resposta: 300
 * Número máximo de URLs: 10
 * Número máximo de ficheiros: 10
 
 ## <a name="update-knowledge-base-call-limits"></a>Atualizar limites de chamada de base de conhecimento
 Estes representam os limites para cada ação de atualização; isto é, clicar em *Guardar e treinar* ou ligar para a API updateKnowledgeBase.
 * Comprimento de cada nome de origem: 300
-* Número máximo de perguntas alternativas adicionadas ou eliminadas: 300
+* Número máximo recomendado de perguntas alternativas adicionadas ou eliminadas: 300
 * Número máximo de campos de metadados adicionados ou eliminados: 10
 * Número máximo de URLs que podem ser atualizados: 5
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba quando e como alterar os [níveis de preços do serviço](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku).

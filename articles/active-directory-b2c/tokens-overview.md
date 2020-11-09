@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d7a143f99eca73e0620e24ac5d93141ddb7d99e6
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a0ad14481673f0061fb0170e60869109c87a6829
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215965"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379791"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Visão geral dos tokens no Azure Ative Directory B2C
 
@@ -134,7 +134,7 @@ O documento de metadados para a `B2C_1_signupsignin1` apólice no `contoso.onmic
 https://contoso.b2clogin.com/contoso.onmicrosoft.com/b2c_1_signupsignin1/v2.0/.well-known/openid-configuration
 ```
 
-Para determinar que política foi usada para assinar um token (e para onde ir para solicitar os metadados), tem duas opções. Em primeiro lugar, o nome da apólice está incluído `acr` na reivindicação no token. Pode analisar as reclamações do corpo do JWT descodindo o corpo e deserizando a cadeia JSON que resulta. A `acr` alegação é o nome da política que foi usada para emitir o símbolo. A outra opção é codificar a política no valor do `state` parâmetro quando emite o pedido e, em seguida, descodificá-la para determinar que política foi utilizada. Qualquer um dos métodos é válido.
+Para determinar que política foi usada para assinar um token (e para onde ir para solicitar os metadados), tem duas opções. Em primeiro lugar, o nome da apólice está incluído no `tfp` (padrão) ou `acr` reivindicação (conforme configurado) no token. Pode analisar as reclamações do corpo do JWT descodindo o corpo e deserizando a cadeia JSON que resulta. O `tfp` ou `acr` reivindicação é o nome da política que foi usada para emitir o símbolo. A outra opção é codificar a política no valor do `state` parâmetro quando emite o pedido e, em seguida, descodificá-la para determinar que política foi utilizada. Qualquer um dos métodos é válido.
 
 Uma descrição de como realizar validação de assinaturas está fora do âmbito deste documento. Muitas bibliotecas de código aberto estão disponíveis para ajudá-lo a validar um token.
 
@@ -149,7 +149,7 @@ Quando as suas aplicações ou API recebem um token de ID, também deve efetuar 
 
 Para obter uma lista completa de validações que a sua aplicação deve realizar, consulte a [especificação OpenID Connect](https://openid.net).
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Saiba mais sobre como [usar fichas de acesso.](access-tokens.md)
 

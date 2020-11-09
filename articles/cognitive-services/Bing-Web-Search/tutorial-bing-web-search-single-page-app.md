@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 010b65a170d05fb0d2cc55e7519fd27df8b751e1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c47a4fbf51b14d9a13237f77c75dbf2839fb5f80
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095446"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381291"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa na Web do Bing
 
@@ -36,14 +36,14 @@ Esta aplicação de exemplo pode:
 > * Gerir chaves de subscrição
 > * Processar erros
 
-Para utilizar esta aplicação, é necessária uma [conta dos Serviços Cognitivos do Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) com APIs de Pesquisa do Bing.
+Para utilizar esta aplicação, é necessária uma [conta dos Serviços Cognitivos do Azure](../cognitive-services-apis-create-account.md) com APIs de Pesquisa do Bing.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Eis o que precisa para executar a aplicação:
 
 * Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso** .
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
 
 * Node.js 8 ou posterior
 
@@ -86,7 +86,7 @@ O `index.html` inclui um formulário que permite aos utilizadores procurar e sel
 
 ## <a name="query-options"></a>Opções de consulta
 
-O formulário HTML inclui opções que mapeiam aos parâmetros da consulta na [API de Pesquisa na Web do Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Esta tabela fornece detalhes sobre como os utilizadores podem filtrar os resultados de pesquisa através da aplicação de exemplo:
+O formulário HTML inclui opções que mapeiam aos parâmetros da consulta na [API de Pesquisa na Web do Bing v7](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters). Esta tabela fornece detalhes sobre como os utilizadores podem filtrar os resultados de pesquisa através da aplicação de exemplo:
 
 | Parâmetro | Descrição |
 |-----------|-------------|
@@ -99,7 +99,7 @@ O formulário HTML inclui opções que mapeiam aos parâmetros da consulta na [A
 | `offset` | Campo oculto. O desfasamento do primeiro resultado de pesquisa no pedido, que é utilizado para paginação. O valor é reposto para `0` em todos os novos pedidos. |
 
 > [!NOTE]
-> A API de Pesquisa na Web do Bing oferece parâmetros de consulta adicionais para ajudar a refinar os resultados da pesquisa. No entanto, este exemplo só utiliza alguns. Para ver uma lista completa dos parâmetros disponíveis, veja [Bing Web Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters) (Referência da API de Pesquisa na Web do Bing v7).
+> A API de Pesquisa na Web do Bing oferece parâmetros de consulta adicionais para ajudar a refinar os resultados da pesquisa. No entanto, este exemplo só utiliza alguns. Para ver uma lista completa dos parâmetros disponíveis, veja [Bing Web Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query-parameters) (Referência da API de Pesquisa na Web do Bing v7).
 
 A função `bingSearchOptions()` converte estas opções para corresponderem ao formato exigido pela API de Pesquisa do Bing.
 
@@ -303,7 +303,7 @@ Os erros são processados ao chamar a função `renderErrorMessage()`. Se a resp
 
 ## <a name="display-search-results"></a>Apresentar os resultados da pesquisa
 
-Existem [requisitos de utilização e apresentação](useanddisplayrequirements.md) dos resultados devolvidos pela API de Pesquisa na Web do Bing. Dado que uma resposta pode incluir vários tipos de resultados, não será suficiente efetuar uma iteração através da coleção `WebPages` de nível superior. Em alternativa, a aplicação de exemplo utilizará o objeto `RankingResponse` para ordenar os resultados a especificar.
+Existem [requisitos de utilização e apresentação](./use-display-requirements.md) dos resultados devolvidos pela API de Pesquisa na Web do Bing. Dado que uma resposta pode incluir vários tipos de resultados, não será suficiente efetuar uma iteração através da coleção `WebPages` de nível superior. Em alternativa, a aplicação de exemplo utilizará o objeto `RankingResponse` para ordenar os resultados a especificar.
 
 > [!NOTE]
 > Se quiser apenas um tipo de resultado, utilize o parâmetro de consulta `responseFilter` ou pondere utilizar um dos outros pontos finais de Pesquisa do Bing, como a Pesquisa de Imagens do Bing.
@@ -470,7 +470,7 @@ cors-proxy-server
 
 Deixe a janela de comando aberta enquanto utiliza a aplicação de exemplo. Se a janela for fechada, o proxy é interrompido. Na secção Cabeçalhos HTTP abaixo dos resultados da pesquisa, o cabeçalho `X-MSEdge-ClientID` deverá estar visível. Verifique que é o mesmo para todos os pedidos.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Referência da API de Pesquisa na Web do Bing v7](//docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

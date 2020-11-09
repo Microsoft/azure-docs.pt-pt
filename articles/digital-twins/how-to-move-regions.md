@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: cb532098cda290654d6bdebe9cec2edab8ccbf99
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 6393b0b8d794345fded95718a2581ae9b929ad49
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355792"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381155"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância Azure Digital Twins para uma região de Azure diferente
 
@@ -120,7 +120,7 @@ Em seguida, você completará o "movimento" do seu caso criando um novo caso na 
 
 ### <a name="create-a-new-instance"></a>Criar um novo exemplo
 
-Primeiro, crie uma nova instância de Azure Digital Twins na sua região alvo. Siga os passos na [Configuração de um caso e autenticação](how-to-set-up-instance-portal.md). Tenha estes ponteiros em mente:
+Primeiro, crie uma nova instância de Azure Digital Twins na sua região alvo. Siga os passos em [Como-a: Configurar uma instância e autenticação](how-to-set-up-instance-portal.md). Tenha estes ponteiros em mente:
 
 * Pode manter o mesmo nome para o novo caso *se* estiver num grupo de recursos diferente. Se precisar de utilizar o mesmo grupo de recursos que contém a sua instância original, a sua nova instância precisará do seu próprio nome distinto.
 * Entre na nova região alvo quando solicitado para um local.

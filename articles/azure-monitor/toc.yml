@@ -618,8 +618,6 @@
                 - name: Web Apps
                   displayname: java
                   href: app/java-get-started.md
-                - name: Aplicações Docker
-                  href: app/docker.md
                 - name: Rastreios de pedido
                   href: app/java-trace-logs.md
                 - name: Métricas do Unix
@@ -692,12 +690,14 @@
               href: app/kubernetes-codeless.md
             - name: Autónomo - qualquer ambiente
               items:
-                - name: Java (pré-visualização)
+                - name: Java
                   items:
                     - name: Descrição geral
                       href: app/java-in-process-agent.md
                     - name: Opções de configuração
                       href: app/java-standalone-config.md
+                    - name: Processadores de telemetria
+                      href: app/java-standalone-telemetry-processors.md
                     - name: Configuração de argumentos JVM
                       href: app/java-standalone-arguments.md
             - name: Servidores no local
@@ -1344,10 +1344,6 @@
           href: insights/azure-web-apps-analytics.md
         - name: Conector do Application Insights
           href: platform/app-insights-connector.md
-        - name: Application Insights para AKS sem código
-          href: app/kubernetes.md
-        - name: Monitorizar aplicações do Docker
-          href: app/docker.md
         - name: Descontinuação do portal do OMS
           href: platform/oms-portal-transition.md
         - name: Descontinuação das métricas de disco

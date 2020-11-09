@@ -4,22 +4,22 @@ description: Saiba como criar um cluster privado do Serviço Azure Kubernetes (A
 services: container-service
 ms.topic: article
 ms.date: 7/17/2020
-ms.openlocfilehash: 4ebc5e44f491b5ff5950a13771fe3d7179b6fc9f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5c45c01e34c4663657dbeee803fe0bb5cdae6a3c
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143095"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380577"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster"></a>Criar um cluster privado de serviçoS Azure Kubernetes
 
-Num cluster privado, o plano de controlo ou servidor API tem endereços IP internos que são definidos no documento [RFC1918 - Atribuição de Endereços para Internet Privada.](https://tools.ietf.org/html/rfc1918) Ao utilizar um cluster privado, pode garantir o tráfego de rede entre o seu servidor API e as suas piscinas de nó permanecem apenas na rede privada.
+Num cluster privado, o plano de controlo ou servidor API tem endereços IP internos que são definidos no [RFC1918 - Atribuição de endereços para](https://tools.ietf.org/html/rfc1918) documento de Internet Privada. Ao utilizar um cluster privado, pode garantir o tráfego de rede entre o seu servidor API e as suas piscinas de nó permanecem apenas na rede privada.
 
 O avião de controlo ou servidor API está numa subscrição Azure Kubernetes gerida pelo Azure. O cluster ou piscina de nó de um cliente está na assinatura do cliente. O servidor e o cluster ou piscina de nó podem comunicar entre si através do [serviço Azure Private Link][private-link-service] na rede virtual do servidor API e um ponto final privado que está exposto na sub-rede do cluster AKS do cliente.
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
-O cluster privado está disponível em regiões públicas onde [a AKS é apoiada.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
+O cluster privado está disponível em regiões públicas, governo Azure e regiões Azure China 21Vianet onde [a AKS é apoiada.](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service)
 
 > [!NOTE]
 > Os sites do Governo de Azure são apoiados, no entanto, o Gov Texas dos EUA não é atualmente apoiado por falta de apoio ao Private Link.
@@ -43,7 +43,7 @@ az group create -l westus -n MyResourceGroup
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
-Onde *o agrupamento de particulares* é uma bandeira obrigatória para um aglomerado privado. 
+Onde `--enable-private-cluster` está uma bandeira obrigatória para um aglomerado privado. 
 
 ### <a name="advanced-networking"></a>Rede avançada  
 
@@ -59,7 +59,7 @@ az aks create \
     --dns-service-ip 10.2.0.10 \
     --service-cidr 10.2.0.0/24 
 ```
-Onde *o agrupamento de particulares* é uma bandeira obrigatória para um aglomerado privado. 
+Onde `--enable-private-cluster` está uma bandeira obrigatória para um aglomerado privado. 
 
 > [!NOTE]
 > Se a ponte Docker se dirigir ao CIDR (172.17.0.1/16) se confrontar com o CIDR da sub-rede, altere o endereço da ponte Docker adequadamente.
@@ -83,7 +83,7 @@ Como mencionado, o olhar de rede virtual é uma forma de aceder ao seu cluster p
 3. No painel esquerdo, selecione a ligação **de rede Virtual.**  
 4. Crie um novo link para adicionar a rede virtual do VM à zona privada de DNS. Leva alguns minutos para que a ligação da zona DNS fique disponível.  
 5. No portal Azure, navegue para o grupo de recursos que contém a rede virtual do seu cluster.  
-6. No painel direito, selecione a rede virtual. O nome da rede virtual está na forma *aks-vnet- \* *.  
+6. No painel direito, selecione a rede virtual. O nome da rede virtual está na forma *aks-vnet- \**.  
 7. No painel esquerdo, **selecione Peerings**.  
 8. **Selecione Adicionar,** adicione a rede virtual do VM e, em seguida, crie o espremiamento.  
 9. Vá à rede virtual onde tem o VM, **selecione Peerings,** selecione a rede virtual AKS e, em seguida, crie o espremiamento. Se o endereço variar na rede virtual AKS e o choque de rede virtual do VM, o espreitamento falha. Para obter mais informações, consulte [a rede Virtual a espreitar.][virtual-network-peering]
@@ -96,7 +96,7 @@ Como mencionado, o olhar de rede virtual é uma forma de aceder ao seu cluster p
 
 1. Por padrão, quando um cluster privado é aprovisionado, um ponto final privado (1) e uma zona privada de DNS (2) são criados no grupo de recursos geridos pelo cluster. O cluster usa um registo A na zona privada para resolver o IP do ponto final privado para comunicação ao servidor API.
 
-2. A zona privada de DNS está ligada apenas ao VNet a que os nóns de cluster estão ligados (3). Isto significa que o ponto final privado só pode ser resolvido pelos anfitriões nesse VNet ligado. Em cenários em que nenhum DNS personalizado é configurado no VNet (padrão), este funciona sem problema como ponto de anfitrião em 168.63.129.16 para DNS que pode resolver registos na zona privada de DNS por causa da ligação.
+2. A zona privada de DNS está ligada apenas ao VNet a que os nóns de cluster estão ligados (3). Isto significa que o ponto final privado só pode ser resolvido pelos anfitriões nesse VNet ligado. Em cenários em que nenhum DNS personalizado é configurado no VNet (padrão), este funciona sem problema como ponto de anfitrião em 168.63.129.16 para DNS que pode resolver registos na zona privada de DNS por causa do link.
 
 3. Em cenários em que o VNet que contém o seu cluster tem configurações de DNS personalizadas (4), a implementação do cluster falha a menos que a zona privada de DNS esteja ligada ao VNet que contém os resolvers DNS personalizados (5). Esta ligação pode ser criada manualmente após a criação da zona privada durante o fornecimento de clusters ou através da automatização após a deteção da criação da zona utilizando mecanismos de implantação baseados em eventos (por exemplo, Azure Event Grid e Azure Functions).
 

@@ -2,15 +2,15 @@
 title: Ativar a gestão da atualização de automação Azure a partir da conta Demótica
 description: Este artigo diz como ativar a Gestão de Atualização a partir de uma conta Demôm automação.
 services: automation
-ms.date: 11/04/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 6f14516f36975d84256f9bb1bd3b4949dbf80448
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: b97e1e61401697204f79004e4678e6f2286f4a98
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348836"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380543"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Ativar a Gestão de Atualizações a partir de uma conta de Automatização
 
@@ -49,7 +49,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com).
 
 ## <a name="enable-non-azure-vms"></a>Ativar VMs não-Azure
 
-As máquinas que não estão no Azure precisam de ser adicionadas manualmente.
+Para máquinas ou servidores alojados fora do Azure, incluindo os registados com servidores ativados Azure Arc, execute os seguintes passos para os permitir com a Gestão de Atualização.  
 
 1. A partir da sua conta Demômes, selecione **A gestão de Atualização** sob **gestão de Atualização.**
 

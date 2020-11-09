@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: ecafc0c81a6614a914d8cad3d2c35fd04544b8f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c34cd8e399a005f5eadb3751fb0575f6ecfc27ed
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102025"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380883"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
@@ -57,7 +57,7 @@ Antes de criar uma ligação, tem de adicionar ITSMC.
 
 3. Na secção **espaço de trabalho OMS,** selecione o espaço de trabalho Azure Log Analytics onde pretende instalar o ITSMC.
    >[!NOTE]
-   > * Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, os espaços de trabalho da OMS são agora referidos como *espaços de trabalho Log Analytics* .
+   > * Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, os espaços de trabalho da OMS são agora referidos como *espaços de trabalho Log Analytics*.
    > * ITSMC só pode ser instalado em espaços de trabalho Log Analytics nas seguintes regiões: Leste dos EUA, West US 2, South Central US, West Central US, US Gov Arizona, US Gov Virginia, Canada Central, West Europe, South UK, Southeast Asia, Japan East, Central India, e Australia Southeast.
 
 
@@ -65,9 +65,9 @@ Antes de criar uma ligação, tem de adicionar ITSMC.
 
    ![Screenshot que mostra a secção do espaço de trabalho Log Analytics.](media/itsmc-overview/itsmc-solution-workspace.png)
    >[!NOTE]
-   >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, os espaços de trabalho da OMS são agora referidos como *espaços de trabalho Log Analytics* .
+   >Como parte da transição em curso do Microsoft Operations Management Suite (OMS) para o Azure Monitor, os espaços de trabalho da OMS são agora referidos como *espaços de trabalho Log Analytics*.
 
-5. Selecione **OK** .
+5. Selecione **OK**.
 
 Quando o recurso ITSMC é implantado, aparece uma notificação no canto superior direito da janela.
 
@@ -95,7 +95,7 @@ Depois de ter preparado as suas ferramentas ITSM, complete estes passos para cri
 
    ![Screenshot que mostra o item do menu ITSM Connections.](media/itsmc-overview/add-new-itsm-connection.png)
    Esta página apresenta a lista de ligações.
-1. Selecione **Adicionar Ligação** .
+1. Selecione **Adicionar Ligação**.
 
 4. Especifique as definições de ligação descritas na [configuração da ligação ITSMC com os seus produtos/serviços ITSM](./itsmc-connections.md).
 
@@ -111,7 +111,7 @@ Depois de ter preparado as suas ferramentas ITSM, complete estes passos para cri
 
 ## <a name="template-definitions"></a>Definições de modelo
    Existem tipos de artigos de trabalho que podem usar modelos que são definidos pela ferramenta ITSM.
-Ao utilizar modelos, pode definir campos que serão automaticamente povoados de acordo com valores fixos que são definidos como parte do grupo de ação. Define modelos na ferramenta ITSM.
+Ao utilizar modelos, pode definir campos que serão automaticamente povoados de acordo com valores fixos que são definidos como parte do grupo de ação. Define modelos na ferramenta ITSM. Pode definir em que modelo gostaria de usar como parte da definição do grupo de ação.
       
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Crie itens de trabalho ITSM a partir de alertas Azure
 
@@ -125,32 +125,34 @@ Os grupos de ação fornecem uma forma modular e reutilizável de desencadear a�
 
 Utilize o seguinte procedimento para criar artigos de trabalho:
 
-1. No portal Azure, selecione  **Alertas** .
+1. No portal Azure, selecione  **Alertas**.
 2. No menu no topo do ecrã, selecione **Gerir as ações** :
 
     ![Screenshot que mostra o item do menu de ações Manage.](media/itsmc-overview/action-groups-selection-big.png)
 
    Aparece a janela **do grupo de ação Create.**
 
-3. Selecione o grupo **de Subscrição** e **Recursos** onde pretende criar o seu grupo de ação. Forneça um **nome de grupo de ação** e nome de **exibição** para o seu grupo de ação. Selecione **Seguinte: Notificações** .
+3. Selecione o grupo **de Subscrição** e **Recursos** onde pretende criar o seu grupo de ação. Forneça um **nome de grupo de ação** e nome de **exibição** para o seu grupo de ação. Selecione **Seguinte: Notificações**.
 
     ![Screenshot que mostra a janela do grupo de ação Create.](media/itsmc-overview/action-groups-details.png)
 
-4. Na lista de notificações, selecione **Seguinte: Ações** .
+4. Na lista de notificações, selecione **Seguinte: Ações**.
 5. Na lista de ações, selecione **ITSM** na lista **de Tipo de Ação.** Forneça um **nome** para a ação. Selecione o botão de caneta que representa **Editar detalhes.**
 6. Na lista **de Subscrição,** selecione a subscrição na qual o seu espaço de trabalho Log Analytics está localizado. Na lista **'Ligação',** selecione o nome do conector ITSM. Será seguido pelo seu nome de espaço de trabalho. Por exemplo, MyITSMConnector (MyWorkspace).
 
 7. Selecione um tipo **de item de trabalho.**
 
-8. Se pretender preencher campos fora da caixa com valores fixos, selecione **Use Custom Template** . Caso contrário, escolha um [modelo](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente na lista **de modelos** e introduza os valores fixos nos campos de modelo.
+8. Se pretender preencher campos fora da caixa com valores fixos, selecione **Use Custom Template**. Caso contrário, escolha um [modelo](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) existente na lista **de modelos** e introduza os valores fixos nos campos de modelo.
 
 9. Se selecionar **Criar itens de trabalho individuais para cada Item de Configuração,** cada item de configuração terá o seu próprio item de trabalho. Haverá um item de trabalho por item de configuração. Será atualizado de acordo com os alertas que serão criados.
 
-   Se limpar os itens de trabalho individuais para cada caixa de **verificação de pontos de configuração,** cada alerta criará um novo item de trabalho. Pode haver mais de um alerta por item de configuração.
+   * Num caso que selecione no item de trabalho "Incidente" ou "Alerta": Se limpar os itens de trabalho individuais para cada caixa de **verificação de ponto de configuração,** cada alerta criará um novo item de trabalho. Pode haver mais de um alerta por item de configuração.
 
    ![Screenshot que mostra a janela do bilhete ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+   
+   * Num caso que selecione no ponto de trabalho "Evento": Se selecionar **Criar itens de trabalho individuais para cada Entrada** de Registo na seleção de botões de rádio, cada alerta criará um novo item de trabalho. Se selecionar **Criar itens de trabalho individuais para cada Item de Configuração** na seleção dos botões de rádio, cada item de configuração terá o seu próprio item de trabalho. 
 
-10. Selecione **OK** .
+10. Selecione **OK**.
 
 Quando criar ou editar uma regra de alerta Azure, utilize um grupo de ação, que tenha uma ação ITSM. Quando o alerta é acionada, o item de trabalho é criado ou atualizado na ferramenta ITSM.
 
@@ -247,7 +249,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de fim planeada
 - Data de início do trabalho
 - Data de fim do trabalho
-- Description
+- Descrição
 - Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída para um incidente do ServiceNow
@@ -294,7 +296,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de fim prevista |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de fim real|
-| Description_s | Description |
+| Description_s | Descrição |
 | Computador  | Item de configuração |
 
 
@@ -321,6 +323,6 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 Se tiver dúvidas ou feedback sobre o Conector de Gestão de Serviços de TI, contacte-nos em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com) .
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 [Adicione produtos/serviços ITSM ao Conector de Gestão de Serviços de TI](./itsmc-connections.md)
 

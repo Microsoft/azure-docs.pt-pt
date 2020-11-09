@@ -3,12 +3,12 @@ title: Permissões para repositórios no Registo de Contentores de Azure
 description: Criar um token com permissões apositórios específicos num registo Premium para puxar ou empurrar imagens, ou realizar outras ações
 ms.topic: article
 ms.date: 05/27/2020
-ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65b1bf69337cb172a17043490a5d13c7bd7afc2
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84509411"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381240"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Criar um símbolo com permissões de âmbito de repositório
 
@@ -32,7 +32,7 @@ Esta funcionalidade está disponível no nível de serviço de registo de conten
 
 ## <a name="concepts"></a>Conceitos
 
-Para configurar permissões de âmbito de repositório, cria-se um *símbolo* com um mapa de *âmbito*associado. 
+Para configurar permissões de âmbito de repositório, cria-se um *símbolo* com um mapa de *âmbito* associado. 
 
 * Um **token** juntamente com uma palavra-passe gerada permite ao utilizador autenticar com o registo. Pode definir uma data de validade para uma palavra-passe simbólica ou desativar um token a qualquer momento.  
 
@@ -150,16 +150,16 @@ Pode utilizar o portal Azure para criar fichas e mapas de âmbito. Tal como acon
 O exemplo a seguir cria um símbolo e cria um mapa de âmbito com as seguintes permissões no `samples/hello-world` repositório: `content/write` e `content/read` .
 
 1. No portal, navegue para o registo do seu contentor.
-1. Sob **permissões de Repositório**, selecione **Tokens (Preview) > +Add**.
+1. Sob **permissões de Repositório** , selecione **Tokens (Preview) > +Add**.
 
       :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="Criar ficha no portal":::
 1. Insira um nome simbólico.
-1. No **mapa scope**, selecione Criar **novo**.
+1. No **mapa scope** , selecione Criar **novo**.
 1. Configure o mapa de âmbito:
     1. Introduza um nome e descrição para o mapa de âmbito. 
     1. Sob **repositórios,** insira, `samples/hello-world` e sob **permissões,** selecione  `content/read` e `content/write` . Em seguida, selecione **+Adicionar**.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Criar ficha no portal":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Criar mapa de âmbito no portal":::
 
     1. Depois de adicionar repositórios e permissões, **selecione Adicionar** para adicionar o mapa de âmbito.
 1. Aceite o **estado** de token padrão de **Ativado** e, em seguida, selecione **Criar**.
@@ -172,11 +172,11 @@ Para utilizar um símbolo criado no portal, tem de gerar uma palavra-passe. Pode
 
 1. No portal, navegue para o registo do seu contentor.
 1. Sob **permissões de Repositório,** selecione **Tokens (Preview)** e selecione um token.
-1. Nos detalhes do token, selecione **palavra-passe1** ou **palavra-passe2**e selecione o ícone Gerar.
+1. Nos detalhes do token, selecione **palavra-passe1** ou **palavra-passe2** e selecione o ícone Gerar.
 1. No ecrã da palavra-passe, configurar opcionalmente uma data de validade para a palavra-passe e selecionar **Gerar**. É recomendado para definir uma data de validade.
 1. Depois de gerar uma palavra-passe, copie-a e guarde-a para um local seguro. Não é possível recuperar uma palavra-passe gerada depois de fechar o ecrã, mas pode gerar uma nova.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Criar ficha no portal":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Criar palavra-passe simbólica no portal":::
 
 ## <a name="authenticate-with-token"></a>Autenticar com ficha
 
@@ -204,7 +204,7 @@ Para os seguintes exemplos, puxe as `hello-world` imagens e `alpine` imagens do 
 docker pull hello-world
 docker pull alpine
 docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
+docker tag alpine myregistry.azurecr.io/samples/alpine:v1
 ```
 
 ### <a name="authenticate-using-token"></a>Autenticar usando token
@@ -397,7 +397,7 @@ az acr token update --name MyToken --registry myregistry \
   --scope-map MyNewScopeMap
 ```
 
-No portal, no ecrã **Tokens (pré-visualização),** selecione o token e no **mapa Scope**, selecione um mapa de âmbito diferente.
+No portal, no ecrã **Tokens (pré-visualização),** selecione o token e no **mapa Scope** , selecione um mapa de âmbito diferente.
 
 > [!TIP]
 > Depois de atualizar um token com um novo mapa de âmbito, poderá querer gerar novas senhas simbólicas. Utilize a [credencial az acr token gerar][az-acr-token-credential-generate] comando ou regenerar uma palavra-passe simbólica no portal Azure.
@@ -423,7 +423,7 @@ az acr token delete --name MyToken --registry myregistry
 
 No portal, selecione o token no ecrã **Tokens (Preview)** e selecione **Descartar**.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * Para gerir mapas de âmbito e fichas, utilize comandos adicionais nos grupos de comando [az acr e][az-acr-scope-map] [az acr token.][az-acr-token]
 * Consulte a [visão geral](container-registry-authentication.md) da autenticação para outras opções para autenticar com um registo de contentores Azure, incluindo a utilização de uma identidade do Diretório Ativo Azure, um principal serviço ou uma conta de administração.

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 52615a968ce831a9a5a487f7422ad13bc58ecf6d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9dfdbbd982503acc063ff88c74dfccde8677eaac
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426484"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380237"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Problemas de resolução de problemas Problemas de desempenho dos Ficheiros Azure
 
@@ -26,15 +26,11 @@ Os pedidos são acelerados quando o IOPS, ingresss ou limites de saída para uma
 
 Para confirmar se a sua parte está a ser acelerada, pode aproveitar a Azure Metrics no portal.
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. No portal Azure, vá à sua conta de armazenamento.
 
-1. Selecione **Todos os serviços** e, em seguida, procure **por Métricas**.
+1. No menu esquerdo, em **Monitorização,** selecione **Métricas**.
 
-1. Selecione **Métricas**.
-
-1. Selecione a sua conta de armazenamento como o recurso.
-
-1. Selecione **File** como o espaço de nome métrico.
+1. Selecione **File** como o espaço de nome métrico para o seu âmbito de conta de armazenamento.
 
 1. Selecione **Transações** como métrica.
 
@@ -103,7 +99,7 @@ Esta é uma questão conhecida com a implementação do cliente SMB no Linux.
 
 - Espalhe a carga por vários VMs.
 - No mesmo VM, utilize vários pontos de montagem com opção **nosharesock** e espalhe a carga por estes pontos de montagem.
-- Em Linux, tente montar com a opção **nostrictsync** para evitar forçar o SMB a descarregar em cada chamada **fsync.** Para os Ficheiros Azure, esta opção não interfere com a consistência dos dados, mas pode resultar em metadados de ficheiros em atraso na listagem de diretórios (comando**l -l).** Consulta direta de metadados de ficheiro (comando**stat)** retornará os metadados de ficheiro mais atualizados.
+- Em Linux, tente montar com a opção **nostrictsync** para evitar forçar o SMB a descarregar em cada chamada **fsync.** Para os Ficheiros Azure, esta opção não interfere com a consistência dos dados, mas pode resultar em metadados de ficheiros em atraso na listagem de diretórios (comando **l -l).** Consulta direta de metadados de ficheiro (comando **stat)** retornará os metadados de ficheiro mais atualizados.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Altas latências para metadados pesados cargas de trabalho envolvendo extensas operações abertas/próximas.
 
@@ -114,7 +110,7 @@ Falta de apoio para arrendamentos de diretórios.
 ### <a name="workaround"></a>Solução
 
 - Se possível, evite uma abertura/manípulo de fecho excessivo no mesmo diretório num curto espaço de tempo.
-- Para os VMs Linux, aumente o tempo limite de cache de entrada de diretório especificando **actimeo= \<sec> ** como uma opção de montagem. Por padrão, é um segundo, então um valor maior como três ou cinco pode ajudar.
+- Para os VMs Linux, aumente o tempo limite de cache de entrada de diretório especificando **actimeo= \<sec>** como uma opção de montagem. Por padrão, é um segundo, então um valor maior como três ou cinco pode ajudar.
 - Para os VMs Linux, atualize o núcleo para 4,20 ou mais.
 
 ## <a name="low-iops-on-centosrhel"></a>IOPS baixos no CentOS/RHEL
@@ -183,19 +179,19 @@ Maior do que o esperado, a latência acede aos Ficheiros Azure para cargas de tr
 6. Na lâmina lógica de **sinal configurar,** clique no **nome Dimension** drop-down e selecione o tipo **de resposta**.
 7. Clique nos valores de **dimensionamento** e selecione **SuccessWithThrottling** (para SMB) ou **ClientThrottlingError** (para REST).
 
-  > [!NOTE]
-  > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isto significa que o recurso não foi estrangulado. Para adicionar o valor de dimensão, clique em **Adicionar valor personalizado** ao lado dos **valores** de Dimension para baixo, **digite SuccessWithThrottling** ou **ClientThrottlingError,** clique em **OK** e repita o passo #7.
+   > [!NOTE]
+   > Se o valor da dimensão SuccessWithThrottling ou ClientThrottlingError não estiver listado, isto significa que o recurso não foi estrangulado. Para adicionar o valor de dimensão, clique em **Adicionar valor personalizado** ao lado dos **valores** de Dimension para baixo, **digite SuccessWithThrottling** ou **ClientThrottlingError,** clique em **OK** e repita o passo #7.
 
 8. Clique no **drop-down** do nome Dimension e selecione A partilha **de ficheiros**.
 9. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
 
-  > [!NOTE]
-  > Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. Os valores de dimensão não listam as ações de ficheiros porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
+   > [!NOTE]
+   > Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. Os valores de dimensão não listam as ações de ficheiros porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
 
 10. Defina os **parâmetros** de alerta (valor limiar, operador, granularidade de agregação e frequência de avaliação) e clique em **Fazer**.
 
-  > [!TIP]
-  > Se estiver a utilizar um limiar estático, o gráfico métrico pode ajudar a determinar um valor limiar razoável se a parte do ficheiro estiver atualmente a ser estrangulada. Se estiver a utilizar um limiar dinâmico, o gráfico métrico apresentará os limiares calculados com base em dados recentes.
+    > [!TIP]
+    > Se estiver a utilizar um limiar estático, o gráfico métrico pode ajudar a determinar um valor limiar razoável se a parte do ficheiro estiver atualmente a ser estrangulada. Se estiver a utilizar um limiar dinâmico, o gráfico métrico apresentará os limiares calculados com base em dados recentes.
 
 11. Clique **em Selecionar grupo de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 12. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
@@ -211,29 +207,29 @@ Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a 
 4. Clique **em Selecionar Condição** para adicionar uma condição.
 5. Verá uma lista de sinais suportados para a conta de armazenamento, selecione a métrica **Egress.**
 
-  > [!NOTE]
-  > Tem de criar 3 alertas separados para ser alertado quando Ingress, Egress ou Transações excedem o limiar que definiu. Isto porque um alerta só é disparado quando todas as condições estão reunidas. Por isso, se colocar todas as condições num só alerta, só será alertado se Ingress, Egress e Transações excederem os seus valores-limite.
+   > [!NOTE]
+   > Tem de criar 3 alertas separados para ser alertado quando Ingress, Egress ou Transações excedem o limiar que definiu. Isto porque um alerta só é disparado quando todas as condições estão reunidas. Por isso, se colocar todas as condições num só alerta, só será alertado se Ingress, Egress e Transações excederem os seus valores-limite.
 
 6. Rola para baixo. Clique no **drop-down** do nome Dimension e selecione A partilha **de ficheiros**.
 7. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
 8. Defina os **parâmetros** de alerta (valor limiar, operador, granularidade de agregação e frequência de avaliação) e clique em **Fazer**.
 
-  > [!NOTE]
-  > As métricas de Egress, Ingress e Transactions são por minuto, embora sejam saídas, entradas e IOPS por segundo. (falar de granularidade agregação -> por minuto = mais barulhento por isso escolha um difuso) Por isso, por exemplo, se a sua saída a provisionada forctária for de 90 MiB/segundo e pretender que o seu limiar seja de 80% da saída a provisionada, deve selecionar os seguintes parâmetros de alerta: 75497472 para **o valor limiar,** superior ou igual ao **operador**, e uma média para o tipo **de agregação**. Dependendo do quão barulhento quer que o seu alerta seja, pode escolher quais os valores a selecionar para a granularidade agregação e frequência de avaliação. Por exemplo, se eu quiser que o meu alerta olhe para a entrada média durante o período de uma hora e eu quero que a minha regra de alerta seja executada a cada hora, eu escolheria 1 hora para **a granularidade agregação** e 1 hora para **a frequência de avaliação.**
+   > [!NOTE]
+   > As métricas de Egress, Ingress e Transactions são por minuto, embora sejam saídas, entradas e IOPS por segundo. (falar de granularidade agregação -> por minuto = mais barulhento por isso escolha um difuso) Por isso, por exemplo, se a sua saída a provisionada forctária for de 90 MiB/segundo e pretender que o seu limiar seja de 80% da saída a provisionada, deve selecionar os seguintes parâmetros de alerta: 75497472 para **o valor limiar,** superior ou igual ao **operador** , e uma média para o tipo **de agregação**. Dependendo do quão barulhento quer que o seu alerta seja, pode escolher quais os valores a selecionar para a granularidade agregação e frequência de avaliação. Por exemplo, se eu quiser que o meu alerta olhe para a entrada média durante o período de uma hora e eu quero que a minha regra de alerta seja executada a cada hora, eu escolheria 1 hora para **a granularidade agregação** e 1 hora para **a frequência de avaliação.**
 
 9. Clique **em Selecionar grupo de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 10. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
 11. Clique **em Criar regra de alerta** para criar o alerta.
 
-  > [!NOTE]
-  > Para ser notificado se a sua parte de ficheiro premium estiver perto de ser estrangulada devido a uma entrada prevista, siga os mesmos passos, exceto no passo 5, selecione a métrica **Ingress.**
+    > [!NOTE]
+    > Para ser notificado se a sua parte de ficheiro premium estiver perto de ser estrangulada devido a uma entrada prevista, siga os mesmos passos, exceto no passo 5, selecione a métrica **Ingress.**
 
-  > [!NOTE]
-  > Para ser notificado se a sua parte de ficheiro premium estiver perto de ser estrangulada devido ao IOPS provisionado, terá de efetos algumas alterações. No passo 5, selecione a métrica **de Transações.** Além disso, para o passo 10, a única opção para o **tipo de agregação** é total. Portanto, o valor limiar dependeria da granularidade de agregação selecionada. Por exemplo, se quisesse que o seu limiar fosse de 80% do IOPS de base a provisionado e selecionasse 1 hora para **a granularidade agregação,** o seu **valor-limiar** seria o seu IOPS de base (in bytes) x 0,8 x 3600. Além destas alterações, siga os mesmos passos acima indicados. 
+    > [!NOTE]
+    > Para ser notificado se a sua parte de ficheiro premium estiver perto de ser estrangulada devido ao IOPS provisionado, terá de efetos algumas alterações. No passo 5, selecione a métrica **de Transações.** Além disso, para o passo 10, a única opção para o **tipo de agregação** é total. Portanto, o valor limiar dependeria da granularidade de agregação selecionada. Por exemplo, se quisesse que o seu limiar fosse de 80% do IOPS de base a provisionado e selecionasse 1 hora para **a granularidade agregação,** o seu **valor-limiar** seria o seu IOPS de base (in bytes) x 0,8 x 3600. Além destas alterações, siga os mesmos passos acima indicados. 
 
 Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
-## <a name="see-also"></a>Ver também
+## <a name="see-also"></a>Veja também
 * [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure](storage-files-faq.md)

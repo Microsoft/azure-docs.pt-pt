@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 95e80907220a58243844b80d81dc187f8dc4c8bc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39848bcaded1669c6a6efd5b649ecf8e8343a596
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078701"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381121"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Upgrade de Bing Web Search API v5 para v7
 
@@ -44,7 +44,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 - Substituiu os códigos de erro v5 pelos seguintes `code` valores e `subCode` valores possíveis.
 
-|Código|SubCódes|Description
+|Código|SubCódes|Descrição
 |-|-|-
 |ServerError|InesperadoError<br/>Recurso<br/>Não ÉDopliizado|Bing devolve ServerError sempre que ocorrer qualquer uma das condições de subcodições. A resposta incluirá estes erros se o código de estado HTTP for 500.
 |InáduloRequest|ParâmetroSMissing<br/>ParâmetroInvalvalue<br/>HttpNotAllowed<br/>Bloqueado|Bing devolve InvalidRequest sempre que qualquer parte do pedido não seja válida. Por exemplo, falta um parâmetro necessário ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro for httpNotAllowed, o código de estado HTTP 410.
@@ -80,14 +80,14 @@ Bloqueado|InvalidRequest.Bloqueado
 
 ### <a name="headers"></a>Cabeçalhos
 
-- Acrescentou o cabeçalho de pedido [de Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) opcional. Por predefinição, o Bing devolve conteúdo em cache, se disponível. Para impedir que o Bing devolva conteúdo em cache, defina o cabeçalho Pragma como no-cache (por exemplo, Pragma: no-cache).
+- Acrescentou o cabeçalho de pedido [de Pragma](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma) opcional. Por predefinição, o Bing devolve conteúdo em cache, se disponível. Para impedir que o Bing devolva conteúdo em cache, defina o cabeçalho Pragma como no-cache (por exemplo, Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-- Adicionei o parâmetro de consulta [answerCount.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) Utilize este parâmetro para especificar o número de respostas que pretende que a resposta inclua. As respostas são escolhidas com base no ranking. Por exemplo, se definir este parâmetro para três (3), a resposta inclui as três melhores respostas classificadas.  
+- Adicionei o parâmetro de consulta [answerCount.](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount) Utilize este parâmetro para especificar o número de respostas que pretende que a resposta inclua. As respostas são escolhidas com base no ranking. Por exemplo, se definir este parâmetro para três (3), a resposta inclui as três melhores respostas classificadas.  
 
-- Acrescentou o parâmetro de consulta [de promoção.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) Utilize este parâmetro juntamente com `answerCount` para incluir explicitamente um ou mais tipos de resposta, independentemente do seu ranking. Por exemplo, para promover vídeos e imagens na resposta, definiria promover *para vídeos, imagens* . A lista de respostas que pretende promover não conta contra o `answerCount` limite. Por exemplo, se `answerCount` for 2 e `promote` estiver definido para *vídeos, imagens,* a resposta pode incluir páginas web, notícias, vídeos e imagens.
+- Acrescentou o parâmetro de consulta [de promoção.](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote) Utilize este parâmetro juntamente com `answerCount` para incluir explicitamente um ou mais tipos de resposta, independentemente do seu ranking. Por exemplo, para promover vídeos e imagens na resposta, definiria promover *para vídeos, imagens*. A lista de respostas que pretende promover não conta contra o `answerCount` limite. Por exemplo, se `answerCount` for 2 e `promote` estiver definido para *vídeos, imagens,* a resposta pode incluir páginas web, notícias, vídeos e imagens.
 
 ### <a name="object-changes"></a>Alterações de objetos
 
-- Adicionei o `someResultsRemoved` campo ao objeto [WebAnswer.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) O campo contém um valor Boolean que indica se a resposta excluiu alguns resultados da resposta web.  
+- Adicionei o `someResultsRemoved` campo ao objeto [WebAnswer.](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer) O campo contém um valor Boolean que indica se a resposta excluiu alguns resultados da resposta web.

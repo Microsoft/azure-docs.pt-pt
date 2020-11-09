@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 1031f35112607fa137735077d553508c83a27e4e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 09b76e4b067841f77818375c62f27b2696b60404
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100512"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380849"
 ---
 # <a name="throttling-requests-to-the-bing-web-search-api"></a>Pedidos de estrangulamento à API de Pesquisa Web de Bing
 
@@ -27,6 +27,6 @@ ms.locfileid: "93100512"
 
 [!INCLUDE [cognitive-services-bing-throttling-requests](../../../includes/cognitive-services-bing-throttling-requests.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
-* [Bing Web Search API referência](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Bing Web Search API referência](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 68cde1be5f1a1cb0e8757f3143cac9363c6d9ddd
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 5759cd80278d20ee383fbe5922e43d250babe09f
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376045"
+ms.locfileid: "94380679"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Crie, treine e publique a sua base de conhecimentos QnA Maker
 
@@ -117,7 +117,7 @@ No canto superior direito, **selecione Save and train** para guardar as suas edi
 
 ## <a name="test-the-knowledge-base"></a>Testar a base de conhecimento
 
-# <a name="qnamaker-v1"></a>[QnAMaker V1](#tab/v1)
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
 
 1. No portal QnA Maker, no canto superior direito, selecione **Teste** para testar que as alterações que fez fizeram fizeram efeito.
 2. Introduza um exemplo de consulta do utilizador na caixa de texto.
@@ -130,7 +130,7 @@ No canto superior direito, **selecione Save and train** para guardar as suas edi
 
 4. Selecione **testar** novamente para fechar o painel **de teste.**
 
-# <a name="qnamaker-v2-preview"></a>[QnAMaker V2 (Pré-visualização)](#tab/v2)
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
 
 1. No portal QnA Maker, no canto superior direito, selecione **Teste** para testar que as alterações que fez fizeram fizeram efeito.
 2. Introduza um exemplo de consulta do utilizador na caixa de texto.
@@ -205,7 +205,7 @@ Tudo isto foi feito em poucos minutos sem ter que escrever nenhum código ou lim
 
 Se não continuar para o próximo quickstart, elimine os recursos-quadro do QnA Maker e bot no portal Azure.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Adicionar perguntas com metadados](add-question-metadata-portal.md)

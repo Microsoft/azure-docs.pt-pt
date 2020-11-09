@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.openlocfilehash: 6bcfb9057739277c1f57b5ebd98b99877f759e9b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8362f5b4d3436e83cbd033fcc3cd088d52122b58
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094103"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379859"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-php"></a>Quickstart: Procure vídeos utilizando a API e PHP de pesquisa de vídeo Bing
 
@@ -36,7 +36,7 @@ Embora esta aplicação esteja escrita em PHP, a API é um serviço Web RESTful 
 
 ## <a name="running-the-application"></a>Executar a aplicação
 
-A [API da Pesquisa de Vídeos do Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devolve resultados de vídeo a partir do motor de busca do Bing.
+A [API da Pesquisa de Vídeos do Bing](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) devolve resultados de vídeo a partir do motor de busca do Bing.
 
 1. Ativar o suporte HTTP seguro no seu `php.ini` ficheiro desacomprometindo a `;extension=php_openssl.dll` linha, conforme descrito no código seguinte.
 2. Crie um novo projeto PHP no seu IDE ou editor preferido.
@@ -214,11 +214,11 @@ echo json_encode(json_decode($json), JSON_PRETTY_PRINT);
 }
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Criar uma aplicação web de página única](../tutorial-bing-video-search-single-page-app.md)
 
-## <a name="see-also"></a>Ver também 
+## <a name="see-also"></a>Veja também 
 
  [O que é a API de Pesquisa de Vídeos do Bing?](../overview.md)

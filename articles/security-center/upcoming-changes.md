@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2020
+ms.date: 11/09/2020
 ms.author: memildin
-ms.openlocfilehash: 99ede5650cb3250720a75adc6626e08dd0da9897
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: df863372cbf7abfb6fee145b7d13bb00d8deb074
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358291"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380170"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -31,7 +31,48 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 ## <a name="planned-changes"></a>Alterações planeadas
 
-Nada para partilhar neste momento. 
+### <a name="system-updates-should-be-installed-on-your-machines-recommendation-getting-sub-recommendations"></a>Recomendações "Atualizações do sistema devem ser instaladas nas suas máquinas" recebendo sub-recomendações
+
+#### <a name="summary"></a>Resumo
+
+| Aspeto | Detalhes |
+|---------|---------|
+|Data do anúncio | 9 de novembro de 2020  |
+|Data para esta alteração  |  Meados de novembro de 2020 |
+|Impacto     | Durante a transição da versão atual desta recomendação para a sua substituição, a sua pontuação segura pode mudar. |
+|  |  |
+
+Estamos a lançar uma versão melhorada das atualizações do Sistema que deve ser instalada na recomendação **das suas máquinas.** A nova versão *substituirá* a versão atual no controlo de segurança das atualizações do sistema aplicada e traz as seguintes melhorias:
+
+- Sub-recomendações para cada atualização em falta
+- Uma experiência redesenhada nas páginas do Centro de Segurança Azure do portal Azure
+- Dados enriquecidos para a recomendação do Azure Resource Graph
+
+#### <a name="transition-period"></a>Período de transição
+
+Haverá um período de transição de 36 horas (aproximadamente). Para minimizar qualquer potencial perturbação, agendámos a atualização para um fim de semana. Durante a transição, as suas pontuações de segurança podem ser afetadas.
+
+#### <a name="redesigned-portal-experience"></a>Experiência de portal redesenhada
+
+A página de detalhes da recomendação para **atualizações do Sistema deve ser instalada nas suas máquinas** inclui a lista de resultados, tal como mostrado abaixo. Ao selecionar uma única descoberta, o painel de detalhes abre-se com um link para a informação de remediação e uma lista de recursos afetados.
+
+:::image type="content" source="./media/upcoming-changes/system-updates-should-be-installed-subassessment.png" alt-text="Abertura de uma das sub-recomendações na experiência do portal para a recomendação atualizada":::
+
+
+#### <a name="richer-data-from-azure-resource-graph"></a>Dados mais ricos do Azure Resource Graph
+
+Azure Resource Graph é um serviço em Azure que é projetado para fornecer uma exploração eficiente de recursos. Você pode usar ARG para consultar em escala através de um determinado conjunto de subscrições para que você possa efetivamente governar o seu ambiente. 
+
+Para o Azure Security Center, pode utilizar o ARG e a [Língua De Consulta de Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/) para consultar uma ampla gama de dados de postura de segurança.
+
+Se consultar a versão atual das atualizações do **Sistema deve ser instalada nas suas máquinas** , a única informação disponível na ARG é que a recomendação precisa de ser remediada numa máquina. Quando a versão atualizada for lançada, a seguinte consulta irá retornar cada atualização do sistema em falta agrupadas por máquina.
+
+```kusto
+securityresources
+| where type =~ "microsoft.security/assessments/subassessments"
+| where extract(@"(?i)providers/Microsoft.Security/assessments/([^/]*)", 1, id) == "4ab6e3c5-74dd-8b35-9ab9-f61b30875b27"
+| where properties.status.code == "Unhealthy"
+```
 
 ## <a name="next-steps"></a>Próximos passos
 

@@ -2,14 +2,14 @@
 title: Opções de configuração - Azure Monitor Application Insights Java
 description: Opções de configuração para Azure Monitor Application Insights Java
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 7165afd77e3f60af5e00b92c1063247325897f9f
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331911"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381036"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opções de configuração para Azure Monitor Application Insights Java
 
@@ -48,7 +48,7 @@ Se especificar um caminho relativo, será resolvido em relação ao diretório o
 
 ## <a name="connection-string"></a>Cadeia de ligação
 
-Isto é necessário. Pode encontrar a sua cadeia de ligação no seu recurso Application Insights:
+É necessária uma ligação de ligação. Pode encontrar a sua cadeia de ligação no seu recurso Application Insights:
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Cadeia de conexão de insights de aplicação":::
 
@@ -169,18 +169,18 @@ Se quiser adicionar dimensões personalizadas a toda a sua telemetria:
 
 ## <a name="telemetry-processors-preview"></a>Processadores de telemetria (pré-visualização)
 
-Esta é uma funcionalidade em pré-visualização.
+Esta funcionalidade está em pré-visualização.
 
-Permite-lhe configurar regras que serão aplicadas ao pedido, dependência e telemetria de traços, por exemplo.
+Permite-lhe configurar regras que serão aplicadas ao pedido, dependência e telemetria de traços, por exemplo:
  * Mascarar dados sensíveis
  * Adicionar dimensões personalizadas condicionalmente
  * Atualizar o nome da telemetria utilizado para agregação e exibição
 
 Para mais informações, consulte a documentação do [processador de telemetria.](./java-standalone-telemetry-processors.md)
 
-## <a name="auto-collected-logging"></a>Registos auto-recolhidos
+## <a name="autocollected-logging"></a>Registo automático
 
-Log4j, Logback e java.util.logging são instrumentados automaticamente, e o registo realizado através destas estruturas de registo é recolhido automaticamente.
+Log4j, Logback e java.util.logging são instrumentados automaticamente, e o registo realizado através destas estruturas de registo é automaticamente recolhido.
 
 Por predefinição, a exploração madeireira só é recolhida quando essa exploração é realizada ao `INFO` nível ou acima.
 
@@ -213,13 +213,16 @@ Estes são os `level` valores válidos que pode especificar no `applicationinsig
 | TRACE (ou FINEST) | VESTÍGIOS  | VESTÍGIOS   | O MELHOR  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Métricas de micrometros auto-recolhidas (incluindo métricas do actuador de bota de mola)
+## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Métricas de micrometros autocolecidos (incluindo métricas de actuador de bota de mola)
 
-Se a sua aplicação utilizar [o Micrometro,](https://micrometer.io)as métricas enviadas para o registo global do Micrometro são recolhidas automaticamente.
+Se a sua aplicação utilizar [o Micrometro,](https://micrometer.io)as métricas enviadas para o registo global do Micrometro são automaticamente recolhidas.
 
-Além disso, se a sua aplicação utilizar [o Actuador de Bota de Mola,](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)as métricas configuradas pelo Actuador de Bota de Mola também são recolhidas automaticamente.
+Além disso, se a sua aplicação utilizar [o Actuador de Bota de Mola,](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)as métricas configuradas pelo Actuador de Bota de Mola também são automaticamente recolhidas.
 
-Para desativar a recolha automática de métricas do Micrometro (incluindo métricas do Actuador de Arranque de Mola):
+Para desativar a autocolecção das métricas do Micrometro (incluindo as métricas do Actuador de Arranque de Mola):
+
+> [!NOTE]
+> As métricas personalizadas são faturadas separadamente e podem gerar custos adicionais. Certifique-se de verificar as [informações detalhadas sobre os preços](https://azure.microsoft.com/pricing/details/monitor/). Para desativar as métricas do Micrometro e do Actuador de Mola, adicione a configuração abaixo ao seu ficheiro config.
 
 ```json
 {
@@ -244,7 +247,7 @@ Por predefinição, a Application Insights Java 3.0 envia uma métrica de batime
 ```
 
 > [!NOTE]
-> Não é possível diminuir a frequência deste batimento cardíaco, uma vez que os dados do batimento cardíaco também são utilizados para rastrear o uso de Insights de Aplicação.
+> Não é possível diminuir a frequência do batimento cardíaco, uma vez que os dados do batimento cardíaco também são utilizados para rastrear o uso de Insights de Aplicação.
 
 ## <a name="http-proxy"></a>HTTP Proxy
 
@@ -279,7 +282,7 @@ Se a sua aplicação estiver por detrás de uma firewall e não puder ligar-se d
 
 "Autodiagnóstro" refere-se à sessão interna de Insights java 3.0.
 
-Isto pode ser útil para detetar e diagnosticar problemas com a própria Application Insights.
+Esta funcionalidade pode ser útil para detetar e diagnosticar problemas com a própria Application Insights.
 
 Por predefinição, os registos De Aplicação Java 3.0 estão ao nível `INFO` do ficheiro e da `applicationinsights.log` consola, correspondentes a esta configuração:
 

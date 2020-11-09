@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções Azure usando C#.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 19edfaf7998632ed1ebb48ff4ad36468669732ae
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 51a7ffe72f8597fbaa11eae12585ebde8bb83153
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167751"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380968"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referência do programador Azure Functions C#
 
@@ -139,7 +139,7 @@ O processo de construção cria uma *function.jsno* ficheiro numa pasta de funç
 
 O objetivo deste ficheiro é fornecer informações ao controlador de escala para utilizar para [as decisões de escalonamento do plano de consumo.](functions-scale.md#how-the-consumption-and-premium-plans-work) Por esta razão, o ficheiro tem apenas informações de gatilho, não entradas ou encadernações de saída.
 
-O *function.js* gerado no ficheiro inclui uma `configurationSource` propriedade que diz ao tempo de execução para usar atributos .NET para encadernações, em vez * defunction.jsna* configuração. Eis um exemplo:
+O *function.js* gerado no ficheiro inclui uma `configurationSource` propriedade que diz ao tempo de execução para usar atributos .NET para encadernações, em vez *defunction.jsna* configuração. Eis um exemplo:
 
 ```json
 {
@@ -313,7 +313,7 @@ public static class CancellationTokenExample
 
 ## <a name="logging"></a>Registo
 
-No seu código de função, pode escrever saídas para registos que aparecem como vestígios em Insights de Aplicação. A forma recomendada de escrever para os registos é incluir um parâmetro do tipo [ILogger,](/dotnet/api/microsoft.extensions.logging.ilogger)que é tipicamente nomeado `log` . Versão 1.x do tempo de execução de Funções utilizado `TraceWriter` , que também escreve para Application Insights, mas não suporta registos estruturados. Não utilize `Console.Write` para escrever os seus registos, uma vez que estes dados não são capturados pela Application Insights. 
+No seu código de função, pode escrever saídas para registos que aparecem como vestígios em Insights de Aplicação. A forma recomendada de escrever para os registos é incluir um parâmetro do tipo [ILogger,](/dotnet/api/microsoft.extensions.logging.ilogger)que é tipicamente nomeado `log` . Versão 1.x do tempo de execução de Funções utilizado `TraceWriter` , que também escreve para Application Insights, mas não suporta registos estruturados. Não use `Console.Write` para escrever os seus registos, uma vez que estes dados não são capturados pela Application Insights. 
 
 ### <a name="ilogger"></a>ILogger
 
@@ -327,7 +327,7 @@ public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogge
     logger.LogInformation("Request for item with key={itemKey}.", id);
 ```
 
-### <a name="structured-logging"></a>Exploração madeireira estruturada
+### <a name="structured-logging"></a>Registos estruturados
 
 A ordem dos espaços reservados, não os seus nomes, determina quais os parâmetros utilizados na mensagem de registo. Suponha que tenha o seguinte código:
 
@@ -565,7 +565,7 @@ public static class EnvironmentVariablesExample
 }
 ```
 
-As definições de aplicativos podem ser lidas a partir de variáveis ambientais, tanto quando se desenvolve localmente como quando está a correr em Azure. Ao desenvolver-se localmente, as configurações das aplicações provêm da `Values` coleção nolocal.settings.js* em* arquivo. Em ambos os ambientes, local e Azure, `GetEnvironmentVariable("<app setting name>")` recupera o valor da configuração da aplicação nomeada. Por exemplo, quando estiver a correr localmente, o "Meu Nome do Site" seria devolvido se o seu *local.settings.jsno* ficheiro contiver `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }` .
+As definições de aplicativos podem ser lidas a partir de variáveis ambientais, tanto quando se desenvolve localmente como quando está a correr em Azure. Ao desenvolver-se localmente, as configurações das aplicações provêm da `Values` coleção nolocal.settings.js *em* arquivo. Em ambos os ambientes, local e Azure, `GetEnvironmentVariable("<app setting name>")` recupera o valor da configuração da aplicação nomeada. Por exemplo, quando estiver a correr localmente, o "Meu Nome do Site" seria devolvido se o seu *local.settings.jsno* ficheiro contiver `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }` .
 
 A [ propriedadeSystem.Configuration.ConfigurationManager.AppSettings](/dotnet/api/system.configuration.configurationmanager.appsettings) é uma API alternativa para obter valores de definição de aplicativos, mas recomendamos que use `GetEnvironmentVariable` como mostrado aqui.
 
@@ -644,7 +644,7 @@ public static class IBinderExampleMultipleAttributes
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre gatilhos e encadernações](functions-triggers-bindings.md)

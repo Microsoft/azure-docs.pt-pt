@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 06/24/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9131dbff9b732ecfc7f6edb62b42959abcc17da8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c6b6aea6a3b0856b3db345e20b87d2a12ad055e1
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078684"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380335"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Construa um cliente de pesquisa de aplicativos de consola em C #
 
@@ -38,25 +38,25 @@ Este tutorial mostra como:
 Para acompanhar o tutorial, precisa:
 
 * Uma subscrição do Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services/)
-* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso** .
+* Assim que tiver a subscrição do Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title=" Crie um recurso Bing Search crie um "  target="_blank"> recurso Bing Search no portal <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
 * O [Estúdio Visual IDE.](https://www.visualstudio.com/downloads/)
 
 ## <a name="create-a-new-console-app-project"></a>Criar um novo projeto de App de Consola
 
 No Visual Studio, crie um projeto com `Ctrl`+`Shift`+`N`.
 
-No diálogo New **Project,** clique em **Visual C# > Windows Classic Desktop > Console App (.NET Framework)** .
+No diálogo New **Project,** clique em **Visual C# > Windows Classic Desktop > Console App (.NET Framework)**.
 
-Nomeie a aplicação **MyConsoleSearchApp** e, em seguida, clique em **OK** .
+Nomeie a aplicação **MyConsoleSearchApp** e, em seguida, clique em **OK**.
 
 ## <a name="add-the-jsonnet-nuget-package-to-the-project"></a>Adicione o pacote nuget JSON.net ao projeto
 
 JSON.net permite-lhe trabalhar com as respostas JSON devolvidas pela API. Adicione o seu pacote NuGet ao seu projeto:
 
-- No **Solution Explorer** clique à direita no projeto e selecione Gerir **pacotes NuGet...** .
-- No separador  **Procurar,** `Newtonsoft.Json` procure. Selecione a versão mais recente e, em seguida, clique **em Instalar** .
+- No **Solution Explorer** clique à direita no projeto e selecione Gerir **pacotes NuGet...**.
+- No separador  **Procurar,** `Newtonsoft.Json` procure. Selecione a versão mais recente e, em seguida, clique **em Instalar**.
 - Clique no botão **OK** na janela **'Alterações de revisão'.**
-- Feche o separador Visual Studio intitulado **NuGet: MyConsoleSearchApp** .
+- Feche o separador Visual Studio intitulado **NuGet: MyConsoleSearchApp**.
 
 ## <a name="add-a-reference-to-systemweb"></a>Adicionar uma referência a System.Web
 
@@ -77,7 +77,7 @@ using System.Net.Http;
 
 ## <a name="ask-the-user-for-a-query"></a>Peça ao utilizador uma consulta
 
-In **Solution Explorer** , open **Program.cs** . Atualizar o `Main()` método:
+In **Solution Explorer** , open **Program.cs**. Atualizar o `Main()` método:
 
 ```csharp
 static void Main()
@@ -228,7 +228,7 @@ Antes de mostrar como exibir os resultados em ordem classificada, dê uma olhada
 }
 ```
 
-O `rankingResponse` objeto JSON[(documentação)](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)descreve a ordem de visualização adequada para os resultados da pesquisa. Inclui um ou mais dos seguintes grupos prioritários:
+O `rankingResponse` objeto JSON[(documentação)](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse)descreve a ordem de visualização adequada para os resultados da pesquisa. Inclui um ou mais dos seguintes grupos prioritários:
 
 - `pole`: Os resultados da pesquisa para obter o tratamento mais visível (por exemplo, exibido acima da linha principal e da barra lateral).
 - `mainline`: Os resultados da pesquisa a exibir na linha principal.
@@ -336,6 +336,6 @@ WebPage:
 ...
 ```
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Leia mais sobre [a utilização do ranking para apresentar resultados](rank-results.md).

@@ -4,15 +4,14 @@ description: Saiba quais portas e endereços são necessários para controlar o 
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/29/2020
-ms.custom: fasttrack-edit, devx-track-azurecli
+ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: dcc015b9ff4cb9b980c7163f526eafbe5cd36119
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900474"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380216"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controlo tráfego de saídas para nós de cluster no Serviço Azure Kubernetes (AKS)
 
@@ -63,7 +62,6 @@ São necessárias as seguintes regras de aplicação fQDN/ aplicação:
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Necessário para a comunicação do servidor API <->. *\<location\>* Substitua-a pela região onde o seu cluster AKS está implantado. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Obrigado a aceder a imagens no Microsoft Container Registry (MCR). Este registo contém imagens/gráficos de primeira parte (por exemplo, coreDNS, etc.). Estas imagens são necessárias para a correta criação e funcionamento do cluster, incluindo operações de escala e upgrade.  |
-| **`*.cdn.mscr.io`**              | **`HTTPS:443`** | Necessário para armazenamento MCR apoiado pela Rede de Entrega de Conteúdos Azure (CDN). |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Necessário para o armazenamento mcR apoiado pela rede de entrega de conteúdos Azure (CDN). |
 | **`management.azure.com`**       | **`HTTPS:443`** | Necessário para as operações da Kubernetes contra a Azure API. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Requerido para a autenticação do Azure Ative Directory. |
@@ -92,7 +90,6 @@ São necessárias as seguintes regras de aplicação fQDN/ aplicação:
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Necessário para a comunicação do servidor API <->. *\<location\>* Substitua-a pela região onde o seu cluster AKS está implantado. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Necessário para a comunicação do servidor API <->. *\<location\>* Substitua-a pela região onde o seu cluster AKS está implantado. |
 | **`mcr.microsoft.com`**                        | **`HTTPS:443`** | Obrigado a aceder a imagens no Microsoft Container Registry (MCR). Este registo contém imagens/gráficos de primeira parte (por exemplo, coreDNS, etc.). Estas imagens são necessárias para a correta criação e funcionamento do cluster, incluindo operações de escala e upgrade. |
-| **`*.cdn.mscr.io`**                            | **`HTTPS:443`** | Necessário para armazenamento MCR apoiado pela Rede de Entrega de Conteúdos Azure (CDN). |
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | Necessário para armazenamento MCR apoiado pela Rede de Entrega de Conteúdos Azure (CDN). |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Necessário para as operações da Kubernetes contra a Azure API. |
 | **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Requerido para a autenticação do Azure Ative Directory. |
@@ -119,7 +116,6 @@ São necessárias as seguintes regras de aplicação fQDN/ aplicação:
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | Necessário para a comunicação do servidor API <->. *\<location\>* Substitua-a pela região onde o seu cluster AKS está implantado.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | Obrigado a aceder a imagens no Microsoft Container Registry (MCR). Este registo contém imagens/gráficos de primeira parte (por exemplo, coreDNS, etc.). Estas imagens são necessárias para a correta criação e funcionamento do cluster, incluindo operações de escala e upgrade. |
-| **`*.cdn.mscr.io`**                                     | **`HTTPS:443`** | Necessário para armazenamento MCR apoiado pela Rede de Entrega de Conteúdos Azure (CDN). |
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Necessário para o armazenamento mcR apoiado pela rede de entrega de conteúdos Azure (CDN). |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Necessário para as operações da Kubernetes contra a Azure API. |
 | **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Requerido para a autenticação do Azure Ative Directory. |
@@ -765,7 +761,7 @@ Devia ver a aplicação de voto AKS. Neste exemplo, o IP público firewall foi `
 ![A screenshot mostra a App de Voto A K S com botões para Gatos, Cães e Reset, e totais.](media/limit-egress-traffic/aks-vote.png)
 
 
-### <a name="clean-up-resources"></a>Limpar os recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 
 Para limpar os recursos do Azure, elimine o grupo de recursos AKS.
 
@@ -773,7 +769,7 @@ Para limpar os recursos do Azure, elimine o grupo de recursos AKS.
 az group delete -g $RG
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximos passos
 
 Neste artigo, aprendeu quais portas e moradas para permitir se quiser restringir o tráfego de saídas para o cluster. Também viu como proteger o tráfego de saída usando a Azure Firewall. 
 

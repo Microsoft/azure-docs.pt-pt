@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/03/2019
 ms.author: aahi
-ms.openlocfilehash: 15a2d3b433236d74f3fa3d09e38071bacae02508
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5bd5ff0e49b125277255ec8e5c216583d75043a0
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078837"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381138"
 ---
 # <a name="autosuggest-bing-search-terms-in-your-application"></a>Termos de pesquisa autosusuest Bing na sua aplicação
 
@@ -26,9 +26,9 @@ ms.locfileid: "93078837"
 
 Se disponibilizar uma caixa de pesquisa na qual o utilizador introduz o seu termo de pesquisa, utilize a [API de Sugestão Automática do Bing](../bing-autosuggest/get-suggested-search-terms.md) para melhorar a experiência. A API devolve cadeias de consulta sugerida com base em termos de pesquisa parcial à medida que o utilizador escreve.
 
-Depois de o utilizador introduzir um termo de pesquisa, deve ser codificado URL antes do parâmetro de consulta [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query) ser definido. Por exemplo, se o utilizador introduzir *sailing dinghies* , defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
+Depois de o utilizador introduzir um termo de pesquisa, deve ser codificado URL antes do parâmetro de consulta [q](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query) ser definido. Por exemplo, se o utilizador introduzir *sailing dinghies* , defina `q` como `sailing+dinghies` ou `sailing%20dinghies`.
 
-Se o termo de consulta contiver um erro ortográfico, a resposta de pesquisa inclui um objeto [QueryContext.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#querycontext) O objeto mostra a ortografia original e a ortografia corrigida que o Bing utilizou para a pesquisa.
+Se o termo de consulta contiver um erro ortográfico, a resposta de pesquisa inclui um objeto [QueryContext.](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#querycontext) O objeto mostra a ortografia original e a ortografia corrigida que o Bing utilizou para a pesquisa.
 
 ```json
 "queryContext": {
@@ -42,10 +42,10 @@ Pode utilizar estas informações para informar o utilizador de que modificou a 
 
 ![Exemplo UX de contexto de consulta](./media/cognitive-services-bing-web-api/bing-query-context.PNG)  
 
-## <a name="next-steps"></a>Passos seguintes  
+## <a name="next-steps"></a>Próximos passos  
 
 * Rever as [respostas da API de pesquisa web Bing.](search-responses.md)  
 
-## <a name="see-also"></a>Ver também  
+## <a name="see-also"></a>Veja também  
 
-* [Bing Web Search API referência](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
+* [Bing Web Search API referência](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)

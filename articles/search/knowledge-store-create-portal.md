@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/30/2020
-ms.openlocfilehash: 75cacf0dc899f47d55c44e5262b23bae73bfa7ab
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: df6da5ce1dcd5213b3e54abe54c087bfdd8480c5
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88924372"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379978"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Quickstart: Criar uma loja de conhecimentos Azure Cognitive Search no portal Azure
 
@@ -21,7 +21,7 @@ A loja de conhecimento é uma característica da Azure Cognitive Search que pers
 
 Um pipeline aceita conteúdo de texto e imagem não estruturado, aplica IA alimentada por Serviços Cognitivos (como OCR e processamento de linguagem natural), e produz novas estruturas e informações que não existiam anteriormente. Um dos artefactos físicos criados por um oleoduto é uma [loja de conhecimento,](knowledge-store-concept-intro.md)que pode aceder através de ferramentas para analisar e explorar conteúdos.
 
-Neste arranque rápido, você combinará serviços e dados na nuvem Azure para criar uma loja de conhecimento. Uma vez que tudo esteja no lugar, você executará o assistente **de dados Import** no portal para juntar tudo. O resultado final é conteúdo de texto original mais conteúdo gerado por IA que pode ver no portal[(Explorador de Armazenamento).](knowledge-store-view-storage-explorer.md)
+Neste arranque rápido, você combinará serviços e dados na nuvem Azure para criar uma loja de conhecimento. Uma vez que tudo esteja no lugar, você executará o assistente **de dados Import** no portal para juntar tudo. O resultado final é conteúdo de texto original mais conteúdo gerado por IA que pode ver no portal[(Storage Explorer).](knowledge-store-view-storage-explorer.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,11 +74,11 @@ Está agora pronto para avançar com o assistente **de dados de Importação.**
 
 1. Para o **Nome,** insira `hotel-reviews-ds` .
 
-1. Para **o modo de análise**, selecione texto **delimitado**e, em seguida, selecione a caixa de verificação **First Line Contains Header.** Certifique-se de que o **personagem Delimiter** é uma vírgula (,).
+1. Para **o modo de análise** , selecione texto **delimitado** e, em seguida, selecione a caixa de verificação **First Line Contains Header.** Certifique-se de que o **personagem Delimiter** é uma vírgula (,).
 
-1. Em **Connection String**, cole na cadeia de ligação que copiou da página **'Teclas de acesso'** no Azure Storage.
+1. Em **Connection String** , cole na cadeia de ligação que copiou da página **'Teclas de acesso'** no Azure Storage.
 
-1. Em **Recipientes, insira**o nome do recipiente blob que guarda os dados.
+1. Em **Recipientes, insira** o nome do recipiente blob que guarda os dados.
 
     A sua página deve ser semelhante à seguinte.
 
@@ -96,12 +96,12 @@ Neste passo de feiticeiro, você vai criar um skillset com enriquecimentos cogni
 
 1. Para **o nome Skillset,** insira `hotel-reviews-ss` .
 
-1. Para **o campo de dados de origem**, selecione **reviews_text**.
+1. Para **o campo de dados de origem** , selecione **reviews_text**.
 
 1. Para **o nível de granularidade de enriquecimento,** selecione **Páginas (pedaços de 5000 caracteres)**
 
 1. Selecione estas habilidades cognitivas:
-    + **Extrair Expressões-Chave**
+    + **Extrair frases-chave**
     + **Traduzir texto**
     + **Detetar sentimento**
 
@@ -142,7 +142,7 @@ Neste passo de assistente, irá configurar um indexante que reunirá a fonte de 
 
 1. Para **nome,** insira `hotel-reviews-idxr` .
 
-1. Para **Agendar**, mantenha o predefinido **Uma vez**.
+1. Para **Agendar** , mantenha o predefinido **Uma vez**.
 
 1. Clique **em Submeter** para executar o indexante. Extração de dados, indexação, aplicação de competências cognitivas acontecem neste passo.
 
@@ -152,7 +152,7 @@ A indexação cognitiva de habilidades demora mais tempo a completar do que a in
 
 No portal Azure, também pode monitorizar o registo de atividades de Notificações para um link de **estado de notificação de pesquisa cognitiva Azure** clicável. A execução pode levar vários minutos para ser concluída.
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 Agora que enriqueceu os seus dados usando os Serviços Cognitivos e projetou os resultados numa loja de conhecimento, pode utilizar o Storage Explorer ou o Power BI para explorar o seu conjunto de dados enriquecido.
 

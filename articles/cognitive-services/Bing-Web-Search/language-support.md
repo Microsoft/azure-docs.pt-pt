@@ -10,12 +10,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 998e18f8901dda3430d5289e0590ef8099b6fb8c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b3ce1fdc0b52db2706f81950fff735cf7f95e52b
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095463"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379685"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Suporte linguístico e regional para a API de Pesquisa Web de Bing
 
@@ -26,7 +26,7 @@ ms.locfileid: "93095463"
 
 A API de Pesquisa Web Bing suporta mais de três dezenas de países ou regiões, muitos com mais de uma língua. Especificar um país ou região com uma consulta ajuda a refinar os resultados da pesquisa com base nesse país ou regiões interesses. Os resultados podem incluir ligações a Bing, e estas ligações podem localizar a experiência do utilizador Bing de acordo com o país/região ou idioma especificado.
 
-Pode especificar um país ou região utilizando o `cc` parâmetro de consulta. Quando um país ou região é especificado, deve especificar um ou mais códigos linguísticos com o [ `Accept-Language` cabeçalho](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Utilize a [tabela Mercados](#markets) para uma lista de línguas suportadas em cada mercado.
+Pode especificar um país ou região utilizando o `cc` parâmetro de consulta. Quando um país ou região é especificado, deve especificar um ou mais códigos linguísticos com o [ `Accept-Language` cabeçalho](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Utilize a [tabela Mercados](#markets) para uma lista de línguas suportadas em cada mercado.
 
 Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e um código da tabela **Mercados.** Especificar um mercado especifica simultaneamente um país ou região e uma língua preferida. Pode definir explicitamente o idioma com o `setLang` parâmetro de consulta.
 
@@ -69,7 +69,7 @@ Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e 
 |Taiwan|TW|
 |Turquia|TR|
 |Reino Unido|GB|
-|Estados Unidos da América|EUA|
+|Estados Unidos|EUA|
 
 ## <a name="markets"></a>Mercados
 
@@ -113,9 +113,9 @@ Em alternativa, pode especificar o mercado com o `mkt` parâmetro de consulta e 
 |Taiwan|Chinês Tradicional|zh-TW|
 |Turquia|Turco|tr-TR|
 |Reino Unido|Inglês|en-GB|
-|Estados Unidos da América|Inglês|en-PT|
-|Estados Unidos da América|Espanhol|es-EUA|
+|Estados Unidos|Inglês|en-PT|
+|Estados Unidos|Espanhol|es-EUA|
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) (Referência da API de Pesquisa de Imagens do Bing)

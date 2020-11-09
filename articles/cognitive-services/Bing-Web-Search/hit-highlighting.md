@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: ea9cd9cf064b9c07016bc5e166cc4ec4c041b146
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5c0bed04fccfba1ac06a54d5ddba9033ef05761b
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078548"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380713"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Usando marcadores de decoração para destacar texto
 
@@ -39,7 +39,7 @@ Antes de apresentar o resultado na interface do utilizador, substitua os caracte
 
 ## <a name="marker-formatting"></a>Formatação do marcador
 
-Bing oferece a opção de usar caracteres Unicode ou tags HTML como marcadores. Para especificar quais os marcadores a utilizar, inclua o parâmetro de consulta [textFormat:](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) 
+Bing oferece a opção de usar caracteres Unicode ou tags HTML como marcadores. Para especificar quais os marcadores a utilizar, inclua o parâmetro de consulta [textFormat:](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) 
 
 | Valor             | Marcador                       |
 |-------------------|------------------------------|
@@ -56,7 +56,7 @@ Se o pedido não especificar decorações, o `expression` campo conterá `log10(
 
 Se `textDecorations` for `true` , Bing pode incluir os seguintes marcadores nas cadeias de respostas do visor. Se não houver uma etiqueta HTML equivalente, a célula de mesa está vazia.
 
-|Unicode|HTML|Description
+|Unicode|HTML|Descrição
 |-|-|-
 |U+E000|\<b>|Marca o início do termo de consulta (destaque de sucesso)
 |U+E001|\</b>|Marca o fim do termo de consulta
@@ -81,7 +81,7 @@ Se `textDecorations` for `true` , Bing pode incluir os seguintes marcadores nas 
 |U+E018|\<sup>|Marca o início do conteúdo sobrescrito
 |U+E019|\</sup>|Marca o fim do conteúdo sobrescrito
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [O que é a API de Pesquisa Web Bing?](overview.md) 
 * [Redimensionar e recortar miniaturas](resize-and-crop-thumbnails.md)

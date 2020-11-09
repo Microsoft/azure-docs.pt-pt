@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3043cd5f8cb27197048bd84c7181c2b42c4ad5c9
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 2052e27cde3427986dbf7784dcd5dbb179c5b209
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376906"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380934"
 ---
 # <a name="what-is-azure-synapse-analytics-workspaces-preview"></a>O que é Azure Synapse Analytics (pré-visualização de espaços de trabalho)?
 
@@ -75,7 +75,12 @@ O Azure Synapse fornece uma única forma de as empresas gerirem os recursos anal
 * Produtividade líder na indústria para engenheiros de dados que escrevem código SQL ou Spark: autoria, depuração e otimização de desempenho
 * Integrar-se com processos ci/CD da empresa
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="engage-with-the-synapse-engineering-team"></a>Envolva-se com a equipa de engenharia da Sinapse
+
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-synapse): Faça perguntas de desenvolvimento.
+- [Microsoft Q&Uma página de perguntas](https://docs.microsoft.com/answers/topics/azure-synapse-analytics.html): Faça perguntas técnicas.
+
+## <a name="next-steps"></a>Próximos passos
 
 * [Começa com o Azure Synapse Analytics](get-started.md)
 * [Criar uma área de trabalho](quickstart-create-workspace.md)

@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
-ms.openlocfilehash: c67ef6ddcd709dea8727a67100607bfc4f8cc8f6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 392bb46d481df1f872b9a61beffed9e5b46f4dc5
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099849"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379842"
 ---
 # <a name="video-search-api-upgrade-guide"></a>Guia de atualização de API de pesquisa de vídeo
 
@@ -43,7 +43,7 @@ Este guia de atualização identifica as alterações entre a versão 5 e a vers
 
 - Substituiu os códigos de erro v5 pelos seguintes `code` valores e `subCode` valores possíveis.
 
-|Código|SubCódes|Description
+|Código|SubCódes|Descrição
 |-|-|-
 |ServerError|InesperadoError<br/>Recurso<br/>Não ÉDopliizado|Bing devolve ServerError sempre que ocorrer qualquer uma das condições do sub-código. A resposta inclui estes erros se o código de estado HTTP for 500.
 |InáduloRequest|ParâmetroSMissing<br/>ParâmetroInvalvalue<br/>HttpNotAllowed<br/>Bloqueado|Bing devolve InvalidRequest sempre que qualquer parte do pedido não seja válida. Por exemplo, falta um parâmetro necessário ou um valor de parâmetro não é válido.<br/><br/>Se o erro for ParameterMissing ou ParameterInvalidValue, o código de estado HTTP é 400.<br/><br/>Se o erro for httpNotAllowed, o código de estado HTTP 410.
@@ -76,11 +76,10 @@ Bloqueado|InvalidRequest.Bloqueado
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-- Renomeou o `modulesRequested` parâmetro de consulta para [módulos.](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested)  
+- Renomeou o `modulesRequested` parâmetro de consulta para [módulos.](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#modulesrequested)  
 
 ### <a name="object-changes"></a>Alterações de objetos
 
-- Renomeado o `nextOffsetAddCount` campo de [Vídeos](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) para `nextOffset` . A forma como usas o offset também mudou. Anteriormente, definiria o parâmetro de consulta [de compensação](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) para o `nextOffset` valor mais o valor de compensação anterior mais o número de vídeos no resultado. Agora, basta definir o `offset` parâmetro de consulta para o `nextOffset` valor.  
+- Renomeado o `nextOffsetAddCount` campo de [Vídeos](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) para `nextOffset` . A forma como usas o offset também mudou. Anteriormente, definiria o parâmetro de consulta [de compensação](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#offset) para o `nextOffset` valor mais o valor de compensação anterior mais o número de vídeos no resultado. Agora, basta definir o `offset` parâmetro de consulta para o `nextOffset` valor.  
   
-- Alterou o tipo de dados `relatedVideos` do campo de para `Video[]` [VideosModule](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (ver [VideoDetails).](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)
-
+- Alterou o tipo de dados `relatedVideos` do campo de para `Video[]` [VideosModule](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videosmodule) (ver [VideoDetails).](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videodetails)

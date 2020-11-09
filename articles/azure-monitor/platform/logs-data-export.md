@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 972c32b5403a7e6f614161271b7cb7e88693e032
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 54d5fdf1f6bc905482186475302901c46de0d285
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335099"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380131"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
@@ -58,7 +58,7 @@ Os dados do espaço de trabalho log Analytics exportam continuamente dados de um
 ## <a name="data-completeness"></a>Preencha os dados
 A exportação de dados continuará a tentar o envio de dados por um tempo até 30 minutos no caso de o destino não estar disponível. Se ainda estiver indisponível após 30 minutos, os dados serão descartados até que o destino fique disponível.
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 Atualmente, não existem encargos adicionais para a funcionalidade de exportação de dados. Os preços para a exportação de dados serão anunciados no futuro e um aviso fornecido antes do início da faturação. Se optar por continuar a utilizar a exportação de dados após o período de pré-aviso, será cobrado à taxa aplicável.
 
 ## <a name="export-destinations"></a>Destinos de exportação
@@ -325,7 +325,6 @@ As tabelas suportadas estão atualmente limitadas às especificadas abaixo. Todo
 | ContainerImageInventory | |
 | ContentorInventory | |
 | ContainerLog | |
-| ContainerLog | |
 | ContentorNodeInventory | |
 | ContainerServiceLog | |
 | CoreAzureBackup | |
@@ -343,7 +342,6 @@ As tabelas suportadas estão atualmente limitadas às especificadas abaixo. Todo
 | DnsInventory | |
 | Dinâmica365Atividade | |
 | Evento | Apoio parcial. Alguns dos dados desta tabela são ingeridos através da conta de armazenamento. Atualmente, estes dados não são exportados. |
-| TrocaComendamentRecommendation | |
 | TrocaComendamentRecommendation | |
 | Ingestion Falhada | |
 | FunÇõesAppLogs | |
@@ -446,6 +444,6 @@ As tabelas suportadas estão atualmente limitadas às especificadas abaixo. Todo
 | WVDManagement | |
 
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 - [Consultar os dados exportados do Azure Data Explorer](azure-data-explorer-query-storage.md).

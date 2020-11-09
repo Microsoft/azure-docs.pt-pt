@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb120a533e4d11b34bb9712bf0164cec5a7728ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29c89d8d3d2ae194ff48b762bc686feefdd3a528
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207738"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381007"
 ---
 # <a name="hierarchical-state-override"></a>Substituição do estado hierárquico
 
@@ -28,26 +28,26 @@ Como exemplo, considere o modelo de um carro e pretende trocar todo o carro para
 
 O conjunto fixo de estados que podem ser ultrapassados são:
 
-* **`Hidden`**: As respetivas malhas no gráfico de cena são ocultas ou mostradas.
-* **`Tint color`**: Um objeto renderizado pode ser colorido com a sua cor de tonalidade individual e peso de tonalidade. A imagem abaixo mostra a cor da borda de uma roda.
+* **`Hidden`** : As respetivas malhas no gráfico de cena são ocultas ou mostradas.
+* **`Tint color`** : Um objeto renderizado pode ser colorido com a sua cor de tonalidade individual e peso de tonalidade. A imagem abaixo mostra a cor da borda de uma roda.
   
   ![Cor de tonalidade usada para tornar um objeto verde](./media/color-tint.png)
 
-* **`See-through`**: A geometria é tornada semi-transparente, por exemplo, para revelar as partes interiores de um objeto. A imagem a seguir mostra todo o carro a ser renderizado em modo see-through, com exceção da pinça do travão vermelho:
+* **`See-through`** : A geometria é tornada semi-transparente, por exemplo, para revelar as partes interiores de um objeto. A imagem a seguir mostra todo o carro a ser renderizado em modo see-through, com exceção da pinça do travão vermelho:
 
   ![Modo transparente utilizado para tornar os objetos selecionados transparentes](./media/see-through.png)
 
   > [!IMPORTANT]
   > O efeito see-through só funciona quando o [modo de renderização](../../concepts/rendering-modes.md) *TileBasedComposition* é utilizado.
 
-* **`Selected`**: A geometria é prestada com um [esboço de seleção](outlines.md).
+* **`Selected`** : A geometria é prestada com um [esboço de seleção](outlines.md).
 
   ![Opção de contorno usada para destacar uma parte selecionada](./media/selection-outline.png)
 
-* **`DisableCollision`**: A geometria está isenta de [consultas espaciais.](spatial-queries.md) A **`Hidden`** bandeira não afeta a bandeira do estado de colisão, por isso estas duas bandeiras são muitas vezes colocadas juntas.
+* **`DisableCollision`** : A geometria está isenta de [consultas espaciais.](spatial-queries.md) A **`Hidden`** bandeira não afeta a bandeira do estado de colisão, por isso estas duas bandeiras são muitas vezes colocadas juntas.
 
-* **`UseCutPlaneFilterMask`**: Utilize uma máscara de broca de filtro individual para controlar a seleção do plano cortado. Esta bandeira determina se a máscara de filtro individual deve ser usada ou herdada do seu progenitor. A máscara de bit de filtro em si é definida através da `CutPlaneFilterMask` propriedade. Para obter informações detalhadas sobre o funcionamento da filtragem, consulte o [parágrafo dos planos de corte seletivo](cut-planes.md#selective-cut-planes).
-![Aviões de corte seletivo](./media/selective-cut-planes.png)
+* **`UseCutPlaneFilterMask`** : Utilize uma máscara de broca de filtro individual para controlar a seleção do plano cortado. Esta bandeira determina se a máscara de filtro individual deve ser usada ou herdada do seu progenitor. A máscara de bit de filtro em si é definida através da `CutPlaneFilterMask` propriedade. Para obter informações detalhadas sobre o funcionamento da filtragem, consulte o [parágrafo dos planos de corte seletivo](cut-planes.md#selective-cut-planes). Veja o exemplo seguinte onde apenas o pneu e a borda são cortados enquanto o resto da cena permanece inalterado.
+![Aviões de corte seletivo](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
@@ -108,7 +108,7 @@ A renderização transparente coloca mais carga de trabalho nas GPUs do servidor
 * [C# Classe HierarchicalStateOverrideComponent](/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
 * [C++ Classe HierarchicalStateOverrideComponent](/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="next-steps"></a>Próximos passos
 
 * [Contornos](../../overview/features/outlines.md)
 * [Modos de composição](../../concepts/rendering-modes.md)
