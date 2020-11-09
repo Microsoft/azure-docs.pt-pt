@@ -38,10 +38,10 @@
       href: 'https://powerapps.microsoft.com/tutorials/cognitive-services-api/'
     - name: Análise de sentimentos dos dados de transmissão em fluxo com o Azure Databricks
       maintainContext: true
-      href: ../../azure-databricks/databricks-sentiment-analysis-cognitive-services.md
+      href: /azure/databricks/scenarios/databricks-sentiment-analysis-cognitive-services
     - name: 'Utilize o Flask para traduzir texto, analisar sentimentos e sintetizar fala'
       maintainContext: true
-      href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
+      href: ../translator/tutorial-build-flask-app-translation-synthesis.md
     - name: Extrair informações no Excel com o Power Automate
       href: tutorials/extract-excel-information.md
 - name: Conceitos
@@ -87,9 +87,9 @@
 - name: Referência
   items:
     - name: Referência da CLI
-      href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'
+      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: Referência do PowerShell
-      href: 'https://aka.ms/azure-powershell-cognitiveservices'
+      href: /powershell/module/azurerm.cognitiveservices/
     - name: API de Análise de Texto
       items:
         - name: v3.0
@@ -101,24 +101,24 @@
         - name: v3.0
           items:
             - name: .NET
-              href: 'https://aka.ms/azsdk-net-textanalytics-ref-docs'
+              href: /dotnet/api/azure.ai.textanalytics
             - name: Python
-              href: 'https://aka.ms/azsdk-python-textanalytics-ref-docs'
+              href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics
             - name: Java
-              href: 'https://docs.microsoft.com/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable'
+              href: /java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
             - name: Node.js
-              href: 'https://aka.ms/azsdk-js-textanalytics-ref-docs'
+              href: /javascript/api/overview/azure/ai-text-analytics-readme
         - name: v2
           items:
             - name: .NET
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet'
+              href: /dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
             - name: Python
-              href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python'
+              href: /python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
             - name: Java
-              href: 'https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable'
+              href: /java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
             - name: Node.js
-              href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/?view=azure-node-latest'
-            - name: Go
+              href: /javascript/api/@azure/cognitiveservices-textanalytics/?view=azure-node-latest
+            - name: Ir
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics'
 - name: Recursos
   items:

@@ -12,17 +12,17 @@ metadata:
   manager: nitinme
   ms.custom: custom-portals-hub
   ms.date: 08/28/2020
-  ms.openlocfilehash: b1aa2c098ead7086e670a92ce0657aa5a20a2b61
-  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+  ms.openlocfilehash: 0c518e3233773f02db1fff13af9201a9370b82ec
+  ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/04/2020
-  ms.locfileid: "93323103"
+  ms.lasthandoff: 11/08/2020
+  ms.locfileid: "94363685"
 highlightedContent:
   items:
   - title: O que são os Serviços Cognitivos?
     itemType: overview
-    url: ./welcome.md
+    url: ./what-are-cognitive-services.md
   - title: Novidades no Docs?
     itemType: whats-new
     url: whats-new-docs.md
@@ -170,24 +170,24 @@ additionalContent:
     - title: SDKs e APIs REST
       links:
       - text: C#
-        url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
+        url: /dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
       - text: Ir
         url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices
       - text: Java
-        url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
+        url: /java/api/overview/azure/cognitiveservices/client?view=azure-java-stable
       - text: JavaScript
-        url: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest
+        url: /javascript/api/overview/azure/cognitive-services?view=azure-node-latest
       - text: Python
-        url: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python
+        url: /python/api/overview/azure/cognitive-services?view=azure-python
       - text: R
         url: https://github.com/Azure/AzureCognitive
       - text: Apache Spark e Bases de Dados
         url: ./big-data/cognitive-services-for-big-data.md
       - text: API REST da Gestão dos Serviços Cognitivos
-        url: https://docs.microsoft.com/rest/api/cognitiveservices/
+        url: /rest/api/cognitiveservices/
     - title: Ferramentas
       links:
       - text: CLI do Azure
-        url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+        url: /cli/azure/cognitiveservices?view=azure-cli-latest
       - text: PowerShell
-        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+        url: /powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services

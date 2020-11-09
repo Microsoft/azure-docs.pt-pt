@@ -1,9 +1,9 @@
 - name: Documentação do Reconhecimento de Orador
-  href: Home.md
+  href: ../speech-service/speaker-recognition-overview.md
 - name: Descrição geral
   items:
     - name: Saiba mais sobre o Reconhecimento de Orador
-      href: Home.md
+      href: ../speech-service/speaker-recognition-overview.md
 - name: Referência
   items:
     - name: Referência da API
