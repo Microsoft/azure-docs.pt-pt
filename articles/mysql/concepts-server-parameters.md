@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/25/2020
-ms.openlocfilehash: b6a914df9ed277625d3706465fe335e128aeced1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b5b171941a3da42d2f5b385303c51285ff793599
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545162"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376779"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL
 
@@ -31,7 +31,7 @@ Consulte as seguintes secções abaixo para saber mais sobre os limites dos vár
 
 ### <a name="thread-pools"></a>Piscinas de rosca
 
-O MySQL atribui tradicionalmente um fio para cada ligação ao cliente. À medida que o número de utilizadores simultâneos aumenta, há uma diminuição correspondente no desempenho. Muitos fios ativos podem impactar significativamente o desempenho devido ao aumento da comutação de contexto, contenção de fios e má localidade para caches de CPU.
+O MySQL atribui tradicionalmente um fio para cada ligação ao cliente. À medida que o número de utilizadores simultâneos aumenta, há uma diminuição correspondente na formance. Muitos fios ativos podem impactar significativamente o desempenho devido ao aumento da comutação de contexto, contenção de fios e má localidade para caches de CPU.
 
 As piscinas de rosca, que é uma característica lateral do servidor e distinta da ligação, maximizam o desempenho introduzindo um conjunto dinâmico de fios de trabalhador que podem ser usados para limitar o número de fios ativos que correm no servidor e minimizar o churn de rosca. Isto ajuda a garantir que uma explosão de ligações não fará com que o servidor fique sem recursos ou se despenhe com um erro de memória. As piscinas de roscas são mais eficientes para consultas curtas e cargas de trabalho intensivas da CPU, por exemplo, cargas de trabalho OLTP.
 
@@ -57,9 +57,9 @@ Para melhorar as questões de desempenho de consultas curtas na piscina de fios,
 
 ### <a name="log_bin_trust_function_creators"></a>log_bin_trust_function_creators
 
-Na Base de Dados Azure para o MySQL, os registos binários estão sempre ativados (isto `log_bin` é, está definido para ON). Caso pretenda utilizar gatilhos, terá um erro semelhante ao *de si não ter o privilégio SUPER e a exploração madeireira binária está ativada (é possível utilizar a variável menos `log_bin_trust_function_creators` segura)* . 
+Na Base de Dados Azure para o MySQL, os registos binários estão sempre ativados (isto `log_bin` é, está definido para ON). Caso pretenda utilizar gatilhos, terá um erro semelhante ao *de si não ter o privilégio SUPER e a exploração madeireira binária está ativada (é possível utilizar a variável menos `log_bin_trust_function_creators` segura)*. 
 
-O formato de registo binário é sempre **ROW** e todas as ligações ao servidor utilizam **sempre** o registo binário baseado na linha. Com a exploração binária baseada em linha, os problemas de segurança não existem e a exploração madeireira binária não pode quebrar, pelo que pode definir com segurança [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) para **TRUE** .
+O formato de registo binário é sempre **ROW** e todas as ligações ao servidor utilizam **sempre** o registo binário baseado na linha. Com a exploração binária baseada em linha, os problemas de segurança não existem e a exploração madeireira binária não pode quebrar, pelo que pode definir com segurança [`log_bin_trust_function_creators`](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_log_bin_trust_function_creators) para **TRUE**.
 
 ### <a name="innodb_buffer_pool_size"></a>innodb_buffer_pool_size
 
@@ -108,7 +108,7 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/innod
 
 O MySQL armazena a tabela InnoDB em diferentes espaços de mesa com base na configuração que forneceu durante a criação da tabela. O [espaço de mesa do sistema](https://dev.mysql.com/doc/refman/5.7/en/innodb-system-tablespace.html) é a área de armazenamento do dicionário de dados InnoDB. Um [espaço de tabela de ficheiros por tabela](https://dev.mysql.com/doc/refman/5.7/en/innodb-file-per-table-tablespaces.html) contém dados e índices para uma única tabela InnoDB, e é armazenado no sistema de ficheiros no seu próprio ficheiro de dados. Este comportamento é controlado pelo parâmetro do `innodb_file_per_table` servidor. A definição `innodb_file_per_table` faz com que o `OFF` InnoDB crie tabelas no espaço de tabela do sistema. Caso contrário, o InnoDB cria tabelas em espaços de mesa de ficheiros por mesa.
 
-A Azure Database for MySQL suporta no maior, **1 TB,** num único ficheiro de dados. Se o tamanho da sua base de dados for superior a 1 TB, deverá criar a tabela no [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) espaço de mesa. Se tiver um tamanho de mesa maior que 1 TB, deve utilizar a mesa de partição.
+A Azure Database for MySQL suporta no maior, **4 TB,** num único ficheiro de dados. Se o tamanho da sua base de dados for superior a 4 TB, deverá criar a tabela no [innodb_file_per_table](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_file_per_table) espaço de mesa. Se tiver um tamanho de mesa superior a 4 TB, deve utilizar a tabela de divisórias.
 
 ### <a name="join_buffer_size"></a>join_buffer_size
 
@@ -215,7 +215,7 @@ Reveja a documentação do [MySQL](https://dev.mysql.com/doc/refman/5.7/en/serve
 
 ### <a name="innodb_strict_mode"></a>innodb_strict_mode
 
-Se receber um erro semelhante ao "Tamanho da linha demasiado grande (> 8126)" então é melhor desligar o parâmetro **innodb_strict_mode** . O parâmetro do servidor **innodb_strict_mode** não é permitido ser modificado globalmente ao nível do servidor porque se o tamanho dos dados de linha for superior a 8k, os dados serão truncados sem um erro que conduza à perda de dados potenciais. Recomendamos modificar o esquema para se ajustar ao limite de tamanho da página. 
+Se receber um erro semelhante ao "Tamanho da linha demasiado grande (> 8126)" então é melhor desligar o parâmetro **innodb_strict_mode**. O parâmetro do servidor **innodb_strict_mode** não é permitido ser modificado globalmente ao nível do servidor porque se o tamanho dos dados de linha for superior a 8k, os dados serão truncados sem um erro que conduza à perda de dados potenciais. Recomendamos modificar o esquema para se ajustar ao limite de tamanho da página. 
 
 Este parâmetro pode ser definido a um nível de sessão utilizando `init_connect` . Para definir **innodb_strict_mode** ao nível da sessão, consulte o [parâmetro de definição não listado](./howto-server-parameters.md#setting-parameters-not-listed).
 

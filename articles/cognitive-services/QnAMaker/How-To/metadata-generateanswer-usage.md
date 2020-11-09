@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3a67f16b53c2754e2ac5ae1df467aac7726f358e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 85abefc8437936ffaedc4811bdd9bed0be32786f
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321004"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375509"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API generateAnswer e metadados
 
@@ -50,7 +50,15 @@ Para obter os detalhes do seu ponto final:
     ![Screenshot das minhas bases de conhecimento](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
 1. Obtenha os seus detalhes do ponto final GenerateAnswer.
 
+    # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
+
     ![Screenshot dos detalhes do ponto final](../media/qnamaker-how-to-metadata-usage/view-code.png)
+
+    # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+    ![Screenshot dos detalhes do ponto final geridos](../media/qnamaker-how-to-metadata-usage/view-code-managed.png)
+
+    ---
 
 Também pode obter os seus detalhes do ponto final a partir do **separador Definições** da sua base de conhecimento.
 
@@ -128,7 +136,7 @@ O anterior JSON respondeu com uma resposta com uma pontuação de 38,5%.
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Use o Fabricante QnA com um bot em C #
 
-A estrutura bot fornece acesso às propriedades do Fabricante QnA com a [API getAnswer](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
+A estrutura bot fornece acesso às propriedades do Fabricante QnA com a [API getAnswer](https://docs.microsoft.com/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync?view=botbuilder-dotnet-stable#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__&preserve-view=true):
 
 ```csharp
 using Microsoft.Bot.Builder.AI.QnA;
@@ -147,7 +155,7 @@ O JSON anterior solicitou apenas respostas que estejam a 30% ou acima da pontua�
 
 ## <a name="use-qna-maker-with-a-bot-in-nodejs"></a>Use o Fabricante QnA com um bot em Node.js
 
-A estrutura bot fornece acesso às propriedades do Fabricante QnA com a [API getAnswer](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-):
+A estrutura bot fornece acesso às propriedades do Fabricante QnA com a [API getAnswer](https://docs.microsoft.com/javascript/api/botbuilder-ai/qnamaker?view=botbuilder-ts-latest#generateanswer-string---undefined--number--number-&preserve-view=true):
 
 ```javascript
 const { QnAMaker } = require('botbuilder-ai');

@@ -1,16 +1,14 @@
 ---
 title: Consulta da base de conhecimento - QnA Maker
 description: Uma base de conhecimento deve ser publicada. Uma vez publicada, a base de conhecimento é consultada no ponto final de previsão de tempo de execução usando a API generateAnswer.
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.openlocfilehash: e903714aab35de40c1179045505e1520c65b3ebc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: e8dd056a7b6357b8342d3059e17baa88db92b404
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776923"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376731"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consultar a base de conhecimento para respostas
 
@@ -18,9 +16,11 @@ Uma base de conhecimento deve ser publicada. Uma vez publicada, a base de conhec
 
 ## <a name="how-qna-maker-processes-a-user-query-to-select-the-best-answer"></a>Como o QnA Maker processa uma consulta do utilizador para selecionar a melhor resposta
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
+
 A base de conhecimentos da QnA Maker treinada e [publicada](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) recebe uma consulta do utilizador, a partir de um bot ou outra aplicação de cliente, na [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). O diagrama seguinte ilustra o processo quando a consulta do utilizador é recebida.
 
-![O processo de modelo de classificação para uma consulta de utilizador](../media/qnamaker-concepts-knowledgebase/rank-user-query-first-with-azure-search-then-with-qna-maker.png)
+![O processo de modelo de classificação para uma consulta de utilizador](../media/qnamaker-concepts-knowledgebase/ranker-v1.png)
 
 ### <a name="ranker-process"></a>Processo ranker
 
@@ -38,6 +38,30 @@ O processo é explicado na tabela seguinte.
 |||
 
 As características usadas incluem, mas não se limitam à semântica de nível de palavras, importância de nível de termo em um corpus, e modelos semânticos profundos para determinar a semelhança e relevância entre duas cordas de texto.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+A base de conhecimentos da QnA Maker treinada e [publicada](/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base#publish-the-knowledge-base) recebe uma consulta do utilizador, a partir de um bot ou outra aplicação de cliente, na [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage). O diagrama seguinte ilustra o processo quando a consulta do utilizador é recebida.
+
+![O processo de modelo de classificação para uma pré-visualização de consulta de utilizador](../media/qnamaker-concepts-knowledgebase/ranker-v2.png)
+
+### <a name="ranker-process"></a>Processo ranker
+
+O processo é explicado na tabela seguinte.
+
+|Passo|Objetivo|
+|--|--|
+|1|A aplicação do cliente envia a consulta do utilizador para a [API GenerateAnswer](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage).|
+|2|O QnA Maker pré-processa a consulta do utilizador com deteção de idiomas, soletradores e disjuntores de palavras.|
+|3|Este pré-processamento é tomado para alterar a consulta do utilizador para obter os melhores resultados de pesquisa.|
+|4|Esta consulta alterada é enviada para um Índice de Pesquisa Cognitiva Azure, que recebe o `top` número de resultados. Se a resposta correta não estiver nestes resultados, aumente ligeiramente o `top` valor. Geralmente, um valor de 10 para `top` obras em 90% das consultas.|
+|5|O QnA Maker usa um modelo baseado em transformadores de última geração para determinar a semelhança entre a consulta do utilizador e os resultados do QnA candidatos recolhidos da Azure Cognitive Search. O modelo baseado em transformadores é um modelo multilingue de aprendizagem profunda, que funciona horizontalmente para todas as línguas para determinar as pontuações de confiança e a nova ordem de classificação.|
+|6|Os novos resultados são devolvidos ao pedido do cliente em ordem classificada.|
+|||
+
+O ranker trabalha em todas as perguntas alternativas e resposta para encontrar os pares QnA mais compatíveis para a consulta do utilizador. Os utilizadores têm a flexibilidade para configurar o ranker para questionar apenas o ranker. 
+
+---
 
 ## <a name="http-request-and-response-with-endpoint"></a>HTTP pedido e resposta com ponto final
 Ao publicar a sua base de conhecimentos, o serviço cria um ponto final HTTP baseado em REST que pode ser integrado na sua aplicação, geralmente um chat bot.

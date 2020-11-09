@@ -4,13 +4,13 @@ description: Neste tutorial, melhore a qualidade da sua base de conhecimento com
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 06/08/2020
-ms.openlocfilehash: 42b50fcf0df27ddbc3e587a7d8e038e4979935ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 322db4e1535e763f4c3e7c87afaa370471ba0b66
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777405"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376303"
 ---
 # <a name="tutorial-add-your-knowledge-base-to-power-virtual-agents"></a>Tutorial: Adicione a sua base de conhecimentos a Agentes Virtuais de Energia
 Crie e estenda um bot [de Agentes Virtuais de Energia](https://powervirtualagents.microsoft.com/) para fornecer respostas a partir da sua base de conhecimento.
@@ -125,7 +125,7 @@ Esta secção cria o fluxo de conversação tópico de recuo.
 
 1. Selecione o **+** conector que flui para a caixa **'Mensagem'** e, em seguida, selecione **Chame uma ação**.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/create-new-item-call-an-action.png" alt-text="Screenshot parcial do fluxo de conversação, com a opção de eliminação realçada.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/create-new-item-call-an-action.png" alt-text="Screenshot parcial de Call uma ação.":::
 
 1. Selecione **Criar um fluxo**. O processo leva-o ao portal Power Automamate.
 
@@ -135,26 +135,29 @@ Esta secção cria o fluxo de conversação tópico de recuo.
 
     Power Automamate abre-se a um novo modelo. Não vai usar este novo modelo.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-flow-initial-template.png" alt-text="Screenshot parcial do fluxo de conversação, com a opção de eliminação realçada.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-flow-initial-template.png" alt-text="Screenshot parcial do Power Automate com novo modelo de fluxo.":::
 
 ## <a name="create-a-power-automate-flow-to-connect-to-your-knowledge-base"></a>Crie um fluxo power automate para ligar à sua base de conhecimento
+
+> [!NOTE]
+> Atualmente, o modelo Power Automamate não suporta pontos finais geridos (Preview) do QnA Maker. Para adicionar uma base de conhecimento gerida (Preview) do QnA Maker à Power Automamate, salte este passo e adicione manualmente os pontos finais. 
 
 O procedimento a seguir cria um fluxo power-automatização que:
 * Pega no texto do utilizador que está a chegar e envia-o para o QnA Maker.
 * Devolve a resposta máxima ao seu agente.
 
-1. Na **Power Automamate**, selecione **Modelos** da navegação à esquerda. Se lhe perguntarem se deseja sair da página do navegador, aceite o Leave.
+1. Na **Power Automamate** , selecione **Modelos** da navegação à esquerda. Se lhe perguntarem se deseja sair da página do navegador, aceite o Leave.
 
 1. Na página de modelos, procure o modelo **Gerar resposta usando o QnA Maker** e, em seguida, selecione o modelo. Este modelo tem todos os passos para ligar para o QnA Maker com as definições da base de conhecimento e devolver a resposta superior.
 
 1. No novo ecrã para o fluxo do QnA Maker, **selecione Continue**.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-qna-flow-template-continue.png" alt-text="Screenshot parcial do fluxo de conversação, com a opção de eliminação realçada.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-automate-qna-flow-template-continue.png" alt-text="Screenshot parcial do fluxo do modelo QnA Maker com botão Continue realçado.":::
 
 1. Selecione a caixa de ação **Generate Answer** e preencha as definições do QnA Maker a partir de uma secção anterior intitulada [Criar e publicar uma base de conhecimento](#create-and-publish-a-knowledge-base). O seu **Anfitrião de Serviço** na seguinte imagem refere-se ao anfitrião **da** base de conhecimento e encontra-se no formato de `https://YOUR-RESOURCE-NAME.azurewebsites.net/qnamaker` .
 
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="Screenshot parcial do fluxo de conversação, com a opção de eliminação realçada.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-fill-in-generate-answer-settings.png" alt-text="Screenshot parcial do fluxo do modelo do Fabricante QnA com resposta Generate (Preview) realçada.":::
 
 1. Selecione **Guardar** para guardar o fluxo.
 
@@ -178,7 +181,7 @@ Para que o agente encontre e ligue ao fluxo, o fluxo deve ser incluído numa sol
 
 1. Na lista de soluções, selecione a solução que acabou de criar. Deve estar no topo da lista. Se não for, procure pelo seu nome de e-mail, que faz parte do nome da solução.
 
-1. Na solução, **selecione + Adicione a existência**e, em seguida, selecione **Flow** da lista.
+1. Na solução, **selecione + Adicione a existência** e, em seguida, selecione **Flow** da lista.
 
 1. Encontre o seu fluxo a partir da lista de **soluções Externas** e, em seguida, selecione **Adicionar** para terminar o processo. Se houver muitos fluxos, olhe para a coluna **modificada** para encontrar o fluxo mais recente.
 
@@ -190,16 +193,16 @@ Para que o agente encontre e ligue ao fluxo, o fluxo deve ser incluído numa sol
 
 1. A partir da janela pop-up **Flow,** selecione o novo fluxo denominado **Gerar respostas usando a base de conhecimento do QnA Maker...**. A nova ação aparece no fluxo.
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-flow-after-adding-action.png" alt-text="Screenshot parcial do fluxo de conversação, com a opção de eliminação realçada.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-flow-after-adding-action.png" alt-text="Screenshot parcial da tela de conversação tópico do agente virtual de potência após a adição do fluxo do Fabricante QnA.":::
 
-1. Para definir corretamente a variável de entrada para a ação do QnA Maker, **selecione Selecione uma variável**e, em seguida, selecione **bot. Não reconhecidoTriggerPhrase.**
+1. Para definir corretamente a variável de entrada para a ação do QnA Maker, **selecione Selecione uma variável** e, em seguida, selecione **bot. Não reconhecidoTriggerPhrase.**
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="Screenshot parcial do fluxo de conversação, com a opção de eliminação realçada.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-selection-action-input.png" alt-text="Screenshot parcial do tópico de pesquisa de tópico de power virtual agent selecionando variável de entrada.":::
 
 
 1. Para definir corretamente a variável de saída para a ação do QnA Maker, na ação **Message,** selecione **UnrecognizedTriggerPhrase,** em seguida, selecione o ícone para inserir uma variável, `{x}` em seguida, selecione **FinalAnswer**.
 
-1. A partir da barra de ferramentas de contexto, **selecione Save**, para guardar os detalhes de tela de autoria para o tópico.
+1. A partir da barra de ferramentas de contexto, **selecione Save** , para guardar os detalhes de tela de autoria para o tópico.
 
 Aqui está o que o último agente tela parece.
 
@@ -216,12 +219,12 @@ Aqui está o que o último agente tela parece.
     |--|--|--|
     |1|Hello|Começar a conversa|
     |2|Horário de loja|Tópico da amostra. Isto está configurado para si sem qualquer trabalho adicional da sua parte.|
-    |3|Sim|Em resposta a `Did that answer your question?`|
+    |3|Yes|Em resposta a `Did that answer your question?`|
     |4|Excelente|Em resposta a `Please rate your experience.`|
-    |5|Sim|Em resposta a `Can I help with anything else?`|
+    |5|Yes|Em resposta a `Can I help with anything else?`|
     |6|Como posso melhorar o desempenho da produção para previsões de consulta?|Esta pergunta desencadeia a ação de recuo, que envia o texto para a sua base de conhecimento para responder. Então a resposta é mostrada. as marcas verdes de verificação das ações individuais indicam o sucesso de cada ação.|
 
-    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="Screenshot parcial do fluxo de conversação, com a opção de eliminação realçada.":::
+    :::image type="content" source="../media/how-to-integrate-power-virtual-agent/power-virtual-agent-test-tracked.png" alt-text="Screenshot do chat bot com tela indicando marcas verdes para ações bem sucedidas.":::
 
 ## <a name="publish-your-bot"></a>Publique o seu bot
 
@@ -246,7 +249,7 @@ Para partilhar o site de demonstração, configuure-o como um canal.
 
 1. Copie o link e **selecione Guardar**. Cole o link para o seu site de demonstração num e-mail para a sua escola ou membros da organização.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar a base de conhecimento, remova os recursos do QnA Maker no portal Azure.
 

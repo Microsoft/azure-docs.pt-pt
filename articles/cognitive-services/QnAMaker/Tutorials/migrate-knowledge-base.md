@@ -4,13 +4,13 @@ description: Migrar uma base de conhecimento requer exportar de uma base de conh
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
-ms.date: 03/25/2020
-ms.openlocfilehash: 9ba5f1d3d240867a8f6da52b9666c500c5b6446e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 78e22a9ec150435c1bc83873a2fcf0a00560c0c1
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777381"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375963"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrar uma base de conhecimentos utilizando a importação de exportação
 
@@ -22,6 +22,9 @@ A migração é o processo de criação de uma nova base de conhecimento a parti
 
 Migrar uma base de conhecimento requer exportar de uma base de conhecimento existente, importando depois para outra.
 
+> [!NOTE]
+> Siga as instruções abaixo para migrar a sua base de conhecimento existente para um novo QnA Maker gerido (Preview).
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Crie uma [conta gratuita](https://azure.microsoft.com/free/cognitive-services/) antes de começar.
@@ -31,7 +34,7 @@ Migrar uma base de conhecimento requer exportar de uma base de conhecimento exis
 1. Inscreva-se no [portal QnA Maker](https://qnamaker.ai).
 1. Selecione a base de conhecimento de origem que pretende migrar.
 
-1. Na página **Definições,** selecione **Base de conhecimentos de exportação** para descarregar um ficheiro .tsv que contenha o conteúdo da sua base de conhecimentos de origem - perguntas, respostas, metadados, pedidos de seguimento e os nomes de origem de dados a partir dos quais foram extraídos.
+1. Na página **Definições,** selecione **Base de conhecimentos de exportação** para descarregar um ficheiro .tsv que contenha o conteúdo da sua base de conhecimentos de origem - perguntas, respostas, metadados, pedidos de seguimento e os nomes de origem de dados a partir dos quais foram extraídos. Os IDs QnA que são exportados com as perguntas e respostas podem ser usados para atualizar um par QnA específico usando a [API de atualização](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). O QnA ID para um par QnA específico permanece inalterado em várias operações de exportação.
 
 1. Selecione **Criar uma base** de conhecimento a partir do menu superior e, em seguida, criar uma base de conhecimento _vazia._ Está vazio porque quando o crias, não vais adicionar URLs ou ficheiros. Estes são adicionados durante o passo de importação, após a criação.
 
@@ -41,7 +44,7 @@ Migrar uma base de conhecimento requer exportar de uma base de conhecimento exis
 
 1. No passo 5, **selecione Criar**.
 
-1. Nesta nova base de conhecimento, abra o **separador Definições** e selecione **a base de conhecimentos de importação.** Isto importa as perguntas, respostas, metadados, pedidos de seguimento e retém os nomes de origem de dados a partir dos quais foram extraídos.
+1. Nesta nova base de conhecimento, abra o **separador Definições** e selecione **a base de conhecimentos de importação.** Isto importa as perguntas, respostas, metadados, pedidos de seguimento e retém os nomes de origem de dados a partir dos quais foram extraídos. **Os pares QnA criados na nova base de conhecimentos devem ter o mesmo QnA ID presente no ficheiro exportado.** Isto ajuda-o a criar uma réplica exata da base de conhecimento.
 
    > [!div class="mx-imgBorder"]
    > [![Base de conhecimentos de importação](../media/qnamaker-how-to-migrate-kb/Import.png)](../media/qnamaker-how-to-migrate-kb/Import.png#lightbox)

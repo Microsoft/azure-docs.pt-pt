@@ -9,18 +9,18 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3d5c47d3e3e9485c3a6de8f93782c654fb34a516
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1208d95a282ca6e236d9d6be8013f51dead90d13
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330643"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376653"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>Adicione chit-chat a uma base de conhecimento
 
 Adicionar chit-chat ao seu bot torna-o mais conversador e envolvente. A funcionalidade de chit-chat no fabricante QnA permite-lhe adicionar facilmente um conjunto pré-povoado do chit-chat superior, na sua base de conhecimento (KB). Este pode ser um ponto de partida para a personalidade do seu bot, e irá poupar-lhe o tempo e o custo de escrevê-los do zero.
 
-Este conjunto de dados tem cerca de 100 cenários de chit-chat na voz de várias personalidades, como Professional,Friendly e Witty. Escolha a persona que mais se assemelha à voz do seu bot. Dada uma consulta do utilizador, a QnA Maker tenta compará-la com a QnA mais próxima conhecida.
+Este conjunto de dados tem cerca de 100 cenários de chit-chat na voz de várias personalidades, como Professional, Friendly e Witty. Escolha a persona que mais se assemelha à voz do seu bot. Dada uma consulta do utilizador, a QnA Maker tenta compará-la com a QnA mais próxima conhecida.
 
 Alguns exemplos das diferentes personalidades estão abaixo. Pode ver todos os [conjuntos de dados de](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) personalidade juntamente com detalhes das personalidades.
 
@@ -41,17 +41,17 @@ Para a consulta do `When is your birthday?` utilizador, cada personalidade tem u
 
 Os conjuntos de dados de chit-chat são suportados nos seguintes idiomas:
 
-|Idioma|
+|Linguagem|
 |--|
 |Chinês|
-|Inglês|
+|Em inglês|
 |Francês|
 |Alemanha|
 |Italiano|
 |Japonês|
 |Coreano|
 |Português|
-|Espanhol|
+|Em espanhol|
 
 
 ## <a name="add-chit-chat-during-kb-creation"></a>Adicione chit-chat durante a criação do KB
@@ -60,7 +60,15 @@ Durante a criação da base de conhecimento, depois de adicionar os URLs e fiche
 ## <a name="add-chit-chat-to-an-existing-kb"></a>Adicione chit-chat a um KB existente
 Selecione o seu KB e navegue para a página **Definições.** Existe uma ligação com todos os conjuntos de dados de chit-chat no formato **.tsv** apropriado. Descarregue a personalidade que deseja e, em seguida, carrede-a como fonte de ficheiro. Certifique-se de que não edita o formato ou os metadados quando descarregar e carregar o ficheiro.
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
+
 ![Adicione chit-chat ao KB existente](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset.png)
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+![Adicione o chit-chat ao lançamento de pré-visualização do KB existente](../media/qnamaker-how-to-chit-chat/add-chit-chat-dataset-v2.png)
+
+---
 
 ## <a name="edit-your-chit-chat-questions-and-answers"></a>Edite as suas perguntas e respostas de conversa fiada
 Quando editar o seu KB, verá uma nova fonte para o chit-chat, com base na personalidade que selecionou. Pode agora adicionar perguntas alteradas ou editar as respostas, tal como em qualquer outra fonte.
@@ -84,6 +92,6 @@ Selecione o seu KB e navegue para a página **Definições.** A sua fonte espec�
 > [!div class="nextstepaction"]
 > [Importar uma base de conhecimento](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 [Descrição geral do Criador de FAQ](../Overview/overview.md)

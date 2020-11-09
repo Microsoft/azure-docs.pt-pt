@@ -4,13 +4,13 @@ description: Utilize estas melhores práticas para melhorar a sua base de conhec
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 02/15/2020
-ms.openlocfilehash: 15cb1391cb6482401c2a091a4d5c0e9d819ba52d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 2f87f5c7e43757db476153db93d6ecc5082dde89
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777025"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376762"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Boas práticas de uma base de conhecimento da QnA Maker
 
@@ -116,11 +116,17 @@ Por predefinição, o QnA Maker procura através de perguntas e respostas. Se qu
 [Os metadados](../How-To/edit-knowledge-base.md) adicionam a capacidade de uma aplicação do cliente saber que não deve levar todas as respostas, mas sim reduzir os resultados de uma consulta do utilizador com base em etiquetas de metadados. A resposta base de conhecimento pode diferir com base na etiqueta de metadados, mesmo que a consulta seja a mesma. Por exemplo, *"onde está o estacionamento localizado"* pode ter uma resposta diferente se a localização da filial do restaurante for diferente - ou seja, os metadados são *Localização: Seattle* versus *Localização: Redmond*.
 
 ### <a name="use-synonyms"></a>Use sinónimos
-Embora exista algum suporte para sinónimos na língua inglesa, use alterações de palavras insensíveis através da [API alterações](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinónimos a palavras-chave que assumem uma forma diferente. Os sinónimos são adicionados ao nível de serviço do QnA Maker e partilhados por todas as bases de conhecimento do serviço.
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
+Embora exista algum suporte para sinónimos na língua inglesa, use alterações de palavras insensíveis através da [API alterações](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinónimos a palavras-chave que assumem diferentes formas. Os sinónimos são adicionados ao nível de serviço do QnA Maker e **partilhados por todas as bases de conhecimento do serviço.**
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+Embora exista algum suporte para sinónimos na língua inglesa, use alterações de palavras insensíveis através da [API alterações](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) para adicionar sinónimos a palavras-chave que assumem diferentes formas. Os sinónimos no QnA Maker geridos (Preview) são **adicionados por base de conhecimento**.
 
 |Palavra original|Sinónimos|
 |--|--|
 |comprar|purchase<br>banca líquida<br>banca líquida|
+
+---
 
 ### <a name="use-distinct-words-to-differentiate-questions"></a>Use palavras distintas para diferenciar questões
 O algoritmo de classificação do QnA Maker, que corresponde a uma consulta do utilizador com uma pergunta na base de conhecimento, funciona melhor se cada pergunta abordar uma necessidade diferente. A repetição da mesma palavra entre perguntas reduz a probabilidade de a resposta certa ser escolhida para uma determinada consulta do utilizador com essas palavras.

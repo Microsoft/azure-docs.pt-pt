@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 71de48c8ac0f74ed4afbe0fafcdbfdf3f34d6654
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 95e4ac884e0eda3b4f469484226962e3fd2e2eea
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422421"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375385"
 ---
 # <a name="linux-virtual-machines-in-azure"></a>Máquinas virtuais do Linux no Azure
 
@@ -115,6 +115,11 @@ O Azure suporta [a inibição de nuvens na](https://cloud-init.io/) maioria dos 
 * [Endereços IP no Azure](../../virtual-network/public-ip-addresses.md)
 * [Opening ports to a Linux VM in Azure](nsg-quickstart.md) (Abrir portas para uma VM do Linux no Azure)
 * [Create a Fully Qualified Domain Name in the Azure portal](portal-create-fqdn.md) (Criar um Nome de Domínio Completamente Qualificado no portal do Azure)
+
+
+## <a name="data-residency"></a>Residência dos dados
+
+Em Azure, a funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente disponível apenas na Região do Sudeste Asiático (Singapura) da Região Ásia-Pacífico Geo e Brasil Sul (Estado de São Paulo) do Brasil Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo. Para mais informações, consulte [o Trust Center.](https://azuredatacentermap.azurewebsites.net/)
 
 
 ## <a name="next-steps"></a>Passos seguintes

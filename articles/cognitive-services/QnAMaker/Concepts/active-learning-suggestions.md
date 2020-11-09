@@ -4,13 +4,13 @@ description: As sugestões de aprendizagem ativa permitem-lhe melhorar a qualida
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: e8cdb1d471ceef2aef790c426424b9224faac5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 707f4c098eacb0b72a7e12ebf79f9389b91095cc
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777042"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376524"
 ---
 # <a name="active-learning-suggestions"></a>Sugestões de aprendizagem ativa
 
@@ -37,10 +37,18 @@ Uma vez que as perguntas são sugeridas no portal QnA Maker, você precisa rever
 
 ## <a name="turn-on-active-learning"></a>Ativar a aprendizagem ativa
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
+
 Por predefinição, a aprendizagem ativa está **desligada**.
 Para utilizar a aprendizagem ativa:
 * Tens de ativar a [aprendizagem ativa](../How-To/use-active-learning.md#turn-on-active-learning-for-alternate-questions) para que a QnA Maker recolha perguntas alternativas para a tua base de conhecimento.
 * Para ver as perguntas alternativas sugeridas, [utilize as opções de Ver](../How-To/improve-knowledge-base.md#view-suggested-questions) na página Editar.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+Por padrão, a aprendizagem ativa está em **curso no** QnA Maker gerido (Preview). Para ver as perguntas alternativas sugeridas, [utilize as opções de Ver](../How-To/improve-knowledge-base.md#view-suggested-questions) na página Editar.
+
+---
 
 ## <a name="how-qna-makers-implicit-feedback-works"></a>Como funciona o feedback implícito da QnA Maker
 

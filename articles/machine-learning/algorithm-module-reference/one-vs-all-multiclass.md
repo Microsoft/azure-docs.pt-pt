@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 23077d7d6b476bcca0812dcff8660376568f7dd9
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420687"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376337"
 ---
 # <a name="one-vs-all-multiclass"></a>One-vs-All Multiclass
 
@@ -26,7 +26,7 @@ Este módulo é útil para a criação de modelos que prevejam três ou mais res
 
 Alguns algoritmos de classificação permitem o uso de mais de duas classes por design. Outros restringem os resultados possíveis a um de dois valores (um modelo binário ou de duas classes). Mas mesmo algoritmos binários de classificação podem ser adaptados para tarefas de classificação multi-classes através de uma variedade de estratégias. 
 
-Este módulo implementa o método one-versus-all, no qual é criado um modelo binário para cada uma das classes de saída múltiplas. O módulo avalia cada um destes modelos binários para as classes individuais contra o seu complemento (todas as outras classes do modelo) como se fosse uma questão de classificação binária. Em seguida, o módulo executa a previsão executando estes classificadores binários e escolhendo a previsão com a pontuação de confiança mais alta.  
+Este módulo implementa o método one-versus-all, no qual é criado um modelo binário para cada uma das classes de saída múltiplas. O módulo avalia cada um destes modelos binários para as classes individuais contra o seu complemento (todas as outras classes do modelo) como se fosse uma questão de classificação binária. Além da sua eficiência computacional (apenas `n_classes` são necessários classificadores), uma das vantagens desta abordagem é a sua interpretação. Uma vez que cada classe é representada apenas por um e um classificador, é possível obter conhecimento sobre a classe inspecionando o seu classificador correspondente. Esta é a estratégia mais usada para a classificação multiclasse e é uma escolha padrão justa. Em seguida, o módulo executa a previsão executando estes classificadores binários e escolhendo a previsão com a pontuação de confiança mais alta. 
 
 No essencial, o módulo cria um conjunto de modelos individuais e depois funde os resultados, para criar um único modelo que preveja todas as classes. Qualquer classificador binário pode ser usado como base para um modelo one-versus-all.  
 

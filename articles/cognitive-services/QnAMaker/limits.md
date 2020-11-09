@@ -4,13 +4,13 @@ description: A QnA Maker tem meta-limites para partes da base de conhecimento e 
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/14/2020
-ms.openlocfilehash: 773c9caa2fb25b3abe4fb451bc59598c485a6110
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: c61c550e9a09d0f0708e8f1dbc63e76b329a8166
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776260"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375623"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker limites e limites de base de conhecimento
 
@@ -50,6 +50,9 @@ Os nomes dos ficheiros não podem incluir os seguintes caracteres:
 ### <a name="maximum-number-of-files"></a>Número máximo de ficheiros
 
 O número máximo de ficheiros que podem ser extraídos e o tamanho máximo do ficheiro baseia-se nos **[limites do nível de preços do QnA Maker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)**.
+
+> [!NOTE]
+> QnA Maker gerido (Preview) é um serviço gratuito sem limites no número de fontes que podem ser adicionadas. Atualmente, a produção está limitada a 10 transações por segundo tanto para as APIs de gestão como para as APIs de previsão.
 
 ### <a name="maximum-number-of-deep-links-from-url"></a>Número máximo de ligações profundas a partir de URL
 

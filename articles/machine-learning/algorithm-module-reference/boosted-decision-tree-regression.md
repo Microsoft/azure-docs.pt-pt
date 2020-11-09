@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664943fc5535883b3df77b2795383e5c0586a71c
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898847"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375334"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Módulo de regressão da árvore da decisão reforçada
 
@@ -52,30 +52,30 @@ O método de aumento do gradiente também pode ser usado para problemas de class
 
 ## <a name="how-to-configure-boosted-decision-tree-regression"></a>Como configurar regressão da árvore de decisão reforçada
 
-1.  Adicione o módulo **Árvore de Decisão Reforçada** ao seu oleoduto. Pode encontrar este módulo na categoria **Machine Learning**, **Initialize,** na categoria **Regressão.** 
+1.  Adicione o módulo **Árvore de Decisão Reforçada** ao seu oleoduto. Pode encontrar este módulo na categoria **Machine Learning** , **Initialize,** na categoria **Regressão.** 
   
 2.  Especifique como pretende que o modelo seja treinado, definindo a opção **modo de formação Create.**  
   
-    -   **Parâmetro único**: Selecione esta opção se souber como pretende configurar o modelo e fornecer um conjunto específico de valores como argumentos. 
+    -   **Parâmetro único** : Selecione esta opção se souber como pretende configurar o modelo e fornecer um conjunto específico de valores como argumentos. 
      
-    -   **Intervalo de parâmetros**: Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.    
+    -   **Intervalo de parâmetros** : Selecione esta opção se não tiver a certeza dos melhores parâmetros e pretender fazer uma varredura de parâmetros. Selecione uma gama de valores para iterar e o [Tune Model Hyperparameters](tune-model-hyperparameters.md) itera sobre todas as combinações possíveis das configurações fornecidas para determinar os hiperparmetros que produzem os melhores resultados.    
    
   
-3. **Número máximo de folhas por árvore**: Indicar o número máximo de nós terminais (folhas) que podem ser criados em qualquer árvore.  
+3. **Número máximo de folhas por árvore** : Indicar o número máximo de nós terminais (folhas) que podem ser criados em qualquer árvore.  
 
     Ao aumentar este valor, você potencialmente aumenta o tamanho da árvore e obtém uma melhor precisão, correndo o risco de sobremontagem e tempo de treino mais longo.  
 
-4. **Número mínimo de amostras por nó folha**: Indique o número mínimo de casos necessários para criar qualquer nó terminal (folha) numa árvore.
+4. **Número mínimo de amostras por nó folha** : Indique o número mínimo de casos necessários para criar qualquer nó terminal (folha) numa árvore.
 
     Ao aumentar este valor, aumenta-se o limiar para a criação de novas regras. Por exemplo, com o valor padrão de 1, mesmo um único caso pode fazer com que uma nova regra seja criada. Se aumentar o valor para 5, os dados da formação terão de conter pelo menos 5 casos que satisfaçam as mesmas condições.
 
-5. **Taxa de aprendizagem**: Digite um número entre 0 e 1 que define o tamanho do passo durante a aprendizagem. A taxa de aprendizagem determina a rapidez ou a lentidão com que o aluno converge na solução ideal. Se o tamanho do passo for demasiado grande, poderá ultrapassar a solução ideal. Se o tamanho do degrau for muito pequeno, o treino demora mais tempo a convergir para a melhor solução.
+5. **Taxa de aprendizagem** : Digite um número entre 0 e 1 que define o tamanho do passo durante a aprendizagem. A taxa de aprendizagem determina a rapidez ou a lentidão com que o aluno converge na solução ideal. Se o tamanho do passo for demasiado grande, poderá ultrapassar a solução ideal. Se o tamanho do degrau for muito pequeno, o treino demora mais tempo a convergir para a melhor solução.
 
-6. **Número de árvores construídas**: Indicar o número total de árvores de decisão a criar no conjunto. Ao criar mais árvores de decisão, você pode potencialmente obter uma melhor cobertura, mas o tempo de treino aumenta.
+6. **Número de árvores construídas** : Indicar o número total de árvores de decisão a criar no conjunto. Ao criar mais árvores de decisão, você pode potencialmente obter uma melhor cobertura, mas o tempo de treino aumenta.
 
-    Este valor também controla o número de árvores exibidas ao visualizar o modelo treinado. se quiser ver ou imprimir uma única árvore, pode definir o valor para 1; no entanto, apenas uma árvore é produzida (a árvore com o conjunto inicial de parâmetros) e não são realizadas mais iterações.
+    Se definir o valor para 1; no entanto, apenas uma árvore é produzida (a árvore com o conjunto inicial de parâmetros) e não são realizadas mais iterações.
 
-7. **Semente de número aleatório**: Digite um número inteiro opcional não negativo para usar como valor de sementes aleatórias. Especificar uma semente garante a reprodutibilidade através de percursos que têm os mesmos dados e parâmetros.
+7. **Semente de número aleatório** : Digite um número inteiro opcional não negativo para usar como valor de sementes aleatórias. Especificar uma semente garante a reprodutibilidade através de percursos que têm os mesmos dados e parâmetros.
 
     Por predefinição, a semente aleatória é definida para 0, o que significa que o valor inicial da semente é obtido a partir do relógio do sistema.
   
@@ -97,7 +97,7 @@ O método de aumento do gradiente também pode ser usado para problemas de class
 
 10. Envie o oleoduto.  
   
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Após o treino estar completo:
 

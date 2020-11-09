@@ -4,13 +4,13 @@ description: O Fabricante QnA usa várias fontes Azure, cada uma com um propósi
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 03/25/2020
-ms.openlocfilehash: 62f627fb9765f2a86a373f74c33437680c9305af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: 46b1cf2681ab5d804035c98d458600de5081c77d
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777059"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376801"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos Azure para O Criador QNA
 
@@ -18,17 +18,33 @@ O Fabricante QnA usa várias fontes Azure, cada uma com um propósito diferente.
 
 ## <a name="resource-planning"></a>Planeamento de recursos
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
+
 Quando desenvolve uma base de conhecimento QnA Maker, na fase do protótipo, é comum ter um único recurso QnA Maker tanto para testes como para produção.
 
 Quando se entra na fase de desenvolvimento do projeto, deve considerar:
 
-* quantas línguas o seu sistema de base de conhecimento vai manter
-* quantas regiões precisa da sua base de conhecimentos para estar disponível em/a partir
-* quantos documentos em cada domínio o seu sistema irá conter
+* Quantas línguas o seu sistema de base de conhecimento vai manter?
+* Em quantas regiões precisa da sua base de conhecimentos para estar disponível?
+* Quantos documentos em cada domínio o seu sistema irá conter?
 
 Planeia ter um único recurso QnA Maker que possua todas as bases de conhecimento que tenham a mesma língua, a mesma região e a mesma combinação de domínios sujeitos.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+Quando desenvolve uma base de conhecimento gerida pela QnA Maker, na fase do protótipo, é comum ter um único recurso gerido pela QnA Maker tanto para testar como para a produção.
+
+Quando se entra na fase de desenvolvimento do projeto, deve considerar:
+
+* Quantas línguas o seu sistema de base de conhecimento vai manter?
+* Em quantas regiões precisa da sua base de conhecimentos para estar disponível?
+* Quantos documentos em cada domínio o seu sistema irá conter?
+
+---
+
 ## <a name="pricing-tier-considerations"></a>Considerações de nível de preços
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
 
 Normalmente, há três parâmetros que deve considerar:
 
@@ -36,13 +52,13 @@ Normalmente, há três parâmetros que deve considerar:
     * Selecione o [Plano de Aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/) apropriado para o seu serviço de Aplicações com base nas suas necessidades. Pode [escalar para cima](https://docs.microsoft.com/azure/app-service/manage-scale-up) ou para baixo na App.
     * Isto também deve influenciar a sua seleção Azure **Cognitive Search** SKU, ver mais detalhes [aqui.](https://docs.microsoft.com/azure/search/search-sku-tier) Além disso, poderá ser necessário ajustar a [capacidade de](../../../search/search-capacity-planning.md) Pesquisa Cognitiva com réplicas.
 
-* **Tamanho e número de bases de conhecimento**: Escolha o [SKU de pesquisa Azure](https://azure.microsoft.com/pricing/details/search/) apropriado para o seu cenário. Normalmente, você decide o número de bases de conhecimento que precisa com base no número de diferentes domínios de assunto. Uma vez que o domínio do assunto (para uma única língua) deve estar numa base de conhecimento.
+* **Tamanho e número de bases de conhecimento** : Escolha o [SKU de pesquisa Azure](https://azure.microsoft.com/pricing/details/search/) apropriado para o seu cenário. Normalmente, você decide o número de bases de conhecimento que precisa com base no número de diferentes domínios de assunto. Uma vez que o domínio do assunto (para uma única língua) deve estar numa base de conhecimento.
 
     Pode publicar bases de conhecimento N-1 num determinado nível, onde N é o índice máximo permitido no nível. Verifique também o tamanho máximo e o número de documentos permitidos por nível.
 
     Por exemplo, se o seu nível tiver 15 índices permitidos, pode publicar 14 bases de conhecimento (1 índice por base de conhecimentos publicados). O décimo quinto índice é utilizado para todas as bases de conhecimento para a autoria e teste.
 
-* **Número de documentos como fontes**: O SKU gratuito do serviço de gestão QnA Maker limita o número de documentos que pode gerir através do portal e das APIs a 3 (de tamanho de 1 MB cada). O SKU padrão não tem limites para o número de documentos que pode gerir. Veja mais detalhes [aqui.](https://aka.ms/qnamaker-pricing)
+* **Número de documentos como fontes** : O SKU gratuito do serviço de gestão QnA Maker limita o número de documentos que pode gerir através do portal e das APIs a 3 (de tamanho de 1 MB cada). O SKU padrão não tem limites para o número de documentos que pode gerir. Veja mais detalhes [aqui.](https://aka.ms/qnamaker-pricing)
 
 A tabela a seguir dá-lhe algumas diretrizes de alto nível.
 
@@ -52,7 +68,39 @@ A tabela a seguir dá-lhe algumas diretrizes de alto nível.
 | **Ambiente dev/Teste**   | SKU Standard         | Partilhado      | Básico        | Publicar até 14 KBs, tamanho de 2 GB    |
 | **Ambiente de Produção** | SKU Standard         | Básica       | Standard     | Publicar até 49 KBs, tamanho de 25 GB |
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+Normalmente, há três parâmetros que deve considerar:
+
+* **A produção que precisa do serviço:**
+    * QnA Maker gerido (Preview) é um serviço gratuito, e a produção está atualmente limitada a 10 TPS tanto para APIs de gestão como para APIs de previsão.
+    * Isto também deve influenciar a sua seleção Azure **Cognitive Search** SKU, ver mais detalhes [aqui.](https://docs.microsoft.com/azure/search/search-sku-tier) Além disso, poderá ser necessário ajustar a [capacidade de](../../../search/search-capacity-planning.md) Pesquisa Cognitiva com réplicas.
+
+* **Tamanho e número de bases de conhecimento** : Escolha o [SKU de pesquisa Azure](https://azure.microsoft.com/pricing/details/search/) apropriado para o seu cenário. Normalmente, você decide o número de bases de conhecimento que precisa com base no número de diferentes domínios de assunto. Uma vez que o domínio do assunto (para uma única língua) deve estar numa base de conhecimento.
+
+    Com o QnA Maker gerido (Preview) tem a opção de configurar o seu serviço QnA Maker para KBs num único idioma ou em vários idiomas. Pode fazer esta seleção quando criar a primeira base de conhecimento no seu serviço QnA Maker gerido (Preview).
+
+    ![O QnA Maker geriu (Preview) a seleção de base de conhecimento multilingue](../media/concept-plan-your-knowledge-base/qnamaker-v2-select-multilanguage-knowledge-base.png)
+
+    Pode publicar bases de conhecimento N-1 de uma única língua ou bases de conhecimento N/2 de diferentes línguas num determinado nível, onde N é o índice máximo permitido no nível. Verifique também o tamanho máximo e o número de documentos permitidos por nível.
+
+    Por exemplo, se o seu nível tiver 15 índices permitidos, pode publicar 14 bases de conhecimento da mesma língua (1 índice por base de conhecimento publicado). O décimo quinto índice é utilizado para todas as bases de conhecimento para a autoria e teste. Se optar por ter bases de conhecimento em diferentes línguas, só pode publicar 7 bases de conhecimento.
+
+* **Número de documentos como fontes** : QnA Maker gerido (Preview) é um serviço gratuito, e não há limites para o número de documentos que pode adicionar como fontes. Veja mais detalhes [aqui.](https://aka.ms/qnamaker-pricing)
+
+A tabela a seguir dá-lhe algumas diretrizes de alto nível.
+
+|                            |Azure Cognitive Search | Limitações                      |
+| -------------------------- |------------ | -------------------------------- |
+| **Experimentação**        |Nível Gratuito    | Publicar até 2 KBs, tamanho de 50 MB  |
+| **Ambiente dev/Teste**   |Básico        | Publicar até 14 KBs, tamanho de 2 GB    |
+| **Ambiente de Produção** |Standard     | Publicar até 49 KBs, tamanho de 25 GB |
+
+---
+
 ## <a name="recommended-settings"></a>Definições recomendadas
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
 
 |QPS-alvo | Serviço de Aplicações | Azure Cognitive Search |
 | -------------------- | ----------- | ------------ |
@@ -62,9 +110,17 @@ A tabela a seguir dá-lhe algumas diretrizes de alto nível.
 | 100         | P3V2, 10 Instâncias  | S3, 12 Instâncias, 3 Partições   |
 | 200 a 250         | P3V2, 20 Instâncias | S3, 12 Instâncias, 3 Partições    |
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+A QnA Maker gerida é um serviço gratuito, e a produção está atualmente limitada a 10 transações por segundo tanto para APIs de gestão como para APIs de previsão. Para direcionar 10 transações por segundo para o seu serviço recomendamos o S1 (1 exemplo) SKU da Azure Cognitive Search.
+
+---
+
 ## <a name="when-to-change-a-pricing-tier"></a>Quando alterar um nível de preços
 
-|Atualizar|Razão|
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
+
+|Atualização|Razão|
 |--|--|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) Gestão do Fabricante QNA SKU|Você quer ter mais pares QnA ou fontes de documento na sua base de conhecimento.|
 |[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) Serviço de Aplicações SKU e verificar nível de Pesquisa Cognitiva e [criar réplicas de Pesquisa Cognitiva](../../../search/search-capacity-planning.md)|A sua base de conhecimentos precisa de servir mais pedidos da sua aplicação de clientes, como um chat bot.|
@@ -72,7 +128,15 @@ A tabela a seguir dá-lhe algumas diretrizes de alto nível.
 
 Obtenha as últimas atualizações de tempo de execução [atualizando o seu Serviço de Aplicações no portal Azure.](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates)
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+[Upgrade](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) Serviço de Pesquisa Cognitiva Azure quando planeia ter muitas bases de conhecimento.
+
+---
+
 ## <a name="resource-naming-considerations"></a>Considerações de nomeação de recursos
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
 
 O nome de recurso para o recurso QnA Maker, `qna-westus-f0-b` como, também é usado para nomear os outros recursos.
 
@@ -92,7 +156,7 @@ Após a criação dos recursos, têm o mesmo nome, com exceção do recurso opci
 > [!TIP]
 > Utilize uma convenção de nomeação para indicar os níveis de preços dentro do nome do recurso ou do grupo de recursos. Quando recebe erros de criar uma nova base de conhecimento, ou de adicionar novos documentos, o limite de preços de Pesquisa Cognitiva é uma questão comum.
 
-## <a name="resource-purposes"></a>Finalidades de recursos
+### <a name="resource-purposes"></a>Finalidades de recursos
 
 Cada recurso Azure criado com a QnA Maker tem um propósito específico:
 
@@ -185,13 +249,88 @@ Os termos de autoria e chave de ponto final de consulta são termos corretivos. 
 
 Você deve saber qual a chave é o acesso, gestão de base de conhecimento ou consulta de base de conhecimento, para saber que chave você precisa encontrar.
 
-## <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
+### <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
 
 * Proteger o Recurso de Serviço Cognitivo do acesso público [configurando a rede virtual.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)
 * Proteja o Serviço de Aplicações (QnA Runtime) do acesso público:
     * Permitir o tráfego apenas a partir de IPs do Serviço Cognitivo. Estes já estão incluídos na Tag de Serviço "CognitiveServicesManagement". Isto é necessário para que as APIs de Autoria (Create/Update KB) invoquem o serviço de aplicações e atualizem o serviço de Pesquisa Azure em conformidade.
     * Certifique-se de que também permite outros pontos de entrada como o serviço Bot, portal QnA Maker (pode ser a sua rede) etc. para previsão de acesso a API "GenerateAnswer".
     * Confira [mais informações sobre etiquetas de serviço.](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+O nome de recurso para o recurso gerido (Preview) do QnA Maker, `qna-westus-f0-b` como, também é usado para nomear os outros recursos.
+
+A janela de criação do portal Azure permite-lhe criar um recurso gerido (Preview) do QnA Maker e selecionar os níveis de preços para os outros recursos.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot do portal Azure para a criação de recursos (Preview) do QnA Maker ](../media/qnamaker-how-to-setup-service/enter-qnamaker-v2-info.png) Depois de criados os recursos, eles têm o mesmo nome.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot do recurso do portal Azure que lista o QnA Maker gerido (Preview)](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
+> [!TIP]
+> Crie um novo grupo de recursos quando criar um recurso QnA Maker. Isso permite-lhe ver todos os recursos associados ao recurso gerido (Preview) do QnA Maker ao pesquisar por grupo de recursos.
+> [!TIP]
+> Utilize uma convenção de nomeação para indicar os níveis de preços dentro do nome do recurso ou do grupo de recursos. Quando recebe erros de criar uma nova base de conhecimento, ou de adicionar novos documentos, o limite de preços de Pesquisa Cognitiva é uma questão comum.
+
+### <a name="resource-purposes"></a>Finalidades de recursos
+
+Cada recurso Azure criado com qnA Maker gerido (Preview) tem um propósito específico:
+
+* Recurso do Fabricante QnA
+* Recurso de Pesquisa Cognitiva
+
+### <a name="azure-cognitive-search-resource"></a>Recurso de Pesquisa Cognitiva Azure
+
+O recurso [de Pesquisa Cognitiva](../../../search/index.yml) é utilizado para:
+
+* Armazenar os pares QnA
+* Fornecer o ranking inicial (ranking #1) dos pares QnA em tempo de execução
+
+#### <a name="index-usage"></a>Utilização de índices
+
+Pode publicar bases de conhecimento N-1 de uma única língua ou bases de conhecimento N/2 de diferentes línguas num determinado nível, onde N é o índice máximo permitido no nível de Pesquisa Cognitiva Azure. Verifique também o tamanho máximo e o número de documentos permitidos por nível.
+
+Por exemplo, se o seu nível tiver 15 índices permitidos, pode publicar 14 bases de conhecimento da mesma língua (1 índice por base de conhecimento publicado). O décimo quinto índice é utilizado para todas as bases de conhecimento para a autoria e teste. Se optar por ter bases de conhecimento em diferentes línguas, só pode publicar 7 bases de conhecimento.
+
+#### <a name="language-usage"></a>Uso da linguagem
+
+Com o QnA Maker gerido (Preview) tem a opção de configurar o seu serviço QnA Maker para bases de conhecimento num único idioma ou em vários idiomas. Faça esta escolha durante a criação da primeira base de conhecimento no seu serviço QnA Maker. Veja [aqui](#pricing-tier-considerations) como permitir a definição de linguagem por base de conhecimento.
+
+### <a name="qna-maker-resource"></a>Recurso do Fabricante QnA
+
+O recurso gerido pelo QnA Maker (Preview) fornece acesso às APIs de autoria e publicação, acolhe o tempo de funcionamento do ranking, bem como fornece telemetria.
+
+## <a name="region-support"></a>Suporte de região
+
+Na QnA Maker gerido (Preview) tanto a gestão como os serviços de previsão são co-localizados na mesma região. Atualmente QnA Maker gerido (Preview) está disponível em **South Central EUA, Europa do Norte e Austrália Leste.**
+
+### <a name="keys-in-qna-maker-managed-preview"></a>Chaves em QnA Maker geridas (Pré-visualização)
+
+O seu serviço QnA Maker geriu (Preview) com dois tipos de chaves: chaves de **autoria** e **chaves de Pesquisa Cognitiva Azure utilizadas** para aceder ao serviço na subscrição do cliente.
+
+Se procura a sua **chave de subscrição,** [a terminologia mudou.](#subscription-keys)
+
+Utilize estas teclas ao escrutinar os pedidos ao serviço através de APIs.
+
+![Pré-visualização gerida pela gestão de chaves](../media/qnamaker-how-to-key-management/qnamaker-v2-key-management.png)
+
+|Nome|Localização|Objetivo|
+|--|--|--|
+|Chave de autoria|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|Estas chaves são utilizadas para aceder às APIs do [serviço de gestão QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas APIs permitem-lhe editar as perguntas e respostas na sua base de conhecimento, e publicar a sua base de conhecimentos. Estas teclas são criadas quando cria um novo serviço QnA Maker.<br><br>Encontre estas chaves no recurso **serviços cognitivos** na página **Chaves.**|
+|Chave de administração de pesquisa cognitiva Azure|[Portal do Azure](https://docs.microsoft.com/azure/search/search-security-api-keys)|Estas teclas são utilizadas para comunicar com o serviço de pesquisa cognitiva Azure implantado na assinatura Azure do utilizador. Quando associa uma pesquisa cognitiva Azure ao serviço gerido (Preview) do QnA Maker, a tecla de administração é automaticamente transmitida para o serviço QnA Maker. <br><br>Pode encontrar estas chaves no recurso **Azure Cognitive Search** na página **Keys.**|
+
+### <a name="subscription-keys"></a>Chaves de subscrição
+
+Os termos de autoria e chave de ponto final de consulta são termos corretivos. O termo anterior era **a chave de subscrição.** Se vir outra documentação referente às teclas de subscrição, estas são equivalentes às teclas de ponto final de autoria e consulta (utilizadas no tempo de execução).
+
+Você deve saber qual a chave é o acesso, gestão de base de conhecimento ou consulta de base de conhecimento, para saber que chave você precisa encontrar.
+
+### <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede 
+
+Proteger o Recurso de Serviço Cognitivo do acesso público [configurando a rede virtual.](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 

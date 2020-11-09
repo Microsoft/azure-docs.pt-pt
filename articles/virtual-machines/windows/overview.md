@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8a42711bba8f77070e2b30a9b07d29d5b5095945
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 9ff05f2cf9f29ef86a6db9955e7d28c9035e1bf4
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973891"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376966"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Máquinas virtuais do Windows no Azure
 
@@ -80,7 +80,7 @@ Esta tabela mostra algumas formas para encontrar as informações de uma imagem.
 | Portal do Azure |Os valores são especificados automaticamente ao selecionar uma imagem a utilizar. |
 | Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) *-Localização*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) *-Localização* *-Editor editorName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) *-Localização* *-Editor publisherName* -Oferta *Dename* |
 | APIs REST |[Listar publicadores de imagem](/rest/api/compute/platformimages/platformimages-list-publishers)<BR>[Listar ofertas da imagem](/rest/api/compute/platformimages/platformimages-list-publisher-offers)<BR>[Listar skus da imagem](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) |
-| CLI do Azure |[az vm lista de editores --](/cli/azure/vm/image?view=azure-cli-latest) *localização*<BR>[az vm image list-offers](/cli/azure/vm/image?view=azure-cli-latest) --Localização*location* --Publicador*publisherName*<BR>[az vm lista de imagens-skus](/cli/azure/vm?view=azure-cli-latest) *--localização* *--editorname* -- *oferta de oferta*|
+| CLI do Azure |[az vm lista de editores --](/cli/azure/vm/image?view=azure-cli-latest) *localização*<BR>[az vm image list-offers](/cli/azure/vm/image?view=azure-cli-latest) --Localização *location* --Publicador *publisherName*<BR>[az vm lista de imagens-skus](/cli/azure/vm?view=azure-cli-latest) *--localização* *--editorname* -- *oferta de oferta*|
 
 Pode optar por [carregar e utilizar a sua própria imagem](upload-generalized-managed.md) e quando o fizer, o nome do publicador, a oferta e o sku não são utilizados.
 
@@ -98,12 +98,18 @@ Os recursos nesta tabela são utilizados pela VM e têm de existir ou ser criado
 
 | Recurso | Obrigatório | Descrição |
 | --- | --- | --- |
-| [Grupo de recursos](../../azure-resource-manager/management/overview.md) |Sim |A VM tem de estar contida num grupo de recursos. |
-| [Conta de armazenamento](../../storage/common/storage-account-create.md) |Sim |A VM precisa da conta de armazenamento para armazenar os respetivos discos rígidos virtuais. |
-| [Rede virtual](../../virtual-network/virtual-networks-overview.md) |Sim |A VM tem de ser um membro de uma rede virtual. |
-| [Endereço IP público](../../virtual-network/public-ip-addresses.md) |Não |A VM pode ter um endereço IP público atribuído para aceder ao mesmo remotamente. |
-| [Interface de rede](../../virtual-network/virtual-network-network-interface.md) |Sim |A VM precisa da interface de rede para comunicar na rede. |
-| [Discos de dados](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |Não |A VM pode incluir discos de dados para expandir as capacidades de armazenamento. |
+| [Grupo de recursos](../../azure-resource-manager/management/overview.md) |Yes |A VM tem de estar contida num grupo de recursos. |
+| [Conta de armazenamento](../../storage/common/storage-account-create.md) |Yes |A VM precisa da conta de armazenamento para armazenar os respetivos discos rígidos virtuais. |
+| [Rede virtual](../../virtual-network/virtual-networks-overview.md) |Yes |A VM tem de ser um membro de uma rede virtual. |
+| [Endereço IP público](../../virtual-network/public-ip-addresses.md) |No |A VM pode ter um endereço IP público atribuído para aceder ao mesmo remotamente. |
+| [Interface de rede](../../virtual-network/virtual-network-network-interface.md) |Yes |A VM precisa da interface de rede para comunicar na rede. |
+| [Discos de dados](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |No |A VM pode incluir discos de dados para expandir as capacidades de armazenamento. |
+
+
+## <a name="data-residency"></a>Residência dos dados
+
+Em Azure, a funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente disponível apenas na Região do Sudeste Asiático (Singapura) da Região Ásia-Pacífico Geo e Brasil Sul (Estado de São Paulo) do Brasil Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo. Para mais informações, consulte [o Trust Center.](https://azuredatacentermap.azurewebsites.net/)
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

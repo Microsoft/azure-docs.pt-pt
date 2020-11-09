@@ -4,13 +4,13 @@ description: O QnA Maker permite que várias pessoas colaborem numa base de conh
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/11/2020
-ms.openlocfilehash: 77290d271709db36f9c62e165b0b4070783b3ec6
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.date: 11/09/2020
+ms.openlocfilehash: 93d9cc871d1cb114f7f08b68eb8ae9d597e228b9
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92128481"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376490"
 ---
 # <a name="manage-qna-maker-app"></a>Gerir a aplicação QnA Maker
 
@@ -69,13 +69,23 @@ Quando a pessoa que partilhou o seu serviço QnA Maker com registos no [portal Q
 
 Quando selecionam uma base de conhecimento, o seu papel atual nesse recurso QnA Maker é visível ao lado do nome base do conhecimento.
 
-:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="QnA Maker IAM adicionar papel.":::
+:::image type="content" source="../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-knowledge-base-role-name.png" alt-text="Screenshot da base de conhecimento no modo editar com nome de função em parênteses ao lado do nome base do conhecimento no canto superior esquerdo da página web.":::
 
 ## <a name="upgrade-runtime-version-to-use-active-learning"></a>Atualizar versão de tempo de execução para usar a aprendizagem ativa
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
+
 Ative Learning é suportado na versão 4.4.0 ou superior. Se a sua base de conhecimento foi criada numa versão anterior, [atualize o seu tempo de execução](set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) para utilizar esta funcionalidade.
 
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+Na gestão do QnA Maker (Preview), uma vez que o tempo de execução é hospedado pelo próprio serviço QnA Maker, não há necessidade de atualizar o tempo de funcionaamento manualmente.
+
+---
+
 ## <a name="turn-on-active-learning-for-alternate-questions"></a>Ligue a aprendizagem ativa para questões alternativas
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
 
 A aprendizagem ativa está fora por defeito. Liga-o para ver as perguntas sugeridas. Depois de ligar a aprendizagem ativa, precisa enviar informações da aplicação do cliente para o QnA Maker. Para obter mais informações, consulte [o fluxo arquitetónico para utilizar as APIs generateAnswer e Train a partir de um bot.](improve-knowledge-base.md#architectural-flow-for-using-generateanswer-and-train-apis-from-a-bot)
 
@@ -93,6 +103,12 @@ A aprendizagem ativa está fora por defeito. Liga-o para ver as perguntas sugeri
     > [!Note]
     > A versão exata na imagem anterior é mostrada apenas como um exemplo. A sua versão pode ser diferente.
     Uma vez ativada a **Aprendizagem Ativa,** a base de conhecimento sugere novas questões a intervalos regulares com base em perguntas submetidas pelo utilizador. Pode desativar **a Aprendizagem Ativa** tocando novamente a definição.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+Por padrão, a aprendizagem ativa está em **curso no** QnA Maker gerido (Preview). Para ver as perguntas alternativas sugeridas, [utilize as opções de Ver](../How-To/improve-knowledge-base.md#view-suggested-questions) na página Editar.
+
+---
 
 ## <a name="review-suggested-alternate-questions"></a>Revisão sugeriu perguntas alternativas
 

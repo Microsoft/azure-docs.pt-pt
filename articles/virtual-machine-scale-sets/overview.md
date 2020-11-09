@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: f381afa69d1a445d2bdb14dd663341e4a18f8cd9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dff83159511c6e8a08e8f212c01244e923ad1f5b
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88648671"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376949"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>O que são os conjuntos de dimensionamento de máquinas virtuais?
 Conjuntos de escala de máquina virtual Azure permitem criar e gerir um grupo de VMs equilibrados de carga. O número de instâncias de VM pode aumentar ou diminuir automaticamente como resposta à procura ou horário definido. Os conjuntos de dimensionamento dão elevada disponibilidade às suas aplicações e permitem, de forma central, gerir, configurar e atualizar um grande número de VMs. Com os conjuntos de dimensionamento de máquinas virtuais, pode criar serviços em larga escala para áreas como computação, macrodados e cargas de trabalho de contentores.
@@ -61,9 +61,9 @@ Utilize [o Azure Monitor para VMs,](../azure-monitor/insights/vminsights-overvie
 
 Habilitar a monitorização da [sua aplicação de conjunto de escala de máquina virtual](../azure-monitor/app/azure-vm-vmss-apps.md) com Application Insights para recolher informações detalhadas sobre a sua aplicação, incluindo visualizações de páginas, pedidos de aplicações e exceções. Verifique ainda a disponibilidade da sua aplicação configurando um [teste de disponibilidade](../azure-monitor/app/monitor-web-app-availability.md) para simular o tráfego do utilizador.
 
-## <a name="singapore-data-residency"></a>Residência de dados de Singapura
+## <a name="data-residency"></a>Residência dos dados
 
-Em Azure, a funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente apenas disponível na Região do Sudeste Asiático (Singapura) da Asia Pacific Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo. Para mais informações, consulte [o Trust Center.](https://azuredatacentermap.azurewebsites.net/)
+Em Azure, a funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente disponível apenas na Região do Sudeste Asiático (Singapura) da Região Ásia-Pacífico Geo e Brasil Sul (Estado de São Paulo) do Brasil Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo. Para mais informações, consulte [o Trust Center.](https://azuredatacentermap.azurewebsites.net/)
 
 ## <a name="next-steps"></a>Passos seguintes
 Para começar, crie o seu primeiro conjunto de dimensionamento de máquinas virtuais no portal do Azure.

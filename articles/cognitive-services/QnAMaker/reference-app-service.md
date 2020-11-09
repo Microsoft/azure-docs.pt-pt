@@ -4,26 +4,25 @@ description: Entenda como e onde configurar recursos.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
-ms.date: 02/21/2020
-ms.openlocfilehash: 1d54b912d2177a3ccd0cf34d57fc0358af653199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/9/2020
+ms.openlocfilehash: eac930971cab041fbf398da1ac5f8a055412832d
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776719"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376864"
 ---
 # <a name="service-configuration"></a>Configuração do serviço
 
-O QnA Maker utiliza vários recursos Azure (serviços) incluindo Pesquisa Cognitiva, Serviço de Aplicações, Plano de Serviço de Aplicações e Insights de Aplicações.
-
-Todas as personalizações a estas definições suportadas pelo QnA Maker estão listadas abaixo.
+Cada versão do QnA Maker utiliza um conjunto diferente de recursos Azure (serviços). Este artigo descreve as personalizações suportadas para estes serviços. 
 
 ## <a name="app-service"></a>Serviço de Aplicações
 
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
+
 O QnA Maker utiliza o Serviço de Aplicações para fornecer o tempo de funcionação da consulta utilizado pela [API de 200 000](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer).
 
-
-Estas configurações estão disponíveis no portal Azure, para o Serviço de Aplicações. As definições estão disponíveis selecionando **Definições**e, em seguida, **Configuração**.
+Estas configurações estão disponíveis no portal Azure, para o Serviço de Aplicações. As definições estão disponíveis selecionando **Definições** e, em seguida, **Configuração**.
 
 Pode definir uma definição individual através da lista de Definições de Aplicação ou modificar várias definições selecionando **edição avançada**.
 
@@ -36,9 +35,13 @@ Pode definir uma definição individual através da lista de Definições de Apl
 |UserAppInsightsKey|Log de chat e telemetria|
 |Nome do UserAppInsights|Log de chat e telemetria|
 
-Saiba [como adicionar alterar o seu serviço de Pesquisa Cognitiva](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) ao seu serviço.
-
 É necessário **reiniciar** o serviço a partir da página **geral** do portal Azure, uma vez que esteja feito de alterações.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+As personalizações do Serviço de Aplicações não se aplicam à gerida (pré-visualização) do QnA Maker.
+
+---
 
 ## <a name="qna-maker-service"></a>Serviço de Fabricante QnA
 
@@ -46,13 +49,37 @@ O serviço QnA Maker fornece configuração para os seguintes utilizadores colab
 
 Saiba [como adicionar colaboradores](./how-to/collaborate-knowledge-base.md) ao seu serviço.
 
-## <a name="application-insights"></a>Application Insights
+## <a name="change-azure-cognitive-search"></a>Alterar a pesquisa cognitiva do Azure
 
-O Application Insights não tem configurações específicas do QnA Maker.
+Saiba [como alterar o serviço de Pesquisa Cognitiva](./how-to/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) ligado ao seu serviço QnA Maker.
+
+## <a name="change-default-answer"></a>Alterar resposta predefinida
+
+Saiba [como alterar o texto das suas respostas predefinindo](How-To/change-default-answer.md). 
+
+## <a name="telemetry"></a>Telemetria
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
+
+O Application Insights é utilizado para monitorizar a telemetria com o QnA Maker GA. Não existem configurações específicas do QnA Maker.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+Saiba [como adicionar telemetria ao seu serviço gerido (Preview) do QnA Maker](How-To/get-analytics-knowledge-base.md). 
+
+---
 
 ## <a name="app-service-plan"></a>Plano do Serviço de Aplicações
 
+# <a name="qnamaker-ga-stable-release"></a>[QnAMaker GA (lançamento estável)](#tab/v1)
+
 O Plano de Serviço de Aplicações não tem configurações específicas do QnA Maker.
+
+# <a name="qnamaker-managed-preview-release"></a>[QnAMaker gerido (pré-visualização)](#tab/v2)
+
+O Plano de Serviço de Aplicações não é utilizado com o QnA Maker gerido (pré-visualização).
+
+---
 
 ## <a name="next-steps"></a>Passos seguintes
 

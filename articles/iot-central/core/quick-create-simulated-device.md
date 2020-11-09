@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 757575b31bde1a0e25cc3e70aad0cca0fdd45953
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 1c37742b7ed31d8253f7908c3adac35ca0b4d5d8
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170326"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94376558"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Quickstart: Adicione um dispositivo simulado à sua aplicação IoT Central
 
@@ -21,7 +21,7 @@ ms.locfileid: "92170326"
 
 Um modelo de dispositivo define as capacidades de um dispositivo que se conecta à sua aplicação IoT Central. As capacidades incluem telemetria que o dispositivo envia, propriedades do dispositivo, e os comandos a que um dispositivo responde. A partir de um modelo de dispositivo, um construtor ou operador pode adicionar dispositivos reais e simulados a uma aplicação. Os dispositivos simulados são úteis para testar o comportamento da sua aplicação IoT Central antes de ligar dispositivos reais.
 
-Neste arranque rápido, adicione um modelo de dispositivo para uma placa *MXChip IoT DevKit* (DevKit) e crie um dispositivo simulado. Para completar este arranque rápido não precisa de um dispositivo real, trabalha com uma simulação do dispositivo. Um dispositivo DevKit:
+Neste arranque rápido, adicione um modelo de dispositivo para uma placa [ *MXChip IoT DevKit* (DevKit)](https://aka.ms/iot-devkit-purchase) e crie um dispositivo simulado. Para completar este arranque rápido não precisa de um dispositivo real, trabalha com uma simulação do dispositivo. Um dispositivo DevKit:
 
 * Envia telemetria como temperatura.
 * Relata propriedades específicas do dispositivo, tais como o nível de luminosidade.
@@ -60,7 +60,7 @@ Os passos a seguir mostram como utilizar o catálogo de dispositivos para import
 
     ![Modelo de dispositivo MXChip IoT DevKit](./media/quick-create-simulated-device/devkit-template.png)
 
-    O modelo de capacidade MXChip IoT DevKit inclui interfaces como **mxchip_sensor**, **mxchip_settings**e **Informações sobre Dispositivos**. As interfaces definem as capacidades de um dispositivo MXChip IoT DevKit. As capacidades incluem a telemetria que um dispositivo envia, as propriedades que um dispositivo relata e os comandos a que um dispositivo responde.
+    O modelo de capacidade MXChip IoT DevKit inclui interfaces como **mxchip_sensor** , **mxchip_settings** e **Informações sobre Dispositivos**. As interfaces definem as capacidades de um dispositivo MXChip IoT DevKit. As capacidades incluem a telemetria que um dispositivo envia, as propriedades que um dispositivo relata e os comandos a que um dispositivo responde.
 
 ### <a name="add-cloud-properties"></a>Adicionar propriedades da cloud
 
@@ -70,7 +70,7 @@ Um modelo de dispositivo pode incluir propriedades na nuvem. As propriedades em 
 
     | Nome a Apresentar      | Tipo semântico | Esquema |
     | ----------------- | ------------- | ------ |
-    | Data da Última Assistência | Nenhum          | Date   |
+    | Data da Última Assistência | Nenhum          | Data   |
     | Nome do Cliente     | Nenhum          | String |
 
 1. **Selecione Guardar** para guardar as suas alterações:
@@ -100,7 +100,7 @@ Para adicionar um novo **dispositivo Manage** que um operador pode usar para ger
 
 1. Altere o nome do formulário para **Gerir o dispositivo**.
 
-1. Selecione as propriedades de nuvem **de nome do cliente** e última data de **serviço** e a propriedade Velocidade do **Ventilador.** Em seguida, **selecione Secção adicionar**:
+1. Selecione as propriedades de nuvem **de nome do cliente** e última data de **serviço** e a propriedade Velocidade do **Ventilador.** Em seguida, **selecione Secção adicionar** :
 
     ![Criar nova forma](media/quick-create-simulated-device/new-form.png)
 
@@ -154,7 +154,7 @@ Depois de criar um novo dispositivo simulado, o construtor pode usar este dispos
 
 1. Escolha **os modelos** do Dispositivo no painel esquerdo e selecione o modelo **MXChip IoT DevKit.**
 
-1. Selecione qualquer uma das vistas que pretende editar ou crie uma nova vista. Selecione **o dispositivo de pré-visualização**configurar e, em seguida, **selecione a partir de um dispositivo de execução**. Aqui pode optar por não ter nenhum dispositivo de pré-visualização, um dispositivo real configurado para testes, ou um dispositivo existente que adicionou à IoT Central.
+1. Selecione qualquer uma das vistas que pretende editar ou crie uma nova vista. Selecione **o dispositivo de pré-visualização** configurar e, em seguida, **selecione a partir de um dispositivo de execução**. Aqui pode optar por não ter nenhum dispositivo de pré-visualização, um dispositivo real configurado para testes, ou um dispositivo existente que adicionou à IoT Central.
 
 1. Escolha o seu dispositivo simulado na lista. Em seguida, selecione **Aplicar**. Agora você pode ver o mesmo dispositivo simulado no seu modelo de dispositivo vista experiência de construção. Esta vista é útil para gráficos e outras visualizações.
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 568cd7b280b8fb65b5f75588a2832631361938dd
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 810878956a89b6e7400be99692cf43925d1cd134
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420619"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94375932"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Two-Class módulo de árvore de decisão reforçada
 
@@ -56,7 +56,7 @@ Pode treinar este tipo de modelo utilizando [o Modelo de Comboio.](././train-mod
   
 6.  Para **o número de árvores construídas,** indicar o número total de árvores de decisão a criar no conjunto. Ao criar mais árvores de decisão, você pode potencialmente obter uma melhor cobertura, mas o tempo de treino vai aumentar.
   
-     Este valor também controla o número de árvores exibidas ao visualizar o modelo treinado. se quiser ver ou imprimir uma única árvore, desa um valor para 1. No entanto, quando o fazes, apenas uma árvore é produzida (a árvore com o conjunto inicial de parâmetros) e não são realizadas mais iterações.
+     Se definir o valor para 1, apenas uma árvore é produzida (a árvore com o conjunto inicial de parâmetros) e não são realizadas mais iterações.
   
 7.  Para **sementes de número aleatório,** digite opcionalmente um número inteiro não negativo para usar como valor de sementes aleatórias. Especificar uma semente garante a reprodutibilidade através de percursos que têm os mesmos dados e parâmetros.  
   
