@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: cognitive-services
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: qna-maker
 ms.topic: include
 ms.custom: include file
-ms.date: 04/27/2020
-ms.openlocfilehash: fabd79829425147667c46f686a1ec1ceb6a29b00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: fa497b69b067d5556f11effdb52505895ecc3bdd
+ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87132904"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386660"
 ---
 Este quickstart baseado no Carteiro leva-o a obter uma resposta da sua base de conhecimento.
 
@@ -28,6 +28,8 @@ Este quickstart baseado no Carteiro leva-o a obter uma resposta da sua base de c
 > Quando estiver pronto para gerar uma resposta a uma pergunta da sua base de conhecimento, deve [treinar](../Quickstarts/create-publish-knowledge-base.md#save-and-train) e [publicar](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) a sua base de conhecimentos. Quando a sua base de conhecimentos é publicada, a página **Publicar** apresenta as definições de pedido HTTP para gerar uma resposta. O **separador Carteiro** mostra as definições necessárias para gerar uma resposta.
 
 ## <a name="set-up-postman-for-requests"></a>Configurar carteiro para pedidos
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/v1)
 
 Este quickstart utiliza as mesmas definições para o pedido do Postman **POST** e, em seguida, configura para o corpo POST JSON enviado para o serviço com base no que você está tentando consultar.
 
@@ -44,6 +46,25 @@ Utilize este procedimento para configurar o Carteiro e, em seguida, leia cada se
     ||`{"question":"<Your question>"}`|O corpo do pedido do POST como objeto JSON. Este valor mudará em cada secção seguinte, dependendo do que a consulta deve fazer.|
 
 1. Abra o Carteiro e crie um novo pedido básico **de POST** com as definições de base de conhecimento publicadas. Nas seguintes secções, altere o corpo DOM JSON para alterar a consulta para a sua base de conhecimento.
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/v2)
+
+Este quickstart utiliza as mesmas definições para o pedido do Postman **POST** e, em seguida, configura para o corpo POST JSON enviado para o serviço com base no que você está tentando consultar.
+
+Utilize este procedimento para configurar o Carteiro e, em seguida, leia cada secção subsequente para configurar o corpo POST JSON.
+
+1. A partir da página **Definições** da base de conhecimento, selecione o **separador Carteiro** para ver a configuração utilizada para gerar uma resposta a partir da base de conhecimento. Copie as seguintes informações para usar no Carteiro.
+
+    |Name|Definição|Finalidade e valor|
+    |--|--|--|
+    |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Este é o método HTTP e rota para o URL.|
+    |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Este é o anfitrião da URL. Concatenate os valores de Anfitrião e Post para obter o URL completo de 200% gerado.|
+    |`Ocp-Apim-Subscription-Key`|`xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`|O valor do cabeçalho para autorizar o seu pedido. |
+    |`Content-type`|`application/json`|O valor do cabeçalho para o seu conteúdo.|
+    ||`{"question":"<Your question>"}`|O corpo do pedido do POST como objeto JSON. Este valor mudará em cada secção seguinte, dependendo do que a consulta deve fazer.|
+
+1. Abra o Carteiro e crie um novo pedido básico **de POST** com as definições de base de conhecimento publicadas. Nas seguintes secções, altere o corpo DOM JSON para alterar a consulta para a sua base de conhecimento.
+---
 
 ## <a name="use-metadata-to-filter-answer"></a>Use metadados para filtrar a resposta
 
