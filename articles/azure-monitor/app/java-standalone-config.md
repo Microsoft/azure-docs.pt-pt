@@ -4,12 +4,12 @@ description: Opções de configuração para Azure Monitor Application Insights 
 ms.topic: conceptual
 ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b703a708af564b9dafc8c1409333a2cfed6d2653
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381036"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427705"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opções de configuração para Azure Monitor Application Insights Java
 
@@ -178,9 +178,9 @@ Permite-lhe configurar regras que serão aplicadas ao pedido, dependência e tel
 
 Para mais informações, consulte a documentação do [processador de telemetria.](./java-standalone-telemetry-processors.md)
 
-## <a name="autocollected-logging"></a>Registo automático
+## <a name="auto-collected-logging"></a>Registos auto-recolhidos
 
-Log4j, Logback e java.util.logging são instrumentados automaticamente, e o registo realizado através destas estruturas de registo é automaticamente recolhido.
+Log4j, Logback e java.util.logging são instrumentados automaticamente, e o registo realizado através destas estruturas de registo é recolhido automaticamente.
 
 Por predefinição, a exploração madeireira só é recolhida quando essa exploração é realizada ao `INFO` nível ou acima.
 
@@ -213,13 +213,13 @@ Estes são os `level` valores válidos que pode especificar no `applicationinsig
 | TRACE (ou FINEST) | VESTÍGIOS  | VESTÍGIOS   | O MELHOR  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Métricas de micrometros autocolecidos (incluindo métricas de actuador de bota de mola)
+## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Métricas de micrometros auto-recolhidas (incluindo métricas do actuador de bota de mola)
 
-Se a sua aplicação utilizar [o Micrometro,](https://micrometer.io)as métricas enviadas para o registo global do Micrometro são automaticamente recolhidas.
+Se a sua aplicação utilizar [o Micrometro,](https://micrometer.io)as métricas enviadas para o registo global do Micrometro são recolhidas automaticamente.
 
-Além disso, se a sua aplicação utilizar [o Actuador de Bota de Mola,](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)as métricas configuradas pelo Actuador de Bota de Mola também são automaticamente recolhidas.
+Além disso, se a sua aplicação utilizar [o Actuador de Bota de Mola,](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html)as métricas configuradas pelo Actuador de Bota de Mola também são recolhidas automaticamente.
 
-Para desativar a autocolecção das métricas do Micrometro (incluindo as métricas do Actuador de Arranque de Mola):
+Para desativar a recolha automática de métricas do Micrometro (incluindo métricas do Actuador de Arranque de Mola):
 
 > [!NOTE]
 > As métricas personalizadas são faturadas separadamente e podem gerar custos adicionais. Certifique-se de verificar as [informações detalhadas sobre os preços](https://azure.microsoft.com/pricing/details/monitor/). Para desativar as métricas do Micrometro e do Actuador de Mola, adicione a configuração abaixo ao seu ficheiro config.

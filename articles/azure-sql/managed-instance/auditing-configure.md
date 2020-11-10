@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 8d067d30220c76de5617aab2c42365351888d744
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780024"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427943"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Começar com a auditoria da Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
       > - Se a sua conta de armazenamento estiver por detrás de uma Rede Virtual ou de uma Firewall, consulte [o acesso do Grant a partir de uma rede virtual.](../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network)
       > - Se alterar o período de retenção de 0 (retenção ilimitada) para qualquer outro valor, note que a retenção só se aplicará aos registos escritos após a alteração do valor da retenção (os registos escritos durante o período em que a retenção foi definida para ilimitada são preservados, mesmo após a retenção ser ativada).
 
-   1. Na conta de armazenamento, vá ao **Overview** e clique em **Blobs** .
+   1. Na conta de armazenamento, vá ao **Overview** e clique em **Blobs**.
 
       ![Widget Azure Blobs](./media/auditing-configure/1_blobs_widget.png)
 
@@ -50,7 +50,7 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
 
       ![Criar ícone de recipiente de bolha](./media/auditing-configure/2_create_container_button.png)
 
-   1. Fornecer um nome **de** recipiente, definir **o nível de acesso público** ao **Privado,** e, em seguida, clicar **EM OK** .
+   1. Fornecer um nome **de** recipiente, definir **o nível de acesso público** ao **Privado,** e, em seguida, clicar **EM OK**.
 
       ![Criar configuração de recipiente de bolhas](./media/auditing-configure/3_create_container_config.png)
 
@@ -61,7 +61,7 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
 
    - <a id="blobtsql"></a>Configure o armazenamento de bolhas para registos de auditoria utilizando o T-SQL:
 
-     1. Na lista de recipientes, clique no recipiente recém-criado e, em seguida, clique nas **propriedades do Contentor** .
+     1. Na lista de recipientes, clique no recipiente recém-criado e, em seguida, clique nas **propriedades do Contentor**.
 
         ![Botão de propriedades do recipiente blob](./media/auditing-configure/4_container_properties_button.png)
 
@@ -88,7 +88,7 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
             > [!NOTE]
             > Renove o token após o termo para evitar falhas de auditoria.
 
-          - Clique em **Gerar SAS** .
+          - Clique em **Gerar SAS**.
 
             ![Configuração SAS](./media/auditing-configure/7_sas_configure.png)
 
@@ -118,7 +118,7 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
         GO
         ```
 
-        Continue [criando uma especificação de auditoria de servidor ou especificação de auditoria de base de dados](#createspec).
+     1. Continue [criando uma especificação de auditoria de servidor ou especificação de auditoria de base de dados](#createspec).
 
    - <a id="blobssms"></a>Configure o armazenamento de bolhas para registos de auditoria utilizando o SQL Server Management Studio 18 (Preview):
 
@@ -138,7 +138,7 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
 
         ![Iniciar sessão no Azure](./media/auditing-configure/12_mi_SSMS_sign_in_to_azure.png)
 
-     1. Selecione uma subscrição, conta de armazenamento e recipiente blob a partir das dropdowns, ou crie o seu próprio recipiente clicando no **Create** . Uma vez terminado, clique **em OK:**
+     1. Selecione uma subscrição, conta de armazenamento e recipiente blob a partir das dropdowns, ou crie o seu próprio recipiente clicando no **Create**. Uma vez terminado, clique **em OK:**
 
         ![Selecione subscrição Azure, conta de armazenamento e recipiente blob](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
@@ -169,15 +169,15 @@ Os registos de auditoria de uma instância gerida podem ser enviados para os cen
 
 1. Navegue no [portal Azure](https://portal.azure.com/) para o caso gerido.
 
-2. Clique nas **definições de Diagnóstico** .
+2. Clique nas **definições de Diagnóstico**.
 
-3. Clique **em Ligar os diagnósticos** . Se os diagnósticos já estiverem ativados, **+Adicione a definição de diagnóstico.**
+3. Clique **em Ligar os diagnósticos**. Se os diagnósticos já estiverem ativados, **+Adicione a definição de diagnóstico.**
 
 4. Selecione **SQLSecurityAuditEvents** na lista de registos.
 
 5. Selecione um destino para os eventos de auditoria: Centros de Eventos, registos do Azure Monitor ou ambos. Configure para cada alvo os parâmetros necessários (por exemplo, log analytics espaço de trabalho).
 
-6. Clique em **Guardar** .
+6. Clique em **Guardar**.
 
     ![Configurar configurações de diagnóstico](./media/auditing-configure/9_mi_configure_diagnostics.png)
 
@@ -234,15 +234,15 @@ As principais diferenças entre a auditoria em bases de dados em Azure SQL Manag
 - Com a Azure SQL Managed Instance, a auditoria funciona ao nível do servidor e armazena `.xel` ficheiros de registo no armazenamento Azure Blob.
 - No SQL Server, a auditoria funciona ao nível do servidor, mas armazena eventos em registos de eventos do sistema de ficheiros/janelas.
 
-A auditoria do XEvent em casos geridos suporta alvos de armazenamento Azure Blob. Os registos de ficheiros e janelas não são **suportados** .
+A auditoria do XEvent em casos geridos suporta alvos de armazenamento Azure Blob. Os registos de ficheiros e janelas não são **suportados**.
 
 As principais diferenças na `CREATE AUDIT` sintaxe para a auditoria ao armazenamento da Azure Blob são:
 
 - É fornecida uma nova sintaxe `TO URL` e permite especificar o URL do recipiente de armazenamento Azure Blob onde os `.xel` ficheiros são colocados.
 - É fornecida uma nova sintaxe `TO EXTERNAL MONITOR` para permitir os alvos de registo de Eventos e Azure Monitor.
 - A sintaxe `TO FILE` não é **suportada** porque a Azure SQL Managed Instance não consegue aceder a ações de ficheiros do Windows.
-- A opção de encerramento não é **suportada** .
-- `queue_delay` de 0 não é **suportado** .
+- A opção de encerramento não é **suportada**.
+- `queue_delay` de 0 não é **suportado**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,12 +3,12 @@ title: Descrição geral da arquitetura
 description: Fornece uma visão geral da arquitetura, componentes e processos utilizados pelo serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f5d4c881244ddae41ba4c706812bd7b8274a374e
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 288b073c20b93bf1802f34f5dcd17b12430bb279
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173269"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427739"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitetura e componentes Azure Backup
 
@@ -35,7 +35,7 @@ Saiba mais sobre [o que pode apoiar](backup-overview.md) e sobre [cenários de b
 
 ## <a name="where-is-data-backed-up"></a>Onde estão os dados?
 
-A Azure Backup armazena dados de reserva em cofres - cofres dos Serviços de Recuperação e cofres de reserva. Um cofre é uma entidade de armazenamento on-line em Azure que é usada para conter dados, tais como cópias de backup, pontos de recuperação e políticas de backup.
+A Azure Backup armazena dados de backup em cofres - cofres dos Serviços de Recuperação e cofres de reserva. Um cofre é uma entidade de armazenamento on-line em Azure que é usada para conter dados, tais como cópias de backup, pontos de recuperação e políticas de backup.
 
 Os cofres têm as seguintes características:
 
@@ -43,9 +43,9 @@ Os cofres têm as seguintes características:
 - Pode monitorizar itens de apoio num cofre, incluindo VMs Azure e máquinas no local.
 - Você pode gerir o acesso ao cofre com [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
 - Especifica como os dados no cofre são replicados para redundância:
-  - **Armazenamento localmente redundante (LRS)**: Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados numa unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
-  - **Armazenamento geo-redundante (GRS)**: Para proteger contra interrupções em toda a região, pode utilizar GRS. GRS replica os seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
-  - **Armazenamento redundante de zona (ZRS)**: replica os seus dados em [zonas de disponibilidade,](../availability-zones/az-overview.md#availability-zones)garantindo residência de dados e resiliência na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
+  - **Armazenamento localmente redundante (LRS)** : Para proteger contra falhas num datacenter, pode utilizar LRS. O LRS replica dados numa unidade de escala de armazenamento. [Saiba mais](../storage/common/storage-redundancy.md#locally-redundant-storage).
+  - **Armazenamento geo-redundante (GRS)** : Para proteger contra interrupções em toda a região, pode utilizar GRS. GRS replica os seus dados para uma região secundária. [Saiba mais](../storage/common/storage-redundancy.md#geo-redundant-storage).
+  - **Armazenamento redundante de zona (ZRS)** : replica os seus dados em [zonas de disponibilidade,](../availability-zones/az-overview.md#availability-zones)garantindo residência de dados e resiliência na mesma região. [Saiba mais](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Por predefinição, os cofres dos Serviços de Recuperação utilizam GRS.
 
 Os cofres dos Serviços de Recuperação têm as seguintes características adicionais:
@@ -87,8 +87,8 @@ O consumo de armazenamento, o objetivo do tempo de recuperação (RTO) e o consu
 
 - A fonte de dados A é composta por 10 blocos de armazenamento, A1-A10, que são apoiados mensalmente.
 - Os blocos A2, A3, A4 e A9 são alterados no primeiro mês e o bloco A5 no mês seguinte.
-- Para cópias de segurança diferenciais, no segundo mês, os blocos A2, A3, A4 e A9 estão apoiados. No terceiro mês, é criada uma nova cópia de segurança destes mesmos blocos, juntamente com o bloco alterado A5. Continua a ser feita uma cópia de segurança dos blocos alterados até ser feita a próxima cópia de segurança completa.
-- Para backups incrementais, no segundo mês, os blocos A2, A3, A4 e A9 são marcados como alterados e transferidos. No terceiro mês, só o bloco A5 é marcado e transferido.
+- Para cópias de segurança diferenciais, no segundo mês os blocos A2, A3, A4 e A9 estão apoiados. No terceiro mês, é criada uma nova cópia de segurança destes mesmos blocos, juntamente com o bloco alterado A5. Continua a ser feita uma cópia de segurança dos blocos alterados até ser feita a próxima cópia de segurança completa.
+- Para backups incrementais, no segundo mês os blocos A2, A3, A4 e A9 são marcados como alterados e transferidos. No terceiro mês, só o bloco A5 é marcado e transferido.
 
 ![Imagem mostrando comparações de métodos de backup](./media/backup-architecture/backup-method-comparison.png)
 
@@ -123,6 +123,12 @@ Fazer backup discos deduplicados | | | ![Parcialmente][yellow]<br/><br/> Para se
 - A retenção para pontos de backup "mensais", "anualmente" é referida como Retenção a Longo Prazo (LTR)
 - Quando um cofre é criado, um "DefaultPolicy" também é criado e pode ser usado para apoiar recursos.
 - Quaisquer alterações introduzidas no período de retenção de uma política de backup serão aplicadas retroativamente a todos os pontos de recuperação mais antigos, para além dos novos.
+
+### <a name="impact-of-policy-change-on-recovery-points"></a>Impacto da mudança de política nos pontos de recuperação
+
+- **A duração da retenção é aumentada/diminuída:** Quando a duração da retenção é alterada, a nova duração de retenção também é aplicada aos pontos de recuperação existentes. Como resultado, alguns dos pontos de recuperação serão limpos. Se o período de retenção for aumentado, os pontos de recuperação existentes também terão uma retenção acrescida.
+- **Mudada de dia para semana:** Quando as cópias de segurança programadas são alteradas de dia para semana, os pontos de recuperação diários existentes são limpos.
+- **Mudada de semanal para diária:** Os backups semanais existentes serão mantidos com base no número de dias restantes de acordo com a atual política de retenção.
 
 ### <a name="additional-reference"></a>Referência adicional
 

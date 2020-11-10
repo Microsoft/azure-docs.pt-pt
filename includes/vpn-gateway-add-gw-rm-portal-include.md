@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 6bc8b6cc18f4a4bc41cabf7f8fefe78a5aaf7827
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "92479580"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427890"
 ---
-1. A partir do [portal Azure](https://portal.azure.com), em **Recursos de Busca, serviços e docs (G+/)** tipo gateway de rede **virtual** . Localize **o gateway de rede virtual** nos resultados da pesquisa e selecione-o.
+1. A partir do [portal Azure](https://portal.azure.com), em **Recursos de Busca, serviços e docs (G+/)** tipo gateway de rede **virtual**. Localize **o gateway de rede virtual** nos resultados da pesquisa e selecione-o.
 
    :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="Campo de pesquisa" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
 
-1. Na página **de gateway de rede Virtual,** selecione + **Adicionar** . É aberta a página **Criar gateway de rede virtual** .
+1. Na página **de gateway de rede Virtual,** selecione + **Adicionar**. É aberta a página **Criar gateway de rede virtual**.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="Campo de pesquisa":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="página de gateways de rede virtual":::
 1. No **separador Básicos,** preencha os valores do seu gateway de rede virtual.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Campo de pesquisa":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Campos gateway":::
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Campo de pesquisa":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Campos de gateway adicionais":::
 
    * **Subscrição** : Selecione a subscrição que pretende utilizar a partir do dropdown.
    * **Grupo de Recursos** : Esta definição é preenchida automaticamente quando seleciona a sua rede virtual nesta página.
@@ -35,7 +35,7 @@ ms.locfileid: "92479580"
 
    * **Nome** : dê um nome ao gateway. Nomear o seu portal não é o mesmo que nomear uma sub-rede de gateway. É o nome do objeto de gateway que está a criar.
    * **Região** : Selecione a região em que pretende criar este recurso. A região para o portal deve ser a mesma que a rede virtual.
-   * **Tipo de gateway** : selecione **VPN** . Os gateways de VPN utilizam o tipo de gateway de rede virtual **VPN** .
+   * **Tipo de gateway** : selecione **VPN**. Os gateways de VPN utilizam o tipo de gateway de rede virtual **VPN**.
    * **Tipo de VPN** : selecione o tipo de VPN especificado para a sua configuração. A maioria das configurações requerem um tipo de VPN baseado em rotas.
    * **SKU** : selecione o SKU de gateway na lista pendente. Os SKUs listados na lista pendente dependem do tipo de VPN que selecionar. Para obter mais informações sobre os SKUs de gateway, veja [SKUs de Gateway](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
    * **Geração** : Para obter informações sobre a Geração Gateway VPN, consulte [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
@@ -49,9 +49,9 @@ ms.locfileid: "92479580"
      * **Endereço IP público** : Deixe **criar novos selecionados.**
      * **Nome do endereço IP público** : Na caixa de texto, escreva um nome para a sua instância de endereço IP público.
      * **Atribuição** : Gateway VPN suporta apenas Dynamic.
-     * **Ativar o modo ativo** : Selecione **Apenas active-active mode** se estiver a criar uma configuração de gateway ativa ativa. Caso contrário, deixe esta definição **Desativada** .
+     * **Ativar o modo ativo** : Selecione **Apenas active-active mode** se estiver a criar uma configuração de gateway ativa ativa. Caso contrário, deixe esta definição **Desativada**.
      * Deixe **o Configure BGP** como **desativado,** a menos que a sua configuração exija especificamente esta definição. Se precisar desta definição, o ASN predefinido é 65515, apesar de isto poder ser alterado.
 1. Selecione **Review + criar** para executar validação.
-1. Assim que a validação passar, **selecione Criar** para implementar o gateway VPN. Um gateway pode demorar até 45 minutos para criar e implantar totalmente. Pode ver o estado de implantação na página 'Vista Geral' para o seu gateway.
+1. Assim que a validação passar, **selecione Criar** para implementar o gateway VPN.
 
-Uma vez criado o gateway, pode visualizar o endereço IP que lhe foi atribuído vendo a rede virtual no portal. O gateway aparece como um dispositivo ligado.
+Um gateway pode demorar até 45 minutos para criar e implantar totalmente. Pode ver o estado de implantação na página 'Vista Geral' para o seu gateway. Uma vez criado o gateway, pode visualizar o endereço IP que lhe foi atribuído vendo a rede virtual no portal. O gateway aparece como um dispositivo ligado.

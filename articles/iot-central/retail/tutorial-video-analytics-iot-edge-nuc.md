@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/27/2020
-ms.openlocfilehash: b74c7c3e9678c89edbe90d648520b9526c8fb569
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e2e97b857f648390ec017a529115b23c4f17a68d
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92748657"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427994"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-intel-nuc"></a>Tutorial: Criar uma instância IoT Edge para análise de vídeo (Intel NUC)
 
@@ -117,9 +117,9 @@ Configure a IoT Edge para registar e ligar à sua aplicação IoT Central:
 
 1. `{scope_id}`Substitua-o pelo **ID Scope** que fez uma nota no ficheiro *scratchpad.txt* no tutorial anterior.
 
-1. Substitua `{registration_id}` *por Lva-gateway-001,* o dispositivo que criou no tutorial anterior.
+1. Substitua `{registration_id}` por *gateway-001,* o dispositivo que criou no tutorial anterior.
 
-1. `{symmetric_key}`Substitua-a pela **tecla Primária** para o dispositivo **Lva-gateway-001** que fez uma nota no ficheiro *scratchpad.txt* no tutorial anterior.
+1. `{symmetric_key}`Substitua-a pela **tecla Primária** para o dispositivo **gateway-001** que fez notar no ficheiro *scratchpad.txt* no tutorial anterior.
 
 1. Executar o seguinte comando para reiniciar o daemon IoT Edge:
 

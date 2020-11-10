@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: c34cd8e399a005f5eadb3751fb0575f6ecfc27ed
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 90a5f0f84c72895a8450a42260b07f6dbea15e37
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380883"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94428045"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI
 
@@ -28,6 +28,9 @@ A ITSMC suporta ligações com as seguintes ferramentas ITSM:
 -   Gestor de serviços do Centro de Sistema
 -   Provance
 -   Cherwell
+
+   >[!NOTE]
+> A partir de 1 de outubro de 2020 as integrações da Cherwell e da Provance ITSM com o Azure Alert deixarão de ser ativadas para novos clientes. As novas Ligações ITSM não serão suportadas. As ligações ITSM existentes serão suportadas.
 
 Com o ITSMC, pode:
 
@@ -150,7 +153,8 @@ Utilize o seguinte procedimento para criar artigos de trabalho:
 
    ![Screenshot que mostra a janela do bilhete ITSM.](media/itsmc-overview/itsm-action-configuration.png)
    
-   * Num caso que selecione no ponto de trabalho "Evento": Se selecionar **Criar itens de trabalho individuais para cada Entrada** de Registo na seleção de botões de rádio, cada alerta criará um novo item de trabalho. Se selecionar **Criar itens de trabalho individuais para cada Item de Configuração** na seleção dos botões de rádio, cada item de configuração terá o seu próprio item de trabalho. 
+   * Num caso que selecione no ponto de trabalho "Evento": Se selecionar **Criar itens de trabalho individuais para cada Entrada** de Registo na seleção de botões de rádio, cada alerta criará um novo item de trabalho. Se selecionar **Criar itens de trabalho individuais para cada Item de Configuração** na seleção dos botões de rádio, cada item de configuração terá o seu próprio item de trabalho.
+   ![Screenshot que mostra a janela do bilhete ITSM.](media/itsmc-overview/itsm-action-configuration-event.png)
 
 10. Selecione **OK**.
 
@@ -323,6 +327,6 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 Se tiver dúvidas ou feedback sobre o Conector de Gestão de Serviços de TI, contacte-nos em [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com) .
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Adicione produtos/serviços ITSM ao Conector de Gestão de Serviços de TI](./itsmc-connections.md)
 

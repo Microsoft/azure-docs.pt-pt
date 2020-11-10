@@ -3,12 +3,12 @@ title: Integre os Hubs de Eventos Azure com o Azure Private Link Service
 description: Saiba como integrar os Hubs de Eventos Azure com o Azure Private Link Service
 ms.date: 08/22/2020
 ms.topic: article
-ms.openlocfilehash: 59167635cfc0d8c1123a47410c87d6b9151f6f62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 996779e103dae2d2d950f447d2ac72667fc9e754
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334247"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427756"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-via-private-endpoints"></a>Permitir o acesso aos espaços de nome do Azure Event Hubs através de pontos finais privados 
 O Azure Private Link Service permite-lhe aceder aos Serviços Azure (por exemplo, Azure Event Hubs, Azure Storage e Azure Cosmos DB) e a Azure acolheu serviços de cliente/parceiro sobre um **ponto final privado** na sua rede virtual.
@@ -17,19 +17,11 @@ Um ponto final privado é uma interface de rede que o liga de forma privada e se
 
 Para mais informações, consulte [o que é a Azure Private Link?](../private-link/private-link-overview.md)
 
-> [!IMPORTANT]
+> [!WARNING]
+> Permitir pontos finais privados pode impedir que outros serviços Azure interajam com os Centros de Eventos.  Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, de serviços de registo e métricas, e assim por diante. Como exceção, pode permitir o acesso aos recursos do Event Hubs a partir de determinados serviços fidedignos, mesmo quando os pontos finais privados estão ativados. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
+
+>[!NOTE]
 > Esta funcionalidade é suportada tanto para níveis **standard** como **dedicado.** Não é suportado no nível **básico.**
->
-> Permitir pontos finais privados pode impedir que outros serviços Azure interajam com os Centros de Eventos.  Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, de serviços de registo e métricas, e assim por diante. 
-> 
-> Aqui estão alguns dos serviços que não conseguem aceder aos recursos do Event Hubs quando os pontos finais privados estão ativados. Note que a lista **NÃO** é exaustiva.
->
-> - Rotas do Hub Azure IoT
-> - Explorador de dispositivos Azure IoT
-> - Azure Event Grid
-> - Monitor Azure (Definições de diagnóstico)
->
-> Como exceção, pode permitir o acesso aos recursos do Event Hubs a partir de determinados serviços fidedignos, mesmo quando os pontos finais privados estão ativados. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Adicione um ponto final privado usando o portal Azure
 
@@ -64,25 +56,25 @@ Se já tem um espaço de nomes do Event Hubs, pode criar uma ligação de ligaç
 1. Selecione o **separador de ligações de ponto final privado** no topo da página. 
 1. Selecione o botão **+ Ponto final privado** na parte superior da página.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Separador de redes - opção de redes selecionada":::
+    :::image type="content" source="./media/private-link-service/private-link-service-3.png" alt-text="Página de rede - Separador de ligações de ponto final privado - Adicionar link de ponto final privado":::
 7. Na página **Basics,** siga estes passos: 
     1. Selecione a **subscrição Azure** na qual pretende criar o ponto final privado. 
     2. Selecione o **grupo de recursos** para o recurso de ponto final privado.
     3. Insira um **nome** para o ponto final privado. 
     5. Selecione uma **região** para o ponto final privado. O seu ponto final privado deve estar na mesma região que a sua rede virtual, mas pode estar numa região diferente do recurso de ligação privada a que está a ligar. 
-    6. Selecione **seguinte: O ** botão >de recursos na parte inferior da página.
+    6. Selecione **seguinte: O** botão >de recursos na parte inferior da página.
 
         ![Criar Ponto Final Privado - Página básica](./media/private-link-service/create-private-endpoint-basics-page.png)
 8. Na página **de Recursos,** siga estes passos:
     1. Para o método de ligação, se selecionar **Ligar a um recurso Azure no meu diretório,** siga estes passos: 
         1. Selecione a **subscrição Azure** na qual existe o seu **espaço de nomes De Event Hubs.** 
-        2. Para **o tipo de recurso**, selecione **Microsoft.EventHub/namespaces** para o tipo de **recurso**.
-        3. Para **obter recursos**, selecione um espaço de nomes de Centros de Eventos da lista de drop-down. 
+        2. Para **o tipo de recurso** , selecione **Microsoft.EventHub/namespaces** para o tipo de **recurso**.
+        3. Para **obter recursos** , selecione um espaço de nomes de Centros de Eventos da lista de drop-down. 
         4. Confirme que o **subresource do Target** está definido para **o espaço de nomes**.
         5. Selecione **Seguinte: Configuração >** botão na parte inferior da página. 
         
             ![Criar Ponto Final Privado - Página de recursos](./media/private-link-service/create-private-endpoint-resource-page.png)    
-    2. Se selecionar **Ligar a um recurso Azure por ID ou pseudónimo**de recurso, siga estes passos:
+    2. Se selecionar **Ligar a um recurso Azure por ID ou pseudónimo** de recurso, siga estes passos:
         1. Introduza o ID ou **o pseudónimo do** **recurso.** Pode ser o ID de recursos ou pseudónimo que alguém partilhou consigo. A maneira mais fácil de obter o ID de recurso é navegar para o espaço de nomes do Event Hubs no portal Azure e copiar a porção de URI a partir de `/subscriptions/` . Veja a seguinte imagem para um exemplo. 
         2. Para **sub-recurso target,** insira **o espaço de nomes**. É o tipo de sub-recurso a que o seu ponto final privado pode aceder.
         3. (opcional) Introduza uma **mensagem de pedido**. O proprietário do recurso vê esta mensagem enquanto gere a ligação privada de ponto final.
@@ -201,7 +193,7 @@ Quando criar um ponto final privado, a ligação tem de ser aprovada. Se o recur
 
 Existem quatro estados de provisionamento:
 
-| Ação de serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
+| Ação do serviço | Estado de ponto final privado do consumidor de serviço | Descrição |
 |--|--|--|
 | Nenhum | Pendente | A ligação é criada manualmente e está pendente de aprovação do proprietário do recurso Private Link. |
 | Aprovar | Aprovado | A ligação foi aprovada automaticamente ou manualmente e está pronta a ser utilizada. |
@@ -210,7 +202,7 @@ Existem quatro estados de provisionamento:
  
 ###  <a name="approve-reject-or-remove-a-private-endpoint-connection"></a>Aprovar, rejeitar ou remover uma ligação de ponto final privado
 
-1. Inicie sessão no Portal do Azure.
+1. Inicie sessão no portal do Azure.
 2. Na barra de pesquisa, escreva nos **centros de eventos.**
 3. Selecione o **espaço de nomes** que pretende gerir.
 4. Selecione o **separador 'Rede'.**
@@ -249,8 +241,8 @@ No **separador Networking:**
 
 1. Especificar **rede virtual** e **sub-rede.** Tem de selecionar a Rede Virtual na qual implementou o ponto final privado.
 2. Especifique um recurso **IP público.**
-3. Para **o grupo de segurança da rede NIC**, selecione **Nenhum**.
-4. Para **equilibrar a carga**, selecione **Nº**.
+3. Para **o grupo de segurança da rede NIC** , selecione **Nenhum**.
+4. Para **equilibrar a carga** , selecione **Nº**.
 
 Ligue ao VM, abra a linha de comando e execute o seguinte comando:
 
@@ -269,9 +261,9 @@ Aliases:  <event-hubs-namespace-name>.servicebus.windows.net
 
 ## <a name="limitations-and-design-considerations"></a>Limitações e considerações de design
 
-**Preços**: Para obter informações sobre preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
+**Preços** : Para obter informações sobre preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/).
 
-**Limitações**: Esta funcionalidade está disponível em todas as regiões públicas do Azure.
+**Limitações** : Esta funcionalidade está disponível em todas as regiões públicas do Azure.
 
 **Número máximo de pontos finais privados por espaço de nomes de Event Hubs:** 120.
 
