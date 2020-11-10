@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 58b4a8c445548c711c2ad76c2d983acaec11ca7f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e8ae0463633940ba3192815af6a07a6356901044
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786280"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426991"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Key Vault e o Azure CLI
 
@@ -46,14 +46,14 @@ Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos 
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure público | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Outro  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar este guia, deve primeiro fazer o seguinte:
 
 - [Instale o Azure CLI](/cli/azure/install-azure-cli).
-- [Criar um cofre de chaves](quick-create-cli.md)
+- [Criar um cofre chave](quick-create-cli.md)
 - [Criar uma conta de armazenamento Azure](../../storage/common/storage-account-create.md?tabs=azure-cli). O nome da conta de armazenamento deve utilizar apenas letras e números minúsculos. O comprimento do nome deve ter entre 3 e 24 caracteres.
       
 ## <a name="manage-storage-account-keys"></a>Gerir chaves de conta de armazenamento
@@ -137,29 +137,13 @@ az keyvault storage sas-definition create --vault-name <YourKeyVaultName> --acco
 
 ### <a name="verify-the-shared-access-signature-definition"></a>Verifique a definição de assinatura de acesso partilhado
 
-Pode verificar se a definição de assinatura de acesso partilhado foi armazenada no seu cofre de chaves utilizando a lista secreta Azure CLI [az keyvault](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list) e comandos [secretos az keyvault.](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show)
+Pode verificar se a definição de assinatura de acesso partilhado foi armazenada no seu cofre de chaves utilizando o comando de [exibição de armazenamento sas-definição de teclado](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show) Azure CLI.
 
-Primeiro, encontre a definição de assinatura de acesso partilhado no cofre da chave usando o comando da [lista secreta az keyvault.](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-list)
-
-```azurecli-interactive
-az keyvault secret list --vault-name <YourKeyVaultName>
-```
-
-O segredo correspondente à sua definição SAS terá estas propriedades:
-
-```console
-    "contentType": "application/vnd.ms-sastoken-storage",
-    "id": "https://<YourKeyVaultName>.vault.azure.net/secrets/<YourStorageAccountName>-<YourSASDefinitionName>",
-```
-
-Você pode agora usar o comando [de show secreto az keyvault](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) e a `id` propriedade para ver o conteúdo desse segredo.
+Você pode agora usar o [az keyvault armazenamento sas-definição de comando](/cli/azure/keyvault/storage/sas-definition?#az_keyvault_storage_sas_definition_show) e a `id` propriedade para ver o conteúdo desse segredo.
 
 ```azurecli-interactive
-az keyvault secret show --vault-name <YourKeyVaultName> --id <SasDefinitionID>
+az keyvault storage sas-definition show --id https://<YourKeyVaultName>.vault.azure.net/storage/<YourStorageAccountName>/sas/<YourSASDefinitionName>
 ```
-
-A saída deste comando mostrará a sua cadeia de definição SAS como `value` .
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

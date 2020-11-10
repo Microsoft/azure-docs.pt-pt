@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 5759cd80278d20ee383fbe5922e43d250babe09f
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: b22c73b3f0626b9938608e88c3382e3f5e8d97fc
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380679"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427484"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Crie, treine e publique a sua base de conhecimentos QnA Maker
 
@@ -135,13 +135,12 @@ No canto superior direito, **selecione Save and train** para guardar as suas edi
 1. No portal QnA Maker, no canto superior direito, selecione **Teste** para testar que as alterações que fez fizeram fizeram efeito.
 2. Introduza um exemplo de consulta do utilizador na caixa de texto.
 
-    `How many Azure services are used by a knowledge base?`
+    `whats the size of the touchscreen`
 
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/enable-short-answer.png" alt-text="Screenshot da pergunta de diálogo de chat UI: quantas páginas haverá o passaporte de um menor? e a resposta:Apenas 36 páginas do livro de passaportes são emitidas a menores.":::
+3. Se ativar a função MRC para a sua base de conhecimento, selecionando a **resposta curta do Visor,** também verá uma resposta precisa, se disponível, juntamente com a passagem de resposta no painel de teste. 
 
-3. Se ativar a função MRC para a sua base de conhecimentos, selecionando a **resposta curta Enable (experimental),** verá também uma resposta precisa, se disponível, juntamente com a passagem de resposta no painel de teste. 
-
-    :::image type="content" source="../media/qnamaker-create-publish-knowledge-base/enable-short-answer-checked.png" alt-text="Screenshot da pergunta de diálogo de chat UI: quantas páginas haverá o passaporte de um menor? e a resposta: 36. numa única linha seguida de uma segunda linha indicando: Apenas 36 páginas de livro de passaportes são emitidos a menores.":::
+    ![Painel de teste gerido](../media/conversational-context/test-pane-with-managed.png)
+    
 
 4. Selecione Inspecionar para examinar a resposta mais detalhadamente. A janela de teste é utilizada para testar as suas alterações na base de conhecimento antes de publicar a sua base de conhecimento. 
 5. Selecione **testar** novamente para fechar o painel **de teste.**
@@ -205,7 +204,7 @@ Tudo isto foi feito em poucos minutos sem ter que escrever nenhum código ou lim
 
 Se não continuar para o próximo quickstart, elimine os recursos-quadro do QnA Maker e bot no portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Adicionar perguntas com metadados](add-question-metadata-portal.md)

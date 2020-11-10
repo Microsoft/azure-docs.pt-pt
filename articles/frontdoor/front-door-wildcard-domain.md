@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2020
 ms.author: duau
-ms.openlocfilehash: 5194e088ce2bd35208a92c5295457e6c34cd2cc1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18504f1ed4200889b20c9608c9c0ad2c13c9aaa5
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570323"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425767"
 ---
 # <a name="wildcard-domains"></a>Domínios wildcard
 
@@ -27,7 +27,7 @@ Os cenários-chave que são melhorados com o suporte para domínios wildcard inc
 - Já não é obrigado a alterar a configuração da porta frontal Azure se uma aplicação adicionar um novo subdomínio. Anteriormente, tinha de adicionar o subdomínio, ligar-lhe um certificado, anexar uma política de firewall de aplicação web (WAF) e, em seguida, adicionar o domínio a diferentes regras de encaminhamento.
 
 > [!NOTE]
-> Atualmente, os domínios wildcard são suportados apenas através da API, PowerShell e do Azure CLI. O suporte para adicionar e gerir domínios wildcard no portal Azure não está disponível.
+> Atualmente, a adição de domínios wildcard através do Azure DNS é suportada apenas através da API, PowerShell e do Azure CLI. O suporte para adicionar e gerir domínios wildcard no portal Azure não está disponível.
 
 ## <a name="adding-wildcard-domains"></a>Adicionar domínios wildcard
 

@@ -2,14 +2,14 @@
 title: Fornecedores de recursos e tipos de recursos
 description: Descreve os fornecedores de recursos que suportam o Gestor de Recursos Azure. Descreve os seus esquemas, versões API disponíveis e as regiões que podem acolher os recursos.
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8b1a9e6d539d37fb26d8fb0e3a541415dd574e9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 702836e0dc98b06ccf6e0eeb0d0f373374c4e783
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89278892"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426464"
 ---
 # <a name="azure-resource-providers-and-types"></a>Tipos e fornecedores de recursos do Azure
 
@@ -32,7 +32,7 @@ Para obter uma lista que mapeia os fornecedores de recursos para os serviços Az
 
 ## <a name="register-resource-provider"></a>Registar o fornecedor de recursos
 
-Antes de utilizar um fornecedor de recursos, tem de registar o fornecedor de recursos para a sua subscrição Azure. Este passo configura a sua subscrição para trabalhar com o fornecedor de recursos. A margem de inscrição é sempre a subscrição. Por padrão, muitos fornecedores de recursos são automaticamente registados. No entanto, poderá ter de registar manualmente alguns fornecedores de recursos.
+Antes de utilizar um fornecedor de recursos, a sua assinatura Azure deve ser registada para o fornecedor de recursos. O registo configura a sua subscrição para trabalhar com o fornecedor de recursos. Alguns fornecedores de recursos estão registados por padrão. Outros fornecedores de recursos são registados automaticamente quando toma determinadas ações. Por exemplo, quando cria um recurso através do portal, o fornecedor de recursos é normalmente registado para si. Para outros cenários, poderá ter de registar manualmente um fornecedor de recursos.
 
 Este artigo mostra-lhe como verificar o estado de registo de um fornecedor de recursos e registá-lo conforme necessário. Tem de ter autorização para fazer a `/register/action` operação para o fornecedor de recursos. A permissão está incluída nas funções de Contribuinte e Proprietário.
 
@@ -49,7 +49,7 @@ Para ver todos os fornecedores de recursos e o estado de registo da sua subscri�
 
     ![selecionar subscrições](./media/resource-providers-and-types/select-all-services.png)
 
-3. Na caixa **de todos os serviços,** **introduza a subscrição**e, em seguida, selecione **Subscrições**.
+3. Na caixa **de todos os serviços,** **introduza a subscrição** e, em seguida, selecione **Subscrições**.
 4. Selecione a subscrição da lista de subscrição para visualizar.
 5. Selecione **fornecedores de recursos** e veja a lista de fornecedores de recursos disponíveis.
 
@@ -61,7 +61,7 @@ Para ver informações para um determinado fornecedor de recursos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu do portal do Azure, selecione **Todos os serviços**.
-3. Na caixa **de todos os serviços,** insira **o explorador de recursos**e, em seguida, selecione **Resource Explorer**.
+3. Na caixa **de todos os serviços,** insira **o explorador de recursos** e, em seguida, selecione **Resource Explorer**.
 
     ![selecionar Todos os serviços](./media/resource-providers-and-types/select-resource-explorer.png)
 
@@ -83,8 +83,6 @@ Para ver informações para um determinado fornecedor de recursos:
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 Para ver todos os fornecedores de recursos em Azure, e o estado de registo da sua subscrição, utilize:
 
 ```azurepowershell-interactive
@@ -101,6 +99,12 @@ Microsoft.ClassicNetwork         Registered
 Microsoft.ClassicStorage         Registered
 Microsoft.CognitiveServices      Registered
 ...
+```
+
+Para consultar todos os fornecedores de recursos registados para a sua subscrição, utilize:
+
+```azurepowershell-interactive
+ Get-AzResourceProvider -ListAvailable | Where-Object RegistrationState -eq "Registered" | Select-Object ProviderNamespace, RegistrationState | Sort-Object ProviderNamespace
 ```
 
 Para registar um fornecedor de recursos, utilize:
@@ -190,7 +194,7 @@ West US
 
 Para ver todos os fornecedores de recursos em Azure, e o estado de registo da sua subscrição, utilize:
 
-```azurecli
+```azurecli-interactive
 az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
 ```
 
@@ -206,9 +210,15 @@ Microsoft.CognitiveServices      Registered
 ...
 ```
 
+Para consultar todos os fornecedores de recursos registados para a sua subscrição, utilize:
+
+```azurecli-interactive
+az provider list --query "sort_by([?registrationState=='Registered'].{Provider:namespace, Status:registrationState}, &Provider)" --out table
+```
+
 Para registar um fornecedor de recursos, utilize:
 
-```azurecli
+```azurecli-interactive
 az provider register --namespace Microsoft.Batch
 ```
 
@@ -216,7 +226,7 @@ Que devolve uma mensagem de que o registo está em andamento.
 
 Para obter informações para um determinado fornecedor de recursos, utilize:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch
 ```
 
@@ -235,7 +245,7 @@ Que devolve resultados semelhantes a:
 
 Para ver os tipos de recursos de um fornecedor de recursos, utilize:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[*].resourceType" --out table
 ```
 
@@ -254,7 +264,7 @@ A versão API corresponde a uma versão das operações rest API que são lança
 
 Para obter as versões API disponíveis para um tipo de recurso, utilize:
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].apiVersions | [0]" --out table
 ```
 
@@ -274,7 +284,7 @@ O Gestor de Recursos é apoiado em todas as regiões, mas os recursos que você 
 
 Para obter os locais suportados para um tipo de recurso, use.
 
-```azurecli
+```azurecli-interactive
 az provider show --namespace Microsoft.Batch --query "resourceTypes[?resourceType=='batchAccounts'].locations | [0]" --out table
 ```
 

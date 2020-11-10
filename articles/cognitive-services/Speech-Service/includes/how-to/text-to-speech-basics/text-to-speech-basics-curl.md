@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/09/2020
 ms.author: v-jawe
-ms.openlocfilehash: 029cb1e59876eb01c609ef8b7ba0412ed35a2a1b
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8a877e1773431053c5ad7344209076cb868a0ee3
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940753"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424790"
 ---
 Neste arranque rápido, aprende-se a converter texto em discurso utilizando o serviço de fala e o cURL.
 
@@ -26,7 +26,7 @@ Com um pedido de comando, executar o seguinte comando. Terá de inserir os segui
 - A sua região de serviço de discurso.
 
 Pode também pretender alterar os seguintes valores.
-- O `X-Microsoft-OutputFormat` valor do cabeçalho, que controla o formato de saída de áudio. Pode encontrar uma lista de formatos de saída de áudio suportados na [referência API de REPOUSO text-to-speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-text-to-speech#audio-outputs).
+- O `X-Microsoft-OutputFormat` valor do cabeçalho, que controla o formato de saída de áudio. Pode encontrar uma lista de formatos de saída de áudio suportados na [referência API de REPOUSO text-to-speech](../../../rest-text-to-speech.md#audio-outputs).
 - A voz de saída. Para obter uma lista de vozes disponíveis para o seu ponto final do Discurso, consulte a secção seguinte.
 - O ficheiro de saída. Neste exemplo, direcionamos a resposta do servidor para um ficheiro chamado `output.wav` .
 

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: d69cb782b3be7035b7571653dcb434e44d22da93
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: edf08715290fc68b65f2d910440093be7df37af0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377003"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424823"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -18,7 +18,7 @@ Antes de começar, certifique-se de:
 > [!div class="checklist"]
 > * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 > * [Criar um recurso de discurso azul](../../../../overview.md#try-the-speech-service-for-free)
-> * [Faça o upload de um ficheiro de origem para uma bolha de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Faça o upload de um ficheiro de origem para uma bolha de Azure](../../../../../../storage/blobs/storage-quickstart-blobs-portal.md)
 
 ## <a name="download-and-install-the-api-client-library"></a>Descarregue e instale a biblioteca de clientes da API
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78ea26adb8299cc13d4677c66a0e06cba901d9dc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 00cb63f63ffb1f2e10a276cfdeee9c5e8e1022de
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977379"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427382"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões e funcionalidades de máquinas virtuais para Windows
 
@@ -142,7 +142,7 @@ O `Set-AzVMExtension` comando pode ser utilizado para iniciar qualquer extensão
 
 ### <a name="azure-portal"></a>Portal do Azure
 
-As extensões VM podem ser aplicadas a um VM existente através do portal Azure. Selecione o VM no portal, escolha **Extensões**e, em seguida, selecione **Adicionar**. Escolha a extensão desejada na lista de extensões disponíveis e siga as instruções no assistente.
+As extensões VM podem ser aplicadas a um VM existente através do portal Azure. Selecione o VM no portal, escolha **Extensões** e, em seguida, selecione **Adicionar**. Escolha a extensão desejada na lista de extensões disponíveis e siga as instruções no assistente.
 
 O exemplo a seguir mostra a instalação da extensão antimalware da Microsoft a partir do portal Azure:
 
@@ -336,7 +336,7 @@ AutoUpgradeMinorVersion     : True
 
 Para ver quando ocorreu uma atualização da extensão, reveja os registos de agente no VM em *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-No exemplo seguinte, o VM tinha *o Microsoft.Compute.CustomScriptExtension 1.8* instalado. Um hotfix estava disponível para a versão *1.9*:
+No exemplo seguinte, o VM tinha *o Microsoft.Compute.CustomScriptExtension 1.8* instalado. Um hotfix estava disponível para a versão *1.9* :
 
 ```powershell
 [INFO]  Getting plugin locations for plugin 'Microsoft.Compute.CustomScriptExtension'. Current Version: '1.8', Requested Version: '1.9'
@@ -355,7 +355,7 @@ As seguintes etapas de resolução de problemas aplicam-se a todas as extensões
 
 1. Para verificar o Registo do Agente convidado do Windows, consulte a atividade quando a sua extensão estava a ser disponibilizada em *C:\WindowsAzure\Logs\WaAppAgent.log*
 
-2. Verifique os registos de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins \<extensionName> *
+2. Verifique os registos de extensão reais para obter mais detalhes em *C:\WindowsAzure\Logs\Plugins \\ <extensionName>*
 
 3. Verifique secções específicas de resolução de problemas de documentação de extensão para códigos de erro, problemas conhecidos, etc.
 
@@ -403,7 +403,7 @@ Extensions[0]           :
     Message             : Finished executing command
 ```
 
-O estado de execução da extensão também pode ser encontrado no portal Azure. Para visualizar o estado de uma extensão, selecione o VM, escolha **Extensões**e, em seguida, selecione a extensão desejada.
+O estado de execução da extensão também pode ser encontrado no portal Azure. Para visualizar o estado de uma extensão, selecione o VM, escolha **Extensões** e, em seguida, selecione a extensão desejada.
 
 ### <a name="rerun-vm-extensions"></a>Rerun extensões VM
 

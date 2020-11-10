@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 7253e257f9d721c09f2e041c1473a9d81d09a321
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 1f15a3b4d8f51ec79fffce09bc006942d08096a6
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92094515"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427467"
 ---
-# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>SAP BusinessObjects guia de implantação de plataforma BI para linux em Azure
+# <a name="sap-businessobjects-bi-platform-deployment-guide-for-linux-on-azure"></a>Guia de implementação da plataforma de BI SAP BusinessObjects para Linux no Azure
 
 Este artigo descreve a estratégia de implantação da Plataforma SAP BOBI no Azure para o Linux. Neste exemplo, duas máquinas virtuais com Discos Geridos Premium SSD à medida que o seu diretório de instalação estão configurados. A base de dados Azure para o MySQL é utilizada para a base de dados CMS e os ficheiros Azure NetApp para o Servidor de Repositório de Ficheiros são partilhados em ambos os servidores. A aplicação web padrão de Tomcat Java e a aplicação bi plataforma são instaladas em ambas as máquinas virtuais. Para carregar o equilíbrio do pedido do utilizador, o Application Gateway é utilizado com capacidades de descarregamento TLS/SSL nativos.
 
@@ -36,7 +36,7 @@ Neste exemplo, abaixo a versão do produto e o layout do sistema de ficheiros é
 - Base de Dados Azure para MySQL (Versão: 8.0.15)
 - Conector MySQL C API - libmysqlclient (versão: 6.1.11)
 
-| Sistema de Ficheiros        | Description                                                                                                               | Tamanho (GB)             | Proprietário  | Group  | Armazenamento                    |
+| Sistema de Ficheiros        | Descrição                                                                                                               | Tamanho (GB)             | Proprietário  | Grupo  | Armazenamento                    |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------|-----------------------|--------|--------|----------------------------|
 | /usr/seiva           | O sistema de ficheiros para instalação de caso SAP BOBI, aplicação web tomcat predefinido e controladores de base de dados (se necessário) | Diretrizes de Dimensionamento SAP | bl1adm | sapsys | Disco Premium Gerido - SSD |
 | /usr/seiva/frsinput  | O diretório de montagem é para os ficheiros partilhados em todos os anfitriões BOBI que serão usados como Diretório de Repositório de Ficheiros de Entrada  | Necessidade de Negócios         | bl1adm | sapsys | Azure NetApp Files         |
@@ -113,7 +113,7 @@ Enquanto está a criar os seus Ficheiros Azure NetApp para o Servidor de Reposit
 
 Os passos desta secção utilizam os seguintes prefixos:
 
-**[A]**: O passo aplica-se a todos os anfitriões
+**[A]** : O passo aplica-se a todos os anfitriões
 
 ### <a name="format-and-mount-sap-file-system"></a>Formato e suporte sistema de ficheiros SAP
 
@@ -274,7 +274,7 @@ As diretrizes só são aplicáveis se estiver a utilizar o Azure DB para o MySQL
 
 ### <a name="create-an-azure-database-for-mysql"></a>Criar uma base de dados Azure para o MySQL
 
-Inscreva-se no portal Azure e siga os passos mencionados neste [Guia rápido de Base de Dados de Azure para o MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#create-an-azure-database-for-mysql-server). Poucos pontos a notar ao providenciar a Base de Dados Azure para o MySQL -
+Inscreva-se no portal Azure e siga os passos mencionados neste [Guia rápido de Base de Dados de Azure para o MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md). Poucos pontos a notar ao providenciar a Base de Dados Azure para o MySQL -
 
 1. Selecione a mesma região para Azure Database para o MySQL onde os seus servidores de aplicações SAP BI Platform estão em execução.
 
@@ -395,15 +395,15 @@ Para o servidor de aplicação SAP BOBI aceder à base de dados, requer cliente/
 
 Os passos desta secção utilizam os seguintes prefixos:
 
-**[A]**: O passo aplica-se a todos os anfitriões.
+**[A]** : O passo aplica-se a todos os anfitriões.
 
 1. **[A]** Com base no sabor do Linux (SLES ou RHEL), é necessário definir parâmetros de kernel e instalar bibliotecas necessárias. Consulte a secção **de requisitos do Sistema** no Guia de [Instalação da Plataforma de Inteligência Empresarial para Unix](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US).
 
 2. **[A]** Certifique-se de que o fuso horário da sua máquina está corretamente definido. Consulte a [secção de requisitos Unix e Linux adicionais](https://help.sap.com/viewer/65018c09dbe04052b082e6fc4ab60030/4.3/en-US/46b143336e041014910aba7db0e91070.html) no Guia de Instalação.
 
-3. **[A]** Crie a conta de utilizador **(bl1**adm) e grupo (sapsys) sob os quais os processos de fundo do software podem ser executados. Utilize esta conta para executar a instalação e executar o software. A conta não requer privilégios de raiz.
+3. **[A]** Crie a conta de utilizador **(bl1** adm) e grupo (sapsys) sob os quais os processos de fundo do software podem ser executados. Utilize esta conta para executar a instalação e executar o software. A conta não requer privilégios de raiz.
 
-4. **[A]** Defina o ambiente da conta de utilizador **(bl1**adm) para utilizar um local UTF-8 suportado e certifique-se de que o software da consola suporta conjuntos de caracteres UTF-8. Para garantir que o seu sistema operativo utiliza o local correto, desajuste as variáveis ambientais LC_ALL e LANG para o seu local preferido no seu ambiente de utilizador **(bl1**adm).
+4. **[A]** Defina o ambiente da conta de utilizador **(bl1** adm) para utilizar um local UTF-8 suportado e certifique-se de que o software da consola suporta conjuntos de caracteres UTF-8. Para garantir que o seu sistema operativo utiliza o local correto, desajuste as variáveis ambientais LC_ALL e LANG para o seu local preferido no seu ambiente de utilizador **(bl1** adm).
 
    ```bash
    # This configuration is for bash shell. If you are using any other shell for sidadm, kindly set environment variable accordingly.
@@ -413,7 +413,7 @@ Os passos desta secção utilizam os seguintes prefixos:
    export LC_ALL=en_US.utf8
    ```
 
-5. **[A]** Conta de utilizador configurar **(bl1**adm).
+5. **[A]** Conta de utilizador configurar **(bl1** adm).
 
    ```bash
    # Set ulimit for bl1adm to unlimited
@@ -445,7 +445,7 @@ Os passos desta secção utilizam os seguintes prefixos:
 
 ## <a name="installation"></a>Instalação
 
-Verifique localmente para obter o anúncio da conta **de utilizador bl1**no servidor
+Verifique localmente para obter o anúncio da conta **de utilizador bl1** no servidor
 
 ```bash
 bl1adm@azusbosl1:~> locale
@@ -453,7 +453,7 @@ LANG=en_US.utf8
 LC_ALL=en_US.utf8
 ```
 
-Navegue para meios de comunicação da SAP BusinessObjects BI Platform e corra abaixo do comando com **bl1**adm utilizador -
+Navegue para meios de comunicação da SAP BusinessObjects BI Platform e corra abaixo do comando com **bl1** adm utilizador -
 
 ```bash
 ./setup.sh -InstallDir /usr/sap/BL1

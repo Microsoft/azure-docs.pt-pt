@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 9c0c2673acf12ddf80b77be57acc5af55e7f160c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: d1fab57adfb675e8cc4ea604980e6f04a3f4a89f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298733"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425508"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,14 +46,14 @@ Antes de poder inicializar um `IntentRecognizer` objeto, precisa de criar uma co
 Insira este código no `recognizeIntent()` método. Certifique-se de atualizar estes valores:
 
 * `"YourLanguageUnderstandingSubscriptionKey"`Substitua-a pela sua chave de previsão LUIS.
-* `"YourLanguageUnderstandingServiceRegion"`Substitua-o pela sua localização LUIS.  Utilizar **o identificador** da região da [região.](https://aka.ms/speech/sdkregion)
+* `"YourLanguageUnderstandingServiceRegion"`Substitua-o pela sua localização LUIS.  Utilizar **o identificador** da região da [região.](../../../../regions.md)
 
 >[!TIP]
 > Se precisar de ajuda para encontrar estes valores, consulte [criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
 
-Esta amostra utiliza o `FromSubscription()` método para construir o `SpeechConfig` . Para obter uma lista completa dos métodos disponíveis, consulte [a Aula deConfig da Fala](https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig).
+Esta amostra utiliza o `FromSubscription()` método para construir o `SpeechConfig` . Para obter uma lista completa dos métodos disponíveis, consulte [a Aula deConfig da Fala](/cpp/cognitive-services/speech/speechconfig).
 
 O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 

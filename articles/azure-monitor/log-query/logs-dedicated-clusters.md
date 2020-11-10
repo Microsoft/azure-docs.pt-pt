@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 845336385fe7490d4c62df41af873c237ae34871
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 293a3fc10920a29cd41e4bdb946e5bb06762eb52
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996335"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427501"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor Logs Clusters Dedicados
 
@@ -47,9 +47,9 @@ O nível de reserva de capacidade do cluster é configurado programáticamente c
 
 Existem dois modos de faturação para uso num cluster. Estes podem ser especificados pelo `billingType` parâmetro ao configurar o seu cluster. 
 
-1. **Cluster**: neste caso (que é o padrão), a faturação dos dados ingeridos é feita ao nível do cluster. As quantidades de dados ingeridas de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. 
+1. **Cluster** : neste caso (que é o padrão), a faturação dos dados ingeridos é feita ao nível do cluster. As quantidades de dados ingeridas de cada espaço de trabalho associado a um cluster são agregadas para calcular a fatura diária do cluster. 
 
-2. **Espaços de trabalho**: os custos de reserva de capacidade para o seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster (após contabilização das dotações por nó do Centro de [Segurança Azure](../../security-center/index.yml) para cada espaço de trabalho.)
+2. **Espaços de trabalho** : os custos de reserva de capacidade para o seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster (após contabilização das dotações por nó do Centro de [Segurança Azure](../../security-center/index.yml) para cada espaço de trabalho.)
 
 Note que se o seu espaço de trabalho estiver a utilizar o nível de preços por nó, quando estiver ligado a um cluster, será faturado com base em dados ingeridos contra a Reserva de Capacidade do cluster, e não mais por nó. As alocações de dados por nó do Centro de Segurança Azure continuarão a ser aplicadas.
 
@@ -62,12 +62,12 @@ Primeiro cria recursos de cluster para começar a criar um cluster dedicado.
 
 Devem ser especificadas as seguintes propriedades:
 
-- **ConjuntoName**: Utilizado para fins administrativos. Os utilizadores não estão expostos a este nome.
-- **Nome do Grupo de Recursos**: Quanto a qualquer recurso Azure, os clusters pertencem a um grupo de recursos. Recomendamos que use um grupo central de recursos de TI porque os clusters são geralmente partilhados por muitas equipas da organização. Para mais considerações de design, [reveja a conceção da sua implementação de Registos de Monitor Azure](../platform/design-logs-deployment.md)
-- **Localização**: Um aglomerado está localizado numa região específica de Azure. Apenas espaços de trabalho localizados nesta região podem ser ligados a este aglomerado.
-- **SkuCapacity**: Deve especificar o nível *de reserva de capacidade* (sku) ao criar um recurso de *cluster.* O nível *de reserva* de capacidade pode ser de 1.000 GB a 3.000 GB por dia. Pode atualizá-lo em passos de 100 mais tarde, se necessário. Se necessitar de um nível de reserva superior a 3.000 GB por dia, contacte-nos em LAIngestionRate@microsoft.com . Para obter mais informações sobre os custos do cluster, consulte [Gerir custos para clusters Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- **ConjuntoName** : Utilizado para fins administrativos. Os utilizadores não estão expostos a este nome.
+- **Nome do Grupo de Recursos** : Quanto a qualquer recurso Azure, os clusters pertencem a um grupo de recursos. Recomendamos que use um grupo central de recursos de TI porque os clusters são geralmente partilhados por muitas equipas da organização. Para mais considerações de design, [reveja a conceção da sua implementação de Registos de Monitor Azure](../platform/design-logs-deployment.md)
+- **Localização** : Um aglomerado está localizado numa região específica de Azure. Apenas espaços de trabalho localizados nesta região podem ser ligados a este aglomerado.
+- **SkuCapacity** : Deve especificar o nível *de reserva de capacidade* (sku) ao criar um recurso de *cluster.* O nível *de reserva* de capacidade pode ser de 1.000 GB a 3.000 GB por dia. Pode atualizá-lo em passos de 100 mais tarde, se necessário. Se necessitar de um nível de reserva superior a 3.000 GB por dia, contacte-nos em LAIngestionRate@microsoft.com . Para obter mais informações sobre os custos do cluster, consulte [Gerir custos para clusters Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
 
-Depois de criar o seu recurso *Cluster,* pode editar propriedades adicionais como *sku*, *keyVaultProperties ou *BillingType*. Veja mais detalhes abaixo.
+Depois de criar o seu recurso *Cluster,* pode editar propriedades adicionais como *sku* , *keyVaultProperties ou *BillingType*. Veja mais detalhes abaixo.
 
 > [!WARNING]
 > A criação de clusters desencadeia a atribuição e o provisionamento de recursos. Esta operação pode levar até uma hora para ser concluída. Recomenda-se executá-lo assíncronos.
@@ -162,7 +162,7 @@ O *principalID* GUID é gerado pelo serviço de identidade gerido para o recurso
 
 Depois de criar o seu recurso *Cluster* e estiver totalmente aprovisionado, pode editar propriedades adicionais ao nível do cluster utilizando a PowerShell ou a REST API. Para além das propriedades disponíveis durante a criação do cluster, as propriedades adicionais só podem ser definidas após o cluster ter sido a provisionado:
 
-- **keyVaultProperties**: Usado para configurar o Cofre de Chaves Azure utilizado para a provisionar uma [chave gerida pelo cliente Azure Monitor](../platform/customer-managed-keys.md#cmk-provisioning-procedure). Contém os seguintes parâmetros:  *KeyVaultUri,* *KeyName,* *KeyVersion*. 
+- **keyVaultProperties** : Usado para configurar o Cofre de Chaves Azure utilizado para a provisionar uma [chave gerida pelo cliente Azure Monitor](../platform/customer-managed-keys.md#customer-managed-key-provisioning-procedure). Contém os seguintes parâmetros:  *KeyVaultUri,* *KeyName,* *KeyVersion*. 
 - **billingType** - A propriedade *do'singType* determina a atribuição de faturação para o recurso *cluster* e seus dados:
   - **Cluster** (predefinido) - Os custos de Reserva de Capacidade do seu Cluster são atribuídos ao recurso *Cluster.*
   - **Espaços de trabalho** - Os custos de Reserva de Capacidade do seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster, com o recurso *Cluster* a ser faturado parte da utilização se os dados totais ingeridos do dia estiverem sob reserva de capacidade. Consulte [Os Clusters Dedicados log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) para saber mais sobre o modelo de preços cluster. 
@@ -180,7 +180,7 @@ Update-AzOperationalInsightsCluster -ResourceGroupName {resource-group-name} -Cl
 **REST**
 
 > [!NOTE]
-> Pode atualizar o *sku de*recursos *cluster,* *keyVaultProperties* ou *billingType* usando PATCH.
+> Pode atualizar o *sku de* recursos *cluster,* *keyVaultProperties* ou *billingType* usando PATCH.
 
 Por exemplo: 
 

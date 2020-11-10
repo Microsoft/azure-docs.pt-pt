@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/02/2020
-ms.openlocfilehash: 47aada0abe2520ba81689ca8fa17787fde847d83
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 2e26028c47e8c96f8c1adabc468ee6f03e3cb19c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360254"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427314"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Transformação do sumidouro no fluxo de dados de mapeamento
 
@@ -105,7 +105,7 @@ Por predefinição, os dados são escritos a vários lavatórios numa ordem não
 ![Screenshot que mostra pedido de pia personalizada.](media/data-flow/custom-sink-ordering.png "Screenshot que mostra pedido de pia personalizada.")
 
 > [!NOTE]
-> Ao utilizar [as pesquisas em cache,](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup)certifique-se de que o seu pedido de pia tem os lavatórios em cache definidos para 0.
+> Ao utilizar [pesquisas em cache,](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup)certifique-se de que o seu pedido de pia tem os lavatórios em cache definidos para 1, o mais baixo (ou primeiro) na encomenda.
 
 ![Pedido de pia personalizado](media/data-flow/cache-2.png "Pedido de pia personalizado")
 
@@ -113,5 +113,5 @@ Por predefinição, os dados são escritos a vários lavatórios numa ordem não
 
 Ao obter uma pré-visualização de dados num cluster de depuração, nenhum dado será escrito na sua pia. Uma imagem do aspeto dos dados será devolvida, mas nada será escrito para o seu destino. Para testar os dados de escrita na pia, coloque um depuração de gasoduto a partir da tela do gasoduto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que criou o seu fluxo de dados, adicione uma [atividade de fluxo de dados ao seu pipeline](concepts-data-flow-overview.md).

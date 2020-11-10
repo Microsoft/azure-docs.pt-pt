@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 20e48640d52fba7b3262014c2e84cfc56c7110cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a1aff57c2823b111251c99cb3dbcdea0fd90ad2c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91767245"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425954"
 ---
 # <a name="blob-versioning"></a>Versão blob
 
@@ -36,13 +36,15 @@ Para aprender a permitir a versão blob, consulte [Ativar e gerir a versão blob
 
 Uma versão captura o estado de uma bolha num dado momento. Quando a versão blob é ativada para uma conta de armazenamento, o Azure Storage cria automaticamente uma nova versão de uma bolha cada vez que a bolha é modificada ou eliminada.
 
-Quando se cria uma bolha com a versão ativada, a nova bolha é a versão atual do blob (ou a bolha base). Se modificar posteriormente essa bolha, o Azure Storage cria uma versão que captura o estado da bolha antes de ser modificada. A bolha modificada torna-se a nova versão atual. Uma nova versão é criada cada vez que modifica a bolha. Uma bolha pode ter até 1000 versões associadas.
+Quando se cria uma bolha com a versão ativada, a nova bolha é a versão atual do blob (ou a bolha base). Se modificar posteriormente essa bolha, o Azure Storage cria uma versão que captura o estado da bolha antes de ser modificada. A bolha modificada torna-se a nova versão atual. Uma nova versão é criada cada vez que modifica a bolha.
+
+Uma bolha pode ter um número ilimitado de versões. No entanto, ter um grande número de versões por blob pode aumentar a latência para operações de listagem de bolhas. A Microsoft recomenda manter menos de 1000 versões por blob. Pode utilizar a gestão do ciclo de vida para eliminar automaticamente versões antigas. Para obter mais informações sobre a gestão do ciclo de vida, consulte [os custos da Otimização automatizando os níveis de acesso ao armazenamento Azure Blob](storage-lifecycle-management-concepts.md).
 
 Quando elimina uma bolha com versão ativada, o Azure Storage cria uma versão que captura o estado da bolha antes de ser eliminada. A versão atual do blob é então eliminada, mas as versões do blob persistem, para que possa ser recriada se necessário. 
 
 As versões blob são imutáveis. Não é possível modificar o conteúdo ou metadados de uma versão blob existente.
 
-A versão blob está disponível para as contas de armazenamento v2, block blob e Blob. As contas de armazenamento com um espaço hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não são atualmente suportadas. 
+A versão blob está disponível para as contas de armazenamento v2, block blob e Blob. As contas de armazenamento com um espaço hierárquico habilitado para uso com Azure Data Lake Storage Gen2 não são atualmente suportadas.
 
 Versão 2019-10-10 e superior do Azure Storage REST API suporta a versão blob.
 
@@ -79,11 +81,11 @@ Chamar a operação [Delete Blob](/rest/api/storageservices/delete-blob) sem uma
 
 O diagrama a seguir mostra o efeito de uma operação de eliminação numa bolha versada:
 
-:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagrama mostrando como as operações de escrita afetam as bolhas versadas.":::
+:::image type="content" source="media/versioning-overview/delete-versioned-base-blob.png" alt-text="Diagrama mostrando eliminação da bolha versada.":::
 
 Escrever novos dados para a bolha cria uma nova versão da bolha. Quaisquer versões existentes não são afetadas, como mostra o diagrama seguinte.
 
-:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagrama mostrando como as operações de escrita afetam as bolhas versadas.":::
+:::image type="content" source="media/versioning-overview/recreate-deleted-base-blob.png" alt-text="Diagrama mostrando a recriação da bolha versada após a eliminação.":::
 
 ### <a name="blob-types"></a>Tipos de blobs
 
@@ -122,7 +124,7 @@ Pode ler ou eliminar versões utilizando o ID da versão após a versão ser des
 
 O diagrama seguinte mostra como modificar uma bolha após a versão é desativada cria uma bolha que não é versão. As versões existentes associadas à bolha persistem.
 
-:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagrama mostrando como as operações de escrita afetam as bolhas versadas.":::
+:::image type="content" source="media/versioning-overview/modify-base-blob-versioning-disabled.png" alt-text="Diagrama mostrando a bolha de base modificada após a versão desativada.":::
 
 ## <a name="blob-versioning-and-soft-delete"></a>Versões blob e eliminação suave
 
@@ -138,7 +140,7 @@ Para remover uma versão anterior de uma bolha, elimine-a explicitamente especif
 
 O diagrama que se segue mostra o que acontece quando se apaga uma bolha ou uma versão blob.
 
-:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagrama mostrando como as operações de escrita afetam as bolhas versadas.":::
+:::image type="content" source="media/versioning-overview/soft-delete-historical-version.png" alt-text="Diagrama mostrando a eliminação de uma versão com exclusão suave ativada.":::
 
 Se a versão e a eliminação suave estiverem ativadas numa conta de armazenamento, então não é criada nenhuma imagem de imagem com eliminação suave quando uma versão blob ou blob é modificada ou eliminada.
 
@@ -150,7 +152,7 @@ Restaurar versões de soft-dele com a operação **Undelete Blob** não promove 
 
 O diagrama que se segue mostra como restaurar as versões blob desagravada com a operação **Undelete Blob** e como restaurar a versão atual do blob com a operação **Copy Blob.**
 
-:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagrama mostrando como as operações de escrita afetam as bolhas versadas.":::
+:::image type="content" source="media/versioning-overview/undelete-version.png" alt-text="Diagrama mostrando como restaurar versões desagravamento suave.":::
 
 Após o período de retenção de eliminação suave, quaisquer versões blob apagadas com soft-delete são permanentemente eliminadas.
 
@@ -169,7 +171,7 @@ Quando tira uma foto de uma bolha em versão, uma nova versão é criada ao mesm
 
 O diagrama que se segue mostra o que acontece quando se tira uma fotografia de uma bolha em versão. No diagrama, as versões blob e as imagens com a versão ID 2 e 3 contêm dados idênticos.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama mostrando como as operações de escrita afetam as bolhas versadas.":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagrama mostrando instantâneos de uma bolha em versão.":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autorizar operações em versões blob
 
@@ -269,7 +271,7 @@ A tabela seguinte descreve o comportamento de faturação para uma bolha ou vers
 
 O diagrama seguinte ilustra como os objetos são faturados quando uma bolha ver versão é movida para um nível diferente.
 
-:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagrama mostrando como as operações de escrita afetam as bolhas versadas.":::
+:::image type="content" source="media/versioning-overview/versioning-billing-tiers.png" alt-text="Diagrama mostrando como os objetos são faturados quando uma bolha em versão é explicitamente nivelada.":::
 
 Definir explicitamente o nível para uma bolha, versão ou instantâneo não pode ser desfeito. Se mover uma bolha para um novo nível e depois movê-la de volta para o seu nível original, é cobrado o comprimento total do conteúdo do objeto, mesmo que partilhe blocos com outros objetos no nível original.
 
@@ -291,7 +293,7 @@ A tabela seguinte descreve o comportamento de faturação de uma bolha que é ap
 | Se a eliminação suave e a versão macias estão ativadas | Todas as versões existentes com o comprimento total do conteúdo, independentemente do nível. |
 | Se a eliminação suave blob estiver ativada, mas a versão é desativada | Todos os instantâneos de exclusão suave existentes com todo o comprimento do conteúdo, independentemente do nível. |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Ativar e gerir a versão blob](versioning-enable.md)
 - [Criando um instantâneo de uma bolha](/rest/api/storageservices/creating-a-snapshot-of-a-blob)

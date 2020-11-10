@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: 4d3db2c10c3fd989ac9737e242e3d6eda517a55f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 269cadb68a0e27a7d329307871ee0ccd263abf31
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91376392"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94424980"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -19,7 +19,7 @@ Antes de começar, certifique-se de:
 > [!div class="checklist"]
 > * [Configurar o seu ambiente de desenvolvimento e criar um projeto vazio](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-javascript)
 > * [Criar um recurso de discurso azul](../../../../overview.md#try-the-speech-service-for-free)
-> * [Faça o upload de um ficheiro de origem para uma bolha de Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
+> * [Faça o upload de um ficheiro de origem para uma bolha de Azure](../../../../../../storage/blobs/storage-quickstart-blobs-portal.md)
 
 ## <a name="create-a-new-js-file"></a>Criar um novo ficheiro JS
 

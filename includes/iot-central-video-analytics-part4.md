@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: iot-central
 author: dominicbetts
 ms.service: iot-central
@@ -8,86 +8,48 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 164f5803b6e9e62447423735e98f6e4c36c73f13
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: de916fcbe0623185821e2f5da15a8f9cf71dfd4e
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91877208"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426782"
 ---
-### <a name="add-relationships"></a>Adicionar relacionamentos
-
-No modelo do dispositivo **LVA Edge Gateway,** em **Módulos/Módulo gateway de borda LVA,** selecione **Relacionamentos**. Selecione **+ Adicione a relação** e adicione as seguintes duas relações:
-
-|Nome a Apresentar               |Nome          |Destino |
-|-------------------------- |------------- |------ |
-|Detetor de movimento lVA Edge   |Utilizar predefinição   |Dispositivo de detetor de movimento de borda LVA |
-|Detetor de Objetos de Borda LVA   |Utilizar predefinição   |Dispositivo de detetor de objetos de borda LVA |
-
-Em seguida, selecione **Guardar**.
-
-:::image type="content" source="media/iot-central-video-analytics-part4/relationships.png" alt-text="Adicionar relacionamentos":::
-
-### <a name="add-views"></a>Adicionar vistas
-
-O modelo do dispositivo **LVA Edge Gateway** não inclui definições de visualização.
-
-Para adicionar uma vista ao modelo do dispositivo:
-
-1. No modelo do dispositivo **LVA Edge Gateway,** navegue para **Visualizações** e **selecione o azulejo do dispositivo visualizando.**
-
-1. Introduza o *dispositivo LVA Edge Gateway* como o nome de visualização.
-
-1. Adicione os seguintes azulejos à vista:
-
-    * Um azulejo com as propriedades de **Info dispositivo:** **Modelo de dispositivo,** **fabricante,** **sistema operativo,** **arquitetura de processador,** **versão de software,** **memória total**e **armazenamento total**.
-    * Um gráfico de linha com os **valores de telemetria de memória livre** e de **batimentos cardíacos** do sistema.
-    * Um azulejo histórico do evento com os seguintes eventos: **Criar Câmara,** **Eliminar Câmara,** **Reiniciar módulos,** **Módulo Iniciado,** **Módulo parado**.
-    * Um último azulejo de valor conhecido 2x1 mostrando a telemetria **do Estado cliente central IoT.**
-    * Um último azulejo de valor conhecido 2x1 mostrando a telemetria **do Estado do Módulo.**
-    * Um último azulejo de valor conhecido 1x1 mostrando a telemetria **do batimento cardíaco do sistema.**
-    * Um último azulejo de valor conhecido 1x1 mostrando a telemetria **das câmaras conectadas.**
-
-    :::image type="content" source="media/iot-central-video-analytics-part4/gateway-dashboard.png" alt-text="Adicionar relacionamentos":::
-
-1. Selecione **Guardar**.
-
 ### <a name="publish-the-device-template"></a>Publicar o modelo de dispositivo
 
 Antes de poder adicionar um dispositivo à aplicação, tem de publicar o modelo do dispositivo:
 
-1. No modelo do dispositivo **LVA Edge Gateway,** selecione **Publicar**.
+1. No modelo do dispositivo **LVA Edge Gateway v2,** selecione **Publicar**.
 
 1. No modelo de publicação deste dispositivo para a página **de aplicação,** selecione **Publicar**.
 
-**LVA Edge Gateway** está agora disponível como tipo de dispositivo para usar na página **dispositivos** na aplicação.
+**LVA Edge Gateway v2** está agora disponível como tipo de dispositivo para usar na página **dispositivos** na aplicação.
 
-## <a name="add-a-gateway-device"></a>Adicione um dispositivo de gateway
+## <a name="migrate-the-gateway-device"></a>Migrar o dispositivo de gateway
 
-Para adicionar um dispositivo **LVA Edge Gateway** à aplicação:
+O dispositivo **gateway-001** existente utiliza o modelo do dispositivo **LVA Edge Gateway.** Para utilizar o seu novo manifesto de implantação, migrar o dispositivo para o novo modelo do dispositivo:
 
-1. Navegue na página **dispositivos** e selecione o modelo do dispositivo **LVA Edge Gateway.**
+Para migrar o dispositivo **gateway-001:**
 
-1. Selecione **+ Novo**.
+1. Navegue na página **Dispositivos** e selecione o dispositivo **gateway-001** para realçá-lo na lista.
 
-1. No Diálogo do **dispositivo Criar um novo dispositivo,** mude o nome do dispositivo para *LVA Gateway 001*, e altere o ID do dispositivo para *lva-gateway-001*.
+1. Selecione **Migrar**. Se o ícone **de Migração** não estiver visível, selecione... para ver mais opções. **...**
 
-    > [!NOTE]
-    > O ID do dispositivo deve ser único na aplicação.
+    :::image type="content" source="media/iot-central-video-analytics-part4/migrate-device.png" alt-text="Migrar o dispositivo gateway para uma nova versão":::
 
-1. Selecione **Criar**.
+1. Na lista do diálogo **Migrar,** selecione **LVA Edge Gateway v2** e, em seguida, selecione **Migrar**.
 
-O estado do dispositivo está **registado.**
+Após alguns segundos, a migração termina. O seu dispositivo está agora a utilizar o modelo do dispositivo **LVA Edge Gateway v2** com o seu manifesto de implementação personalizado.
 
 ### <a name="get-the-device-credentials"></a>Obtenha as credenciais do dispositivo
 
 Precisa das credenciais que permitem que o dispositivo se conecte à sua aplicação IoT Central. Obter as credenciais do dispositivo:
 
-1. Na página **Dispositivos,** selecione o dispositivo **Lva-gateway-001** que criou.
+1. Na página **Dispositivos,** selecione o dispositivo **gateway-001.**
 
-1. Selecione **Ligar**.
+1. Selecione **Connect** (Ligar).
 
-1. Na página **de ligação** do dispositivo, tome nota no ficheiro *scratchpad.txt* do **ID Scope,** do **ID do dispositivo**e da chave **primária**do dispositivo . Usa estes valores mais tarde.
+1. Na página **de ligação** do dispositivo, tome nota no ficheiro *scratchpad.txt* do **ID Scope,** do **ID do dispositivo** e da chave **primária** do dispositivo . Usa estes valores mais tarde.
 
 1. Certifique-se de que o método de ligação está definido para **a assinatura de acesso partilhado**.
 

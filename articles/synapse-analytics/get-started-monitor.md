@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 10/15/2020
-ms.openlocfilehash: 924ac3a58a005b84cbf87f833e97862e26a5b8e0
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 2970bb58bb73d52c75729b00a8209a9c576d4ec0
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94363362"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427416"
 ---
 # <a name="monitor-your-synapse-workspace"></a>Monitorize o seu espaço de trabalho de sinapse
 
@@ -31,8 +31,7 @@ Abra o Estúdio Synapse e navegue até ao centro **monitor.** Aqui, você pode v
 ## <a name="integration"></a>Integração
 
 1. Navegue para o **Pipeline > integração.** Nesta vista, pode ver sempre que um oleoduto corre no seu espaço de trabalho. 
-1. Encontre o oleoduto que correu no passo anterior e clique no **seu nome Pipeline**.
-1. Agora você pode ver como as atividades individuais dentro do oleoduto funcionam.
+1. Encontre o oleoduto que correu no passo anterior e clique no **seu nome Pipeline** para ver os detalhes.
 1. Clique **na barra Breadcrumb** perto do topo do Synapse Studio, clique em **Todas as corridas de pipeline** para voltar à vista anterior.
 
 ## <a name="apache-spark-activities"></a>Atividades de Faísca Apache

@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: ea746d67b23422243685347d1fe7a7fbaf03a4fe
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 3d1b8481aa4d4a81c95643727c1eff2a4a22da2f
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927962"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426260"
 ---
 # <a name="eav4-and-easv4-series"></a>Séries Eav4 e Easv4
 
@@ -64,7 +64,9 @@ Os tamanhos da série Easv4 baseiam-se no processador 2.35Ghz AMD EPYC<sup>TM</s
 | Standard_E32as_v4|32|256|512|32|64000 / 510 (800)|51200 / 768|8 | 16000 |
 | Standard_E48as_v4|48|384|768|32|96000 / 1020 (1200)|76800 / 1148|8 | 24000 |
 | Standard_E64as_v4|64|512|1024|32|128000 / 1020 (1600)|80000 / 1200|8 | 30000 |
-| Standard_E96as_v4|96|672|1344|32|192000 / 1020 (2400)|80000 / 1200|8 | 30000 |
+| Standard_E96as_v4 <sup>1</sup>|96|672|1344|32|192000 / 1020 (2400)|80000 / 1200|8 | 30000 |
+
+<sup>1</sup> [Tamanhos de núcleo limitados disponíveis](./constrained-vcpu.md).
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 

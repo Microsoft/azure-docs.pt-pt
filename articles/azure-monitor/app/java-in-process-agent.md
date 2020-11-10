@@ -3,12 +3,12 @@ title: Azure Monitor Application Insights Java
 description: Monitorização do desempenho da aplicação para aplicações Java em qualquer ambiente sem necessidade de modificação de código. Mapa de rastreio e aplicação distribuídos.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 2459f80746d95234701319bbb5142c8e540890d3
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: f7cda0f9389f0b628aca82dd6c65acba140e739b
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94379774"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426838"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java aplicação codificada monitorizando Azure Monitor Application Insights
 
@@ -18,7 +18,7 @@ A monitorização da aplicação sem código java tem tudo a ver com simplicidad
 
 A adição da Aplicação Insights Java SDK à sua aplicação já não é necessária, uma vez que o agente 3.0 recolhe automaticamente pedidos, dependências e registos por si só.
 
-Ainda pode enviar telemetria personalizada a partir da sua aplicação. O agente 3.0 irá rastreá-lo e correlacioná-lo juntamente com toda a telemetria automática.
+Ainda pode enviar telemetria personalizada a partir da sua aplicação. O agente 3.0 irá rastreá-lo e correlacioná-lo juntamente com toda a telemetria auto-recolhida.
 
 O agente 3.0 suporta Java 8 ou superior.
 
@@ -82,7 +82,7 @@ No `applicationinsights.json` ficheiro, pode ainda configurar:
 * Amostragem
 * Métricas JMX
 * Dimensões personalizadas
-* Processadores de telemetria
+* Processadores de telemetria (pré-visualização)
 * Registos auto-recolhidos
 * Métricas de micrometros auto-recolhidas (incluindo métricas do actuador de bota de mola)
 * Heartbeat
@@ -91,7 +91,7 @@ No `applicationinsights.json` ficheiro, pode ainda configurar:
 
 Consulte [as opções de configuração](./java-standalone-config.md) para obter todos os detalhes.
 
-## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Pedidos, dependências, registos e métricas autocolecedes
+## <a name="auto-collected-requests-dependencies-logs-and-metrics"></a>Pedidos, dependências, registos e métricas recolhidos automaticamente
 
 ### <a name="requests"></a>Pedidos
 

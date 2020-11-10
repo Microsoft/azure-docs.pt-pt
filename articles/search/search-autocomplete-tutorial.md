@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 1bf0a4a86ccc36960f218fabebda5bc82eb29019
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348615"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94426175"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Adicionar autocompleto e sugestões a aplicativos clientes
 
@@ -48,7 +48,7 @@ O parâmetro **de pesquisa** fornece a consulta parcial, onde os caracteres são
 
 As APIs não impõem requisitos mínimos de comprimento à consulta parcial; pode ser tão pouco quanto um personagem. No entanto, jQuery Autocomplete fornece um comprimento mínimo. Um mínimo de dois ou três caracteres é típico.
 
-Os fósforos estão no início de um termo em qualquer lugar da cadeia de entrada. Dada a "raposa castanha rápida", tanto a autocompleta como as sugestões vão coincidir em versões parciais de "o", "rápido", "castanho", ou "raposa", mas não em termos parciais como "rown" ou "ox". Além disso, cada partida define o âmbito para as expansões a jusante. Uma consulta parcial de "br rápido" combinará com "brown rápido" ou "pão rápido", mas nem "marrom" ou "pão" por si só seriam compatíveis, a menos que "rápido" os anteceda.
+Os fósforos estão no início de um termo em qualquer lugar da cadeia de entrada. Dada a "raposa castanha rápida", tanto a autocompleta como as sugestões vão coincidir em versões parciais de "o", "rápido", "castanho", ou "raposa", mas não em termos parciais como "rown" ou "ox". Além disso, cada partida define o âmbito para as expansões a jusante. Uma consulta parcial de "br rápido" combinará com "brown rápido" ou "pão rápido", mas nem "marrom" ou "pão" por si só seria igual a menos que "rápido" os anteceda.
 
 ### <a name="apis-for-search-as-you-type"></a>APIs para pesquisa-como-você-tipo
 
@@ -56,8 +56,8 @@ Siga estes links para as páginas de referência REST e .NET SDK:
 
 + [Sugestões REST API](/rest/api/searchservice/suggestions) 
 + [API DE REST autocompleto](/rest/api/searchservice/autocomplete) 
-+ [Sugestão Método DeHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync)
-+ [Método AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
++ [Sugerir Método Async](/dotnet/api/azure.search.documents.searchclient.suggestasync)
++ [Método AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync)
 
 ## <a name="structure-a-response"></a>Estruturar uma resposta
 
@@ -139,45 +139,43 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Sugerir função
 
-Se estiver a utilizar C# e uma aplicação MVC, **HomeController.cs** ficheiro no diretório dos Controladores é onde poderá criar uma classe para resultados sugeridos. Em .NET, a função Sugerir baseia-se no [método DocumentsOperationsExtensions.Suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Para obter mais informações sobre o .NET SDK, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](search-howto-dotnet-sdk.md).
+Se estiver a utilizar C# e uma aplicação MVC, **HomeController.cs** ficheiro no diretório dos Controladores é onde poderá criar uma classe para resultados sugeridos. Em .NET, a função Sugerir baseia-se no [método SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync). Para obter mais informações sobre o .NET SDK, consulte [Como utilizar a Azure Cognitive Search a partir de uma aplicação .NET](search-howto-dotnet-sdk.md).
 
-O `InitSearch` método cria um cliente índice HTTP autenticado para o serviço de Pesquisa Cognitiva Azure. As propriedades na classe [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) determinam quais os campos que são pesquisados e devolvidos nos resultados, no número de partidas e na utilização de correspondências difusas. 
+O `InitSearch` método cria um cliente índice HTTP autenticado para o serviço de Pesquisa Cognitiva Azure. As propriedades na classe [Sugestoptions](/dotnet/api/azure.search.documents.suggestoptions) determinam quais os campos que são pesquisados e devolvidos nos resultados, o número de partidas e se é utilizada correspondência difusa. 
 
 Para o autocompleto, a correspondência difusa é limitada a uma distância de edição (um carácter omitido ou extraviado). Note que a correspondência difusa em consultas autocompletas pode por vezes produzir resultados inesperados dependendo do tamanho do índice e de como é fragmento. Para mais informações, consulte [os conceitos de partição e de fragmentos.](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards)
 
 ```csharp
-public ActionResult Suggest(bool highlights, bool fuzzy, string term)
+public async Task<ActionResult> SuggestAsync(bool highlights, bool fuzzy, string term)
 {
     InitSearch();
 
-    // Call suggest API and return results
-    SuggestParameters sp = new SuggestParameters()
+    var options = new SuggestOptions()
     {
-        Select = HotelName,
-        SearchFields = HotelName,
         UseFuzzyMatching = fuzzy,
-        Top = 5
+        Size = 8,
     };
 
     if (highlights)
     {
-        sp.HighlightPreTag = "<b>";
-        sp.HighlightPostTag = "</b>";
+        options.HighlightPreTag = "<b>";
+        options.HighlightPostTag = "</b>";
     }
 
-    DocumentSuggestResult resp = _indexClient.Documents.Suggest(term, "sg", sp);
+    // Only one suggester can be specified per index.
+    // The suggester for the Hotels index enables autocomplete/suggestions on the HotelName field only.
+    // During indexing, HotelNames are indexed in patterns that support autocomplete and suggested results.
+    var suggestResult = await _searchClient.SuggestAsync<Hotel>(term, "sg", options).ConfigureAwait(false);
 
     // Convert the suggest query results to a list that can be displayed in the client.
-    List<string> suggestions = resp.Results.Select(x => x.Text).ToList();
-    return new JsonResult
-    {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = suggestions
-    };
+    List<string> suggestions = suggestResult.Value.Results.Select(x => x.Text).ToList();
+
+    // Return the list of suggestions.
+    return new JsonResult(suggestions);
 }
 ```
 
-A função Suggest aceita dois parâmetros que determinam se são devolvidos detetores de ocorrências ou é utilizada a correspondência difusa além da introdução do termo de pesquisa. O método cria um [objeto SuggestParameters,](/dotnet/api/microsoft.azure.search.models.suggestparameters)que é depois passado para a API sugestiva. Em seguida, o resultado é convertido em JSON, para que possa ser mostrado no cliente.
+A função SuggestAsync requer dois parâmetros que determinam se os destaques de impacto são devolvidos ou se a correspondência felpuda é usada para além da entrada do termo de pesquisa. Até oito partidas podem ser incluídas nos resultados sugeridos. O método cria um [objeto SuggestOptions,](/dotnet/api/azure.search.documents.suggestoptions)que é depois passado para a API de Sugestão. Em seguida, o resultado é convertido em JSON, para que possa ser mostrado no cliente.
 
 ## <a name="autocomplete"></a>Preenchimento Automático
 
@@ -185,7 +183,7 @@ Até agora, o código UX de pesquisa tem sido centrado em sugestões. O próximo
 
 ```javascript
 $(function () {
-    // using modified jQuery Autocomplete plugin v1.2.6 https://xdsoft.net/jqplugins/autocomplete/
+    // using modified jQuery Autocomplete plugin v1.2.8 https://xdsoft.net/jqplugins/autocomplete/
     // $.autocomplete -> $.autocompleteInline
     $("#searchbox1").autocompleteInline({
         appendMethod: "replace",
@@ -220,34 +218,31 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Função autocompleta
 
-O preconto automático baseia-se no [método DocumentsOperationsExtensions.Autocomplete](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete). Tal como nas sugestões, este bloco de códigos entraria no **ficheiro HomeController.cs.**
+O autocomplete baseia-se no [método AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync). Tal como nas sugestões, este bloco de códigos entraria no **ficheiro HomeController.cs.**
 
 ```csharp
-public ActionResult AutoComplete(string term)
+public async Task<ActionResult> AutoCompleteAsync(string term)
 {
     InitSearch();
-    //Call autocomplete API and return results
-    AutocompleteParameters ap = new AutocompleteParameters()
-    {
-        AutocompleteMode = AutocompleteMode.OneTermWithContext,
-        UseFuzzyMatching = false,
-        Top = 5
-    };
-    AutocompleteResult autocompleteResult = _indexClient.Documents.Autocomplete(term, "sg", ap);
 
-    // Convert the Suggest results to a list that can be displayed in the client.
-    List<string> autocomplete = autocompleteResult.Results.Select(x => x.Text).ToList();
-    return new JsonResult
+    // Setup the autocomplete parameters.
+    var ap = new AutocompleteOptions()
     {
-        JsonRequestBehavior = JsonRequestBehavior.AllowGet,
-        Data = autocomplete
+        Mode = AutocompleteMode.OneTermWithContext,
+        Size = 6
     };
+    var autocompleteResult = await _searchClient.AutocompleteAsync(term, "sg", ap).ConfigureAwait(false);
+
+    // Convert the autocompleteResult results to a list that can be displayed in the client.
+    List<string> autocomplete = autocompleteResult.Value.Results.Select(x => x.Text).ToList();
+
+    return new JsonResult(autocomplete);
 }
 ```
 
 A função Autocomplete requer a entrada do termo de pesquisa. O método cria um [objeto AutoCompleteParameters](/rest/api/searchservice/autocomplete). Em seguida, o resultado é convertido em JSON, para que possa ser mostrado no cliente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Siga estes links para instruções ou códigos de ponta a ponta que demonstrem ambas as experiências de pesquisa como você. Ambos os exemplos de código incluem implementações híbridas de sugestões e autocompleto em conjunto.
 

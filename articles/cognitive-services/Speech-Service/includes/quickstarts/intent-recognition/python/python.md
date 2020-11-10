@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 7572e5c5621b514c375e44ca44ddfc4102f5d714
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44c4427540e1b94ebcaf00e6875723e0a654e9ef
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87298769"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425063"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,14 +41,14 @@ Antes de poder inicializar um `IntentRecognizer` objeto, precisa de criar uma co
 Insira este código em `quickstart.py` . Certifique-se de atualizar estes valores:
 
 * `"YourLanguageUnderstandingSubscriptionKey"`Substitua-a pela sua chave de previsão LUIS.
-* `"YourLanguageUnderstandingServiceRegion"`Substitua-o pela sua localização LUIS. Utilização **do identificador** da [região](https://aka.ms/speech/sdkregion)
+* `"YourLanguageUnderstandingServiceRegion"`Substitua-o pela sua localização LUIS. Utilização **do identificador** da [região](../../../../regions.md)
 
 >[!TIP]
 > Se precisar de ajuda para encontrar estes valores, consulte [criar uma aplicação LUIS para reconhecimento de intenções.](#create-a-luis-app-for-intent-recognition)
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
-Esta amostra constrói o `SpeechConfig` objeto utilizando a chave e a região LUIS. Para obter uma lista completa dos métodos disponíveis, consulte [a Aula deConfig da Fala](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
+Esta amostra constrói o `SpeechConfig` objeto utilizando a chave e a região LUIS. Para obter uma lista completa dos métodos disponíveis, consulte [a Aula deConfig da Fala](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig).
 
 O SDK de discurso não reconhecerá a utilização do linguístico para a língua, consulte especificar a [língua de origem para falar para texto](../../../../how-to-specify-source-language.md) para obter informações sobre a escolha da língua de origem.
 

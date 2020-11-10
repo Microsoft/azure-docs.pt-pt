@@ -2,15 +2,15 @@
 title: Configure aplicações Linux Python
 description: Saiba como configurar o recipiente Python no qual são executadas aplicações web, utilizando tanto o portal Azure como o Azure CLI.
 ms.topic: quickstart
-ms.date: 10/06/2020
+ms.date: 11/06/2020
 ms.reviewer: astay; kraigb
 ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 935baef209811146d0b60f4fc02986818fd103a7
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9e0e9098959231d4283608e8191081ae2df6737a
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743797"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425920"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Configure uma aplicação Linux Python para o Azure App Service
 
@@ -26,7 +26,7 @@ Pode utilizar o [portal Azure](https://portal.azure.com) ou o CLI Azure para con
 
 - **Azure CLI:** tem duas opções.
 
-    - Executar comandos no [Azure Cloud Shell,](../cloud-shell/overview.md)que pode abrir utilizando o botão **Try It** no canto superior direito dos blocos de código.
+    - Executar comandos na [Azure Cloud Shell](../cloud-shell/overview.md).
     - Executar comandos localmente instalando a versão mais recente do [Azure CLI,](/cli/azure/install-azure-cli)em seguida, inicie sessão no Azure usando [login az](/cli/azure/reference-index#az-login).
     
 > [!NOTE]
@@ -40,7 +40,7 @@ Pode utilizar o [portal Azure](https://portal.azure.com) ou o CLI Azure para con
 
     -  Mostre a versão atual python com [az webapp config show](/cli/azure/webapp/config#az_webapp_config_show):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp config show --resource-group <resource-group-name> --name <app-name> --query linuxFxVersion
         ```
         
@@ -48,13 +48,13 @@ Pode utilizar o [portal Azure](https://portal.azure.com) ou o CLI Azure para con
     
     - Desconfig de versão Python com [conjunto de config do webapp az](/cli/azure/webapp/config#az_webapp_config_set)
         
-        ```azurecli-interactive
+        ```azurecli
         az webapp config set --resource-group <resource-group-name> --name <app-name> --linux-fx-version "PYTHON|3.7"
         ```
     
     - Mostrar todas as versões Python que são suportadas no Azure App Service com [az webapp list-runtimes](/cli/azure/webapp#az_webapp_list_runtimes):
     
-        ```azurecli-interactive
+        ```azurecli
         az webapp list-runtimes --linux | grep PYTHON
         ```
     
@@ -68,7 +68,7 @@ Em vez disso, pode executar uma versão não suportada do Python construindo a s
 O sistema de construção do App Service, chamado Oryx, executa os seguintes passos quando implementa a sua aplicação utilizando pacotes Git ou zip:
 
 1. Executar um script pré-construção personalizado se especificado pela `PRE_BUILD_COMMAND` definição.
-1. Execute o `pip install -r requirements.txt`. O *ficheirorequirements.txt* deve estar presente na pasta raiz do projeto. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar."
+1. Execute `pip install -r requirements.txt`. O *ficheirorequirements.txt* deve estar presente na pasta raiz do projeto. Caso contrário, o processo de construção relata o erro: "Não foi possível encontrar setup.py ou requirements.txt; Não a funcionar pip instalar."
 1. Se *manage.py* for encontrado na raiz do repositório (indicando uma aplicação Django), executar *manage.py a collectásta .* No entanto, se a `DISABLE_COLLECTSTATIC` regulação `true` for, este passo é ignorado.
 1. Executar script pós-construção personalizado se especificado pela `POST_BUILD_COMMAND` definição.
 
@@ -81,6 +81,8 @@ Por predefinição, as `PRE_BUILD_COMMAND` `POST_BUILD_COMMAND` definições e `
 - Para executar comandos pós-construção, defina a `POST_BUILD_COMMAND` definição para conter um comando, `echo Post-build command` como, por exemplo, ou um caminho para um ficheiro de script em relação à raiz do seu projeto, como `scripts/postbuild.sh` . Todos os comandos devem utilizar caminhos relativos para a pasta raiz do projeto.
 
 Para configurações adicionais que personalizem a automatização de construção, consulte [a configuração oryx](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md). 
+
+Para aceder aos registos de construção e implantação, consulte [os registos de implementação de acesso](#access-deployment-logs).
 
 Para obter mais informações sobre como o App Service funciona e constrói aplicações Python em Linux, veja [como a Oryx deteta e constrói aplicações Python.](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/python.md)
 
@@ -164,9 +166,13 @@ Se o módulo da aplicação principal estiver num ficheiro diferente, utilize ou
 
 ### <a name="default-behavior"></a>Comportamento predefinido
 
-Se o Serviço de Aplicações não encontrar um comando personalizado, uma aplicação Django ou uma aplicação Flask, executa uma aplicação só de leitura predefinida, localizada na pasta _opt/defaultsite_ . A aplicação predefinida é apresentada da seguinte forma:
+Se o Serviço de Aplicações não encontrar um comando personalizado, uma aplicação Django ou uma aplicação Flask, então executa uma aplicação apenas de leitura padrão, localizada na pasta _opt/predefinição_ e mostrada na imagem seguinte.
 
-![Serviço de Aplicações predefinido na página Web do Linux](media/configure-language-python/default-python-app.png)
+Se implementou o código e ainda vê a aplicação predefinida, consulte [a Resolução de Problemas - A app não aparece](#app-doesnt-appear).
+
+[![Serviço de Aplicações predefinido na página Web do Linux](media/configure-language-python/default-python-app.png)](#app-doesnt-appear)
+
+Mais uma vez, se espera ver uma aplicação implementada em vez da aplicação padrão, consulte [Troubleshooting - App não aparece](#app-doesnt-appear).
 
 ## <a name="customize-startup-command"></a>Personalizar o comando de arranque
 
@@ -178,11 +184,11 @@ Todos os comandos devem utilizar caminhos relativos para a pasta raiz do projeto
 
 Para especificar um ficheiro de comando ou comando de arranque:
 
-- **Portal Azure** : selecione a página de Configuração da **aplicação** e, em seguida, selecione **definições gerais** . No campo **Comando de Arranque,** coloque o texto completo do seu comando de arranque ou o nome do seu ficheiro de comando de arranque. Em seguida, **selecione Guardar** para aplicar as alterações. Consulte [configurar as definições gerais](configure-common.md#configure-general-settings) para recipientes Linux.
+- **Portal Azure** : selecione a página de Configuração da **aplicação** e, em seguida, selecione **definições gerais**. No campo **Comando de Arranque,** coloque o texto completo do seu comando de arranque ou o nome do seu ficheiro de comando de arranque. Em seguida, **selecione Guardar** para aplicar as alterações. Consulte [configurar as definições gerais](configure-common.md#configure-general-settings) para recipientes Linux.
 
 - **Azure CLI** : use o comando [configurar az webapp com](/cli/azure/webapp/config#az_webapp_config_set) o `--startup-file` parâmetro para definir o comando ou ficheiro de arranque:
 
-    ```azurecli-interactive
+    ```azurecli
     az webapp config set --resource-group <resource-group-name> --name <app-name> --startup-file "<custom-command>"
     ```
         
@@ -213,7 +219,7 @@ O Serviço de Aplicações ignora quaisquer erros que ocorram ao processar um co
 
     Para obter mais informações, consulte [a exploração madeireira de Gunicorn](https://docs.gunicorn.org/en/stable/settings.html#logging) (docs.gunicorn.org).
     
-- **Módulo principal frasco personalizado** : por padrão, o Serviço de Aplicações assume que o módulo principal de uma aplicação Flask é *application.py* ou *app.py* . Se o seu módulo principal utilizar um nome diferente, então deve personalizar o comando de arranque. Por exemplo, tem uma aplicação Flask cujo módulo principal é *hello.py* e o objeto da aplicação Flask nesse ficheiro é `myapp` nomeado, então o comando é o seguinte:
+- **Módulo principal frasco personalizado** : por padrão, o Serviço de Aplicações assume que o módulo principal de uma aplicação Flask é *application.py* ou *app.py*. Se o seu módulo principal utilizar um nome diferente, então deve personalizar o comando de arranque. Por exemplo, tem uma aplicação Flask cujo módulo principal é *hello.py* e o objeto da aplicação Flask nesse ficheiro é `myapp` nomeado, então o comando é o seguinte:
 
     ```bash
     gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
@@ -258,33 +264,81 @@ As estruturas web populares permitem-lhe aceder à `X-Forwarded-*` informação 
 
 Para aceder aos registos através do portal Azure, selecione **Monitoring**  >  **Log stream** no menu do lado esquerdo para a sua aplicação.
 
+## <a name="access-deployment-logs"></a>Registos de implementação de acesso
+
+Quando implementa o seu código, o Serviço de Aplicações executa o processo de construção descrito anteriormente na secção Personalizar a [automatização de construção](#customize-build-automation). Como a construção funciona no seu próprio contentor, os registos de construção são armazenados separadamente dos registos de diagnóstico da aplicação.
+
+Utilize os seguintes passos para aceder aos registos de implantação:
+
+1. No portal Azure para a **Deployment** sua aplicação web, selecione  >  **Deployment Deployment Center (Preview)** no menu esquerdo.
+1. No **separador Registares,** selecione o **ID do Compromisso** para o compromisso mais recente.
+1. Na página de detalhes do **Registo** que aparece, selecione os Registos de **Espetáculos...** link que aparece ao lado de "Running oryx build...".
+
+Criar problemas como dependências incorretas em *requirements.txt* e erros em scripts pré ou pós-construção aparecerão nestes registos. Os erros também aparecem se o seu ficheiro de requisitos não estiver exatamente nomeado *requirements.txt* ou não aparecer na pasta raiz do seu projeto.
+
 ## <a name="open-ssh-session-in-browser"></a>Abrir sessão SSH no browser
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
-## <a name="troubleshooting"></a>Resolução de problemas
+Quando estiver ligado com sucesso à sessão SSH, deverá ver a mensagem "SSH CONNECTION ESTABLISHED" na parte inferior da janela. Se vir erros como "SSH_CONNECTION_CLOSED" ou uma mensagem de que o contentor está a reiniciar, pode estar a impedir o início do recipiente da aplicação. Consulte [a resolução de problemas](#troubleshooting) para obter medidas para investigar possíveis problemas.
 
-- **Vê a aplicação predefinida depois de implementar o seu próprio código de aplicação.** A aplicação padrão aparece porque ou não implementou o seu código de aplicação para o Serviço de Aplicações, ou o Serviço de Aplicações não encontrou o seu código de aplicação e executou a aplicação padrão em vez disso.
+## <a name="troubleshooting"></a>Resolução de Problemas
+
+Em geral, o primeiro passo na resolução de problemas é utilizar o App Service Diagnostics:
+
+1. No portal Azure para a sua aplicação web, selecione **Diagnosticar e resolver problemas** a partir do menu esquerdo.
+1. Selecione **Disponibilidade e desempenho**.
+1. Examine as informações nas opções de Registos de **Aplicação,** **Colisão de Contentores** e **Problemas de Contentores,** onde as questões mais comuns serão aparentam.
+
+Em seguida, examine os registos de [implementação](#access-deployment-logs) e os registos da [aplicação](#access-diagnostic-logs) para obter quaisquer mensagens de erro. Estes registos identificam frequentemente problemas específicos que podem impedir a implementação de aplicações ou o arranque de apps. Por exemplo, a construção pode falhar se o seu ficheiro *requirements.txt* tiver o nome de ficheiro errado ou não estiver presente na pasta raiz do seu projeto.
+
+As secções seguintes fornecem orientações adicionais para questões específicas.
+
+- [App não aparece - app padrão mostra](#app-doesnt-appear)
+- [App não aparece - mensagem "serviço indisponível"](#service-unavailable)
+- [Não consegui encontrar setup.py ou requirements.txt](#could-not-find-setuppy-or-requirementstxt)
+- [As palavras-passe não aparecem na sessão de SSH quando dactilografada](#other-issues)
+- [Os comandos na sessão SSH parecem estar cortados](#other-issues)
+- [Os ativos estáticos não aparecem numa aplicação do Django](#other-issues)
+- [É necessária uma ligação SSL fatal](#other-issues)
+
+#### <a name="app-doesnt-appear"></a>App não aparece
+
+- **Vê a aplicação predefinida depois de implementar o seu próprio código de aplicação.** A [aplicação padrão](#default-behavior) aparece porque ou não implementou o seu código de aplicação para o Serviço de Aplicações, ou o Serviço de Aplicações não encontrou o seu código de aplicação e executou a aplicação padrão em vez disso.
 
     - Reinicie o Serviço de Aplicações, aguarde 15 a 20 segundos e verifique novamente a aplicação.
     
-    - Certifique-se de que está a utilizar o Serviço de Aplicações para Linux, em vez de uma instância baseada no Windows. A partir da CLI do Azure, execute o comando `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, ao substituir `<resource-group-name>` e `<app-service-name>`, respetivamente. Deverá ver `app,linux` como resultado; caso contrário, recrie o Serviço de Aplicações e escolha o Linux.
+    - Certifique-se de que está a utilizar o Serviço de Aplicações para Linux, em vez de uma instância baseada no Windows. A partir da CLI do Azure, execute o comando `az webapp show --resource-group <resource-group-name> --name <app-name> --query kind`, ao substituir `<resource-group-name>` e `<app-name>`, respetivamente. Deverá ver `app,linux` como resultado; caso contrário, recrie o Serviço de Aplicações e escolha o Linux.
     
-    - Utilize o SSH ou a consola Kudu para ligar diretamente ao Serviço de Aplicações e verifique se os ficheiros existem em *site/wwwroot* . Se os ficheiros não existirem, reveja o processo de implementação e volte a implementar a aplicação.
+    - Utilize [o SSH](#open-ssh-session-in-browser) para ligar diretamente ao recipiente do Serviço de Aplicações e verificar se os seus ficheiros existem no *site/wwwroot*. Se os seus ficheiros não existirem, utilize os seguintes passos:
+      1. Crie uma configuração de aplicação com `SCM_DO_BUILD_DURING_DEPLOYMENT` o valor de 1, reimplante o seu código, aguarde alguns minutos e tente aceder novamente à aplicação. Para obter mais informações sobre a criação de configurações de aplicações, consulte [configurar uma aplicação de Serviço de Aplicações no portal Azure.](configure-common.md)
+      1. Reveja o seu processo de implementação, [verifique os registos de implementação,](#access-deployment-logs)corrija quaisquer erros e reimplante a aplicação.
     
     - Se os ficheiros existirem, o Serviço de Aplicações não conseguiu identificar o ficheiro de arranque específico. Verifique se a aplicação está estruturada como Serviço de Aplicações para o [Django](#django-app) ou o [Flask](#flask-app), ou utilize um [comando de arranque personalizado](#customize-startup-command).
 
-- **Vê a mensagem "Serviço Indisponível" no browser.** O browser esgotou o tempo limite ao aguardar uma resposta do Serviço de Aplicações, o que indica que o Serviço de Aplicações iniciou o servidor do Gunicorn, mas os argumentos que especificam o código da aplicação estão incorretos.
+- <a name="service-unavailable"></a>**Vê a mensagem "Serviço Indisponível" no navegador.** O navegador tem cronometrado à espera de uma resposta do App Service, o que indica que o Serviço de Aplicações iniciou o servidor Gunicorn, mas a própria app não começou. Esta condição pode indicar que os argumentos de Gunicorn estão incorretos, ou que há um erro no código da aplicação.
 
     - Atualize o browser, especialmente se estiver a utilizar os escalões de preços mais baixos no seu Plano do Serviço de Aplicações. A aplicação poderá demorar mais tempo a iniciar quando utilizar, por exemplo, escalões gratuitos e responde depois de atualizar o browser.
 
     - Verifique se a aplicação está estruturada como Serviço de Aplicações para o [Django](#django-app) ou o [Flask](#flask-app), ou utilize um [comando de arranque personalizado](#customize-startup-command).
 
-    - Examine o [fluxo de registo](#access-diagnostic-logs) para obter quaisquer mensagens de erro.
+    - Examine o fluxo de registo de [aplicações](#access-diagnostic-logs) para obter quaisquer mensagens de erro. Os registos mostrarão quaisquer erros no código da aplicação.
+
+#### <a name="could-not-find-setuppy-or-requirementstxt"></a>Não consegui encontrar setup.py ou requirements.txt
 
 - **O fluxo de registo mostra "Não foi possível encontrar setup.py ou requirements.txt; Não funcionando a instalação do pip."** : O processo de construção oryx não conseguiu encontrar o seu ficheiro *requirements.txt.*
 
-    - Utilize o SSH ou a consola Kudu para ligar diretamente ao Serviço de Aplicações e verificar se *requirements.txt* existe diretamente no *site/wwwroot* . Se não existir, faça do site que o ficheiro existe no seu repositório e está incluído na sua implantação. Se existir numa pasta separada, mova-a para a raiz.
+    - Ligue-se ao contentor da aplicação web via [SSH](#open-ssh-session-in-browser) e verifique se *requirements.txt* é nomeado corretamente e existe diretamente no *site/wwwroot*. Se não existir, faça do site que o ficheiro existe no seu repositório e está incluído na sua implantação. Se existir numa pasta separada, mova-a para a raiz.
+
+#### <a name="other-issues"></a>Outros problemas
+
+- **As palavras-passe não aparecem na sessão SSH quando escritas** : Por razões de segurança, a sessão SSH mantém a sua palavra-passe escondida à medida que escreve. Os caracteres estão a ser gravados, no entanto, por isso digite a sua palavra-passe como de costume e prima **Enter** quando for feito.
+
+- **Os comandos na sessão SSH parecem estar cortados** : O editor pode não ser comandos de embrulho de palavras, mas ainda devem funcionar corretamente.
+
+- **Os ativos estáticos não aparecem numa aplicação do Django** : Certifique-se de que ativou o [módulo whitenoise](http://whitenoise.evans.io/en/stable/django.html)
+
+- **Vê a mensagem: "A Ligação SSL Fatal é necessária"** : Verifique quaisquer nomes de utilizador e palavras-passe utilizados para aceder a recursos (como bases de dados) a partir da aplicação.
 
 ## <a name="next-steps"></a>Passos seguintes
 

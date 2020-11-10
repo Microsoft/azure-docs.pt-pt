@@ -4,15 +4,14 @@ description: Este artigo fornece informações sobre como adicionar um ponto fin
 ms.topic: article
 ms.date: 06/23/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 1b62f69bad4484239b3a6c5d6f7ae910fbdef03f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8005a2c43d42908a9ad6ebea10b6a13ef381084c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843384"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94427654"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de redes virtuais específicas
-
 A integração do Service Bus com [os pontos finais de serviço da Rede Virtual (VNet)][vnet-sep] permite o acesso seguro às capacidades de mensagens a partir de cargas de trabalho, como máquinas virtuais, que estão ligadas a redes virtuais, com o caminho de tráfego da rede a ser assegurado em ambas as extremidades.
 
 Uma vez configurado para ser ligado a pelo menos um ponto final de serviço de sub-rede de rede virtual, o respetivo espaço de nome do Service Bus deixará de aceitar o tráfego de qualquer lugar, mas sim endereços IP de rede virtual autorizados e, opcionalmente, endereços IP específicos da Internet. Do ponto de vista da rede virtual, a ligação de um espaço de nomes de Service Bus a um ponto final de serviço configura um túnel de rede isolado da sub-rede de rede virtual para o serviço de mensagens.
@@ -20,24 +19,14 @@ Uma vez configurado para ser ligado a pelo menos um ponto final de serviço de s
 O resultado é uma relação privada e isolada entre as cargas de trabalho ligadas à sub-rede e o respetivo espaço de nomes do Service Bus, apesar do endereço de rede observável do ponto final do serviço de mensagens estar numa gama pública de IP.
 
 >[!WARNING]
-> Implementar a integração de Redes Virtuais pode impedir que outros serviços da Azure interajam com o Service Bus.
+> Implementar a integração de Redes Virtuais pode impedir que outros serviços da Azure interajam com o Service Bus. Como exceção, pode permitir o acesso aos recursos do Service Bus a partir de certos serviços fidedignos, mesmo quando os pontos finais do serviço de rede estão ativados. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
 >
-> Os serviços da Microsoft fidedignos não são suportados quando as Redes Virtuais são implementadas.
->
-> Cenários de Azure comuns que não funcionam com redes virtuais (note que a lista **NÃO** é exaustiva) -
-> - Integração com a grelha de eventos Azure
-> - Rotas do Hub Azure IoT
-> - Explorador de dispositivos Azure IoT
->
-> Os serviços abaixo da Microsoft são necessários para estar em uma rede virtual
+> Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
 > - Serviço de Aplicações do Azure
 > - Funções do Azure
-> - Monitor Azure (definição de diagnóstico)
 
 > [!IMPORTANT]
-> As Redes Virtuais são suportadas apenas em espaços de nomes de serviços de serviço de [nível Premium.](service-bus-premium-messaging.md)
-> 
-> Ao utilizar pontos finais de serviço VNet com Service Bus, não deve ativar estes pontos finais em aplicações que misturam espaços de nomes standard e premium service bus. Porque o nível Standard não suporta VNets. O ponto final é restrito apenas aos espaços de nome de nível Premium.
+> As Redes Virtuais são suportadas apenas em espaços de nomes de serviços de serviço de [nível Premium.](service-bus-premium-messaging.md) Ao utilizar pontos finais de serviço VNet com Service Bus, não deve ativar estes pontos finais em aplicações que misturem espaços de nomes standard e premium Tier Service Bus. Porque o nível padrão não suporta VNets. O ponto final é restrito apenas aos espaços de nome de nível Premium.
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários avançados de segurança habilitados pela integração do VNet 
 
@@ -72,7 +61,7 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
 
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de rede - padrão" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
-    Se selecionar a opção **Todas as redes,** o seu espaço de nomes service bus aceita ligações a partir de qualquer endereço IP. Esta definição predefinida é equivalente a uma regra que aceita o intervalo de endereço IP 0.0.0.0/0. 
+    Se selecionar a opção **Todas as redes,** o seu espaço de nomes service bus aceita ligações a partir de qualquer endereço IP. Esta predefinição é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
 
     ![Firewall - Todas as opções de redes selecionadas](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
 2. Para restringir o acesso a redes virtuais específicas, selecione a opção **redes Selecionadas** se ainda não estiver selecionada.
@@ -96,17 +85,19 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
     > [!NOTE]
     > Para obter instruções sobre como permitir o acesso a partir de endereços ou intervalos IP específicos, consulte [Permitir o acesso a partir de endereços ou intervalos IP específicos](service-bus-ip-filtering.md).
 
+[!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
+
 ## <a name="use-resource-manager-template"></a>Utilizar o modelo do Resource Manager
 O modelo seguinte do Gestor de Recursos permite adicionar uma regra de rede virtual a um espaço de nomes de service bus existente.
 
 Parâmetros do modelo:
 
-* **nomespaceName**: Espaço de nome de ônibus de serviço.
-* **virtualNetworkingSubnetId**: Caminho de gestor de recursos totalmente qualificado para a sub-rede de rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede predefinida de uma rede virtual.
+* **nomespaceName** : Espaço de nome de ônibus de serviço.
+* **virtualNetworkingSubnetId** : Caminho de gestor de recursos totalmente qualificado para a sub-rede de rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede predefinida de uma rede virtual.
 
 > [!NOTE]
 > Embora não existam regras de negação possíveis, o modelo de Gestor de Recursos Azure tem a ação padrão definida para **"Permitir"** que não restringe as ligações.
-> Ao fazer as regras de Rede Virtual ou Firewalls, temos de alterar o ***"defaultAction"***
+> Ao fazer as regras de Rede Virtual ou Firewalls, temos de alterar o **_"defaultAction"_**
 > 
 > De
 > ```json

@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: eae4aece79cd387aaa7e708591ca31442eaa05c3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0e2324f7e524567b07f0228e046605b781bc4916
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93136262"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94425321"
 ---
 Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python. Se só quer que o nome do pacote seja iniciado por conta própria, `pip install azure-cognitiveservices-speech` corra.
 
@@ -76,7 +76,7 @@ import azure.cognitiveservices.speech as speechsdk
 1. Transfira e instale o [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Abra o Código do Estúdio Visual e instale a extensão Python. Selecione **File**  >  **extensões de preferências** de  >  **ficheiros** no menu. Procure **por Python** e clique **em Instalar.**
 
-   ![Instale a extensão Python](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
+   ![Instalar a extensão do Python](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
 1. Também a partir do Código do Estúdio Visual, instale o pacote Speech SDK Python a partir da linha de comando integrada:
    1. Abra um terminal (a partir dos menus suspensos, **Terminal**  >  **Novo Terminal)**
@@ -90,7 +90,7 @@ As atualizações do pacote Speech SDK Python são distribuídas via PyPI e anun
 Se estiver disponível uma nova versão, pode atualizá-la com o comando `pip install --upgrade azure-cognitiveservices-speech` .
 Verifique qual a versão que está atualmente instalada inspecionando a `azure.cognitiveservices.speech.__version__` variável.
 
-Se tiver algum problema ou se estiver a perder uma funcionalidade, consulte as [opções de Apoio e ajuda](~/articles/cognitive-services/speech-service/support.md).
+Se tiver algum problema ou se estiver a perder uma funcionalidade, consulte as [opções de Apoio e ajuda](../../../../cognitive-services-support-options.md?context=%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext%253fcontext%253d%252fazure%252fcognitive-services%252fspeech-service%252fcontext%252fcontext).
 
 ## <a name="next-steps"></a>Passos seguintes
 
