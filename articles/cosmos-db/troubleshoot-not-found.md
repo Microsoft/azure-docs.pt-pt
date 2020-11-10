@@ -8,12 +8,12 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: e2e2797bd01635c4c066a60f379a884e545e5af2
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 782abee06c5ab0f985e8bd90dbbecae18b1dfe02
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94409710"
+ms.locfileid: "94442332"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-not-found-exceptions"></a>Diagnosticar e resolver problemas Azure Cosmos DB não encontrou exceções
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,7 @@ Corrija a lógica de aplicação que está a causar a combinação incorreta.
 Um item é inserido na Azure Cosmos DB com um [carácter inválido](/dotnet/api/microsoft.azure.documents.resource.id?preserve-view=true&view=azure-dotnet#remarks) no ID do item.
 
 #### <a name="solution"></a>Solução:
-Mude o ID para um valor diferente que não contenha os caracteres especiais. Se alterar o ID não é uma opção, pode codificar o ID para escapar aos caracteres especiais.
+Mude o ID para um valor diferente que não contenha os caracteres especiais. Se alterar o ID não é uma opção, pode codificar o ID para escapar aos caracteres especiais. A Base64 ainda pode produzir um nome com um caracteres inválidos '/' que precisa de ser substituído.
 
 Os artigos já inseridos no recipiente para o ID podem ser substituídos utilizando valores RID em vez de referências baseadas em nomes.
 ```c#
@@ -65,7 +65,7 @@ while (invalidItemsIterator.HasMoreResults)
         // Choose a new ID that doesn't contain special characters.
         // If that isn't possible, then Base64 encode the ID to escape the special characters.
         byte[] plainTextBytes = Encoding.UTF8.GetBytes(itemWithInvalidId["id"].ToString());
-        itemWithInvalidId["id"] = Convert.ToBase64String(plainTextBytes);
+        itemWithInvalidId["id"] = Convert.ToBase64String(plainTextBytes).Replace('/', '!');
 
         // Update the item with the new ID value by using the RID-based container reference.
         JObject item = await containerByRid.ReplaceItemAsync<JObject>(

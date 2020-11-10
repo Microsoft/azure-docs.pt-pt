@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7cadb4784cbf90d283f64e12edc155d4430fab06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38ed7fb2930463e6657422e851a73f2b3b011f35
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257078"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443590"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>Cenário: aplicação web que assina nos utilizadores
 
@@ -28,29 +28,25 @@ Saiba tudo o que precisa para construir uma aplicação web que utilize a plataf
 
 Se pretender criar a sua primeira aplicação web portátil (ASP.NET Core) que assina nos utilizadores, siga este arranque rápido:
 
-> [!div class="nextstepaction"]
-> [Quickstart: ASP.NET web app core que assina nos utilizadores](quickstart-v2-aspnet-core-webapp.md)
+[Quickstart: ASP.NET web app core que assina nos utilizadores](quickstart-v2-aspnet-core-webapp.md)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 Se quiser entender como adicionar o início de sing a uma aplicação web ASP.NET existente, experimente o seguinte quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: ASP.NET aplicação web que assina nos utilizadores](quickstart-v2-aspnet-webapp.md)
+[Quickstart: ASP.NET aplicação web que assina nos utilizadores](quickstart-v2-aspnet-webapp.md)
 
 # <a name="java"></a>[Java](#tab/java)
 
 Se você é um desenvolvedor java, experimente o seguinte quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java](quickstart-v2-java-webapp.md)
+[Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java](quickstart-v2-java-webapp.md)
 
 # <a name="python"></a>[Python](#tab/python)
 
 Se desenvolver com Python, experimente o seguinte quickstart:
 
-> [!div class="nextstepaction"]
-> [Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web Python](quickstart-v2-python-webapp.md)
+[Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web Python](quickstart-v2-python-webapp.md)
 
 ---
 
@@ -81,22 +77,18 @@ Como segunda fase, pode ativar a sua aplicação para ligar para APIs web em nom
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Registo da aplicação](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
+Passe para o próximo artigo neste cenário, [registo de aplicações.](./scenario-web-app-sign-user-app-registration.md?tabs=aspnetcore)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Registo da aplicação](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
+Passe para o próximo artigo neste cenário, [registo de aplicações.](./scenario-web-app-sign-user-app-registration.md?tabs=aspnet)
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Registo da aplicação](./scenario-web-app-sign-user-app-registration.md?tabs=java)
+Passe para o próximo artigo neste cenário, [registo de aplicações.](./scenario-web-app-sign-user-app-registration.md?tabs=java)
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Registo da aplicação](./scenario-web-app-sign-user-app-registration.md?tabs=python)
+Passe para o próximo artigo neste cenário, [registo de aplicações.](./scenario-web-app-sign-user-app-registration.md?tabs=python)
 
 ---

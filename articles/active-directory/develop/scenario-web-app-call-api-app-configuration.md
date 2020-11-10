@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: c8d68a17b3b991b88e02cf056dcb46da2debfa71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b24b95423adb271b8a4016430e7d2b381c386cd2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403199"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443760"
 ---
 # <a name="a-web-app-that-calls-web-apis-code-configuration"></a>Uma aplicação web que chama APIs web: configuração de código
 
@@ -32,7 +32,7 @@ A [aplicação Web que assina nos](scenario-web-app-sign-user-overview.md) cená
 
 As seguintes bibliotecas da Microsoft Authentication Library (MSAL) suportam o fluxo de código de autorização para aplicações web:
 
-| Biblioteca MSAL | Descrição |
+| Biblioteca MSAL | Description |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Suporte para plataformas .NET Framework e .NET Core. Não suportadas são a Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android, porque essas plataformas são usadas para construir aplicações de clientes públicos. <br/><br/>Para ASP.NET aplicações web core e APIs web, MSAL.NET é encapsulado numa biblioteca de nível superior chamada [Microsoft.Identity.Web](https://aka.ms/ms-identity-web). |
 | ![Pitão MSAL](media/sample-v2-code/logo_python.png) <br/> MSAL para Python | Suporte para aplicações web Python. |
@@ -519,5 +519,4 @@ def _build_msal_app(cache=None):
 
 Neste ponto, quando o utilizador assina, um token é armazenado na cache simbólica. Vamos ver como é usado noutras partes da aplicação web.
 
-> [!div class="nextstepaction"]
-> [Uma aplicação web que chama APIs web: Remova as contas da cache no sign-out global](scenario-web-app-call-api-sign-in.md)
+[Remover as contas da cache na assinatura global](scenario-web-app-call-api-sign-in.md)

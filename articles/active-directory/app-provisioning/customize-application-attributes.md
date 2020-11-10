@@ -1,5 +1,5 @@
 ---
-title: Personalizar mapeamentos de atributos AD AD azure Microsoft Docs
+title: Tutorial - Personalize mapeamentos de atributos Azure Ative Directory
 description: Saiba quais os mapeamentos de atributos para aplicações SaaS no Azure Ative Directory como pode modificá-las para atender às necessidades do seu negócio.
 services: active-directory
 author: kenwith
@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
-ms.date: 10/26/2020
+ms.topic: tutorial
+ms.date: 11/10/2020
 ms.author: kenwith
-ms.openlocfilehash: 2f21e4f41814b47d8e630df72c255886ac2af53b
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 42ec826ab95363c2599be541fe451473be5ca08d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94364297"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441958"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizar o fornecimento de produtos de fornecimento de mapeamentos de atributos para aplicações SaaS no Azure Ative Directory
+# <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial - Personalize o fornecimento de produtos de fornecimento de utilizadores para aplicações SaaS no Azure Ative Directory
 
 O Microsoft Azure AD fornece suporte para o fornecimento de utilizadores a aplicações SaaS de terceiros, tais como Salesforce, G Suite e outros. Se ativar o fornecimento de um pedido saaS de terceiros, o portal Azure controla os seus valores de atributos através de mapeamentos de atributos.
 

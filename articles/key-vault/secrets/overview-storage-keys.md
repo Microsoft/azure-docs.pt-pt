@@ -10,12 +10,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e8ae0463633940ba3192815af6a07a6356901044
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 47427f8d3690218060fd1e6221b1b089c68d6e1d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426991"
+ms.locfileid: "94441839"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Gerir chaves de conta de armazenamento com o Key Vault e o Azure CLI
 
@@ -34,11 +34,11 @@ Recomendamos a utilização da integração do Azure Storage com o Azure Ative D
 
 O Azure AD permite-lhe autenticar a sua aplicação de cliente utilizando uma aplicação ou identidade de utilizador, em vez de credenciais de conta de armazenamento. Você pode usar uma [identidade gerida Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) quando você correr em Azure. Identidades geridas removem a necessidade de autenticação do cliente e armazenam credenciais dentro ou com a sua aplicação.
 
-A Azure AD usa o controlo de acesso baseado em funções (RBAC) para gerir a autorização, que também é suportada pelo Key Vault.
+A Azure AD usa o controlo de acesso baseado em funções Azure (Azure RBAC) para gerir a autorização, que também é suportada pela Key Vault.
 
 ## <a name="service-principal-application-id"></a>ID de aplicação principal de serviço
 
-Um inquilino da AD Azure fornece a cada pedido registado um [principal de serviço.](../../active-directory/develop/developer-glossary.md#service-principal-object) O diretor de serviço serve como iD de aplicação, que é usado durante a instalação de autorização para acesso a outros recursos Azure via RBAC.
+Um inquilino da AD Azure fornece a cada pedido registado um [principal de serviço.](../../active-directory/develop/developer-glossary.md#service-principal-object) O diretor de serviço serve como iD de aplicação, que é usado durante a instalação de autorização para acesso a outros recursos Azure via Azure RBAC.
 
 Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos da AD Azure. O Key Vault está registado sob o mesmo ID de aplicação em cada nuvem Azure.
 

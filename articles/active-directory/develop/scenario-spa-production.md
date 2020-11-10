@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 21ba0193c3f1e19ffc74452aaceee34759c7e606
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a51442870fb72e2b3cd93d9f03736d2c679ed06
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88949019"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442825"
 ---
 # <a name="single-page-application-move-to-production"></a>Aplicação de uma página: Mover-se para a produção
 
@@ -36,27 +36,12 @@ Consulte uma [amostra de implementação](https://github.com/Azure-Samples/ms-id
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Mergulho profundo da amostra quickstart, que explica o código de como iniciar sing nos utilizadores e obter um token de acesso para ligar para a API do **Microsoft Graph** utilizando **MSAL.js**:
+- Mergulho profundo da amostra quickstart, que explica o código de como iniciar sing nos utilizadores e obter um token de acesso para ligar para a **Microsoft Graph API** utilizando **MSAL.js** : [Tutorial JavaScript SPA](./tutorial-v2-javascript-spa.md).
 
-> [!div class="nextstepaction"]
-> [Tutorial javaScript SPA](./tutorial-v2-javascript-spa.md)
+- Amostra que demonstra como obter fichas para a sua própria API web de back-end (ASP.NET Core) utilizando **MSAL.js** : [SPA com um back-end ASP.NET](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi).
 
-Amostra que demonstra como obter fichas para a sua própria API web de back-end (ASP.NET Core) utilizando **MSAL.js: **
+- Amostra que demonstra como validar fichas de acesso para a sua API web de back-end (Node.js) utilizando **o passaporte-azure-ad** : [Node.js Web API (Azure AD](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2).
 
-> [!div class="nextstepaction"]
-> [SPA com um back-end ASP.NET](https://github.com/Azure-Samples/ms-identity-javascript-angular-spa-aspnetcore-webapi)
+- Amostra que mostra como usar **MSAL.js** para assinar nos utilizadores numa aplicação registada no **Azure Ative Directory B2C** (Azure AD B2C): [SPA com Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp).
 
-Amostra que demonstra como validar fichas de acesso para a sua API web de back-end (Node.js) utilizando **o anúncio de passaporte-azure.**
-
-> [!div class="nextstepaction"]
-> [Node.js Web API (AZure AD)](https://github.com/Azure-Samples/active-directory-javascript-nodejs-webapi-v2)
-
-Amostra que mostra como usar **MSAL.js** para assinar nos utilizadores numa aplicação registada no **Azure Ative Directory B2C** (Azure AD B2C):
-
-> [!div class="nextstepaction"]
-> [SPA com Azure AD B2C](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp)
-
-Amostra que mostra como usar **o anúncio de passaporte-azure-ad** para validar fichas de acesso para aplicações registadas no **Azure Ative Directory B2C** (Azure AD B2C)
-
-> [!div class="nextstepaction"]
-> [Node.js Web API (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi)
+- Amostra que mostra como usar **o anúncio de passaporte-azure-ad** para validar fichas de acesso para aplicações registadas no **Azure Ative Directory B2C** (Azure AD B2C): [Node.js Web API (Azure AD B2C)](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi).

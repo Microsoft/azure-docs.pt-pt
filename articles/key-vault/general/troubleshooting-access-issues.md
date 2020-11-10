@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1437ef8675d0ddc96eb7fc641b3663b66c3ea11b
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: f9bbf6e9d1d932f7225807613b789821c1462932
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285244"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441856"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Problemas na resolução de problemas da política de acesso ao cofre do Azure
 
@@ -53,7 +53,7 @@ A aplicação também precisa de pelo menos uma função de Gestão de Identidad
 
 Atualmente, a reafectação do Key Vault elimina qualquer política de acesso no Key Vault e substitui-a pela política de acesso no modelo ARM. Não existe uma opção incremental para as políticas de acesso ao Cofre chave. Para preservar as políticas de acesso no Key Vault, é necessário ler as políticas de acesso existentes no Key Vault e preencher o modelo ARM com essas políticas para evitar falhas de acesso.
 
-Outra opção que pode ajudar neste cenário é usar as funções do RBAC como alternativa às políticas de acesso. Com o RBAC, pode voltar a implantar o cofre de chaves sem especificar novamente a apólice. Pode ler mais esta solução [aqui.](./rbac-guide.md)
+Outra opção que pode ajudar neste cenário é usar o Azure RBAC e papéis como alternativa às políticas de acesso. Com o Azure RBAC, pode voltar a implantar o cofre sem especificar novamente a apólice. Pode ler mais esta solução [aqui.](./rbac-guide.md)
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Etapas recomendadas de resolução de problemas para seguir tipos de erro
 

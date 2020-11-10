@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c415fc92d2d338c568c422b1db2579563527839
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305471"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442060"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Use um modelo de Gestor de Recursos Azure para criar um espaço de trabalho para a aprendizagem de máquinas Azure
 
@@ -34,7 +34,7 @@ Para obter mais informações, consulte [Implementar uma aplicação com o model
 
 * Alguns cenários exigem que abra um bilhete de apoio. Estes cenários são:
 
-    * __Private Link viabilização espaço de trabalho com uma chave gerida pelo cliente (CMK)__
+    * __Área de trabalho preparada para o Private Link com uma chave gerida pelo cliente__
     * __Azure Container Registry para a área de trabalho por detrás da rede virtual__
 
     Para obter mais informações, consulte [Gerir e aumentar as quotas.](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)
@@ -170,7 +170,7 @@ O modelo de exemplo a seguir demonstra como criar um espaço de trabalho com tr�
 > [!IMPORTANT]
 > Uma vez criado um espaço de trabalho, não é possível alterar as definições para dados confidenciais, encriptação, ID do cofre de chaves ou identificadores chave. Para alterar estes valores, é necessário criar um novo espaço de trabalho utilizando os novos valores.
 
-Para obter mais informações, consulte [a Encriptação em repouso](concept-enterprise-security.md#encryption-at-rest).
+Para obter mais informações, consulte [a Encriptação em repouso](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]
 > Existem alguns requisitos específicos que a sua subscrição deve satisfazer antes de usar este modelo:
@@ -252,7 +252,7 @@ New-AzResourceGroupDeployment `
 ```
 ---
 
-Ao utilizar uma chave gerida pelo cliente, a Azure Machine Learning cria um grupo de recursos secundários que contém a instância de DB cosmos. Para mais informações, consulte [a encriptação em repouso - Cosmos DB](concept-enterprise-security.md#encryption-at-rest).
+Ao utilizar uma chave gerida pelo cliente, a Azure Machine Learning cria um grupo de recursos secundários que contém a instância de DB cosmos. Para mais informações, consulte [a encriptação em repouso - Cosmos DB](concept-data-encryption.md#encryption-at-rest).
 
 Uma configuração adicional que pode fornecer para os seus dados é definir o parâmetro **confidential_data** para **verdadeiro**. Ao fazê-lo, faz o seguinte:
 
@@ -264,7 +264,7 @@ Uma configuração adicional que pode fornecer para os seus dados é definir o p
     > [!IMPORTANT]
     > Uma vez criado um espaço de trabalho, não é possível alterar as definições para dados confidenciais, encriptação, ID do cofre de chaves ou identificadores chave. Para alterar estes valores, é necessário criar um novo espaço de trabalho utilizando os novos valores.
 
-  Para obter mais informações, consulte [a encriptação em repouso.](concept-enterprise-security.md#encryption-at-rest)
+  Para obter mais informações, consulte [a encriptação em repouso.](concept-data-encryption.md#encryption-at-rest)
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>Implementar espaço de trabalho por trás de uma rede virtual
 
@@ -554,7 +554,7 @@ New-AzResourceGroupDeployment `
 
 Para obter mais informações, consulte [implementar recursos a partir do modelo personalizado.](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template)
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 ### <a name="resource-provider-errors"></a>Erros do fornecedor de recursos
 

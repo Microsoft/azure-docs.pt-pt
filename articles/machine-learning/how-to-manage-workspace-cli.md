@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 181cae525845e7cae5e8f6f178b01ee33999b8b5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312483"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442145"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
 
@@ -72,7 +72,7 @@ O espaço de trabalho Azure Machine Learning conta com os seguintes serviços ou
 | ---- | ---- |
 | **Grupo de recursos Azure** | `-g <resource-group-name>`
 | **Conta de Armazenamento Azure** | `--storage-account <service-id>` |
-| **Insights de Aplicação Azure** | `--application-insights <service-id>` |
+| **Azure Application Insights** | `--application-insights <service-id>` |
 | **Azure Key Vault** | `--keyvault <service-id>` |
 | **Azure Container Registry** | `--container-registry <service-id>` |
 
@@ -177,7 +177,7 @@ Para limitar os dados que a Microsoft recolhe no seu espaço de trabalho, utiliz
 > [!IMPORTANT]
 > A seleção de um impacto de alto negócio só pode ser feita quando se cria um espaço de trabalho. Não é possível alterar esta definição após a criação do espaço de trabalho.
 
-Para obter mais informações sobre chaves geridas pelo cliente e espaço de trabalho de alto impacto empresarial, consulte [a segurança da Empresa para a Azure Machine Learning](concept-enterprise-security.md#encryption-at-rest).
+Para obter mais informações sobre chaves geridas pelo cliente e espaço de trabalho de alto impacto empresarial, consulte [a segurança da Empresa para a Azure Machine Learning](concept-data-encryption.md#encryption-at-rest).
 
 ### <a name="use-existing-resources"></a>Utilizar os recursos existentes
 
@@ -393,7 +393,7 @@ az group delete -g <resource-group-name>
 
 Para obter mais informações, consulte o [espaço de trabalho az ml para eliminar](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) a documentação.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 ### <a name="resource-provider-errors"></a>Erros do fornecedor de recursos
 

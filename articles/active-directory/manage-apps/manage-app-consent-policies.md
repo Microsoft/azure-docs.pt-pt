@@ -12,18 +12,18 @@ ms.date: 06/01/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
 ms.custom: contperfq2
-ms.openlocfilehash: edcfa19ed93733c4d6b060ebcb5ff179708195aa
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 07637a8be49fb2449c5c92c1a1ea4b2c7ace9a8d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486927"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442264"
 ---
 # <a name="manage-app-consent-policies"></a>Gerir as políticas de consentimento da aplicação
 
 Com o Azure AD PowerShell, pode ver e gerir políticas de consentimento de aplicações.
 
-Uma política de consentimento de aplicações consiste em conjuntos de condições "inclui" um ou mais conjuntos de condições e conjuntos de condições zero ou mais "exclui". Para que um evento seja considerado numa política de consentimento de aplicações, deve corresponder *a pelo menos* um conjunto de condições "inclui", e não deve muitos conjuntos de condições "exclui". *any*
+Uma política de consentimento de aplicações consiste em conjuntos de condições "inclui" um ou mais conjuntos de condições e conjuntos de condições zero ou mais "exclui". Para que um evento seja considerado numa política de consentimento de aplicações, deve corresponder *a pelo menos* um conjunto de condições "inclui" e não deve corresponder a *qualquer* conjunto de condições "excluis".
 
 Cada conjunto de condições consiste em várias condições. Para que um evento corresponda a um conjunto de condições, *todas as* condições do conjunto de condições devem ser satisfeitas.
 
@@ -130,7 +130,7 @@ Uma vez criada a política de consentimento da aplicação, pode [permitir o con
 
 A tabela seguinte fornece a lista de condições suportadas para políticas de consentimento de aplicações.
 
-| Condição | Descrição|
+| Condição | Description|
 |:---------------|:----------|
 | Classificação de Permissões | A classificação de [permissão](configure-permission-classifications.md) para a permissão concedida, ou "todos" para corresponder a qualquer classificação de permissão (incluindo permissões que não são classificadas). O padrão é "tudo". |
 | Tipo de permissão | O tipo de permissão que está a ser concedida. Utilize "aplicação" para permissões de aplicações (por exemplo, funções de aplicações) ou "delegadas" para permissões delegadas. <br><br>**Nota:** O valor "delegadoUserConsentable" indica permissões delegadas que não foram configuradas pelo editor da API para exigir o consentimento administrativo — este valor pode ser usado em políticas de concessão de permissões incorporadas, mas não pode ser utilizado em políticas de concessão de permissão personalizadas. Obrigatório. |

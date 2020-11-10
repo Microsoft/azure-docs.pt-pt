@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 11a295402c925f5b8244eb3294097ff2271b5d68
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 17acb2bc5e96a136f31371c0be912c2c758c0f76
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335269"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443862"
 ---
 # <a name="scenario-single-page-application"></a>Cenário: Aplicação de página única
 
@@ -58,4 +58,4 @@ Para ativar este cenário para a sua aplicação, precisa:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Registo de aplicações](scenario-spa-app-registration.md)
+Passe para o próximo artigo neste cenário, [registo de aplicações.](scenario-spa-app-registration.md)

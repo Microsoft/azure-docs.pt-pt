@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: a6cbb574245c7b11d2437693d60fd952becedba3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4effdde131f93ccf430029edc4d87e0627010c8b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257559"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443199"
 ---
 # <a name="scenario-desktop-app-that-calls-web-apis"></a>Cenário: Aplicativo de desktop que chama APIs web
 
@@ -61,5 +61,4 @@ As aplicações para desktop têm várias especificidades. Dependem principalmen
 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
-> [Aplicativo de ambiente de trabalho: Registo de aplicações](scenario-desktop-app-registration.md)
+Passe para o próximo artigo neste cenário, [registo de aplicações.](scenario-desktop-app-registration.md)

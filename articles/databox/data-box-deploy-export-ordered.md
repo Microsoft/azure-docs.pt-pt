@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b514cce8128dc0b17b5cebf8f2dc42e2c4dd8c8e
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: ad8a5a23361e721fd5d8d55d3555f51def94e768
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337131"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442026"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Tutorial: Criar ordem de exportação para Azure Data Box (Pré-visualização)
 
@@ -102,7 +102,7 @@ Execute os passos seguintes no Portal do Azure para encomendar um dispositivo.
     |---------|---------|
     |Conta de armazenamento     | A conta de Armazenamento Azure de onde pretende exportar dados. |
     |Tipo de exportação     | Especifica o tipo de dados para exportar de **todos os objetos** e **utilizar o ficheiro XML**.<ul><li> **Todos os objetos** - Especifica que o trabalho exporta todos os dados dependendo da sua seleção para **opções de Transferência.**</li><li> **Utilize o ficheiro XML** – Especifica um ficheiro XML que contém um conjunto de caminhos e prefixos para bolhas e/ou ficheiros a serem exportados da conta de armazenamento. O ficheiro XML tem de estar no recipiente da conta de armazenamento selecionada e a seleção das ações de ficheiros não é suportada. O ficheiro tem de ser um ficheiro .xml não vazio.</li></ul>        |
-    |Opções de transferência     |  Especifica as opções de transferência de dados **de Selecione todos** , **Todas as bolhas** e **todos os ficheiros**. <ul><li> **Selecione All** - Especifica que todos os ficheiros blobs e Azure são exportados. Se estiver a utilizar uma conta de armazenamento que suporta apenas bolhas (Conta de Armazenamento Blob), a opção **Todos os Ficheiros** não será selecionada.</li><li> **Todas as Bolhas** - Especifica que apenas blobs de bloco e página são exportados.</li><li> **Todos os ficheiros** - Especifica que todos os ficheiros são exportados, excluindo bolhas. O tipo de conta de armazenamento que tem (GPv1 e GPv2, armazenamento premium ou armazenamento de bolhas) determina os tipos de dados que pode exportar. Para obter mais informações, consulte [as contas de armazenamento suportadas para exportação.](../storage/common/storage-import-export-requirements.md#supported-storage-types)</li></ul>         |
+    |Opções de transferência     |  Especifica as opções de transferência de dados **de Selecione todos** , **Todas as bolhas** e **todos os ficheiros**. <ul><li> **Selecione All** - Especifica que todas as bolhas e ficheiros Azure são exportados. Se estiver a utilizar uma conta de armazenamento que suporta apenas bolhas (Conta de Armazenamento Blob), a opção **Todos os Ficheiros** não será selecionada.</li><li> **Todas as Bolhas** - Especifica que apenas blobs de bloco e página são exportados.</li><li> **Todos os ficheiros** - Especifica que todos os ficheiros são exportados, excluindo bolhas. O tipo de conta de armazenamento que tem (GPv1 e GPv2, armazenamento premium ou armazenamento de bolhas) determina os tipos de dados que pode exportar. Para obter mais informações, consulte [as contas de armazenamento suportadas para exportação.](../storage/common/storage-import-export-requirements.md#supported-storage-types)</li></ul>         |
     |Incluir log verbose     | Indica se deseja um ficheiro de registo verboso que contenha uma lista de todos os ficheiros que foram exportados com sucesso.        |
 
     > [!NOTE]
@@ -183,11 +183,11 @@ Se selecionar **O ficheiro Utilizar o ficheiro XML,** pode especificar recipient
 
    ![Ver detalhes do recipiente](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-view-container-details.png)
 
-6. Clicar duas vezes no recipiente trará a vista das propriedades do contentor. Pretende agora anexar (ou navegar) o seu ficheiro XML que contém a sua lista de blobs e/ou ficheiros Azure que pretende exportar. Selecione **Carregar**.
+6. Clicar duas vezes no recipiente trará a vista das propriedades do contentor. Pretende agora anexar (ou navegar) o seu ficheiro XML que contém a sua lista de bolhas e/ou Ficheiros Azure que pretende exportar. Selecione **Carregar**.
 
    ![Carregar bolha para o recipiente](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-blob-to-container.png)
 
-7. Adicionou com sucesso o ficheiro XML ao recipiente. Apenas blobs e ficheiros Azure especificados neste XML serão exportados.
+7. Adicionou com sucesso o ficheiro XML ao recipiente. Apenas blobs e Ficheiros Azure especificados neste XML serão exportados.
 
    ![Ficheiro XML adicionado ao recipiente](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-added-to-container.png)
 
@@ -227,7 +227,7 @@ Para eliminar uma encomenda cancelada, vá ao **Overview** e selecione **Delete*
 
 ## <a name="sample-xml-file"></a>Arquivo XML da amostra
 
-O xml a seguir mostra um exemplo de nomes blob, prefixos blob e ficheiros Azure contidos no formato xml que a ordem de exportação utiliza quando seleciona a opção **de ficheiro XML de utilização:**
+O xml a seguir mostra um exemplo de nomes blob, prefixos blob e Ficheiros Azure contidos no formato xml que a ordem de exportação utiliza quando seleciona a opção **de ficheiro XML de utilização:**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

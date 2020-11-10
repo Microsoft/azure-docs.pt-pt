@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 03b077c7cadbfd101705c040e485c5766909c2de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4fb62ec8d3a6fa97fe6db5b146ba58d3ad66b1b4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318157"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94441992"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo do Azure Machine Learning implementado como serviço Web
 
@@ -119,7 +119,7 @@ O Azure Machine Learning fornece duas formas de controlar o acesso aos seus serv
 
 Ao enviar um pedido a um serviço que esteja seguro com uma chave ou ficha, utilize o cabeçalho __de Autorização__ para passar a chave ou o token. A chave ou token deve ser formatada como `Bearer <key-or-token>` , onde está a sua chave ou valor `<key-or-token>` simbólico.
 
-A principal diferença entre chaves e fichas é que **as teclas são estáticas e podem ser regeneradas manualmente,** e **as fichas precisam de ser refrescadas após a expiração**. O auth baseado em chaves é suportado para Azure Container Instance e Azure Kubernetes Service implantados web-services, e auth baseada em token está disponível **apenas** para implementações do Serviço Azure Kubernetes. Consulte a [autenticação](how-to-setup-authentication.md#web-service-authentication) para obter mais informações e amostras de código específicas.
+A principal diferença entre chaves e fichas é que **as teclas são estáticas e podem ser regeneradas manualmente,** e **as fichas precisam de ser refrescadas após a expiração**. O auth baseado em chaves é suportado para Azure Container Instance e Azure Kubernetes Service implantados web-services, e auth baseada em token está disponível **apenas** para implementações do Serviço Azure Kubernetes. Para obter mais informações sobre a autenticação configurante, consulte a [autenticação de configuração para modelos implantados como serviços web](how-to-authenticate-web-service.md).
 
 
 #### <a name="authentication-with-keys"></a>Autenticação com chaves

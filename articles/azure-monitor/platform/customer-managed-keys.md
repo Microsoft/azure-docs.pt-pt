@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 11/09/2020
-ms.openlocfilehash: 7f62aade114613261a22a818ab47e096eb16084b
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 62621a36955808ec3f2c796681fe660e6e8524bc
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427977"
+ms.locfileid: "94443386"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave gerida pelo cliente do Azure Monitor 
 
@@ -27,9 +27,10 @@ O Azure Monitor garante que todos os dados e consultas guardadas são encriptado
 
 A capacidade de Chave Gerida pelo cliente é entregue em clusters dedicados do Log Analytics. Permite-lhe proteger os seus dados com o controlo [lockbox](#customer-lockbox-preview) e dá-lhe o controlo para revogar o acesso aos seus dados a qualquer momento. Os dados ingeridos nos últimos 14 dias também são mantidos em cache quente (apoiado por SSD) para um funcionamento eficiente do motor de consulta. Estes dados permanecem encriptados com as teclas da Microsoft independentemente da configuração da Chave Gerida pelo cliente, mas o seu controlo sobre os dados SSD adere à [revogação da chave](#key-revocation). Estamos a trabalhar para ter dados SSD encriptados com Customer-Managed Key no primeiro semestre de 2021.
 
-Para verificar se temos a capacidade necessária para providenciar cluster dedicado na sua região, exigimos que a sua subscrição seja permitida previamente. Utilize o seu pedido de contacto microsoft ou de suporte aberto para obter a sua subscrição permitida antes de iniciar a configuração Customer-Managed Chave.
-
 O [modelo de preços dos clusters Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) utiliza Reservas de Capacidade a partir de um nível de 1000 GB/dia.
+
+> [!IMPORTANT]
+> Devido a restrições de capacidade temporárias, exigimos que se registe antes de criar um cluster. Utilize os seus contactos na Microsoft ou abrimos o pedido de suporte para registar os IDs das suas subscrições.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Como funciona Customer-Managed Key no Azure Monitor
 
@@ -63,11 +64,11 @@ Aplicam-se as seguintes regras:
 
 ## <a name="customer-managed-key-provisioning-procedure"></a>Customer-Managed procedimento de provisionamento chave
 
-1. Permitindo a subscrição -- A capacidade é entregue em clusters dedicados do Log Analytics. Para verificar se temos a capacidade necessária na sua região, exigimos que a sua subscrição seja permitida previamente. Utilize o contacto da Microsoft para obter a sua subscrição permitida.
-2. Criar cofre de chave Azure e armazenar chave
-3. Criação de cluster
-4. Concessão de permissões ao seu Cofre-Chave
-5. Ligação de espaços de trabalho log analytics
+1. Registe a sua subscrição para permitir a criação de clusters
+1. Criar cofre de chave Azure e armazenar chave
+1. Criação de cluster
+1. Concessão de permissões ao seu Cofre-Chave
+1. Ligação de espaços de trabalho log analytics
 
 Customer-Managed configuração chave não é suportada no portal Azure e o fornecimento é realizado através de pedidos [PowerShell,](https://docs.microsoft.com/powershell/module/az.operationalinsights/) [CLI](https://docs.microsoft.com/cli/azure/monitor/log-analytics) ou [REST.](https://docs.microsoft.com/rest/api/loganalytics/)
 
@@ -149,7 +150,6 @@ A operação falhou
 
 > [!IMPORTANT]
 > Customer-Managed capacidade chave é regional. O seu Cofre chave Azure, cluster e espaços de trabalho ligados ao Log Analytics devem estar na mesma região, mas podem estar em diferentes subscrições.
-> Para verificar se temos a capacidade necessária para providenciar cluster dedicado na sua região, exigimos que a sua subscrição seja permitida previamente. Utilize o seu pedido de contacto microsoft ou de suporte aberto para obter a sua subscrição permitida antes de iniciar Customer-Managed configuração de Chave. 
 
 ### <a name="storing-encryption-key-kek"></a>Chave de encriptação de armazenamento (KEK)
 
@@ -200,6 +200,25 @@ az monitor log-analytics cluster update --name "cluster-name" --resource-group "
 
 ```powershell
 Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -KeyVaultUri "key-uri" -KeyName "key-name" -KeyVersion "key-version"
+```
+
+```rst
+PATCH https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/cluster-name"?api-version=2020-08-01
+Authorization: Bearer <token> 
+Content-type: application/json
+ 
+{
+  "properties": {
+    "keyVaultProperties": {
+      "keyVaultUri": "https://key-vault-name.vault.azure.net",
+      "kyName": "key-name",
+      "keyVersion": "current-version"
+  },
+  "sku": {
+    "name": "CapacityReservation",
+    "capacity": 1000
+  }
+}
 ```
 
 **Response**
@@ -288,6 +307,11 @@ Quando traz o seu próprio armazenamento (BYOS) e o liga ao seu espaço de traba
 
 Ligue uma conta de armazenamento para *consulta* ao seu espaço de trabalho- as consultas *de pesquisa guardadas* são guardadas na sua conta de armazenamento. 
 
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type Query --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
+
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
@@ -314,6 +338,11 @@ Após a configuração, qualquer nova consulta *de pesquisa guardada* será guar
 **Configure BYOS para consultas de alerta de registo**
 
 Ligue uma conta de armazenamento para *alertas* para o seu espaço de trabalho -- as consultas *de alerta de registo* são guardadas na sua conta de armazenamento. 
+
+```azurecli
+$storageAccountId = '/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage name>'
+az monitor log-analytics workspace linked-storage create --type ALerts --resource-group "resource-group-name" --workspace-name "workspace-name" --storage-accounts $storageAccountId
+```
 
 ```powershell
 $storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"

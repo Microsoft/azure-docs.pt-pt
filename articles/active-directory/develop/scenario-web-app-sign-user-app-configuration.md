@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: ea0312cd8129fce342f94cfab5701d1773aca309
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dad7b0563fd1ca0dbf60403bc6172e7616e278b2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728340"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443658"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>Aplicação web que assina nos utilizadores: Configuração de código
 
@@ -27,7 +27,7 @@ Saiba como configurar o código da sua aplicação web que assina nos utilizador
 <!-- This section can be in an include for web app and web APIs -->
 As bibliotecas que são usadas para proteger uma aplicação web (e uma API web) são:
 
-| Plataforma | Biblioteca | Descrição |
+| Plataforma | Biblioteca | Description |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_NET.png) | [Extensões de modelo de identidade para .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | Utilizados diretamente por ASP.NET e ASP.NET Core, as extensões do modelo de identidade da Microsoft para .NET propõe um conjunto de DLLs em execução tanto no .NET Framework como no .NET Core. A partir de uma aplicação web core ASP.NET ou ASP.NET, pode controlar a validação de tokens utilizando a classe **TokenValidationParameters** (em particular, em alguns cenários de parceiros). Na prática, a complexidade é encapsulada na biblioteca [Microsoft.Identity.Web](https://aka.ms/ms-identity-web) |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Suporte para aplicações web java |
@@ -344,22 +344,18 @@ No próximo artigo, aprenderá a desencadear o sº de sção e a assinatura.
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-> [!div class="nextstepaction"]
-> [Iniciar e terminar sessão](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore)
+Passe para o próximo artigo neste cenário, [inscreva-se e assine](./scenario-web-app-sign-user-sign-in.md?tabs=aspnetcore).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
-> [!div class="nextstepaction"]
-> [Iniciar e terminar sessão](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet)
+Passe para o próximo artigo neste cenário, [inscreva-se e assine](./scenario-web-app-sign-user-sign-in.md?tabs=aspnet).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Iniciar e terminar sessão](./scenario-web-app-sign-user-sign-in.md?tabs=java)
+Passe para o próximo artigo neste cenário, [inscreva-se e assine](./scenario-web-app-sign-user-sign-in.md?tabs=java).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Iniciar e terminar sessão](./scenario-web-app-sign-user-sign-in.md?tabs=python)
+Passe para o próximo artigo neste cenário, [inscreva-se e assine](./scenario-web-app-sign-user-sign-in.md?tabs=python).
 
 ---

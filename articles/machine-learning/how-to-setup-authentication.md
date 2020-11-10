@@ -8,69 +8,46 @@ ms.author: cgronlun
 ms.reviewer: larryfr
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 06/17/2020
+ms.date: 11/05/2020
 ms.topic: conceptual
-ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: fd6f933e1b3c1e7c003f62e03215273e3d28ea5c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli, contperfq2
+ms.openlocfilehash: adc0547e36e9cf996a87c2683b4830541b8cd360
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318536"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442111"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurar a autenticação para recursos de aprendizagem automática Azure e fluxos de trabalho
 
 
-Aprenda a autenticar o seu espaço de trabalho Azure Machine Learning e a modelos implementados como serviços web.
+Saiba como configurar a autenticação no seu espaço de trabalho Azure Machine Learning. A autenticação no seu espaço de trabalho Azure Machine Learning baseia-se no __Azure Ative Directory__ (Azure AD) para a maioria das coisas. Em geral, existem três fluxos de trabalho de autenticação que pode utilizar ao ligar-se ao espaço de trabalho:
 
-Em geral, existem dois tipos de autenticação que pode utilizar com a Azure Machine Learning:
+* __Interativo__ : Utilize a sua conta no Azure Ative Directory para autenticar diretamente ou para obter um token que seja utilizado para a autenticação. A autenticação interativa é utilizada durante _a experimentação e o desenvolvimento iterativo._ A autenticação interativa permite controlar o acesso a recursos (como um serviço web) por utilizador.
 
-* __Interativo__ : Utilize a sua conta no Azure Ative Directory para autenticar diretamente ou para obter um token que seja utilizado para a autenticação. A autenticação interativa é utilizada durante a experimentação e o desenvolvimento iterativo. Ou onde pretende controlar o acesso a recursos (como um serviço web) por utilizador.
-* __Principal de serviço__ : Cria uma conta principal de serviço no Azure Ative Directory e utiliza-a para autenticar ou obter um token. Um principal de serviço é utilizado quando precisa de um processo automatizado para autenticar o serviço sem exigir interação do utilizador. Por exemplo, um script de integração e implantação contínua que treina e testa um modelo sempre que o código de formação muda. Também pode utilizar um principal de serviço para recuperar um token para autenticar num serviço web, caso não pretenda exigir que o utilizador final do serviço autente. Ou onde a autenticação do utilizador final não é realizada diretamente usando o Diretório Azure Ative.
+* __Principal de serviço__ : Cria uma conta principal de serviço no Azure Ative Directory e utiliza-a para autenticar ou obter um token. Um principal de serviço é utilizado quando precisa de um _processo automatizado para autenticar_ o serviço sem exigir interação do utilizador. Por exemplo, um script de integração e implantação contínua que treina e testa um modelo sempre que o código de formação muda.
 
-Independentemente do tipo de autenticação utilizado, o controlo de acesso baseado em funções Azure (Azure RBAC) é utilizado para estender o nível de acesso permitido aos recursos. Por exemplo, uma conta que é usada para obter o token de acesso para um modelo implantado só precisa de ler o acesso ao espaço de trabalho. Para obter mais informações sobre o Azure RBAC, consulte [Gerir o acesso ao espaço de trabalho Azure Machine Learning](how-to-assign-roles.md).
+* __Identidade gerida__ : Ao utilizar o Azure Machine Learning SDK _numa Máquina Virtual Azure,_ pode ser gerida uma identidade gerida para o Azure. Este fluxo de trabalho permite que o VM se conecte ao espaço de trabalho utilizando a identidade gerida, sem armazenar credenciais no código Python ou levando o utilizador a autenticar. Os clusters de cálculo Azure Machine Learning também podem ser configurados para usar uma identidade gerida para aceder ao espaço de trabalho quando _os modelos de treino._
+
+> [!IMPORTANT]
+> Independentemente do fluxo de trabalho de autenticação utilizado, o controlo de acesso baseado em funções (Azure RBAC) é utilizado para estender o nível de acesso (autorização) permitido aos recursos. Por exemplo, um processo de administração ou automação pode ter acesso a criar uma instância computacional, mas não usá-lo, enquanto um cientista de dados poderia usá-lo, mas não apagá-lo ou criá-lo. Para obter mais informações, consulte [Gerir o acesso ao espaço de trabalho Azure Machine Learning](how-to-assign-roles.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Criar um espaço de trabalho para [aprendizagem automática Azure.](how-to-manage-workspace.md)
-* [Configure o seu ambiente de desenvolvimento](how-to-configure-environment.md) para instalar o Azure Machine Learning SDK, ou use um [VM de Aprendizagem de Máquinas Azure](concept-azure-machine-learning-architecture.md#compute-instance) com o SDK já instalado.
+* [Configure o seu ambiente de desenvolvimento](how-to-configure-environment.md) para instalar o Azure Machine Learning SDK, ou use uma instância [computacional de aprendizagem automática Azure](concept-azure-machine-learning-architecture.md#compute-instance) com o SDK já instalado.
 
-## <a name="interactive-authentication"></a>Autenticação interativa
+## <a name="azure-active-directory"></a>Azure Active Directory
 
-> [!IMPORTANT]
-> A autenticação interativa utiliza o seu navegador e requer cookies (incluindo cookies de 3ª parte). Se tiver cookies desativados, poderá receber um erro como "não podemos inscrevê-lo". Este erro também pode ocorrer se tiver ativado [a autenticação de vários fatores Azure](../active-directory/authentication/concept-mfa-howitworks.md).
+Todos os fluxos de trabalho de autenticação do seu espaço de trabalho dependem do Azure Ative Directory. Se pretender que os utilizadores autentem usando contas individuais, devem ter contas no seu AD Azure. Se quiser utilizar os principais de serviço, devem existir no seu AD Azure. As identidades geridas são também uma característica do Azure AD. 
 
-A maioria dos exemplos na documentação e amostras utilizam a autenticação interativa. Por exemplo, ao utilizar o SDK existem duas chamadas de função que irão automaticamente insusá-lo com um fluxo de autenticação baseado em UI:
+Para mais informações sobre a Azure AD, consulte [o que é a autenticação do Diretório Ativo Azure.](..//active-directory/authentication/overview-authentication.md)
 
-* Chamar a `from_config()` função emitirá o pedido.
+Depois de criar as contas AD do Azure, consulte Gerir o [acesso ao espaço de trabalho Azure Machine Learning](how-to-assign-roles.md) para obter informações sobre como lhes dar acesso ao espaço de trabalho e outras operações em Azure Machine Learning.
 
-    ```python
-    from azureml.core import Workspace
-    ws = Workspace.from_config()
-    ```
+## <a name="configure-a-service-principal"></a>Configurar um principal de serviço
 
-    A função `from_config()` procura um ficheiro JSON que contém as informações de ligação à área de trabalho.
-
-* A utilização do `Workspace` construtor para fornecer informações de subscrição, grupo de recursos e espaço de trabalho, também solicitará a autenticação interativa.
-
-    ```python
-    ws = Workspace(subscription_id="your-sub-id",
-                  resource_group="your-resource-group-id",
-                  workspace_name="your-workspace-name"
-                  )
-    ```
-
-> [!TIP]
-> Se tiver acesso a vários inquilinos, poderá ter de importar a classe e definir explicitamente qual o inquilino que está a ser alvo. Ligar para o construtor `InteractiveLoginAuthentication` também lhe pedirá para iniciar sessão semelhante às chamadas acima.
->
-> ```python
-> from azureml.core.authentication import InteractiveLoginAuthentication
-> interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
-> ```
-
-## <a name="service-principal-authentication"></a>Autenticação do principal de serviço
-
-Para utilizar a autenticação principal do serviço (SP), tem primeiro de criar o SP e conceder-lhe acesso ao seu espaço de trabalho. Como mencionado anteriormente, o controlo de acesso baseado em funções Azure (Azure RBAC) é usado para controlar o acesso, pelo que também deve decidir qual o acesso a conceder ao SP.
+Para utilizar um principal serviço (SP), tem primeiro de criar o SP e conceder-lhe acesso ao seu espaço de trabalho. Como mencionado anteriormente, o controlo de acesso baseado em funções Azure (Azure RBAC) é usado para controlar o acesso, pelo que também deve decidir qual o acesso a conceder ao SP.
 
 > [!IMPORTANT]
 > Ao utilizar um comitado de serviço, conceda-lhe o __acesso mínimo necessário para a tarefa__ para a qual é utilizado. Por exemplo, não concederia a um proprietário principal de serviço ou ao contribuinte o acesso se tudo o que é utilizado for a leitura do token de acesso para uma implementação web.
@@ -90,7 +67,7 @@ A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho 
 
     Se a CLI conseguir abrir o seu browser predefinido, executa essa ação e carrega uma página de início de sessão. Caso contrário, é necessário abrir um browser e seguir as instruções na linha de comando. As instruções envolvem navegar [https://aka.ms/devicelogin](https://aka.ms/devicelogin) e introduzir um código de autorização.
 
-    [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
+    Se tiver várias subscrições do Azure, pode utilizar o `az account set -s <subscription name or ID>` comando para definir a subscrição. Para obter mais informações, consulte [utilizar várias subscrições do Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
     Para outros métodos de autenticação, consulte [iniciar sing com Azure CLI](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
@@ -147,7 +124,7 @@ A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho 
 1. Permitir ao SP aceder ao seu espaço de trabalho Azure Machine Learning. Você precisará do seu nome de espaço de trabalho, e seu nome de grupo de recursos para o `-w` e `-g` parâmetros, respectivamente. Para o `--user` parâmetro, utilize o `objectId` valor do passo anterior. O `--role` parâmetro permite definir a função de acesso para o principal serviço. No exemplo seguinte, o PS é atribuído à função **de proprietário.** 
 
     > [!IMPORTANT]
-    > O acesso ao proprietário permite que o diretor de serviço faça praticamente qualquer operação no seu espaço de trabalho. É utilizado neste documento para demonstrar como conceder acesso; num ambiente de produção, a Microsoft recomenda conceder ao diretor de serviço o acesso mínimo necessário para desempenhar o papel que pretende. Para obter mais informações, consulte [Gerir o acesso ao espaço de trabalho Azure Machine Learning](how-to-assign-roles.md).
+    > O acesso ao proprietário permite que o diretor de serviço faça praticamente qualquer operação no seu espaço de trabalho. É utilizado neste documento para demonstrar como conceder acesso; num ambiente de produção, a Microsoft recomenda conceder ao diretor de serviço o acesso mínimo necessário para desempenhar o papel que pretende. Para obter informações sobre a criação de um papel personalizado com o acesso necessário para o seu cenário, consulte [Gerir o acesso ao espaço de trabalho Azure Machine Learning](how-to-assign-roles.md).
 
     ```azurecli-interactive
     az ml workspace share -w your-workspace-name -g your-resource-group-name --user your-sp-object-id --role owner
@@ -155,9 +132,78 @@ A forma mais fácil de criar um SP e conceder acesso ao seu espaço de trabalho 
 
     Esta chamada não produz qualquer produção sobre o sucesso.
 
-### <a name="use-a-service-principal-from-the-sdk"></a>Utilize um principal de serviço do SDK
+## <a name="configure-a-managed-identity"></a>Configurar uma identidade gerida
 
-Para autenticar no seu espaço de trabalho a partir do SDK, utilizando o principal serviço, utilize o `ServicePrincipalAuthentication` construtor de classe. Utilize os valores que obteve ao criar o prestador de serviços como parâmetros. Os `tenant_id` mapas dos parâmetros para `tenantId` cima, `service_principal_id` mapas `clientId` para, e `service_principal_password` mapas para `clientSecret` .
+> [!IMPORTANT]
+> A identidade gerida só é suportada quando se utiliza o SDK de aprendizagem de máquinas Azure a partir de uma máquina virtual Azure ou com um cluster de cálculo Azure Machine Learning. A utilização de uma identidade gerida com um cluster de cálculo está atualmente em pré-visualização.
+
+### <a name="managed-identity-with-a-vm"></a>Identidade gerida com um VM
+
+1. Permitir uma [identidade gerida atribuída pelo sistema para os recursos da Azure no VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity).
+
+1. A partir do [portal Azure,](https://portal.azure.com)selecione o seu espaço de trabalho e, em seguida, selecione __Access Control (IAM)__ , Adicione a Atribuição de __Funções__ e selecione __a Máquina Virtual__ a partir do Access Access __To__ dropdown. Finalmente, selecione a identidade do seu VM.
+
+1. Selecione o papel a atribuir a esta identidade. Por exemplo, colaborador ou um papel personalizado. Para mais informações consulte, [Controle o acesso aos recursos.](how-to-assign-roles.md)
+
+### <a name="managed-identity-with-compute-cluster"></a>Identidade gerida com cluster de computação
+
+Para obter mais informações, consulte [Configurar a identidade gerida para o cluster compute](how-to-create-attach-compute-cluster.md#managed-identity).
+
+<a id="interactive-authentication"></a>
+
+## <a name="use-interactive-authentication"></a>Utilize a autenticação interativa
+
+> [!IMPORTANT]
+> A autenticação interativa utiliza o seu navegador e requer cookies (incluindo cookies de 3ª parte). Se tiver cookies desativados, poderá receber um erro como "não podemos inscrevê-lo". Este erro também pode ocorrer se tiver ativado [a autenticação de vários fatores Azure](../active-directory/authentication/concept-mfa-howitworks.md).
+
+A maioria dos exemplos na documentação e amostras utilizam a autenticação interativa. Por exemplo, ao utilizar o SDK existem duas chamadas de função que irão automaticamente insusá-lo com um fluxo de autenticação baseado em UI:
+
+* Chamar a `from_config()` função emitirá o pedido.
+
+    ```python
+    from azureml.core import Workspace
+    ws = Workspace.from_config()
+    ```
+
+    A função `from_config()` procura um ficheiro JSON que contém as informações de ligação à área de trabalho.
+
+* A utilização do `Workspace` construtor para fornecer informações de subscrição, grupo de recursos e espaço de trabalho, também solicitará a autenticação interativa.
+
+    ```python
+    ws = Workspace(subscription_id="your-sub-id",
+                  resource_group="your-resource-group-id",
+                  workspace_name="your-workspace-name"
+                  )
+    ```
+
+> [!TIP]
+> Se tiver acesso a vários inquilinos, poderá ter de importar a classe e definir explicitamente qual o inquilino que está a ser alvo. Ligar para o construtor `InteractiveLoginAuthentication` também lhe pedirá para iniciar sessão semelhante às chamadas acima.
+>
+> ```python
+> from azureml.core.authentication import InteractiveLoginAuthentication
+> interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
+> ```
+
+Ao utilizar o Azure CLI, o `az login` comando é utilizado para autenticar a sessão CLI. Para mais informações, consulte [Começar com o Azure CLI.](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)
+
+> [!TIP]
+> Se estiver a utilizar o SDK a partir de um ambiente onde já autenticou interativamente utilizando o Azure CLI, pode utilizar a `AzureCliAuthentication` classe para autenticar no espaço de trabalho utilizando as credenciais em cache pelo CLI:
+>
+> ```python
+> from azureml.core.authentication import AzureCliAuthentication
+> cli_auth = AzureCliAuthentication()
+> ws = Workspace(subscription_id="your-sub-id",
+>                resource_group="your-resource-group-id",
+>                workspace_name="your-workspace-name",
+>                auth=cli_auth
+>                )
+> ```
+
+<a id="service-principal-authentication"></a>
+
+## <a name="use-service-principal-authentication"></a>Utilizar a autenticação principal do serviço
+
+Para autenticar no seu espaço de trabalho a partir do SDK, utilizando um diretor de serviço, utilize o `ServicePrincipalAuthentication` construtor de classe. Utilize os valores que obteve ao criar o prestador de serviços como parâmetros. Os `tenant_id` mapas dos parâmetros para `tenantId` cima, `service_principal_id` mapas `clientId` para, e `service_principal_password` mapas para `clientSecret` .
 
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
@@ -333,112 +379,28 @@ class AuthenticationBody {
 
 O código anterior teria de lidar com exceções e códigos de estado que `200 OK` não, mas mostra o padrão: 
 
-- Use o id do cliente e o segredo para validar que o seu programa deve ter acesso
-- Use o seu id inquilino para especificar onde `login.microsoftonline.com` deve estar procurando
+- Use o ID do cliente e o segredo para validar que o seu programa deve ter acesso
+- Use o seu ID do inquilino para especificar onde `login.microsoftonline.com` deve estar procurando
 - Use o Gestor de Recursos Azure como fonte do token de autorização
 
-## <a name="web-service-authentication"></a>Autenticação de serviço web
+## <a name="use-managed-identity-authentication"></a>Utilizar a autenticação de identidade gerida
 
-As implementações de modelos criadas pela Azure Machine Learning fornecem dois métodos de autenticação:
-
-* **baseado em teclas** : Uma tecla estática é usada para autenticar o serviço web.
-* **Baseado em símbolos** : Um símbolo temporário deve ser obtido a partir do espaço de trabalho e utilizado para autenticar para o serviço web. Este token expira após um período de tempo, e deve ser atualizado para continuar a trabalhar com o serviço web.
-
-    > [!NOTE]
-    > A autenticação baseada em token só está disponível quando é implantada no Serviço Azure Kubernetes.
-
-### <a name="key-based-web-service-authentication"></a>Autenticação de serviço web baseado em chaves
-
-Os serviços web implantados no Serviço Azure Kubernetes (AKS) têm auth baseado em chaves *ativada* por padrão. Os serviços implantados em Azure Container Instances (ACI) têm auth baseado em chaves *desativados* por padrão, mas pode capacitá-lo definindo `auth_enabled=True` ao criar o serviço web ACI. O código a seguir é um exemplo de criação de uma configuração de implementação de ACI com auth baseado em chave ativada.
+Para autenticar no espaço de trabalho a partir de um cluster VM ou compute que esteja configurado com uma identidade gerida, utilize a `MsiAuthentication` classe. O exemplo a seguir demonstra como utilizar esta classe para autenticar num espaço de trabalho:
 
 ```python
-from azureml.core.webservice import AciWebservice
+from azureml.core.authentication import MsiAuthentication
 
-aci_config = AciWebservice.deploy_configuration(cpu_cores = 1,
-                                                memory_gb = 1,
-                                                auth_enabled=True)
+msi_auth = MsiAuthentication()
+
+ws = Workspace(subscription_id="your-sub-id",
+                resource_group="your-resource-group-id",
+                workspace_name="your-workspace-name",
+                auth=msi_auth
+                )
 ```
-
-Em seguida, pode utilizar a configuração ACI personalizada na implementação utilizando a `Model` classe.
-
-```python
-from azureml.core.model import Model, InferenceConfig
-
-
-inference_config = InferenceConfig(entry_script="score.py",
-                                   environment=myenv)
-aci_service = Model.deploy(workspace=ws,
-                       name="aci_service_sample",
-                       models=[model],
-                       inference_config=inference_config,
-                       deployment_config=aci_config)
-aci_service.wait_for_deployment(True)
-```
-
-Para ir buscar as teclas auth, `aci_service.get_keys()` use. Para regenerar uma chave, utilize a `regen_key()` função e passe tanto **no Primário** como **no Secundário**.
-
-```python
-aci_service.regen_key("Primary")
-# or
-aci_service.regen_key("Secondary")
-```
-
-Para obter mais informações sobre a autenticação de um modelo implantado, consulte [Criar um cliente para um modelo implantado como serviço web](how-to-consume-web-service.md).
-
-### <a name="token-based-web-service-authentication"></a>Autenticação de serviço web baseado em token
-
-Quando ativa a autenticação simbólica de um serviço web, os utilizadores devem apresentar um Azure Machine Learning JSON Web Token ao serviço web para aceder ao mesmo. O token expira após um prazo especificado e precisa de ser atualizado para continuar a fazer chamadas.
-
-* A autenticação token é **desativada por padrão** quando implementa para o Serviço Azure Kubernetes.
-* A autenticação **token não é suportada** quando se implanta em Instâncias de Contentores Azure.
-* A autenticação token **não pode ser utilizada ao mesmo tempo que a autenticação baseada em chaves.**
-
-Para controlar a autenticação simbólica, utilize o `token_auth_enabled` parâmetro quando criar ou atualizar uma implementação:
-
-```python
-from azureml.core.webservice import AksWebservice
-from azureml.core.model import Model, InferenceConfig
-
-# Create the config
-aks_config = AksWebservice.deploy_configuration()
-
-#  Enable token auth and disable (key) auth on the webservice
-aks_config = AksWebservice.deploy_configuration(token_auth_enabled=True, auth_enabled=False)
-
-aks_service_name ='aks-service-1'
-
-# deploy the model
-aks_service = Model.deploy(workspace=ws,
-                           name=aks_service_name,
-                           models=[model],
-                           inference_config=inference_config,
-                           deployment_config=aks_config,
-                           deployment_target=aks_target)
-
-aks_service.wait_for_deployment(show_output = True)
-```
-
-Se a autenticação simbólica estiver ativada, pode utilizar o `get_token` método para recuperar um Token Web JSON (JWT) e o tempo de validade do token:
-
-> [!TIP]
-> Se utilizar um principal de serviço para obter o token, e quiser que tenha o acesso mínimo necessário para recuperar um token, atribua-o ao papel de **leitor** para o espaço de trabalho.
-
-```python
-token, refresh_by = aks_service.get_token()
-print(token)
-```
-
-> [!IMPORTANT]
-> Precisará de pedir um novo token depois do prazo `refresh_by` do token. Se precisar de atualizar fichas fora do Python SDK, uma opção é utilizar a API REST com autenticação principal de serviço para fazer a `service.get_token()` chamada periodicamente, como discutido anteriormente.
->
-> Recomendamos vivamente que crie o seu espaço de trabalho Azure Machine Learning na mesma região que o seu cluster de Serviço Azure Kubernetes.
->
-> Para autenticar com um token, o serviço web fará uma chamada para a região em que o seu espaço de trabalho Azure Machine Learning é criado. Se a região do seu espaço de trabalho não estiver disponível, não poderá obter um símbolo para o seu serviço web, mesmo que o seu cluster esteja numa região diferente do seu espaço de trabalho. O resultado é que a autenticação AD AD Azure não está disponível até que a região do seu espaço de trabalho esteja novamente disponível.
->
-> Além disso, quanto maior for a distância entre a região do seu aglomerado e a região do seu espaço de trabalho, mais tempo demorará a obter um símbolo.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Como usar segredos no treino.](how-to-use-secrets-in-runs.md)
-* [Treine e implemente um modelo de classificação de imagem.](tutorial-train-models-with-aml.md)
+* [Como configurar a autenticação para modelos implantados como serviço web](how-to-authenticate-web-service.md).
 * [Consumir um modelo de Aprendizagem automática Azure implementado como serviço web](how-to-consume-web-service.md).

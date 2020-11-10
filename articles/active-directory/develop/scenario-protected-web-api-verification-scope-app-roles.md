@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 1e5c8b788f1abbfbd46c4dfe6c7bb9d87adcee86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d737f107e7a9b1476fdf86ac0320931ea137671
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257271"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442910"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>API web protegida: Verificar âmbitos e funções de aplicativo
 
@@ -100,7 +100,7 @@ Se a sua API web for chamada por uma [aplicação daemon,](scenario-daemon-overv
 
 Precisa agora que a sua API verifique se o token que recebe contém a `roles` reclamação e que esta reclamação tem o valor esperado. O código de verificação é semelhante ao código que verifica as permissões delegadas, exceto que o seu controlador testa as funções em vez de âmbitos:
 
-### <a name="aspnet-core"></a>Núcleo de ASP.NET
+### <a name="aspnet-core"></a>ASP.NET Core
 
 ```csharp
 [Authorize]
@@ -152,5 +152,4 @@ A verificação da condição inversa permite apenas aplicações que assinam nu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
-> [Mover para produção](scenario-protected-web-api-production.md)
+Passe para o próximo artigo neste cenário, [passe para a produção](scenario-protected-web-api-production.md).

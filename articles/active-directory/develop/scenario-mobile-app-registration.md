@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35c1ffb370a158acc91e2378119055337e28580d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89442739"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443097"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registar aplicativos móveis que chamam APIs web
 
@@ -44,7 +44,7 @@ Para mais informações, consulte [Cenários e fluxos](authentication-flows-app-
 
 ### <a name="interactive-authentication"></a>Autenticação interativa
 
-Quando se constrói uma aplicação móvel que utiliza a autenticação interativa, o passo de registo mais crítico é o URI redirecionamento. Pode definir a autenticação interativa através da configuração da [plataforma na lâmina de **autenticação** ](https://aka.ms/MobileAppReg).
+Quando se constrói uma aplicação móvel que utiliza a autenticação interativa, o passo de registo mais crítico é o URI redirecionamento. Pode definir a autenticação interativa através da configuração da [plataforma na lâmina de **autenticação**](https://aka.ms/MobileAppReg).
 
 Esta experiência permitirá que a sua aplicação obtenha um único sign-on (SSO) através do Microsoft Authenticator (e do Portal da Empresa Intune no Android). Também apoiará as políticas de gestão de dispositivos.
 
@@ -91,5 +91,4 @@ Ao registar estáticamente permissões, permite que os administradores aprovem f
 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
-> [Configuração do código](scenario-mobile-app-configuration.md)
+Passe para o próximo artigo neste cenário, [configuração do código de aplicação](scenario-mobile-app-configuration.md).

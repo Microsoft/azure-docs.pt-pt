@@ -9,17 +9,17 @@ ms.service: virtual-machines-linux
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
-ms.author: alsin
-ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.author: mathapli
+ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413110"
+ms.locfileid: "94443437"
 ---
-# <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Pré-visualização: Azure Hybrid Benefit – como se aplica às máquinas virtuais Linux
+# <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Antevisão pública: Azure Hybrid Benefit – como se aplica às máquinas virtuais Linux
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 O Azure Hybrid Benefit permite-lhe migrar mais facilmente as suas máquinas virtuais Red Hat Enterprise Linux (RHEL) e SUSE Linux Enterprise Server (SLES) para Azure utilizando a sua própria subscrição de software Red Hat ou SUSE pré-existente. Com este benefício, você só paga pelos custos de infraestrutura do seu VM porque a taxa de software é coberta pela sua subscrição RHEL ou SLES. O benefício é aplicável a todas as imagens pay-as-you-go (PAYG) da RHEL e do SLES Marketplace.
 
@@ -45,30 +45,26 @@ Instâncias Reservadas, Anfitriões Dedicados e Benefícios Híbridos SQL não s
 
 ## <a name="how-to-get-started"></a>Como começar
 
-A Azure Hybrid Benefit está atualmente em fase de pré-visualização para Os VMs Do Linux. Assim que tiver acesso à pré-visualização, poderá ativar o benefício utilizando o portal Azure ou o CLI Azure.
+A Azure Hybrid Benefit está atualmente em fase de pré-visualização para Os VMs Do Linux. Assim que tiver acesso à pré-visualização, poderá ativar o benefício utilizando o Azure CLI.
 
-### <a name="preview"></a>Pré-visualizar
+### <a name="public-preview"></a>Pré-visualização pública
 
-Nesta fase, poderá ter acesso ao benefício preenchendo o formulário [aqui.](https://aka.ms/ahb-linux-form) Assim que preencher o formulário, as suas subscrições Azure(s) serão ativadas para o benefício e receberá uma confirmação da Microsoft dentro de três dias úteis.
+A Azure Hybrid Benefit (para Linux) está agora em fase de pré-visualização pública. Pode utilizar os passos abaixo para permitir o benefício para as distribuições de Chapéu Vermelho e SUSE. 
 
 ### <a name="red-hat-customers"></a>Clientes da Red Hat
 
-1.    Preencha o formulário de pedido de pré-visualização acima
 1.    Registe-se com o [programa Red Hat Cloud Access](https://aka.ms/rhel-cloud-access)
 1.    Ativar as suas subscrições Azure para o Cloud Access e ativar as subscrições que contêm os VMs com que pretende utilizar o benefício
-1.    Aplique o benefício aos seus VM existentes, quer através do portal Azure, quer do Azure CLI
-1.    Opcional, registe os seus VMs que recebem o benefício com uma fonte separada de atualizações (os VMs comutados podem permanecer ligados ao [RHUI](../workloads/redhat/redhat-rhui.md) ou registados através do RHSM)
+1.    Aplique o benefício aos seus VM existentes, quer através do Azure CLI
+1.    Registe os seus VMs recebendo o benefício com uma fonte separada de atualizações
+
 
 ### <a name="suse-customers"></a>Clientes SUSE
 
-1.    Preencha o formulário de pedido de pré-visualização acima
 1.    Registe-se no programa SUSE Public Cloud
-1.    Aplique o benefício aos seus VM existentes, quer através do portal Azure, quer do Azure CLI
+1.    Aplique o benefício aos seus VM existentes, quer através do Azure CLI
 1.    Registe os seus VMs recebendo o benefício com uma fonte separada de atualizações
 
-### <a name="enable-and-disable-the-benefit-in-the-azure-portal"></a>Ativar e desativar o benefício no portal Azure
-
-Pode ativar o benefício nos VM existentes visitando a lâmina **de configuração** e seguindo os passos. Pode permitir o benefício em novos VMs durante a experiência de criação de VM.
 
 ### <a name="enable-and-disable-the-benefit-in-the-azure-cli"></a>Ativar e desativar o benefício no CLI Azure
 
@@ -109,12 +105,8 @@ az vm list -o json | jq '.[] | {VMName: .name, ResourceID: .id}'
 ```
 
 ## <a name="check-ahb-status-of-a-vm"></a>Verifique o estado AHB de um VM
-Pode ver o estado AHB de um VM de três formas: fazer o check-in no Portal, utilizando o Azure CLI ou utilizar o Serviço de Metadados de Instância Azure (Azure IMDS).
+Pode ver o estado AHB de um VM de duas formas: utilizar o Azure CLI ou utilizar o Serviço de Metadados de Instância Azure (Azure IMDS).
 
-
-### <a name="portal"></a>Portal
-
-Consulte a lâmina de configuração e verifique o estado do licenciamento para ver se a AHB está ativada para o seu VM.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
@@ -152,9 +144,7 @@ Esta secção contém uma lista de questões comuns que podem ser encontradas e 
 
 | Erro | Mitigação |
 | ----- | ---------- |
-| "A subscrição não está registada para a pré-visualização do Linux da Azure Hybrid Benefit. Para instruções passo a passo, consulte https://aka.ms/ahb-linux " | Preencha o formulário https://aka.ms/ahb-linux-form para se registar para a pré-visualização do Linux do Azure Hybrid Benefit.
 | "A ação não pôde ser concluída porque os nossos registos mostram que não habilitou com sucesso o Red Hat Cloud Access na sua subscrição do Azure...." | Para utilizar o benefício com os VMs RHEL, tem primeiro de registar as suas subscrições Azure com o Red Hat Cloud Access. Visite este link para saber mais sobre como registar as suas subscrições Azure para o Red Hat Cloud Access
-|"A opção para Azure Hybrid Benefit não aparece no portal" | Esta é uma questão conhecida para RHEL e SLES VMs criados a partir de Shared Image Gallery, Snapshots ou Captured PAYG Images. Neste caso, utilize os passos CLI descritos na secção "[Ative e desative o benefício no CLI Azure](#enable-and-disable-the-benefit-in-the-azure-cli)". Para visualizar o estado de AHB utilize o comando ` az vm get-instance-view -g MyResourceGroup -n MyVm` .|
 
 ## <a name="next-steps"></a>Passos seguintes
-* Começa com a pré-visualização preenchendo o formulário [aqui.](https://aka.ms/ahb-linux-form)
+* Saiba como criar e atualizar VMs e adicionar tipos de licença (RHEL_BYOS, SLES_BYOS) para Azure Hybrid Benefit usando [o Azure CLI aqui.](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest&preserve-view=true)

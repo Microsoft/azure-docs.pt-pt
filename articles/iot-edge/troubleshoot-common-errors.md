@@ -4,19 +4,19 @@ description: Utilize este artigo para resolver problemas comuns encontrados ao i
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 04/27/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ed93d24bc06a6622a8ace2b0ab6b44582da001c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 98ee865a3ddf6c26ffe9cb77767f3872b42018d8
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82783750"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442366"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -222,7 +222,7 @@ Quando vir este erro, pode resolvê-lo configurando o nome DNS da sua máquina v
    ![Configurar o nome DNS da máquina virtual](./media/troubleshoot/configure-dns.png)
 
 3. Forneça um valor para **a etiqueta de nome DNS** e selecione **Save**.
-4. Copie o novo nome DNS, que deve estar no formato ** \<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com.**
+4. Copie o novo nome DNS, que deve estar no formato **\<DNSnamelabel\> . \<vmlocation\> . cloudapp.azure.com.**
 5. Dentro da máquina virtual, utilize o seguinte comando para configurar o tempo de execução IoT Edge com o seu nome DNS:
 
    * Em Linux:
@@ -331,6 +331,25 @@ Se uma implementação automática atingir um dispositivo, tem prioridade sobre 
 Utilize apenas um tipo de mecanismo de implantação por dispositivo, seja uma implantação automática ou uma implantação individual do dispositivo. Se tiver várias implementações automáticas direcionadas para um dispositivo, pode alterar descrições prioritárias ou de destino para se certificar de que a correta se aplica a um determinado dispositivo. Também pode atualizar o dispositivo twin para deixar de corresponder à descrição do alvo da implementação automática.
 
 Para obter mais informações, consulte [as configurações automáticas Understand IoT Edge para dispositivos individuais ou à escala.](module-deployment-monitoring.md)
+
+<!-- <1.2> -->
+::: moniker range=">=iotedge-2020-11"
+
+## <a name="iot-edge-behind-a-gateway-cannot-perform-http-requests-and-start-edgeagent-module"></a>IoT Edge atrás de um gateway não pode executar pedidos HTTP e iniciar módulo edgeAgent
+
+**Comportamento observado:**
+
+O daemon IoT Edge está ativo com um ficheiro de configuração válido, mas não pode iniciar o módulo edgeAgent. O comando `iotedge list` devolve uma lista vazia. O relatório de registos de daemon ioT `Could not perform HTTP request` Edge.
+
+**Causa raiz:**
+
+Os dispositivos IoT Edge por trás de um gateway obtêm as suas imagens de módulo do dispositivo IoT Edge dos pais especificados no `parent_hostname` campo do ficheiro config.yaml. O `Could not perform HTTP request` erro significa que o dispositivo da criança não é capaz de chegar ao seu dispositivo principal através de HTTP.
+
+**Resolução:**
+
+Certifique-se de que o dispositivo IoT Edge dos pais pode receber pedidos de entrada do dispositivo IoT Edge da criança. Tráfego de rede aberto nas portas 443 e 6617 para pedidos provenientes do dispositivo infantil.
+
+:::moniker-end
 
 ## <a name="next-steps"></a>Passos seguintes
 

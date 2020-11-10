@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 508101ad615dd96559b1c68a61be7c08772545db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b77cc93385efb0bbb8a9b87d29de9bad5cd4ceb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80885485"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443335"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>App Daemon que chama APIs web - registo de aplicações
 
@@ -35,14 +35,14 @@ No caso de a sua aplicação de cliente confidencial utilizar *apenas* o fluxo d
 
 ## <a name="api-permissions---app-permissions-and-admin-consent"></a>Permissões API - permissões de aplicações e consentimento administrativo
 
-Um pedido daemon só pode solicitar permissões de pedido a APIs (não permissões delegadas). Na página de **permissões** da API para o registo da candidatura, depois de ter selecionado **Adicionar uma permissão** e escolher a família API, escolher **permissões de aplicação**e, em seguida, selecionar as suas permissões.
+Um pedido daemon só pode solicitar permissões de pedido a APIs (não permissões delegadas). Na página de **permissões** da API para o registo da candidatura, depois de ter selecionado **Adicionar uma permissão** e escolher a família API, escolher **permissões de aplicação** e, em seguida, selecionar as suas permissões.
 
 ![Permissões de aplicativos e consentimento administrativo](media/scenario-daemon-app/app-permissions-and-admin-consent.png)
 
 > [!NOTE]
 > A API web a que pretende chamar precisa de definir permissões de *aplicação (funções de aplicação)* e não permissões delegadas. Para obter detalhes sobre como expor tal API, consulte [a Protected web API: Registo de aplicações - quando a sua API web é chamada por uma app daemon](scenario-protected-web-api-app-registration.md#if-your-web-api-is-called-by-a-daemon-app).
 
-Os pedidos da Daemon exigem que um administrador de inquilino predemia o pedido chamando a API web. Os administradores de inquilinos fornecem este consentimento na mesma página **de permissão da API,** selecionando **o consentimento administrativo do Grant para a nossa *organização.* **
+Os pedidos da Daemon exigem que um administrador de inquilino predemia o pedido chamando a API web. Os administradores de inquilinos fornecem este consentimento na mesma página **de permissão da API,** selecionando **o consentimento administrativo do Grant para a nossa *organização.***
 
 Se você é um ISV construindo uma aplicação multitenant, você deve ler a secção [Implementação - caso de aplicações multitenantes de daemon](scenario-daemon-production.md#deployment---multitenant-daemon-apps).
 
@@ -50,5 +50,4 @@ Se você é um ISV construindo uma aplicação multitenant, você deve ler a sec
 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
-> [Daemon app - configuração de código de aplicação](./scenario-daemon-app-configuration.md)
+Passe para o próximo artigo neste cenário, [configuração do código de aplicação](./scenario-daemon-app-configuration.md).

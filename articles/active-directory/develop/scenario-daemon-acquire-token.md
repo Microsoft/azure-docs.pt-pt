@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 13000c5a61dc2c4d49aa395271beddef64d32245
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c13b6ed991403e65c4c4d71c964f1f7f4d1ffe7b
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88119220"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443318"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon app que chama APIs web - adquira um token
 
@@ -202,9 +202,9 @@ Para obter mais informações, consulte a documentação do protocolo: [platafor
 
 ## <a name="application-token-cache"></a>Cache de ficha de aplicação
 
-Em MSAL.NET, `AcquireTokenForClient` utiliza a cache simbólica de aplicação. (Todos os outros métodos AcquireToken*XX* utilizam a cache de ficha do utilizador.) Não ligue `AcquireTokenSilent` antes de `AcquireTokenForClient` ligar, porque `AcquireTokenSilent` utiliza o cache de ficha de *utilizador.* `AcquireTokenForClient` verifica a própria cache simbólica da *aplicação* e atualiza-a.
+Em MSAL.NET, `AcquireTokenForClient` utiliza a cache simbólica de aplicação. (Todos os outros métodos AcquireToken *XX* utilizam a cache de ficha do utilizador.) Não ligue `AcquireTokenSilent` antes de `AcquireTokenForClient` ligar, porque `AcquireTokenSilent` utiliza o cache de ficha de *utilizador.* `AcquireTokenForClient` verifica a própria cache simbólica da *aplicação* e atualiza-a.
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 ### <a name="did-you-use-the-resourcedefault-scope"></a>Usou o âmbito de recurso/.predefinido?
 
@@ -233,17 +233,14 @@ Content: {
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon app - chamando uma web API](./scenario-daemon-call-api.md?tabs=dotnet)
+Passe para o próximo artigo neste cenário, [Chamando uma API web](./scenario-daemon-call-api.md?tabs=dotnet).
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Daemon app - chamando uma web API](./scenario-daemon-call-api.md?tabs=python)
+Passe para o próximo artigo neste cenário, [Chamando uma API web](./scenario-daemon-call-api.md?tabs=python).
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon app - chamando uma web API](./scenario-daemon-call-api.md?tabs=java)
+Passe para o próximo artigo neste cenário, [Chamando uma API web](./scenario-daemon-call-api.md?tabs=java).
 
 ---

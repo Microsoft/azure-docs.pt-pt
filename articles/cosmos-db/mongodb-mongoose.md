@@ -9,12 +9,12 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: eab24c317513382afdd452843bc09e845ca90452
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8958699ae279d2613f8dbadca802ee2137407e75
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096500"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94442417"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ligue uma aplicação Node.js Mongoose à Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -82,7 +82,7 @@ Depois de criar a base de dados, usará o nome na `COSMOSDB_DBNAME` variável am
     ```JavaScript
    # You can get the following connection details from the Azure portal. You can find the details on the Connection string pane of your Azure Cosmos account.
 
-   COSMODDB_USER = "<Azure Cosmos account's user name, usually the database account name>"
+   COSMOSDB_USER = "<Azure Cosmos account's user name, usually the database account name>"
    COSMOSDB_PASSWORD = "<Azure Cosmos account password, this is one of the keys specified in your account>"
    COSMOSDB_DBNAME = "<Azure Cosmos database name>"
    COSMOSDB_HOST= "<Azure Cosmos Host name>"
@@ -93,7 +93,7 @@ Depois de criar a base de dados, usará o nome na `COSMOSDB_DBNAME` variável am
     ```JavaScript
    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
-        user: process.env.COSMODDB_USER,
+        user: process.env.COSMOSDB_USER,
         password: process.env.COSMOSDB_PASSWORD
       },
     useNewUrlParser: true,
@@ -198,7 +198,7 @@ Esta secção explora como conseguir isso com a API da Azure Cosmos DB para a Mo
 
 1. Agora, entrando no portal Azure, nota-se duas coleções criadas na Cosmos DB.
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js tutorial - Screenshot do portal Azure, mostrando como criar uma base de dados no Data Explorer para uma conta DB Azure Cosmos, para utilização com o módulo Nó Mongoose":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-mutliple-collections.png" alt-text="Node.js tutorial - Screenshot do portal Azure, mostrando uma conta DB Azure Cosmos, com vários nomes de coleção em destaque - Base de dados de nó":::
 
 1. Finalmente, vamos ler os dados da Cosmos DB. Uma vez que estamos a utilizar o modelo operativo Mongoose predefinido, as leituras são idênticas a quaisquer outras leituras com o Mongoose.
 
@@ -303,7 +303,7 @@ Aqui, vamos criar um modelo de objeto base, definir uma chave diferenciadora e a
 
 1. Agora, se voltar ao portal do Azure, poderá notar que tem apenas uma coleção chamada ```alldata``` com os dados de «Family» e «VacationDestinations».
 
-   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js tutorial - Screenshot do portal Azure, mostrando como criar uma base de dados no Data Explorer para uma conta DB Azure Cosmos, para utilização com o módulo Nó Mongoose":::
+   :::image type="content" source="./media/mongodb-mongoose/mongo-collections-alldata.png" alt-text="Node.js tutorial - Screenshot do portal Azure, mostrando uma conta DB Azure Cosmos, com o nome da coleção em destaque - Base de dados de nó":::
 
 1. Além disso, repare que cada objeto tem outro atributo denominado ```__type```, que ajuda a diferenciar entre os dois modelos de objeto diferentes.
 

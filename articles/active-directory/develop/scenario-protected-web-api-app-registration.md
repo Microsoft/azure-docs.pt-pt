@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a38e2384c5f24bc3a72e1ef8e8f7119b2db0f2f
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86518279"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94443947"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registo de aplicativos
 
@@ -31,7 +31,7 @@ O ponto final da plataforma de identidade da Microsoft pode emitir tokens v1.0 e
 
 A versão simbólica que a API pode aceitar depende da seleção **dos tipos de conta suportados** quando criar o registo de aplicação da API na Web no portal Azure.
 
-- Se o valor dos tipos de **conta suportado** for Contas em **qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)**, a versão token aceite deve ser v2.0.
+- Se o valor dos tipos de **conta suportado** for Contas em **qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** , a versão token aceite deve ser v2.0.
 - Caso contrário, a versão simbólica aceite pode ser v1.0.
 
 Depois de criar a aplicação, pode determinar ou alterar a versão simbólica aceita seguindo estes passos:
@@ -64,7 +64,7 @@ Durante o registo da aplicação, é necessário definir estes parâmetros:
 - Um ou mais âmbitos
 - Um ou mais papéis de aplicativo
 
-Por predefinição, o portal de registo de aplicações recomenda que utilize o recurso URI `api://{clientId}` . Este URI é único, mas não legível pelo homem. Se alterar o URI, certifique-se de que o novo valor é único. O portal de registo de aplicações garantirá que utiliza um [domínio de editor configurado](howto-configure-publisher-domain.md)
+Por predefinição, o portal de registo de aplicações recomenda que utilize o recurso URI `api://{clientId}` . Este URI é único, mas não legível pelo homem. Se alterar o URI, certifique-se de que o novo valor é único. O portal de registo de aplicações garantirá a utilização de um [domínio de editor configurado.](howto-configure-publisher-domain.md)
 
 Para as aplicações do cliente, os âmbitos aparecem como *permissões delegadas* e as funções de aplicação aparecem como permissões de *aplicação* para a sua API web.
 
@@ -139,7 +139,7 @@ Para adicionar esta segurança aumentada:
    > Quando selecionar este link, aceda à página **'Visão Geral da Aplicação da Empresa'.** Esta página está associada ao principal de serviço para a sua candidatura no arrendatário onde a criou. Pode ir à página de registo da aplicação utilizando o botão de trás do seu navegador.
 
 1. Selecione a página **Propriedades** na secção **Gerir** as páginas de aplicação da Enterprise.
-1. Se deseja que o AZure AD permita o acesso à sua API web **Yes**a partir de apenas determinados clientes, desemocupe **a atribuição do Utilizador necessária?**
+1. Se deseja que o AZure AD permita o acesso à sua API web **Yes** a partir de apenas determinados clientes, desemocupe **a atribuição do Utilizador necessária?**
 
    > [!IMPORTANT]
    >
@@ -153,5 +153,4 @@ Para adicionar esta segurança aumentada:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
-> [Configuração do código de aplicação](scenario-protected-web-api-app-configuration.md)
+Passe para o próximo artigo neste cenário, [configuração do código de aplicação](scenario-protected-web-api-app-configuration.md).
