@@ -37,7 +37,7 @@ Utilize este procedimento para configurar o Carteiro e, em seguida, leia cada se
 
 1. A partir da página **Definições** da base de conhecimento, selecione o **separador Carteiro** para ver a configuração utilizada para gerar uma resposta a partir da base de conhecimento. Copie as seguintes informações para usar no Carteiro.
 
-    |Name|Definição|Finalidade e valor|
+    |Nome|Definição|Finalidade e valor|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Este é o método HTTP e rota para o URL.|
     |`Host`|`https://YOUR-RESOURCE_NAME.azurewebsites.net/qnamaker`|Este é o anfitrião da URL. Concatenate os valores de Anfitrião e Post para obter o URL completo de 200% gerado.|
@@ -55,7 +55,7 @@ Utilize este procedimento para configurar o Carteiro e, em seguida, leia cada se
 
 1. A partir da página **Definições** da base de conhecimento, selecione o **separador Carteiro** para ver a configuração utilizada para gerar uma resposta a partir da base de conhecimento. Copie as seguintes informações para usar no Carteiro.
 
-    |Name|Definição|Finalidade e valor|
+    |Nome|Definição|Finalidade e valor|
     |--|--|--|
     |`POST`| `/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer`|Este é o método HTTP e rota para o URL.|
     |`Host`|`https://YOUR-RESOURCE_NAME.cognitiveservices.azure.com/qnamaker`|Este é o anfitrião da URL. Concatenate os valores de Anfitrião e Post para obter o URL completo de 200% gerado.|

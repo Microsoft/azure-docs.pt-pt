@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 48a822adc34019ca2f6a39aa70211cae7fbf6030
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 1abbabd3c231a70ca473c4b64e9a8c75d2119c89
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289889"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445528"
 ---
 # <a name="azure-security-baseline-for-key-vault"></a>Linha de Base de Segurança do Azure para o Key Vault
 
@@ -344,7 +344,7 @@ https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: Alterar palavras-passe padrão quando aplicável
 
-**Orientação** : Não aplicável; O Azure Key Vault não tem o conceito de palavras-passe padrão, uma vez que a autenticação é fornecida pelo Ative Directory e protegida com controlo de acesso baseado em Role.
+**Orientação** : Não aplicável; O Azure Key Vault não tem o conceito de palavras-passe padrão, uma vez que a autenticação é fornecida pelo Ative Directory e assegurada com o controlo de acesso baseado em funções Azure (Azure RBAC).
 
 
 **Monitorização do Centro de Segurança Azure** : Não aplicável
@@ -445,7 +445,7 @@ Qual é a condição de localização no Azure Ative Directy Conditional Access?
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Utilizar o Diretório Ativo Azure
 
-**Orientação** : Utilize o Azure Ative Directory (Azure AD) como o sistema central de autenticação e autorização para recursos Azure, como o Key Vault. Isto permite que o controlo de acesso baseado em funções (RBAC) administrar recursos sensíveis.
+**Orientação** : Utilize o Azure Ative Directory (Azure AD) como o sistema central de autenticação e autorização para recursos Azure, como o Key Vault. Isto permite que o controlo de acesso baseado em funções (Azure RBAC) administrar recursos sensíveis.
 
  
 

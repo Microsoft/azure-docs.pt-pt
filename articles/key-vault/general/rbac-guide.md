@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f3775e73ce8f152fe39bc8170bbeba054f856630
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: be2fa0fa85da7c0f02567580c50968b7418e4cde
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286600"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445188"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)
 
@@ -79,11 +79,11 @@ Para adicionar atribuições de funções, você deve ter:
 
 1.  Ativar permissões Azure RBAC em novo cofre chave:
 
-    ![Ativar permissões RBAC - novo cofre](../media/rbac/image-1.png)
+    ![Ativar permissões Azure RBAC - novo cofre](../media/rbac/image-1.png)
 
 2.  Ativar permissões Azure RBAC no cofre de chaves existente:
 
-    ![Ativar permissões RBAC - cofre existente](../media/rbac/image-2.png)
+    ![Ativar permissões Azure RBAC - cofre existente](../media/rbac/image-2.png)
 
 ### <a name="assign-role"></a>Atribuir função
 
@@ -224,7 +224,7 @@ Para obter mais informações sobre como criar funções personalizadas, consult
 
 -   Funitências latência: no desempenho esperado atual, levará até 10 minutos (600 segundos) após a alteração das atribuições de funções para que o papel seja aplicado
 
-## <a name="learn-more"></a>Saber mais
+## <a name="learn-more"></a>Saiba mais
 
 - [Visão geral do Azure RBAC](../../role-based-access-control/overview.md)
 - [Tutorial de Papéis Personalizados](../../role-based-access-control/tutorial-custom-role-cli.md)

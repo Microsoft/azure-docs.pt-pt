@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4a522e58677e2c71cb52ad7e04b288622ad62d91
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3d959cccd4fbce24e36b1ed62bc6bf417af23c82
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287330"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445511"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Melhores práticas para usar o Cofre-Chave
 
@@ -24,7 +24,7 @@ ms.locfileid: "93287330"
 Azure Key Vault é um serviço de nuvem que protege chaves de encriptação e segredos como certificados, cadeias de conexão e senhas. Como estes dados são sensíveis e críticos do negócio, é necessário garantir o acesso aos cofres das chaves, permitindo apenas aplicações e utilizadores autorizados. Este [artigo](secure-your-key-vault.md) fornece uma visão geral do modelo de acesso ao Cofre de Chaves. Explica a autenticação e a autorização e descreve como garantir o acesso aos cofres das chaves.
 
 As sugestões ao controlar o acesso ao seu cofre são as seguintes:
-1. Bloqueie o acesso à sua subscrição, grupo de recursos e Cofres-Chave (RBAC)
+1. Bloqueie o acesso à sua subscrição, grupo de recursos e Cofres chave (Azure RBAC)
 2. Crie políticas de acesso para cada abóbada
 3. Use o menor acesso privilegiado principal para conceder acesso
 4. Ligue os [pontos finais do serviço](overview-vnet-service-endpoints.md) Firewall e VNET

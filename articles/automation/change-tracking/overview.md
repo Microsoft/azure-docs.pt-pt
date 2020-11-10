@@ -3,14 +3,14 @@ title: Rastreio de alteração de alteração de automação Azure e visão gera
 description: Este artigo descreve a funcionalidade De Rastreio e Inventário de Alterações, que o ajuda a identificar o software e as alterações de serviço da Microsoft no seu ambiente.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/26/2020
+ms.date: 11/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b5390e4b3dc6d77390c3fca6323cbd52544c638a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130345"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445426"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Alterar rastreio e visão geral do inventário
 
@@ -62,6 +62,16 @@ O Change Tracking and Inventory é suportado em todos os sistemas operativos que
 
 Para compreender os requisitos do cliente para tLS 1.2, consulte [a aplicação TLS 1.2 para a Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
+### <a name="python-requirement"></a>Requisito de Python
+
+O Change Tracking and Inventory só suporta o Python2. Se a sua máquina estiver a utilizar um distro que não inclua python 2 por defeito, então deve instalá-lo. Os seguintes comandos de amostra instalarão Python 2 em diferentes distros.
+
+- Chapéu Vermelho, CentOS, Oráculo: `yum install -y python2`
+- Ubuntu, Debian: `apt-get install -y python2`
+- SUSE: `zypper install -y python2`
+
+O python2 executável deve ser aliasado a *pitão.*
+
 ## <a name="network-requirements"></a>Requisitos de rede
 
 São necessários os seguintes endereços especificamente para o Rastreio de Alterações e Inventário. A comunicação a estes endereços ocorre sobre o porto 443.
@@ -73,7 +83,7 @@ São necessários os seguintes endereços especificamente para o Rastreio de Alt
 |*.blob.core.windows.net | *.blob.core.usgovcloudapi.net|
 |*.azure-automation.net | *.azure-automation.us|
 
-Quando criar regras de segurança do grupo de rede ou configurar o Azure Firewall para permitir o tráfego para o serviço de Automação e para o espaço de trabalho Log Analytics, utilize a [etiqueta de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor** . Isto simplifica a gestão contínua das suas regras de segurança de rede. Para ligar ao serviço Demômes a partir dos seus VMs Azure de forma segura e privada, reveja [o Link Privado Use Azure](../how-to/private-link-security.md). Para obter a etiqueta de serviço atual e informações de alcance para incluir como parte das configurações de firewall no local, consulte [ficheiros JSON descarregados](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
+Quando criar regras de segurança do grupo de rede ou configurar o Azure Firewall para permitir o tráfego para o serviço de Automação e para o espaço de trabalho Log Analytics, utilize a [etiqueta de serviço](../../virtual-network/service-tags-overview.md#available-service-tags) **GuestAndHybridManagement** e **AzureMonitor**. Isto simplifica a gestão contínua das suas regras de segurança de rede. Para ligar ao serviço Demômes a partir dos seus VMs Azure de forma segura e privada, reveja [o Link Privado Use Azure](../how-to/private-link-security.md). Para obter a etiqueta de serviço atual e informações de alcance para incluir como parte das configurações de firewall no local, consulte [ficheiros JSON descarregados](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
 ## <a name="enable-change-tracking-and-inventory"></a>Ativar o Controlo de Alterações e Inventário
 
@@ -108,8 +118,8 @@ O Change Tracking and Inventory permite monitorizar as alterações nas chaves d
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Monitoriza os scripts que funcionam no encerramento.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Monitoriza as teclas que são carregadas antes do utilizador entrar na conta do Windows. A chave é usada para aplicações de 32 bits em computadores de 64 bits.
 > |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Monitorize alterações nas definições de aplicações.
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitoriza os manipuladores de menus de contexto que se ligam diretamente ao Windows Explorer e normalmente executam em processo com **explorer.exe** .
-> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora manipuladores de ganchos de cópia que se ligam diretamente ao Windows Explorer e normalmente executam em processo com **explorer.exe** .
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitoriza os manipuladores de menus de contexto que se ligam diretamente ao Windows Explorer e normalmente executam em processo com **explorer.exe**.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitora manipuladores de ganchos de cópia que se ligam diretamente ao Windows Explorer e normalmente executam em processo com **explorer.exe**.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitores para o registo do manipulador de sobreposição de ícones.
 > |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitores para o registo do manipulador de sobreposição de ícones para aplicações de 32 bits em computadores de 64 bits.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitores para novos plugins de objetos de ajuda ao navegador para o Internet Explorer. Utilizado para aceder ao Modelo de Objeto de Documento (DOM) da página atual e para controlar a navegação.
@@ -127,7 +137,7 @@ O Change Tracking and Inventory suporta a recursão, que permite especificar wil
 
 - Wildcards são necessários para rastrear vários ficheiros.
 
-- Só pode utilizar wildcards no último segmento de um percurso de ficheiro, por exemplo, **\\ c:\ficheiro de pasta** _ ou _ */etc/* .conf**.
+- Só pode utilizar wildcards no último segmento de um percurso de ficheiro, por exemplo, **\\ c:\ficheiro de pasta** _ ou _ */etc/*.conf**.
 
 - Se uma variável ambiental tem um caminho inválido, a validação tem sucesso, mas o caminho falha durante a execução.
 
@@ -162,7 +172,7 @@ O uso médio de dados do Log Analytics para uma máquina que utiliza o Change Tr
 
 ### <a name="microsoft-service-data"></a>Dados do serviço da Microsoft
 
-A frequência de recolha padrão dos serviços da Microsoft é de 30 minutos. Pode configurar a frequência utilizando um slider no separador **de serviços** da Microsoft em **Definições de Edição** .
+A frequência de recolha padrão dos serviços da Microsoft é de 30 minutos. Pode configurar a frequência utilizando um slider no separador **de serviços** da Microsoft em **Definições de Edição**.
 
 ![Slider de serviços da Microsoft](./media/overview/windowservices.png)
 

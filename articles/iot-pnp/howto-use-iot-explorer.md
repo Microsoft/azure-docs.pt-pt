@@ -1,30 +1,30 @@
 ---
 title: Instale e utilize o explorador Azure IoT ! Microsoft Docs
-description: Instale a ferramenta exploradora Azure IoT e utilize-a para interagir com os dispositivos IoT Plug and Play ligados ao hub IoT.
-author: rido-min
-ms.author: rmpablos
-ms.date: 09/23/2020
+description: Instale a ferramenta exploradora Azure IoT e utilize-a para interagir com dispositivos IoT Plug e Play ligados ao hub IoT. Embora este artigo se concentre em trabalhar com dispositivos IoT Plug e Play, pode utilizar a ferramenta com qualquer dispositivo ligado ao seu hub.
+author: dominicbetts
+ms.author: dobett
+ms.date: 11/10/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: bf68bdafbb8b6fde187a2d787bb5464e5ece4cb2
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.custom: contperfq2
+ms.openlocfilehash: 8482ba608ee5fcefb006234b339cd9b711a38020
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019159"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445307"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Instale e utilize o explorador Azure IoT
 
-O explorador Azure IoT é uma ferramenta gráfica para interagir e testar os seus dispositivos IoT Plug e Play. Depois de instalar a ferramenta na sua máquina local, pode usá-la para ligar a um hub. Pode utilizar a ferramenta para visualizar a telemetria que os dispositivos estão a enviar, trabalhar com as propriedades do dispositivo e invocar comandos.
+O explorador Azure IoT é uma ferramenta gráfica para interagir com dispositivos ligados ao seu hub IoT. Este artigo centra-se na utilização da ferramenta para testar os seus dispositivos IoT Plug e Play. Depois de instalar a ferramenta na sua máquina local, pode usá-la para ligar a um hub. Pode utilizar a ferramenta para visualizar a telemetria que os dispositivos estão a enviar, trabalhar com as propriedades do dispositivo e invocar comandos.
 
 Este artigo mostra-lhe como:
 
 - Instale e configuure a ferramenta exploradora Azure IoT.
-- Utilize a ferramenta para interagir e testar os seus dispositivos.
+- Utilize a ferramenta para interagir e testar os seus dispositivos IoT Plug e Play.
 
-## <a name="prerequisites"></a>Pré-requisitos
+Para obter informações mais gerais sobre a utilização da ferramenta, consulte a [leitura](https://github.com/Azure/azure-iot-explorer/blob/master/README.md)do GitHub .
 
 Para utilizar a ferramenta exploradora Azure IoT, precisa:
 
@@ -40,7 +40,7 @@ Vá ao [Azure IoT explorer lança](https://github.com/Azure/azure-iot-explorer/r
 
 ## <a name="use-azure-iot-explorer"></a>Use o explorador Azure IoT
 
-Para um dispositivo, pode ligar o seu próprio dispositivo ou utilizar um dos dispositivos simulados da amostra. Siga [estas instruções](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) para executar a amostra do dispositivo simulado.
+Para um dispositivo, pode ligar o seu próprio dispositivo ou utilizar um dos dispositivos simulados da amostra. Para alguns dispositivos simulados, por exemplo, escritos em diferentes idiomas, consulte a [aplicação de dispositivo ioT plug e play de amostra para](quickstart-connect-device-node.md) arranques rápidos do IoT Hub.
 
 ### <a name="connect-to-your-hub"></a>Ligue-se ao seu hub
 
@@ -78,7 +78,7 @@ Na página da lista **de Dispositivos,** selecione um valor na coluna **de ident
 
 ### <a name="device"></a>Dispositivo
 
-Esta secção inclui a Identidade do **Dispositivo**, **Dispositivo Twin,** **Telemetria,** **Método Direto,** **Mensagem Nuvem-dispositivo,** Separadores **de Identidade do Módulo.**
+Esta secção inclui a Identidade do **Dispositivo** , **Dispositivo Twin,** **Telemetria,** **Método Direto,** **Mensagem Nuvem-dispositivo,** Separadores **de Identidade do Módulo.**
 
 - Pode visualizar e atualizar as informações de identidade do [dispositivo](../iot-hub/iot-hub-devguide-identity-registry.md) no **separador identidade do Dispositivo.**
 - Pode aceder ao dispositivo com informações [duplas](../iot-hub/iot-hub-devguide-device-twins.md) no **separador Device Twin.**
@@ -89,7 +89,7 @@ Esta secção inclui a Identidade do **Dispositivo**, **Dispositivo Twin,** **Te
 
 ### <a name="iot-plug-and-play-components"></a>Componentes IoT Plug e Play
 
-Se o dispositivo estiver ligado ao hub utilizando um **Model ID,** a ferramenta mostra o separador **'' dos componentes IoT Plug and Play** '' onde pode ver o **ID**do modelo .
+Se o dispositivo estiver ligado ao hub utilizando um **Model ID,** a ferramenta mostra o separador **de componentes IoT Plug and Play** onde pode ver o **ID** do modelo .
 
 Se o **ID** do Modelo estiver disponível numa das fontes configuradas - Repo Público ou Pasta Local, a lista de componentes é apresentada. A seleção de um componente mostra as propriedades, comandos e telemetria disponíveis.
 
@@ -99,7 +99,7 @@ Na página **'Componente',** pode ver as propriedades apenas de leitura, atualiz
 
 #### <a name="properties"></a>Propriedades
 
-:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Ver componentes no explorador Azure IoT":::
+:::image type="content" source="media/howto-use-iot-explorer/properties-iot-explorer.png" alt-text="Ver propriedades no explorador Azure IoT":::
 
 Pode ver as propriedades apenas de leitura definidas numa interface no **separador Propriedades (apenas para leitura).** Pode atualizar as propriedadesificáveis definidas numa interface no **separador Propriedades (writable):**
 
@@ -109,7 +109,7 @@ Pode ver as propriedades apenas de leitura definidas numa interface no **separad
 1. Pré-visualizar a carga útil a enviar para o dispositivo.
 1. Submeta a mudança.
 
-Depois de submeter uma alteração, pode acompanhar o estado de atualização: **sincronização,** **sucesso**ou **erro**. Quando a sincronização estiver concluída, vê o novo valor do seu imóvel na coluna **Propriedade Reportada.** Se navegar para outras páginas antes de a sincronização terminar, a ferramenta ainda o notifica quando a atualização estiver concluída. Também pode utilizar o centro de notificação da ferramenta para ver o histórico de notificações.
+Depois de submeter uma alteração, pode acompanhar o estado de atualização: **sincronização,** **sucesso** ou **erro**. Quando a sincronização estiver concluída, vê o novo valor do seu imóvel na coluna **Propriedade Reportada.** Se navegar para outras páginas antes de a sincronização terminar, a ferramenta ainda o notifica quando a atualização estiver concluída. Também pode utilizar o centro de notificação da ferramenta para ver o histórico de notificações.
 
 #### <a name="commands"></a>Comandos
 
@@ -126,13 +126,7 @@ Para visualizar a telemetria para a interface selecionada, aceda ao separador **
 
 #### <a name="known-issues"></a>Problemas Conhecidos
 
-- Suporte IoT Edge: A versão atual não mostra dispositivos IoT Edge na lista de dispositivos.
-- Características linguísticas DTDL: IoT Explorer 0.12.x não está totalmente em conformidade com dTDL v2, características não suportadas incluem:
-  - Herança de interface com `extends`
-  - Mapa no mapa (mapa aninhado)
-  - Tipo de matriz
-  - Esquemas personalizados
-  - Tipos semânticos personalizados
+Para obter uma lista das funcionalidades IoT suportadas pela versão mais recente da ferramenta, consulte a [lista de funcionalidades.](https://github.com/Azure/azure-iot-explorer/wiki)
 
 ## <a name="next-steps"></a>Passos seguintes
 

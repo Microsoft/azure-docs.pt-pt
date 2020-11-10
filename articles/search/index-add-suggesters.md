@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ed7b61e9e0379462e0dfbcdcc93acfccf470d95f
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 498934c01970b296c1491e7ccd36ad947324306a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427042"
+ms.locfileid: "94445341"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Crie um sugestivo para permitir resultados autocompletos e sugeridos numa consulta
 
@@ -26,9 +26,9 @@ A imagem a seguir da Criação da [sua primeira aplicação em C#](tutorial-csha
 
 Pode utilizar estas funcionalidades separadamente ou em conjunto. Para implementar estes comportamentos na Azure Cognitive Search, existe um componente de índice e consulta. 
 
-+ No índice, adicione um sugestivo a um índice. Pode utilizar o portal, [Criar Índice (REST)(/rest/api/searchservice/create-index), ou uma [propriedade de sugestivos](/dotnet/api/azure.search.documents.indexes.models.searchindex.suggesters). O restante deste artigo está focado em criar um sugestivo.
++ Adicione um sugestivo a uma definição de índice de pesquisa. O restante deste artigo está focado em criar um sugestivo.
 
-+ No pedido de consulta, ligue para uma das [APIs listadas abaixo](#how-to-use-a-suggester).
++ Ligue para uma consulta habilitada a sugerir, sob a forma de um pedido de sugestão ou de um pedido de auto-preencha, utilizando uma das [APIs listadas abaixo](#how-to-use-a-suggester).
 
 O suporte do tipo search-as-you é ativado numa base por campo para campos de cordas. Pode implementar ambos os comportamentos de tipa dentro da mesma solução de pesquisa se quiser uma experiência semelhante à indicada na imagem. Ambos os pedidos visam a recolha de *documentos* de índice específico e as respostas são devolvidas depois de um utilizador ter fornecido pelo menos uma cadeia de entrada de três caracteres.
 
@@ -36,9 +36,9 @@ O suporte do tipo search-as-you é ativado numa base por campo para campos de co
 
 Um sugestivo é uma estrutura de dados interna que suporta comportamentos de pesquisa como você-tipo, armazenando prefixos para combinar em consultas parciais. Tal como acontece com os termos simbólicos, os prefixos são armazenados em índices invertidos, um para cada campo especificado numa recolha de campos sugestivos.
 
-## <a name="define-a-suggester"></a>Defina um sugestivo
+## <a name="how-to-create-a-suggester"></a>Como criar um sugestivo
 
-Para criar um sugestivo, adicione um a um [esquema de índice](/rest/api/searchservice/create-index) e [desemote cada propriedade](#property-reference). A melhor altura para criar um sugestivo é quando também está a definir o campo que o utilizará.
+Para criar um sugestivo, adicione um a uma [definição de índice](/rest/api/searchservice/create-index). Um sugestivo obtém um nome e uma coleção de campos sobre os quais a experiência typeahead está ativada. e [definir cada propriedade](#property-reference). A melhor altura para criar um sugestivo é quando também está a definir o campo que o utilizará.
 
 + Use apenas campos de cordas
 
@@ -60,12 +60,22 @@ Para satisfazer ambas as experiências de pesquisa como você, adicione todos os
 
 A sua escolha de um analisador determina como os campos são tokenizados e posteriormente pré-fixados. Por exemplo, para uma corda hifenizada como "sensível ao contexto", usar um analisador de linguagem resultará nestas combinações simbólicas: "contexto", "sensível", "sensível ao contexto". Se tivesses usado o analisador padrão lucene, a corda hifenizada não existiria. 
 
-Ao avaliar os analisadores, considere a utilização da [API de Texto de Análise](/rest/api/searchservice/test-analyzer) para obter uma visão de como os termos são tokenizados e posteriormente pré-fixados. Uma vez que você constrói um índice, você pode experimentar vários analisadores em uma cadeia para visualizar a saída de token.
+Ao avaliar os analisadores, considere a utilização da [API de Texto de Análise](/rest/api/searchservice/test-analyzer) para obter informações sobre a forma como os termos são processados. Uma vez que você constrói um índice, você pode experimentar vários analisadores em uma cadeia para visualizar a saída de token.
 
 Os campos que utilizam [analisadores personalizados](index-add-custom-analyzers.md) ou [analisadores predefinidos](index-add-custom-analyzers.md#predefined-analyzers-reference) (com exceção do Lucene padrão) são explicitamente proibidos para evitar maus resultados.
 
 > [!NOTE]
 > Se precisar de trabalhar em torno da restrição do analisador, por exemplo, se precisar de uma palavra-chave ou de um analisador de ngram para determinados cenários de consulta, deve utilizar dois campos separados para o mesmo conteúdo. Isto permitirá que um dos campos tenha um sugestivo, enquanto o outro pode ser configurado com uma configuração de analisador personalizado.
+
+## <a name="create-using-the-portal"></a>Criar usando o portal
+
+Ao utilizar **o Add Index** ou o assistente de **dados de importação** para criar um índice, tem a opção de ativar um sugestivo:
+
+1. Na definição de índice, insira um nome para o sugestivo.
+
+1. Em cada definição de campo para novos campos, selecione uma caixa de verificação na coluna Suggester. Uma caixa de verificação está disponível apenas em campos de cordas. 
+
+Como anteriormente notado, a escolha do analisador tem impacto na tokenização e na prefixo. Considere toda a definição de campo ao permitir sugestivos. 
 
 ## <a name="create-using-rest"></a>Criar usando REST
 
@@ -131,9 +141,9 @@ private static void CreateIndex(string indexName, SearchIndexClient indexClient)
 
 |Propriedade      |Descrição      |
 |--------------|-----------------|
-|`name`        |O nome do sugestivo.|
-|`searchMode`  |A estratégia usada para procurar frases de candidato. O único modo atualmente suportado é `analyzingInfixMatching` , que atualmente corresponde ao início de um mandato.|
-|`sourceFields`|Uma lista de um ou mais campos que são a fonte do conteúdo para sugestões. Os campos devem ser do tipo `Edm.String` `Collection(Edm.String)` e. Se um analisador for especificado no campo, deve ser um analisador nomeado [desta lista](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (não um analisador personalizado).<p/> Como uma boa prática, especifique apenas os campos que se prestam a uma resposta esperada e apropriada, seja uma corda completa em uma barra de pesquisa ou uma lista de abandono.<p/>Um nome de hotel é um bom candidato porque tem precisão. Campos verbosos como descrições e comentários são demasiado densos. Da mesma forma, os campos repetitivos, como categorias e etiquetas, são menos eficazes. Nos exemplos, incluímos "categoria" de qualquer forma para demonstrar que pode incluir vários campos. |
+|`name`        | Especificado na definição de sugestivo, mas também solicitado por um pedido de Autocomplete ou Sugestões. |
+|`sourceFields`| Especificado na definição de sugestivo. É uma lista de um ou mais campos no índice que são a fonte do conteúdo para sugestões. Os campos devem ser do tipo `Edm.String` `Collection(Edm.String)` e. Se um analisador for especificado no campo, deve ser um analisador lexical nomeado [desta lista](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername) (não um analisador personalizado).<p/> Como uma boa prática, especifique apenas os campos que se prestam a uma resposta esperada e apropriada, seja uma corda completa em uma barra de pesquisa ou uma lista de abandono.<p/>Um nome de hotel é um bom candidato porque tem precisão. Campos verbosos como descrições e comentários são demasiado densos. Da mesma forma, os campos repetitivos, como categorias e etiquetas, são menos eficazes. Nos exemplos, incluímos "categoria" de qualquer forma para demonstrar que pode incluir vários campos. |
+|`searchMode`  | Parâmetro apenas para o DESCANSO, mas também visível no portal. Este parâmetro não está disponível no .NET SDK. Indica a estratégia usada para procurar frases de candidato. O único modo atualmente suportado é `analyzingInfixMatching` , que atualmente corresponde ao início de um mandato.|
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -160,7 +170,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## <a name="sample-code"></a>Código de exemplo
 
-+ [Crie a sua primeira aplicação em C# (lição 3 - Adicione a amostra de pesquisa-como-o-tipo)](tutorial-csharp-type-ahead-and-suggestions.md) demonstra uma construção sugestiva, consultas sugeridas, autocomplete e navegação frontal. Esta amostra de código funciona num serviço de pesquisa cognitiva Azure e utiliza um índice de Hotéis pré-carregados, por isso tudo o que tem de fazer é pressionar f5 para executar a aplicação. Não é necessária nenhuma subscrição ou inscrição.
++ [Crie a sua primeira aplicação em C# (lição 3 - Adicione a amostra de pesquisa-como-o-tipo)](tutorial-csharp-type-ahead-and-suggestions.md) demonstra consultas sugeridas, navegação autocompleta e frontal. Esta amostra de código funciona num serviço de pesquisa cognitiva Azure e utiliza um índice de Hotéis pré-carregado com um sugestivo já criado, por isso tudo o que tem de fazer é pressionar f5 para executar a aplicação. Não é necessária nenhuma subscrição ou inscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 

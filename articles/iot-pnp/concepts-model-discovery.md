@@ -7,12 +7,12 @@ ms.date: 07/23/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: caaa4499cbed1dce1a858c33a9488650649a5a44
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: dda0e3d6739e94df4ce5910938c164e3db336bce
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042920"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445579"
 ---
 # <a name="use-iot-plug-and-play-models-in-an-iot-solution"></a>Use modelos IoT Plug e Play numa solução IoT
 
@@ -121,7 +121,7 @@ As soluções podem usar o [repositório do modelo](concepts-model-repository.md
 
 Depois de identificar o ID do modelo para uma nova ligação ao dispositivo, siga estes passos:
 
-1. Recupere a definição do modelo utilizando o ID do modelo a partir do repositório do modelo. Para mais informações, consulte [Get Models](/rest/api/iothub/digitaltwinmodelrepositoryservice/getmodelasync/getmodelasync).
+1. Recupere a definição do modelo utilizando o ID do modelo a partir do repositório do modelo. Para obter mais informações, consulte [o Repositório do Modelo do Dispositivo.](concepts-model-repository.md)
 
 1. Utilizando a definição de modelo do dispositivo conectado, pode enumerar as capacidades do dispositivo.
 

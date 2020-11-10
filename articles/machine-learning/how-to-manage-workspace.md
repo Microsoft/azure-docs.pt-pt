@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: ab3f3765a0e988c7e93cca5782b47b3f2d32aef4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312555"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445630"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerir espaços de trabalho de aprendizagem automática Azure 
 
@@ -130,7 +130,7 @@ Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenti
    Nome da área de trabalho |Insira um nome único que identifique o seu espaço de trabalho. Neste exemplo, **usamos docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de recordar e diferenciar dos espaços de trabalho criados por outros. O nome do espaço de trabalho é insensível a caso.
    Subscrição |Selecione a subscrição do Azure que pretende utilizar.
    Grupo de recursos | Utilize um grupo de recursos já existente na sua subscrição ou introduza um nome para criar um grupo de recursos novo. Um grupo de recursos detém recursos relacionados para uma solução Azure. Neste exemplo, **usamos docs-aml**. Precisa de *um colaborador* ou de um *papel proprietário* para utilizar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [Gerir o acesso a um espaço de trabalho Azure Machine Learning.](how-to-assign-roles.md)
-   Region | Selecione a região Azure mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.
+   Região | Selecione a região Azure mais próxima dos seus utilizadores e os recursos de dados para criar o seu espaço de trabalho.
 
     ![Configure o seu espaço de trabalho](./media/how-to-manage-workspace/create-workspace-form.png)
 
@@ -147,7 +147,7 @@ Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenti
  
 ---
 
-### <a name="networking"></a>Rede  
+### <a name="networking"></a>Redes  
 
 > [!IMPORTANT]  
 > Para obter mais informações sobre a utilização de um ponto final privado e rede virtual com o seu espaço de trabalho, consulte [o isolamento e privacidade da Rede.](how-to-network-security-overview.md)
@@ -181,7 +181,7 @@ Quando cria um ponto final privado, é criada uma nova Zona Privada de DNS chama
 
 1. No [portal Azure,](https://portal.azure.com)selecione o grupo de recursos que contém o espaço de trabalho. Em seguida, selecione o recurso Private DNS Zone nomeado __privatelink.api.azureml.ms__
 2. Nas __Definições__ , selecione __links de rede virtual__.
-3. Selecione __Add__ (Adicionar). A partir da página __de link de rede virtual Add,__ forneça um nome __link__ único e, em seguida, selecione a __rede Virtual__ a ser adicionada. Selecione __OK__ para adicionar a ligação de rede.
+3. Selecione __Adicionar__. A partir da página __de link de rede virtual Add,__ forneça um nome __link__ único e, em seguida, selecione a __rede Virtual__ a ser adicionada. Selecione __OK__ para adicionar a ligação de rede.
 
 Para obter mais informações, consulte [a configuração do DNS do Ponto Final Privado Azure](../private-link/private-endpoint-dns.md).
 
@@ -193,7 +193,7 @@ O Centro de Segurança do Azure oferece gestão de segurança unificada e prote�
 
 Por padrão, as métricas e metadados para o espaço de trabalho são armazenados num caso DB Azure Cosmos que a Microsoft mantém. Estes dados são encriptados utilizando as teclas geridas pela Microsoft.
 
-Para limitar os dados que a Microsoft recolhe no seu espaço de trabalho, selecione __High business impact workspace__ no portal, ou definido `hbi_workspace=true ` em Python. Para obter mais informações sobre esta definição, consulte [a encriptação em repouso](concept-enterprise-security.md#encryption-at-rest).
+Para limitar os dados que a Microsoft recolhe no seu espaço de trabalho, selecione __High business impact workspace__ no portal, ou definido `hbi_workspace=true ` em Python. Para obter mais informações sobre esta definição, consulte [a encriptação em repouso](concept-data-encryption.md#encryption-at-rest).
 
 > [!IMPORTANT]  
 > A seleção de um impacto de alto negócio só pode ser feita quando se cria um espaço de trabalho. Não é possível alterar esta definição após a criação do espaço de trabalho.   
@@ -355,11 +355,11 @@ No [portal Azure,](https://portal.azure.com/) **selecione Delete**  na parte sup
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 ### <a name="resource-provider-errors"></a>Erros do fornecedor de recursos
 

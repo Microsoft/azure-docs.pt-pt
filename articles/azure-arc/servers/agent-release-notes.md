@@ -2,13 +2,13 @@
 title: Novidades com o agente de servidores Azure Arc
 description: Este artigo tem notas de lançamento para o agente de servidores ativado pelo Azure Arc. Para muitas das questões resumidas, existem ligações a detalhes adicionais.
 ms.topic: conceptual
-ms.date: 09/16/2020
-ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/10/2020
+ms.openlocfilehash: 5322a92bfc67d9f80c2271a3ef9b5626455e9ad7
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908160"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445290"
 ---
 # <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>Novidades com o agente de servidores Azure Arc
 
@@ -18,6 +18,21 @@ O agente Azure Arc ativado por máquina conectada recebe melhorias numa base con
 - Problemas conhecidos
 - Correções de erros
 
+## <a name="november-2020"></a>Novembro de 2020
+
+### <a name="fixed"></a>Fixo
+
+Problema resolvido onde a configuração de procuração pode ser perdida após o upgrade nas distribuições baseadas em RPM.
+
+## <a name="october-2020"></a>Outubro de 2020
+
+### <a name="fixed"></a>Fixo
+
+- Script de procuração fixo para lidar com a localização alternativa do ficheiro da unidade GC daemon.
+- Alterações de fiabilidade do agente GuestConfig.
+- Apoio ao agente Da GuestConfig para a região norte-americana de Gov Virginia.
+- As mensagens de relatório de extensão do agente GuestConfig devem ser mais verbosas em caso de falhas.
+
 ## <a name="september-2020"></a>Setembro de 2020
 
 Versão: 1.0 (Disponibilidade Geral)
@@ -26,7 +41,7 @@ Versão: 1.0 (Disponibilidade Geral)
 
 - O suporte para agentes de pré-visualização (todas as versões com mais de 1.0) será removido numa futura atualização de serviço.
 - Suporte removido para o ponto final do recuo `.azure-automation.net` . Se tiver um representante, tem de permitir o ponto `*.his.arc.azure.com` final.
-- Se o agente 'Máquina Conectada' for instalado numa máquina virtual hospedada em Azure, as extensões VM não podem ser instaladas ou modificadas a partir do recurso 'Servidores ativados pelo Arco'. Isto é para evitar que as operações de extensão conflituosas sejam executadas a partir do recurso **Microsoft.Compute** e **Microsoft.HybridCompute** da máquina virtual. Utilize o recurso **Microsoft.Compute** para a máquina para todas as operações de extensão.
+- Se o agente 'Máquina Conectada' for instalado numa máquina virtual hospedada em Azure, as extensões VM não podem ser instaladas ou modificadas a partir do recurso dos servidores ativados pelo Arco. Isto é para evitar que as operações de extensão conflituosas sejam executadas a partir do recurso **Microsoft.Compute** e **Microsoft.HybridCompute** da máquina virtual. Utilize o recurso **Microsoft.Compute** para a máquina para todas as operações de extensão.
 - O nome do processo de Configuração de Hóspedes mudou, de *gcd* para *gcad* no Linux, e *gcservice* para *gcarcservice* no Windows.
 
 ### <a name="new-feature"></a>Nova funcionalidade

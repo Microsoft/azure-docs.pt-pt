@@ -8,20 +8,20 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 6b39c1d6fe2e84055e7c94dde076514d04a24f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5ecd8f13a3255a565168f62f358a6a38e3cbab4
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91000878"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445222"
 ---
 # <a name="managed-hsm-local-rbac-built-in-roles"></a>Funções geridas por HSM local RBAC incorporadas
 
-O RBAC local gerido do HSM tem várias funções incorporadas que pode atribuir aos utilizadores, diretores de serviço, grupos e identidades geridas. Para permitir que um diretor execute uma operação, deve atribuir-lhes um papel que lhes conceda permissão para realizar essas operações. Todas estas funções e operações apenas permitem gerir a permissão para operações de data plane. Para gerir permissões de plano de controlo para o recurso Gerido HSM (como criar um novo HSM gerido ou atualizar, mover, eliminar um existente), deve utilizar o [controlo de acesso baseado em funções (RBAC) do Azure.](../../role-based-access-control/overview.md)
+O RBAC local gerido do HSM tem várias funções incorporadas que pode atribuir aos utilizadores, diretores de serviço, grupos e identidades geridas. Para permitir que um diretor execute uma operação, deve atribuir-lhes um papel que lhes conceda permissão para realizar essas operações. Todas estas funções e operações apenas permitem gerir a permissão para operações de data plane. Para gerir permissões de plano de controlo para o recurso Gerido HSM (como criar um novo HSM gerido ou atualizar, mover, eliminar um existente), deve utilizar o [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ## <a name="built-in-roles"></a>Funções incorporadas
 
-|Nome da Função|Descrição|ID|
+|Nome da Função|Description|ID|
 |---|---|---|
 |Administrador gerido do HSM| Concede acesso total a todas as ações de dados.|a290e904-7015-4bba-90c8-60543313cdb4|
 |Oficial de Cripto gerido do HSM| Concede acesso total a todas as principais operações criptográficas e de gestão de chaves|515eb02d-2335-4d2d-92f2-b1cbdf9c3778|
@@ -77,5 +77,5 @@ O RBAC local gerido do HSM tem várias funções incorporadas que pode atribuir 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte uma visão geral do [controlo de acesso baseado em funções Azure (RBAC)](../../role-based-access-control/overview.md).
+- Consulte uma visão geral do [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md).
 - Veja um tutorial sobre [gestão de funções gerida do HSM](role-management.md)

@@ -9,12 +9,12 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 18bf8d865a5bb4d96fb55199137b38ec30861dbe
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 50fbaf5092e793369daaa71fc7364dfd406e03b3
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793046"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444899"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gerir chaves de conta de armazenamento com Key Vault e Azure PowerShell
 
@@ -33,13 +33,13 @@ Recomendamos a utilização da integração do Azure Storage com o Azure Ative D
 
 O Azure AD permite-lhe autenticar a sua aplicação de cliente utilizando uma aplicação ou identidade de utilizador, em vez de credenciais de conta de armazenamento. Você pode usar uma [identidade gerida Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) quando você correr em Azure. Identidades geridas removem a necessidade de autenticação do cliente e armazenam credenciais dentro ou com a sua aplicação.
 
-A Azure AD usa o controlo de acesso baseado em funções (RBAC) para gerir a autorização, que também é suportada pelo Key Vault.
+A Azure AD usa o controlo de acesso baseado em funções Azure (Azure RBAC) para gerir a autorização, que também é suportada pela Key Vault.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="service-principal-application-id"></a>ID de aplicação principal de serviço
 
-Um inquilino da AD Azure fornece a cada pedido registado um [principal de serviço.](../../active-directory/develop/developer-glossary.md#service-principal-object) O diretor de serviço serve como iD de aplicação, que é usado durante a instalação de autorização para acesso a outros recursos Azure via RBAC.
+Um inquilino da AD Azure fornece a cada pedido registado um [principal de serviço.](../../active-directory/develop/developer-glossary.md#service-principal-object) O diretor de serviço serve como iD de aplicação, que é usado durante a instalação de autorização para acesso a outros recursos Azure via Azure RBAC.
 
 Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos da AD Azure. O Key Vault está registado sob o mesmo ID de aplicação em cada nuvem Azure.
 
@@ -47,14 +47,14 @@ Key Vault é uma aplicação da Microsoft pré-registada em todos os inquilinos 
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure público | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Outros  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Outro  | Qualquer | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para completar este guia, deve primeiro fazer o seguinte:
 
 - [Instale o módulo Azure PowerShell](/powershell/azure/install-az-ps).
-- [Criar um cofre de chaves](quick-create-powershell.md)
+- [Criar um cofre chave](quick-create-powershell.md)
 - [Criar uma conta de armazenamento Azure](../../storage/common/storage-account-create.md?tabs=azure-powershell). O nome da conta de armazenamento deve utilizar apenas letras e números minúsculos. O comprimento do nome deve ter entre 3 e 24 caracteres.
 
 

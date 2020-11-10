@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 856c5f106f164a98b60fdb3eeda31d6099d5b7bd
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5025c4ad81433b6eb18f5beded860625791ffce5
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932010"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445103"
 ---
 # <a name="about-azure-key-vault"></a>Acerca do Azure Key Vault
 
@@ -39,7 +39,7 @@ As suas aplicações podem aceder de forma segura às informações de que neces
 
 O acesso a um cofre de chaves requer autenticação e autorização adequadas antes de um “chamador” (utilizador ou aplicação) poder obter acesso. A autenticação estabelece a identidade do chamador, ao passo que a autorização determina as operações que aquele pode fazer.
 
-A autenticação é feita através do Azure Active Directory. A autorização pode ser feita através do controlo de acesso baseado em funções (RBAC) ou de uma política de acesso do Key Vault. O RBAC é utilizado para lidar com a gestão dos cofres e a política de acesso do Key Vault é utilizada para o acesso aos dados armazenados nos cofres.
+A autenticação é feita através do Azure Active Directory. A autorização pode ser feita através do controlo de acesso baseado em funções Azure (Azure RBAC) ou da política de acesso do Cofre chave. O Azure RBAC é usado quando se lida com a gestão dos cofres e a política de acesso ao cofre chave é usada para tentar aceder a dados armazenados num cofre.
 
 Os Cofres de Chaves Azure podem estar protegidos por software ou, com o nível Azure Key Vault Premium, protegido por módulos de segurança de hardware (HSMs). Chaves, segredos e certificados protegidos por software são protegidos pela Azure, utilizando algoritmos padrão da indústria e comprimentos de chave.  Para situações em que necessite de uma garantia adicional, pode importar ou gerar chaves em HSMs que nunca saem do limite do HSM. O Azure Key Vault utiliza hSMs nCipher, que são normas federais de processamento de informação (FIPS) 140-2 Nível 2 validados. Pode utilizar ferramentas nCipher para mover uma chave do seu HSM para o Cofre de Chaves Azure.
 

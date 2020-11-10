@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: troubleshooting
 ms.custom: troubleshooting, contperfq4
-ms.date: 10/02/2020
-ms.openlocfilehash: b49e7ab7f3412177ee9eafad8d1a68525e054421
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 46763bddd0f173ccf73edc54e5f2688d3bf6efc0
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314759"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445409"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conhecidos e resolução de problemas no Azure Machine Learning
 
@@ -61,7 +61,7 @@ Para obter mais informações sobre a resolução de problemas, consulte os [pr�
      
 * **Pacote de explicação não garantido para ser instalado ao instalar o azureml-train-automl-cliente:** 
    
-   Ao executar uma execução remota de AutoML com a explicação do modelo ativada, verá uma mensagem de erro "Por favor instale o pacote azureml-explain-model para explicações do modelo." Trata-se de um problema conhecido. Como uma solução alternativa siga um dos passos abaixo:
+   Ao executar uma execução remota de AutoML com a explicação do modelo ativada, verá uma mensagem de erro "Por favor instale o pacote azureml-explain-model para explicações do modelo." Este é um problema conhecido. Como uma solução alternativa siga um dos passos abaixo:
   
   1. Instale localmente o modelo azureml-explain-explain.
    ```
@@ -258,7 +258,20 @@ Limitações e questões conhecidas para monitores de deriva de dados:
 
 ## <a name="azure-machine-learning-designer"></a>Estruturador do Azure Machine Learning
 
-* **Tempo de preparação de computação longa:**
+### <a name="dataset-visualization-in-the-designer"></a>Visualização do conjunto de dados no designer
+
+Depois de registar um conjunto de dados na página de ativos **datasets** ou utilizar o SDK, pode encontrá-lo na categoria **Datasets** na lista deixada para a tela do designer.
+
+No entanto, quando arrasta o conjunto de dados para a tela e visualiza, pode não ser capaz de visualizar devido a algumas das seguintes razões:
+
+- Atualmente só é possível visualizar o conjunto de dados tabulares no designer. Se registar um conjunto de dados de ficheiros fora do designer, não poderá visualizá-lo na tela do designer.
+- O seu conjunto de dados é armazenado em rede virtual (VNet). Se quiser visualizar, tem de ativar a identidade gerida pelo espaço de trabalho da datastore.
+    1. Vá à loja de dados relacionada e clique em **Atualização de** 
+     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Credenciais De Atualização Credenciais":::
+    1. Selecione **Sim** para ativar a identidade gerida pelo espaço de trabalho.
+    :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Ativar identidade gerida do espaço de trabalho":::
+
+### <a name="long-compute-preparation-time"></a>Tempo de preparação de computação longa
 
 Pode demorar alguns minutos ou até mais quando ligar ou criar um alvo de computação. 
 
@@ -269,7 +282,7 @@ import time
 time.sleep(600)
 ```
 
-* **Faça login para pontos finais em tempo real:**
+### <a name="log-for-real-time-endpoints"></a>Faça login para pontos finais em tempo real
 
 Os registos dos pontos finais em tempo real são dados do cliente. Para a resolução de problemas em tempo real, pode utilizar o código seguinte para ativar registos. 
 

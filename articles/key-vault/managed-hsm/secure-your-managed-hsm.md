@@ -1,6 +1,6 @@
 ---
 title: Acesso seguro a um HSM gerido - Azure Key Vault Gerido HSM
-description: Saiba como garantir o acesso ao HSM gerido utilizando o Azure RBAC e o HSM RBAC gerido localmente
+description: Saiba como garantir o acesso ao HSM gerido utilizando o RBAC Azure e o CSE local gerido do HSM
 services: key-vault
 author: amitbapat
 tags: azure-resource-manager
@@ -9,18 +9,18 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 18ffa0f878effda8888200c13ab312851aaebdcd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99918d039052c9913400b85ac3caa4a1a5481155
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91000898"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445324"
 ---
 # <a name="secure-access-to-your-managed-hsms"></a>Acesso seguro aos seus HSMs geridos
 
 Azure Key Vault Managed HSM é um serviço de nuvem que protege as chaves de encriptação. Uma vez que estes dados são sensíveis e críticos de negócio, é necessário garantir o acesso aos seus HSMs geridos, permitindo apenas que aplicações e utilizadores autorizados acedam aos mesmos. Este artigo fornece uma visão geral do modelo de controlo de acesso gerido do HSM. Explica a autenticação e a autorização e descreve como garantir o acesso aos seus HSMs geridos.
 
-Este tutorial irá acompanhá-lo através de um exemplo simples que mostra como alcançar a separação de deveres e o controlo de acesso usando Azure RBAC e HSM RBAC gerido local. Consulte [o controlo de acesso gerido do HSM](access-control.md) para saber mais sobre o modelo de controlo de acesso gerido do HSM.
+Este tutorial irá acompanhá-lo através de um exemplo simples que mostra como alcançar a separação de deveres e o controlo de acesso usando Azure RBAC e Gerido HSM local RBAC. Consulte [o controlo de acesso gerido do HSM](access-control.md) para saber mais sobre o modelo de controlo de acesso gerido do HSM.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -48,9 +48,9 @@ Neste exemplo, estamos a desenvolver uma aplicação que usa uma chave RSA de 2.
 
 Identificámos as seguintes funções que gerem, implementam e auditam a nossa aplicação:
 
-- **Equipa de segurança**: Pessoal de TI do gabinete do CSO (Chief Security Officer) ou colaboradores semelhantes. A equipa de segurança é responsável pela proteção adequada das chaves. As teclas RSA ou CE para a assinatura e as teclas RSA ou AES para encriptação de dados.
-- **Desenvolvedores e operadores**: O pessoal que desenvolve a aplicação e a implementa em Azure. Os membros desta equipa não fazem parte da equipa de segurança. Não deviam ter acesso a dados sensíveis como as chaves RSA. Apenas a aplicação que implementam deve ter acesso a estes dados sensíveis.
-- **Auditores**: Este papel é para os contribuintes que não são membros do pessoal de desenvolvimento ou de TI geral. Revejam o uso e manutenção de certificados, chaves e segredos para garantir o cumprimento das normas de segurança.
+- **Equipa de segurança** : Pessoal de TI do gabinete do CSO (Chief Security Officer) ou colaboradores semelhantes. A equipa de segurança é responsável pela proteção adequada das chaves. As teclas RSA ou CE para a assinatura e as teclas RSA ou AES para encriptação de dados.
+- **Desenvolvedores e operadores** : O pessoal que desenvolve a aplicação e a implementa em Azure. Os membros desta equipa não fazem parte da equipa de segurança. Não deviam ter acesso a dados sensíveis como as chaves RSA. Apenas a aplicação que implementam deve ter acesso a estes dados sensíveis.
+- **Auditores** : Este papel é para os contribuintes que não são membros do pessoal de desenvolvimento ou de TI geral. Revejam o uso e manutenção de certificados, chaves e segredos para garantir o cumprimento das normas de segurança.
 
 Há outro papel que está fora do âmbito da nossa aplicação: o administrador de subscrição (ou grupo de recursos). O administrador de subscrição estabelece permissões de acesso iniciais para a equipa de segurança. Concedem acesso à equipa de segurança utilizando um grupo de recursos que tem os recursos exigidos pela aplicação.
 

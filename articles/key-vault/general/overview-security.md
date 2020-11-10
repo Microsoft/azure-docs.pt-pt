@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c3dd4e5138741a3c035507358830f3572cf92751
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc08df7390285f9b6e4701bb1ca5c4227b19f1da
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739695"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445035"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
 
@@ -25,7 +25,7 @@ Você usa o Cofre de Chaves Azure para proteger chaves de encriptação e segred
 Quando cria um cofre chave numa subscrição do Azure, está automaticamente associado ao inquilino AD AD da subscrição. Qualquer pessoa que tente gerir ou recuperar conteúdo de um cofre deve ser autenticada pela Azure AD.
 
 - A autenticação estabelece a identidade do chamador.
-- A autorização determina quais as operações que o chamador pode efetuar. A autorização em Key Vault utiliza uma combinação de políticas de [acesso baseadas em fun](../../role-based-access-control/overview.md) (RBAC) e Azure Key Vault.
+- A autorização determina quais as operações que o chamador pode efetuar. A autorização em Key Vault utiliza uma combinação de [controlo de acesso baseado em funções Azure (Azure RBAC)](../../role-based-access-control/overview.md) e Azure Key Vault.
 
 ### <a name="access-model-overview"></a>Visão geral do modelo de acesso
 
@@ -34,7 +34,7 @@ O acesso aos cofres ocorre através de duas interfaces ou aviões. Estes aviões
 - O *avião de gestão* é onde gere o Key Vault em si e é a interface usada para criar e apagar cofres. Também pode ler as principais propriedades do cofre e gerir as políticas de acesso.
 - O *plano de dados* permite-lhe trabalhar com os dados armazenados num cofre chave. Pode adicionar, excluir e modificar chaves, segredos e certificados.
 
-Para aceder a um cofre chave em qualquer um dos planos, todos os chamadores (utilizadores ou aplicações) devem ser autenticados e autorizados. Ambos os aviões utilizam o Azure Ative Directory (Azure AD) para autenticação. Para autorização, o plano de gestão utiliza o controlo de acesso baseado em funções (RBAC) e o plano de dados utiliza uma política de acesso ao Cofre-Chave.
+Para aceder a um cofre chave em qualquer um dos planos, todos os chamadores (utilizadores ou aplicações) devem ser autenticados e autorizados. Ambos os aviões utilizam o Azure Ative Directory (Azure AD) para autenticação. Para autorização, o avião de gestão utiliza o controlo de acesso baseado em funções Azure (Azure RBAC) e o plano de dados utiliza uma política de acesso ao Cofre-Chave.
 
 O modelo de um único mecanismo de autenticação para ambos os aviões tem vários benefícios:
 
@@ -46,11 +46,11 @@ O modelo de um único mecanismo de autenticação para ambos os aviões tem vár
 
 Quando cria um cofre chave num grupo de recursos, gere o acesso utilizando o Azure AD. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Pode conceder acesso a um nível de âmbito específico, atribuindo as funções Azure apropriadas. Para conceder acesso a um utilizador para gerir cofres-chave, atribui uma função predefinida `key vault Contributor` ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função Azure:
 
-- **Subscrição**: Uma função Azure atribuída ao nível de subscrição aplica-se a todos os grupos de recursos e recursos dentro dessa subscrição.
-- **Grupo de recursos**: Uma função Azure atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
-- **Recurso específico**: Uma função Azure atribuída a um recurso específico aplica-se a esse recurso. Neste caso, o recurso é um cofre-chave específico.
+- **Subscrição** : Uma função Azure atribuída ao nível de subscrição aplica-se a todos os grupos de recursos e recursos dentro dessa subscrição.
+- **Grupo de recursos** : Uma função Azure atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
+- **Recurso específico** : Uma função Azure atribuída a um recurso específico aplica-se a esse recurso. Neste caso, o recurso é um cofre-chave específico.
 
-Há vários papéis predefinidos. Se um papel predefinido não se adequa às suas necessidades, pode definir o seu próprio papel. Para mais informações, consulte [o RBAC: Funções incorporadas.](../../role-based-access-control/built-in-roles.md)
+Há vários papéis predefinidos. Se um papel predefinido não se adequa às suas necessidades, pode definir o seu próprio papel. Para mais informações, consulte [Azure RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
 > Se um utilizador tiver `Contributor` permissões para um avião de gestão de cofre chave, o utilizador pode conceder-se acesso ao plano de dados definindo uma política de acesso ao Cofre de Chaves. Deve controlar bem quem tem `Contributor` acesso aos seus cofres chave. Certifique-se de que apenas pessoas autorizadas podem aceder e gerir os seus cofres chave, chaves, segredos e certificados.
@@ -91,4 +91,4 @@ Para recomendação sobre a gestão segura das contas de armazenamento, reveja o
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Pontos finais de serviço de rede virtual para Azure Key Vault](overview-vnet-service-endpoints.md)
-- [RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md)
+- [Azure RBAC: Papéis incorporados](../../role-based-access-control/built-in-roles.md)

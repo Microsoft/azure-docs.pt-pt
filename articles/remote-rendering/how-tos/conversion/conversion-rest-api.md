@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: 341d24e73c9e07bb3155535d98a88145643c1692
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 889a70005f1cbabaad525147b4661ea04886138a
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201788"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445613"
 ---
 # <a name="use-the-model-conversion-rest-api"></a>Utilizar a API REST do modelo de conversão
 
@@ -26,7 +26,7 @@ Consulte a [lista das regiões disponíveis](../../reference/regions.md) para os
 
 Estes cabeçalhos devem ser especificados para todos os pedidos:
 
-- O cabeçalho **de autorização** deve ter o valor de "Bearer [*TOKEN]",* onde *[TOKEN*] é um [símbolo de acesso ao serviço](../tokens.md).
+- O cabeçalho **de autorização** deve ter o valor de "Bearer [ *TOKEN]",* onde *[TOKEN* ] é um [símbolo de acesso ao serviço](../tokens.md).
 
 ### <a name="common-response-headers"></a>Cabeçalhos de resposta comuns
 
@@ -47,7 +47,7 @@ A sua Conta de Renderização Remota Azure precisa de ter acesso à conta de arm
 
 | Ponto final | Método |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversões/criar | POST |
+| /v1/accounts/ **accountID** /conversões/criar | POST |
 
 Devolve o ID da conversão em curso, embrulhado num documento JSON. O nome de campo é "conversionId".
 
@@ -79,7 +79,7 @@ Se a sua conta ARR não estiver ligada à sua conta de armazenamento, esta inter
 
 | Ponto final | Método |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversions/createWithSharedAccessSignature | POST |
+| /v1/accounts/ **accountID** /conversions/createWithSharedAccessSignature | POST |
 
 Devolve o ID da conversão em curso, embrulhado num documento JSON. O nome do campo `conversionId` é.
 
@@ -120,7 +120,7 @@ O estado de uma conversão em curso iniciada com uma das chamadas REST acima pod
 
 | Ponto final | Método |
 |-----------|:-----------|
-| /v1/accounts/**accountID**/conversões/conversãoId**conversionId** | GET |
+| /v1/accounts/ **accountID** /conversões/conversãoId **conversionId** | GET |
 
 Devolve um documento JSON com um campo de "status" que pode ter os seguintes valores:
 
@@ -130,6 +130,21 @@ Devolve um documento JSON com um campo de "status" que pode ter os seguintes val
 - "Falha"
 
 Se o estado for "Falha", haverá um campo adicional de "erro" com um subcampo de "mensagem" contendo informações de erro. Registos adicionais serão enviados para o seu recipiente de saída.
+
+## <a name="list-conversions"></a>Conversões de Listas
+
+Para obter uma lista de todas as conversões para uma conta, utilize a interface:
+
+| Ponto final | Método |
+|-----------|:-----------|
+| /v1/accounts/ **accountID** /conversões?skiptoken= **skipToken** | GET |
+
+| Parâmetro | Obrigatório |
+|-----------|:-----------|
+| accountID | Yes |
+| skiptoken | No |
+
+Devolve um documento json que contém uma série de conversões e seus detalhes. Esta consulta devolve um máximo de 50 conversões de cada vez. Na situação em que há mais conversões para recuperar, a resposta conterá uma propriedade **nextLink** contendo o skipToken que pode ser consultado para recuperar o próximo conjunto de resultados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

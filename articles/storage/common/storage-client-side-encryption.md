@@ -5,17 +5,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4e8623ecb351fa99a437de70a9b74a70fb6228cd
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5f2d3ba12fa65beb7156e056c23e44b028cbb520
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151147"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445069"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side Encryption e Azure Key Vault para o Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -207,7 +207,7 @@ MemoryStream outputStream = new MemoryStream();
 blob.DownloadTo(outputStream);
 ```
 
-Um **BlobServiceClient** não é necessário para aplicar opções de encriptação. Também podem ser **BlobContainerClient** / passados para construtores**BlobClient BlobClient BlobClient blobclient** que aceitam **objetos BlobClientOptions.**
+Um **BlobServiceClient** não é necessário para aplicar opções de encriptação. Também podem ser **BlobContainerClient** / passados para construtores **BlobClient BlobClient BlobClient blobclient** que aceitam **objetos BlobClientOptions.**
 
 Se um objeto **BlobClient** desejado já existe, mas sem opções de encriptação do lado do cliente, existe um método de extensão para criar uma cópia desse objeto com as **opções de encriptação do ClienteSideEncryptions.** Este método de extensão evita a sobrecarga de construir um novo objeto **BlobClient** do zero.
 
@@ -344,7 +344,7 @@ Crie um objeto **QueueEncrypationPolicy** e desafiá-lo nas opções de pedido (
 ---
 
 ### <a name="table-service-encryption-v11-only"></a>Encriptação do serviço de mesa (apenas v11)
-Além de criar uma política de encriptação e defini-la nas opções de pedido, deve especificar um **EncriptaçãoResolver** em **Opções DeEsquest opções**de Tabela, ou definir o atributo [EncryptProperty] na entidade.
+Além de criar uma política de encriptação e defini-la nas opções de pedido, deve especificar um **EncriptaçãoResolver** em **Opções DeEsquest opções** de Tabela, ou definir o atributo [EncryptProperty] na entidade.
 
 #### <a name="using-the-resolver"></a>Usando o resolver
 

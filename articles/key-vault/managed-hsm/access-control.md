@@ -9,17 +9,17 @@ ms.subservice: managed-hsm
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 803dc4d1a7b78df891780eb741cba4e57ab2d5dc
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 816941fe0ec3a81c41da56acedcedf2de7febe74
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784427"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445239"
 ---
 # <a name="managed-hsm-access-control"></a>Controlo de acesso do HSM Gerido
 
 > [!NOTE]
-> O fornecedor de recursos Key Vault suporta dois tipos de recursos: **cofres** e **HSMs geridos.** O controlo de acesso descrito neste artigo aplica-se apenas aos **HSMs geridos** . Para saber mais sobre o controlo de acesso para o HSM gerido, consulte [Fornecer acesso a chaves, certificados e segredos key Vault com um controlo de acesso baseado em funções Azure](../general/rbac-guide.md).
+> O fornecedor de recursos Key Vault suporta dois tipos de recursos: **cofres** e **HSMs geridos.** O controlo de acesso descrito neste artigo aplica-se apenas aos **HSMs geridos**. Para saber mais sobre o controlo de acesso para o HSM gerido, consulte [Fornecer acesso a chaves, certificados e segredos key Vault com um controlo de acesso baseado em funções Azure](../general/rbac-guide.md).
 
 Azure Key Vault Managed HSM é um serviço de nuvem que protege as chaves de encriptação. Uma vez que estes dados são sensíveis e críticos de negócio, é necessário garantir o acesso aos seus HSMs geridos, permitindo apenas que aplicações e utilizadores autorizados acedam aos mesmos. Este artigo fornece uma visão geral do modelo de controlo de acesso gerido do HSM. Explica a autenticação e a autorização e descreve como garantir o acesso aos seus HSMs geridos.
 
@@ -35,7 +35,7 @@ Ambos os aviões usam o Azure Ative Directory para autenticação. Para autoriza
 
 Quando um HSM gerido é criado, o solicitador também fornece uma lista de administradores de planos de dados (todos os princípios de segurança são [suportados).](../../role-based-access-control/overview.md#security-principal) Apenas estes administradores podem aceder ao plano de dados gerido do HSM para executar operações-chave e gerir as atribuições de funções de data plane (C RBAC local gerido pelo HSM).
 
-O modelo de permissão para ambos os aviões usa a mesma sintaxe (RBAC), mas são aplicados a diferentes níveis e as atribuições de funções usam diferentes âmbitos. O plano de gestão RBAC é imposto pelo Azure Resource Manager enquanto o plano de dados RBAC é aplicado pela própria HSM gerida.
+O modelo de permissão para ambos os aviões usa a mesma sintaxe, mas são aplicadas a diferentes níveis e as atribuições de papéis usam diferentes âmbitos. O avião de gestão Azure RBAC é imposto pelo Azure Resource Manager enquanto o plano de dados Gerido HSM local RBAC é aplicado pela própria HSM gerida.
 
 > [!IMPORTANT]
 > Conceder a um avião de gestão principal de segurança o acesso a um HSM gerido não lhes dá qualquer acesso a um plano de dados para aceder a chaves ou atribuições de funções de avião de dados Geridos HSM local RBAC). Este isolamento é por design para evitar a expansão inadvertida de privilégios que afetam o acesso às chaves armazenadas no HSM Gerido.
@@ -67,16 +67,16 @@ A tabela seguinte mostra os pontos finais para os aviões de gestão e dados.
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Avião de gestão e Azure RBAC
 
-No plano de gestão, você usa Azure RBAC para autorizar as operações que um chamador pode executar. No modelo RBAC, cada subscrição do Azure tem um exemplo de Azure Ative Directory. Você concede acesso a utilizadores, grupos e aplicações deste diretório. O acesso é concedido para gerir recursos na subscrição Azure que utilizam o modelo de implementação do Gestor de Recursos Azure. Para conceder acesso, utilize o [portal Azure](https://portal.azure.com/), o [Azure CLI,](/cli/azure/install-classic-cli) [a Azure PowerShell,](/powershell/azureps-cmdlets-docs)ou o [Azure Resource Manager REST APIs](/rest/api/authorization/roleassignments).
+No plano de gestão, você usa Azure RBAC para autorizar as operações que um chamador pode executar. No modelo Azure RBAC, cada subscrição do Azure tem um exemplo de Azure Ative Directory. Você concede acesso a utilizadores, grupos e aplicações deste diretório. O acesso é concedido para gerir recursos na subscrição Azure que utilizam o modelo de implementação do Gestor de Recursos Azure. Para conceder acesso, utilize o [portal Azure](https://portal.azure.com/), o [Azure CLI,](/cli/azure/install-classic-cli) [a Azure PowerShell,](/powershell/azureps-cmdlets-docs)ou o [Azure Resource Manager REST APIs](/rest/api/authorization/roleassignments).
 
-Cria um cofre chave num grupo de recursos e gere o acesso utilizando o Azure Ative Directory. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Concede-se o acesso a um nível de âmbito específico, atribuindo funções de RBAC apropriadas. Para conceder acesso a um utilizador para gerir cofres-chave, atribui uma função predefinida `key vault Contributor` ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função RBAC:
+Cria um cofre chave num grupo de recursos e gere o acesso utilizando o Azure Ative Directory. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Você concede o acesso a um nível de âmbito específico, atribuindo as funções apropriadas de Azure. Para conceder acesso a um utilizador para gerir cofres-chave, atribui uma função predefinida `key vault Contributor` ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função Azure:
 
-- **Grupo de gestão** : Uma função RBAC atribuída ao nível de subscrição aplica-se a todas as subscrições desse grupo de gestão.
-- **Subscrição** : Uma função RBAC atribuída ao nível de subscrição aplica-se a todos os grupos de recursos e recursos dentro dessa subscrição.
-- **Grupo de recursos** : Uma função RBAC atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
-- **Recurso específico** : Uma função RBAC atribuída a um recurso específico aplica-se a esse recurso. Neste caso, o recurso é um cofre-chave específico.
+- **Grupo de gestão** : Uma função Azure atribuída ao nível da subscrição aplica-se a todas as subscrições desse grupo de gestão.
+- **Subscrição** : Uma função Azure atribuída ao nível de subscrição aplica-se a todos os grupos de recursos e recursos dentro dessa subscrição.
+- **Grupo de recursos** : Uma função Azure atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
+- **Recurso específico** : Uma função Azure atribuída a um recurso específico aplica-se a esse recurso. Neste caso, o recurso é um cofre-chave específico.
 
-Há vários papéis predefinidos. Se um papel predefinido não se adequa às suas necessidades, pode definir o seu próprio papel. Para mais informações, consulte [o RBAC: Funções incorporadas.](../../role-based-access-control/built-in-roles.md)
+Há vários papéis predefinidos. Se um papel predefinido não se adequa às suas necessidades, pode definir o seu próprio papel. Para mais informações, consulte [Azure RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="data-plane-and-managed-hsm-local-rbac"></a>Plano de dados e GERIDO HSM local RBAC
 

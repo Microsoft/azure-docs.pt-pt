@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 09/19/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 8e065651a5527c0ab425614197ce128325454942
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24e3841abc9c397ab307e55405bdcc208815570e
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91257678"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444168"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>App Daemon que chama APIs web - configuração de código
 
@@ -26,7 +26,7 @@ Saiba como configurar o código para a sua aplicação daemon que chama APIs web
 
 Estas bibliotecas da Microsoft suportam aplicações daemon:
 
-  Biblioteca MSAL | Descrição
+  Biblioteca MSAL | Description
   ------------ | ----------
   ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | As plataformas .NET Framework e .NET Core são suportadas para a construção de aplicações daemon. (UWP, Xamarin.iOS e Xamarin.Android não são suportados porque essas plataformas são usadas para construir aplicações de clientes públicos.)
   ![Python](media/sample-v2-code/logo_python.png) <br/> Pitão MSAL | Apoio a aplicações daemon em Python.
@@ -352,17 +352,14 @@ ConfidentialClientApplication cca =
 
 # <a name="net"></a>[.NET](#tab/dotnet)
 
-> [!div class="nextstepaction"]
-> [Daemon app - aquisição de fichas para a app](./scenario-daemon-acquire-token.md?tabs=dotnet)
+Passe para o próximo artigo neste cenário, [adquira um símbolo para a app.](./scenario-daemon-acquire-token.md?tabs=dotnet)
 
 # <a name="python"></a>[Python](#tab/python)
 
-> [!div class="nextstepaction"]
-> [Daemon app - aquisição de fichas para a app](./scenario-daemon-acquire-token.md?tabs=python)
+Passe para o próximo artigo neste cenário, [adquira um símbolo para a app.](./scenario-daemon-acquire-token.md?tabs=python)
 
 # <a name="java"></a>[Java](#tab/java)
 
-> [!div class="nextstepaction"]
-> [Daemon app - aquisição de fichas para a app](./scenario-daemon-acquire-token.md?tabs=java)
+Passe para o próximo artigo neste cenário, [adquira um símbolo para a app.](./scenario-daemon-acquire-token.md?tabs=java)
 
 ---

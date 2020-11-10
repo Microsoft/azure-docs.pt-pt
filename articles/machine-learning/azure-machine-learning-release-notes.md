@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 44afcf6883298eb36cd1219e6d60a8444a487412
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 5054451b181223d3d6deece6812358cfd08b1e30
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423016"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445086"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -1084,7 +1084,7 @@ Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
 + **Novas funcionalidades**
   + Conjunto de dados: Adicione duas opções `on_error` e `out_of_range_datetime` `to_pandas_dataframe` falhe quando os dados têm valores de erro em vez de os encher com `None` .
-  + Espaço de trabalho: Adicionou a `hbi_workspace` bandeira para espaços de trabalho com dados sensíveis que permitem encriptação adicional e desativa diagnósticos avançados em espaços de trabalho. Também adicionamos suporte para trazer as suas próprias chaves para a instância de DB do Cosmos associada, especificando os `cmk_keyvault` parâmetros e `resource_cmk_uri` parâmetros ao criar um espaço de trabalho, o que cria uma instância de DB cosmos na sua subscrição enquanto fornece o seu espaço de trabalho. [Leia mais aqui.](./concept-enterprise-security.md#azure-cosmos-db)
+  + Espaço de trabalho: Adicionou a `hbi_workspace` bandeira para espaços de trabalho com dados sensíveis que permitem encriptação adicional e desativa diagnósticos avançados em espaços de trabalho. Também adicionamos suporte para trazer as suas próprias chaves para a instância de DB do Cosmos associada, especificando os `cmk_keyvault` parâmetros e `resource_cmk_uri` parâmetros ao criar um espaço de trabalho, o que cria uma instância de DB cosmos na sua subscrição enquanto fornece o seu espaço de trabalho. [Leia mais aqui.](./concept-data-encryption.md#azure-cosmos-db)
 
 + **Correções e melhorias de bugs**
   + **azureml-automl-runtime**

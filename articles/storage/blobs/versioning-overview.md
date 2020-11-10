@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: a1aff57c2823b111251c99cb3dbcdea0fd90ad2c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 48078ed06e36a33b10ee2d761a249159d14c6220
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/10/2020
-ms.locfileid: "94425954"
+ms.locfileid: "94444508"
 ---
 # <a name="blob-versioning"></a>Versão blob
 
@@ -38,7 +38,7 @@ Uma versão captura o estado de uma bolha num dado momento. Quando a versão blo
 
 Quando se cria uma bolha com a versão ativada, a nova bolha é a versão atual do blob (ou a bolha base). Se modificar posteriormente essa bolha, o Azure Storage cria uma versão que captura o estado da bolha antes de ser modificada. A bolha modificada torna-se a nova versão atual. Uma nova versão é criada cada vez que modifica a bolha.
 
-Uma bolha pode ter um número ilimitado de versões. No entanto, ter um grande número de versões por blob pode aumentar a latência para operações de listagem de bolhas. A Microsoft recomenda manter menos de 1000 versões por blob. Pode utilizar a gestão do ciclo de vida para eliminar automaticamente versões antigas. Para obter mais informações sobre a gestão do ciclo de vida, consulte [os custos da Otimização automatizando os níveis de acesso ao armazenamento Azure Blob](storage-lifecycle-management-concepts.md).
+Ter um grande número de versões por blob pode aumentar a latência para operações de listagem de bolhas. A Microsoft recomenda manter menos de 1000 versões por blob. Pode utilizar a gestão do ciclo de vida para eliminar automaticamente versões antigas. Para obter mais informações sobre a gestão do ciclo de vida, consulte [os custos da Otimização automatizando os níveis de acesso ao armazenamento Azure Blob](storage-lifecycle-management-concepts.md).
 
 Quando elimina uma bolha com versão ativada, o Azure Storage cria uma versão que captura o estado da bolha antes de ser eliminada. A versão atual do blob é então eliminada, mas as versões do blob persistem, para que possa ser recriada se necessário. 
 
@@ -187,7 +187,7 @@ A versão blob foi concebida para proteger os seus dados de eliminação acident
 
 A tabela que se segue mostra quais as ações do Azure RBAC que suportam a eliminação de uma bolha ou uma versão blob.
 
-| Descrição | Operação de serviço blob | A ação de dados do RBAC Azure necessária | Suporte de função incorporado Azure |
+| Description | Operação de serviço blob | A ação de dados do RBAC Azure necessária | Suporte de função incorporado Azure |
 |----------------------------------------------|------------------------|---------------------------------------------------------------------------------------|-------------------------------|
 | Apagar a versão atual da bolha | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/delete** | Contribuinte de Dados do Armazenamento de Blobs |
 | Apagar uma versão | Eliminar Blob | **Microsoft.Storage/storageAcounts/blobServices/containers/blobs/deleteBlobVersion/action** | Proprietário dos Dados do Armazenamento de Blobs |

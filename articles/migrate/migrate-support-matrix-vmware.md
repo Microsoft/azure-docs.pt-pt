@@ -2,13 +2,13 @@
 title: Suporte de avaliação VMware em Azure Migrate
 description: Saiba mais sobre o suporte para a avaliação de VMware VM com avaliação do servidor Azure Migrate.
 ms.topic: conceptual
-ms.date: 06/08/2020
-ms.openlocfilehash: 8b119b56e7e4c7fac74c57cc5c48fb44f91a7ee6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.date: 11/10/2020
+ms.openlocfilehash: 6e033bdf0f1492d6cbb4c41192cca8206816917d
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93345436"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444950"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação de VMware 
 
@@ -40,7 +40,7 @@ Se quiser migrar VMware VMs para Azure, reveja a matriz de suporte à [migraçã
 **VMware** | **Detalhes**
 --- | ---
 **VMs VMware** | Todos os sistemas operativos podem ser avaliados para migração. 
-**Armazenamento** | Os discos ligados aos controladores baseados em SCSI, IDE e SATA são suportados.
+**Armazenamento** | Os discos ligados aos controladores SCSI, IDE e SATA são suportados.
 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de aplicação do Azure Migrate
@@ -66,14 +66,14 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 
 **Suporte** | **Detalhes**
 --- | ---
-**Máquinas suportadas** | A descoberta de aplicações é atualmente suportada apenas para VMware VMs. Pode descobrir aplicações instaladas em até 10000 VMware VMs de cada aparelho Azure Migrate.
-**Sistemas operativos** | A descoberta de aplicações é suportada por VMs que executam todas as versões Windows e Linux.
+**Máquinas suportadas** | Atualmente suportado apenas para VMware VMs. Pode descobrir aplicações instaladas em até 10000 VMware VMs, de cada aparelho Azure Migrate.
+**Sistemas operativos** | Suporte para VMs executando todas as versões Windows e Linux.
 **Requisitos de VM** | As ferramentas VMware devem ser instaladas e em execução em VMs nas quais pretende descobrir aplicações. <br/><br/> A versão VMware tools deve ser mais tarde do que 10.2.0.<br/><br/> Os VMs devem ter a versão PowerShell 2.0 ou posteriormente instalada.
-**Deteção** | A descoberta de aplicações é sem agente. Utiliza credenciais de hóspedes de máquinas e acede remotamente a máquinas usando chamadas WMI e SSH.
+**Deteção** | As informações sobre aplicações instaladas num VM são retiradas do servidor vCenter, utilizando ferramentas VMware instaladas no VM. O aparelho recolhe as informações da aplicação a partir do servidor vCenter, utilizando APIs vSphere. A descoberta de aplicações é sem agente. Nada está instalado em VMs e o aparelho não se liga diretamente aos VMs. O WMI/SSH deve ser ativado e disponível em VMs.
 **vCenter** | A conta de leitura vCenter Server utilizada para avaliação, necessita de privilégios habilitados para operações **de hóspedes de máquinas virtuais,**  >  **Guest Operations** de forma a interagir com o VM para a descoberta de aplicações.
 **Acesso VM** | A descoberta de aplicações necessita de uma conta de utilizador local no VM para a descoberta de aplicações.<br/><br/> A Azure Migrate suporta atualmente o uso de uma credencial para todos os servidores windows, e uma credencial para todos os servidores Linux.<br/><br/> Cria uma conta de utilizador para vMs do Windows e uma conta de utilizador regular/normal (acesso não sudo) para todos os VMs Do Linux.
 **Acesso portuário** | O aparelho Azure Migrate deve ser capaz de ligar à porta TCP 443 nos anfitriões ESXi que executam VMs nos quais pretende descobrir aplicações. O vCenter Server devolve uma ligação de anfitrião ESXI para descarregar o ficheiro que contém as informações da aplicação.
-**Limites** | Para a descoberta de aplicações, pode descobrir até 10000 VMs em cada aparelho Azure Migrate.
+
 
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Requisitos de análise de dependência (sem agente)
@@ -82,17 +82,15 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 
 **Requisito** | **Detalhes**
 --- | --- 
-**Antes da implantação** | Deverá ter um projeto Azure Migrate no local, com a ferramenta de Avaliação do Servidor adicionada ao projeto.<br/><br/>  Implementa a visualização de dependência depois de configurar um aparelho Azure Migrate para descobrir as suas máquinas VMware no local.<br/><br/> [Aprenda](create-manage-projects.md) a criar um projeto pela primeira vez.<br/> [Saiba como](how-to-assess.md) adicionar uma ferramenta de avaliação a um projeto existente.<br/> [Saiba como](how-to-set-up-appliance-vmware.md) configurar o aparelho Azure Migrate para avaliação de VMware VMs.
 **Máquinas suportadas** | Atualmente suportado apenas para VMware VMs.
-**VMs do Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits).<br/>Microsoft Windows Server 2008 (32 bits). Certifique-se de que o PowerShell está instalado.
-**credenciais vCenter Server** | A visualização de dependência necessita de uma conta vCenter Server com acesso apenas de leitura e privilégios habilitados para Máquinas Virtuais > Operações de Hóspedes.
-**Permissões do Windows VM** |  Para análise de dependência, o aparelho Azure Migrate necessita de uma conta de administrador de domínio, ou uma conta de administração local, para aceder aos VMs do Windows.
-**VMs do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oráculo Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 e mais recente
-**Conta Linux** | Para análise de dependência, em máquinas Linux o aparelho Azure Migrate precisa de uma conta de utilizador raiz<br/><br/> Em alternativa, a conta de utilizador necessita destas permissões em ficheiros /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE. Desardene estas capacidades utilizando os seguintes comandos: <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
-**Agentes necessários** | Não é necessário nenhum agente nas máquinas que queira analisar.
-**Ferramentas VMware** | As Ferramentas VMware (mais tarde de 10.2) devem ser instaladas e em funcionamento em cada VM que pretende analisar.
-**PowerShell** | Os VMs do Windows devem ter a versão PowerShell 2.0 ou superior instalada.
-**Acesso portuário** | Nos anfitriões ESXi que executam VMs que pretende analisar, o aparelho Azure Migrate deve ser capaz de ligar à porta TCP 443.
+**VMs do Windows** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64 bits).<br/>Microsoft Windows Server 2008 (32 bits). 
+**VMs do Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oráculo Linux 6, 7<br/> CentOS 5, 6, 7.<br/> SUSE Linux Enterprise Server 11 e mais tarde.
+**Requisitos de VM** | As Ferramentas VMware (mais tarde de 10.2.0) devem ser instaladas e em funcionamento em VMs que pretende analisar.<br/><br/> Os VMs devem ter a versão PowerShell 2.0 ou posteriormente instalada.
+**Método de descoberta** |  As informações de dependência entre VMs são recolhidas a partir do servidor vCenter, utilizando ferramentas VMware instaladas no VM. O aparelho recolhe as informações do servidor vCenter, utilizando APIs vSphere. A descoberta é sem agente. Nada está instalado no VM e o aparelho não se liga diretamente aos VM. O WMI/SSH deve ser ativado e disponível em VMs.
+**conta vCenter** | A conta apenas de leitura utilizada pela Azure Migrate para a avaliação necessita de privilégios habilitados para **máquinas virtuais > Operações de Hóspedes.**
+**Permissões do Windows VM** |  Uma conta (administração local ou domínio) com permissões de administração local em VMs.
+**Conta Linux** | Conta de utilizador raiz, ou uma conta com estas permissões em /bin/netstat e /bin/ls ficheiros: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.<br/><br/> Desardene estas capacidades utilizando os seguintes comandos: <br/><br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/ls<br/><br/> sudo setcap CAP_DAC_READ_SEARCH,CAP_SYS_PTRACE=ep /bin/netstat
+**Acesso portuário** | O aparelho Azure Migrate deve ser capaz de ligar à porta TCP 443 em anfitriões ESXI que executam os VM cujas dependências pretende descobrir. O vCenter Server devolve uma ligação de anfitrião ESXI para descarregar o ficheiro que contém as informações de dependência.
 
 
 ## <a name="dependency-analysis-requirements-agent-based"></a>Requisitos de análise de dependência (baseados em agente)
@@ -113,7 +111,7 @@ Além de descobrir máquinas, a Avaliação do Servidor pode descobrir apps, fun
 **Azure Government** | A análise da dependência baseada em agentes não é suportada.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Reveja as](best-practices-assessment.md) melhores práticas para criar avaliações.
 - Prepare-se para a avaliação [da VMware.](./tutorial-discover-vmware.md)

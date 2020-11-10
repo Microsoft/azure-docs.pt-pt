@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 707b6d0f8a5fa3cff89339b9b0465d96b5369a34
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 596de459b888bb9973aca1c7d72f2f9e24c966eb
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287603"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94445137"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do Programador do Azure Key Vault
 
@@ -79,7 +79,7 @@ Para tutoriais sobre como autenticar o Key Vault em aplicações, consulte:
 
 ## <a name="manage-keys-certificates-and-secrets"></a>Gerir chaves, certificados e segredos
 
-O acesso a chaves, segredos e certificados é controlado por um plano de dados. O controlo de acesso a planos de dados pode ser feito usando políticas locais de acesso ao cofre ou RBAC (pré-visualização).
+O acesso a chaves, segredos e certificados é controlado por um plano de dados. O controlo de acesso a planos de dados pode ser feito usando políticas locais de acesso ao cofre ou Azure RBAC (pré-visualização).
 
 **APIs de chaves e SDKs**
 
@@ -104,7 +104,7 @@ O acesso a chaves, segredos e certificados é controlado por um plano de dados. 
 
 Consulte [as Bibliotecas do Cliente](client-libraries.md) para obter pacotes de instalação e código fonte.
 
-Para obter mais informações sobre a segurança do plano de dados do Key Vault, consulte [o Key Vault Data Plane e as políticas](./secure-your-key-vault.md#data-plane-and-access-policies) de acesso e Key Vault Data Plane e [RBAC (pré-visualização)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
+Para obter mais informações sobre a segurança do plano de dados do Key Vault, consulte [o Key Vault Data Plane e as políticas](./secure-your-key-vault.md#data-plane-and-access-policies) de acesso e Key Vault Data Plane e [Azure RBAC (pré-visualização)](./secure-your-key-vault.md#data-plane-and-azure-rbac-preview)
 
 ### <a name="code-examples"></a>Exemplos de código
 

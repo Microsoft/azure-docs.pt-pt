@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 43cb891ad63a23353437082f7cb1b1e45f146e5b
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a18a36b8583f8534b2a2e643e5c155dc7a2d65e2
+ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204223"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94444066"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configure uma aplicação móvel que chama APIs web
 
@@ -27,7 +27,7 @@ Depois de criar a sua aplicação, aprenderá a configurar o código utilizando 
 
 Os seguintes tipos da Microsoft Authentication Library (MSAL) suportam aplicações móveis.
 
-MSAL | Descrição
+MSAL | Description
 ------------ | ----------
 ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Usado para desenvolver aplicações portáteis. MSAL.NET suporta as seguintes plataformas para a construção de uma aplicação móvel: Universal Windows Platform (UWP), Xamarin.iOS e Xamarin.Android.
 ![MSAL.iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL.iOS | Usado para desenvolver aplicações nativas do iOS utilizando Object-C ou Swift.
@@ -148,9 +148,9 @@ Para obter mais informações, consulte [considerações específicas da UWP com
 
 No Android e iOS, os corretores permitem:
 
-- **Único sinal de sinalização (SSO)**: Pode utilizar SSO para dispositivos registados no Azure Ative Directory (Azure AD). Quando utiliza sSO, os seus utilizadores não precisam de iniciar sômposições em cada aplicação.
-- **Identificação do dispositivo**: Esta definição permite políticas de acesso condicional relacionadas com dispositivos AD Azure. O processo de autenticação utiliza o certificado do dispositivo que foi criado quando o dispositivo foi associado ao local de trabalho.
-- **Verificação de identificação de aplicação**: Quando uma aplicação chama o corretor, passa o seu URL de redirecionamento. Então o corretor verifica.
+- **Único sinal de sinalização (SSO)** : Pode utilizar SSO para dispositivos registados no Azure Ative Directory (Azure AD). Quando utiliza sSO, os seus utilizadores não precisam de iniciar sômposições em cada aplicação.
+- **Identificação do dispositivo** : Esta definição permite políticas de acesso condicional relacionadas com dispositivos AD Azure. O processo de autenticação utiliza o certificado do dispositivo que foi criado quando o dispositivo foi associado ao local de trabalho.
+- **Verificação de identificação de aplicação** : Quando uma aplicação chama o corretor, passa o seu URL de redirecionamento. Então o corretor verifica.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Ativar o corretor em Xamarin
 
@@ -367,5 +367,4 @@ Para obter informações sobre como ativar um corretor no Android, consulte [a a
 
 ## <a name="next-steps"></a>Passos seguintes
 
-> [!div class="nextstepaction"]
-> [Aquisição de um símbolo](scenario-mobile-acquire-token.md)
+Passe para o próximo artigo neste cenário, [Adquirindo um símbolo](scenario-mobile-acquire-token.md).
