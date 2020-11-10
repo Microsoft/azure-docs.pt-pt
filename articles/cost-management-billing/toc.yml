@@ -120,6 +120,8 @@
           href: understand/subscription-transfer.md
         - name: Transferir subscrições entre parceiros (Pré-visualização)
           href: manage/azure-plan-subscription-transfer-partners.md
+        - name: Introdução ao EA Portal do Azure
+          href: manage/ea-portal-get-started.md
 - name: Guias de procedimentos
   items:
     - name: Configurar o Cost Management + Faturação
@@ -200,8 +202,6 @@
               href: manage/cancel-azure-subscription.md
         - name: Gerir as subscrições do Contrato Enterprise
           items:
-            - name: Introdução ao EA Portal do Azure
-              href: manage/ea-portal-get-started.md
             - name: Funções de EA no Azure
               href: manage/understand-ea-roles.md
             - name: Administração do Azure EA Portal

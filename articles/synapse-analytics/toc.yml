@@ -173,7 +173,7 @@
           href: sql/resource-consumption-models.md
         - name: Dados processados
           href: sql/data-processed.md
-        - name: Melhores práticas de SQL a pedido
+        - name: Melhores práticas do conjunto de SQL sem servidor
           href: sql/best-practices-sql-on-demand.md
         - name: Melhores práticas dos conjuntos de SQL dedicados
           href: sql/best-practices-sql-pool.md

@@ -13,12 +13,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: a9b7b40c3f79751a9d67750e428ca14cc024a47b
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: ed638f6cd90abefdf5fbeaddf21ddb3a98322c07
+  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "91328280"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94409115"
 landingContent:
 - title: Acerca da Referência de Segurança do Azure
   linkLists:
@@ -61,7 +61,7 @@ landingContent:
   - linkListType: overview
     links:
     - text: Azure Databricks
-      url: ../../azure-databricks/security-baseline.md
+      url: /azure/databricks/scenarios/security-baseline
     - text: Azure Machine Learning
       url: ../../machine-learning/security-baseline.md
     - text: Serviços Cognitivos
@@ -121,7 +121,7 @@ landingContent:
     - text: Base de Dados do Azure para PostgreSQL - Hyperscale
       url: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - text: Base de Dados SQL do Azure
-      url: ../../sql-database/security-baseline.md
+      url: ../../azure-sql/database/security-baseline.md
     - text: Cosmos DB
       url: ../../cosmos-db/security-baseline.md
 - title: Linhas de base de segurança de integração
@@ -177,7 +177,7 @@ landingContent:
     - text: Sistema de Proteção de Dados do Cliente
       url: ../fundamentals/customer-lockbox-security-baseline.md
     - text: Key Vault
-      url: ../../key-vault/security-baseline.md
+      url: ../../key-vault/general/security-baseline.md
     - text: Centro de Segurança
       url: ../../security-center/security-baseline.md
 - title: Linhas de base de segurança adicionais

@@ -64,6 +64,8 @@
           href: connection-monitor-preview-create-using-portal.md
         - name: Utilizar o ARMClient
           href: connection-monitor-preview-create-using-arm-client.md
+        - name: Utilizar o PowerShell
+          href: connection-monitor-create-using-powershell.md
     - name: Migrar para o Monitor de Ligação (Pré-visualização)
       items:
         - name: Do Monitor de Desempenho de Rede

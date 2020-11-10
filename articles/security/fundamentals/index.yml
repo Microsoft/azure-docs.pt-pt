@@ -12,12 +12,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 10/28/2019
-  ms.openlocfilehash: 62a0bc67624c27ccd8185edb8be1a8cb3f16a9b1
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 95136ee22ec6799a4e35b9b4619d62994d708fc1
+  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "81115232"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94410084"
 landingContent:
 - title: Sobre a segurança do Azure
   linkLists:
@@ -46,7 +46,7 @@ landingContent:
   - linkListType: overview
     links:
     - text: Centro de Segurança do Azure
-      url: ../../security-center/security-center-intro.md
+      url: ../../security-center/security-center-introduction.md
   - linkListType: concept
     links:
     - text: Gestão e monitorização
@@ -76,7 +76,7 @@ landingContent:
     - text: Encriptação inativa
       url: encryption-atrest.md
     - text: Proteção de dados
-      url: database-security-overview.md
+      url: ../../azure-sql/database/security-overview.md
     - text: Segurança da rede
       url: network-overview.md
     - text: Segurança das máquinas virtuais
@@ -86,16 +86,16 @@ landingContent:
   - linkListType: learn
     links:
     - text: Proteger as suas aplicações na cloud
-      url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps/
+      url: /learn/paths/secure-your-cloud-apps/
 - title: Fomentar as suas competências de segurança
   linkLists:
   - linkListType: learn
     links:
     - text: Implementar a segurança de rede
-      url: https://docs.microsoft.com/learn/paths/implement-network-security
+      url: /learn/paths/implement-network-security
     - text: Gerir a identidade e o acesso
-      url: https://docs.microsoft.com/learn/paths/manage-identity-and-access
+      url: /learn/paths/manage-identity-and-access
     - text: Implementar a segurança da gestão de recursos
-      url: https://docs.microsoft.com/learn/paths/implement-resource-mgmt-security
+      url: /learn/paths/implement-resource-mgmt-security
     - text: Implementar a segurança de anfitrião de máquina virtual
       url: https://docs.microsoft.com/learn/paths/implement-host-security

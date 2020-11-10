@@ -86,7 +86,7 @@
     - name: Base de Dados do Azure para PostgreSQL - Linha de base de segurança do Hyperscale
       href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Linha de base de segurança do Azure Databricks
-      href: ../../azure-databricks/security-baseline.md
+      href: /azure/databricks/scenarios/security-baseline
     - name: Linha de base de segurança do DNS do Azure
       href: ../../dns/security-baseline.md
     - name: Linha de base de segurança do Azure DevTest Labs
@@ -118,7 +118,7 @@
     - name: Linha de base de segurança do Azure Sentinel
       href: ../../sentinel/security-baseline.md
     - name: Linha de base de segurança da Base de Dados SQL do Azure
-      href: ../../sql-database/security-baseline.md
+      href: ../../azure-sql/database/security-baseline.md
     - name: Linha de base de segurança do Armazenamento do Azure
       href: ../../storage/common/security-baseline.md
     - name: Linha de base de segurança do Gestor de Tráfego do Azure
@@ -154,7 +154,7 @@
     - name: Linha de base de segurança do HDInsight
       href: ../../hdinsight/security-baseline.md
     - name: Linha de base de segurança do Key Vault
-      href: ../../key-vault/security-baseline.md
+      href: ../../key-vault/general/security-baseline.md
     - name: Linha de base de segurança do Logic Apps
       href: ../../logic-apps/security-baseline.md
     - name: Linha de base de segurança do Observador de Rede
