@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b2e54545fb79120a3f9d66067da267df3b151b3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3812cef9b90a15870733441c9e830daf32e0b18
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91322126"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408945"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Controlo de Segurança V2: Backup e Recuperação
 
@@ -32,11 +32,11 @@ Para um nível de proteção mais elevado, pode permitir a opção de armazename
 
 - [Continuidade de negócio e recuperação após desastre de escala empresarial](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
-- [Como ativar o backup do Azure](/azure/backup/)
+- [Como ativar o backup do Azure](../../backup/index.yml)
 
-- [Como permitir a restauração da região transversal](/azure/backup/backup-azure-arm-restore-vms#cross-region-restore)
+- [Como permitir a restauração da região transversal](../../backup/backup-azure-arm-restore-vms.md#cross-region-restore)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -60,15 +60,15 @@ Para cópias de segurança no local que utilizem O Backup Azure, a encriptação
 
 Utilize o controlo de acesso baseado em funções em Azure Backup, Azure Key Vault ou outros recursos para proteger cópias de segurança e chaves geridas pelo cliente. Além disso, pode ativar funcionalidades de segurança avançadas para exigir MFA antes que as cópias de segurança possam ser alteradas ou eliminadas.
 
-- [Visão geral das funcionalidades de segurança no Azure Backup](/azure/backup/security-overview)
+- [Visão geral das funcionalidades de segurança no Azure Backup](../../backup/security-overview.md)
 
-- [Encriptação de dados de backup usando chaves geridas pelo cliente](/azure/backup/encryption-at-rest-with-cmk) 
+- [Encriptação de dados de backup usando chaves geridas pelo cliente](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Como apoiar chaves do Cofre chave em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como apoiar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
-- [Funcionalidades de segurança para ajudar a proteger os backups híbridos de ataques](/azure/backup/backup-azure-security-feature#prevent-attacks)
+- [Funcionalidades de segurança para ajudar a proteger os backups híbridos de ataques](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -86,11 +86,11 @@ Utilize o controlo de acesso baseado em funções em Azure Backup, Azure Key Vau
 
 Efetue periodicamente a restauração de dados da sua cópia de segurança. Certifique-se de que pode restaurar as chaves geridas pelo cliente.
 
-- [Como recuperar ficheiros da cópia de segurança da Azure Virtual Machine](/azure/backup/backup-azure-restore-files-from-vm)
+- [Como recuperar ficheiros da cópia de segurança da Azure Virtual Machine](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Como restaurar chaves do Cofre chave em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -106,9 +106,9 @@ Efetue periodicamente a restauração de dados da sua cópia de segurança. Cert
 
 Certifique-se de que tem medidas para prevenir e recuperar da perda de chaves. Ativar a proteção de eliminação e purga suave no Cofre da Chave Azure para proteger as chaves contra a eliminação acidental ou maliciosa.  
 
-- [Como permitir a eliminação suave e a proteção de purga no Cofre de Chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como permitir a eliminação suave e a proteção de purga no Cofre de Chaves](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -117,4 +117,3 @@ Certifique-se de que tem medidas para prevenir e recuperar da perda de chaves. A
 - [Preparação de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [Segurança de Dados](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

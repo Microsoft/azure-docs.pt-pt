@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: d2862d5ab2c42ebdd1787022dc86119bc4e0f596
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d22ce3941b00903be8532caaa36a9ce55e2f2c6f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86229368"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409795"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança das máquinas virtuais Azure
 Este artigo fornece uma visão geral das principais funcionalidades de segurança do Azure que podem ser usadas com máquinas virtuais.
@@ -51,11 +51,11 @@ Saiba mais sobre [o Microsoft Antimalware para Azure](antimalware.md) e as funci
 Saiba mais sobre software antimalware para ajudar a proteger as suas máquinas virtuais:
 
 * [Implementar Soluções Antimalware em Máquinas Virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Como instalar e configurar a Trend Micro Deep Security como um serviço num VM do Windows](/azure/virtual-machines/windows/classic/install-trend)
-* [Como instalar e configurar a proteção de ponto final Symantec num VM do Windows](/azure/virtual-machines/windows/classic/install-symantec)
+* [Como instalar e configurar a Trend Micro Deep Security como um serviço num VM do Windows](../../virtual-machines/extensions/trend.md)
+* [Como instalar e configurar a proteção de ponto final Symantec num VM do Windows](../../virtual-machines/extensions/symantec.md)
 * [Soluções de segurança no Mercado Azure](https://azure.microsoft.com/marketplace/?term=security)
 
-Para uma proteção ainda mais poderosa, considere utilizar a [proteção de ameaças avançadas do Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Com o Windows Defender ATP, obtém-se:
+Para uma proteção ainda mais poderosa, considere utilizar a [proteção de ameaças avançadas do Windows Defender](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). Com o Windows Defender ATP, obtém-se:
 
 * [Attack surface reduction (Redução da superfície de ataque)](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Proteção da próxima geração](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
@@ -75,22 +75,22 @@ Saiba mais:
 
 Melhorar a segurança das chaves pode melhorar as proteções de encriptação e autenticação. Pode simplificar a gestão e segurança dos seus segredos e chaves críticos armazenando-os no Azure Key Vault.
 
-O Key Vault oferece a opção de armazenar as suas chaves em módulos de segurança de hardware (HSMs) certificados para os padrões FIPS 140-2 Nível 2. As chaves de encriptação do SQL Server para encriptação de [dados de](https://msdn.microsoft.com/library/bb934049.aspx) backup ou transparente podem ser armazenadas no Key Vault com quaisquer chaves ou segredos das suas aplicações. As permissões e o acesso a estes itens protegidos são geridos através [do Azure Ative Directory](https://azure.microsoft.com/documentation/services/active-directory/).
+O Key Vault oferece a opção de armazenar as suas chaves em módulos de segurança de hardware (HSMs) certificados para os padrões FIPS 140-2 Nível 2. As chaves de encriptação do SQL Server para encriptação de [dados de](/sql/relational-databases/security/encryption/transparent-data-encryption) backup ou transparente podem ser armazenadas no Key Vault com quaisquer chaves ou segredos das suas aplicações. As permissões e o acesso a estes itens protegidos são geridos através [do Azure Ative Directory](https://azure.microsoft.com/documentation/services/active-directory/).
 
 Saiba mais:
 
-* [O que é o Azure Key Vault?](/azure/key-vault/key-vault-overview)
-* [Blog Azure Key Vault](https://blogs.technet.microsoft.com/kv/)
+* [O que é o Azure Key Vault?](../../key-vault/general/overview.md)
+* [Blog Azure Key Vault](/archive/blogs/kv/)
 
 ## <a name="virtual-machine-disk-encryption"></a>Encriptação de disco de máquina virtual
 
-A Azure Disk Encryption é uma nova capacidade para encriptar os discos de máquinas virtuais Windows e Linux. A Azure Disk Encryption utiliza a funcionalidade [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) padrão da indústria do Windows e a funcionalidade [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer encriptação de volume para o SISTEMA e os discos de dados.
+A Azure Disk Encryption é uma nova capacidade para encriptar os discos de máquinas virtuais Windows e Linux. A Azure Disk Encryption utiliza a funcionalidade [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) padrão da indústria do Windows e a funcionalidade [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) do Linux para fornecer encriptação de volume para o SISTEMA e os discos de dados.
 
 A solução está integrada com o Azure Key Vault para o ajudar a controlar e gerir as chaves e segredos de encriptação do disco na subscrição do cofre principal. Garante que todos os dados nos discos de máquinas virtuais são encriptados em repouso no Azure Storage.
 
 Saiba mais:
 
-* [Encriptação do disco Azure para IaaS VMs](/azure/security/azure-security-disk-encryption-overview)
+* [Encriptação do disco Azure para IaaS VMs](./azure-disk-encryption-vms-vmss.md)
 * [Início Rápido: Encriptar uma VM IaaS do Windows com o Azure PowerShell](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
 
 ## <a name="virtual-machine-backup"></a>Backup de máquina virtual
@@ -99,8 +99,8 @@ O Azure Backup é uma solução escalável que ajuda a proteger os dados da sua 
 
 Saiba mais:
 
-* [O que é o Backup do Azure?](/azure/backup/backup-introduction-to-azure-backup)
-* [Serviço de backup Azure FAQ](/azure/backup/backup-azure-backup-faq)
+* [O que é o Azure Backup?](../../backup/backup-overview.md)
+* [Serviço de backup Azure FAQ](../../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery
 
@@ -108,17 +108,17 @@ Uma parte importante da estratégia bcdr da sua organização é descobrir como 
 
 Recuperação do local:
 
-* **Simplifica a sua estratégia BCDR**: A Recuperação do Site facilita o manusear a replicação, o failover e a recuperação de múltiplas cargas de trabalho e aplicações de negócios a partir de um único local. A Recuperação do Site orquestra a replicação e o failover, mas não interceta os dados da sua aplicação nem tem qualquer informação sobre o mesmo.
-* **Fornece uma replicação flexível**: Ao utilizar a Recuperação do Site, pode replicar cargas de trabalho em funcionamento em máquinas virtuais Hiper-V, máquinas virtuais VMware e servidores físicos Windows/Linux.
-* **Suportes de failover e recuperação**: A Recuperação do Local fornece falhas de teste para apoiar exercícios de recuperação de desastres sem afetar ambientes de produção. Também pode executar as ativações pós-falha planeadas sem nenhuma perda de dados para as falhas esperadas ou as ativações pós-falha não planeadas com perda mínima de dados (dependendo da frequência de replicação) perante desastres inesperados. Depois de falhar, pode falhar de volta aos seus locais primários. A Recuperação de Sites fornece planos de recuperação que podem incluir scripts e livros de automatização do Azure, para que possa personalizar a ativação pós-falha e a recuperação de aplicações de várias camadas.
-* **Elimina centros de dados secundários**: Pode replicar-se num local secundário no local ou em Azure. Usar o Azure como destino para a recuperação de desastres elimina o custo e a complexidade da manutenção de um local secundário. Os dados replicados são armazenados no Azure Storage.
-* **Integra-se com as tecnologias BCDR existentes**: Parceiros de Recuperação de Sítios com funcionalidades BCDR de outras aplicações. Por exemplo, pode utilizar a Recuperação do Site para ajudar a proteger o fim do SQL Server das cargas de trabalho corporativas. Isto inclui suporte nativo para SQL Server Always On para gerir o failover de grupos de disponibilidade.
+* **Simplifica a sua estratégia BCDR** : A Recuperação do Site facilita o manusear a replicação, o failover e a recuperação de múltiplas cargas de trabalho e aplicações de negócios a partir de um único local. A Recuperação do Site orquestra a replicação e o failover, mas não interceta os dados da sua aplicação nem tem qualquer informação sobre o mesmo.
+* **Fornece uma replicação flexível** : Ao utilizar a Recuperação do Site, pode replicar cargas de trabalho em funcionamento em máquinas virtuais Hiper-V, máquinas virtuais VMware e servidores físicos Windows/Linux.
+* **Suportes de failover e recuperação** : A Recuperação do Local fornece falhas de teste para apoiar exercícios de recuperação de desastres sem afetar ambientes de produção. Também pode executar as ativações pós-falha planeadas sem nenhuma perda de dados para as falhas esperadas ou as ativações pós-falha não planeadas com perda mínima de dados (dependendo da frequência de replicação) perante desastres inesperados. Depois de falhar, pode falhar de volta aos seus locais primários. A Recuperação de Sites fornece planos de recuperação que podem incluir scripts e livros de automatização do Azure, para que possa personalizar a ativação pós-falha e a recuperação de aplicações de várias camadas.
+* **Elimina centros de dados secundários** : Pode replicar-se num local secundário no local ou em Azure. Usar o Azure como destino para a recuperação de desastres elimina o custo e a complexidade da manutenção de um local secundário. Os dados replicados são armazenados no Azure Storage.
+* **Integra-se com as tecnologias BCDR existentes** : Parceiros de Recuperação de Sítios com funcionalidades BCDR de outras aplicações. Por exemplo, pode utilizar a Recuperação do Site para ajudar a proteger o fim do SQL Server das cargas de trabalho corporativas. Isto inclui suporte nativo para SQL Server Always On para gerir o failover de grupos de disponibilidade.
 
 Saiba mais:
 
-* [O que é o Azure Site Recovery?](/azure/site-recovery/site-recovery-overview)
-* [Como funciona o Azure Site Recovery?](/azure/site-recovery/site-recovery-components)
-* [Que cargas de trabalho estão protegidas pela Recuperação do Sítio Azure?](/azure/site-recovery/site-recovery-workload)
+* [O que é Azure Site Recovery?](../../site-recovery/site-recovery-overview.md)
+* [Como funciona o Azure Site Recovery?](/azure/security/fundamentals/azure-to-azure-architecture)
+* [Que cargas de trabalho estão protegidas pela Recuperação do Sítio Azure?](../../site-recovery/site-recovery-workload.md)
 
 ## <a name="virtual-networking"></a>Redes virtuais
 
@@ -129,7 +129,7 @@ Uma rede virtual Azure é uma construção lógica construída em cima do tecido
 Saiba mais:
 
 * [Visão geral da segurança da rede Azure](network-overview.md)
-* [Visão geral da rede virtual](/azure/virtual-network/virtual-networks-overview)
+* [Visão geral da rede virtual](../../virtual-network/virtual-networks-overview.md)
 * [Funcionalidades de networking e parcerias para cenários empresariais](https://azure.microsoft.com/blog/networking-enterprise/)
 
 ## <a name="security-policy-management-and-reporting"></a>Gestão e reporte de políticas de segurança
@@ -138,14 +138,14 @@ O Centro de Segurança do Azure ajuda-o a evitar, detetar e responder a ameaças
 
 O Security Center ajuda-o a otimizar e monitorizar a segurança das suas máquinas virtuais através de:
 
-* Fornecendo [recomendações](/azure/security-center/security-center-recommendations) de segurança para as máquinas virtuais. As recomendações de exemplo incluem: aplicar atualizações do sistema, configurar os pontos finais de ACLs, permitir antimalware, ativar grupos de segurança de rede e aplicar encriptação de discos.
+* Fornecendo [recomendações](../../security-center/security-center-recommendations.md) de segurança para as máquinas virtuais. As recomendações de exemplo incluem: aplicar atualizações do sistema, configurar os pontos finais de ACLs, permitir antimalware, ativar grupos de segurança de rede e aplicar encriptação de discos.
 * A monitorizar o estado das suas máquinas virtuais.
 
 Saiba mais:
 
-* [Introdução ao Centro de Segurança do Azure](/azure/security-center/security-center-intro)
-* [O Centro de Segurança Azure frequentemente fez perguntas](/azure/security-center/security-center-faq)
-* [Planeamento e operações do Centro de Segurança Azure](/azure/security-center/security-center-planning-and-operations-guide)
+* [Introdução ao Centro de Segurança do Azure](../../security-center/security-center-introduction.md)
+* [O Centro de Segurança Azure frequentemente fez perguntas](../../security-center/faq-general.md)
+* [Planeamento e operações do Centro de Segurança Azure](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## <a name="compliance"></a>Conformidade
 

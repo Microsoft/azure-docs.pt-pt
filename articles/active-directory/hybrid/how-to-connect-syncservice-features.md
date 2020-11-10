@@ -16,23 +16,23 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: db5dbef2b57fb89b33ea116d0373184cdade0ac5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 261ab5d0f039705a2566b7c28ff4c06778bb661a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85356768"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410543"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funcionalidades do serviço de sincronização do Azure AD Connect
 
 A função de sincronização do Azure AD Connect tem dois componentes:
 
-* O componente no local chamado **Azure AD Connect sync**, também chamado **sync engine**.
+* O componente no local chamado **Azure AD Connect sync** , também chamado **sync engine**.
 * O serviço residente em Azure AD também conhecido como **Azure AD Connect sync service**
 
 Este tópico explica como funcionam as seguintes funcionalidades do serviço de **sincronização Azure AD Connect** e como pode configurá-las utilizando o Windows PowerShell.
 
-Estas definições são configuradas pelo [Módulo de Diretório Ativo Azure para Windows PowerShell](https://aka.ms/aadposh). Faça o download e instale-o separadamente do Azure AD Connect. Os cmdlets documentados neste tema foram introduzidos no [lançamento de março de 2016 (construção 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Se não tiver os cmdlets documentados neste tópico ou não produzir o mesmo resultado, certifique-se de que executa a versão mais recente.
+Estas definições são configuradas pelo [Módulo de Diretório Ativo Azure para Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)). Faça o download e instale-o separadamente do Azure AD Connect. Os cmdlets documentados neste tema foram introduzidos no [lançamento de março de 2016 (construção 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Se não tiver os cmdlets documentados neste tópico ou não produzir o mesmo resultado, certifique-se de que executa a versão mais recente.
 
 Para ver a configuração no seu diretório AD Azure, corra `Get-MsolDirSyncFeatures` .  
 ![Resultado get-MsolDirSyncFeatures](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
@@ -114,7 +114,7 @@ Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $true
 
 Depois de ativar esta funcionalidade, os valores do nome do utilizador existentes permanecerão como está. Na próxima alteração do atributo UserPrincipalName no local, a sincronização delta normal nos utilizadores irá atualizar a UPN.  
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * [Sincronização Azure Ad Connect](how-to-connect-sync-whatis.md)
 * [Integrando as suas identidades no local com o Azure Ative Directory](whatis-hybrid-identity.md).

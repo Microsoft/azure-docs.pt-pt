@@ -12,12 +12,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0ee8661ca985e1882cff54d2fc2cdc5e9ad0a22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0edda2a01d6b17aebba3fbe4dbf039bf1d2f2c5
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335974"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411121"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrar da federação para a autenticação pass-through para o Azure Ative Directory
 
@@ -76,7 +76,7 @@ Para entender que método deve utilizar, complete os passos nas seguintes secç�
 #### <a name="verify-how-federation-was-configured"></a>Verifique como a federação foi configurada
 
 1. No seu servidor AZure AD Connect, abra o Azure AD Connect. Selecione **Configurar**.
-2. Na página **de tarefas adicionais,** selecione **Ver a configuração atual**e, em seguida, selecione **Seguinte**.<br />
+2. Na página **de tarefas adicionais,** selecione **Ver a configuração atual** e, em seguida, selecione **Seguinte**.<br />
  
    ![Screenshot da opção de configuração atual Ver na página de tarefas adicionais](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
 3. No âmbito **de tarefas adicionais > Gerir Federação,** percorra os **Serviços da Federação de Diretórios Ativos (AD FS)**.<br />
@@ -132,9 +132,9 @@ Antes de converter de identidade federada para identidade gerida, olhe de perto 
 |-|-|
 | Planeia continuar a utilizar O FS AD com outras aplicações (além do Azure AD e do Microsoft 365). | Depois de converter os seus domínios, utilizará tanto o AD FS como o Azure AD. Considere a experiência do utilizador. Em alguns cenários, os utilizadores podem ser obrigados a autenticar duas vezes: uma para Azure AD (onde um utilizador obtém acesso SSO a outras aplicações, como o Microsoft 365), e novamente para quaisquer aplicações que ainda estejam vinculadas a AD FS como uma confiança do partido. |
 | A sua instância AD FS é fortemente personalizada e baseia-se em configurações específicas de personalização no ficheiro onload.js (por exemplo, se alterou a experiência de entrada para que os utilizadores utilizem apenas um formato **SamAccountName** para o seu nome de utilizador em vez de um Nome Principal de Utilizador (UPN), ou a sua organização marcou fortemente a experiência de entrada). O ficheiro onload.js não pode ser duplicado em Azure AD. | Antes de continuar, deve verificar se o Azure AD pode cumprir os seus requisitos de personalização atuais. Para obter mais informações e orientação, consulte as secções sobre a marca AD FS e a personalização da AD FS.|
-| Utiliza O FS AD para bloquear versões anteriores de clientes de autenticação.| Considere substituir os controlos AD FS que bloqueiam versões anteriores de clientes de autenticação utilizando uma combinação de [controlos](../conditional-access/concept-conditional-access-conditions.md) de acesso condicional e regras de [acesso ao cliente online de troca.](https://aka.ms/EXOCAR) |
+| Utiliza O FS AD para bloquear versões anteriores de clientes de autenticação.| Considere substituir os controlos AD FS que bloqueiam versões anteriores de clientes de autenticação utilizando uma combinação de [controlos](../conditional-access/concept-conditional-access-conditions.md) de acesso condicional e regras de [acesso ao cliente online de troca.](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules) |
 | É necessário que os utilizadores realizem a autenticação de vários fatores contra uma solução de servidor de autenticação multi-factor no local quando os utilizadores autenticarem para AD FS.| Num domínio de identidade gerido, não é possível injetar um desafio de autenticação de vários fatores através da solução de autenticação multi-factor no local para o fluxo de autenticação. No entanto, pode utilizar o serviço de autenticação multi-factor Azure para autenticação multi-factor após a conversão do domínio.<br /><br /> Se os seus utilizadores não utilizarem atualmente a autenticação multi-factor Azure, é necessário um passo único de registo do utilizador. Deve preparar-se e comunicar o registo planeado aos seus utilizadores. |
-| Atualmente utiliza políticas de controlo de acesso (regras AuthZ) em FS AD para controlar o acesso ao Microsoft 365.| Considere substituir as políticas pelas políticas equivalentes de acesso condicionado Azure AD e trocar [regras](../conditional-access/overview.md) [de acesso ao cliente online.](https://aka.ms/EXOCAR)|
+| Atualmente utiliza políticas de controlo de acesso (regras AuthZ) em FS AD para controlar o acesso ao Microsoft 365.| Considere substituir as políticas pelas políticas equivalentes de acesso condicionado Azure AD e trocar [regras](../conditional-access/overview.md) [de acesso ao cliente online.](/exchange/clients-and-mobile-in-exchange-online/client-access-rules/client-access-rules)|
 
 ### <a name="common-ad-fs-customizations"></a>Personalizações comuns do AD FS
 
@@ -247,9 +247,9 @@ Utilize este método se configurar inicialmente o seu ambiente AD FS utilizando 
 Primeiro, altere o método de inscrição:
 
 1. No servidor Azure AD Connect, abra o assistente Azure AD Connect.
-2. Selecione **Alterar o pedido de insusição**do utilizador e, em seguida, selecione **Seguinte**. 
+2. Selecione **Alterar o pedido de insusição** do utilizador e, em seguida, selecione **Seguinte**. 
 3. Na página **'Ligar a AD' Azure,** insira o nome de utilizador e a palavra-passe de uma conta De administrador global.
-4. Na página **de insusição** do Utilizador, selecione o botão **de autenticação Pass-through,** selecione **Iniciar uma única sação**e, em seguida, selecione **Seguinte**.
+4. Na página **de insusição** do Utilizador, selecione o botão **de autenticação Pass-through,** selecione **Iniciar uma única sação** e, em seguida, selecione **Seguinte**.
 5. Na página **de inscrição única,** introduza as credenciais de uma conta de Administrador de Domínio e, em seguida, selecione **Seguinte**.
 
    > [!NOTE]
@@ -262,7 +262,7 @@ Primeiro, altere o método de inscrição:
 6. Na página **Pronto para configurar,** certifique-se de que o **processo de sincronização iniciar quando a configuração completar a** caixa de verificação é selecionado. Em seguida, selecione **Configure**.<br />
 
    ![Screenshot da página Ready to Configure](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
-7. No portal AZure AD, selecione **Azure Ative Directory**e, em seguida, selecione **Azure AD Connect**.
+7. No portal AZure AD, selecione **Azure Ative Directory** e, em seguida, selecione **Azure AD Connect**.
 8. Verifique estas definições:
    * **A Federação** está preparada para **deficientes.**
    * **O sinal único sem emenda** está definido para **Ativado**.
@@ -272,7 +272,7 @@ Primeiro, altere o método de inscrição:
 
 Seguinte. implementar métodos de autenticação adicionais:
 
-1. No portal Azure, vá ao **Azure Ative Directory**  >  **Azure AD Connect**e, em seguida, selecione **a autenticação Pass-through**.
+1. No portal Azure, vá ao **Azure Ative Directory**  >  **Azure AD Connect** e, em seguida, selecione **a autenticação Pass-through**.
 2. Na página **de autenticação Pass-through,** selecione o botão **Descarregar.**
 3. Na página do **agente descarregue,** selecione **Aceitar termos e baixar**.
 
@@ -301,9 +301,9 @@ Utilize esta opção se não configurar inicialmente os seus domínios federados
 Primeiro, ativar a autenticação pass-through:
 
 1. No Azure AD Connect Server, abra o assistente Azure AD Connect.
-2. Selecione **Alterar o pedido de insusição**do utilizador e, em seguida, selecione **Seguinte**.
+2. Selecione **Alterar o pedido de insusição** do utilizador e, em seguida, selecione **Seguinte**.
 3. Na página **'Ligar a AD' Azure,** insira o nome de utilizador e a palavra-passe de uma conta De administrador global.
-4. Na página **de insusição do Utilizador,** selecione o botão **de autenticação Pass-through.** **Selecione Ativar um único sinal de inscrição**e, em seguida, selecione **Seguinte**.
+4. Na página **de insusição do Utilizador,** selecione o botão **de autenticação Pass-through.** **Selecione Ativar um único sinal de inscrição** e, em seguida, selecione **Seguinte**.
 5. Na página **de inscrição única,** introduza as credenciais de uma conta de Administrador de Domínio e, em seguida, selecione **Seguinte**.
 
    > [!NOTE]
@@ -334,7 +334,7 @@ Primeiro, ativar a autenticação pass-through:
 
 Em seguida, implementar agentes de autenticação adicionais:
 
-1. No portal Azure, vá ao **Azure Ative Directory**  >  **Azure AD Connect**e, em seguida, selecione **a autenticação Pass-through**.
+1. No portal Azure, vá ao **Azure Ative Directory**  >  **Azure AD Connect** e, em seguida, selecione **a autenticação Pass-through**.
 2. Na página **de autenticação Pass-through,** selecione o botão **Descarregar.** 
 3. Na página do **agente descarregue,** selecione **Aceitar termos e baixar**.
  

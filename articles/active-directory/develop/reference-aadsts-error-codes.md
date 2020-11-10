@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/30/2020
+ms.date: 11/09/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 59ed397f3bd54a324f8fa375a3ea870860c31142
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241332"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410934"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de erro da Autenticação e autorização do Azure AD
 
@@ -60,7 +60,7 @@ Aqui está uma resposta de erro de amostra:
 
 O `error` campo tem vários valores possíveis - reveja as ligações de documentação do protocolo e as especificações de OAuth 2.0 para saber mais sobre erros específicos (por exemplo, `authorization_pending` no fluxo de código do [dispositivo](v2-oauth2-device-code.md)) e como reagir a eles.  Alguns comuns estão listados aqui:
 
-| Código de Erro         | Descrição        | Ação do Cliente    |
+| Código de Erro         | Description        | Ação do Cliente    |
 |--------------------|--------------------|------------------|
 | `invalid_request`  | Erro de protocolo, como um parâmetro exigido em falta. | Corrija e reenvia o pedido.|
 | `invalid_grant`    | Parte do material de autenticação (código auth, token de atualização, token de acesso, desafio PKCE) era inválido, inparável, em falta ou de outra forma inutilizável | Tente um novo pedido para o `/authorize` ponto final para obter um novo código de autorização.  Considere rever e validar o uso da aplicação nos protocolos. |
@@ -74,7 +74,7 @@ O `error` campo tem vários valores possíveis - reveja as ligações de documen
 ## <a name="lookup-current-error-code-information"></a>Procurar informações de código de erro corrente
 Os códigos de erro e as mensagens estão sujeitos a alterações.  Para obter as informações mais recentes, veja a [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) página para encontrar descrições de erros, correções e algumas soluções sugeridas.  
 
-Procure na parte numérica do código de erro devolvido.  Por exemplo, se recebeu o código de erro "AADSTS16000" então faça uma pesquisa [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) por "16000".  Também pode ligar diretamente a um erro específico adicionando o número de código de erro ao URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000) .
+Por exemplo, se recebeu o código de erro "AADSTS50058" então faça uma pesquisa [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) em "50058".  Também pode ligar diretamente a um erro específico adicionando o número de código de erro ao URL: [https://login.microsoftonline.com/error?code=50058](https://login.microsoftonline.com/error?code=50058) .
 
 ## <a name="aadsts-error-codes"></a>Códigos de erro AADSTS
 

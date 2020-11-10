@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 20eaf6e6a9f0eee15e6ad6a5bd8f23bf8531545c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1b0fa12aa00165ad4ddd02d36383b41bdf74f4d8
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91377295"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386605"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação Node.js. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
 
@@ -105,6 +105,6 @@ Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de re
 > [!div class="nextstepaction"]
 > [Serviços Cognitivos Node.js amostras de SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Referência do SDK do Node do Azure](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/)
+* [Referência do SDK do Node do Azure](/javascript/api/@azure/cognitiveservices-websearch/)

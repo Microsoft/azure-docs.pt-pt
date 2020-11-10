@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 087147038286bd7363fcc0eb3812abccc6ef9206
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: c553652d4d8abd16b4e5fd4ff896e42bdba103ad
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201839"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408979"
 ---
 # <a name="security-control-v2-asset-management"></a>Controlo de Segurança V2: Gestão de Ativos
 
@@ -36,7 +36,7 @@ Nota: Podem ser necessárias permissões adicionais para obter visibilidade em c
 
 - [Visão geral dos Grupos de Gestão Azure](../../governance/management-groups/overview.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -60,9 +60,9 @@ Organizar logicamente ativos de acordo com a taxonomia da sua organização usan
 
 - [Gestão de inventário de ativos do Azure Security Center](../../security-center/asset-inventory.md)
 
-- [Para obter mais informações sobre a marcação de ativos, consulte o guia de decisão de nomeação e marcação de recursos](https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json)
+- [Para obter mais informações sobre a marcação de ativos, consulte o guia de decisão de nomeação e marcação de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=%252fazure%252fazure-resource-manager%252fmanagement%252ftoc.json)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -80,11 +80,11 @@ Utilize a Política Azure para auditar e restringir quais os serviços que os ut
 
 - [Configure e gere a Política Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo específico de recurso com a Política Azure](/azure/governance/policy/samples/not-allowed-resource-types)
+- [Como negar um tipo específico de recurso com a Política Azure](../../governance/policy/samples/index.md)
 
 - [Como criar consultas com o Azure Resource Graph Explorer](../../governance/resource-graph/first-query-portal.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -104,7 +104,7 @@ Remova os recursos de Azure quando já não forem necessários.
 
 - [Eliminar grupo de recursos Escaure e recursos](../../azure-resource-manager/management/delete-resource-group.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -124,7 +124,7 @@ Utilize o Acesso Condicional AD Azure para limitar a capacidade dos utilizadores
 
 - [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../../role-based-access-control/conditional-access-azure-management.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -152,9 +152,9 @@ Também pode usar uma solução de terceiros para descobrir e identificar softwa
 
 - [Compreender o rastreio e inventário de mudança de automatização da Azure](../../automation/change-tracking/overview.md)
 
-- [Como controlar a execução do script PowerShell em ambientes Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
+- [Como controlar a execução do script PowerShell em ambientes Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -163,4 +163,3 @@ Também pode usar uma solução de terceiros para descobrir e identificar softwa
 - [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
-

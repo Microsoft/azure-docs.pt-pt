@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e7447d03fc231d8d96b71c7d944a380c10add0d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b21bea924ee8eaed37246ce55feaf8243e3e7d4
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757941"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408742"
 ---
 # <a name="security-control-v2-identity-management"></a>Controlo de Segurança V2: Gestão de Identidade
 
@@ -39,11 +39,11 @@ Nota: A Azure AD suporta fornecedores de identidade externos, que permitem aos u
 
 - [Definir inquilinos da AD AZure](https://azure.microsoft.com/resources/securing-azure-environments-with-azure-active-directory/)  
 
-- [Utilize fornecedores de identidade externos para uma aplicação](/azure/active-directory/b2b/identity-providers)
+- [Utilize fornecedores de identidade externos para uma aplicação](../../active-directory/external-identities/identity-providers.md)
 
 - [Qual é a pontuação de identidade segura em Azure AD](../../active-directory/fundamentals/identity-secure-score.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -75,7 +75,7 @@ Para serviços que não suportem identidades geridas, utilize a Azure AD para cr
 
 Utilize o Cofre da Chave Azure para registo principal de segurança: autenticação#authorize-a-security-principal-to-access-key-vault
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -95,7 +95,7 @@ Use o único sign-on (SSO) do Azure AD para gerir e garantir o acesso aos dados 
 
 - [Compreender a aplicação SSO com Azure AD](../../active-directory/manage-apps/what-is-single-sign-on.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -130,7 +130,7 @@ Nota: A autenticação baseada apenas nas credenciais de senha é suscetível a 
 
 - [Eliminar palavras-passe más usando a proteção de senha ad Azure](../../active-directory/authentication/concept-password-ban-bad.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -163,13 +163,13 @@ A Azure Advanced Threat Protection (ATP) é uma solução de segurança que pode
 
 - [Relatórios de atividades de auditoria em Azure AD](../../active-directory/reports-monitoring/concept-audit-logs.md)
 
-- [Como ver a Azure AD a entrar em risco](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como ver a Azure AD a entrar em risco](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Como identificar utilizadores de AD Azure sinalizados para atividade de risco](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Como identificar utilizadores de AD Azure sinalizados para atividade de risco](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Azure](../../security-center/security-center-identity-access.md)
 
-- [Alertas no módulo de proteção de ameaças do Centro de Segurança Azure](/azure/security-center/alerts-reference)
+- [Alertas no módulo de proteção de ameaças do Centro de Segurança Azure](../../security-center/alerts-reference.md)
 
 - [Como integrar os registos de atividade do Azure no Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -177,7 +177,7 @@ A Azure Advanced Threat Protection (ATP) é uma solução de segurança que pode
 
 - [Azure Advanced Threat Protection](/azure-advanced-threat-protection/what-is-atp)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -199,7 +199,7 @@ Utilize o acesso condicional AZure AD para um controlo de acesso mais granular c
 
 - [Configurar a gestão de sessões de autenticação com o Acesso Condicional](../../active-directory/conditional-access/howto-conditional-access-session-lifetime.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -225,7 +225,7 @@ Para o GitHub, pode utilizar funcionalidades de digitalização secretas nativas
 
 - [Digitalização secreta de GitHub](https://docs.github.com/github/administering-a-repository/about-secret-scanning)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -245,11 +245,11 @@ O Azure AD Application Proxy permite-lhe publicar aplicações antigas no local 
 
 Em alternativa, o Microsoft Cloud App Security é um serviço de corretor de segurança de acesso à nuvem (CASB) que pode fornecer controlos para monitorizar as sessões de aplicações de um utilizador e ações de bloqueio (tanto para aplicações antigas no local como software de nuvem como aplicações de serviço (SaaS). 
 
-- [Azure AD Application Proxy](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
+- [Proxy de Aplicações do Azure AD](../../active-directory/manage-apps/application-proxy.md#what-is-application-proxy)
 
 - [Microsoft Cloud App Security as melhores práticas](/cloud-app-security/best-practices)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 

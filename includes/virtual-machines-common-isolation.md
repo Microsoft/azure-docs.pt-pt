@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
-author: ayshakeen
+author: styli365
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 09/18/2019
-ms.author: azcspmt;ayshak;cynthn
+ms.date: 11/05/2020
+ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: 4f6a6dd28662c98c89dad39da3fd5c967f227dc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3d65b574fc1479d000d347020823166a4d4b968b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87084059"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410587"
 ---
 O Azure Compute oferece tamanhos de máquinas virtuais que são isolados a um tipo de hardware específico e dedicados a um único cliente. Os tamanhos isolados vivem e operam na geração específica de hardware e serão depreciados quando a geração de hardware for reformada.
 
@@ -34,6 +34,7 @@ As atuais ofertas de máquinas virtuais isoladas incluem:
 > Os tamanhos VM isolados têm um tempo de vida limitado de hardware. Veja abaixo os detalhes
 
 ## <a name="deprecation-of-isolated-vm-sizes"></a>Depreciação de tamanhos VM isolados
+
 Como os tamanhos de VM isolados são tamanhos ligados ao hardware, o Azure fornecerá lembretes 12 meses antes da depreciação oficial dos tamanhos.  O Azure também irá oferecer um tamanho isolado atualizado na nossa próxima versão de hardware que o cliente poderia considerar mover a sua carga de trabalho para.
 
 | Tamanho | Data de aposentadoria de isolamento | 
@@ -46,26 +47,31 @@ Como os tamanhos de VM isolados são tamanhos ligados ao hardware, o Azure forne
 
 ## <a name="faq"></a>FAQ
 ### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>P: O tamanho vai ficar reformado ou só é a característica de "isolamento"?
-**R**: Se o tamanho da máquina virtual não tiver o subscrito "i", apenas a função "isolamento" será retirada. Se não for necessário um isolamento, não haverá qualquer ação a tomar e o VM continuará a funcionar como esperado. Exemplos incluem Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. Se o tamanho da máquina virtual incluir o subscrito "i", então o tamanho vai ser retirado.
+**R** : Se o tamanho da máquina virtual não tiver o subscrito "i", apenas a função "isolamento" será retirada. Se não for necessário um isolamento, não haverá qualquer ação a tomar e o VM continuará a funcionar como esperado. Exemplos incluem Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. Se o tamanho da máquina virtual incluir o subscrito "i", então o tamanho vai ser retirado.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>P: Há algum tempo de paragem quando o meu vm aterra num hardware não isolado?
-**R**: Se não houver necessidade de isolamento, não são necessárias medidas e não haverá tempo de inatividade.
+**R** : Se não houver necessidade de isolamento, não são necessárias medidas e não haverá tempo de inatividade.
 
 ### <a name="q-is-there-any-cost-delta-for-moving-to-a-non-isolated-virtual-machine"></a>P: Existe algum custo delta para se mudar para uma máquina virtual não isolada?
 **A:** Não
 
 ### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>P: Quando é que os outros tamanhos isolados se vão reformar?
-**R**: Forneceremos lembretes com 12 meses de antecedência da depreciação oficial do tamanho isolado.
+**R** : Forneceremos lembretes com 12 meses de antecedência da depreciação oficial do tamanho isolado.
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>P: Sou um cliente de tecido de serviço Azure que conta com os níveis de durabilidade prateada ou dourada. Esta mudança tem impacto em mim?
-**A:** Não. As garantias fornecidas pelos Tiers de [Durabilidade](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) da Service Fabric continuarão a funcionar mesmo após esta alteração. Se necessitar de isolamento físico de hardware por outras razões, poderá ainda ter de tomar uma das ações descritas acima. 
+**A:** Não. As garantias fornecidas pelos Tiers de [Durabilidade](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) da Service Fabric continuarão a funcionar mesmo após esta alteração. Se necessitar de isolamento físico de hardware por outras razões, poderá ainda ter de tomar uma das ações descritas acima. 
  
 ### <a name="q-what-are-the-milestones-for-d15_v2-or-ds15_v2-isolation-retirement"></a>P: Quais são os marcos para a D15_v2 ou DS15_v2 a reforma do isolamento? 
 **A:** 
-| Date | Ação | 
-| --- | --- |
-| 18 de novembro de 2019 | Disponibilidade de D/DS15i_v2 (PAYG, 1 ano RI) |
-| 14 de maio de 2020  | Último dia para comprar D/DS15i_v2 1 ano RI | 
-| 15 de maio de 2020   | Garantia de isolamento D/DS15_v2 removida | 
-| 15 de maio de 2021  | Aposentar-se D/DS15i_v2 (todos os clientes exceto quem comprou RI de 3 anos de D/DS15_v2 antes de 18 de novembro de 2019)| 
-| 17 de novembro de 2022  | Aposentar-se D/DS15i_v2 quando 3 anos de RIs feito (para clientes que compraram RI de 3 anos de D/DS15_v2 antes de 18 de novembro de 2019) | 
+ 
+| Data | Ação |
+|---|---| 
+| 18 de novembro de 2019 | Disponibilidade de D/DS15i_v2 (PAYG, 1 ano RI) | 
+| 14 de maio de 2020 | Último dia para comprar D/DS15i_v2 1 ano RI | 
+| 15 de maio de 2020 | Garantia de isolamento D/DS15_v2 removida | 
+| 15 de maio de 2021 | Aposentar-se D/DS15i_v2 (todos os clientes exceto quem comprou RI de 3 anos de D/DS15_v2 antes de 18 de novembro de 2019)| 
+| 17 de novembro de 2022 | Aposentar-se D/DS15i_v2 quando 3 anos de RIs feito (para clientes que compraram RI de 3 anos de D/DS15_v2 antes de 18 de novembro de 2019) |
+
+## <a name="next-steps"></a>Passos seguintes
+
+Os clientes também podem optar por subdividir ainda mais os recursos destas máquinas virtuais isoladas utilizando [o suporte Azure para máquinas virtuais aninhadas.](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)

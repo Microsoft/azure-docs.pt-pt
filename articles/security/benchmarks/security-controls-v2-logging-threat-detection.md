@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: b26979f424798bacf6b40d43e5ab603844f595c3
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 99e7a8fcb34c963cfab366f1913508a7ff3f4a51
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360858"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408707"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controlo de Segurança V2: Registo e deteção de ameaças
 
@@ -30,7 +30,7 @@ Utilize a capacidade de deteção de ameaças incorporada do Azure Security Cent
 
 Além disso, use o Azure Sentinel para construir regras de análise, que caçam ameaças que correspondem a critérios específicos em todo o seu ambiente. As regras geram incidentes quando os critérios são combinados, para que possa investigar cada incidente. O Azure Sentinel também pode importar inteligência de ameaça de terceiros para aumentar a sua capacidade de deteção de ameaças. 
 
-- [Proteção contra ameaças no Centro de Segurança do Azure](../../security-center/threat-protection.md)
+- [Proteção contra ameaças no Centro de Segurança do Azure](../../security-center/azure-defender.md)
 
 - [Guia de referência do Centro de Segurança Azure alerta](../../security-center/alerts-reference.md)
 
@@ -73,7 +73,7 @@ O Azure Security Center também pode alertar para certas atividades suspeitas, c
 
 - [Ativar a proteção de identidade Azure](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Proteção contra ameaças no Centro de Segurança do Azure](../../security-center/threat-protection.md)
+- [Proteção contra ameaças no Centro de Segurança do Azure](../../security-center/azure-defender.md)
 
 **Responsabilidade** : Cliente
 
@@ -230,4 +230,3 @@ Todos os registos gerados por recursos dentro do Azure fornecem carimbos de temp
 - [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
-

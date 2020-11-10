@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7baa851943db3e8c691b50c2cb5446a2adbbccc
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5e50b9e5dc683eb30452dbb96d82c9f66de93763
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457996"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408010"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Início de Sessão Único Totalmente Integrado do Azure Active Directory
 
@@ -63,10 +63,10 @@ O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash 
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Sim\*|Sim|Sim|Sim\*\*\*|N/D
-|Windows 8.1|Sim\*|Sim, eu não.\*\*\*|Sim|Sim\*\*\*|N/D
-|Windows 8|Sim\*|N/D|Sim|Sim\*\*\*|N/D
-|Windows 7|Sim\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 10|Yes\*|Yes|Yes|Sim\*\*\*|N/D
+|Windows 8.1|Yes\*|Sim, eu não.\*\*\*|Yes|Sim\*\*\*|N/D
+|Windows 8|Yes\*|N/D|Sim|Sim\*\*\*|N/D
+|Windows 7|Yes\*|N/D|Sim|Sim\*\*\*|N/D
 |Windows Server 2012 R2 ou superior|Sim, é o seu\*\*|N/D|Sim|Sim\*\*\*|N/D
 |Mac OS X|N/D|N/D|Sim\*\*\*|Sim\*\*\*|Sim\*\*\*
 
@@ -85,7 +85,7 @@ O SSO sem emenda pode ser combinado com os métodos de [sincronização de hash 
 ## <a name="next-steps"></a>Passos seguintes
 
 - [**Quick Start**](how-to-connect-sso-quick-start.md) - Levante-se e execute Azure AD Seamless SSO.
-- Plano de [**Implantação**](https://aka.ms/deploymentplans/sso) - Plano de implantação passo a passo.
+- Plano de [**Implantação**](../manage-apps/plan-sso-deployment.md) - Plano de implantação passo a passo.
 - [**Mergulho Profundo Técnico**](how-to-connect-sso-how-it-works.md) - Entenda como funciona esta funcionalidade.
 - [**Perguntas frequentes**](how-to-connect-sso-faq.md) - Respostas a perguntas frequentes.
 - [**Resolução de problemas**](tshoot-connect-sso.md) - Aprenda a resolver problemas comuns com a funcionalidade.

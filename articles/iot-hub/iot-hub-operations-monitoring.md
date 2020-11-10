@@ -1,27 +1,27 @@
 ---
 title: Monitorização de operações do Azure IoT Hub (depreciada) Microsoft Docs
 description: Como utilizar o monitor de operações do Azure IoT Hub para monitorizar o estado das operações no seu hub IoT em tempo real.
-author: nberdy
-manager: briz
+author: robinsh
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.author: nberdy
+ms.author: robinsh
 ms.custom: amqp, devx-track-csharp
-ms.openlocfilehash: 559dac0f37daf612404fca839e9918e97077029e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 045d5693c4388c6285bc6983ac2a385ceac9f6d0
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538498"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408129"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Monitorização das operações do IoT Hub (depreciada)
 
 A monitorização das operações do IoT Hub permite-lhe monitorizar o estado das operações no seu hub IoT em tempo real. O IoT Hub acompanha eventos em várias categorias de operações. Pode optar pelo envio de eventos de uma ou mais categorias para um ponto final do seu hub IoT para processamento. Pode monitorizar os dados por erros ou configurar um processamento mais complexo com base em padrões de dados.
 
 >[!NOTE]
->A monitorização das operações do IoT Hub **é depreciada e foi removida do IoT Hub em 10 de março de 2019** . Para monitorizar as operações e a saúde do IoT Hub, consulte [o Monitor IoT Hub](monitor-iot-hub.md). Para obter mais informações sobre a linha temporal de depreciação, consulte [monitorar as suas soluções Azure IoT com o Azure Monitor e a Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
+>A monitorização das operações do IoT Hub **é depreciada e foi removida do IoT Hub em 10 de março de 2019**. Para monitorizar as operações e a saúde do IoT Hub, consulte [o Monitor IoT Hub](monitor-iot-hub.md). Para obter mais informações sobre a linha temporal de depreciação, consulte [monitorar as suas soluções Azure IoT com o Azure Monitor e a Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 O IoT Hub monitoriza seis categorias de eventos:
 
@@ -43,7 +43,7 @@ O IoT Hub monitoriza seis categorias de eventos:
 
     ![Configuração de monitorização de operações de acesso no portal](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-3. Selecione as categorias de monitorização que deseja monitorizar e, em seguida, clique em **Guardar** . Os eventos estão disponíveis para leitura a partir do ponto final compatível com o Event Hub listado nas **definições de monitorização.** O ponto final do IoT Hub chama-se `messages/operationsmonitoringevents` .
+3. Selecione as categorias de monitorização que deseja monitorizar e, em seguida, clique em **Guardar**. Os eventos estão disponíveis para leitura a partir do ponto final compatível com o Event Hub listado nas **definições de monitorização.** O ponto final do IoT Hub chama-se `messages/operationsmonitoringevents` .
 
     ![Configure a monitorização das operações no seu hub IoT](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
@@ -97,7 +97,7 @@ A categoria de telemetria do dispositivo rastreia erros que ocorrem no hub IoT e
 }
 ```
 
-### <a name="cloud-to-device-commands"></a>Comandos nuvem-a-dispositivo
+### <a name="cloud-to-device-commands"></a>Comandos da cloud para dispositivo
 
 A categoria de comandos cloud-to-device rastreia erros que ocorrem no hub IoT e estão relacionados com o pipeline de mensagens nuvem-para-dispositivo. Esta categoria inclui erros que ocorrem quando ocorrem mensagens nuvem-para-dispositivo (como remetente não autorizado), receber mensagens nuvem-a-dispositivo (como a contagem de entregas excedida) e receber feedback de mensagens nuvem-a-dispositivo (como o feedback expirado). Esta categoria não apanha erros de um dispositivo que manuseie indevidamente uma mensagem nuvem-dispositivo se a mensagem nuvem-dispositivo tiver sido entregue com sucesso.
 
@@ -267,8 +267,8 @@ class Program
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para explorar ainda mais as capacidades do IoT Hub, consulte:
+Para explorar ainda mais a utilização do Azure Monitor para monitorizar o IoT Hub, consulte:
 
-* [Guia de desenvolvimento do IoT Hub](iot-hub-devguide.md)
+* [Monitorizar o Hub IoT](monitor-iot-hub.md)
 
-* [Implementar o AI em dispositivos de ponta com o Azure IoT Edge](../iot-edge/quickstart-linux.md)
+* [Migrar da monitorização de operações do IoT Hub para o Azure Monitor](iot-hub-migrate-to-diagnostics-settings.md)

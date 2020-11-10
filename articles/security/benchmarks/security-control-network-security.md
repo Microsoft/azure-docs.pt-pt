@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: dad01212be3589af7167082ff22c624fa776772a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b74baebd964ee43658f74e0050dff838e29f9b8a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82193127"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409064"
 ---
 # <a name="security-control-network-security"></a>Controlo de Segurança: Segurança da rede
 
@@ -28,15 +28,15 @@ Certifique-se de que todas as implementações da sub-rede virtual têm um Grupo
 
 Em alternativa, se tiver um caso de utilização específico, a exigência poderá ser satisfeita através da implementação do Azure Firewall.
 
-- [Compreender pontos finais de serviço de rede virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+- [Compreender pontos finais de serviço de rede virtual](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
-- [Compreenda a ligação privada Azure](https://docs.microsoft.com/azure/private-link/private-link-overview)
+- [Compreenda a ligação privada Azure](../../private-link/private-link-overview.md)
 
-- [Como criar uma Rede Virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Como criar uma Rede Virtual](../../virtual-network/quick-create-portal.md)
 
-- [Como criar um NSG com uma configuração de segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Como criar um NSG com uma configuração de segurança](../../virtual-network/tutorial-filter-network-traffic.md)
 
-- [Como implantar e configurar firewall Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Como implantar e configurar firewall Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
 ## <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-nics"></a>1.2: Monitorizar e registar a configuração e o tráfego de redes virtuais, sub-redes e NICs
 
@@ -46,11 +46,11 @@ Em alternativa, se tiver um caso de utilização específico, a exigência poder
 
 Utilize o Centro de Segurança Azure e siga as recomendações de proteção da rede para ajudar a proteger os recursos da sua rede em Azure. Ativar os registos de fluxo NSG e enviar registos para uma conta de armazenamento para auditoria de tráfego. Também pode enviar registos de fluxo NSG para um espaço de trabalho do Log Analytics e utilizar o Traffic Analytics para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. Algumas vantagens do Traffic Analytics são a capacidade de visualizar a atividade da rede e identificar pontos quentes, identificar ameaças de segurança, compreender padrões de fluxo de tráfego e identificar configurações erradas da rede.
 
-- [Como ativar registos de fluxo NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Como ativar registos de fluxo NSG](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Como Ativar e utilizar a Análise de Tráfego](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [Como Ativar e utilizar a Análise de Tráfego](../../network-watcher/traffic-analytics.md)
 
-- [Compreender a Segurança da Rede fornecida pelo Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Compreender a Segurança da Rede fornecida pelo Azure Security Center](../../security-center/security-center-network-recommendations.md)
 
 ## <a name="13-protect-critical-web-applications"></a>1.3: Proteger aplicações web críticas
 
@@ -60,7 +60,7 @@ Utilize o Centro de Segurança Azure e siga as recomendações de proteção da 
 
 Implemente o Azure Web Application Firewall (WAF) em frente a aplicações web críticas para inspeção adicional do tráfego de entrada. Ativar a Definição de Diagnóstico para WAF e ingerir registos numa conta de armazenamento, no Centro de Eventos ou no Espaço de Trabalho do Log Analytics.
 
-- [Como implantar a Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+- [Como implantar a Azure WAF](../../web-application-firewall/ag/create-waf-policy-ag.md)
 
 ## <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Negar comunicações com endereços IP maliciosos conhecidos
 
@@ -76,15 +76,15 @@ Utilize o Centro de Segurança Azure Apenas no Tempo O acesso à rede de configu
 
 Use o Hardening de Rede Adaptável do Centro de Segurança Azure para recomendar configurações NSG que limitem portas e IPs de origem com base na inteligência real de tráfego e ameaça.
 
-- [Como configurar a proteção DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [Como configurar a proteção DDoS](../../virtual-network/manage-ddos-protection.md)
 
-- [Como implantar a Firewall do Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Como implantar a Firewall do Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](../../security-center/azure-defender.md)
 
-- [Compreender o Hardenive de Rede Adaptável do Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+- [Compreender o Hardenive de Rede Adaptável do Centro de Segurança Azure](../../security-center/security-center-adaptive-network-hardening.md)
 
-- [Compreender o Centro de Segurança Azure Mesmo no Tempo Controlo de Acesso à Rede](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Compreender o Centro de Segurança Azure Mesmo no Tempo Controlo de Acesso à Rede](../../security-center/security-center-just-in-time.md)
 
 ## <a name="15-record-network-packets"></a>1.5: Pacotes de rede de registos
 
@@ -94,7 +94,7 @@ Use o Hardening de Rede Adaptável do Centro de Segurança Azure para recomendar
 
 Habilitar a captura de pacotes do Network Watcher para investigar atividades anómalas.
 
-- [Como ativar o Observador de Redes](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Como ativar o Observador de Redes](../../network-watcher/network-watcher-create.md)
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Implementar sistemas de deteção/prevenção de intrusões baseados em rede (IDS/IPS)
 
@@ -108,9 +108,9 @@ Implemente a solução de firewall à sua escolha em cada um dos limites de rede
 
 - [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/?term=Firewall)
 
-- [Como implantar a Firewall do Azure](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Como implantar a Firewall do Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Como configurar alertas com a Azure Firewall](https://docs.microsoft.com/azure/firewall/threat-intel)
+- [Como configurar alertas com a Azure Firewall](../../firewall/threat-intel.md)
 
 ## <a name="17-manage-traffic-to-web-applications"></a>1.7: Gerir o tráfego para aplicações web
 
@@ -120,11 +120,11 @@ Implemente a solução de firewall à sua escolha em cada um dos limites de rede
 
 Implementar gateway de aplicações Azure para aplicações web com HTTPS/TLS habilitado para certificados fidedignos.
 
-- [Como implementar o Gateway de Aplicações](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)
+- [Como implementar o Gateway de Aplicações](../../application-gateway/quick-create-portal.md)
 
-- [Como configurar o Gateway de aplicações para utilizar HTTPS](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal)
+- [Como configurar o Gateway de aplicações para utilizar HTTPS](../../application-gateway/create-ssl-portal.md)
 
-- [Compreenda o equilíbrio de carga da camada 7 com os gateways de aplicações web Azure](https://docs.microsoft.com/azure/application-gateway/overview)
+- [Compreenda o equilíbrio de carga da camada 7 com os gateways de aplicações web Azure](../../application-gateway/overview.md)
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimizar a complexidade e a sobrecarga administrativa das regras de segurança da rede
 
@@ -136,9 +136,9 @@ Utilize tags de serviço de rede virtuais para definir controlos de acesso à re
 
 Também pode utilizar grupos de segurança de aplicações para ajudar a simplificar a configuração complexa de segurança. Os grupos de segurança de aplicações permitem-lhe configurar a segurança de rede como uma extensão natural da estrutura de uma aplicação, possibilitando o agrupamento de máquinas virtuais e a definição de políticas de segurança de rede com base nesses grupos.
 
-- [Compreender e utilizar tags de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Compreender e utilizar tags de serviço](../../virtual-network/service-tags-overview.md)
 
-- [Compreender e utilizar grupos de segurança de aplicações](https://docs.microsoft.com/azure/virtual-network/security-overview#application-security-groups)
+- [Compreender e utilizar grupos de segurança de aplicações](../../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Manter configurações de segurança padrão para dispositivos de rede
 
@@ -150,11 +150,11 @@ Definir e implementar configurações de segurança padrão para recursos de red
 
 Também pode usar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlos de RBAC e políticas, numa única definição de planta. Pode aplicar o projeto a novas subscrições e afinar o controlo e a gestão através da versão.
 
-- [Como configurar e gerir a Política de Azure](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Como configurar e gerir a Política de Azure](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Amostras da Política Azure para networking](https://docs.microsoft.com/azure/governance/policy/samples/#network)
+- [Amostras da Política Azure para networking](../../governance/policy/samples/built-in-policies.md#network)
 
-- [Como criar uma Planta Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Como criar uma Planta Azure](../../governance/blueprints/create-blueprint-portal.md)
 
 ## <a name="110-document-traffic-configuration-rules"></a>1.10: Regras de configuração do tráfego documental
 
@@ -168,11 +168,11 @@ Utilize qualquer uma das definições de Política Azure incorporadas relacionad
 
 Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar ações em recursos baseados nas suas Tags.
 
-- [Como criar e usar Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar Tags](../../azure-resource-manager/management/tag-resources.md)
 
-- [Como criar uma Rede Virtual](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [Como criar uma Rede Virtual](../../virtual-network/quick-create-portal.md)
 
-- [Como criar um NSG com um Config de Segurança](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Como criar um NSG com um Config de Segurança](../../virtual-network/tutorial-filter-network-traffic.md)
 
 ## <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: Utilize ferramentas automatizadas para monitorizar as configurações de recursos de rede e detetar alterações
 
@@ -182,9 +182,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 Utilize o Registo de Atividades Azure para monitorizar as configurações dos recursos e detetar alterações nos seus recursos Azure. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas no Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: shono
-ms.openlocfilehash: 1fb30cc0634224213dc9a188a16902e07d379904
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87b9e4a3ca7151b3666928b00add175eddeea050
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82127779"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409387"
 ---
 # <a name="select-a-domain-for-a-custom-vision-project"></a>Selecione um domínio para um projeto de Visão Personalizada
 
@@ -42,27 +42,15 @@ A partir da lâmina de definições para o seu projeto Visão Personalizada, pod
 
 ## <a name="compact-domains"></a>Domínios compactos
 
-Os modelos gerados por domínios compactos podem ser exportados para serem executados localmente. O desempenho do modelo varia de acordo com o domínio selecionado. Na tabela abaixo, reportamos o tamanho do modelo e o tempo de inferência no Intel Desktop CPU e no NVidia GPU \[ 1 \] . 
+Os modelos gerados por domínios compactos podem ser exportados para serem executados localmente. Na API de pré-visualização pública Custom Vision 3.4, pode obter uma lista das plataformas exportáveis para domínios compactos, ligando para a API GetDomains.
 
-> [!NOTE]
-> Estes números não incluem tempo de pré-processamento e pós-processamento.
+O desempenho do modelo varia de acordo com o domínio selecionado. Na tabela abaixo, reportamos o tamanho do modelo e o tempo de inferência no Intel Desktop CPU e no NVidia GPU \[ 1 \] . Estes números não incluem tempo de pré-processamento e pós-processamento.
 
-|Tarefa|Domínio|Tamanho do modelo|Tempo de inferência do CPU|Tempo de inferência da GPU|
+|Tarefa|Domínio|Tamanho do Modelo|Tempo de inferência do CPU|Tempo de inferência da GPU|
 |---|---|---|---|---|
 |Classificação|General (compact) (Geral [compacto])|5 MB|13 ms|5 ms|
 |Deteção de Objetos|General (compact) (Geral [compacto])|45 MB|35 ms|5 ms|
 |Deteção de Objetos|Geral (compacto) [S1]|14 MB|27 ms|7 ms|
-
-## <a name="vaidk-vision-ai-dev-kit"></a>VAIDK (Kit Vision Ai Dev)
-
-Quando um domínio compacto é selecionado, é fornecida uma opção extra "Capacidades de exportação" que permite distinguir entre "Plataformas Básicas" e "Vision AI Dev Kit".
-
-No âmbito _das capacidades de exportação,_ as duas opções são:
-
-- Plataformas básicas (Tensorflow, CoreML, ONNX, etc.)
-- Kit Vision AI Dev.
-
-Quando o _Kit Vision AI Dev_ é selecionado, os _domínios_ _Genérico,_ Marcos e _Retalho,_ mas não os domínios compactos _de alimentos_ estão disponíveis para classificação de imagem, enquanto tanto _o Geral (compacto)_ como o _General (compacto) [compacto) [S1]_ estão disponíveis para deteção de objetos.
 
 >[!NOTE]
 >O domínio __geral (compacto)__ para deteção de objetos requer uma lógica especial de pós-processamento. Para obter os detalhes, consulte um roteiro de exemplo no pacote zip exportado. Se precisar de um modelo sem a lógica de pós-processamento, utilize __o General (compacto) [S1]__.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 172607a7f8f036bbfb68e8d15e77b2a3e3fb5377
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ba7391b3b524f7532101083a444aab6059e8a10
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326393"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408760"
 ---
 # <a name="security-control-v2-incident-response"></a>Controlo de Segurança V2: Resposta a incidentes
 
@@ -26,11 +26,11 @@ Incident Response abrange controlos no ciclo de vida de resposta a incidentes - 
 
 Certifique-se de que a sua organização tem processos para responder a incidentes de segurança, atualizou estes processos para o Azure, e está regularmente a exercê-los para garantir a prontidão.
 
-- [Implementar segurança em todo o ambiente da empresa](https://aka.ms/AzSec4)
+- [Implementar segurança em todo o ambiente da empresa](/azure/cloud-adoption-framework/security/security-top-10#3-process-assign-accountability-for-cloud-security-decisions)
 
 - [Guia de referência de resposta a incidentes](/microsoft-365/downloads/IR-Reference-Guide.pdf)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -50,7 +50,7 @@ Confiem informações de contacto com incidentes de segurança no Centro de Segu
 
 - [Como definir o contacto de segurança do Centro de Segurança Azure](../../security-center/security-center-provide-security-contact-details.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -76,7 +76,7 @@ Exporte os alertas e recomendações do Centro de Segurança Azure utilizando a 
 
 - [Como transmitir alertas para o Azure Sentinel](../../sentinel/connect-azure-security-center.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -116,7 +116,7 @@ O Azure Sentinel fornece uma análise extensiva de dados em praticamente qualque
 
 - [Investigue incidentes com Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -140,9 +140,9 @@ Além disso, marque recursos usando tags e crie um sistema de nomeação para id
 
 - [Alertas de segurança no Centro de Segurança do Azure](../../security-center/security-center-alerts-overview.md)
 
-- [Utilizar etiquetas para organizar os seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Utilizar etiquetas para organizar os recursos do Azure](../../azure-resource-manager/management/tag-resources.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -166,7 +166,7 @@ Automatizar tarefas repetitivas manuais para acelerar o tempo de resposta e redu
 
 - [Configurar respostas automáticas de ameaças em Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
 
-**Responsabilidade**: Cliente
+**Responsabilidade** : Cliente
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -175,4 +175,3 @@ Automatizar tarefas repetitivas manuais para acelerar o tempo de resposta e redu
 - [Preparação de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
 - [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
-

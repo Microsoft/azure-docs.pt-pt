@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 72aff2a2761d3aae695968bd5b4b9d07eab1697f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5a5b20efbf804c2ea1097f905da1cfd62727ff15
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547695"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410696"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - IoT Hub quotas e estrangulamento
 
@@ -69,7 +69,7 @@ A tabela seguinte mostra os aceleradores forçados. Os valores referem-se a um c
 
    Finalmente, se o seu tamanho de carga útil for entre 156KB e 160 KB, poderá fazer apenas 1 chamada por segundo por unidade no seu hub antes de atingir o limite de 160 KB/seg/unidade.
 
-*  Para *as operações do dispositivo Jobs (atualizar twin, invocar o método direto)* para o nível S2, 50/seg/unidade só se aplica quando invoca métodos que utilizam trabalhos. Se invocar métodos diretos diretamente, aplica-se o limite de estrangulamento original de 24 MB/seg/unidade (para S2).
+*  Para *as operações do dispositivo Jobs (atualizar twin, invocar o método direto)* para o nível S3, 50/seg/unidade só se aplica quando invoca métodos que utilizam trabalhos. Se invocar métodos diretos diretamente, aplica-se o limite de estrangulamento original de 24 MB/seg/unidade (para S3).
 
 *  **Quota** é o número agregado de mensagens que pode enviar no seu hub *por dia.* Pode encontrar o limite de quota do seu hub sob a coluna **Número total de mensagens/dia** na página de preços do [IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -139,4 +139,4 @@ Para uma discussão aprofundada sobre o comportamento de estrangulamento do IoT 
 Outros tópicos de referência neste guia de desenvolvimento do IoT Hub incluem:
 
 * [Pontos finais do Hub IoT](iot-hub-devguide-endpoints.md)
-* [Monitor IoT Hub](monitor-iot-hub.md)
+* [Monitorizar o Hub IoT](monitor-iot-hub.md)

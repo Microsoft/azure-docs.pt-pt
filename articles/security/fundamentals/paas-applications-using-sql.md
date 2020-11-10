@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: a02b2157209b5f47ac7ffbde4e15f3e7df1c258b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 278812754c636d434bf579c0408832f1e99d3445
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462535"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408078"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Melhores práticas para assegurar bases de dados paaS em Azure
 
@@ -40,7 +40,7 @@ A base de dados Azure SQL pode ser configurada para utilizar um de dois tipos de
 
 - **A autenticação do Azure Ative Directory** utiliza identidades geridas pelo Azure Ative Directory e é suportada por domínios geridos e integrados. Para utilizar a Autenticação do Diretório Ativo Azure, tem de criar outro administrador de servidor chamado "Administrador AD AZure", que é permitido administrar utilizadores e grupos de AD Azure. Este administrador também pode fazer todas as operações que um administrador de servidor normal faz.
 
-[A autenticação do Azure Ative Directory](../../active-directory/develop/authentication-scenarios.md) é um mecanismo de ligação à Base de Dados Azure SQL e à Azure Synapse Analytics utilizando identidades no Azure Ative Directory (AD). O Azure AD fornece uma alternativa à autenticação do SQL Server para que possa parar a proliferação de identidades dos utilizadores através dos servidores de bases de dados. A autenticação AZure AD permite-lhe gerir centralmente as identidades dos utilizadores de bases de dados e outros serviços da Microsoft numa localização central. A gestão de IDs centralizada disponibiliza um único local para gerir utilizadores da base de dados e simplifica a gestão de permissões.  
+[A autenticação do Azure Ative Directory](../../active-directory/develop/authentication-vs-authorization.md) é um mecanismo de ligação à Base de Dados Azure SQL e à Azure Synapse Analytics utilizando identidades no Azure Ative Directory (AD). O Azure AD fornece uma alternativa à autenticação do SQL Server para que possa parar a proliferação de identidades dos utilizadores através dos servidores de bases de dados. A autenticação AZure AD permite-lhe gerir centralmente as identidades dos utilizadores de bases de dados e outros serviços da Microsoft numa localização central. A gestão de IDs centralizada disponibiliza um único local para gerir utilizadores da base de dados e simplifica a gestão de permissões.  
 
 ### <a name="benefits-of-using-azure-ad-instead-of-sql-authentication"></a>Benefícios da utilização do Azure AD em vez da autenticação SQL
 
@@ -50,7 +50,7 @@ A base de dados Azure SQL pode ser configurada para utilizar um de dois tipos de
 - Utiliza utilizadores de bases de dados contidos para autenticar identidades ao nível da base de dados.
 - Suporta a autenticação baseada em fichas para aplicações que se ligam à Base de Dados SQL.
 - Suporta a federação de domínio com serviços da Federação de Diretórios Ativos (ADFS) ou autenticação nativa do utilizador/palavra-passe para um AD Azure local sem sincronização de domínio.
-- Suporta ligações do SQL Server Management Studio que utilizam a Autenticação Universal do Diretório Ativo, que inclui [autenticação multi-factor (MFA)](/azure/active-directory/authentication/multi-factor-authentication). A MFA inclui uma autenticação segura com um conjunto de opções de verificação simples: telefonema, mensagem de texto, cartões inteligentes com PIN ou notificação de aplicação móvel. Para mais informações, consulte [a Autenticação Universal com Base de Dados SQL e Azure Synapse Analytics.](../../azure-sql/database/authentication-mfa-ssms-overview.md)
+- Suporta ligações do SQL Server Management Studio que utilizam a Autenticação Universal do Diretório Ativo, que inclui [autenticação multi-factor (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md). A MFA inclui uma autenticação segura com um conjunto de opções de verificação simples: telefonema, mensagem de texto, cartões inteligentes com PIN ou notificação de aplicação móvel. Para mais informações, consulte [a Autenticação Universal com Base de Dados SQL e Azure Synapse Analytics.](../../azure-sql/database/authentication-mfa-ssms-overview.md)
 
 Para saber mais sobre a autenticação AZure AD, consulte:
 

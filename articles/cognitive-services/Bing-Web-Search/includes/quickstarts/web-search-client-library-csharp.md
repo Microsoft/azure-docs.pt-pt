@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9dbed0de3cf6cc911111825a75430d0c616f4dc4
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: d391586ade9e9a58344f9b1666802a453770152a
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217590"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94386575"
 ---
 A biblioteca de clientes Bing Web Search facilita a integração da Bing Web Search na sua aplicação C#. Neste início rápido, irá aprender a instanciar um cliente, a enviar um pedido e a imprimir a resposta.
 
@@ -36,7 +36,7 @@ Aqui estão algumas coisas de que irá precisar antes de executar este início r
 > [!TIP]
 > Obter o código mais recente como uma solução do Visual Studio a partir do [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-O primeiro passo é criar um novo projeto de consola. Se precisar de ajuda para configurar um projeto de consola, consulte [Hello World -- O Seu Primeiro Programa (C# Guia de Programação)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Para utilizar o SDK de Pesquisa na Web do Bing na sua aplicação, terá de instalar `Microsoft.Azure.CognitiveServices.Search.WebSearch` através do Gestor de Pacotes NuGet.
+O primeiro passo é criar um novo projeto de consola. Se precisar de ajuda para configurar um projeto de consola, consulte [Hello World -- O Seu Primeiro Programa (C# Guia de Programação)](/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Para utilizar o SDK de Pesquisa na Web do Bing na sua aplicação, terá de instalar `Microsoft.Azure.CognitiveServices.Search.WebSearch` através do Gestor de Pacotes NuGet.
 
 O [pacote do SDK de Pesquisa na Web](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) também instala:
 
@@ -424,4 +424,3 @@ Quando tiver terminado de fazer o que quer neste projeto, não se esqueça de re
 
 > [!div class="nextstepaction"]
 > [Serviços Cognitivos Node.js amostras de SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/)
-                                    

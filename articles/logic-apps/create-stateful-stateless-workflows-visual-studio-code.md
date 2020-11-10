@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/09/2020
+ms.openlocfilehash: 749807349fd83f9639461fd4ddd9ab771d108119
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322051"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410560"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com ou sem estado no Visual Studio Code com a extensão do Azure Logic Apps (Pré-visualização)
 
@@ -109,8 +109,6 @@ Para esta pré-visualização pública, estas capacidades não estão disponíve
   Com exceção dos gatilhos previamente especificados, os fluxos de trabalho *estatais* podem utilizar tanto os gatilhos como as ações para [conectores geridos](../connectors/apis-list.md#managed-api-connectors), que são implantados em Azure versus gatilhos incorporados e ações que funcionam de forma nativa com o tempo de funcionamento das Aplicações Lógicas. No entanto, atualmente, os fluxos de trabalho *apátridas* suportam apenas *ações* para conectores geridos, e não gatilhos. Embora possa ativar os conectores em Azure para o seu fluxo de trabalho apátrida, o designer não mostra nenhum gatilho de conector gerido para que possa selecionar.
 
 * Pode implementar o novo tipo de recurso **Logic App (Preview)** apenas para um [plano de hospedagem Premium ou App Service em Azure](#publish-azure) ou para um [recipiente Docker](#deploy-docker), e não [ambientes de serviço de integração (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). **Os** planos de hospedagem de consumo não são suportados nem disponíveis para a implementação deste tipo de recursos.
-
-* No portal Azure, não é possível criar novas aplicações lógicas com o novo tipo de recurso **Logic App (Preview).** Só é possível criar estas aplicações lógicas no Código do Estúdio Visual. No entanto, depois de implementar aplicações lógicas com este tipo de recurso, do Código do Estúdio Visual ao Azure, pode [adicionar novos fluxos de trabalho a essas aplicações lógicas.](#add-workflows)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -774,12 +772,7 @@ No Código do Estúdio Visual, pode ver todas as aplicações lógicas implement
 
 ## <a name="find-and-manage-deployed-logic-apps-in-the-portal"></a>Localizar e gerir aplicações lógicas implementadas no portal
 
-No portal Azure, é possível visualizar todas as aplicações lógicas implementadas que se encontrem na sua subscrição Azure, sejam elas o tipo original de recursos **de Aplicações Lógicas** ou o tipo de recurso **Logic App (Preview).** Atualmente, cada tipo de recurso é organizado e gerido como categorias separadas em Azure.
-
-> [!NOTE]
-> Para visualização pública, só é possível visualizar os recursos da **Logic App (Preview)** implantados no portal Azure, não criar novos recursos **da Logic App (Preview).** Pode criar estas aplicações lógicas apenas no Código do Estúdio Visual. No entanto, pode adicionar fluxos de trabalho a aplicações [lógicas implementadas](#add-workflows) com este tipo de recurso.
-
-Para encontrar aplicações lógicas que tenham o tipo de recurso **Logic App (Preview),** siga estes passos:
+No portal Azure, é possível visualizar todas as aplicações lógicas implementadas que se encontrem na sua subscrição Azure, sejam elas o tipo original de recursos **de Aplicações Lógicas** ou o tipo de recurso **Logic App (Preview).** Atualmente, cada tipo de recurso é organizado e gerido como categorias separadas em Azure. Para encontrar aplicações lógicas que tenham o tipo de recurso **Logic App (Preview),** siga estes passos:
 
 1. Na caixa de pesquisa do portal Azure, insira `logic app preview` . Quando a lista de resultados aparecer, em **Serviços** , selecione **Logic App (Preview)**.
 

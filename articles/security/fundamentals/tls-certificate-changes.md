@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 93c2f847678292a1d38eff540a813b591c255ef0
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dbc426144678f5bd7382b0961bf9bc3f5339b97a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043216"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409812"
 ---
 # <a name="azure-tls-certificate-changes"></a>Alterações no certificado Azure TLS  
 
@@ -22,12 +22,12 @@ A Microsoft está a atualizar os serviços da Azure para utilizar certificados T
 
 ## <a name="when-will-this-change-happen"></a>Quando é que esta mudança vai acontecer?
 
-- Os serviços [do Azure Ative Directory](/azure/active-directory) (Azure AD) iniciaram esta transição a 7 de julho de 2020.
+- Os serviços [do Azure Ative Directory](../../active-directory/index.yml) (Azure AD) iniciaram esta transição a 7 de julho de 2020.
 - Todos os pontos finais Azure TLS/SSL recentemente criados contêm certificados atualizados acorrentados aos novos CAs raiz.
 - Os pontos finais do Azure existentes vão transitar de forma faseada a partir de 13 de agosto de 2020.
-- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) e [DPS](/azure/iot-dps/) permanecerão na Baltimore CyberTrust Root CA, mas os seus CAs intermédios mudarão. [Clique aqui para mais detalhes.](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456)
-- [O Azure Storage](/azure/storage) permanecerá na Baltimore CyberTrust Root CA, mas os seus CAs intermédios vão mudar. [Clique aqui para mais detalhes.](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518)
-- [Azure Cache para Redis](/azure/azure-cache-for-redis) permanecerá na Baltimore CyberTrust Root CA, mas os seus CAs intermédios mudarão. [Clique aqui para mais detalhes.](../../azure-cache-for-redis/cache-whats-new.md)
+- [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub) e [DPS](../../iot-dps/index.yml) permanecerão na Baltimore CyberTrust Root CA, mas os seus CAs intermédios mudarão. [Clique aqui para mais detalhes.](https://techcommunity.microsoft.com/t5/internet-of-things/azure-iot-tls-changes-are-coming-and-why-you-should-care/ba-p/1658456)
+- [O Azure Storage](../../storage/index.yml) permanecerá na Baltimore CyberTrust Root CA, mas os seus CAs intermédios vão mudar. [Clique aqui para mais detalhes.](https://techcommunity.microsoft.com/t5/azure-storage/azure-storage-tls-changes-are-coming-and-why-you-care/ba-p/1705518)
+- [Azure Cache para Redis](../../azure-cache-for-redis/index.yml) permanecerá na Baltimore CyberTrust Root CA, mas os seus CAs intermédios mudarão. [Clique aqui para mais detalhes.](../../azure-cache-for-redis/cache-whats-new.md)
 > [!IMPORTANT]
 > Os clientes poderão ter de atualizar as suas aplicações após esta alteração para evitar falhas de conectividade ao tentarem ligar-se aos serviços Azure.
 

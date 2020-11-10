@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2020
 ms.author: terrylan
-ms.openlocfilehash: 3ac044666b8f723e3cc26fd7a30f5dd8a8f77d90
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3113216b2d8a7572bcb864819a379de6823ee444
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168040"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409880"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança em Azure que o ajudam a proteger os seus dados, recursos e aplicações na nuvem e a atender às necessidades de segurança do seu negócio.
@@ -48,7 +48,7 @@ O Azure ajuda-o a proteger as informações empresariais e pessoais, permitindo-
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-As soluções de gestão de identidade e acesso da Microsoft ajudam a proteger o acesso a aplicações e recursos em todo o datacenter corporativo e na nuvem, permitindo níveis adicionais de validação, tais como a autenticação de vários fatores e políticas de Acesso Condicional. A monitorização de atividades suspeitas através de relatórios de segurança avançada, de auditorias e de alertas ajuda a mitigar potenciais problemas de segurança. [O Azure Ative Directory Premium](../../active-directory/active-directory-whatis.md) fornece um único sign-on a milhares de aplicações na nuvem e acesso a aplicações web que executa no local.
+As soluções de gestão de identidade e acesso da Microsoft ajudam a proteger o acesso a aplicações e recursos em todo o datacenter corporativo e na nuvem, permitindo níveis adicionais de validação, tais como a autenticação de vários fatores e políticas de Acesso Condicional. A monitorização de atividades suspeitas através de relatórios de segurança avançada, de auditorias e de alertas ajuda a mitigar potenciais problemas de segurança. [O Azure Ative Directory Premium](../../active-directory/fundamentals/active-directory-whatis.md) fornece um único sign-on a milhares de aplicações na nuvem e acesso a aplicações web que executa no local.
 
 Os benefícios de segurança do Azure Ative Directory (Azure AD) incluem a capacidade de:
 
@@ -88,17 +88,17 @@ Muitas organizações confiam no software como aplicações de serviço (SaaS) c
 
 [O Azure AD estende o Ative Directory para o interior da nuvem,](../../active-directory/manage-apps/what-is-single-sign-on.md)permitindo que os utilizadores utilizem a sua conta organizacional primária para não só iniciar em seus dispositivos e recursos da empresa ligados ao domínio, mas também todas as aplicações web e SaaS necessárias para o seu trabalho.
 
-Não só os utilizadores não têm de gerir vários conjuntos de nomes de utilizador e palavras-passe, como o acesso à aplicação pode ser automaticamente aprovisionado ou desprovisionado com base em grupos organizacionais e no seu estatuto de colaborador. [O Azure AD introduz controlos de governação](../../active-directory/active-directory-enterprise-apps-manage-sso.md) de segurança e acesso que lhe permitem gerir centralmente o acesso dos utilizadores através das aplicações SaaS.
+Não só os utilizadores não têm de gerir vários conjuntos de nomes de utilizador e palavras-passe, como o acesso à aplicação pode ser automaticamente aprovisionado ou desprovisionado com base em grupos organizacionais e no seu estatuto de colaborador. [O Azure AD introduz controlos de governação](../../active-directory/manage-apps/view-applications-portal.md) de segurança e acesso que lhe permitem gerir centralmente o acesso dos utilizadores através das aplicações SaaS.
 
 #### <a name="multi-factor-authentication"></a>Autenticação multifator
 
-[A Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/multi-factor-authentication.md) é um método de autenticação que requer a utilização de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações do utilizador. [O MFA ajuda a salvaguardar](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicações ao mesmo tempo que satisfaz a procura do utilizador por um processo simples de inscrição. Fornece autenticação forte através de uma série de opções de verificação — chamada telefónica, mensagem de texto ou código de verificação ou verificação de aplicações móveis e fichas OAuth de terceiros.
+[A Azure Multi-Factor Authentication (MFA)](../../active-directory/authentication/concept-mfa-howitworks.md) é um método de autenticação que requer a utilização de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações do utilizador. [O MFA ajuda a salvaguardar](../../active-directory/authentication/concept-mfa-howitworks.md) o acesso a dados e aplicações ao mesmo tempo que satisfaz a procura do utilizador por um processo simples de inscrição. Fornece autenticação forte através de uma série de opções de verificação — chamada telefónica, mensagem de texto ou código de verificação ou verificação de aplicações móveis e fichas OAuth de terceiros.
 
 #### <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Relatórios de monitorização de segurança, alertas e aprendizagem automática
 
 Monitorização de segurança e alertas e relatórios baseados em aprendizagem automática que identificam padrões de acesso inconsistentes podem ajudá-lo a proteger o seu negócio. Você pode usar os relatórios de acesso e utilização do Azure Ative Directory para ganhar visibilidade na integridade e segurança do diretório da sua organização. Com esta informação, um administrador de diretório pode determinar melhor onde podem estar os riscos de segurança possíveis para que possam planear adequadamente esses riscos.
 
-No portal Azure ou através do [portal Azure Ative Directory,](https://aad.portal.azure.com/) [os relatórios](../../active-directory/active-directory-reporting-azure-portal.md) são categorizados das seguintes formas:
+No portal Azure ou através do [portal Azure Ative Directory,](https://aad.portal.azure.com/) [os relatórios](../../active-directory/reports-monitoring/overview-reports.md) são categorizados das seguintes formas:
 
 - Relatórios de anomalias – contenham sinais em eventos que achamos ser anómalos. O nosso objetivo é sensibilizar para essa atividade e permitir que possa decidir se um evento é suspeito.
 
@@ -142,7 +142,7 @@ A Azure AD Gestão de Identidade Privilegiada permite-lhe:
 
 #### <a name="identity-protection"></a>Proteção de identidade
 
-[A Azure AD Identity Protection](../../active-directory/identity-protection/overview.md) é um serviço de segurança que fornece uma visão consolidada de deteções de riscos e potenciais vulnerabilidades que afetam as identidades da sua organização. A Proteção de Identidade utiliza as capacidades de deteção de anomalias do Azure Ative Directory (disponíveis através dos Relatórios de Atividade Anómalas da Azure AD), e introduz novos tipos de deteção de riscos que podem detetar anomalias em tempo real.
+[A Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) é um serviço de segurança que fornece uma visão consolidada de deteções de riscos e potenciais vulnerabilidades que afetam as identidades da sua organização. A Proteção de Identidade utiliza as capacidades de deteção de anomalias do Azure Ative Directory (disponíveis através dos Relatórios de Atividade Anómalas da Azure AD), e introduz novos tipos de deteção de riscos que podem detetar anomalias em tempo real.
 
 ## <a name="secure-resource-access"></a>Acesso seguro a recursos
 
@@ -167,7 +167,7 @@ Uma das chaves para a proteção de dados na nuvem é a contabilização dos pos
 - Repouso: Isto inclui todos os objetos de armazenamento de informação, recipientes e tipos que existem estáticamente em meios físicos, seja em disco magnético ou ótico.
 - Em trânsito: Quando os dados são transferidos entre componentes, locais ou programas, como através da rede, através de um autocarro de serviço (de instalações para nuvem e vice-versa, incluindo ligações híbridas como o ExpressRoute), ou durante um processo de entrada/saída, é considerado como estando em movimento.
 
-### <a name="encryption-at-rest"></a>Encriptação de dados inativos
+### <a name="encryption-at-rest"></a>Encriptação inativa
 
 A encriptação em repouso é discutida em detalhe na [Encriptação de Dados Azure-at-Rest](encryption-atrest.md).
 
@@ -183,35 +183,35 @@ Para as organizações que precisam de garantir o acesso de uma estação de tra
 
 Conjuntos de dados maiores podem ser movidos sobre uma ligação WAN dedicada de alta velocidade, como [o ExpressRoute.](https://azure.microsoft.com/services/expressroute/) Se optar por utilizar o ExpressRoute, também pode encriptar os dados ao nível da aplicação utilizando [SSL/TLS](https://support.microsoft.com/kb/257591) ou outros protocolos para uma proteção adicional.
 
-Se estiver a interagir com o Azure Storage através do Portal Azure, todas as transações ocorrem através de HTTPS. [A API de armazenamento](https://msdn.microsoft.com/library/azure/dd179355.aspx) REST sobre HTTPS também pode ser usada para interagir com [o Azure Storage](https://azure.microsoft.com/services/storage/) e a [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+Se estiver a interagir com o Azure Storage através do Portal Azure, todas as transações ocorrem através de HTTPS. [A API de armazenamento](/rest/api/storageservices/) REST sobre HTTPS também pode ser usada para interagir com [o Azure Storage](https://azure.microsoft.com/services/storage/) e a [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-As organizações que não protegem os dados em trânsito são mais suscetíveis a [ataques man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), escutas e [sequestros](https://technet.microsoft.com/library/gg195641.aspx)de sessão. Esses ataques podem ser o primeiro passo para obter acesso a dados confidenciais.
+As organizações que não protegem os dados em trânsito são mais suscetíveis a [ataques man-in-the-middle](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), escutas e [sequestros](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14))de sessão. Esses ataques podem ser o primeiro passo para obter acesso a dados confidenciais.
 
 Você pode saber mais sobre a opção Azure VPN lendo o artigo [Planeamento e design para VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="enforce-file-level-data-encryption"></a>Impor encriptação de dados de nível de ficheiro
 
-[O Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) utiliza políticas de encriptação, identidade e autorização para ajudar a proteger os seus ficheiros e e-mails. O Azure RMS funciona em vários dispositivos — telefones, tablets e Computadores, protegendo tanto dentro da sua organização como fora da sua organização. Esta capacidade é possível porque o Azure RMS adiciona um nível de proteção que permanece com os dados, mesmo quando deixa os limites da sua organização.
+[O Azure RMS](/azure/information-protection/what-is-azure-rms) utiliza políticas de encriptação, identidade e autorização para ajudar a proteger os seus ficheiros e e-mails. O Azure RMS funciona em vários dispositivos — telefones, tablets e Computadores, protegendo tanto dentro da sua organização como fora da sua organização. Esta capacidade é possível porque o Azure RMS adiciona um nível de proteção que permanece com os dados, mesmo quando deixa os limites da sua organização.
 
 Quando utiliza o Azure RMS para proteger os seus ficheiros, está a utilizar a criptografia padrão da indústria com o apoio total do [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). Quando alavanca o Azure RMS para proteção de dados, tem a garantia de que a proteção permanece com o ficheiro, mesmo que seja copiado para armazenamento que não esteja sob o controlo de TI, como um serviço de armazenamento em nuvem. O mesmo ocorre para ficheiros partilhados via e-mail, o ficheiro é protegido como anexo a uma mensagem de correio eletrónico, com instruções sobre como abrir o anexo protegido.
 Ao planear a adoção do Azure RMS recomendamos o seguinte:
 
-- Instale a [aplicação de partilha RMS](https://technet.microsoft.com/library/dn339006.aspx). Esta aplicação integra-se com as aplicações do Office, instalando um add-in do Office para que os utilizadores possam proteger facilmente os ficheiros diretamente.
+- Instale a [aplicação de partilha RMS](/azure/information-protection/rms-client/sharing-app-windows). Esta aplicação integra-se com as aplicações do Office, instalando um add-in do Office para que os utilizadores possam proteger facilmente os ficheiros diretamente.
 
 - Configure aplicações e serviços para apoiar o Azure RMS
 
-- Crie [modelos personalizados](https://technet.microsoft.com/library/dn642472.aspx) que reflitam os seus requisitos de negócio. Por exemplo: um modelo para dados ultrassecretos que devem ser aplicados em todos os e-mails relacionados com alta-secret.
+- Crie [modelos personalizados](/azure/information-protection/configure-policy-templates) que reflitam os seus requisitos de negócio. Por exemplo: um modelo para dados ultrassecretos que devem ser aplicados em todos os e-mails relacionados com alta-secret.
 
 As organizações que são fracas na classificação de [dados](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) e na proteção de ficheiros podem ser mais suscetíveis a fugas de dados. Sem a proteção adequada dos ficheiros, as organizações não poderão obter informações sobre negócios, monitorizar abusos e impedir o acesso malicioso aos ficheiros.
 
 > [!Note]
-> Pode saber mais sobre o Azure RMS lendo o artigo [Começar com a Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
+> Pode saber mais sobre o Azure RMS lendo o artigo [Começar com a Azure Rights Management](/azure/information-protection/requirements).
 
 ## <a name="secure-your-application"></a>Proteja a sua aplicação
 Embora a Azure seja responsável por garantir a infraestrutura e plataforma em que a sua aplicação funciona, é da sua responsabilidade garantir a sua própria aplicação. Por outras palavras, precisa de desenvolver, implementar e gerir o código de aplicação e o conteúdo de forma segura. Sem isso, o código de aplicação ou conteúdo ainda pode ser vulnerável a ameaças.
 
 ### <a name="web-application-firewall"></a>Firewall de aplicação Web
-[A firewall de aplicações web (WAF)](../../application-gateway/waf-overview.md) é uma funcionalidade do [Application Gateway](../../application-gateway/overview.md) que fornece proteção centralizada das suas aplicações web contra explorações e vulnerabilidades comuns.
+[A firewall de aplicações web (WAF)](../../web-application-firewall/ag/ag-overview.md) é uma funcionalidade do [Application Gateway](../../application-gateway/overview.md) que fornece proteção centralizada das suas aplicações web contra explorações e vulnerabilidades comuns.
 
 A firewall de aplicações Web baseia-se nas regras dos [conjuntos de regras de núcleo OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. Cada vez mais, as aplicações Web são alvo de ataques maliciosos que exploram vulnerabilidades conhecidas comuns. Destas vulnerabilidades, são frequentes os ataques de injeção de SQL, scripting entre sites, entre muitas outras. Impedir este tipo de ataques ao código das aplicações constitui um desafio e exige uma manutenção, correção e monitorização rigorosas em várias camadas da topologia da aplicação. Uma firewall de aplicações Web centralizada ajuda a simplificar em muito a gestão da segurança e confere aos administradores de aplicações uma maior garantia de proteção contra as ameaças ou intrusões. Uma solução WAF também pode reagir mais rapidamente a uma ameaça de segurança ao corrigir uma vulnerabilidade conhecida numa localização central, em vez de proteger cada uma das aplicações Web individualmente. Os gateways de aplicações existentes podem ser facilmente convertidos num gateway de aplicação com firewall de aplicações Web ativada.
 
@@ -232,7 +232,7 @@ Algumas das vulnerabilidades Web comuns contra as quais a firewall de aplicaçõ
 - Deteção de configurações comuns de aplicações (isto é, Apache, IIS, etc.)
 
 > [!Note]
-> Para obter uma lista mais detalhada das regras e das suas proteções consulte os [seguintes conjuntos de regras principais:](../../application-gateway/waf-overview.md)
+> Para obter uma lista mais detalhada das regras e das suas proteções consulte os [seguintes conjuntos de regras principais:](../../web-application-firewall/ag/ag-overview.md)
 
 O Azure também fornece várias funcionalidades fáceis de usar para ajudar a garantir o tráfego de entrada e saída para a sua aplicação. O Azure também ajuda os clientes a proteger o seu código de aplicação, fornecendo funcionalidades fornecidas externamente para digitalizar a sua aplicação web para vulnerabilidades.
 
@@ -265,7 +265,7 @@ O Azure App Service utiliza a mesma solução antimalware utilizada pelos Servi�
 ## <a name="secure-your-network"></a>Proteja a sua rede
 O Microsoft Azure inclui uma infraestrutura de rede robusta para suportar os requisitos de conectividade da sua aplicação e serviço. A conectividade da rede é possível entre os recursos localizados em Azure, entre os recursos alojados no local e a Azure, e de e para a Internet e Azure.
 
-A [infraestrutura da rede Azure](../../virtual-machines/windows/infrastructure-example.md) permite-lhe ligar de forma segura os recursos Azure uns aos outros com [redes virtuais (VNets)](../../virtual-network/virtual-networks-overview.md). Um VNet é uma representação da sua própria rede na nuvem. Um VNet é um isolamento lógico da rede de nuvem Azure dedicada à sua subscrição. Pode ligar VNets às suas redes no local.
+A [infraestrutura da rede Azure](/previous-versions/azure/virtual-machines/windows/infrastructure-example) permite-lhe ligar de forma segura os recursos Azure uns aos outros com [redes virtuais (VNets)](../../virtual-network/virtual-networks-overview.md). Um VNet é uma representação da sua própria rede na nuvem. Um VNet é um isolamento lógico da rede de nuvem Azure dedicada à sua subscrição. Pode ligar VNets às suas redes no local.
 
 ![Proteja a sua rede (proteja)](./media/technical-capabilities/azure-security-technical-capabilities-fig6.png)
 
@@ -335,11 +335,11 @@ Este método permite-lhe consolidar dados a partir de uma variedade de fontes, p
 
 ### <a name="azure-security-center"></a>Centro de Segurança do Azure
 
-O [Centro de Segurança do Azure](../../security-center/security-center-intro.md) ajuda-o a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
+O [Centro de Segurança do Azure](../../security-center/security-center-introduction.md) ajuda-o a evitar, detetar e responder a ameaças com uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. Fornece gestão de políticas e monitorização de segurança integrada nas suas subscrições do Azure, ajuda a detetar ameaças que caso contrário podem passar despercebidas e funciona com um ecossistema abrangente de soluções de segurança.
 
 O Centro de Segurança analisa o estado de segurança dos seus recursos Azure para identificar potenciais vulnerabilidades de segurança. Uma lista de recomendações orienta-o no processo de configuração de controlos necessários.
 
-Alguns exemplos:
+Os exemplos incluem:
 
 - Aprovisionamento de antimalware para ajudar a identificar e remover o software malicioso
 
@@ -378,7 +378,7 @@ A auditoria da segurança da sua rede é vital para detetar vulnerabilidades de 
 
 ### <a name="storage-analytics"></a>Análise de armazenamento
 
-[O Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics) pode armazenar métricas que incluem estatísticas de transações agregadas e dados de capacidade sobre pedidos a um serviço de armazenamento. As transações são reportadas tanto ao nível da operação da API como ao nível do serviço de armazenamento, e a capacidade é reportada ao nível do serviço de armazenamento. Os dados das métricas podem ser usados para analisar o uso do serviço de armazenamento, diagnosticar problemas com pedidos feitos contra o serviço de armazenamento, e melhorar o desempenho das aplicações que usam um serviço.
+[O Storage Analytics](/rest/api/storageservices/fileservices/storage-analytics) pode armazenar métricas que incluem estatísticas de transações agregadas e dados de capacidade sobre pedidos a um serviço de armazenamento. As transações são reportadas tanto ao nível da operação da API como ao nível do serviço de armazenamento, e a capacidade é reportada ao nível do serviço de armazenamento. Os dados das métricas podem ser usados para analisar o uso do serviço de armazenamento, diagnosticar problemas com pedidos feitos contra o serviço de armazenamento, e melhorar o desempenho das aplicações que usam um serviço.
 
 ### <a name="application-insights"></a>Application Insights
 

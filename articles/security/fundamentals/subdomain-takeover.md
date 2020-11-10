@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 7c09a7f6c6a313852fc6212c6190a584ba5f67bd
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911397"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409897"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Evitar entradas de DNS pendentes e evitar a aquisição de subdomínios
 
@@ -27,7 +27,7 @@ Este artigo descreve a ameaça comum de segurança da aquisição de subdomínio
 
 ## <a name="what-is-subdomain-takeover"></a>O que é a aquisição de subdomínios?
 
-As aquisições de subdomínios são uma ameaça comum e de alta gravidade para organizações que criam regularmente e apagam muitos recursos. Uma aquisição de subdomínio pode ocorrer quando se tem um [registo DNS](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) que aponta para um recurso Azure deprovisionado. Estes registos DNS também são conhecidos como entradas "dNS pendentes". Os registos da CNAME são especialmente vulneráveis a esta ameaça. As aquisições de subdomínio permitem que atores maliciosos redirecionem o tráfego destinado ao domínio de uma organização para um site que executa atividades maliciosas.
+As aquisições de subdomínios são uma ameaça comum e de alta gravidade para organizações que criam regularmente e apagam muitos recursos. Uma aquisição de subdomínio pode ocorrer quando se tem um [registo DNS](../../dns/dns-zones-records.md#dns-records) que aponta para um recurso Azure deprovisionado. Estes registos DNS também são conhecidos como entradas "dNS pendentes". Os registos da CNAME são especialmente vulneráveis a esta ameaça. As aquisições de subdomínio permitem que atores maliciosos redirecionem o tráfego destinado ao domínio de uma organização para um site que executa atividades maliciosas.
 
 Um cenário comum para uma aquisição de subdomínio:
 

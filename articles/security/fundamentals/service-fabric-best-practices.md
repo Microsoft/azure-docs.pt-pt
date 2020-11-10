@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 01/16/2019
-ms.openlocfilehash: 4548bf77c01194802c2e6203bcbf9fbd240370a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93b25e65914ce603b4a969eda7fd7c048704e466
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81461655"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410017"
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Service Fabric
 Implementar uma aplicação no Azure é rápido, fácil e rentável. Antes de colocar a sua aplicação em nuvem em produção, reveja a nossa lista de boas práticas essenciais e recomendadas para implementar clusters seguros na sua aplicação.
@@ -132,7 +132,7 @@ O certificado deve satisfazer os seguintes requisitos relativos aos certificados
 -   O nome do certificado deve corresponder ao nome de domínio utilizado para aceder ao seu serviço na nuvem.
 
     - Adquira um nome de domínio personalizado para usar para aceder ao seu serviço na nuvem.
-    - Solicite um certificado a um CA com um nome de sujeito que corresponda ao nome de domínio personalizado do seu serviço. Por exemplo, se o seu nome de domínio personalizado for**contoso.com,** o certificado da sua AC deve ter o nome **de assunto .contoso.com** ou __contoso__**www.contoso.com**. __www__
+    - Solicite um certificado a um CA com um nome de sujeito que corresponda ao nome de domínio personalizado do seu serviço. Por exemplo, se o seu nome de domínio personalizado for **contoso.com,** o certificado da sua AC deve ter o nome **de assunto .contoso.com** ou __contoso__**www.contoso.com**. __www__
 
     >[!NOTE]
     >Não é possível obter um certificado SSL/TLS de um CA para o domínio __cloudapp__**.net.**
@@ -178,6 +178,6 @@ A Azure Service Fabric suporta dois tipos de controlo de acesso para clientes qu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Lista de verificação de segurança do tecido de serviço](service-fabric-checklist.md)
+- [Lista de verificação de segurança do tecido de serviço](../../service-fabric/service-fabric-best-practices-security.md)
 - Configurar o seu [ambiente de desenvolvimento](../../service-fabric/service-fabric-get-started.md)do Tecido de Serviço.
 - Saiba mais sobre [as opções de suporte do Tecido de Serviço.](../../service-fabric/service-fabric-support.md)

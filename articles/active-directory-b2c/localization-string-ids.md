@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/15/2020
+ms.date: 11/09/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f75fbf286741fcc122332574332a30ad7fa23644
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: 45357092784bd9c8821a81b07ce3c381c4ce7989
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096203"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410509"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de localização
 
@@ -33,7 +33,7 @@ Os iDs seguintes são usados para uma definição de conteúdo com um ID `api.si
 | **logonIdentifier_email** | Endereço de E-mail |
 | **requiredField_email** | Por favor, insira o seu e-mail |
 | **invalid_email** | Por favor, insira um endereço de e-mail válido |
-| **email_pattern** | ^[a-zA-Z0-9.! #$%&''*+/=?^_ \` \| {____+@[a-zA-Z0-9-]++.:: \\ .[ a-zA-Z0-9-]+)*$ |
+| **email_pattern** | ^[a-zA-Z0-9.! #$%&'' *+/=?^_ \` \| {____+@[a-zA-Z0-9-]++.:: \\ .[ a-zA-Z0-9-]+)*$ |
 | **local_intro_username** | Inscreva-se com o seu nome de utilizador |
 | **logonIdentifier_username** | Nome de utilizador |
 | **requiredField_username** | Por favor, insira o seu nome de utilizador |
@@ -87,6 +87,7 @@ O exemplo a seguir coloca o fornecedor de identidade do Facebook em árabe:
 | ID | Valor predefinido |
 | -- | ------------- |
 | **UserMessageIfInvalidPassword** | A sua palavra-passe está errada. |
+| **UserMessageIfPasswordExpired**| A sua senha expirou.|
 | **UserMessageIfClaimsPrincipalDoesNotExist** | Não conseguimos encontrar a sua conta. |
 | **UserMessageIfOldPasswordUsed** | Parece que usaste uma senha antiga. |
 | **Padrão Desmesagem** | Nome de utilizador ou senha inválido. |
@@ -122,6 +123,7 @@ O exemplo a seguir coloca o fornecedor de identidade do Facebook em árabe:
     <LocalizedString ElementType="UxElement" StringId="email_pattern">^[a-zA-Z0-9.!#$%&amp;’'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$</LocalizedString>
     <LocalizedString ElementType="ClaimsProvider" StringId="FacebookExchange">Facebook</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidPassword">Your password is incorrect.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfPasswordExpired">Your password has expired.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfClaimsPrincipalDoesNotExist">We can't seem to find your account.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfOldPasswordUsed">Looks like you used an old password.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="DefaultMessage">Invalid username or password.</LocalizedString>
@@ -143,13 +145,13 @@ Seguem-se os IDs para uma definição de conteúdo com identificação ou qualqu
 | **cancel_message** | O utilizador cancelou a introdução de informações autoafirmadas |
 | **preloader_alt** | Aguarde |
 | **ver_but_send** | Enviar código de verificação |
-| **alert_yes** | Sim |
+| **alert_yes** | Yes |
 | **error_fieldIncorrect** | Um ou mais campos são preenchidos incorretamente. Por favor, verifiquem as suas entradas e tentem novamente. |
 | **ano** | Ano |
 | **verifying_blurb** | Por favor, aguarde enquanto processamos a sua informação. |
 | **button_cancel** | Cancelar |
 | **ver_fail_no_retry** | Fizeste muitas tentativas incorretas. Tente novamente mais tarde. |
-| **mês** | Mês |
+| **mês** | Mensal |
 | **ver_success_msg** | Endereço de e-mail verificado. Agora pode continuar. |
 | **months** | Janeiro, fevereiro, março, abril, maio, junho, julho, agosto, setembro, outubro, novembro, dezembro |
 | **ver_fail_server** | Estamos com dificuldades em verificar o seu endereço de e-mail. Por favor, insira um endereço de e-mail válido e tente novamente. |
@@ -161,7 +163,7 @@ Seguem-se os IDs para uma definição de conteúdo com identificação ou qualqu
 | **ver_incorrect_format** | Formato incorreto. |
 | **ver_but_edit** | Alterar e-mail |
 | **ver_but_verify** | Verificar código |
-| **alert_no** | Não |
+| **alert_no** | No |
 | **ver_info_msg** | O código de verificação foi enviado para a sua caixa de entrada. Por favor, copie-o para a caixa de entrada abaixo. |
 | **dia** | Dia |
 | **ver_fail_throttled** | Houve muitos pedidos para verificar este endereço de e-mail. Por favor, espere um pouco, e tente de novo. |
@@ -263,7 +265,7 @@ Seguem-se os IDs para uma definição de conteúdo com identificação `api.phon
 | **invalid_code** | Introduza o código de 6 dígitos que recebeu |
 | **button_cancel** | Cancelar |
 | **local_number_input_placeholder_text** | Número de telefone |
-| **button_retry** | Repetir |
+| **button_retry** | Tentar novamente |
 | **alternative_text** | Não tenho o meu telemóvel. |
 | **intro_phone_p** | Temos os seguintes números registados para si. Escolha um número que podemos telefonar para autenticá-lo. |
 | **intro_phone** | Temos o seguinte número registado para si. Vamos telefonar para autenticá-lo. |

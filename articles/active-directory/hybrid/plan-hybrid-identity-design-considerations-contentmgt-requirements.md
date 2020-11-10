@@ -16,15 +16,15 @@ ms.date: 04/29/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d970fd133f8c43319e7f1fdb6b3a50c3c05f687
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57990fda7475b95bd6582fa5a495ac8d24aa55d5
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "64918446"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408537"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Determine os requisitos de gestão de conteúdos para a sua solução de identidade híbrida
-Compreender os requisitos de gestão de conteúdos para o seu negócio pode afetar diretamente a sua decisão sobre qual a solução de identidade híbrida a utilizar. Com a proliferação de vários dispositivos e a capacidade dos utilizadores de apresentarem os seus próprios dispositivos[(BYOD),](https://aka.ms/byodcg)a empresa deve proteger os seus próprios dados, mas também deve manter intacta a privacidade dos utilizadores. Normalmente, quando um utilizador tem o seu próprio dispositivo, também pode ter múltiplas credenciais que serão alternadas de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo criado usando credenciais pessoais contra as criadas com recurso a credenciais corporativas. A sua solução de identidade deve ser capaz de interagir com os serviços na nuvem para proporcionar uma experiência perfeita ao utilizador final, garantindo a sua privacidade e aumentando a proteção contra fugas de dados. 
+Compreender os requisitos de gestão de conteúdos para o seu negócio pode afetar diretamente a sua decisão sobre qual a solução de identidade híbrida a utilizar. Com a proliferação de vários dispositivos e a capacidade dos utilizadores de apresentarem os seus próprios dispositivos[(BYOD),](/mem/intune/fundamentals/byod-technology-decisions)a empresa deve proteger os seus próprios dados, mas também deve manter intacta a privacidade dos utilizadores. Normalmente, quando um utilizador tem o seu próprio dispositivo, também pode ter múltiplas credenciais que serão alternadas de acordo com a aplicação que utiliza. É importante diferenciar o conteúdo criado usando credenciais pessoais contra as criadas com recurso a credenciais corporativas. A sua solução de identidade deve ser capaz de interagir com os serviços na nuvem para proporcionar uma experiência perfeita ao utilizador final, garantindo a sua privacidade e aumentando a proteção contra fugas de dados. 
 
 A sua solução de identidade será alavancada por diferentes controlos técnicos, de forma a fornecer a gestão de conteúdos, tal como indicado na figura abaixo:
 
@@ -69,4 +69,3 @@ Ao planear a sua solução de identidade híbrida, certifique-se de que as segui
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral de considerações de design](plan-hybrid-identity-design-considerations-overview.md)
-

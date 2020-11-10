@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8310d5941916ed3e4a9d7c66af96779be8f939
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602375"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410297"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Escolha o método de autenticação certo para a sua solução de identidade híbrida Azure Ative Directory
 
@@ -177,9 +177,9 @@ Os seguintes diagramas descrevem os componentes de arquitetura de alto nível ne
 |Onde acontece a autenticação?|Na cloud|Na nuvem após uma troca segura de verificação de senha com o agente de autenticação no local|No local|
 |Quais são os requisitos do servidor no local para além do sistema de provisionamento: Azure AD Connect?|Nenhum|Um servidor para cada agente de autenticação adicional|Dois ou mais servidores AD FS<br><br>Dois ou mais servidores WAP na rede perimeter/DMZ|
 |Quais são os requisitos para a Internet no local e a rede para além do sistema de provisionamento?|Nenhum|[Acesso à Internet de saída](../../active-directory/hybrid/how-to-connect-pta-quick-start.md) dos servidores que executam agentes de autenticação|[Acesso à Internet de entrada](/windows-server/identity/ad-fs/overview/ad-fs-requirements) para servidores WAP no perímetro<br><br>Acesso à rede de entrada para servidores AD FS a partir de servidores WAP no perímetro<br><br>Balanceamento de carga de rede|
-|Existe um requisito de certificado TLS/SSL?|Não|Não|Sim|
+|Existe um requisito de certificado TLS/SSL?|No|No|Yes|
 |Existe uma solução de acompanhamento da saúde?|não é necessário|Estatuto de agente fornecido pelo [Azure Ative Directory centro de administração](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
-|Os utilizadores obtêm um único sinal de saúde na nuvem de dispositivos ligados ao domínio dentro da rede da empresa?|Sim com [SSO sem emenda](../../active-directory/hybrid/how-to-connect-sso.md)|Sim com [SSO sem emenda](../../active-directory/hybrid/how-to-connect-sso.md)|Sim|
+|Os utilizadores obtêm um único sinal de saúde na nuvem de dispositivos ligados ao domínio dentro da rede da empresa?|Sim com [SSO sem emenda](../../active-directory/hybrid/how-to-connect-sso.md)|Sim com [SSO sem emenda](../../active-directory/hybrid/how-to-connect-sso.md)|Yes|
 |Que tipos de inscrição são suportados?|Nome do UtilizadorPrincipal + senha<br><br>Windows-Integrated Autenticação utilizando [SSO sem emenda](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de login alternativo](../../active-directory/hybrid/how-to-connect-install-custom.md)|Nome do UtilizadorPrincipal + senha<br><br>Windows-Integrated Autenticação utilizando [SSO sem emenda](../../active-directory/hybrid/how-to-connect-sso.md)<br><br>[ID de login alternativo](../../active-directory/hybrid/how-to-connect-pta-faq.md)|Nome do UtilizadorPrincipal + senha<br><br>sAMAccountName + senha<br><br>Autenticação Windows-Integrated<br><br>[Autenticação de certificados e cartões inteligentes](/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID de login alternativo](/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |O Windows Hello para o Negócios está suportado?|[Modelo de confiança chave](/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[Modelo de confiança chave](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Requer o nível funcional do Windows Server 2016*|[Modelo de confiança chave](/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modelo de confiança de certificado](/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Quais são as opções de autenticação multifactor?|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Controlos personalizados com acesso condicional*](../../active-directory/conditional-access/controls.md)|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Controlos personalizados com acesso condicional*](../../active-directory/conditional-access/controls.md)|[Azure MFA](/azure/multi-factor-authentication/)<br><br>[Servidor Azure MFA](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[MFA de terceiros](/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controlos personalizados com acesso condicional*](../../active-directory/conditional-access/controls.md)|
@@ -221,4 +221,4 @@ No mundo de hoje, as ameaças estão presentes 24 horas por dia e vêm de todo o
 
 [Começa](../fundamentals/active-directory-whatis.md) com o Azure AD e implementa a solução de autenticação certa para a tua organização.
 
-Se está a pensar em migrar de federado para autenticação em nuvem, saiba mais sobre [a alteração do método de inscrição](../../active-directory/hybrid/plan-connect-user-signin.md). Para ajudá-lo a planear e implementar a migração, utilize [estes planos de implementação](https://aka.ms/deploymentplans) do projeto ou considere usar a nova funcionalidade [de Lançamento Encenado](../../active-directory/hybrid/how-to-connect-staged-rollout.md) para migrar utilizadores federados para usar a autenticação em nuvem numa abordagem faseada.
+Se está a pensar em migrar de federado para autenticação em nuvem, saiba mais sobre [a alteração do método de inscrição](../../active-directory/hybrid/plan-connect-user-signin.md). Para ajudá-lo a planear e implementar a migração, utilize [estes planos de implementação](../fundamentals/active-directory-deployment-plans.md) do projeto ou considere usar a nova funcionalidade [de Lançamento Encenado](../../active-directory/hybrid/how-to-connect-staged-rollout.md) para migrar utilizadores federados para usar a autenticação em nuvem numa abordagem faseada.

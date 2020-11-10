@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ab42acbc07072f48d28b3adb5bc4c65672f257bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bde95006865a2aab2da4a5d6d27ccccc14d74d12
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91314322"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408927"
 ---
 # <a name="security-control-v2-data-protection"></a>Controlo de Segurança V2: Proteção de Dados
 
@@ -32,9 +32,9 @@ Pode utilizar a Azure SQL Information Protection para ajudar na classificação 
 
 - [Etiquetar informações sensíveis usando a Proteção de Informações Azure](/azure/information-protection/what-is-information-protection) 
 
-- [Como implementar a Azure SQL Data Discovery](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Como implementar a Azure SQL Data Discovery](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade** : Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -60,7 +60,7 @@ Para a plataforma subjacente, que é gerida pela Microsoft, a Microsoft trata to
 
 - [Compreender a proteção de dados do cliente em Azure](../fundamentals/protection-customer-data.md)
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade** : Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -86,9 +86,9 @@ Se necessário para o cumprimento da prevenção de perda de dados (DLP), pode u
 
 - [Ativar Azure SQL ATP](../../azure-sql/database/threat-detection-overview.md)
 
-- [Ativar o Azure Storage ATP](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection?tabs=azure-security-center)
+- [Ativar o Azure Storage ATP](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade** : Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -116,7 +116,7 @@ Por padrão, o Azure fornece encriptação para dados em trânsito entre centros
 
 - [Dupla encriptação para dados do Azure em trânsito](../fundamentals/double-encryption.md#data-in-transit)
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade** : Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -140,13 +140,13 @@ O Azure fornece encriptação para dados em repouso por padrão. Para dados alta
 
 - [Compreenda a encriptação em repouso em Azure](../fundamentals/encryption-atrest.md#encryption-at-rest-in-microsoft-cloud-services)
 
-- [Como configurar chaves de encriptação geridas pelo cliente](../../storage/common/storage-encryption-keys-portal.md)
+- [Como configurar chaves de encriptação geridas pelo cliente](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
 - [Modelo de encriptação e tabela de gestão chave](../fundamentals/encryption-models.md)
 
 - [Dados em repouso dupla encriptação em Azure](../fundamentals/double-encryption.md#data-at-rest)
 
-**Responsabilidade**: Compartilhado
+**Responsabilidade** : Compartilhado
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
@@ -157,4 +157,3 @@ O Azure fornece encriptação para dados em repouso por padrão. Para dados alta
 - [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Segurança de Dados](/azure/cloud-adoption-framework/organize/cloud-security-data-security)
-

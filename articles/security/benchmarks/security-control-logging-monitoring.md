@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 82114164d70eae71678e70ff2bdb7ea44a54d4cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e88976bfbf5d033d6f5dc2318a6383e01ceb791d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076312"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409081"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Controlo de Segurança: Registo e Monitorização
 
@@ -26,9 +26,9 @@ O registo e monitorização de segurança centra-se em atividades relacionadas c
 
 A Microsoft mantém fontes de tempo para recursos Azure, no entanto, tem a opção de gerir as definições de sincronização de tempo para os seus recursos computativos.
 
-- [Como configurar a sincronização do tempo para os recursos computativos do Azure Windows](https://docs.microsoft.com/azure/virtual-machines/windows/time-sync)
+- [Como configurar a sincronização do tempo para os recursos computativos do Azure Windows](../../virtual-machines/windows/time-sync.md)
 
-- [Como configurar a sincronização temporal para os recursos computativos Azure Linux](https://docs.microsoft.com/azure/virtual-machines/linux/time-sync)
+- [Como configurar a sincronização temporal para os recursos computativos Azure Linux](../../virtual-machines/linux/time-sync.md)
 
 ## <a name="22-configure-central-security-log-management"></a>2.2: Configurar a gestão central dos registos de segurança
 
@@ -40,11 +40,11 @@ Ingerir registos via Azure Monitor para agregar dados de segurança gerados por 
 
 Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
-- [Como embarcar Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Como embarcar Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
 
-- [Como recolher registos internos de anfitriões da Azure Virtual Machine com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Como recolher registos internos de anfitriões da Azure Virtual Machine com o Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md)
 
 - [Como começar com o Azure Monitor e a integração do SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -56,9 +56,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 Ativar Definições de Diagnóstico em recursos Azure para acesso a registos de auditoria, segurança e diagnóstico. Os registos de atividade, que estão automaticamente disponíveis, incluem fonte de evento, data, utilizador, marcação de tempo, endereços de origem, endereços de destino e outros elementos úteis.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
 
-- [Compreenda o registo e diferentes tipos de registo em Azure](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview)
+- [Compreenda o registo e diferentes tipos de registo em Azure](../../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="24-collect-security-logs-from-operating-systems"></a>2.4: Recolher registos de segurança dos sistemas operativos
 
@@ -68,9 +68,9 @@ Ativar Definições de Diagnóstico em recursos Azure para acesso a registos de 
 
 Se o recurso computacional for propriedade da Microsoft, então a Microsoft é responsável pela monitorização do mesmo. Se o recurso computacional é propriedade da sua organização, é da sua responsabilidade monitorizá-lo. Pode utilizar o Centro de Segurança Azure para monitorizar o SISTEMA. Os dados recolhidos pelo Security Center do sistema operativo incluem o tipo e versão de SISTEMA, OS (Registos de Eventos do Windows), processos de execução, nome da máquina, endereços IP e registados no utilizador. O Agente Descodudo de Log também recolhe ficheiros de despejo de acidentes.
 
-- [Como recolher registos internos de anfitriões da Azure Virtual Machine com o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Como recolher registos internos de anfitriões da Azure Virtual Machine com o Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md)
 
-- [Compreender a recolha de dados do Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection)
+- [Compreender a recolha de dados do Centro de Segurança Azure](../../security-center/security-center-enable-data-collection.md)
 
 ## <a name="25-configure-security-log-storage-retention"></a>2.5: Configurar a retenção de armazenamento de registos de segurança
 
@@ -80,9 +80,9 @@ Se o recurso computacional for propriedade da Microsoft, então a Microsoft é r
 
 Dentro do Azure Monitor, desa um período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-- [Alterar o período de retenção de dados em Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
 
 ## <a name="26-monitor-and-review-logs"></a>2.6: Monitor e revisão de Registos
 
@@ -94,11 +94,11 @@ Analise e monitorize registos para comportamento anómalo e reveja regularmente 
 
 Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
-- [Como embarcar Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Como embarcar Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Compreender log analytics workspace](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)
+- [Compreender log analytics workspace](../../azure-monitor/log-query/get-started-portal.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Como realizar consultas personalizadas no Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
 ## <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: Permitir alertas para atividades anómalas
 
@@ -110,11 +110,11 @@ Utilize o Centro de Segurança Azure com log analytics workspace para monitoriza
 
 Em alternativa, pode ativar e a bordo dados para a Azure Sentinel.
 
-- [Como embarcar Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Como embarcar Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Como gerir alertas no Centro de Segurança Azure](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts)
+- [Como gerir alertas no Centro de Segurança Azure](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar nos dados de registo de registo de registos de registos](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Como alertar nos dados de registo de registo de registos de registos](../../azure-monitor/learn/tutorial-response.md)
 
 ## <a name="28-centralize-anti-malware-logging"></a>2.8: Centralizar a sessão anti-malware
 
@@ -128,7 +128,7 @@ Ativar a recolha de eventos antimalware para máquinas virtuais Azure e Serviço
 
 - [Como configurar o Microsoft Antimalware para serviços cloud](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
-- [Compreenda o Antimalware da Microsoft](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
+- [Compreenda o Antimalware da Microsoft](../fundamentals/antimalware.md)
 
 ## <a name="29-enable-dns-query-logging"></a>2.9: Ativar a sessão de consulta de DNS
 
@@ -146,11 +146,11 @@ Implemente uma solução de terceiros a partir do Azure Marketplace para a solu�
 
 Utilize o Agente de Monitorização do Microsoft em todas as máquinas virtuais suportadas do Azure Windows para registar o evento de criação de processos e o campo CommandLine.   Para máquinas virtuais suportadas Azure Linux, pode configurar manualmente o registo de consolas por nó e utilizar o Syslog para armazenar os dados.  Além disso, utilize o espaço de trabalho do Log Analytics do Azure Monitor para rever registos e realizar consultas em dados registados a partir de máquinas Virtuais Azure. 
 
-- [Data collection in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier) (Recolha de dados no Centro de Segurança do Azure)
+- [Data collection in Azure Security Center](../../security-center/security-center-enable-data-collection.md#data-collection-tier) (Recolha de dados no Centro de Segurança do Azure)
 
-- [Como realizar consultas personalizadas no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+- [Como realizar consultas personalizadas no Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
 
-- [Syslog data sources in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-syslog) (Origens de dados de Syslog no Azure Monitor)
+- [Syslog data sources in Azure Monitor](../../azure-monitor/platform/data-sources-syslog.md) (Origens de dados de Syslog no Azure Monitor)
 
 
 ## <a name="next-steps"></a>Passos seguintes

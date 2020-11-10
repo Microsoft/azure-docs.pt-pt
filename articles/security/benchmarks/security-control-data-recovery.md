@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4f3e8540902809f951a441aa2fe8d00026c44d82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee28cbffd6f047b4991d29781e0b131a44c7dfae
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81408603"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409183"
 ---
 # <a name="security-control-data-recovery"></a>Controlo de Segurança: Recuperação de Dados
 
@@ -26,7 +26,7 @@ Certifique-se de que todos os dados, configurações e segredos do sistema são 
 
 Ativar o Azure Backup e configurar a fonte de backup (Azure VMs, SQL Server ou File Shares), bem como o período de frequência e retenção pretendido.
 
-- [Como ativar o backup do Azure](https://docs.microsoft.com/azure/backup/)
+- [Como ativar o backup do Azure](../../backup/index.yml)
 
 ## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Execute cópias de segurança completas do sistema e faça backups de backups de qualquer tecla gerida pelo cliente
 
@@ -36,9 +36,9 @@ Ativar o Azure Backup e configurar a fonte de backup (Azure VMs, SQL Server ou F
 
 Ativar o Azure Backup e os VM(s) alvo, bem como os períodos de frequência e retenção pretendidos. O cliente de reserva geriu as chaves dentro do Cofre da Chave Azure.
 
-- [Como ativar o backup do Azure](https://docs.microsoft.com/azure/backup/)
+- [Como ativar o backup do Azure](../../backup/index.yml)
 
-- [Como backup chaves chave cofre em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como backup chaves chave cofre em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
 ## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Validar todas as cópias de segurança, incluindo as chaves geridas pelo cliente
 
@@ -48,9 +48,9 @@ Ativar o Azure Backup e os VM(s) alvo, bem como os períodos de frequência e re
 
 Garantir a capacidade de realizar periodicamente a restauração de dados de conteúdos dentro da Cópia de Segurança Azure. Teste de restauração de chaves geridas pelo cliente.
 
-- [Como recuperar ficheiros da cópia de segurança da Azure Virtual Machine](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm)
+- [Como recuperar ficheiros da cópia de segurança da Azure Virtual Machine](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Como restaurar chaves chave do cofre em Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves chave do cofre em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 ## <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
@@ -62,11 +62,11 @@ Para cópias de segurança no local, a encriptação inativa de dados é forneci
 
 Ativar Soft-Delete e limpar a proteção no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.  Se o Azure Storage for utilizado para armazenar cópias de segurança, ative a eliminação suave para guardar e recuperar os seus dados quando as bolhas ou as imagens blob forem eliminadas. 
 
-- [Compreender Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Compreender Azure RBAC](../../role-based-access-control/overview.md)
 
-- [Como permitir a proteção de Soft-Delete e purga no Cofre de Chaves](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como permitir a proteção de Soft-Delete e purga no Cofre de Chaves](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
-- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Eliminação de forma recuperável dos blobs do Armazenamento do Microsoft Azure](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 
 ## <a name="next-steps"></a>Passos seguintes

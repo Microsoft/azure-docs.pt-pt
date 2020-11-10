@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ec5757b41da630c4cb09ad0c096aee87572615d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4c456e7788280b7ca5328342e1cd848ba3a583a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319899"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411138"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-microsoft-365-resources"></a>Azure Ative Directory Connect sync: Configurar a localização de dados preferenciais para os recursos da Microsoft 365
 O objetivo deste tópico é interpor como configurar o atributo para localização de dados preferenciais no Azure Ative Directory (Azure AD) Connect sync. Quando alguém utiliza capacidades Multi-Geo no Microsoft 365, utiliza este atributo para designar a geolocalização dos dados microsoft 365 do utilizador. (Os termos *região* e *geo* são utilizados intercambiavelmente.)
@@ -36,7 +36,7 @@ Ao definir o atributo **PreferredDataLocation,** pode definir o geo de um utiliz
 >
 >
 
-Uma lista de todos os geos para o Microsoft 365 pode ser encontrada em [Onde estão os seus dados localizados?](https://aka.ms/datamaps)
+Uma lista de todos os geos para o Microsoft 365 pode ser encontrada em [Onde estão os seus dados localizados?](/microsoft-365/enterprise/o365-data-locations)
 
 Os geos da Microsoft 365 disponíveis para Multi-Geo são:
 
@@ -92,7 +92,7 @@ Para evitar que sejam exportadas alterações não intencionais para a Azure AD,
 
 1. Inicie uma sessão PowerShell no servidor Azure AD Connect.
 2. Desative a sincronização programada executando este cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $false` .
-3. Inicie o **Gestor de Serviços de Sincronização** indo ao **Serviço de**  >  **Sincronização**START .
+3. Inicie o **Gestor de Serviços de Sincronização** indo ao **Serviço de**  >  **Sincronização** START .
 4. Selecione o separador **Operações** e confirme que não há nenhuma operação com o estado *em curso*.
 
 ![Screenshot do Gestor de Serviços de Sincronização](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
@@ -142,8 +142,8 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
 
     | Atributo | Valor | Detalhes |
     | --- | --- | --- |
-    | Nome | *Fornecer um nome* | Por exemplo, "In from AD – User preferredDataLocation" |
-    | Descrição | *Fornecer uma descrição personalizada* |  |
+    | Name | *Fornecer um nome* | Por exemplo, "In from AD – User preferredDataLocation" |
+    | Description | *Fornecer uma descrição personalizada* |  |
     | Sistema Conectado | *Escolha o conector ative de diretório no local* |  |
     | Tipo de objeto de sistema conectado | **Utilizador** |  |
     | Tipo de objeto metaverso | **Pessoa** |  |
@@ -151,7 +151,7 @@ A regra de sincronização de entrada permite que o valor do atributo flua do at
     | Precedência | *Escolha um número entre 1 e 99* | 1-99 está reservado para regras de sincronização personalizadas. Não escolha um valor que seja utilizado por outra regra de sincronização. |
 
 5. Mantenha o **filtro de escotagem** vazio, para incluir todos os objetos. Pode ser necessário ajustar o filtro de deteção de acordo com a sua implementação Azure AD Connect.
-6. Vá ao **separador Transformação**e implemente a seguinte regra de transformação:
+6. Vá ao **separador Transformação** e implemente a seguinte regra de transformação:
 
     | Tipo de fluxo | Atributo-alvo | Origem | Aplicar uma vez | Tipo de fusão |
     | --- | --- | --- | --- | --- |
@@ -171,8 +171,8 @@ A regra de sincronização de saída permite que o valor do atributo flua do met
 
     | Atributo | Valor | Detalhes |
     | ----- | ------ | --- |
-    | Nome | *Fornecer um nome* | Por exemplo, "out to Azure AD – User preferredDataLocation" |
-    | Descrição | *Fornecer uma descrição* ||
+    | Name | *Fornecer um nome* | Por exemplo, "out to Azure AD – User preferredDataLocation" |
+    | Description | *Fornecer uma descrição* ||
     | Sistema Conectado | *Selecione o Conector AD Azure* ||
     | Tipo de objeto de sistema conectado | **Utilizador** ||
     | Tipo de objeto metaverso | **Pessoa** ||
@@ -205,7 +205,7 @@ Em geral, é necessário um ciclo completo de sincronização. Isto porque adici
 
    1. Aceda ao separador **Operações** no Gestor de Serviços de Sincronização.
    2. Clique com o botão direito **no conector ative do diretório,** e selecione **Executar**.
-   3. Na caixa de diálogo, selecione **Full Import**, e selecione **OK**.
+   3. Na caixa de diálogo, selecione **Full Import** , e selecione **OK**.
    4. Aguarde que a operação esteja concluída.
 
       > [!NOTE]
@@ -213,8 +213,8 @@ Em geral, é necessário um ciclo completo de sincronização. Isto porque adici
 
 2. Executar **a importação completa** no Conector AD Azure:
 
-   1. Clique com o botão direito no **Conector AD Azure**e selecione **Executar**.
-   2. Na caixa de diálogo, selecione **Full Import**, e selecione **OK**.
+   1. Clique com o botão direito no **Conector AD Azure** e selecione **Executar**.
+   2. Na caixa de diálogo, selecione **Full Import** , e selecione **OK**.
    3. Aguarde que a operação esteja concluída.
 
 3. Verifique as alterações da regra de sincronização num objeto **do Utilizador** existente.
@@ -224,12 +224,12 @@ Em geral, é necessário um ciclo completo de sincronização. Isto porque adici
 4. Executar **sincronização completa** no conector ative do diretório no local:
 
    1. Clique com o botão direito **no conector ative do diretório,** e selecione **Executar**.
-   2. Na caixa de diálogo, selecione **a Sincronização Completa**e selecione **OK**.
+   2. Na caixa de diálogo, selecione **a Sincronização Completa** e selecione **OK**.
    3. Aguarde que a operação esteja concluída.
 
 5. Verifique **as exportações pendentes** para a Azure AD:
 
-   1. Clique com o botão direito no **Conector AD Azure**e selecione **Search Connector Space**.
+   1. Clique com o botão direito no **Conector AD Azure** e selecione **Search Connector Space**.
    2. Na caixa de diálogo **do espaço do conector de busca:**
 
         a. Definir **âmbito** de **exportação pendente**.<br>
@@ -239,8 +239,8 @@ Em geral, é necessário um ciclo completo de sincronização. Isto porque adici
 
 6. **Executar exportação** no **conector AD Azure**
 
-   1. Clique com o botão direito no **Conector AD Azure**e selecione **Executar**.
-   2. Na caixa de diálogo **run connector,** selecione **Export**, e selecione **OK**.
+   1. Clique com o botão direito no **Conector AD Azure** e selecione **Executar**.
+   2. Na caixa de diálogo **run connector,** selecione **Export** , e selecione **OK**.
    3. Aguarde que a operação esteja concluída.
 
 > [!NOTE]
@@ -267,8 +267,8 @@ Assumindo que o seu inquilino foi marcado para poder usar esta funcionalidade, a
 Saiba mais sobre o Multi-Geo na Microsoft 365:
 
 * [Sessões multi-geo em Ignite](https://aka.ms/MultiGeoIgnite)
-* [Multi-Geo em OneDrive](https://aka.ms/OneDriveMultiGeo)
-* [Multi-Geo no SharePoint Online](https://aka.ms/SharePointMultiGeo)
+* [Multi-Geo em OneDrive](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
+* [Multi-Geo no SharePoint Online](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365)
 
 Saiba mais sobre o modelo de configuração no motor de sincronização:
 

@@ -3,12 +3,12 @@ title: Azure Service Bus - exceções de mensagens / Microsoft Docs
 description: Este artigo fornece uma lista de exceções de mensagens Azure Service Bus e sugeriu ações a serem tomadas quando a exceção ocorre.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 45f18d16aaeee0017bd4d219b6dc9e6beab515af
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: e4aa6d82c20e21caabf0205d7446cf88ed8b7f34
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027521"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94409319"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Exceções de mensagens de autocarro de serviço
 Este artigo enumera as exceções .NET geradas por .NET Framework APIs. 
@@ -33,8 +33,7 @@ A tabela que se segue lista tipos de exceções de mensagens e as suas causas, e
 | [ArgumentoExcepção](/dotnet/api/system.argumentexception?view=netcore-3.1&preserve-view=true)<br /> [Argumentação](/dotnet/api/system.argumentnullexception?view=netcore-3.1&preserve-view=true)<br />[ArgumentOutOfRangeException](/dotnet/api/system.argumentoutofrangeexception?view=netcore-3.1&preserve-view=true) |Um ou mais argumentos fornecidos ao método são inválidos.<br /> O URI fornecido ao [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [criar](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) contém segmento de caminhos.<br /> O esquema URI fornecido ao [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) ou [Create](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) é inválido. <br />O valor da propriedade é maior que 32 KB. |Verifique o código de chamada e certifique-se de que os argumentos estão corretos. |Tentar não ajuda. |
 | [Entidade de MensagensNotFoundException](/dotnet/api/microsoft.azure.servicebus.messagingentitynotfoundexception) |A entidade associada à operação não existe ou foi eliminada. |Certifique-se de que a entidade existe. |Tentar não ajuda. |
 | [MensagemNotFoundException](/dotnet/api/microsoft.servicebus.messaging.messagenotfoundexception) |Tente receber uma mensagem com um número de sequência particular. Esta mensagem não foi encontrada. |Certifique-se de que a mensagem ainda não foi recebida. Verifique a fila da carta para ver se a mensagem foi morta. |Tentar não ajuda. |
-| [MensagensComumicoexcepção](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |O cliente não é capaz de estabelecer uma ligação com o Service Bus. |Certifique-se de que o nome do anfitrião fornecido está correto e que o hospedeiro está acessível. <p>Se o seu código funcionar num ambiente com uma firewall/proxy, certifique-se de que o tráfego para o domínio de Serviço Bus/endereço IP e portas não está bloqueado.
-</p>|Redatório pode ajudar se houver problemas de conectividade intermitentes. |
+| [MensagensComumicoexcepção](/dotnet/api/microsoft.servicebus.messaging.messagingcommunicationexception) |O cliente não é capaz de estabelecer uma ligação com o Service Bus. |Certifique-se de que o nome do anfitrião fornecido está correto e que o hospedeiro está acessível. <p>Se o seu código funcionar num ambiente com uma firewall/proxy, certifique-se de que o tráfego para o domínio de Serviço Bus/endereço IP e portas não está bloqueado.</p>|Redatório pode ajudar se houver problemas de conectividade intermitentes. |
 | [ServerBusyException](/dotnet/api/microsoft.azure.servicebus.serverbusyexception) |O serviço não é capaz de processar o pedido neste momento. |O cliente pode esperar por um período de tempo e depois voltar a tentar a operação. |O cliente pode voltar a tentar após determinado intervalo. Se uma nova mente resultar numa exceção diferente, verifique o comportamento de repetição dessa exceção. |
 | [MensagensExcepção](/dotnet/api/microsoft.servicebus.messaging.messagingexception) |Exceção genérica de mensagens que podem ser lançadas nos seguintes casos:<p>Uma tentativa é feita para criar um [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient) usando um nome ou caminho que pertence a um tipo de entidade diferente (por exemplo, um tópico).</p><p>Uma tentativa é feita para enviar uma mensagem maior que 256 KB. </p>O servidor ou serviço encontrou um erro durante o processamento do pedido. Consulte a mensagem de exceção para mais detalhes. Normalmente é uma exceção transitória.</p><p>O pedido foi encerrado porque a entidade está a ser estrangulada. Código de erro: 50001, 50002, 50008. </p> | Verifique o código e certifique-se de que apenas são utilizados objetos serializáveis para o corpo da mensagem (ou utilize um serializador personalizado). <p>Verifique a documentação para os tipos de valor suportados das propriedades e utilize apenas tipos suportados.</p><p> Verifique a propriedade [IsTransient.](/dotnet/api/microsoft.servicebus.messaging.messagingexception) Se for **verdade,** pode voltar a tentar a operação. </p>| Se a exceção se dever a estrangulamento, aguarde alguns segundos e volte a tentar a operação. O comportamento relemderecido é indefinido e pode não ajudar em outros cenários.|
 | [Entidade de MensagensAlreadyExistsExcepção](/dotnet/api/microsoft.servicebus.messaging.messagingentityalreadyexistsexception) |Tente criar uma entidade com um nome que já seja utilizado por outra entidade nesse espaço de nome de serviço. |Elimine a entidade existente ou escolha um nome diferente para a entidade a criar. |Tentar não ajuda. |
@@ -81,7 +80,7 @@ Há duas causas comuns para este erro: a fila das letras mortas e os recetores d
 1. **[Fila de cartas mortas](service-bus-dead-letter-queues.md)** Um leitor não está a completar mensagens e as mensagens são devolvidas à fila/tópico quando o bloqueio expira. Pode acontecer se o leitor encontrar uma exceção que o impeça de chamar [BrokeredMessage.Complete](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.complete). Depois de uma mensagem ter sido lida 10 vezes, move-se para a fila da letra morta por defeito. Este comportamento é controlado pela propriedade [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) e tem um valor padrão de 10. À medida que as mensagens se acumulam na fila das cartas mortas, tomam espaço.
    
     Para resolver o problema, leia e complete as mensagens da fila das cartas mortas, como faria em qualquer outra fila. Pode utilizar o método [FormatDeadLetterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formatdeadletterpath) para ajudar a formatar o caminho da fila de letras mortas.
-2. **Recetor parado** . Um recetor deixou de receber mensagens de uma fila ou subscrição. A forma de identificar isto é olhar para a propriedade [QueueDescription.MessageCountDetails,](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) que mostra a desagregação completa das mensagens. Se a propriedade [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) é alta ou em crescimento, então as mensagens não estão a ser lidas tão rapidamente como estão a ser escritas.
+2. **Recetor parado**. Um recetor deixou de receber mensagens de uma fila ou subscrição. A forma de identificar isto é olhar para a propriedade [QueueDescription.MessageCountDetails,](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) que mostra a desagregação completa das mensagens. Se a propriedade [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount) é alta ou em crescimento, então as mensagens não estão a ser lidas tão rapidamente como estão a ser escritas.
 
 ## <a name="timeoutexception"></a>TimeoutExcepção
 Um [TimeoutException](/dotnet/api/system.timeoutexception?view=netcore-3.1&preserve-view=true) indica que uma operação iniciada pelo utilizador está a demorar mais tempo do que o tempo limite de funcionamento. 
@@ -111,7 +110,7 @@ No caso de uma **MessageLockLostException,** a aplicação do cliente já não p
 
 Uma vez que o bloqueio da mensagem expirou, voltaria à Fila (ou Subscrição) e pode ser processado pela próxima aplicação do cliente que as chamadas recebem.
 
-Se o **MaxDeliveryCount** tiver excedido, a mensagem poderá ser transferida para a **DeadLetterQueue** .
+Se o **MaxDeliveryCount** tiver excedido, a mensagem poderá ser transferida para a **DeadLetterQueue**.
 
 ## <a name="sessionlocklostexception"></a>SessionLockLostException
 
@@ -169,7 +168,7 @@ Se a resolução **de nomes funcionar como esperado,** verifique se as ligaçõe
 
 **MensagensExcepção** é uma exceção genérica que pode ser lançada por várias razões. Algumas das razões estão listadas abaixo.
 
-   * É feita uma tentativa de criar um **Modo de Fila** num **Tópico** ou numa **Subscrição** .
+   * É feita uma tentativa de criar um **Modo de Fila** num **Tópico** ou numa **Subscrição**.
    * O tamanho da mensagem enviada é maior do que o limite para o nível dado. Leia mais sobre as [quotas e limites](service-bus-quotas.md)do Service Bus.
    * O pedido específico do avião de dados (enviar, receber, completar, abandonar) foi encerrado devido a estrangulamento.
    * Problemas transitórios causados devido a atualizações de serviço e reiniciam.
