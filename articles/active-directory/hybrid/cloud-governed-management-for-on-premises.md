@@ -13,12 +13,12 @@ ms.date: 05/29/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed23ffa9971bf4c97b784f230053aed4b1acf0a4
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1f717e14e5abe62aafffdeef841889ea2458fa8b
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369799"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413450"
 ---
 # <a name="how-azure-ad-delivers-cloud-governed-management-for-on-premises-workloads"></a>Como a AZure AD fornece gestão governada em nuvem para cargas de trabalho no local
 
@@ -39,7 +39,7 @@ Este artigo descreve a estratégia da Microsoft para o IDaaS híbrido e descreve
 
 ## <a name="the-azure-ad-approach-to-cloud-governed-identity-management"></a>A abordagem AD do AD azul à gestão de identidade governada pela nuvem
 
-À medida que as organizações transitam para a nuvem, precisam de garantias de que têm controlos sobre o seu ambiente completo - mais segurança e mais visibilidade em atividades, apoiadas pela automação e insights proactivos. "**Cloud governed management**" descreve como as organizações gerem e governam os seus utilizadores, aplicações, grupos e dispositivos da nuvem.
+À medida que as organizações transitam para a nuvem, precisam de garantias de que têm controlos sobre o seu ambiente completo - mais segurança e mais visibilidade em atividades, apoiadas pela automação e insights proactivos. " **Cloud governed management** " descreve como as organizações gerem e governam os seus utilizadores, aplicações, grupos e dispositivos da nuvem.
 
 Neste mundo moderno, as organizações precisam de ser capazes de gerir eficazmente à escala, devido à proliferação de aplicações saaS e ao papel crescente da colaboração e das identidades externas. A nova paisagem de risco da nuvem significa que uma organização deve ser mais responsiva - um ator malicioso que comprometa um utilizador em nuvem pode afetar aplicações de nuvem e no local.
 
@@ -77,7 +77,7 @@ A colaboração entre empresas requer cada vez mais acesso a pessoas fora da sua
 
 O Azure AD pode [automaticamente criar contas em AD para os utilizadores convidados,](../external-identities/hybrid-cloud-to-on-premises.md) conforme necessário, permitindo aos hóspedes empresariais aceder em aplicações integradas a AD no local sem precisar de outra senha. As organizações podem configurar [políticas de autenticação de vários fatores (MFA) para os utilizadores convidados,](../external-identities/conditional-access.md)pelo que os controlos de MFA são feitos durante a autenticação por procuração de aplicação. Além disso, quaisquer [comentários de acesso](../governance/manage-guest-access-with-access-reviews.md) que sejam feitos na nuvem B2B os utilizadores aplicam-se aos utilizadores no local. Por exemplo, se o utilizador da nuvem for eliminado através de políticas de gestão do ciclo de vida, o utilizador no local também é eliminado.
 
-**Gestão credencial para contas de Diretório Ativo** O reset da palavra-passe de autosserviço da AD AD permite aos utilizadores que se esqueceram das suas palavras-passe para serem reautenticados e redefinirem as suas palavras-passe, com as palavras-passe alteradas [escritas para o Ative Directory .](../authentication/concept-sspr-writeback.md) O processo de reset de palavra-passe também pode utilizar as políticas de senha de ative diretório no local: Quando um utilizador reinicia a sua palavra-passe, é verificado para garantir que cumpre a política de Diretório Ativo no local antes de a comprometer com esse diretório. O plano de [implementação](https://aka.ms/deploymentplans/sspr) de redefinição de palavra-passe de autosserviço descreve as melhores práticas para lançar a palavra-passe de autosserviço reposta aos utilizadores através de experiências integradas na Web e no Windows.
+**Gestão credencial para contas de Diretório Ativo** O reset da palavra-passe de autosserviço da AD AD permite aos utilizadores que se esqueceram das suas palavras-passe para serem reautenticados e redefinirem as suas palavras-passe, com as palavras-passe alteradas [escritas para o Ative Directory .](../authentication/concept-sspr-writeback.md) O processo de reset de palavra-passe também pode utilizar as políticas de senha de ative diretório no local: Quando um utilizador reinicia a sua palavra-passe, é verificado para garantir que cumpre a política de Diretório Ativo no local antes de a comprometer com esse diretório. O plano de [implementação](../authentication/howto-sspr-deployment.md) de redefinição de palavra-passe de autosserviço descreve as melhores práticas para lançar a palavra-passe de autosserviço reposta aos utilizadores através de experiências integradas na Web e no Windows.
 
 ![Arquitetura Azure AD SSPR](media/cloud-governed-management-for-on-premises/image3.png)
 
@@ -97,7 +97,7 @@ Para começar a migrar aplicações federadas para a Azure AD como fornecedor de
 
 * O livro branco [Migrando as Suas Aplicações para o Diretório Ativo do Azure,](https://aka.ms/migrateapps/whitepaper)que apresenta os benefícios da migração e descreve como planear a migração em quatro fases claramente delineadas: descoberta, classificação, migração e gestão contínua. Você será guiado através de como pensar sobre o processo e dividir o seu projeto em peças fáceis de consumir. Ao longo do documento estão ligações a recursos importantes que o ajudarão ao longo do caminho.
 
-* O guia de solução [Migração de Autenticação de Aplicações de Serviços da Federação Ativa para O Diretório Ativo](https://aka.ms/migrateapps/adfssolutionguide) explora em maior detalhe as mesmas quatro fases de planeamento e execução de um projeto de migração de aplicações. Neste guia, você aprenderá a aplicar essas fases ao objetivo específico de mover uma aplicação dos Serviços da Federação de Diretório Ativo (AD FS) para Azure AD.
+* O guia de solução [Migração de Autenticação de Aplicações de Serviços da Federação Ativa para O Diretório Ativo](../manage-apps/migrate-adfs-apps-to-azure.md) explora em maior detalhe as mesmas quatro fases de planeamento e execução de um projeto de migração de aplicações. Neste guia, você aprenderá a aplicar essas fases ao objetivo específico de mover uma aplicação dos Serviços da Federação de Diretório Ativo (AD FS) para Azure AD.
 
 * O [Roteiro de Prontidão de Migração dos Serviços da Federação de Diretório Ativo](https://aka.ms/migrateapps/adfstools) pode ser executado em servidores da Federação De Diretórios Ativos (AD FS) existentes para determinar a prontidão de pedidos de migração para Azure AD.
 
@@ -111,7 +111,7 @@ As organizações podem automatizar o processo de ciclo de vida de acesso atrav�
 
 ## <a name="future-directions"></a>Direções futuras
 
-Em ambientes híbridos, a estratégia da Microsoft é permitir implementações em que a nuvem é o plano de **controlo para a identidade**, e os diretórios no local e outros sistemas de identidade, como o Ative Directory e outras aplicações no local, são o alvo para o fornecimento de acesso aos utilizadores. Esta estratégia continuará a garantir os direitos, identidades e acesso nas aplicações e cargas de trabalho que deles dependem. Neste estado final, as organizações serão capazes de impulsionar a produtividade do utilizador final inteiramente a partir da nuvem.
+Em ambientes híbridos, a estratégia da Microsoft é permitir implementações em que a nuvem é o plano de **controlo para a identidade** , e os diretórios no local e outros sistemas de identidade, como o Ative Directory e outras aplicações no local, são o alvo para o fornecimento de acesso aos utilizadores. Esta estratégia continuará a garantir os direitos, identidades e acesso nas aplicações e cargas de trabalho que deles dependem. Neste estado final, as organizações serão capazes de impulsionar a produtividade do utilizador final inteiramente a partir da nuvem.
 
 ![Arquitetura do Azure AD](media/cloud-governed-management-for-on-premises/image6.png)
 

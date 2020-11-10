@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 7f274827e646ea0a7c0fd103983cfc566d699228
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a6b6196888aedfd6aa60c9395ff27611907661a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91596786"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413154"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quais são os tipos de disco disponíveis no Azure?
 
@@ -59,6 +59,8 @@ Algumas capacidades-chave dos discos ultra são:
 |256     |76 800         |2.000         |
 |512     |153,600         |2.000         |
 |1.024-65.536 (tamanhos nesta gama aumentando em incrementos de 1 TiB)     |160 000         |2.000         |
+
+Os discos ultra destinam-se a fornecer latências de sub-milisegundos e iops-alvo e produção descrita no quadro anterior 99,99% das vezes.
 
 ### <a name="ga-scope-and-limitations"></a>Âmbito e limitações do GA
 
@@ -122,15 +124,15 @@ Ao utilizar discos geridos, aplicam-se as seguintes considerações de faturaç�
 - Transferências de dados de saída
 - Número de transações
 
-**Tamanho do disco gerido**: os discos geridos são faturados no tamanho previsto. Azure mapeia o tamanho provisionado (arredondado) para o tamanho do disco mais próximo oferecido. Para mais detalhes sobre os tamanhos do disco oferecidos, consulte as tabelas anteriores. Cada disco mapeia para uma oferta de tamanho de disco a provisionada suportada e é faturado em conformidade. Por exemplo, se a provisionou um SSD Standard 200 GiB, ele mapeia a oferta de tamanho do disco de E15 (256 GiB). A faturação de qualquer disco provisionado é prostimada de hora em hora, utilizando o preço mensal da oferta de armazenamento. Por exemplo, se aprovisionou um disco E10 e o apagou após 20 horas, é cobrado pela oferta E10, proserendo 20 horas. Isto é independentemente da quantidade de dados reais escritos no disco.
+**Tamanho do disco gerido** : os discos geridos são faturados no tamanho previsto. Azure mapeia o tamanho provisionado (arredondado) para o tamanho do disco mais próximo oferecido. Para mais detalhes sobre os tamanhos do disco oferecidos, consulte as tabelas anteriores. Cada disco mapeia para uma oferta de tamanho de disco a provisionada suportada e é faturado em conformidade. Por exemplo, se a provisionou um SSD Standard 200 GiB, ele mapeia a oferta de tamanho do disco de E15 (256 GiB). A faturação de qualquer disco provisionado é prostimada de hora em hora, utilizando o preço mensal da oferta de armazenamento. Por exemplo, se aprovisionou um disco E10 e o apagou após 20 horas, é cobrado pela oferta E10, proserendo 20 horas. Isto é independentemente da quantidade de dados reais escritos no disco.
 
-**Snapshots**: As imagens são faturadas com base no tamanho utilizado. Por exemplo, se criar uma imagem instantânea de um disco gerido com capacidade a provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, o instantâneo é faturado apenas para o tamanho de dados usado de 10 GiB.
+**Snapshots** : As imagens são faturadas com base no tamanho utilizado. Por exemplo, se criar uma imagem instantânea de um disco gerido com capacidade a provisionada de 64 GiB e tamanho real de dados usados de 10 GiB, o instantâneo é faturado apenas para o tamanho de dados usado de 10 GiB.
 
 Para obter mais informações sobre instantâneos, consulte a secção de instantâneos na [visão geral](managed-disks-overview.md)do disco gerido .
 
-**Transferências de dados de saída**: [Transferências de dados de saída (dados saídos](https://azure.microsoft.com/pricing/details/bandwidth/) dos centros de dados Azure) incorrem na faturação para utilização da largura de banda.
+**Transferências de dados de saída** : [Transferências de dados de saída (dados saídos](https://azure.microsoft.com/pricing/details/bandwidth/) dos centros de dados Azure) incorrem na faturação para utilização da largura de banda.
 
-**Transações**: É cobrado o número de transações que realiza num disco gerido padrão. Para os SSDs standard, cada operação de E/S inferior ou igual a 256 KiB de produção é considerada uma única operação de E/S. As operações de I/O maiores do que 256 KiB de produção são consideradas múltiplas I/Os do tamanho 256 KiB. Para os HDDs standard, cada operação IO é considerada como uma única transação, independentemente do tamanho de E/S.
+**Transações** : É cobrado o número de transações que realiza num disco gerido padrão. Para os SSDs standard, cada operação de E/S inferior ou igual a 256 KiB de produção é considerada uma única operação de E/S. As operações de I/O maiores do que 256 KiB de produção são consideradas múltiplas I/Os do tamanho 256 KiB. Para os HDDs standard, cada operação IO é considerada como uma única transação, independentemente do tamanho de E/S.
 
 Para obter informações detalhadas sobre os preços dos discos geridos, incluindo os custos de transação, consulte [a fixação dos discos geridos](https://azure.microsoft.com/pricing/details/managed-disks).
 

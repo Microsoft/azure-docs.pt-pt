@@ -14,18 +14,18 @@ ms.date: 09/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a5a4659671f8d4ded64a4f04f84abf1f67d8825
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 24820949eb6762caf808c4420ede6f0f59184281
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265260"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412600"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect - msExchUserHoldPolicies e cloudMsExchUserHoldPolicies
 O documento de referência que se segue descreve estes atributos utilizados pela Exchange e a forma correta de editar as regras de sincronização padrão.
 
 ## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>O que são msExchUserHoldPolicies e cloudMsExchUserHoldPolicies?
-Existem dois tipos de [porões](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) disponíveis para um Servidor de Câmbio: Hold de Litígios e In-Place Hold. Quando o Hold de Litígios está ativado, todas as caixas de correio são colocadas em espera.  Um In-Place Hold é utilizado para preservar apenas os itens que satisfazem os critérios de uma consulta de pesquisa que definiu utilizando a ferramenta eDiscovery In-Place.
+Existem dois tipos de [porões](/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) disponíveis para um Servidor de Câmbio: Hold de Litígios e In-Place Hold. Quando o Hold de Litígios está ativado, todas as caixas de correio são colocadas em espera.  Um In-Place Hold é utilizado para preservar apenas os itens que satisfazem os critérios de uma consulta de pesquisa que definiu utilizando a ferramenta eDiscovery In-Place.
 
 Os atributos MsExchUserHoldPolcies e cloudMsExchUserHoldPolicies permitem que a AD e a Azure AD no local determinem quais os utilizadores que estão sob um porão, dependendo se estão a utilizar no local Exchange ou Exchange on-line.
 

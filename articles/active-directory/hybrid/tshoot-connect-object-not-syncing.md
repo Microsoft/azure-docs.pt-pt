@@ -16,12 +16,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77895fd81bd37e304d422aea64da0298fc1673ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0c8a42edad08308095469039c048f8dd8552af
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85356479"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413467"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-with-azure-active-directory"></a>Resolução de problemas um objeto que não está sincronizado com o Azure Ative Directory
 
@@ -89,7 +89,7 @@ Quando tem erros, o Gestor de Serviço de Sincronização mostra tanto o objeto 
 ![Screenshot de erros no Gestor de Serviços de Sincronização](./media/tshoot-connect-object-not-syncing/errorsync.png)  
 Comece por selecionar a cadeia de erros. (Na figura anterior, a cadeia de erro é **sincronizada-erro-função desencadeada**.) É apresentado pela primeira vez com uma visão geral do objeto. Para ver o erro real, selecione **Stack Trace**. Este vestígio fornece informações de nível de depurado para o erro.
 
-Clique com o botão direito na caixa **de informações de 'Chamada Stack',** clique **em Selecionar Tudo**e, em seguida, selecione **Copy**. Em seguida, copie a pilha e veja o erro no seu editor favorito, como o Notepad.
+Clique com o botão direito na caixa **de informações de 'Chamada Stack',** clique **em Selecionar Tudo** e, em seguida, selecione **Copy**. Em seguida, copie a pilha e veja o erro no seu editor favorito, como o Notepad.
 
 Se o erro for do **SyncRulesEngine,** a informação da stack de chamadas lista primeiro todos os atributos do objeto. Desloque-se para baixo até ver o título **InnerException =>**.  
 
@@ -104,7 +104,7 @@ Se o separador [**Operações**](#operations) não apresentar erros, siga o obje
 
 ### <a name="searching-for-an-object-in-the-cs"></a>À procura de um objeto no CS
 
-No Gestor de Serviço de Sincronização, selecione **Connectors**, selecione o Conector de Diretório Ativo e selecione **o Espaço do Conector de Busca**.
+No Gestor de Serviço de Sincronização, selecione **Connectors** , selecione o Conector de Diretório Ativo e selecione **o Espaço do Conector de Busca**.
 
 Na caixa **Scope,** selecione **RDN** quando pretender pesquisar no atributo CN, ou selecione **DN ou âncora** quando pretender pesquisar o atributo Nome **distinto.** Introduza um valor e selecione **Pesquisar**. 
  
@@ -112,11 +112,11 @@ Na caixa **Scope,** selecione **RDN** quando pretender pesquisar no atributo CN,
 
 Se não encontrar o objeto que procura, pode ter sido filtrado com [filtragem baseada em domínio](how-to-connect-sync-configure-filtering.md#domain-based-filtering) ou [filtragem baseada em OU.](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) Para verificar se a filtragem está configurada como esperado, leia [a sincronização Azure AD Connect: Filtragem de configuração](how-to-connect-sync-configure-filtering.md).
 
-Pode efetuar outra pesquisa útil selecionando o Conector AD Azure. Na caixa **Scope,** selecione **Import Pendente**e, em seguida, selecione a caixa de verificação **Add.** Esta pesquisa dá-lhe todos os objetos sincronizados em Azure AD que não podem ser associados a um objeto no local.  
+Pode efetuar outra pesquisa útil selecionando o Conector AD Azure. Na caixa **Scope,** selecione **Import Pendente** e, em seguida, selecione a caixa de verificação **Add.** Esta pesquisa dá-lhe todos os objetos sincronizados em Azure AD que não podem ser associados a um objeto no local.  
 
 ![Screenshot de órfãos em uma pesquisa espacial de conector](./media/tshoot-connect-object-not-syncing/cssearchorphan.png) 
  
-Esses objetos foram criados por outro motor de sincronização ou por um motor de sincronização com uma configuração de filtragem diferente. Estes objetos órfãos já não são geridos. Reveja esta lista e considere remover estes objetos utilizando os cmdlets [Azure AD PowerShell.](https://aka.ms/aadposh)
+Esses objetos foram criados por outro motor de sincronização ou por um motor de sincronização com uma configuração de filtragem diferente. Estes objetos órfãos já não são geridos. Reveja esta lista e considere remover estes objetos utilizando os cmdlets [Azure AD PowerShell.](/previous-versions/azure/jj151815(v=azure.100))
 
 ### <a name="cs-import"></a>Importação de CS
 Quando abre um objeto CS, existem vários separadores no topo. O **separador Import** mostra os dados que são apresentados após uma importação.  
@@ -125,7 +125,7 @@ Quando abre um objeto CS, existem vários separadores no topo. O **separador Imp
 
 A coluna **Old Value** mostra o que está atualmente armazenado no Connect, e a coluna **New Value** mostra o que foi recebido do sistema de origem e ainda não foi aplicado. Se houver um erro no objeto, as alterações não são processadas.
 
-O **separador Error de sincronização** só é visível na janela **"Propriedades do Objeto do Espaço do Conector"** se houver um problema com o objeto. Para obter mais informações, reveja como [resolver erros de sincronização no separador **Operações.** ](#errors-on-the-operations-tab)
+O **separador Error de sincronização** só é visível na janela **"Propriedades do Objeto do Espaço do Conector"** se houver um problema com o objeto. Para obter mais informações, reveja como [resolver erros de sincronização no separador **Operações.**](#errors-on-the-operations-tab)
 
 ![Screenshot do separador Erro de Sincronização na janela "Propriedades do Objeto espacial do Conector"](./media/tshoot-connect-object-not-syncing/cssyncerror.png)  
 
@@ -134,7 +134,7 @@ O **separador lineage** na janela **Connector Space Object Properties** mostra c
 
 ![Screenshot mostrando o separador lineage na janela Object Properties do Objeto de Espaço do Conector](./media/tshoot-connect-object-not-syncing/cslineage.png)  
 
-Na figura anterior, a coluna **Ação** apresenta uma regra de sincronização de entrada com a **disposição de**ação . Isto indica que enquanto este objeto espacial do conector estiver presente, o objeto metaverso permanece. Se a lista de regras de sincronização mostrar uma regra de sincronização de saída com uma ação **de Provisão,** este objeto é eliminado quando o objeto metaverso é eliminado.  
+Na figura anterior, a coluna **Ação** apresenta uma regra de sincronização de entrada com a **disposição de** ação . Isto indica que enquanto este objeto espacial do conector estiver presente, o objeto metaverso permanece. Se a lista de regras de sincronização mostrar uma regra de sincronização de saída com uma ação **de Provisão,** este objeto é eliminado quando o objeto metaverso é eliminado.  
 
 ![Screenshot de uma janela de linhagem no separador lineage na janela Connector Space Object Properties](./media/tshoot-connect-object-not-syncing/cslineageout.png)  
 
@@ -151,7 +151,7 @@ Na pré-visualização pode inspecionar o objeto e ver qual a regra aplicada par
 
 ![Screenshot da página de pré-visualização, mostrando Import Attribute Flow](./media/tshoot-connect-object-not-syncing/previewresult.png)
 
-### <a name="log"></a>Registar
+### <a name="log"></a>Registo
 Ao lado do botão **Pré-visualização,** selecione o botão **Registar** para abrir a página **'Registar'.** Aqui pode ver o estado e o histórico da sincronização da palavra-passe. Para obter mais informações, consulte [a sincronização de hash de palavra-passe de resolução de problemas com a sincronização Azure AD Connect](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="metaverse-object-properties"></a>Propriedades de objeto metaverso

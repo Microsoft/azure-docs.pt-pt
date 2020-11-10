@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 09/24/2020
+ms.date: 11/09/2020
 ms.author: jlian
-ms.openlocfilehash: cb6e4b2b10b6b44a544416ad5d57808c7ad4d83f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fdc106a1a446f51d309ac4317062c8fd20204bae
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427855"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413399"
 ---
 # <a name="iot-hub-support-for-virtual-networks-with-private-link-and-managed-identity"></a>Suporte ioT Hub para redes virtuais com Ligação Privada e Identidade Gerida
 
@@ -50,17 +50,17 @@ Antes de proceder, assegure-se de que sejam cumpridos os seguintes requisitos:
 
 O ponto final privado funciona para APIs de dispositivo ioT hub (como mensagens de dispositivo para nuvem) bem como APIs de serviço (como criar e atualizar dispositivos).
 
-1. No portal Azure, **selecione Networking**, **Private endpoint connections**, e clique no **ponto final + Private**.
+1. No portal Azure, **selecione Networking** , **Private endpoint connections** , e clique no **ponto final + Private**.
 
     :::image type="content" source="media/virtual-network-support/private-link.png" alt-text="Screenshot mostrando onde adicionar ponto final privado para IoT Hub":::
 
 1. Forneça a subscrição, grupo de recursos, nome e região para criar o novo ponto final privado em. Idealmente, o ponto final privado deve ser criado na mesma região que o seu hub.
 
-1. Clique **em seguida: Recurso**, e forneça a subscrição do seu recurso IoT Hub e selecione **"Microsoft.Devices/IotHubs"** como tipo de recurso, o seu nome IoT Hub como **recurso**, e **iotHub** como subresource alvo.
+1. Clique **em seguida: Recurso** , e forneça a subscrição do seu recurso IoT Hub e selecione **"Microsoft.Devices/IotHubs"** como tipo de recurso, o seu nome IoT Hub como **recurso** , e **iotHub** como subresource alvo.
 
 1. Clique **em seguida: Configurar** e fornecer a sua rede virtual e sub-rede para criar o ponto final privado dentro Selecione a opção de integração com a zona de DNS privada Azure, se desejar.
 
-1. Clique **em Seguida: Tags**e, opcionalmente, forneça todas as etiquetas para o seu recurso.
+1. Clique **em Seguida: Tags** e, opcionalmente, forneça todas as etiquetas para o seu recurso.
 
 1. Clique **em Rever + criar** para criar o seu recurso de ligação privada.
 
@@ -90,9 +90,9 @@ Para permitir que outros serviços encontrem o seu hub IoT como um serviço micr
 
 1. Navegue para a **identidade** no seu portal IoT Hub
 
-1. Em **Status**, selecione **On**e, em seguida, clique em **Guardar**.
+1. Em **Status** , selecione **On** e, em seguida, clique em **Guardar**.
 
-    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot mostrando onde adicionar ponto final privado para IoT Hub":::
+    :::image type="content" source="media/virtual-network-support/managed-identity.png" alt-text="Screenshot mostrando como ligar identidade gerida para IoT Hub":::
 
 ### <a name="assign-managed-identity-to-your-iot-hub-at-creation-time-using-arm-template"></a>Atribua identidade gerida ao seu IoT Hub no momento da criação usando o modelo ARM
 
@@ -174,7 +174,7 @@ O IoT Hub pode encaminhar mensagens para uma conta de armazenamento do cliente. 
 
 1. No portal Azure, navegue no separador Controlo de **Acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** na secção **Adicionar uma função.**
 
-2. Selecione **o Colaborador de Dados blob de armazenamento** ([*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **função**, **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
+2. Selecione **o Colaborador de Dados blob de armazenamento** ( [*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **função** , **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
 
 3. Navegue para o separador **Firewalls e redes virtuais** na sua conta de armazenamento e permita o acesso a partir da opção **de redes selecionadas.** Na lista **de Exceções,** verifique a caixa para **permitir que os serviços fidedignos da Microsoft tenham acesso a esta conta de armazenamento.** Clique no botão **Guardar**.
 
@@ -192,7 +192,7 @@ O IoT Hub pode ser configurado para encaminhar mensagens para um espaço de nome
 
 1. No portal Azure, navegue no separador **Access control (IAM)** dos seus centros de eventos e clique em **Adicionar** na secção De atribuição **de funções** Adicionar.
 
-2. Selecione **O Remetente de Dados de Centros de Eventos** como **função**, utilizador, grupo ou principal de serviço do **Azure** como **atribuindo acesso** e selecione o nome de recurso do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
+2. Selecione **O Remetente de Dados de Centros de Eventos** como **função** , utilizador, grupo ou principal de serviço do **Azure** como **atribuindo acesso** e selecione o nome de recurso do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
 
 3. Navegue para o separador **Firewalls e redes virtuais** nos seus centros de eventos e permita o acesso a partir da opção **de redes selecionadas.** Na lista **de Exceções,** verifique a caixa para **permitir que os serviços fidedignos da Microsoft acedam aos centros de eventos.** Clique no botão **Guardar**.
 
@@ -200,7 +200,7 @@ O IoT Hub pode ser configurado para encaminhar mensagens para um espaço de nome
 
 5. Navegue para a secção **de pontos finais personalizados** e clique em **Adicionar**. Selecione **os centros de eventos** como o tipo de ponto final.
 
-6. Na página que aparece, forneça um nome para o seu ponto final, selecione o espaço e o exemplo dos centros de eventos e clique no botão **Criar.**
+6. Na página que aparece, forneça um nome para o seu ponto final, selecione o espaço de nomes e exemplo dos seus centros de eventos. Selecione **identidade como** o **tipo de autenticação** e clique no botão **Criar.**
 
 Agora, o ponto final dos seus centros de eventos personalizados está configurado para usar a identidade atribuída ao sistema do seu hub, e tem permissão para aceder aos seus centros de eventos, apesar das restrições de firewall. Agora pode utilizar este ponto final para definir uma regra de encaminhamento.
 
@@ -210,7 +210,7 @@ O IoT Hub pode ser configurado para encaminhar mensagens para um espaço de nome
 
 1. No portal Azure, navegue no separador **access control (IAM)** do seu autocarro de serviço e clique em **Adicionar** na secção De atribuição de **funções** Adicionar.
 
-2. Selecione **O Remetente de dados do ônibus** de serviço como **função**, **utilizador, grupo ou principal de serviço Azure** como **atribuindo acesso** e selecione o nome de recurso do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
+2. Selecione **O Remetente de dados do ônibus** de serviço como **função** , **utilizador, grupo ou principal de serviço Azure** como **atribuindo acesso** e selecione o nome de recurso do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
 
 3. Navegue para o separador **Firewalls e redes virtuais** no seu autocarro de serviço e permita o acesso a partir da opção **de redes selecionadas.** Na lista **de Exceções,** verifique a caixa para permitir que **os serviços fidedignos da Microsoft acedam a este autocarro de serviço.** Clique no botão **Guardar**.
 
@@ -218,7 +218,7 @@ O IoT Hub pode ser configurado para encaminhar mensagens para um espaço de nome
 
 5. Navegue para a secção **de pontos finais personalizados** e clique em **Adicionar**. Selecione **a fila de autocarros** de serviço ou **o tópico do Service Bus** (conforme aplicável) como o tipo de ponto final.
 
-6. Na página que aparece, forneça um nome para o seu ponto final, selecione o espaço de nome do seu autocarro de serviço e a fila ou tópico (conforme aplicável). Clique no botão **Criar**.
+6. Na página que aparece, forneça um nome para o seu ponto final, selecione o espaço de nome do seu autocarro de serviço e a fila ou tópico (conforme aplicável). Selecione **identidade como** o **tipo de autenticação** e clique no botão **Criar.**
 
 Agora, o seu ponto final de serviço personalizado está configurado para usar a identidade atribuída ao seu hub, e tem permissão para aceder ao seu recurso de ônibus de serviço, apesar das restrições de firewall. Agora pode utilizar este ponto final para definir uma regra de encaminhamento.
 
@@ -230,13 +230,13 @@ A funcionalidade de upload de ficheiros do IoT Hub permite que os dispositivos c
 
 1. No portal Azure, navegue no separador Controlo de **Acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** na secção **Adicionar uma função.**
 
-2. Selecione **o Colaborador de Dados blob de armazenamento** ([*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **função**, **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
+2. Selecione **o Colaborador de Dados blob de armazenamento** ( [*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **função** , **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
 
 3. Navegue para o separador **Firewalls e redes virtuais** na sua conta de armazenamento e permita o acesso a partir da opção **de redes selecionadas.** Na lista **de Exceções,** verifique a caixa para **permitir que os serviços fidedignos da Microsoft tenham acesso a esta conta de armazenamento.** Clique no botão **Guardar**.
 
 4. Na página de recursos do seu IoT Hub, navegue para **o separador de upload de ficheiros.**
 
-5. Na página que aparece, selecione o recipiente que pretende utilizar no seu armazenamento de bolhas, configufique as **definições de notificação de ficheiros,** **SAS TTL,** **TTL Padrão**e **contagem máxima de entrega** conforme desejado. Selecione **a identidade como** o tipo de **autenticação** para o seu ponto final de armazenamento. Clique no botão **Criar**. Se tiver um erro neste passo, desapedaça temporariamente a sua conta de armazenamento para permitir o acesso a partir de **todas as redes,** e tente novamente. Pode configurar firewall na conta de armazenamento assim que a configuração de upload do Ficheiro estiver concluída.
+5. Na página que aparece, selecione o recipiente que pretende utilizar no seu armazenamento de bolhas, configufique as **definições de notificação de ficheiros,** **SAS TTL,** **TTL Padrão** e **contagem máxima de entrega** conforme desejado. Selecione **a identidade como** o tipo de **autenticação** para o seu ponto final de armazenamento. Clique no botão **Criar**. Se tiver um erro neste passo, desapedaça temporariamente a sua conta de armazenamento para permitir o acesso a partir de **todas as redes,** e tente novamente. Pode configurar firewall na conta de armazenamento assim que a configuração de upload do Ficheiro estiver concluída.
 
 Agora, o seu ponto final de armazenamento para upload de ficheiros está configurado para usar a identidade atribuída ao sistema do seu hub, e tem permissão para aceder ao seu recurso de armazenamento, apesar das restrições de firewall.
 
@@ -248,7 +248,7 @@ Esta funcionalidade requer conectividade desde o IoT Hub até à conta de armaze
 
 1. No portal Azure, navegue no separador Controlo de **Acesso (IAM)** da sua conta de armazenamento e clique em **Adicionar** na secção **Adicionar uma função.**
 
-2. Selecione **o Colaborador de Dados blob de armazenamento** ([*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **função**, **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
+2. Selecione **o Colaborador de Dados blob de armazenamento** ( [*não* contribuinte ou contribuinte de conta de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues)) como **função** , **utilizador, grupo ou principal de serviço do Azure** como **atribuindo acesso** e selecione o nome de recursos do seu IoT Hub na lista de drop-down. Clique no botão **Guardar**.
 
 3. Navegue para o separador **Firewalls e redes virtuais** na sua conta de armazenamento e permita o acesso a partir da opção **de redes selecionadas.** Na lista **de Exceções,** verifique a caixa para **permitir que os serviços fidedignos da Microsoft tenham acesso a esta conta de armazenamento.** Clique no botão **Guardar**.
 

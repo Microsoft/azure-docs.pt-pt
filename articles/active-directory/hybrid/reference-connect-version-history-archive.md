@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f80808f917036dfba122a97bbd255d466f40e476
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0adf548b009ad6fe0c85501b9777ff23723b3e24
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90018497"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413416"
 ---
 # <a name="azure-ad-connect-version-release-history-archive"></a>Azure AD Connect: Versão lança arquivo histórico
 
@@ -167,7 +167,7 @@ O Azure AD Connect Upgrade falha se o SQL Always On Availability estiver configu
 ### <a name="new-features-and-improvements"></a>Novas funcionalidades e melhorias
 
 - A integração ping federate no Azure AD Connect já está disponível para Disponibilidade Geral. [Saiba mais sobre como federar AD AZure com Ping Federate](./plan-connect-user-signin.md#federation-with-pingfederate)
-- O Azure AD Connect cria agora a cópia de segurança da confiança AD AD em AD FS sempre que uma atualização é feita e armazena-a num ficheiro separado para uma fácil restauração, se necessário. [Saiba mais sobre a nova funcionalidade e gestão de confiança AZure AD no Azure AD Connect](https://aka.ms/fedtrustinaadconnect).
+- O Azure AD Connect cria agora a cópia de segurança da confiança AD AD em AD FS sempre que uma atualização é feita e armazena-a num ficheiro separado para uma fácil restauração, se necessário. [Saiba mais sobre a nova funcionalidade e gestão de confiança AZure AD no Azure AD Connect](./how-to-connect-azure-ad-trust.md).
 - Nova ferramenta de resolução de problemas ajuda a resolver problemas alterando o endereço de e-mail primário e escondendo a conta da lista de endereços globais
 - Azure AD Connect foi atualizado para incluir o mais recente CLIENTE Nativo SQL Server 2012
 - Quando muda o registo do utilizador para a Sincronização de Hash password ou para a autenticação pass-through na tarefa "Alterar o registo do utilizador", a caixa de verificação Sem Emenda Sign-On é ativada por predefinição.
@@ -212,8 +212,8 @@ Novas funcionalidades e melhorias
 - A configuração de writeback do dispositivo é agora gerida exclusivamente dentro do Azure AD Connect Wizard.
 - Um novo Módulo PowerShell chamado ADSyncTools.psm1 é adicionado que pode ser usado para resolver problemas de conectividade SQL e vários outros utilitários de resolução de problemas. Leia mais sobre o módulo ADSyncTools [aqui.](tshoot-connect-tshoot-sql-connectivity.md) 
 - Foi adicionada uma nova tarefa adicional "Configurar opções de dispositivos". Pode utilizar a tarefa para configurar as duas operações seguintes: 
-  - **Hybrid Azure AD adere**: Se o seu ambiente tiver uma pegada AD no local e também quiser beneficiar das capacidades fornecidas pelo Azure Ative Directory, pode implementar dispositivos híbridos Azure AD. Estes são dispositivos associados tanto ao Active Directory no local, como ao Azure Active Directory.
-  - **Writeback do dispositivo**: A writeback do dispositivo é utilizada para permitir o acesso condicional com base em dispositivos a dispositivos protegidos AD FS (2012 R2 ou superior)
+  - **Hybrid Azure AD adere** : Se o seu ambiente tiver uma pegada AD no local e também quiser beneficiar das capacidades fornecidas pelo Azure Ative Directory, pode implementar dispositivos híbridos Azure AD. Estes são dispositivos associados tanto ao Active Directory no local, como ao Azure Active Directory.
+  - **Writeback do dispositivo** : A writeback do dispositivo é utilizada para permitir o acesso condicional com base em dispositivos a dispositivos protegidos AD FS (2012 R2 ou superior)
 
     >[!NOTE] 
     > - A opção de ativar a gravação do dispositivo a partir de opções de sincronização personalizadas será acinzentada. 
@@ -362,7 +362,7 @@ Bloquear o acesso à conta DS da AD implementando as seguintes alterações de p
 *   Remova todos os ACEs no objeto específico, exceto ACEs específicos de SELF. Queremos manter as permissões por defeito intactas quando se trata de SELF.
 *   Atribua estas permissões específicas:
 
-Tipo     | Nome                          | Access               | Aplica-se A
+Tipo     | Name                          | Access               | Aplica-se A
 ---------|-------------------------------|----------------------|--------------|
 Permitir    | SISTEMA                        | Controlo Total         | Este objeto  |
 Permitir    | Administradores da Empresa             | Controlo Total         | Este objeto  |
@@ -425,27 +425,27 @@ Estado: 19 de outubro de 2017
 #### <a name="fixed-issues"></a>Problemas corrigidos
 * Corrigiu um problema com a tarefa *de inscrição do utilizador Change* no assistente Azure AD Connect:
 
-  * O problema ocorre quando tem uma implementação de Conexão Azure AD existente com sincronização de palavras-passe **ativada**, e está a tentar definir o método de entrada do utilizador como *Autenticação Pass-through*. Antes de aplicar a alteração, o assistente mostra incorretamente a indicação "*Desativar a sincronização da palavra-passe*". No entanto, a sincronização de palavras-passe permanece ativada após a aplicação da alteração. Com esta correção, o assistente já não mostra a solicitação.
+  * O problema ocorre quando tem uma implementação de Conexão Azure AD existente com sincronização de palavras-passe **ativada** , e está a tentar definir o método de entrada do utilizador como *Autenticação Pass-through*. Antes de aplicar a alteração, o assistente mostra incorretamente a indicação " *Desativar a sincronização da palavra-passe* ". No entanto, a sincronização de palavras-passe permanece ativada após a aplicação da alteração. Com esta correção, o assistente já não mostra a solicitação.
 
   * Por design, o assistente não desativa a sincronização de palavras-passe quando atualiza o método de entrada do utilizador utilizando a tarefa *de entrada do utilizador Change.* Isto é para evitar perturbações para os clientes que querem manter a Sincronização de Passwords, mesmo que estejam a permitir a Autenticação pass-through ou a federação como o seu principal método de entrada de utilizador.
 
   * Se pretender desativar a Sincronização de Palavras-Passe após a atualização do método de entrada no utilizador, tem de executar a tarefa *de Configuração de Sincronização de Sincronização personalizada* no assistente. Quando navegar para a página *de funcionalidades Opcionais,* desmarque a opção *de sincronização de palavras-passe.*
 
-  * Note que o mesmo problema também ocorre se tentar ativar/desativar o Sign-On Único Sem Emenda. Especificamente, tem uma implementação de Conexão Azure AD existente com sincronização de palavras-passe ativada e o método de entrada do utilizador já está configurado como *Autenticação Pass-through*. Utilizando a tarefa *de entrada do utilizador Change,* tente verificar/desmarcar a opção Ativar sem emenda única de *acesso,* enquanto o método de entrada do utilizador permanece configurado como "Autenticação Pass-through". Antes de aplicar a alteração, o assistente mostra incorretamente a indicação "*Desativar a sincronização da palavra-passe*". No entanto, a sincronização de palavras-passe permanece ativada após a aplicação da alteração. Com esta correção, o assistente já não mostra a solicitação.
+  * Note que o mesmo problema também ocorre se tentar ativar/desativar o Sign-On Único Sem Emenda. Especificamente, tem uma implementação de Conexão Azure AD existente com sincronização de palavras-passe ativada e o método de entrada do utilizador já está configurado como *Autenticação Pass-through*. Utilizando a tarefa *de entrada do utilizador Change,* tente verificar/desmarcar a opção Ativar sem emenda única de *acesso,* enquanto o método de entrada do utilizador permanece configurado como "Autenticação Pass-through". Antes de aplicar a alteração, o assistente mostra incorretamente a indicação " *Desativar a sincronização da palavra-passe* ". No entanto, a sincronização de palavras-passe permanece ativada após a aplicação da alteração. Com esta correção, o assistente já não mostra a solicitação.
 
 * Corrigiu um problema com a tarefa *de inscrição do utilizador Change* no assistente Azure AD Connect:
 
-  * O problema ocorre quando tem uma implementação de Ligação AZure AD existente com sincronização de palavras-passe **desativada**, e está a tentar definir o método de entrada do utilizador como *Autenticação Pass-through*. Quando a alteração é aplicada, o assistente ativa a autenticação pass-through e a sincronização de palavras-passe. Com esta correção, o assistente já não permite a sincronização de palavras-passe.
+  * O problema ocorre quando tem uma implementação de Ligação AZure AD existente com sincronização de palavras-passe **desativada** , e está a tentar definir o método de entrada do utilizador como *Autenticação Pass-through*. Quando a alteração é aplicada, o assistente ativa a autenticação pass-through e a sincronização de palavras-passe. Com esta correção, o assistente já não permite a sincronização de palavras-passe.
 
   * Anteriormente, a Sincronização de Passwords era um pré-requisito para permitir a autenticação pass-through. Quando definir o método de entrada do utilizador como *Autenticação Pass-through,* o assistente ativaria a autenticação pass-through e a sincronização de passwords. Recentemente, a Sincronização de Passwords foi removida como um pré-requisito. Como parte da versão 1.1.557.0 do Azure AD Connect, foi feita uma alteração ao Azure AD Connect para não ativar a sincronização de passwords quando definiu o método de entrada do utilizador como *Autenticação Pass-through*. No entanto, a alteração foi aplicada apenas à instalação Azure AD Connect. Com esta correção, a mesma alteração também é aplicada na tarefa de inscrição do *utilizador Change.*
 
   * Note que o mesmo problema também ocorre se tentar ativar/desativar o Sign-On Único Sem Emenda. Especificamente, tem uma implementação de Conexão Azure AD existente com sincronização de palavras-passe desativada e o método de entrada do utilizador já está configurado como *Autenticação Pass-through*. Utilizando a tarefa *de entrada do utilizador Change,* tente verificar/desmarcar a opção Ativar sem emenda única de *acesso,* enquanto o método de entrada do utilizador permanece configurado como "Autenticação Pass-through". Quando a alteração é aplicada, o assistente ativa a sincronização da palavra-passe. Com esta correção, o assistente já não permite a sincronização de palavras-passe. 
 
-* Corrigiu um problema que fez com que a atualização do Azure AD Connect falhasse com o erro "*Incapaz de atualizar o Serviço de Sincronização*". Além disso, o Serviço de Sincronização já não pode começar com erro de evento "*O serviço não foi capaz de iniciar porque a versão da base de dados é mais recente do que a versão dos binários instalados*". O problema ocorre quando o administrador que executa a atualização não tem privilégio sysadmin para o servidor SQL que está a ser utilizado pelo Azure AD Connect. Com esta correção, o Azure AD Connect apenas requer que o administrador tenha db_owner privilégio à base de dados ADSync durante a atualização.
+* Corrigiu um problema que fez com que a atualização do Azure AD Connect falhasse com o erro " *Incapaz de atualizar o Serviço de Sincronização* ". Além disso, o Serviço de Sincronização já não pode começar com erro de evento " *O serviço não foi capaz de iniciar porque a versão da base de dados é mais recente do que a versão dos binários instalados* ". O problema ocorre quando o administrador que executa a atualização não tem privilégio sysadmin para o servidor SQL que está a ser utilizado pelo Azure AD Connect. Com esta correção, o Azure AD Connect apenas requer que o administrador tenha db_owner privilégio à base de dados ADSync durante a atualização.
 
 * Corrigiu um problema de Azure AD Connect Upgrade que afetou os clientes que ativaram [o Sign-On Único Sem Emenda](./how-to-connect-sso.md). Depois de o Azure AD Connect ser atualizado, o Seamless Single Sign-On aparece incorretamente como desativado no assistente AZure AD Connect, mesmo que a funcionalidade permaneça ativada e totalmente funcional. Com esta correção, a funcionalidade aparece agora corretamente como ativada no assistente.
 
-* Corrigiu um problema que fez com que o assistente Azure AD Connect mostrasse sempre a mensagem "*Configure Source Anchor*" na página *Ready to Configure,* mesmo que não fossem efetuadas alterações relacionadas com a Âncora de Origem.
+* Corrigiu um problema que fez com que o assistente Azure AD Connect mostrasse sempre a mensagem " *Configure Source Anchor* " na página *Ready to Configure,* mesmo que não fossem efetuadas alterações relacionadas com a Âncora de Origem.
 
 * Ao realizar a atualização manual in-place do Azure AD Connect, o cliente é obrigado a fornecer as credenciais de Administrador Global do inquilino AD correspondente. Anteriormente, a atualização poderia prosseguir, mesmo que as credenciais do Administrador Global pertencessem a um inquilino AD Azure diferente. Embora a atualização pareça estar concluída com sucesso, certas configurações não são corretamente persistiu com a atualização. Com esta alteração, o assistente impede que a atualização prossiga se as credenciais fornecidas não corresponderem ao inquilino AZure AD.
 
@@ -480,7 +480,7 @@ Estado: 05 de setembro de 2017
 ### <a name="azure-ad-connect"></a>Azure AD Connect
 
 #### <a name="known-issues"></a>Problemas conhecidos
-* Existe um problema conhecido que está a fazer com que a atualização do Azure AD Connect falhe com o erro "*Incapaz de atualizar o Serviço de Sincronização*". Além disso, o Serviço de Sincronização já não pode começar com erro de evento "*O serviço não foi capaz de iniciar porque a versão da base de dados é mais recente do que a versão dos binários instalados*". O problema ocorre quando o administrador que executa a atualização não tem privilégio sysadmin para o servidor SQL que está a ser utilizado pelo Azure AD Connect. Permissões dbo não são suficientes.
+* Existe um problema conhecido que está a fazer com que a atualização do Azure AD Connect falhe com o erro " *Incapaz de atualizar o Serviço de Sincronização* ". Além disso, o Serviço de Sincronização já não pode começar com erro de evento " *O serviço não foi capaz de iniciar porque a versão da base de dados é mais recente do que a versão dos binários instalados* ". O problema ocorre quando o administrador que executa a atualização não tem privilégio sysadmin para o servidor SQL que está a ser utilizado pelo Azure AD Connect. Permissões dbo não são suficientes.
 
 * Existe um problema conhecido com o Azure AD Connect Upgrade que está a afetar os clientes que ativaram [o Sign-On Único Sem Emenda.](how-to-connect-sso.md) Depois de o Azure AD Connect ser atualizado, a funcionalidade aparece como desativada no assistente, mesmo que a funcionalidade permaneça ativada. Uma correção para esta questão será fornecida no futuro. Os clientes que estão preocupados com este problema de exibição podem corrigi-lo manualmente, permitindo que o Single sem emenda Sign-On no assistente.
 

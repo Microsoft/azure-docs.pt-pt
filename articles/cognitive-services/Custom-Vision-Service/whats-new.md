@@ -10,16 +10,31 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: a87e76d4a726f7a01b96d602e7f41d60409dae56
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 030b09dae9db11fb14defecde3d14e949b9e6748
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521497"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412736"
 ---
 # <a name="whats-new-in-custom-vision"></a>Novidades na Visão Personalizada
 
 Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para manter-se atualizado com o serviço.
+
+
+## <a name="october-2020"></a>Outubro de 2020 
+
+### <a name="custom-base-model"></a>Modelo base personalizado
+
+- Algumas aplicações têm uma grande quantidade de dados de formação conjunta, mas precisam de afinar os seus modelos separadamente; isto resulta num melhor desempenho para imagens de diferentes fontes com pequenas diferenças. Neste caso, pode treinar o primeiro modelo como de costume com um grande volume de dados de treino. Em seguida, ligue para o **TrainProject** na API de pré-visualização pública 3.4 com _CustomBaseModelInfo_ no corpo de pedido para usar o modelo treinado em primeira fase como modelo base para projetos a jusante. Se o projeto de origem e o projeto alvo a jusante tiverem características de imagens semelhantes, pode esperar um melhor desempenho. 
+
+### <a name="new-domain-information"></a>Novas informações de domínio
+
+- A informação de domínio devolvida da **GetDomains** na API de pré-visualização pública Custom Vision 3.4 inclui agora plataformas exportáveis suportadas, uma breve descrição da arquitetura de modelos e o tamanho do modelo para domínios compactos.
+
+### <a name="training-divergence-feedback"></a>Feedback da divergência de formação
+
+- A API de pré-visualização personalizada Visão Personalizada 3.4 devolve agora **Os TreinosErrorDetails** da chamada **GetIteration.** Nas iterações falhadas, isto revela se a falha foi causada pela divergência de formação, que pode ser corrigida com mais e mais dados de formação de maior qualidade.
 
 ## <a name="july-2020"></a>Julho de 2020
 

@@ -1,14 +1,14 @@
 ---
 title: Implementar a Política Azure para delegar subscrições em escala
 description: Saiba como o Azure Lighthouse permite implementar uma definição de política e atribuição de políticas em vários inquilinos.
-ms.date: 08/12/2020
+ms.date: 11/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 27d32a68c1a3806e514533efbae581aa97bc6d0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5af938c61ad3e42e36360a15c6011b54fa1e823d
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88167288"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412073"
 ---
 # <a name="deploy-azure-policy-to-delegated-subscriptions-at-scale"></a>Implementar a Política Azure para delegar subscrições em escala
 
@@ -64,7 +64,7 @@ New-AzStorageAccount -ResourceGroupName (New-AzResourceGroup -name policy-test -
                      -Verbose                  
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar, remova a definição de política e a atribuição criada pela implementação.
 
@@ -91,7 +91,11 @@ foreach ($ManagedSub in $ManagedSubscriptions)
 }
 ```
 
+> [!NOTE]
+> Enquanto você pode implementar políticas em vários inquilinos, atualmente você não pode [ver detalhes](../../governance/policy/how-to/determine-non-compliance.md#compliance-details) de conformidade para recursos não conformes nestes inquilinos.
+
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [a Política Azure.](../../governance/policy/index.yml)
 - Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
+- Saiba como [implementar uma política que possa ser remediada](deploy-policy-remediation.md) dentro de uma subscrição delegada.

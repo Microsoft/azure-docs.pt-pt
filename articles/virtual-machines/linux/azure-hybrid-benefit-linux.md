@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: alsin
-ms.openlocfilehash: da17122de8db41b6ba9ae9597d52bc3e1d8d0062
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c1200121d1c768a3fdddd7749184d7f8b5c98a96
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962399"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413110"
 ---
 # <a name="preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Pré-visualização: Azure Hybrid Benefit – como se aplica às máquinas virtuais Linux
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição Geral
 
 O Azure Hybrid Benefit permite-lhe migrar mais facilmente as suas máquinas virtuais Red Hat Enterprise Linux (RHEL) e SUSE Linux Enterprise Server (SLES) para Azure utilizando a sua própria subscrição de software Red Hat ou SUSE pré-existente. Com este benefício, você só paga pelos custos de infraestrutura do seu VM porque a taxa de software é coberta pela sua subscrição RHEL ou SLES. O benefício é aplicável a todas as imagens pay-as-you-go (PAYG) da RHEL e do SLES Marketplace.
 
 > [!IMPORTANT]
 > A Azure Hybrid Benefit for Linux VMs está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="benefit-description"></a>Descrição de benefícios
 
@@ -57,7 +57,7 @@ Nesta fase, poderá ter acesso ao benefício preenchendo o formulário [aqui.](h
 1.    Registe-se com o [programa Red Hat Cloud Access](https://aka.ms/rhel-cloud-access)
 1.    Ativar as suas subscrições Azure para o Cloud Access e ativar as subscrições que contêm os VMs com que pretende utilizar o benefício
 1.    Aplique o benefício aos seus VM existentes, quer através do portal Azure, quer do Azure CLI
-1.    Registe os seus VMs recebendo o benefício com uma fonte separada de atualizações
+1.    Opcional, registe os seus VMs que recebem o benefício com uma fonte separada de atualizações (os VMs comutados podem permanecer ligados ao [RHUI](../workloads/redhat/redhat-rhui.md) ou registados através do RHSM)
 
 ### <a name="suse-customers"></a>Clientes SUSE
 
@@ -147,13 +147,14 @@ A: Não, não pode. Tentar introduzir um tipo de licença que corresponda incorr
 
 R: Pode levar algum tempo para que o seu registo de subscrição do Red Hat Cloud Access se propague de Chapéu Vermelho para Azure. Se ainda estiver a ver o erro após um dia útil, contacte o suporte da Microsoft.
 
-## <a name="common-errors"></a>Erros comuns
-Esta secção contém uma lista de erros e passos comuns para mitigação.
+## <a name="common-issues"></a>Problemas comuns
+Esta secção contém uma lista de questões comuns que podem ser encontradas e passos para mitigação.
 
 | Erro | Mitigação |
 | ----- | ---------- |
 | "A subscrição não está registada para a pré-visualização do Linux da Azure Hybrid Benefit. Para instruções passo a passo, consulte https://aka.ms/ahb-linux " | Preencha o formulário https://aka.ms/ahb-linux-form para se registar para a pré-visualização do Linux do Azure Hybrid Benefit.
 | "A ação não pôde ser concluída porque os nossos registos mostram que não habilitou com sucesso o Red Hat Cloud Access na sua subscrição do Azure...." | Para utilizar o benefício com os VMs RHEL, tem primeiro de registar as suas subscrições Azure com o Red Hat Cloud Access. Visite este link para saber mais sobre como registar as suas subscrições Azure para o Red Hat Cloud Access
+|"A opção para Azure Hybrid Benefit não aparece no portal" | Esta é uma questão conhecida para RHEL e SLES VMs criados a partir de Shared Image Gallery, Snapshots ou Captured PAYG Images. Neste caso, utilize os passos CLI descritos na secção "[Ative e desative o benefício no CLI Azure](#enable-and-disable-the-benefit-in-the-azure-cli)". Para visualizar o estado de AHB utilize o comando ` az vm get-instance-view -g MyResourceGroup -n MyVm` .|
 
 ## <a name="next-steps"></a>Passos seguintes
 * Começa com a pré-visualização preenchendo o formulário [aqui.](https://aka.ms/ahb-linux-form)

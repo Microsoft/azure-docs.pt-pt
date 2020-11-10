@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dc931c461988daf9ff6fb2f954b52fa58ce94af
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 795f5ede382e561ee810e54e1f8897c5d806e8b8
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369782"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412379"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Quatro passos para uma forte fundação de identidade com Azure Ative Directory
 
@@ -83,7 +83,7 @@ Nas empresas modernas, os departamentos de TI muitas vezes não estão cientes d
 
 [O Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) pode ajudá-lo a identificar aplicações úteis que são populares entre os utilizadores que o IT pode sancionar e adicionar à galeria de aplicações da Enterprise para que os utilizadores beneficiem de capacidades como SSO e Acesso Condicional.
 
-<em>"**Cloud App Security** ajuda-nos a garantir que o nosso povo está a usar corretamente as nossas aplicações cloud e SaaS, de forma a apoiar as políticas de segurança fundacionais que ajudam a proteger a Accenture."</em> --- [John Blasi, Diretor-geral, Segurança da Informação, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>" **Cloud App Security** ajuda-nos a garantir que o nosso povo está a usar corretamente as nossas aplicações cloud e SaaS, de forma a apoiar as políticas de segurança fundacionais que ajudam a proteger a Accenture."</em> --- [John Blasi, Diretor-geral, Segurança da Informação, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Além de detetar TI sombra, o MCAS também pode determinar o nível de risco das aplicações, impedir o acesso não autorizado a dados corporativos, possíveis fugas de dados e outros riscos de segurança inerentes às aplicações.
 
@@ -147,7 +147,7 @@ Da mesma forma, o [relatório de Gestão de Passwords self-service](../authentic
 
 ### <a name="self-service-app-management"></a>Gestão de aplicativos self-service
 
-Antes que os seus utilizadores possam auto-descobrir aplicações a partir do seu painel de acesso, é necessário permitir o acesso de [aplicações de autosserviço](../manage-apps/access-panel-manage-self-service-access.md) a quaisquer aplicações que deseje permitir que os utilizadores se auto-descubram e solicitem acesso. O acesso a aplicações self-service é uma ótima forma de permitir que os utilizadores se auto-descubram e opcionalmente permitam ao grupo empresarial aprovar o acesso a essas aplicações. Pode permitir que o grupo empresarial gere as credenciais atribuídas a esses utilizadores para [Single-Sign Password nas Aplicações](../manage-apps/application-sign-in-problem-password-sso-gallery.md#configure-password-sso-for-an-azure-ad-gallery-app) a partir dos seus painéis de acesso.
+Antes que os seus utilizadores possam auto-descobrir aplicações a partir do seu painel de acesso, é necessário permitir o acesso de [aplicações de autosserviço](../manage-apps/access-panel-manage-self-service-access.md) a quaisquer aplicações que deseje permitir que os utilizadores se auto-descubram e solicitem acesso. O acesso a aplicações self-service é uma ótima forma de permitir que os utilizadores se auto-descubram e opcionalmente permitam ao grupo empresarial aprovar o acesso a essas aplicações. Pode permitir que o grupo empresarial gere as credenciais atribuídas a esses utilizadores para [Single-Sign Password nas Aplicações](../manage-apps/troubleshoot-password-based-sso.md#automatically-capture-sign-in-fields-for-an-app) a partir dos seus painéis de acesso.
 
 ### <a name="self-service-group-management"></a>Gestão de grupos self-service
 
@@ -267,6 +267,6 @@ Recomendamos que imprima a seguinte lista de verificação para referência à m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba como pode aumentar a sua postura segura utilizando as capacidades do Azure Ative Directory e esta lista de verificação de cinco etapas - [Cinco passos para garantir a sua infraestrutura de identidade](https://aka.ms/securitysteps).
+Saiba como pode aumentar a sua postura segura utilizando as capacidades do Azure Ative Directory e esta lista de verificação de cinco etapas - [Cinco passos para garantir a sua infraestrutura de identidade](../../security/fundamentals/steps-secure-identity.md).
 
-Saiba como as funcionalidades de identidade no AD Azure podem ajudá-lo a acelerar a sua transição para a gestão governada em nuvem, fornecendo as soluções e capacidades que permitem às organizações adotar e mover mais rapidamente a sua gestão de identidade dos sistemas tradicionais de acesso ao Azure AD - [Como o AD AZure oferece a Cloud Governed Management for On-Premises Workloads](https://aka.ms/cloudgoverned).
+Saiba como as funcionalidades de identidade no AD Azure podem ajudá-lo a acelerar a sua transição para a gestão governada em nuvem, fornecendo as soluções e capacidades que permitem às organizações adotar e mover mais rapidamente a sua gestão de identidade dos sistemas tradicionais de acesso ao Azure AD - [Como o AD AZure oferece a Cloud Governed Management for On-Premises Workloads](./cloud-governed-management-for-on-premises.md).

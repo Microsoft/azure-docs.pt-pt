@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/27/2020
 ms.author: jehollan
-ms.openlocfilehash: 3a44efac274bf5c5d6cfc6a0f044ee89b479cbe6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 691fbf3be4e39a724a8a290c3ec147a679013cba
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897080"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413093"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -107,7 +107,7 @@ Atualmente, pode utilizar funções de gatilho não-HTTP a partir de uma rede vi
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Plano premium com gatilhos de rede virtual
 
-Quando executar um plano Premium, pode ligar funções de gatilho não-HTTP a serviços que funcionam dentro de uma rede virtual. Para isso, tem de ativar o suporte de gatilho de rede virtual para a sua aplicação de função. A definição **de monitorização da escala de tempo** de execução encontra-se no portal [Azure](https://portal.azure.com) nas definições de tempo de funcionamento da função **de configuração**  >  **Function runtime settings** .
+Quando executar um plano Premium, pode ligar funções de gatilho não-HTTP a serviços que funcionam dentro de uma rede virtual. Para isso, tem de ativar o suporte de gatilho de rede virtual para a sua aplicação de função. A definição **de monitorização da escala de tempo** de execução encontra-se no portal [Azure](https://portal.azure.com) nas definições de tempo de funcionamento da função **de configuração**  >  **Function runtime settings**.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
@@ -116,6 +116,9 @@ Também pode ativar os gatilhos de rede virtuais utilizando o seguinte comando A
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
+
+> [!TIP]
+> Ativar os gatilhos de rede virtuais pode ter um impacto no desempenho da sua aplicação, uma vez que as instâncias do seu plano de Serviço de Aplicações terão de monitorizar os seus gatilhos para determinar quando escalar. É provável que este impacto seja muito pequeno.
 
 Os gatilhos de rede virtuais são suportados na versão 2.x e acima do tempo de execução de Funções. Os seguintes tipos de gatilho não-HTTP são suportados.
 

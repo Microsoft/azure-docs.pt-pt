@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 11/09/2020
 ms.author: aahi
 ms.custom: cog-serv-seo-aug-2020
 keywords: no local, Docker, contentor
-ms.openlocfilehash: 6f04e40b0b2baa496faf8001684304c5df78ec20
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: f91d96732c872c6f93ee2de4c5c3eba5fe5ffbc4
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496147"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412243"
 ---
 # <a name="install-and-run-docker-containers-for-the-speech-service-apis"></a>Instale e execute os recipientes Docker para as APIs do serviço de fala 
 
@@ -41,10 +41,10 @@ Os contentores de Voz permitem que os clientes criem uma arquitetura de aplicaç
 
 | Contentor | Funcionalidades | Mais Recente |
 |--|--|--|
-| Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de voz em tempo real ou de lotes com resultados intermédios.  | 2.5.0 |
-| Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.5.0 |
-| Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.7.0 |
-| Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.7.0 |
+| Conversão de voz em texto | Analisa o sentimento e transcreve gravações contínuas de voz em tempo real ou de lotes com resultados intermédios.  | 2.6.0 |
+| Discurso-a-texto personalizado | Utilizando um modelo personalizado do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)transcreve gravações contínuas de discursos em tempo real ou de lotes em texto com resultados intermédios. | 2.6.0 |
+| Conversão de texto em voz | Converte o texto para discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.8.0 |
+| Texto-a-discurso personalizado | Utilizando um modelo personalizado do [portal Voz Personalizada,](https://aka.ms/custom-voice-portal)converte o texto em discurso sonoro natural com entrada de texto simples ou linguagem de marcação de síntese de fala (SSML). | 1.8.0 |
 | Deteção de linguagem da fala | Detetar a linguagem falada em ficheiros áudio. | 1,0 |
 | Texto-a-discurso neural | Converte o texto em discurso sonoro natural usando a tecnologia de rede neural profunda, permitindo um discurso mais natural sintetizado. | 1.2.0 |
 
@@ -58,7 +58,7 @@ Os seguintes pré-requisitos antes da utilização dos recipientes de fala:
 |--|--|
 | Motor do Docker | Precisa do Motor Docker instalado num [computador anfitrião.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar recipientes Linux.<br><br> |
 | Familiaridade com Docker | Você deve ter uma compreensão básica de conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos. |
-| Recurso de fala | Para utilizar estes recipientes, deve ter:<br><br>Um recurso _de Discurso_ Azure para obter a chave API associada e ponto final URI. Ambos os valores estão disponíveis nas páginas Do **Discurso** e Chaves do portal Azure. Ambos são obrigados a iniciar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final, conforme fornecido na página **'Vista Geral',** |
+| Recurso de fala | Para utilizar estes recipientes, deve ter:<br><br>Um recurso _de Discurso_ Azure para obter a chave API associada e ponto final URI. Ambos os valores estão disponíveis nas páginas Do **Discurso** e Chaves do portal Azure. Ambos são obrigados a iniciar o contentor.<br><br>**{API_KEY}** : Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}** : O ponto final, conforme fornecido na página **'Vista Geral',** |
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -107,7 +107,7 @@ Preencha e envie o [formulário de pedido](https://aka.ms/csgate) para solicitar
 
 As imagens do contentor para a fala estão disponíveis no seguinte registo de contentores.
 
-# <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
+# <a name="speech-to-text"></a>[Discurso-a-texto](#tab/stt)
 
 | Contentor | Repositório |
 |-----------|------------|
@@ -119,7 +119,7 @@ As imagens do contentor para a fala estão disponíveis no seguinte registo de c
 |-----------|------------|
 | Discurso-a-texto personalizado | `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest` |
 
-# <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tts)
+# <a name="text-to-speech"></a>[Texto-a-discurso](#tab/tts)
 
 | Contentor | Repositório |
 |-----------|------------|
@@ -152,11 +152,11 @@ As imagens do contentor para a fala estão disponíveis no seguinte registo de c
 
 ### <a name="docker-pull-for-the-speech-containers"></a>Docker puxa para os recipientes da fala
 
-# <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
+# <a name="speech-to-text"></a>[Discurso-a-texto](#tab/stt)
 
 #### <a name="docker-pull-for-the-speech-to-text-container"></a>Docker puxa para o recipiente discurso-a-texto
 
-Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem do contentor do registo de pré-visualização do contentor.
+Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem de contentor do registo do Microsoft Container.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest
@@ -176,7 +176,7 @@ Todas as tags, com exceção `latest` das marcas, são no seguinte formato e sã
 A seguinte etiqueta é um exemplo do formato:
 
 ```
-2.5.0-amd64-en-us-preview
+2.6.0-amd64-en-us
 ```
 
 Para todos os locais suportados do recipiente **discurso-a-texto,** consulte [as etiquetas de imagem discurso-a-texto](../containers/container-image-tags.md#speech-to-text).
@@ -185,7 +185,7 @@ Para todos os locais suportados do recipiente **discurso-a-texto,** consulte [as
 
 #### <a name="docker-pull-for-the-custom-speech-to-text-container"></a>Docker puxa para o recipiente personalizado discurso-a-texto
 
-Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem do contentor do registo de pré-visualização do contentor.
+Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem de contentor do registo do Microsoft Container.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text:latest
@@ -194,11 +194,11 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-spe
 > [!NOTE]
 > Os `locale` `voice` recipientes e para os recipientes de fala personalizados são determinados pelo modelo personalizado ingerido pelo recipiente.
 
-# <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tts)
+# <a name="text-to-speech"></a>[Texto-a-discurso](#tab/tts)
 
 #### <a name="docker-pull-for-the-text-to-speech-container"></a>Docker puxa para o recipiente texto-a-fala
 
-Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem do contentor do registo de pré-visualização do contentor.
+Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem de contentor do registo do Microsoft Container.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech:latest
@@ -218,7 +218,7 @@ Todas as tags, com exceção `latest` das marcas, são no seguinte formato e sã
 A seguinte etiqueta é um exemplo do formato:
 
 ```
-1.6.0-amd64-en-us-ariarus-preview
+1.8.0-amd64-en-us-ariarus
 ```
 
 Para todos os locais apoiados e vozes correspondentes do recipiente **texto-a-voz,** consulte [as etiquetas de imagem text-to-speech](../containers/container-image-tags.md#text-to-speech).
@@ -230,7 +230,7 @@ Para todos os locais apoiados e vozes correspondentes do recipiente **texto-a-vo
 
 #### <a name="docker-pull-for-the-neural-text-to-speech-container"></a>Docker puxa para o recipiente texto-a-fala neural
 
-Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem do contentor do registo de pré-visualização do contentor.
+Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem de contentor do registo do Microsoft Container.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech:latest
@@ -262,7 +262,7 @@ Para todos os locais apoiados e vozes correspondentes do recipiente **neural tex
 
 #### <a name="docker-pull-for-the-custom-text-to-speech-container"></a>Docker puxa para o recipiente text-to-speech personalizado
 
-Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem do contentor do registo de pré-visualização do contentor.
+Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem de contentor do registo do Microsoft Container.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech:latest
@@ -275,7 +275,7 @@ docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/custom-tex
 
 #### <a name="docker-pull-for-the-speech-language-detection-container"></a>Docker puxa para o recipiente de deteção de linguagem da fala
 
-Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem do contentor do registo de pré-visualização do contentor.
+Utilize o comando de puxar o [estivador](https://docs.docker.com/engine/reference/commandline/pull/) para descarregar uma imagem de contentor do registo do Microsoft Container.
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection:latest
@@ -294,7 +294,7 @@ Uma vez que o recipiente esteja no [computador anfitrião,](#the-host-computer)u
 
 Use o comando de execução do [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar o contentor. Consulte a [recolha dos parâmetros necessários](#gathering-required-parameters) para obter detalhes sobre como obter os `{Endpoint_URI}` valores e `{API_Key}` valores. Estão também disponíveis [exemplos](speech-container-configuration.md#example-docker-run-commands) adicionais do `docker run` comando.
 
-# <a name="speech-to-text"></a>[Conversão de voz em texto](#tab/stt)
+# <a name="speech-to-text"></a>[Discurso-a-texto](#tab/stt)
 
 Para executar o recipiente *padrão discurso-texto,* execute o seguinte `docker run` comando.
 
@@ -315,6 +315,12 @@ Este comando:
 
 
 #### <a name="analyze-sentiment-on-the-speech-to-text-output"></a>Analisar o sentimento sobre a saída fala-a-texto 
+A partir de v2.6.0 do recipiente de fala para texto, deve utilizar o ponto final textanalytics 3.0 API em vez do de pré-visualização. Por exemplo
+* `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
+* `https://localhost:5000/text/analytics/v3.0/sentiment`
+
+> [!NOTE]
+> A API de Análise de Texto `v3.0` não é compatível com Text Analytics `v3.0-preview.1` . Para obter o suporte mais recente do recurso de sentimento, utilize `v2.6.0` a imagem do recipiente de porta-a-texto e a Análise de Texto `v3.0` .
 
 A partir de v2.2.0 do recipiente de fala-a-texto, pode chamar a análise de [sentimento v3 API](../text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md) na saída. Para chamar a análise de sentimento, você precisará de um ponto final de recursos API API de texto. Por exemplo: 
 * `https://westus2.api.cognitive.microsoft.com/text/analytics/v3.0-preview.1/sentiment`
@@ -338,6 +344,26 @@ Este comando:
 
 * Executa os mesmos passos que o comando acima.
 * Armazena um ponto final e chave da API de Análise de Texto, para o envio de pedidos de análise de sentimento. 
+
+#### <a name="phraselist-v2-on-the-speech-to-text-output"></a>Fraseista v2 na saída fala-a-texto 
+
+A partir de v2.6.0 do recipiente discurso-a-texto, você pode obter a saída com as suas próprias frases - ou toda a frase, ou frases no meio. Por *exemplo, o homem alto* na seguinte frase:
+
+* "Esta é uma frase **o homem alto** esta é outra frase."
+
+Para configurar uma lista de frases, é necessário adicionar as suas próprias frases quando fizer a chamada. Por exemplo:
+
+```python
+    phrase="the tall man"
+    recognizer = speechsdk.SpeechRecognizer(
+        speech_config=dict_speech_config,
+        audio_config=audio_config)
+    phrase_list_grammer = speechsdk.PhraseListGrammar.from_recognizer(recognizer)
+    phrase_list_grammer.addPhrase(phrase)
+
+```
+
+Se tiver várias frases a adicionar, chame `.addPhrase()` cada frase para adicioná-la à lista de frases. 
 
 
 # <a name="custom-speech-to-text"></a>[Discurso-a-texto personalizado](#tab/cstt)
@@ -392,7 +418,47 @@ Este comando:
 * Se o modelo personalizado foi previamente descarregado, o `ModelId` é ignorado.
 * Remove automaticamente o recipiente depois de sair. A imagem do recipiente ainda está disponível no computador anfitrião.
 
-# <a name="text-to-speech"></a>[Conversão de texto em voz](#tab/tts)
+
+#### <a name="base-model-download-on-the-custom-speech-to-text-container"></a>Descarregamento do modelo base no recipiente personalizado discurso-a-texto  
+A partir de v2.6.0 do recipiente personalizado discurso-a-texto, pode obter as informações do modelo base disponíveis utilizando a opção `BaseModelLocale=<locale>` . Esta opção irá dar-lhe uma lista de modelos base disponíveis nesse local sob a sua conta de faturação. Por exemplo:
+
+```bash
+docker run --rm -it \
+mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text \
+BaseModelLocale={LOCALE} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Este comando:
+
+* Executa um recipiente *personalizado de discurso a texto* a partir da imagem do recipiente.
+* Verifique e devolva os modelos base disponíveis do local alvo.
+
+A saída dá-lhe uma lista de modelos base com a informação local, id de modelo e hora de data de criação. Pode utilizar o id do modelo para descarregar e utilizar o modelo base específico que prefere. Por exemplo:
+```
+Checking available base model for en-us
+2020/10/30 21:54:20 [Info] Searching available base models for en-us
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2016-11-04T08:23:42Z, Id: a3d8aab9-6f36-44cd-9904-b37389ce2bfa
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2016-11-04T12:01:02Z, Id: cc7826ac-5355-471d-9bc6-a54673d06e45
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2017-08-17T12:00:00Z, Id: a1f8db59-40ff-4f0e-b011-37629c3a1a53
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-04-16T11:55:00Z, Id: c7a69da3-27de-4a4b-ab75-b6716f6321e5
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-09-21T15:18:43Z, Id: da494a53-0dad-4158-b15f-8f9daca7a412
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-10-19T11:28:54Z, Id: 84ec130b-d047-44bf-a46d-58c1ac292ca7
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-11-26T07:59:09Z, Id: ee5c100f-152f-4ae5-9e9d-014af3c01c56
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2018-11-26T09:21:55Z, Id: d04959a6-71da-4913-9997-836793e3c115
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2019-01-11T10:04:19Z, Id: 488e5f23-8bc5-46f8-9ad8-ea9a49a8efda
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2019-02-18T14:37:57Z, Id: 0207b3e6-92a8-4363-8c0e-361114cdd719
+2020/10/30 21:54:21 [Info] [Base model] Locale: en-us, CreatedDate: 2019-03-03T17:34:10Z, Id: 198d9b79-2950-4609-b6ec-f52254074a05
+2020/10/30 21:54:21 [Fatal] Please run this tool again and assign --modelId '<one above base model id>'. If no model id listed above, it means currently there is no available base model for en-us
+```
+
+#### <a name="custom-pronunciation-on-the-custom-speech-to-text-container"></a>Pronúncia personalizada no recipiente personalizado discurso-a-texto 
+A partir de v2.5.0 do recipiente personalizado discurso-a-texto, você pode obter o resultado da pronúncia personalizada na saída. Tudo o que precisa fazer é ter as suas próprias regras de pronúncia personalizadas definidas no seu modelo personalizado e montar o modelo para um recipiente personalizado de discurso a texto.
+
+
+# <a name="text-to-speech"></a>[Texto-a-discurso](#tab/tts)
 
 Para executar o recipiente *Texto-a-fala* Padrão, execute o seguinte `docker run` comando.
 
@@ -688,9 +754,9 @@ Para obter mais informações sobre estas opções, consulte [os recipientes Con
 Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar e executar recipientes de discurso. Em resumo:
 
 * A fala fornece quatro recipientes Linux para Docker, encapsulando várias capacidades:
-  * *Conversão de voz em texto*
+  * *Discurso-a-texto*
   * *Discurso-a-texto personalizado*
-  * *Conversão de texto em voz*
+  * *Texto-a-discurso*
   * *Texto-a-discurso personalizado*
   * *Texto-a-discurso neural*
   * *Deteção de linguagem da fala*

@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: a78c67892e2bccb7c98d680539a84c2cc1f49a95
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6830bdd38e8e1f1d649673cfdaf48e8c50ba6c3e
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372298"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413229"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados Azure Arc
 
@@ -26,7 +26,7 @@ Os serviços de dados habilitados a Azure Arc podem ser criados em vários tipos
 
 Atualmente, a lista suportada de serviços e distribuições de Kubernetes são as seguintes:
 
-- Azure Kubernetes Service (AKS)
+- Serviço de Kubernetes do Azure (AKS)
 - Motor de serviço Azure Kubernetes (motor AKS) em Azure Stack
 - Serviço Azure Kubernetes em Azure Stack HCI
 - Azure RedHat OpenShift (ARO)
@@ -36,7 +36,8 @@ Atualmente, a lista suportada de serviços e distribuições de Kubernetes são 
 - Kubernetes open source de origem normalmente implementado com kubeadm
 
 > [!IMPORTANT]
-> * A versão mínima suportada de Kubernetes é v1.14.
+> * A versão mínima suportada de Kubernetes é v1.17.
+> * A versão mínima suportada do OCP é 4.3.
 > * Consulte os [requisitos de conectividade](connectivity.md) para entender que conectividade é necessária entre o seu ambiente e a Azure.
 > * Consulte a orientação de [configuração](storage-configuration.md) de armazenamento para entender os detalhes de como configurar o seu armazenamento persistente.
 > * Se estiver a utilizar o Serviço Azure Kubernetes, o tamanho VM do seu grupo de trabalho deve ser pelo menos **Standard_D8s_v3** e utilizar **discos premium.** O cluster não deve abranger várias zonas de disponibilidade. 
@@ -45,7 +46,7 @@ Atualmente, a lista suportada de serviços e distribuições de Kubernetes são 
 > [!NOTE]
 > Se estiver a utilizar a Plataforma de Recipientes OpenShift do Chapéu Vermelho no Azure, é aconselhável utilizar a versão mais recente disponível.
 
-Dependendo da opção escolhida, serão _necessárias_determinadas ferramentas , mas é aconselhável [instalar todas as ferramentas do cliente](./install-client-tools.md) antes de começar a criar o controlador de dados Azure Arc.
+Dependendo da opção escolhida, serão _necessárias_ determinadas ferramentas , mas é aconselhável [instalar todas as ferramentas do cliente](./install-client-tools.md) antes de começar a criar o controlador de dados Azure Arc.
 
 Independentemente da opção que escolha, durante o processo de criação terá de fornecer as seguintes informações:
 

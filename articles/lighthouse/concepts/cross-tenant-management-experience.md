@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 10/22/2020
+ms.date: 11/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 5443c3b5a34cd493e0956f2a0d6ed7d6fecd603d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: dfb92e3f4f02e693ae5e4bba57e5344288c4615a
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460670"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413127"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -104,7 +104,6 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 
 [Política de Azure:](../../governance/policy/index.yml)
 
-- Os instantâneos de conformidade mostram detalhes para políticas atribuídas dentro de subscrições delegadas
 - Criar e editar definições de políticas dentro de subscrições delegadas
 - Atribuir definições de política definidas pelo cliente dentro de subscrições delegadas
 - Os clientes vêem políticas da autoria do prestador de serviços ao lado de quaisquer políticas que tenham sido autores
@@ -157,7 +156,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 
 Pedidos de apoio:
 
-- [Aberto pedidos de apoio da **Ajuda + suporte** ](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) no portal Azure para recursos delegados (selecionando o plano de apoio disponível para o âmbito delegado)
+- [Aberto pedidos de apoio da **Ajuda + suporte**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) no portal Azure para recursos delegados (selecionando o plano de apoio disponível para o âmbito delegado)
 
 ## <a name="current-limitations"></a>Limitações atuais
 

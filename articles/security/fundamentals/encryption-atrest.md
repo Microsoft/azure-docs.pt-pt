@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: ec81a8f7f9d9f45f1d068a415a599ce30a0d4581
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397254"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94412787"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados inativa do Azure
 
@@ -48,7 +48,7 @@ A encriptação em repouso fornece proteção de dados para dados armazenados (e
 
 A encriptação em repouso foi concebida para evitar que o intruso aceda aos dados não encriptados, garantindo que os dados são encriptados quando estão no disco. Se um intruso obtiver um disco rígido com dados encriptados, mas não com as chaves de encriptação, o intruso deve derrotar a encriptação para ler os dados. Este ataque é muito mais complexo e consumista de recursos do que aceder a dados não encriptados num disco rígido. Por esta razão, a encriptação em repouso é altamente recomendada e é um requisito de alta prioridade para muitas organizações.
 
-A encriptação em repouso também pode ser exigida pela necessidade de uma organização para esforços de governação de dados e conformidade. Regulamentos da indústria e do governo, tais como HIPAA, PCI e FedRAMP, estabelecem salvaguardas específicas no que diz respeito aos requisitos de proteção de dados e encriptação. A encriptação em repouso é uma medida obrigatória necessária para o cumprimento de alguns desses regulamentos. Para obter mais informações sobre a abordagem da Microsoft à validação do FIPS 140-2, consulte [a Publicação 140-2 da Federal Information Processing Standard (FIPS).](https://docs.microsoft.com/microsoft-365/compliance/offering-fips-140-2)
+A encriptação em repouso também pode ser exigida pela necessidade de uma organização para esforços de governação de dados e conformidade. Regulamentos da indústria e do governo, tais como HIPAA, PCI e FedRAMP, estabelecem salvaguardas específicas no que diz respeito aos requisitos de proteção de dados e encriptação. A encriptação em repouso é uma medida obrigatória necessária para o cumprimento de alguns desses regulamentos. Para obter mais informações sobre a abordagem da Microsoft à validação do FIPS 140-2, consulte [a Publicação 140-2 da Federal Information Processing Standard (FIPS).](/microsoft-365/compliance/offering-fips-140-2)
 
 Além de satisfazer os requisitos de conformidade e regulamentação, a encriptação em repouso proporciona uma proteção aprofundada em termos de defesa. O Microsoft Azure fornece uma plataforma compatível para serviços, aplicações e dados. Fornece também facilidade e segurança física abrangentes, controlo de acesso a dados e auditoria. No entanto, é importante fornecer medidas de segurança adicionais de "sobreposição" no caso de uma das outras medidas de segurança falhar e a encriptação em repouso fornecer tal medida de segurança.
 
@@ -115,22 +115,22 @@ Os Serviços Microsoft Azure suportam cada um ou mais da encriptação nos model
 
 ### <a name="azure-disk-encryption"></a>Encriptação do disco Azure
 
-Qualquer cliente que utilize as funcionalidades Azure Infrastructure como serviço (IaaS) pode obter encriptação em repouso para os seus VMs e discos IaaS através da Encriptação do Disco Azure. Para obter mais informações sobre a encriptação do disco Azure, consulte a [documentação de encriptação do disco Azure](../azure-security-disk-encryption-overview.md).
+Qualquer cliente que utilize as funcionalidades Azure Infrastructure como serviço (IaaS) pode obter encriptação em repouso para os seus VMs e discos IaaS através da Encriptação do Disco Azure. Para obter mais informações sobre a encriptação do disco Azure, consulte a [documentação de encriptação do disco Azure](./azure-disk-encryption-vms-vmss.md).
 
 #### <a name="azure-storage"></a>Storage do Azure
 
 Todos os serviços de Armazenamento Azure (armazenamento de bolhas, armazenamento de fila, armazenamento de mesa e ficheiros Azure) suportam a encriptação do lado do servidor em repouso; alguns serviços suportam ainda chaves geridas pelo cliente e encriptação do lado do cliente.
 
-- Lado do servidor: Todos os Serviços de Armazenamento Azure permitem a encriptação do lado do servidor por padrão utilizando teclas geridas pelo serviço, que é transparente para a aplicação. Para obter mais informações, consulte [a Encriptação do Serviço de Armazenamento Azure para obter dados em repouso.](../../storage/common/storage-service-encryption.md) O armazenamento Azure Blob e os Ficheiros Azure também suportam chaves geridas pelo cliente RSA 2048 no Cofre da Chave Azure. Para obter mais informações, consulte [a encriptação do serviço de armazenamento utilizando as chaves geridas pelo cliente no Cofre da Chave Azure](../../storage/common/storage-encryption-keys-portal.md).
+- Lado do servidor: Todos os Serviços de Armazenamento Azure permitem a encriptação do lado do servidor por padrão utilizando teclas geridas pelo serviço, que é transparente para a aplicação. Para obter mais informações, consulte [a Encriptação do Serviço de Armazenamento Azure para obter dados em repouso.](../../storage/common/storage-service-encryption.md) O armazenamento Azure Blob e os Ficheiros Azure também suportam chaves geridas pelo cliente RSA 2048 no Cofre da Chave Azure. Para obter mais informações, consulte [a encriptação do serviço de armazenamento utilizando as chaves geridas pelo cliente no Cofre da Chave Azure](../../storage/common/customer-managed-keys-configure-key-vault.md).
 - Lado do cliente: Azure Blobs, Tabelas e Filas suportam encriptação do lado do cliente. Ao utilizar a encriptação do lado do cliente, os clientes encriptam os dados e carregam os dados como uma bolha encriptada. A gestão de chaves é feita pelo cliente. Para obter mais informações, consulte [a encriptação do lado do cliente e o cofre da chave Azure para o Armazenamento Azure da Microsoft](../../storage/common/storage-client-side-encryption.md).
 
 #### <a name="azure-sql-database"></a>Base de Dados SQL do Azure
 
 A Azure SQL Database suporta atualmente a encriptação em repouso para o lado do serviço gerido pela Microsoft e cenários de encriptação do lado do cliente.
 
-O suporte para encriptação do servidor é atualmente fornecido através da funcionalidade SQL chamada Encriptação de Dados Transparente. Uma vez que um cliente da Base de Dados Azure SQL permite a chave TDE são automaticamente criados e geridos para eles. A encriptação em repouso pode ser ativada nos níveis de base de dados e servidor. A partir de junho de 2017, [a Encriptação de Dados Transparente (TDE)](https://msdn.microsoft.com/library/bb934049.aspx) é ativada por padrão em bases de dados recém-criadas. A Azure SQL Database suporta chaves geridas pelo cliente RSA 2048 no Cofre da Chave Azure. Para obter mais informações, consulte [encriptação de dados transparente com suporte de chave própria para Azure SQL Database and Data Warehouse](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+O suporte para encriptação do servidor é atualmente fornecido através da funcionalidade SQL chamada Encriptação de Dados Transparente. Uma vez que um cliente da Base de Dados Azure SQL permite a chave TDE são automaticamente criados e geridos para eles. A encriptação em repouso pode ser ativada nos níveis de base de dados e servidor. A partir de junho de 2017, [a Encriptação de Dados Transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) é ativada por padrão em bases de dados recém-criadas. A Azure SQL Database suporta chaves geridas pelo cliente RSA 2048 no Cofre da Chave Azure. Para obter mais informações, consulte [encriptação de dados transparente com suporte de chave própria para Azure SQL Database and Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
 
-A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é suportada através da funcionalidade [Always Encrypted.](https://msdn.microsoft.com/library/mt163865.aspx) Sempre encriptado utiliza uma chave que foi criada e armazenada pelo cliente. Os clientes podem armazenar a chave principal numa loja de certificados Windows, Azure Key Vault ou num Módulo de Segurança de Hardware local. Utilizando o SQL Server Management Studio, os utilizadores do SQL escolhem a chave que gostariam de usar para encriptar qual coluna.
+A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é suportada através da funcionalidade [Always Encrypted.](/sql/relational-databases/security/encryption/always-encrypted-database-engine) Sempre encriptado utiliza uma chave que foi criada e armazenada pelo cliente. Os clientes podem armazenar a chave principal numa loja de certificados Windows, Azure Key Vault ou num Módulo de Segurança de Hardware local. Utilizando o SQL Server Management Studio, os utilizadores do SQL escolhem a chave que gostariam de usar para encriptar qual coluna.
 
 ## <a name="conclusion"></a>Conclusão
 

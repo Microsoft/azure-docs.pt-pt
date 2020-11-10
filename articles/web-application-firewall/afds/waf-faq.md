@@ -8,12 +8,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/05/2020
 ms.author: victorh
-ms.openlocfilehash: d129c37c909c630623f8a41c06da9aa80e4e2392
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ba0cbbccd1f4a9bc8ff8a4895e238c9150c9b17
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82837639"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413076"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall-on-azure-front-door-service"></a>Perguntas frequentes para firewall de aplicação web Azure no serviço de porta frontal Azure
 
@@ -35,7 +35,7 @@ A Porta da Frente oferece descarregamento TLS. A WAF está integrada nativamente
 
 ## <a name="does-azure-waf-support-ipv6"></a>A Azure WAF suporta o IPv6?
 
-Sim. Pode configurar a restrição IP para IPv4 e IPv6.
+Yes. Pode configurar a restrição IP para IPv4 e IPv6.
 
 ## <a name="how-up-to-date-are-the-managed-rule-sets"></a>Até que ponto estão atualizados os conjuntos de regras geridos?
 
@@ -64,7 +64,7 @@ Atualmente, as regras ModSec CRS 2.2.9, CRS 3.0 e CRS 3.1 só são suportadas co
 
 ## <a name="is-ddos-protection-integrated-with-front-door"></a>A proteção DDoS está integrada com a Porta da Frente? 
 
-Distribuído globalmente nas bordas da rede Azure, a Porta Frontal Azure pode absorver e isolar geograficamente grandes ataques de grande volume. Pode criar uma política WAF personalizada para bloquear e taxar automaticamente os ataques http(s) que tenham assinaturas conhecidas. Além disso, pode ativar o DDoS Protection Standard no VNet onde as suas extremidades traseiras estão implantadas. Os clientes Azure DDoS Protection Standard recebem benefícios adicionais, incluindo proteção de custos, garantia SLA e acesso a especialistas da DDoS Rapid Response Team para ajuda imediata durante um ataque.
+Distribuído globalmente nas bordas da rede Azure, a Porta Frontal Azure pode absorver e isolar geograficamente grandes ataques de grande volume. Pode criar uma política WAF personalizada para bloquear e taxar automaticamente os ataques http(s) que tenham assinaturas conhecidas. Além disso, pode ativar o DDoS Protection Standard no VNet onde as suas extremidades traseiras estão implantadas. Os clientes Azure DDoS Protection Standard recebem benefícios adicionais, incluindo proteção de custos, garantia SLA e acesso a especialistas da DDoS Rapid Response Team para ajuda imediata durante um ataque. Para mais informações, consulte [a proteção DDoS na Porta da Frente.](../../frontdoor/front-door-ddos.md)
 
 ## <a name="why-do-additional-requests-above-the-threshold-configured-for-my-rate-limit-rule-get-passed-to-my-backend-server"></a>Porque é que os pedidos adicionais acima do limiar configurado para a minha regra de limite de taxa são passados para o meu servidor de backend?
 

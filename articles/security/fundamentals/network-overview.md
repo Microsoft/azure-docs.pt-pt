@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 496ee1bc97f6b72e09a62ae3491af7ccc7328583
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a26228b33a7d90df558de2ecdf4686910e606a54
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80811099"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413297"
 ---
 # <a name="azure-network-security-overview"></a>Visão geral da segurança da rede Azure
 
@@ -63,7 +63,7 @@ O Azure suporta vários tipos de controlo de acesso à rede, tais como:
 Qualquer implementação segura requer alguma medida de controlo de acesso à rede. O objetivo do controlo de acesso à rede é restringir a comunicação de máquinas virtuais aos sistemas necessários. Outras tentativas de comunicação estão bloqueadas.
 
 > [!NOTE]
-> As firewalls de armazenamento estão cobertas pelo artigo [de segurança de armazenamento Azure](storage-overview.md)
+> As firewalls de armazenamento estão cobertas pelo artigo [de segurança de armazenamento Azure](../../storage/blobs/security-recommendations.md)
 
 #### <a name="network-security-rules-nsgs"></a>Regras de segurança da rede (NSGs)
 
@@ -77,11 +77,11 @@ Os NSGs não fornecem inspeção da camada de aplicação ou controlos de acesso
 
 Saiba mais:
 
-* [Grupos de Segurança de Rede](../../virtual-network/security-overview.md)
+* [Grupos de Segurança de Rede](../../virtual-network/network-security-groups-overview.md)
 
 #### <a name="asc-just-in-time-vm-access"></a>ASC mesmo a tempo do acesso vm
 
-[O centro de segurança Azure](../../security-center/security-center-intro.md) pode gerir os NSGs em VMs e bloquear o acesso ao VM até que um utilizador com as permissões de acesso de acesso adequadamente baseadas em funções, o [RBAC,](/azure/role-based-access-control/overview) solicite acesso. Quando o utilizador é autorizado com sucesso, a ASC faz modificações nos NSGs para permitir o acesso a portas selecionadas durante o tempo especificado. Quando o tempo expirar, os NSGs são restaurados ao seu estado de segurança anterior.
+[O centro de segurança Azure](../../security-center/security-center-introduction.md) pode gerir os NSGs em VMs e bloquear o acesso ao VM até que um utilizador com as permissões de acesso de acesso adequadamente baseadas em funções, o [RBAC,](../../role-based-access-control/overview.md) solicite acesso. Quando o utilizador é autorizado com sucesso, a ASC faz modificações nos NSGs para permitir o acesso a portas selecionadas durante o tempo especificado. Quando o tempo expirar, os NSGs são restaurados ao seu estado de segurança anterior.
 
 Saiba mais:
 
@@ -141,7 +141,7 @@ O Azure Firewall é um serviço de segurança de rede gerido e com base na cloud
 
 Saiba mais:
 
-* [Visão geral do Azure Firewall](/azure/firewall/overview)
+* [Visão geral do Azure Firewall](../../firewall/overview.md)
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Acesso remoto seguro e conectividade transversal
 
@@ -202,7 +202,7 @@ Saiba mais:
 
 Uma opção é que os serviços numa rede virtual se conectem a serviços noutra rede virtual, "voltando atrás" através da internet. A ligação começa numa rede virtual, passa pela internet e depois volta para a rede virtual de destino. Esta opção expõe a ligação às questões de segurança inerentes a qualquer comunicação baseada na Internet.
 
-Uma melhor opção pode ser criar uma VPN site-to-site que se conecta entre duas redes virtuais. Este método utiliza o mesmo protocolo do [modo de túnel IPSec](https://technet.microsoft.com/library/cc786385.aspx) que a ligação VPN local-local mencionada acima.
+Uma melhor opção pode ser criar uma VPN site-to-site que se conecta entre duas redes virtuais. Este método utiliza o mesmo protocolo do [modo de túnel IPSec](/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) que a ligação VPN local-local mencionada acima.
 
 A vantagem desta abordagem é que a ligação VPN é estabelecida através do tecido da rede Azure, em vez de se ligar através da internet. Isto proporciona-lhe uma camada extra de segurança, em comparação com as VPNs site-to-site que se conectam através da internet.
 
@@ -237,7 +237,7 @@ O Azure Application Gateway fornece um equilíbrio de carga baseado em HTTP para
 
 Saiba mais:
 
-* [Descrição geral do Gateway de Aplicação](/azure/application-gateway/application-gateway-introduction)
+* [Descrição geral do Gateway de Aplicação](../../application-gateway/overview.md)
 
 ### <a name="network-level-load-balancing"></a>Equilíbrio de carga de nível de rede
 
@@ -252,8 +252,8 @@ Pode obter os benefícios do equilíbrio de carga de nível de rede em Azure uti
 
 Saiba mais:
 
-* [Equilibrador de carga virado para a Internet entre várias máquinas ou serviços virtuais](/azure/load-balancer/load-balancer-internet-overview)
-* [Visão geral do balançador de carga interna](/azure/load-balancer/load-balancer-internal-overview)
+* [Equilibrador de carga virado para a Internet entre várias máquinas ou serviços virtuais](../../load-balancer/load-balancer-overview.md)
+* [Visão geral do balançador de carga interna](../../load-balancer/load-balancer-overview.md)
 
 ### <a name="global-load-balancing"></a>Equilíbrio global da carga
 
@@ -381,7 +381,7 @@ O Security Center ajuda-o a otimizar e monitorizar a segurança da rede através
 
 Saiba mais:
 
-* [Introdução ao Centro de Segurança do Azure](../../security-center/security-center-intro.md)
+* [Introdução ao Centro de Segurança do Azure](../../security-center/security-center-introduction.md)
 
 ### <a name="virtual-network-tap"></a>Rede Virtual TAP
 

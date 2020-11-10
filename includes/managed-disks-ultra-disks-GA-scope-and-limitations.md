@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines
 author: roygara
 ms.service: virtual-machines
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7b41105bafedb8eeaffe5f266f5dd824957c57e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eeda43b972e30c573743c8c59f75cfae61d7ee85
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91441181"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413149"
 ---
 Por enquanto, os discos ultra têm limitações adicionais, são os seguintes:
 
@@ -34,6 +34,7 @@ O quadro que se segue descreve as regiões em que os discos ultra estão dispon�
 |E.U.A. Centro-Sul    |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |US Gov - Arizona     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |US Gov - Virginia     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
+|US Gov - Texas     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |E.U.A. Oeste     |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)        |
 |Austrália Central    |Apenas VMs únicos (conjuntos de disponibilidade e conjuntos de escala de máquina virtual não são suportados)|
 |Leste da Austrália     |Três zonas de disponibilidade         |

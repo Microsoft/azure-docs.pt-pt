@@ -1,34 +1,38 @@
 ---
-title: Configurar diagnósticos
+title: Ativar e consultar registos de diagnósticos
 titleSuffix: Azure Digital Twins
-description: Veja como ativar o registo com as definições de diagnóstico.
+description: Veja como ativar o registo com as definições de diagnóstico e consulte os registos para visualização imediata.
 author: baanders
 ms.author: baanders
-ms.date: 7/28/2020
+ms.date: 11/9/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091740"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94411770"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins: Registo de diagnósticos
 
-A Azure Digital Twins recolhe [métricas](troubleshoot-metrics.md) para a sua instância de serviço que dão informações sobre o estado dos seus recursos. Você pode usar estas métricas para avaliar a saúde geral do serviço Azure Digital Twins e os recursos ligados a ele. Estas estatísticas viradas para o utilizador ajudam-no a ver o que se passa com as suas Gémeas Digitais Azure e ajudam a realizar análises de causa-raiz em problemas sem necessidade de contactar o suporte do Azure.
+A Azure Digital Twins pode recolher registos para a sua instância de serviço para monitorizar o seu desempenho, acesso e outros dados. Pode utilizar estes registos para ter uma ideia do que está a acontecer na sua instância Azure Digital Twins e realizar análises de causa-raiz em questões sem precisar de contactar o suporte do Azure.
 
-Este artigo mostra-lhe como ligar **o registo de diagnósticos** para os seus dados de métricas a partir da sua instância Azure Digital Twins. Pode utilizar estes registos para ajudá-lo a resolver problemas de serviço e configurar definições de diagnóstico para enviar métricas Azure Digital Twins para diferentes destinos. Pode ler mais sobre estas definições na [*Criar definições de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos.*](../azure-monitor/platform/diagnostic-settings.md)
+Este artigo mostra-lhe como [**configurar as definições**](#turn-on-diagnostic-settings) de diagnóstico no [portal Azure](https://portal.azure.com) para começar a recolher registos a partir da sua instância Azure Digital Twins. Também pode especificar onde os registos devem ser armazenados (como Log Analytics ou uma conta de armazenamento à sua escolha).
 
-## <a name="turn-on-diagnostic-settings-with-the-azure-portal"></a>Ligue as definições de diagnóstico com o portal Azure
+Este artigo também contém [listas](#log-categories) de todas as categorias de registos e [esquemas de registo](#log-schemas) que a Azure Digital Twins recolhe.
 
-Eis como ativar as definições de diagnóstico para a sua instância Azure Digital Twins:
+Depois de configurar registos, também pode [**consultar os registos**](#view-and-query-logs) para recolher rapidamente insights personalizados.
+
+## <a name="turn-on-diagnostic-settings"></a>Ligue as definições de diagnóstico 
+
+Ligue as definições de diagnóstico para começar a recolher registos na sua instância Azure Digital Twins. Também pode escolher o destino onde os registos exportados devem ser armazenados. Aqui está como ativar as definições de diagnóstico para o seu exemplo Azure Digital Twins.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para a sua instância Azure Digital Twins. Pode encontrá-lo digitando o seu nome na barra de pesquisa do portal. 
 
-2. Selecione **as definições** de diagnóstico do menu e, em seguida, **adicione a definição de diagnóstico** .
+2. Selecione **as definições** de diagnóstico do menu e, em seguida, **adicione a definição de diagnóstico**.
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot mostrando a página e botão de definições de diagnóstico para adicionar":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot mostrando a página e botão de definições de diagnóstico para adicionar" lightbox="media/troubleshoot-diagnostics/diagnostic-settings.png":::
 
 3. Na página que se segue, preencha os seguintes valores:
      * **Nome de definição de** diagnóstico : Dê um nome às definições de diagnóstico.
@@ -39,7 +43,7 @@ Eis como ativar as definições de diagnóstico para a sua instância Azure Digi
         - Consulta
         - AllMetrics
         
-        Para mais detalhes sobre estas opções, consulte a secção [*de detalhes*](#category-details) da categoria abaixo.
+        Para obter mais detalhes sobre estas categorias e as informações que contêm, consulte a secção [*de categorias de Registo*](#log-categories) abaixo.
      * **Detalhes do destino** : Escolha para onde pretende enviar os registos. Pode selecionar qualquer combinação das três opções:
         - Enviar para o Log Analytics
         - Arquivar numa conta de armazenamento
@@ -49,13 +53,15 @@ Eis como ativar as definições de diagnóstico para a sua instância Azure Digi
     
 4. Guarde as novas definições. 
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot mostrando a página e botão de definições de diagnóstico para adicionar":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings-details.png" alt-text="Screenshot mostrando a página de definição de diagnóstico onde o utilizador preencheu um nome de definição de diagnóstico, e fez algumas seleções de caixas de verificação para detalhes da categoria e detalhes do destino. O botão Guardar é realçado." lightbox="media/troubleshoot-diagnostics/diagnostic-settings-details.png":::
 
 As novas definições fazem efeito em cerca de 10 minutos. Depois disso, os registos aparecem no alvo configurado de volta na página **de definições de Diagnóstico,** para o seu exemplo. 
 
-## <a name="category-details"></a>Detalhes da categoria
+Para obter informações mais detalhadas sobre as definições de diagnóstico e as suas opções de configuração, pode visitar [*Criar configurações de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos.*](../azure-monitor/platform/diagnostic-settings.md)
 
-Aqui estão mais detalhes sobre as categorias de registo que podem ser selecionadas em **detalhes de categoria** ao configurar configurações de diagnóstico.
+## <a name="log-categories"></a>Categorias de registo
+
+Aqui estão mais detalhes sobre as categorias de registos que a Azure Digital Twins recolhe.
 
 | Categoria do registo | Description |
 | --- | --- |
@@ -108,7 +114,7 @@ Aqui estão as descrições de campo e propriedade para registos API.
 
 | Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
-| `Time` | DateTime | A data e hora em que este evento ocorreu, na UTC |
+| `Time` | Data e Hora | A data e hora em que este evento ocorreu, na UTC |
 | `ResourceID` | String | O ID de Recursos Azure Resource Manager para o recurso onde o evento teve lugar |
 | `OperationName` | String  | O tipo de ação que está a ser realizada durante o evento |
 | `OperationVersion` | String | A versão API utilizada durante o evento |
@@ -194,7 +200,7 @@ Este é o esquema para `ADTEventRoutesOperation` registos. Estes contêm detalhe
 
 |Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
-| `Time` | DateTime | A data e hora em que este evento ocorreu, na UTC |
+| `Time` | Data e Hora | A data e hora em que este evento ocorreu, na UTC |
 | `ResourceId` | String | O ID de Recursos Azure Resource Manager para o recurso onde o evento teve lugar |
 | `OperationName` | String  | O tipo de ação que está a ser realizada durante o evento |
 | `Category` | String | O tipo de recurso que está a ser emitido |
@@ -222,6 +228,34 @@ Abaixo estão os corpos JSON exemplo para este tipo de registos.
   }
 }
 ```
+
+## <a name="view-and-query-logs"></a>Ver e consultar registos
+
+No início deste artigo, configuraste os tipos de registos para armazenar e especificou a sua localização de armazenamento.
+
+Para resolver problemas e gerar insights a partir destes registos, pode gerar **consultas personalizadas**. Para começar, também pode aproveitar algumas consultas de exemplo fornecidas pelo serviço, que abordam questões comuns que os clientes podem ter sobre o seu caso.
+
+Aqui está como consultar os registos, por exemplo.
+
+1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue para a sua instância Azure Digital Twins. Pode encontrá-lo digitando o seu nome na barra de pesquisa do portal. 
+
+2. Selecione **Registos** do menu para abrir a página de consulta de registo. A página abre para uma janela chamada *Consultas.*
+
+    :::image type="content" source="media/troubleshoot-diagnostics/logs.png" alt-text="Screenshot mostrando a página de Logs para uma instância Azure Digital Twins. É sobreposta com uma janela de consultas mostrando consultas pré-construídas nomeadas após diferentes opções de log, como a Latência API digitalTwin e a latência da API modelo." lightbox="media/troubleshoot-diagnostics/logs.png":::
+
+    Estas são consultas de exemplo pré-construídas escritas para vários registos. Pode selecionar uma das consultas para carregá-lo no editor de consulta e executá-lo para ver estes registos para o seu exemplo.
+
+    Também pode fechar a janela *consultas* sem executar nada para ir diretamente para a página do editor de consulta, onde pode escrever ou editar código de consulta personalizado.
+
+3. Depois de sair da janela *consultas,* verá a página principal do editor de consultas. Aqui pode ver e editar o texto das consultas de exemplo, ou escrever as suas próprias consultas de raiz.
+    :::image type="content" source="media/troubleshoot-diagnostics/logs-query.png" alt-text="Screenshot mostrando a página de Logs para uma instância Azure Digital Twins. A janela de consultas desapareceu, e em vez disso há uma lista de registos diferentes, um painel de edição mostrando código de consulta editável, e um painel mostrando Histórico de Consultas." lightbox="media/troubleshoot-diagnostics/logs-query.png":::
+
+    No painel esquerdo, 
+    - O separador *Tabelas* mostra as [diferentes categorias de registo](#log-categories) de gémeos Azure Digital que estão disponíveis para usar nas suas consultas. 
+    - O separador *Consultas* contém as consultas de exemplo que pode carregar no editor.
+    - O *separador Filtro* permite-lhe personalizar uma visão filtrada dos dados que a consulta devolve.
+
+Para obter informações mais detalhadas sobre consultas de registo e como escrevê-las, pode visitar a [*Visão Geral das consultas de registo no Azure Monitor*](../azure-monitor/log-query/log-query-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

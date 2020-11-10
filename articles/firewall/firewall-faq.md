@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 08/13/2020
 ms.author: victorh
-ms.openlocfilehash: 75435155ba1dad798d301006a30a5d5b6e96226a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8b94b71993285a61042be3c6cd9e4708315fab9f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88611182"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413008"
 ---
 # <a name="azure-firewall-faq"></a>FAQ do Azure Firewall
 
@@ -40,9 +40,9 @@ A Azure Firewall suporta regras e coleções de regras. Uma coleção de regras 
 
 Existem três tipos de coleções de regras:
 
-* *Regras de aplicação*: Configurar nomes de domínio totalmente qualificados (FQDNs) que podem ser acedidos a partir de uma sub-rede.
-* *Regras de rede*: Configurar regras que contenham endereços de origem, protocolos, portas de destino e endereços de destino.
-* *Regras NAT*: Configurar as regras do DNAT para permitir a entrada de ligações à Internet.
+* *Regras de aplicação* : Configurar nomes de domínio totalmente qualificados (FQDNs) que podem ser acedidos a partir de uma sub-rede.
+* *Regras de rede* : Configurar regras que contenham endereços de origem, protocolos, portas de destino e endereços de destino.
+* *Regras NAT* : Configurar as regras do DNAT para permitir a entrada de ligações à Internet.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>O Azure Firewall suporta a filtragem de tráfego de entrada?
 
@@ -115,7 +115,7 @@ Sim, pode utilizar o Azure Firewall numa rede virtual do hub para encaminhar e f
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>O Azure Firewall pode avançar e filtrar o tráfego de rede entre sub-redes na mesma rede virtual ou redes virtuais?
 
-Sim. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes no mesmo VNET requer uma atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também liga todo o tráfego de uma máquina para outra máquina na mesma sub-rede através da instância Azure Firewall. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para a segmentação interna da rede é utilizar grupos de segurança de rede, que não requerem RAM.
+Yes. No entanto, configurar as UDRs para redirecionar o tráfego entre sub-redes no mesmo VNET requer uma atenção adicional. Ao utilizar a gama de endereços VNET como prefixo-alvo para o UDR é suficiente, isto também liga todo o tráfego de uma máquina para outra máquina na mesma sub-rede através da instância Azure Firewall. Para evitar isto, inclua uma rota para a sub-rede na UDR com um próximo tipo de **VNET**. Gerir estas rotas pode ser complicado e propenso a erros. O método recomendado para a segmentação interna da rede é utilizar grupos de segurança de rede, que não requerem RAM.
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>A Azure Firewall sai do SNAT entre redes privadas?
 
@@ -131,17 +131,17 @@ Se a sua configuração necessitar de um túnel forçado para uma rede no local 
 
 ## <a name="are-there-any-firewall-resource-group-restrictions"></a>Existem restrições ao grupo de recursos de firewall?
 
-Sim. A firewall, o VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
+Yes. A firewall, o VNet e o endereço IP público devem estar todos no mesmo grupo de recursos.
 
 ## <a name="when-configuring-dnat-for-inbound-internet-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>Ao configurar o DNAT para o tráfego de rede de Internet de entrada, também preciso de configurar uma regra de rede correspondente para permitir esse tráfego?
 
-N.º As regras da NAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
+Não. As regras da NAT adicionam implicitamente uma regra de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido. Para saber mais sobre a lógica de processamento de regras do Azure Firewall, veja [Lógica de processamento de regras do Azure Firewall](rule-processing.md).
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>Como funcionam os wildcards numa regra de aplicação alvo FQDN?
 
-Wildcards atualmente só podem ser usados no lado esquerdo do FQDN. Por exemplo, ***.contoso.com** e ***contoso.com**.
+Wildcards atualmente só podem ser usados no lado esquerdo do FQDN. Por exemplo, * *_.contoso.com_* e * *_contoso.com_*.
 
-Se configurar ***.contoso.com,** permite *qualquer valor*.contoso.com, mas não contoso.com (o ápice do domínio). Se quiser permitir o ápice de domínio, deve configurá-lo explicitamente como um FQDN alvo.
+Se configurar * *_.contoso.com,_* permite *qualquer valor*.contoso.com, mas não contoso.com (o ápice do domínio). Se quiser permitir o ápice de domínio, deve configurá-lo explicitamente como um FQDN alvo.
 
 ## <a name="what-does-provisioning-state-failed-mean"></a>O que *significa Provisioning: Falhado?*
 
@@ -156,7 +156,7 @@ Para qualquer manutenção planeada, a lógica de drenagem de ligação atualiza
 
 ## <a name="is-there-a-character-limit-for-a-firewall-name"></a>Existe um limite de caracteres para um nome de firewall?
 
-Sim. Há um limite de 50 caracteres para um nome de firewall.
+Yes. Há um limite de 50 caracteres para um nome de firewall.
 
 ## <a name="why-does-azure-firewall-need-a-26-subnet-size"></a>Porque é que o Azure Firewall precisa de uma sub-rede /26?
 
@@ -164,7 +164,7 @@ O Azure Firewall deve providenciar mais casos de máquinas virtuais à medida qu
 
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>O tamanho da sub-rede de firewall precisa de ser alterado à medida que a balança de serviço é alterada?
 
-N.º A Azure Firewall não precisa de uma sub-rede maior que /26.
+Não. A Azure Firewall não precisa de uma sub-rede maior que /26.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>Como posso aumentar a minha produção de firewall?
 
@@ -178,7 +178,7 @@ Ao testar o desempenho, certifique-se de testar durante pelo menos 10 a 15 minut
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>O Azure Firewall permite o acesso ao Ative Directory por defeito?
 
-N.º Azure Firewall bloqueia o acesso ao Ative Directory por predefinição. Para permitir o acesso, configurar a etiqueta de serviço AzureActiveDirectory. Para obter mais informações, consulte [as etiquetas de serviço Azure Firewall](service-tags.md).
+Não. Azure Firewall bloqueia o acesso ao Ative Directory por predefinição. Para permitir o acesso, configurar a etiqueta de serviço AzureActiveDirectory. Para obter mais informações, consulte [as etiquetas de serviço Azure Firewall](service-tags.md).
 
 ## <a name="can-i-exclude-a-fqdn-or-an-ip-address-from-azure-firewall-threat-intelligence-based-filtering"></a>Posso excluir um FQDN ou um endereço IP da filtragem baseada em ameaças de firewall Azure?
 
@@ -205,11 +205,11 @@ Set-AzFirewall -AzureFirewall $fw
 
 ## <a name="why-can-a-tcp-ping-and-similar-tools-successfully-connect-to-a-target-fqdn-even-when-no-rule-on-azure-firewall-allows-that-traffic"></a>Por que um ping TCP e ferramentas semelhantes podem ligar-se com sucesso a um FQDN alvo mesmo quando nenhuma regra sobre a Firewall Azure permite esse tráfego?
 
-Um ping TCP não está realmente ligado ao FQDN alvo. Isto acontece porque o representante transparente da Azure Firewall ouve na porta 80/443 para tráfego de saída. O ping TCP estabelece uma ligação com a firewall, que depois deixa cair o pacote e regista a ligação. Este comportamento não tem nenhum impacto na segurança. No entanto, para evitar confusões, estamos a investigar possíveis alterações a este comportamento.
+Um ping TCP não está realmente ligado ao FQDN alvo. Isto acontece porque o representante transparente da Azure Firewall ouve na porta 80/443 para tráfego de saída. O ping TCP estabelece uma ligação com a firewall, que depois deixa cair o pacote. Este comportamento não tem nenhum impacto na segurança. No entanto, para evitar confusões, estamos a investigar possíveis alterações a este comportamento.
 
 ## <a name="are-there-limits-for-the-number-of-ip-addresses-supported-by-ip-groups"></a>Existem limites para o número de endereços IP suportados por grupos IP?
 
-Sim. Para mais informações, consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+Yes. Para mais informações, consulte [limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
 
 ## <a name="can-i-move-an-ip-group-to-another-resource-group"></a>Posso mover um Grupo IP para outro grupo de recursos?
 

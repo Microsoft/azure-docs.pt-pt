@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/05/2020
 author: christopheranderson
 ms.author: chrande
-ms.openlocfilehash: 6c48639279556d495be57a2933f1d7f3c139294a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 43bcd54955cb1a8aaf08785368faf13c14f8322c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361119"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413059"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Utilize a Bússola MongoDB para ligar à API da Azure Cosmos DB para a MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -27,9 +27,6 @@ Para se ligar à sua conta Cosmos DB usando a Bússola MongoDB, deve:
 
 * Descarregue e [instale a Bússola](https://www.mongodb.com/download-center/compass?jmp=hero)
 * Tenha a sua [informação](connect-mongodb-account.md) sobre a cadeia de conexão Cosmos DB
-
-> [!NOTE]
-> Atualmente, a API da Azure Cosmos DB para a versão 3.2 do MongoDB Server é suportada com a versão mais recente da MongoDB Compass. A Bússola MongoDB ainda não está suportada com a versão do servidor 3.6. 
 
 ## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>Ligue-se à API da Cosmos DB para o MongoDB
 
@@ -55,7 +52,7 @@ Para ligar a sua conta Cosmos DB à Bússola, pode seguir os passos abaixo:
 
 6. Clique em **Ligar** na parte inferior da página. A sua conta e bases de dados cosmos DB devem agora ser visíveis dentro da Bússola MongoDB.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Aprenda a usar o [Studio 3T](mongodb-mongochef.md) com a API da Azure Cosmos DB para a MongoDB.
 - Explore [as amostras](mongodb-samples.md) do MongoDB com a API da Azure Cosmos para a MongoDB.
