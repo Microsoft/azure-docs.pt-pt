@@ -7,15 +7,15 @@ metadata:
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
-  author: keferna
-  ms.author: keferna
+  author: mingshen-ms
+  ms.author: mingshen
   ms.date: 09/02/2020
-  ms.openlocfilehash: 01ab8b0e27e8f1b9bfc326330214bcdb118dd6bd
-  ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+  ms.openlocfilehash: ee2bb685ba1313bcb54d8f32c2952a03258829b3
+  ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/30/2020
-  ms.locfileid: "93127285"
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94491550"
 landingContent:
 - title: Trabalhar no marketplace comercial
   linkLists:

@@ -471,6 +471,8 @@
               href: flexible-server/concepts-high-availability.md
         - name: Monitorização e registos
           items:
+            - name: Parâmetros do servidor
+              href: flexible-server/concepts-server-parameters.md
             - name: Registos de consulta lenta
               href: flexible-server/concepts-slow-query-logs.md
             - name: Registos de auditoria
