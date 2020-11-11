@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: bfb7d1d52549d7fda9547b65a259fe2ce73f8839
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 22d2ddc65616bbeb0c511afa6f60bc12c6ec67ef
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997917"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482633"
 ---
 ## <a name="supported-operating-systems-and-drivers"></a>Sistemas operativos e controladores suportados
 
@@ -34,12 +34,12 @@ Os controladores NVIDIA Tesla (CUDA) para NC, NCv2, NCv3, NCasT4_v3, ND e NDv2 s
 
 A Microsoft redistribui os instaladores de controladores NVIDIA GRID para VMs da série NV e NVv3 utilizados como estações de trabalho virtuais ou para aplicações virtuais. Instale apenas estes controladores GRID em VMs da série Azure NV, apenas nos sistemas operativos listados na tabela seguinte. Estes controladores incluem licenciamento para GRID Virtual GPU Software em Azure. Não precisa de configurar um servidor de licença de software NVIDIA vGPU.
 
-Os controladores GRID redistribuídos pela Azure não funcionam em VMs não-NV séries como NC, NCv2, NCv3, ND e NDv2 série VMs.
+Os controladores GRID redistribuídos pela Azure não funcionam em VMs não-NV séries como NC, NCv2, NCv3, ND e NDv2 série VMs. A única exceção é a série VM NCas_T4_V3 onde os controladores GRID permitirão as funcionalidades gráficas semelhantes às séries NV.
 
 Por favor, note que a extensão da Nvidia irá sempre instalar o mais recente controlador. Fornecemos links para a versão anterior aqui para clientes, que têm dependência de uma versão mais antiga.
 
 Para o Windows Server 2019, Windows Server 2016 e Windows 10 (até 2004):
-- [GRELHA 11 (452.39)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
+- [GRELHA 11.1 (452.39)](https://go.microsoft.com/fwlink/?linkid=874181) (.exe)
 - [GRELHA 11.0 (451.48)](https://download.microsoft.com/download/C/1/4/c147a482-1364-4d12-b9e3-0beda0f00a13/451.48_grid_win10_server2016_server2019_64bit_international.exe) (.exe) 
 
 Para o Windows Server 2012 R2: 

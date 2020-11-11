@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: eaa7efe761490a639acabd9fd6d91378e1259a67
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ff9eca855269597477bc42a319c99c886576d92c
+ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779828"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94482642"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -147,7 +147,8 @@ Isto devolve uma corda que representa o estado atual de uma chamada:
 * 'Connected' - chamada está ligada
 * 'Hold' - a chamada é colocada em espera, nenhum meio de comunicação está fluindo entre o ponto final local e o(s) participante remoto(s)
 * 'Disconnecting' - estado de transição antes da chamada ir para o estado 'Desligado'
-* 'Desligado' - estado de chamada final
+* 'Desligado' - estado de chamada final.
+   * Se a ligação à rede for perdida, o estado vai para 'Desligado' após cerca de 2 minutos.
 
 
 * Para ver por que uma chamada terminou, inspecione a `callEndReason` propriedade.
@@ -233,6 +234,9 @@ const source callClient.getDeviceManager().getCameraList()[1];
 localVideoStream.switchSource(source);
 
 ```
+### <a name="faq"></a>FAQ
+ * Se a conectividade da rede se perder, o estado de chamada muda para 'Desligado' ?
+    * Sim, se a ligação à rede se perder por mais de 2 minutos, a chamada irá transitar para estado desligado e a chamada terminará.
 
 ## <a name="remote-participants-management"></a>Gestão de participantes remotos
 
@@ -270,7 +274,8 @@ Estado pode ser um dos
 * 'Connected' - participante está ligado à chamada
 * 'Hold' - participante está em espera
 * 'EarlyMedia' - o anúncio é jogado antes do participante estar ligado à chamada
-* 'Desligado' - estado final - participante é desligado da chamada
+* 'Desligado' - estado final - o participante está desligado da chamada.
+   * Se o participante remoto perder a conectividade da rede, o estado do participante remoto vai para 'Desligado' após cerca de 2 minutos.
 
 Para saber por que o participante deixou a chamada, inspecione `callEndReason` a propriedade:
 ```js
@@ -410,7 +415,9 @@ Pode atualizar mais tarde o modo de escala, invocando o `updateScalingMode` mét
 ```js
 view.updateScalingMode('Crop')
 ```
-
+### <a name="faq"></a>FAQ
+* Se um participante remoto perder a sua ligação à rede, o seu estado muda para 'Desligado' ?
+    * Sim, se um participante remoto perder a sua ligação de rede por mais de 2 minutos, o seu estado irá transitar para Desligado e eles serão removidos da chamada.
 ## <a name="device-management"></a>Gestão de dispositivos
 
 `DeviceManager` permite enumerar dispositivos locais que podem ser usados numa chamada para transmitir os seus streams de áudio/vídeo. Também permite solicitar permissão a um utilizador para aceder ao seu microfone e câmera usando a API do navegador nativo.
