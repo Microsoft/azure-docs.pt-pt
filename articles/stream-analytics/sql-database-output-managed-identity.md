@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: c703dd4053cc27d469d83d344da910e8e5b23ddb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ec260c2e71d1716eb4de9ad25942f61169356dfb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129903"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491346"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Utilize identidades geridas para aceder à Base de Dados Azure SQL a partir de um trabalho de Azure Stream Analytics (Preview)
 
@@ -33,7 +33,7 @@ Primeiro, cria-se uma identidade gerida para o seu trabalho Azure Stream Analyti
 
 1. No [portal Azure,](https://portal.azure.com)abra o seu trabalho Azure Stream Analytics.
 
-1. A partir do menu de navegação à esquerda, **selecione Identidade Gerida** localizada em **Configuração.** Em seguida, verifique a caixa ao lado **da Identidade Gerida atribuída ao Sistema** e selecione **Save** .
+1. A partir do menu de navegação à esquerda, **selecione Identidade Gerida** localizada em **Configuração.** Em seguida, verifique a caixa ao lado **da Identidade Gerida atribuída ao Sistema** e selecione **Save**.
 
    ![Selecione identidade gerida atribuída pelo sistema](./media/sql-db-output-managed-identity/system-assigned-managed-identity.png)
 
@@ -44,7 +44,7 @@ Primeiro, cria-se uma identidade gerida para o seu trabalho Azure Stream Analyti
 
    ![ID do objeto mostrado como ID principal](./media/sql-db-output-managed-identity/principal-id.png)
 
-   O diretor de serviço tem o mesmo nome que o trabalho da Stream Analytics. Por exemplo, se o nome do seu trabalho for *MyASAJob,* o nome do diretor de serviço também é *MyASAJob* .
+   O diretor de serviço tem o mesmo nome que o trabalho da Stream Analytics. Por exemplo, se o nome do seu trabalho for *MyASAJob,* o nome do diretor de serviço também é *MyASAJob*.
 
 ## <a name="select-an-active-directory-admin"></a>Selecione um administrador de diretório ativo
 
@@ -52,11 +52,11 @@ Depois de criar uma identidade gerida, selecione um administrador do Ative Direc
 
 1. Navegue para o seu recurso Azure SQL Database e selecione o SQL Server em que a base de dados está. Pode encontrar o nome do Servidor SQL ao lado *do nome do Servidor* na página de visão geral do recurso. 
 
-1. Selecione **Ative Directory Admin** em **Definições** . Em seguida, selecione **Definir administração** . 
+1. Selecione **Ative Directory Admin** em **Definições**. Em seguida, selecione **Definir administração**. 
 
    ![Página de administração de diretório ativo](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
  
-1. Na página de administração do Ative Directory, procure um utilizador ou grupo para ser administrador do SqL Server e clique em **Select** .
+1. Na página de administração do Ative Directory, procure um utilizador ou grupo para ser administrador do SqL Server e clique em **Select**.
 
    ![Adicionar administrador de diretório ativo](./media/sql-db-output-managed-identity/add-admin.png)
 
@@ -86,11 +86,11 @@ Em seguida, cria um utilizador de base de dados contido na sua Base de Dados SQL
 
    1. Em caso afirmativo, aceda ao seu recurso SQL Server no portal Azure. Sob a secção **de Segurança,** abra as Firewalls e a página **de rede virtual.** 
    1. Adicione uma nova regra com qualquer nome de regra.
-   1. Utilize o endereço *IP a* partir da janela New **Firewall Rule** para o IP *inicial* .
-   1. Utilize o endereço *Para* IP a partir da janela **New Firewall Rule** para O IP *final* . 
+   1. Utilize o endereço *IP a* partir da janela New **Firewall Rule** para o IP *inicial*.
+   1. Utilize o endereço *Para* IP a partir da janela **New Firewall Rule** para O IP *final*. 
    1. **Selecione Save** e tente ligar-se do SQL Server Management Studio novamente. 
 
-1. Uma vez ligado, crie o utilizador da base de dados contido. O seguinte comando SQL cria um utilizador de base de dados contido que tem o mesmo nome que o seu trabalho stream Analytics. Certifique-se de que inclui os suportes à volta do *ASA_JOB_NAME* . Utilize a seguinte sintaxe T-SQL e faça a consulta. 
+1. Uma vez ligado, crie o utilizador da base de dados contido. O seguinte comando SQL cria um utilizador de base de dados contido que tem o mesmo nome que o seu trabalho stream Analytics. Certifique-se de que inclui os suportes à volta do *ASA_JOB_NAME*. Utilize a seguinte sintaxe T-SQL e faça a consulta. 
 
    ```sql
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
@@ -110,7 +110,7 @@ Para conceder apenas permissão a uma determinada tabela ou objeto na base de da
 GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
 ```
 
-Em alternativa, pode clicar com o botão direito na sua base de dados SQL no SQL Server Management Studio e selecionar **Permissões > propriedades** . A partir do menu de permissões, pode ver o trabalho stream Analytics que adicionou anteriormente, e pode conceder ou negar permissões manualmente como entender.
+Em alternativa, pode clicar com o botão direito na sua base de dados SQL no SQL Server Management Studio e selecionar **Permissões > propriedades**. A partir do menu de permissões, pode ver o trabalho stream Analytics que adicionou anteriormente, e pode conceder ou negar permissões manualmente como entender.
 
 ## <a name="create-an-azure-sql-database-output"></a>Criar uma saída de Base de Dados Azure SQL
 
@@ -118,11 +118,15 @@ Agora que a sua identidade gerida está configurada, está pronto para adicionar
 
 Certifique-se de que criou uma tabela na sua Base de Dados SQL com o esquema de saída apropriado. O nome desta tabela é uma das propriedades necessárias que tem de ser preenchida quando adiciona a saída sql Database à função Stream Analytics. Além disso, certifique-se de que o trabalho tem permissões **SELECT** e **INSERT** para testar a ligação e executar consultas stream Analytics. Consulte a secção [de permissões de emprego grant Stream Analytics](#grant-stream-analytics-job-permissions) se ainda não o fez. 
 
-1. Volte para o seu trabalho stream Analytics e navegue para a página **outputs** em **Job Topology** . 
+1. Volte para o seu trabalho stream Analytics e navegue para a página **outputs** em **Job Topology**. 
 
-1. **Selecione adicionar > base de dados SQL** . Na janela de propriedades de saída do lavatório de saída SQL Database, selecione **Identidade Gerida** a partir do modo de autenticação.
+1. **Selecione adicionar > base de dados SQL**. Na janela de propriedades de saída do lavatório de saída SQL Database, selecione **Identidade Gerida** a partir do modo de autenticação.
 
-1. Preencha o resto das propriedades. Para saber mais sobre a criação de uma saída de Base de Dados SQL, consulte [Criar uma saída de Base de Dados SQL com Stream Analytics](sql-database-output.md). Quando terminar, **selecione Save** . 
+1. Preencha o resto das propriedades. Para saber mais sobre a criação de uma saída de Base de Dados SQL, consulte [Criar uma saída de Base de Dados SQL com Stream Analytics](sql-database-output.md). Quando terminar, **selecione Save**. 
+
+## <a name="remove-managed-identity"></a>Remover Identidade Gerida
+
+A Identidade Gerida criada para um trabalho stream Analytics só é eliminada quando o trabalho é eliminado. Não há como apagar a Identidade Gerida sem apagar o trabalho. Se já não pretender utilizar a Identidade Gerida, pode alterar o método de autenticação para a saída. A Identidade Gerida continuará a existir até que o trabalho seja eliminado, e será usado se decidir utilizar novamente a autenticação de Identidade Gerida.
 
 ## <a name="next-steps"></a>Passos seguintes
 

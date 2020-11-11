@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 551f0065f1547e94d93993a38795234f455b9eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b20391c4d856a5c52b6017ae892ec0b86873dbca
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044401"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491890"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Authenticate Stream Analytics para Azure Data Lake Storage Gen1 usando identidades geridas
 
@@ -175,10 +175,14 @@ Este artigo mostra-lhe três maneiras de ativar a identidade gerida para um trab
 
    Para saber mais sobre o comando PowerShell acima, consulte a documentação [Set-AzLakeStoreItemAclEntry.](/powershell/module/az.datalakestore/set-azdatalakestoreitemaclentry)
 
+## <a name="remove-managed-identity"></a>Remover Identidade Gerida
+
+A Identidade Gerida criada para um trabalho stream Analytics só é eliminada quando o trabalho é eliminado. Não há como apagar a Identidade Gerida sem apagar o trabalho. Se já não pretender utilizar a Identidade Gerida, pode alterar o método de autenticação para a saída. A Identidade Gerida continuará a existir até que o trabalho seja eliminado, e será usado se decidir utilizar novamente a autenticação de Identidade Gerida.
+
 ## <a name="limitations"></a>Limitações
 Esta funcionalidade não suporta o seguinte:
 
-1. **Acesso multi-inquilino**: O diretor de serviço criado para um determinado trabalho stream Analytics residirá no inquilino do Azure Ative Directory em que o trabalho foi criado, e não pode ser usado contra um recurso que reside em um inquilino azure Ative Directory. Portanto, você só pode usar MSI em recursos ADLS Gen 1 que estão dentro do mesmo inquilino Azure Ative Directory que o seu trabalho Azure Stream Analytics. 
+1. **Acesso multi-inquilino** : O diretor de serviço criado para um determinado trabalho stream Analytics residirá no inquilino do Azure Ative Directory em que o trabalho foi criado, e não pode ser usado contra um recurso que reside em um inquilino azure Ative Directory. Portanto, você só pode usar MSI em recursos ADLS Gen 1 que estão dentro do mesmo inquilino Azure Ative Directory que o seu trabalho Azure Stream Analytics. 
 
 2. **[Identidade atribuída ao utilizador:](../active-directory/managed-identities-azure-resources/overview.md)** não é suportado. Isto significa que o utilizador não pode introduzir o seu próprio principal de serviço para ser utilizado pelo seu trabalho stream Analytics. O principal do serviço é gerado pela Azure Stream Analytics.
 

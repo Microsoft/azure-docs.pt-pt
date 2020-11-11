@@ -3,12 +3,12 @@ title: Criar políticas programaticamente
 description: Este artigo acompanha-o através de políticas programáticas para a Política Azure com Azure CLI, Azure PowerShell e REST API.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2bf2b1864331fd785ecdd70be4af79be01f1e5e0
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89047060"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491805"
 ---
 # <a name="programmatically-create-policies"></a>Criar políticas programaticamente
 
@@ -92,7 +92,7 @@ O primeiro passo para uma melhor visibilidade dos seus recursos é criar e atrib
 
    - Recurso - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Grupo de recursos - `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Assinatura - `/subscriptions/{subId}/`
+   - Assinatura - `/subscriptions/{subId}`
    - Grupo de gestão - `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Para obter mais informações sobre a gestão das políticas de recursos utilizando o módulo PowerShell do Gestor de Recursos, consulte [Az.Resources](/powershell/module/az.resources/#policies).

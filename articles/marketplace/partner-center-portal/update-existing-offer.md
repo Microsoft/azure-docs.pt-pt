@@ -4,16 +4,16 @@ description: Como fazer atualizações para uma oferta ou plano de mercado comer
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperfq2
-ms.openlocfilehash: 376852c214d503867cd938507760e963b9b75e93
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3d96973d4d1e37ae3fee21eb70e3e32a45867f0c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129988"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491958"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Atualizar as ofertas existentes no mercado comercial
 
@@ -25,7 +25,7 @@ Use estes passos para atualizar uma oferta que foi publicada com sucesso para vi
 
 1. Selecione o nome da oferta que gostaria de atualizar. O estado da oferta pode ser listado como **Preview** , **Live** , **Publish em curso** , **Draft** , **Atenção necessária** , ou **Não disponível** (se já escolheu deixar de vender a oferta). Uma vez selecionado, a página geral da **Oferta** para essa oferta será aberta.
 1. Selecione a página de oferta que pretende atualizar, como Propriedades , **Listagem de Ofertas** ou **Pré-visualização** (ou selecione **Update** a partir do cartão aplicável na página geral da **Oferta).** **Properties**
-1. Faça as alterações e **selecione Guardar o rascunho** . Repita este processo até que todas as alterações estejam completas.
+1. Faça as alterações e **selecione Guardar o rascunho**. Repita este processo até que todas as alterações estejam completas.
 1. Reveja as suas alterações na página **[Compare.](#compare-changes-to-your-offer)**
 1. Quando estiver pronto para publicar a sua oferta atualizada, selecione **'Rever' e publicar** a partir de qualquer página. A **página de Revisão e publicação** abrirá. Nesta página verá o estado de conclusão das secções da oferta que atualizou: 
     - **Alterações não publicadas** : A secção foi atualizada e está completa. Todos os dados necessários foram fornecidos e não foram introduzidos erros nas atualizações.
@@ -39,7 +39,7 @@ Use estes passos para atualizar uma oferta que foi publicada com sucesso para vi
 
 Complete estes passos para adicionar um novo plano a uma oferta que já publicou.
 
-1. Com a página geral da **Oferta** para a sua oferta existente aberta, vá à página **de visão geral** do Plano e, em seguida, selecione Criar novo **plano** .
+1. Com a página geral da **Oferta** para a sua oferta existente aberta, vá à página **de visão geral** do Plano e, em seguida, selecione Criar novo **plano**.
 1. Crie um novo plano de acordo com as [diretrizes](../plans-pricing.md) utilizando o modelo de preços dos **planos existentes.**
 1. **Selecione Guardar o projeto** depois de alterar o nome do plano.
 1. **Selecione Publicar** quando estiver pronto para publicar as suas atualizações. A página **[de Revisão e publicação](../review-publish-offer.md)** abre e fornece um estado de conclusão para as suas atualizações.
@@ -48,8 +48,8 @@ Complete estes passos para adicionar um novo plano a uma oferta que já publicou
 
 Complete estes passos para fazer alterações a um plano para uma oferta que já publicou.
 
-1. Com a página geral da **Oferta** para a sua oferta existente aberta, escolha o plano que pretende alterar. Se o plano não estiver acessível a partir da lista **de visão geral** do Plano, selecione Ver todos os **planos** .
-1. Selecione o modelo **de plano,** **preço** ou **disponibilidade** . *Atualmente, os planos estão disponíveis apenas em inglês (Estados Unidos)* .
+1. Com a página geral da **Oferta** para a sua oferta existente aberta, escolha o plano que pretende alterar. Se o plano não estiver acessível a partir da lista **de visão geral** do Plano, selecione Ver todos os **planos**.
+1. Selecione o modelo **de plano,** **preço** ou **disponibilidade**. *Atualmente, os planos estão disponíveis apenas em inglês (Estados Unidos)*.
 1. **Selecione Guardar o rascunho** depois de escoar quaisquer alterações ao nome do plano, descrição ou disponibilidade do público.
 1. Selecione **'Rever' e publique** quando estiver pronto para publicar as suas atualizações. A página **[de Revisão e publicação](../review-publish-offer.md)** abre e fornece um estado de conclusão para as suas atualizações.
 1. Selecione **Publicar** para submeter o plano atualizado de publicação. Enviaremos um e-mail quando estiver disponível uma versão de pré-visualização da oferta atualizada para que possa rever e aprovar.
@@ -58,19 +58,19 @@ Complete estes passos para fazer alterações a um plano para uma oferta que já
 
 Depois de publicado um plano de máquina virtual, o seu preço não pode ser alterado. Para oferecer o mesmo plano a um preço diferente, você deve esconder o plano e criar um novo com o preço atualizado. Primeiro, esconda o plano com o preço que quer mudar:
 
-1. Com a página geral da **Oferta** para a sua oferta existente aberta, escolha o plano que pretende alterar. Se o plano não estiver acessível a partir da lista **de visão geral** do Plano, selecione Ver todos os **planos** .
+1. Com a página geral da **Oferta** para a sua oferta existente aberta, escolha o plano que pretende alterar. Se o plano não estiver acessível a partir da lista **de visão geral** do Plano, selecione Ver todos os **planos**.
 1. Selecione a caixa de verificação **do plano Oculta.** Guarde o rascunho antes de continuar.
 
 Agora que escondeu o plano com o preço antigo, crie uma cópia desse plano com o preço atualizado:
 
 1. No Partner Center, volte à **visão geral do Plano.**
-2. **Selecione Criar novo plano.** Introduza um **ID do plano** e um **nome de Plano** e, em seguida, selecione **Criar** .
+2. **Selecione Criar novo plano.** Introduza um **ID do plano** e um **nome de Plano** e, em seguida, selecione **Criar**.
 1. Para reutilizar a configuração técnica do plano que ocultou, selecione a caixa **de verificação de configuração técnica de Reutilização.** Leia [Criar planos para uma oferta de VM](../azure-vm-create-plans.md) para saber mais.
     > [!IMPORTANT]
     > Se selecionar **Este plano reutiliza a configuração técnica de outro plano,** não poderá deixar de vender o plano dos pais mais tarde. Não use esta opção se quiser parar de vender o plano dos pais.
 3. Complete todas as secções necessárias para o novo plano, incluindo o novo preço.
-1. Selecione **Guardar rascunho** .
-1. Depois de ter concluído todas as secções necessárias para o novo plano, selecione **'Rever' e publicar** . Isto submeterá a sua oferta para revisão e publicação. Leia [a Revisão e publique uma oferta no mercado comercial](../review-publish-offer.md) para mais detalhes.
+1. Selecione **Guardar rascunho**.
+1. Depois de ter concluído todas as secções necessárias para o novo plano, selecione **'Rever' e publicar**. Isto submeterá a sua oferta para revisão e publicação. Leia [a Revisão e publique uma oferta no mercado comercial](../review-publish-offer.md) para mais detalhes.
 
 ## <a name="sync-private-plan-audiences"></a>Sync público de plano privado
 
@@ -116,7 +116,7 @@ Lembre-se de republicar a sua oferta depois de fazer atualizações para que as 
 Se tiver alterações na pré-visualização que não estão ao vivo, pode comparar novas alterações com a oferta de pré-visualização do mercado.
 
 1. **Selecione Compare** na barra de comando da página.
-2. Selecione o **Com** dropdown e altere-o da **oferta ao vivo** para a oferta de **pré-visualização** . Se a sua oferta ainda não foi ao vivo, não verá a opção **de oferta ao vivo.**
+2. Selecione o **Com** dropdown e altere-o da **oferta ao vivo** para a oferta de **pré-visualização**. Se a sua oferta ainda não foi ao vivo, não verá a opção **de oferta ao vivo.**
 3. A página **Compare** fornece versões lado a lado que mostram as alterações.
 
 Lembre-se de republicar a sua oferta depois de fazer atualizações para que as alterações produzam efeitos.

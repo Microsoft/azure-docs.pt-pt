@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 09/10/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87239e361b518a85cf30352374e7a9b5e530928e
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 32d9683012a5900569740080d61ac21b464a5cd4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042619"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490615"
 ---
 # <a name="what-is-risk"></a>O que é o risco?
 
@@ -24,14 +24,14 @@ As deteções de risco na Azure AD Identity Protection incluem quaisquer ações
 
 A Proteção de Identidade proporciona às organizações acesso a recursos poderosos para ver e responder rapidamente a estas ações suspeitas. 
 
->**Nota:** A Proteção de Identidade só gera deteções de risco quando as credenciais corretas são utilizadas. Se forem utilizadas credenciais incorretas numa sessão de inscrição, não representa um risco de compromisso credencial.
-
 ![Visão geral de segurança mostrando utilizadores arriscados e insusagens](./media/concept-identity-protection-risks/identity-protection-security-overview.png)
 
+> [!NOTE]
+> A Proteção de Identidade só gera deteções de risco quando as credenciais corretas são utilizadas. Se forem utilizadas credenciais incorretas numa sessão de inscrição, não representa um risco de compromisso credencial.
 
 ## <a name="risk-types-and-detection"></a>Tipos de risco e deteção
 
-Existem dois tipos de **risco Utilizador** e **Iniciar sção** e dois tipos de deteção ou cálculo **em tempo real** e **offline** .
+Existem dois tipos de **risco Utilizador** e **Iniciar sção** e dois tipos de deteção ou cálculo **em tempo real** e **offline**.
 
 As deteções em tempo real podem não aparecer nos relatórios durante 5 a 10 minutos. As deteções offline podem não aparecer nos relatórios durante duas a vinte e quatro horas.
 
@@ -77,6 +77,10 @@ Estes riscos podem ser calculados em tempo real ou calculados offline usando as 
 A Proteção de Identidade categoriza o risco em três níveis: baixo, médio e alto. 
 
 Embora a Microsoft não forneça detalhes específicos sobre como o risco é calculado, diremos que cada nível traz maior confiança de que o utilizador ou o teste de saúde estão comprometidos. Por exemplo, algo como um exemplo de propriedades de inscrição desconhecidas para um utilizador pode não ser tão ameaçador como credenciais vazadas para outro utilizador.
+
+### <a name="password-hash-synchronization"></a>Sincronização de hash de palavra-passe
+
+Deteções de risco, como credenciais vazadas e spray de senha, requerem a presença de hashes de palavra-passe para a deteção. Para obter mais informações sobre a sincronização de hash de palavra-passe, consulte o artigo, [Implemente a sincronização de hash de palavra-passe com a sincronização Azure AD Connect](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 ### <a name="leaked-credentials"></a>Fuga de credenciais
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 51c611b2565ae0a5a054a45f0aedcb039351b46b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 582dafba40012e9ff9c59bc09adb1a0831e999f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208360"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491227"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorização de funções de Azure com registos do monitor Azure
 
@@ -22,23 +22,23 @@ O Azure Monitor Logs dá-lhe a capacidade de consolidar registos de diferentes r
 O Azure Monitor utiliza uma versão da linguagem de [consulta Kusto](/azure/kusto/query/) utilizada pelo Azure Data Explorer que é adequada para consultas simples de log, mas também inclui funcionalidades avançadas como agregações, juntas e análise inteligente. Pode aprender rapidamente a linguagem de consulta usando [várias lições.](../azure-monitor/log-query/get-started-queries.md)
 
 > [!NOTE]
-> A integração com o Azure Monitor Logs está atualmente em pré-visualização pública para aplicações de funções executadas em planos de alojamento do Windows Consumption, Premium e Dedicado.
+> A integração com os Registos do Monitor Azure está atualmente em pré-visualização pública para aplicações de funções V2 e V3 em execução em planos de alojamento do Windows Consumption, Premium e Dedicado.
 
 ## <a name="setting-up"></a>Configuração
 
-1. A partir da secção de **monitorização** da sua aplicação de função no [portal Azure,](https://portal.azure.com)selecione **definições de Diagnóstico**e, em seguida, selecione Adicionar a **definição de diagnóstico**.
+1. A partir da secção de **monitorização** da sua aplicação de função no [portal Azure,](https://portal.azure.com)selecione **definições de Diagnóstico** e, em seguida, selecione Adicionar a **definição de diagnóstico**.
 
    :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Selecione definições de diagnóstico":::
 
-1. Na página de **definições de Diagnóstico,** em **detalhes de categoria** e **log**, escolha **FunctionAppLogs**.
+1. Na página de **definições de Diagnóstico,** em **detalhes de categoria** e **log** , escolha **FunctionAppLogs**.
 
    A tabela **FunctionAppLogs** contém os registos pretendidos.
 
-1. Nos **detalhes do Destino**, escolha Enviar para Registar **Análises**e, em seguida, selecione o seu espaço de trabalho Log **Analytics**. 
+1. Nos **detalhes do Destino** , escolha Enviar para Registar **Análises** e, em seguida, selecione o seu espaço de trabalho Log **Analytics**. 
 
-1. Introduza o nome de **definições de Diagnóstico**e, em seguida, selecione **Guardar**.
+1. Introduza o nome de **definições de Diagnóstico** e, em seguida, selecione **Guardar**.
 
-   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Selecione definições de diagnóstico":::
+   :::image type="content" source="media/functions-monitor-log-analytics/choose-table.png" alt-text="Adicione uma definição de diagnóstico":::
 
 ## <a name="user-generated-logs"></a>Registos gerados pelo utilizador
 
@@ -89,7 +89,7 @@ Para consultar os registos gerados:
 
    A Azure Functions escreve todos os registos na tabela **FunctionAppLogs** em **LogManagement**. 
 
-   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Selecione definições de diagnóstico":::
+   :::image type="content" source="media/functions-monitor-log-analytics/querying.png" alt-text="Janela de consulta no espaço de trabalho Log Analytics":::
 
 Aqui estão algumas consultas de amostra:
 

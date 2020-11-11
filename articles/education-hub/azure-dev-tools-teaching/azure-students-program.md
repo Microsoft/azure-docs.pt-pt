@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: 9719aea3a16a07f8c4ccbd21ea53c8b8982aefd5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 7260683ab42a64381f80af834ee2b3945b0c1e4c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674981"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490921"
 ---
 # <a name="azure-for-students"></a>Azure for Students
 
@@ -20,7 +20,7 @@ Através do programa Azure Dev Tools for Teaching, os alunos que tenham uma subs
 
 A Azure for Students dá-lhe um crédito de $100 por 12 meses. Inclui acesso a mais de 25 serviços gratuitos, incluindo computação, rede, armazenamento e bases de dados. Quaisquer encargos incorridos durante este período são deduzidos do crédito. Pode ver o seu crédito restante no [portal Azure Sponsorships.](https://www.microsoftazuresponsorships.com/)
 
-Depois de esgotar o seu crédito disponível ou chegar ao final de 12 meses, a sua subscrição Azure fica desativada. A assinatura Azure for Students não é renovável. Para continuar a utilizar o Azure, pode fazer upgrade para uma subscrição pay-as-you-go no [portal da Conta Azure](https://account.azure.com/). Se decidir não fazer upgrade ao final de 12 meses ou depois de esgotar o seu crédito de 100 dólares, o que ocorrer primeiro, quaisquer produtos que tenha implementado são desativados e não poderá aceder-lhes. Tem 90 dias a partir do fim da sua subscrição gratuita para fazer upgrade para uma subscrição pay-as-you-go.
+Depois de esgotar o seu crédito disponível ou chegar ao final de 12 meses, a sua subscrição Azure fica desativada. A assinatura Azure for Students não é renovável. Para continuar a utilizar o Azure, pode fazer upgrade para uma subscrição pay-as-you-go no [portal Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Se decidir não fazer upgrade ao final de 12 meses ou depois de esgotar o seu crédito de 100 dólares, o que ocorrer primeiro, quaisquer produtos que tenha implementado são desativados e não poderá aceder-lhes. Tem 90 dias a partir do fim da sua subscrição gratuita para fazer upgrade para uma subscrição pay-as-you-go.
 
 Para obter termos de utilização detalhados para Azure para Estudantes, consulte os termos da [oferta.](https://azure.microsoft.com/offers/ms-azr-0170p/)
 

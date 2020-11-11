@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/19/2020
-ms.author: keferna
-author: keferna
-ms.openlocfilehash: 1af2793bc32c1f3cdbdcd016562b761e05427073
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: trkeya
+author: trkeya
+ms.openlocfilehash: 0b445f9d4fdda0b1fac9dcdb4344533cfd7d37a9
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125143"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491244"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Unidade de teste do Gestor de Recursos Azure
 
@@ -296,7 +296,7 @@ A secção final a completar é poder implementar automaticamente as unidades de
 
 ![Detalhes da subscrição da subscrição da unidade de teste](media/test-drive/deployment-subscription-details.png)
 
-1. Obtenha um **ID de assinatura Azure** . Isto permite o acesso aos serviços Azure e ao portal Azure. A subscrição é onde o uso de recursos é reportado e os serviços são faturados. Se ainda não tiver uma subscrição Azure separada apenas para test drives, faça uma. Pode encontrar IDs de subscrição do Azure (tais `1a83645ac-1234-5ab6-6789-1h234g764ghty1` como) insinando-se no portal Azure e selecionando **Subscrições** a partir do menu de navegação à esquerda.
+1. Obtenha um **ID de assinatura Azure**. Isto permite o acesso aos serviços Azure e ao portal Azure. A subscrição é onde o uso de recursos é reportado e os serviços são faturados. Se ainda não tiver uma subscrição Azure separada apenas para test drives, faça uma. Pode encontrar IDs de subscrição do Azure (tais `1a83645ac-1234-5ab6-6789-1h234g764ghty1` como) insinando-se no portal Azure e selecionando **Subscrições** a partir do menu de navegação à esquerda.
 
    ![Subscrições do Azure](media/test-drive/azure-subscriptions.png)
 
@@ -311,12 +311,12 @@ A secção final a completar é poder implementar automaticamente as unidades de
    1. Navegue para o diretório recém-criado ou já existente e selecione O Diretório Ativo Azure no painel de filtros.
    2. Pesquisar **registos de Aplicativos** e selecionar **Adicionar.**
    3. Forneça um nome de inscrição.
-   4. Selecione o **tipo** de **aplicação Web / API** .
+   4. Selecione o **tipo** de **aplicação Web / API**.
    5. Fornecer qualquer valor no URL de inscrição, este campo não é usado.
-   6. Selecione **Criar** .
-   7. Depois de a aplicação ter sido criada, selecione **Properties**  >  **set the application como multi-inquilino** e, em seguida, **Guardar** .
+   6. Selecione **Criar**.
+   7. Depois de a aplicação ter sido criada, selecione **Properties**  >  **set the application como multi-inquilino** e, em seguida, **Guardar**.
 
-4. Selecione **Guardar** .
+4. Selecione **Guardar**.
 
 5. Copie o ID da aplicação para esta aplicação registada e cole-a no campo de test drive.
 
@@ -326,7 +326,7 @@ A secção final a completar é poder implementar automaticamente as unidades de
 
    1. Selecione o tipo de **Subscrição** que está a utilizar para a unidade de teste.
    1. Selecione **Controlo de acesso (IAM)** .
-   1. Selecione o **separador atribuições de funções** e, em seguida, **Adicione a atribuição de funções** .
+   1. Selecione o **separador atribuições de funções** e, em seguida, **Adicione a atribuição de funções**.
 
       ![Adicione um novo diretor de Controlo de Acesso](media/test-drive/access-control-principal.jpg)
 
@@ -334,9 +334,9 @@ A secção final a completar é poder implementar automaticamente as unidades de
 
       ![Adicione as permissões](media/test-drive/access-control-permissions.jpg)
 
-   1. Selecione **Guardar** .
+   1. Selecione **Guardar**.
 
-7. Gere uma chave de autenticação **AD AD Azure.** Em **Teclas** , adicione uma **descrição da chave** , desembaraça a duração de Nunca **expira** (uma tecla expirada quebrará o seu test drive na produção), em seguida, selecione **Save** . Copie e cole este valor no campo de teste necessário.
+7. Gere uma chave de autenticação **AD AD Azure.** Em **Teclas** , adicione uma **descrição da chave** , desembaraça a duração de Nunca **expira** (uma tecla expirada quebrará o seu test drive na produção), em seguida, selecione **Save**. Copie e cole este valor no campo de teste necessário.
 
 ![Mostra as Chaves para a aplicação AD Azure](media/test-drive/azure-ad-app-keys.png)
 

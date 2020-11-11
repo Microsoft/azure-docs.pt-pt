@@ -3,12 +3,12 @@ title: Assegurar funções de Azure
 description: Saiba como tornar o seu código de função em funcionamento em Azure mais seguro de ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: cd97193fdf6549e667578e36f0be9104e4381d30
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102311"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491329"
 ---
 # <a name="securing-azure-functions"></a>Assegurar funções de Azure
 
@@ -28,7 +28,7 @@ O Security Center integra-se com a sua aplicação de função no portal. Fornec
 
 ### <a name="log-and-monitor"></a>Registar e monitorizar
 
-Um para detetar ataques é através da atividade de monitorização da atividade e da análise de registo. As funções integram-se com o Application Insights para recolher dados de registo, desempenho e erro para a sua aplicação de função. O Application Insights deteta automaticamente anomalias de desempenho e inclui poderosas ferramentas de análise para ajudá-lo a diagnosticar problemas e a compreender como as suas funções são utilizadas. Para saber mais, consulte [as Funções Do Monitor Azure](functions-monitoring.md).
+Uma forma de detetar ataques é através da atividade de monitorização da atividade e da análise de registo. As funções integram-se com o Application Insights para recolher dados de registo, desempenho e erro para a sua aplicação de função. O Application Insights deteta automaticamente anomalias de desempenho e inclui poderosas ferramentas de análise para ajudá-lo a diagnosticar problemas e a compreender como as suas funções são utilizadas. Para saber mais, consulte [as Funções Do Monitor Azure](functions-monitoring.md).
 
 As funções também se integram com registos do Monitor Azure para permitir a consolidação de registos de aplicações de funções com eventos do sistema para uma análise mais fácil. Pode utilizar definições de diagnóstico para configurar a exportação de streaming de registos e métricas da plataforma para as suas funções para o destino à sua escolha, como um espaço de trabalho Logs Analytics. Para saber mais, consulte [as funções de Azure monitor de monitorização com registos do monitor Azure](functions-monitor-log-analytics.md). 
 

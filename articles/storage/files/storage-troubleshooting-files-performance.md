@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 9dfdbbd982503acc063ff88c74dfccde8677eaac
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 4d21bfa69022cbebdcbf80c3bee4aec76bf99c53
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94380237"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491125"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Problemas de resolução de problemas Problemas de desempenho dos Ficheiros Azure
 
@@ -111,7 +111,7 @@ Falta de apoio para arrendamentos de diretórios.
 
 - Se possível, evite uma abertura/manípulo de fecho excessivo no mesmo diretório num curto espaço de tempo.
 - Para os VMs Linux, aumente o tempo limite de cache de entrada de diretório especificando **actimeo= \<sec>** como uma opção de montagem. Por padrão, é um segundo, então um valor maior como três ou cinco pode ajudar.
-- Para os VMs Linux, atualize o núcleo para 4,20 ou mais.
+- Para os VMs RHEL/CentOS, atualize o sistema para RHEL/CentOS 8.2. Para outros VMs Linux, atualize o núcleo para 5.0 ou superior.
 
 ## <a name="low-iops-on-centosrhel"></a>IOPS baixos no CentOS/RHEL
 
@@ -229,7 +229,7 @@ Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a 
 
 Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 * [Resolução de problemas Ficheiros Azure no Windows](storage-troubleshoot-windows-file-connection-problems.md)
 * [Resolução de problemas Ficheiros Azure em Linux](storage-troubleshoot-linux-file-connection-problems.md)
 * [Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure](storage-files-faq.md)

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: cdddbce3e9eb0a5c933ace186607186265197dc4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f8e0d49c2a35a1e97c79e6d4b8c867a4a8ab88b3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93123511"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491533"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Compreender a monitorização do trabalho do Stream Analytics e como monitorizar consultas
 
@@ -43,7 +43,7 @@ A janela aparecerá como mostrado:
 | Eventos fora de ordem    | Número de eventos recebidos fora de ordem que foram retirados ou receberam um timetamp ajustado, com base na Política de Ordenamento de Eventos. Isto pode ser impactado pela configuração da definição da janela de tolerância fora da ordem. |
 | Eventos de saída          | Quantidade de dados enviados pelo trabalho stream Analytics para o alvo de saída, em número de eventos. |
 | Erros de tempo de execução         | Número total de erros relacionados com o processamento de consultas (excluindo os erros encontrados ao ingerir eventos ou resultados de saída) |
-| SU % Utilização       | A utilização da(s) Unidade de Streaming(s) atribuída a um trabalho a partir da guia scale do trabalho. Se este indicador atingir os 80%, ou acima, existe uma alta probabilidade de que o processamento do evento possa ser atrasado ou deixar de fazer progressos. |
+| SU % Utilização       | Se a utilização dos recursos for consistentemente superior a 80%, o atraso da marca de água está a aumentar e o número de eventos recuados está a aumentar, considere o aumento das unidades de streaming. A elevada utilização indica que o trabalho está a utilizar perto dos recursos máximos atribuídos. |
 | Atraso da marca de água       | O máximo de atraso da marca de água em todas as divisórias de todas as saídas no trabalho. |
 
 Pode utilizar estas métricas para [monitorizar o desempenho do seu trabalho stream Analytics](./stream-analytics-set-up-alerts.md#scenarios-to-monitor). 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 01021530c491fd25a199f32475c031a0e7f6cd0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 26f0006ad2b26757e335ba1819c2b82ba519f8cc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89376643"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491448"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento da fila Azure para funções Azure
 
@@ -163,7 +163,7 @@ Um gatilho de fila de armazenamento é definido em *function.jsno* local onde *o
 }
 ```
 
-O código * _ \_ init_ \_ .py* declara um parâmetro como `func.QueueMessage` , que permite ler a mensagem de fila na sua função.
+O código *_\_ init_ \_ .py* declara um parâmetro como `func.QueueMessage` , que permite ler a mensagem de fila na sua função.
 
 ```python
 import logging
@@ -311,7 +311,7 @@ public class QueueTriggerDemo {
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `QueueTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a| Deve ser definido para `queueTrigger` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção**| n/a | Nofunction.jsapenas *arquivado.* Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
@@ -347,7 +347,7 @@ Se tentar ligar-se `CloudQueueMessage` e obter uma mensagem de erro, certifique-
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-A carga útil do item da fila está disponível através `context.bindings.<NAME>` do qual corresponde ao nome definido emfunction.js`<NAME>` * em*. Se a carga útil for JSON, o valor é deseralizado num objeto.
+A carga útil do item da fila está disponível através `context.bindings.<NAME>` do qual corresponde ao nome definido emfunction.js`<NAME>` *em*. Se a carga útil for JSON, o valor é deseralizado num objeto.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -363,9 +363,9 @@ A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.q
 
 O gatilho da fila fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. As propriedades são membros da classe [CloudQueueMessage.](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage)
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Tipo|Description|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Carga útil da fila (se uma corda válida). Se a carga útil da mensagem de fila for uma cadeia, `QueueTrigger` tem o mesmo valor que a variável nomeada pela propriedade emfunction.js`name` * em*.|
+|`QueueTrigger`|`string`|Carga útil da fila (se uma corda válida). Se a carga útil da mensagem de fila for uma cadeia, `QueueTrigger` tem o mesmo valor que a variável nomeada pela propriedade emfunction.js`name` *em*.|
 |`DequeueCount`|`int`|O número de vezes que esta mensagem foi descoduada.|
 |`ExpirationTime`|`DateTimeOffset`|O tempo que a mensagem expirar.|
 |`Id`|`string`|Identificação de mensagem de fila.|
@@ -375,7 +375,7 @@ O gatilho da fila fornece várias [propriedades de metadados.](./functions-bindi
 
 ## <a name="poison-messages"></a>Mensagens venenosas
 
-Quando uma função de gatilho de fila falha, o Azure Functions retrimba a função até cinco vezes para uma determinada mensagem de fila, incluindo a primeira tentativa. Se todas as cinco tentativas falharem, o tempo de execução das funções adiciona uma mensagem a uma fila chamada * &lt; originalqueuename>-veneno*. Pode escrever uma função para processar mensagens da fila do veneno registando-as ou enviando uma notificação de que é necessária atenção manual.
+Quando uma função de gatilho de fila falha, o Azure Functions retrimba a função até cinco vezes para uma determinada mensagem de fila, incluindo a primeira tentativa. Se todas as cinco tentativas falharem, o tempo de execução das funções adiciona uma mensagem a uma fila chamada *&lt; originalqueuename>-veneno*. Pode escrever uma função para processar mensagens da fila do veneno registando-as ou enviando uma notificação de que é necessária atenção manual.
 
 Para lidar manualmente com mensagens venenosas, verifique o [dequendundo a](#message-metadata) mensagem da fila.
 
@@ -408,7 +408,7 @@ A [host.jsno](functions-host-json.md#queues) ficheiro contém definições que c
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Escreva mensagens de armazenamento de bolhas (ligação de saída)](./functions-bindings-storage-blob-output.md)
+- [Escreva mensagens de armazenamento de fila (ligação de saída)](./functions-bindings-storage-queue-output.md)
 
 <!-- LINKS -->
 

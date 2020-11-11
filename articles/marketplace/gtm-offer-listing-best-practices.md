@@ -4,15 +4,15 @@ description: Saiba mais sobre as melhores práticas de listagem do mercado para 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 07/06/2020
-ms.openlocfilehash: 33198f95ef0309cada6f5f11c809811f23d7f826
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ea6a0035a9f9354be5c14699936c6a07dea1150
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708650"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492094"
 ---
 # <a name="offer-listing-best-practices"></a>Melhores práticas de listagem de ofertas
 
@@ -130,8 +130,8 @@ As palavras-chave podem ajudar os clientes a encontrar a sua oferta quando pesqu
 ## <a name="link-to-your-offer-page-from-your-website"></a>Link para a sua página de oferta a partir do seu site
 
 Quando liga do crachá appSource ou Azure Marketplace no seu site à sua listagem no mercado comercial, pode suportar análises e relatórios fortes, incluindo os seguintes parâmetros de consulta no final do URL:
-* **src**: Inclua a fonte a partir da qual o tráfego é encaminhado para AppSource (por exemplo, website, LinkedIn ou Facebook).
-* **mktcmpid**: O seu ID de campanha de marketing, que pode conter até 16 caracteres em qualquer combinação de letras, números, sublinhados e hífenes (por exemplo, *blogpost_12).*
+* **src** : Inclua a fonte a partir da qual o tráfego é encaminhado para AppSource (por exemplo, website, LinkedIn ou Facebook).
+* **mktcmpid** : O seu ID de campanha de marketing, que pode conter até 16 caracteres em qualquer combinação de letras, números, sublinhados e hífenes (por exemplo, *blogpost_12).*
 
 O url de exemplo a seguir contém ambos os parâmetros de consulta anteriores: `https://appsource.microsoft.com/product/dynamics-365/mscrm.04931187-431c-415d-8777-f7f482ba8095?src=website&mktcmpid=blogpost_12`
 

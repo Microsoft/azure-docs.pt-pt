@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87077930"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491431"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações push com a Azure Notification Hubs: Perguntas frequentes
 
@@ -34,16 +34,16 @@ O Azure Notification Hubs tem dois níveis de recursos: centros e espaços de no
 
 Os mais recentes detalhes sobre preços podem ser encontrados na página de preços dos [Centros de Notificação.] Os Centros de Notificação são faturados ao nível do espaço de nome. (Para a definição de um espaço de nome, consulte "Qual é a estrutura de recursos dos Centros de Notificação?") Os Centros de Notificação oferecem três níveis:
 
-* **Grátis**: Este nível é um bom ponto de partida para explorar as capacidades de pressão. Não é recomendado para aplicações de produção. Obtém 500 dispositivos e 1 milhão de pushs incluídos por espaço de identificação por mês, sem garantia de acordo de nível de serviço (SLA).
-* **Básico**: Este nível (ou o nível Standard) é recomendado para aplicações de produção mais pequenas. Obtém-se 200.000 dispositivos e 10 milhões de pushs incluídos por espaço de identificação por mês como base.
-* **Standard**: Este nível é recomendado para aplicações de produção médias a grandes. Obtém-se 10 milhões de dispositivos e 10 milhões de impulsos incluídos por espaço de identificação por mês como base. Inclui telemetria rica (dados adicionais sobre o estado do impulso fornecido).
+* **Grátis** : Este nível é um bom ponto de partida para explorar as capacidades de pressão. Não é recomendado para aplicações de produção. Obtém 500 dispositivos e 1 milhão de pushs incluídos por espaço de identificação por mês, sem garantia de acordo de nível de serviço (SLA).
+* **Básico** : Este nível (ou o nível Standard) é recomendado para aplicações de produção mais pequenas. Obtém-se 200.000 dispositivos e 10 milhões de pushs incluídos por espaço de identificação por mês como base.
+* **Standard** : Este nível é recomendado para aplicações de produção médias a grandes. Obtém-se 10 milhões de dispositivos e 10 milhões de impulsos incluídos por espaço de identificação por mês como base. Inclui telemetria rica (dados adicionais sobre o estado do impulso fornecido).
 
 Características de nível padrão:
 
-* **Telemetria rica**: Pode utilizar os Centros de Notificação por Telemetria de Mensagens para acompanhar quaisquer pedidos de pressão e feedback do sistema de notificação da plataforma para depurar.
-* **Multi-arrendamento**: Pode trabalhar com credenciais do Sistema de Notificação de Plataforma num nível de espaço de nome. Esta opção permite-lhe dividir facilmente os inquilinos em centros dentro do mesmo espaço de nome.
-* **Push agendado**: Pode agendar notificações a serem enviadas a qualquer momento.
-* **Operações a granel**: Permite registos A funcionalidade de exportação/importação, tal como descrito no documento [de exportação/importação de registos.]
+* **Telemetria rica** : Pode utilizar os Centros de Notificação por Telemetria de Mensagens para acompanhar quaisquer pedidos de pressão e feedback do sistema de notificação da plataforma para depurar.
+* **Multi-arrendamento** : Pode trabalhar com credenciais do Sistema de Notificação de Plataforma num nível de espaço de nome. Esta opção permite-lhe dividir facilmente os inquilinos em centros dentro do mesmo espaço de nome.
+* **Push agendado** : Pode agendar notificações a serem enviadas a qualquer momento.
+* **Operações a granel** : Permite registos A funcionalidade de exportação/importação, tal como descrito no documento [de exportação/importação de registos.]
 
 ### <a name="what-is-the-notification-hubs-sla"></a>O que é o Centro de Notificação SLA?
 
@@ -159,15 +159,12 @@ Fornecemos cobertura de recuperação de desastres de metadados no nosso final (
 
 1. Crie um centro de notificações secundárias num centro de dados diferente. Recomendamos criar um desde o início para protegê-lo de um evento de recuperação de desastres que pode afetar as suas capacidades de gestão. Você também pode criar um no momento do evento de recuperação de desastres.
 
-2. Povoar o centro de notificação secundária com os registos do seu centro de notificação primário. Não recomendamos que tente manter registos em ambos os centros e mantê-los em sincronização à medida que as inscrições entram. Esta prática não funciona bem devido à tendência inerente de as inscrições expirarem do lado do PNS. Os Centros de Notificação limpam-nos à medida que recebem feedback do PNS sobre registos expirados ou inválidos.  
+2. Mantenha o centro de notificação secundário em sintonia com o hub de notificação primário utilizando uma das seguintes opções:
 
-Temos duas recomendações para apoios de aplicações:
+   * Utilize um backend de aplicações que simultaneamente cria e atualiza instalações em ambos os centros de notificação. As instalações permitem especificar o seu próprio identificador de dispositivos único, tornando-o mais adequado para o cenário de replicação. Para mais informações, consulte este [código de amostra.](https://github.com/Azure/azure-notificationhubs-dotnet/tree/main/Samples/RedundantHubSample)
+   * Use um backend de aplicativos que obtenha uma descarga regular de registos do centro de notificação primária como uma cópia de segurança. Em seguida, pode efetuar uma inserção a granel no centro de notificação secundária.
 
-* Utilize um backend de aplicações que mantenha um determinado conjunto de registos no final. Em seguida, pode efetuar uma inserção a granel no centro de notificação secundária.
-* Use um backend de aplicativos que obtenha uma descarga regular de registos do centro de notificação primária como uma cópia de segurança. Em seguida, pode efetuar uma inserção a granel no centro de notificação secundária.
-
-> [!NOTE]
-> Registos A funcionalidade de exportação/importação disponível no nível standard está descrita no documento [de exportação/importação de registos.]
+O centro de notificação secundária pode acabar com instalações/registos caducados. Quando o impulso é feito para uma pega expirada, os Centros de Notificação limpam automaticamente o registo de instalação/registo associado com base na resposta recebida do servidor PNS. Para limpar registos expirados de um centro de notificação secundário, adicione uma lógica personalizada que processa o feedback de cada envio. Em seguida, expire a instalação/registo no centro de notificação secundária.
 
 Se não tiver um backend, quando a aplicação começa nos dispositivos-alvo, eles realizam um novo registo no centro de notificação secundária. Eventualmente, o centro de notificação secundária terá todos os dispositivos ativos registados.
 
@@ -179,7 +176,7 @@ O Azure Notification Hubs encripta todos os dados do cliente em repouso, com exc
 
 ### <a name="is-there-audit-log-capability"></a>Existe capacidade de registo de auditoria?
 
-Sim. Todas as operações de gestão de Centros de Notificação atualizam o Registo de Atividades do Azure ao qual está exposto no [portal Azure]. O Azure Activity Log oferece informações sobre as operações realizadas sobre os recursos nas suas subscrições. Utilizando o Registo de Atividades, pode determinar o quê, quem e quando para quaisquer operações de escrita (PUT, POST, DELETE) feitas para os recursos na sua subscrição. Também pode compreender o estado das operações e outras propriedades relevantes. No entanto. o Registo de Atividades não inclui a operação de leitura (GET).
+Yes. Todas as operações de gestão de Centros de Notificação atualizam o Registo de Atividades do Azure ao qual está exposto no [portal Azure]. O Azure Activity Log oferece informações sobre as operações realizadas sobre os recursos nas suas subscrições. Utilizando o Registo de Atividades, pode determinar o quê, quem e quando para quaisquer operações de escrita (PUT, POST, DELETE) feitas para os recursos na sua subscrição. Também pode compreender o estado das operações e outras propriedades relevantes. No entanto. o Registo de Atividades não inclui a operação de leitura (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitorizar e resolver problemas
 
@@ -191,11 +188,11 @@ O Azure Notification Hubs fornece várias funcionalidades para a resolução de 
 
 Os Hubs de Notificação Azure permitem visualizar dados de telemetria no [portal Azure]. Os detalhes das métricas estão disponíveis na página [de Métricas de Centros de Notificação.]
 
-Também pode aceder programáticamente às métricas. Para obter mais informações, veja os artigos seguintes:
+Também pode aceder programáticamente às métricas. Para obter mais informações, veja os seguintes artigos:
 
 - [Recuperar as métricas do Monitor Azure com .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Esta amostra utiliza o nome de utilizador e a palavra-passe. Para utilizar um certificado, sobrecarregar o método FromServicePrincipal para fornecer um certificado como mostrado neste [exemplo](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Obtenção de métricas e registos de atividade para um recurso](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Instruções da API REST de Monitorização do Azure](../azure-monitor/platform/rest-api-walkthrough.md)
 
 > [!NOTE]
 > As notificações bem sucedidas significam simplesmente que foram entregues notificações push para os PNS externos (por exemplo, APNs para iOS e macOS ou FCM para dispositivos Android). É da responsabilidade do PNS entregar as notificações aos dispositivos-alvo. Normalmente, o PNS não expõe as métricas de entrega a terceiros.  

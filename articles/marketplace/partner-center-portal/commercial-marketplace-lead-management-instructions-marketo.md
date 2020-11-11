@@ -4,15 +4,15 @@ description: Saiba como utilizar um sistema DE CRM do Marketo para gerir os lead
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: be1f21f927b01d66e19dc5e97b38e5c35e6664cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cbd12481312d310add15bf3d41e21e9c416f1c39
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120267"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491080"
 ---
 # <a name="use-marketo-to-manage-commercial-marketplace-leads"></a>Use o Marketo para gerir os líderes do mercado comercial
 
@@ -79,12 +79,12 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 
     ![Escolha um destino de chumbo](./media/commercial-marketplace-lead-management-instructions-marketo/choose-lead-destination.png)
 
-1. Forneça o **ID**do servidor, o ID da **conta de Munchkin**e **o ID do formulário**.
+1. Forneça o **ID** do servidor, o ID da **conta de Munchkin** e **o ID do formulário**.
 
     > [!NOTE]
     > Tem de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta. 
 
-1. No **e-mail de Contato**, insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo é recebido. Pode fornecer vários endereços de e-mail separando-os com um ponto e vírgula.
+1. No **e-mail de Contato** , insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo é recebido. Pode fornecer vários endereços de e-mail separando-os com um ponto e vírgula.
 
 1. Selecione **OK**.
 

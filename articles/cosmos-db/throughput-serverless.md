@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: d16343864d9602d644b31d34a2b66e39211b6ece
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: f6fbd963966dd1a5c433a97cb8d37ae22998be4c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93079344"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491193"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Como escolher entre produção provisão e sem servidor
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -19,9 +19,6 @@ ms.locfileid: "93079344"
 A Azure Cosmos DB está disponível em dois modos de capacidade diferentes: [produção a provisionada](set-throughput.md) e [sem servidor](serverless.md). Pode executar exatamente as mesmas operações de base de dados em ambos os modos, mas a forma como é cobrado para estas operações é radicalmente diferente. O vídeo a seguir explica as diferenças fundamentais entre estes modos e como se encaixam em diferentes tipos de cargas de trabalho:
 
 > [!VIDEO https://www.youtube.com/embed/CgYQo6uHyt0]
-
-> [!NOTE]
-> Atualmente, o Serverless é suportado apenas na API do Azure Cosmos DB Core (SQL).
 
 ## <a name="detailed-comparison"></a>Comparação detalhada
 

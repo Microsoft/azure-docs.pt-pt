@@ -4,15 +4,15 @@ description: Saiba como configurar o Dynamics 365 Customer Engagement para gerir
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: 54754f4c7753661b247f3f90942fb3074c34a38b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5d07dda82361ff59a43aa6753669bf38f4463059
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130617"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491142"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configure a gestão de chumbo para a Dynamics 365 Customer Engagement
 
@@ -36,11 +36,11 @@ São necessárias as seguintes permissões do utilizador para completar os passo
 
 1. Open Dynamics 365 Customer Engagement indo ao URL para a sua instância Dynamics, como `https://tenant.crm.dynamics.com` .
 
-1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Definições Avançadas** .
+1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Definições Avançadas**.
  
     ![Dinâmica 365 Item de menu definições avançadas](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-advanced-settings.png)
 
-1. Na página **Definições,** abra o menu **Definições** na barra superior e selecione **Soluções** .
+1. Na página **Definições,** abra o menu **Definições** na barra superior e selecione **Soluções**.
 
     >[!NOTE]
     >Se não vir as opções no ecrã seguinte, não tem as permissões necessárias para prosseguir. Contacte um administrador sobre a sua instância de Envolvimento com o Cliente Dynamics 365.
@@ -68,7 +68,7 @@ Recomendamos esta opção porque nunca precisa de atualizar o seu nome de utiliz
 
 Para configurar o Azure Ative Directory for Dynamics 365 Customer Engagement:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/). No painel esquerdo, selecione **Azure Active Directory** .
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/). No painel esquerdo, selecione **Azure Active Directory**.
 
 1. Selecione **Propriedades** e copie o valor de **ID** do Diretório na página **propriedades do Diretório.** Guarde este valor porque terá de o fornecer no portal de publicação para receber pistas para a sua oferta de mercado.
 
@@ -76,9 +76,9 @@ Para configurar o Azure Ative Directory for Dynamics 365 Customer Engagement:
 
 1. Selecione **as inscrições** da App no Painel de Esquerda Azure Ative e, em seguida, selecione **Novo registo** nessa página.
 1. Introduza um nome significativo para o nome da aplicação.
-1. Nos **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional** .
+1. Nos **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional**.
 1. Em **Redirecionar URI (opcional)** , selecione **Web** e introduza um URI, tal como `https://contosoapp1/auth` . 
-1. Selecione **Registar** .
+1. Selecione **Registar**.
 
     ![Registar uma página de inscrição](./media/commercial-marketplace-lead-management-instructions-dynamics/register-an-application.png)
 
@@ -86,22 +86,22 @@ Para configurar o Azure Ative Directory for Dynamics 365 Customer Engagement:
 
     ![Caixa de ID de aplicação (cliente)](./media/commercial-marketplace-lead-management-instructions-dynamics/application-id.png)
 
-1. Selecione **Certificados & segredos** do painel esquerdo da aplicação e selecione o botão secreto do **novo cliente.** Introduza uma descrição significativa para o segredo do cliente e selecione a opção **Nunca** em **Expira** . **Selecione Adicionar** para criar o segredo do cliente.
+1. Selecione **Certificados & segredos** do painel esquerdo da aplicação e selecione o botão secreto do **novo cliente.** Introduza uma descrição significativa para o segredo do cliente e selecione a opção **Nunca** em **Expira**. **Selecione Adicionar** para criar o segredo do cliente.
 
     ![Certificados & segredos item do menu](./media/commercial-marketplace-lead-management-instructions-dynamics/aad-certificates-secrets.png)
 
 1. Assim que o segredo do cliente for criado com sucesso, copie o valor secreto do **Cliente.** Não poderá recuperar o valor depois de sair da página. Guarde este valor porque terá de o fornecer no portal de publicação para receber pistas para a sua oferta de mercado. 
-1. Selecione **permissões API** a partir do painel esquerdo da aplicação e, em seguida, selecione **+ Adicione uma permissão** .
+1. Selecione **permissões API** a partir do painel esquerdo da aplicação e, em seguida, selecione **+ Adicione uma permissão**.
 1. Selecione **apis da Microsoft** e, em seguida, selecione **Dynamics CRM** como API.
 1. Em **Que tipo de permissões a sua aplicação requer?** **Delegated permissions** 
-1. Sob **Permissão** , selecione a caixa de verificação **user_impersonation** para o Access Common Data Service **como utilizadores da organização** . Em seguida, **selecione Adicionar permissões** .
+1. Sob **Permissão** , selecione a caixa de verificação **user_impersonation** para o Access Common Data Service **como utilizadores da organização**. Em seguida, **selecione Adicionar permissões**.
 
     ![Adicionar botão de permissões](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
 1. Depois de completar os passos 1 a 14 no portal Azure, vá à sua instância de Envolvimento com o Cliente Dynamics 365 indo para o URL, como `https://tenant.crm.dynamics.com` .
-1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Definições Avançadas** .
-1. Na página **Definições,** abra o menu **Definições** na barra superior e selecione **Segurança** .
-1. Na página **'Segurança',** selecione **Utilizadores.** Na página **dos Utilizadores,** selecione o drop-down **dos Utilizadores Ativados** e, em seguida, selecione **Utilizadores de Aplicações** .
+1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Definições Avançadas**.
+1. Na página **Definições,** abra o menu **Definições** na barra superior e selecione **Segurança**.
+1. Na página **'Segurança',** selecione **Utilizadores.** Na página **dos Utilizadores,** selecione o drop-down **dos Utilizadores Ativados** e, em seguida, selecione **Utilizadores de Aplicações**.
 1. Selecione **Novo** para criar um novo utilizador. 
 
     ![Criar um novo utilizador](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
@@ -120,7 +120,7 @@ Para configurar o Office 365 para a Dynamics 365 Customer Engagement:
 
 1. Inicie sessão no [centro de administração do Microsoft 365](https://admin.microsoft.com).
 
-1. **Selecione Adicionar um utilizador** .
+1. **Selecione Adicionar um utilizador**.
 
     ![Microsoft 365 centro de administração Adicionar uma opção de utilizador](./media/commercial-marketplace-lead-management-instructions-dynamics/ms-365-add-user.png)
 
@@ -140,9 +140,9 @@ Guarde estes valores porque terá de fornecer os valores do Nome de **Utilizador
 O passo final é permitir que o utilizador que criou escreva os leads.
 
 1. Open Dynamics 365 Customer Engagement indo ao URL para a sua instância Dynamics, como `https://tenant.crm.dynamics.com` .
-1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Definições Avançadas** .
-1. Na página **Definições,** abra o menu **Definições** na barra superior e selecione **Segurança** .
-1. Na página **'Segurança',** selecione **Utilizadores** e selecione o utilizador que criou na secção "Configurar permissões de utilizador" deste documento. Em seguida, **selecione Gerir Funções** . 
+1. Selecione o ícone de engrenagem na barra superior e, em seguida, selecione **Definições Avançadas**.
+1. Na página **Definições,** abra o menu **Definições** na barra superior e selecione **Segurança**.
+1. Na página **'Segurança',** selecione **Utilizadores** e selecione o utilizador que criou na secção "Configurar permissões de utilizador" deste documento. Em seguida, **selecione Gerir Funções**. 
 
     ![Gerir o separador De Papéis](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-roles.png)
 
@@ -153,7 +153,7 @@ O passo final é permitir que o utilizador que criou escreva os leads.
     >[!NOTE]
     >Esta função é criada pela solução que importou e só tem permissões para escrever os leads e acompanhar a versão da solução para garantir a compatibilidade.
 
-1. Volte para a página **de Segurança** e selecione **Funções de Segurança** . Procure o papel **Microsoft Marketplace Lead Writer** e selecione-o.
+1. Volte para a página **de Segurança** e selecione **Funções de Segurança**. Procure o papel **Microsoft Marketplace Lead Writer** e selecione-o.
 
     ![Painel de Papéis de Segurança](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
@@ -165,14 +165,14 @@ O passo final é permitir que o utilizador que criou escreva os leads.
 
     ![Separador de personalização do escritor líder do Microsoft Marketplace](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 
-1. Selecione **Guardar e fechar** .
+1. Selecione **Guardar e fechar**.
 
 ## <a name="configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement"></a>Configure a sua oferta de envio leva à Dynamics 365 Customer Engagement 
 
 Para configurar a informação de gestão de chumbo para a sua oferta no portal de publicação:
 
 1. Aceda à página **de configuração da Oferta** para a sua oferta.
-1. Na secção **de comandos do Cliente,** selecione **Connect** .
+1. Na secção **de comandos do Cliente,** selecione **Connect**.
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-dynamics/customer-leads.png" alt-text="Ligações ao cliente":::
 
@@ -192,7 +192,7 @@ Para configurar a informação de gestão de chumbo para a sua oferta no portal 
     ![Caixa de nome do utilizador office 365](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-authentication.png)
 
 1. Para **e-mail de contato,** insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo é recebido. Pode introduzir vários endereços de e-mail separando-os com pontos-e-vírguis.
-1. Selecione **OK** .
+1. Selecione **OK**.
 
 Para se certificar de que está ligado com sucesso a um destino de chumbo, selecione o botão **Validate.** Se for bem sucedido, terá uma pista de teste no destino principal.
 

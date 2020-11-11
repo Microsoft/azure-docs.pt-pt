@@ -5,13 +5,13 @@ author: abhijitpai
 ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/02/2020
-ms.openlocfilehash: e8b13369cb961d4be49f0045805a805fda38a59c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/10/2020
+ms.openlocfilehash: cac14687c6193d58069240529955e69fc680b2e8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319822"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491822"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quotas de serviço DB da Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -43,9 +43,9 @@ Pode provistirá a produção a nível de contentores ou a nível de base de dad
 
 Um recipiente Cosmos (ou base de dados de produção partilhada) deve ter um rendimento mínimo de 400 RU/s. À medida que o recipiente cresce, a produção mínima suportada também depende dos seguintes fatores:
 
-* A produção máxima alguma vez a provisionada no contentor. Por exemplo, se a sua produção foi aumentada para 50.000 RU/s, então a produção mais baixa possível seria 500 RU/s
-* O armazenamento atual em GB no recipiente. Por exemplo, se o seu contentor tiver 100 GB de armazenamento, então a produção mais baixa possível seria 1000 RU/s
-* O rendimento mínimo numa base de dados de produção partilhada também depende do número total de contentores que já criou numa base de dados de produção partilhada, medida a 100 RU/s por contentor. Por exemplo, se criou cinco contentores dentro de uma base de dados de produção partilhada, então a produção deve ser de pelo menos 500 RU/s
+* A produção máxima alguma vez a provisionada no contentor. Por exemplo, se a sua produção fosse aumentada para 50.000 RU/s, então a produção mais baixa possível seria 500 RU/s.
+* O armazenamento atual em GB no recipiente. Por exemplo, se o seu recipiente tiver 100 GB de armazenamento, então a produção mais baixa possível seria 1000 RU/s. **Nota:** se o seu contentor ou base de dados contiver mais de 1 TB de dados, a sua conta poderá ser elegível para o nosso [programa de "alto armazenamento/baixa produção".](set-throughput.md#high-storage-low-throughput-program)
+* O rendimento mínimo numa base de dados de produção partilhada também depende do número total de contentores que já criou numa base de dados de produção partilhada, medida a 100 RU/s por contentor. Por exemplo, se criou cinco contentores dentro de uma base de dados de produção partilhada, então a produção deve ser de pelo menos 500 RU/s.
 
 A produção atual e mínima de um contentor ou de uma base de dados pode ser recuperada a partir do portal Azure ou dos SDKs. Para obter mais informações, consulte [a produção de provisão em contentores e bases de dados.](set-throughput.md) 
 

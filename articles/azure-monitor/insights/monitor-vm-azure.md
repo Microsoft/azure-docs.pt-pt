@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 85c4807d5bf71078e3cfb26bbc27e9eecc10c041
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84db7f58c292cf0a9d01cf90da4b847691f601fb
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90029466"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491635"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorização de máquinas virtuais Azure com Monitor Azure
 Este artigo descreve como usar o Azure Monitor para recolher e analisar dados de monitorização de máquinas virtuais Azure para manter a sua saúde. As máquinas virtuais podem ser monitorizadas para disponibilidade e desempenho com o Azure Monitor como qualquer [outro recurso Azure](monitor-azure-resource.md), mas são únicas a partir de outros recursos, uma vez que também é necessário monitorizar o funcionamento e o sistema de hóspedes e as cargas de trabalho que o operam. 
@@ -84,7 +84,7 @@ O agente Log Analytics utilizado pelo Azure Monitor para VMs envia dados para um
 
 Pode aceder à configuração do espaço de trabalho diretamente a partir do Azure Monitor para VMs selecionando a **configuração** do Espaço de Trabalho a partir do **Get Started**. Clique no nome do espaço de trabalho para abrir o seu menu.
 
-![Configuração do espaço de trabalho](media/monitor-vm-azure/workspace-configuration.png)
+![Configuração da área de trabalho](media/monitor-vm-azure/workspace-configuration.png)
 
 Selecione **Definições Avançadas** do menu do espaço de trabalho e, em seguida, **dados** para configurar fontes de dados. Para os agentes windows, selecione **Registos de Eventos do Windows** e adicione registos de eventos comuns, como *Sistema* e *Aplicação.* Para os agentes Linux, selecione **Syslog** e adicione instalações comuns como *kern* e *daemon*. Consulte [as fontes de dados do Agente no Azure Monitor](../platform/agent-data-sources.md) para obter uma lista das fontes de dados disponíveis e detalhes sobre a sua configuração. 
 
@@ -139,7 +139,7 @@ Uma vez configurada a recolha de dados de monitorização para uma máquina virt
 | Métricas | Explorador [de métricas](../platform/metrics-getting-started.md) abertas com o âmbito definido para a máquina virtual atual. |
 | Definições de diagnóstico | Ativar e configurar [a extensão de diagnóstico](../platform/diagnostics-extension-overview.md) para a máquina virtual atual. |
 | Recomendações do assistente | Recomendações para a atual máquina virtual do [Azure Advisor](../../advisor/index.yml). |
-| Registos | Abra [o Log Analytics](../log-query/log-query-overview.md#what-is-log-analytics) com o [âmbito](../log-query/scope.md) definido para a máquina virtual atual. |
+| Registos | Abra [o Log Analytics](../log-query/log-analytics-overview.md) com o [âmbito](../log-query/scope.md) definido para a máquina virtual atual. |
 | Monitor de ligação | Monitor de [ligação do Observador de Rede](../../network-watcher/connection-monitor-preview.md) aberto para monitorizar as ligações entre a máquina virtual atual e outras máquinas virtuais. |
 
 
@@ -148,7 +148,7 @@ Pode analisar métricas para máquinas virtuais usando métricas exploradores ab
 
 Existem três espaços de nome usados por máquinas virtuais para métricas:
 
-| Espaço de Nomes | Descrição | Requisito |
+| Espaço de Nomes | Description | Requisito |
 |:---|:---|:---|
 | Anfitrião de Máquinas Virtuais | Métricas de anfitrião recolhidas automaticamente para todas as máquinas virtuais Azure. Lista detalhada de métricas em [Microsoft.Compute/virtualMachines](../platform/metrics-supported.md#microsoftcomputevirtualmachines). | Recolhido automaticamente sem necessidade de configuração. |
 | Convidado (clássico) | Conjunto limitado de dados de desempenho do sistema operativo dos hóspedes e da aplicação. Disponível em métricas explorador, mas não em outras funcionalidades do Azure Monitor, como alertas métricos.  | [Extensão de diagnóstico](../platform/diagnostics-extension-overview.md) instalada. Os dados são lidos a partir do armazenamento da Azure.  |

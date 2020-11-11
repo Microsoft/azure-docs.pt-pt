@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: cc5702d973150b80188354719333fb7cf22d58b3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 30e5ea4df3de0b8a10c9c1f3b4b27a9e0a19359e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284878"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491210"
 ---
 # <a name="how-to-configure-virtual-machine-offer-properties"></a>Como configurar a máquina virtual oferece propriedades
 
@@ -73,14 +73,10 @@ Nos termos da **emenda Universal ao contrato padrão para a** caixa de mercado c
 
 Pode optar por fornecer os seus próprios termos e condições, em vez do contrato padrão. Os clientes devem aceitar estes termos antes de poderem experimentar a sua oferta.
 
-1. De acordo com a **Legal**, certifique-se de que **o Uso do Contrato Padrão para** a caixa de verificação do mercado comercial da Microsoft está limpo.
+1. De acordo com a **Legal** , certifique-se de que **o Uso do Contrato Padrão para** a caixa de verificação do mercado comercial da Microsoft está limpo.
 1. Na caixa **de Termos e Condições,** introduza até 10.000 caracteres de texto.
-
-   > [!NOTE]
-   > Se necessitar de uma descrição mais longa, insira um único endereço web que indicar onde os seus termos e condições podem ser encontrados. Será exibido aos clientes como um link ativo.
-
 1. **Selecione Guardar o rascunho** antes de continuar para o separador seguinte, oferecer a **listagem**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Configurar a listagem de oferta vm](azure-vm-create-listing.md)
+- [Configurar uma lista de ofertas de VM](azure-vm-create-listing.md)

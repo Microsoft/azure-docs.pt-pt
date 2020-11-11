@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 7d969392c3245eb81ed07889bd956d2b8e8fb82f
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 859325bffe1db9cd6a7afc7e5013681c88209eff
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93234104"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491788"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utilizar o serviço Importar/Exportar do Azure para importar dados para ficheiros do Azure
 
@@ -51,7 +51,7 @@ Execute os seguintes passos para preparar as unidades.
 2. Crie um único volume NTFS em cada unidade. Atribua uma carta de unidade ao volume. Não utilize pontos de montagem.
 3. Modifique o ficheiro *dataset.csv* na pasta raiz onde a ferramenta reside. Dependendo se pretende importar um ficheiro ou uma pasta ou ambos, adicione entradas no ficheiro *dataset.csv* semelhantes aos seguintes exemplos.
 
-   - **Importar um ficheiro** : No seguinte exemplo, os dados a copiar residem no F: unidade. O seu ficheiro *MyFile1.txt*  é copiado para a raiz do *MyAzureFileshare1* . Se o *MyAzureFileshare1* não existir, é criado na conta Azure Storage. A estrutura da pasta mantém-se.
+   - **Importar um ficheiro** : No seguinte exemplo, os dados a copiar residem no F: unidade. O seu ficheiro *MyFile1.txt*  é copiado para a raiz do *MyAzureFileshare1*. Se o *MyAzureFileshare1* não existir, é criado na conta Azure Storage. A estrutura da pasta mantém-se.
 
        ```
            BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
@@ -97,7 +97,7 @@ Execute os seguintes passos para preparar as unidades.
 5. Utilize a `PrepImport` opção para copiar e preparar dados para a unidade do disco. Para a primeira sessão de cópia para copiar diretórios e/ou ficheiros com uma nova sessão de cópia, execute o seguinte comando:
 
     ```cmd
-    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>] DataSet:<dataset.csv>
+    .\WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDirectory>] [/sk:<StorageAccountKey>] [/silentmode] [/InitialDriveSet:<driveset.csv>]/DataSet:<dataset.csv>
     ```
 
    Um exemplo de importação é mostrado abaixo.
@@ -129,7 +129,7 @@ Execute os seguintes passos para criar uma função de importação no portal Az
 
 4. No **Básico:**
 
-    - Selecione **Import into Azure** .
+    - Selecione **Import into Azure**.
     - Introduza um nome descritivo para o trabalho de importação. Use este nome para rastrear os seus trabalhos enquanto estão em curso e uma vez concluídos.
         -  Este nome pode conter apenas letras minúsculas, números, hífens e sublinhados.
         -  O nome deve começar com uma letra, e pode não conter espaços.
@@ -357,7 +357,7 @@ Acompanhe o trabalho até à conclusão. Uma vez concluído o trabalho, verifiqu
 
 Para **adicionar mais unidades,** crie um novo ficheiro driveset e execute o comando como abaixo.
 
-Para sessões de cópia subsequentes às diferentes unidades de disco do que as especificadas no ficheiro *InitialDriveset .csv, especifique* um novo ficheiro driveset *.csv* e forneça-o como um valor para o parâmetro `AdditionalDriveSet` . Utilize o mesmo nome **de ficheiro do diário** e forneça um novo **ID de sessão** . O formato do ficheiro CSV AdicionalDriveset é o mesmo que o formato InitialDriveSet.
+Para sessões de cópia subsequentes às diferentes unidades de disco do que as especificadas no ficheiro *InitialDriveset .csv, especifique* um novo ficheiro driveset *.csv* e forneça-o como um valor para o parâmetro `AdditionalDriveSet` . Utilize o mesmo nome **de ficheiro do diário** e forneça um novo **ID de sessão**. O formato do ficheiro CSV AdicionalDriveset é o mesmo que o formato InitialDriveSet.
 
 ```cmd
 WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AdditionalDriveSet:<driveset.csv>

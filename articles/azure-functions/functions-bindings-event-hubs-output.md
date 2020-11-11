@@ -6,12 +6,12 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 8c829f7e4dcca5aa731f505092739146c72bd293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab1171c69dc210051f034e8444c87de5d49a92be
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87041727"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491414"
 ---
 # <a name="azure-event-hubs-output-binding-for-azure-functions"></a>Azure Event Hubs vinculação de saída para funções Azure
 
@@ -23,4 +23,4 @@ Para obter informações sobre detalhes de configuração e configuração, cons
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Responda aos eventos enviados para um stream de eventos hub (Trigger)](./functions-bindings-storage-blob-trigger.md)
+- [Responda aos eventos enviados para um stream de eventos hub (Trigger)](./functions-bindings-event-hubs-trigger.md)

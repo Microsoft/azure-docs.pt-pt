@@ -7,12 +7,12 @@ ms.reviewer: bwren
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 8a503a5456fc28bd1b3ebb69c784fc59b3c6e7df
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9b434c426264fcfee0dfe663a7d1b21a354badec
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92050077"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491261"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Dados de consulta no Azure Monitor utilizando o Azure Data Explorer (pré-visualização)
 O cluster de procuração Azure Data Explorer permite-lhe realizar consultas de produtos cruzadas entre o Azure Data Explorer, os espaços de trabalho do Log Analytics e as aplicações clássicas de Insights de Aplicação no Azure Monitor. Pode mapear espaços de trabalho do Log Analytics no Azure Monitor ou aplicações clássicas de App Insights como clusters de procuração. Em seguida, pode consultar o cluster proxy usando ferramentas Azure Data Explorer e encaminhá-lo numa consulta de cluster transversal. O artigo mostra como ligar a um cluster proxy, adicionar um cluster proxy ao Azure Data Explorer Web UI, e executar consultas contra os seus espaços de trabalho Log Analytics ou aplicações clássicas de Insights de Aplicação do Azure Data Explorer.
@@ -28,7 +28,7 @@ O diagrama a seguir mostra o fluxo de procuração do Azure Data Explorer:
 ## <a name="connect-to-the-proxy"></a>Ligue-se ao representante
 Para ligar o seu espaço de trabalho Log Analytics ou a aplicação Clássica Application Insights, abra o[Azure Data Explorer Web UI](https://dataexplorer.azure.com/clusters). Verifique se o cluster nativo do Azure Data Explorer (tal como o cluster *de ajuda)* aparece no menu esquerdo antes de ligar ao seu cluster Desalparado ou Insights de Aplicação.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Fluxo de procuração de explorador de dados Azure.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-data-explorer-web-ui-help-cluster.png" alt-text="Aglomerado nativo Azure Data Explorer.":::
 
 Clique **em Adicionar Cluster** e, em seguida, adicione o URL do cluster 'Log Analytics' ou Application Insights num dos seguintes formatos. 
     
@@ -37,14 +37,14 @@ Clique **em Adicionar Cluster** e, em seguida, adicione o URL do cluster 'Log An
 
 Clique **em Adicionar** para fazer a ligação.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Fluxo de procuração de explorador de dados Azure.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-add-cluster.png" alt-text="Adicione o cluster.":::
  
 > [!NOTE]
 > Se adicionar uma ligação a mais de um aglomerado de procuração, dê a cada um um nome diferente. Caso contrário, todos terão o mesmo nome no painel esquerdo.
 
 Após a ligação ser estabelecida, o seu cluster De Insights de Registo ou Desaparente aparecerá no painel esquerdo com o seu cluster Azure Data Explorer nativo. 
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Fluxo de procuração de explorador de dados Azure.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-azure-data-explorer-clusters.png" alt-text="Log Analytics e Azure Data Explorer clusters.":::
  
 > [!NOTE]
 > O número de espaços de trabalho do Azure Monitor que podem ser mapeados está limitado a 100.
@@ -70,7 +70,7 @@ Executar consultas no seu cluster Log Analytics ou Application Insights. Verifiq
 Perf | take 10 // Demonstrate query through the proxy on the Log Analaytics workspace
 ```
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Fluxo de procuração de explorador de dados Azure.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-query-la.png" alt-text="Consulta Log Analytics espaço de trabalho.":::
 
 ### <a name="cross-query-of-your-log-analytics-or-application-insights-proxy-cluster-and-the-azure-data-explorer-native-cluster"></a>Consulta cruzada do seu cluster de procuração log analytics ou application insights e o cluster nativo Azure Data Explorer
 
@@ -85,7 +85,7 @@ union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscript
 let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>';
 union <Azure Data Explorer table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
-A utilização do [ `join` operador](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer), em vez de união, pode exigir uma [dica](/azure/data-explorer/kusto/query/joinoperator?pivots=azuredataexplorer#join-hints) para executá-lo num cluster nativo do Azure Data Explorer (e não no proxy). 
+A utilização do [ `join` operador](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor), em vez de união, pode exigir uma [dica](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor#join-hints) para executá-lo num cluster nativo do Azure Data Explorer (e não no proxy). 
 
 ### <a name="join-data-from-an-azure-data-explorer-cluster-in-one-tenant-with-an-azure-monitor-resource-in-another"></a>Junte os dados de um cluster Azure Data Explorer em um inquilino com um recurso Azure Monitor em outro
 
@@ -113,7 +113,7 @@ Os seguintes comandos são suportados pelo representante:
 
 A imagem que se segue representa um exemplo de consulta de uma função tabular a partir da UI web Azure Data Explorer. Para utilizar a função, execute o nome na janela 'Consulta'.
 
-:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Fluxo de procuração de explorador de dados Azure.":::
+:::image type="content" source="media/azure-data-explorer-monitor-proxy/azure-monitor-proxy-function-query.png" alt-text="Consultar uma função tabular a partir da Azure Data Explorer Web UI.":::
  
 > [!NOTE]
 > O Azure Monitor suporta apenas funções tabulares, que não suportam parâmetros.

@@ -6,12 +6,12 @@ ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: ffec1b0e5fd57a19c5b5c940ec921b43970387e8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: efc785c96c76cca5deeadbd30fa962becb18d25b
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372145"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491527"
 ---
 # <a name="azure-event-hubs-trigger-for-azure-functions"></a>Azure Event Hubs gatilho para funções Azure
 
@@ -23,4 +23,4 @@ Para obter informações sobre detalhes de configuração e configuração, cons
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Escreva eventos para um fluxo de eventos (ligação de saída)](./functions-bindings-storage-blob-output.md)
+- [Escreva eventos para um fluxo de eventos (ligação de saída)](./functions-bindings-event-hubs-output.md)

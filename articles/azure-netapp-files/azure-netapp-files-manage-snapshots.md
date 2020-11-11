@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 11/10/2020
 ms.author: b-juche
-ms.openlocfilehash: 0d7839b11e48e3e260f4d6b1323d1831e28222de
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: e578e377e322e6b6a23f0990ca1fa0285a4ec87d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421884"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491652"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
@@ -108,6 +108,8 @@ Se quiser um volume para utilizar a política de instantâneo, tem de [aplicar a
 
 Se quiser que um volume utilize uma política de instantâneo que criou, tem de aplicar a política ao volume. 
 
+Não é possível aplicar uma política instantânea a um volume de destino na replicação de regiões cruzadas.  
+
 1.  Aceda à página **Volumes,** clique com o botão direito no volume a que pretende aplicar uma política de instantâneo e selecione **Editar**.
 
     ![Volumes menu de clique direito](../media/azure-netapp-files/volume-right-cick-menu.png) 
@@ -172,6 +174,8 @@ Se não quiser [restaurar a totalidade do instantâneo num volume,](#restore-a-s
 O volume montado contém um diretório instantâneo denominado  `.snapshot` (em clientes NFS) ou `~snapshot` (em clientes SMB) que é acessível ao cliente. O diretório instantâneo contém subdireções correspondentes às imagens do volume. Cada subdiretório contém os ficheiros do instantâneo. Se eliminar acidentalmente ou substituir um ficheiro, pode restaurar o ficheiro no diretório de leitura-escrita dos pais copiando o ficheiro de uma subdiretório instantânea para o diretório de leitura. 
 
 Se selecionou a caixa de verificação Hide Snapshot Path quando criou o volume, o diretório instantâneo está escondido. Pode ver o estado do Caminho do Instantâneo de Ocultação do volume selecionando o volume. Pode editar a opção Ocultar O caminho do instantâneo clicando em **Editar** na página do volume.  
+
+Para um volume de destino na replicação transversal, o Caminho do Snapshot é ativado por padrão e a definição não pode ser modificada.
 
 ![Editar opções de instantâneo de volume](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
 

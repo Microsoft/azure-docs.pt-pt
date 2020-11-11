@@ -1,5 +1,5 @@
 ---
-title: Saída Azure Stream Analytics para Azure SQL Database
+title: Aumentar o desempenho da produção para a Base de Dados Azure SQL da Azure Stream Analytics
 description: Saiba mais sobre a produção de dados para o SQL Azure da Azure Stream Analytics e obtenha taxas de produção de escrita mais elevadas.
 author: chetanmsft
 ms.author: chetang
@@ -7,14 +7,14 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: a902cbc8256e249a608a5da8436a1145ddb0d565
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346337"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490938"
 ---
-# <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Saída Azure Stream Analytics para Azure SQL Database
+# <a name="increase-throughput-performance-to-azure-sql-database-from-azure-stream-analytics"></a>Aumentar o desempenho da produção para a Base de Dados Azure SQL da Azure Stream Analytics
 
 Este artigo discute dicas para obter um melhor desempenho de produção de escrita quando está a carregar dados na Base de Dados Azure SQL usando a Azure Stream Analytics.
 

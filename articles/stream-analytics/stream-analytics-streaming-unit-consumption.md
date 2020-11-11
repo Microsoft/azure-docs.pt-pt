@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: 70b5e85c99184b890d2b5269f483785a82340255
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 38f649fbff9ea2c1182adb613b9302768708a4c4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127557"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490955"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Compreender e ajustar as Unidades de Transmissão em Fluxo
 
@@ -20,14 +20,14 @@ As Unidades de Streaming (SUs) representam os recursos informáticos que são at
 
 Para obter processamento de fluxos com baixa latência, os trabalhos do Azure Stream Analytics fazem todos os processamentos na memória. Quando se esgota a memória, o trabalho de streaming falha. Como resultado, para um trabalho de produção, é importante monitorizar o uso de recursos de um trabalho de streaming, e certificar-se de que há recursos suficientes para manter os empregos funcionando 24 horas por dia.
 
-A métrica de utilização de SU %, que varia entre 0% e 100%, descreve o consumo de memória da sua carga de trabalho. Para um trabalho de streaming com pegada mínima, esta métrica é geralmente entre 10% a 20%. Se a utilização de SU% for elevada (acima de 80%), ou se os eventos de entrada forem retrocedidos (mesmo com uma baixa utilização de SU% uma vez que não mostra o uso do CPU), a sua carga de trabalho provavelmente requer mais recursos computativos, o que requer que aumente o número de SUs. É melhor manter a métrica de SU abaixo dos 80% para responder a picos ocasionais. A Microsoft recomenda definir um alerta sobre 80% su utilização métrica para evitar a exaustão dos recursos. Para mais informações, consulte [Tutorial: Configurar alertas para trabalhos Azure Stream Analytics](stream-analytics-set-up-alerts.md).
+A métrica de utilização de SU %, que varia entre 0% e 100%, descreve o consumo de memória da sua carga de trabalho. Para um trabalho de streaming com pegada mínima, esta métrica é geralmente entre 10% a 20%. Se a utilização de SU% for elevada (acima de 80%), ou se os eventos de entrada forem retrocedidos (mesmo com uma baixa utilização de SU% uma vez que não mostra o uso do CPU), a sua carga de trabalho provavelmente requer mais recursos computativos, o que requer que aumente o número de SUs. É melhor manter a métrica de SU abaixo dos 80% para responder a picos ocasionais. Para reagir ao aumento das cargas de trabalho e aumentar as unidades de streaming, considere definir um alerta de 80% na métrica suus. Além disso, você pode usar atraso de marca de água e métricas de eventos recuados para ver se há algum impacto.
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configure as Unidades de Streaming Analytics (SUs)
-1. Inscreva-se no [portal Azure](https://portal.azure.com/)
+1. Iniciar sessão no [portal do Azure](https://portal.azure.com/)
 
 2. Na lista de recursos, encontre o trabalho stream Analytics que deseja escalar e, em seguida, abri-lo. 
 
-3. Na página de trabalho, sob o **título Configure,** selecione **Scale** . O número predefinido de SUs é 3 quando se cria um emprego.
+3. Na página de trabalho, sob o **título Configure,** selecione **Scale**. O número predefinido de SUs é 3 quando se cria um emprego.
 
     ![Configuração de trabalho do portal Azure Stream Analytics][img.stream.analytics.preview.portal.settings.scale]
     
@@ -45,7 +45,7 @@ Calcular o rendimento esperado da carga de trabalho. Se a produção for inferio
 
 A escolha do número de SUs necessárias para um determinado trabalho depende da configuração da partição para as entradas e da consulta definida dentro do trabalho. A página **Escala** permite-lhe definir o número certo de SUs. É uma boa prática atribuir mais SUs do que o necessário. O motor de processamento Stream Analytics otimiza para a latência e produção à custa da atribuição de memória adicional.
 
-Em geral, a melhor prática é começar com 6 SUs para consultas que não usam **PARTITION BY** . Em seguida, determine o ponto doce utilizando um método de tentativa e erro no qual modifica o número de SUs depois de passar quantidades representativas de dados e examinar a métrica de utilização su%. O número máximo de unidades de streaming que podem ser utilizadas por um trabalho stream Analytics depende do número de passos na consulta definida para o trabalho e do número de divisórias em cada passo. Pode saber mais sobre os limites [aqui.](./stream-analytics-parallelization.md#calculate-the-maximum-streaming-units-of-a-job)
+Em geral, a melhor prática é começar com 6 SUs para consultas que não usam **PARTITION BY**. Em seguida, determine o ponto doce utilizando um método de tentativa e erro no qual modifica o número de SUs depois de passar quantidades representativas de dados e examinar a métrica de utilização su%. O número máximo de unidades de streaming que podem ser utilizadas por um trabalho stream Analytics depende do número de passos na consulta definida para o trabalho e do número de divisórias em cada passo. Pode saber mais sobre os limites [aqui.](./stream-analytics-parallelization.md#calculate-the-maximum-streaming-units-of-a-job)
 
 Para obter mais informações sobre a escolha do número certo de SUs, consulte esta página: [Scale Azure Stream Analytics para aumentar a produção](stream-analytics-scale-jobs.md)
 
@@ -125,12 +125,12 @@ Quando a consulta estiver particionada, é espalhada por vários nós. Como resu
 ## <a name="temporal-analytic-functions"></a>Funções analíticas temporais
 A memória consumida (tamanho do estado) de uma função analítica temporal é proporcional à taxa de evento multiplicar-se pela duração. A memória consumida por funções analíticas não é proporcional ao tamanho da janela, mas sim a contagem de divisórias em cada janela de tempo.
 
-A remediação é semelhante à junção temporal. Pode escalonar a consulta utilizando **a PARTITION BY** . 
+A remediação é semelhante à junção temporal. Pode escalonar a consulta utilizando **a PARTITION BY**. 
 
 ## <a name="out-of-order-buffer"></a>Tampão fora de ordem 
 O utilizador pode configurar o tamanho do tampão fora de ordem no painel de configuração de pedido de evento. O tampão é utilizado para conter as entradas durante a duração da janela e reencomenda-las. O tamanho do tampão é proporcional à taxa de entrada do evento multiplicar-se pelo tamanho da janela fora de ordem. O tamanho da janela padrão é 0. 
 
-Para remediar o transbordo do tampão fora de ordem, escalone a consulta utilizando **partição by** . Quando a consulta estiver particionada, é espalhada por vários nós. Como resultado, o número de eventos que entram em cada nó é reduzido, reduzindo assim o número de eventos em cada tampão reencamí o pedido. 
+Para remediar o transbordo do tampão fora de ordem, escalone a consulta utilizando **partição by**. Quando a consulta estiver particionada, é espalhada por vários nós. Como resultado, o número de eventos que entram em cada nó é reduzido, reduzindo assim o número de eventos em cada tampão reencamí o pedido. 
 
 ## <a name="input-partition-count"></a>Contagem de divisórias de entrada 
 Cada divisão de entrada de uma entrada de trabalho tem um tampão. Quanto maior for o número de entradas, mais recurso o trabalho consome. Para cada unidade de streaming, o Azure Stream Analytics pode processar cerca de 1 MB/s de entrada. Portanto, pode otimizar combinando o número de unidades de streaming Stream Analytics com o número de divisórias no seu Event Hub. 

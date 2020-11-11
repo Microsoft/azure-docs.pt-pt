@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 1840bf93cbca73e593465c999b416e7cbd7af201
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 730141d22b318d79c8c2b7d995b98ee1c311aaf5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89536317"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491278"
 ---
 # <a name="what-is-azure-data-factory"></a>O que é o Azure Data Factory?
 
@@ -22,7 +22,7 @@ ms.locfileid: "89536317"
 
 No mundo dos macrodados, muitas vezes, são armazenados dados desorganizados e não processados em sistemas relacionais, não relacionais, entre outros. No entanto, por si só, os dados não processados não têm o contexto ou o significado adequado para disponibilizar informações significativas para analistas, cientistas de dados ou decisores empresariais. 
 
-Os macrodados precisam de um serviço que orquestre e operacionalize processos para refinar estes enormes arquivos de dados não processados em informações comerciais acionáveis. O Azure Data Factory é um serviço na cloud gerido criado para estes projetos complexos e híbridos de extract-transform-load (ETL), extract-load-transform (ELT) e integração de dados.
+O big data requer um serviço que pode orquestrar e operacionalizar processos para refinar estas enormes lojas de dados brutos em insights de negócios acccionáveis. O Azure Data Factory é um serviço na cloud gerido criado para estes projetos complexos e híbridos de extract-transform-load (ETL), extract-load-transform (ELT) e integração de dados.
 
 Por exemplo, imagine uma empresa de jogos que recolhe petabytes de registos de jogos que são produzidos por jogos na cloud. A empresa pretende analisar esses registos para obter informações sobre as preferências do cliente, os dados demográficos e o comportamento de utilização. Quer também identificar as oportunidades de vendas superiores e vendas cruzadas, desenvolver funcionalidades novas e apelativas, impulsionar o crescimento do negócio e proporcionar uma melhor experiência aos clientes.
 
@@ -58,7 +58,7 @@ Se preferir codificar transformações à mão, a ADF suporta atividades externa
 ### <a name="cicd-and-publish"></a>CI/CD e publicação
 A Data Factory oferece suporte total para CI/CD dos seus oleodutos de dados utilizando Azure DevOps e GitHub. Isto permite-lhe desenvolver e entregar os seus processos ETL de forma incremental antes de publicar o produto acabado. Quando os dados não processados estiverem refinados e prontos para consumo por parte das empresas, carregue os dados para o Azure Data Warehouse, para a Base de Dados SQL do Azure, para o Azure CosmosDB ou para qualquer que seja o motor de análise para o qual os seus utilizadores empresariais podem apontar a partir as ferramentas de business intelligence que utilizam.
 
-### <a name="monitor"></a>Monitorizar
+### <a name="monitor"></a>Monitor
 Depois de criar e implementar com êxito o seu pipeline de integração de dados, proporcionando valor comercial a partir dos dados refinados, monitorize as atividades e os pipelines agendados relativamente às taxas de êxito e falha. A Azure Data Factory tem suporte incorporado para monitorização de gasodutos através do Azure Monitor, API, PowerShell, Azure Monitor e painéis de saúde no portal Azure.
 
 ## <a name="top-level-concepts"></a>Principais conceitos

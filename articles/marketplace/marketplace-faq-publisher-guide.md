@@ -4,15 +4,15 @@ description: Obtenha respostas a perguntas comuns sobre o Azure Marketplace e o 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 09/11/2020
-ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e72acb532a33d0b3751bb8ad5051b1a3df4d7514
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126724"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491482"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Questões comuns sobre o mercado comercial da Microsoft
 
@@ -58,9 +58,9 @@ Para se inscrever para ser um editor de marketplace comercial, vá ao [Partner C
 
 As formas como os clientes podem usar a sua oferta de mercado comercial dependem da forma como cria as ofertas.
 
-- Para soluções que fornece automaticamente, sejam elas pagas, tragam a sua própria licença (BYOL), ou gratuitas, os clientes são instados a *obter agora* .
-- Ofertas que suportam uma unidade de teste (demonstração) solicitam ao cliente para *testar drive* . 
-- O software como um serviço (SaaS) oferece que fornece um teste fora do mercado comercial, *digamos Free Trial* .
+- Para soluções que fornece automaticamente, sejam elas pagas, tragam a sua própria licença (BYOL), ou gratuitas, os clientes são instados a *obter agora*.
+- Ofertas que suportam uma unidade de teste (demonstração) solicitam ao cliente para *testar drive*. 
+- O software como um serviço (SaaS) oferece que fornece um teste fora do mercado comercial, *digamos Free Trial*.
 - As listas simples permitem ao cliente solicitar *contacte-me.*
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>Como crio ofertas para o mercado comercial?

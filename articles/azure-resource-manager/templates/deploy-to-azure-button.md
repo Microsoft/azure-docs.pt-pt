@@ -2,19 +2,19 @@
 title: Botão Implementar no Azure
 description: Utilize o botão para implementar os modelos do Gestor de Recursos Azure a partir de um repositório GitHub.
 ms.topic: conceptual
-ms.date: 10/22/2020
-ms.openlocfilehash: 62a0a8b0336d9a7fcf00efb172775b9606bcef98
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/10/2020
+ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675396"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490904"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Use um botão de implementação para implementar modelos do repositório GitHub
 
 Este artigo descreve como usar o botão **Implementar para Azure** para implementar modelos a partir de um repositório GitHub. Pode adicionar o botão diretamente ao ficheiro README.md no seu repositório GitHub. Ou, pode adicionar o botão a uma página web que faz referência ao repositório.
 
-O âmbito de implantação é determinado pelo esquema do modelo. Para obter mais informações, consulte:
+O âmbito de implantação é determinado pelo esquema do modelo. Para obter mais informações, veja:
 
 * [grupos de recursos](deploy-to-resource-group.md)
 * [assinaturas](deploy-to-subscription.md)
@@ -35,7 +35,7 @@ A imagem aparece como:
 
 ## <a name="create-url-for-deploying-template"></a>Criar URL para implementar o modelo
 
-Para criar o URL para o seu modelo, comece com o URL cru para o modelo no seu repo. Para ver o URL cru, selecione **Raw** .
+Para criar o URL para o seu modelo, comece com o URL cru para o modelo no seu repo. Para ver o URL cru, selecione **Raw**.
 
 :::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="selecionar Raw":::
 
@@ -71,6 +71,14 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 
 Tem o URL completo para a ligação.
 
+Se estiver a utilizar [Git com Azure Repos](/azure/devops/repos/git/) em vez de um repo GitHub, ainda pode utilizar o botão Implementar para Azure. Certifique-se de que o seu repo é público. Utilize a [operação Itens](/rest/api/azure/devops/git/items/get) para obter o modelo. O seu pedido deve estar no seguinte formato:
+
+```http
+https://dev.azure.com/{organization-name}/{project-name}/_apis/git/repositories/{repository-name}/items?scopePath={url-encoded-path}&api-version=6.0
+```
+
+Codificar este URL de pedido.
+
 ## <a name="create-deploy-to-azure-button"></a>Criar implementar para o botão Azure
 
 Finalmente, junte o link e a imagem.
@@ -87,6 +95,12 @@ Para HTML, utilize:
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-storage-account-create%2Fazuredeploy.json" target="_blank">
   <img src="https://aka.ms/deploytoazurebutton"/>
 </a>
+```
+
+Para Git com Azure repo, o botão está no formato:
+
+```markdown
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fdev.azure.com%2Forgname%2Fprojectname%2F_apis%2Fgit%2Frepositories%2Freponame%2Fitems%3FscopePath%3D%252Freponame%252Fazuredeploy.json%26api-version%3D6.0)
 ```
 
 ## <a name="deploy-the-template"></a>Implementar o modelo

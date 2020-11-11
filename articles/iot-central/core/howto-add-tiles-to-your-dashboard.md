@@ -1,18 +1,17 @@
 ---
-title: Adicione azulejos ao seu painel Azure IoT Central / Microsoft Docs
+title: Configure para o seu painel Azure IoT Central / Microsoft Docs
 description: Como construtor, aprenda a configurar o painel de aplicações Azure IoT Central padrão com azulejos.
-author: Haley-Rowland
-ms.author: harowl
-ms.date: 05/27/2020
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 11/06/2020
 ms.topic: how-to
 ms.service: iot-central
-services: iot-central
-ms.openlocfilehash: 5276f9b8c6dd3bdc305142e5b9452cd9c5d60bce
-ms.sourcegitcommit: 051908e18ce42b3b5d09822f8cfcac094e1f93c2
+ms.openlocfilehash: 2ea2dd18cd5816c7c1406ac201421a2983e431a3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94376993"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94492041"
 ---
 # <a name="configure-the-application-dashboard"></a>Configure o painel de aplicações
 
@@ -29,23 +28,26 @@ A imagem que se segue mostra o painel de instrumentos numa aplicação criada a 
 
 Depois de selecionar **Editar** ou **Novo,** o painel de instrumentos está no modo *de edição.* Pode utilizar as ferramentas no painel do painel do **painel do painel editar** para adicionar azulejos ao tablier e personalizar e remover os azulejos no próprio painel de instrumentos. Por exemplo, para adicionar um azulejo de **telemetria** para mostrar a temperatura atual reportada por um ou mais dispositivos:
 
-1. No painel do **painel do painel do painel editar,** selecione um grupo de **dispositivos**.
-1. Selecione um ou mais dispositivos no **dropdown dos Dispositivos** para mostrar no azulejo. Agora vê a telemetria, propriedades e comandos disponíveis dos dispositivos.
-1. Selecione **Temperatura** na secção de telemetria e, em seguida, selecione **Adicionar azulejo**. O azulejo agora mostra no painel de instrumentos onde pode alterar a visualização, redimensionar o azulejo e configurá-lo:
+1. Selecione um **Grupo de Dispositivos** e, em seguida, escolha os seus dispositivos no **dropdown dos Dispositivos** para mostrar no azulejo. Agora vê a telemetria, propriedades e comandos disponíveis dos dispositivos.
+
+1. Se necessário, utilize o dropdown para selecionar um valor de telemetria para mostrar no azulejo. Pode adicionar mais itens ao azulejo outro selecionando **+ Telemetria** , **+ Propriedade,** ou **+ Cloud Property**.
 
 :::image type="content" source="media/howto-add-tiles-to-your-dashboard/device-details.png" alt-text="Adicione um azulejo de telemetria de temperatura ao tablier":::
 
-Quando terminar de adicionar e personalizar azulejos no painel de instrumentos, **selecione Save**.
+Quando tiver selecionado todos os valores para mostrar no azulejo, clique em **Adicionar azulejo.** O azulejo aparece agora no painel de instrumentos onde pode alterar a visualização, redimensioná-la, movê-la e configugá-la.
+
+Quando terminar de adicionar e personalizar azulejos no painel de instrumentos, **selecione Guarde** para guardar as alterações no painel de instrumentos, o que o retira do modo de edição.
 
 ## <a name="customize-tiles"></a>Personalizar azulejos
 
-Para personalizar um azulejo no tablier, o painel de instrumentos deve estar no modo de edição. As opções de personalização disponíveis dependem do [tipo de azulejo:](#tile-types)
+Para editar um azulejo, tem de estar em modo de edição.  As opções de personalização disponíveis dependem do [tipo de azulejo:](#tile-types)
 
-* O ícone da régua num azulejo permite-lhe alterar a visualização. As visualizações incluem gráficos de linha, valores conhecidos e mapas de calor.
+* O ícone da régua num azulejo permite-lhe alterar a visualização. As visualizações incluem gráficos de linha, gráficos de barras, gráficos de tortas, valores conhecidos, indicadores de desempenho chave (ou KPI's), mapas de calor e mapas.
 
 * O ícone quadrado permite-lhe redimensionar o azulejo.
 
 * O ícone de engrenagem permite-lhe configurar a visualização. Por exemplo, para uma visualização de gráficos de linha, pode optar por mostrar a lenda e os eixos e escolher o intervalo de tempo para traçar.
+
 
 ## <a name="tile-types"></a>Tipos de azulejos
 
@@ -91,11 +93,16 @@ Para **um KPI** numérico, **Último Valor Conhecido,** e azulejos **de propried
 
 Adicione as suas regras de formatação condicional:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot mostrando regras de formatação condicional para fluxo médio. Há três regras - menos 20 é verde, menos de 50 é amarelo, e qualquer coisa acima de 50 é vermelho":::
-
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot mostrando regras de formatação condicional para fluxo médio. Há três regras - menos de 20 é verde, menos de 50 é amarelo, e qualquer coisa acima de 50 é vermelho":::
+   
 A imagem que se segue mostra o efeito da regra de formatação condicional:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot mostrando a cor de fundo amarelo no azulejo de fluxo de água médio. O número no azulejo é 40.84":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot mostrando a cor de fundo vermelho no azulejo de fluxo de água médio. O número no azulejo é 50.54":::
+
+### <a name="tile-formatting"></a>formatação "azulejo"
+Esta funcionalidade, disponível em azulejos KPI, LKV e Property, permite que os utilizadores ajustem o tamanho da fonte, escolham precisão decimal, valores numéricos abreviar (por exemplo, formato 1.700 como 1.7K), ou valores de corda de embrulho nos seus azulejos.
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/tile-format.png" alt-text="Formato de azulejos":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,6 +1,6 @@
 ---
-title: Dados processados utilizando o pool SQL sem servidor
-description: Este documento descreve como a quantidade processada pelos dados é calculada quando consulta dados no seu lago de dados.
+title: Gestão de custos para piscina SQL sem servidor
+description: Este documento descreve como gerir o custo do pool SQL sem servidor e como os dados processados são calculados ao consultar dados no armazenamento do Azure.
 services: synapse analytics
 author: filippopovic
 ms.service: synapse-analytics
@@ -9,14 +9,22 @@ ms.subservice: sql
 ms.date: 11/05/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: a108e5fdd30c21cdb7771e3f683dad22773653a4
-ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
+ms.openlocfilehash: 8a26f8ced5e91810f8cadff0a27796dc817e6517
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/09/2020
-ms.locfileid: "94381206"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491589"
 ---
-# <a name="data-processed-by-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Dados processados através da utilização de pool SQL sem servidor no Azure Synapse Analytics
+# <a name="cost-management-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Gestão de custos para piscina SQL sem servidor em Azure Synapse Analytics
+
+Este artigo explica como pode estimar e gerir custos para a piscina SQL sem servidor em Azure Synapse Analytics:
+- Estimativa da quantidade de dados processados antes de emitir uma consulta
+- Utilize a função de controlo de custos para definir o orçamento
+
+Entenda que os custos para a piscina SQL sem servidor em Azure Synapse Analytics são apenas uma parte dos custos mensais na sua conta Azure. Se estiver a utilizar outros serviços Azure, é cobrado por todos os serviços e recursos da Azure utilizados na sua subscrição Azure, incluindo os serviços de terceiros. Este artigo explica como planear e gerir custos para a piscina SQL sem servidor em Azure Synapse Analytics.
+
+## <a name="data-processed"></a>Dados processados
 
 *Os dados processados* são a quantidade de dados que o sistema armazena temporariamente enquanto uma consulta é executada. Os dados tratados consistem nas seguintes quantidades:
 
@@ -85,6 +93,53 @@ Esta consulta lê ficheiros inteiros. O tamanho total dos ficheiros armazenados 
 
 Esta consulta processa pouco mais de 100 KB de dados. A quantidade de dados tratados para esta consulta é arredondada até 10 MB, conforme especificado na secção [arredondamento](#rounding) deste artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="cost-control"></a>Controlo de custos
+
+A funcionalidade de controlo de custos no pool SQL sem servidor permite-lhe definir o orçamento para a quantidade de dados processados. Pode definir o orçamento em Tuberculose de dados processados por um dia, semana e mês. Ao mesmo tempo, pode ter um ou mais orçamentos definidos. Para configurar o controlo de custos para a piscina SQL sem servidor, pode utilizar o Synapse Studio ou o T-SQL.
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-synapse-studio"></a>Configure o controlo de custos para a piscina SQL sem servidor no Synapse Studio
+ 
+Para configurar o controlo de custos para a piscina SQL sem servidor no Synapse Studio, navegue para Gerir o item no menu à esquerda, do que selecionar o item da piscina SQL em piscinas Analytics. Ao pairar na piscina SQL sem servidor, irá notar um ícone para controlo de custos - clique neste ícone.
+
+![Navegação de controlo de custos](./media/data-processed/cost-control-menu.png)
+
+Assim que clicar no ícone de controlo de custos, aparecerá uma barra lateral:
+
+![Configuração do controlo de custos](./media/data-processed/cost-control-sidebar.png)
+
+Para definir um ou mais orçamentos, clique primeiro no botão de rádio para um orçamento que pretende definir, do que insira o valor inteiro na caixa de texto. Unidade para o valor são TBs. Uma vez configurados os orçamentos que queria, clique no botão de aplicação na parte inferior da barra lateral. É isso, o seu orçamento está definido.
+
+## <a name="configure-cost-control-for-serverless-sql-pool-in-t-sql"></a>Configure o controlo de custos para a piscina SQL sem servidor em T-SQL
+
+Para configurar o controlo de custos para a piscina SQL sem servidor em T-SQL, é necessário executar um ou mais dos seguintes procedimentos armazenados.
+
+```sql
+sp_set_data_processed_limit
+    @type = N'daily',
+    @limit_tb = 1
+
+sp_set_data_processed_limit
+    @type= N'weekly',
+    @limit_tb = 2
+
+sp_set_data_processed_limit
+    @type= N'monthly',
+    @limit_tb = 3334
+```
+
+Para ver a configuração atual execute a seguinte declaração T-SQL:
+
+```sql
+SELECT * FROM sys.configurations
+WHERE name like 'Data processed %';
+```
+
+Para ver quantos dados foram processados durante o dia, semana ou mês, execute a seguinte declaração T-SQL:
+
+```sql
+SELECT * FROM sys.dm_external_data_processed
+```
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para aprender a otimizar as suas consultas para desempenho, consulte [as melhores práticas para piscina SQL sem servidor.](best-practices-sql-on-demand.md)

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/18/2020
+ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: 325931ea024221bc89df3b2e25f3e7844130f4dc
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 53628f5aa0bc5ab5dedde5deb9950c7b13fb4bf6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741061"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490751"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -68,6 +68,7 @@ $ras.Count
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
     ```
+- Se tentar remover a última atribuição de funções do Proprietário para uma subscrição, poderá ver o erro "Não é possível eliminar a última atribuição de administração do RBAC." A remoção da última atribuição de funções do Proprietário para uma subscrição não é suportada para evitar órfãos da subscrição. Se quiser cancelar a sua subscrição, consulte [cancelar a subscrição do Azure](../cost-management-billing/manage/cancel-azure-subscription.md).
 
 ## <a name="problems-with-custom-roles"></a>Problemas com funções personalizadas
 
@@ -120,7 +121,7 @@ Se convidou recentemente um utilizador ao criar uma atribuição de funções, e
 
 No entanto, se este diretor de segurança não for um utilizador recentemente convidado, poderá ser um diretor de segurança eliminado. Se atribuir uma função a um diretor de segurança e depois apagar esse diretor de segurança sem primeiro retirar a atribuição de funções, o diretor de segurança será listado como **Identidade não encontrado** e um tipo **desconhecido.**
 
-Se listar esta tarefa de função utilizando a Azure PowerShell, poderá ver um vazio `DisplayName` e um conjunto para `ObjectType` **Desconhecido** . Por exemplo, [a Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devolve uma atribuição de funções semelhante à seguinte saída:
+Se listar esta tarefa de função utilizando a Azure PowerShell, poderá ver um vazio `DisplayName` e um conjunto para `ObjectType` **Desconhecido**. Por exemplo, [a Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) devolve uma atribuição de funções semelhante à seguinte saída:
 
 ```
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -239,7 +240,7 @@ Se não conseguir aceder a nenhum destes azulejos, peça ao seu administrador ac
 
 ## <a name="azure-functions-and-write-access"></a>Funções Azure e escrever acesso
 
-Algumas [funcionalidades das Funções Azure](../azure-functions/functions-overview.md) requerem acesso de escrita. Por exemplo, se um utilizador for atribuído à função [Reader,](built-in-roles.md#reader) não será capaz de visualizar as funções dentro de uma aplicação de função. O portal apresentará **(Sem acesso)** .
+Algumas [funcionalidades das Funções Azure](../azure-functions/functions-overview.md) requerem acesso de escrita. Por exemplo, se um utilizador for atribuído à função [Reader,](built-in-roles.md#reader) não será capaz de visualizar as funções dentro de uma aplicação de função. O portal apresentará **(Sem acesso)**.
 
 ![Aplicativos de função sem acesso](./media/troubleshooting/functionapps-noaccess.png)
 

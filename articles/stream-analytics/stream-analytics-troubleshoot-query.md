@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: c2c199b2366f2708af19c1868cce09e0ba38fc96
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: ef03560cff704255d2779a747d124e0b39a1c657
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130260"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94491312"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Resolução de problemas Azure Stream Análises
 
@@ -25,7 +25,7 @@ Este artigo descreve questões comuns com o desenvolvimento de consultas Azure S
 
 1.  Examinar erros testando localmente:
 
-    - No portal Azure, no **separador 'Consulta',** selecione **Teste** . Utilize os dados da amostra descarregados para [testar a consulta](stream-analytics-test-query.md). Examine quaisquer erros e tente corrigi-los.   
+    - No portal Azure, no **separador 'Consulta',** selecione **Teste**. Utilize os dados da amostra descarregados para [testar a consulta](stream-analytics-test-query.md). Examine quaisquer erros e tente corrigi-los.   
     - Também pode [testar a sua consulta localmente](stream-analytics-live-data-local-testing.md) utilizando ferramentas Azure Stream Analytics para Visual Studio ou Visual Studio [Code](visual-studio-code-local-run-live-input.md). 
 
 2.  [Consultas de depuração passo a passo localmente usando diagrama de trabalho](debug-locally-using-job-diagram-vs-code.md) em ferramentas Azure Stream Analytics para Código de Estúdio Visual. O diagrama de trabalho mostra como os dados fluem de fontes de entrada (Event Hub, IoT Hub, etc.) através de múltiplos passos de consulta e, finalmente, para os lavatórios de saída. Cada passo de consulta é mapeado para um conjunto de resultados temporário definido no script usando a declaração COM. Pode ver os dados, bem como as métricas, em cada conjunto de resultados intermédios para encontrar a origem da questão.
@@ -50,6 +50,8 @@ Este artigo descreve questões comuns com o desenvolvimento de consultas Azure S
 ## <a name="resource-utilization-is-high"></a>A utilização de recursos é elevada
 
 Certifique-se de que tira partido da paralelização no Azure Stream Analytics. Você pode aprender a [escalar com a paralelização](stream-analytics-parallelization.md) de consulta de trabalhos stream Analytics configurando divisórias de entrada e sintonizando a definição de consulta de análise.
+
+Se a utilização dos recursos for consistentemente superior a 80%, o atraso da marca de água está a aumentar e o número de eventos recuados está a aumentar, considere o aumento das unidades de streaming. A elevada utilização indica que o trabalho está a utilizar perto dos recursos máximos atribuídos.
 
 ## <a name="debug-queries-progressively"></a>Debug queries progressively (Depurar consultas progressivamente)
 
