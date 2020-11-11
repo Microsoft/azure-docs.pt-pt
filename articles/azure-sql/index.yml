@@ -14,12 +14,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: sstein
   ms.date: 10/30/2019
-  ms.openlocfilehash: ba3439ab515539149bb53bcd38c7c646f9f2da07
-  ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+  ms.openlocfilehash: c6d4a6afa1e85a4b159673a11081bc694e3b9cf4
+  ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/28/2020
-  ms.locfileid: "92790853"
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94490870"
 landingContent:
 - title: Base de Dados SQL do Azure
   linkLists:
@@ -117,6 +117,16 @@ landingContent:
       url: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
     - text: Diretrizes de desempenho
       url: virtual-machines/windows/performance-guidelines-best-practices.md
+- title: Migrar a partir do SQL Server
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Base de Dados SQL do Azure
+      url: migration-guides/database/sql-server-to-sql-database-overview.md
+    - text: Instância Gerida do SQL do Azure
+      url: migration-guides/managed-instance/sql-server-to-managed-instance-overview.md
+    - text: SQL Server nas VMs do Azure
+      url: migration-guides/virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
 - title: Ligar e consultar
   linkLists:
   - linkListType: quickstart
@@ -137,40 +147,6 @@ landingContent:
       url: database/connect-query-dotnet-core.md
     - text: Python
       url: database/connect-query-python.md
-- title: Desenvolvimento
-  linkLists:
-  - linkListType: overview
-    links:
-    - text: Programação de aplicações
-      url: database/develop-overview.md
-    - text: Design da aplicação recuperação após desastre
-      url: database/designing-cloud-solutions-for-disaster-recovery.md
-    - text: Gerir atualizações sem interrupção (BD SQL)
-      url: database/manage-application-rolling-upgrade.md
-    - text: Estratégias de desenvolvimento (VM SQL)
-      url: virtual-machines/windows/application-patterns-development-strategies.md
-    - text: Padrões de inquilinos de base de dados SaaS
-      url: database/saas-tenancy-app-design-patterns.md
-  - linkListType: how-to-guide
-    links:
-    - text: Criar primeira base de dados (SSMS)
-      url: database/design-first-database-tutorial.md
-    - text: Criar primeira base de dados (C#)
-      url: database/design-first-database-csharp-tutorial.md
-- title: Conhecer o SQL do Azure
-  linkLists:
-  - linkListType: learn
-    links:
-    - text: SQL do Azure para principiantes
-      url: https://aka.ms/azuresql4beginners
-    - text: Princípios fundamentais do SQL do Azure
-      url: /learn/paths/azure-sql-fundamentals/
-    - text: Laboratórios práticos do SQL do Azure
-      url: https://aka.ms/asqlworkshop
-    - text: Bootcamp do SQL do Azure
-      url: https://aka.ms/azuresqlbootcamp
-    - text: Recursos SQL educativos
-      url: /sql/sql-server/educational-sql-resources
 - title: Referência
   linkLists:
   - linkListType: deploy
@@ -203,3 +179,37 @@ landingContent:
       url: /powershell/module/az.sql
     - text: API REST
       url: /rest/api/sql/
+- title: Conhecer o SQL do Azure
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: SQL do Azure para principiantes
+      url: https://aka.ms/azuresql4beginners
+    - text: Princípios fundamentais do SQL do Azure
+      url: /learn/paths/azure-sql-fundamentals/
+    - text: Laboratórios práticos do SQL do Azure
+      url: https://aka.ms/asqlworkshop
+    - text: Bootcamp do SQL do Azure
+      url: https://aka.ms/azuresqlbootcamp
+    - text: Recursos SQL educativos
+      url: /sql/sql-server/educational-sql-resources
+- title: Desenvolvimento
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Programação de aplicações
+      url: database/develop-overview.md
+    - text: Design da aplicação recuperação após desastre
+      url: database/designing-cloud-solutions-for-disaster-recovery.md
+    - text: Gerir atualizações sem interrupção (BD SQL)
+      url: database/manage-application-rolling-upgrade.md
+    - text: Estratégias de desenvolvimento (VM SQL)
+      url: virtual-machines/windows/application-patterns-development-strategies.md
+    - text: Padrões de inquilinos de base de dados SaaS
+      url: database/saas-tenancy-app-design-patterns.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar primeira base de dados (SSMS)
+      url: database/design-first-database-tutorial.md
+    - text: Criar primeira base de dados (C#)
+      url: database/design-first-database-csharp-tutorial.md

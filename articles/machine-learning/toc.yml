@@ -160,6 +160,8 @@
         - name: Descrição geral da segurança empresarial
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
+        - name: Encriptação de dados
+          href: concept-data-encryption.md
         - name: Linha de base de segurança
           href: security-baseline.md
     - name: ML responsável
@@ -182,14 +184,17 @@
       items:
         - name: Gestão de identidades e acessos
           items:
-            - name: Configurar autenticação
+            - name: Autenticação da área de trabalho
               displayName: 'authentication, auth, oauth'
               href: how-to-setup-authentication.md
-            - name: Gerir utilizadores e funções
+            - name: Autenticação do serviço Web
+              displayName: 'authentication, model, web service'
+              href: how-to-authenticate-web-service.md
+            - name: Gerir o acesso (autorização)
               href: how-to-assign-roles.md
-            - name: Utilizar identidades geridas para controlo de acesso
+            - name: Identidades geridas para controlo de acesso
               href: how-to-use-managed-identities.md
-            - name: Utilize a identidade Azure AD em implementações AKS
+            - name: Identidade do Azure AD em implementações do AKS
               href: how-to-use-azure-ad-identity.md
         - name: Segurança da rede
           items:

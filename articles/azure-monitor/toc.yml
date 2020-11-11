@@ -114,15 +114,7 @@
     - name: Origens de dados
       href: platform/data-sources.md
     - name: Plataforma de dados
-      items:
-        - name: Descrição geral
-          href: platform/data-platform.md
-        - name: Registos
-          href: platform/data-platform-logs.md
-        - name: Métricas
-          href: platform/data-platform-metrics.md
-        - name: Transmitir dados para os Hubs de Eventos
-          href: platform/stream-monitoring-data-event-hubs.md
+      href: platform/data-platform.md
     - name: Segurança de dados
       items:
         - name: Dados de registo
@@ -188,98 +180,13 @@
               href: app/pricing.md
             - name: Registar utilização e custos de dados
               href: platform/manage-cost-storage.md
-    - name: Registos da plataforma
+    - name: Registos do Azure Monitor
       items:
         - name: Descrição geral
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/platform-logs-overview.md
-        - name: Registo de atividades
-          href: platform/activity-log.md
-        - name: Registos do recurso
-          href: platform/resource-logs.md
-        - name: Definições de diagnóstico
-          displayName: 'Platform logs, Resource logs, Activity log'
-          href: platform/diagnostic-settings.md
-    - name: Log Analytics
-      items:
-        - name: Descrição geral
-          displayname: 'Log Analytics, log query, log queries, query, queries'
-          href: log-query/log-query-overview.md
-        - name: Tutorial
-          displayname: 'Log Analytics workspace, log query, log queries, query, queries'
-          href: log-query/get-started-portal.md
-        - name: Âmbito de consulta
-          href: log-query/scope.md
-        - name: Consultar com o Azure Data Explorer
-          href: platform/azure-data-explorer-monitor-proxy.md
-        - name: Registar consultas
-          items:
-            - name: Colunas padrão
-              href: platform/log-standard-columns.md
-            - name: Auditar consultas
-              href: log-query/query-audit.md
-            - name: Otimizar consultas
-              href: log-query/query-optimization.md
-            - name: Funções
-              href: log-query/functions.md
-            - name: Analisar dados de texto
-              href: log-query/parse-text.md
-            - name: Consultas de exemplo
-              href: log-query/saved-queries.md
-            - name: Grupos de computadores
-              href: platform/computer-groups.md
-        - name: Linguagem da consulta
-          items:
-            - name: Referência de KQL
-              href: /azure/data-explorer/kusto/query/
-            - name: Diferença em relação ao Azure Data Explorer
-              href: log-query/data-explorer-difference.md
-            - name: Exemplos
-              href: log-query/examples.md
-            - name: Exemplos de análise inteligente
-              href: log-query/smart-analytics.md
-            - name: Lições
-              items:
-                - name: Operações de cadeia
-                  href: log-query/string-operations.md
-                - name: Operações de data e hora
-                  href: log-query/datetime-operations.md
-                - name: Funções de agregação
-                  href: log-query/aggregations.md
-                - name: Agregações avançadas
-                  href: log-query/advanced-aggregations.md
-                - name: Associações
-                  href: log-query/joins.md
-                - name: Estruturas de dados e JSON
-                  href: log-query/json-data-structures.md
-                - name: Escrita de consulta avançada
-                  href: log-query/advanced-query-writing.md
-                - name: Gráficos e diagramas
-                  href: log-query/charts.md
-                - name: Consultas de pesquisa
-                  href: log-query/search-queries.md
-            - name: Truques e dicas
-              items:
-                - name: SQL
-                  href: log-query/sql-cheatsheet.md
-                - name: Splunk
-                  href: log-query/splunk-cheatsheet.md
-        - name: Consultas entre recursos
-          items:
-            - name: Descrição geral
-              href: log-query/cross-workspace-query.md
-            - name: expressão de aplicação
-              href: log-query/app-expression.md
-            - name: expressão de área de trabalho
-              href: log-query/workspace-expression.md
-            - name: expressão de recurso
-              href: log-query/resource-expression.md
-            - name: Unificar recursos de dados da aplicação
-              href: log-query/unify-app-resource-data.md
+          displayname: 'Azure Monitor Logs, Logs, Log Analytics, log query, log queries, query, queries'
+          href: platform/data-platform-logs.md
         - name: Áreas de trabalho e clusters
           items:
-            - name: Conceber uma implementação de área de trabalho
-              href: platform/design-logs-deployment.md
             - name: Criar uma área de trabalho
               items:
                 - name: Portal do Azure
@@ -288,6 +195,8 @@
                   href: learn/quick-create-workspace-cli.md
                 - name: PowerShell
                   href: platform/powershell-workspace-configuration.md
+            - name: Conceber uma implementação de área de trabalho
+              href: platform/design-logs-deployment.md
             - name: Monitorizar uma área de trabalho
               href: platform/monitor-workspace.md
             - name: Eliminar e recuperar uma área de trabalho
@@ -301,6 +210,50 @@
               href: platform/service-providers.md
             - name: Clusters dedicados
               href: log-query/logs-dedicated-clusters.md
+        - name: Log Analytics
+          items:
+            - name: Descrição geral
+              displayname: 'Log Analytics, log query, log queries, query, queries'
+              href: log-query/log-analytics-overview.md
+            - name: Tutorial
+              displayname: 'Log Analytics workspace, log query, log queries, query, queries'
+              href: log-query/log-analytics-tutorial.md
+            - name: Âmbito de consulta
+              href: log-query/scope.md
+            - name: Consultas de exemplo
+              href: log-query/example-queries.md
+        - name: Registar consultas
+          items:
+            - name: Descrição geral
+              displayname: 'log query, log queries, query, queries'
+              href: log-query/log-query-overview.md
+            - name: Referência de KQL
+              href: /azure/data-explorer/kusto/query/
+            - name: Consultas de exemplo
+              href: /azure/data-explorer/kusto/query/samples?&pivots=azuremonitor
+            - name: Colunas padrão
+              href: platform/log-standard-columns.md
+            - name: Otimizar consultas
+              href: log-query/query-optimization.md
+            - name: Funções
+              href: log-query/functions.md
+            - name: Analisar dados de texto
+              href: log-query/parse-text.md
+            - name: Grupos de computadores
+              href: platform/computer-groups.md
+            - name: Consultas entre recursos
+              items:
+                - name: Descrição geral
+                  displayname: cross-resource queries
+                  href: log-query/cross-workspace-query.md
+                - name: expressão de aplicação
+                  href: log-query/app-expression.md
+                - name: expressão de área de trabalho
+                  href: log-query/workspace-expression.md
+                - name: expressão de recurso
+                  href: log-query/resource-expression.md
+                - name: Unificar recursos de dados da aplicação
+                  href: log-query/unify-app-resource-data.md
         - name: Exportar dados
           items:
             - name: Exportação de dados da área de trabalho
@@ -309,16 +262,33 @@
               href: platform/logs-export-logic-app.md
             - name: Consultar dados exportados com o Data Explorer
               href: platform/azure-data-explorer-query-storage.md
-    - name: Explorador de Métricas
+    - name: Métricas do Azure Monitor
       items:
-        - name: Introdução ao Explorador de Métricas
-          href: platform/metrics-getting-started.md
-        - name: Funcionalidades avançadas do Explorador de Métricas
-          href: platform/metrics-charts.md
-        - name: Exemplos de gráficos de métricas
-          href: platform/metric-chart-samples.md
-        - name: Resolução de problemas de gráficos de métricas
-          href: platform/metrics-troubleshoot.md
+        - name: Descrição geral
+          displayname: Metrics
+          href: platform/data-platform-metrics.md
+        - name: Explorador de Métricas
+          items:
+            - name: Introdução ao Explorador de Métricas
+              href: platform/metrics-getting-started.md
+            - name: Funcionalidades avançadas do Explorador de Métricas
+              href: platform/metrics-charts.md
+            - name: Exemplos de gráficos de métricas
+              href: platform/metric-chart-samples.md
+            - name: Resolução de problemas de gráficos de métricas
+              href: platform/metrics-troubleshoot.md
+    - name: Registos da plataforma
+      items:
+        - name: Descrição geral
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/platform-logs-overview.md
+        - name: Registo de atividades
+          href: platform/activity-log.md
+        - name: Registos do recurso
+          href: platform/resource-logs.md
+        - name: Definições de diagnóstico
+          displayName: 'Platform logs, Resource logs, Activity log'
+          href: platform/diagnostic-settings.md
     - name: Recolha de dados
       items:
         - name: Regras da recolha de dados

@@ -58,6 +58,8 @@
               href: class-type-matlab.md
             - name: Conceção assistida por computador (CAD) do SolidWorks
               href: class-type-solidworks.md
+            - name: Project Lead the Way
+              href: class-type-pltw.md
         - name: Utilizar o Azure Lab Services no Teams
           items:
             - name: Descrição geral

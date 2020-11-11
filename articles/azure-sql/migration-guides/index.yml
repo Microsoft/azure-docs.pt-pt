@@ -1,0 +1,73 @@
+### YamlMime:Landing
+title: Migrar para o SQL do Azure
+summary: 'Encontre documentação sobre como migrar para a família do SQL do Azure de produtos de motor de base de dados SQL Server na cloud: Base de Dados SQL do Azure, Instância Gerida do SQL no Azure e SQL Server nas VMs do Azure. '
+metadata:
+  title: Migrar para o SQL do Azure
+  description: Encontre documentação que o ajudará a migrar para o SQL do Azure, uma família de produtos de motor de base de dados SQL Server na cloud, a partir de uma base de dados totalmente gerida na Base de Dados SQL do Azure, uma instância totalmente gerida no Azure SQL Managed Instance ou do SQL Server instalado numa máquina virtual no Azure.
+  services: sql-database
+  ms.service: sql-database
+  ms.subservice: service
+  ms.tgt_pltfrm: na
+  ms.devlang: 
+  ms.topic: landing-page
+  author: MashaMSFT
+  ms.author: mathoma
+  ms.reviewer: sstein
+  ms.date: 11/06/2020
+  ms.openlocfilehash: 940f28fa76a8f735318010eab4b55d464295c25a
+  ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+  ms.translationtype: HT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94495285"
+landingContent:
+- title: Base de Dados SQL do Azure
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Descrição geral
+      url: database/sql-server-to-sql-database-overview.md
+    - text: A partir do SQL Server
+      url: database/sql-server-to-sql-database-guide.md
+    - text: A partir do DB2
+      url: database/db2-to-sql-database-guide.md
+- title: Instância Gerida do SQL do Azure
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Descrição geral
+      url: managed-instance/sql-server-to-managed-instance-overview.md
+    - text: A partir do SQL Server
+      url: managed-instance/sql-server-to-managed-instance-guide.md
+    - text: A partir do DB2
+      url: managed-instance/db2-to-managed-instance-guide.md
+- title: SQL Server numa VM do Azure
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Descrição geral
+      url: virtual-machines/sql-server-to-sql-on-azure-vm-migration-overview.md
+    - text: A partir do SQL Server
+      url: virtual-machines/sql-server-to-sql-on-azure-vm-individual-databases-guide.md
+    - text: A partir do DB2
+      url: virtual-machines/db2-to-sql-on-azure-vm-guide.md
+- title: Ferramentas de migração
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Azure Migrate
+      url: /azure/migrate/migrate-services-overview
+    - text: Azure Database Migration Service (DMS)
+      url: /azure/dms/dms-overview
+    - text: Assistente de Migração de Dados (DMA)
+      url: /sql/dma/dma-migrateonpremsqltosqldb
+    - text: Replicação transacional
+      url: /sql/relational-databases/replication/transactional/transactional-replication
+    - text: Importar e exportar serviço/BACPAC
+      url: ../database/database-import.md
+    - text: Cópia em massa
+      url: /sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server
+    - text: Azure Data Factory
+      url: /azure/data-factory/connector-azure-sql-database
+    - text: Sincronização de Dados SQL
+      url: ../database/sql-data-sync-data-sql-server-sql-database.md

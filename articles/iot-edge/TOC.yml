@@ -1,5 +1,7 @@
 - name: Documentação do Azure IoT Edge
   href: index.yml
+- name: Versões do Azure IoT Edge
+  href: version-history.md
 - name: Descrição geral
   items:
     - name: Acerca do Azure IoT Edge
@@ -13,13 +15,13 @@
       href: quickstart.md
 - name: Tutoriais
   items:
-    - name: 1. Configurar o ambiente de desenvolvimento
+    - name: Configurar o ambiente de desenvolvimento
       items:
         - name: Desenvolver para dispositivos Linux
           href: tutorial-develop-for-linux.md
         - name: Desenvolver para dispositivos Windows
           href: tutorial-develop-for-windows.md
-    - name: 2. Desenvolver módulos de código personalizados
+    - name: Desenvolver módulos de código personalizados
       items:
         - name: C
           items:
@@ -39,7 +41,7 @@
           href: tutorial-node-module.md
         - name: Python
           href: tutorial-python-module.md
-    - name: 3. Implementar serviços do Azure como módulos
+    - name: Implementar serviços do Azure como módulos
       items:
         - name: Filtrar dados com as Funções do Azure
           href: tutorial-deploy-function.md
@@ -51,7 +53,11 @@
           href: tutorial-deploy-custom-vision.md
         - name: Armazenar dados localmente com o SQL
           href: tutorial-store-data-sql-server.md
-    - name: 4. Exemplo completo da aprendizagem automática no edge
+    - name: Utilizar o IoT Edge como gateway
+      items:
+        - name: Criar hierarquias de dispositivos do IoT Edge
+          href: tutorial-nested-iot-edge.md
+    - name: Exemplo completo da aprendizagem automática no edge
       items:
         - name: Introdução
           href: tutorial-machine-learning-edge-01-intro.md
@@ -187,16 +193,26 @@
           href: how-to-access-built-in-metrics.md
     - name: Utilizar dispositivos do IoT Edge como gateways
       items:
-        - name: Configurar um gateway transparente
-          href: how-to-create-transparent-gateway.md
-        - name: Autenticar um dispositivo a jusante
-          href: how-to-authenticate-downstream-device.md
-        - name: Ligar um dispositivo de downstream
-          href: how-to-connect-downstream-device.md
-        - name: Gateway de protocolo do Modbus
-          href: deploy-modbus-gateway.md
+        - name: Gateways para dispositivos de IoT
+          items:
+            - name: Configurar um gateway transparente
+              href: how-to-create-transparent-gateway.md
+            - name: Autenticar um dispositivo a jusante
+              href: how-to-authenticate-downstream-device.md
+            - name: Ligar um dispositivo de downstream
+              href: how-to-connect-downstream-device.md
+            - name: Gateway de protocolo do Modbus
+              href: deploy-modbus-gateway.md
+        - name: Gateways para dispositivos do IoT Edge
+          items:
+            - name: Configurar gateways para dispositivos do IoT Edge
+              href: how-to-connect-downstream-iot-edge-device.md
+            - name: Configurar o módulo de proxy de API
+              href: how-to-configure-api-proxy-module.md
     - name: Configurar o suporte de proxy
       href: how-to-configure-proxy-support.md
+    - name: Publicar e subscrever com o IoT Edge
+      href: how-to-publish-subscribe.md
     - name: Armazenamento de Blobs do Azure no IoT Edge
       items:
         - name: Compreender o armazenamento de blobs no edge

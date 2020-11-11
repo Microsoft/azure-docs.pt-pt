@@ -13,7 +13,7 @@
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: Diagnosticar problema de filtragem de tráfego de VM - CLI do Azure
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
-    - name: Configurar os registos de fluxos NSG através do Modelo ARM
+    - name: Configurar os registos de fluxos de NSG com um modelo ARM
       displayName: Resource Manager
       href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutoriais
@@ -29,7 +29,7 @@
 - name: Conceitos
   items:
     - name: Monitor de Ligação (Pré-visualização)
-      href: connection-monitor-preview.md
+      href: connection-monitor-overview.md
     - name: Diagnosticar problemas de filtragem de tráfego de rede de VM
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnosticar regras de NSG e Filtragem de tráfego
@@ -61,9 +61,9 @@
     - name: Criar o Monitor de Ligação (Pré-visualização)
       items:
         - name: Com o Portal do Azure
-          href: connection-monitor-preview-create-using-portal.md
+          href: connection-monitor-create-using-portal.md
         - name: Utilizar o ARMClient
-          href: connection-monitor-preview-create-using-arm-client.md
+          href: connection-monitor-create-using-template.md
         - name: Utilizar o PowerShell
           href: connection-monitor-create-using-powershell.md
     - name: Migrar para o Monitor de Ligação (Pré-visualização)

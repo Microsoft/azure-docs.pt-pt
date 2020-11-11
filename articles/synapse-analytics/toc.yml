@@ -171,7 +171,7 @@
           href: sql/overview-features.md
         - name: Modelos de consumo de recursos
           href: sql/resource-consumption-models.md
-        - name: Dados processados
+        - name: Gestão de custos para o conjunto de SQL sem servidor
           href: sql/data-processed.md
         - name: Melhores práticas do conjunto de SQL sem servidor
           href: sql/best-practices-sql-on-demand.md
@@ -996,6 +996,8 @@
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: APIs REST
       href: /rest/api/synapse/
+    - name: Utilitários do Microsoft Spark
+      href: ./spark/microsoft-spark-utilities.md
     - name: Amostras
       href: 'https://github.com/Azure-Samples/Synapse'
     - name: Vistas de sistema

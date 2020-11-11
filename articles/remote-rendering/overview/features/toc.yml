@@ -18,6 +18,8 @@
   href: color-materials.md
 - name: Composição de contorno
   href: outlines.md
+- name: Composição de shell
+  href: shell-effect.md
 - name: Composição unilateral
   href: single-sided-rendering.md
 - name: Consultas espaciais
