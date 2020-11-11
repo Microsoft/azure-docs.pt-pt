@@ -1,6 +1,6 @@
 ---
 title: Ligue os dados do CEF à pré-visualização do Azure Sentinel. Microsoft Docs
-description: Ligue uma solução externa que envia mensagens Common Event Format (CEF) ao Azure Sentinel utilizando uma máquina Linux como reencaminhador de registos.
+description: Ligue uma solução externa que envia mensagens Common Event Format (CEF) ao Azure Sentinel, utilizando uma máquina Linux como reencaminhador de registos.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: e8d1704b7f6048c14528b784f22d60b01592b54f
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fd08e6cc953f9d8526174fc96dd4e4d1dc9063f5
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347612"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517976"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ligue a sua solução externa utilizando o Formato Comum de Eventos
 
@@ -27,7 +27,7 @@ Quando liga uma solução externa que envia mensagens CEF, existem três passos 
 
 PASSO 1: [Ligue o CEF implantando um reencaminhador Syslog/CEF](connect-cef-agent.md) PASSO 2: [Executar passos específicos da solução](connect-cef-solution-config.md) PASSO 3: [Verificar conectividade](connect-cef-verify.md)
 
-Este artigo descreve como a ligação funciona, fornece pré-requisitos e fornece os passos para a implementação do agente em soluções de segurança que enviam mensagens common Event Format (CEF) em cima do Syslog. 
+Este artigo descreve como a ligação funciona, lista pré-requisitos e mostra os passos para implementar um mecanismo de soluções de segurança para enviar mensagens common Event Format (CEF) em cima do Syslog. 
 
 > [!NOTE] 
 > Os dados são armazenados na localização geográfica do espaço de trabalho em que está a executar o Azure Sentinel.
@@ -53,18 +53,18 @@ Para utilizar a comunicação TLS entre a fonte Syslog e o Syslog Forwarder, ter
 Certifique-se de que a máquina Linux que utiliza como reencaminhador de registos está a executar um dos seguintes sistemas operativos:
 
 - 64 bits
-  - CentOS 7 e 8, incluindo sub-versões (não 6)
+  - CentOS 7 e 8, incluindo versões menores (não 6)
   - Amazon Linux 2017.09
   - Oráculo Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo sub-versões (não 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo versões menores (não 6)
   - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS, 16.04 LTS e 18.04 LTS
   - SUSE Linux Enterprise Server 12, 15
 
 - 32 bits
-  - CentOS 7 e 8, incluindo sub-versões (não 6)
+  - CentOS 7 e 8, incluindo versões menores (não 6)
   - Oráculo Linux 7
-  - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo sub-versões (não 6)
+  - Red Hat Enterprise Linux (RHEL) Server 7 e 8, incluindo versões menores (não 6)
   - Debian GNU/Linux 8 e 9
   - Ubuntu Linux 14.04 LTS e 16.04 LTS
  
@@ -82,9 +82,9 @@ Certifique-se de que a sua máquina também cumpre os seguintes requisitos:
   - Deve ter permissões elevadas (sudo) na sua máquina. 
 
 - Requisitos de software
-  - Certifique-se de que tem a pitão 2.7 a funcionar na sua máquina.
+  - Certifique-se de que tem a pitão 2.7 ou 3 a funcionar na sua máquina.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, ficou a saber como a Azure Sentinel recolhe registos CEF a partir de soluções de segurança e aparelhos. Para aprender a ligar a sua solução ao Azure Sentinel, consulte os seguintes artigos:
 

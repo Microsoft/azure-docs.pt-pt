@@ -12,12 +12,12 @@ ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 02/14/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 67e90667df2b62ec2c37d865fe431a2be6f81b9e
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 9c75ccaa05457f13697d1a26dbc8fd2f6720a751
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876571"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517857"
 ---
 # <a name="quickstart-set-up-push-notifications-in-a-notification-hub"></a>Quickstart: Configurar notificações push num centro de notificação
 
@@ -33,7 +33,7 @@ Para configurar o Serviço de Notificação de Push apple (APNS):
 
 1. No portal Azure, na página **'Centro de Notificação',** selecione **Apple (APNS)** do menu esquerdo.
 
-1. Para **modo de autenticação**, selecione **Certificado** ou **Token**.
+1. Para **modo de autenticação** , selecione **Certificado** ou **Token**.
 
    a. Se selecionar **o Certificado:**
    * Selecione o ícone do ficheiro e, em seguida, selecione o ficheiro *.p12* que pretende carregar.
@@ -44,7 +44,7 @@ Para configurar o Serviço de Notificação de Push apple (APNS):
 
    b. Se selecionar **Token:**
 
-   * Introduza os valores para **Key ID,** **Bundle ID,** **Team ID**e **Token**.
+   * Introduza os valores para **Key ID,** **Bundle ID,** **Team ID** e **Token**.
    * Selecione o modo **Sandbox**. Ou, para enviar notificações push aos utilizadores que compraram a sua app na loja, selecione o modo **de Produção.**
 
      ![Screenshot de uma configuração de token APNS no portal Azure](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
@@ -67,11 +67,11 @@ Quando completar estes passos, um alerta indica que o centro de notificação fo
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+Você precisará da **Chave API** para o seu projeto de Mensagens Cloud (FCM) do Google Firebase.
 
-- Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI. Executar [a versão az](/cli/azure/reference-index?#az_version) para encontrar a versão e bibliotecas dependentes que estão instaladas. Para atualizar para a versão mais recente, executar [atualização az](/cli/azure/reference-index?#az_upgrade).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
-- Você precisará da **Chave API** para o seu projeto de Mensagens Cloud (FCM) do Google Firebase.
+- Este artigo requer a versão 2.0.67 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ### <a name="set-up-push-notifications-for-google-fcm"></a>Configurar notificações push para o Google FCM
 

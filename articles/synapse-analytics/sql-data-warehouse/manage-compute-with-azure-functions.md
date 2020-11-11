@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Gerir o cálculo com funções Azure'
-description: Como utilizar funções Azure para gerir o cálculo da sua piscina SQL em Azure Synapse Analytics.
+description: Como utilizar as Funções Azure para gerir o cálculo da sua piscina SQL em Azure Synapse Analytics.
 services: synapse-analytics
 author: julieMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 1683977d5c8be965cb329611c5a7fd6602a1cd97
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: bc615322c11a456699d2364cf44cad40e086e851
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043362"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517891"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Utilize funções Azure para gerir recursos computativos na piscina SQL Azure Synapse Analytics
 
@@ -44,7 +44,7 @@ Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano 
 
 ## <a name="change-the-compute-level"></a>Alterar o nível de cálculo
 
-1. Navegue para o serviço Function App. Se tiver implementado o modelo com os valores predefinidos, este serviço deverá chamar-se *DWOperations* . Assim que Function App estiver aberto, deverá ver cinco funções implementadas no seu serviço do Function App.
+1. Navegue para o serviço Function App. Se tiver implementado o modelo com os valores predefinidos, este serviço deverá chamar-se *DWOperations*. Assim que Function App estiver aberto, deverá ver cinco funções implementadas no seu serviço do Function App.
 
    ![Funções que são implementadas com o modelo](./media/manage-compute-with-azure-functions/five-functions.png)
 
@@ -52,7 +52,7 @@ Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano 
 
    ![Selecionar Integrate para a função](./media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Atualmente, o valor apresentado deverá indicar *%ScaleDownTime%* ou *%ScaleUpTime%* . Estes valores indicam que a agenda se baseia nos valores definidos nas [Definições da Aplicação](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Por enquanto, pode ignorar este valor e alterar o horário para o seu tempo preferido com base nos próximos passos.
+3. Atualmente, o valor apresentado deverá indicar *%ScaleDownTime%* ou *%ScaleUpTime%*. Estes valores indicam que a agenda se baseia nos valores definidos nas [Definições da Aplicação](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Por enquanto, pode ignorar este valor e alterar o horário para o seu tempo preferido com base nos próximos passos.
 
 4. Na área de programação, adicione o tempo que a expressão CRON deseja refletir com que frequência deseja que o Azure Synapse Analytics seja aumentado.
 
@@ -68,9 +68,9 @@ Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Alterar o tempo da operação de escala
 
-1. Navegue para o serviço Function App. Se tiver implementado o modelo com os valores predefinidos, este serviço deverá chamar-se *DWOperations* . Assim que Function App estiver aberto, deverá ver cinco funções implementadas no seu serviço do Function App.
+1. Navegue para o serviço Function App. Se tiver implementado o modelo com os valores predefinidos, este serviço deverá chamar-se *DWOperations*. Assim que Function App estiver aberto, deverá ver cinco funções implementadas no seu serviço do Function App.
 
-2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger* , dependendo se quer alterar o valor de computação de aumento ou redução vertical. Após selecionar as funções, o painel deve mostrar o ficheiro *index.js* .
+2. Selecione *DWScaleDownTrigger* ou *DWScaleUpTrigger* , dependendo se quer alterar o valor de computação de aumento ou redução vertical. Após selecionar as funções, o painel deve mostrar o ficheiro *index.js*.
 
    ![Alterar o nível de computação do acionador de função](././media/manage-compute-with-azure-functions/index-js.png)
 
@@ -78,7 +78,7 @@ Uma vez implementado o modelo, deverá encontrar três novos recursos: um Plano 
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Utilizar a pausa ou a retoma em vez do dimensionamento
 
-Atualmente, as funções ligadas por predefinição são *DWScaleDownTrigger* e *DWScaleUpTrigger* . Em alternativa, se pretender utilizar a funcionalidade de pausa e retoma, pode ativar *DWPauseTrigger* ou *DWResumeTrigger* .
+Atualmente, as funções ligadas por predefinição são *DWScaleDownTrigger* e *DWScaleUpTrigger*. Em alternativa, se pretender utilizar a funcionalidade de pausa e retoma, pode ativar *DWPauseTrigger* ou *DWResumeTrigger*.
 
 1. Navegue para o painel Functions.
 
@@ -99,7 +99,7 @@ Atualmente, o modelo inclui apenas duas funções de dimensionamento. Com estas 
 
    ![Screenshot que mostra o menu "Apps de função" com o ícone "Plus" ao lado de "Funções" selecionadas.](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. A partir do idioma, selecione *JavaScript* e, em seguida, selecione *TimerTrigger* .
+2. A partir do idioma, selecione *JavaScript* e, em seguida, selecione *TimerTrigger*.
 
    ![Criar função nova](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -167,6 +167,6 @@ Escala às 8:00 para DW1000c, escala uma vez para DW600c às 16:00 nos dias úte
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre as funções do Azure de [acionador de temporização](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Saiba mais sobre [o temporizador acionar](../../azure-functions/functions-create-scheduled-function.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) funções Azure.
 
 Check-out o [repositório de amostras](https://github.com/Microsoft/sql-data-warehouse-samples)de piscina SQL .

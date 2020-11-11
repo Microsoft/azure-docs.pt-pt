@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 02/16/2017
-ms.openlocfilehash: dcf782a41dbb09135f7a4cd767a94ff90578b6ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a637dc431b0f9cd8c40cfa1c048559a56a6b97f
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87169366"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518061"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Ferramenta de modelação de ameaças da Microsoft
 
@@ -37,7 +37,7 @@ Aqui estão algumas capacidades de ferramentas e inovações, só para citar alg
 
 A tabela abaixo contém links importantes para começar com a Ferramenta de Modelação de Ameaças: Ver também: [Requisitos do sistema](threat-modeling-tool-releases.md)
 
-| Passo  | Descrição                                                                                   |
+| Passo  | Description                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
 | **1** | [Descarregue a ferramenta de modelação de ameaças](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Leia o nosso guia de início](threat-modeling-tool-getting-started.md)    |
@@ -49,7 +49,7 @@ A tabela abaixo contém links importantes para começar com a Ferramenta de Mode
 
 Aqui estão alguns artigos mais antigos ainda relevantes para a modelação de ameaças hoje em dia:
 
-* [Artigo sobre a importância da modelação de ameaças](https://docs.microsoft.com/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
+* [Artigo sobre a importância da modelação de ameaças](/archive/msdn-magazine/2009/january/security-briefs-getting-started-with-the-sdl-threat-modeling-tool)
 * [Formação Publicada pela Computação Confiável](https://www.microsoft.com/download/details.aspx?id=16420)
 
 Confira o que alguns especialistas em Ferramentas de Modelação de Ameaças fizeram:

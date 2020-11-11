@@ -7,12 +7,12 @@ ms.date: 05/06/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 58bbe01c8de0bbe606f4fc428032cd213f05d386
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f598ed3e2aef2f53b90b213d0bd1b002f56bd30c
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88068237"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517755"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configure permissões do Serviço de Construtores de Imagem Azure usando O Azure CLI
 
@@ -20,9 +20,9 @@ O Azure Image Builder Service requer a configuração de permissões e privilég
 
 > [!IMPORTANT]
 > O Azure Image Builder está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="register-the-features"></a>Registar as funcionalidades
 

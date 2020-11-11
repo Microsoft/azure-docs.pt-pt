@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8f68bc5e4604f35f9c4c45cd3e38ddaf8d24cd03
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41532e554623c47e9728c6ccab92d99500e42021
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89004464"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517432"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Quadro de Segurança: Gestão de Exceções / Mitigações 
 | Produto/Serviço | Artigo |
@@ -38,7 +38,7 @@ ms.locfileid: "89004464"
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Quadro genérico e LÍQUIDO 3 |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
+| **Referências**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
 | **Passos** | Os serviços do Windows Communication Framework (WCF) podem ser configurados para expor informações de depuragem. A informação de depurg não deve ser utilizada em ambientes de produção. A `<serviceDebug>` etiqueta define se a função de informação de depurador está ativada para um serviço WCF. Se o atributo incluirExceptionDetailInFaults é definido como verdadeiro, as informações de exceção da aplicação serão devolvidas aos clientes. Os atacantes podem aproveitar as informações adicionais que obtêm da depuragem da produção para montar ataques direcionados para a estrutura, base de dados ou outros recursos utilizados pela aplicação. |
 
 ### <a name="example"></a>Exemplo
@@ -62,7 +62,7 @@ Desativar a informação de depuração no serviço. Isto pode ser conseguido re
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | Quadro genérico e LÍQUIDO 3 |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
+| **Referências**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
 | **Passos** | Expor publicamente informações sobre um serviço pode fornecer aos atacantes informações valiosas sobre como podem explorar o serviço. A `<serviceMetadata>` etiqueta permite a funcionalidade de publicação de metadados. Os metadados de serviço podem conter informações sensíveis que não devem ser acessíveis ao público. No mínimo, apenas permitir que utilizadores de confiança acedam aos metadados e garantam que informações desnecessárias não são expostas. Melhor ainda, desative totalmente a capacidade de publicar metadados. Uma configuração segura do WCF não contém a `<serviceMetadata>` etiqueta. |
 
 ## <a name="ensure-that-proper-exception-handling-is-done-in-aspnet-web-api"></a><a id="exception"></a>Certifique-se de que o manuseamento adequado da exceção é feito em ASP.NET Web API
@@ -202,7 +202,7 @@ Consulte os links na secção de referências para obter mais detalhes sobre o m
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [Caixa de Diálogo Editar Definições de Páginas de Erro .NET](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
+| **Referências**              | [Caixa de Diálogo Editar Definições de Páginas de Erro .NET](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd569096(v=ws.10)) |
 | **Passos** | <p>Quando uma aplicação ASP.NET falha e causa um Erro interno do Servidor HTTP/1.x 500, ou uma configuração de funcionalidade (tal como filtragem de pedidos) impede que uma página seja exibida, uma mensagem de erro será gerada. Os administradores podem escolher se a aplicação deve ou não apresentar uma mensagem amigável ao cliente, uma mensagem de erro detalhada ao cliente ou uma mensagem de erro detalhada apenas para o local. A `<customErrors>` etiqueta no web.config tem três modos:</p><ul><li>**Em:** Especifica que os erros personalizados estão ativados. Se não for especificado nenhum atributo predefinidoRedirect, os utilizadores vêem um erro genérico. Os erros personalizados são mostrados aos clientes remotos e ao anfitrião local</li><li>**Fora:** Especifica que os erros personalizados são desativados. Os erros de ASP.NET detalhados são mostrados aos clientes remotos e ao anfitrião local</li><li>**Remotamente Apenas:** Especifica que os erros personalizados são mostrados apenas aos clientes remotos, e que ASP.NET erros são mostrados ao anfitrião local. Este é o valor padrão</li></ul><p>Abra o `web.config` ficheiro para a aplicação/site e certifique-se de que a etiqueta tem `<customErrors mode="RemoteOnly" />` ou `<customErrors mode="On" />` definido.</p>|
 
 ## <a name="set-deployment-method-to-retail-in-iis"></a><a id="deployment"></a>Definir método de implantação para retalhista no IIS
@@ -213,7 +213,7 @@ Consulte os links na secção de referências para obter mais detalhes sobre o m
 | **Fase SDL**               | Implementação |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [Elemento de implantação (ASP.NET Esquema de Definições)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
+| **Referências**              | [Elemento de implantação (ASP.NET Esquema de Definições)](/previous-versions/dotnet/netframework-2.0/ms228298(v=vs.80)) |
 | **Passos** | <p>O `<deployment retail>` interruptor destina-se a ser utilizado por servidores IIS de produção. Este switch é utilizado para ajudar as aplicações a executar o melhor desempenho possível e o menor número possível de fugas de informação de segurança, desativando a capacidade da aplicação de gerar saída de vestígios numa página, desativando a capacidade de exibir mensagens de erro detalhadas para os utilizadores finais e desativando o interruptor de depuração.</p><p>Muitas vezes, os interruptores e opções que estão focados no desenvolvedor, tais como rastreio de pedidos falhados e depuração, são ativados durante o desenvolvimento ativo. Recomenda-se que o método de implantação de qualquer servidor de produção seja definido para retalhista. abrir o ficheiro machine.config e garantir que `<deployment retail="true" />` se mantém definido como verdadeiro.</p>|
 
 ## <a name="exceptions-should-fail-safely"></a><a id="fail"></a>Exceções devem falhar com segurança
@@ -268,4 +268,4 @@ Consulte os links na secção de referências para obter mais detalhes sobre o m
             }
         }
 ```
-O método acima vai sempre devolver True, se alguma exceção acontecer. Se o utilizador final fornecer um URL mal formado, que o navegador respeita, mas o `Uri()` construtor não, isso irá lançar uma exceção, e a vítima será levada para o URL válido mas mal formado. 
+O método acima vai sempre devolver True, se alguma exceção acontecer. Se o utilizador final fornecer um URL mal formado, que o navegador respeita, mas o `Uri()` construtor não, isso irá lançar uma exceção, e a vítima será levada para o URL válido mas mal formado.

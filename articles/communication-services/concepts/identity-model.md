@@ -9,12 +9,12 @@ ms.author: tchladek
 ms.date: 10/26/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 336e708334778e107331f5f393476c4b3dbb98a3
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 996f138a14923319381738e7a55cd7ba4e8c4320
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94507548"
+ms.locfileid: "94517772"
 ---
 # <a name="identity-model"></a>Modelo de identidade
 
@@ -59,3 +59,9 @@ A rotação das chaves de acesso do Serviço de Comunicações Azure irá causar
 Recomendamos a emissão de fichas de acesso no seu serviço do lado do servidor e não na aplicação do cliente. O raciocínio é que a emissão requer chave de acesso ou para ser gerida identidade. Não é recomendado por razões de segurança partilhar as chaves de acesso com a aplicação do cliente. A aplicação do cliente deve usar o ponto final de serviço fidedignos que pode autenticar os seus clientes e emitir ficha de acesso em seu nome. Mais detalhes sobre a arquitetura podem ser encontrados [aqui.](./client-and-server-architecture.md)
 
 Se cache fichas de acesso a uma loja de apoio, recomendamos a utilização de encriptação. O token de acesso é dados sensíveis e pode ser usado para atividades maliciosas se não estiver protegido. Com a posse do token de acesso, você pode inicializar o SDK e ter acesso à API. A API acessível é restrita apenas com base em âmbitos, que o token de acesso tem. Recomendamos a emissão de fichas de acesso apenas com âmbitos, que sejam necessários.
+
+## <a name="next-steps"></a>Passos seguintes
+
+* Para uma introdução à gestão de tokens de acesso, consulte [Criar e gerir fichas de acesso](https://docs.microsoft.com/azure/communication-services/quickstarts/access-tokens)
+* Para uma introdução à autenticação, consulte [Autenticar os Serviços de Comunicação Azure](https://docs.microsoft.com/azure/communication-services/concepts/authentication)
+* Para uma introdução à residência de dados e privacidade, consulte [a disponibilidade da Região e a residência de dados](https://docs.microsoft.com/azure/communication-services/concepts/privacy)

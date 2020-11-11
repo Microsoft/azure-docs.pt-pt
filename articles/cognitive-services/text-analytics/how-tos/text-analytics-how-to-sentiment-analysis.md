@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 10/16/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 3bc2d339ade7dade3cf3be6e63e150c77d3c44b4
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 87e6ad488438ae28467f6e904fbb57f7ca5448ff
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366762"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518180"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>Como: Detetar sentimento usando a API de Análise de Texto
 
@@ -78,9 +78,9 @@ O tamanho do documento deve ser inferior a 5.120 caracteres por documento. Você
 
 Crie um pedido POST. Pode utilizar o [Carteiro](text-analytics-how-to-call-api.md) ou a **consola de testes API** nas seguintes ligações de referência para estruturar e enviar rapidamente uma. 
 
-#### <a name="version-31-preview1"></a>[Versão 3.1-pré-visualização.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versão 3.1-pré-visualização.2](#tab/version-3-1)
 
-[Referência v3.1 análise de sentimento v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-1/operations/Sentiment)
+[Referência v3.1 análise de sentimento v3.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-2/operations/Sentiment)
 
 #### <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
@@ -95,13 +95,13 @@ Deite o ponto final HTTPS para análise de sentimento utilizando um recurso text
 > [!NOTE]
 > Pode encontrar a sua chave e ponto final para o seu recurso Text Analytics no portal azul. Estarão localizados na página **de arranque rápido** do recurso, sob **gestão de recursos.** 
 
-#### <a name="version-31-preview1"></a>[Versão 3.1-pré-visualização.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versão 3.1-pré-visualização.2](#tab/version-3-1)
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment`
 
 Para obter resultados de mineração de opinião, você deve incluir o `opinionMining=true` parâmetro. Por exemplo:
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.1/sentiment?opinionMining=true`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/sentiment?opinionMining=true`
 
 Este parâmetro é definido `false` por padrão. 
 
@@ -142,7 +142,7 @@ A análise do sentimento devolve um rótulo de sentimento e uma pontuação de c
 
 O resultado é devolvido imediatamente. Pode transmitir os resultados para uma aplicação que aceite o JSON ou guarde a saída para um ficheiro no sistema local. Em seguida, importe a saída para uma aplicação que pode usar para ordenar, pesquisar e manipular os dados. Devido ao suporte multilíngue e emoji, a resposta pode conter compensações de texto. Veja [como processar compensações](../concepts/text-offsets.md) para obter mais informações.
 
-#### <a name="version-31-preview1"></a>[Versão 3.1-pré-visualização.1](#tab/version-3-1)
+#### <a name="version-31-preview2"></a>[Versão 3.1-pré-visualização.2](#tab/version-3-1)
 
 ### <a name="sentiment-analysis-v31-example-response"></a>Análise de Sentimento v3.1 exemplo resposta
 

@@ -6,34 +6,28 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: how-to
 ms.date: 03/25/2020
-ms.openlocfilehash: 990380d553cc12d1a87b2e1c7ca9b09864801294
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a60a6889217ce6ca8dccd5ebf5ee74b8f67a7757
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334001"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518214"
 ---
 # <a name="configure-a-virtual-machine-scale-set-with-an-existing-azure-load-balancer-using-the-azure-cli"></a>Configure uma balança de máquina virtual definida com um Equilibrador de Carga Azure existente usando o Azure CLI
 
-Neste artigo, você vai aprender a configurar uma balança de máquina virtual definida com um Azure Load Balancer existente. 
+Neste artigo, você vai aprender a configurar uma balança de máquina virtual definida com um Azure Load Balancer existente.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Uma subscrição do Azure.
-- Um balanceador de carga padrão existente na subscrição onde será implantado o conjunto de escala de máquina virtual.
-- Uma Rede Virtual Azure para o conjunto de escala de máquina virtual.
+## <a name="prerequisites"></a>Pré-requisitos 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
+- Você precisa de um balanceador de carga padrão existente na subscrição onde o conjunto de escala de máquina virtual será implantado.
 
-Se optar por utilizar o CLI localmente, este artigo requer que tenha uma versão da versão Azure CLI 2.0.28 ou posteriormente instalada. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, consulte [Instalar o Azure CLI 2.0]( /cli/azure/install-azure-cli).
+- Precisa de uma Rede Virtual Azure para o conjunto de escala de máquina virtual.
+ 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-## <a name="sign-in-to-azure-cli"></a>Iniciar sessão na CLI do Azure
-
-Inscreva-se no Azure.
-
-```azurecli-interactive
-az login
-```
+- Este artigo requer a versão 2.0.28 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="deploy-a-virtual-machine-scale-set-with-existing-load-balancer"></a>Implementar um conjunto de escala de máquina virtual com o equilibrador de carga existente
 
@@ -85,6 +79,6 @@ az vmss create \
 
 Neste artigo, implementou uma balança de máquina virtual definida com um Balançador de Carga Azure existente.  Para saber mais sobre conjuntos de balanças de máquinas virtuais e balanceador de carga, consulte:
 
-- [O que é o Balanceador de Carga do Azure?](load-balancer-overview.md)
+- [What is Azure Load Balancer?](load-balancer-overview.md) (O que é o Balanceador de Carga do Azure?)
 - [O que são os conjuntos de dimensionamento de máquinas virtuais?](../virtual-machine-scale-sets/overview.md)
                                 

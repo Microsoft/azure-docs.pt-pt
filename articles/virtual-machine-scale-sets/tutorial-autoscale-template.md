@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: f94a68833347d662f427fa0944dd83d33458bd14
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 7e727d06670c9d07ec1aa18b92504433f6c519d6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92745992"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518299"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-an-azure-template"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com um modelo do Azure
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação. Neste tutorial, ficará a saber como:
@@ -25,15 +25,15 @@ Quando criar um conjunto de dimensionamento, pode definir o número de instânci
 > * Teste de esforço das instâncias e acionar as regras de dimensionamento automático
 > * Voltar ao dimensionamento automático à medida que a exigência diminui
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli). 
+- Este artigo requer a versão 2.0.29 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada. 
 
 
 ## <a name="define-an-autoscale-profile"></a>Definir um perfil de dimensionamento automático
-Defina um perfil de dimensionamento automático num modelo do Azure com o fornecedor de recursos *Microsoft.insights/autoscalesettings* . Um *perfil* fornece detalhes sobre a capacidade do conjunto de dimensionamento e quaisquer regras associadas. O exemplo seguinte define um perfil com o nome *Dimensionamento automático por percentagem com base na utilização da CPU* e define a capacidade predefinida e mínima de *2* instâncias de VM e um máximo de *10* :
+Defina um perfil de dimensionamento automático num modelo do Azure com o fornecedor de recursos *Microsoft.insights/autoscalesettings*. Um *perfil* fornece detalhes sobre a capacidade do conjunto de dimensionamento e quaisquer regras associadas. O exemplo seguinte define um perfil com o nome *Dimensionamento automático por percentagem com base na utilização da CPU* e define a capacidade predefinida e mínima de *2* instâncias de VM e um máximo de *10* :
 
 ```json
 {
@@ -180,7 +180,7 @@ SSH para a sua primeira instância de VM. Especifique o seu endereço IP públic
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Depois de iniciar sessão, instale o utilitário **stress** . Inicie *10 funções de trabalho de* **stress** que geram carga da CPU. Estas funções de trabalho são executadas durante *420* segundos, que é o suficiente para fazer com que as regras de dimensionamento automático implementem a ação pretendida.
+Depois de iniciar sessão, instale o utilitário **stress**. Inicie *10 funções de trabalho de* **stress** que geram carga da CPU. Estas funções de trabalho são executadas durante *420* segundos, que é o suficiente para fazer com que as regras de dimensionamento automático implementem a ação pretendida.
 
 ```console
 sudo apt-get update
@@ -225,7 +225,7 @@ exit
 ```
 
 ## <a name="monitor-the-active-autoscale-rules"></a>Monitorizar as regras de dimensionamento automático ativas
-Para monitorizar o número de instâncias de VM no conjunto de dimensionamento, utilize **watch** . Demora 5 minutos até as regras de dimensionamento automático iniciarem o processo de aumentar horizontalmente para a carga de CPU gerada por **stress** em cada uma das instâncias de VM:
+Para monitorizar o número de instâncias de VM no conjunto de dimensionamento, utilize **watch**. Demora 5 minutos até as regras de dimensionamento automático iniciarem o processo de aumentar horizontalmente para a carga de CPU gerada por **stress** em cada uma das instâncias de VM:
 
 ```azurecli-interactive
 watch az vmss list-instances \
@@ -257,7 +257,7 @@ Assim que o **stress** para nas instâncias de VM iniciais, a carga de CPU médi
 Saia de *watch* com `Ctrl-c`. O conjunto de dimensionamento continua a reduzir horizontalmente a cada 5 minutos e remove uma instância de VM até ser atingida uma contagem mínima de duas instâncias.
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Para remover o seu conjunto de escalas e recursos adicionais, elimine o grupo de recursos e todos os seus recursos com [o grupo AZ eliminar:](/cli/azure/group)
 
 ```azurecli-interactive

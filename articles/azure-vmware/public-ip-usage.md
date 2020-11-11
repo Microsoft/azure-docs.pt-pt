@@ -3,12 +3,12 @@ title: Como utilizar a funcionalidade IP pública na Solução VMware Azure
 description: Este artigo explica como utilizar a funcionalidade IP pública em Azure Virtual WAN.
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: 7ff1debe7b52599a2e4f20378f385359325be2f7
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 036ec00077720e9dc3197bf9235bea34b77fb5f4
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504412"
+ms.locfileid: "94517908"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Como utilizar a funcionalidade IP pública na Solução VMware Azure
 
@@ -32,21 +32,21 @@ Este artigo detalha como pode utilizar a funcionalidade IP pública em Virtual W
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Ambiente de solução Azure VMware
-- Um servidor web em execução no ambiente Azure VMware Solution.
+- Um webserver em execução em ambiente Azure VMware Solution.
 - Uma nova gama de IP não sobreposta para a implantação do hub Virtual WAN, tipicamente a `/24` .
 
 ## <a name="reference-architecture"></a>Arquitetura de referência
 
 :::image type="content" source="media/public-ip-usage/public-ip-architecture-diagram.png" alt-text="Diagrama de arquitetura IP público" border="false" lightbox="media/public-ip-usage/public-ip-architecture-diagram.png":::
 
-O diagrama de arquitetura mostra um servidor web hospedado no ambiente Azure VMware Solution e configurado com endereços IP privados RFC1918.  O serviço web é disponibilizado para a internet através da funcionalidade IP público Virtual WAN.  O IP público é tipicamente um destino NAT traduzido em Azure Firewall. Com as regras do DNAT, a política de firewall traduz pedidos de endereço IP públicos para um endereço privado (servidor web) com uma porta.
+O diagrama de arquitetura mostra um servidor web hospedado no ambiente Azure VMware Solution e configurado com endereços IP privados RFC1918.  O serviço web é disponibilizado para a internet através da funcionalidade IP público Virtual WAN.  O IP público é tipicamente um destino NAT traduzido em Azure Firewall. Com as regras do DNAT, a política de firewall traduz pedidos de endereço IP públicos para um endereço privado (webserver) com uma porta.
 
 Os pedidos dos utilizadores atingem a firewall num IP público que, por sua vez, é traduzido para IP privado usando regras de DNAT no Azure Firewall. A firewall verifica a tabela NAT, e se o pedido corresponder a uma entrada, encaminha o tráfego para o endereço traduzido e porta no ambiente Azure VMware Solution.
 
 O servidor web recebe o pedido e responde com as informações ou páginas solicitadas para a firewall, e em seguida, a firewall reencaminha as informações para o utilizador no endereço IP público.
 
 ## <a name="test-case"></a>Caso de teste
-Neste cenário, deve publicar o servidor web do IIS na internet. Utilize a função IP pública na Solução VMware Azure para publicar o website num endereço IP público.  Configuraremos as regras da NAT na firewall e acederemos ao recurso Azure VMware Solution (VMs com servidor web) com IP público.
+Neste cenário, publicará o webserver do IIS na internet. Utilize a função IP pública na Solução VMware Azure para publicar o website num endereço IP público.  Também configurará as regras da NAT na firewall e acederá ao recurso Azure VMware Solution (VMs com um servidor web) com IP público.
 
 ## <a name="deploy-virtual-wan"></a>Implementar a WAN Virtual.
 
@@ -66,9 +66,9 @@ Neste cenário, deve publicar o servidor web do IIS na internet. Utilize a funç
 
 1. Aceite os valores predefinidos ou altere-os e, em seguida, **selecione Criar**.
 
-   - Grupo de recursos de rede de área virtual
+   - Grupo de recursos VIRTUAL WAN
 
-   - Nome de rede de área virtual ampla
+   - Nome WAN virtual
 
    - Bloco de endereços de hub virtual (utilizando uma nova gama IP não sobreposta)
 
@@ -122,7 +122,7 @@ Uma vez implantados todos os componentes, pode vê-los no grupo de Recursos adic
 
 1. **Selecione Adicione uma coleção de regras,** forneça os detalhes abaixo e selecione **Adicionar** e, em seguida, selecione Seguinte : Inteligência **de ameaça**.
 
-   -  Nome
+   -  Name
    -  Tipo de recolha de regras - DNAT
    -  Prioridade
    -  Ação de recolha de regras – Permitir
@@ -142,7 +142,7 @@ Uma vez implantados todos os componentes, pode vê-los no grupo de Recursos adic
 
 1. Selecione um hub da lista e **selecione Adicionar**.
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot que mostra os hubs selecionados que serão convertidos para Scecured Virtual Hubs." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot que mostra os hubs selecionados que serão convertidos para Secured Virtual Hubs." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
 1. Selecione **Seguinte: Etiquetas**. 
 

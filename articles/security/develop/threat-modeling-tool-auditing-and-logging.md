@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bac17073650736df9ec48e951290852e082e9417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d3f3ca7b5d4516c2ad5dc9cb19a2eaed0a8a4a8
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87542998"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518282"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de Segurança: Auditoria e RegistoS Registados / Mitigações 
 
@@ -110,7 +110,7 @@ ms.locfileid: "87542998"
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Passos**                   | <p>Devem ser efetuadas controlos que atirem exceções à segurança em caso de utilização indevida da aplicação. Por exemplo, se a validação de entrada estiver em vigor e um intruso tentar injetar código malicioso que não corresponda ao regex, pode ser lançada uma exceção de segurança que pode ser um indicativo de uso indevido do sistema</p><p>Por exemplo, recomenda-se que tenham exceções de segurança registadas e que se ações tenham sido tomadas para as seguintes questões:</p><ul><li>Validação de entradas</li><li>Violações do CSRF</li><li>Força bruta (limite máximo para o número de pedidos por utilizador por recurso)</li><li>Violações do upload de ficheiros</li><ul>|
+| **Passos**                   | <p>Devem ser efetuadas controlos que atirem exceções à segurança em caso de utilização indevida da aplicação. Por exemplo, se a validação de entrada estiver em vigor e um intruso tentar injetar código malicioso que não corresponda ao regex, pode ser lançada uma exceção de segurança que pode ser um indicativo de uso indevido do sistema</p><p>Por exemplo, recomenda-se que tenham exceções de segurança registadas e que se ações tenham sido tomadas para as seguintes questões:</p><ul><li>Validação de entrada</li><li>Violações do CSRF</li><li>Força bruta (limite máximo para o número de pedidos por utilizador por recurso)</li><li>Violações do upload de ficheiros</li><ul>|
 
 ## <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a><a id="diagnostics-logging"></a>Ativar o registo de diagnósticos para aplicações web no Azure App Service
 
@@ -131,7 +131,7 @@ ms.locfileid: "87542998"
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [Configure Login Auditing](https://msdn.microsoft.com/library/ms175850.aspx) (Configurar a Auditoria de Início de Sessão) |
+| **Referências**              | [Configure Login Auditing](/sql/ssms/configure-login-auditing-sql-server-management-studio) (Configurar a Auditoria de Início de Sessão) |
 | **Passos** | <p>A auditoria de login do Servidor de Base de Dados deve ser ativada para detetar/confirmar ataques de adivinhação por palavra-passe. É importante capturar tentativas falhadas de login. Capturar tentativas de login bem sucedidas e falhadas proporciona benefícios adicionais durante investigações forenses</p>|
 
 ## <a name="enable-threat-detection-on-azure-sql"></a><a id="threat-detection"></a>Ativar a deteção de ameaças no Azure SQL
@@ -142,18 +142,18 @@ ms.locfileid: "87542998"
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | SQL Azure |
 | **Atributos**              | Versão SQL - V12 |
-| **Referências**              | [Começar com deteção de ameaças de base de dados SQL](https://azure.microsoft.com/documentation/articles/sql-database-threat-detection-get-started/)|
+| **Referências**              | [Começar com deteção de ameaças de base de dados SQL](../../azure-sql/database/threat-detection-configure.md)|
 | **Passos** |<p>A Deteção de Ameaças deteta atividades anómalas de bases de dados que indiquem potenciais ameaças à segurança na base de dados. Fornece uma nova camada de segurança, que permite aos clientes detetar e responder a potenciais ameaças à medida que ocorrem, fornecendo alertas de segurança sobre atividades anómalas.</p><p>Os utilizadores podem explorar os eventos suspeitos usando a Azure SQL Database Auditing para determinar se resultam de uma tentativa de aceder, violar ou explorar dados na base de dados.</p><p>A Deteção de Ameaças torna simples abordar potenciais ameaças à base de dados sem a necessidade de ser um perito em segurança ou de gerir sistemas avançados de monitorização de segurança</p>|
 
 ## <a name="use-azure-storage-analytics-to-audit-access-of-azure-storage"></a><a id="analytics"></a>Use a Azure Storage Analytics para auditar o acesso ao Azure Storage
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Storage do Azure | 
+| **Componente**               | Armazenamento do Azure | 
 | **Fase SDL**               | Implementação |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D |
-| **Referências**              | [Utilização de Storage Analytics para monitorizar o tipo de autorização](https://azure.microsoft.com/documentation/articles/storage-security-guide/#storage-analytics) |
+| **Referências**              | [Utilização de Storage Analytics para monitorizar o tipo de autorização](../../storage/blobs/security-recommendations.md#loggingmonitoring) |
 | **Passos** | <p>Para cada conta de armazenamento, pode-se permitir que o Azure Storage Analytics execute dados de métricas de registo e armazenamento. Os registos de análise de armazenamento fornecem informações importantes, como o método de autenticação utilizado por alguém quando acedem ao armazenamento.</p><p>Isto pode ser muito útil se estiver a guardar firmemente o acesso ao armazenamento. Por exemplo, no Blob Storage pode configurar todos os recipientes para privados e implementar a utilização de um serviço SAS ao longo das suas aplicações. Em seguida, pode verificar regularmente os registos para ver se as suas bolhas são acedidas usando as chaves da conta de armazenamento, o que pode indicar uma quebra de segurança, ou se as bolhas são públicas, mas não deveriam ser.</p>|
 
 ## <a name="implement-sufficient-logging"></a><a id="sufficient-logging"></a>Implementar registos suficientes
@@ -164,7 +164,7 @@ ms.locfileid: "87542998"
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | .NET Framework |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
+| **Referências**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_logging) |
 | **Passos** | <p>A falta de um rasto de auditoria adequado depois de um incidente de segurança pode dificultar os esforços forenses. A Windows Communication Foundation (WCF) oferece a capacidade de registar tentativas de autenticação bem sucedidas e/ou falhadas.</p><p>As tentativas de autenticação falhadas podem alertar os administradores de potenciais ataques de força bruta. Da mesma forma, registar eventos de autenticação bem-sucedidos pode fornecer um rasto de auditoria útil quando uma conta legítima é comprometida. Ativar a funcionalidade de auditoria de segurança de serviços da WCF |
 
 ### <a name="example"></a>Exemplo
@@ -193,7 +193,7 @@ Segue-se uma configuração de exemplo com auditoria ativada
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | .NET Framework |
 | **Atributos**              | N/D  |
-| **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
+| **Referências**              | [MSDN](/previous-versions/msp-n-p/ff648500(v=pandp.10)), [Reino fortificado](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_insufficient_audit_failure_handling) |
 | **Passos** | <p>A solução desenvolvida é configurada para não gerar uma exceção quando não escreve para um registo de auditoria. Se o WCF estiver configurado para não lançar uma exceção quando não puder escrever para um registo de auditoria, o programa não será notificado da falha e a auditoria de eventos críticos de segurança pode não ocorrer.</p>|
 
 ### <a name="example"></a>Exemplo
@@ -242,5 +242,5 @@ Configure o WCF para notificar o programa sempre que não puder escrever para um
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [Introdução ao acompanhamento das operações do IoT Hub](https://azure.microsoft.com/documentation/articles/iot-hub-operations-monitoring/) |
+| **Referências**              | [Introdução ao acompanhamento das operações do IoT Hub](../../iot-hub/iot-hub-operations-monitoring.md) |
 | **Passos** | <p>Desenho para recolha e armazenamento de dados de auditoria recolhidos através do IoT Hub Operations Monitoring. Ativar as seguintes categorias de monitorização:</p><ul><li>Operações de identidade do dispositivo</li><li>Comunicações dispositivo-nuvem</li><li>Comunicações nuvem-para-dispositivo</li><li>Ligações</li><li>Uploads de ficheiros</li></ul>|

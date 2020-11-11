@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
 ms.author: duau
-ms.openlocfilehash: c43b85f3c4b8d1b750e9f97e0be812bee683c702
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 984cdfb3e60717f7632ea1fdcd05a4681dd6a1fd
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90600811"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517942"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Sub-rede do Gestor de Tráfego sobrepõe-se usando Azure CLI
 
@@ -34,11 +34,9 @@ Existem dois tipos de perfis de encaminhamento que suportam substituições de s
 
 Para criar uma sub-rede do Traffic Manager, pode utilizar o CLI do Azure para adicionar as sub-redes para a substituição do ponto final do Traffic Manager.
 
-## <a name="azure-cli"></a>CLI do Azure
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer que execute uma versão da CLI do Azure que seja a 2.0.28 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
+- Este artigo requer a versão 2.0.28 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="update-the-traffic-manager-endpoint-with-subnet-override"></a>Atualize o ponto final do Gestor de Tráfego com a sobreposição da sub-rede.
 Utilize o Azure CLI para atualizar o seu ponto final com [a atualização do ponto final do gestor de tráfego da rede Az](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint?view=azure-cli-latest#az-network-traffic-manager-endpoint-update).

@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/18/2018
 ms.reviewer: avverma
 ms.custom: avverma, devx-track-azurecli
-ms.openlocfilehash: cdad018de9f7683d68f1b6d3b63c722134b2bc80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68f311a949d6c7663c5602c444d1b7b9af09dcad
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88783778"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517500"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 
@@ -26,11 +26,11 @@ Quando criar um conjunto de dimensionamento, pode definir o número de instânci
 > * Teste de esforço das instâncias e acionar as regras de dimensionamento automático
 > * Voltar ao dimensionamento automático à medida que a exigência diminui
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.32 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
+- Este tutorial requer a versão 2.0.32 ou posterior do CLI Azure. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
 
@@ -40,7 +40,7 @@ Crie um grupo de recursos com [az group create](/cli/azure/group), da seguinte f
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de dimensionamento com uma contagem de instâncias de *2*e gera chaves SSH, caso não existam:
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de dimensionamento com uma contagem de instâncias de *2* e gera chaves SSH, caso não existam:
 
 ```azurecli-interactive
 az vmss create \
@@ -55,7 +55,7 @@ az vmss create \
 
 ## <a name="define-an-autoscale-profile"></a>Definir um perfil de dimensionamento automático
 
-Para ativar o dimensionamento automático num conjunto de dimensionamente, tem primeiro que definir um perfil de dimensionamento automático. Este perfil define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento. Estes limites permitem controlar os custos não criando continuamente instâncias VM, e equilibrar o desempenho aceitável com um número mínimo de casos que permanecem em um evento de escala. Criar um perfil de dimensionamento automático com [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). O exemplo seguinte define a capacidade predefinida e mínima de *2* instâncias de VM e um máximo de *10*:
+Para ativar o dimensionamento automático num conjunto de dimensionamente, tem primeiro que definir um perfil de dimensionamento automático. Este perfil define a capacidade predefinida, máxima e mínima do conjunto de dimensionamento. Estes limites permitem controlar os custos não criando continuamente instâncias VM, e equilibrar o desempenho aceitável com um número mínimo de casos que permanecem em um evento de escala. Criar um perfil de dimensionamento automático com [az monitor autoscale create](/cli/azure/monitor/autoscale#az-monitor-autoscale-create). O exemplo seguinte define a capacidade predefinida e mínima de *2* instâncias de VM e um máximo de *10* :
 
 ```azurecli-interactive
 az monitor autoscale create \
@@ -123,7 +123,7 @@ SSH para a sua primeira instância de VM. Especifique o seu endereço IP públic
 ssh azureuser@13.92.224.66 -p 50001
 ```
 
-Depois de iniciar sessão, instale o utilitário **stress**. Inicie *10 funções de trabalho de * **stress** que geram carga da CPU. Estas funções de trabalho são executadas durante *420* segundos, que é o suficiente para fazer com que as regras de dimensionamento automático implementem a ação pretendida.
+Depois de iniciar sessão, instale o utilitário **stress**. Inicie *10 funções de trabalho de* **stress** que geram carga da CPU. Estas funções de trabalho são executadas durante *420* segundos, que é o suficiente para fazer com que as regras de dimensionamento automático implementem a ação pretendida.
 
 ```console
 sudo apt-get update
@@ -131,9 +131,9 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Quando o **stress** mostrar um resultado semelhante a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, prima a tecla *Enter* para regressar à linha de comandos.
+Quando o **stress** mostrar um resultado semelhante a *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , prima a tecla *Enter* para regressar à linha de comandos.
 
-Para confirmar que o **stress** gera carga de CPU, examine a carga de sistema ativa com o utilitário **top**:
+Para confirmar que o **stress** gera carga de CPU, examine a carga de sistema ativa com o utilitário **top** :
 
 ```console
 top
@@ -159,7 +159,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-Novamente, quando o **stress** mostrar um resultado semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, prima a tecla *Enter* para regressar à linha de comandos.
+Novamente, quando o **stress** mostrar um resultado semelhante a *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* , prima a tecla *Enter* para regressar à linha de comandos.
 
 Feche a ligação à segunda instância de VM. O **stress** continua a ser executado na instância de VM.
 
@@ -200,7 +200,7 @@ Assim que o **stress** para nas instâncias de VM iniciais, a carga de CPU médi
 
 Saia de *watch* com `Ctrl-c`. O conjunto de dimensionamento continua a reduzir horizontalmente a cada 5 minutos e remove uma instância de VM até ser atingida uma contagem mínima de duas instâncias.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover o seu conjunto de dimensionamento e recursos adicionais, elimine o grupo de recursos e todos os respetivos recursos com [az group delete](/cli/azure/group). O parâmetro `--no-wait` devolve o controlo à linha de comandos, sem aguardar a conclusão da operação. O parâmetro `--yes` confirma que pretende eliminar os recursos sem uma linha de comandos adicional para fazê-lo.
 

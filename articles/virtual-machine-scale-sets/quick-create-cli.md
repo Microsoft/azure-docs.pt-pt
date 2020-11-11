@@ -9,21 +9,21 @@ ms.subservice: cli
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 0dc98ba242d3eb5fba79605dae9f8eadc56affd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 5ed6ff00e2ec9a47cec0290fa88ef3b554287607
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87504437"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94518163"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-with-the-azure-cli"></a>Início Rápido - Criar um conjunto de dimensionamento de máquinas virtuais com a CLI do Azure
 Um conjunto de escala de máquina virtual permite-lhe implantar e gerir um conjunto de máquinas virtuais de escala automática. Pode dimensionar o número de VMs no conjunto de dimensionamento manualmente ou definir regras para dimensionar automaticamente com base na utilização de recursos como CPU, exigência de memória ou tráfego de rede. Em seguida, um balanceador de carga do Azure distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Neste início rápido, vai criar um conjunto de dimensionamento de máquinas virtuais e implementar um exemplo de aplicação com a CLI do Azure.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este tutorial requer a execução da versão 2.0.29 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli). 
+- Este artigo requer a versão 2.0.29 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada. 
 
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
@@ -33,7 +33,7 @@ Para poder criar um conjunto de dimensionamento, crie primeiro um grupo de recur
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet*, que está definido para atualizar automaticamente à medida que as alterações são aplicadas, e gera chaves SSH, caso não existam em *~/.ssh/id_rsa*. Estas chaves SSH são utilizadas se precisar de iniciar sessão nas instâncias de VM. Para utilizar um conjunto existente de chaves SSH, utilize o parâmetro `--ssh-key-value` e especifique a localização das suas chaves.
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet* , que está definido para atualizar automaticamente à medida que as alterações são aplicadas, e gera chaves SSH, caso não existam em *~/.ssh/id_rsa*. Estas chaves SSH são utilizadas se precisar de iniciar sessão nas instâncias de VM. Para utilizar um conjunto existente de chaves SSH, utilize o parâmetro `--ssh-key-value` e especifique a localização das suas chaves.
 
 ```azurecli-interactive
 az vmss create \
@@ -65,7 +65,7 @@ az vmss extension set \
 
 
 ## <a name="allow-traffic-to-application"></a>Permitir o tráfego para a aplicação
-Quando o conjunto de dimensionamento foi criado, um balanceador de carga do Azure foi automaticamente implementado. O balanceador de carga distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Para permitir que o tráfego alcance a aplicação Web de exemplo, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb*:
+Quando o conjunto de dimensionamento foi criado, um balanceador de carga do Azure foi automaticamente implementado. O balanceador de carga distribui o tráfego pelas instâncias de VM no conjunto de dimensionamento. Para permitir que o tráfego alcance a aplicação Web de exemplo, crie uma regra de balanceador de carga com [az network lb rule create](/cli/azure/network/lb/rule). O exemplo seguinte cria uma regra com o nome *myLoadBalancerRuleWeb* :
 
 ```azurecli-interactive
 az network lb rule create \
