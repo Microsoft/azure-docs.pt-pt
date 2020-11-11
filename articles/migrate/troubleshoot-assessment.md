@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: d5e8305fb80e6869bf604108aaa0e4d8e36cab8e
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4da0f40c25d322953fea968396ef33924877c2e1
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314748"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505228"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Resolver problemas de avaliação/visualização de dependência
 
@@ -26,7 +26,7 @@ Corrigir problemas de prontidão de avaliação da seguinte forma:
 **Problema** | **Correção**
 --- | ---
 Tipo de bota não suportada | O Azure não suporta VMs com um tipo de bota EFI. Recomendamos que converta o tipo de porta-malas em BIOS antes de fazer uma migração. <br/><br/>Pode utilizar a migração do servidor Azure Migrate para lidar com a migração de tais VMs. Converterá o tipo de arranque do VM para BIOS durante a migração.
-Sistema operativo Windows suportado condicionalmente | O sistema operativo passou a sua data de fim de suporte e precisa de um Acordo de Apoio Personalizado (CSA) para [apoio no Azure](/troubleshoot/azure/virtual-machines/server-software-support). Considere melhorar antes de migrar para Azure.
+Sistema operativo Windows suportado condicionalmente | O sistema operativo passou a sua data de fim de suporte e precisa de um Acordo de Apoio Personalizado (CSA) para [apoio no Azure](/troubleshoot/azure/virtual-machines/server-software-support). Considere melhorar antes de migrar para Azure. [Reveja]() informações sobre [a preparação de máquinas que executam o Windows Server 2003](prepare-windows-server-2003-migration.md) para migração para Azure.
 Sistema operativo Windows não suportado | O Azure suporta apenas [versões selecionadas do Windows OS](/troubleshoot/azure/virtual-machines/server-software-support). Considere atualizar a máquina antes de migrar para Azure.
 Sistematicamente endossado Linux OS | O Azure só [endossa versões linux OS selecionadas](../virtual-machines/linux/endorsed-distros.md). Considere atualizar a máquina antes de migrar para Azure. Consulte também [aqui](#linux-vms-are-conditionally-ready-in-an-azure-vm-assessment) para mais detalhes.
 Linux OS não dotado | A máquina pode começar em Azure, mas a Azure não fornece suporte ao sistema operativo. Considere atualizar para uma [versão Linux endossada](../virtual-machines/linux/endorsed-distros.md) antes de migrar para Azure.
@@ -48,7 +48,7 @@ Não foi possível determinar a adequação da VM por causa de um erro interno |
 Não foi possível determinar a adequação de um ou mais discos devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 Não foi possível determinar a adequação de um ou mais adaptadores de rede devido a um erro interno | Tente criar uma nova avaliação para o grupo.
 Nenhum tamanho VM encontrado para a moeda de oferta Instância Reservada | Máquina marcada Não é adequada porque o tamanho VM não foi encontrado para a combinação selecionada de RI, oferta e moeda. Editar as propriedades de avaliação para escolher as combinações válidas e recalcular a avaliação. 
-Protocolo de Internet pronto condicionalmente | Apenas aplicável às avaliações da Azure VMware Solution (AVS). O AVS não suporta o fator endereços de internet IPv6.Contacte a equipa AVS para obter orientação de reparação se a sua máquina for detetada com o IPv6.
+Protocolo de Internet pronto condicionalmente | Apenas aplicável às avaliações da Azure VMware Solution (AVS). O AVS não suporta o fator endereços de internet IPv6. Contacte a equipa AVS para obter orientação de reparação se a sua máquina for detetada com o IPv6.
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>Ferramenta de migração sugerida na avaliação de AVS baseada em importações marcada como desconhecida
 
@@ -75,7 +75,7 @@ Para servidores físicos, devem estar disponíveis informações de versão meno
 A avaliação do servidor Azure Migrate poderá recomendar SKUs Azure VM com mais núcleos e memória do que a atribuição atual no local com base no tipo de avaliação:
 
 - A recomendação VM SKU depende das propriedades de avaliação.
-- Isto é afetado pelo tipo de avaliação que realiza na Avaliação do Servidor: *Baseada no Desempenho*ou como no *local*.
+- Isto é afetado pelo tipo de avaliação que realiza na Avaliação do Servidor: *Baseada no Desempenho* ou como no *local*.
 - Para avaliações baseadas no desempenho, a Avaliação do Servidor considera os dados de utilização dos VMs no local (CPU, memória, disco e utilização da rede) para determinar o alvo certo VM SKU para os seus VMs no local. Também adiciona um fator de conforto ao determinar uma utilização eficaz.
 - Para o dimensionamento no local, os dados de desempenho não são considerados, e o SKU-alvo é recomendado com base na atribuição no local.
 
@@ -83,7 +83,7 @@ Para mostrar como isto pode afetar as recomendações, vejamos um exemplo:
 
 Temos um VM no local com quatro núcleos e oito GB de memória, com 50% de utilização de CPU e 50% de utilização da memória, e um fator de conforto especificado de 1,3.
 
--  Se a avaliação for **As no local, recomenda-se**um Azure VM SKU com quatro núcleos e 8 GB de memória.
+-  Se a avaliação for **As no local, recomenda-se** um Azure VM SKU com quatro núcleos e 8 GB de memória.
 - Se a avaliação for baseada no desempenho, com base na utilização eficaz do CPU e da memória (50% de 4 núcleos * 1,3 = 2,6 núcleos e 50% da memória de 8 GB * 1,3 = memória de 5,3 GB), recomenda-se o VM SKU mais barato de quatro núcleos (contagem de núcleos suportado mais próximo) e oito GB de memória (tamanho de memória suportado mais próximo).
 - [Saiba mais](concepts-assessment-calculation.md#types-of-assessments) sobre o dimensionamento de avaliação.
 
@@ -156,7 +156,7 @@ Depois de ter instalado os agentes de visualização de dependência em VMs no l
 
 Para VMs windows:
 1. No Painel de Controlo, inicie o MMA.
-2. Nas propriedades do **Agente de Monitorização**da Microsoft  >  **Azure Log Analytics (OMS),** certifique-se de que o **Estado** do espaço de trabalho é verde.
+2. Nas propriedades do **Agente de Monitorização** da Microsoft  >  **Azure Log Analytics (OMS),** certifique-se de que o **Estado** do espaço de trabalho é verde.
 3. Se o estado não for verde, tente remover o espaço de trabalho e adicioná-lo novamente ao MMA.
 
     ![Estatuto de MMA](./media/troubleshoot-assessment/mma-properties.png)
@@ -165,7 +165,7 @@ Para os VMs Linux, certifique-se de que os comandos de instalação para o MMA e
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-- **Agente MMS**: Reveja os sistemas operativos [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) suportados.
+- **Agente MMS** : Reveja os sistemas operativos [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) suportados.
 - **Agente de dependência:** os sistemas operativos [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) suportados.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizar dependências para > hora
@@ -209,7 +209,7 @@ Recolher registos de tráfego de rede da seguinte forma:
    - No Chrome, clique à direita e **selecione Guardar como HAR com conteúdo**. Esta ação comprime e exporta os registos como ficheiro .har.
    - No Microsoft Edge ou no Internet Explorer, selecione a opção **de tráfego capturado Export.** Esta ação comprime e exporta o tronco.
 6. Selecione o **separador Consola** para verificar se há avisos ou erros. Para guardar o registo da consola:
-   - No Chrome, clique com o botão direito em qualquer lugar do registo da consola. **Selecione Guardar como**, para exportar e fechar o registo.
+   - No Chrome, clique com o botão direito em qualquer lugar do registo da consola. **Selecione Guardar como** , para exportar e fechar o registo.
    - No Microsoft Edge ou no Internet Explorer, clique com o botão direito dos erros e selecione **Copy all**.
 7. Feche as ferramentas de desenvolvimento.
 

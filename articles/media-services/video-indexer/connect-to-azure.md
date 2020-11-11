@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: juliako
-ms.openlocfilehash: a101afb2089e4ab1fa32bd0668c60b477039b566
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 0d954123b0d48a4b78c0dcda98898b7ab539d502
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330585"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504514"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Criar uma conta de Indexer de Vídeo ligada ao Azure
 
-Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com uma avaliação gratuita, o Video Indexer disponibiliza até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer, ligada à subscrição do Azure, e uma conta dos Serviços de Multimédia do Azure. Pagará pelos minutos indexados, bem como pelas cobranças relacionadas com a conta de multimédia.
+Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com uma avaliação gratuita, o Video Indexer disponibiliza até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, cria uma conta de Indexer de Vídeo que está ligada à sua subscrição Azure. Você paga por minutos indexados, para mais informações, consulte [os preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).
 
 Este artigo mostra como criar uma conta de Indexer de Vídeo que está ligada a uma subscrição do Azure e a uma conta Azure Media Services. O tópico fornece passos para a ligação ao Azure utilizando o fluxo automático (predefinido). Também mostra como ligar-se ao Azure manualmente (avançado).
 

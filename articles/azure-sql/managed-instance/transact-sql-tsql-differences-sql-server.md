@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 06/02/2020
+ms.date: 11/10/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 873bebc462ce4756d38f966a87edda167bd49501
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337649"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506384"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -99,7 +99,7 @@ As principais diferenças na `CREATE AUDIT` sintaxe para a auditoria ao armazena
 - Uma nova sintaxe `TO URL` é fornecida que pode usar para especificar o URL do recipiente de armazenamento Azure Blob onde os `.xel` ficheiros são colocados.
 - A sintaxe `TO FILE` não é suportada porque a SQL Managed Instance não consegue aceder às partilhas de ficheiros do Windows.
 
-Para obter mais informações, consulte: 
+Para obter mais informações, veja: 
 
 - [CRIAR AUDITORIA DE SERVIDOR](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTERAR AUDITORIA DO SERVIDOR](/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -410,7 +410,7 @@ Operações:
 
 ### <a name="polybase"></a>PolyBase
 
-As tabelas externas que referenciam os ficheiros no armazenamento hdfs ou Azure Blob não são suportadas. Para obter informações sobre a PolyBase, consulte [a PolyBase](/sql/relational-databases/polybase/polybase-guide).
+O único tipo suportado de fonte externa é RDBMS, para Azure SQL Database e outroS Azure SQL Managed Instance. Para obter informações sobre a PolyBase, consulte [a PolyBase](/sql/relational-databases/polybase/polybase-guide).
 
 ### <a name="replication"></a>Replicação
 

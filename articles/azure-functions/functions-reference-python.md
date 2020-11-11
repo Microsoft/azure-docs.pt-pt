@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: cc99a8c10ecefc063fdb89c61bdaeb0e686b1a82
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: ce8abf439c44e06134113dd562ebadc62b803a28
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94358053"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506078"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
@@ -123,7 +123,7 @@ from . import example #(relative)
 ```
 
 > [!NOTE]
->  A *shared_code/pasta* precisa de conter um \_ \_ ficheiro \_ \_ init .py para assinalá-lo como um pacote Python quando utilizar sintaxe de importação absoluta.
+>  A *shared_code/pasta* precisa de conter um \_ \_ ficheiro \_ \_ init .py para o marcar como um pacote Python ao utilizar uma sintaxe de importação absoluta.
 
 As \_ \_ seguintes importações de aplicações \_ \_ e para além da importação relativa de nível superior são depreciadas, uma vez que não é suportada por um verificador de tipo estático e não suportada por quadros de ensaio Python:
 
@@ -312,10 +312,10 @@ Uma chave para melhorar o desempenho é compreender como a sua aplicação utili
 
 As configurações predefinidas são adequadas para a maioria das aplicações Azure Functions. No entanto, pode melhorar o desempenho da produção das suas aplicações utilizando configurações com base no seu perfil de carga de trabalho. O primeiro passo é compreender o tipo de carga de trabalho que está a correr.
 
-|&nbsp;| Carga de trabalho i/O-bound | Carga de trabalho ligada ao CPU |
+| | Carga de trabalho i/O-bound | Carga de trabalho ligada ao CPU |
 |--| -- | -- |
-|Características da aplicação de função| <ul><li>A aplicação precisa de lidar com muitas invocações simultâneas.</li> <li> A aplicação processa um grande número de eventos de E/S, tais como chamadas de rede e leitura/escrita de disco.</li> </ul>| <ul><li>A aplicação faz cálculos de longa duração, como o redimensionamento de imagens.</li> <li>A aplicação faz a transformação de dados.</li> </ul> |
-|Exemplos| <ul><li>APIs da Web</li><ul> | <ul><li>Processamento de dados</li><li> Inferência de aprendizagem automática</li><ul>|
+|**Características da aplicação de função**| <ul><li>A aplicação precisa de lidar com muitas invocações simultâneas.</li> <li> A aplicação processa um grande número de eventos de E/S, tais como chamadas de rede e leitura/escrita de disco.</li> </ul>| <ul><li>A aplicação faz cálculos de longa duração, como o redimensionamento de imagens.</li> <li>A aplicação faz a transformação de dados.</li> </ul> |
+|**Exemplos**| <ul><li>APIs da Web</li><ul> | <ul><li>Processamento de dados</li><li> Inferência de aprendizagem automática</li><ul>|
 
 
 > [!NOTE]

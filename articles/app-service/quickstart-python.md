@@ -2,16 +2,16 @@
 title: 'Quickstart: Criar uma aplicação Python'
 description: Começa com o Azure App Service implementando a sua primeira aplicação Python num contentor Linux no Serviço de Aplicações.
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 11/10/2020
 ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
 adobe-target: true
-ms.openlocfilehash: c77465997f74d0f279080a68fd317af0d161127a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: b32977ac1c8cfe0c461bcd1628c08a0ca215ba93
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357526"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506197"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Quickstart: Criar uma aplicação Python no Azure App Service em Linux
 
@@ -64,7 +64,7 @@ Este comando abre um browser para recolher as suas credenciais. Quando o comando
 
 Uma vez assinado, pode executar comandos Azure com o CLI Azure para trabalhar com recursos na sua subscrição.
 
-[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Tendo problemas? [Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="clone-the-sample"></a>Clonar o exemplo
 
@@ -96,7 +96,7 @@ cd python-docs-hello-django
 
 A amostra contém código específico de enquadramento que o Azure App Service reconhece ao iniciar a aplicação. Para obter mais informações, consulte [o processo de arranque do Contentor.](configure-language-python.md#container-startup-process)
 
-[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Tendo problemas? [Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="run-the-sample"></a>Executar o exemplo
 
@@ -146,7 +146,7 @@ A amostra contém código específico de enquadramento que o Azure App Service r
 1. Na janela do terminal, pressione **o Ctrl** + **C** para sair do servidor de desenvolvimento.
 ::: zone-end
 
-[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Tendo problemas? [Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="deploy-the-sample"></a>Implementar a amostra
 
@@ -167,13 +167,13 @@ O comando pode demorar alguns minutos a ser concluído. Durante a execução, fo
 
 ![Exemplo de saída do comando az webapp up](./media/quickstart-python/az-webapp-up-output.png)
 
-[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Tendo problemas? Consulte primeiro o [guia de resolução de problemas,](configure-language-python.md#troubleshooting)caso contrário, [avise-nos](https://aka.ms/FlaskCLIQuickstartHelp).
 
 [!include [az webapp up command note](../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>Navegar para a aplicação
 
-Navegue pela aplicação implementada no seu navegador web no URL `http://<app-name>.azurewebsites.net` . Leva alguns momentos para começar a aplicação inicialmente.
+Navegue pela aplicação implementada no seu navegador web no URL `http://<app-name>.azurewebsites.net` . Pode levar um minuto ou dois para a aplicação começar, por isso, se vir uma página de aplicação padrão, aguarde um minuto e refresque o navegador.
 
 O código de amostra Python está a executar um contentor Linux no Serviço de Aplicações usando uma imagem incorporada.
 
@@ -181,7 +181,7 @@ O código de amostra Python está a executar um contentor Linux no Serviço de A
 
 **Parabéns!** Implementou a sua aplicação Python para o Serviço de Aplicações.
 
-[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Tendo problemas? Consulte primeiro o [guia de resolução de problemas,](configure-language-python.md#troubleshooting)caso contrário, [avise-nos](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="redeploy-updates"></a>Atualizações de recolocação
 
@@ -218,7 +218,7 @@ Uma vez concluída a implementação, volte para a janela do navegador aberta pa
 
 ![Executar uma aplicação python de amostra atualizada em Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
-[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Tendo problemas? Consulte primeiro o [guia de resolução de problemas,](configure-language-python.md#troubleshooting)caso contrário, [avise-nos](https://aka.ms/FlaskCLIQuickstartHelp).
 
 > [!TIP]
 > O Visual Studio Code fornece extensões poderosas para o Serviço de Aplicações Python e Azure, que simplificam o processo de implementação de aplicações web Python para o App Service. Para obter mais informações, consulte [aplicações implementar python para o Serviço de Aplicações a partir do Código do Estúdio Visual.](/azure/python/tutorial-deploy-app-service-on-linux-01)
@@ -241,7 +241,7 @@ Também pode inspecionar os ficheiros de registo no browser em `https://<app-nam
 
 Para parar o streaming de registo a qualquer momento, pressione **ctrl** + **C** no terminal.
 
-[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Tendo problemas? [Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
 ## <a name="manage-the-azure-app"></a>Gerir a app Azure
 
@@ -259,7 +259,7 @@ A seleção da aplicação abre a sua página **de Visão Geral,** onde pode exe
 
 O menu Serviço de Aplicações fornece diferentes páginas para configurar a sua aplicação.
 
-[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Tendo problemas? Consulte primeiro o [guia de resolução de problemas,](configure-language-python.md#troubleshooting)caso contrário, [avise-nos](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -275,9 +275,9 @@ O comando utiliza o nome do grupo de recursos em cache no ficheiro *.azure/confi
 
 O `--no-wait` argumento permite que o comando regresse antes da operação estar concluída.
 
-[Tendo problemas? Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
+Tendo problemas? [Deixe-nos saber.](https://aka.ms/FlaskCLIQuickstartHelp)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Tutorial: Python (Django) web app com PostgreSQL](tutorial-python-postgresql-app.md)

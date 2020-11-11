@@ -2,16 +2,16 @@
 title: Grelha de Eventos Azure - Eventos de Parceiros
 description: Envie eventos de parceiros de eventos de terceiros SaaS e PaaS diretamente para os serviços da Azure com a Azure Event Grid.
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: 87d1d40b3696229344b0b5c20d06d9d993a514a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 31a5fe611871eb4734b6a68e3818592028ebc75c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103146"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506151"
 ---
 # <a name="partner-events-in-azure-event-grid-preview"></a>Eventos de Parceiros em Azure Event Grid (pré-visualização)
-A funcionalidade **Eventos Parceiros** permite a um fornecedor de SaaS de terceiros publicar eventos dos seus serviços para os disponibilizar aos consumidores que possam subscrever esses eventos. Oferece uma experiência de primeira parte a fontes de eventos de terceiros, expondo um tipo [de tópico,](concepts.md#topics) um **tópico parceiro,** que os subscritores usam para consumir eventos. Também oferece um modelo de pub-sub limpo, separando preocupações e propriedade de recursos que são usados por editores de eventos e subscritores.
+A funcionalidade **Eventos Parceiros** permite a um fornecedor de SaaS de terceiros publicar eventos a partir dos seus serviços para que os consumidores possam subscrever esses eventos. Esta funcionalidade oferece uma experiência de primeira parte a fontes de eventos de terceiros expondo um tipo [de tópico,](concepts.md#topics) um **tópico de parceiro**. Os subscritores criam subscrições deste tema para consumir eventos. Também fornece um modelo de pub-sub limpo, separando preocupações e propriedade de recursos que são usados por editores de eventos e assinantes.
 
 > [!NOTE]
 > Se você é novo na utilização de Event Grid, consulte [a visão geral,](overview.md) [conceitos](concepts.md)e [manipuladores de eventos.](event-handlers.md)
@@ -75,6 +75,20 @@ Um canal de eventos é um recurso espelhado para um tópico parceiro. Quando uma
 
 ## <a name="resources-managed-by-subscribers"></a>Recursos geridos por assinantes 
 Os assinantes podem usar tópicos parceiros definidos por uma editora e é o único tipo de recurso que vêem e gerem. Uma vez criado um tópico de parceiro, um utilizador assinante pode criar subscrições de eventos que definam regras de filtro para [destinos/manipuladores de eventos](overview.md#event-handlers). Para os subscritores, um tópico parceiro e as subscrições de eventos associados fornecem as mesmas capacidades ricas que [os tópicos personalizados](custom-topics.md) e as suas subscrições relacionadas fazem com uma diferença notável: os tópicos parceiros suportam apenas o [esquema Cloud Events 1.0,](cloudevents-schema.md)que fornece um conjunto de capacidades mais rico do que outros esquemas suportados.
+
+A imagem a seguir mostra o fluxo das operações do avião de controlo.
+
+:::image type="content" source="./media/partner-events-overview/partner-control-plane-flow.png" alt-text="Partner Events - controlar o fluxo do avião":::
+
+1. A editora cria um **registo de parceiros.** Os registos de parceiros são globais. Ou seja, não estão associados a uma região particular de Azure. Este passo é opcional.
+1. A editora cria um **espaço de nomes de parceiros** numa região específica.
+1. Quando o Assinante 1 tenta criar um tópico de parceiro, um canal de **eventos** , Event Channel 1, é criado primeiro na subscrição Azure da editora.
+1. Em seguida, um **tópico parceiro** , Partner Topic 1, é criado na subscrição do Azure do assinante. O assinante precisa de ativar o tópico do parceiro. 
+1. O Assinante 1 cria uma **subscrição de Azure Logic Apps** para Partner Topic 1.
+1. O Assinante 1 cria uma **subscrição de Armazenamento Azure Blob** para Partner Topic 1. 
+1. Quando o Assinante 2 tenta criar um tópico de parceiro, outro canal de **eventos** , Event Channel 2, é criado primeiro na subscrição Azure da editora. 
+1. Em seguida, o **tópico parceiro** , Partner Topic 2, é criado na subscrição Azure do segundo subscritor. O assinante precisa de ativar o tópico do parceiro. 
+1. O Assinante 2 cria uma **subscrição de Funções Azure** para O Tópico 2 do Parceiro. 
 
 ## <a name="pricing"></a>Preços
 Os tópicos do parceiro são cobrados pelo número de operações efetuadas ao utilizar a Grade de Eventos. Para obter mais informações sobre todos os tipos de operações que são usadas como base para faturação e informações detalhadas sobre preços, consulte [os preços da Grade de Eventos](https://azure.microsoft.com/pricing/details/event-grid/).

@@ -199,6 +199,8 @@
           href: bookmarks.md
         - name: Utilizar a transmissão em direto para investigar
           href: livestream.md
+        - name: Gerir consultas de investigação com a API REST
+          href: hunting-with-rest-api.md
     - name: Remover o Azure Sentinel
       href: offboard.md
 - name: Referência (Novo!)

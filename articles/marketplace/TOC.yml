@@ -37,6 +37,10 @@
           href: test-drive-technical-configuration.md
         - name: Versão de teste do Azure Resource Manager
           href: azure-resource-manager-test-drive.md
+        - name: Configuração detalhada para versão de teste alojada
+          href: test-drive-hosted-detailed-config.md
+        - name: Configurar subscrição do Azure para versões de teste alojadas
+          href: test-drive-azure-subscription-setup.md
     - name: Atribuição da utilização do cliente de parceiro do Azure
       href: azure-partner-customer-usage-attribution.md
     - name: Opções de entrada no mercado
@@ -270,15 +274,15 @@
     - name: Análise do marketplace comercial
       href: partner-center-portal/analytics.md
     - name: Dashboard de resumo
-      href: partner-center-portal/summary-dashboard.md
+      href: summary-dashboard.md
     - name: Dashboard de pedidos
-      href: partner-center-portal/orders-dashboard.md
+      href: orders-dashboard.md
     - name: Dashboard de utilização
-      href: partner-center-portal/usage-dashboard.md
-    - name: Dashboard de cliente
-      href: partner-center-portal/customer-dashboard.md
+      href: usage-dashboard.md
+    - name: Dashboard de clientes
+      href: customer-dashboard.md
     - name: Dashboard de Informações do Marketplace
-      href: partner-center-portal/insights-dashboard.md
+      href: insights-dashboard.md
     - name: Dashboard de transferências
       href: partner-center-portal/downloads-dashboard.md
     - name: Dashboard de classificações e críticas

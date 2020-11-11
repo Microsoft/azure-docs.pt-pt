@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cdc6cbbea8b222007d94ecac99902bc4498a42fe
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791601"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505262"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de lançamento da Azure Media Services v3
 
@@ -56,6 +56,11 @@ Os eventos ao vivo têm agora um estado de espera.  Ver [Eventos Ao Vivo e Saíd
 Um evento ao vivo suporta receber vários rácios de aspeto de entrada. O modo alongamento permite que os clientes especifiquem o comportamento de alongamento para a saída.
 
 A codificação ao vivo adiciona agora a capacidade de saída de fragmentos de intervalo de chave fixa entre 0,5 e 20 segundos.
+
+## <a name="accounts"></a>Contas
+
+> [!WARNING]
+> Se criar uma conta de Media Services com a versão API 2020-05-01 não funcionará com a RESTv2 
 
 ## <a name="august-2020"></a>Agosto de 2020
 
@@ -109,7 +114,7 @@ Os docs do Azure Media Player foram migrados para a documentação do [Azure](..
 
 ### <a name="azure-government-cloud-updates"></a>Atualizações em nuvem do Governo de Azure
 
-Media Services GA'ed nas seguintes regiões do Governo Azure: *USGov Arizona* e *USGov Texas* .
+Media Services GA'ed nas seguintes regiões do Governo Azure: *USGov Arizona* e *USGov Texas*.
 
 ## <a name="december-2019"></a>Dezembro de 2019
 
@@ -173,7 +178,7 @@ A Media Services v3 está anunciando a pré-estreia de 24 hrs x 365 dias de codi
 
 #### <a name="deprecation-of-media-processors"></a>Depreciação dos processadores de meios de comunicação
 
-Estamos a anunciar a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview* . Para as datas de aposentadoria, consulte o artigo [componentes do legado.](../previous/legacy-components.md) [O Azure Media Services Video Indexer](../video-indexer/index.yml) substitui estes processadores de mídia legado.
+Estamos a anunciar a depreciação do *Azure Media Indexer* e *do Azure Media Indexer 2 Preview*. Para as datas de aposentadoria, consulte o artigo [componentes do legado.](../previous/legacy-components.md) [O Azure Media Services Video Indexer](../video-indexer/index.yml) substitui estes processadores de mídia legado.
 
 Para obter mais informações, consulte [Migrar do Azure Media Indexer e do Azure Media Indexer 2 para OZure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -278,7 +283,7 @@ As atualizações da versão GA da API V3 incluem:
 * As propriedades **PresentationTimeRange** já não são 'necessárias' para **filtros de ativos** e **filtros de conta.** 
 * As opções de consulta $top e $skip para **Jobs** and Transforms foram **removidas** e $orderby foi adicionada. Como parte da adição da nova funcionalidade de encomendas, descobriu-se que as opções $top e $skip tinham sido acidentalmente expostas anteriormente, mesmo que não fossem implementadas.
 * A extensibilidade da enumeração foi re-activada. Esta funcionalidade foi ativada nas versões de pré-visualização do SDK e foi acidentalmente desativada na versão GA.
-* Duas políticas de streaming predefinidas foram renomeadas. **O SecureStreaming** é agora **MultiDrmCencStreaming** . **SecureStreamingWithFairPlay** está agora **Predefined_MultiDrmStreaming** .
+* Duas políticas de streaming predefinidas foram renomeadas. **O SecureStreaming** é agora **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** está agora **Predefined_MultiDrmStreaming**.
 
 ## <a name="november-2018"></a>Novembro de 2018
 

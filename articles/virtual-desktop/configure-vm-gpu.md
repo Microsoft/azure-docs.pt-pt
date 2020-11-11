@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7599a0c7b48bdc371d851ec20282af82e77783bf
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89441753"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505313"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da unidade de processamento gráfico (GPU) para o Windows Virtual Desktop
 
@@ -21,9 +21,12 @@ O Windows Virtual Desktop suporta renderização acelerada por GPU e codificaç�
 
 Siga as instruções deste artigo para criar uma máquina virtual Azure otimizada da GPU, adicione-a à sua piscina de anfitrião e configuure-a para utilizar a aceleração gpu para renderização e codificação. Este artigo pressupõe que já tem um inquilino virtual do Windows configurado.
 
-## <a name="select-a-gpu-optimized-azure-virtual-machine-size"></a>Selecione um GPU otimizado tamanho da máquina virtual Azure
+## <a name="select-an-appropriate-gpu-optimized-azure-virtual-machine-size"></a>Selecione um tamanho de máquina virtual Azure otimizado da GPU
 
-O Azure oferece uma série de tamanhos de [máquinas virtuais otimizados pela GPU.](/azure/virtual-machines/windows/sizes-gpu) A escolha certa para o seu pool de anfitriões depende de uma série de fatores, incluindo as cargas de trabalho da sua aplicação particular, a qualidade desejada da experiência do utilizador e o custo. Em geral, gpus maiores e mais capazes oferecem uma melhor experiência de utilizador em uma dada densidade de utilizador.
+Selecione um dos [tamanhos VM](/azure/virtual-machines/nv-series)da série NV da Azure, [série NVv3](/azure/virtual-machines/nvv3-series)ou [NVv4.](/azure/virtual-machines/nvv4-series) Estes são adaptados para virtualização de aplicativos e desktop e permitem que as aplicações e a interface de utilizador do Windows sejam aceleradas pela GPU. A escolha certa para o seu pool de anfitriões depende de uma série de fatores, incluindo as cargas de trabalho da sua aplicação particular, a qualidade desejada da experiência do utilizador e o custo. Em geral, as GPUs maiores e mais capazes oferecem uma melhor experiência de utilizador numa dada densidade de utilizador, enquanto tamanhos de GPU mais pequenos e fracionários permitem um controlo mais fino sobre o custo e a qualidade.
+
+>[!NOTE]
+>Os VMs da série NC, NCv2, NCv3, ND e NDv2 da Azure não são geralmente apropriados para os anfitriões de sessão virtual do Windows. Estes VMs são adaptados para ferramentas especializadas, de alto desempenho ou de machine learning, como as construídas com a NVIDIA CUDA. A aceleração geral da aplicação e do ambiente de trabalho com os GPUs da NVIDIA requer o licenciamento da NVIDIA GRID; isto é fornecido pela Azure para os tamanhos VM recomendados, mas precisa ser organizado separadamente para VMs da série NC/ND.
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>Crie uma piscina de anfitriões, aprovisione a sua máquina virtual e configuure um grupo de aplicações
 
@@ -40,7 +43,7 @@ Também deve configurar um grupo de aplicações ou utilizar o grupo de aplicaç
 
 Para tirar partido das capacidades da GPU dos VMs da série Azure N no Windows Virtual Desktop, tem de instalar os controladores gráficos apropriados. Siga as instruções nos [sistemas operativos suportados e nos controladores](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) para instalar os controladores do fornecedor gráfico apropriado, manualmente ou utilizando uma extensão VM Azure.
 
-Apenas os controladores distribuídos pelo Azure são suportados para o Windows Virtual Desktop. Além disso, para VMs Azure com GPUs NVIDIA, apenas [os controladores da GRELHA NVIDIA](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) são suportados para o Windows Virtual Desktop.
+Apenas os controladores distribuídos pelo Azure são suportados para o Windows Virtual Desktop. Para VMs da série Azure NV com GPUs NVIDIA, apenas [os condutores da NVIDIA GRID](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers), e não os condutores da NVIDIA Tesla (CUDA), suportam a aceleração da GPU para aplicações e desktops de uso geral.
 
 Após a instalação do condutor, é necessário reiniciar um VM. Utilize as etapas de verificação nas instruções acima para confirmar que os controladores gráficos foram instalados com sucesso.
 
@@ -50,7 +53,7 @@ Por predefinição, as aplicações e os desktops em execução em configuraçõ
 
 1. Ligue-se ao ambiente de trabalho do VM utilizando uma conta com privilégios de administrador local.
 2. Abra o menu Iniciar e escreva "gpedit.msc" para abrir o Editor de Política do Grupo.
-3. Navegue na árvore para **configurar o computador**  >  **Modelos administrativos**  >  **Windows Componentes**  >  **Remotos desktop Services**Remote Desktop Session  >  **Host**Remote  >  **Session Environment**.
+3. Navegue na árvore para **configurar o computador**  >  **Modelos administrativos**  >  **Windows Componentes**  >  **Remotos desktop Services** Remote Desktop Session  >  **Host** Remote  >  **Session Environment**.
 4. Selecione os **adaptadores gráficos de hardware para todas as sessões de Serviços de Ambiente de Trabalho Remoto** e desementa esta política para **ativar** a renderização de GPU na sessão remota.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>Codificação de quadros acelerados pela GPU

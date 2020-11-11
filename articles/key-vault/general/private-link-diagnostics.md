@@ -7,12 +7,12 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 870a55e5bc2701df5c03e142522e8490612b2917
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289378"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506061"
 ---
 # <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticar problemas de configuração de ligações privadas no Azure Key Vault
 
@@ -142,21 +142,29 @@ Esta secção destina-se a fins de aprendizagem. Quando o cofre-chave não tem n
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  52.168.109.101
+Aliases:  fabrikam.vault.azure.net
+          data-prod-eus.vaultcore.azure.net
+          data-prod-eus-region.vaultcore.azure.net
+```
 
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 Pode ver que o nome se resolve para um endereço IP público, e não há `privatelink` pseudónimo. O pseudónimo é explicado mais tarde, não se preocupe agora.
 
@@ -168,23 +176,24 @@ Quando o cofre-chave tiver uma ou mais ligações privadas de ponto final em est
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  52.168.109.101
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
-              data-prod-eus.vaultcore.azure.net
-              data-prod-eus-region.vaultcore.azure.net
-
+Resposta não autorizada: Endereço: 52.168.109.101 Aliases: fabrikam.vault.azure.net fabrikam.privatelink.vaultcore.azure.net data-prod-eus.vaultcore.azure.net data-prod-eus-region.vaultcore.azure.net
+```
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
-    data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
-    data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net is an alias for data-prod-eus.vaultcore.azure.net.
+data-prod-eus.vaultcore.azure.net is an alias for data-prod-eus-region.vaultcore.azure.net.
+data-prod-eus-region.vaultcore.azure.net has address 52.168.109.101
+```
 
 A notável diferença do cenário anterior é que há um novo pseudónimo com o valor `{vaultname}.privatelink.vaultcore.azure.net` . Isto significa que o cofre-chave Data Plane está pronto para aceitar pedidos de links privados.
 
@@ -198,19 +207,27 @@ Quando o cofre-chave tem uma ou mais ligações privadas de ponto final em estad
 
 Windows:
 
-    C:\> nslookup fabrikam.vault.azure.net
+```console
+C:\> nslookup fabrikam.vault.azure.net
+```
 
-    Non-authoritative answer:
-    Address:  10.1.2.3
-    Aliases:  fabrikam.vault.azure.net
-              fabrikam.privatelink.vaultcore.azure.net
+```output
+Non-authoritative answer:
+Address:  10.1.2.3
+Aliases:  fabrikam.vault.azure.net
+          fabrikam.privatelink.vaultcore.azure.net
+```
 
 Linux:
 
-    joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```console
+joe@MyUbuntu:~$ host fabrikam.vault.azure.net
+```
 
-    fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
-    fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```output
+fabrikam.vault.azure.net is an alias for fabrikam.privatelink.vaultcore.azure.net.
+fabrikam.privatelink.vaultcore.azure.net has address 10.1.2.3
+```
 
 Há duas diferenças notáveis. Primeiro, o nome resolve-se para um endereço IP privado. Este deve ser o endereço IP que encontramos na [secção correspondente](#find-the-key-vault-private-ip-address-in-the-virtual-network) deste artigo. Segundo, não há outros pseudónimos depois `privatelink` do um. Isto acontece porque os servidores DNS da Rede Virtual *intercetam* a cadeia de pseudónimos e devolvem o endereço IP privado diretamente do nome `fabrikam.privatelink.vaultcore.azure.net` . Essa entrada é na verdade um `A` recorde numa Zona Privada de DNS. Mais sobre isto seguir-se-á.
 
@@ -227,7 +244,7 @@ Se a resolução do DNS não estiver a funcionar como descrito na secção anter
 
 A sua subscrição Azure deve ter um recurso [privado da Zona DNS](../../dns/private-dns-privatednszone.md) com este nome exato:
 
-    privatelink.vaultcore.azure.net
+`privatelink.vaultcore.azure.net`
 
 Pode verificar a presença deste recurso indo para a página de subscrição no Portal e selecionando "Recursos" no menu esquerdo. O nome do recurso deve ser `privatelink.vaultcore.azure.net` , e o tipo de recurso deve ser zona privada de **DNS**.
 
@@ -282,37 +299,48 @@ O cofre da chave fornece o `/healthstatus` ponto final, que pode ser usado para 
 
 Janelas (PowerShell):
 
-    PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -UseBasicParsing -Uri https://fabrikam.vault.azure.net/healthstatus).Headers
+```
 
-    Key                           Value
-    ---                           -----
-    Pragma                        no-cache
-    x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
-    x-ms-keyvault-service-version 1.2.27.0
-    x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security     max-age=31536000;includeSubDomains
-    Content-Length                4
-    Cache-Control                 no-cache
-    Content-Type                  application/json; charset=utf-8
+```output
+Key                           Value
+---                           -----
+Pragma                        no-cache
+x-ms-request-id               3729ddde-eb6d-4060-af2b-aac08661d2ec
+x-ms-keyvault-service-version 1.2.27.0
+x-ms-keyvault-network-info    addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security     max-age=31536000;includeSubDomains
+Content-Length                4
+Cache-Control                 no-cache
+Content-Type                  application/json; charset=utf-8
+```
 
 Linux, ou uma versão recente do Windows 10 que `curl` inclui:
 
-    joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
-    HTTP/1.1 200 OK
-    Cache-Control: no-cache
-    Pragma: no-cache
-    Content-Type: application/json; charset=utf-8
-    x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
-    x-ms-keyvault-service-version: 1.2.27.0
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
-    Strict-Transport-Security: max-age=31536000;includeSubDomains
-    Content-Length: 4
+```console
+joe@MyUbuntu:~$ curl -i https://fabrikam.vault.azure.net/healthstatus
+```
+
+```output
+HTTP/1.1 200 OK
+Cache-Control: no-cache
+Pragma: no-cache
+Content-Type: application/json; charset=utf-8
+x-ms-request-id: 6c090c46-0a1c-48ab-b740-3442ce17e75e
+x-ms-keyvault-service-version: 1.2.27.0
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+Strict-Transport-Security: max-age=31536000;includeSubDomains
+Content-Length: 4
+```
 
 Se não estiver a obter uma saída semelhante a essa, ou se tiver um erro de rede, significa que o cofre da chave não está acessível através do nome de anfitrião especificado `fabrikam.vault.azure.net` (no exemplo). Ou o nome de anfitrião não está a resolver o endereço IP correto, ou tem um problema de conectividade na camada de transporte. Pode ser causado por problemas de encaminhamento, quedas de pacotes e outras razões. Tem que investigar mais.
 
 A resposta deve incluir o `x-ms-keyvault-network-info` cabeçalho:
 
-    x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```console
+x-ms-keyvault-network-info: addr=10.4.5.6;act_addr_fam=InterNetworkV6;
+```
 
 O `addr` campo no `x-ms-keyvault-network-info` cabeçalho mostra o endereço IP da origem do pedido. Este endereço IP pode ser um dos seguintes:
 
@@ -330,11 +358,15 @@ O `addr` campo no `x-ms-keyvault-network-info` cabeçalho mostra o endereço IP 
 
 Se instalou uma versão recente do PowerShell, pode usar para ignorar as verificações de `-SkipCertificateCheck` certificados HTTPS, então pode direcionar o [endereço IP](#find-the-key-vault-private-ip-address-in-the-virtual-network) do cofre chave diretamente:
 
-    PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```powershell
+PS C:\> $(Invoke-WebRequest -SkipCertificateCheck -Uri https://10.1.2.3/healthstatus).Headers
+```
 
 Se estiver a `curl` usar, pode fazer o mesmo com o `-k` argumento:
 
-    joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```console
+joe@MyUbuntu:~$ curl -i -k https://10.1.2.3/healthstatus
+```
 
 As respostas devem ser as mesmas da secção anterior, o que significa que deve incluir o `x-ms-keyvault-network-info` cabeçalho com o mesmo valor. O `/healthstatus` ponto final não se importa se está a usar o nome de anfitrião do cofre ou o endereço IP do cofre.
 

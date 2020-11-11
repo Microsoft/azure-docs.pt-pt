@@ -3,15 +3,15 @@ title: Microsoft Teams no Windows Virtual Desktop - Azure
 description: Como utilizar as equipas do Microsoft no Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/28/2020
+ms.date: 11/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cae40b9aeed4058ab2082a1d1360558c1c656e1d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 101b3a05591a7815ba28756bb5b07e855b64e769
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131773"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505551"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Utilize equipas da Microsoft no ambiente de trabalho virtual do Windows
 
@@ -32,7 +32,6 @@ Antes de poder utilizar as Equipas microsoft no Windows Virtual Desktop, terá d
 - [Prepare a sua rede](/microsoftteams/prepare-network/) para as Equipas microsoft.
 - Instale o [cliente Windows Desktop](connect-windows-7-10.md) num dispositivo Do Windows 10 ou Windows 10 IoT Enterprise que satisfaça os [requisitos de hardware](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/)das Equipas microsoft teams para equipas num PC Windows .
 - Ligue-se a uma máquina virtual do Windows 10 ou do Windows 10 Enterprise (VM).
-- [Descarregue](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) e instale a aplicação de ambiente de trabalho Teams no anfitrião utilizando a instalação por máquina. A otimização dos meios de comunicação para as Equipas da Microsoft requer a versão 1.3.00.4461 ou posterior da aplicação de ambiente de trabalho das Equipas.
 
 ## <a name="install-the-teams-desktop-app"></a>Instale a aplicação de desktop Teams
 
@@ -42,7 +41,8 @@ Esta secção irá mostrar-lhe como instalar a aplicação de desktop Teams na s
 
 Para permitir a otimização dos meios de comunicação para as equipas, desa estale a seguinte chave de registo no anfitrião:
 
-1. A partir do menu inicial, executar **RegEdit** como administrador. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams. **
+1. A partir do menu inicial, executar **RegEdit** como administrador. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Teams.** Crie a chave equipas se já não existir.
+
 2. Criar o seguinte valor para a tecla Equipas:
 
 | Nome             | Tipo   | Dados/Valor  |
@@ -51,7 +51,7 @@ Para permitir a otimização dos meios de comunicação para as equipas, desa es
 
 ### <a name="install-the-teams-websocket-service"></a>Instale o Serviço De Equipas WebSocket
 
-Instale o mais recente [Serviço WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) na sua imagem VM. Se encontrar um erro de instalação, instale o [mais recente Microsoft Visual C++ Redistribuable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e tente novamente.
+Instale o mais recente [serviço de redirecionamento WebRTC de desktop remoto](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) na sua imagem VM. Se encontrar um erro de instalação, instale o [mais recente Microsoft Visual C++ Redistribuable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e tente novamente.
 
 #### <a name="latest-websocket-service-versions"></a>Versões mais recentes do Serviço WebSocket
 
@@ -94,7 +94,7 @@ Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma inst
 
         Isto instala equipas para a pasta Ficheiros de Programa (x86) num sistema operativo de 32 bits e para a pasta Ficheiros de Programa num sistema operativo de 64 bits. Neste ponto, a configuração da imagem dourada está completa. A instalação de Equipas por máquina é necessária para configurações não persistentes.
 
-        Existem duas bandeiras que podem ser definidas ao instalar equipas, **ALLUSER=1** e **ALLUSERS=1**. É importante compreender a diferença entre estes parâmetros. O parâmetro **ALLUSER=1** é utilizado apenas em ambientes VDI para especificar uma instalação por máquina. O parâmetro **ALLUSERS=1** pode ser utilizado em ambientes não-VDI e VDI. Quando define este parâmetro, o Machine-Wide Instalador de Equipas aparece no Programa e funcionalidades no Painel de Controlo, bem como aplicações & funcionalidades nas Definições do Windows. Todos os utilizadores com credenciais de administração na máquina podem desinstalar equipas.
+        Existem duas bandeiras que podem ser definidas ao instalar equipas, **ALLUSER=1** e **ALLUSERS=1**. É importante compreender a diferença entre estes parâmetros. O parâmetro **ALLUSER=1** é utilizado apenas em ambientes VDI para especificar uma instalação por máquina. O parâmetro **ALLUSERS=1** pode ser utilizado em ambientes não-VDI e VDI. Quando define este parâmetro, **o Machine-Wide Instalador de Equipas** aparece no Programa e funcionalidades no Painel de Controlo, bem como aplicações & funcionalidades nas Definições do Windows. Todos os utilizadores com credenciais de administração na máquina podem desinstalar equipas.
 
         > [!NOTE]
         > Os utilizadores e administradores não podem desativar o lançamento automático das Equipas durante a entrada neste momento.
@@ -114,14 +114,19 @@ Pode implementar a aplicação de ambiente de trabalho Teams utilizando uma inst
 
 Depois de instalar o Serviço WebSocket e a aplicação de desktop Teams, siga estes passos para verificar se as otimizações dos meios de comunicação das Equipas foram carregadas:
 
-1. Selecione a imagem do perfil do utilizador e, em seguida, selecione **About**.
-2. Selecione **versão**.
+1. Demita-se e reinicie a aplicação das Equipas.
+
+2. Selecione a imagem do perfil do utilizador e, em seguida, selecione **About**.
+
+3. Selecione **versão**.
 
       Se as otimizações dos meios de comunicação forem carregadas, o banner irá mostrar-lhe **wVD Media otimizado**. Se o banner mostrar que a **WVD Media não está conectada,** saia da aplicação Teams e tente novamente.
 
-3. Selecione a imagem do perfil do utilizador e, em seguida, selecione **Definições**.
+4. Selecione a imagem do perfil do utilizador e, em seguida, selecione **Definições**.
 
       Se as otimizações dos meios de comunicação forem carregadas, os dispositivos áudio e as câmaras disponíveis localmente serão enumerados no menu do dispositivo. Se o menu mostrar **áudio remoto,** saia da aplicação Teams e tente novamente. Se os dispositivos ainda não aparecerem no menu, verifique as definições de Privacidade no seu PC local. Certifique-se de que as permissões da App de Privacidade sob **Definições**  >  **Privacy**  >  **App permissions** a definição **Permitir que as aplicações acedam ao seu microfone** é alternada **.** Desligue da sessão remota e volte a ligar e verifique novamente os dispositivos de áudio e vídeo. Para se juntar a chamadas e reuniões com vídeo, também deve conceder permissão para que as aplicações acedam à sua câmara.
+
+      Se as otimizações não carregarem, desinstale as equipas e volte a verificar.
 
 ## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
 

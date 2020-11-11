@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ea1df2937c6ae771407e4adf839c9ff0fa9f7f5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: a5106e1089e2353d2db884977eb51a4fd2717b99
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218984"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506180"
 ---
 # <a name="upload-and-index-your-videos"></a>Carregar e indexar vídeos  
 
@@ -26,7 +26,7 @@ Ao carregar vídeos com a API do Video Indexer, tem as seguintes opções de car
 * enviar o ficheiro de vídeo como um conjunto de byte no corpo de pedido,
 * Utilizar o recurso existente dos Serviços de Multimédia do Azure ao disponibilizar o [ID do recurso](../latest/assets-concept.md) (suportado apenas em contas pagas).
 
-Uma vez que o seu vídeo tenha sido carregado, o Video Indexer (opcionalmente) codifica o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer, [ligada à subscrição do Azure, e uma conta dos Serviços de Multimédia do Azure](connect-to-azure.md). Irá pagar pelos minutos indexados, bem como pelas cobranças relacionadas com a Conta de Multimédia. 
+Uma vez que o seu vídeo tenha sido carregado, o Video Indexer (opcionalmente) codifica o vídeo (discutido no artigo). Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com a avaliação gratuita, o Video Indexer fornece até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com a opção paga, pode criar uma conta do Video Indexer, [ligada à subscrição do Azure, e uma conta dos Serviços de Multimédia do Azure](connect-to-azure.md). Você paga por minutos indexados, para mais informações, consulte [os preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).
 
 O artigo mostra como carregar e indexar os seus vídeos com estas opções:
 
@@ -79,7 +79,7 @@ Consulte o artigo [de formatos de recipiente/ficheiro](../latest/media-encoder-s
 1. Após carregar o seu vídeo, o Video Indexer iniciará a indexação e análise do vídeo.
 
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Carregar":::
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progresso do upload":::
 1. Assim que o Video Indexer terminar de analisar, receberá um e-mail com um link para o seu vídeo e uma breve descrição do que foi encontrado no seu vídeo. Por exemplo: people (pessoas), topics (tópicos), OCRs.
 
 ## <a name="upload-and-index-with-api"></a><a name="apis"></a>Upload e índice com API
@@ -118,7 +118,7 @@ Um URL que é usado para notificar o cliente (usando um pedido POST) sobre os se
         
     - Exemplo: https: \/ /test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&conhecidoPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-##### <a name="notes"></a>Notas
+##### <a name="other-considerations"></a>Outras considerações
 
 - O Indexante de Vídeo devolve quaisquer parâmetros existentes fornecidos no URL original.
 - A URL fornecida deve ser codificada.
@@ -177,7 +177,7 @@ Depois de copiar este código na sua plataforma de desenvolvimento, terá de for
 
     * Navegue para https://api-portal.videoindexer.ai/
     * Iniciar sessão
-    * Ir **Products**para a assinatura de Autorização de  ->  **Autorização**  ->  **de** Produtos
+    * Ir **Products** para a assinatura de Autorização de  ->  **Autorização**  ->  **de** Produtos
     * Copiar a **chave primária**
 * URL de vídeo – UM URL do ficheiro vídeo/áudio a ser indexado. O URL tem de apontar para um ficheiro de multimédia (não são suportadas páginas HTML). O ficheiro pode ser protegido por um token de acesso fornecido como parte do URI e o ponto final que entrega o ficheiro tem de estar protegido pelo TLS 1.2 ou superior. O URL tem de ser codificado.
 

@@ -44,7 +44,7 @@
   items:
     - name: Suporte de contentor
       href: cognitive-services-container-support.md
-    - name: Etiquetas de imagem de contentor
+    - name: Etiquetas de imagem de contentor e notas de versão
       href: ./containers/container-image-tags.md
     - name: FAQ do contentor
       href: ./containers/container-faq.md

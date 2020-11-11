@@ -111,7 +111,7 @@
       items:
         - name: Ver métricas no Azure Monitor
           href: troubleshoot-metrics.md
-        - name: Ativar registos de diagnóstico
+        - name: Ativar e consultar registos de diagnóstico
           href: troubleshoot-diagnostics.md
         - name: Ativar alertas
           href: troubleshoot-alerts.md

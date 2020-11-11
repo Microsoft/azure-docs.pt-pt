@@ -4,12 +4,12 @@ description: Autoescala no Microsoft Azure
 ms.subservice: autoscale
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: e89cf36e59ab26ec220d1125162a841fc10f0e47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd7c1582cdb4b2b1b72d3f969ad08879d208785f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567269"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505842"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure"></a>Visão geral da autoescala no Microsoft Azure
 Este artigo descreve o que é a escala automática da Microsoft Azure, os seus benefícios e como começar a usá-lo.  
@@ -63,9 +63,9 @@ Utilize automaticamente a seguinte terminologia e estrutura.
 
   - Um **perfil de autoescala** é uma combinação de a:
 
-    - **definição de capacidade**, que indica os valores mínimos, máximos e predefinidos para o número de casos.
-    - **conjunto de regras**, cada uma das quais inclui um gatilho (tempo ou métrica) e uma ação de escala (para cima ou para baixo).
-    - **recorrência**, que indica quando a autoescala deve colocar este perfil em vigor.
+    - **definição de capacidade** , que indica os valores mínimos, máximos e predefinidos para o número de casos.
+    - **conjunto de regras** , cada uma das quais inclui um gatilho (tempo ou métrica) e uma ação de escala (para cima ou para baixo).
+    - **recorrência** , que indica quando a autoescala deve colocar este perfil em vigor.
 
       Pode ter vários perfis, que lhe permitem cuidar de diferentes requisitos de sobreposição. Pode ter diferentes perfis de autoescala para diferentes horas do dia ou dias da semana, por exemplo.
 
@@ -102,11 +102,11 @@ Pode configurar a autoescala através
 | Máquinas Virtuais: Clássico |[Conjuntos clássicos de disponibilidade de máquinas virtuais](/archive/blogs/kaevans/autoscaling-azurevirtual-machines) |
 | Máquinas virtuais: conjuntos de escala de windows |[Escala de conjuntos de escala de máquina virtual de escala no Windows](../../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
 | Máquinas virtuais: conjuntos de escala de linux |[Conjuntos de escala de máquina virtual de escala em Linux](../../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
-| Máquinas virtuais: Exemplo do Windows |[Configuração avançada de autoescalação utilizando modelos de gestor de recursos para conjuntos de escala VM](../../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md) |
+| Máquinas virtuais: Exemplo do Windows |[Configuração avançada de autoescalação utilizando modelos de gestor de recursos para conjuntos de escala VM](autoscale-virtual-machine-scale-sets.md) |
 | Serviço de Aplicações do Azure |[Dimensione uma aplicação no serviço Azure App](../../app-service/manage-scale-up.md)|
 | Serviço de Gestão da API|[Crie automaticamente uma instância de dimensionamento da Gestão de API do Azure](../../api-management/api-management-howto-autoscale.md)
 | Aglomerados de exploradores de dados Azure|[Gerir clusters Azure Data Explorer escalando para acomodar a procura em mudança](/azure/data-explorer/manage-cluster-horizontal-scaling)|
-| Aplicações Lógicas |[Adicionar capacidade de ambiente de serviço de integração (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
+| Logic Apps |[Adicionar capacidade de ambiente de serviço de integração (ISE)](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)|
 | Spring Cloud |[Configurar o dimensionamento automático para aplicações de microsserviços](../../spring-cloud/spring-cloud-tutorial-setup-autoscale.md)|
 | Service Bus |[Atualizar automaticamente as unidades de mensagens de um espaço de nomes do Azure Service Bus](../../service-bus-messaging/automate-update-messaging-units.md)|
 

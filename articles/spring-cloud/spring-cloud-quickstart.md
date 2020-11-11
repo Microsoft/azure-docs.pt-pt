@@ -8,12 +8,12 @@ ms.date: 10/23/2020
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 41bbac2032c69861790b806e914827183f83844b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 448707ab84ccca03dc0572d2ebed1b4bd1b6325f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93396078"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505296"
 ---
 # <a name="quickstart-deploy-your-first-azure-spring-cloud-application"></a>Quickstart: Implemente a sua primeira aplicação Azure Spring Cloud
 
@@ -152,7 +152,7 @@ No Visual Studio, crie uma aplicação Core Web ASP.NET chamada "hello-world" co
    </Target>
    ```
 
-   Os pacotes são para a Steeltoe Service Discovery e para a biblioteca de clientes Azure Spring Cloud. A `Zip` tarefa é a deslocação para Azure. Quando executam o `dotnet publish` comando, gera as binários na pasta *de publicação,* e esta tarefa fecha a pasta *de publicação* num ficheiro *.zip* que envia para a Azure.
+   Os pacotes são para a Steeltoe Service Discovery e para a biblioteca de clientes Azure Spring Cloud. A `Zip` tarefa é a deslocação para Azure. Quando executam o `dotnet publish` comando, gera as binários na pasta *de publicação,* e esta tarefa fecha a pasta de *publicação* num ficheiro *.zip* que envia para a Azure.
 
 3. No ficheiro *Program.cs,* adicione uma `using` diretiva e código que utiliza a biblioteca de clientes Azure Spring Cloud:
 
@@ -163,11 +163,11 @@ No Visual Studio, crie uma aplicação Core Web ASP.NET chamada "hello-world" co
    ```csharp
    public static IHostBuilder CreateHostBuilder(string[] args) =>
                Host.CreateDefaultBuilder(args)
+                   .UseAzureSpringCloudService()
                    .ConfigureWebHostDefaults(webBuilder =>
                    {
                        webBuilder.UseStartup<Startup>();
-                   })
-                   .UseAzureSpringCloudService();
+                   });
    ```
 
 4. No ficheiro *Startup.cs,* adicione uma `using` diretiva e código que utiliza a Descoberta do Serviço Steeltoe no final do `ConfigureServices` e `Configure` métodos:
@@ -233,7 +233,7 @@ O procedimento a seguir constrói e implementa o projeto que criou anteriormente
 
 1. Certifique-se de que o pedido de comando ainda está na pasta do projeto.
 
-1. Executar o seguinte comando para construir o projeto, publicar as binários e armazenar os binários num ficheiro *.zip* na pasta do projeto.
+1. Executar o seguinte comando para construir o projeto, publicar os binários e armazenar os binários em um arquivo *.zip* na pasta do projeto.
 
    ```dotnetcorecli
    dotnet publish -c release -o ./publish
@@ -251,7 +251,7 @@ O procedimento a seguir constrói e implementa o projeto que criou anteriormente
    az spring-cloud app deploy -n hello-world -s <service instance name> -g <resource group name> --runtime-version NetCore_31 --main-entry hello-world.dll --artifact-path ./deploy.zip
    ```
 
-   A `--main-entry` opção identifica o ficheiro *.dll* que contém o ponto de entrada da aplicação. Após o serviço carregar o ficheiro *.zip,* extrai todos os ficheiros e pastas e tenta executar o ponto de entrada no ficheiro *.dll* especificado por `--main-entry` .
+   A `--main-entry` opção identifica o *ficheiro .dll* que contém o ponto de entrada da aplicação. Após o serviço carregar o ficheiro *.zip,* extrai todos os ficheiros e pastas e tenta executar o ponto de entrada no ficheiro *.dll* especificado por `--main-entry` .
 
    Demora alguns minutos a terminar a implementação da aplicação. Para confirmar que foi implementado, vá à lâmina **apps** no portal Azure.
 

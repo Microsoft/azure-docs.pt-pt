@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: ecfeebb9ce86d717531310c2ad1a33a3d27f4c0a
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9827f79f8407bd04468f1b4456aec9d6a8793a6f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91995733"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506299"
 ---
 # <a name="configure-log-analytics-workspace-for-azure-monitor-for-vms"></a>Configurar log analytics espaço de trabalho para monitor azure para VMs
 O Azure Monitor para VMs recolhe os seus dados de um ou mais espaços de trabalho do Log Analytics no Azure Monitor. Antes dos agentes de bordo, deve criar e configurar um espaço de trabalho. Este artigo descreve os requisitos do espaço de trabalho e configura-o para o Azure Monitor para VMs.
@@ -20,10 +20,10 @@ O Azure Monitor para VMs recolhe os seus dados de um ou mais espaços de trabalh
 ## <a name="overview"></a>Descrição geral
 Uma única subscrição pode utilizar qualquer número de espaços de trabalho dependendo dos seus requisitos O único requisito do espaço de trabalho é que esteja localizado num local suportado e configurado com a solução *VMInsights.*
 
-Uma vez configurado o espaço de trabalho, pode utilizar qualquer uma das opções disponíveis para instalar os agentes necessários em VM e VMMS e especificar um espaço de trabalho para que eles enviem os seus dados. O Azure Monitor para VMs recolherá dados de qualquer espaço de trabalho configurado na sua subscrição.
+Uma vez configurado o espaço de trabalho, pode utilizar qualquer uma das opções disponíveis para instalar os agentes necessários em VM e VMSS e especificar um espaço de trabalho para que eles enviem os seus dados. O Azure Monitor para VMs recolherá dados de qualquer espaço de trabalho configurado na sua subscrição.
 
 > [!NOTE]
-> Quando ativa o Azure Monitor para VMs num único VM ou VMMS utilizando o portal Azure, é-lhe dada a opção de selecionar um espaço de trabalho existente ou criar um novo. A solução *VMInsights* será instalada neste espaço de trabalho se ainda não estiver. Em seguida, pode utilizar este espaço de trabalho para outros agentes.
+> Quando ativa o Azure Monitor para VMs num único VM ou VMSS utilizando o portal Azure, é-lhe dada a opção de selecionar um espaço de trabalho existente ou criar um novo. A solução *VMInsights* será instalada neste espaço de trabalho se ainda não estiver. Em seguida, pode utilizar este espaço de trabalho para outros agentes.
 
 
 ## <a name="create-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
@@ -86,10 +86,10 @@ Para configurar um único espaço de trabalho, selecione as **outras opções de
 
 Para configurar vários espaços de trabalho, selecione o **separador de configuração do Espaço de Trabalho** no menu **Máquinas Virtuais** no menu **Monitor** no portal Azure. Desa estarda os valores do filtro para apresentar uma lista de espaços de trabalho existentes. Selecione a caixa ao lado de cada espaço de trabalho para ativar e, em seguida, clique em **Configurar selecionado** .
 
-[![Configuração do espaço de trabalho](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
+[![Configuração da área de trabalho](media/vminsights-enable-at-scale-policy/workspace-configuration.png)](media/vminsights-enable-at-scale-policy/workspace-configuration.png#lightbox)
 
 
-Quando ativa o Azure Monitor para VMs num único VM ou VMMS utilizando o portal Azure, é-lhe dada a opção de selecionar um espaço de trabalho existente ou criar um novo. A solução *VMInsights* será instalada neste espaço de trabalho se ainda não estiver. Em seguida, pode utilizar este espaço de trabalho para outros agentes.
+Quando ativa o Azure Monitor para VMs num único VM ou VMSS utilizando o portal Azure, é-lhe dada a opção de selecionar um espaço de trabalho existente ou criar um novo. A solução *VMInsights* será instalada neste espaço de trabalho se ainda não estiver. Em seguida, pode utilizar este espaço de trabalho para outros agentes.
 
 [![Ativar um único VM no portal](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)](media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png#lightbox)
 

@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: eb17b8286ce994146c1fa9867cd8131a909c8ace
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: d04f689dec3a3c182c0da23007247c20c4f8063d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146693"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504395"
 ---
 # <a name="always-on-availability-group-on-sql-server-on-azure-vms"></a>Sempre no grupo de disponibilidade no SQL Server em VMs Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -72,27 +72,26 @@ Para começar, consulte [a configuração de um ouvinte da DNN](availability-gro
 
 Existem múltiplas opções para implementar um grupo de disponibilidade para SQL Server em VMs Azure, alguns com mais automatização do que outros. 
 
-O quadro a seguir fornece uma comparação das opções disponíveis: 
+O quadro a seguir fornece uma comparação das opções disponíveis:
 
-| |**[Portal do Azure](availability-group-azure-portal-configure.md)**|**[Azure CLI / PowerShell](./availability-group-az-commandline-configure.md)**|**[Modelos de arranque rápido](availability-group-quickstart-template-configure.md)**|**[Manual](availability-group-manually-configure-prerequisites-tutorial.md)** | 
-|---------|---------|---------|--------- |---------|
+| | Portal do Azure | Azure CLI / PowerShell | Modelos de arranque rápido | Manual |
+|---------|---------|---------|---------|---------|
 |**Versão do SQL Server** |2016 + |2016 +|2016 +|2012 +|
-|**Edição do SQL Server** |Grandes Empresas |Grandes Empresas |Grandes Empresas |Enterprise, Standard|
-|**Versão do Windows Server**| 2016 + | 2016 + | 2016 + | Todos| 
-|**Cria o cluster para si**|Yes|Yes | Yes |No|
-|**Cria o grupo de disponibilidade para si** |Yes |No|No|No|
-|**Cria ouvinte e equilibrador de carga de forma independente** |No|No|No|Yes|
-|**Possível criar ouvinte dNN utilizando este método?**|No|No|No|Yes|
-|**WSFC quórum configuratio** n|Testemunha de cloud|Testemunha de cloud|Testemunha de cloud|Todos|
-|**DR com várias regiões** |No|No|No|Yes|
-|**Suporte multi-subscrição** |Yes|Yes|Yes|Yes|
-|**Apoio a um AD existente**|Yes|Yes|Yes|Yes|
-|**DR com multizona na mesma região**|Yes|Yes|Yes|Yes|
-|**AG distribuído sem AD**|No|No|No|Yes|
-|**AG distribuído sem cluster** |No|No|No|Yes|
-||||||
+|**Edição do SQL Server** |Enterprise |Enterprise |Enterprise |Enterprise, Standard|
+|**Versão do Windows Server**| 2016 + | 2016 + | 2016 + | Todos|
+|**Cria o cluster para si**|Sim|Sim | Sim |Não|
+|**Cria o grupo de disponibilidade para si** |Sim |Não|Não|Não|
+|**Cria ouvinte e equilibrador de carga de forma independente** |Não|Não|Não|Sim|
+|**Possível criar ouvinte dNN utilizando este método?**|Não|Não|Não|Sim|
+|**Configuração do quórum WSFC**|Testemunha de cloud|Testemunha de cloud|Testemunha de cloud|Todos|
+|**DR com várias regiões** |Não|Não|Não|Sim|
+|**Suporte multi-subscrição** |Sim|Sim|Sim|Sim|
+|**Apoio a um AD existente**|Sim|Sim|Sim|Sim|
+|**DR com multizona na mesma região**|Sim|Sim|Sim|Sim|
+|**AG distribuído sem AD**|Não|Não|Não|Sim|
+|**AG distribuído sem cluster** |Não|Não|Não|Sim|
 
-
+Para mais informações, consulte [o portal Azure,](availability-group-azure-portal-configure.md) [Azure CLI / PowerShell,](./availability-group-az-commandline-configure.md) [Quickstart Templates](availability-group-quickstart-template-configure.md)e [Manual](availability-group-manually-configure-prerequisites-tutorial.md).
 
 ## <a name="considerations"></a>Considerações 
 

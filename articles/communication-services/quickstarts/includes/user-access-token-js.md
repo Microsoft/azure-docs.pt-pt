@@ -2,20 +2,20 @@
 title: incluir ficheiro
 description: incluir ficheiro
 services: azure-communication-services
-author: matthewrobertson
-manager: nimag
+author: tomaschladek
+manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 08/20/2020
 ms.topic: include
 ms.custom: include file
-ms.author: marobert
-ms.openlocfilehash: 22cfe369561eab1ca334c7ff2450162dfae3e761
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.author: tchladek
+ms.openlocfilehash: af5af26a8970409b07eda6195b0853c3fa931b3f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92347059"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506258"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,10 +30,10 @@ ms.locfileid: "92347059"
 Abra o seu terminal ou janela de comando crie um novo diretório para a sua aplicação e navegue até ele.
 
 ```console
-mkdir user-tokens-quickstart && cd user-tokens-quickstart
+mkdir access-tokens-quickstart && cd access-tokens-quickstart
 ```
 
-Corra `npm init -y` para criar umapackage.js** no** ficheiro com definições predefinidos.
+Corra `npm init -y` para criar umapackage.js **no** ficheiro com definições predefinidos.
 
 ```console
 npm init -y
@@ -65,7 +65,7 @@ Utilize o seguinte código para começar:
 const { CommunicationIdentityClient } = require('@azure/communication-administration');
 
 const main = async () => {
-  console.log("Azure Communication Services - User Access Tokens Quickstart")
+  console.log("Azure Communication Services - Access Tokens Quickstart")
 
   // Quickstart code goes here
 };
@@ -76,9 +76,7 @@ main().catch((error) => {
 })
 ```
 
-1. Guarde o novo ficheiro à medida **queissue-token.js** no *diretório de arranque rápido do utilizador.*
-
-[!INCLUDE [User Access Tokens Object Model](user-access-tokens-object-model.md)]
+1. Guarde o novo ficheiro à medida **queissue-access-token.js** no *diretório de acesso-tokens-quickstart.*
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -91,64 +89,67 @@ Adicione o seguinte código ao método `main`:
 // from an environment variable.
 const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING'];
 
-// Instantiate the user token client
+// Instantiate the identity client
 const identityClient = new CommunicationIdentityClient(connectionString);
 ```
 
-## <a name="create-a-user"></a>Criar um utilizador
+## <a name="create-an-identity"></a>Criar uma identidade
 
-A Azure Communication Services mantém um diretório de identidade leve. Utilize o `createUser` método para criar uma nova entrada no diretório com um único `Id` . Deverá manter um mapeamento entre os utilizadores da sua aplicação e os Serviços de Comunicação gerados (por exemplo, armazenando-os na base de dados do seu servidor de aplicações).
+A Azure Communication Services mantém um diretório de identidade leve. Utilize o `createUser` método para criar uma nova entrada no diretório com um único `Id` . A loja recebeu identidade com mapeamento para os utilizadores da sua aplicação. Por exemplo, armazenando-os na base de dados do seu servidor de aplicações. A identidade é necessária mais tarde para emitir fichas de acesso.
 
 ```javascript
-let userResponse = await identityClient.createUser();
-console.log(`\nCreated a user with ID: ${userResponse.communicationUserId}`);
+let identityResponse = await identityClient.createUser();
+console.log(`\nCreated an identity with ID: ${identityResponse.communicationUserId}`);
 ```
 
-## <a name="issue-user-access-tokens"></a>Emitir fichas de acesso ao utilizador
+## <a name="issue-access-tokens"></a>Emitir fichas de acesso
 
-Utilize o `issueToken` método para emitir um token de acesso para um utilizador dos Serviços de Comunicação. Se não fornecer o `user` parâmetro opcional, um novo utilizador será criado e devolvido com o token.
+Utilize o `issueToken` método para emitir um token de acesso para a identidade dos Serviços de Comunicação já existentes. O parâmetro `scopes` define um conjunto de primitivos que autorizarão este token de acesso. Consulte a [lista de ações apoiadas.](../../concepts/authentication.md) Nova instância de parâmetro `communicationUser` pode ser construída com base na representação de cordas da identidade do Serviço de Comunicação Azure.
 
 ```javascript
-// Issue an access token with the "voip" scope for a new user
-let tokenResponse = await identityClient.issueToken(userResponse, ["voip"]);
+// Issue an access token with the "voip" scope for an identity
+let tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 const { token, expiresOn } = tokenResponse;
-console.log(`\nIssued a token with 'voip' scope that expires at ${expiresOn}:`);
+console.log(`\nIssued an access token with 'voip' scope that expires at ${expiresOn}:`);
 console.log(token);
 ```
 
-Os tokens de acesso ao utilizador são credenciais de curta duração que precisam de ser reemitidas de forma a evitar que os seus utilizadores experimentem perturbações de serviço. A `expiresOn` propriedade de resposta indica a vida útil do símbolo.
+Os tokens de acesso são credenciais de curta duração que precisam de ser reeditadas. Não fazê-lo pode causar perturbações na experiência dos utilizadores da sua aplicação. A `expiresOn` propriedade de resposta indica a vida útil do token de acesso.
 
-## <a name="revoke-user-access-tokens"></a>Revogar fichas de acesso ao utilizador
 
-Em alguns casos, poderá ser necessário revogar explicitamente as fichas de acesso ao utilizador, por exemplo, quando um utilizador altera a palavra-passe que utiliza para autenticar o seu serviço. Isto utiliza o `revokeTokens` método para invalidar todos os tokens de acesso de um utilizador.
+## <a name="refresh-access-tokens"></a>Atualizar tokens de acesso
 
-```javascript  
-await identityClient.revokeTokens(userResponse);
-console.log(`\nSuccessfully revoked all tokens for user with Id: ${userResponse.communicationUserId}`);
-```
-
-## <a name="refresh-user-access-tokens"></a>Atualizar fichas de acesso ao utilizador
-
-Para refrescar um token, use o `CommunicationUser` objeto para reeditir:
+Para refrescar um token de acesso, use o `CommunicationUser` objeto para reeditar:
 
 ```javascript  
-let userResponse = new CommunicationUser(existingUserId);
-let tokenResponse = await identityClient.issueToken(userResponse, ["voip"]);
+// Value existingIdentity represents identity of Azure Communication Services stored during identity creation
+identityResponse = new CommunicationUser(existingIdentity);
+tokenResponse = await identityClient.issueToken(identityResponse, ["voip"]);
 ```
 
-## <a name="delete-a-user"></a>Eliminar um utilizador
 
-A eliminação de um utilizador revoga todos os tokens ativos e impede-o de emitir fichas subsequentes para as identidades. Também remove todo o conteúdo persistido associado ao utilizador.
+## <a name="revoke-access-tokens"></a>Revogar fichas de acesso
+
+Em alguns casos, pode revogar explicitamente os tokens de acesso. Por exemplo, quando o utilizador de uma aplicação altera a palavra-passe que utiliza para autenticar o seu serviço. O método `revokeTokens` invalida todos os tokens de acesso ativo, que foram emitidos para a identidade.
+
+```javascript  
+await identityClient.revokeTokens(identityResponse);
+console.log(`\nSuccessfully revoked all access tokens for identity with Id: ${identityResponse.communicationUserId}`);
+```
+
+## <a name="delete-an-identity"></a>Eliminar uma identidade
+
+A eliminação de uma identidade revoga todos os tokens de acesso ativo e impede-o de emitir fichas de acesso para a identidade. Também remove todo o conteúdo persistido associado à identidade.
 
 ```javascript
-await identityClient.deleteUser(userResponse);
-console.log(`\nDeleted the user with Id: ${userResponse.communicationUserId}`);
+await identityClient.deleteUser(identityResponse);
+console.log(`\nDeleted the identity with Id: ${identityResponse.communicationUserId}`);
 ```
 
 ## <a name="run-the-code"></a>Executar o código
 
-A partir de um pedido de consola, navegue até ao diretório que contém o ficheiro *issue-token.js* e, em seguida, execute o seguinte `node` comando para executar a aplicação.
+A partir de um pedido de consola, navegue até ao diretório que contém o ficheiro *issue-access-token.js* e, em seguida, execute o seguinte `node` comando para executar a aplicação.
 
 ```console
-node ./issue-token.js
+node ./issue-access-token.js
 ```

@@ -2,14 +2,14 @@
 title: Use a grelha de eventos Azure com eventos no esquema cloudEvents
 description: Descreve como usar o esquema do CloudEvents para eventos em Azure Event Grid. O serviço suporta eventos na implementação json de Eventos cloud.
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/10/2020
 ms.custom: devx-track-js, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 51e3f5477cad39b48b441122cf17599f7d25ccf8
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: d794996a699bdd1bb63e7a894346128aa108e95c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92747290"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504378"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Use esquema cloudEvents v1.0 com grade de eventos
 Além do seu [esquema de eventos predefinidos,](event-schema.md)a Azure Event Grid suporta de forma nativa eventos na [implementação JSON de cloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) e [protocolo HTTP.](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md) [CloudEvents](https://cloudevents.io/) é uma [especificação aberta](https://github.com/cloudevents/spec/blob/v1.0/spec.md) para descrever dados de eventos.
@@ -153,15 +153,15 @@ O seguinte código C# da amostra para um gatilho HTTP simula o comportamento do 
 
 ```csharp
 [FunctionName("HttpTrigger")]
-public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "get", "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
+public static async Task<HttpResponseMessage> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post", "options", Route = null)]HttpRequestMessage req, ILogger log)
 {
     log.LogInformation("C# HTTP trigger function processed a request.");
-    if (req.Method == "OPTIONS")
+    if (req.Method == HttpMethod.Options)
     {
         // If the request is for subscription validation, send back the validation code
         
         var response = req.CreateResponse(HttpStatusCode.OK);
-        response.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
+        response.Headers.Add("Webhook-Allowed-Origin", "eventgrid.azure.net");
 
         return response;
     }

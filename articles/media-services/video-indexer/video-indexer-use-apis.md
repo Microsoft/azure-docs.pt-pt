@@ -8,21 +8,21 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 11/10/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfaef4460df040ecc9b055fba83d33a3b687b200
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89458302"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505381"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Utilizar a API do Video Indexer
 
 O Video Indexer consolida várias tecnologias de inteligência artificial áudio e vídeo (IA) oferecidas pela Microsoft num serviço integrado, tornando o desenvolvimento mais simples. As APIs são projetadas para permitir que os desenvolvedores se concentrem em consumir tecnologias de IA dos Media sem se preocuparem com escala, alcance global, disponibilidade e fiabilidade das plataformas em nuvem. Pode utilizar a API para fazer o upload dos seus ficheiros, obter informações detalhadas sobre vídeos, obter URLs de insights incorporados e widgets de jogadores, e muito mais.
 
-Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com uma avaliação gratuita, o Video Indexer disponibiliza até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com uma opção paga, cria uma conta de Indexer de Vídeo que está [ligada à sua subscrição Azure e a uma conta Azure Media Services](connect-to-azure.md). Irá pagar pelos minutos de indexação e pelas cobranças relacionadas com a conta dos Serviços de Multimédia do Azure.
+Quando criar uma conta do Video Indexer, pode optar por uma conta de avaliação gratuita (através da qual obtém um determinado número de minutos de indexação gratuitos) ou uma opção paga (não fica limitado pela quota). Com uma avaliação gratuita, o Video Indexer disponibiliza até 600 minutos de indexação gratuita a utilizadores de sites e até 2400 minutos de indexação gratuita a utilizadores de APIs. Com uma opção paga, cria uma conta de Indexer de Vídeo que está [ligada à sua subscrição Azure e a uma conta Azure Media Services](connect-to-azure.md). Você paga por minutos indexados, para mais informações, consulte [os preços dos Serviços de Mídia](https://azure.microsoft.com/pricing/details/media-services/).
 
 Este artigo mostra como os programadores podem tirar partido da [API do Video Indexer](https://api-portal.videoindexer.ai/).
 
@@ -60,7 +60,7 @@ Cada chamada efetuada para a API de Operações deve estar associada a um token 
 
 - Nível de utilizador: As fichas de acesso ao nível do utilizador permitem-lhe executar operações ao nível do **utilizador.** Permitem, por exemplo, obter contas associadas.
 - Nível de conta: As fichas de acesso ao nível da conta permitem-lhe realizar operações ao nível da **conta** ou ao nível de **vídeo.** Por exemplo, faça upload de vídeo, liste todos os vídeos, obtenha informações de vídeo, e assim por diante.
-- Nível de vídeo: Os tokens de acesso ao nível de vídeo permitem-lhe realizar operações num **vídeo**específico . Por exemplo, obtenha informações de vídeo, faça o download de legendas, obtenha widgets, e assim por diante.
+- Nível de vídeo: Os tokens de acesso ao nível de vídeo permitem-lhe realizar operações num **vídeo** específico . Por exemplo, obtenha informações de vídeo, faça o download de legendas, obtenha widgets, e assim por diante.
 
 Pode controlar se estes tokens são apenas de leitura ou se permitem a edição especificando **o allowEdit=true/false**.
 
@@ -103,9 +103,9 @@ O parâmetro de ID da Conta é necessário em todas as chamadas à API operacion
 
 Esta secção lista algumas recomendações que deve ter em conta durante a utilização da API do Video Indexer.
 
-- Se estiver a planear fazer o upload de um vídeo, é aconselhável colocar o ficheiro em algum local de rede pública (por exemplo, OneDrive). Obtenha a ligação do vídeo e forneça o URL enquanto parâmetro de carregamento de ficheiro.
+- Se estiver a planear fazer o upload de um vídeo, é aconselhável colocar o ficheiro em algum local de rede pública (por exemplo, uma conta de Armazenamento Azure Blob). Obtenha a ligação do vídeo e forneça o URL enquanto parâmetro de carregamento de ficheiro.
 
-    O URL fornecido ao Video Indexer tem de apontar para um ficheiro de multimédia (áudio ou vídeo). Algumas das ligações geradas pelo OneDrive encaminham para uma página HTML que contém o ficheiro. Uma verificação fácil para o URL é colar em um navegador - se o ficheiro começar a descarregar, é provável que seja um bom URL. Se o navegador estiver a render alguma visualização, é provável que não seja um link para um ficheiro, mas para uma página HTML.
+    O URL fornecido ao Video Indexer tem de apontar para um ficheiro de multimédia (áudio ou vídeo). Uma verificação fácil para o URL (ou URL SAS) é colar num browser, se o ficheiro começar a reproduzir/descarregar, é provável que seja um bom URL. Se o navegador estiver a render alguma visualização, é provável que não seja um link para um ficheiro, mas para uma página HTML.
 
 - Quando chama a API que obtém informações de vídeo para o vídeo especificado, obtém uma saída JSON detalhada como conteúdo de resposta. [Veja informações detalhadas sobre o JSON devolvido neste tópico](video-indexer-output-json-v2.md).
 
@@ -207,7 +207,7 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Descrição geral do Video Indexer](video-indexer-overview.md)
 - [Regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
@@ -215,5 +215,5 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Examinar detalhes da saída JSON](video-indexer-output-json-v2.md)
-- Confira o código de [amostra](https://github.com/Azure-Samples/media-services-video-indexer) que demonstra aspeto importante do upload e indexação de um vídeo. Seguindo o código, você lhe dará uma boa ideia de como usar a nossa API para funcionalidades básicas. Certifique-se de ler os comentários inline e note os nossos conselhos de boas práticas.
+- Confira o código de [amostra](https://github.com/Azure-Samples/media-services-video-indexer) que demonstra aspeto importante do upload e indexação de um vídeo. Seguir o código irá dar-lhe uma boa ideia de como usar a nossa API para funcionalidades básicas. Certifique-se de ler os comentários inline e note os nossos conselhos de boas práticas.
 

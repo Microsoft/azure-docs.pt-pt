@@ -2,15 +2,15 @@
 title: Criar e implementar especificações de modelo
 description: Aprenda a criar uma especificação de modelo a partir do modelo ARM. Em seguida, implemente a especificação do modelo para um grupo de recursos na sua subscrição.
 author: tfitzmac
-ms.date: 10/02/2020
+ms.date: 11/10/2020
 ms.topic: quickstart
 ms.author: tomfitz
-ms.openlocfilehash: e1bd2f3da8204cf5947d0cf423cd57b023674608
-ms.sourcegitcommit: 638f326d02d108cf7e62e996adef32f2b2896fd5
+ms.openlocfilehash: 96ef5796aac1d0ee02e6bbafc40b7d3bcdea4e2f
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91728782"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506367"
 ---
 # <a name="quickstart-create-and-deploy-template-spec-preview"></a>Quickstart: Criar e implementar especificações de modelo (Pré-visualização)
 
@@ -88,7 +88,7 @@ Estas opções são mostradas abaixo.
 1. Quando utiliza um modelo ARM para criar a especificação do modelo, o modelo está incorporado na definição de recursos. Copie o modelo a seguir e guarde-o localmente à medida **queazuredeploy.js.** Este quickstart assume que guardou para um caminho **c:\Templates\azuredeploy.js,** mas pode usar qualquer caminho.
 
     > [!NOTE]
-    > No modelo incorporado, todos os suportes esquerdos devem ser escapados com um segundo suporte esquerdo. Use `[[` em vez de `[` .
+    > No modelo incorporado, todas as [expressões do modelo](template-expressions.md) devem ser escapadas com um segundo suporte esquerdo. Use `"[[` em vez de `"[` . As matrizes JSON ainda usam um único suporte esquerdo.
 
     ```json
     {
@@ -340,7 +340,7 @@ Agora pode implementar a especificação do modelo. Implementar a especificaçã
 
 Se quiser permitir que outros utilizadores da sua organização implementem o seu espectro de modelos, tem de lhes conceder acesso de leitura. Pode atribuir a função Reader a um grupo AD Azure para o grupo de recursos que contém especificações de modelo que pretende partilhar. Para obter mais informações, consulte [Tutorial: Conceder a um grupo acesso aos recursos da Azure utilizando a Azure PowerShell](../../role-based-access-control/tutorial-role-assignments-group-powershell.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para limpar o recurso que implementou neste arranque rápido, elimine ambos os grupos de recursos que criou.
 

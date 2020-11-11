@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0d02532f39d676772e5ee5d6414b802faffba7c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899716"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505942"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro através de modelos
 
@@ -189,7 +189,7 @@ Copie quaisquer imagens de disco a serem usadas em bolhas de página na conta de
 
     ![Ligar ao Azure Storage 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. Na **Ligação com**o Nome e a Chave , forneça o **nome do Visor**, **nome da conta de armazenamento**, **Tecla conta**de armazenamento Azure . Selecione **Outro domínio** de Armazenamento e, em seguida, forneça a `<device name>.<DNS domain>` cadeia de ligação. Se não instalou um certificado no Storage Explorer, verifique a opção **Utilização HTTP.** Selecione **Seguinte**.
+6. Na **Ligação com** o Nome e a Chave , forneça o **nome do Visor** , **nome da conta de armazenamento** , **Tecla conta** de armazenamento Azure . Selecione **Outro domínio** de Armazenamento e, em seguida, forneça a `<device name>.<DNS domain>` cadeia de ligação. Se não instalou um certificado no Storage Explorer, verifique a opção **Utilização HTTP.** Selecione **Seguinte**.
 
     ![Conecte-se com nome e chave](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
@@ -402,7 +402,7 @@ Implemente o modelo `CreateImageAndVnet.json` . Este modelo implementa os recurs
 
 ### <a name="edit-parameters-file-to-create-vm"></a>Editar ficheiro de parâmetros para criar VM
  
-Para criar um VM, utilize o `CreateVM.parameters.json` ficheiro de parâmetros. São precisos os seguintes parâmetros.
+Para criar uma VM, utilize o ficheiro de parâmetros `CreateVM.parameters.json`. São precisos os seguintes parâmetros.
     
 ```json
 "vmName": {
@@ -441,7 +441,7 @@ Atribua parâmetros apropriados `CreateVM.parameters.json` para o seu dispositiv
 
 1. Forneça um nome único, nome de interface de rede e nome ipconfig. 
 1. Introduza um nome de utilizador, palavra-passe e um tamanho VM suportado.
-1. Dê o mesmo nome para **VnetName,** **subnetName**e **ImageName** como indicado nos parâmetros para `CreateImageAndVnet.parameters.json` . Por exemplo, se tiver dado vnetName, subnetName e ImageName como **vnet1**, **subnet1**e **imagem1**, mantenha esses valores iguais para os parâmetros deste modelo também.
+1. Dê o mesmo nome para **VnetName,** **subnetName** e **ImageName** como indicado nos parâmetros para `CreateImageAndVnet.parameters.json` . Por exemplo, se tiver dado vnetName, subnetName e ImageName como **vnet1** , **subnet1** e **imagem1** , mantenha esses valores iguais para os parâmetros deste modelo também.
 1. Agora vai precisar de um endereço IP estático para atribuir ao VM que está na rede de sub-redes definida acima. Substitua **o PrivateIPAddress** por este endereço no ficheiro de parâmetros. Para que o VM obtenha um endereço IP do servidor DCHP local, deixe o `privateIPAddress` valor em branco.  
     
     ```json
@@ -550,7 +550,8 @@ Implementar o modelo de criação VM `CreateVM.json` . Este modelo cria uma inte
         
         PS C:\07-30-2020>
     ```   
-Também pode executar o `New-AzureRmResourceGroupDeployment` comando assíncronosamente com `–AsJob` parâmetro. Aqui está uma saída de amostra quando o cmdlet corre em segundo plano. Em seguida, pode consultar o estado de trabalho que é criado usando o `Get-Job` cmdlet.
+
+    Também pode executar o `New-AzureRmResourceGroupDeployment` comando assíncronosamente com `–AsJob` parâmetro. Aqui está uma saída de amostra quando o cmdlet corre em segundo plano. Em seguida, pode consultar o estado de trabalho que é criado usando o `Get-Job` cmdlet.
 
     ```powershell   
     PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
@@ -568,7 +569,6 @@ Também pode executar o `New-AzureRmResourceGroupDeployment` comando assíncrono
      
     Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
     --     ----            -------------   -----         -----------     --------             -------
-    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
     ```
 
 7. Verifique se o VM está a ser a provisionado com sucesso. Execute o seguinte comando:
@@ -615,7 +615,7 @@ On the client used to access your Azure Stack Edge Pro device, set up a global v
 
 ### On Windows client 
 
-`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
+`$Env:AZCOPY_DEFAULT_SERVICE_API_VERSION = "2017-11-09"`
 
 ### On Linux client
 

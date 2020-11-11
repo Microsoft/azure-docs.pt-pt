@@ -7,18 +7,21 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 29f50b2cf9523b9266de2f73607b0099f32852e1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005417"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506418"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configure uma regra limite de taxa de firewall de aplicação web usando Azure PowerShell
 A regra limite de taxa Azure Web Application Firewall (WAF) para Azure Front Door controla o número de pedidos permitidos aos clientes durante um minuto de duração.
 Este artigo mostra como configurar uma regra de limite de taxa WAF que controla o número de pedidos permitidos dos clientes para uma aplicação web que contém */promo* no URL usando Azure PowerShell.
 
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+> [!NOTE]
+> São aplicados limites de tarifas para cada endereço IP do cliente. Se tiver vários clientes a aceder à sua Porta frontal a partir de diferentes endereços IP, eles terão os seus próprios limites de tarifa aplicados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar a configurar uma política de limite de taxa, crie o seu ambiente PowerShell e crie um perfil da Porta Frontal.
@@ -46,7 +49,7 @@ Install-Module -Name Az.FrontDoor
 ### <a name="create-a-front-door-profile"></a>Criar um perfil da porta da frente
 Crie um perfil da porta frontal seguindo as instruções descritas no [Quickstart: Criar um perfil da porta frontal](../../frontdoor/quickstart-create-front-door.md)
 
-## <a name="define-url-match-conditions"></a>Definir condições de jogo url
+## <a name="define-url-match-conditions"></a>Definir condições de correspondência de URL
 Defina uma condição de correspondência de URL (URL contém /promo) utilizando [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject).
 O exemplo a seguir corresponde */promo* como o valor da variável *RequestUri:*
 
@@ -73,9 +76,7 @@ Estabeleça um limite de tarifa usando [New-AzFrontDoorWafCustomRuleObject](/pow
 
 Encontre o nome do grupo de recursos que contém o perfil da porta frontal utilizando `Get-AzureRmResourceGroup` . Em seguida, configurar uma política de segurança com uma regra de limite de taxa personalizada usando [New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) no grupo de recursos especificado que contém o perfil da porta da frente.
 
-O exemplo abaixo utiliza o nome do Grupo de Recursos *myResourceGroupFD1* com o pressuposto de que criou o perfil da Porta Frontal usando instruções fornecidas no [Quickstart: Criar um](../../frontdoor/quickstart-create-front-door.md) artigo da Porta Frontal.
-
- usando [a Nova-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
+O exemplo abaixo utiliza o nome do Grupo de Recursos *myResourceGroupFD1* com o pressuposto de que criou o perfil da Porta Frontal usando instruções fornecidas no [Quickstart: Criar um](../../frontdoor/quickstart-create-front-door.md) artigo front door, utilizando [a New-AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy).
 
 ```powershell-interactive
    $ratePolicy = New-AzFrontDoorWafPolicy `

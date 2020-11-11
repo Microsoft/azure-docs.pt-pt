@@ -5,14 +5,14 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: 363af72df89be9104e4d946bf8da0d44908382d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ef5476ade205109f5dfede1b3bb2c3a4ae2e81a7
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776226"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506010"
 ---
-# <a name="question-and-answer-pair-concepts"></a>Conceitos de pares de perguntas e respostas
+# <a name="question-and-answer-pair"></a>Par de perguntas e respostas
 
 Uma base de conhecimento consiste em pares de perguntas e respostas (QnA).  Cada par tem uma resposta e um par contém todas as informações associadas a essa _resposta._ Uma resposta pode assemelhar-se vagamente a uma linha de base de dados ou a uma instância de estrutura de dados.
 
@@ -28,8 +28,8 @@ Cada par é representado por um **ID**.
 As definições **opcionais** para um par incluem:
 
 * **Formas alternativas da pergunta** - isto ajuda a QnA Maker a devolver a resposta correta para uma maior variedade de frases de perguntas
-* **Metadados**: Os metadados são tags associadas a um par QnA e são representados como pares de valor-chave. As tags de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência de consulta é realizada.
-* **Pedidos multi-turn, usados**para continuar uma conversa multi-volta
+* **Metadados** : Os metadados são tags associadas a um par QnA e são representados como pares de valor-chave. As tags de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência de consulta é realizada.
+* **Pedidos multi-turn, usados** para continuar uma conversa multi-volta
 
 ![Bases de conhecimento do QnA Maker](media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

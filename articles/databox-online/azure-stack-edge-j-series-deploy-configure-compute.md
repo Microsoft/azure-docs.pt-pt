@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6bea4ee4452675a50ef9144da300c3e15652a81f
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 75428b28095b0e425a1670caffcf960aa6ae58f6
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952170"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504480"
 ---
 # <a name="tutorial-transform-data-with-azure-stack-edge-pro"></a>Tutorial: Transformar dados com Azure Stack Edge Pro
 
@@ -25,7 +25,7 @@ Este tutorial descreve como configurar um papel computacional no seu dispositivo
 Este procedimento pode demorar cerca de 10 a 15 minutos para ser concluído.
 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configure computação
@@ -90,7 +90,7 @@ Para a simples implementação neste tutorial, você precisará de duas ações:
 
     3. Na lâmina **de partilha Add,** forneça o nome da partilha e selecione o tipo de partilha.
     4. Para montar a partilha Edge, selecione a caixa de verificação para **utilizar a partilha com o cálculo Edge**.
-    5. Selecione a **conta de Armazenamento**, Serviço de **Armazenamento**, um utilizador existente e, em seguida, selecione **Criar**.
+    5. Selecione a **conta de Armazenamento** , Serviço de **Armazenamento** , um utilizador existente e, em seguida, selecione **Criar**.
 
         ![Adicione uma parte edge](./media/azure-stack-edge-j-series-deploy-configure-compute/add-edge-share-1.png) 
 
@@ -152,19 +152,19 @@ Para verificar se o módulo está em funcionamento, faça o seguinte:
 
     ![Ver módulo implantado](./media/azure-stack-edge-j-series-deploy-configure-compute/add-module-3.png)
  
-1.   No File Explorer, ligue-se às ações edge local e Edge que criou anteriormente.
+1. No File Explorer, ligue-se às ações edge local e Edge que criou anteriormente.
 
     ![Verificar a transformação dos dados](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-2.png) 
  
-1.   Adicione os dados à partilha local.
+1. Adicione os dados à partilha local.
 
     ![Verificar a transformação dos dados](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-3.png) 
  
-    Os dados são movidos para a partilha na cloud.
+   Os dados são movidos para a partilha na cloud.
 
     ![Verificar a transformação dos dados](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-4.png)  
 
-    Os dados são então empurrados da parte da nuvem para a conta de armazenamento. Para visualizar os dados, pode utilizar o Storage Explorer.
+   Os dados são então empurrados da parte da nuvem para a conta de armazenamento. Para visualizar os dados, pode utilizar o Storage Explorer.
 
     <!--![Verify data transform](./media/azure-stack-edge-j-series-deploy-configure-compute/verify-data-5.png)-->
  

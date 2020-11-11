@@ -100,7 +100,7 @@
   items:
     - name: Resolução de problemas
       items:
-        - name: Obter ajuda para resolver falhas de implementação ou aprovisionamento
+        - name: Criar um pedido de suporte para falhas de implementação
           href: fix-deployment-provisioning-failures.md
     - name: FAQ
       href: faq.md

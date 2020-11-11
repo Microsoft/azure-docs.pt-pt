@@ -24,6 +24,8 @@
       href: howto-add-update-pull-secret.md
     - name: Configurar o reencaminhamento de DNS para um cluster do Azure Red Hat OpenShift 4
       href: dns-forwarding.md
+    - name: Configurar o registo de contentor incorporado para o Azure Red Hat OpenShift 4
+      href: built-in-container-registry.md
     - name: Configurar a autenticação do Azure Active Directory para um cluster do Azure Red Hat OpenShift 4
       items:
         - name: Configurar a autenticação do Azure Active Directory (CLI)
@@ -44,6 +46,10 @@
               href: ../azure-monitor/insights/container-insights-azure-redhat4-setup.md
             - name: Desativar o Azure Monitor para Contentores no Azure Red Hat OpenShift 3.11 (pré-visualização)
               href: ../azure-monitor/insights/container-insights-optout-openshift-v4.md
+    - name: Open Liberty/WebSphere Liberty num cluster do Azure Red Hat OpenShift 4
+      items:
+        - name: Implementar uma aplicação Open Liberty/WebSphere Liberty num cluster do Azure Red Hat OpenShift 4
+          href: howto-deploy-java-liberty-app.md
     - name: Azure Red Hat OpenShift 3.11
       items:
         - name: Configurar o seu ambiente de desenvolvimento do Azure Red Hat OpenShift para o Azure Red Hat OpenShift 3.11

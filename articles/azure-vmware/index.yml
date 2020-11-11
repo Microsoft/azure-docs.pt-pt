@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 10/19/2020
-  ms.openlocfilehash: 31b3ad9c33ffd07b62067de3aa46333608522f97
-  ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+  ms.openlocfilehash: b72ec69edaae7681cd3310c66bcd209b3eae1a4e
+  ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/19/2020
-  ms.locfileid: "92172142"
+  ms.lasthandoff: 11/10/2020
+  ms.locfileid: "94412583"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -94,6 +94,8 @@ landingContent:
       url: concepts-api-management.md
     - text: Hub-and-spoke
       url: concepts-hub-and-spoke.md
+    - text: Centro de Segurança do Azure
+      url: azure-security-integration.md
     - text: Servidor do Backup do Azure
       url: set-up-backup-server-for-azure-vmware-solution.md
     - text: Gestão do ciclo de vida nas VMs
@@ -122,7 +124,11 @@ landingContent:
     links:
     - text: Azure PowerShell
       url: https://docs.microsoft.com/powershell/module/az.vmware
-    - text: Obter ajuda para resolver falhas de implementação ou aprovisionamento
-      url: fix-deployment-provisioning-failures.md
     - text: FAQ
       url: faq.md
+- title: Resolução de problemas
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Criar um pedido de suporte para falhas de implementação
+      url: fix-deployment-provisioning-failures.md

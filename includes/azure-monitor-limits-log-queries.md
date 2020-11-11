@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: azure-monitor
 author: rboucher
 tags: azure-service-management
@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: 83754842eeb4b5d609596045c11451e898960b9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83e046ca97ceee249e707e30f478fad89345f4de
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90064849"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94503876"
 ---
 ### <a name="general-query-limits"></a>Limites gerais de consulta
 
 | Limite | Descrição |
 |:---|:---|
 | Linguagem da consulta | O Azure Monitor utiliza a mesma [linguagem de consulta kusto que](/azure/kusto/query/) o Azure Data Explorer. Consulte [as diferenças linguísticas de consulta de registo do Azure Monitor](../articles/azure-monitor/log-query/data-explorer-difference.md) para elementos linguísticos KQL não suportados no Azure Monitor. |
-| Regiões do Azure | As consultas de registo podem experimentar sobrecargas excessivas quando os dados abrangem espaços de trabalho log analytics em várias regiões do Azure. Consulte [os limites de consulta](../articles/azure-monitor/log-query/scope.md#query-limits) para mais detalhes. |
+| Regiões do Azure | As consultas de registo podem experimentar sobrecargas excessivas quando os dados abrangem espaços de trabalho log analytics em várias regiões do Azure. Consulte [os limites de consulta](../articles/azure-monitor/log-query/scope.md#query-scope-limits) para mais detalhes. |
 | Consultas entre recursos | Número máximo de recursos de Insights de Aplicação e espaços de trabalho log analytics numa única consulta limitada a 100.<br>A consulta de recursos cruzados não é suportada no View Designer.<br>A consulta de recursos cruzados nos alertas de registo é suportada na nova API agendada deQueryRules.<br>Consulte [os limites de consulta de recursos cruzados](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits) para obter mais detalhes. |
 
 ### <a name="user-query-throttling"></a>Estrangulamento da consulta do utilizador

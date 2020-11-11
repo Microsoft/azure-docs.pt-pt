@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: bb2ac221169cea84205d087cbe0aadfd035d22db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49a4ab0315dad539a594a20e53eae9fd2890e551
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91760517"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504973"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Problemas de resolução de problemas que permitem insights de aplicação Debugger ou visualização de instantâneos
 Se ativou o Application Insights Snapshot Debugger para a sua aplicação, mas não estiver a ver instantâneos para exceções, pode utilizar estas instruções para resolver problemas. Podem existir vários motivos diferentes pelos quais os instantâneos não são gerados. Pode fazer o exame de saúde instantâneo para identificar algumas das possíveis causas comuns.
@@ -57,19 +57,21 @@ Para verificar a definição, abra o ficheiro web.config e encontre a secção s
 > Se o targetFramework for 4.7 ou superior, o Windows determina os protocolos disponíveis. No Azure App Service, o TLS 1.2 está disponível. No entanto, se estiver a utilizar a sua própria máquina virtual, poderá ter de ativar o TLS 1.2 no SISTEMA.
 
 ## <a name="preview-versions-of-net-core"></a>Versões de pré-visualização de .NET Core
-Se a aplicação utilizar uma versão de pré-visualização de .NET Core, e o Snapshot Debugger foi ativado através do painel de Insights de [Aplicação](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, então o Snapshot Debugger pode não começar. Siga as instruções no [Enable Snapshot Debugger para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet com a aplicação, ***além*** de permitir através do painel de Insights de [Aplicação](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+Se a aplicação utilizar uma versão de pré-visualização de .NET Core, e o Snapshot Debugger foi ativado através do painel de Insights de [Aplicação](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, então o Snapshot Debugger pode não começar. Siga as instruções do [Enable Snapshot Debugger para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet com a aplicação * **além** de _ para permitir através do painel de Insights de [Aplicação](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>Upgrade para a versão mais recente do pacote NuGet
 
 Se o Snapshot Debugger foi ativado através do [painel Debugger Application Insights no portal,](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)então a sua aplicação já deve estar a executar o mais recente pacote NuGet. Se o Snapshot Debugger foi ativado através da inclusão do pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet, utilize o NuGet Package Manager do Visual Studio para se certificar de que está a utilizar a versão mais recente do Microsoft.ApplicationInsights.SnapshotCollector.
 
+Para obter as últimas atualizações e correções de erro [consulte as notas de lançamento](./snapshot-collector-release-notes.md).
+
 ## <a name="check-the-uploader-logs"></a>Verifique os registos do uploader
 
 Após a criação de um instantâneo, um ficheiro de minidump (.dmp) é criado no disco. Um processo de uploader separado cria esse ficheiro minidump e envia-o, juntamente com quaisquer PDBs associados, para o armazenamento de Debugger Snapshot Debugger do Application Insights. Depois de a minidump ter sido carregada com sucesso, é eliminada do disco. Os ficheiros de registo do processo do uploader são mantidos no disco. Num ambiente de Serviço de Aplicações, pode encontrar estes `D:\Home\LogFiles` registos. Utilize o site de gestão Kudu para o Serviço de Aplicações para encontrar estes ficheiros de registo.
 
 1. Abra a sua aplicação de Serviço de Aplicações no portal Azure.
-2. Clique em **Ferramentas Avançadas**ou procure **por Kudu.**
+2. Clique em _*Advanced Tools**, ou procure **por Kudu**.
 3. Clique **em Go**.
 4. Na caixa de lista de drop-down da **consola Debug,** selecione **CMD**.
 5. Clique **em RegistarFiles**.

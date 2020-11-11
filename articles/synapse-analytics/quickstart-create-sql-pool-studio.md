@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6ffa7bb07ddb42946acdcef6ee3b7f2aa804f774
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324321"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506350"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Quickstart: Criar uma piscina SQL dedicada usando o Synapse Studio
 
@@ -75,6 +75,8 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
     > Note que existem limitações específicas para os nomes que piscinas SQL dedicadas podem usar. Os nomes não podem conter caracteres especiais, devem ter 15 ou menos caracteres, não conter palavras reservadas e ser únicos no espaço de trabalho.
 
 4. No separador seguinte, **definições adicionais,** selecione **nenhuma** para a provisionar o pool SQL sem dados. Deixe a colagem predefinida como selecionado.
+
+    Se pretender restaurar a sua piscina SQL dedicada a partir de um ponto de restauro, selecione **Ponto de Restauro**. Para obter mais informações sobre como realizar um restauro, consulte [Como-a- Restaurar uma piscina SQL dedicada existente](backuprestore/restore-sql-pool.md)
 
     ![Piscina SQL cria fluxo - separador de configurações adicionais.](media/quickstart-create-sql-pool/create-sql-pool-studio-25.png)
 

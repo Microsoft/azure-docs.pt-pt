@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 393fceaa91600ab143912bb3af38c349f29f770a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427943"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505670"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Começar com a auditoria da Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -59,7 +59,7 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
   
 3. Depois de criar o contentor para os registos de auditoria, existem duas formas de o configurar como o alvo dos registos de auditoria: utilizar o [T-SQL](#blobtsql) ou [utilizar o SQL Server Management Studio (SSMS) UI](#blobssms):
 
-   - <a id="blobtsql"></a>Configure o armazenamento de bolhas para registos de auditoria utilizando o T-SQL:
+   - <a id="blobtsql"></a>**Configure o armazenamento de bolhas para registos de auditoria utilizando o T-SQL:**
 
      1. Na lista de recipientes, clique no recipiente recém-criado e, em seguida, clique nas **propriedades do Contentor**.
 
@@ -120,7 +120,7 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
 
      1. Continue [criando uma especificação de auditoria de servidor ou especificação de auditoria de base de dados](#createspec).
 
-   - <a id="blobssms"></a>Configure o armazenamento de bolhas para registos de auditoria utilizando o SQL Server Management Studio 18 (Preview):
+   - <a id="blobssms"></a>**Configure o armazenamento de bolhas para registos de auditoria utilizando o SQL Server Management Studio 18:**
 
      1. Ligue-se à instância gerida utilizando o SQL Server Management Studio UI.
 
@@ -143,8 +143,8 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
         ![Selecione subscrição Azure, conta de armazenamento e recipiente blob](./media/auditing-configure/13_mi_SSMS_select_subscription_account_container.png)
 
      1. Clique em **OK** no diálogo **de Auditoria criar.**
-
-4. <a id="createspec"></a>Depois de configurar o recipiente blob como alvo para os registos de auditoria, crie e ative uma especificação de auditoria do servidor ou especificação de auditoria de base de dados como faria para o SQL Server:
+     
+     1. <a id="createspec"></a>Depois de configurar o recipiente blob como alvo para os registos de auditoria, crie e ative uma especificação de auditoria do servidor ou especificação de auditoria de base de dados como faria para o SQL Server:
 
    - [Criar guia T-SQL de especificação de auditoria do servidor](/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [Criar guia T-SQL de especificação de auditoria de base de dados](/sql/t-sql/statements/create-database-audit-specification-transact-sql)

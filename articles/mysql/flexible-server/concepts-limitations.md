@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: 6fff7f22e7d265eb9b15bcec8604eeab692ac1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a064b2b2d0bad5fc8ded9a59b66d84a361facec9
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91650294"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504344"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitações na Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -23,9 +23,9 @@ Este artigo descreve limitações na Base de Dados Azure para o serviço MySQL F
 ## <a name="server-parameters"></a>Parâmetros do servidor
 
 > [!NOTE]
-> Se estiver à procura de valores min/max para parâmetros de servidor como `max_connections` `innodb_buffer_pool_size` e, esta informação passou para os conceitos de parâmetros do servidor <!-- **[server parameters](./concepts-server-parameters.md)** --> .
+> Se estiver à procura de valores min/max para parâmetros de servidor como `max_connections` `innodb_buffer_pool_size` e, esta informação passou para o artigo [de parâmetros](./concepts-server-parameters.md) de design de design de servidores do servidor.
 
-A Azure Database for MySQL suporta afinar os valores dos parâmetros do servidor. O valor min e máximo de alguns parâmetros (ex. `max_connections`, `join_buffer_size` `query_cache_size` , é determinado pelo nível de cálculo e tamanho do cálculo do servidor. Consulte os conceitos de parâmetros do servidor <!-- [server parameters](./concepts-server-parameters.md)--> para mais informações sobre estes limites.
+A Azure Database for MySQL suporta afinar os valores dos parâmetros do servidor. O valor min e máximo de alguns parâmetros (ex. `max_connections`, `join_buffer_size` `query_cache_size` , é determinado pelo nível de cálculo e tamanho do cálculo do servidor. Consulte os [parâmetros do servidor](./concepts-server-parameters.md) para obter mais informações sobre estes limites.
 
 Os plugins de palavras-passe como "validate_password" e "caching_sha2_password" não são suportados pelo serviço.
 
@@ -68,7 +68,7 @@ Os seguintes não são suportados:
 - Não suportado no nível de cálculo burstable.
 
 ### <a name="networking"></a>Redes
-- O método de conectividade não pode ser alterado após a criação do servidor. Se o servidor for criado com *acesso privado (VNet Integration)*, não pode ser alterado para *acesso público (endereços IP permitidos)* após a criação, e vice-versa
+- O método de conectividade não pode ser alterado após a criação do servidor. Se o servidor for criado com *acesso privado (VNet Integration)* , não pode ser alterado para *acesso público (endereços IP permitidos)* após a criação, e vice-versa
 - O TLS/SSL é ativado por defeito e não pode ser desativado.
 - A versão mínima TLS suportada no servidor é TLS1.2. Consulte para [ligar utilizando TLS/SSL](./how-to-connect-tls-ssl.md) para saber mais.
 

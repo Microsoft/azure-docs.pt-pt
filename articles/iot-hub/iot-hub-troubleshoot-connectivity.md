@@ -13,12 +13,14 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: f7073fbf39344fe39e179d55a5a8f395a6ba6240
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+- fasttrack-edit
+- iot
+ms.openlocfilehash: b179bb3566cc19b8033a56348db34cd1f05cee10
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357427"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506401"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitor, diagnóstico e resolução de problemas desliga-se com O Hub IoT do Azure
 
@@ -159,6 +161,11 @@ AzureDiagnostics
 Como desenvolvedor ou operador de soluções IoT, é necessário estar atento a este comportamento para interpretar eventos de ligação/desconexão e erros relacionados nos registos. Se pretender alterar o tempo de vida útil do símbolo ou o comportamento de renovação dos dispositivos, verifique se o dispositivo implementa uma configuração gémea do dispositivo ou um método do dispositivo que o torna possível.
 
 Se estiver a monitorizar as ligações do dispositivo com o Event Hub, certifique-se de que constrói de forma a filtrar as desconexões periódicas devido à renovação do sinal SAS; por exemplo, ao não desencadear ações baseadas em desconexões, desde que o evento de desconexão seja seguido por um evento de ligação dentro de um determinado período de tempo.
+
+> [!NOTE]
+> O IoT Hub suporta apenas uma ligação MQTT ativa por dispositivo. Qualquer nova ligação MQTT em nome do mesmo ID do dispositivo faz com que o IoT Hub deixe cair a ligação existente.
+>
+> 400027 ConnectionForcefullyClosedOnNewConnection será registado em Registos IoT Hub
 
 ## <a name="i-tried-the-steps-but-they-didnt-work"></a>Tentei os passos, mas não funcionaram.
 

@@ -3,27 +3,27 @@ title: Quickstart - Criar e gerir fichas de acesso
 titleSuffix: An Azure Communication Services quickstart
 description: Saiba como gerir identidades e fichas de acesso utilizando a biblioteca de clientes da Administração de Serviços de Comunicação Azure.
 author: tomaschladek
-manager: jken
+manager: nmurav
 services: azure-communication-services
 ms.author: tchladek
 ms.date: 08/20/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: e323f1f50fe6c67a841c300fcbec1eed3afc4497
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: b67d0808643797d88628b626403c1b9d97cf1cad
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074129"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94506247"
 ---
 # <a name="quickstart-create-and-manage-access-tokens"></a>Quickstart: Criar e gerir fichas de acesso
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Inicie-se com os Serviços de Comunicação da Azure utilizando a biblioteca de clientes da Administração de Serviços de Comunicação para provisão e gestão dos seus tokens de acesso. Os tokens de acesso permitem que as suas bibliotecas de clientes Chat e Call autentem diretamente contra os Serviços de Comunicação Azure. Estes tokens são gerados num serviço de fornecimento de fichas do lado do servidor que implementa. São então usados para rubricar as bibliotecas de clientes dos Serviços de Comunicação em dispositivos clientes.
+Inicie com os Serviços de Comunicação Azure utilizando a biblioteca de clientes da Administração de Serviços de Comunicação. Permite-lhe criar identidades e gerir os seus tokens de acesso. A identidade representa a entidade da sua aplicação no Serviço de Comunicação Azure (por exemplo, utilizador ou dispositivo). Os tokens de acesso permitem que as suas bibliotecas de clientes Chat e Call autentem diretamente contra os Serviços de Comunicação Azure. Recomendamos gerar fichas de acesso num serviço do lado do servidor. Os tokens de acesso são então utilizados para inicializar as bibliotecas de clientes dos Serviços de Comunicação em dispositivos clientes.
 
-Note que quaisquer preços vistos em imagens ao longo deste tutorial são apenas para fins.
+Os preços vistos em imagens ao longo deste tutorial são apenas para fins de demonstração.
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [.NET](./includes/user-access-token-net.md)]
@@ -46,19 +46,18 @@ A saída da aplicação descreve cada ação que é concluída:
 ```console
 Azure Communication Services - Access Tokens Quickstart
 
-Issued a access token with 'voip' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
+Created an identity: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
+
+Issued a access token with 'voip' scope for identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502:
 <token signature here>
 
-Issued a access token with 'chat' scope for identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050:
-<token signature here>
+Successfully deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 
-Successfully deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
-
-Deleted the identity with ID: 8:acs:fecfaddf-bf2c-4a0e-b52f-7d918c9536e6_65012b-1400da9050
+Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 ```
 <!---cSpell:enable --->
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](./create-communication-resource.md#clean-up-resources)
 
@@ -81,3 +80,4 @@ Também pode querer:
  - [Saiba mais sobre a autenticação](../concepts/authentication.md)
  - [Adicionar o chat à aplicação](./chat/get-started.md)
  - [Conheça a arquitetura do cliente e do servidor](../concepts/client-and-server-architecture.md)
+ 

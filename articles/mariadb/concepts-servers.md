@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 444d7f1574cf1517b01250bcb9d810731030182d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f519ac30468d197c14fcf53d386168ebde5cf8ac
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79527797"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94504361"
 ---
 # <a name="server-concepts-in-azure-database-for-mariadb"></a>Conceitos de servidor na Base de Dados Azure para MariaDB
 Este artigo fornece considerações e diretrizes para trabalhar com a Base de Dados Azure para servidores MariaDB.
@@ -44,6 +44,19 @@ Os seguintes elementos ajudam a garantir um acesso seguro à sua base de dados.
 | **TCP/IP** | O protocolo é suportado sobre TCP/IP e sobre tomadas de domínio Unix. |
 | **Firewall** | Para ajudar a proteger os seus dados, uma regra de firewall impede todo o acesso ao servidor de base de dados, até especificar quais os computadores que têm permissão. Consulte [a base de dados Azure para as regras de firewall do Servidor MariaDB](./concepts-firewall-rules.md). |
 | **SSL** | O serviço suporta a aplicação de ligações SSL entre as suas aplicações e o servidor de base de dados. Consulte [a conectividade Configurar SSL na sua aplicação para ligar de forma segura à Base de Dados Azure para MariaDB](./howto-configure-ssl.md). |
+
+## <a name="stopstart-an-azure-database-for-mariadb-preview"></a>Parar/Iniciar uma Base de Dados de Azure para MariaDB (Pré-visualização)
+A Azure Database for MariaDB dá-lhe a capacidade de **parar** o servidor quando não está a ser utilizado e **iniciar** o servidor quando retomar a atividade. Isto é essencialmente feito para economizar custos nos servidores da base de dados e apenas pagar pelo recurso quando está a ser utilizado. Isto torna-se ainda mais importante para cargas de trabalho de teste de dev e quando está a utilizar apenas o servidor durante uma parte do dia. Quando parar o servidor, todas as ligações ativas serão deixadas cair. Mais tarde, quando quiser voltar a colocar o servidor on-line, pode utilizar o [portal Azure](../mysql/how-to-stop-start-server.md) ou [o CLI](../mysql/how-to-stop-start-server.md).
+
+Quando o servidor está no estado **Stop,** o cálculo do servidor não é faturado. No entanto, o armazenamento continua a ser faturado à medida que o armazenamento do servidor permanece para garantir que os ficheiros de dados estão disponíveis quando o servidor é reiniciado.
+
+> [!IMPORTANT]
+> Quando **parares** o servidor, permanece nesse estado durante os próximos 7 dias de alongamento. Se não o **iniciar** manualmente durante este tempo, o servidor será automaticamente iniciado ao fim de 7 dias. Pode optar por **detê-lo** novamente se não estiver a utilizar o servidor.
+
+Durante o período de paragem do servidor, não podem ser efetuadas operações de gestão no servidor. Para alterar quaisquer definições de configuração no servidor, terá de [iniciar o servidor](../mysql/how-to-stop-start-server.md).
+
+### <a name="limitations-of-stopstart-operation"></a>Limitações da operação stop/start
+- Não suportado com configurações de réplicas de leitura (fonte e réplicas).
 
 ## <a name="how-do-i-manage-a-server"></a>Como posso gerir um servidor?
 Pode gerir a Base de Dados Azure para servidores MariaDB utilizando o portal Azure ou o Azure CLI.

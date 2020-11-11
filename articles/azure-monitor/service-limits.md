@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/10/2019
-ms.openlocfilehash: d2a2230613f9e4be3e0c9359a082843a4701b6f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fffdc88e1d54622ec17d27cdb3bc574d4ced1111
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77657916"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94505772"
 ---
 # <a name="azure-monitor-service-limits"></a>Limites de serviço do Azure Monitor
 
@@ -24,6 +24,10 @@ Este artigo lista limites em diferentes áreas do Monitor Azure.
 ## <a name="action-groups"></a>Grupos de ação
 
 [!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-action-groups.md)]
+
+## <a name="autoscale"></a>Dimensionamento Automático
+
+[!INCLUDE [monitoring-limits](../../includes/azure-monitor-limits-autoscale.md)]
 
 ## <a name="log-queries-and-language"></a>Consultas de registo e linguagem
 
