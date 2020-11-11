@@ -4,15 +4,15 @@ description: Saiba como gerar e receber leads de clientes a partir das suas ofer
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 10/01/2020
-ms.openlocfilehash: 5627d6afab22defebeebd3f04695ef95390f1163
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1d5f2248d94796d5e3ee76301642a95abddebfe4
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653320"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489340"
 ---
 # <a name="customer-leads-from-your-commercial-marketplace-offer"></a>O cliente lidera a partir da sua oferta de mercado comercial
 
@@ -50,19 +50,19 @@ Aqui estão os lugares onde uma pista é gerada:
 
 Cada chumbo que recebe durante o processo de aquisição do cliente tem dados em áreas específicas. O primeiro campo a ter em conta é o `LeadSource` campo, que segue este formato: **Oferta de Ação de Fonte**  |  **Offer**.
 
-**Fontes**: O valor deste campo é povoado com base no mercado que gerou o chumbo. Os valores possíveis `"AzureMarketplace"` `"AzurePortal"` são, `"AppSource (SPZA)"` e.
+**Fontes** : O valor deste campo é povoado com base no mercado que gerou o chumbo. Os valores possíveis `"AzureMarketplace"` `"AzurePortal"` são, `"AppSource (SPZA)"` e.
 
-**Ações**: O valor deste campo é povoado com base na ação que o cliente tomou no mercado que gerou o chumbo.
+**Ações** : O valor deste campo é povoado com base na ação que o cliente tomou no mercado que gerou o chumbo.
 
 Os valores possíveis são:
 
-- **"INS"**: Significa *instalação.* Esta ação está no Azure Marketplace ou AppSource quando um cliente adquire o seu produto.
-- **"PLT"**: Significa julgamento liderado por *parceiros.* Esta ação está no AppSource quando um cliente seleciona a opção **Contacte-me.**
-- **"DNC"**: Significa *não contactar*. Esta ação está no AppSource quando um parceiro que foi listado na sua página de aplicações é solicitado para ser contactado. Partilhamos uma notificação de que este cliente estava listado na sua aplicação, mas não precisa de ser contactado.
+- **"INS"** : Significa *instalação.* Esta ação está no Azure Marketplace ou AppSource quando um cliente adquire o seu produto.
+- **"PLT"** : Significa julgamento liderado por *parceiros.* Esta ação está no AppSource quando um cliente seleciona a opção **Contacte-me.**
+- **"DNC"** : Significa *não contactar*. Esta ação está no AppSource quando um parceiro que foi listado na sua página de aplicações é solicitado para ser contactado. Partilhamos uma notificação de que este cliente estava listado na sua aplicação, mas não precisa de ser contactado.
 - **"Criar"** esta ação está apenas dentro do portal Azure e é gerada quando um cliente compra a sua oferta à sua conta.
-- **"StartTestDrive"**: Esta ação destina-se apenas à opção **Test Drive** e é gerada quando um cliente inicia o seu test drive.
+- **"StartTestDrive"** : Esta ação destina-se apenas à opção **Test Drive** e é gerada quando um cliente inicia o seu test drive.
 
-**Ofertas**: Pode ter várias ofertas no mercado comercial. O valor deste campo é povoado com base na oferta que gerou o chumbo. O ID da editora e o ID de oferta são ambos enviados neste campo e são valores que forneceu quando publicou a oferta ao mercado.
+**Ofertas** : Pode ter várias ofertas no mercado comercial. O valor deste campo é povoado com base na oferta que gerou o chumbo. O ID da editora e o ID de oferta são ambos enviados neste campo e são valores que forneceu quando publicou a oferta ao mercado.
 
 Os seguintes exemplos mostram valores no formato `publisherid.offerid` esperado: 
 
@@ -89,9 +89,9 @@ A informação do cliente é enviada através de vários campos. O exemplo a seg
 
 Aqui ficam algumas recomendações para conduzir condutores durante o seu ciclo de vendas:
 
-- **Processo**: Defina um processo de venda claro, com marcos, análises e clara propriedade da equipa.
-- **Qualificação**: Definir pré-requisitos, que indicam se uma vantagem foi totalmente qualificada. Certifique-se de que os representantes de vendas ou marketing se qualificam com cuidado antes de os levar em todo o processo de venda.
-- **Seguimento**: Não se esqueça de acompanhar dentro de 24 horas. Obterá o chumbo na sua CRM de eleição imediatamente após o cliente implementar uma unidade de teste; enviar-lhes por e-mail dentro enquanto ainda estão quentes. Solicite agendar uma chamada para entender melhor se o seu produto é uma boa solução para o seu problema. Espere que a transação típica exija inúmeras chamadas de acompanhamento.
+- **Processo** : Defina um processo de venda claro, com marcos, análises e clara propriedade da equipa.
+- **Qualificação** : Definir pré-requisitos, que indicam se uma vantagem foi totalmente qualificada. Certifique-se de que os representantes de vendas ou marketing se qualificam com cuidado antes de os levar em todo o processo de venda.
+- **Seguimento** : Não se esqueça de acompanhar dentro de 24 horas. Obterá o chumbo na sua CRM de eleição imediatamente após o cliente implementar uma unidade de teste; enviar-lhes por e-mail dentro enquanto ainda estão quentes. Solicite agendar uma chamada para entender melhor se o seu produto é uma boa solução para o seu problema. Espere que a transação típica exija inúmeras chamadas de acompanhamento.
 - **Nutrir:** Nutrir as suas pistas para levá-lo a caminho de uma margem de lucro mais elevada. Faça o check-in, mas não os bombardeie. Recomendamos que envie um e-mail com, pelo menos, algumas vezes antes de os fechar; não desista depois da primeira tentativa. Lembre-se, estes clientes diretamente se envolveram com o seu produto e passaram algum tempo em um teste gratuito; são grandes perspetivas.
 
 Após a configuração técnica, incorpore estes leads na sua estratégia atual de vendas e marketing e processos operacionais. Estamos interessados em compreender melhor o seu processo global de vendas e queremos trabalhar em estreita colaboração consigo para fornecer pistas de alta qualidade e dados suficientes para o tornar bem sucedido. Congratulamo-nos com o seu feedback sobre como podemos otimizar e melhorar os leads que lhe enviamos com dados adicionais para ajudar a tornar estes clientes bem sucedidos. Informe-nos se estiver interessado em [fornecer feedback](mailto:AzureMarketOnboard@microsoft.com) e sugestões para que a sua equipa de vendas tenha mais sucesso com os líderes comerciais do mercado.

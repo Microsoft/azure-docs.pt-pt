@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: 67cccc1eaa889d0180da9b5ae0fca9b75366edd9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 79b58b76954cf15289e85dbf763b7a399897635d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101158"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489884"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Como utilizar o Armazenamento de Tabelas do Azure e a API de Tabela do Azure Cosmos DB com C++
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -95,11 +95,11 @@ Use o nome da sua conta Azure Cosmos DB para `<your_cosmos_db_account>` . Introd
 Para testar a sua aplicação no seu computador local baseado no Windows, pode utilizar o Emulador de Armazenamento Azure que está instalado com o [Azure SDK](https://azure.microsoft.com/downloads/). O Emulador de Armazenamento é um utilitário que simula os serviços de Azure Blob, Queue e Table disponíveis na sua máquina de desenvolvimento local. O exemplo a seguir mostra como declarar um campo estático para segurar a cadeia de ligação ao seu emulador de armazenamento local:  
 
 ```cpp
-// Define the connection string with Azure storage emulator.
+// Define the connection string with Azure Storage Emulator.
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Para iniciar o Emulador de Armazenamento Azure, a partir do seu ambiente de trabalho Windows, selecione o botão **Iniciar** ou a tecla Windows. Introduza e execute o *Emulador de Armazenamento Microsoft Azure* . Para obter mais informações, consulte [o Emulador de Armazenamento Azure para desenvolvimento e testes.](../storage/common/storage-use-emulator.md)
+Para iniciar o Emulador de Armazenamento Azure, a partir do seu ambiente de trabalho Windows, selecione o botão **Iniciar** ou a tecla Windows. Introduza e execute o *Emulador de Armazenamento Microsoft Azure*. Para obter mais informações, consulte [o Emulador de Armazenamento Azure para desenvolvimento e testes.](../storage/common/storage-use-emulator.md)
 
 ### <a name="retrieve-your-connection-string"></a>Obter a sua cadeia de ligação
 
@@ -498,13 +498,13 @@ else
 }
 ```
 
-## <a name="troubleshooting"></a>Resolução de problemas
+## <a name="troubleshooting"></a>Resolução de Problemas
 
 Para a Edição Comunitária do Estúdio Visual, se o seu projeto obtiver erros de construção por causa dos ficheiros incluídos *storage_account.h* e *table.h,* remova o interruptor **/permissivo-compilador:**
 
-1. No **Explorador de Soluções** , clique com o botão direito do rato no seu projeto e selecione **Propriedades** .
-1. Na caixa de diálogo **Páginas de Propriedades** , expanda **Propriedades de Configuração** , expanda **C/C++** e selecione **Idioma** .
-1. Definir **Modo de conformidade** para **Não** .
+1. No **Explorador de Soluções** , clique com o botão direito do rato no seu projeto e selecione **Propriedades**.
+1. Na caixa de diálogo **Páginas de Propriedades** , expanda **Propriedades de Configuração** , expanda **C/C++** e selecione **Idioma**.
+1. Definir **Modo de conformidade** para **Não**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

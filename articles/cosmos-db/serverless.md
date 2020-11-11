@@ -5,13 +5,13 @@ author: ThomasWeiss
 ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
-ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: c811a2ea5c06250068e7c0276e4b79e9108d920d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098761"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490360"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sem servidor (Pré-visualização)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -50,9 +50,6 @@ Veja como [escolher entre o produto de produção e](throughput-serverless.md) o
 ## <a name="using-serverless-resources"></a>Usando recursos sem servidor
 
 Serverless é um novo tipo de conta Azure Cosmos, o que significa que você tem que escolher entre **produção provisida** e **sem servidor** ao criar uma nova conta. Tem de criar uma nova conta sem servidor para começar sem servidor. Durante o lançamento da pré-visualização, a única forma suportada de criar uma nova conta sem servidor é [utilizando o portal Azure](create-cosmosdb-resources-portal.md). A migração de contas existentes para/a partir do modo sem servidor não é suportada atualmente.
-
-> [!NOTE]
-> Atualmente, o Serverless é suportado apenas na API do Azure Cosmos DB Core (SQL).
 
 Qualquer recipiente criado numa conta sem servidor é um recipiente sem servidor. Os recipientes sem servidor expõem as mesmas capacidades que os contentores criados no modo de produção forerado, pelo que lê, escreve e consulta os seus dados da mesma forma. No entanto, contas e contentores sem servidor também têm características específicas:
 

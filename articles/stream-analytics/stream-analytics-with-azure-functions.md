@@ -7,18 +7,21 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc, devx-track-csharp
 ms.date: 01/27/2020
-ms.openlocfilehash: 127fcdf68990b15098c24488e6ed879fbaa79116
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 291586bc2e34784a7bbf29016ea1da35d51e844b
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129682"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489952"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Tutorial: Executar funções Azure a partir de trabalhos Azure Stream Analytics 
 
 Pode executar Funções do Azure a partir do Azure Stream Analytics ao configurar as Funções como um dos sinks de saída para a tarefa do Stream Analytics. As Funções são uma experiência de cálculo a pedido orientada por eventos que lhe permite implementar o código que é acionado pelos eventos que ocorrem no Azure ou em serviços de terceiros. Esta capacidade que as Funções têm de responder a acionadores torna-as numa saída natural para as tarefas do Stream Analytics.
 
 O Stream Analytics invoca Funções através de acionadores HTTP. O adaptador de saída das Funções permite aos utilizadores ligarem Funções ao Stream Analytics, para que os eventos possam ser acionados com base em consultas do Stream Analytics. 
+
+> [!NOTE]
+> A ligação às funções do Azure dentro de uma rede virtual (VNet) a partir de um trabalho stream Analytics que está a funcionar num cluster multi-inquilino não é suportada.
 
 Neste tutorial, ficará a saber como:
 
@@ -44,7 +47,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
 1. Criar uma cache em Cache Azure para Redis utilizando os passos descritos na [Criar uma cache](../azure-cache-for-redis/cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).  
 
-2. Depois de criar a cache em **Definições** , selecione **Chaves de Acesso** . Anote a **Cadeia de ligação primária** .
+2. Depois de criar a cache em **Definições** , selecione **Chaves de Acesso**. Anote a **Cadeia de ligação primária**.
 
    ![Screenshot de Azure Cache para fio de ligação Redis](./media/stream-analytics-with-azure-functions/image2.png)
 
@@ -52,7 +55,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
 1. Veja a secção [Criar uma aplicação de funções](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) na documentação das Funções. Esta secção explica-lhe como criar uma aplicação de função e uma [função acionada por HTTP em Funções Azure](../azure-functions/functions-create-first-azure-function.md#create-function), utilizando o idioma CSharp.  
 
-2. Navegue para a função **run.csx** . Atualize-a com o seguinte código. Substitua **" \<your Azure Cache for Redis connection string goes here\> "** com a cache Azure para a cadeia de ligação primária Redis que recuperou na secção anterior. 
+2. Navegue para a função **run.csx**. Atualize-a com o seguinte código. Substitua **" \<your Azure Cache for Redis connection string goes here\> "** com a cache Azure para a cadeia de ligação primária Redis que recuperou na secção anterior. 
 
     ```csharp
     using System;
@@ -112,7 +115,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
         }
    ```
 
-3. Num editor de texto à sua escolha, crie um ficheiro JSON designado **project.json** . Cole o seguinte código e guarde-o no computador local. Este ficheiro contém as dependências do pacote NuGet precisas para a função de C#.  
+3. Num editor de texto à sua escolha, crie um ficheiro JSON designado **project.json**. Cole o seguinte código e guarde-o no computador local. Este ficheiro contém as dependências do pacote NuGet precisas para a função de C#.  
    
     ```json
     {
@@ -128,11 +131,11 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
    ```
  
-4. Regresse ao portal do Azure. A partir do separador **Funcionalidades da plataforma** , navegue até à sua função. Em **Ferramentas de Desenvolvimento** , selecione **Editor do Serviço de Aplicações** . 
+4. Regresse ao portal do Azure. A partir do separador **Funcionalidades da plataforma** , navegue até à sua função. Em **Ferramentas de Desenvolvimento** , selecione **Editor do Serviço de Aplicações**. 
  
    ![O Screenshot mostra o separador de funcionalidades da Plataforma com o Editor de Serviço de Aplicações selecionado.](./media/stream-analytics-with-azure-functions/image3.png)
 
-5. No Editor do Serviço de Aplicações, clique com o botão direito do rato no seu diretório de raiz e carregue o ficheiro **project.json** . Depois de o carregamento ser bem-sucedido, atualize a página. Deverá ver um ficheiro gerado automaticamente com o nome **project.lock.json** . O ficheiro gerado automaticamente contém referências aos ficheiros .dll que são especificados no ficheiro project.json.  
+5. No Editor do Serviço de Aplicações, clique com o botão direito do rato no seu diretório de raiz e carregue o ficheiro **project.json**. Depois de o carregamento ser bem-sucedido, atualize a página. Deverá ver um ficheiro gerado automaticamente com o nome **project.lock.json**. O ficheiro gerado automaticamente contém referências aos ficheiros .dll que são especificados no ficheiro project.json.  
 
    ![A screenshot mostra upload Files selecionados a partir do menu.](./media/stream-analytics-with-azure-functions/image4.png)
 
@@ -140,7 +143,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
 1. Abra a sua tarefa do Stream Analytics no portal do Azure.  
 
-2. Navegue pela sua função **Overview** e selecione  >  **Overview Outputs**  >  **Add** . Para adicionar uma nova saída, selecione **Função do Azure** para a opção de sink. O adaptador de saída de Funções tem as seguintes propriedades:  
+2. Navegue pela sua função **Overview** e selecione  >  **Overview Outputs**  >  **Add**. Para adicionar uma nova saída, selecione **Função do Azure** para a opção de sink. O adaptador de saída de Funções tem as seguintes propriedades:  
 
    |**Nome da propriedade**|**Descrição**|
    |---|---|
@@ -177,7 +180,7 @@ Siga o tutorial [Deteção de fraudes em tempo real](stream-analytics-real-time-
 
 ## <a name="check-azure-cache-for-redis-for-results"></a>Verifique a cache de Azure para obter resultados
 
-1. Navegue pelo portal Azure e encontre o seu Cache Azure para Redis. Selecione **Consola** .  
+1. Navegue pelo portal Azure e encontre o seu Cache Azure para Redis. Selecione **Consola**.  
 
 2. Utilize [a Cache Azure para comandos Redis](https://redis.io/commands) para verificar se os seus dados estão em Cache Azure para Redis. (O comando toma o formato Get {key}.) Por exemplo:
 
@@ -207,7 +210,7 @@ O suporte para ligar às Funções Azure hospedadas numa rede virtual não está
 Quando já não for necessário, elimine o grupo de recursos, a tarefa de transmissão em fluxo e todos os recursos relacionados. A eliminação da tarefa evita a faturação das unidades de transmissão em fluxo consumidas pela tarefa. Se estiver a planear utilizar a tarefa no futuro, pode pará-la e reiniciá-la mais tarde, quando for necessário. Se não quiser continuar a utilizar esta tarefa, elimine todos os recursos criados por este início rápido ao utilizar os seguintes passos:
 
 1. No menu do lado esquerdo do portal do Azure, clique em **Grupos de recursos** e, em seguida, clique no nome de recurso que criou.  
-2. Na página do grupo de recursos, clique em **Eliminar** , escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar** .
+2. Na página do grupo de recursos, clique em **Eliminar** , escreva o nome do recurso a eliminar na caixa de texto e, em seguida, clique em **Eliminar**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

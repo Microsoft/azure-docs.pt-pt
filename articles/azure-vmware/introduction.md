@@ -3,12 +3,12 @@ title: Introdução
 description: Aprenda as funcionalidades e benefícios da Azure VMware Solution para implementar e gerir cargas de trabalho baseadas em VMware em Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: b71427402e08167e5868128ed1e553c69bef425d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 1875f535a5ca3e346362409c143da82cb8c07a12
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91574467"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488592"
 ---
 # <a name="what-is-azure-vmware-solution"></a>O que é o Azure VMware Solution?
 
@@ -44,7 +44,7 @@ Atualizações regulares do software Azure VMware Solution e software VMware gar
 
 ## <a name="monitoring-your-private-cloud"></a>Monitorização da sua nuvem privada
 
-Assim que a Solução VMware Azure é implantada na sua subscrição, [os registos do Azure Monitor](../azure-monitor/overview.md) são gerados automaticamente. Além disso, pode recolher registos em cada uma das suas máquinas virtuais dentro da sua nuvem privada. Pode [descarregar e instalar o agente MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) em máquinas virtuais Linux e Windows que estão a funcionar nas suas nuvens privadas Azure VMware Solution, bem como ativar a extensão de [diagnóstico Azure](../azure-monitor/platform/diagnostics-extension-overview.md). Pode até executar as mesmas consultas que normalmente corre nas suas máquinas virtuais. Para saber mais sobre a criação de consultas, veja [como escrever consultas.](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries) Os padrões de monitorização dentro da Solução VMware Azure são semelhantes às Máquinas Virtuais Azure dentro da plataforma IaaS. Para obter informações adicionais e como fazer, consulte [as máquinas virtuais monitor de Azure com o Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
+Assim que a Solução VMware Azure é implantada na sua subscrição, [os registos do Azure Monitor](../azure-monitor/overview.md) são gerados automaticamente. Além disso, pode recolher registos em cada uma das suas máquinas virtuais dentro da sua nuvem privada. Pode [descarregar e instalar o agente MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options) em máquinas virtuais Linux e Windows que estão a funcionar nas suas nuvens privadas Azure VMware Solution, bem como ativar a extensão de [diagnóstico Azure](../azure-monitor/platform/diagnostics-extension-overview.md). Pode até executar as mesmas consultas que normalmente corre nas suas máquinas virtuais. Para saber mais sobre a criação de consultas, consulte [a visão geral dos Registos do Monitor Azure](../azure-monitor/platform/data-platform-logs.md). Os padrões de monitorização dentro da Solução VMware Azure são semelhantes às Máquinas Virtuais Azure dentro da plataforma IaaS. Para obter informações adicionais e como fazer, consulte [as máquinas virtuais monitor de Azure com o Azure Monitor](../azure-monitor/insights/monitor-vm-azure.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -5,15 +5,18 @@ author: ambhatna
 ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
-ms.date: 10/20/2020
-ms.openlocfilehash: 9568dfc2cfd678d0ce2dea8475328358906e16d1
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.date: 11/10/2020
+ms.openlocfilehash: 7733a6211363b4f1c9e9006f757b4d152c7af7f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92525216"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489561"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurar parâmetros de servidor na Base de Dados Azure para o MySQL - Servidor Flexível utilizando o portal Azure
+
+> [!IMPORTANT] 
+> A azure Database for MySQL - Flexible Server encontra-se atualmente em pré-visualização pública.
 
 Pode gerir a base de dados Azure para a configuração do Servidor Flexível MySQL utilizando parâmetros do servidor. Os parâmetros do servidor são configurados com o valor predefinido e recomendado quando cria o servidor.  
 
@@ -28,13 +31,13 @@ Este artigo descreve como visualizar e configurar os parâmetros do servidor uti
 2. Na secção **DEFINIÇÕES,** clique nos **parâmetros do Servidor** para abrir a página de parâmetros do servidor para o servidor flexível Azure Database for MySQL.
 [:::image type="content" source="./media/how-to-server-parameters/azure-portal-server-parameters.png" alt-text="Página de parâmetros do servidor do portal Azure":::](./media/how-to-server-parameters/azure-portal-server-parameters.png#lightbox)
 3. Localize qualquer parâmetro do servidor que necessite de ajustar. Reveja a coluna **Descrição** para compreender a finalidade e os valores permitidos.
-[:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Página de parâmetros do servidor do portal Azure":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/3-toggle-parameter.png" alt-text="Enumerar queda":::](./media/how-to-server-parameters/3-toggle-parameter.png#lightbox)
 4. Clique  **em Guardar** para guardar as suas alterações.
-[:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="Página de parâmetros do servidor do portal Azure":::](./media/how-to-server-parameters/4-save-parameters.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/4-save-parameters.png" alt-text="Guardar ou descartar alterações":::](./media/how-to-server-parameters/4-save-parameters.png#lightbox)
 5. Os parâmetros estáticos são os que exigem que o reboot do servidor entre em vigor. Se estiver a modificar o parâmetro estático, será solicitado para **reiniciar agora** ou **reiniciar mais tarde**.
-[:::image type="content" source="./media/how-to-server-parameters/5-save-parameter.png" alt-text="Página de parâmetros do servidor do portal Azure":::](./media/how-to-server-parameters/5-save-parameter.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/5-save-parameter.png" alt-text="Reiniciar na economia de parâmetros estáticos":::](./media/how-to-server-parameters/5-save-parameter.png#lightbox)
 6. Se tiver guardado novos valores para os parâmetros, pode sempre reverter tudo de volta para os valores predefinidos selecionando **Reset all to predefinido**.
-[:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="Página de parâmetros do servidor do portal Azure":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/6-reset-parameters.png" alt-text="Redefinir tudo para o padrão":::](./media/how-to-server-parameters/6-reset-parameters.png#lightbox)
 
 ## <a name="setting-non-modifiable-server-parameters"></a>Definição de parâmetros de servidor não modificáveis
 
@@ -76,7 +79,7 @@ SELECT name FROM mysql.time_zone_name;
 
 O fuso horário de nível global pode ser definido a partir da página de **parâmetros do Servidor** no portal Azure. O abaixo define o fuso horário global para o valor "EUA/Pacífico".
 
-[:::image type="content" source="./media/how-to-server-parameters/timezone.png" alt-text="Página de parâmetros do servidor do portal Azure":::](./media/how-to-server-parameters/timezone.png#lightbox)
+[:::image type="content" source="./media/how-to-server-parameters/timezone.png" alt-text="Definir parâmetro de fuso horário":::](./media/how-to-server-parameters/timezone.png#lightbox)
 
 ### <a name="setting-the-session-level-time-zone"></a>Definição do fuso horário do nível da sessão
 

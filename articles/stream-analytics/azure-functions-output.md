@@ -7,22 +7,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: f3f6e33c7c37089f7a9e87ab61bb00c966d8ccc7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffaf66cbb5d9fa0b294f5749a1923684f16c2979
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881907"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488109"
 ---
 # <a name="azure-functions-output-from-azure-stream-analytics"></a>Saída de Funções Azure da Azure Stream Analytics
 
 Azure Functions é um serviço de computação sem servidor que pode utilizar para executar código a pedido sem ter de provisões explícitas ou gerir infraestruturas. Permite implementar código que é desencadeado por eventos que ocorrem em Azure ou serviços de parceiros. Esta capacidade de Azure Functions para responder aos gatilhos torna-a uma saída natural para o Azure Stream Analytics. Este adaptador de saída permite que os utilizadores conectem stream Analytics a Funções Azure e execute um script ou peça de código em resposta a uma variedade de eventos.
 
-A produção de Funções Azure da Stream Analytics não está atualmente disponível nas regiões Azure China 21Vianet e Azure Germany (T-Systems International).
+A produção de Funções Azure da Stream Analytics não está disponível nas regiões Azure China 21Vianet e Azure Germany (T-Systems International). A ligação às funções do Azure dentro de uma rede virtual (VNet) a partir de um trabalho stream Analytics que está a decorrer num cluster multi-inquilino também não é suportada.
 
 A Azure Stream Analytics invoca funções Azure através de triggers HTTP. O adaptador de saída Azure Functions está disponível com as seguintes propriedades configuráveis:
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 | --- | --- |
 | Aplicação de funções |O nome da sua aplicação Azure Functions. |
 | Função |O nome da função na sua aplicação Azure Functions. |

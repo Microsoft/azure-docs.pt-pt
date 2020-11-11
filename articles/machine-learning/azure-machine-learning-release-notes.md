@@ -9,18 +9,62 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 5054451b181223d3d6deece6812358cfd08b1e30
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0afd1f2f8dd06c3c224d64304eec2e18489a7e81
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445086"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489136"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
 
 Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer bugs e soluções alternativas conhecidas.
+
+
+## <a name="2020-11-09"></a>2020-11-09
+
+### <a name="azure-machine-learning-sdk-for-python-v1180"></a>Azure Machine Learning SDK para Python v1.18.0
++ **Correções e melhorias de bugs**
+  + **azureml-automl-core**
+    +  Melhor manuseamento de séries de curto prazo, permitindo acolchoá-las com ruído gaussiano.
+  + **azureml-automl-runtime**
+    + Jogue ConfigException se uma coluna DateTime tiver outOfBoundsDatetime value
+    + Melhor manuseamento de séries de curto prazo, permitindo acolchoá-las com ruído gaussiano.
+    + Certificando-se de que cada coluna de texto pode alavancar a transformação de char-gram com a gama n-grama com base no comprimento das cordas nessa coluna de texto
+    + Fornecendo explicações de funcionalidades brutas para o melhor modo para experiências AutoML em execução no cálculo local do utilizador
+  + **azureml-core**
+    + Pin the package: pyjwt para evitar puxar versões de rutura em versões próximas.
+    + A criação de uma experiência devolverá a experiência ativa ou última arquivada com o mesmo nome se tal experiência existir ou uma nova experiência.
+    + Chamar get_experiment pelo nome devolverá a experiência ativa ou última arquivada com esse nome.
+    + Os utilizadores não podem mudar o nome de uma experiência enquanto a reativam.
+    + Mensagem de erro melhorada para incluir correções potenciais quando um conjunto de dados é incorretamente passado para uma experiência (por exemplo, ScriptRunConfig). 
+    + Documentação melhorada `OutputDatasetConfig.register_on_complete` para incluir o comportamento do que vai acontecer quando o nome já existir.
+    + Especificar a entrada de conjuntos de dados e os nomes de saída que têm o potencial de colidir com variáveis ambientais comuns resultará agora num aviso
+    + Parâmetro reutilizado `grant_workspace_access` ao registar datastores. Desa cosdem-no `True` para aceder a dados por trás da rede virtual do Machine Learning Studio.
+      [Saiba mais](https://docs.microsoft.com/azure/machine-learning/how-to-enable-studio-virtual-network)
+    + O serviço ligado API é refinado. Em vez de fornecer id de recursos, temos 3 parâmetros separados sub_id, rg e nome definidos na configuração.
+    + De forma a permitir que os clientes se auto-resolvam problemas de corrupção, permitir que a sincronização do espaço de trabalho seja um método público.
+    + Esta alteração permite que uma corda vazia seja usada como um valor para um script_param
+  + **azureml-pipeline-core**
+    + SDK para apoiar o tipo SynapseCompute e o SynapseSparkStep. Os clientes podem executar experiências e gasodutos executados em piscina de faíscas sinapse.
+  + **azureml-pipeline-steps**
+    + SDK para apoiar o tipo SynapseCompute e o SynapseSparkStep. Os clientes podem executar experiências e gasodutos executados em piscina de faíscas sinapse.
+  + **azureml-sinapse**
+    + Adicione a magia synapse e o SparkMonitor para permitir que o utilizador submeta o trabalho de Syanpse e veja o progresso do trabalho no caderno.
+  + **azureml-train-automl-client**
+    +  Melhor manuseamento de séries de curto prazo, permitindo acolchoá-las com ruído gaussiano.
+  + **azureml-train-automl-runtime**
+    + Jogue ConfigException se uma coluna DateTime tiver outOfBoundsDatetime value
+    + Suporte adicional para fornecer explicações de funcionalidades brutas para o melhor modelo para experiências AutoML em execução no computação local do utilizador
+    + Melhor manuseamento de séries de curto prazo, permitindo acolchoá-las com ruído gaussiano.
+  + **azureml-train-core**
+    + Esta alteração permite que uma corda vazia seja usada como um valor para um script_param
+  + **azureml-train-restclients-hyperdrive**
+    + README foi alterado para oferecer mais contexto
+  + **azureml-widgets**
+    + Adicione suporte de cordas a gráficos/biblioteca de coordenadas paralelas para widget.
 
 ## <a name="2020-11-05"></a>2020-11-05
 
@@ -29,6 +73,7 @@ Veja [a lista de questões conhecidas](resource-known-issues.md) para conhecer b
 O tipo de projeto de segmentação de casos de imagem (anotações de polígono) na rotulagem de dados está agora disponível, para que os utilizadores possam desenhar e anotar com polígonos em torno do contorno dos objetos nas imagens. Os utilizadores poderão atribuir uma classe e um polígono a cada objeto que de interesse dentro de uma imagem.
 
 Saiba mais sobre [a rotulagem de segmentação de casos de imagem.](how-to-label-images.md)
+
 
 
 ## <a name="2020-10-26"></a>2020-10-26
@@ -72,7 +117,7 @@ Saiba mais sobre [a rotulagem de segmentação de casos de imagem.](how-to-label
   + **azureml-core**
     + Pin principais versões de dependências diretas do azureml-core
     + O AKSWebservice e o AKSEndpoints suportam agora os limites de CPU e de recursos de memória ao nível do pod. Mais informações sobre [recursos e limites da Kubernetes](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
-    + Atualizado run.log_table para permitir que as linhas individuais sejam registadas.
+    + Run.log_table atualizado para permitir que as linhas individuais sejam registadas.
     + Método estático adicionado `Run.get(workspace, run_id)` para recuperar uma corrida apenas usando um espaço de trabalho 
     + Método de instância adicionado `Workspace.get_run(run_id)` para recuperar uma corrida dentro do espaço de trabalho
     + Introduzindo a propriedade de comando na configuração de execução que permitirá que os utilizadores submetam o comando em vez de argumentos & script.
@@ -163,7 +208,7 @@ Saiba mais sobre [a rotulagem de segmentação de casos de imagem.](how-to-label
     + Desde que a propriedade da Swaggerurl para a entidade de ponta de gasoduto através desse utilizador possa ver a definição de esquema para o ponto final do gasoduto publicado.
   + **azureml-pipeline-steps**
     + Novo Kusto Step e Kusto Compute Target.
-  + **azureml-telemetria**
+  + **azureml-telemetry**
     + Atualizar a descrição do pacote para a página geral do pypi.
   + **azureml-train**
     + Atualizar a descrição do pacote para a página geral do pypi.
@@ -458,7 +503,7 @@ Saiba mais sobre [a rotulagem de segmentação de casos de imagem.](how-to-label
     + Consertado um bug onde `experiment.submit()` chamado duas vezes num `AutoMLConfig` objeto resultou em comportamento diferente.
     + Os utilizadores são agora capazes de ativar a iteração do conjunto de pilhas para tarefas da série Time com um aviso de que poderia potencialmente sobreajustar.
     + Alterado Comportamento de execução autoML para aumentar o UserErrorExcepção se o serviço lançar erro do utilizador
-    + Corrige um bug que fez com que azureml_automl.log não fosse gerado ou faltasse registos ao realizar uma experiência AutoML num alvo de computação remota.
+    + Corrige um bug que fez com que azureml_automl.log não fossem gerados ou faltassem registos ao realizar uma experiência AutoML num alvo de computação remota.
     + Para conjuntos de dados de classificação com classes desequilibradas, aplicaremos o Equilíbrio de Peso, se o varredor de recurso determinar que para dados subsmaltados, o Equilíbrio de Peso melhora o desempenho da tarefa de classificação por um determinado limiar.
     + As corridas autoML estão agora marcadas como a execução infantil do Passo de Execução Paralela.
   + **azureml-train-automl-runtime**
@@ -498,7 +543,7 @@ Saiba mais sobre [a rotulagem de segmentação de casos de imagem.](how-to-label
   + **azureml-contrib-reinforcementlearning**
     + Ferramenta de teste de carga
   + **azureml-core**
-    + Alterações de documentação em Script_run_config.py
+    + Alterações de documentação na Script_run_config.py
     + Corrige um bug com a impressão da saída do pipeline de submissão de corrida CLI
     + Melhorias de documentação para azureml-core/azureml.data
     + Correções problemas recuperando conta de armazenamento usando o comando hdfs getconf
@@ -1584,7 +1629,7 @@ O separador Experiment no novo portal do [espaço de trabalho](https://ml.azure.
   + **azureml-automl-core**
     + Depreceu a definição autoML 'lag_length' e o LaggingTransformer.
     + Validação correta fixa dos dados de entrada se forem especificados num formato de Dataflow
-    + Modificou o fit_pipeline.py para gerar o json gráfico e carregar para artefactos.
+    + Modificou o fit_pipeline.py para gerar o json gráfico e fazer upload para artefactos.
     + Tornou o gráfico `userrun` `Cytoscape` utilizado.
   + **azureml-core**
     + Revisitei o tratamento de exceções no código ADB e escovemos as alterações de acordo com o novo tratamento de erros
@@ -1759,7 +1804,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Mais classes para obter população dos EUA por concelho e zip.
   + **azureml-pipeline-core**
     + Adicionou propriedade de etiqueta às definições de porta de entrada e saída.
-  + **azureml-telemetry**
+  + **azureml-telemetria**
     + Corrigiu uma configuração de telemetria incorreta.
   + **azureml-train-automl**
     + Corrigiu o bug onde, na falha de configuração, o erro não estava a ser registado no campo "erros" para a execução da configuração e, por isso, não foi armazenado em "erros" de execução dos pais.
@@ -1861,7 +1906,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + A adição de suporte aos estimadores NimbusML & oleodutos a utilizar dentro dos estimadores AutoML.
     + Fixar um bug no procedimento de seleção do Ensemble que estava a crescer desnecessariamente o conjunto resultante, mesmo que as pontuações permanecessem constantes.
     + Permitir a reutilização de algumas ações através de CV Splits para tarefas de previsão. Isto acelera o tempo de execução da configuração executado por aproximadamente um fator de n_cross_validations para ações caras como lags e janelas rolantes.
-    + Abordar um problema se o tempo estiver fora do intervalo de tempo suportado por pandas. Agora levantamos uma DataException se o tempo for menor que o pd. Timetamp.min ou maior que o pd. Timetamp.max
+    + Abordar um problema se o tempo estiver fora do intervalo de tempo suportado por pandas. Agora levantamos uma DataException se o tempo for menor que o pd. Timetamp.min ou maior que o pd. Tempotampia.max
     + A previsão permite agora diferentes frequências em conjuntos de comboios e testes se puderem ser alinhados. Por exemplo, "trimestralmente a partir de janeiro" e "trimestralmente a partir de outubro" pode ser alinhado.
     + Os "parâmetros" da propriedade foram adicionados ao TimeSeriesTransformer.
     + Remova as velhas aulas de exceção.
@@ -1912,7 +1957,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
     + Corrigir bugs na utilização de InteractiveLoginAuthentication para mlflow tracking_uri
     + Melhorar a utilização de recursos de execuções remotas utilizando azureml.mlflow.
     + Melhorar a documentação do pacote azureml-mlflow
-    + Bug de remendos onde mlflow.log_artifacts("my_dir") salvaria artefactos sob "my_dir/<> de artefactos" em vez de "> <artefactos".
+    + Bug de remendos onde mlflow.log_artefactos ("my_dir") salvaria artefactos em "my_dir/<> de artefactos" em vez de "<artefactos-caminhos>"
   + **azureml-opendatasets**
     + Pin `pyarrow` of to old `opendatasets` vers (<0.14.0) por causa do problema de memória recentemente introduzido lá.
     + Mova os conjuntos de dados azureml-contrib-open para conjuntos de dados abertos azureml.
@@ -1986,7 +2031,7 @@ No momento desta versão, os seguintes navegadores são suportados: Chrome, Fire
   + **azureml-mlflow**
     + Melhor utilização de recursos de execuções remotas que utilizam fluxo azureml.ml.
     + Melhorou a documentação do pacote azureml-mlflow.
-    + Corrigiu a questão em que mlflow.log_artifacts("my_dir") salvaria artefactos em "my_dir/caminhos de artefactos" em vez de "caminhos de artefactos".
+    + Corrigiu a questão em que o mlflow.log_artefactos("my_dir") salvaria artefactos em "my_dir/caminhos de artefactos" em vez de "caminhos de artefactos".
   + **azureml-pipeline-core**
     + O parâmetro hash_paths para todas as etapas do gasoduto é depreciado e será removido no futuro. Por predefinição, o conteúdo do source_directory é hashed (exceto ficheiros listados em `.amlignore` ou `.gitignore` )
     + Continuar a melhorar o Módulo e o ModuleStep para suportar módulos específicos do tipo computacional, para preparar a integração runConfiguration e outras alterações para desbloquear a utilização de módulos específicos do tipo computacional em oleodutos.

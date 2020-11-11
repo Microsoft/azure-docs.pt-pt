@@ -3,12 +3,12 @@ title: Como utilizar a funcionalidade IP pública na Solução VMware Azure
 description: Este artigo explica como utilizar a funcionalidade IP pública em Azure Virtual WAN.
 ms.topic: how-to
 ms.date: 10/28/2020
-ms.openlocfilehash: f51f00a9adc1fd122e723909ecaa6193c152d496
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 63475b478a951632c068b168353acf2e0bb7061c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912672"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490394"
 ---
 # <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Como utilizar a funcionalidade IP pública na Solução VMware Azure
 
@@ -50,21 +50,21 @@ Neste cenário, deve publicar o webserver do IIS na internet. Utilize a função
 
 ## <a name="deploy-virtual-wan"></a>Implementar a WAN Virtual.
 
-1. Inscreva-se no portal Azure e, em seguida, procure e selecione **Azure VMware Solution** .
+1. Inscreva-se no portal Azure e, em seguida, procure e selecione **Azure VMware Solution**.
 
 1. Selecione a nuvem privada Azure VMware Solution.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Diagrama de arquitetura IP público" border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Screenshot da nuvem privada Azure VMware Solution." border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
-1. Em **Gestão** , selecione **Conectividade** .
+1. Em **Gestão** , selecione **Conectividade**.
 
-   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Diagrama de arquitetura IP público" border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
+   :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Screenshot da secção de Conectividade." border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
-1. Selecione o **separador IP público** e, em seguida, selecione **Configurar** .
+1. Selecione o **separador IP público** e, em seguida, selecione **Configurar**.
 
-   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagrama de arquitetura IP público" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
+   :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Screenshot que mostra onde começar a configurar o IP público" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-1. Aceite os valores predefinidos ou altere-os e, em seguida, **selecione Criar** .
+1. Aceite os valores predefinidos ou altere-os e, em seguida, **selecione Criar**.
 
    - Grupo de recursos de rede de área virtual
 
@@ -83,46 +83,46 @@ Leva cerca de uma hora para completar a colocação de todos os componentes. Est
 
 Podemos verificar e adicionar mais endereços IP públicos seguindo os passos abaixo.
 
-1. No portal Azure, procure e selecione **Firewall** .
+1. No portal Azure, procure e selecione **Firewall**.
 
-1. Selecione uma firewall implantada e, em seguida, **selecione Visit Azure Firewall Manager para configurar e gerir esta firewall** .
+1. Selecione uma firewall implantada e, em seguida, **selecione Visit Azure Firewall Manager para configurar e gerir esta firewall**.
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagrama de arquitetura IP público" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Screenshot que mostra a opção de configurar e gerir a firewall" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
 1. Selecione **centros virtuais seguros** e, a partir da lista, selecione um hub virtual.
 
-   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="Diagrama de arquitetura IP público" lightbox="media/public-ip-usage/select-virtual-hub.png":::
+   :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="Screenshot do Gestor de Firewall" lightbox="media/public-ip-usage/select-virtual-hub.png":::
 
-1. Na página do hub virtual, selecione **a configuração IP pública** e para adicionar mais endereço IP público e, em seguida, selecione **Adicionar** . 
+1. Na página do hub virtual, selecione **a configuração IP pública** e para adicionar mais endereço IP público e, em seguida, selecione **Adicionar**. 
 
-   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Diagrama de arquitetura IP público" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
+   :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Screenshot de como adicionar uma configuração IP pública no Gestor de Firewall" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
 
-1. Forneça o número de IPs necessários e selecione **Adicionar** .
+1. Forneça o número de IPs necessários e selecione **Adicionar**.
 
-   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="Diagrama de arquitetura IP público" border="true":::
+   :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="Screenshot para adicionar um número especificado de configurações IP públicas" border="true":::
 
 
 ## <a name="create-firewall-policies"></a>Criar políticas de firewall
 
 Uma vez implantados todos os componentes, pode vê-los no grupo de Recursos adicionados. O próximo passo é adicionar uma política de firewall.
 
-1. No portal Azure, procure e selecione **Firewall** .
+1. No portal Azure, procure e selecione **Firewall**.
 
-1. Selecione uma firewall implantada e, em seguida, **selecione Visit Azure Firewall Manager para configurar e gerir esta firewall** .
+1. Selecione uma firewall implantada e, em seguida, **selecione Visit Azure Firewall Manager para configurar e gerir esta firewall**.
 
-   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagrama de arquitetura IP público" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
+   :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Screenshot que mostra a opção de configurar e gerir a firewall" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
-1. Selecione **Azure Firewall Policies** e, em seguida, selecione **Create Azure Firewall Policy** .
+1. Selecione **Azure Firewall Policies** e, em seguida, selecione **Create Azure Firewall Policy**.
 
-   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Diagrama de arquitetura IP público" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
+   :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Screenshot de como criar uma política de firewall no Gestor de Firewall" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
-1. No **separador Básicos,** forneça os detalhes necessários e selecione **Seguinte : Definições DNS** . 
+1. No **separador Básicos,** forneça os detalhes necessários e selecione **Seguinte : Definições DNS**. 
 
-1. No separador **DNS,** **selecione Desativar** e, em seguida, selecione **Seguinte : Regras** .
+1. No separador **DNS,** **selecione Desativar** e, em seguida, selecione **Seguinte : Regras**.
 
-1. **Selecione Adicione uma coleção de regras,** forneça os detalhes abaixo e selecione **Adicionar** e, em seguida, selecione Seguinte : Inteligência **de ameaça** .
+1. **Selecione Adicione uma coleção de regras,** forneça os detalhes abaixo e selecione **Adicionar** e, em seguida, selecione Seguinte : Inteligência **de ameaça**.
 
-   -  Nome
+   -  Name
    -  Tipo de recolha de regras - DNAT
    -  Prioridade
    -  Ação de recolha de regras – Permitir
@@ -136,21 +136,19 @@ Uma vez implantados todos os componentes, pode vê-los no grupo de Recursos adic
    -  Endereço traduzido - Endereço IP privado do **Azure VMware Solution Web Server**
    -  Porta traduzida - **Porta Azure VMware Solution Web Server**
 
-1. Deixe o valor predefinido e, em seguida, **selecione Seguinte : Hubs** .
+1. Deixe o valor predefinido e, em seguida, **selecione Seguinte : Hubs**.
 
-1. Selecione **o centro virtual Associado** .
+1. Selecione **o centro virtual Associado**.
 
-   :::image type="content" source="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png" alt-text="Diagrama de arquitetura IP público" border="true" lightbox="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png":::
+1. Selecione um hub da lista e **selecione Adicionar**.
 
-1. Selecione um hub da lista e **selecione Adicionar** .
+   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Screenshot que mostra os hubs selecionados que serão convertidos para Scecured Virtual Hubs." border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
-   :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Diagrama de arquitetura IP público" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
+1. Selecione **Seguinte: Etiquetas**. 
 
-1. Selecione **Seguinte: Etiquetas** . 
+1. (Opcional) Crie pares de nomes e valor para categorizar os seus recursos. 
 
-1. (Opcional) Crie pares de nome/valor para categorizar os seus recursos. 
-
-1. Selecione **Seguinte : Rever + criar** e, em seguida, selecionar **Criar** .
+1. Selecione **Seguinte : Rever + criar** e, em seguida, selecionar **Criar**.
 
 ## <a name="limitations"></a>Limitações
 

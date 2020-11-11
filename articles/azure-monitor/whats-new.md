@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 07/08/2020
-ms.openlocfilehash: c9679fec1d9c5d501ead03bcfbf28132d9e3b90a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 6ed00931e8cca1febac0b9b72b53eeb7e81042ea
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151809"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487997"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>O que há de novo na documentação do Monitor Azure?
 
@@ -99,8 +99,8 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 
 #### <a name="new-and-updated-articles-from-restructure-of-agent-content"></a>Artigos novos e atualizados da reestruturação do conteúdo do agente
 - [Ativar o Monitor Azure para visão geral dos VMs](insights/vminsights-enable-overview.md)
-- [Instale o agente Log Analytics nos computadores Linux](platform/agent-linux.md)
-- [Instale o agente Log Analytics nos computadores Windows](platform/agent-windows.md)
+- [Instalar o agente do Log Analytics em computadores Linux](platform/agent-linux.md)
+- [Instalar o agente do Log Analytics em computadores Windows](platform/agent-windows.md)
 - [Visão geral do agente do Log Analytics](platform/log-analytics-agent.md)
 
 ### <a name="application-insights"></a>Application Insights
@@ -157,7 +157,7 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 ### <a name="alerts"></a>Alertas
 - [Regras de ação para alertas do Azure Monitor](platform/alerts-action-rules.md) - Processos CLI adicionados.
 - [Criar e gerir grupos de ação no portal Azure](platform/action-groups.md) - Atualizado para refletir alterações na UI.
-- [Consultas guardadas no Azure Monitor Log Analytics](log-query/saved-queries.md) - Novo artigo.
+- [Exemplo de consultas no Azure Monitor Log Analytics](log-query/example-queries.md) - Novo artigo.
 - [Alertas de registo de resolução de problemas no Azure Monitor](platform/alerts-troubleshoot-log.md) - Secção adicionada na quota de regra de alerta.
 - [Resolução de problemas Alertas métricos Azure](platform/alerts-troubleshoot-metric.md) - Secção adicionada sobre regra de alerta sobre uma métrica personalizada que ainda não é emitida.
 - [Entenda como os alertas métricos funcionam no Azure Monitor.](platform/alerts-metric-overview.md) - Recomendação adicional para a seleção da granularidade agregação.
@@ -262,7 +262,7 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 - [Log de atividades Azure](platform/activity-log.md)
 - [Amostras de CLI monitor Azure](samples/cli-samples.md)
 - [Amostras de PowerShell monitor Azure Monitor](samples/powershell-samples.md)
-- [Azure Monitoring REST API walkthrough](platform/rest-api-walkthrough.md)
+- [Instruções da API REST de Monitorização do Azure](platform/rest-api-walkthrough.md)
 - [Azure Resource Logs suportados serviços e esquemas](./platform/resource-logs-schema.md)
 - [Registos de recursos do Azure](platform/resource-logs.md)
 - [Recolher e analisar o registo de atividades do Azure no Azure Monitor](./platform/activity-log.md)

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 83db314070f4c8857ebaa10b26d0adf51372776f
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: d5da6576258d3e33296781bbc262494220140ddc
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447788"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489289"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Ligue um dispositivo IoT Edge a jusante a um gateway Azure IoT Edge (Pré-visualização)
 
@@ -43,7 +43,7 @@ Todos os passos deste artigo baseiam-se nos que estão em [Configure um disposit
 
 * Um hub IoT gratuito ou padrão.
 * Pelo menos dois **dispositivos IoT Edge** , um para ser o dispositivo de camada superior e um ou mais dispositivos de camada inferior. Se não tiver dispositivos IoT Edge disponíveis, pode [executar Azure IoT Edge em máquinas virtuais Ubuntu](how-to-install-iot-edge-ubuntuvm.md).
-* Se utilizar o CLI Azure para criar e gerir dispositivos, tenha o Azure CLI v2.3.1 com a extensão Azure IoT v0.9.10 ou superior instalada.
+* Se utilizar o CLI Azure para criar e gerir dispositivos, tenha o Azure CLI v2.3.1 com a extensão Azure IoT v0.10.6 ou superior instalada.
 
 Este artigo fornece passos e opções detalhados para ajudá-lo a criar a hierarquia de gateway certa para o seu cenário. Para obter um tutorial guiado, consulte [Criar uma hierarquia de dispositivos IoT Edge utilizando gateways](tutorial-nested-iot-edge.md).
 

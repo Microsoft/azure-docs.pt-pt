@@ -4,12 +4,12 @@ description: Fornece respostas a algumas das perguntas comuns sobre a Azure VMwa
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 9f0eb1ec7c979e6f35c21f49cad9ab9975a221fc
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94357298"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94487797"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
 
@@ -33,7 +33,7 @@ Todos os serviços da Azure estarão disponíveis para os clientes da Azure VMwa
 
 #### <a name="do-i-use-the-same-tools-that-i-use-now-to-manage-private-cloud-resources"></a>Uso as mesmas ferramentas que uso agora para gerir recursos privados em nuvem?
 
-Sim. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
+Yes. O portal Azure é utilizado para implantação e várias operações de gestão. vCenter e NSX Manager são usados para gerir recursos vSphere e NSX-T.
 
 #### <a name="can-i-manage-a-private-cloud-with-my-on-premises-vcenter"></a>Posso gerir uma nuvem privada com o meu vCenter no local?
 
@@ -45,7 +45,7 @@ Integrações específicas e casos de utilização podem ser avaliados caso a ca
 
 #### <a name="can-i-migrate-vsphere-vms-from-on-premises-environments-to-azure-vmware-solution-private-clouds"></a>Posso migrar vSphere VMs de ambientes no local para nuvens privadas Azure VMware Solution?
 
-Sim. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se os requisitos padrão de vCenter [vCenter vMotion forem cumpridos.](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952)
+Yes. A migração vM e vMotion podem ser usadas para mover VMs para uma nuvem privada se os requisitos padrão de vCenter [vCenter vMotion forem cumpridos.](https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=2106952)
 
 #### <a name="is-a-specific-version-of-vsphere-required-in-on-premises-environments"></a>É necessária uma versão específica da vSphere em ambientes no local?
 
@@ -192,8 +192,14 @@ Não. O tráfego de rede a entrar da internet diretamente para nuvens privadas n
 
 #### <a name="do-i-need-to-restrict-internet-access-from-vms-on-logical-networks-to-the-internet"></a>Preciso de restringir o acesso à Internet de VMs em redes lógicas para a internet?
 
-Sim. Terá de usar o gestor NSX-T para criar uma firewall que restringe o acesso de VM à internet.
+Yes. Terá de usar o gestor NSX-T para criar uma firewall que restringe o acesso de VM à internet.
 
+
+#### <a name="can-azure-vmware-solution-use-azure-virtual-wan-hosted-expressroute-gateways"></a>A Azure VMware Solution pode usar Azure Virtual WAN hospedado ExpressRoute Gateways?
+Yes.
+
+#### <a name="can-transit-connectivity-be-established-between-on-premises-and-azure-vmware-solution-through-azure-virtual-wan-over-expressroute-global-reach"></a>Pode a conectividade de trânsito ser estabelecida entre as instalações e a Solução Azure VMware através do Azure Virtual WAN sobre o ExpressRoute Global Reach?
+AZure Virtual WAN não fornece encaminhamento transitório entre dois circuitos ExpressRoute conectados e o GATEWAY WAN ExpressRoute não virtual. A utilização do ExpressRoute Global Reach permite a conectividade entre as instalações e a Azure VMware Solution, mas passa pela rede global da Microsoft em vez do Virtual WAN Hub.
 
 
 ## <a name="accounts-and-privileges"></a>Contas e privilégios

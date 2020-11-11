@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/24/2020
 ms.author: b-juche
-ms.openlocfilehash: d0a16dc639fb3206b480c1091a66686955cbb11d
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 9740506da2c03996db756175551867ed43575a7c
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932350"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488184"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
@@ -119,7 +119,7 @@ Considerações adicionais da AADDS aplicam-se aos ficheiros Azure NetApp:
 
 Quando criar uma ligação Ative Directory, note as seguintes especificidades para AADDS:
 
-* Pode encontrar informações para **DNS Primários,** **DNS Secundários**e **Nome de Domínio AD DNS** no menu AADDS.  
+* Pode encontrar informações para **DNS Primários,** **DNS Secundários** e **Nome de Domínio AD DNS** no menu AADDS.  
 Para os servidores DNS, serão utilizados dois endereços IP para configurar a ligação Ative Directory. 
 * O **percurso da unidade organizacional** `OU=AADDC Computers` é.  
 Esta definição está configurada nas Ligações de **Diretório Ativo** na **Conta NetApp:**
@@ -131,7 +131,7 @@ Esta definição está configurada nas Ligações de **Diretório Ativo** na **C
 
 ## <a name="create-an-active-directory-connection"></a>Criar uma ligação ative directy
 
-1. A partir da sua conta NetApp, clique em **ligações de Ative Directory**e, em seguida, clique em **Juntar-se**.  
+1. A partir da sua conta NetApp, clique em **ligações de Ative Directory** e, em seguida, clique em **Juntar-se**.  
 
     ![Conexões de diretório ativo](../media/azure-netapp-files/azure-netapp-files-active-directory-connections.png)
 
@@ -146,7 +146,7 @@ Esta definição está configurada nas Ligações de **Diretório Ativo** na **C
     * **Nome de domínio de DNS de anúncio**  
         Este é o nome de domínio dos seus Serviços de Domínio de Diretório Ativo a que pretende aderir.
     * **Nome do site de anúncios**  
-        Este é o nome do site a que a descoberta do controlador de domínio será limitada.
+        Este é o nome do site a que a descoberta do controlador de domínio será limitada. Isto deve coincidir com o nome do site em Sites e Serviços de Diretório Ativo.
     * **Prefixo do servidor SMB (conta de computador)**  
         Este é o prefixo de nomeação para a conta de máquina no Ative Directory que o Azure NetApp Files utilizará para a criação de novas contas.
 

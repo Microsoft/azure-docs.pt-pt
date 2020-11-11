@@ -4,15 +4,15 @@ description: Saiba mais sobre as suas opções de suporte no Partner Center, inc
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: navits09
+ms.author: navits
 ms.date: 09/18/2020
-ms.openlocfilehash: 983f7e400a33cb36f30505e5a8a28811d9d4cdfb
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b042d1e1f38b2a4a84522d58ad482d4262f69a4a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284738"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488898"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>Apoio ao programa de marketplace comercial no Partner Center
 
@@ -100,7 +100,7 @@ Para gerar um ficheiro HAR utilizando **o Microsoft Edge** ou o Google **Chrome:
 
 6. Reproduza o problema que pretende resolver os problemas.
 7. Depois de reproduzir o problema, selecione Parar de **gravar o registo de rede**.
-8. Selecione **Export HAR**, marcado com um ícone de seta para baixo, e guarde o ficheiro.
+8. Selecione **Export HAR** , marcado com um ícone de seta para baixo, e guarde o ficheiro.
 
     ![Como exportar um ficheiro HAR no Microsoft Edge ou no Google Chrome](media/support/chromium-network-export-har.png)
 
@@ -123,7 +123,7 @@ Para gerar um ficheiro HAR utilizando **o Mozilla Firefox:**
 
 Para gerar um ficheiro HAR utilizando **o Safari:**
 
-1. Ative as ferramentas de **Safari**desenvolvedor no Safari: selecione  >  **Safari Preferences**. Vá ao separador **Advanced** e, em seguida, selecione **o menu Show Develop na barra de menus.**
+1. Ative as ferramentas de **Safari** desenvolvedor no Safari: selecione  >  **Safari Preferences**. Vá ao separador **Advanced** e, em seguida, selecione **o menu Show Develop na barra de menus.**
 1. Vá à página web onde está a passar pelo problema.
 1. Selecione **Desenvolver,** em seguida, **selecione Show Web Inspetor**.
 1. Selecione o separador **'Rede'** e, em seguida, selecione **Itens de Rede Limpos** para remover os registos existentes.

@@ -11,14 +11,14 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358104"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489306"
 ---
-# <a name="connect-to-storage-services-azure"></a>Ligar aos serviços de armazenamento Azure
+# <a name="connect-to-storage-services-on-azure"></a>Conecte-se aos serviços de armazenamento em Azure
 
 Neste artigo, aprenda a **ligar-se aos serviços de armazenamento no Azure via Azure Machine Learning datastores**. As datas conectam-se de forma segura ao seu serviço de armazenamento Azure sem colocar em risco as suas credenciais de autenticação e a integridade da sua fonte de dados original. Armazenam informações de ligação, como o ID de subscrição e a autorização simbólica no [cofre-chave](https://azure.microsoft.com/services/key-vault/) associado ao espaço de trabalho, para que possa aceder de forma segura ao seu armazenamento sem ter de os codificar nos scripts. Você pode usar o [Azure Machine Learning Python SDK](#python) ou o [estúdio Azure Machine Learning](how-to-connect-data-ui.md) para criar e registar datastores.
 
@@ -251,7 +251,7 @@ Também pode alterar a loja de dados predefinido com o seguinte código. Esta ca
 
 A Azure Machine Learning fornece várias formas de usar os seus modelos para pontuar. Alguns destes métodos não fornecem acesso a datastores. Utilize a seguinte tabela para entender quais os métodos que lhe permitem aceder às datastores durante a pontuação:
 
-| Método | Acesso à loja de dados | Descrição |
+| Método | Acesso à loja de dados | Description |
 | ----- | :-----: | ----- |
 | [Predição de lote](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Faça previsões sobre grandes quantidades de dados assíncroneamente. |
 | [Serviço Web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
@@ -267,7 +267,7 @@ A Azure Machine Learning suporta o acesso a dados a partir do armazenamento de A
 
 A Azure Data Factory fornece transferência de dados eficiente e resiliente com mais de 80 conectores pré-construídos sem custos adicionais. Estes conectores incluem serviços de dados Azure, fontes de dados no local, Amazon S3 e Redshift, e Google BigQuery.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um conjunto de dados de aprendizagem de máquinas Azure](how-to-create-register-datasets.md)
 * [Preparar um modelo](how-to-set-up-training-targets.md)

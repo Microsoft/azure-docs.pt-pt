@@ -4,15 +4,15 @@ description: Explicação da função de test drive do Marketplace
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 06/19/2020
-ms.openlocfilehash: 4f78aa110ed42e17db873b9593de62602aa4193f
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 304e1ab475213bde2644c8241905408ade5672ed
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911142"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489969"
 ---
 # <a name="what-is-a-test-drive"></a>O que é uma versão de teste?
 

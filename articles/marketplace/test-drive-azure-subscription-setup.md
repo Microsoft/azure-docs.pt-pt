@@ -4,15 +4,15 @@ description: Explica como configurar uma subscrição do Azure Marketplace para 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 11/09/2020
-ms.openlocfilehash: 8e77c21c6d776aef20fa3ca71ad12fdb424b07ab
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 6f74f3b1f5aad153903ba5d290a290973203a875
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415018"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489391"
 ---
 # <a name="set-up-an-azure-marketplace-subscription-for-hosted-test-drives"></a>Configurar uma subscrição do Azure Marketplace para test drives hospedados
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381ee08f44ad8fb4dade9b6229f5a5925cf2b6b7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a17143045b368038e24ac40f131325a623fc934d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92376796"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489612"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Alterar a adesão do grupo estático à dinâmica no Azure Ative Directory
 
@@ -32,7 +32,7 @@ Pode alterar a adesão de um grupo de estática para dinâmica (ou vice-versa) n
 
 ## <a name="change-the-membership-type-for-a-group"></a>Alterar o tipo de membro para um grupo
 
-1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com uma conta que é um administrador global ou um administrador de utilizador na sua organização Azure AD.
+1. Inscreva-se no [centro de administração Azure AD](https://aad.portal.azure.com) com uma conta que é um administrador global, administrador de utilizadores ou administrador de grupos na sua organização Azure AD.
 2. Selecione **Grupos**.
 3. Da lista **de todos os grupos,** abra o grupo que pretende alterar.
 4. Selecione **Propriedades**.
@@ -44,7 +44,7 @@ Os passos seguintes são um exemplo de mudança de grupo de estática para membr
   
    ![selecionar tipo de membro de utilizador dinâmico](./media/groups-change-type/select-group-to-convert.png)
   
-2. **Selecione Adicionar consulta dinâmica**e, em seguida, fornecer a regra.
+2. **Selecione Adicionar consulta dinâmica** e, em seguida, fornecer a regra.
   
    ![entrar na regra para o grupo dinâmico](./media/groups-change-type/enter-rule.png)
   

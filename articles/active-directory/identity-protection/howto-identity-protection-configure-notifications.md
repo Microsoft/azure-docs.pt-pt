@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 10/07/2020
+ms.date: 11/09/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 71c786aaecd3ab2f18f242cea2f5c45838f9ecf3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9536cf41add73f494bfff451c201d36e951864e3
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839352"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489493"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificações de Proteção de Identidade Azure Ative
 
@@ -33,9 +33,11 @@ Em resposta a uma conta detetada em risco, a Azure AD Identity Protection gera u
 
 A configuração deste alerta permite especificar a que nível de risco o utilizador pretende que o alerta seja gerado. O e-mail será gerado quando o nível de risco do utilizador atingir o que especificou. Por exemplo, se definir a política para alertar sobre o risco médio do utilizador e a pontuação de risco do utilizador do utilizador do utilizador Desloca-se para risco médio devido a um risco de entrada em tempo real, receberá os utilizadores em risco detetado e-mail. Se o utilizador tiver subsequentes deteções de risco que façam com que o cálculo do nível de risco do utilizador seja o nível de risco especificado (ou superior), receberá e-mails adicionais detetados pelo utilizador quando a pontuação de risco do utilizador for recalculada. Por exemplo, se um utilizador se deslocar para risco médio no dia 1 de janeiro, receberá uma notificação por e-mail se as suas definições estiverem definidas para alertar para o risco médio. Se esse mesmo utilizador tiver então outra deteção de risco no dia 5 de janeiro, que também é de risco médio, e a pontuação de risco do utilizador for recalculada e ainda for média, receberá outra notificação de e-mail. 
 
-No entanto, uma notificação adicional de e-mail só será enviada se o tempo de deteção de risco ocorrer (que causou a alteração do nível de risco do utilizador) for mais recente do que quando o último e-mail foi enviado. Por exemplo, um utilizador entra em sação no dia 1 de janeiro às 5 da manhã e não existe qualquer risco em tempo real (o que significa que nenhum e-mail seria gerado devido a essa inscrição). Dez minutos depois, às 5:10 da manhã, o mesmo utilizador volta a entrar e tem um elevado risco em tempo real, fazendo com que o nível de risco do utilizador se mova para alto e um e-mail seja enviado. Em seguida, às 5:15 da manhã, a pontuação de risco offline para o início de sôr entrada às 5 da manhã altera-se para alto risco devido ao processamento de risco offline. Um utilizador adicional sinalizado para o e-mail de risco não seria enviado, uma vez que a hora da primeira inscrição foi antes da segunda sindes que já desencadeou uma notificação por e-mail.
+No entanto, uma notificação adicional de e-mail só será enviada se o tempo de deteção de risco ocorrer (que causou a alteração do nível de risco do utilizador) for mais recente do que quando o último e-mail foi enviado. Por exemplo, um utilizador assina no dia 1 de janeiro às 5 da manhã e não existe qualquer risco em tempo real (o que significa que nenhum e-mail seria gerado devido a essa inscrição). Dez minutos depois, às 5:10 da manhã, o mesmo utilizador volta a entrar e tem um elevado risco em tempo real, fazendo com que o nível de risco do utilizador se mova para alto e um e-mail seja enviado. Em seguida, às 5:15 da manhã, a pontuação de risco offline para o início de sôr entrada às 5 da manhã altera-se para alto risco devido ao processamento de risco offline. Um utilizador adicional sinalizado para o e-mail de risco não seria enviado, uma vez que a hora da primeira inscrição foi antes da segunda sindes que já desencadeou uma notificação por e-mail.
 
-Para evitar uma sobrecarga de e-mails, receberá apenas um utilizadores em risco detetados num período de 5 segundos. Isto significa que se vários utilizadores se moverem para o nível de risco especificado durante o mesmo período de 5 segundos, agregaremos e enviaremos um e-mail para representar a mudança no nível de risco para todos eles.
+Para evitar uma sobrecarga de e-mails, só receberá um e-mail dentro de um período de 5 segundos. Este atraso significa que se vários utilizadores se deslocarem para o nível de risco especificado durante o mesmo período de tempo de 5 segundos, agregaremos e enviaremos um e-mail para representar a mudança no nível de risco para todos eles.
+
+Se a sua organização tiver ativado a auto-remediação como descrito no artigo, o Utilizador experimenta com a [Azure AD Identity Protection](concept-identity-protection-user-experience.md) existe a possibilidade de o utilizador poder remediar o seu risco antes de ter a oportunidade de investigar. Pode ver utilizadores arriscados e insusimentos de risco que foram remediados adicionando "Remediado" ao filtro **do estado de risco** nos **utilizadores risky** ou **relatórios de ins-ins de risco.**
 
 ![Utilizadores em risco detetado e-mail](./media/howto-identity-protection-configure-notifications/01.png)
 
@@ -44,7 +46,7 @@ Para evitar uma sobrecarga de e-mails, receberá apenas um utilizadores em risco
 Como administrador, pode definir:
 
 - **O nível de risco do utilizador que desencadeia a geração deste e-mail** - Por padrão, o nível de risco é definido para risco "elevado".
-- **Os destinatários deste e-mail** - Os utilizadores nas funções de administrador global, administrador de segurança ou leitor de Segurança são automaticamente adicionados a esta lista. Tentamos enviar e-mails aos primeiros 20 membros de cada função. Se um utilizador estiver inscrito na PIM para elevar para uma destas funções a pedido, só **receberá e-mails se estiver elevado no momento em que o e-mail for enviado**.
+- **Os destinatários deste e-mail** - Os utilizadores nas funções de administrador global, administrador de segurança ou leitor de Segurança são automaticamente adicionados a esta lista. Tentamos enviar e-mails aos primeiros 20 membros de cada função. Se um utilizador estiver inscrito em PIM para elevar a uma destas funções a pedido, então **só receberá e-mails se estiver elevado no momento em que o e-mail for enviado**.
    - Opcionalmente pode **Adicionar e-mail personalizado aqui** os utilizadores definidos devem ter as permissões apropriadas para ver os relatórios ligados no portal Azure.
 
 Configure os utilizadores em risco no **portal Azure** ao abrigo do **Azure Ative Directory**  >  **Security**  >  **Protection**  >  **Users em alertas detetados**.
@@ -60,14 +62,14 @@ Inclui:
 
 ![E-mail semanal de digestão](./media/howto-identity-protection-configure-notifications/weekly-digest-email.png)
 
-Os utilizadores das funções de administrador global, administrador de segurança ou leitor de segurança são automaticamente adicionados a esta lista. Tentamos enviar e-mails aos primeiros 20 membros de cada função. Se um utilizador estiver inscrito na PIM para elevar a uma destas funções a pedido, só **receberá e-mails se for elevado no momento em que o e-mail for enviado.**
+Os utilizadores das funções de administrador global, administrador de segurança ou leitor de segurança são automaticamente adicionados a esta lista. Tentamos enviar e-mails aos primeiros 20 membros de cada função. Se um utilizador estiver inscrito em PIM para elevar a uma destas funções a pedido, então **só receberá e-mails se estiver elevado no momento em que o e-mail é enviado**
 
 ### <a name="configure-weekly-digest-email"></a>Configure e-mail semanal de digestão
 
 Como administrador, pode mudar o envio de um e-mail semanal de digestão ligado ou desligado e escolher os utilizadores designados para receber o e-mail.
 
-Configure o e-mail semanal de digestão no **portal Azure** no âmbito da **Azure Ative**  >  **Directory Security**Identity  >  **Protection**Weekly  >  **digest**.
+Configure o e-mail semanal de digestão no **portal Azure** no âmbito da **Azure Ative**  >  **Directory Security** Identity  >  **Protection** Weekly  >  **digest**.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 - [Proteção de Identidade do Diretório Ativo Azure](./overview-identity-protection.md)

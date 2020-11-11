@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 624a147a463ad3be7e15a469294f07793046aaf3
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 5b2a74450477d562231eafd684b3d781d92f700d
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445958"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489578"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge (Pré-visualização)
 
@@ -53,7 +53,7 @@ Para criar uma hierarquia de dispositivos IoT Edge, você precisará:
 * Dois dispositivos Linux para configurar como dispositivos IoT Edge. Se não tiver dispositivos disponíveis, pode utilizar [máquinas virtuais Azure.](https://docs.microsoft.com/azure/virtual-machines/linux/)
 * Uma conta Azure com uma subscrição válida. Se não tiver uma [subscrição do Azure,](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) de nível gratuito ou padrão em Azure.
-* Azure CLI v2.3.1 com a extensão Azure IoT v0.9.10 ou superior instalada. Este tutorial usa a [Azure Cloud Shell.](https://docs.microsoft.com/azure/cloud-shell/overview) Se não está familiarizado com a Azure Cloud Shell, [consulte um quickstart para obter detalhes.](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell)
+* Azure CLI v2.3.1 com a extensão Azure IoT v0.10.6 ou superior instalada. Este tutorial usa a [Azure Cloud Shell.](https://docs.microsoft.com/azure/cloud-shell/overview) Se não está familiarizado com a Azure Cloud Shell, [consulte um quickstart para obter detalhes.](https://docs.microsoft.com/azure/iot-edge/quickstart-linux#use-azure-cloud-shell)
 
 Você também pode experimentar este cenário seguindo a amostra de [IoT Azure IoT](https://aka.ms/iotedge-nested-sample)scripted, que implementa máquinas virtuais Azure como dispositivos pré-configurados para simular um ambiente de fábrica.
 

@@ -1,20 +1,20 @@
 ---
-title: Painel de utilização em análise de mercado comercial da Microsoft, Azure Marketplace e Microsoft AppSource
-description: Saiba como aceder a todos os VM oferece métricas de utilização e faturação medido. Vá ao painel de utilização no Partner Center no mercado comercial.
+title: Painel de utilização em análise de mercado comercial / Mercado Azure
+description: Saiba como aceder a todas as métricas de faturação de uso e medido para ofertas publicadas no Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 9a1b6197241b93edf778295f196ccc92c45d85d6
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 1ae30d97e64dc17086e199c3fcc8188f54e6ab69
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414862"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490122"
 ---
-# <a name="usage-dashboard-in-microsoft-commercial-marketplace-analytics"></a>Painel de utilização na análise do mercado comercial da Microsoft
+# <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de utilização na análise do mercado comercial
 
 Este artigo fornece informações sobre o dashboard de utilização no Partner Center. Este painel de instrumentos exibe todas as máquinas virtuais (VM) oferece métricas de utilização normalizada, uso em bruto e métricas de faturação medidos em três separados: utilização normalizada VM, utilização de VM Raw e utilização de faturação medido.
 

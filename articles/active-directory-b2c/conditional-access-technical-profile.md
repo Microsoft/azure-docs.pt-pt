@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88548b57cee9b5f637247fda1536488382ae2f6
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: bc811ab3cab4b79b81b16dd94a2c72225046e35a
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042631"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488283"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Defina um perfil técnico de acesso condicional numa política personalizada do Azure Ative Directory B2C
 
@@ -53,7 +53,7 @@ Para cada sing-in, o Azure AD B2C avalia todas as políticas e garante que todos
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| OperaçãoType | Sim | Deve ser **avaliação.**  |
+| Tipo de Operação | Yes | Deve ser **avaliação.**  |
 
 ### <a name="input-claims"></a>Reclamações de entrada
 
@@ -61,7 +61,7 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para Aces
 
 | ReclamaçãoReferênciaId | Necessário | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
-| IDUtilizador | Yes | cadeia | O identificador do utilizador que se inscreve. |
+| IDUtilizador | Yes | string | O identificador do utilizador que se inscreve. |
 | Autenticação MehodsUsed | Yes |stringCollection | A lista de métodos que o utilizador usou para iniciar sinscrevi-se. Valores possíveis: `Password` e `OneTimePasscode` . |
 | IsFederated | Yes |boolean | Indica se um utilizador assinou ou não com uma conta federada. O valor deve `false` ser. |
 | IsMfaRegistered | Yes |boolean | Indica se o utilizador já inscreveu um número de telefone para autenticação multi-factor. |
@@ -75,7 +75,7 @@ O elemento **OutputClaims** contém uma lista de reclamações geradas pelo Cond
 
 | ReclamaçãoReferênciaId | Necessário | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
-| Desafios | Sim |stringCollection | Lista de ações para remediar a ameaça identificada. Valores possíveis: `block` |
+| Desafios | Yes |stringCollection | Lista de ações para remediar a ameaça identificada. Valores possíveis: `block` |
 | MultiConditionalAccessStatus | Yes | stringCollection |  |
 
 O elemento **OutputClaimsTransformations** pode conter uma coleção de elementos de **saídaClaimsTransformation** que são utilizados para modificar as alegações de saída ou gerar novos.
@@ -115,7 +115,7 @@ O modo de **remediação** do perfil técnico de Acesso Condicional informa a Az
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| OperaçãoType | Sim | Deve ser **remediação.**  |
+| Tipo de Operação | Yes | Deve ser **remediação.**  |
 
 ### <a name="input-claims"></a>Reclamações de entrada
 
@@ -123,7 +123,7 @@ O elemento **InputClaims** contém uma lista de reclamações a enviar para Aces
 
 | ReclamaçãoReferênciaId | Necessário | Tipo de Dados | Descrição |
 | --------- | -------- | ----------- |----------- |
-| DesafiosSSatisficados | Sim | stringCollection| A lista de desafios satisfeitos para remediar a ameaça identificada como retorno do modo de avaliação, desafia a reivindicação.|
+| DesafiosSSatisficados | Yes | stringCollection| A lista de desafios satisfeitos para remediar a ameaça identificada como retorno do modo de avaliação, desafia a reivindicação.|
 
 
 O elemento **InputClaimsTransformations** pode conter uma coleção de elementos de **entradaClaimsTransformation** que são utilizados para modificar as reclamações de entrada ou gerar novas antes de ligar para o serviço de Acesso Condicional.
@@ -428,7 +428,7 @@ Adicione uma viagem de utilizador que utiliza as novas reclamações, como mostr
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="true">
               <Value>CAChallengeIsMfa</Value>
-              <Value>false</Value>
+              <Value>False</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>
@@ -458,7 +458,7 @@ Adicione uma viagem de utilizador que utiliza as novas reclamações, como mostr
             </Precondition>
             <Precondition Type="ClaimEquals" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
-              <Value>true</Value>
+              <Value>True</Value>
               <Action>SkipThisOrchestrationStep</Action>
             </Precondition>
           </Preconditions>

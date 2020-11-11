@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: 973d3ebe2879a2e98a72ce1f7571a1f00cd67a93
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b7d587f2be5141f7de82e9294b1fdb9fba4a6a41
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94356149"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94488648"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
@@ -52,6 +52,12 @@ Esta operação devolve uma série de pares chave/valor:
 ![Screenshot mostrando o appId e senha para contosoServicePrincipal](../media/kubernetes-key-vault-1.png)
 
 Copie as credenciais **de appId** e **password** para posterior utilização.
+
+## <a name="flow-for-using-managed-identity"></a>Fluxo para utilização da Identidade Gerida
+
+Este diagrama ilustra o fluxo de integração do Cofre AKS-Key para identidade gerida:
+
+![Diagrama que mostra o fluxo de integração do Cofre AKS-Key para identidade gerida](../media/aks-key-vault-integration-flow.png)
 
 ## <a name="deploy-an-azure-kubernetes-service-aks-cluster-by-using-the-azure-cli"></a>Implementar um cluster Azure Kubernetes Service (AKS) utilizando o Azure CLI
 

@@ -4,15 +4,15 @@ description: Saiba como utilizar a Salesforce para configurar leads para o Micro
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: keferna
-ms.author: keferna
+author: trkeya
+ms.author: trkeya
 ms.date: 03/30/2020
-ms.openlocfilehash: c3667de6a9bf85109a94201aa8e144869e4b033f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 73caf848ab5c6f8e973469066ce4612a075a52f5
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86117120"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489323"
 ---
 # <a name="configure-lead-management-for-salesforce"></a>Configure a gestão de chumbo para a Salesforce
 
@@ -31,7 +31,7 @@ Este artigo descreve como configurar o seu sistema Salesforce para processar os 
 
        ![Configuração salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-1.png)
 
-    1. Na página **configuração,** aceda a Definições de Funcionalidade **de Ferramentas**de Plataforma  >  **Feature Settings**  >  **Marketing**  >  **Web-to-Lead**.
+    1. Na página **configuração,** aceda a Definições de Funcionalidade **de Ferramentas** de Plataforma  >  **Feature Settings**  >  **Marketing**  >  **Web-to-Lead**.
 
         ![Salesforce Web-to-Lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-2.png)
 
@@ -48,11 +48,11 @@ Este artigo descreve como configurar o seu sistema Salesforce para processar os 
    Os passos restantes são os mesmos para ambas as experiências da Salesforce.
 
 1. Na página **De Configuração Web-to-Lead,** selecione o botão **'Criar Formulário Web-to-Lead'.**
-1. Na **configuração Web-to-Lead**, selecione **Criar um formulário Web-to-Lead**.
+1. Na **configuração Web-to-Lead** , selecione **Criar um formulário Web-to-Lead**.
 
     ![Configuração Web-to-Lead da Salesforce](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-3.png)
 
-1. No **Criar um formulário Web-to-Lead, certifique-se**de que a `Include reCAPTCHA in HTML` definição está limpa e selecione **Gerar**.
+1. No **Criar um formulário Web-to-Lead, certifique-se** de que a `Include reCAPTCHA in HTML` definição está limpa e selecione **Gerar**.
 
     ![Salesforce Criar um painel de formulário web-to-lead](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-4.png)
 
@@ -78,7 +78,7 @@ Quando estiver pronto para configurar as informações de gestão de chumbo para
 
     ![Detalhes de conexão janela pop-up Validar caixa de e-mail de contato](./media/commercial-marketplace-lead-management-instructions-salesforce/salesforce-connection-details.png)
 
-1. No **e-mail de Contato**, insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo é recebido. Pode fornecer vários e-mails separando-os com um ponto e vírgula.
+1. No **e-mail de Contato** , insira endereços de e-mail para pessoas da sua empresa que devem receber notificações de e-mail quando um novo chumbo é recebido. Pode fornecer vários e-mails separando-os com um ponto e vírgula.
 
 1. Selecione **OK**.
 

@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: bf1dcb34b762c3dcae39316d804b617edbf2302d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 263509ce7d348e51bf4a2a1d7ad83fb5dfdb5e29
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360739"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489442"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Treine com conjuntos de dados em Azure Machine Learning
 
@@ -254,9 +254,10 @@ src.run_config.source_directory_data_store = "workspaceblobstore"
 
 ## <a name="notebook-examples"></a>Exemplos de cadernos
 
-Os [cadernos de conjuntos de dados](https://aka.ms/dataset-tutorial) demonstram e expandem-se sobre conceitos neste artigo.
++ Os [cadernos de conjuntos de dados](https://aka.ms/dataset-tutorial) demonstram e expandem-se sobre conceitos neste artigo.
++ Veja como [parametizar conjuntos de dados nos seus oleodutos ML](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-showcasing-dataset-and-pipelineparameter.ipynb).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Modelos de aprendizagem automática de máquinas](how-to-auto-train-remote.md) de comboio com Separadors.
 

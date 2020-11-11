@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/10/2020
+ms.openlocfilehash: 0dc55f4d77fde48590b1fbf206ed988e8fb9ec0e
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098778"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94490275"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introdução à produção prevista na Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -73,7 +73,7 @@ Se a sua conta DB Azure Cosmos já tiver uma base de dados de produção partilh
 
 Se as suas cargas de trabalho envolverem a eliminação e recriação de todas as coleções numa base de dados, recomenda-se que deixe cair a base de dados vazia e recrie uma nova base de dados antes da criação da recolha. A imagem a seguir mostra como uma partição física pode acolher uma ou mais divisórias lógicas que pertencem a diferentes recipientes dentro de uma base de dados:
 
-:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partição física que acolhe uma ou mais divisórias lógicas de um recipiente" border="false":::
+:::image type="content" source="./media/set-throughput/resource-partition2.png" alt-text="Partição física que acolhe uma ou mais divisórias lógicas que pertencem a diferentes recipientes " border="false":::
 
 ## <a name="set-throughput-on-a-database-and-a-container"></a>Colocar a produção numa base de dados e num contentor
 
@@ -82,9 +82,9 @@ Pode combinar os dois modelos. É permitido o fornecimento de produção na base
 * Pode criar uma base de dados Azure Cosmos chamada *Z* com produção padrão (manual) de *RUs "K".* 
 * Em seguida, crie cinco recipientes chamados *A,* *B,* *C,* *D* e *E* dentro da base de dados. Ao criar o contentor B, certifique-se de que permite a **produção dedicada a esta** opção de contentor e configure explicitamente as RUs *"P"* de produção prevista neste recipiente. Só pode configurar a produção partilhada e dedicada quando estiver a criar a base de dados e o contentor. 
 
-   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partição física que acolhe uma ou mais divisórias lógicas de um recipiente":::
+   :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Definição da produção ao nível do contentor":::
 
-* A produção de RUs *"K"* é partilhada nos quatro contentores *A,* *C,* *D* e *E* . A quantidade exata de produção disponível para *A,* *C,* *D* ou *E* varia. Não há SLAs para a produção de cada contentor.
+* A produção de RUs *"K"* é partilhada nos quatro contentores *A,* *C,* *D* e *E*. A quantidade exata de produção disponível para *A,* *C,* *D* ou *E* varia. Não há SLAs para a produção de cada contentor.
 * O contentor chamado *B* tem a garantia de obter sempre a produção de RUs *"P".* É apoiado por SLAs.
 
 > [!NOTE]
@@ -109,7 +109,7 @@ A resposta desses métodos contém também o [rendimento mínimo previsto](conce
 O ru/s mínimo real pode variar dependendo da configuração da sua conta. Mas geralmente é o máximo de:
 
 * 400 RU/s 
-* Armazenamento atual em GB * 10 RU/s
+* Armazenamento atual em GB * 10 RU/s (a menos que o seu recipiente ou base de dados contenha mais de 1 TB de dados, consulte o nosso [programa de alto armazenamento/baixo rendimento)](#high-storage-low-throughput-program)
 * RU/s mais elevados a provisionados na base de dados ou no contentor / 100
 * Contagem de contentores * 100 RU/s (apenas base de dados de produção partilhada)
 

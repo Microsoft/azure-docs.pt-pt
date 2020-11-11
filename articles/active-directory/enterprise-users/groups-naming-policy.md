@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9456d663eb1600bf73b1fe253560c2d9f29205ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 45dac4425f4d2f563cbc942f23d81583728139f6
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377120"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489459"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Impor uma política de nomeação em grupos Microsoft 365 no Azure Ative Directory
 
@@ -249,7 +249,6 @@ Aplicação móvel de grupos | Os grupos criados na aplicação móvel Grupos es
 Planner | O planejador está em conformidade com a política de nomeação. O planejador mostra a pré-visualização da política de nomeação ao introduzir o nome do plano. Quando um utilizador introduz uma palavra bloqueada personalizada, é mostrada uma mensagem de erro ao criar o plano.
 Dynamics 365 for Customer Engagement | A Dynamics 365 para o Envolvimento com o Cliente está em conformidade com a política de nomeação. A Dynamics 365 mostra o nome da política de nomeação quando o utilizador escreve um nome de grupo ou um pseudónimo de e-mail de grupo. Quando o utilizador introduz uma palavra bloqueada personalizada, é mostrada uma mensagem de erro com a palavra bloqueada para que o utilizador possa removê-la.
 Sincronização de dados escolares (SDS) | Os grupos criados através das SDS cumprem a política de nomeação, mas a política de nomeação não é aplicada automaticamente. Os administradores da SDS têm de anexar os prefixos e sufixos aos nomes de classe para os quais os grupos precisam de ser criados e depois enviados para sDS. Criar ou editar em grupo falharia de outra forma.
-Outlook Customer Manager (OCM) | O Outlook Customer Manager está em conformidade com a política de nomeação, que é automaticamente aplicada ao grupo criado no Outlook Customer Manager. Se for detetada uma palavra bloqueada personalizada, a criação de grupo em OCM é bloqueada e o utilizador fica bloqueado de usar a aplicação OCM.
 Aplicativo de sala de aula | Os grupos criados na aplicação Classroom cumprem a política de nomeação, mas a política de nomeação não é aplicada automaticamente, e a pré-visualização da política de nomeação não é mostrada aos utilizadores enquanto inserimos um nome de grupo em sala de aula. Os utilizadores devem introduzir o nome de grupo de sala de aula forçado com prefixos e sufixos. Caso contrário, o grupo de aulas cria ou edita a operação falha com erros.
 Power BI | Os espaços de trabalho power BI estão em conformidade com a política de nomeação.    
 Yammer | Quando um utilizador se inscreveu na Yammer com a sua conta Azure Ative Directory cria um grupo ou edita um nome de grupo, o nome do grupo cumprirá a política de nomeação. Isto aplica-se tanto aos grupos ligados à Microsoft 365 como a todos os outros grupos Yammer.<br>Se um grupo ligado à Microsoft 365 foi criado antes da política de nomeação estar em vigor, o nome do grupo não seguirá automaticamente as políticas de nomeação. Quando um utilizador edita o nome de grupo, será solicitado que adicione o prefixo e o sufixo.

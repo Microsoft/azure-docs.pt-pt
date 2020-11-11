@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: adc3b4542b6eba0cc0df7d93ac2cabbf7c1c144a
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 232f50c05182799c93a636baa2aec8ed93419be8
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216594"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489476"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Partilhar dados com o Azure Data Share  
 
@@ -89,7 +89,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
     | Name | *conta de datashare* | Especifique um nome para a sua conta de partilha de dados. |
     | | |
 
-1. Selecione **Rever + criar**e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos. 
+1. Selecione **Rever + criar** e, em seguida, **criar** para obter a sua conta de partilha de dados. O fornecimento de uma nova conta de partilha de dados normalmente demora cerca de 2 minutos ou menos. 
 
 1. Quando a implementação estiver concluída, selecione **Ir para o recurso**.
 
@@ -137,8 +137,15 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. No separador 'Rever + Criar', rever os conteúdos, definições, destinatários e definições de sincronização do pacote. Selecione **Criar**.
 
-A sua Azure Data Share foi agora criada e o destinatário da sua Partilha de Dados está agora pronto para aceitar o seu convite. 
+A sua Azure Data Share foi agora criada e o destinatário da sua Partilha de Dados está agora pronto para aceitar o seu convite.
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Quando o recurso já não for necessário, vá à página de Visão Geral do **Conjunto de Partilha de Dados** e selecione **Eliminar** para o remover.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a criar uma Partilha de Dados Azure e a convidar os destinatários. Para saber como um Consumidor de Dados pode aceitar e receber uma partilha de dados, continue a aceitar e receber o tutorial [de dados.](subscribe-to-data-share.md)
+Neste tutorial, aprendeu a criar uma Partilha de Dados Azure e a convidar os destinatários. Para saber como um Consumidor de Dados pode aceitar e receber uma partilha de dados, continue a aceitar e receber o tutorial de dados.
+
+> [!div class="nextstepaction"]
+> [Tutorial: Aceitar e receber dados com o Azure Data Share](subscribe-to-data-share.md)

@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 29f02f80aa5bff1304dc593d68954e15fe6e66bb
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 469610d7195835a4b68e4d887c5be57a8926ba37
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93346439"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489510"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Utilize identidade gerida para autenticar o seu trabalho Azure Stream Analytics para Power BI
 
@@ -210,6 +210,10 @@ Corpo do Pedido
 }
 ```
 
+## <a name="remove-managed-identity"></a>Remover Identidade Gerida
+
+A Identidade Gerida criada para um trabalho stream Analytics só é eliminada quando o trabalho é eliminado. Não há como apagar a Identidade Gerida sem apagar o trabalho. Se já não pretender utilizar a Identidade Gerida, pode alterar o método de autenticação para a saída. A Identidade Gerida continuará a existir até que o trabalho seja eliminado, e será usado se decidir utilizar novamente a autenticação de Identidade Gerida.
+
 ## <a name="limitations"></a>Limitações
 Abaixo estão as limitações desta característica:
 
@@ -221,7 +225,7 @@ Abaixo estão as limitações desta característica:
 
 - [A Identidade Atribuída ao Utilizador](../active-directory/managed-identities-azure-resources/overview.md) não é suportada. Isto significa que não pode entrar no seu próprio principal de serviço para ser usado pelo seu trabalho stream Analytics. O diretor de serviço deve ser gerado pela Azure Stream Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Integração do painel power BI com Azure Stream Analytics](./stream-analytics-power-bi-dashboard.md)
 * [Compreender as saídas do Azure Stream Analytics](./stream-analytics-define-outputs.md)

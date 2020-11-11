@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 11/09/2020
+ms.date: 11/10/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: ab5a4717f32269f34a9351cb0ffa3796b89ccd6e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 07c0169dcbadc6dc8ae293d69e197c2cd1ec2275
+ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412753"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94489799"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Azure Firewall?
 
@@ -29,6 +29,17 @@ Pode criar, impor e registar centralmente políticas de conectividade de rede e 
 ## <a name="features"></a>Funcionalidades
 
 Para saber mais sobre as funcionalidades do Azure Firewall, consulte [as funcionalidades do Azure Firewall](features.md).
+
+## <a name="pricing-and-sla"></a>Preços e SLA
+
+Para obter informações sobre preços do Azure Firewall, consulte [os preços do Azure Firewall](https://azure.microsoft.com/pricing/details/azure-firewall/).
+
+Para obter informações sobre o SLA do [Azure Firewall, consulte o Azure Firewall SLA](https://azure.microsoft.com/support/legal/sla/azure-firewall/).
+
+## <a name="whats-new"></a>Novidades
+
+Para saber as novidades com o Azure Firewall, consulte as atualizações do [Azure](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Firewall).
+
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
