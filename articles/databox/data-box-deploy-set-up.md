@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 53309023a838f4b256327a37866408f556c81d29
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: ac87d5040cd572635d81be51308f48a57ddd38e3
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87924161"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335473"
 ---
 ::: zone target="docs"
 
@@ -119,7 +119,7 @@ Execute os passos seguintes para configurar o dispositivo com a IU da Web local 
 2. Ligue-se à porta MGMT do dispositivo e aceda à IU da Web local em https\://192.168.100.10. Este processo pode demorar até 5 minutos depois de ligar o dispositivo.
 3. Clique em **Details** (Detalhes) e, em seguida, clique em **Go on to the webpage** (Avançar para a página Web).
 
-   ![Ligar à IU da Web local](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png) 
+   ![Ligar à IU da Web local](media/data-box-deploy-set-up/data-box-connect-local-web-ui.png)
 
 4. Verá uma página para **Iniciar sessão** na IU da Web local. Certifique-se de que o número de série do dispositivo coincide na IU do portal e na IU da Web local. O dispositivo está bloqueado neste momento.
 5. Inicie sessão no [Portal do Azure](https://portal.azure.com).
@@ -129,7 +129,7 @@ Execute os passos seguintes para configurar o dispositivo com a IU da Web local 
     
     
 7. Indique a palavra-passe do dispositivo que obteve no portal do Azure no passo anterior para iniciar sessão na IU da Web local do dispositivo. Clique em **Iniciar sessão**.
-8. No **Dashboard**, certifique-se de que as interfaces de rede estão configuradas. 
+8. No **Dashboard** , certifique-se de que as interfaces de rede estão configuradas. 
    - Se o DHCP estiver ativado no seu ambiente, as interfaces de rede são configuradas automaticamente. 
    - Se o DHCP não estiver ativado, aceda a **Definir interfaces de rede** e atribua IPs estáticos, se for necessário.
 

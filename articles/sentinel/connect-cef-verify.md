@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: ba14e2c475611ed77661060d6e17ae0bcbf0a6ca
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: f0c38e72231fb343cb9b27def520f73d923a70f6
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744211"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515715"
 ---
 # <a name="step-3-validate-connectivity"></a>PASSO 3: Validar a conectividade
 
@@ -29,7 +29,7 @@ Depois de ter implantado o seu reencaminhador de registo (no Passo 1) e configur
 
 - Deve ter permissões elevadas (sudo) na sua máquina de reencaminhamento de registo.
 
-- Deve ter **a pitão 2.7** instalada na sua máquina de reencaminhar de madeira.<br>
+- Deve ter **a pitão 2.7** ou **3** instalada na sua máquina de reencaminhador de troncos.<br>
 Use o `python –version` comando para verificar.
 
 - Você pode precisar do ID do espaço de trabalho e chave primária do espaço de trabalho em algum momento deste processo. Pode encontrá-los no recurso do espaço de trabalho, sob **gestão de Agentes.**
@@ -37,7 +37,7 @@ Use o `python –version` comando para verificar.
 ## <a name="how-to-validate-connectivity"></a>Como validar a conectividade
 
 1. A partir do menu de navegação Azure Sentinel, abra **registos.** Faça uma consulta utilizando o esquema **CommonSecurityLog** para ver se está a receber registos da sua solução de segurança.<br>
-Tenha em atenção que pode demorar cerca de 20 minutos até que os seus registos comecem a aparecer no **Log Analytics** . 
+Tenha em atenção que pode demorar cerca de 20 minutos até que os seus registos comecem a aparecer no **Log Analytics**. 
 
 1. Se não vir nenhum resultado da consulta, verifique se os eventos estão a ser gerados a partir da sua solução de segurança, ou tente gerar alguns, e verifique se estão a ser encaminhados para a máquina de reencaminhamento Syslog que designou. 
 
@@ -47,9 +47,9 @@ Tenha em atenção que pode demorar cerca de 20 minutos até que os seus registo
     sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]` 
     ```
 
-   - Pode receber uma mensagem que o direcione a executar um comando para corrigir um problema com o **mapeamento do campo *Computador*** . Consulte a [explicação no roteiro de validação](#mapping-command) para mais detalhes.
+   - Pode receber uma mensagem que o direcione a executar um comando para corrigir um problema com o **mapeamento do campo *Computador***. Consulte a [explicação no roteiro de validação](#mapping-command) para mais detalhes.
 
-    - Pode obter uma mensagem que o direcione a executar um comando para corrigir um problema com a **análise dos registos de firewall cisco ASA** . Consulte a [explicação no roteiro de validação](#parsing-command) para mais detalhes.
+    - Pode obter uma mensagem que o direcione a executar um comando para corrigir um problema com a **análise dos registos de firewall cisco ASA**. Consulte a [explicação no roteiro de validação](#parsing-command) para mais detalhes.
 
 ## <a name="validation-script-explained"></a>Roteiro de validação explicado
 

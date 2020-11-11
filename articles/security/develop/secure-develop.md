@@ -13,15 +13,15 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ca0513f95bc490087f3c84eeecc4ea623f64604
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87283491"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517092"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desenvolver aplicações seguras no Azure
-Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenvolve aplicações para a nuvem. Questões e conceitos de segurança a ter em conta durante as fases de implementação e verificação do Ciclo de Vida para o Desenvolvimento da Segurança da Microsoft [(SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) são cobertos. O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenvolver uma aplicação mais segura.
+Neste artigo apresentamos atividades de segurança e controlos a ter em conta quando desenvolve aplicações para a nuvem. Questões e conceitos de segurança a ter em conta durante as fases de implementação e verificação do Ciclo de Vida para o Desenvolvimento da Segurança da Microsoft [(SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) são cobertos. O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar para desenvolver uma aplicação mais segura.
 
 Neste artigo, são abrangidas as seguintes fases SDL:
 
@@ -34,7 +34,7 @@ Assuma que a sua aplicação será usada de formas que não pretendia que fosse 
 
 ### <a name="perform-code-reviews"></a>Realizar revisões de código
 
-Antes de verificar o código, realize [revisões de código](https://docs.microsoft.com/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar a qualidade global do código e reduzir o risco de criar bugs. Pode utilizar [o Visual Studio](https://docs.microsoft.com/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para gerir o processo de revisão de códigos.
+Antes de verificar o código, realize [revisões de código](/azure/devops/learn/devops-at-microsoft/code-reviews-not-primarily-finding-bugs) para aumentar a qualidade global do código e reduzir o risco de criar bugs. Pode utilizar [o Visual Studio](/azure/devops/repos/tfvc/get-code-reviewed-vs?view=vsts) para gerir o processo de revisão de códigos.
 
 ### <a name="perform-static-code-analysis"></a>Efetuar a análise de código estático
 
@@ -62,7 +62,7 @@ Faça este trabalho no servidor, não no lado do cliente (ou no servidor e no la
 
 ### <a name="verify-your-applications-outputs"></a>Verifique as saídas da sua aplicação
 
-Qualquer saída que apresente visualmente ou dentro de um documento deve ser sempre codificada e escapada. [A fuga](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecida como *codificação de saídas*, é usada para ajudar a garantir que dados não falsos não são um veículo para um ataque de injeção. A fuga, combinada com a validação de dados, fornece defesas em camadas para aumentar a segurança do sistema como um todo.
+Qualquer saída que apresente visualmente ou dentro de um documento deve ser sempre codificada e escapada. [A fuga](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), também conhecida como *codificação de saídas* , é usada para ajudar a garantir que dados não falsos não são um veículo para um ataque de injeção. A fuga, combinada com a validação de dados, fornece defesas em camadas para aumentar a segurança do sistema como um todo.
 
 A fuga garante que tudo é exibido como *saída.* Escapar também permite ao intérprete saber que os dados não se destinam a ser executados, o que impede que os ataques funcionem. Esta é outra técnica comum de ataque chamada *scripting cross-site* (XSS).
 
@@ -99,7 +99,7 @@ Se a aplicação tiver de gerar automaticamente senhas, certifique-se de que as 
 
 Se a sua aplicação permitir [uploads de ficheiros,](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)considere as precauções que pode tomar para esta atividade de risco. O primeiro passo em muitos ataques é colocar algum código malicioso num sistema que está a ser atacado. A utilização de um upload de ficheiros ajuda o atacante a conseguir isto. A OWASP oferece soluções para validar um ficheiro para garantir que o ficheiro que está a carregar é seguro.
 
-A proteção antimalware ajuda a identificar e remover vírus, spyware e outros softwares maliciosos. Pode instalar [o Microsoft Antimalware](../fundamentals/antimalware.md) ou a solução de proteção de ponto final de um parceiro da Microsoft[(Trend Micro](https://www.trendmicro.com/azure/), [Broadcom,](https://www.broadcom.com/products) [McAfee,](https://www.mcafee.com/us/products.aspx) [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection)).
+A proteção antimalware ajuda a identificar e remover vírus, spyware e outros softwares maliciosos. Pode instalar [o Microsoft Antimalware](../fundamentals/antimalware.md) ou a solução de proteção de ponto final de um parceiro da Microsoft[(Trend Micro](https://www.trendmicro.com/azure/), [Broadcom,](https://www.broadcom.com/products) [McAfee,](https://www.mcafee.com/us/products.aspx) [Windows Defender](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)e [Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 [O Microsoft Antimalware](../fundamentals/antimalware.md) inclui funcionalidades como proteção em tempo real, digitalização programada, remediação de malware, atualizações de assinaturas, atualizações de motores, relatórios de amostras e recolha de eventos de exclusão. Pode integrar soluções de Antimalware e parceiros da Microsoft com [o Azure Security Center](../../security-center/security-center-partner-integration.md) para facilitar a implementação e deteções incorporadas (alertas e incidentes).
 

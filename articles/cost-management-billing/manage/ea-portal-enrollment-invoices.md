@@ -3,21 +3,102 @@ title: Faturas de inscrição do Azure Enterprise
 description: Este artigo explica como gerir e interpretar a fatura Azure Enterprise.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.reviewer: boalcsva
-ms.openlocfilehash: fec013395af9aeb3d83f86ab47cc52b3fedd7a1f
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq1
+ms.openlocfilehash: 57ada2ca760ffff2124582c31fdd095d04d4375f
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91316142"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94410973"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Faturas de inscrição do Azure Enterprise
 
 Este artigo explica como gerir e interpretar a fatura do Contrato Enterprise do Azure (Azure EA). A fatura é uma representação da sua conta. Analise-a para ver se está correta. Deve também familiarizar-se com outras tarefas que possam ser necessárias para gerir a fatura.
+
+## <a name="view-usage-summary-and-download-reports"></a>Ver o resumo de utilização e os relatórios de transferências
+
+Os administradores de Enterprise podem ver um resumo dos dados de utilização, dos Pré-pagamentos consumidos do Azure e dos custos associados à utilização adicional no portal Azure Enterprise. Os custos são apresentados ao nível do resumo em todas as contas e subscrições.
+
+Para ver a utilização detalhada de contas específicas, transfira o relatório de detalhes de utilização:
+
+1. Inicie sessão no portal Azure Enterprise.
+1. Selecione **Relatórios**.
+1. Selecione o separador **Transferir Utilização**.
+1. Na lista de relatórios, selecione **Transferir** para o relatório mensal que quer obter.
+
+   > [!NOTE]
+   > O relatório de detalhes de utilização não inclui os impostos aplicáveis.
+   >
+   > Pode existir uma latência de até oito horas entre a hora em que a utilização foi incorrida e a hora que está refletida no relatório.
+
+Para ver relatórios e grafos do resumo da utilização:
+
+1. Inicie sessão no portal Azure Enterprise.
+
+1. Selecione um termo de Pré-pagamento.
+
+   Para alterar o intervalo de datas do **Resumo de Utilização** , pode alternar entre **M** (Mensal) e **P** (Personalizado) no canto superior direito da página e, em seguida, introduzir datas de início e de fim personalizadas.
+
+   ![Criar e ver o resumo da utilização e transferir os relatórios na vista personalizada](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
+1. Para ver detalhes adicionais, pode selecionar um período ou mês no grafo.
+
+   - O grafo mostra a utilização por mês com uma discriminação da utilização consumida, da sobretaxa de serviços, dos custos cobrados separadamente e dos custos do Azure Marketplace.
+   - Para o mês selecionado, pode utilizar os campos abaixo do grafo para filtrar por departamentos, contas e subscrições.
+   - Pode alternar entre **Custo por Serviços** e **Custo por Hierarquia**.
+   - Veja detalhes do **Serviço Azure** , dos **Custos Cobrados Separadamente** e do **Azure Marketplace** ao expandir as secções relevantes.
+
+Assista a este vídeo para perceber como ver a utilização:
+
+> [!VIDEO https://www.youtube.com/embed/Cv2IZ9QCn9E]
+
+### <a name="download-csv-reports"></a>Transferir relatórios CSV
+
+Os administradores do Enterprise utilizam a página Transferência de Relatórios Mensais para transferir os seguintes relatórios como ficheiros CSV:
+
+- Saldo e custo
+- Detalhes de utilização
+- Custos do Azure Marketplace
+- Folha de preços
+
+Para transferir os relatórios:
+
+1. No portal Azure Enterprise, selecione **Relatórios**.
+2. Selecione **Transferir Utilização** na parte superior da página.
+3. Selecione **Transferir** ao lado do relatório do mês desejado.
+
+   > [!NOTE]
+   > Poderá existir uma latência de cerca de cinco dias entre a data de utilização incorrida e a data em que a utilização é mostrada nos relatórios.
+   >
+   > Os utilizadores que transferirem os ficheiros CSV para o Excel com o Safari poderão deparar-se com erros de formatação. Para evitar esses erros, abra o ficheiro com um editor de texto.
+
+![Exemplo que mostra página Transferir Utilização](./media/ea-portal-enrollment-invoices/create-ea-download-csv-reports.png)
+
+Assista a este vídeo para ver como transferir as informações de utilização:
+
+> [!VIDEO https://www.youtube.com/embed/eY797htT1qg]
+
+### <a name="advanced-report-download"></a>Transferência de relatórios avançados
+
+Pode utilizar a transferência de relatórios avançados para obter relatórios que cubram contas ou intervalos de datas específicos. O ficheiro de saída tem o formato CSV de forma a suportar grandes conjunto de registos.
+
+1. No portal Azure Enterprise, selecione **Transferência de Relatório Avançado**.
+1. Selecione um intervalo de data adequado e as contas adequadas.
+1. Selecione **Pedir Dados de Utilização**.
+1. Selecione o botão **Atualizar** até que o estado do relatório atualize para **Transferir**.
+1. Transfira o relatório.
+
+### <a name="download-usage-reports-and-billing-information-for-a-prior-enrollment"></a>Transferir relatórios de utilização e informações de faturação de uma inscrição anterior
+
+Pode transferir relatórios de utilização e informações de faturação de uma inscrição anterior após ter ocorrido uma transferência de inscrição. Os relatórios históricos ficam disponíveis no portal Azure Enterprise e na gestão de custos.
+
+O portal Azure Enterprise filtra as inscrições inativas de forma a não serem apresentadas na vista. Precisa de desmarcar a caixa **Ativa** para ver as inscrições transferidas inativas.  
+
+![A desmarcação da caixa Ativa permite ao utilizador ver as inscrições inativas](./media/ea-portal-enrollment-invoices/unchecked-active-box.png)
 
 ## <a name="change-a-po-number-for-an-upcoming-overage-invoice"></a>Alterar um número de nota de encomenda de uma fatura de utilização excedida futura
 
@@ -61,20 +142,20 @@ O intervalo de faturação depende da forma como escolhe fazer as compras de Pr�
 
 A data em que recebe a fatura de utilização excedida depende da configuração e da data de início da inscrição:
 
-- **Inscrições diretas com data de início anterior a 1 de maio de 2018**:
+- **Inscrições diretas com data de início anterior a 1 de maio de 2018** :
   - Se estiver num Contrato Enterprise (EA) direto, encontra-se num período de faturação anual para os serviços do Azure, exceto os serviços do Azure Marketplace. O período de faturação baseia-se na data de aniversário: a data em que o contrato entrou em vigor.
   - Se ultrapassar 150% do limiar do Pré-pagamento do Azure do EA, a inscrição será automaticamente convertida num período de faturação trimestral com base na data de aniversário. Receberá, também, uma fatura de utilização excedida.
   - Se não ultrapassar 150% do limiar do Pré-pagamento do Azure, a inscrição permanecerá num período de faturação anual. Receberá a fatura de utilização excedida no fim do ano de Pré-pagamento.
 
-- **Inscrições diretas com data de início posterior a 1 de maio de 2018**:
+- **Inscrições diretas com data de início posterior a 1 de maio de 2018** :
   - As faturas dos custos faturados em separado e do consumo do Azure são emitidas num período de faturação mensal.
   - Quaisquer custos que não estejam cobertos pelo Pré-pagamento do Azure são devidos como pagamento de utilização excedida.  
 
-- **Inscrições indiretas com data de início anterior a 1 de maio de 2018**:
+- **Inscrições indiretas com data de início anterior a 1 de maio de 2018** :
 
   Se for um cliente de Contrato Enterprise (EA) indireto com uma data de início anterior a 1 de maio de 2018, estará configurado para um período de faturação trimestral. O parceiro de canal (CP) emite-lhe a fatura diretamente.  
 
-- **Inscrições indiretas com data de início posterior a 1 de maio de 2018**:
+- **Inscrições indiretas com data de início posterior a 1 de maio de 2018** :
 
   Encontra-se num período de faturação mensal.  
 
@@ -88,9 +169,9 @@ No caso da utilização excedida, é-lhe cobrada a utilização ou as reservas q
 
 Para cada item na fatura, verá:
 
-- **Montante Alargado**: o total de custos
-- **Utilização do Pré-pagamento**: o montante do Pré-pagamento utilizado para cobrir os custos
-- **Montante Líquido**: os custos que excedem o Pré-pagamento
+- **Montante Alargado** : o total de custos
+- **Utilização do Pré-pagamento** : o montante do Pré-pagamento utilizado para cobrir os custos
+- **Montante Líquido** : os custos que excedem o Pré-pagamento
 
 Os impostos aplicáveis são calculados apenas sobre o montante líquido que excede o Pré-pagamento.
 

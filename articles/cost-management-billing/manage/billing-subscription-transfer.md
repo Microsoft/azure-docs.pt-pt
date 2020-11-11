@@ -8,15 +8,15 @@ tags: billing,top-support-issue
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/05/2020
 ms.author: banders
 ms.custom: contperfq1
-ms.openlocfilehash: d2814a989cb82216081083f3198d52ccd70210ff
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1ce461f50a6775bf7884fedc4cfa4dc7cb41bb8c
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131926"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408148"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
 
@@ -24,7 +24,7 @@ Este artigo mostra os passos necessários para transferir a propriedade de fatur
 
 Se quiser manter a propriedade de faturação, mas alterar o tipo da subscrição, veja [Mudar a sua subscrição do Azure para outra oferta](switch-azure-offer.md). Para controlar quem tem acesso aos recursos na subscrição, veja [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md).
 
-Se for cliente do Contrato Enterprise (EA), o seu administrador empresarial poderá transferir a propriedade de faturação das suas subscrições entre contas. Para obter mais informações, veja [Alterar o proprietário de conta](ea-portal-get-started.md#change-account-owner).
+Se for cliente do Contrato Enterprise (EA), o seu administrador empresarial poderá transferir a propriedade de faturação das suas subscrições entre contas. Para obter mais informações, veja [Alterar o proprietário de conta](ea-portal-administration.md#change-account-owner).
 
 Só o administrador de faturação de uma conta pode transferir a propriedade de uma subscrição.
 

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: mathapli
-ms.openlocfilehash: feaa2471f2867257deb06ab32ed5fc0a26a0d37e
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 8437c83faf8dfcec0a21add2006b6cf627447dd1
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94443437"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516446"
 ---
 # <a name="public-preview-azure-hybrid-benefit--how-it-applies-for-linux-virtual-machines"></a>Antevisão pública: Azure Hybrid Benefit – como se aplica às máquinas virtuais Linux
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O Azure Hybrid Benefit permite-lhe migrar mais facilmente as suas máquinas virtuais Red Hat Enterprise Linux (RHEL) e SUSE Linux Enterprise Server (SLES) para Azure utilizando a sua própria subscrição de software Red Hat ou SUSE pré-existente. Com este benefício, você só paga pelos custos de infraestrutura do seu VM porque a taxa de software é coberta pela sua subscrição RHEL ou SLES. O benefício é aplicável a todas as imagens pay-as-you-go (PAYG) da RHEL e do SLES Marketplace.
 
@@ -53,10 +53,12 @@ A Azure Hybrid Benefit (para Linux) está agora em fase de pré-visualização p
 
 ### <a name="red-hat-customers"></a>Clientes da Red Hat
 
-1.    Registe-se com o [programa Red Hat Cloud Access](https://aka.ms/rhel-cloud-access)
-1.    Ativar as suas subscrições Azure para o Cloud Access e ativar as subscrições que contêm os VMs com que pretende utilizar o benefício
-1.    Aplique o benefício aos seus VM existentes, quer através do Azure CLI
-1.    Registe os seus VMs recebendo o benefício com uma fonte separada de atualizações
+O Azure Hybrid Benefit for RHEL está disponível para clientes que tenham subscrições RHEL ativas/não utilizadas que sejam elegíveis para uso no Azure e que tenham ativado uma ou mais dessas subscrições para uso em Azure com o programa [Red Hat Cloud Access.](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) 
+
+1.  Ative uma ou mais das suas subscrições RHEL elegíveis para utilização no Azure utilizando a interface do [cliente Red Hat Cloud Access](https://access.redhat.com/management/cloud).
+1.  As subscrições Azure que forneceu durante o processo de ativação do Red Hat Cloud Access serão então autorizadas a utilizar a funcionalidade Azure Hybrid Benefit.
+1.  Aplique o Benefício Híbrido Azure em qualquer um dos seus VMs RHEL PAYG existentes, bem como quaisquer novos VMs RHEL que implemente a partir de imagens PAYG do Azure Marketplace.
+1.  Siga [os próximos passos recomendados](https://access.redhat.com/articles/5419341) para configurar fontes de atualização para os seus VMs RHEL e para as diretrizes de conformidade com a subscrição RHEL.
 
 
 ### <a name="suse-customers"></a>Clientes SUSE
@@ -124,7 +126,19 @@ A partir do próprio VM, poderá consultar os Metadados Attestados do IMDS para 
 
 ### <a name="red-hat"></a>Red Hat
 
-Para utilizar o Azure Hybrid Benefit para os seus VMs RHEL, tem primeiro de estar registado no programa Red Hat Cloud Access. Pode fazê-lo através do site Red Hat Cloud Access aqui. Uma vez ativado o benefício no seu VM, tem de registar o VM com a sua própria fonte de atualizações, quer com o Red Hat Subscription Manager quer com o Red Hat Satellite. Registar-se para atualizações garantirá que permanece em estado de apoio.
+Os clientes que utilizam o Benefício Híbrido Azure para a RHEL concordam com os [termos legais](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Cloud_Software_Subscription_Agreement_for_Microsoft_Azure.pdf) padrão e [a declaração de privacidade](http://www.redhat.com/licenses/cloud_CSSA/Red_Hat_Privacy_Statement_for_Microsoft_Azure.pdf) associada às ofertas RHEL do Azure Marketplace.
+
+Os clientes que utilizam o Azure Hybrid Benefit para a RHEL têm três opções para fornecer atualizações de software e patches a esses VMs:
+
+1.  [Infraestrutura de atualização de chapéu vermelho (RHUI)](../workloads/redhat/redhat-rhui.md) (opção padrão)
+1.  Servidor de satélite de chapéu vermelho
+1.  Gestor de assinatura de chapéu vermelho
+
+Os clientes que escolherem a opção RHUI, podem continuar a utilizar o RHUI como principal fonte de atualização para os seus VMS AHB RHEL sem anexar subscrições RHEL a esses VMs.  Os clientes que escolherem a opção RHUI são responsáveis por garantir o cumprimento da subscrição RHEL.
+
+Os clientes que escolherem o Red Hat Satellite Server ou o Red Hat Subscription Manager devem remover a configuração RHUI e, em seguida, anexar uma subscrição RHEL ativada pelo Cloud Access aos seus VM(s) AHB RHEL.  
+
+Mais informações sobre a conformidade com a subscrição da Red Hat, atualizações de software e fontes para VMs RHEL AHB podem ser encontradas [aqui](https://access.redhat.com/articles/5419341).
 
 ### <a name="suse"></a>SUSE
 

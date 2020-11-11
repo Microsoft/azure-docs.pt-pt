@@ -9,20 +9,20 @@ ms.subservice: disks
 ms.date: 10/15/2019
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 4d8e6d225e02006683166de73a0b66f795bc3993
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6edfa1beb568bb05bd0f3f1ef9e7792ac3c3cbe2
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321984"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515749"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Criptografe os discos de dados e os discos de dados anexados num conjunto de escala de máquina virtual com o Azure CLI
 
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Este quickstart mostra-lhe como usar o CLI Azure para criar e encriptar um conjunto de escala de máquina virtual. Para obter mais informações sobre a aplicação da encriptação do disco Azure a um conjunto de escala de máquina virtual, consulte [encriptação do disco Azure para conjuntos de escala de máquina virtual](disk-encryption-overview.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão Azure CLI 2.0.31 ou posterior. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)]( /cli/azure/install-azure-cli).
+- Este artigo requer a versão 2.0.31 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-scale-set"></a>Criar um conjunto de dimensionamento
 
@@ -32,7 +32,7 @@ Para poder criar um conjunto de dimensionamento, crie primeiro um grupo de recur
 az group create --name myResourceGroup --location eastus
 ```
 
-Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet*, que está definido para atualizar automaticamente à medida que as alterações são aplicadas, e gera chaves SSH, caso não existam em *~/.ssh/id_rsa*. Um disco de dados de 32Gb é anexado a cada instância VM, e a [extensão de script personalizada](../virtual-machines/extensions/custom-script-linux.md) Azure é usada para preparar os discos de dados com [conjunto de extensão az vmss](/cli/azure/vmss/extension):
+Agora, crie um conjunto de dimensionamento de máquinas virtuais com [az vmss create](/cli/azure/vmss). O exemplo seguinte cria um conjunto de dimensionamento com o nome *myScaleSet* , que está definido para atualizar automaticamente à medida que as alterações são aplicadas, e gera chaves SSH, caso não existam em *~/.ssh/id_rsa*. Um disco de dados de 32Gb é anexado a cada instância VM, e a [extensão de script personalizada](../virtual-machines/extensions/custom-script-linux.md) Azure é usada para preparar os discos de dados com [conjunto de extensão az vmss](/cli/azure/vmss/extension):
 
 ```azurecli-interactive
 # Create a scale set with attached data disk
@@ -61,7 +61,7 @@ A criação e configuração de todas as VMs e recursos do conjunto de dimension
 
 O Azure Key Vault pode armazenar chaves, segredos ou senhas que lhe permitam implementá-las de forma segura nas suas aplicações e serviços. As chaves criptográficas são armazenadas no Cofre da Chave Azure utilizando proteção de software, ou pode importar ou gerar as suas chaves em Módulos de Segurança de Hardware (HSMs) certificadas para normas fips 140-2 de nível 2. Estas chaves criptográficas são usadas para encriptar e desencriptar discos virtuais ligados ao seu VM. Mantém o controlo destas chaves criptográficas e pode auditar o seu uso.
 
-Defina o seu próprio *keyvault_name*único. Em seguida, crie um KeyVault com [keyvault az criar](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) na mesma subscrição e região que o conjunto de escala, e definir a política de acesso à *encriptação de disco-activada.*
+Defina o seu próprio *keyvault_name* único. Em seguida, crie um KeyVault com [keyvault az criar](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-create) na mesma subscrição e região que o conjunto de escala, e definir a política de acesso à *encriptação de disco-activada.*
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -75,7 +75,7 @@ az keyvault create --resource-group myResourceGroup --name $keyvault_name --enab
 
 Este passo só é necessário se tiver um Cofre de Chaves existente que deseja utilizar com encriptação de disco. Salte este passo se tiver criado um Cofre-Chave na secção anterior.
 
-Defina o seu próprio *keyvault_name*único. Em seguida, atualize o seu KeyVault com [a atualização do keyvault az](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) e desave a política de acesso à *encriptação ativada para o disco.*
+Defina o seu próprio *keyvault_name* único. Em seguida, atualize o seu KeyVault com [a atualização do keyvault az](/cli/azure/ext/keyvault-preview/keyvault#ext-keyvault-preview-az-keyvault-update) e desave a política de acesso à *encriptação ativada para o disco.*
 
 ```azurecli-interactive
 # Provide your own unique Key Vault name
@@ -103,7 +103,7 @@ az vmss encryption enable \
 
 Pode levar um minuto ou dois para o processo de encriptação começar.
 
-Como o conjunto de escala é a política de upgrade no conjunto de escala criado num passo anterior é definido para *automático*, as instâncias VM iniciam automaticamente o processo de encriptação. Em conjuntos de escala onde a política de atualização é manual, inicie a política de encriptação nos casos VM com [instâncias de atualização az vmss](/cli/azure/vmss#az-vmss-update-instances).
+Como o conjunto de escala é a política de upgrade no conjunto de escala criado num passo anterior é definido para *automático* , as instâncias VM iniciam automaticamente o processo de encriptação. Em conjuntos de escala onde a política de atualização é manual, inicie a política de encriptação nos casos VM com [instâncias de atualização az vmss](/cli/azure/vmss#az-vmss-update-instances).
 
 ### <a name="enable-encryption-using-kek-to-wrap-the-key"></a>Ative a encriptação usando KEK para embrulhar a chave
 
@@ -139,7 +139,7 @@ az vmss encryption show --resource-group myResourceGroup --name myScaleSet
 
 Quando as instâncias VM são encriptadas, o código de estado *reporta EncryptionState/encriptado,* como mostrado na seguinte versão do exemplo:
 
-```bash
+```console
 [
   {
     "disks": [

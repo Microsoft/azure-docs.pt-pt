@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5366da1048e7c6d9612ad8b6b1f1694068bb35fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4fe13c418452a7a88dcd97939d6e853039f3fb64
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87543032"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517075"
 ---
 # <a name="onboarding-and-installing"></a>Integração e instalação
 
@@ -63,7 +63,7 @@ A equipa de Análise de Códigos de Segurança da Microsoft está à procura de 
 1. Selecione **Compartilhado**.
 1. Selecione a extensão de Análise de Código de Segurança da Microsoft, selecione **instalar.**
 1. A partir da lista de drop-down, escolha a organização Azure DevOps para instalar a extensão.
-1. Selecione **Instalar**. Após a instalação estar concluída, pode começar a utilizar a extensão.
+1. Selecione **Install** (Instalar). Após a instalação estar concluída, pode começar a utilizar a extensão.
 
 >[!NOTE]
 > Mesmo que não tenha acesso para instalar a extensão, continue com os passos de instalação. Pode solicitar acesso à sua administração da organização Azure DevOps durante o processo de instalação.
@@ -90,7 +90,7 @@ Depois de instalar a extensão, as tarefas seguras de construção de desenvolvi
 > - **Selecione Continue em Erro** para tarefas de construção de desenvolvimento seguro. Mesmo que uma ferramenta falhe, as outras podem correr. Não há interdependências entre as ferramentas.
 > - As tarefas de construção do Código de Segurança do Microsoft só falham se uma ferramenta não funcionar com sucesso. Mas têm sucesso mesmo que uma ferramenta identifique problemas no código. Ao utilizar a tarefa de construção pós-análise, pode configurar a sua construção para falhar quando uma ferramenta identifica problemas no código.
 > - Algumas tarefas de construção de Azure DevOps não são suportadas quando executadas através de um oleoduto de libertação. Mais especificamente, a Azure DevOps não suporta tarefas que publiquem artefactos dentro de um oleoduto de lançamento.
-> - Para obter uma lista de variáveis pré-finadas na Azure DevOps Team Build que pode especificar como parâmetros, consulte [Azure DevOps Build Variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
+> - Para obter uma lista de variáveis pré-finadas na Azure DevOps Team Build que pode especificar como parâmetros, consulte [Azure DevOps Build Variables](/azure/devops/pipelines/build/variables?tabs=batch&view=vsts).
 
 ## <a name="next-steps"></a>Passos seguintes
 

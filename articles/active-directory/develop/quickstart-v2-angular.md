@@ -12,16 +12,16 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 4179807b349504d1ac0932f8d0816603f83afae4
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 643e3bcd50258e2b5e7f52646f231485f950d677
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613429"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515550"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Quickstart: Inscreva-se nos utilizadores e obtenha um token de acesso numa aplicação de página única angular
 
-Neste quickstart, você usa uma amostra de código para saber como uma aplicação de página única angular (SPA) pode assinar em utilizadores que têm contas pessoais da Microsoft, contas de trabalho ou contas escolares. Um SPA Angular também pode obter um token de acesso para ligar para a API do Microsoft Graph ou qualquer API web.
+Neste arranque rápido, você descarrega e execute uma amostra de código que demonstra como uma aplicação de página única angular (SPA) pode iniciar sôm nos utilizadores e ligar para o Microsoft Graph. A amostra de código demonstra como obter um token de acesso para ligar para a API do Gráfico microsoft ou qualquer API web.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -96,7 +96,7 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 >
 > Substitua estes valores:
 >
->|Nome do valor|Descrição|
+>|Nome do valor|Description|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|Na página **geral** do seu registo de candidatura, este é o seu valor **de ID de candidatura(cliente).** |
 >|Enter_the_Cloud_Instance_Id_Here|Este é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, **https://login.microsoftonline.com** entre. Para nuvens nacionais (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)|
@@ -105,7 +105,7 @@ Neste quickstart, você usa uma amostra de código para saber como uma aplicaç�
 >|cacheLocação  | (Opcional) Desa estação o armazenamento do navegador para o estado de autenticação. O padrão é **sessãoStorage**.   |
 >|lojaAuthStateInCookie  | (Opcional) Identifique a biblioteca que armazena o estado de pedido de autenticação. Este estado é necessário para validar os fluxos de autenticação nos cookies do navegador. Este cookie está definido para Internet Explorer e Edge para acomodar esses dois navegadores. Para mais detalhes, consulte as [questões conhecidas.](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues) |
 > > [!TIP]
-> > Para encontrar os valores do **ID da Aplicação (cliente)**, o **ID de Diretório (inquilino)** e os **Tipos de conta suportados**, vá para a página **Descrição geral** da aplicação no portal do Azure.
+> > Para encontrar os valores do **ID da Aplicação (cliente)** , o **ID de Diretório (inquilino)** e os **Tipos de conta suportados** , vá para a página **Descrição geral** da aplicação no portal do Azure.
 
 Para obter mais informações sobre as opções disponíveis, consulte [As aplicações do cliente Inicialize.](msal-js-initializing-client-applications.md)
 
@@ -130,7 +130,7 @@ Se estiver a usar Node.js:
 1. **Selecione Iniciar sessão**.
 1. Selecione **Profile** para ligar para o Microsoft Graph.
 
-Depois de o navegador carregar a aplicação, **selecione 'Iniciar sessão'.** A primeira vez que começa a iniciar sessão, é solicitado que forneça o seu consentimento para permitir que a aplicação aceda ao seu perfil e o inscreva. Depois de ter assinado com sucesso, selecione **Profile**, e as informações do seu perfil de utilizador serão apresentadas na página.
+Depois de o navegador carregar a aplicação, **selecione 'Iniciar sessão'.** A primeira vez que começa a iniciar sessão, é solicitado que forneça o seu consentimento para permitir que a aplicação aceda ao seu perfil e o inscreva. Depois de ter assinado com sucesso, selecione **Profile** , e as informações do seu perfil de utilizador serão apresentadas na página.
 
 ## <a name="how-the-sample-works"></a>Como funciona a amostra
 

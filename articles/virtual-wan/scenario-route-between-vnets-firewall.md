@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 301bc64bee291fa25506e7f435e923be7e244cd4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d083607782f96744ecbd7d23976f77ee53fec49d
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267521"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515574"
 ---
 # <a name="scenario-azure-firewall---custom"></a>Cenário: Azure Firewall - personalizado
 
@@ -28,10 +28,10 @@ Para descobrir quantas tabelas de rota serão necessárias, pode construir uma m
 
 | De           | Para:      | *VNets*      | *Ramos*    | *Internet*   |
 |---             |---       |---           |---            |---           |
-| **VNets**      |   &#8594;|     X        |     AzFW      |     AzFW     |
-| **Ramos**   |   &#8594;|    AzFW      |       X       |       X      |
+| **VNets**      |   &#8594;|    Direct    |     AzFW      |     AzFW     |
+| **Ramos**   |   &#8594;|    AzFW      |    Direct     |    Direct    |
 
-Na tabela anterior, um "X" representa uma conectividade direta entre duas ligações sem o tráfego que atravessa o Azure Firewall em VIRTUAL WAN, e "AzFW" indica que o fluxo passará pela Firewall Azure. Uma vez que existem dois padrões distintos de conectividade na matriz, precisaremos de duas tabelas de rota que serão configuradas da seguinte forma:
+Na tabela anterior, um "Direct" representa conectividade direta entre duas ligações sem o tráfego que atravessa o Azure Firewall em VIRTUAL WAN, e "AzFW" indica que o fluxo passará pela Firewall Azure. Uma vez que existem dois padrões distintos de conectividade na matriz, precisaremos de duas tabelas de rota que serão configuradas da seguinte forma:
 
 * Redes virtuais:
   * Tabela de rotas associada: **RT_VNet**

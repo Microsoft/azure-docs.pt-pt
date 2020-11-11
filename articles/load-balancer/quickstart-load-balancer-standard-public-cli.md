@@ -16,25 +16,22 @@ ms.workload: infrastructure-services
 ms.date: 10/23/2020
 ms.author: allensu
 ms.custom: mvc, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: 454dc3ddd03be319c23df67231ea2ab08b95c52b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a0903a1da02b1f187e6f12e35fcb4bc05cd82939
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544924"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516786"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-azure-cli"></a>Início Rápido: Criar um balanceador de carga público para fazer o balanceamento de carga das VMs com a CLI do Azure
 
 Começa com o Azure Load Balancer utilizando o Azure CLI para criar um equilibrador de carga pública e três máquinas virtuais.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Azure CLI instalado localmente ou Azure Cloud Shell
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
-
-Se optar por instalar e utilizar o CLI localmente, este arranque rápido requer a versão 2.0.28 ou posterior do Azure CLI. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Este arranque rápido requer a versão 2.0.28 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -42,7 +39,7 @@ Um grupo de recursos do Azure é um contentor lógico no qual os recursos do Azu
 
 Criar um grupo de recursos com [a criação de grupo az:](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create)
 
-* Denominado **CreatePubLBQS-rg** . 
+* Denominado **CreatePubLBQS-rg**. 
 * No **local leste.**
 
 ```azurecli-interactive
@@ -66,9 +63,9 @@ Antes de implementar VMs e testar o seu balanceador de carga, crie os recursos d
 Criar uma rede virtual utilizando [a rede az vnet criar:](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-createt)
 
 * Chamado **myVNet.**
-* Prefixo de endereço de **10.1.0.0/16** .
-* Subnet chamado **myBackendSubnet** .
-* Prefixo de sub-rede de **10.1.0.0/24** .
+* Prefixo de endereço de **10.1.0.0/16**.
+* Subnet chamado **myBackendSubnet**.
+* Prefixo de sub-rede de **10.1.0.0/24**.
 * No grupo de recursos **CreatePubLBQS-rg.**
 * Localização do **eastus.**
 
@@ -89,7 +86,7 @@ Para um balanceador de carga padrão, os VMs no endereço backend para os fins d
 Criar um grupo de segurança de rede utilizando [a rede az nsg criar:](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
 
 * Chamado **myNSG.**
-* No grupo de recursos **CreatePubLBQS-rg** .
+* No grupo de recursos **CreatePubLBQS-rg**.
 
 ```azurecli-interactive
   az network nsg create \
@@ -101,16 +98,16 @@ Criar um grupo de segurança de rede utilizando [a rede az nsg criar:](https://d
 
 Criar uma regra de grupo de segurança de rede utilizando [a regra az network nsg criar:](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)
 
-* Denominado **myNSGRuleHTTP** .
+* Denominado **myNSGRuleHTTP**.
 * No grupo de segurança de rede que criou no passo anterior, o **myNSG.**
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Protocolo **(*)** .
-* Direção **Entrada** .
-* Fonte **(*)** .
-* Destino **(*)** .
-* Porto de destino **Port 80** .
-* **Acesso Permitir** .
-* Prioridade **200** .
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Protocolo **(*)**.
+* Direção **Entrada**.
+* Fonte **(*)**.
+* Destino **(*)**.
+* Porto de destino **Port 80**.
+* **Acesso Permitir**.
+* Prioridade **200**.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -133,10 +130,10 @@ Criar três interfaces de rede com [a az network nic criar:](https://docs.micros
 
 #### <a name="vm1"></a>VM1
 
-* Chamado **myNicVM1** .
-* No grupo de recursos **CreatePubLBQS-rg** .
+* Chamado **myNicVM1**.
+* No grupo de recursos **CreatePubLBQS-rg**.
 * Na rede virtual **myVNet.**
-* Na sub-rede **myBackendSubnet** .
+* Na sub-rede **myBackendSubnet**.
 * No grupo de segurança de rede **myNSG.**
 
 ```azurecli-interactive
@@ -150,10 +147,10 @@ Criar três interfaces de rede com [a az network nic criar:](https://docs.micros
 ```
 #### <a name="vm2"></a>VM2
 
-* Chamado **myNicVM2** .
-* No grupo de recursos **CreatePubLBQS-rg** .
+* Chamado **myNicVM2**.
+* No grupo de recursos **CreatePubLBQS-rg**.
 * Na rede virtual **myVNet.**
-* Na sub-rede **myBackendSubnet** .
+* Na sub-rede **myBackendSubnet**.
 
 ```azurecli-interactive
   az network nic create \
@@ -166,9 +163,9 @@ Criar três interfaces de rede com [a az network nic criar:](https://docs.micros
 #### <a name="vm3"></a>VM3
 
 * Chamado **myNicVM3.**
-* No grupo de recursos **CreatePubLBQS-rg** .
+* No grupo de recursos **CreatePubLBQS-rg**.
 * Na rede virtual **myVNet.**
-* Na sub-rede **myBackendSubnet** .
+* Na sub-rede **myBackendSubnet**.
 * No grupo de segurança de rede **myNSG.**
 
 ```azurecli-interactive
@@ -239,10 +236,10 @@ runcmd:
 Crie as máquinas virtuais com [az vm criar:](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create)
 
 #### <a name="vm1"></a>VM1
-* Chamado **myVM1** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Anexado à interface de rede **myNicVM1** .
-* Imagem de máquina virtual **UbuntuLTS** .
+* Chamado **myVM1**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Anexado à interface de rede **myNicVM1**.
+* Imagem de máquina virtual **UbuntuLTS**.
 * O ficheiro de configuração **cloud-init.txt** que criou no passo acima.
 * Na **Zona 1.**
 
@@ -259,10 +256,10 @@ Crie as máquinas virtuais com [az vm criar:](https://docs.microsoft.com/cli/azu
     
 ```
 #### <a name="vm2"></a>VM2
-* Chamado **myVM2** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Anexado à interface de rede **myNicVM2** .
-* Imagem de máquina virtual **UbuntuLTS** .
+* Chamado **myVM2**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Anexado à interface de rede **myNicVM2**.
+* Imagem de máquina virtual **UbuntuLTS**.
 * O ficheiro de configuração **cloud-init.txt** que criou no passo acima.
 * Na **Zona 2.**
 
@@ -280,9 +277,9 @@ Crie as máquinas virtuais com [az vm criar:](https://docs.microsoft.com/cli/azu
 
 #### <a name="vm3"></a>VM3
 * Chamado **myVM3.**
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Anexado à interface de rede **myNicVM3** .
-* Imagem de máquina virtual **UbuntuLTS** .
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Anexado à interface de rede **myNicVM3**.
+* Imagem de máquina virtual **UbuntuLTS**.
 * O ficheiro de configuração **cloud-init.txt** que criou no passo acima.
 * Na **Zona 3.**
 
@@ -305,8 +302,8 @@ Para aceder à sua aplicação Web na Internet, precisa de um endereço IP públ
 
 Utilizar [a rede az public-ip criar](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para:
 
-* Crie um endereço IP público redundante de zona padrão chamado **myPublicIP** .
-* In **CreatePubLBQs-rg** .
+* Crie um endereço IP público redundante de zona padrão chamado **myPublicIP**.
+* In **CreatePubLBQs-rg**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -340,7 +337,7 @@ Crie um equilibrador de carga pública com [a az network lb create:](https://doc
 
 * Chamado **myLoadBalancer.**
 * Uma piscina frontal chamada **myFrontEnd.**
-* Uma piscina de backend chamada **myBackEndPool** .
+* Uma piscina de backend chamada **myBackEndPool**.
 * Associado ao endereço IP público **myPublicIP** que criou no passo anterior. 
 
 ```azurecli-interactive
@@ -363,8 +360,8 @@ Crie uma sonda de saúde com [sonda LB de rede az criar:](https://docs.microsoft
 
 * Monitoriza a saúde das máquinas virtuais.
 * Chama-se **MyHealthProbe.**
-* Protocolo **TCP** .
-* Porta de monitorização **80** .
+* Protocolo **TCP**.
+* Porta de monitorização **80**.
 
 ```azurecli-interactive
   az network lb probe create \
@@ -386,10 +383,10 @@ Uma regra do balançador de carga define:
 Crie uma regra de balançador de carga com [regra az rede lb criar:](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create)
 
 * Nomeado **myHTTPRule**
-* Ouvir no **Porto 80** na piscina frontal **myFrontEnd** .
-* Envio de tráfego de rede equilibrado de carga para a piscina de endereço de backend **myBackEndPool** usando **a porta 80** . 
-* Utilizando a sonda de saúde **myHealthProbe** .
-* Protocolo **TCP** .
+* Ouvir no **Porto 80** na piscina frontal **myFrontEnd**.
+* Envio de tráfego de rede equilibrado de carga para a piscina de endereço de backend **myBackEndPool** usando **a porta 80**. 
+* Utilizando a sonda de saúde **myHealthProbe**.
+* Protocolo **TCP**.
 * Tempo de **15 minutos** inativo.
 * Ativar o reset do TCP.
 
@@ -415,10 +412,10 @@ Crie uma regra de balançador de carga com [regra az rede lb criar:](https://doc
 Adicione as máquinas virtuais à piscina de backend com [a az network nic ip-config endereço-pool add:](https://docs.microsoft.com/cli/azure/network/nic/ip-config/address-pool?view=azure-cli-latest#az-network-nic-ip-config-address-pool-add)
 
 #### <a name="vm1"></a>VM1
-* Na piscina de endereços **backend myBackEndPool** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado à interface de rede **myNicVM1** e **ipconfig1** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* Na piscina de endereços **backend myBackEndPool**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado à interface de rede **myNicVM1** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
@@ -430,10 +427,10 @@ Adicione as máquinas virtuais à piscina de backend com [a az network nic ip-co
 ```
 
 #### <a name="vm2"></a>VM2
-* Na piscina de endereços **backend myBackEndPool** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado à interface de rede **myNicVM2** e **ipconfig1** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* Na piscina de endereços **backend myBackEndPool**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado à interface de rede **myNicVM2** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
@@ -445,10 +442,10 @@ Adicione as máquinas virtuais à piscina de backend com [a az network nic ip-co
 ```
 
 #### <a name="vm3"></a>VM3
-* Na piscina de endereços **backend myBackEndPool** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado à interface de rede **myNicVM3** e **ipconfig1** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* Na piscina de endereços **backend myBackEndPool**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado à interface de rede **myNicVM3** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
@@ -475,7 +472,7 @@ Para obter mais informações sobre a escala de ACESSO NAT e conectividade de sa
 #### <a name="public-ip"></a>IP público
 
 * Denominado **myPublicIPOutbound.**
-* In **CreatePubLBQs-rg** .
+* In **CreatePubLBQs-rg**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -495,9 +492,9 @@ Para criar um endereço IP público redundante zonal na Zona 1:
 ```
 #### <a name="public-ip-prefix"></a>Prefixo de IP público
 
-* Denominado **myPublicIPPrefixOutbound** .
-* In **CreatePubLBQs-rg** .
-* Comprimento do prefixo de **28** .
+* Denominado **myPublicIPPrefixOutbound**.
+* In **CreatePubLBQs-rg**.
+* Comprimento do prefixo de **28**.
 
 ```azurecli-interactive
   az network public-ip prefix create \
@@ -524,9 +521,9 @@ Selecione os comandos de prefixo IP públicos ou ip com base na decisão em pass
 #### <a name="public-ip"></a>IP público
 
 * Chama-se **myFrontEndOutbound.**
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado ao endereço IP público **myPublicIPOutbound** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado ao endereço IP público **myPublicIPOutbound**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network lb frontend-ip create \
@@ -539,9 +536,9 @@ Selecione os comandos de prefixo IP públicos ou ip com base na decisão em pass
 #### <a name="public-ip-prefix"></a>Prefixo de IP público
 
 * Chama-se **myFrontEndOutbound.**
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado ao prefixo IP público **myPublicIPPrefixOutbound** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado ao prefixo IP público **myPublicIPPrefixOutbound**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network lb frontend-ip create \
@@ -555,9 +552,9 @@ Selecione os comandos de prefixo IP públicos ou ip com base na decisão em pass
 
 Crie uma nova piscina de saída com [a criação de endereços lb de rede Az:](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create)
 
-* Denominado **myBackEndPoolOutbound** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* Denominado **myBackEndPoolOutbound**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network lb address-pool create \
@@ -570,13 +567,13 @@ Crie uma nova piscina de saída com [a criação de endereços lb de rede Az:](h
 Crie uma nova regra de saída para a piscina de backend de saída com [a az rede lb outbound-rule create](https://docs.microsoft.com/cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-create):
 
 * Chama-se **myOutboundRule.**
-* No grupo de recursos **CreatePubLBQS-rg** .
+* No grupo de recursos **CreatePubLBQS-rg**.
 * Associado com o balanceador de carga **myLoadBalancer**
-* Associado com frontend **myFrontEndOutbound** .
-* Protocolo **Tudo** .
+* Associado com frontend **myFrontEndOutbound**.
+* Protocolo **Tudo**.
 * Intervalo de tempo de **15.**
 * **10.000** portos de saída.
-* Associado com backend pool **myBackEndPoolOutbound** .
+* Associado com backend pool **myBackEndPoolOutbound**.
 
 ```azurecli-interactive
   az network lb outbound-rule create \
@@ -595,10 +592,10 @@ Adicione as máquinas virtuais à piscina de saída com [a az network nic ip-con
 
 
 #### <a name="vm1"></a>VM1
-* Na piscina de endereços **backend myEndEndPoolOutbound** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado à interface de rede **myNicVM1** e **ipconfig1** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* Na piscina de endereços **backend myEndEndPoolOutbound**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado à interface de rede **myNicVM1** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
@@ -610,10 +607,10 @@ Adicione as máquinas virtuais à piscina de saída com [a az network nic ip-con
 ```
 
 #### <a name="vm2"></a>VM2
-* Na piscina de endereços **backend myEndEndPoolOutbound** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado à interface de rede **myNicVM2** e **ipconfig1** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* Na piscina de endereços **backend myEndEndPoolOutbound**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado à interface de rede **myNicVM2** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
@@ -625,10 +622,10 @@ Adicione as máquinas virtuais à piscina de saída com [a az network nic ip-con
 ```
 
 #### <a name="vm3"></a>VM3
-* Na piscina de endereços **backend myEndEndPoolOutbound** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado à interface de rede **myNicVM3** e **ipconfig1** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* Na piscina de endereços **backend myEndEndPoolOutbound**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado à interface de rede **myNicVM3** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
@@ -653,9 +650,9 @@ Antes de implementar VMs e testar o seu balanceador de carga, crie os recursos d
 Criar uma rede virtual utilizando [a rede az vnet criar:](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-createt)
 
 * Chamado **myVNet.**
-* Prefixo de endereço de **10.1.0.0/16** .
-* Subnet chamado **myBackendSubnet** .
-* Prefixo de sub-rede de **10.1.0.0/24** .
+* Prefixo de endereço de **10.1.0.0/16**.
+* Subnet chamado **myBackendSubnet**.
+* Prefixo de sub-rede de **10.1.0.0/24**.
 * No grupo de recursos **CreatePubLBQS-rg.**
 * Localização do **eastus.**
 
@@ -676,7 +673,7 @@ Para um balanceador de carga padrão, os VMs no endereço backend para os fins d
 Criar um grupo de segurança de rede utilizando [a rede az nsg criar:](https://docs.microsoft.com/cli/azure/network/nsg?view=azure-cli-latest#az-network-nsg-create)
 
 * Chamado **myNSG.**
-* No grupo de recursos **CreatePubLBQS-rg** .
+* No grupo de recursos **CreatePubLBQS-rg**.
 
 ```azurecli-interactive
   az network nsg create \
@@ -688,16 +685,16 @@ Criar um grupo de segurança de rede utilizando [a rede az nsg criar:](https://d
 
 Criar uma regra de grupo de segurança de rede utilizando [a regra az network nsg criar:](https://docs.microsoft.com/cli/azure/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create)
 
-* Denominado **myNSGRuleHTTP** .
+* Denominado **myNSGRuleHTTP**.
 * No grupo de segurança de rede que criou no passo anterior, o **myNSG.**
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Protocolo **(*)** .
-* Direção **Entrada** .
-* Fonte **(*)** .
-* Destino **(*)** .
-* Porto de destino **Port 80** .
-* **Acesso Permitir** .
-* Prioridade **200** .
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Protocolo **(*)**.
+* Direção **Entrada**.
+* Fonte **(*)**.
+* Destino **(*)**.
+* Porto de destino **Port 80**.
+* **Acesso Permitir**.
+* Prioridade **200**.
 
 ```azurecli-interactive
   az network nsg rule create \
@@ -720,10 +717,10 @@ Criar três interfaces de rede com [a az network nic criar:](https://docs.micros
 
 #### <a name="vm1"></a>VM1
 
-* Chamado **myNicVM1** .
-* No grupo de recursos **CreatePubLBQS-rg** .
+* Chamado **myNicVM1**.
+* No grupo de recursos **CreatePubLBQS-rg**.
 * Na rede virtual **myVNet.**
-* Na sub-rede **myBackendSubnet** .
+* Na sub-rede **myBackendSubnet**.
 * No grupo de segurança de rede **myNSG.**
 
 ```azurecli-interactive
@@ -737,10 +734,10 @@ Criar três interfaces de rede com [a az network nic criar:](https://docs.micros
 ```
 #### <a name="vm2"></a>VM2
 
-* Chamado **myNicVM2** .
-* No grupo de recursos **CreatePubLBQS-rg** .
+* Chamado **myNicVM2**.
+* No grupo de recursos **CreatePubLBQS-rg**.
 * Na rede virtual **myVNet.**
-* Na sub-rede **myBackendSubnet** .
+* Na sub-rede **myBackendSubnet**.
 * No grupo de segurança de rede **myNSG.**
 
 ```azurecli-interactive
@@ -754,9 +751,9 @@ Criar três interfaces de rede com [a az network nic criar:](https://docs.micros
 #### <a name="vm3"></a>VM3
 
 * Chamado **myNicVM3.**
-* No grupo de recursos **CreatePubLBQS-rg** .
+* No grupo de recursos **CreatePubLBQS-rg**.
 * Na rede virtual **myVNet.**
-* Na sub-rede **myBackendSubnet** .
+* Na sub-rede **myBackendSubnet**.
 * No grupo de segurança de rede **myNSG.**
 
 ```azurecli-interactive
@@ -830,8 +827,8 @@ runcmd:
 
 Crie o conjunto de disponibilidade com [az vm disponibilidade-set criar](https://docs.microsoft.com/cli/azure/vm/availability-set?view=azure-cli-latest#az-vm-availability-set-create):
 
-* Chamado **myAvSet** .
-* No grupo de recursos **CreatePubLBQS-rg** .
+* Chamado **myAvSet**.
+* No grupo de recursos **CreatePubLBQS-rg**.
 * Localização **leste.**
 
 ```azurecli-interactive
@@ -847,12 +844,12 @@ Crie o conjunto de disponibilidade com [az vm disponibilidade-set criar](https:/
 Crie as máquinas virtuais com [az vm criar:](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create)
 
 #### <a name="vm1"></a>VM1
-* Chamado **myVM1** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Anexado à interface de rede **myNicVM1** .
-* Imagem de máquina virtual **UbuntuLTS** .
+* Chamado **myVM1**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Anexado à interface de rede **myNicVM1**.
+* Imagem de máquina virtual **UbuntuLTS**.
 * O ficheiro de configuração **cloud-init.txt** que criou no passo acima.
-* Na disponibilidade definir **myAvSet** .
+* Na disponibilidade definir **myAvSet**.
 
 ```azurecli-interactive
   az vm create \
@@ -866,10 +863,10 @@ Crie as máquinas virtuais com [az vm criar:](https://docs.microsoft.com/cli/azu
     --no-wait 
 ```
 #### <a name="vm2"></a>VM2
-* Chamado **myVM2** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Anexado à interface de rede **myNicVM2** .
-* Imagem de máquina virtual **UbuntuLTS** .
+* Chamado **myVM2**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Anexado à interface de rede **myNicVM2**.
+* Imagem de máquina virtual **UbuntuLTS**.
 * O ficheiro de configuração **cloud-init.txt** que criou no passo acima.
 * Na **Zona 2.**
 
@@ -887,9 +884,9 @@ Crie as máquinas virtuais com [az vm criar:](https://docs.microsoft.com/cli/azu
 
 #### <a name="vm3"></a>VM3
 * Chamado **myVM3.**
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Anexado à interface de rede **myNicVM3** .
-* Imagem de máquina virtual **UbuntuLTS** .
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Anexado à interface de rede **myNicVM3**.
+* Imagem de máquina virtual **UbuntuLTS**.
 * O ficheiro de configuração **cloud-init.txt** que criou no passo acima.
 * Na **Zona 3.**
 
@@ -913,8 +910,8 @@ Para aceder à sua aplicação Web na Internet, precisa de um endereço IP públ
 
 Utilizar [a rede az public-ip criar](https://docs.microsoft.com/cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) para:
 
-* Crie um endereço IP público redundante de zona padrão chamado **myPublicIP** .
-* In **CreatePubLBQs-rg** .
+* Crie um endereço IP público redundante de zona padrão chamado **myPublicIP**.
+* In **CreatePubLBQs-rg**.
 
 ```azurecli-interactive
   az network public-ip create \
@@ -938,7 +935,7 @@ Crie um equilibrador de carga pública com [a az network lb create:](https://doc
 
 * Chamado **myLoadBalancer.**
 * Uma piscina frontal chamada **myFrontEnd.**
-* Uma piscina de backend chamada **myBackEndPool** .
+* Uma piscina de backend chamada **myBackEndPool**.
 * Associado ao endereço IP público **myPublicIP** que criou no passo anterior. 
 
 ```azurecli-interactive
@@ -961,8 +958,8 @@ Crie uma sonda de saúde com [sonda LB de rede az criar:](https://docs.microsoft
 
 * Monitoriza a saúde das máquinas virtuais.
 * Chama-se **MyHealthProbe.**
-* Protocolo **TCP** .
-* Porta de monitorização **80** .
+* Protocolo **TCP**.
+* Porta de monitorização **80**.
 
 ```azurecli-interactive
   az network lb probe create \
@@ -984,10 +981,10 @@ Uma regra do balançador de carga define:
 Crie uma regra de balançador de carga com [regra az rede lb criar:](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create)
 
 * Nomeado **myHTTPRule**
-* Ouvir no **Porto 80** na piscina frontal **myFrontEnd** .
-* Envio de tráfego de rede equilibrado de carga para a piscina de endereço de backend **myBackEndPool** usando **a porta 80** . 
-* Utilizando a sonda de saúde **myHealthProbe** .
-* Protocolo **TCP** .
+* Ouvir no **Porto 80** na piscina frontal **myFrontEnd**.
+* Envio de tráfego de rede equilibrado de carga para a piscina de endereço de backend **myBackEndPool** usando **a porta 80**. 
+* Utilizando a sonda de saúde **myHealthProbe**.
+* Protocolo **TCP**.
 * Tempo de **15 minutos** inativo.
 
 ```azurecli-interactive
@@ -1010,10 +1007,10 @@ Adicione as máquinas virtuais à piscina de backend com [a az network nic ip-co
 
 
 #### <a name="vm1"></a>VM1
-* Na piscina de endereços **backend myBackEndPool** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado à interface de rede **myNicVM1** e **ipconfig1** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* Na piscina de endereços **backend myBackEndPool**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado à interface de rede **myNicVM1** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
@@ -1025,10 +1022,10 @@ Adicione as máquinas virtuais à piscina de backend com [a az network nic ip-co
 ```
 
 #### <a name="vm2"></a>VM2
-* Na piscina de endereços **backend myBackEndPool** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado à interface de rede **myNicVM2** e **ipconfig1** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* Na piscina de endereços **backend myBackEndPool**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado à interface de rede **myNicVM2** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
@@ -1040,10 +1037,10 @@ Adicione as máquinas virtuais à piscina de backend com [a az network nic ip-co
 ```
 
 #### <a name="vm3"></a>VM3
-* Na piscina de endereços **backend myBackEndPool** .
-* No grupo de recursos **CreatePubLBQS-rg** .
-* Associado à interface de rede **myNicVM3** e **ipconfig1** .
-* Associado ao balanceador de carga **myLoadBalancer** .
+* Na piscina de endereços **backend myBackEndPool**.
+* No grupo de recursos **CreatePubLBQS-rg**.
+* Associado à interface de rede **myNicVM3** e **ipconfig1**.
+* Associado ao balanceador de carga **myLoadBalancer**.
 
 ```azurecli-interactive
   az network nic ip-config address-pool add \
@@ -1070,7 +1067,7 @@ Copie o endereço IP público e cole-o na barra de endereço do browser.
 ```
 :::image type="content" source="./media/load-balancer-standard-public-cli/running-nodejs-app.png" alt-text="Testar o balanceador de carga" border="true":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, utilize o comando de eliminação do [grupo AZ](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) para remover o grupo de recursos, o equilibrador de carga e todos os recursos relacionados.
 

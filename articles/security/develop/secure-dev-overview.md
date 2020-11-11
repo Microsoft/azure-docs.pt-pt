@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c4314a0dcbbcb907ef4d6de0a2788cf04dfe1641
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baaa311620f5c10948aa3494002ce359cc5dab28
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68934858"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94517177"
 ---
 # <a name="secure-development-best-practices-on-azure"></a>Garantir as melhores práticas de desenvolvimento em Azure
 Esta série de artigos apresenta atividades de segurança e controlos a ter em conta quando desenvolve aplicações para a nuvem. As fases do Ciclo de Vida para o Desenvolvimento da Segurança da Microsoft (SDL) e questões e conceitos de segurança a ter em conta durante cada fase do ciclo de vida são abrangidas. O objetivo é ajudá-lo a definir atividades e serviços Azure que você pode usar em cada fase do ciclo de vida para projetar, desenvolver e implementar uma aplicação mais segura.
@@ -27,7 +27,7 @@ As recomendações nos artigos vêm da nossa experiência com a segurança da Az
 
 Estes artigos destinam-se a ser um recurso para designers de software, desenvolvedores e testadores a todos os níveis que constroem e implementam aplicações seguras do Azure.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A segurança é um dos aspetos mais importantes de qualquer aplicação, e não é uma coisa simples de acertar. Felizmente, o Azure fornece muitos serviços que podem ajudá-lo a garantir a sua aplicação na nuvem. Estes artigos abordam atividades e serviços Azure que pode implementar em cada fase do seu ciclo de vida de desenvolvimento de software para ajudá-lo a desenvolver um código mais seguro e implementar uma aplicação mais segura na nuvem.
 
@@ -37,7 +37,7 @@ Seguir as melhores práticas para o desenvolvimento seguro de software requer a 
 
 Quanto mais tarde corrigires um problema no teu ciclo de vida de desenvolvimento, mais essa correção te custará. Questões de segurança não são exceção. Se ignorar problemas de segurança nas fases iniciais do desenvolvimento do seu software, cada fase que se segue pode herdar as vulnerabilidades da fase anterior. O seu produto final terá acumulado múltiplos problemas de segurança e a possibilidade de uma violação. A segurança de construção em cada fase do ciclo de vida de desenvolvimento ajuda-o a apanhar problemas mais cedo, e ajuda-o a reduzir os seus custos de desenvolvimento.
 
-Seguimos as fases do Microsoft [Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) para introduzir atividades e serviços Azure que pode utilizar para cumprir práticas seguras de desenvolvimento de software em cada fase do ciclo de vida.
+Seguimos as fases do Microsoft [Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) para introduzir atividades e serviços Azure que pode utilizar para cumprir práticas seguras de desenvolvimento de software em cada fase do ciclo de vida.
 
 As fases SDL são:
 
@@ -63,7 +63,7 @@ Entendemos que muitos leitores podem não ter uma equipa de segurança ou confor
 
 Use os seguintes recursos para saber mais sobre o desenvolvimento de aplicações seguras e para ajudar a garantir as suas aplicações no Azure:
 
-[Microsoft Security Development Lifecycle (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) – O SDL é um processo de desenvolvimento de software da Microsoft que ajuda os desenvolvedores a construir software mais seguro. Ajuda-o a resolver os requisitos de conformidade com a segurança, reduzindo os custos de desenvolvimento.
+[Microsoft Security Development Lifecycle (SDL)](/previous-versions/windows/desktop/cc307891(v=msdn.10)) – O SDL é um processo de desenvolvimento de software da Microsoft que ajuda os desenvolvedores a construir software mais seguro. Ajuda-o a resolver os requisitos de conformidade com a segurança, reduzindo os custos de desenvolvimento.
 
 [Open Web Application Security Project (OWASP)](https://www.owasp.org/index.php/Main_Page) – OWASP é uma comunidade online que produz artigos, metodologias, documentação, ferramentas e tecnologias gratuitamente disponíveis no domínio da segurança das aplicações web.
 

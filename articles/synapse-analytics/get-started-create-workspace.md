@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 303ed66b7d268a5bab33d0d857399e907764d152
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: f7b96bcebb2106e52c62426ca2b64f9305e09141
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378861"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515414"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -31,11 +31,10 @@ Para completar os passos deste tutorial, precisa de ter acesso a um grupo de rec
 1. Nos resultados da pesquisa, em **Serviços,** selecione **Azure Synapse Analytics (pré-visualização de espaços de trabalho)**.
 1. **Selecione Adicionar** para criar um espaço de trabalho.
 1. No **Básico, insira** a sua **Assinatura** Preferida, **Grupo de Recursos,** **Região,** e, em seguida, escolha um nome de espaço de trabalho. Neste tutorial, usaremos **o meu espaço de trabalho.**
-1. Precisa de uma conta ADLSGEN2 e de um contentor nessa conta para criar um espaço de trabalho. O espaço de trabalho synapse utilizará este recipiente como localização padrão para armazenar registos e dados de Spark para tabelas Spark.
-    1. Navegue para **selecionar data lake storage Gen 2**. 
-    1. Clique **em Criar Novo** e nomeie-o **contosolake**.
-    1. Clique no **Sistema de Ficheiros** e nomeie os **utilizadores.** Isto irá criar um recipiente chamado **utilizadores**
-1. O seu espaço de trabalho Azure Synapse utilizará esta conta de armazenamento como a conta de armazenamento "primária" e o recipiente para armazenar dados do espaço de trabalho. O espaço de trabalho armazena dados em tabelas Apache Spark. Armazena registos de aplicações Spark sob uma pasta chamada **/sinapse/workspacename**.
+1. Navegue para **selecionar data lake storage Gen 2**. 
+1. Clique **em Criar Novo** e nomeie-o **contosolake**.
+1. Clique no **Sistema de Ficheiros** e nomeie os **utilizadores.** Isto irá criar um recipiente chamado **utilizadores**
+1. O espaço de trabalho utilizará esta conta de armazenamento como a conta de armazenamento "primária" para as tabelas Spark e os registos de aplicações Spark.
 1. Selecione **Rever + criar** > **Criar**. O seu espaço de trabalho está pronto em poucos minutos.
 
 ## <a name="open-synapse-studio"></a>Open Synapse Studio

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
-ms.openlocfilehash: d1c13c5d4bea8bfdb0f70e67ce8f264a1929b8a2
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 16fd15a5939cc6c268a80e88401f05042a206075
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150886"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94516820"
 ---
 # <a name="tutorial-build-a-blazor-server-chat-app"></a>Tutorial: Construa uma aplicação de chat do Blazor Server
 
@@ -96,7 +96,7 @@ A partir da versão 16.2.0 do Visual Studio 2019, o Serviço Azure SignalR é um
    dotnet add package Microsoft.AspNetCore.SignalR.Client --version 3.1.7
    ```
 
-1. Criar `ChartRoom.razor` em pasta para implementar o cliente `Pages` SignalR. Siga os passos abaixo ou simplesmente copie o [ChatRoom.razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor).
+1. Criar `ChatRoom.razor` em pasta para implementar o cliente `Pages` SignalR. Siga os passos abaixo ou simplesmente copie o [ChatRoom.razor](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/BlazorChat/Pages/ChatRoom.razor).
 
    1. Adicione link de página e referência.
       
@@ -285,7 +285,7 @@ A partir da versão 16.2.0 do Visual Studio 2019, o Serviço Azure SignalR é um
    </li>
    ```
    
-1. Atualização `site.css` para otimizar para vistas de bolhas de área de gráfico. Apêndice abaixo do código no final.
+1. Atualização `site.css` para otimizar para vistas de bolhas de área de chat. Apêndice abaixo do código no final.
 
    ```css
    /* improved for chat text box */

@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 322f5f6a79bdce23706b2211ccc04ef2451675d0
+ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913029"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94515732"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Começar com a ferramenta de modelação de ameaças
 
 A Ferramenta de Modelação de Ameaças da Microsoft 2018 foi lançada como GA em setembro de 2018 como um **[click-to-download](https://aka.ms/threatmodelingtool)** gratuito . A alteração do mecanismo de entrega permite-nos impulsionar as mais recentes melhorias e correções de bugs para os clientes sempre que abrem a ferramenta, facilitando a manutenção e utilização.
 Este artigo leva-o ao longo do processo de começar com a abordagem de modelação de ameaças da Microsoft SDL e mostra-lhe como usar a ferramenta para desenvolver modelos de grande ameaça como uma espinha dorsal do seu processo de segurança.
 
-Este artigo baseia-se no conhecimento existente da abordagem de modelação de ameaças SDL. Para uma revisão rápida, consulte as **[aplicações web de modelação de ameaças](https://msdn.microsoft.com/library/ms978516.aspx)** e uma versão arquivada de Falhas de Segurança Uncover Usando o artigo **[MSDN de abordagem STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** publicado em 2006.
+Este artigo baseia-se no conhecimento existente da abordagem de modelação de ameaças SDL. Para uma revisão rápida, consulte as **[aplicações web de modelação de ameaças](/previous-versions/msp-n-p/ff648006(v=pandp.10))** e uma versão arquivada de Falhas de Segurança Uncover Usando o artigo **[MSDN de abordagem STRIDE](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** publicado em 2006.
 
 Para resumir rapidamente, a abordagem consiste em criar um diagrama, identificar ameaças, atenuá-las e validar cada mitigação. Aqui está um diagrama que destaca este processo:
 
@@ -87,7 +87,7 @@ O que o Ricardo acabou de mostrar à Cristina é um DFD, abreviatura **[de Data 
 
 ## <a name="analyzing-threats"></a>Analisar ameaças
 
-Assim que clica na visão de análise da seleção do menu do ícone (ficheiro com lupa), ele é levado para uma lista de ameaças geradas a Ferramenta de Modelação de Ameaças encontrada com base no modelo padrão, que utiliza a abordagem SDL chamada **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))** . A ideia é que o software esteja sob um conjunto previsível de ameaças, que podem ser encontradas usando estas 6 categorias.
+Assim que clica na visão de análise da seleção do menu do ícone (ficheiro com lupa), ele é levado para uma lista de ameaças geradas a Ferramenta de Modelação de Ameaças encontrada com base no modelo padrão, que utiliza a abordagem SDL chamada **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. A ideia é que o software esteja sob um conjunto previsível de ameaças, que podem ser encontradas usando estas 6 categorias.
 
 Esta abordagem é como proteger a sua casa garantindo que cada porta e janela tem um mecanismo de bloqueio no lugar antes de adicionar um sistema de alarme ou perseguir o ladrão.
 
