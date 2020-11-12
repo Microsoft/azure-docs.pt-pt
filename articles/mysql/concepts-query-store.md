@@ -1,17 +1,17 @@
 ---
 title: Loja de Consultas - Base de Dados Azure para MySQL
 description: Saiba mais sobre a funcionalidade Da Loja de Consultas na Base de Dados Azure para o MySQL para ajudá-lo a acompanhar o desempenho ao longo do tempo.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 12623dccdc298aaad23ad6779caf33d895c5634a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70e1e5d06ef025801322e15e589d26e31f116fc3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91766128"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535083"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Monitor Azure Database para desempenho do MySQL com a Loja de Consultas
 
@@ -104,7 +104,7 @@ As seguintes opções aplicam-se especificamente às estatísticas de espera.
 > [!NOTE]
 > Atualmente **query_store_capture_mode** substitui esta configuração, o que significa que tanto **query_store_capture_mode** como **query_store_wait_sampling_capture_mode** têm de ser ativados a TODOS para que as estatísticas de espera funcionem. Se **query_store_capture_mode** for desligado, as estatísticas de espera também são desligadas, uma vez que as estatísticas de espera utilizam o performance_schema ativado, e o query_text capturado por loja de consultas.
 
-Utilize o [portal Azure](howto-server-parameters.md)   ou O [CLI Azure](howto-configure-server-parameters-using-cli.md)   para obter ou definir um valor diferente para um parâmetro.
+Utilize o [portal Azure](howto-server-parameters.md) ou [O CLI Azure](howto-configure-server-parameters-using-cli.md) para obter ou definir um valor diferente para um parâmetro.
 
 ## <a name="views-and-functions"></a>Vistas e funções
 

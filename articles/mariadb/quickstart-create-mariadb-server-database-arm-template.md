@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Criar um Azure DB para MariaDB - modelo ARM'
 description: Neste artigo quickstart, aprenda a criar uma Base de Dados Azure para servidor MariaDB utilizando um modelo de Gestor de Recursos Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/14/2020
-ms.openlocfilehash: dc3999193356dd9cddc52b9873d22b4172c0030c
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: de6df8349025c3e87e5b005196008053039fa49f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042492"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537148"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mariadb-server"></a>Quickstart: Use um modelo ARM para criar uma base de dados Azure para servidor MariaDB
 
@@ -20,7 +20,7 @@ A Azure Database for MariaDB é um serviço gerido que utiliza para executar, ge
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-mariadb-with-vnet%2fazuredeploy.json)
 
@@ -70,21 +70,21 @@ Selecione o seguinte link para implementar o modelo de servidor Azure Para o ser
 
 Na **Base de Dados de Azure de implantação para MariaDB com página VNet:**
 
-1. Para **o grupo de recursos** , selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK** .
+1. Para **o grupo de recursos** , selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
 
 2. Se criou um novo grupo de recursos, selecione uma **Localização** para o grupo de recursos e para o novo servidor.
 
-3. Introduza um **Nome do Servidor,** **Início de Sessão do Administrador** e **Palavra-passe de Login do Administrador** .
+3. Introduza um **Nome do Servidor,** **Início de Sessão do Administrador** e **Palavra-passe de Login do Administrador**.
 
     ![Implementar base de dados Azure para MariaDB com janela VNet, modelo de arranque rápido Azure, portal Azure](./media/quickstart-create-mariadb-server-database-arm-template/deploy-azure-database-mariadb-vnet.png)
 
 4. Altere as outras definições predefinidos se quiser:
 
     * **Subscrição** : a subscrição Azure que pretende utilizar para o servidor.
-    * **Capacidade Sku** : capacidade vCore, que pode ser *2* (o padrão), *4,* *8,* *16,* *32* , ou *64* .
-    * **Nome Sku** : o prefixo de nível SKU, a família SKU e a capacidade SKU, unidos por sublinhados, tais como *B_Gen5_1* , *GP_Gen5_2* (o padrão), ou *MO_Gen5_32* .
+    * **Capacidade Sku** : capacidade vCore, que pode ser *2* (o padrão), *4,* *8,* *16,* *32* , ou *64*.
+    * **Nome Sku** : o prefixo de nível SKU, a família SKU e a capacidade SKU, unidos por sublinhados, tais como *B_Gen5_1* , *GP_Gen5_2* (o padrão), ou *MO_Gen5_32*.
     * **Tamanho Sku MB** : o tamanho de armazenamento, em megabytes, da Base de Dados Azure para o servidor MariaDB *(padrão 51200).*
-    * **Sku Tier** : o nível de implantação, tal como *Basic,* *GeneralPurpose* (o padrão) ou *MemoryOptimed* .
+    * **Sku Tier** : o nível de implantação, tal como *Basic,* *GeneralPurpose* (o padrão) ou *MemoryOptimed*.
     * **Família Sku** : *Gen4* ou *Gen5* (o padrão), que indica geração de hardware para implementação de servidores.
     * **Versão Mariadb** : a versão do servidor MariaDB a ser implantada, tal como *10.2* , ou *10.3* (o padrão).
     * **Dias de Retenção de Cópia de Segurança** : o período desejado para a retenção de backup geo-redundante, em dias (padrão *7* ).
@@ -95,9 +95,9 @@ Na **Base de Dados de Azure de implantação para MariaDB com página VNet:**
     * **Prefixo do endereço Vnet** : o prefixo do endereço para a rede virtual *(predefinição 10.0.0.0/16* ).
     * **Prefixo do sub-rede** : o prefixo do endereço da sub-rede (predefinição *10.0.0.0/16* ).
 
-5. Leia os termos e condições e, em seguida, **selecione concordo com os termos e condições acima indicados** .
+5. Leia os termos e condições e, em seguida, **selecione concordo com os termos e condições acima indicados**.
 
-6. Selecione **Comprar** .
+6. Selecione **Comprar**.
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
@@ -148,7 +148,7 @@ read -p "Press [ENTER] to continue: "
 
 Siga estes passos para ver uma visão geral da sua nova Base de Dados Azure para o servidor MariaDB:
 
-1. No [portal Azure,](https://portal.azure.com)procure e selecione **Azure Database para servidores MariaDB** .
+1. No [portal Azure,](https://portal.azure.com)procure e selecione **Azure Database para servidores MariaDB**.
 
 2. Na lista de bases de dados, selecione o seu novo servidor. Aparece a página **'Visão Geral'** do seu novo servidor Azure Database para o servidor MariaDB.
 
@@ -185,9 +185,9 @@ Quando já não for necessário, elimine o grupo de recursos, que elimina os rec
 
 2. Na lista de grupos de recursos, escolha o nome do seu grupo de recursos.
 
-3. Na página **geral** do seu grupo de recursos, selecione **Delete resource group** .
+3. Na página **geral** do seu grupo de recursos, selecione **Delete resource group**.
 
-4. Na caixa de diálogo de confirmação, digite o nome do seu grupo de recursos e, em seguida, selecione **Delete** .
+4. Na caixa de diálogo de confirmação, digite o nome do seu grupo de recursos e, em seguida, selecione **Delete**.
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

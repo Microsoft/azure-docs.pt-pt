@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: 435476bee4839d083e3fe6cb0aa635d5ca67c4c0
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: b49b9f710a98495342687c4ce1dc702078b27246
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94352579"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535338"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar experimentações do ML automatizado no Python
 
@@ -346,6 +346,9 @@ Pode ver os resultados do seu treino num widget ou inline se estiver num caderno
 Consulte [avaliar os resultados automatizados](how-to-understand-automated-ml.md) da experiência de machine learning para definições e exemplos dos gráficos de desempenho e métricas fornecidas para cada execução. 
 
 Para obter um resumo de exibição e entender que características foram adicionadas a um determinado modelo, consulte [a transparência da Participação.](how-to-configure-auto-features.md#featurization-transparency) 
+
+> [!NOTE]
+> Os algoritmos que a ML automatizada emprega têm aleatoriedade inerente que pode causar uma ligeira variação numa pontuação final de métricas recomendadas dos modelos, como precisão. A ML automatizada também realiza operações em dados como divisão de ensaios de comboio, divisão de validação de comboios ou validação cruzada quando necessário. Portanto, se executar uma experiência com as mesmas configurações e métrica primária várias vezes, provavelmente verá variação em cada experiência métricas pontuadas devido a estes fatores. 
 
 ## <a name="register-and-deploy-models"></a>Registar e implantar modelos
 

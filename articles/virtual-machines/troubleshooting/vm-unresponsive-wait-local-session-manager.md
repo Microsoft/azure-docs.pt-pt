@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: ae3d35bea1c75c797447100316ceab9a27fcbe48
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f2f0177b5fe8bb97773d297319f6c9196d8178d2
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424444"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536239"
 ---
 # <a name="vm-is-unresponsive-while-waiting-for-the-local-session-manager"></a>VM não responde enquanto espera pelo gerente da sessão local
 
@@ -35,7 +35,7 @@ Pode haver várias razões para uma máquina virtual estar presa à espera do Ge
 
 ## <a name="solution"></a>Solução
 
-Em alguns casos, simplesmente esperar o tempo suficiente para que o processo esteja concluído irá resolver o seu problema. Se o seu VM estiver pendurado no ecrã de espera durante mais de uma hora, deve recolher uma lixeira de memória e, em seguida, contactar o suporte da Microsoft.
+Em alguns casos, simplesmente esperar o tempo suficiente para que o processo esteja concluído irá resolver o seu problema. Se o seu VM não estiver a responder e permanecer no ecrã de espera durante mais de uma hora, deverá recolher uma lixeira de memória e, em seguida, contactar o suporte da Microsoft.
 
 ### <a name="collect-the-memory-dump-file"></a>Recolher o ficheiro de despejo de memória
 

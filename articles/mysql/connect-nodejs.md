@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Conecte-se usando Node.js - Base de dados Azure para MySQL'
 description: Este guia de início rápido disponibiliza vários exemplos de código Node.js que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 55c352df83e8f72a418452dd28d621556b207e5e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d1291b645e987f33bd2035580587650b843f1771
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332173"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535661"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Utilize Node.js para ligar e consultar dados na Base de Dados Azure para o MySQL
 
@@ -321,7 +321,7 @@ function deleteData(){
 };
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para limpar todos os recursos utilizados durante este arranque rápido, elimine o grupo de recursos utilizando o seguinte comando:
 

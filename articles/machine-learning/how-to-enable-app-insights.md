@@ -1,7 +1,7 @@
 ---
 title: Monitorize e recolha dados dos pontos finais do serviço web Machine Learning
 titleSuffix: Azure Machine Learning
-description: Monitorize serviços web implementados com Azure Machine Learning usando Azure Application Insights
+description: Saiba como recolher dados de modelos implantados para os pontos finais do serviço web em Azure Kubernetes Service (AKS) ou Azure Container Instances (ACI).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 1f02c9b080b87b4fbffcd1870dd139b9d32de0c7
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 5d49a88b89f9e2f4e2c2e6fa8ef18a01c803e3f7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357676"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536596"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorizar e recolher dados de pontos finais de serviço Web de ML
 
@@ -210,7 +210,7 @@ Utilize a [exportação contínua](../azure-monitor/app/export-telemetry.md) da 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Exportação contínua":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a ativar a gravação e visualizar registos para pontos finais de serviço web. Experimente estes artigos para os próximos passos:
 

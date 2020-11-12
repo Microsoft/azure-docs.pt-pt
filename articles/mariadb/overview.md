@@ -1,18 +1,18 @@
 ---
 title: Visão geral - Base de Dados Azure para MariaDB
 description: Conheça a Base de Dados Azure para o serviço MariaDB, um serviço de base de dados relacional na nuvem da Microsoft com base na edição comunitária do MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 3/18/2020
-ms.openlocfilehash: 84fd24890495e7278c69c2f83c7182fd65f86791
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8115625099543d378728a6313a8cc4c95fec0cd2
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79535566"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537004"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>O que é a Azure Database for MariaDB?
 
@@ -41,7 +41,7 @@ For a set of Azure CLI samples, see:
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajuste o desempenho e dimensione em segundos
 
-A Base de Dados Azure para o serviço MariaDB oferece vários níveis de serviço: Básico, Propósito Geral e Memória Otimizada. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica ajuda a base de dados a responder de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [os níveis de preços](concepts-pricing-tiers.md) para mais detalhes.
+A Base de Dados Azure para o serviço MariaDB oferece vários níveis de serviço: Básico, Propósito Geral e Memória Otimizada. Cada escalão oferece desempenho e capacidades diferentes para suportar desde cargas de trabalho de base de dados leves até pesadas. Pode criar a sua primeira aplicação numa base de dados pequena por alguns euros por mês e, em seguida, dimensionar para satisfazer as necessidades da sua solução. A escalabilidade dinâmica ajuda a base de dados a responder de forma transparente à mudança dos requisitos de recursos. Apenas paga pelos recursos necessário e apenas quando que precisar dos mesmos. Consulte [Escalões de preço](concepts-pricing-tiers.md) para obter mais detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitorização e alertas
 

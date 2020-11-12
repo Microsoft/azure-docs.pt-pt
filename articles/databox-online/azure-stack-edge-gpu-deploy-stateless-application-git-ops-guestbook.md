@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 3200cfe290cbba208c61e914b17ffa6cd65e6eee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d323504a46cd35525c889a94d2d044193c1471ac
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90899554"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535950"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implementar uma aplicação apátrida php guestbook com Redis on Arc habilitado cluster Kubernetes em Azure Stack Edge Pro GPU
 
@@ -79,7 +79,7 @@ Siga estes passos para configurar o recurso Azure Arc para implementar uma confi
 
 1. Vá a **Configurações** e selecione **+ Adicionar configuração**.
 
-    ![Ir para Configurações](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
+    ![A screenshot mostra o cluster Azure Arc ativado kubernetes com configuração Add selecionada.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
 1. Na **configuração Adicionar,** insira os valores adequados para os campos e selecione **Aplicar**.
 
@@ -100,11 +100,11 @@ Siga estes passos para configurar o recurso Azure Arc para implementar uma confi
 
 1. A implementação da configuração começa e o **estado do Operador** mostra como **pendente**. 
 
-    ![Ir para Configurações](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
+    ![A screenshot mostra o arco Azure ativado o cluster Kubernetes em um estado pendente à medida que se refresca.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-1.png)
 
 1. A mobilização leva alguns minutos. Quando a implantação estiver concluída, o **estado do operador** aparece como **instalado**.
 
-    ![Ir para Configurações](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
+    ![A screenshot mostra o arco Azure ativado o cluster Kubernetes em um estado instalado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
 
 ## <a name="verify-deployment"></a>Verificar a implementação

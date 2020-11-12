@@ -1,17 +1,17 @@
 ---
 title: Registos de consulta lenta - Base de Dados Azure para MySQL
 description: Descreve os registos de consulta lenta disponíveis na Base de Dados Azure para o MySQL e os parâmetros disponíveis para permitir diferentes níveis de registo.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 1e967c77bc41f0f91674fe55bc622adaf5046f6d
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 0b00db8e89afda8682ddedccfec7e5a6147b7125
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359005"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534981"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registos de consultas lentas na Base de Dados do Azure para MySQL
 Na Base de Dados Azure para o MySQL, o registo de consulta lenta está disponível para os utilizadores. O acesso ao registo de transações não é suportado. O registo de consulta lenta pode ser usado para identificar estrangulamentos de desempenho para a resolução de problemas.

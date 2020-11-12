@@ -1,17 +1,17 @@
 ---
 title: Opções de computação e armazenamento - Azure Database for MySQL - Servidor Flexível
 description: Este artigo descreve as opções de cálculo e armazenamento na Base de Dados Azure para MySQL - Servidor Flexível.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/20/2020
-ms.openlocfilehash: 0755ca7e77592a2efd6d8687f9eb19eacc2f0128
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 36f31ee390a6a208b202698ec9bda59b644c9e30
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315164"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534675"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento em Azure Database para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -132,11 +132,11 @@ Para saber mais sobre o máximo eficaz IOPS por tamanho de computação, utiliza
 
 O IOPS eficaz máximo depende do máximo disponível IOPS por tamanho de cálculo. Consulte a fórmula abaixo e consulte a coluna *Max desatado: IOPS/MBps* na [série B,](../../virtual-machines/sizes-b-series-burstable.md) [ddsv4 séries](../../virtual-machines/ddv4-ddsv4-series.md)e documentação [da série Edsv4.](../../virtual-machines/edv4-edsv4-series.md)
 
-**IOPS eficaz máximo** = MINIMUM(*"Max uncached disk throughput: IOPS/MBps"* de tamanho computacional, armazenamento aprovisionado em GiB * 3)
+**IOPS eficaz máximo** = MINIMUM( *"Max uncached disk throughput: IOPS/MBps"* de tamanho computacional, armazenamento aprovisionado em GiB * 3)
 
 Pode monitorizar o seu consumo de E/S no portal Azure (com o Azure Monitor) utilizando a métrica [IO%.](./concepts-monitoring.md) Se precisar de mais IOPS, terá de perceber se está limitado pelo tamanho do cálculo ou pelo armazenamento a provisionado. Dimensione o cálculo ou armazenamento do seu servidor em conformidade.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 O serviço retira automaticamente cópias de segurança do seu servidor. Pode selecionar um período de retenção de um intervalo de 1 a 35 dias. Saiba mais sobre backups na cópia de segurança e restaurar o [artigo conceitos.](concepts-backup-restore.md)
 
@@ -153,7 +153,7 @@ O armazenamento de escala e a alteração do período de retenção de backup s�
 
 ## <a name="pricing"></a>Preços
 
-Para obter as informações de preços mais atualizadas, consulte a [página de preços do](https://azure.microsoft.com/pricing/details/MySQL/)serviço . Para ver o custo da configuração desejada, o [portal Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) mostra o custo mensal no separador **de armazenamento Compute +** com base nas opções selecionadas. Se não tiver uma subscrição do Azure, pode utilizar a calculadora de preços Azure para obter um preço estimado. No site da [calculadora de preços Azure,](https://azure.microsoft.com/pricing/calculator/) selecione **Adicionar itens**, expandir a categoria **Base de Dados,** escolher **Azure Database para MySQL,** e **Servidor Flexível** como tipo de implementação para personalizar as opções.
+Para obter as informações de preços mais atualizadas, consulte a [página de preços do](https://azure.microsoft.com/pricing/details/MySQL/)serviço . Para ver o custo da configuração desejada, o [portal Azure](https://portal.azure.com/#create/Microsoft.MySQLServer/flexibleServers) mostra o custo mensal no separador **de armazenamento Compute +** com base nas opções selecionadas. Se não tiver uma subscrição do Azure, pode utilizar a calculadora de preços Azure para obter um preço estimado. No site da [calculadora de preços Azure,](https://azure.microsoft.com/pricing/calculator/) selecione **Adicionar itens** , expandir a categoria **Base de Dados,** escolher **Azure Database para MySQL,** e **Servidor Flexível** como tipo de implementação para personalizar as opções.
 
 Se quiser otimizar o custo do servidor, pode considerar as seguintes dicas:
 

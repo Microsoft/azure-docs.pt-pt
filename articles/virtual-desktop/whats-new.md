@@ -3,17 +3,17 @@ title: Quais as novidades no Windows Virtual Desktop? - Azure
 description: Novas funcionalidades e atualizações de produtos para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 11/11/2020
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 0191d6ad74a9b6349f5d1724f9483607dce2d926
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c82312b40955b392243bf616ee991c0108a13fb5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630019"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537395"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Quais as novidades no Windows Virtual Desktop?
 
@@ -25,6 +25,48 @@ Atualizações de Ambiente de Trabalho Virtual do Windows regularmente. Este art
 - Correções de erros
 
 Este artigo é atualizado mensalmente. Certifique-se de voltar aqui muitas vezes para acompanhar novas atualizações.
+
+## <a name="october-2020"></a>Outubro de 2020
+
+Eis o que mudou em outubro de 2020:
+
+### <a name="improved-performance"></a>Desempenho melhorado
+
+- Otimizamos o desempenho reduzindo a latência da ligação nas seguintes geografias Azure:
+    - Suíça
+    - Canadá
+
+Agora pode utilizar o [Experience Estimador](https://azure.microsoft.com/services/virtual-desktop/assessment/) para estimar a qualidade da experiência do utilizador nestas áreas.
+
+### <a name="azure-government-cloud-availability"></a>Disponibilidade da Nuvem do Governo Azure
+
+A Nuvem do Governo de Azure está agora geralmente disponível. Saiba mais na [nossa publicação de blog.](https://azure.microsoft.com/updates/windows-virtual-desktop-is-now-generally-available-in-the-azure-government-cloud/)
+
+### <a name="windows-virtual-desktop-azure-portal-updates"></a>Atualizações do portal Virtual Desktop Azure do Windows
+
+Fizemos algumas atualizações para o portal Virtual Desktop Azure do Windows:
+
+- Corrigiu um erro de recursosID que impedia os utilizadores de abrir o separador "Sessões".
+- Dinamizou o UI no separador "Anfitriões de Sessão".
+- Corrigiu as definições de "Predefinições", "Usabilidade" e "Restaurar predefinições" nas propriedades RDP.
+- As funções "Remover" e "Eliminar" são consistentes em todos os separadores.
+- O portal valida agora os nomes das aplicações no fluxo de trabalho "Adicionar uma aplicação".
+- Corrigiu um problema em que os dados de exportação dos anfitriões da sessão não estavam alinhados nas colunas.
+- Corrigiu um problema em que o portal não conseguia recuperar as sessões dos utilizadores.
+- Corrigiu um problema na recuperação do anfitrião da sessão que aconteceu quando a máquina virtual foi criada num grupo de recursos diferente.
+- Atualizou o separador "Anfitrião de sessão" para listar as sessões ativas e desligadas.
+- O separador "Aplicações" tem agora páginas.
+- Corrigiu um problema em que o texto "requer linha de comando" não foi apresentado corretamente no separador "Lista de Aplicações".
+- Corrigiu um problema quando o portal não conseguia implantar piscinas hospedeiras ou máquinas virtuais enquanto utilizava a versão em língua alemã da Galeria de Imagens Partilhadas.
+
+### <a name="client-updates-for-october-2020"></a>Atualizações de clientes para outubro de 2020
+
+Lançámos novas versões dos clientes. Consulte estes artigos para saber mais:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+
+Para obter mais informações sobre os outros clientes, consulte [as atualizações do Cliente.](#client-updates)
 
 ## <a name="september-2020"></a>Setembro de 2020
 
@@ -68,7 +110,7 @@ Eis o que mudou em agosto de 2020:
 
 - O Azure Advisor faz agora parte do Windows Virtual Desktop. Ao aceder ao Windows Virtual Desktop através do portal Azure, pode ver recomendações para otimizar o ambiente de trabalho virtual do Windows. Saiba mais na [Azure Advisor](azure-advisor.md).
 
-- O Azure CLI suporta agora o Windows Virtual Desktop ( `az desktopvirtualization` ) para o ajudar a automatizar as suas implementações de Ambiente de Trabalho Virtual do Windows. Consulte a [verificação de desktop](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest) para obter uma lista de comandos de extensão.
+- O Azure CLI suporta agora o Windows Virtual Desktop ( `az desktopvirtualization` ) para o ajudar a automatizar as suas implementações de Ambiente de Trabalho Virtual do Windows. Consulte a [verificação de desktop](/cli/azure/ext/desktopvirtualization/?view=azure-cli-latest&preserve-view=true) para obter uma lista de comandos de extensão.
 
 - Atualizámos os nossos modelos de implementação para os tornar totalmente compatíveis com as interfaces do Windows Virtual Desktop Azure Resource Manager. Pode encontrar os modelos no [GitHub.](https://github.com/Azure/RDS-Templates/tree/master/ARM-wvd-templates)
 
@@ -97,7 +139,7 @@ Agora pode fazer as seguintes coisas com o portal Azure no Windows Virtual Deskt
 
 ### <a name="diagnostics"></a>Diagnóstico
 
-Lançamos novas consultas pré-construídas para o espaço de trabalho do Log Analytics. Para aceder às consultas, aceda a **Registos** e na **categoria**, selecione **Windows Virtual Desktop**. Saiba mais no [Use Log Analytics para a funcionalidade de diagnóstico](diagnostics-log-analytics.md).
+Lançamos novas consultas pré-construídas para o espaço de trabalho do Log Analytics. Para aceder às consultas, aceda a **Registos** e na **categoria** , selecione **Windows Virtual Desktop**. Saiba mais no [Use Log Analytics para a funcionalidade de diagnóstico](diagnostics-log-analytics.md).
 
 ### <a name="update-for-remote-desktop-client-for-android"></a>Atualização para cliente de desktop remoto para Android
 
@@ -140,7 +182,7 @@ Adicionámos novos cmdlets AzWvd ao Módulo Azure PowerShell Az com esta atualiz
 
 Para instalar o módulo, siga as instruções em [Configurar o módulo PowerShell para Windows Virtual Desktop](powershell-module.md).
 
-Também pode ver uma lista de comandos disponíveis na [referência AzWvd PowerShell](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization).
+Também pode ver uma lista de comandos disponíveis na [referência AzWvd PowerShell](/powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization&preserve-view=true).
 
 Para mais informações sobre as novas funcionalidades, confira a [nossa publicação de blog.](https://techcommunity.microsoft.com/t5/itops-talk-blog/windows-virtual-desktop-spring-update-enters-public-preview/ba-p/1340245)
 

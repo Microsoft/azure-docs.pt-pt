@@ -11,19 +11,19 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 64ca75645d1a9e6d638af5128a6c690c47985cdd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 844252d5ae86ccdd853c4c65889f7233f69215ff
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974537"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535984"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-nodejs"></a>Quickstart: Extrair texto impresso (OCR) utilizando a API e o Node.js
 
 > [!NOTE]
 > Se estiver a extrair texto em inglês, considere utilizar a nova [operação Ler](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text).
 
-Neste arranque rápido, extrairá texto impresso com reconhecimento de caracteres óticos (OCR) a partir de uma imagem utilizando a API de Visão de Computador. Com o método [OCR,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) pode detetar texto impresso numa imagem e extrair caracteres reconhecidos num fluxo de caracteres utilizável por máquinas.
+Neste arranque rápido, extrairá texto impresso com reconhecimento de caracteres óticos (OCR) a partir de uma imagem utilizando a API de Visão de Computador. Com o método [OCR,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d) pode detetar texto impresso numa imagem e extrair caracteres reconhecidos num fluxo de caracteres utilizável por máquinas.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -217,4 +217,4 @@ Quando já não for necessário, elimine o ficheiro e, em seguida, desinstale o 
 Em seguida, explore as APIs de Visão Computacional usadas para analisar uma imagem, detetar celebridades e marcos, criar uma miniatura e extrair texto impresso e manuscrito.
 
 > [!div class="nextstepaction"]
-> [Explorar a API de Imagem Digitalizada](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorar a API de Imagem Digitalizada](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f20d)

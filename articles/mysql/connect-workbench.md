@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Connect - MySQL Workbench - Azure Database for MySQL'
 description: Este Guia de introdução disponibiliza os passos para utilizar o MySQL Workbench para se ligar e consultar dados da Base de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 57bd8348977270de9b0e445e0a40c006b65d8392
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 5e27cfec0a3f0a58c1e94a822e0c831f4efa1b32
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332045"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535542"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use a bancada mySQL workbench para ligar e consultar dados na Base de Dados Azure para o MySQL
 
@@ -111,7 +111,7 @@ Para ligar ao Servidor MySQL do Azure com a ferramenta da GUI MySQL Workbench:
 
 Agora, ligou-se à Base de Dados do Azure para MySQL com o MySQL Workbench e consultou dados com linguagem do SQL.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para limpar todos os recursos utilizados durante este arranque rápido, elimine o grupo de recursos utilizando o seguinte comando:
 

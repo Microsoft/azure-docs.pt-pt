@@ -1,17 +1,17 @@
 ---
 title: Procedimentos armazenados de gestão - Azure Database for MariaDB
 description: Saiba quais os procedimentos armazenados na Base de Dados Azure para MariaDB são úteis para ajudá-lo a configurar a replicação de dados, definir o fuso horário e matar consultas.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 453cb28b3053ee2fd2706a5537dc71b6cdca4174
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 103bba37f5574185f10f5c4e28e66268da0c7f39
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539848"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536851"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Azure Database para procedimentos armazenados de gestão MariaDB
 
@@ -23,7 +23,7 @@ A Replicação de Dados de Entrada permite sincronizar dados de um servidor Mari
 
 Os seguintes procedimentos armazenados são utilizados para configurar ou remover a replicação de dados entre uma fonte e uma réplica.
 
-|**Nome do procedimento armazenado**|**Parâmetros de Entrada**|**Parâmetros de saída**|**Nota de utilização**|
+|**Nome do procedimento armazenado**|**Parâmetros de entrada**|**Parâmetros de saída**|**Nota de utilização**|
 |-----|-----|-----|-----|
 |*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/D|Para transferir dados com o modo SSL, passe no contexto do certificado de CA para o parâmetro master_ssl_ca. </br><br>Para transferir dados sem SSL, passe uma corda vazia para o parâmetro master_ssl_ca.|
 |*mysql.az_replication _start*|N/D|N/D|Começa a replicação.|
@@ -37,7 +37,7 @@ Para configurar a replicação de dados entre uma fonte e uma réplica na Base d
 
 Os seguintes procedimentos armazenados estão disponíveis na Base de Dados Azure para mariaDB gerir o seu servidor.
 
-|**Nome do procedimento armazenado**|**Parâmetros de Entrada**|**Parâmetros de saída**|**Nota de utilização**|
+|**Nome do procedimento armazenado**|**Parâmetros de entrada**|**Parâmetros de saída**|**Nota de utilização**|
 |-----|-----|-----|-----|
 |*mysql.az_kill*|processlist_id|N/D|Equivalente ao [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) comando. Terminará a ligação associada à processlist_id fornecida após terminar qualquer declaração que a ligação esteja a executar.|
 |*mysql.az_kill_query*|processlist_id|N/D|Equivalente ao [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) comando. Terminará a declaração que a ligação está atualmente a executar. Deixa a ligação viva.|

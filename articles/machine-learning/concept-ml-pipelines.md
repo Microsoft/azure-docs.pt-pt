@@ -1,5 +1,6 @@
 ---
 title: O que são gasodutos de aprendizagem de máquinas Azure
+titleSuffix: Azure Machine Learning
 description: Saiba como os oleodutos de machine learning (ML) ajudam a construir, otimizar e gerir fluxos de trabalho de aprendizagem automática.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2ebe3976813c00e92f041faf267ef0d8ae98a909
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: c29ee87ab177357f4289134bb39353c764a0d75b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323027"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535304"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 

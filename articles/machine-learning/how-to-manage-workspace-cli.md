@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-azurecli
-ms.openlocfilehash: 9b55c4873c4d7ee430e7d9ce84d2782a37e522ae
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: dc5dcf20b8c4fb1dae971b9bda4ef1a7552ce9d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442145"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534743"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Criar um espaço de trabalho para a Azure Machine Learning com Azure CLI
 
@@ -156,9 +156,12 @@ Para obter mais informações sobre a utilização de um ponto final privado e r
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Chave gerida pelo cliente e espaço de trabalho de alto impacto do negócio
 
-Por padrão, as métricas e metadados para o espaço de trabalho são armazenados num caso DB Azure Cosmos que a Microsoft mantém. Estes dados são encriptados utilizando as teclas geridas pela Microsoft. 
+Por predefinição, os metadados para o espaço de trabalho são armazenados num caso DB Azure Cosmos que a Microsoft mantém. Estes dados são encriptados utilizando as teclas geridas pela Microsoft.
 
-Em vez de utilizar a chave gerida pela Microsoft, pode utilizar a sua própria chave. Ao fazê-lo, cria a instância DB do Azure Cosmos que armazena métricas e metadados na sua subscrição Azure. Utilize o `--cmk-keyvault` parâmetro para especificar o Cofre da Chave Azure que contém a chave e `--resource-cmk-uri` especificar o URL da chave dentro do cofre.
+> [!NOTE]
+> O Azure Cosmos DB __não__ é utilizado para armazenar informações como desempenho de modelos, informações registadas por experiências ou informações registadas a partir das implementações do seu modelo. Para obter mais informações sobre a monitorização destes itens, consulte a secção de [Monitorização e Registo](concept-azure-machine-learning-architecture.md) do artigo de arquitetura e conceitos.
+
+Em vez de utilizar a chave gerida pela Microsoft, pode utilizar a sua própria chave. Ao fazê-lo, cria a instância DB do Azure Cosmos que armazena metadados na sua subscrição Azure. Utilize o `--cmk-keyvault` parâmetro para especificar o Cofre da Chave Azure que contém a chave e `--resource-cmk-uri` especificar o URL da chave dentro do cofre.
 
 Antes de utilizar os `--cmk-keyvault` parâmetros e `--resource-cmk-uri` parâmetros, deve primeiro executar as seguintes ações:
 
@@ -393,7 +396,7 @@ az group delete -g <resource-group-name>
 
 Para obter mais informações, consulte o [espaço de trabalho az ml para eliminar](/cli/azure/ext/azure-cli-ml/ml/workspace?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-workspace-delete) a documentação.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="resource-provider-errors"></a>Erros do fornecedor de recursos
 

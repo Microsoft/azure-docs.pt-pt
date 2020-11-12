@@ -1,17 +1,17 @@
 ---
 title: Insight de Desempenho de Consulta - Base de Dados Azure para MySQL
 description: Este artigo descreve a funcionalidade De Insight de Desempenho de Consulta na Base de Dados Azure para o MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 7aefa6cd048c41feb1535f2ae7fa5c87bf628b2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30457b950e6400c799f35924e7b2ee90d868a465
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884907"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535185"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Query Performance Insight na Base de Dados do Azure para MySQL
 
@@ -33,7 +33,7 @@ A Consulta Performance Insight ajuda-o a identificar rapidamente quais são as s
 
 ## <a name="permissions"></a>Permissões
 
-As permissões **Proprietário**ou **Contribuidor** necessárias para ver o texto das consultas no Query Performance Insight. O **Leitor** pode ver gráficos e tabelas, mas não o texto da consulta.
+As permissões **Proprietário** ou **Contribuidor** necessárias para ver o texto das consultas no Query Performance Insight. O **Leitor** pode ver gráficos e tabelas, mas não o texto da consulta.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ Pode clicar e arrastar no gráfico para restringir a uma janela de tempo especí
 ### <a name="wait-statistics"></a>Estatísticas de espera
 
 > [!NOTE]
-> As estatísticas de espera destinam-se a resolver problemas de problemas de desempenho. Recomenda-se que seja ligado apenas para efeitos de resolução de problemas. <br>Se receber a mensagem de erro no portal Azure "*O problema encontrado para 'Microsoft.DBforMySQL'; não pode cumprir o pedido. Se este problema continuar ou for inesperado, contacte o suporte com esta informação."* ao visualizar estatísticas de espera, utilize um período de tempo menor.
+> As estatísticas de espera destinam-se a resolver problemas de problemas de desempenho. Recomenda-se que seja ligado apenas para efeitos de resolução de problemas. <br>Se receber a mensagem de erro no portal Azure " *O problema encontrado para 'Microsoft.DBforMySQL'; não pode cumprir o pedido. Se este problema continuar ou for inesperado, contacte o suporte com esta informação."* ao visualizar estatísticas de espera, utilize um período de tempo menor.
 
 As estatísticas de espera fornecem uma visão dos eventos de espera que ocorrem durante a execução de uma consulta específica. Saiba mais sobre os tipos de eventos de espera na documentação do [motor MySQL.](https://go.microsoft.com/fwlink/?linkid=2098206)
 
@@ -64,7 +64,7 @@ Selecione o separador **Estatísticas de Espera** para ver as visualizações co
 
 As consultas exibidas na vista das estatísticas de espera são agrupadas pelas consultas que exibem as maiores esperas durante o intervalo de tempo especificado.
 
-:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consultas de insight de desempenho de consulta longas consultas":::
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Consulta Performance Insight aguarda estatísticas":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

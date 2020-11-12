@@ -1,19 +1,19 @@
 ---
 title: Script CLI - Restaurar servidor - Azure Database for MariaDB
 description: Esta amostra O script Azure CLI mostra como restaurar uma Base de Dados Azure para o servidor MariaDB e as suas bases de dados para um ponto anterior no tempo.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 2626f9c5c078b7dc5026f00014fd7f197641b32d
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: a4fc645f43858e80eeffc6c1672f6bd4369e7290
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518035"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536783"
 ---
 # <a name="restore-an-azure-database-for-mariadb-server-using-azure-cli"></a>Restaurar uma base de dados Azure para servidor MariaDB usando O Azure CLI
 Esta amostra de script CLI restaura uma única Base de Dados Azure para o servidor MariaDB para um ponto anterior no tempo.

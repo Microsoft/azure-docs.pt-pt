@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 0c697e6332b757e1d135a77b70f33a6e32528309
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: aa45bc9f70bf05074391dd14cc5fc774eb77c762
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93358903"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536256"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 
@@ -76,7 +76,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
         ----|----
         Formato do ficheiro| Define o layout e o tipo de dados armazenados num ficheiro.
         Delimitador| Um ou mais caracteres para especificar a fronteira entre regiões separadas e independentes em texto simples ou outros fluxos de dados.
-        Codificação| Identifica o bit da tabela de esquemas de caracteres para usar para ler o seu conjunto de dados.
+        Encoding| Identifica o bit da tabela de esquemas de caracteres para usar para ler o seu conjunto de dados.
         Cabeçalhos de coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.
         Saltar filas | Indica quantas, se houver, são ignoradas no conjunto de dados.
     
@@ -132,7 +132,7 @@ Caso contrário, verá uma lista das suas recentes experiências automatizadas d
 
 1. (Opcional) Ver definições de configuração de adição: definições adicionais que pode utilizar para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados. 
 
-    Configurações adicionais|Descrição
+    Configurações adicionais|Description
     ------|------
     Métrica primária| Métrica principal usada para marcar o seu modelo. [Saiba mais sobre as métricas dos modelos.](how-to-configure-auto-train.md#primary-metric)
     Explicar o melhor modelo | Selecione para ativar ou desativar, de modo a mostrar explicações para o melhor modelo recomendado. <br> Esta funcionalidade não está atualmente disponível para [certos algoritmos de previsão.](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model) 
@@ -162,6 +162,9 @@ Impute com| Selecione com que valor imputar valores em falta nos seus dados.
 ## <a name="run-experiment-and-view-results"></a>Executar experiência e ver resultados
 
 **Selecione Finish** para executar a sua experiência. O processo de preparação da experimentação pode demorar até 10 minutos. As tarefas de preparação podem demorar mais 2 ou 3 minutos para cada pipeline concluir a execução.
+
+> [!NOTE]
+> Os algoritmos que a ML automatizada emprega têm aleatoriedade inerente que pode causar uma ligeira variação numa pontuação final de métricas recomendadas dos modelos, como precisão. A ML automatizada também realiza operações em dados como divisão de ensaios de comboio, divisão de validação de comboios ou validação cruzada quando necessário. Portanto, se executar uma experiência com as mesmas configurações e métrica primária várias vezes, provavelmente verá variação em cada experiência métricas pontuadas devido a estes fatores. 
 
 ### <a name="view-experiment-details"></a>Ver detalhes da experimentação
 
@@ -199,7 +202,7 @@ O ML automatizado ajuda-o a implementar o modelo sem escrever código:
     Campo| Valor
     ----|----
     Nome| Insira um nome único para a sua implantação.
-    Descrição| Introduza uma descrição para identificar melhor para que é esta implantação.
+    Description| Introduza uma descrição para identificar melhor para que é esta implantação.
     Tipo de computação| Selecione o tipo de ponto final que pretende implantar: *Serviço Azure Kubernetes (AKS)* ou *Instância de Contentores Azure (ACI)*.
     Nome da computação| *Aplica-se apenas a AKS:* Selecione o nome do cluster AKS para o quais pretende implementar.
     Ative a autenticação | Selecione para permitir a autenticação baseada em símbolos ou em teclas.
@@ -215,7 +218,7 @@ O ML automatizado ajuda-o a implementar o modelo sem escrever código:
 
 Agora, tem um serviço Web operacional para gerar predições! Pode testar as predições ao consultar o serviço no [Suporte do Azure Machine Learning integrado no Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como consumir um serviço web.](./how-to-consume-web-service.md)
 * [Compreenda os resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)

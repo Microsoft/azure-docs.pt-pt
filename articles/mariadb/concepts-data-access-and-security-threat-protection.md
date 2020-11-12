@@ -1,17 +1,17 @@
 ---
 title: Proteção Avançada de Ameaças - Base de Dados Azure para MariaDB
 description: A Advanced Threat Protection deteta atividades anómalas de bases de dados que indiquem potenciais ameaças à segurança na base de dados.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 2ad35c36e497e4719729c00a90eb8919b75ef0fd
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 018ba33271f8a3a81c3b7109607334b076d8609c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425658"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536202"
 ---
 # <a name="azure-database-for-mariadb-advanced-threat-protection"></a>Base de Dados Azure para a Proteção Avançada de Ameaças MariaDB
 
@@ -34,11 +34,11 @@ A Advanced Threat Protection for Azure Database for MariaDB fornece uma nova cam
 
 ## <a name="advanced-threat-protection-alerts"></a>Alertas avançados de proteção contra ameaças 
 A Advanced Threat Protection for Azure Database for MariaDB deteta atividades anómalas que indiquem tentativas invulgares e potencialmente nocivas de aceder ou explorar bases de dados e pode desencadear os seguintes alertas:
-- **Acesso a partir de localização invulgar**: Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MariaDB, onde alguém iniciou sessão na Base de Dados Azure para o servidor MariaDB a partir de uma localização geográfica incomum. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
-- **Acesso a partir de um centro de dados Azure incomum**: Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MariaDB, onde alguém iniciou sessão no servidor a partir de um centro de dados Azure incomum que foi visto neste servidor durante o período recente. Em alguns casos, o alerta deteta uma ação legítima (a sua nova aplicação em Azure, Power BI). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).
-- **Acesso a partir de um principal desconhecido**: Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MariaDB, onde alguém iniciou sessão no servidor utilizando um principal incomum (Base de Dados Azure para utilizador MariaDB). Em alguns casos, o alerta deteta uma ação legítima (nova aplicação, manutenção de programador). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
-- **Acesso de uma localização potencialmente prejudicial**: este alerta é acionado quando uma aplicação potencialmente prejudicial é utilizada para aceder à base de dados. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque através de ferramentas de ataque comuns.
-- **Base de dados Azure força bruta para credenciais MariaDB**: Este alerta é acionado quando há um número anormal elevado de logins falhados com credenciais diferentes. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
+- **Acesso a partir de localização invulgar** : Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MariaDB, onde alguém iniciou sessão na Base de Dados Azure para o servidor MariaDB a partir de uma localização geográfica incomum. Em alguns casos, o alerta deteta uma ação legítima (uma nova manutenção de programador ou aplicação). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
+- **Acesso a partir de um centro de dados Azure incomum** : Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MariaDB, onde alguém iniciou sessão no servidor a partir de um centro de dados Azure incomum que foi visto neste servidor durante o período recente. Em alguns casos, o alerta deteta uma ação legítima (a sua nova aplicação em Azure, Power BI). Noutros casos, o alerta deteta uma ação maliciosa de um recurso/serviço do Azure (ex-funcionário, atacante externo).
+- **Acesso a partir de um principal desconhecido** : Este alerta é desencadeado quando há uma alteração no padrão de acesso à Base de Dados Azure para o servidor MariaDB, onde alguém iniciou sessão no servidor utilizando um principal incomum (Base de Dados Azure para utilizador MariaDB). Em alguns casos, o alerta deteta uma ação legítima (nova aplicação, manutenção de programador). Noutros casos, o alerta deteta uma ação maliciosa (ex-funcionário, atacante externo).
+- **Acesso de uma localização potencialmente prejudicial** : este alerta é acionado quando uma aplicação potencialmente prejudicial é utilizada para aceder à base de dados. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque através de ferramentas de ataque comuns.
+- **Base de dados Azure força bruta para credenciais MariaDB** : Este alerta é acionado quando há um número anormal elevado de logins falhados com credenciais diferentes. Em alguns casos, o alerta deteta testes de penetração em ação. Noutros casos, o alerta deteta um ataque de força bruta.
 
 ## <a name="next-steps"></a>Passos seguintes
 

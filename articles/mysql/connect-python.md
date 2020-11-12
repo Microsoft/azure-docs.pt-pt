@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Conecte-se usando Python - Azure Database for MySQL'
 description: Este guia de início rápido disponibiliza vários exemplos de código Python que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom:
 - mvc
@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
-ms.openlocfilehash: 12452367de0e8f936d30387df709d5d2779bfcb1
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 8aa0ea4b1e01cc7363f49d5897695c7c237b339b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427637"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535593"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Use Python para ligar e consultar dados na Base de Dados Azure para o MySQL
 

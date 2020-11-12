@@ -1,17 +1,17 @@
 ---
 title: Gerir regras de firewall - Portal Azure - Azure Database for MariaDB
 description: Criar e gerir a Base de Dados Azure para regras de firewall MariaDB utilizando o portal Azure
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 464b13fe4aa727a4d3ca3ff074b8bb94544576a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 895c8e51e16cb0b82ebf3edcf954dabe62b08ff4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86101227"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537137"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Criar e gerir a Base de Dados Azure para regras de firewall MariaDB utilizando o portal Azure
 As regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma Base de Dados Azure para o Servidor MariaDB a partir de um endereço IP especificado ou de uma série de endereços IP.
@@ -50,7 +50,7 @@ Para permitir que as aplicações do Azure se conectem à sua Base de Dados Azur
 ## <a name="manage-existing-firewall-rules-in-the-azure-portal"></a>Gerir as regras de firewall existentes no portal Azure
 Repita os passos para gerir as regras da firewall.
 * Para adicionar o computador atual, clique **em + Adicionar o meu IP**. Clique em **Guardar** para guardar as alterações.
-* Para adicionar endereços IP adicionais, digite o **NOME DE REGRA,** **START IP**e END **IP**. Clique em **Guardar** para guardar as alterações.
+* Para adicionar endereços IP adicionais, digite o **NOME DE REGRA,** **START IP** e END **IP**. Clique em **Guardar** para guardar as alterações.
 * Para modificar uma regra existente, clique em qualquer um dos campos da regra e, em seguida, modifique. Clique em **Guardar** para guardar as alterações.
 * Para eliminar uma regra existente, clique na elipse [...], e clique em **apagar**. Clique em **Guardar** para guardar as alterações.
 

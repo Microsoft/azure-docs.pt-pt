@@ -2,13 +2,13 @@
 title: Nódoas e piscinas em Azure Batch
 description: Saiba mais sobre os nós e piscinas computacional e como são usados num fluxo de trabalho do Azure Batch do ponto de vista do desenvolvimento.
 ms.topic: conceptual
-ms.date: 10/21/2020
-ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.date: 11/10/2020
+ms.openlocfilehash: 77f3a1c954f5591537436c9ee747052b3a642ec4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913811"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537616"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nódoas e piscinas em Azure Batch
 
@@ -20,7 +20,7 @@ Um nó é uma máquina virtual Azure (VM) ou vM de serviço de nuvem que se dedi
 
 Pode criar conjuntos de nós do Windows ou Linux com imagens dos Serviços Cloud do Azure, imagens do [Marketplace das Máquinas Virtuais do Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?filters=virtual-machine-images&page=1) ou imagens personalizadas preparadas por si.
 
-Os nós podem executar qualquer executável ou script que seja suportado pelo ambiente dos respetivos sistemas operativos. Os scripts executáveis ou scripts incluem \* \* scripts .exe, \* .cmd, .bat e PowerShell (para Windows) e binários, shell e Python scripts (para Linux).
+Os nós podem executar qualquer executável ou script que seja suportado pelo ambiente dos respetivos sistemas operativos. Os scripts executáveis ou scripts incluem \* .exe, \* .cmd, \* .bat e scripts PowerShell (para Windows) e binários, scripts de concha e Python (para Linux).
 
 Todos os nós de computação do Batch incluem também:
 
@@ -72,9 +72,9 @@ O [agente de nó batch](https://github.com/Azure/Batch/blob/master/changelogs/no
 
 ### <a name="cloud-services-configuration"></a>Configuração de serviços na nuvem
 
-A **Configuração de Serviços cloud** especifica que a piscina é composta por nós Azure Cloud Services. Os Serviços cloud fornecem *apenas* nós de computação do Windows .
+A **Configuração de Serviços cloud** especifica que a piscina é composta por nós Azure Cloud Services. Os Serviços Cloud fornecem apenas nós de computação windows.
 
-Os sistemas operativos disponíveis para os conjuntos de Configuração de Serviços Cloud estão listados em [Azure Guest OS releases and SDK compatibility matrix (Versões de SO Convidado do Azure e matriz de compatibilidade de SDK)](../cloud-services/cloud-services-guestos-update-matrix.md). Quando cria uma piscina que contém nós cloud Services, tem de especificar o tamanho do nó e a sua *Família OS* (que determina quais as versões de .NET instaladas com o SISTEMA). Os Serviços Cloud são implantados para Azure mais rapidamente do que máquinas virtuais que executam o Windows. Se quiser agrupamentos de nós de computação do Windows, vai chegar à conclusão de que os Serviços Cloud são mais vantajosos no que diz respeito ao tempo de implementação.
+Os sistemas operativos disponíveis para piscinas de configuração de serviços em nuvem estão listados nas [versões Azure Guest OS e na matriz de compatibilidade SDK](../cloud-services/cloud-services-guestos-update-matrix.md), e os tamanhos de nó de computação disponíveis estão listados em [Tamanhos para Serviços cloud](../cloud-services/cloud-services-sizes-specs.md). Quando cria uma piscina que contém nós cloud Services, especifica o tamanho do nó e a sua *família OS* (que determina quais as versões de .NET instaladas com o SO). Os Serviços Cloud são implantados para Azure mais rapidamente do que máquinas virtuais que executam o Windows. Se quiser agrupamentos de nós de computação do Windows, vai chegar à conclusão de que os Serviços Cloud são mais vantajosos no que diz respeito ao tempo de implementação.
 
 Tal como acontece com as funções de trabalho nos Serviços Cloud, pode especificar uma *Versão de SO* (para obter mais informações sobre as funções de trabalho, consulte a [descrição geral dos Serviços Cloud](../cloud-services/cloud-services-choose-me.md)). Recomendamos que especifique `Latest (*)` para a versão *OS* para que os nós sejam automaticamente atualizados, e não seja necessário trabalhar para atender às versões recém-lançadas. O principal motivo para selecionar uma versão de SO específica é garantir a compatibilidade da aplicação, o que permite fazer testes de retrocompatibilidade antes de permitir a atualização da versão. Após validação, a *versão OS* para o pool pode ser atualizada e a nova imagem de SO pode ser instalada. Quaisquer tarefas de execução serão interrompidas e requeadas.
 
@@ -127,7 +127,7 @@ Uma fórmula de dimensionamento pode basear-se nas métricas seguintes:
 
 - **Métricas de tempo** : baseadas em estatísticas recolhidas a cada cinco minutos no número de horas especificado.
 - **Métricas de recurso** : baseadas na utilização da CPU, da largura de banda, da memória e no número de nós.
-- **Métricas de tarefas** : baseadas no estado da tarefa, como *Ativa* (em fila), *Em Execução* ou *Concluída* .
+- **Métricas de tarefas** : baseadas no estado da tarefa, como *Ativa* (em fila), *Em Execução* ou *Concluída*.
 
 Quando o dimensionamento automático diminuir o número de nós de computação de um conjunto, tem de pensar como vai processar as tarefas que estão a ser executadas no momento da operação de diminuição. Para acomodar isto, o Batch fornece uma [*opção de deallocação de nó*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) que pode incluir nas suas fórmulas. Por exemplo, pode especificar que as tarefas em execução são paradas imediatamente e recolocadas em fila para execução noutro nó ou que podem ser concluídas antes de o nó ser removido do conjunto. Note que definir a opção de translocação de nó como `taskcompletion` ou `retaineddata` impedirá operações de redimensionamento de piscina até que todas as tarefas tenham terminado, ou todos os períodos de retenção de tarefas tenham expirado, respectivamente.
 

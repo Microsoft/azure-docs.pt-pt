@@ -1,17 +1,17 @@
 ---
 title: Escalões de preço – Base de Dados do Azure para MySQL
 description: Saiba mais sobre os vários níveis de preços para Azure Database para MySQL, incluindo gerações de cálculo, tipos de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 1d1a7e760a709c7068f16ca415a00de424b7e339
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: c70e4a097a56b76089a26510bcf33b4c7c24c266
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124088"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535151"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de Dados Azure para os níveis de preços do MySQL
 

@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Implementar funções de Azure como módulos - Azure IoT Edge'
-description: Neste tutorial, desenvolve-se uma função Azure como módulo IoT Edge e, em seguida, insumou-o num dispositivo de borda.
+description: Neste tutorial, desenvolve-se uma Função Azure como módulo IoT Edge e, em seguida, insumou-a num dispositivo de borda.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6e148adfe6db62e6fdaea53165a5c23d9a08efba
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 45f990e5426516db5537319d07c11aa705e462e7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042393"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94534862"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implementar funções de Azure como módulos IoT Edge
 
-Pode utilizar as Funções do Azure para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos Azure IoT Edge. Este tutorial acompanha-o através da criação e implementação de uma Função Azure que filtra dados do sensor no dispositivo IoT Edge simulado. Vai utilizar o dispositivo IoT Edge simulado que criou na Implementação do Azure IoT Edge num dispositivo simulado em inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, vai aprender a:
+Pode utilizar as Funções do Azure para implementar código que aplica a sua lógica de negócio diretamente nos seus dispositivos Azure IoT Edge. Este tutorial acompanha-o através da criação e implementação de uma Função Azure que filtra dados do sensor no dispositivo IoT Edge simulado. Vai utilizar o dispositivo IoT Edge simulado que criou na Implementação do Azure IoT Edge num dispositivo simulado em inícios rápidos do [Windows](quickstart.md) ou do [Linux](quickstart-linux.md). Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -89,9 +89,9 @@ A extensão IoT Edge tenta retirar as credenciais de registo do seu contentor do
 
 Atualmente, o Visual Studio Code pode desenvolver módulos C para dispositivos Linux AMD64 e Linux ARM32v7. Você precisa selecionar que arquitetura você está dirigindo com cada solução, porque o recipiente é construído e executado de forma diferente para cada tipo de arquitetura. O padrão é Linux AMD64.
 
-1. Abra a paleta de comando e procure **por Azure IoT Edge: Definir Plataforma-alvo padrão para solução de borda**, ou selecione o ícone de atalho na barra lateral na parte inferior da janela.
+1. Abra a paleta de comando e procure **por Azure IoT Edge: Definir Plataforma-alvo padrão para solução de borda** , ou selecione o ícone de atalho na barra lateral na parte inferior da janela.
 
-2. Na paleta de comando, selecione a arquitetura-alvo da lista de opções. Para este tutorial, estamos a usar uma máquina virtual Ubuntu como dispositivo IoT Edge, por isso manteremos o **amd64**padrão.
+2. Na paleta de comando, selecione a arquitetura-alvo da lista de opções. Para este tutorial, estamos a usar uma máquina virtual Ubuntu como dispositivo IoT Edge, por isso manteremos o **amd64** padrão.
 
 ### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com o código personalizado
 
@@ -188,7 +188,7 @@ Na secção anterior, criou uma solução IoT Edge e modificou o **CSharpFunctio
 
    Pode receber um aviso de segurança recomendando a utilização de `--password-stdin` . Embora essa melhor prática seja recomendada para cenários de produção, está fora do âmbito deste tutorial. Para mais informações, consulte a referência de login do [estivador.](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin)
 
-3. No explorador de código VS, clique com o botão direito ** no ficheirodeployment.template.js** e selecione a **Solução de Borda De Construção e Pressão IoT**.
+3. No explorador de código VS, clique com o botão direito **no ficheirodeployment.template.js** e selecione a **Solução de Borda De Construção e Pressão IoT**.
 
    O comando de construção e pressão inicia três operações. Em primeiro lugar, cria uma nova pasta na solução chamada **config** que detém o manifesto de implantação completo, que é construído a partir de informações no modelo de implementação e outros ficheiros de solução. Em segundo lugar, funciona `docker build` para construir a imagem do contentor com base no arquivo apropriado para a arquitetura do seu alvo. Em seguida, corre `docker push` para empurrar o repositório de imagem para o seu registo de contentores.
 
@@ -201,7 +201,7 @@ O Visual Studio Code apresenta uma mensagem de êxito quando a imagem de content
 1. No portal do Azure, procure o registo de contentor do Azure.
 2. Selecione **Repositórios**.
 3. Deverá ver o repositório **csharpfunction** na lista. Selecione este repositório para ver mais detalhes.
-4. Na secção **Etiquetas**, deverá ver a etiqueta **0.0.1-amd64**. Esta etiqueta indica a versão e a plataforma da imagem criada. Estes valores estão definidos no ficheiro module.json na pasta CSharpFunction.
+4. Na secção **Etiquetas** , deverá ver a etiqueta **0.0.1-amd64**. Esta etiqueta indica a versão e a plataforma da imagem criada. Estes valores estão definidos no ficheiro module.json na pasta CSharpFunction.
 
 ## <a name="deploy-and-run-the-solution"></a>Implementar e executar a solução
 

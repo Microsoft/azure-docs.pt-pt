@@ -1,24 +1,24 @@
 ---
 title: Amostras Azure CLI - Base de Dados Azure para MariaDB
 description: Este artigo lista as amostras de código Azure CLI disponíveis para interagir com a Base de Dados Azure para MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 3/18/2020
-ms.openlocfilehash: f73fd033f299ffe1656ea1f131bcd78181c026b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa9efba1c49063d40b4df0444fb3bc63b124a0a0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87502210"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536777"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mariadb"></a>Amostras de Azure CLI para Azure Database for MariaDB 
 A tabela seguinte inclui links para a amostra de scripts Azure CLI para Azure Database for MariaDB.
 
-| Ligação de amostras | Descrição  |
+| Ligação de amostras | Description  |
 |---|---|
 |**Criar um servidor**||
 | [Criar uma regra de servidor e de firewall](./scripts/sample-create-server-and-firewall-rule.md?toc=%2fcli%2fazure%2ftoc.json) | O script Azure CLI que cria uma única Base de Dados Azure para servidor MariaDB e configura uma regra de firewall ao nível do servidor. |

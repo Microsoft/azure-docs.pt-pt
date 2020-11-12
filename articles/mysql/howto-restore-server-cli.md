@@ -1,32 +1,33 @@
 ---
 title: Backup e restauro - Azure CLI - Azure Database for MySQL
 description: Saiba como fazer backup e restaurar um servidor na Base de Dados Azure para o MySQL utilizando o Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2116b5be4c5d40076aae10ecc2e81d73e7806e6d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee06eed1b8f54877d01a8b316c015938038879cf
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89419508"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535406"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Como fazer o back up e restaurar um servidor na Base de Dados Azure para o MySQL utilizando o Azure CLI
 
 A base de dados Azure para servidores MySQL é monitorizada periodicamente para ativar as funcionalidades de Restauro. Utilizando esta funcionalidade, poderá restaurar o servidor e todas as suas bases de dados num ponto-a-tempo anterior, num novo servidor.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para completar este guia, precisa:
-- Uma [base de dados Azure para servidor e base de dados MySQL](quickstart-create-mysql-server-database-using-azure-cli.md)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Para completar este guia:
 
-> [!IMPORTANT]
-> Este guia de como fazer requer que utilize a versão 2.0 do Azure CLI ou posterior. Para confirmar a versão, no pedido de comando do Azure CLI, insira `az --version` . Para instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Precisa de uma [base de dados Azure para servidor e base de dados MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Este artigo requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="set-backup-configuration"></a>Configuração de backup de definição
 
@@ -67,9 +68,9 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 
 O `az mysql server restore` comando requer os seguintes parâmetros:
 
-| Definição | Valor sugerido | Descrição  |
+| Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
-| resource-group |  myResourceGroup |  O grupo de recursos onde existe o servidor de origem.  |
+| resource-group |  myResourceGroup |  O grupo de recursos onde existe o servidor de origem.  |
 | name | mydemoserver-restored | O nome do novo servidor que é criado pelo comando restore. |
 | restore-point-in-time | 2018-03-13T13:59:00Z | Selecione um ponto no tempo para restaurar. Esta data e hora têm de estar dentro do período de retenção de cópias de segurança do servidor de origem. Utilize o formato de data e hora ISO8601. Por exemplo, pode utilizar o seu próprio fuso horário local, como `2018-03-13T05:59:00-08:00` . Também pode utilizar o formato UTC Zulu, por exemplo, `2018-03-13T13:59:00Z` . |
 | source-server | mydemoserver | O nome ou ID do servidor de origem do qual pretende restaurar. |
@@ -113,7 +114,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 
 O `az mysql server georestore` comando requer os seguintes parâmetros:
 
-| Definição | Valor sugerido | Descrição  |
+| Definição | Valor sugerido | Descrição  |
 | --- | --- | --- |
 |resource-group| myResourceGroup | O nome do grupo de recursos a que o novo servidor pertencerá.|
 |name | mydemoserver-georestored | O nome do novo servidor. |

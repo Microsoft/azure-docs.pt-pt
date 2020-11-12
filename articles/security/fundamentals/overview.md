@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 0d893eb2bf7a57e173d7acb8f15104522edbc3bf
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: db7d9e99de8a4ee67e49f8b7568700fc07b1e2fd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408214"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536536"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição Geral
@@ -221,7 +221,7 @@ Para enviar tráfego de rede entre a sua Rede Virtual Azure e o seu site no loca
 ### <a name="express-route"></a>ExpressRoute
 O Microsoft Azure [ExpressRoute](../../expressroute/expressroute-introduction.md) é um link WAN dedicado que permite estender as suas redes no local para a nuvem da Microsoft através de uma ligação privada dedicada facilitada por um fornecedor de conectividade.
 
-![ExpressRoute](./media/overview/azure-security-fig1.png)
+![ExpressRoute](./media/overview/azure-security-figure-1.png)
 
 Com o ExpressRoute, pode estabelecer ligações aos serviços de cloud da Microsoft, tais como Microsoft Azure, Microsoft 365 e CRM Online. A conectividade pode ser a partir de uma rede qualquer a qualquer (VPN de IP), uma rede Ethernet de ponto a ponto ou uma ligação cruzada virtual através de um fornecedor de conectividade numa localização conjunta.
 
@@ -231,7 +231,7 @@ As ligações ExpressRoute não passam pela Internet pública e, portanto, podem
 ### <a name="application-gateway"></a>Gateway de Aplicação
 O Microsoft [Azure Application Gateway](../../application-gateway/overview.md) fornece um [Controlador de Entrega de Aplicações (ADC)](https://en.wikipedia.org/wiki/Application_delivery_controller) como um serviço, oferecendo várias capacidades de equilíbrio de carga de camada 7 para a sua aplicação.
 
-![Gateway de Aplicação](./media/overview/azure-security-fig2.png)
+![Gateway de Aplicação](./media/overview/azure-security-figure-2.png)
 
 Permite-lhe otimizar a produtividade da web farm descarregando a rescisão intensiva de CPU TLS para o Gateway de aplicação (também conhecido como "descarga TLS" ou "Ponte TLS"). Também fornece outras capacidades de encaminhamento da Camada 7, incluindo distribuição de rodada de tráfego de entrada, afinidade da sessão baseada em cookies, encaminhamento baseado em caminhos de URL e a capacidade de hospedar vários websites por trás de um único Gateway de aplicação. O Application Gateway do Azure é um balanceador de carga de 7 camadas.
 
@@ -242,7 +242,7 @@ A aplicação fornece muitas funcionalidades do Controlador de Entrega de Aplica
 ### <a name="web-application-firewall"></a>Firewall de Aplicações Web
 Web Application Firewall é uma característica do [Azure Application Gateway](../../application-gateway/overview.md) que fornece proteção para aplicações web que usam o gateway de aplicação para funções padrão de Controlo de Entrega de Aplicações (ADC). A Firewall de aplicações Web fá-lo ao protegê-las contra a maioria das 10 principais vulnerabilidades Web da OWASP.
 
-![Firewall de Aplicações Web](./media/overview/azure-security-fig1.png)
+![Firewall de Aplicações Web](./media/overview/azure-security-figure-3.png)
 
 -   Proteção contra injeção de SQL
 

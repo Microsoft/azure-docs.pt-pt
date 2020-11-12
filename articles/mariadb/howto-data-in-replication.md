@@ -1,17 +1,17 @@
 ---
 title: Configure replicação de dados - Base de dados Azure para MariaDB
 description: Este artigo descreve como configurar a replicação de dados na Base de Dados Azure para MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 21a0aaaa9e10a7c3e445145eb178b50b446ba6ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: fe7e02cc34dc9c97e540d7b8d96c48ee8d5cfe09
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426008"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535372"
 ---
 # <a name="configure-data-in-replication-in-azure-database-for-mariadb"></a>Configure a replicação de dados na base de dados Azure para MariaDB
 

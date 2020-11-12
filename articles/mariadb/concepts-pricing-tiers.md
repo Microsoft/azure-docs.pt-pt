@@ -1,17 +1,17 @@
 ---
 title: Escalões de preço – Azure Database for MariaDB
 description: Saiba mais sobre os vários níveis de preços para Azure Database para MariaDB, incluindo gerações de cálculo, tipos de armazenamento, tamanho de armazenamento, vCores, memória e períodos de retenção de backup.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 5001864bd80917aef6d8631fe2b5097b22afbe03
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: b5b5a506b2f932d20a617634ace7ebf02093fbfa
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125787"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536290"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Base de Dados Azure para os níveis de preços mariaDB
 
@@ -94,7 +94,7 @@ Por exemplo, se tiver provisionado 1000 GB de armazenamento, e a utilização re
 
 Lembre-se que o armazenamento só pode ser aumentado, não para baixo.
 
-## <a name="backup"></a>Cópia de segurança
+## <a name="backup"></a>Backup
 
 A Azure Database for MariaDB fornece até 100% do armazenamento do servidor a provisionado como armazenamento de backup sem custos adicionais. Qualquer armazenamento de reserva que utilize acima deste valor é cobrado em GB por mês. Por exemplo, se fornecer um servidor com 250 GB de armazenamento, terá 250 GB de armazenamento adicional disponível para cópias de segurança do servidor sem custos. O armazenamento para cópias de segurança superiores aos 250 GB é cobrado de acordo com o [modelo de preços](https://azure.microsoft.com/pricing/details/mariadb/). Para compreender os fatores que influenciam o uso do armazenamento de backup, monitorizando e controlando o custo de armazenamento de backup, pode consultar a [documentação de backup](concepts-backup.md).
 

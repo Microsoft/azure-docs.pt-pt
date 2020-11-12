@@ -1,19 +1,19 @@
 ---
 title: Script CLI - Alterar parâmetros do servidor - Azure Database for MariaDB
 description: Esta amostra de script CLI lista todas as configurações e atualizações disponíveis do servidor de uma Base de Dados Azure para MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
 ms.date: 12/02/2019
-ms.openlocfilehash: 849b57cecee1d5e11935462b54fc522e5eacc62f
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: c7a46f98f74648ccae9f9f9f94c218d42056decb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518083"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536817"
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mariadb-server-using-azure-cli"></a>Configurações de lista e atualização de uma Base de Dados Azure para servidor MariaDB usando O Azure CLI
 Esta amostra de script CLI lista todos os parâmetros de configuração disponíveis, bem como os seus valores admissíveis para Azure Database para servidor MariaDB, e define o *innodb_lock_wait_timeout* para um valor que não o padrão.

@@ -14,12 +14,12 @@ ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visão computacional, aplicações de visão computacional, serviço de visão computacional
-ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 851470971335f144ebe0f9b602a8adc7d5ee06cf
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90907067"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94536222"
 ---
 # <a name="what-is-computer-vision"></a>O que é a Imagem Digitalizada?
 
@@ -39,7 +39,7 @@ A Visão Computacional inclui capacidades [de reconhecimento de caracteres ótic
 
 ## <a name="analyze-images-for-insight"></a>Analisar imagens para obter informações
 
-Pode analisar imagens para fornecer insights sobre as suas características e características visuais. Todas as funcionalidades da tabela abaixo são fornecidas pela [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Siga um [arranque rápido](#next-steps) para começar.
+Pode analisar imagens para fornecer insights sobre as suas características e características visuais. Todas as funcionalidades da tabela abaixo são fornecidas pela [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) Siga um [arranque rápido](#next-steps) para começar.
 
 
 ### <a name="tag-visual-features"></a>Etiquetar elementos visuais

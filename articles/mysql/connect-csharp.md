@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Connect using C# - Azure Database for MySQL'
 description: Este guia de introdução disponibiliza um código de exemplo de C# (.NET) que pode utilizar para se ligar e consultar dados da Base de Dados do Azure para MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/18/2020
-ms.openlocfilehash: 96a32b615da9b9e5549233489ba74bf859236d9a
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 3b90d8819b5d327c3ccd143257198c7ec8538f03
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427960"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94535831"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>Quickstart: Utilize .NET (C#) para ligar e consultar dados na Base de Dados Azure para o MySQL
 
