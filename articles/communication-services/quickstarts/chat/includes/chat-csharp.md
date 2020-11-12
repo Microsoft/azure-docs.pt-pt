@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: azure-communication-services
 author: mikben
 manager: mikben
@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 994f2829d260223567dcb5aed859812aa1fef3d1
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 5eb9867b17151987b165021f42a075e9355a315d
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829286"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523751"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -77,7 +77,7 @@ ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential);
 
 Utilize o `createChatThread` método para criar um fio de chat.
 - Use `topic` para dar um tópico a este chat; O tópico pode ser atualizado após a criação do fio de chat utilizando a `UpdateThread` função.
-- Utilize `members` propriedade para passar uma lista de `ChatThreadMember` objetos a adicionar ao fio de chat. O `ChatThreadMember` objeto é inicializado com um `CommunicationUser` objeto. Para obter um `CommunicationUser` objeto, terá de passar um ID de acesso que criou seguindo instruções para [criar um utilizador](../../access-tokens.md#create-a-user)
+- Utilize `members` propriedade para passar uma lista de `ChatThreadMember` objetos a adicionar ao fio de chat. O `ChatThreadMember` objeto é inicializado com um `CommunicationUser` objeto. Para obter um `CommunicationUser` objeto, terá de passar um ID de acesso que criou seguindo instruções para [criar um utilizador](../../access-tokens.md#create-an-identity)
 
 A resposta `chatThreadClient` é utilizada para executar operações no fio de chat criado: adicionar membros ao fio de chat, enviar uma mensagem, apagar uma mensagem, etc. Contém o `Id` atributo que é o ID único do fio de chat. 
 

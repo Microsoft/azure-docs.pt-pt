@@ -2,14 +2,14 @@
 author: ccompy
 ms.service: app-service-web
 ms.topic: include
-ms.date: 06/08/2020
+ms.date: 10/21/2020
 ms.author: ccompy
-ms.openlocfilehash: 14b9d9fe0eb9dfe2f25373c2d87d9b4af15dd0d9
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 1a9f468b8e2f9fff20b9b26b8890d485e426b691
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94371979"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523919"
 ---
 A utilização da Integração VNet regional permite que a sua aplicação aceda:
 
@@ -42,10 +42,10 @@ Por padrão, a sua aplicação apenas encaminha o tráfego RFC1918 para o seu VN
 Existem algumas limitações com a utilização da Integração VNet com VNets na mesma região:
 
 * Não se pode alcançar recursos através de ligações globais de observação.
-* A funcionalidade está disponível apenas a partir de novas unidades de escala do Azure App Service que suportam planos do Serviço de Aplicações PremiumV2. Note que *isso não significa que a sua aplicação deve funcionar num nível de preços PremiumV2* , apenas que deve funcionar num Plano de Serviço de Aplicações onde a opção PremiumV2 está disponível (o que implica que é uma unidade de escala mais recente onde esta funcionalidade de integração VNet também está disponível).
+* A funcionalidade está disponível em todas as unidades de escala de Serviço de Aplicações em Premium V2 e Premium V3. Também está disponível na Standard, mas apenas a partir de novas unidades de escala de Serviço de Aplicações. Se estiver numa unidade de escala mais antiga, só pode utilizar a funcionalidade a partir de um plano de Serviço de Aplicações Premium V2. Se quiser ter a certeza de poder utilizar a funcionalidade num plano standard de Serviço de Aplicações, crie a sua aplicação num plano premium de Serviço de Aplicações V3. Esses planos só são apoiados nas nossas unidades de escala mais recentes. Pode reduzir a escala se quiser depois disso.  
 * A sub-rede de integração pode ser utilizada apenas por um plano de Serviço de Aplicações.
 * A funcionalidade não pode ser utilizada por aplicações de plano isolado que se encontrem num Ambiente de Serviço de Aplicações.
-* A funcionalidade requer uma sub-rede não utilizada que seja uma /27 com 32 endereços ou maior num VNet do Gestor de Recursos Azure.
+* A funcionalidade requer uma sub-rede não utilizada que seja um /28 ou maior num VNet do Gestor de Recursos Azure.
 * A aplicação e o VNet devem estar na mesma região.
 * Não é possível eliminar um VNet com uma aplicação integrada. Remova a integração antes de eliminar o VNet.
 * Só é possível integrar-se com VNets na mesma subscrição que a aplicação.
@@ -53,7 +53,21 @@ Existem algumas limitações com a utilização da Integração VNet com VNets n
 * Não é possível alterar a subscrição de uma app ou de um plano enquanto há uma aplicação que está a usar a Integração VNet regional.
 * A sua aplicação não consegue resolver endereços em Zonas Privadas Azure DNS sem alterações de configuração
 
-Um endereço é usado para cada instância de plano. Se escalar a sua aplicação em cinco instâncias, então são utilizados cinco endereços. Uma vez que o tamanho da sub-rede não pode ser alterado após a atribuição, você deve usar uma sub-rede que é grande o suficiente para acomodar qualquer escala que a sua app possa alcançar. Um /26 com 64 endereços é o tamanho recomendado. A /26 com 64 endereços acomoda um plano Premium com 30 instâncias. Quando escala um plano para cima ou para baixo, você precisa do dobro de endereços por um curto período de tempo.
+A Integração VNet depende da utilização de uma sub-rede dedicada.  Quando se disponibiliza uma sub-rede, a sub-rede Azure perde 5 IPs desde o início. Um endereço é utilizado a partir da sub-rede de integração para cada instância de plano. Se escalar a sua aplicação para quatro instâncias, então são utilizados quatro endereços. O débito de 5 endereços do tamanho da sub-rede significa que os endereços máximos disponíveis por bloco CIDR são:
+
+- /28 tem 11 endereços
+- /27 tem 27 endereços
+- /26 tem 59 endereços
+
+Se escalar para cima ou para baixo em tamanho, precisa do dobro da sua necessidade de endereço por um curto período de tempo. Os limites de tamanho significam que as verdadeiras instâncias suportadas disponíveis por tamanho da sub-rede são, se a sua sub-rede for:
+
+- /28, a sua escala horizontal máxima é de 5 instâncias
+- /27, a sua escala horizontal máxima é de 13 instâncias
+- /26, a sua escala horizontal máxima é de 29 instâncias
+
+Os limites indicados na escala horizontal máxima pressupõe que terá de escalar para cima ou para baixo em tamanho ou SKU em algum ponto. 
+
+Uma vez que o tamanho da sub-rede não pode ser alterado após a atribuição, use uma sub-rede suficientemente grande para acomodar qualquer escala que a sua aplicação possa alcançar. Para evitar problemas com capacidade de sub-rede, um /26 com 64 endereços é o tamanho recomendado.  
 
 Se quiser que as suas apps num outro plano cheguem a um VNet que já esteja ligado a apps noutro plano, selecione uma sub-rede diferente da que está a ser usada pela integração VNet pré-existente.
 
@@ -82,21 +96,15 @@ As rotas do Border Gateway Protocol (BGP) também afetam o tráfego da sua aplic
 
 ### <a name="azure-dns-private-zones"></a>Zonas Privadas Azure DNS 
 
-Depois de a sua aplicação se integrar com o seu VNet, utiliza o mesmo servidor DNS com o qual o seu VNet está configurado. Por padrão, a sua aplicação não funcionará com as Zonas Privadas Azure DNS. Para trabalhar com as Zonas Privadas Azure DNS, tem de adicionar as seguintes definições de aplicações:
-
-1. WEBSITE_DNS_SERVER com o valor 168.63.129.16
-1. WEBSITE_VNET_ROUTE_ALL com o valor 1
-
-Estas definições enviarão todas as chamadas de saída da sua aplicação para o seu VNet. Além disso, permitirá que a app utilize o Azure DNS consultando a Zona Privada de DNS ao nível do trabalhador. Esta funcionalidade deve ser utilizada quando uma aplicação em execução estiver a aceder a uma Zona Privada de DNS.
-
-> [!NOTE]
->Tentar adicionar um domínio personalizado a uma Aplicação Web utilizando a Zona Privada de DNS não é possível com a Integração VNET. A validação de domínio personalizado é feita ao nível do controlador, não ao nível do trabalhador, o que impede que os registos dns sejam vistos. Para utilizar um domínio personalizado a partir de uma Zona Privada de DNS, a validação teria de ser contornada usando um Gateway de Aplicações ou um Ambiente de Serviço de Aplicações ILB.
-
-
+Depois de a sua aplicação se integrar com o seu VNet, utiliza o mesmo servidor DNS com o qual o seu VNet está configurado. Pode sobrepor este comportamento na sua aplicação configurando a definição da aplicação WEBSITE_DNS_SERVER com o endereço do servidor DNS pretendido. Se tinha um servidor DNS personalizado configurado com o seu VNet mas queria que a sua aplicação usasse zonas privadas Azure DNS, deverá definir WEBSITE_DNS_SERVER com o valor 168.63.129.16. 
 
 ### <a name="private-endpoints"></a>Pontos finais privados
 
-Se quiser fazer chamadas para [Private Endpoints,][privateendpoints]então tem de se integrar com as Zonas Privadas Azure DNS ou gerir o ponto final privado no servidor DNS utilizado pela sua aplicação. 
+Se quiser fazer chamadas para [Private Endpoints,][privateendpoints]então tem de garantir que as suas pesquisas de DNS serão resolvidas para o ponto final privado. Para garantir que as pesquisas dns da sua aplicação apontarão para os seus pontos finais privados, pode:
+
+* integrar com Azure DNS Private Zones. Se o seu VNet não tiver um servidor DNS personalizado, este será automático
+* gerir o ponto final privado no servidor DNS utilizado pela sua aplicação. Para isso, precisa de saber o endereço de ponto final privado e, em seguida, apontar o ponto final que está a tentar alcançar para esse endereço com um registo A.
+* Configure o seu próprio servidor DNS para encaminhar para as zonas privadas do Azure DNS
 
 <!--Image references-->
 [4]: ../includes/media/web-sites-integrate-with-vnet/vnetint-appsetting.png

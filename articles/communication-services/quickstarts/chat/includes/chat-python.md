@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: azure-communication-services
 author: mikben
 manager: mikben
@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 3c05596e16edc5243b8a97002a5cc5990c69ec43
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 2b7d00335253772683b867acf0765b77fc493e79
+ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947567"
+ms.lasthandoff: 11/11/2020
+ms.locfileid: "94523934"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -85,7 +85,7 @@ chat_client = ChatClient(endpoint, CommunicationUserCredential(<Access Token>))
 Utilize o `create_chat_thread` método para criar um fio de chat.
 
 - Utilizar `topic` para dar um tópico de linha; O tópico pode ser atualizado após a criação do fio de chat utilizando a `update_thread` função.
-- Utilize `members` para listar o `ChatThreadMember` a ser adicionado ao fio de chat, o `ChatThreadMember` tipo de `CommunicationUser` tomadas como , que é o `user` que obteve depois de criar por Criar um [utilizador](../../access-tokens.md#create-a-user)
+- Utilize `members` para listar o `ChatThreadMember` a ser adicionado ao fio de chat, o `ChatThreadMember` tipo de `CommunicationUser` tomadas como , que é o `user` que obteve depois de criar por Criar um [utilizador](../../access-tokens.md#create-an-identity)
 
 A resposta `chat_thread_client` é usada para executar operações no fio de chat recém-criado, como adicionar membros ao fio de chat, enviar mensagem, eliminar mensagem, etc. Contém uma `thread_id` propriedade que é o ID único do fio de chat.
 
@@ -158,7 +158,7 @@ Uma vez criado um fio de chat, pode adicionar e remover os utilizadores do mesmo
 Utilize `add_members` o método para adicionar os membros do fio ao fio identificado pelo threadId.
 
 - Utilizar `members` para listar os membros a adicionar ao fio de conversação;
-- `user`, necessário, é o `CommunicationUser` que criou `CommunicationIdentityClient` na [criação de um utilizador](../../access-tokens.md#create-a-user)
+- `user`, necessário, é o `CommunicationUser` que criou `CommunicationIdentityClient` na [criação de um utilizador](../../access-tokens.md#create-an-identity)
 - `display_name`, opcional, é o nome de visualização do membro thread.
 - `share_history_time`, opcional, é o momento a partir do qual a história do chat é partilhada com o membro. Para partilhar a história desde o início do fio de chat, coloque esta propriedade em qualquer data igual ou inferior ao tempo de criação de fios. Para não partilhar nenhuma história anterior à data em que o membro foi adicionado, desemafete-a para a data atual. Para partilhar a história parcial, estabeleça-a como uma data intermediária.
 
