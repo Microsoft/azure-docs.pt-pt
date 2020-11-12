@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: 3cc1bfa72a61d13c27c02fdb114b49666b67fabe
-  ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+  ms.openlocfilehash: 4f1fd0f88c7165a409644029f247b090df285138
+  ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/13/2020
-  ms.locfileid: "91969624"
+  ms.lasthandoff: 11/11/2020
+  ms.locfileid: "94506044"
 landingContent:
 - title: Resolver falhas de implementação
   linkLists:
@@ -126,7 +126,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: 'Resolver problemas com galerias de imagens partilhadas: a replicação é lenta'
-      url: ../troubleshooting-shared-images.md#replication-is-slow
+      url: ../troubleshooting-shared-images.md#replication-speed
 - title: Problemas da Extensão da VM
   linkLists:
   - linkListType: how-to-guide

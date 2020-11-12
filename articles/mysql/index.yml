@@ -3,17 +3,17 @@ title: Documentação da Base de Dados do Azure para MySQL
 summary: A Base de Dados do Azure para MySQL é um serviço de base de dados relacional com tecnologia MySQL Community Edition. Pode utilizar a opção Servidor Único ou Servidor Flexível (Pré-visualização) para alojar uma base de dados MySQL no Azure. É uma oferta de base de dados como serviço totalmente gerida capaz de processar cargas de trabalho fundamentais com desempenho previsível e escalabilidade dinâmica.
 metadata:
   description: A Base de Dados do Azure para MySQL é um serviço de base de dados relacional na cloud da Microsoft criado para programadores que conta com tecnologia MySQL Community Edition. Pode optar entre Servidor Único ou Servidor Flexível (Pré-visualização) para implementar a base de dados MySQL no Azure.
-  author: ajlam
-  ms.author: andrela
+  author: savjani
+  ms.author: pariks
   ms.date: 09/03/2019
   ms.service: mysql
   ms.topic: landing-page
-  ms.openlocfilehash: 9ac045aac0587f7080ab7df277522674ca603040
-  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+  ms.openlocfilehash: 82c736b3256a099aa0dbd2edca14f402a3b935be
+  ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
   ms.translationtype: HT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 10/26/2020
-  ms.locfileid: "92546301"
+  ms.lasthandoff: 11/12/2020
+  ms.locfileid: "94543039"
 landingContent:
 - title: Sobre a Base de Dados do Azure para MySQL
   linkLists:

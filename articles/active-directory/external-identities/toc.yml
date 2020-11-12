@@ -10,6 +10,8 @@
           href: what-is-b2b.md
         - name: O que é o Azure AD B2C?
           href: ../../active-directory-b2c/overview.md
+        - name: Novidades no Docs?
+          href: whats-new-docs.md
     - name: Guias de Início Rápido
       items:
         - name: Adicionar utilizadores convidados no portal

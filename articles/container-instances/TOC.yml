@@ -72,7 +72,7 @@
           href: container-instances-vnet.md
         - name: Implementar do Azure Container Registry
           href: container-instances-using-azure-container-registry.md
-        - name: Implementar com o GitHub Actions (pré-visualização)
+        - name: Implementar com o GitHub Actions
           href: container-instances-github-action.md
         - name: Encriptar dados de implementação
           href: container-instances-encrypt-data.md

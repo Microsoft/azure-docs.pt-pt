@@ -2128,7 +2128,7 @@
           href: myday-provision-tutorial.md
     - name: N - Z
       items:
-        - name: Consola de Administrador da Netskope
+        - name: Autenticação de Utilizador do Netskope
           href: netskope-administrator-console-provisioning-tutorial.md
         - name: New Relic por Organização
           href: new-relic-by-organization-provisioning-tutorial.md
