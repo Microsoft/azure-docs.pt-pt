@@ -1,17 +1,17 @@
 ---
 title: Alertas métricos de configuração - Portal Azure - Base de Dados Azure para MySQL
 description: Este artigo descreve como configurar e aceder a alertas métricos para Azure Database for MySQL a partir do portal Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: bb86bc3fbfd4beffdaca713d7989218550841f03
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 81003be986524b94e9c4487cd0d8606540445d16
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546896"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542087"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Utilize o portal Azure para configurar alertas sobre métricas para a base de dados Azure para o MySQL 
 
@@ -40,29 +40,37 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
 
 4. A página **de regras Create** abre conforme mostrado abaixo. Preencha as informações necessárias:
 
-   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Selecione Regras de Alerta":::
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Adicione formulário de alerta métrico":::
 
-5. Dentro da secção **Condição,** **selecione Adicionar a condição** .
+5. Dentro da secção **Condição,** **selecione Adicionar a condição**.
 
 6. Selecione uma métrica da lista de sinais a serem alertados. Neste exemplo, selecione "Storage percent".
    
-   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selecione Regras de Alerta":::
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selecionar métrica":::
 
 7. Configure a lógica de alerta, incluindo a **Condição** (ex. "Maior do que"), **Threshold** (ex. 85 por cento), **Agregação do tempo,** **Período** de tempo a regra métrica deve ser satisfeita antes do gatilho de alerta (ex. "Nos últimos 30 minutos"), e **Frequência.**
    
    Selecione **Fazer** quando concluído.
 
-   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Selecione Regras de Alerta" para selecionar proprietários, contribuintes e leitores de subscrição para receber notificações.
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Selecione métrica 2":::
+
+8. Na secção **Grupos de Ação,** selecione **Criar Novo** para criar um novo grupo para receber notificações no alerta.
+
+9. Preencha o formulário "Adicionar grupo de ação" com um nome, nome curto, subscrição e grupo de recursos.
+
+10. Configure um tipo de ação **por E-mail/SMS/Push/Voice.**
+    
+    Escolha "Email Azure Resource Manager Role" para selecionar proprietários, contribuintes e leitores de subscrição para receber notificações.
    
     Opcionalmente, forneça um URI válido no campo **Webhook** se quiser que seja chamado quando o alerta disparar.
 
     Selecione **OK** quando concluído.
 
-    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Selecione Regras de Alerta":::
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Grupo de ações":::
 
 11. Especifique um nome de regra de alerta, descrição e severidade.
 
-    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Selecione Regras de Alerta"::: 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Grupo de ação 2"::: 
 
 12. Selecione **Criar a regra de alerta** para criar o alerta.
 

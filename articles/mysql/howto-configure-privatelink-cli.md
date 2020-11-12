@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a2ec1c609fc0562c6c8181a934e742daa9a5a4f9
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: da6a2b97d2656d56fa2aa0e7259fba433bd7b81e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241570"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541645"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Criar e gerir o Link Privado para Azure Database para o MySQL utilizando o CLI
 
@@ -21,11 +21,9 @@ Um Ponto Final Privado é o bloco de construção fundamental para a ligação p
 > [!NOTE]
 > A funcionalidade de ligação privada só está disponível para a Base de Dados Azure para servidores MySQL nos níveis de preços otimizados para fins gerais ou memória. Certifique-se de que o servidor de base de dados está num destes níveis de preços.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se decidir instalar e utilizar o Azure CLI localmente, este quickstart requer que utilize a versão 2.0.28 ou posterior do Azure CLI. Para encontrar a sua versão instalada, corra `az --version` . Consulte [o Azure CLI](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
+- Este artigo requer a versão 2.0.28 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -128,24 +126,24 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 Ligue-se ao *myVm VM* da internet da seguinte forma:
 
-1. Na barra de pesquisa do portal, introduza *myVm* .
+1. Na barra de pesquisa do portal, introduza *myVm*.
 
-1. Selecione o botão **Ligar** . Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
+1. Selecione o botão **Ligar**. Depois de selecionar o botão **Ligar,** **o Connect à máquina virtual** abre-se.
 
-1. Selecione **Transferir Ficheiro RDP** . O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
+1. Selecione **Transferir Ficheiro RDP**. O Azure cria um ficheiro Remote Desktop Protocol *(.rdp)* e transfere-o para o computador.
 
 1. Abra o *ficheiro.rdp descarregado.*
 
-    1. Se lhe for pedido, selecione **Ligar** .
+    1. Se lhe for pedido, selecione **Ligar**.
 
     1. Introduza o nome de utilizador e a palavra-passe que especificou ao criar o VM.
 
         > [!NOTE]
         > Poderá ter de selecionar **Mais escolhas**  >  **Utilize uma conta diferente** , para especificar as credenciais que introduziu quando criou o VM.
 
-1. Selecione **OK** .
+1. Selecione **OK**.
 
-1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar** .
+1. Poderá receber um aviso de certificado durante o processo de início de sessão. Se recebeu um aviso de certificado, selecione **Sim** ou **Continuar**.
 
 1. Assim que o ambiente de trabalho em VM aparecer, minimize-o para voltar ao seu ambiente de trabalho local.  
 

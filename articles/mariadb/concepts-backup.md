@@ -1,17 +1,17 @@
 ---
 title: Backup e restauro - Azure Database for MariaDB
 description: Saiba mais sobre cópias de segurança automáticas e restauro da sua Base de Dados Azure para o servidor MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: 1d95459797a32ab3e026ee1c3a2cf93fe6e95cc4
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 68605a22dd0d0b2b716b148399c8406a1ea8d89e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378963"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541747"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Backup e restauro na Base de Dados Azure para MariaDB
 

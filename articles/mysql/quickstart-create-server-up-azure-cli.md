@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar base de dados Azure para o MySQL usando az mysql up'
 description: Guia quickstart para criar base de dados Azure para servidor MySQL usando o comando Azure CLI (interface de linha de comando).
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: a02d2e32a035581d486f22b97fc789957d0b4138
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d89cc41ed26124ae4ad2e6689be6d59278c3d9da
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92534044"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542172"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Quickstart: Criar uma base de dados Azure para o MySQL utilizando um simples comando Azure CLI - az mysql up (pré-visualização)
 
@@ -90,7 +90,7 @@ Após a conclusão do `az mysql up` comando, é devolvida uma lista de cadeias d
 
 Pode utilizar o comando [az mysql show-connection-string](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-show-connection-string) para listar estas cordas de ligação novamente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Limpe todos os recursos que criou no arranque rápido utilizando o seguinte comando. Este comando elimina a Base de Dados Azure para o servidor MySQL e para o grupo de recursos.
 

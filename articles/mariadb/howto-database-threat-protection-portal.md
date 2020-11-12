@@ -1,17 +1,17 @@
 ---
 title: Proteção Avançada de Ameaças - Portal Azure - Base de Dados Azure para MariaDB
 description: A Proteção de Ameaças para a Base de Dados de Azure para MariaDB deteta atividades anómalas de bases de dados que indiquem potenciais ameaças à segurança na base de dados.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 1b5a16a014892764ee26b524489a82744fe6ca82
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7734feddabb1a4a86e7932da3ef4adc57352637e
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425961"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542699"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mariadb"></a>Proteção Avançada de Ameaças para Base de Dados de Azure para MariaDB
 

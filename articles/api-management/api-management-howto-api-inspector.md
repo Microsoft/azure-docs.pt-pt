@@ -9,12 +9,12 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 10/30/2020
 ms.author: apimpm
-ms.openlocfilehash: e9a101de408b506fb5375b5f16c1deff4f67532d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 531e346569b85ababc382f997fd7764a92b3d05f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422006"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542319"
 ---
 # <a name="tutorial-debug-your-apis-using-request-tracing"></a>Tutorial: Debug seus APIs usando rastreio de pedido
 
@@ -47,7 +47,7 @@ A **definição de rastreio de permitir** a subscrição utilizada para a sua AP
 1. Selecione API de  **Conferência de Demonstração** da sua lista de API.
 1. Selecione o separador **Teste**.
 1. Selecione a operação **GetSpeakers**.
-1. Confirme que o cabeçalho de pedido HTTP inclui **Ocp-Admin-Trace: Verdadeiro** e um valor válido para **o Ocp-Admin-Subscription-Key**. Se não for, selecione **+ Adicione o cabeçalho** para adicionar o cabeçalho.
+1. Confirme que o cabeçalho de pedido HTTP inclui **Ocp-Apim-Trace: Verdadeiro** e um valor válido para **a Ocp-Apim-Subscription-Key**. Se não for, selecione **+ Adicione o cabeçalho** para adicionar o cabeçalho.
 1. Selecione **Enviar** para fazer uma chamada de API.
 
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Configurar o rastreio da API":::

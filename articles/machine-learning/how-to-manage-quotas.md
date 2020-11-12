@@ -1,7 +1,7 @@
 ---
 title: Gerir recursos e quotas
 titleSuffix: Azure Machine Learning
-description: Conheça as quotas sobre recursos para a Azure Machine Learning e como solicitar aumentos de quota.
+description: Conheça as quotas e limites de recursos para a Azure Machine Learning e como solicitar aumentos de quota.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d82cbafbbdeb379c8eb97494ca8d3243f356b7a1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309075"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542121"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gerir e aumentar quotas para recursos com Azure Machine Learning
 
@@ -49,7 +49,7 @@ Nesta secção, você aprende sobre o padrão e limites máximos de quota para o
 + Azure Machine Learning compute
 + Oleodutos Azure Machine Learning
 + Azure Container Instances
-+ Storage do Azure
++ Armazenamento do Azure
 
 > [!IMPORTANT]
 > Os limites estão sujeitos a alterações. Para obter as informações mais recentes, consulte [os limites de subscrição e serviço da Azure, quotas e constrangimentos](../azure-resource-manager/management/azure-subscription-service-limits.md) para toda a Azure.

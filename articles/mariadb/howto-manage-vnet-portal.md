@@ -1,17 +1,17 @@
 ---
 title: Gerir pontos finais VNet - Portal Azure - Base de Dados Azure para MariaDB
 description: Criar e gerir a Base de Dados Azure para pontos finais de serviço MariaDB VNet e regras usando o portal Azure
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a4606755aedc9b34b257a7534d5c678bdeea7c0d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5eaa7821c61010b322d8f9032c439df28c297f3d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425926"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540880"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Criar e gerir a Base de Dados Azure para pontos finais de serviço MariaDB VNet e regras VNet utilizando o portal Azure
 

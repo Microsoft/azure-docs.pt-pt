@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2230784eedd044acd95b3087793ba664b544f76a
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: b558e34d3f5d224515eee669dfa7b8f2c6bbb3cd
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505075"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541016"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-preview-using-the-azure-portal"></a>Quickstart: Criar uma piscina SQL dedicada (pré-visualização) utilizando o portal Azure
 
@@ -48,7 +48,7 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
 
     | Definição | Valor sugerido | Descrição |
     | :------ | :-------------- | :---------- |
-    | **nome de piscina SQL dedicado** | Qualquer nome válido | Nome da piscina dedicada SQL. |
+    | **Nome da piscina SQL dedicado** | Qualquer nome válido | Nome da piscina dedicada SQL. |
     | **Nível de desempenho** | DW100c | Definir para o menor tamanho para reduzir custos para este arranque rápido |
 
   
@@ -75,10 +75,9 @@ Inicie sessão no [portal do Azure](https://portal.azure.com/)
  ![Piscina SQL cria fluxo - fornecimento de recursos.](media/quickstart-create-sql-pool/create-sql-pool-studio-27.png)
 
 
-
 Após a criação da piscina de SQL dedicada, estará disponível no espaço de trabalho para carregamento de dados, fluxos de processamento, leitura do lago, etc.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Siga os passos abaixo para eliminar a piscina SQL dedicada do espaço de trabalho.
 > [!WARNING]

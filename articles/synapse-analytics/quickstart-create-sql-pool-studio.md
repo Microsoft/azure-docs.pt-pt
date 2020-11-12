@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar uma piscina SQL dedicada dedicada usando o Synapse Studio'
+title: 'Quickstart: Criar uma piscina SQL dedicada usando o Synapse Studio'
 description: Crie uma piscina SQL dedicada utilizando o Synapse Studio seguindo os passos deste guia.
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 10/16/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: f3ed5f3940a9b02701ad2f3c779b791e128e288c
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 3644891f12a6475ec9cfec51f572df4742481e8f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506350"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541849"
 ---
 # <a name="quickstart-create-a-dedicated-sql-pool-using-synapse-studio"></a>Quickstart: Criar uma piscina SQL dedicada usando o Synapse Studio
 
@@ -110,6 +110,7 @@ Se pretender eliminar a piscina SQL dedicada, faça o seguinte:
 1. Confirme a eliminação e prima O botão **Eliminar.**
 1. Quando o processo estiver concluído com sucesso, a piscina dedicada SQL deixará de estar listada nos recursos do espaço de trabalho.
 
-## <a name="next-steps"></a>Passos seguintes 
+## <a name="next-steps"></a>Passos seguintes
+ 
 - Ver [Quickstart: Criar um caderno Apache Spark](quickstart-apache-spark-notebook.md).
 - Consulte [Quickstart: Crie uma piscina SQL dedicada utilizando o portal Azure](quickstart-create-sql-pool-portal.md).

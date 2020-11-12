@@ -1,17 +1,17 @@
 ---
 title: Conecte-se com reorientação - Azure Database for MySQL
 description: Este artigo descreve como pode configurar a sua aplicação para ligar à Base de Dados Azure para o MySQL com a reorientação.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/8/2020
-ms.openlocfilehash: be660101a28d5ef289de1b25f8f7d33fbe9f617b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bea618b34809544308caba46a0ffbdecee91d69f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86107823"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541815"
 ---
 # <a name="connect-to-azure-database-for-mysql-with-redirection"></a>Ligar à Base de Dados do Azure para MySQL com redirecionamento
 
@@ -74,7 +74,7 @@ As secções subsequentes do documento descreverão como instalar a extensão ut
 
 3. Mude os diretórios para a pasta devolvida e certifique-se de que `mysqlnd_azure.so` está localizada nesta pasta. 
 
-4. Localize a pasta para ficheiros .ini executando o seguinte: 
+4. Localize a pasta para .ini ficheiros executando o seguinte: 
 
     ```bash
     php -i | grep "dir for additional .ini files"
@@ -82,7 +82,7 @@ As secções subsequentes do documento descreverão como instalar a extensão ut
 
 5. Mude os diretórios para esta pasta devolvida. 
 
-6. Crie um novo ficheiro .ini para `mysqlnd_azure` . Certifique-se de que a ordem do alfabeto do nome está atrás da do mysqnld, uma vez que os módulos são carregados de acordo com a ordem de nome dos ficheiros ini. Por exemplo, se `mysqlnd` .ini for `10-mysqlnd.ini` nomeado, nomeie o mysqlnd ini como `20-mysqlnd-azure.ini` .
+6. Crie um novo ficheiro .ini para `mysqlnd_azure` . Certifique-se de que a ordem do alfabeto do nome está atrás da do mysqnld, uma vez que os módulos são carregados de acordo com a ordem de nome dos ficheiros ini. Por exemplo, se `mysqlnd` .ini for `10-mysqlnd.ini` nomeado, diga o mysqlnd ini como `20-mysqlnd-azure.ini` .
 
 7. Dentro do novo ficheiro .ini, adicione as seguintes linhas para permitir a reorientação.
 

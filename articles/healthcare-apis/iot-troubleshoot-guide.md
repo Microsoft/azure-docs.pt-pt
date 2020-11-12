@@ -6,14 +6,14 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 09/16/2020
+ms.date: 11/09/2020
 ms.author: jasteppe
-ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 124c3b3667e847a5ee1bb8034ef01088c629d503
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394225"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540948"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Conector Azure IoT para guia de resolução de problemas FHIR (pré-visualização)
 
@@ -68,7 +68,7 @@ Nesta secção, você vai aprender sobre o processo de validação que O Conecto
 |A conta não existe.|API|Não existe uma tentativa de adicionar um Conector Azure IoT para FHIR e a API Azure para recurso FHIR.|Crie a AZure API para o recurso FHIR e, em seguida, re-apropte a operação.|
 |A Azure API para a versão FHIR de recursos FHIR não é suportada para o Conector IoT.|API|Tentar utilizar um Conector Azure IoT para FHIR com uma versão incompatível da API Azure para recurso FHIR.|Crie um novo API Azure para recurso FHIR (versão R4) ou utilize um API Azure existente para recurso FHIR (versão R4).
 
-##  <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Porque é que o meu Conector Azure IoT para os dados FHIR (pré-visualização) não aparece na Azure API para o FHIR?
+## <a name="why-is-my-azure-iot-connector-for-fhir-preview-data-not-showing-up-in-azure-api-for-fhir"></a>Porque é que o meu Conector Azure IoT para os dados FHIR (pré-visualização) não aparece na Azure API para o FHIR?
 
 |Questões potenciais|Correções|
 |----------------|-----|
@@ -82,7 +82,74 @@ Nesta secção, você vai aprender sobre o processo de validação que O Conecto
 
 *Início rápido de [referência: Implementar o Conector Azure IoT (pré-visualização) utilizando o portal Azure](iot-fhir-portal-quickstart.md#create-new-azure-iot-connector-for-fhir-preview) para uma descrição funcional do Conector Azure IoT para tipos de resolução FHIR (por exemplo: Procurar ou Criar).
 
+## <a name="use-metrics-to-troubleshoot-issues-in-azure-iot-connector-for-fhir-preview"></a>Utilize métricas para resolver problemas no Conector Azure IoT para FHIR (pré-visualização)
+
+O Conector Azure IoT para FHIR gera várias métricas para fornecer informações sobre o processo de fluxo de dados. Uma das métricas suportadas chama-se *Erro* Total, que fornece a contagem de todos os erros que ocorrem num caso de Conector Azure IoT para FHIR.
+
+Cada erro é registado com uma série de propriedades associadas. Cada propriedade fornece um aspeto diferente sobre o erro, o que pode ajudá-lo a identificar e resolver problemas. Esta secção lista diferentes propriedades capturadas para cada erro na métrica *Erros Totais,* e possíveis valores para estas propriedades.
+
+> [!NOTE]
+> Pode navegar para a métrica *de Erros Totais* para um exemplo de Conector Azure IoT para FHIR (pré-visualização) conforme descrito na [página de métricas Azure IoT para FHIR (pré-visualização).](iot-metrics-display.md)
+
+Clique no gráfico *De Erros Totais* e, em seguida, clique no botão *de filtro Adicionar* para cortar e picar a métrica de erro usando qualquer uma das propriedades mencionadas abaixo.
+
+### <a name="the-operation-performed-by-the-azure-iot-connector-for-fhir-preview"></a>A operação realizada pelo Conector Azure IoT para FHIR (pré-visualização)
+
+Esta propriedade representa a operação que está a ser realizada pelo IoT Connector quando ocorreu o erro. Uma operação geralmente representa a fase de fluxo de dados durante o processamento de uma mensagem do dispositivo. Aqui está a lista de valores possíveis para este imóvel.
+
+> [!NOTE]
+> Pode ler mais sobre diferentes fases do fluxo de dados no Conector Azure IoT para FHIR (pré-visualização) [aqui](iot-data-flow.md).
+
+|Fase de fluxo de dados|Description|
+|---------------|-----------|
+|Configuração|Operação específica para configurar o seu caso de Conector IoT|
+|Normalização|Fase de fluxo de dados onde os dados do dispositivo são normalizados|
+|Agrupamento|Fase de fluxo de dados onde os dados normalizados são agrupados|
+|FHIRConversão|Fase de fluxo de dados onde os dados normalizados agrupados são transformados num recurso FHIR|
+|Desconhecido|O tipo de operação é desconhecido quando ocorreu um erro|
+
+### <a name="the-severity-of-the-error"></a>A gravidade do erro
+
+Esta propriedade representa a gravidade do erro ocorrido. Aqui está a lista de valores possíveis para este imóvel.
+
+|Gravidade|Descrição|
+|---------------|-----------|
+|Aviso|Existe um pequeno problema no processo de fluxo de dados, mas o processamento da mensagem do dispositivo não para|
+|Erro|O processamento de uma mensagem específica do dispositivo desagravou-se e outras mensagens podem continuar a ser executadas como esperado.|
+|Crítico|Existe algum problema de nível do sistema com o Conector IoT e não se espera que as mensagens sejam processadas|
+
+### <a name="the-type-of-the-error"></a>O tipo de erro
+
+Esta propriedade significa uma categoria para um dado erro, que basicamente representa um agrupamento lógico para tipo de erros semelhantes. Aqui está a lista de possíveis valor para este imóvel.
+
+|Tipo de erro|Description|
+|----------|-----------|
+|DeviceTemplateError|Erros relacionados com modelos de mapeamento de dispositivos|
+|DeviceMessageError|Ocorreram erros ao processar uma mensagem específica do dispositivo|
+|FHIRTemplateError|Erros relacionados com modelos de mapeamento FHIR|
+|FHIRConversionError|Erros ocorreram ao transformar uma mensagem num recurso FHIR|
+|FHIRResourceError|Erros relacionados com os recursos existentes no servidor FHIR que são referenciados pelo Conector IoT|
+|FHIRServerError|Erros que ocorrem ao comunicar com o servidor FHIR|
+|GeneralError|Todos os outros tipos de erros|
+
+### <a name="the-name-of-the-error"></a>O nome do erro
+
+Esta propriedade fornece o nome para um erro específico. Aqui está a lista de todos os nomes de erro com a sua descrição e tipo de erro associado, gravidade e fase de fluxo de dados.
+
+|Nome de erro|Description|Tipo de erro(s)|Gravidade do erro|Fase de fluxo de dados|
+|----------|-----------|-------------|--------------|------------------|
+|MultipleResourceFoundException|Erro ocorreu quando vários recursos do paciente ou dispositivo são encontrados no servidor FHIR para os respetivos identificadores presentes na mensagem do dispositivo|FHIRResourceError|Erro|FHIRConversão|
+|ModeloNotFoundException|Um dispositivo ou modelo de mapeamento FHIR não está configurado com a instância do Conector IoT|DeviceTemplateError, FHIRTemplateError|Crítico|Normalização, FHIRConversão|
+|CorrelaIdNotDefinedExcepção|O ID de correlação não é especificado no modelo de mapeamento do dispositivo. CorrelationIdNotDefinedExcepção é um erro condicional que ocorreria apenas quando a observação de FHIR deve agrupar as medições do dispositivo usando um ID de correlação, mas não está configurado corretamente|DeviceMessageError|Erro|Normalização|
+|PacienteDeviceMismatchExcepção|Este erro ocorre quando o recurso do dispositivo no servidor FHIR tem uma referência a um recurso do paciente, que não corresponde ao identificador do paciente presente na mensagem|FHIRResourceError|Erro|FHIRConversionError|
+|Experiência PacienteNotFoundException|Nenhum recurso FHIR do paciente é referenciado pelo recurso FHIR do dispositivo associado ao identificador do dispositivo presente na mensagem do dispositivo. Note que este erro só ocorrerá quando a instância do Conector IoT estiver configurada com o tipo de resolução *Lookup*|FHIRConversionError|Erro|FHIRConversão|
+|DeviceNotFoundException|Não existe qualquer recurso de dispositivo no Servidor FHIR associado ao identificador do dispositivo presente na mensagem do dispositivo|DeviceMessageError|Erro|Normalização|
+|PatientIdentityNotDefinedException|Este erro ocorre quando a expressão para analisar o identificador do paciente a partir da mensagem do dispositivo não está configurada no modelo de mapeamento do dispositivo ou o identificador do paciente não está presente na mensagem do dispositivo. Note que este erro ocorre apenas quando o tipo de resolução do Conector IoT é definido para *Criar*|DeviceTemplateError|Crítico|Normalização|
+|DeviceIdentityNotDefinedException|Este erro ocorre quando a expressão para o identificador do dispositivo de análise a partir da mensagem do dispositivo não está configurada no modelo de mapeamento do dispositivo ou no identificador do dispositivo não está presente na mensagem do dispositivo|DeviceTemplateError|Crítico|Normalização|
+|NotSupportedException|Erro ocorreu quando a mensagem do dispositivo com formato não suportado é recebida|DeviceMessageError|Erro|Normalização|
+
 ## <a name="creating-copies-of-the-azure-iot-connector-for-fhir-preview-conversion-mapping-json"></a>Criação de cópias do Conector Azure IoT para mapeamento de conversão JSON (pré-visualização) de FHIR (pré-visualização)
+
 A cópia do Conector Azure IoT para ficheiros de mapeamento FHIR pode ser útil para edição e arquivamento fora do site do portal Azure.
 
 As cópias do ficheiro de mapeamento devem ser fornecidas ao Suporte Técnico do Azure ao abrir um bilhete de apoio para ajudar na resolução de problemas.

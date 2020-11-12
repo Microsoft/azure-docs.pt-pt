@@ -1,7 +1,7 @@
 ---
 title: Planear e gerir custos
 titleSuffix: Azure Machine Learning
-description: Planeie e gere os custos para a Azure Machine Learning com análise de custos no portal Azure. Quando construir modelos de aprendizagem automática, aprenda mais dicas de poupança de custos para baixar o seu custo.
+description: Planeie e gere os custos para a Azure Machine Learning com análise de custos no portal Azure. Aprenda mais dicas de poupança de custos para baixar o seu custo ao construir modelos ML.
 author: sdgilley
 ms.author: sgilley
 ms.custom: subject-cost-optimization
@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: e8554bf4385c7ddad540b8ba807988618fe80b53
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a0e0f61da52ce00fb2eb4b4a7d95ab74082f9472
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322989"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541713"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planear e gerir os custos para a Azure Machine Learning
 

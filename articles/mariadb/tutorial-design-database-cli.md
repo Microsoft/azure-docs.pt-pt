@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Desenhe uma Base de Dados Azure para MariaDB - Azure CLI'
 description: Este tutorial explica como criar e gerir a Base de Dados Azure para servidor e base de dados MariaDB utilizando o Azure CLI a partir da linha de comando.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 205fe47acb6d10b7596c462476b4e9e718a3d813
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fbc68570fb59be14947755a241ab9b005841e99
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424971"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542512"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Tutorial: Desenhe uma base de dados Azure para MariaDB usando Azure CLI
 

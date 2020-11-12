@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9e00e0e5a34eecd6974e8919ce0d0e16f48757f3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360076"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540974"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -26,6 +26,10 @@ Este artigo centra-se na gestão de gémeos digitais; para trabalhar com relacio
 ## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
+
+## <a name="ways-to-manage-twins"></a>Formas de gerir gémeos
+
+[!INCLUDE [digital-twins-ways-to-manage.md](../../includes/digital-twins-ways-to-manage.md)]
 
 ## <a name="create-a-digital-twin"></a>Criar um gémeo digital
 
@@ -187,6 +191,17 @@ foreach (string prop in twin.Contents.Keys)
 ```
 
 Pode ler mais sobre as aulas de ajudante de serialização em [*Como-a-: Use as APIs e SDKs de Gémeos Digitais Azure*](how-to-use-apis-sdks.md).
+
+## <a name="view-all-digital-twins"></a>Ver todos os gémeos digitais
+
+Para ver todos os gémeos digitais no seu caso, use uma [consulta.](how-to-query-graph.md) Pode fazer uma consulta com as [APIs de Consulta](/rest/api/digital-twins/dataplane/query) ou os [comandos CLI](how-to-use-cli.md).
+
+Aqui está o corpo da consulta básica que devolverá uma lista de todos os gémeos digitais no caso:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## <a name="update-a-digital-twin"></a>Atualize um gémeo digital
 
@@ -360,7 +375,7 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 Para um exemplo de como eliminar todos os gémeos de uma só vez, descarregue a aplicação de amostras utilizada no [_Tutorial: Explore o básico com uma aplicação de cliente de amostra*](tutorial-command-line-app.md). O *ficheiro CommandLoop.cs* faz isto numa `CommandDeleteAllTwins()` função.
 
-## <a name="manage-twins-using-runnable-code-sample"></a>Gerir gémeos usando amostra de código runável
+## <a name="runnable-digital-twin-code-sample"></a>Amostra de código duplo digital runnable
 
 Pode utilizar a amostra de código runable abaixo para criar um gémeo, atualizar os seus dados e eliminar o gémeo. 
 
@@ -535,22 +550,6 @@ Aqui está a saída da consola do programa acima:
 
 :::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Saída da consola mostrando que o gémeo é criado, atualizado e eliminado" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
-## <a name="manage-twins-with-cli"></a>Gerir gémeos com CLI
+## <a name="next-steps"></a>Passos seguintes
 
-Os gémeos também podem ser geridos usando o CLI das Gémeas Digitais Azure. Os comandos podem ser encontrados em [_How-to: Use o Azure Digital Twins CLI*](how-to-use-cli.md).
-
-## <a name="view-all-digital-twins"></a>Ver todos os gémeos digitais
-
-Para ver todos os gémeos digitais no seu caso, use uma [consulta.](how-to-query-graph.md) Pode fazer uma consulta com as [APIs de Consulta](/rest/api/digital-twins/dataplane/query) ou os [comandos CLI](how-to-use-cli.md).
-
-Aqui está o corpo da consulta básica que devolverá uma lista de todos os gémeos digitais no caso:
-
-```sql
-SELECT *
-FROM DIGITALTWINS
-``` 
-
-## <a name="next-steps"></a>Próximos passos
-
-Veja como criar e gerir relações entre os seus gémeos digitais:
-* [*Como fazer: Gerir o gráfico gémeo com relacionamentos*](how-to-manage-graph.md)
+Veja como criar e gerir relações entre os seus gémeos digitais: _ [ *Como fazer: Gerir o gráfico gémeo com relacionamentos*](how-to-manage-graph.md)

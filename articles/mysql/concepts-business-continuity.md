@@ -1,17 +1,17 @@
 ---
 title: Continuidade do negócio - Base de Dados Azure para MySQL
 description: Saiba mais sobre a continuidade do negócio (restauro pontual, interrupção do data center, geo-restauração) ao utilizar a Base de Dados Azure para o serviço MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: b21062256896ebfc9c11b031413538b39620d1e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15fde6e7558c685537d36f45bcc7e3ff341544ff
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613971"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542499"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mysql"></a>Compreender a continuidade do negócio na Base de Dados Azure para o MySQL
 

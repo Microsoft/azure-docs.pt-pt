@@ -1,23 +1,23 @@
 ---
 title: Identifie imagens em um projeto de rotulagem
-titleSuffix: Azure Machine Learning
-description: Saiba como utilizar as ferramentas de marcação de dados num projeto de rotulagem Azure Machine Learning.
+title.suffix: Azure Machine Learning
+description: Aprenda a usar as ferramentas de marcação de dados para preparar rapidamente dados para uma Aprendizagem automática num projeto de rotulagem de machine learning Azure.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: cd015e952f93655a7bdba8c947fac6e9a8f6546c
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 4392086146642e18b1fdef28a9e602bdbb5b0b18
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94518265"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542189"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Identifie imagens em um projeto de rotulagem 
 
-Depois de o administrador do seu projeto [criar um projeto de rotulagem](./how-to-create-labeling-projects.md#create-a-labeling-project) em Azure Machine Learning, pode utilizar a ferramenta de rotulagem (pré-visualização pública) para preparar rapidamente dados para um projeto de Machine Learning. Este artigo descreve:
+Depois de o administrador do seu projeto [criar um projeto de rotulagem](./how-to-create-labeling-projects.md#create-a-labeling-project) em Azure Machine Learning, pode utilizar a ferramenta de rotulagem para preparar rapidamente dados para um projeto de Machine Learning. Este artigo descreve:
 
 > [!div class="checklist"]
 > * Como aceder aos seus projetos de rotulagem
@@ -141,11 +141,11 @@ Para eliminar um polígono, clique no alvo em forma de X que aparece ao lado do 
 
 Se pretender alterar a etiqueta para um polígono, selecione a ferramenta **Move region,** clique no polígono e selecione a etiqueta correta.
 
-Pode editar os polígonos existentes. A ferramenta **lock/desbloqueie regiões** ![ Bloquear/desbloquear regiões ](./media/how-to-label-images/lock-bounding-boxes-tool.png) ferramenta ou "L" alterna esse comportamento. Se as regiões estiverem bloqueadas, só pode alterar a forma ou a localização de um novo polígono.
+Pode editar os polígonos existentes. A ferramenta **de bloqueio/desbloqueio regiões** ![ Editar polígonos com a ferramenta de bloqueio/desbloqueio regiões ](./media/how-to-label-images/lock-bounding-boxes-tool.png) ou "L" alterna esse comportamento. Se as regiões estiverem bloqueadas, só pode alterar a forma ou a localização de um novo polígono.
 
-Utilize a ferramenta Adicionar ou remover pontos **de poligão** ![ Ferramenta de manipulação de regiões ](./media/how-to-label-images/add-remove-points-tool.png) ou "U" para ajustar um polígono existente. Clique no polígono para adicionar ou remover um ponto. Se não consegue editar uma região, provavelmente alterou a ferramenta **de regiões de bloqueio/desbloqueio.**
+Utilize a ferramenta **Adicionar ou remover pontos de poligão** ![ Adicione ou remova a ferramenta pontos de poligão ](./media/how-to-label-images/add-remove-points-tool.png) ou "U" para ajustar um polígono existente. Clique no polígono para adicionar ou remover um ponto. Se não consegue editar uma região, provavelmente alterou a ferramenta **de regiões de bloqueio/desbloqueio.**
 
-Para eliminar *todos os* polígonos na imagem atual, selecione a ferramenta Eliminar todas **as regiões** ![ Eliminar regiões ](./media/how-to-label-images/delete-regions-tool.png) .
+Para eliminar *todos os* polígonos na imagem atual, selecione a ferramenta Eliminar todas **as regiões** ![ Eliminar todas as ](./media/how-to-label-images/delete-regions-tool.png) regiões.
 
 Depois de criar os polígonos para uma imagem, **selecione Submeter-se** para salvar o seu trabalho, ou o seu trabalho em curso não será guardado.
 

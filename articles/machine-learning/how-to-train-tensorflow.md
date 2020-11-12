@@ -1,7 +1,7 @@
 ---
 title: Treine e implemente um modelo TensorFlow
 titleSuffix: Azure Machine Learning
-description: Aprenda a executar scripts de treino tensorFlow em escala usando Azure Machine Learning.
+description: Saiba como o Azure Machine Learning permite-lhe escalar um trabalho de treino tensorFlow usando recursos de computação em nuvem elástica.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: mx-iao
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5c1c6af5f8304fd9093aa0351078b84d3f4d0b5d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 9b8d48139e6cbabfbc5bf63f85d2d03c64d7efd9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360756"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542291"
 ---
 # <a name="train-tensorflow-models-at-scale-with-azure-machine-learning"></a>Trem tensorFlow modelos em escala com Azure Machine Learning
 
@@ -357,7 +357,7 @@ service = Model.deploy(ws, "tensorflow-web-service", [model])
 
 A forma completa [de como](how-to-deploy-and-where.md) fazer cobre a implantação em Azure Machine Learning em maior profundidade.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, treinou e registou um modelo TensorFlow, e aprendeu sobre opções de implementação. Veja estes outros artigos para saber mais sobre Azure Machine Learning.
 

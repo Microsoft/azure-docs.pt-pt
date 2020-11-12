@@ -1,17 +1,17 @@
 ---
 title: Criar utilizadores - Azure Database for MariaDB
 description: Este artigo descreve como pode criar novas contas de utilizador para interagir com uma Base de Dados Azure para o servidor MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 10/1/2020
-ms.openlocfilehash: 7a3515850027963dcabbf2cef4efd8bf43802cbe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 882c8365bda87e97bfbc3bee9bdd320b312b4114
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653065"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542716"
 ---
 # <a name="create-users-in-azure-database-for-mariadb"></a>Criar utilizadores no Azure Database for MariaDB 
 Este artigo descreve como pode criar utilizadores na Base de Dados Azure para MariaDB.
@@ -39,7 +39,7 @@ Uma vez criada a Base de Dados Azure para o servidor MariaDB, pode utilizar a pr
 2. Utilize a conta de administração e a palavra-passe para ligar ao servidor de base de dados. Utilize a sua ferramenta cliente preferida, como mySQL Workbench, mysql.exe, HeidiSQL, ou outros. 
    Se não tiver a certeza de como se conectar, consulte [a workbench MySQL para ligar e consultar dados](./connect-workbench.md)
 
-3. Editar e executar o seguinte código SQL. Substitua o seu novo nome de utilizador pelo valor do espaço reservado `new_master_user` . Esta sintaxe concede os privilégios listados em todos os esquemas de base de dados *(.*) ao nome de utilizador (new_master_user neste exemplo). 
+3. Editar e executar o seguinte código SQL. Substitua o seu novo nome de utilizador pelo valor do espaço reservado `new_master_user` . Esta sintaxe concede os privilégios listados em todos os esquemas de base de dados *(.* ) ao nome de utilizador (new_master_user neste exemplo). 
 
    ```sql
    CREATE USER 'new_master_user'@'%' IDENTIFIED BY 'StrongPassword!';

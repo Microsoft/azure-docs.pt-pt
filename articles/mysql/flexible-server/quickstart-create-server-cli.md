@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar um servidor - Azure CLI - Azure Database for MySQL - Servidor Flexível'
 description: Este quickstart descreve como usar o CLI Azure para criar uma Base de Dados Azure para o MySQL Flexible Server num grupo de recursos Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 9/21/2020
 ms.custom: mvc
-ms.openlocfilehash: 4be295ada476e4dc41a86d06908ef1d653a3bad8
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3e2cb1d7c5f4d19a91eeb2999d7cbe449c10f822
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545026"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543005"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-flexible-server-using-azure-cli"></a>Quickstart: Criar uma base de dados Azure para o MySQL Flexible Server utilizando O Azure CLI
 
@@ -107,7 +107,7 @@ Para ligar ao seu servidor, terá de fornecer credenciais de acesso e informaç�
 az mysql flexible-server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **administratorLogin** . Abaixo está uma amostra da saída JSON: 
+O resultado está no formato JSON. Aponte o **fullyQualifiedDomainName** e o **administratorLogin**. Abaixo está uma amostra da saída JSON: 
 
 ```json
 {
@@ -152,7 +152,7 @@ Com mysql.exe, conecte-se utilizando o comando abaixo. Substitua os valores pelo
  mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não precisa destes recursos para outro início rápido/tutorial, pode eliminá-los ao executar o seguinte comando:
 

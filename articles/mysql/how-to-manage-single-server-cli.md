@@ -1,17 +1,17 @@
 ---
 title: Gerir servidor - Azure CLI - Azure Database for MySQL
 description: Saiba como gerir uma Base de Dados Azure para o servidor MySQL a partir do Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: 1f0b059a25cd9fc77a59dc0a78feb18c2c549057
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: bd068f0cf76a8edefca854d72d5240c0becaf8fc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546862"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542070"
 ---
 # <a name="manage-an-azure-database-for-mysql-single-server-using-the-azure-cli"></a>Gerir uma base de dados Azure para o mySQL Single servidor utilizando o Azure CLI
 
@@ -58,7 +58,7 @@ storage-size | 6144 | A capacidade de armazenamento do servidor (a unidade é me
 ## <a name="manage-mysql-databases-on-a-server"></a>Gerir bases de dados mySQL num servidor
 Pode utilizar qualquer um destes comandos para criar, eliminar, listar e visualizar propriedades de base de dados de uma base de dados no seu servidor
 
-| Cmdlet | Utilização| Descrição |
+| Cmdlet | Utilização| Description |
 | --- | ---| --- |
 |[az mysql db criar](/cli/azure/sql/db#az-mysql-db-create)|```az mysql db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Cria uma base de dados|
 |[az mysql db apagar](/cli/azure/sql/db#az-mysql-db-delete)|```az mysql db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Elimine a sua base de dados do seu servidor. Este comando não apaga o seu servidor. |

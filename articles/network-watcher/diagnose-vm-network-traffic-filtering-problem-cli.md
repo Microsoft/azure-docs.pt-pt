@@ -18,22 +18,24 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 871c4fc69daac9d5f515fdf3e4ec0ca1de6fbe08
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a483bc6097c4dd76ed67e93e4313ad8c25cbc08
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91295979"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542359"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>Início Rápido: Diagnosticar um problema de filtro de tráfego de rede na máquina virtual - CLI do Azure
 
 Neste início rápido, vai implementar uma máquina virtual (VM) e, em seguida, verificar as comunicações para um endereço IP e URL e de um endereço IP. Vai determinar a causa de uma falha de comunicação e aprender a resolvê-la.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar o Azure CLI localmente, este arranque rápido requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão Azure CLI, corra `az login`  para criar uma ligação com a Azure. Os comandos Azure CLI neste quickstart são formatados para correr numa concha bash.
+- Este arranque rápido requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada. 
+
+- Os comandos Azure CLI neste quickstart são formatados para correr numa concha bash.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -134,7 +136,7 @@ az network nic list-effective-nsg \
 
 O resultado devolvido inclui o seguinte texto para a regra **AllowInternetOutbound** que permitiu o acesso de saída para www.bing.com num passo anterior em [Utilizar a verificação do fluxo IP](#use-ip-flow-verify):
 
-```
+```console
 {
  "access": "Allow",
  "additionalProperties": {},
@@ -171,11 +173,11 @@ O resultado devolvido inclui o seguinte texto para a regra **AllowInternetOutbou
 },
 ```
 
-No resultado anterior, pode ver que **destinationAddressPrefix** é **Internet**. No entanto, não é claro de que forma 13.107.21.200 se relaciona com **Internet**. Você vê vários prefixos de endereço listados no **âmbito do ExpandedDestinationAddressPrefix**. Um dos prefixos na lista é **12.0.0.0/6**, que abrange o intervalo 12.0.0.1-15.255.255.254 de endereços IP. Uma vez que 13.107.21.200 está dentro desse intervalo de endereços, a regra **AllowInternetOutBound** permite o tráfego de saída. Além disso, não existem regras com prioridade superior (número inferior) apresentadas no resultado anterior que substituam esta regra. Para recusar comunicações de saída para um endereço IP, pode adicionar uma regra de segurança com uma prioridade mais elevada, que recusa a saída da porta 80 para o endereço IP.
+No resultado anterior, pode ver que **destinationAddressPrefix** é **Internet**. No entanto, não é claro de que forma 13.107.21.200 se relaciona com **Internet**. Você vê vários prefixos de endereço listados no **âmbito do ExpandedDestinationAddressPrefix**. Um dos prefixos na lista é **12.0.0.0/6** , que abrange o intervalo 12.0.0.1-15.255.255.254 de endereços IP. Uma vez que 13.107.21.200 está dentro desse intervalo de endereços, a regra **AllowInternetOutBound** permite o tráfego de saída. Além disso, não existem regras com prioridade superior (número inferior) apresentadas no resultado anterior que substituam esta regra. Para recusar comunicações de saída para um endereço IP, pode adicionar uma regra de segurança com uma prioridade mais elevada, que recusa a saída da porta 80 para o endereço IP.
 
 Quando executou o comando `az network watcher test-ip-flow` para testar a comunicação de saída para 172.131.0.100 em [Utilizar a verificação do fluxo IP](#use-ip-flow-verify), o resultado informou-o de que a regra **DefaultOutboundDenyAll** recusou a comunicação. A regra **DefaultOutboundDenyAll** equivale à regra **DenyAllOutBound** apresentada no resultado seguinte do comando `az network nic list-effective-nsg`:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},
@@ -208,7 +210,7 @@ A regra lista **0.0.0.0/0** como **destinoAddressPrefix**. A regra nega a comuni
 
 Quando executou o comando `az network watcher test-ip-flow` em [Utilizar a verificação do fluxo IP](#use-ip-flow-verify) para testar a comunicação de entrada de 172.131.0.100, o resultado informou-o de que a regra **DefaultInboundDenyAll** recusou a comunicação. A regra **DefaultInboundDenyAll** equivale à regra **DenyAllInBound** apresentada no resultado seguinte do comando `az network nic list-effective-nsg`:
 
-```
+```console
 {
  "access": "Deny",
  "additionalProperties": {},

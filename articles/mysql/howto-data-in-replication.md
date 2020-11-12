@@ -1,17 +1,17 @@
 ---
 title: Configure a replicação de dados - Base de Dados Azure para o MySQL
 description: Este artigo descreve como configurar a replicação de dados para a base de dados Azure para o MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/29/2020
-ms.openlocfilehash: 58df34ae6a6ff3304304da192b429ac83c1b55c3
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b7f1f16b5182658f42ad6594aace22fb5a1a80fc
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544040"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541407"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados Azure para a replicação de dados do MySQL
 
@@ -140,11 +140,11 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
 
    Digite o nome de utilizador no campo Nome de Início de **Sessão.** 
 
-   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Utilizadores e Privilégios":::
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Utilizador sincronizado":::
  
-   Clique no painel **De Funções Administrativas** e, em seguida, selecione **Replication Slave** da lista de **Privilégios Globais** . Em seguida, clique em **Aplicar** para criar o papel de replicação.
+   Clique no painel **De Funções Administrativas** e, em seguida, selecione **Replication Slave** da lista de **Privilégios Globais**. Em seguida, clique em **Aplicar** para criar o papel de replicação.
 
-   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Utilizadores e Privilégios":::
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Escravo da Replicação":::
 
 1. Desajuste o servidor de origem para o modo apenas de leitura
 
@@ -164,7 +164,7 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
    ```
    Os resultados devem ser como seguir. Certifique-se de que regista o nome do ficheiro binário, uma vez que será utilizado em etapas posteriores.
 
-   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Utilizadores e Privilégios":::
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Resultados do Estado-Mestre":::
  
 ## <a name="dump-and-restore-source-server"></a>Despeje e restaure o servidor de origem
 

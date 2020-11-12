@@ -1,18 +1,18 @@
 ---
 title: Reiniciar servidor - Azure CLI - Azure Database for MySQL
 description: Este artigo descreve como pode reiniciar uma Base de Dados Azure para o servidor MySQL utilizando o Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9707aaa911fc8ceb8c03b369bd6479646ca3418c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 77f20bba76ee3a37e6a72481e0b3d13c9904b106
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500730"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541832"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-the-azure-cli"></a>Reinicie a base de dados do Azure para o servidor MySQL utilizando o Azure CLI
 Este tópico descreve como pode reiniciar uma Base de Dados Azure para o servidor MySQL. Pode ser necessário reiniciar o servidor por razões de manutenção, o que provoca uma falha curta à medida que o servidor executa a operação.
@@ -22,14 +22,14 @@ O reinício do servidor será bloqueado se o serviço estiver ocupado. Por exemp
 O tempo necessário para concluir um reinício depende do processo de recuperação do MySQL. Para diminuir o tempo de reinício, recomendamos que minimize a quantidade de atividade que ocorre no servidor antes do reinício.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para completar este guia, precisa:
-- Uma [base de dados Azure para o servidor MySQL](quickstart-create-server-up-azure-cli.md)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+Para completar este guia:
 
-> [!IMPORTANT]
-> Este guia de como fazer requer que utilize a versão 2.0 do Azure CLI ou posterior. Para confirmar a versão, no pedido de comando do Azure CLI, insira `az --version` . Para instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+- Precisa de uma [base de dados Azure para o servidor MySQL](quickstart-create-server-up-azure-cli.md).
+ 
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
+- Este artigo requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="restart-the-server"></a>Reiniciar o servidor
 

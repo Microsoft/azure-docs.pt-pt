@@ -1,18 +1,18 @@
 ---
 title: Armazenamento de cultivo automático - Azure PowerShell - Base de Dados Azure para MariaDB
 description: Este artigo descreve como pode permitir o armazenamento de crescimento automático usando PowerShell na Base de Dados Azure para MariaDB.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 5/26/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 1da49f574ceadf98d0870fdd94b7d86f26d840d1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 87438c406ea2b31942003d9211cf5e285628f15d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426046"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540999"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mariadb-server-using-powershell"></a>Armazenamento de crescimento automático na Base de Dados Azure para servidor MariaDB usando PowerShell
 

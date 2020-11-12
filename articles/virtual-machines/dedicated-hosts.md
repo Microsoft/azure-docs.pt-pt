@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 07/28/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 3b407ae18316071d77cc87992a70a4fba857ab64
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0b0e198075455f697c87ad48741a770e6f78b5a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91979024"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542155"
 ---
 # <a name="azure-dedicated-hosts"></a>Anfitriões Dedicados Azure
 
@@ -70,7 +70,7 @@ O modelo de amostra do Gestor de Recursos encontrado [aqui](https://github.com/A
 > [!IMPORTANT]
 > A colocação automática está atualmente em visualização pública.
 > Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ao criar um VM em Azure, pode selecionar qual o anfitrião dedicado a utilizar. Também pode utilizar a opção de colocar automaticamente os seus VMs nos anfitriões existentes, dentro de um grupo anfitrião. 
 
@@ -84,7 +84,6 @@ Questões e limitações conhecidas ao utilizar a colocação automática de VM:
 
 - Não poderá aplicar benefícios híbridos Azure nos seus anfitriões dedicados.
 - Não poderá recolocar o seu VM. 
-- Não será capaz de controlar a manutenção dos seus anfitriões dedicados.
 - Não poderá utilizar Lsv2, NVasv4, NVsv3, Msv2 ou M-series VMs com anfitriões dedicados 
 
 
@@ -95,7 +94,7 @@ Conjuntos de escala de máquinas virtuais permitem tratar um grupo de máquinas 
 > [!IMPORTANT]
 > Os conjuntos de escala de máquina virtual em anfitriões dedicados estão atualmente em pré-visualização pública.
 > Para participar na pré-visualização, complete o pré-visualização do inquérito de embarque em [https://aka.ms/vmss-adh-preview](https://aka.ms/vmss-adh-preview) .
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ao criar um conjunto de escala de máquina virtual, pode especificar um grupo anfitrião existente para ter todos os casos de VM criados em anfitriões dedicados.
 
@@ -120,7 +119,7 @@ Nem todas as definições de orquestração e otimização em escala são suport
 
 A infraestrutura que suporta as suas máquinas virtuais pode ocasionalmente ser atualizada para melhorar a fiabilidade, desempenho, segurança e lançar novas funcionalidades. A plataforma Azure tenta minimizar o impacto da manutenção da plataforma sempre que possível, mas os clientes com cargas de trabalho *sensíveis* à manutenção não podem tolerar mesmo alguns segundos que o VM precisa de ser congelado ou desligado para manutenção.
 
-**O Controlo de Manutenção** oferece aos clientes a opção de ignorar as atualizações regulares da plataforma programadas nos seus anfitriões dedicados e, em seguida, aplicá-lo no momento da sua escolha dentro de uma janela de 35 dias.
+**O Controlo de Manutenção** oferece aos clientes a opção de ignorar as atualizações regulares da plataforma programadas nos seus anfitriões dedicados e, em seguida, aplicá-lo no momento da sua escolha dentro de uma janela de 35 dias. Dentro da janela de manutenção, pode aplicar a manutenção diretamente ao nível do hospedeiro, por qualquer ordem. Uma vez terminada a janela de manutenção, a Microsoft avançará e aplicará a manutenção pendente aos anfitriões, numa ordem que pode não seguir os domínios de avaria definidos pelo utilizador.
 
 Para obter mais informações, consulte ['Gerir as atualizações da plataforma' com o Controlo de Manutenção.](./maintenance-control.md)
 
@@ -172,7 +171,7 @@ Os tamanhos e os tipos de hardware variam por região. Consulte a [página de pr
 
 Azure monitoriza e gere o estado de saúde dos seus anfitriões. Os seguintes estados serão devolvidos quando consultar o seu anfitrião:
 
-| Estado da Saúde   | Descrição       |
+| Estado da Saúde   | Description       |
 |----------|----------------|
 | Anfitrião Disponível     | Não há problemas conhecidos com o seu anfitrião.   |
 | Hospedeiro sob investigação  | Estamos tendo alguns problemas com o anfitrião que estamos procurando. Este é um estado transitório necessário para que a Azure tente identificar o âmbito e a causa principal para a questão identificada. As máquinas virtuais que estão a funcionar no hospedeiro podem ser afetadas. |

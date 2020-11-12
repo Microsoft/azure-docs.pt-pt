@@ -1,7 +1,7 @@
 ---
 title: O que é um espaço de trabalho
 titleSuffix: Azure Machine Learning
-description: O espaço de trabalho é o recurso de alto nível para a Azure Machine Learning. Mantém um historial de todas as corridas de treino, incluindo registos, métricas, saídas e uma foto dos seus scripts. Você usa esta informação para determinar que treino executado produz o melhor modelo
+description: O espaço de trabalho é o recurso de alto nível para a Azure Machine Learning. Mantém um historial de todas as corridas de treino, com registos, métricas, saídas e uma foto dos seus scripts.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 1076b49a101d5657397ef12b8fac672d37e477b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 65cdf444386d1b10cf225010c55170e5b47b3eb4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324794"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541356"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>O que é uma área de trabalho do Azure Machine Learning?
 

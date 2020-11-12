@@ -1,17 +1,17 @@
 ---
 title: Proteção Avançada de Ameaças - Portal Azure - Base de Dados Azure para o MySQL
 description: Saiba como configurar a Advanced Threat Protection para detetar atividades anómalas de bases de dados que indiquem potenciais ameaças de segurança à base de dados.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 96f6993f92192a1149e3b243c68fdf5fe96fdc66
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: b30bd36dca6f866b8f3e6e8a0b133a6dd61b239b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541456"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541441"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-mysql"></a>Proteção Avançada de Ameaças para Base de Dados Azure para O MySQL
 
@@ -28,7 +28,7 @@ A Advanced Threat Protection faz parte da oferta avançada de Segurança de Dado
 
 ## <a name="set-up-threat-detection"></a>Configurar a deteção de ameaças
 1. Lançar o portal Azure em [https://portal.azure.com](https://portal.azure.com) .
-2. Navegue para a página de configuração da Base de Dados Azure para o servidor MySQL que pretende proteger. Nas definições de segurança, selecione **Advanced Threat Protection (Preview)** .
+2. Navegue para a página de configuração da Base de Dados Azure para o servidor MySQL que pretende proteger. Nas definições de segurança, selecione **Advanced Threat Protection (Preview)**.
 3. Na página de configuração **da Proteção de Ameaças Avançadas (Pré-visualização):**
 
    - Ativar a Proteção Avançada de Ameaças no servidor.
@@ -42,15 +42,15 @@ Você recebe uma notificação por e-mail após a deteção de atividades de bas
  
 1. Clique no link **de alertas recentes** do Ver no e-mail para lançar o portal Azure e mostrar a página de alertas do Azure Security Center, que fornece uma visão geral das ameaças ativas detetadas na base de dados SQL.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Configurar a deteção de ameaças":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/anomalous-activity-report.png" alt-text="Relatório de atividades anómalas":::
 
     Ver ameaças ativas:
 
-    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Configurar a deteção de ameaças":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/active-threats.png" alt-text="Ameaças ativas":::
 
 2. Clique num alerta específico para obter detalhes e ações adicionais para investigar esta ameaça e remediar ameaças futuras.
     
-    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Configurar a deteção de ameaças":::
+    :::image type="content" source="./media/howto-database-threat-protection-portal/specific-alert.png" alt-text="Alerta específico":::
 
 ## <a name="explore-threat-detection-alerts"></a>Explore alertas de deteção de ameaças
 
@@ -58,7 +58,7 @@ A Deteção de Ameaças de Base de Dados SQL integra os seus alertas com [o Azur
 
 Clique **em alerta de deteção de ameaças** para lançar a página de alertas do Azure Security Center e obter uma visão geral das ameaças de SQL ativas detetadas na base de dados.
 
-   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Configurar a deteção de ameaças":::
+   :::image type="content" source="./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png" alt-text="Alerta de deteção de ameaças":::
    
 
 ## <a name="next-steps"></a>Passos seguintes

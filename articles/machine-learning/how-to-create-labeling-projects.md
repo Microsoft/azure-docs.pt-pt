@@ -1,19 +1,19 @@
 ---
 title: Criar um projeto de rotulagem de dados
 titleSuffix: Azure Machine Learning
-description: Aprenda a criar e executar projetos de rotulagem para marcar dados para machine learning.  As ferramentas incluem a rotulagem assistida ml, ou a rotulagem humana no loop para ajudar na tarefa.
+description: Aprenda a criar e executar projetos de rotulagem para marcar dados para machine learning.  Utilize a rotulagem assistida ML, ou humana na rotulagem do loop, para ajudar na tarefa.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 601434628258b8af3fb5fb9336f701be72441c64
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: da046fd633120944231ee440605367bdb730cbff
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93318132"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543226"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e rótulos de exportação 
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 14cd7822b90e3d70f19dde4c89e9e6e6482d7cf6
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 017ca60048273d45e6f52857a52a0a1dab614aaa
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968978"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542818"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Gere uma miniatura utilizando a API e Java da Visão De Computador
 
@@ -175,4 +175,4 @@ Explore uma aplicação Java Swing que usa a Visão de Computador para realizar 
 > [!div class="nextstepaction"]
 > [Tutorial de Java de API de Imagem Digitalizada](../Tutorials/java-tutorial.md)
 
-* Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

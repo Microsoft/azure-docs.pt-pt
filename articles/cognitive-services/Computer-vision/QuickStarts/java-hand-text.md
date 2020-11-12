@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-java
-ms.openlocfilehash: 3373224fd91d2e2728022337102ce0bc3a8c7e75
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a1eb55192b73f29bdb119c33255ed6bbe90ad164
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518828"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542869"
 ---
 # <a name="quickstart-extract-printed-and-handwritten-text-using-the-computer-vision-rest-api-and-java"></a>Quickstart: Extrair texto impresso e manuscrito utilizando a API e Java da Visão de Computador
 
@@ -383,4 +383,4 @@ Em seguida, explore uma aplicação Java Swing que usa a Visão de Computador pa
 > [!div class="nextstepaction"]
 > [Tutorial de Java de API de Imagem Digitalizada](../Tutorials/java-tutorial.md)
 
-* Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+* Para experimentar rapidamente a API de Imagem Digitalizada, experimente a [Consola de teste de API aberta](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b/console).

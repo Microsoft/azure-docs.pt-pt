@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 3bd54d8a23aca7e493cd3c0ddb7f057a6e1f5362
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e7f2e445c3e4e8df7420c0587e156968f3a2c92
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761486"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542682"
 ---
 # <a name="sizing-guidance"></a>Orientação de Dimensionamento
 
@@ -89,6 +89,7 @@ Cada instância gerida pela SQL deve ter os seguintes pedidos mínimos de recurs
 - Núcleos: 1
 
 Cada cápsula de instância gerida sql que é criada tem três recipientes:
+
 |Nome do contentor|Pedido cpu|Pedido de Memória|Limite do CPU|Limite de memória|Notas|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Não especificado|Não especificado|Os pedidos de recursos de recipiente fluentbit são _para além_ dos pedidos especificados para a instância gerida pelo SQL.||
@@ -104,6 +105,7 @@ Cada nó do grupo de servidor de hiperescala PostgreSQL deve ter os seguintes pe
 - Núcleos: 1
 
 Cada coordenador do grupo de servidores de hiperescala PostgreSQL ou o grupo de trabalhadores criados tem três recipientes:
+
 |Nome do contentor|Pedido cpu|Pedido de Memória|Limite do CPU|Limite de memória|Notas|
 |---|---|---|---|---|---|
 |fluentbit|100m|100Mi|Não especificado|Não especificado|Os pedidos de recursos de recipiente fluentbit são _além_ dos pedidos especificados para os nós do grupo de servidores de hiperescala PostgreSQL.|
@@ -122,9 +124,9 @@ Segue-se um cálculo de tamanho de exemplo.
 
 Requisitos:
 
-- **"SQL1"**: 1 SQL gerido com 16 GB de RAM, 4 núcleos
-- **"SQL2"**: 1 SQL gerido com 256 GB de RAM, 16 núcleos
-- **"Postgres1"**: 1 Grupo de servidores de hiperescala postgreSQL com 4 trabalhadores a 12 GB de RAM, 4 núcleos
+- **"SQL1"** : 1 SQL gerido com 16 GB de RAM, 4 núcleos
+- **"SQL2"** : 1 SQL gerido com 256 GB de RAM, 16 núcleos
+- **"Postgres1"** : 1 Grupo de servidores de hiperescala postgreSQL com 4 trabalhadores a 12 GB de RAM, 4 núcleos
 
 Cálculos de dimensionamento:
 

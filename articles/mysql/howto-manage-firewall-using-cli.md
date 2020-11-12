@@ -1,19 +1,19 @@
 ---
 title: Gerir regras de firewall - Azure CLI - Azure Database for MySQL
 description: Este artigo descreve como criar e gerir a Base de Dados Azure para as regras de firewall mySQL usando a linha de comando Azure CLI.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb7f8547419b45314ad044b41957a53085cdbe13
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: eaddd8b2979b30251301ad041ea4b872c23d680b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546403"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541339"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Criar e gerir a Base de Dados Azure para as regras de firewall mySQL utilizando o Azure CLI
 As regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma Base de Dados Azure para o Servidor MySQL a partir de um endereço IP específico ou de uma série de endereços IP. Utilizando comandos CLI convenientes, pode criar, atualizar, excluir, listar e mostrar regras de firewall para gerir o seu servidor. Para obter uma visão geral da Base de Dados Azure para firewalls MySQL, consulte [a Base de Dados Azure para as regras de firewall do servidor MySQL](./concepts-firewall-rules.md).
@@ -21,7 +21,7 @@ As regras de firewall ao nível do servidor podem ser utilizadas para gerir o ac
 As regras da Rede Virtual (VNet) também podem ser usadas para garantir o acesso ao seu servidor. Saiba mais sobre [a criação e gestão de pontos finais de serviços de Rede Virtual e regras utilizando o Azure CLI](howto-manage-vnet-using-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+* [Instale o Azure CLI](/cli/azure/install-azure-cli).
 * Uma [base de dados Azure para servidor e base de dados MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## <a name="firewall-rule-commands"></a>Comandos de regra de firewall:

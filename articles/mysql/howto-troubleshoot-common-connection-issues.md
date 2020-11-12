@@ -2,17 +2,17 @@
 title: Problemas de conexão resolução de problemas - Base de Dados Azure para o MySQL
 description: Saiba como resolver problemas de ligação à Base de Dados Azure para o MySQL, incluindo erros transitórios que requerem retrações, problemas de firewall e interrupções.
 keywords: conexão mysql,cadeia de ligação,problemas de conectividade,erro transitório,erro de ligação
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: e4afcb8756f64ab9b66044a1bf1304427330e365
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da500087aeb4ad5e2bf516c3d0ce3cceaf8396af
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82100894"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540778"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mysql"></a>Resolver problemas de ligação à Base de Dados do Azure para MySQL
 
@@ -48,7 +48,7 @@ Se a aplicação não ligar persistentemente à Base de Dados Azure para o MySQL
 
 * Configuração da firewall do servidor: Certifique-se de que a base de dados Azure para firewall do servidor MySQL está configurada para permitir ligações do seu cliente, incluindo servidores de procuração e gateways.
 * Configuração da firewall do cliente: A firewall do seu cliente deve permitir ligações ao servidor de base de dados. Endereços IP e portas do servidor que não pode ser permitido, bem como nomes de aplicações como o MySQL em algumas firewalls.
-* Erro do utilizador: Pode ter parâmetros de ligação mal definidos, como o nome do servidor na cadeia de ligação ou um * \@ sufixo* de nome de servidor em falta no nome de utilizador.
+* Erro do utilizador: Pode ter parâmetros de ligação mal definidos, como o nome do servidor na cadeia de ligação ou um *\@ sufixo* de nome de servidor em falta no nome de utilizador.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Medidas para resolver problemas de conectividade persistentes
 

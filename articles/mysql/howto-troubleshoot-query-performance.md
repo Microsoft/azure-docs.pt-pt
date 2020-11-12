@@ -1,17 +1,17 @@
 ---
 title: Desempenho da consulta de resolução de problemas - Base de Dados Azure para MySQL
 description: Aprenda a usar o EXPLAIN para resolver problemas de desempenho na Base de Dados Azure para o MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 0725de878836e415695d307b68db43802d9b5c2f
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 81ec7e6f822f24f2b9e6ca4298e9668358c78149
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545859"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540761"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Como utilizar o EXPLAIN para perfilar desempenho de consulta na Base de Dados Azure para o MySQL
 **O EXPLAIN** é uma ferramenta útil para otimizar as consultas. A declaração de EXPLICAÇÃO pode ser usada para obter informações sobre como as declarações sql são executadas. A seguinte saída mostra um exemplo da execução de uma declaração EXPLICADA.

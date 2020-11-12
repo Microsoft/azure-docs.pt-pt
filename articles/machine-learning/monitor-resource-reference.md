@@ -1,6 +1,6 @@
 ---
 title: Monitor Azure Machine Learning referência de dados Microsoft Docs
-description: Material de referência importante necessário quando monitoriza a aprendizagem automática do Azure. Conheça os dados e recursos recolhidos para a Azure Machine Learning e disponível no Azure Monitor. O Azure Monitor recolhe e sobrea parece dados sobre o seu espaço de trabalho de aprendizagem de máquinas Azure, e permite-lhe visualizar métricas, definir alertas e analisar dados registados.
+description: Documentação de referência para monitorização da Aprendizagem automática Azure. Conheça os dados & recursos recolhidos e disponíveis no Azure Monitor.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2020
-ms.openlocfilehash: be8d6ca79a43ddd2bd709390dd476cb9dcfa7b29
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bab74a1db04bb557aa6604fe76c05ba3d087f8c0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323941"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540795"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorização da referência de dados de aprendizagem de máquinas Azure
 
@@ -24,7 +24,7 @@ Conheça os dados e recursos recolhidos pelo Azure Monitor a partir do seu espa�
 
 Esta secção lista todas as métricas da plataforma recolhidas automaticamente para a Azure Machine Learning. O fornecedor de recursos para estas métricas é [o Microsoft.MachineLearningServices/workspaces](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
 
-**Modelo**
+**Modelação**
 
 | Métrica | Unidade | Description |
 | ----- | ----- | ----- |

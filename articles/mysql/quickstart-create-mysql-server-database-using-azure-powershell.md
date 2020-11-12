@@ -1,19 +1,19 @@
 ---
 title: 'Quickstart: Criar um servidor - Azure PowerShell - Azure Database for MySQL'
 description: Este quickstart descreve como usar o PowerShell para criar uma Base de Dados Azure para o servidor MySQL num grupo de recursos Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 65ac6b3252b134fa6774c075ebc7d5f2c428a809
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: d12d447acb3b6bf2b6f84e9768e9f063a9a36b03
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545128"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542325"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Quickstart: Criar uma base de dados Azure para servidor MySQL utilizando PowerShell
 
@@ -61,7 +61,7 @@ A tabela seguinte contém uma lista de parâmetros e valores de amostra geralmen
 
 |        **Definição**         | **Valor de exemplo** |                                                                                                                                                             **Descrição**                                                                                                                                                              |
 | -------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Nome                       | mydemoserver     | Escolha um nome globalmente único em Azure que identifique a sua Base de Dados Azure para o servidor MySQL. O nome do servidor só pode conter letras, números e o caracteres hífen (-) do hífen. Quaisquer caracteres maiúsculas que sejam especificados são automaticamente convertidos para minúsculas durante o processo de criação. Tem de conter entre 3 e 63 carateres. |
+| Name                       | mydemoserver     | Escolha um nome globalmente único em Azure que identifique a sua Base de Dados Azure para o servidor MySQL. O nome do servidor só pode conter letras, números e o caracteres hífen (-) do hífen. Quaisquer caracteres maiúsculas que sejam especificados são automaticamente convertidos para minúsculas durante o processo de criação. Tem de conter entre 3 e 63 carateres. |
 | ResourceGroupName          | myResourceGroup  | Indique o nome do grupo de recursos do Azure.                                                                                                                                                                                                                                                                                            |
 | Sku                        | GP_Gen5_2        | O nome do SKU. Segue em **abreviatura os \_ \_ vCores de geração de preços de** convenção. Para obter mais informações sobre o parâmetro Sku, consulte as informações que se seguem a esta tabela.                                                                                                                                           |
 | BackupRetentionDay         | 7                | Quando tempo se deve reter uma cópia de segurança. A unidade é dias. O intervalo é de 7-35.                                                                                                                                                                                                                                                                       |
@@ -70,7 +70,7 @@ A tabela seguinte contém uma lista de parâmetros e valores de amostra geralmen
 | SslEnforcement             | Ativado          | Se o SSL deve ser ativado ou não para este servidor. Valores permitidos: Ativado, Desativado.                                                                                                                                                                                                                                                 |
 | ArmazenamentoInMb                | 51200            | A capacidade de armazenamento do servidor (a unidade é megabytes). Armazenamento VálidoInMb é um mínimo de 5120 MB e aumenta em incrementos de 1024 MB. Para obter mais informações sobre os limites do tamanho do armazenamento, consulte [a Base de Dados Azure para os níveis de preços mySQL](./concepts-pricing-tiers.md).                                                                               |
 | Versão                    | 5.7              | A versão principal do MySQL.                                                                                                                                                                                                                                                                                                                 |
-| Nome do AdministradorUser      | myadmin          | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser** , **admin** , **administrador** , **raiz** , **convidado** nem **público** .                                                                                                                                                                                            |
+| Nome do AdministradorUser      | myadmin          | O nome de utilizador para o início de sessão do administrador. Não pode ser **azure_superuser** , **admin** , **administrador** , **raiz** , **convidado** nem **público**.                                                                                                                                                                                            |
 | Palavra de Passagem de Administradores | `<securestring>` | A palavra-passe do utilizador do administrador sob a forma de uma cadeia segura. Tem de conter entre 8 e 128 carateres. A palavra-passe tem de conter carateres das três categorias seguintes: letras em maiúsculas do inglês, letras em minúsculas do inglês, números e carateres não alfanuméricos.                                       |
 
 O valor do parâmetro **Sku** segue os **\_ \_ vCores de geração de cálculo de nível de** preços da convenção, como mostrado nos seguintes exemplos.
@@ -81,7 +81,7 @@ O valor do parâmetro **Sku** segue os **\_ \_ vCores de geração de cálculo d
 
 Para obter informações sobre valores **válidos de Sku** por região e para níveis, consulte [a Base de Dados Azure para os níveis de preços do MySQL](./concepts-pricing-tiers.md).
 
-O exemplo a seguir cria um servidor MySQL na região **oeste dos EUA** chamado **mydemoserver** no grupo de recursos **myresourcegroup** com um login de administração de servidor de **myadmin** . É um servidor Gen 5 no nível de preços de uso geral com 2 vCores e backups geo-redundantes ativados. Documente a palavra-passe utilizada na primeira linha do exemplo, uma vez que esta é a palavra-passe para a conta de administração do servidor MySQL.
+O exemplo a seguir cria um servidor MySQL na região **oeste dos EUA** chamado **mydemoserver** no grupo de recursos **myresourcegroup** com um login de administração de servidor de **myadmin**. É um servidor Gen 5 no nível de preços de uso geral com 2 vCores e backups geo-redundantes ativados. Documente a palavra-passe utilizada na primeira linha do exemplo, uma vez que esta é a palavra-passe para a conta de administração do servidor MySQL.
 
 > [!TIP]
 > Um nome de servidor é mapeado para um nome DNS e tem de ser globalmente exclusivo no Azure.
@@ -124,7 +124,7 @@ Update-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -SslE
 
 ## <a name="get-the-connection-information"></a>Obter as informações da ligação
 
-Para ligar ao seu servidor, terá de fornecer credenciais de acesso e informações de anfitrião. Utilize o seguinte exemplo para determinar as informações de ligação. Tome nota dos valores do Nome e **DoMinínia Totalmente Qualificados** e **DoMinância** .
+Para ligar ao seu servidor, terá de fornecer credenciais de acesso e informações de anfitrião. Utilize o seguinte exemplo para determinar as informações de ligação. Tome nota dos valores do Nome e **DoMinínia Totalmente Qualificados** e **DoMinância**.
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |
@@ -216,7 +216,7 @@ Para obter comandos adicionais, veja [MySQL 5.7 Reference Manual - Chapter 4.5.1
 
 1. Selecione a ligação para ligar ao servidor.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se os recursos criados neste quickstart não forem necessários para outro arranque rápido ou tutorial, pode eliminá-los executando o seguinte exemplo.
 

@@ -1,17 +1,17 @@
 ---
 title: Regras de firewall - Azure Database for MySQL
 description: Saiba como utilizar as regras de firewall para permitir ligações à sua Base de Dados Azure para o servidor MySQL.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4efd9fd814165755d27de1d269b6319890f7190d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882660"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541611"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Base de dados Azure para regras de firewall de servidor MySQL
 As firewalls impedem todo o acesso ao servidor da base de dados até especificar quais os computadores que têm permissão. A firewall concede acesso ao servidor com base no endereço IP originário de cada pedido.
@@ -43,7 +43,7 @@ Se um endereço IP de saída fixo não estiver disponível para o seu serviço A
 > A opção **de acesso a serviços Azure** configura a firewall para permitir todas as ligações a partir do Azure, incluindo ligações a partir das subscrições de outros clientes. Quando selecionar esta opção, certifique-se de que as suas permissões de início de sessão e de utilizador limitam o acesso apenas a utilizadores autorizados.
 > 
 
-:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Exemplo de fluxo de como a firewall funciona":::
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configure Permitir o acesso aos serviços da Azure no portal":::
 
 ### <a name="connecting-from-a-vnet"></a>Ligação a partir de um VNet
 Para ligar de forma segura à sua Base de Dados Azure para o servidor MySQL a partir de um VNet, considere utilizar [pontos finais de serviço VNet](./concepts-data-access-and-security-vnet.md). 

@@ -1,17 +1,17 @@
 ---
 title: Gerir o servidor - Portal Azure - Base de Dados Azure para o MySQL
 description: Saiba como gerir uma Base de Dados Azure para o servidor MySQL a partir do portal Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a9dba7c85ded7add1a9f1494d88a3f8a1f62f175
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e29e823834ec813a8389cea220cffc7633aa7103
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882451"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94541458"
 ---
 # <a name="manage-an-azure-database-for-mysql-server-using-the-azure-portal"></a>Gerir uma base de dados Azure para servidor MySQL utilizando o portal Azure
 
@@ -50,7 +50,7 @@ Pode escalar de Final geral para memória Otimizada e vice-versa. A alteração 
 
 2. Altere a definição **vCore** movendo o slider para o valor pretendido.
 
-    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para o MySQL":::
+    :::image type="content" source="./media/howto-create-manage-server-portal/scaling-compute.png" alt-text="Screenshot do portal Azure para escolher a opção vCore na Base de Dados Azure para o MySQL":::
 
     > [!NOTE]
     > O escalonamento vCores provoca o reinício do servidor.
@@ -63,7 +63,7 @@ Pode escalar de Final geral para memória Otimizada e vice-versa. A alteração 
 
 2. Altere a definição **de Armazenamento** movendo o deslizador para o valor pretendido.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para o MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/scaling-storage.png" alt-text="Screenshot do portal Azure para escolher a escala de armazenamento na Base de Dados Azure para o MySQL":::
 
    > [!NOTE]
    > O armazenamento não pode ser reduzido.
@@ -76,11 +76,11 @@ Pode alterar a palavra-passe da função do administrador utilizando o portal Az
 
 1. Selecione o seu servidor no portal Azure. Na janela **'Vista Geral'** **selecione redefinir a palavra-passe**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para o MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-reset-password.png" alt-text="Screenshot do portal Azure para redefinir a palavra-passe na Base de Dados Azure para o MySQL":::
 
 2. Introduza uma nova senha e confirme a senha. A caixa de texto irá instruí-lo sobre os requisitos de complexidade da palavra-passe.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para o MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/reset-password.png" alt-text="Screenshot do portal Azure para redefinir a sua palavra-passe e guardar na Base de Dados Azure para o MySQL":::
 
 3. Selecione **OK** para guardar a nova senha.
 
@@ -90,11 +90,11 @@ Pode eliminar o seu servidor se já não precisar dele.
 
 1. Selecione o seu servidor no portal Azure. Na janela **'Vista Geral'** selecione **Eliminar**.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para o MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/overview-delete.png" alt-text="Screenshot do portal Azure para eliminar o servidor na Base de Dados Azure para o MySQL":::
 
 2. Digite o nome do servidor na caixa de entrada para confirmar que este é o servidor que pretende eliminar.
 
-   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Screenshot do portal Azure para escolher o nível básico, geral ou otimizado de memória na Base de Dados Azure para o MySQL":::
+   :::image type="content" source="./media/howto-create-manage-server-portal/confirm-delete.png" alt-text="Screenshot do portal Azure para confirmar o servidor apagar na Base de Dados Azure para o MySQL":::
 
    > [!NOTE]
    > Apagar um servidor é irreversível.

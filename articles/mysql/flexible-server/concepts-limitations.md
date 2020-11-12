@@ -1,17 +1,17 @@
 ---
 title: Limitações - Base de Dados Azure para MySQL - Servidor Flexível
 description: Este artigo descreve limitações na Base de Dados Azure para o MySQL - Servidor Flexível, como o número de opções de motor de ligação e armazenamento.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: a064b2b2d0bad5fc8ded9a59b66d84a361facec9
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: a3abde9092519be057dcd73ec63318f970fd5c74
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504344"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94543090"
 ---
 # <a name="limitations-in-azure-database-for-mysql---flexible-server-preview"></a>Limitações na Base de Dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -67,7 +67,7 @@ Os seguintes não são suportados:
 - Esta configuração só pode ser definida durante a criação do servidor.
 - Não suportado no nível de cálculo burstable.
 
-### <a name="networking"></a>Redes
+### <a name="networking"></a>Rede
 - O método de conectividade não pode ser alterado após a criação do servidor. Se o servidor for criado com *acesso privado (VNet Integration)* , não pode ser alterado para *acesso público (endereços IP permitidos)* após a criação, e vice-versa
 - O TLS/SSL é ativado por defeito e não pode ser desativado.
 - A versão mínima TLS suportada no servidor é TLS1.2. Consulte para [ligar utilizando TLS/SSL](./how-to-connect-tls-ssl.md) para saber mais.

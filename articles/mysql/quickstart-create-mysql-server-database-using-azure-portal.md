@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Criar um servidor - Portal Azure - Base de Dados Azure para o MySQL'
 description: Este artigo mostra-lhe como utilizar o portal do Azure para criar uma Base de Dados do Azure de exemplo para o servidor MySQL em cerca de cinco minutos.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 11/04/2020
-ms.openlocfilehash: ea131c33b37c8989f3c5eb8f11b8e0d7a236190f
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 4282294ff54fd3da3f764f53efc8b040b9522191
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94504505"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94542257"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Quickstart: Criar uma base de dados Azure para servidor MySQL utilizando o portal Azure
 
@@ -138,7 +138,7 @@ Pode utilizar [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) ou
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/mysql-doc-feedback)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Criou agora uma Base de Dados Azure para servidor MySQL num grupo de recursos.  Se não espera precisar destes recursos no futuro, pode eliminá-los eliminando o grupo de recursos, ou simplesmente apagar o servidor MySQL. Para eliminar o grupo de recursos, complete estes passos:
 1. No portal Azure, procure e selecione **grupos de Recursos.**
 2. Na lista de grupos de recursos, selecione o nome do seu grupo de recursos.
