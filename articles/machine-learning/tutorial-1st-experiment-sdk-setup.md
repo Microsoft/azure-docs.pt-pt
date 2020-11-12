@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Começa em Cadernos Jupyter (Python)'
 titleSuffix: Azure Machine Learning
-description: Configuração para tutoriais do Jupyter Notebook. Crie um espaço de trabalho para aprendizagem automática Azure, clone os Cadernos Jupyter no espaço de trabalho e crie uma instância computacional onde você execute os cadernos.
+description: Configuração para tutoriais do Jupyter Notebook. Crie um espaço de trabalho, clone cadernos no espaço de trabalho e crie uma instância computacional onde você execute os cadernos.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 6eb76c9d8cc8447755e045972a7aceddefd1604a
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913301"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532975"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Tutorial: Começa com a Azure Machine Learning em Cadernos Jupyter
 
@@ -67,7 +67,7 @@ Você completa a seguinte configuração de experiências e executar passos no e
 
 1. Abra a pasta com um número de versão. Este número representa a versão atual para o Python SDK.
 
-1. Selecione o **botão ...** à direita da pasta **tutoriais** e, em seguida, selecione **Clone** .
+1. Selecione o **botão ...** à direita da pasta **tutoriais** e, em seguida, selecione **Clone**.
 
     :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png" alt-text="Screenshot que mostra a pasta de tutoriais clone.":::
 
@@ -82,7 +82,7 @@ Você completa a seguinte configuração de experiências e executar passos no e
     
 1. Selecione o arquivo **tutorial-1-experiment-sdk-train.ipynb** na sua pasta **de tutoriais/classificação de imagem-mnist-data.**
 
-    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot que mostra a pasta de tutoriais clone.":::
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot que mostra a pasta de tutoriais Aberto.":::
 
 1. Na barra superior, selecione uma instância de computação para usar para executar o caderno. Estas máquinas virtuais (VMs) estão pré-configuradas com [tudo o que precisa para executar Azure Machine Learning](concept-compute-instance.md#contents).
 
@@ -99,11 +99,11 @@ Você completa a seguinte configuração de experiências e executar passos no e
 
     1. Selecione o tamanho VM das opções disponíveis. Para os tutoriais, o VM padrão é uma boa escolha.
 
-    1. Em seguida, selecione **Criar** . Pode levar aproximadamente cinco minutos para configurar o seu VM.
+    1. Em seguida, selecione **Criar**. Pode levar aproximadamente cinco minutos para configurar o seu VM.
 
 1. Quando o VM está disponível, aparece na barra de ferramentas superior. Agora pode executar o caderno utilizando **tudo** na barra de ferramentas ou **Shift+Enter** nas células de código do caderno.
 
-Se tiver widgets personalizados ou preferir usar Jupyter ou JupyterLab, selecione a lista de drop-down **jupyter** na extrema-direita. Em seguida, selecione **Jupyter** ou **JupyterLab** . A nova janela do navegador abre.
+Se tiver widgets personalizados ou preferir usar Jupyter ou JupyterLab, selecione a lista de drop-down **jupyter** na extrema-direita. Em seguida, selecione **Jupyter** ou **JupyterLab**. A nova janela do navegador abre.
 
 ## <a name="next-steps"></a>Passos seguintes
 

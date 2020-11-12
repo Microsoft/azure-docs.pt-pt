@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 21188f473cbd5a6fd2a1ee549f47ad9b0e5b8af3
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 083d868f2d2652be9480227c29dfb289564056d6
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279495"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533791"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 
@@ -22,7 +22,7 @@ Em Azure Digital Twins, você pode encaminhar notificações de eventos para ser
 
 Este artigo acompanha-o através do processo de criação de pontos finais e rotas utilizando o [portal Azure.](https://portal.azure.com)
 
-Também pode gerir pontos finais e rotas com as [APIs rotas de eventos,](/rest/api/digital-twins/dataplane/eventroutes)o [.NET (C#) SDK,](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Para uma versão deste artigo que utiliza estes mecanismos em vez do portal, consulte [*Como-a-fazer: Gerir pontos finais e rotas (APIs e CLI)*](how-to-manage-routes-apis-cli.md).
+Em alternativa, também pode gerir pontos finais e rotas com as [APIs rotas](/rest/api/digital-twins/dataplane/eventroutes)de [eventos, os SDKs,](how-to-use-apis-sdks.md#overview-data-plane-apis)ou o [Azure Digital Twins CLI](how-to-use-cli.md). Para uma versão deste artigo que utiliza estes mecanismos em vez do portal, consulte [*Como-a-fazer: Gerir pontos finais e rotas (APIs e CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1
-ms.openlocfilehash: e621d50280adcccb8dbd82f4ceb0de7956e98e4b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 41ef13351e6a87369f3fe1e2181ca2113bf79bca
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91576970"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533264"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Quickstart: Adicione o início da plataforma de identidade da Microsoft a uma aplicação web ASP.NET
 Neste quickstart, você usa uma amostra de código para saber como uma ASP.NET web para assinar em contas pessoais (hotmail.com, outlook.com, outros) e contas de trabalho e escola de qualquer instância do Azure Ative Directory (Azure AD).  (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
@@ -50,7 +50,7 @@ Neste quickstart, você usa uma amostra de código para saber como uma ASP.NET w
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `ASPNET-Quickstart` exemplo.
->      - Adicione `https://localhost:44368/` em **Redirecionamento URI**, e clique em **Registar**.
+>      - Adicione `https://localhost:44368/` em **Redirecionamento URI** , e clique em **Registar**.
 >      - A partir do painel de navegação à esquerda sob a secção Gerir, selecione **Autenticação**
 >          - Sob a sub-secção **de Subvenção Implícita,** selecione **fichas de identificação**.
 >          - E, em seguida, **selecione Save**.
@@ -69,9 +69,9 @@ Neste quickstart, você usa uma amostra de código para saber como uma ASP.NET w
 > [!div renderon="docs"]
 > [Descarregue a solução Visual Studio 2019](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
-> [!div renderon="portal"]
+> [!div renderon="portal" class="sxs-lookup"]
 > Executar o projeto usando o Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Descarregue a amostra de código](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-DotNet/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -96,11 +96,11 @@ Neste quickstart, você usa uma amostra de código para saber como uma ASP.NET w
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Tenant_Info_Here` - é uma das opções abaixo:
 >   - Se a sua candidatura apoiar **apenas a Minha organização,** substitua este valor pelo nome **de Inquilino** ou **Inquilino** (por exemplo, contoso.onmicrosoft.com)
->   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
->   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft**, substitua este valor por `common`
+>   - Se a sua aplicação suportar **Contas em qualquer diretório organizacional** , substitua este valor por `organizations`
+>   - Se a sua aplicação suportar **Todos os utilizadores com contas Microsoft** , substitua este valor por `common`
 >
 > > [!TIP]
-> > - Para encontrar os valores do *ID da Aplicação*, o *ID de Diretório (inquilino)*, e os *Tipos de conta suportados*, vá para a página **Descrição geral**
+> > - Para encontrar os valores do *ID da Aplicação* , o *ID de Diretório (inquilino)* , e os *Tipos de conta suportados* , vá para a página **Descrição geral**
 > > - Certifique-se de que o valor `redirectUri` no **Web.config** corresponde ao **URI de redirecionamento** definido para o Registo da App em AD AZure (se não, navegar para o menu **autenticação** para o Registo da App e atualizar o **URI redirecionado** para combinar)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -163,7 +163,7 @@ public void Configuration(IAppBuilder app)
 }
 ```
 
-> |Onde  | Descrição |
+> |Onde  | Description |
 > |---------|---------|
 > | `ClientId`     | O ID de Aplicação da aplicação registada no portal do Azure |
 > | `Authority`    | O ponto final STS para o utilizador autenticar. Normalmente `https://login.microsoftonline.com/{tenant}/v2.0` para a cloud pública, em que {tenant} é o nome do seu inquilino, o Id do seu inquilino, ou *common* para uma referência ao ponto final comum (utilizado para aplicações multi-inquilino) |

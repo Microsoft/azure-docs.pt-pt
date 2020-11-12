@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Design de um servidor - Portal Azure - Base de Dados Azure para MySQL'
 description: Este tutorial explica como criar e gerir a Base de Dados Azure para servidor e base de dados MySQL utilizando o portal Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
-ms.openlocfilehash: f65be324a89958e25036df9adcd20f85ef4ca484
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 7559bc2246ca26cf2b14071396e075b28d2af3a7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341200"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532686"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Tutorial: Conceber uma Base de Dados do Azure para base de dados MySQL com o portal do Azure
 
@@ -183,7 +183,7 @@ Imagine que eliminou acidentalmente uma tabela de base de dados importante e nã
    
 3. Clique **em OK** para restaurar o servidor para restaurar um ponto no [tempo](./howto-restore-server-portal.md) antes da tabela ser eliminada. Restaurar um servidor cria uma nova cópia do servidor, a partir do momento específico que especificar.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se não espera precisar destes recursos no futuro, pode eliminá-los eliminando o grupo de recursos ou simplesmente eliminar o servidor MySQL. Para eliminar o grupo de recursos, siga estes passos:
 1. No portal Azure, procure e selecione **grupos de Recursos.** 

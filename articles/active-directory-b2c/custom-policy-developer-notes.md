@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7788d45a9cc30cb688d33a629fbb6e53f5ca16cb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: e2ebc0033f2d2d55571ba45a38b5e0061716673d
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92214911"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532482"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Notas do desenvolvedor para políticas personalizadas no Azure Ative Directory B2C
 
@@ -108,16 +108,6 @@ As capacidades de enquadramento de política/identidade personalizadas estão em
 | [Controlos de exibição](display-controls.md) |  |X  |  |  |
 
 
-### <a name="page-layout-versions"></a>Versões do esquema de página
-
-| Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
-| ------- | :-----------: | :-------: | :--: | ----- |
-| [2.0.0](page-layout.md) |  | X |  |  |
-| [1.2.0](page-layout.md) |  | X |  |  |
-| [1.1.0](page-layout.md) |  |  | X |  |
-| [1.0.0](page-layout.md) |  |  | X |  |
-| [Suporte JavaScript](javascript-samples.md) |  | X |  |  |
-
 ### <a name="app-ief-integration"></a>Integração app-IEF
 
 | Funcionalidade | Desenvolvimento | Pré-visualizar | GA | Notas |
@@ -127,6 +117,7 @@ As capacidades de enquadramento de política/identidade personalizadas estão em
 | Insira o JSON na viagem do utilizador através `client_assertion` | X |  |  | Será depreciado. |
 | Insira o JSON na jornada do utilizador como `id_token_hint` |  | X |  | Avance para passar JSON. |
 | [Passe o token do fornecedor de identidade para a aplicação](idp-pass-through-custom.md) |  | X |  | Por exemplo, do Facebook à app. |
+
 
 ### <a name="session-management"></a>Gestão de Sessão
 

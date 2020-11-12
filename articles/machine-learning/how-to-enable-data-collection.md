@@ -1,7 +1,7 @@
 ---
 title: Recolher dados sobre os seus modelos de produção
 titleSuffix: Azure Machine Learning
-description: Saiba como recolher dados de um modelo de Aprendizagem automática Azure implantado
+description: Saiba como recolher dados de um modelo Azure Machine Learning implantado num cluster Azure Kubernetes Service (AKS).
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,16 +11,14 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml
-ms.openlocfilehash: 9a9ef4dbe7f6b97675d395baf441530e5bd79320
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: c6b9dc95e1d50481ac5353460910032ca1711ab1
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93357648"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532822"
 ---
 # <a name="collect-data-from-models-in-production"></a>Recolher dados de modelos em produção
-
-
 
 Este artigo mostra como recolher dados de um modelo de Aprendizagem automática Azure implantado num cluster Azure Kubernetes Service (AKS). Os dados recolhidos são então armazenados no armazenamento da Azure Blob.
 
@@ -210,6 +208,6 @@ Pode escolher uma ferramenta da sua preferência para analisar os dados recolhid
 
 1. Siga os passos no modelo para visualizar e analisar os seus dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Detete a deriva de dados](how-to-monitor-datasets.md) nos dados recolhidos.

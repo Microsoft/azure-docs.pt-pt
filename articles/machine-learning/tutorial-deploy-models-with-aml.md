@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial de classificação de imagem: Implementar modelos'
 titleSuffix: Azure Machine Learning
-description: Este tutorial, segundo de uma série de duas partes, mostra como usar o Azure Machine Learning para implementar um modelo de classificação de imagem com scikit-learn num caderno Python Jupyter.
+description: Este tutorial mostra como usar a Azure Machine Learning para implementar um modelo de classificação de imagem com scikit-learn em um caderno Python Jupyter.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: cc048a523fabdd70c57cb5d75442d440a1753a79
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: ee6529f36c302cba1dc7b5a4b53aaf96ce58e4a5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309563"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532788"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Tutorial: Implementar um modelo de classificação de imagem em Instâncias de Contentores Azure
 
@@ -343,7 +343,7 @@ print("label:", y_test[random_index])
 print("prediction:", resp.text)
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para manter o grupo de recursos e o espaço de trabalho para outros tutoriais e exploração, pode eliminar apenas a implantação de Instâncias de Contentores utilizando esta chamada API:
 

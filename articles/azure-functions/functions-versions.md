@@ -4,23 +4,23 @@ description: O Azure Functions suporta várias versões do tempo de execução. 
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
-ms.openlocfilehash: 6641461e63d7c9452351f3b0b99a274d2714a92e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c67708b5c23667a7b0a1603b756d564b35fa0c3f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208110"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533740"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral das versões de tempo de execução do Azure Functions
 
 A Azure Functions suporta atualmente três versões do hospedeiro de tempo de execução: 1.x, 2.x e 3.x. As três versões são apoiadas para cenários de produção.  
 
 > [!IMPORTANT]
-> A versão 1.x encontra-se em modo de manutenção e só suporta o desenvolvimento no portal Azure ou localmente em computadores Windows. As melhorias são fornecidas apenas em versões posteriores. 
+> A versão 1.x encontra-se em modo de manutenção e só suporta o desenvolvimento no portal Azure Stack Hub ou localmente em computadores Windows. As melhorias são fornecidas apenas em versões posteriores. 
 
 Este artigo detalha algumas das diferenças entre as várias versões, como pode criar cada versão e como alterar versões.
 
-## <a name="languages"></a>Linguagens
+## <a name="languages"></a>Idiomas
 
 Começando pela versão 2.x, o tempo de execução utiliza um modelo de extensibilidade linguística, e todas as funções numa aplicação de função devem partilhar o mesmo idioma. O idioma das funções numa aplicação de função é escolhido ao criar a app e é mantido na definição [de \_ TRABALHO DE \_ EXECUÇÃO DO TRABALHADOR DE FUNÇÕES.](functions-app-settings.md#functions_worker_runtime) 
 
@@ -28,7 +28,7 @@ A tabela seguinte indica quais as linguagens de programação que são atualment
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
-Para mais informações, consulte [as línguas apoiadas.](supported-languages.md)
+Para obter mais informações, veja os [Idiomas suportados](supported-languages.md).
 
 ## <a name="run-on-a-specific-version"></a><a name="creating-1x-apps"></a>Executar em uma versão específica
 

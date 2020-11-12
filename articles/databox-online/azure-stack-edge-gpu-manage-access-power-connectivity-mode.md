@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: 99dd3da3f9e8434f9c859afd347bd19d10628083
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b66a184abce53c31fade19fc9e10ffe4c7ff8415
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938607"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532448"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro-gpu"></a>Gerir o modo de acesso, potência e conectividade para o seu GPU Azure Stack Edge Pro
 
@@ -49,12 +49,12 @@ O fluxo de trabalho de reset não requer que o utilizador relembre a senha antig
 
 1. No portal Azure, **aceda à visão geral > redefinir a palavra-passe de administração**.
 
-    ![Repor palavra-passe](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
+    ![A screenshot mostra o dispositivo com a palavra-passe do dispositivo Reset selecionada.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-1.png)
 
 
 2. Introduza a nova senha e, em seguida, confirme-a. A palavra-passe fornecida deve ter entre 8 e 16 caracteres. A palavra-passe deve ter 3 dos seguintes caracteres: maiúsculas, minúsculas, numéricas e caracteres especiais. Selecione **Repor**.
 
-    ![Repor palavra-passe](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
+    ![A screenshot mostra a caixa de diálogo de palavra-passe do dispositivo Reset.](media/azure-stack-edge-manage-access-power-connectivity-mode/reset-password-2.png)
 
 ## <a name="manage-resource-access"></a>Gerir o acesso a recursos
 
@@ -115,7 +115,7 @@ Além do modo padrão totalmente ligado, o seu dispositivo também pode funciona
 Para alterar o modo dispositivo, siga estes passos:
 
 1. Na UI web local do seu dispositivo, vá para **a Configuração > Cloud**.
-2. A partir da lista de dropdown, selecione o modo em que pretende operar o dispositivo. Pode selecionar a partir de **Totalmente ligado,** **Parcialmente ligado**e **totalmente desligado**. Para executar o dispositivo em modo parcialmente desligado, ative **a gestão do portal Azure**.
+2. A partir da lista de dropdown, selecione o modo em que pretende operar o dispositivo. Pode selecionar a partir de **Totalmente ligado,** **Parcialmente ligado** e **totalmente desligado**. Para executar o dispositivo em modo parcialmente desligado, ative **a gestão do portal Azure**.
 
  
 ## <a name="manage-power"></a>Gerir o poder

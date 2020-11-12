@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: f00a935815b64f7c2c06dd33130c1a950582e5c3
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 620039ec43009693d09f732913264eff94d662c9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743493"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94533247"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web java
 
@@ -86,7 +86,7 @@ Para executar esta amostra, você precisará:
 > [!div class="sxs-lookup" renderon="portal"]
 > Descarregue o projeto e extrate o ficheiro zip para uma pasta local mais próxima da pasta raiz - por exemplo, **C:\Azure-Samples**
 >
-> Para utilizar https com a loja local, preencha as propriedades do servidor.ssl.key. Para gerar um certificado auto-assinado, utilize o utilitário keytool (incluído no JRE).
+> Para utilizar https com a loja local, preencha as propriedades .key servidores do servidor.ssl. Para gerar um certificado auto-assinado, utilize o utilitário keytool (incluído no JRE).
 >
 >  ```
 >   Example:
@@ -99,7 +99,7 @@ Para executar esta amostra, você precisará:
 >   ```
 >   Coloque o ficheiro de teclas gerado na pasta "recursos".
 
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div renderon="portal" id="autoupdate" class="sxs-lookup nextstepaction"]
 > [Descarregue a amostra de código](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -125,7 +125,7 @@ Para executar esta amostra, você precisará:
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Client_Secret_Here` - é o Segredo de **Cliente** que criou em **Certificados & Segredos** para a aplicação que registou.
 > - `Enter_the_Tenant_Info_Here` - é o valor de identificação do **Diretório (inquilino)** do pedido que registou.
-> 1. Para utilizar https com a loja local, preencha as propriedades do servidor.ssl.key. Para gerar um certificado auto-assinado, utilize o utilitário keytool (incluído no JRE).
+> 1. Para utilizar https com a loja local, preencha as propriedades .key servidores do servidor.ssl. Para gerar um certificado auto-assinado, utilize o utilitário keytool (incluído no JRE).
 >
 >  ```
 >   Example:
@@ -155,8 +155,8 @@ Se estiver a executar a aplicação web a partir de um IDE, clique em execução
 1. Na primeira página, selecione o botão **De início de Sessão** para redirecionar para o Azure Ative Directory e instrua o utilizador para as suas credenciais.
 
 1. Depois de autenticado o utilizador, são redirecionados para *https://localhost:8443/msal4jsample/secure/aad* . Eles estão agora assinados, e a página mostrará informações sobre a conta de assinatura. A UI da amostra tem os seguintes botões:
-    - *Assine*: Assina o utilizador atual fora da aplicação e redireciona-os para a página inicial.
-    - *Mostrar informações do utilizador*: Adquire um símbolo para o Microsoft Graph e liga para o Microsoft Graph com um pedido que contém o token, que devolve informações básicas sobre o utilizador inscrito.
+    - *Assine* : Assina o utilizador atual fora da aplicação e redireciona-os para a página inicial.
+    - *Mostrar informações do utilizador* : Adquire um símbolo para o Microsoft Graph e liga para o Microsoft Graph com um pedido que contém o token, que devolve informações básicas sobre o utilizador inscrito.
 
 ##### <a name="running-from-tomcat"></a>Correndo de Tomcat
 
@@ -253,7 +253,7 @@ import com.microsoft.aad.msal4j.*;
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Para uma discussão mais aprofundada sobre a construção de aplicações web que assinam nos utilizadores na plataforma de identidade da Microsoft, passe para a nossa série de cenários multi-partes:
 

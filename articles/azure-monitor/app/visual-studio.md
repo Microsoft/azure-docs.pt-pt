@@ -4,12 +4,12 @@ description: Análise de desempenho da aplicação Web e diagnóstico durante a 
 ms.topic: conceptual
 ms.date: 03/17/2017
 ms.custom: vs-azure
-ms.openlocfilehash: a3937719fd47ba988cf1e0a93f4c06fcc8112d3e
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: d2de29d897c84496fd44d74d88d58decbc64b7f8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932214"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94532907"
 ---
 # <a name="debug-your-applications-with-azure-application-insights-in-visual-studio"></a>Depurar as suas aplicações com a Azure Application Insights no Visual Studio
 No Visual Studio (versão 2015 e posterior), pode analisar o desempenho e diagnosticar problemas de depuração e produção na sua aplicação Web ASP.NET, com a telemetria do [Application Insights do Azure](./app-insights-overview.md).
@@ -53,12 +53,12 @@ Apresentação de relatórios de exceção na janela de Pesquisa. (Em alguns tip
 
 Clique numa exceção para obter um rastreio de pilha. Se abrir o código da aplicação no Visual Studio, pode clicar no rastreio de pilha para a linha relevante do código.
 
-![Rastreio de pilha de exceção](./media/visual-studio/17.png)
+![A screenshot mostra o objeto Sobre num traço de pilha.](./media/visual-studio/17.png)
 
 ## <a name="view-request-and-exception-summaries-in-the-code"></a>Ver resumos de pedido e exceção no código
 Na linha De Lente de Código acima de cada método de manipulador, vê uma contagem dos pedidos e exceções registados pela Application Insights nos últimos 24 h.
 
-![Rastreio de pilha de exceção](./media/visual-studio/21.png)
+![A screenshot mostra uma exceção numa caixa de diálogo de contexto.](./media/visual-studio/21.png)
 
 > [!NOTE] 
 > O Código Lente mostra os dados do Application Insights apenas se tiver [configurado a sua aplicação para enviar telemetria para o portal do Application Insights](./asp-net.md).
