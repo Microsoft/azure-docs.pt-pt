@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: vikancha
-ms.openlocfilehash: 9b6e752f8352db565239aba4a990752b1c397f5f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b80a09c82b1e932fb93b4c85ee250773aa7d3c38
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517264"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539758"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instale os controladores da NVIDIA GPU em VMs da série N que executam o Linux
 
@@ -98,7 +98,9 @@ sudo reboot
   
    sudo reboot
 
-2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106).
+2. Install the latest [Linux Integration Services for Hyper-V and Azure](https://www.microsoft.com/download/details.aspx?id=55106). Check if LIS is required by verifying the results of lspci. If all GPU devices are listed as expected, installing LIS is not required.
+
+Skip this step if you plan to use CentOS 7.8(or higher) as LIS is no longer required for these versions.
 
    ```bash
    wget https://aka.ms/lis
@@ -150,7 +152,7 @@ Se o controlador estiver instalado, verá uma saída semelhante à seguinte. Not
 
 ## <a name="rdma-network-connectivity"></a>Conectividade da rede RDMA
 
-A conectividade da rede RDMA pode ser ativada em VMs da série N com capacidade RDMA, tais como NC24r implantados no mesmo conjunto de disponibilidade ou num único grupo de colocação num conjunto de escala de machiine virtual (VM). A rede RDMA suporta o tráfego de Interface de Passagem de Mensagens (MPI) para aplicações em execução com Intel MPI 5.x ou uma versão posterior. Os requisitos adicionais seguem-se:
+A conectividade da rede RDMA pode ser ativada em VMs da série N com capacidade RDMA, tais como NC24r implantados no mesmo conjunto de disponibilidade ou num único grupo de colocação num conjunto de escala de máquina virtual (VM). A rede RDMA suporta o tráfego de Interface de Passagem de Mensagens (MPI) para aplicações em execução com Intel MPI 5.x ou uma versão posterior. Os requisitos adicionais seguem-se:
 
 ### <a name="distributions"></a>Distribuições
 
@@ -264,7 +266,7 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
    sudo yum install hyperv-daemons
    ```
 
-2. Desative o condutor do núcleo Nouveau, que é incompatível com o condutor da NVIDIA. (Utilize apenas o controlador NVIDIA em VMS NV ou NV2.) Para tal, crie um ficheiro `/etc/modprobe.d` com o nome com os `nouveau.conf` seguintes conteúdos:
+2. Desative o condutor do núcleo Nouveau, que é incompatível com o condutor da NVIDIA. (Utilize apenas o controlador NVIDIA em NV ou NV3 VMs.) Para tal, crie um ficheiro `/etc/modprobe.d` com o nome com os `nouveau.conf` seguintes conteúdos:
 
    ```
    blacklist nouveau
@@ -272,7 +274,9 @@ Para instalar os controladores NVIDIA GRID em VMs da série NV ou NVv3, faça um
    blacklist lbm-nouveau
    ```
  
-3. Reinicie o VM, reconecte e instale os mais recentes [Serviços de Integração Linux para Hiper-V e Azure.](https://www.microsoft.com/download/details.aspx?id=55106)
+3. Reinicie o VM, reconecte e instale os mais recentes [Serviços de Integração Linux para Hiper-V e Azure.](https://www.microsoft.com/download/details.aspx?id=55106) Verifique se o LIS é necessário verificando os resultados do lspci. Se todos os dispositivos GPU estiverem listados como esperado, não é necessário instalar o LIS. 
+
+Salta este passo é que estás a usar CentOS/RHEL 7.8 ou superior.
  
    ```bash
    wget https://aka.ms/lis
@@ -373,6 +377,7 @@ Em seguida, crie uma entrada para o seu script de atualização `/etc/rc.d/rc3.d
 
 * Pode definir o modo de persistência utilizando `nvidia-smi` para que a saída do comando seja mais rápida quando necessitar de consultar cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1` . Note que se o VM for reiniciado, a definição de modo desaparece. Pode sempre escrever a definição de modo para executar no arranque.
 * Se atualizou os controladores da NVIDIA CUDA para a versão mais recente e descobriu que a conectividade RDMA já não está a funcionar, [reinstale os controladores RDMA](#rdma-network-connectivity) para restabelecer essa conectividade. 
+* Se uma determinada versão CentOS/RHEL OS (ou kernel) não for suportada para LIS, é lançado um erro "versão kernel não suportada". Por favor, reporte este erro juntamente com as versões SO e kernel.
 
 ## <a name="next-steps"></a>Passos seguintes
 

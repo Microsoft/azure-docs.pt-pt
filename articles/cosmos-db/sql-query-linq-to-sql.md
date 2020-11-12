@@ -5,19 +5,19 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 7/29/2020
+ms.date: 11/11/2020
 ms.author: tisande
-ms.openlocfilehash: 38d37d03c99bd3a39b00276da110ea0ef6bb962e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 35f212ea246e03be02fa082ef1b55dcb7cae1575
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332377"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538653"
 ---
 # <a name="linq-to-sql-translation"></a>Tradução LINQ para SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-O fornecedor de consulta DB Azure Cosmos realiza um melhor mapeamento de esforço de uma consulta LINQ em uma consulta Cosmos DB SQL. Se pretender obter a consulta SQL que é traduzida a partir de LINQ, utilize o `ToString()` método no `IQueryable` objeto gerado. A seguinte descrição pressupõe uma familiaridade básica com [o LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
+O fornecedor de consulta DB Azure Cosmos realiza um melhor mapeamento de esforço de uma consulta LINQ em uma consulta Cosmos DB SQL. Se pretender obter a consulta SQL que é traduzida a partir de LINQ, utilize o `ToString()` método no `IQueryable` objeto gerado. A seguinte descrição pressupõe uma familiaridade básica com [o LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries). Além do LINQ, a Azure Cosmos DB também apoia [o Núcleo De Estrutura da Entidade](/ef/core/providers/cosmos/?tabs=dotnet-core-cli) que trabalha com a SQL API.
 
 O sistema de tipo fornecedor de consulta suporta apenas os tipos primitivos JSON: numérico, Boolean, string e nulo.
 

@@ -1,17 +1,17 @@
 ---
 title: Gerir regras de firewall - Portal Azure - Azure Database for MySQL
 description: Criar e gerir a Base de Dados Azure para as regras de firewall do MySQL utilizando o portal Azure
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 7c5bc010653a936c00c5995142b5b34829591d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 032db324f9dd2f0d6a5dce5c4fd5c64342fed59f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90884699"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540489"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Criar e gerir a Base de Dados Azure para as regras de firewall do MySQL utilizando o portal Azure
 As regras de firewall ao nível do servidor podem ser utilizadas para gerir o acesso a uma Base de Dados Azure para o Servidor MySQL a partir de um endereço IP especificado ou de uma série de endereços IP. 
@@ -26,7 +26,7 @@ As regras da Rede Virtual (VNet) também podem ser usadas para garantir o acesso
 
 2. Clique em **Adicionar o meu IP** na barra de ferramentas. Isto cria automaticamente uma regra de firewall com o endereço IP público do seu computador, conforme percebido pelo sistema Azure.
 
-   :::image type="content" source="./media/howto-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Portal Azure - clique na segurança de conexão":::
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/2-add-my-ip.png" alt-text="Portal Azure - clique em Adicionar O Meu IP":::
 
 3. Verifique o seu endereço IP antes de guardar a configuração. Em algumas situações, o endereço IP observado pelo portal Azure difere do endereço IP utilizado no acesso aos servidores da Internet e do Azure. Portanto, pode ser necessário alterar o IP de início e o IP final para fazer a regra funcionar como esperado.
 
@@ -34,11 +34,11 @@ As regras da Rede Virtual (VNet) também podem ser usadas para garantir o acesso
 
 4. Adicione intervalos de endereços adicionais. Nas regras de firewall para a Base de Dados Azure para o MySQL, pode especificar um único endereço IP ou uma série de endereços. Se pretender limitar a regra a um único endereço IP, digite o mesmo endereço nos campos IP e IP inicial. A abertura da firewall permite aos administradores, utilizadores e aplicações acederem a qualquer base de dados no servidor MySQL à qual possuem credenciais válidas.
 
-   :::image type="content" source="./media/howto-manage-firewall-using-portal/4-specify-addresses.png" alt-text="Portal Azure - clique na segurança de conexão":::
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/4-specify-addresses.png" alt-text="Portal Azure - regras de firewall":::
 
 5. Clique em **Guardar** na barra de ferramentas para guardar esta regra de firewall ao nível do servidor. Aguarde a confirmação de que a atualização das regras de firewall é bem sucedida.
 
-   :::image type="content" source="./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png" alt-text="Portal Azure - clique na segurança de conexão":::
+   :::image type="content" source="./media/howto-manage-firewall-using-portal/5-save-firewall-rule.png" alt-text="Portal Azure - clique em Guardar":::
 
 ## <a name="connecting-from-azure"></a>Ligar a partir do Azure
 Para permitir que as aplicações do Azure se conectem à sua Base de Dados Azure para o servidor MySQL, as ligações Azure devem ser ativadas. Por exemplo, para hospedar uma aplicação Azure Web Apps, ou uma aplicação que funciona num Azure VM, ou para ligar a partir de um gateway de gestão de dados da Azure Data Factory. Os recursos não precisam de estar na mesma Rede Virtual (VNet) ou Grupo de Recursos para a regra de firewall para permitir essas ligações. Quando uma aplicação do Azure tenta ligar ao servidor de base de dados, a firewall verifica se as ligações do Azure são permitidas. Existem alguns métodos para permitir este tipo de ligações. Uma definição de firewall com o endereço de início e de fim igual a 0.0.0.0 indica que estas ligações são permitidas. Em alternativa, pode definir a opção **de acesso a Azure** de acesso a **ON** no portal a partir do painel de segurança **De Ligação** e bater **Save**. Se a tentativa de ligação não for permitida, o pedido não chega à Base de Dados Azure para o servidor MySQL.
@@ -50,7 +50,7 @@ Para permitir que as aplicações do Azure se conectem à sua Base de Dados Azur
 ## <a name="manage-existing-server-level-firewall-rules-by-using-the-azure-portal"></a>Gerir as regras de firewall existentes ao nível do servidor utilizando o portal Azure
 Repita os passos para gerir as regras da firewall.
 * Para adicionar o computador atual, clique **em + Adicionar o meu IP**. Clique em **Guardar** para guardar as alterações.
-* Para adicionar endereços IP adicionais, digite o **NOME DE REGRA,** **START IP**e END **IP**. Clique em **Guardar** para guardar as alterações.
+* Para adicionar endereços IP adicionais, digite o **NOME DE REGRA,** **START IP** e END **IP**. Clique em **Guardar** para guardar as alterações.
 * Para modificar uma regra existente, clique em qualquer um dos campos da regra e, em seguida, modifique. Clique em **Guardar** para guardar as alterações.
 * Para eliminar uma regra existente, clique na elipse [...], e clique em **apagar**. Clique em **Guardar** para guardar as alterações.
 

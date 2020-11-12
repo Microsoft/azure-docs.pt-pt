@@ -1,18 +1,18 @@
 ---
 title: Gerir réplicas de leitura - Azure CLI, REST API - Base de Dados Azure para MySQL
 description: Saiba como configurar e gerir réplicas de leitura na Base de Dados Azure para o MySQL utilizando o Azure CLI ou REST API.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 747b8bc1abbf19c861e180faf17e2fa1a143a237
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1a5bc9638e2e6eeff8f2176247f579b64beede90
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546318"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540217"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-cli-and-rest-api"></a>Como criar e gerir réplicas de leitura na Base de Dados Azure para o MySQL utilizando o Azure CLI e REST API
 
@@ -42,7 +42,7 @@ az mysql server replica create --name mydemoreplicaserver --source-server mydemo
 
 O `az mysql server replica create` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Descrição  |
+| Definição | Valor de exemplo | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos para onde o servidor de réplica será criado.  |
 | name | mydemoreplicaserver | O nome do novo servidor de réplica que é criado. |
@@ -71,7 +71,7 @@ az mysql server replica list --server-name mydemoserver --resource-group myresou
 
 O `az mysql server replica list` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Descrição  |
+| Definição | Valor de exemplo | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos para onde o servidor de réplica será criado.  |
 | server-name | mydemoserver | O nome ou identificação do servidor de origem. |
@@ -89,7 +89,7 @@ az mysql server replica stop --name mydemoreplicaserver --resource-group myresou
 
 O `az mysql server replica stop` comando requer os seguintes parâmetros:
 
-| Definição | Valor de exemplo | Descrição  |
+| Definição | Valor de exemplo | Description  |
 | --- | --- | --- |
 | resource-group |  myResourceGroup |  O grupo de recursos onde existe o servidor de réplica.  |
 | name | mydemoreplicaserver | O nome do servidor de réplica para parar a replicação. |

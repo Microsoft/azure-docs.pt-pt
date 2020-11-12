@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 2234b1507e6e0fdb0b668fc18a7c8533e3ea7cc1
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94441788"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539656"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governação da empresa para a Azure Machine Learning
 
 Neste artigo, você vai aprender sobre as funcionalidades de segurança disponíveis para Azure Machine Learning.
 
-Quando se utiliza um serviço de cloud, a melhor prática é restringir o acesso apenas aos utilizadores que dele necessitem. Comece por compreender o modelo de autenticação e autorização utilizado pelo serviço. Também pode querer restringir o acesso à rede ou juntar recursos de forma segura na sua rede no local com a nuvem. A encriptação de dados também é vital, tanto em repouso como enquanto os dados se movem entre os serviços. Também pode querer criar polícias para impor determinadas configurações ou registar-se quando são criadas configurações não conformes. Finalmente, é necessário ser capaz de monitorizar o serviço e produzir um registo de auditoria de toda a atividade.
+Quando se utiliza um serviço de cloud, a melhor prática é restringir o acesso apenas aos utilizadores que dele necessitem. Comece por compreender o modelo de autenticação e autorização utilizado pelo serviço. Também pode querer restringir o acesso à rede ou juntar recursos de forma segura na sua rede no local com a nuvem. A encriptação de dados também é vital, tanto em repouso como enquanto os dados se movem entre os serviços. Também pode querer criar políticas para impor determinadas configurações ou registar-se quando são criadas configurações não conformes. Finalmente, é necessário ser capaz de monitorizar o serviço e produzir um registo de auditoria de toda a atividade.
 
 > [!NOTE]
 > A informação neste artigo funciona com a versão 1.0.83.1 ou superior da Azure Machine Learning Python.
@@ -88,7 +88,7 @@ Cada espaço de trabalho também tem uma [identidade gerida](../active-directory
 
 | Recurso | Permissões |
 | ----- | ----- |
-| Área de Trabalho | Contribuinte |
+| Área de trabalho | Contribuinte |
 | Conta de armazenamento | Contribuinte de Dados do Armazenamento de Blobs |
 | Key Vault | Acesso a todas as chaves, segredos, certificados |
 | Registo de Contentores do Azure | Contribuinte |
@@ -123,10 +123,11 @@ Também pode querer encriptar [as informações de diagnóstico registadas a par
 
 Existem vários cenários de monitorização com a Azure Machine Learning, dependendo do papel e do que está a ser monitorizado.
 
-| Função | Monitorização a utilizar |
-| ---- | ----- |
-| Administrador, DevOps, MLOps | [Métricas do Monitor Azure,](#azure-monitor) [log de atividade,](#activity-log) [digitalização da vulnerabilidade](#vulnerability-scanning) |
-| Cientista de Dados, MLOps | [Monitor corre](#monitor-runs) |
+| Função | Monitorização a utilizar | Description |
+| ---- | ----- | ----- |
+| Administrador, DevOps, MLOps | [Métricas do Monitor Azure,](#azure-monitor) [log de atividade,](#activity-log) [digitalização da vulnerabilidade](#vulnerability-scanning) | Informação de nível de serviço |
+| Cientista de Dados, MLOps | [Monitor corre](#monitor-runs) | Informações registadas durante os treinos |
+| MLOps | [Recolher dados de modelos,](how-to-enable-data-collection.md) [Monitor com Insights de Aplicação](how-to-enable-app-insights.md) | Informação registada por modelos implementados como serviços web ou módulos IoT Edge|
 
 ### <a name="monitor-runs"></a>Monitor corre
 

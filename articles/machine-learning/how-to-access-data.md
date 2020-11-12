@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/03/2020
 ms.custom: how-to, contperfq1, devx-track-python, data4ml
-ms.openlocfilehash: 7f2c7e99117c338d07abc2ed8760c2be18955d66
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 30ece529b141f3a50191c532d85265d8e9555b34
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489306"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538602"
 ---
 # <a name="connect-to-storage-services-on-azure"></a>Conecte-se aos serviços de armazenamento em Azure
 
@@ -180,7 +180,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 Para uma data-loja de dados Azure Data Lake Storage Generation 2 (ADLS Gen 2), utilize [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) para registar uma loja de dados credenciais ligada a um armazenamento Azure DataLake Gen 2 com [permissões principais](../active-directory/develop/howto-create-service-principal-portal.md)de serviço.  
 
-Para utilizar o seu principal serviço, tem de registar a [sua candidatura](../active-directory/develop/app-objects-and-service-principals.md) e conceder ao titular do serviço acesso ao Leitor **de Dados de Armazenamento Blob.** Saiba mais sobre [o controlo de acesso configurado para a ADLS Gen 2](../storage/blobs/data-lake-storage-access-control.md). 
+Para utilizar o seu principal serviço, é necessário registar a [sua aplicação](../active-directory/develop/app-objects-and-service-principals.md) e conceder o acesso aos dados principais do serviço através do controlo de acesso baseado em funções (Azure RBAC) ou das listas de controlo de acesso (ACL). Saiba mais sobre [o controlo de acesso configurado para a ADLS Gen 2](../storage/blobs/data-lake-storage-access-control-model.md). 
 
 O código a seguir cria e regista a `adlsgen2_datastore_name` datastore para o `ws` espaço de trabalho. Esta loja de dados acede ao sistema de ficheiros `test` na `account_name` conta de armazenamento, utilizando as credenciais principais do serviço fornecido. Reveja a secção [de permissões de acesso ao armazenamento &](#storage-access-and-permissions) para obter orientação sobre cenários de rede virtuais e onde encontrar as credenciais de autenticação necessárias. 
 
@@ -254,7 +254,7 @@ A Azure Machine Learning fornece várias formas de usar os seus modelos para pon
 | Método | Acesso à loja de dados | Description |
 | ----- | :-----: | ----- |
 | [Predição de lote](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Faça previsões sobre grandes quantidades de dados assíncroneamente. |
-| [Serviço Web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
+| [Serviço web](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos como um serviço web. |
 | [Módulo Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Implementar modelos para dispositivos IoT Edge. |
 
 Para situações em que o SDK não fornece acesso às datastores, poderá ser capaz de criar código personalizado utilizando o Azure SDK relevante para aceder aos dados. Por exemplo, o [Azure Storage SDK for Python](https://github.com/Azure/azure-storage-python) é uma biblioteca de clientes que pode utilizar para aceder a dados armazenados em bolhas ou ficheiros.

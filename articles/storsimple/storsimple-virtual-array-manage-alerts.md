@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5f32ec82c2b4c6d8b902195782b286cca82befb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a24890f42b795bb4b9a7d187f74ceb9a4f8557f5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507641"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539231"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Utilize o Gestor de Dispositivos StorSimple para gerir alertas para o StorSimple Virtual Array
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A funcionalidade de alertas no serviço StorSimple Device Manager fornece uma forma de rever e limpar alertas relacionados com as Matrizes Virtuais StorSimple em tempo real. Pode utilizar os alertas na lâmina **de resumo** do Serviço para monitorizar centralmente os problemas de saúde das suas Matrizes Virtuais StorSimple e da solução geral microsoft Azure StorSimple.
 
@@ -48,17 +48,17 @@ Depois de ativar a notificação por e-mail para um conjunto virtual, os membros
     ![definições de alerta](./media/storsimple-virtual-array-manage-alerts/alerts2.png)
 2. Isto abre a lâmina **de definições.** Na secção **de definições** do dispositivo, selecione **General**. Isto abre a lâmina **de Configurações Gerais.**
    
-    ![alerta a configuração da notificação](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
+    ![A screenshot mostra o painel de definições do dispositivo com a área de definições de alerta chamada.](./media/storsimple-virtual-array-manage-alerts/alerts4.png)
 3. Na lâmina **de definições gerais,** aceda à secção **de definições de alerta** e defina o seguinte:
    
    1. No campo **de notificação de e-mail Ativa,** selecione **SIM**.
    2. No campo **de administradores de serviço de e-mail,** selecione **SIM** se desejar que o administrador de serviço e todos os coadministradores recebam as notificações de alerta.
    3. No campo **de destinatários de e-mail adicionais,** insira os endereços de e-mail de todos os outros destinatários que devem receber as notificações de alerta. Introduza nomes no formato *que alguém \@ somewhere.com*. Utilize pontos de segurção para separar os endereços de e-mail. Pode configurar um máximo de 20 endereços de e-mail por dispositivo virtual.
       
-       ![alerta a configuração da notificação](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
+       ![A screenshot mostra os detalhes das definições de alerta com as definições descritas neste passo.](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Para enviar uma notificação de email de teste, clique em **Enviar email de teste**. O serviço StorSimple Device Manager apresentará mensagens de estado à medida que reencaminha a notificação de teste.
       
-       ![Alertas enviaram e-mail de notificação de teste](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
+       ![A screenshot mostra uma caixa de diálogo informacional verificando o e-mail de teste.](./media/storsimple-virtual-array-manage-alerts/alerts7.png)
       
       > [!NOTE]
       > Se a mensagem de notificação de teste não puder ser enviada, o serviço StorSimple Device Manager apresentará uma mensagem apropriada. Clique **em OK,** aguarde alguns minutos e tente enviar novamente a sua mensagem de notificação de teste.
@@ -66,7 +66,7 @@ Depois de ativar a notificação por e-mail para um conjunto virtual, os membros
       >
    5. Na parte inferior da página, clique em **Guardar** para guardar a sua configuração. Quando lhe for pedida a confirmação, clique em **Sim**.
       
-      ![Alertas enviaram e-mail de notificação de teste](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
+      ![A screenshot mostra o painel de definições com o botão Guardar selecionado.](./media/storsimple-virtual-array-manage-alerts/alerts10.png)
 
 ## <a name="common-alert-conditions"></a>Condições de alerta comuns
 
@@ -137,7 +137,7 @@ As tabelas que se seguem listam alguns dos alertas StorSimple que poderá encont
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Configuração do dispositivo virtual no local sem suporte. |Desempenho lento. |A configuração atual pode resultar na degradação do desempenho. Certifique-se de que o seu servidor cumpre os requisitos mínimos de configuração. Para mais informações, aceda aos [requisitos de matriz virtual StorSimple.](storsimple-ova-system-requirements.md) |
-| Está a ficar sem espaço de disco previsto <*nome do dispositivo.* \> |Aviso de espaço em disco. |Estás a ficar sem espaço em disco. Para libertar o espaço, considere mover cargas de trabalho para outro volume ou partilhar ou eliminar dados. |
+| Está a ficar sem espaço de disco previsto < *nome do dispositivo.* \> |Aviso de espaço em disco. |Estás a ficar sem espaço em disco. Para libertar o espaço, considere mover cargas de trabalho para outro volume ou partilhar ou eliminar dados. |
 
 ### <a name="job-failure-alerts"></a>Alertas de insuficiência de emprego
 
@@ -157,13 +157,13 @@ As tabelas que se seguem listam alguns dos alertas StorSimple que poderá encont
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | Está a registar atrasos inesperados na transferência de dados. |Transferência lenta de dados. |Os erros de estrangulamento ocorrem quando excede os objetivos de escalabilidade de um serviço de armazenamento. O serviço de armazenamento faz isso para garantir que nenhum cliente ou inquilino possa usar o serviço em detrimento de outros. Para obter mais informações sobre a resolução de problemas da sua conta de armazenamento Azure, vá ao [Monitor, diagnostice e resolva problemas do Microsoft Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md). |
-| Está a ficar sem espaço no disco de reservas local <*nome do dispositivo.* \> |Tempo de resposta lento. |10% do tamanho total previsto para <nome do *dispositivo* \> é reservado no dispositivo local e está agora a esgotar-se no espaço reservado. A carga de trabalho no nome <*dispositivo* \> está a gerar uma taxa mais elevada de churn ou pode ter migrado recentemente uma grande quantidade de dados. Isto pode resultar num desempenho reduzido. Considere uma das seguintes ações para resolver isto:<ul><li>Aumente a largura de banda da nuvem para este dispositivo.</li><li>Reduza ou mova cargas de trabalho para outro volume ou partilha.</li></ul> |
+| Está a ficar sem espaço no disco de reservas local < *nome do dispositivo.* \> |Tempo de resposta lento. |10% do tamanho total previsto para <nome do *dispositivo* \> é reservado no dispositivo local e está agora a esgotar-se no espaço reservado. A carga de trabalho no nome < *dispositivo* \> está a gerar uma taxa mais elevada de churn ou pode ter migrado recentemente uma grande quantidade de dados. Isto pode resultar num desempenho reduzido. Considere uma das seguintes ações para resolver isto:<ul><li>Aumente a largura de banda da nuvem para este dispositivo.</li><li>Reduza ou mova cargas de trabalho para outro volume ou partilha.</li></ul> |
 
 ### <a name="security-alerts"></a>Alertas de segurança
 
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
-| A palavra-passe para <*nome do dispositivo* \> expirará em <dias de *número.* \> |Aviso de senha. |A sua palavra-passe expirará em *number* \> <dias. Considere mudar a sua senha. Para obter mais informações, aceda à [palavra-passe do administrador do dispositivo StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
+| A palavra-passe para < *nome do dispositivo* \> expirará em <dias de *número.* \> |Aviso de senha. |A sua palavra-passe expirará em *number* \> <dias. Considere mudar a sua senha. Para obter mais informações, aceda à [palavra-passe do administrador do dispositivo StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
 
 ## <a name="next-steps"></a>Passos seguintes
 

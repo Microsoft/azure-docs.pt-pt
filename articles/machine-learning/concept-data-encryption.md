@@ -10,12 +10,12 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
-ms.openlocfilehash: de83be26e3cb7105303528e10fb50b7ecc438472
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a133cdb72e304a254305833b9ae6e8a7ebe30ab3
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94447829"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540013"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Encriptação de dados com Azure Machine Learning
 
@@ -53,7 +53,7 @@ Para obter informações sobre a regeneração das teclas de acesso, consulte [a
 
 ### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-A Azure Machine Learning armazena métricas e metadados num exemplo de DB do Azure Cosmos. Este caso está associado a uma subscrição da Microsoft gerida pela Azure Machine Learning. Todos os dados armazenados no Azure Cosmos DB estão encriptados em repouso com as teclas geridas pela Microsoft.
+A Azure Machine Learning armazena metadados num exemplo de DB do Azure Cosmos. Este caso está associado a uma subscrição da Microsoft gerida pela Azure Machine Learning. Todos os dados armazenados no Azure Cosmos DB estão encriptados em repouso com as teclas geridas pela Microsoft.
 
 Para utilizar as suas próprias chaves (geridas pelo cliente) para encriptar a instância DB do Azure Cosmos, pode criar uma instância dedicada cosmos DB para uso com o seu espaço de trabalho. Recomendamos esta abordagem se quiser armazenar os seus dados, tais como informações de histórico de execução, fora da instância de DB cosmos multi-arrendatário hospedada na nossa subscrição da Microsoft. 
 

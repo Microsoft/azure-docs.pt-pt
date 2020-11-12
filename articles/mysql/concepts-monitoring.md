@@ -1,18 +1,18 @@
 ---
 title: Monitorização - Base de Dados Azure para MySQL
 description: Este artigo descreve as métricas de monitorização e alerta para a Base de Dados Azure para o MySQL, incluindo CPU, armazenamento e estatísticas de conexão.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: b2670862814495ab04f92d8f34a757d3ede6cf4a
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5b818068c2aab045b46b34d408a93b7cb3df15c7
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546879"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537701"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitorização na Base de Dados Azure para o MySQL
 Monitorizar dados sobre os seus servidores ajuda-o a resolver problemas e a otimizar a sua carga de trabalho. A Azure Database for MySQL fornece várias métricas que dão uma visão do comportamento do seu servidor.
@@ -23,7 +23,7 @@ Todas as métricas Azure têm uma frequência de um minuto, e cada métrica forn
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas estão disponíveis para Azure Database para MySQL:
 
-|Métrica|Nome de exibição métrica|Unidade|Descrição|
+|Métrica|Nome de exibição métrica|Unidade|Description|
 |---|---|---|---|
 |cpu_percent|CPU por cento|Percentagem|A percentagem de CPU em uso.|
 |memory_percent|Por cento da memória|Percentagem|A percentagem de memória em uso.|

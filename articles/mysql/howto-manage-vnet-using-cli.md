@@ -8,20 +8,23 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cdc17f84ed7d91d130faf0049b8f2730a13ce35b
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: ac8dcad9c8057f833327ffcde1bc1f42331ddb98
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242165"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540353"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-vnet-service-endpoints-using-azure-cli"></a>Criar e gerir a Base de Dados Azure para os pontos finais do serviço MySQL VNet utilizando o Azure CLI
 Os pontos finais e as regras de serviços da Rede Virtual (VNet) expandem o espaço do endereço privado de uma Rede Virtual ao seu servidor da Base de Dados do Azure para MySQL. Utilizando os convenientes comandos Azure Command Line Interface (CLI), pode criar, atualizar, eliminar, listar e mostrar pontos finais e regras de serviço VNet para gerir o seu servidor. Para obter uma visão geral da Base de Dados Azure para os pontos finais do serviço MySQL VNet, incluindo limitações, consulte [a Base de Dados Azure para os pontos finais do serviço VNet do MySQL Server](concepts-data-access-and-security-vnet.md). Os pontos finais do serviço VNet estão disponíveis em todas as regiões suportadas para a Base de Dados Azure para o MySQL.
 
-## <a name="prerequisites"></a>Pré-requisitos
-Para passar por este guia, precisa:
-- Instale [o Azure CLI](/cli/azure/install-azure-cli) ou utilize o Azure Cloud Shell no navegador.
-- Uma [base de dados Azure para servidor e base de dados MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+
+- Precisa de uma [base de dados Azure para servidor e base de dados MySQL](quickstart-create-mysql-server-database-using-azure-cli.md).
+ 
+- Este artigo requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 > [!NOTE]
 > O suporte para os pontos finais do serviço VNet é apenas para servidores otimizados para fins gerais e memória.
@@ -30,18 +33,7 @@ Para passar por este guia, precisa:
 ## <a name="configure-vnet-service-endpoints-for-azure-database-for-mysql"></a>Configurar pontos finais de serviço Vnet para Azure Database para MySQL
 Os comandos [vnet da rede az](/cli/azure/network/vnet) são utilizados para configurar redes virtuais.
 
-Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
-
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
-
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Para ver a versão instalada, execute o comando `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
-
-Se estiver a executar a CLI localmente, tem de iniciar sessão na sua conta através do comando [az login](/cli/azure/authenticate-azure-cli). Anote a propriedade **id** da saída de comando para o nome de subscrição correspondente.
-```azurecli-interactive
-az login
-```
-
-Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Selecione o ID da subscrição específica na sua conta com o comando [az account set](/cli/azure/account#az-account-set). Substitua a propriedade **id** da saída **az login** da sua subscrição no marcador de posição de id de subscrição.
+Se tiver várias subscrições, escolha a subscrição adequada na qual o recurso deve ser cobrado. Selecione o ID da subscrição específica na sua conta com o comando [az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set). Substitua a propriedade de **id** da saída **de login az** para a sua subscrição no espaço reservado de iD de subscrição.
 
 - A conta deve ter as permissões necessárias para criar uma rede virtual e o ponto final de serviço.
 

@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: ce8abf439c44e06134113dd562ebadc62b803a28
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 7d97405a0b75129ddb0da581955728b393bf49ca
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506078"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539078"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
@@ -123,7 +123,7 @@ from . import example #(relative)
 ```
 
 > [!NOTE]
->  A *shared_code/pasta* precisa de conter um \_ \_ ficheiro \_ \_ init .py para o marcar como um pacote Python ao utilizar uma sintaxe de importação absoluta.
+>  A *shared_code/pasta* precisa de conter um \_ \_ ficheiro \_ \_ init .py para assinalá-lo como um pacote Python quando utilizar sintaxe de importação absoluta.
 
 As \_ \_ seguintes importações de aplicações \_ \_ e para além da importação relativa de nível superior são depreciadas, uma vez que não é suportada por um verificador de tipo estático e não suportada por quadros de ensaio Python:
 
@@ -723,6 +723,8 @@ Para obter mais informações, veja os seguintes recursos:
 * [Encadernações HTTP e Webhook](functions-bindings-http-webhook.md)
 * [Encadernações de armazenamento de fila](functions-bindings-storage-queue.md)
 * [Acionador de temporizador](functions-bindings-timer.md)
+
+[Tendo problemas? Deixe-nos saber.](https://aka.ms/python-functions-ref-survey)
 
 
 [HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python&preserve-view=true

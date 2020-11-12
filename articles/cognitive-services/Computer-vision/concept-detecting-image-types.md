@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4e6c2db5333962d7ae43534998ffc1c48b0dba45
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6623693a7079056cfe107fc8246e0fd43e2c0b8c
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80244567"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94538195"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Deteção de tipos de imagem com visão de computador
 
-Com a [API de Imagem de Análise,](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) a Visão Computacional pode analisar o tipo de conteúdo de imagens, indicando se uma imagem é clip art ou um desenho de linha.
+Com a [API de Imagem de Análise,](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) a Visão Computacional pode analisar o tipo de conteúdo de imagens, indicando se uma imagem é clip art ou um desenho de linha.
 
 ## <a name="detecting-clip-art"></a>Deteção de clip-art
 
@@ -115,7 +115,7 @@ As seguintes respostas JSON ilustram o que a Visão Computacional retorna ao ind
 
 ## <a name="use-the-api"></a>Utilizar a API
 
-A funcionalidade de deteção de tipo de imagem faz parte da [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) Você pode chamar esta API através de um SDK nativo ou através de chamadas REST. Incluir `ImageType` no parâmetro de consulta **visualFeatures.** Em seguida, quando tiver a resposta JSON completa, basta analisar a corda para o conteúdo da `"imageType"` secção.
+A funcionalidade de deteção de tipo de imagem faz parte da [API de Imagem de Análise.](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) Você pode chamar esta API através de um SDK nativo ou através de chamadas REST. Incluir `ImageType` no parâmetro de consulta **visualFeatures.** Em seguida, quando tiver a resposta JSON completa, basta analisar a corda para o conteúdo da `"imageType"` secção.
 
 * [Quickstart: Visão por Computador .NET SDK](./quickstarts-sdk/client-library.md?pivots=programming-language-csharp)
 * [Quickstart: Analisar uma imagem (REST API)](./quickstarts/csharp-analyze.md)

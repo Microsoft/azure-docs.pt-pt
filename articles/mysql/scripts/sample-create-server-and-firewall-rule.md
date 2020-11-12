@@ -1,26 +1,26 @@
 ---
 title: Script CLI - Criar servidor - Azure Database for MySQL
 description: Este script de exemplo da CLI do Azure cria um servidor da Base de Dados do Azure para MySQL e configura uma regra de firewall ao nível do servidor.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.devlang: azurecli
 ms.custom: mvc, devx-track-azurecli
 ms.topic: sample
 ms.date: 12/02/2019
-ms.openlocfilehash: 265ab2efb375941b83ca91052e3e2276972d8a9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e87771867c8001e64b214544a7bb3dcf68ff2b5
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87495221"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539401"
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Criar um servidor MySQL e configurar uma regra de firewall com a CLI do Azure
 Este script de exemplo da CLI do Azure cria um servidor da Base de Dados do Azure para MySQL e configura uma regra de firewall ao nível do servidor. Assim que o script é executado com êxito, o servidor MySQL é acedido por todos os serviços do Azure e o endereço IP configurado.
 
-[!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por executar a CLI localmente, este artigo requer a execução da versão 2.0 ou posterior da CLI do Azure. Verifique a versão ao executar `az --version`. Veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli) para instalar ou atualizar a sua versão da CLI do Azure. 
+- Este artigo requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada. 
 
 ## <a name="sample-script"></a>Script de exemplo
 Neste script de exemplo, edite as linhas realçadas para atualizar o nome de utilizador administrador e a palavra-passe com os seus.

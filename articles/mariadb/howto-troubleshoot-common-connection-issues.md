@@ -1,17 +1,17 @@
 ---
 title: Problemas de conexão resolução de problemas - Base de Dados Azure para MariaDB
 description: Saiba como resolver problemas de ligação à Base de Dados Azure para MariaDB, incluindo erros transitórios que requerem retrações, problemas de firewall e interrupções.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mariadb
 ms.topic: troubleshooting
 ms.date: 3/18/2020
-ms.openlocfilehash: 521853fd361007159d7e497eb7e7c1f3d200731c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9a670472529dccd51cbfa71e385151bc63cff9b
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82101455"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539384"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-database-for-mariadb"></a>Resolver problemas de ligação ao Azure Database for MariaDB
 
@@ -47,7 +47,7 @@ Se a aplicação não ligar persistentemente à Base de Dados Azure para o Maria
 
 * Configuração de firewall: A Base de Dados Azure para servidor MariaDB ou firewall do lado do cliente está a bloquear ligações.
 * Reconfiguração da rede no lado do cliente: Foi adicionado um novo endereço IP ou um servidor proxy.
-* Erro do utilizador: Por exemplo, pode ter parâmetros de ligação mal definidos, como o nome do servidor na cadeia de ligação ou um sufixo de nome de * \@ servidor* em falta no nome de utilizador.
+* Erro do utilizador: Por exemplo, pode ter parâmetros de ligação mal definidos, como o nome do servidor na cadeia de ligação ou um sufixo de nome de *\@ servidor* em falta no nome de utilizador.
 
 ### <a name="steps-to-resolve-persistent-connectivity-issues"></a>Medidas para resolver problemas de conectividade persistentes
 

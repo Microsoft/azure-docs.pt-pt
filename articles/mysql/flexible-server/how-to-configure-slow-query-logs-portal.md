@@ -1,17 +1,17 @@
 ---
 title: Configurar registos de consulta lenta - Portal Azure - Base de Dados Azure para MySQL - Servidor Flexível
 description: Este artigo descreve como configurar e aceder aos registos de consulta lenta na Base de Dados Azure para o MySQL Flexible Server a partir do portal Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: e2046673cda17c58153ceb12eee31edb83365092
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a61c8e3451d661dae2e5ad56a0d4a947252ec873
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565755"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540068"
 ---
 # <a name="configure-and-access-slow-query-logs-for-azure-database-for-mysql---flexible-server-using-the-azure-portal"></a>Configurar e aceder a registos de consulta lenta para Azure Database for MySQL - Servidor Flexível utilizando o portal Azure
 
@@ -34,13 +34,13 @@ Configure o acesso ao registo de consulta lenta MySQL.
    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/server-parameters.png" alt-text="Página de parâmetros do servidor.":::
 
 1. Atualize o parâmetro **slow_query_log** para **ON**.
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Página de parâmetros do servidor.":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/slow-query-log-enable.png" alt-text="Ligue os registos de consulta lenta.":::
 
 1. Altere quaisquer outros parâmetros necessários (ex. `long_query_time`, `log_slow_admin_statements`). Consulte os [registos de consulta lenta](./concepts-slow-query-logs.md#configure-slow-query-logging) para obter mais parâmetros.  
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Página de parâmetros do servidor.":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/long-query-time.png" alt-text="Atualizar parâmetros relacionados com registo de consulta lenta.":::
 
 1. Selecione **Guardar**. 
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Página de parâmetros do servidor.":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-parameters.png" alt-text="Guarde os parâmetros de registo de consulta lenta.":::
 
 A partir da página **'Parâmetros do Servidor',** pode voltar à lista de registos fechando a página.
 
@@ -48,19 +48,19 @@ A partir da página **'Parâmetros do Servidor',** pode voltar à lista de regis
 
 Os registos de consulta lenta são integrados com as definições de diagnóstico do Azure Monitor para permitir que encanize os seus registos em registos do Monitor Azure, nos Centros de Eventos ou no Armazenamento Azure.
 
-1. Sob a secção **de monitorização** na barra lateral, selecione **definições de diagnóstico**Adicione as  >  **definições de diagnóstico**.
+1. Sob a secção **de monitorização** na barra lateral, selecione **definições de diagnóstico** Adicione as  >  **definições de diagnóstico**.
 
-   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Página de parâmetros do servidor.":::
+   :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/add-diagnostic-setting.png" alt-text="Screenshot das opções de definições de diagnóstico":::
 
 1. Forneça um nome de definição de diagnóstico.
 
 1. Especificar quais os destinos para enviar os registos de consulta lenta (conta de armazenamento, centro de eventos ou espaço de trabalho Log Analytics).
 
 1. Selecione **MySqlSlowLogs** como o tipo de registo.
-    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Página de parâmetros do servidor.":::
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/configure-diagnostic-setting.png" alt-text="Screenshot das opções de configuração de definições de diagnóstico":::
 
 1. Depois de configurar os sumidouros de dados para canalizar os registos de consulta lenta para, **selecione Save**.
-    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Página de parâmetros do servidor.":::
+    :::image type="content" source="./media/how-to-configure-slow-query-logs-portal/save-diagnostic-setting.png" alt-text="Screenshot das opções de configuração de definições de diagnóstico, com o Save em destaque":::
 
 1. Aceda aos registos de consulta lenta explorando-os nos sumidouros de dados configurados. Pode levar até 10 minutos para os registos aparecerem.
 

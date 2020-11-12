@@ -17,22 +17,24 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: damendo
 ms.custom: ''
-ms.openlocfilehash: 5fa083626135170a05844a5e4434b608a1fabe60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d5f6f9cfaff722245f6105b5e86390b8aeb769f
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302277"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539724"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>Diagnosticar um problema de encaminhamento de rede de máquinas virtuais - Azure CLI
 
 Neste artigo, você implanta uma máquina virtual (VM) e, em seguida, verifique as comunicações para um endereço IP e URL. Vai determinar a causa de uma falha de comunicação e aprender a resolvê-la.
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar o Azure CLI localmente, este artigo requer que esteja a executar a versão Azure CLI 2.0.28 ou posterior. Para localizar a versão instalada, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Depois de verificar a versão Azure CLI, corra `az login`  para criar uma ligação com a Azure. Os comandos Azure CLI neste artigo são formatados para correr numa concha bash.
+- Este artigo requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada. 
+
+- Os comandos Azure CLI neste artigo são formatados para correr numa concha bash.
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -113,7 +115,7 @@ az network nic show-effective-route-table \
 
 O texto a seguir está incluído na saída devolvida:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -133,7 +135,7 @@ Quando utilizou o `az network watcher show-next-hop` comando para testar a comun
 
 Quando usou o `az network watcher show-next-hop` comando para testar a comunicação de saída para 172.31.0.100, no entanto, o resultado informou-o de que não havia próximo tipo de lúpulo. Na saída devolvida vê-se também o seguinte texto:
 
-```
+```console
 {
   "additionalProperties": {
     "disableBgpRoutePropagation": false
@@ -151,7 +153,7 @@ Quando usou o `az network watcher show-next-hop` comando para testar a comunica�
 
 Como pode ver na saída a partir do `az network watcher nic show-effective-route-table` comando, embora exista uma rota padrão para o prefixo 172.16.0.0/12, que inclui o endereço 172.31.0.100, o **próximoHopType** é **Nenhum**. O Azure cria uma rota predefinida para 172.16.0.0/12, mas não especifica um tipo de próximo salto até que haja um motivo para isso. Se, por exemplo, adicionou a gama de endereços 172.16.0.0/12 ao espaço de endereço da rede virtual, o Azure altera o **próximo Dispositivo de Segurança** para a rede **Virtual** para a rota. Uma verificação mostraria então a **rede Virtual** como o **próximo Ópsia.**
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, pode utilizar [az group delete](/cli/azure/group#az-group-delete) para remover o grupo de recursos e todos os recursos que contém:
 

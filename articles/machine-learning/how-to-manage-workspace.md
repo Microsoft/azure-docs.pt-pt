@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: 2c9d00f1d78d2dea46d4ff4a08433360e00c7b9d
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 29c378d40e3a4f92852f433677125a9e8a6d1133
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445630"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540132"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerir espaços de trabalho de aprendizagem automática Azure 
 
@@ -147,7 +147,7 @@ Se tiver problemas em aceder à sua subscrição, consulte [Configurar a autenti
  
 ---
 
-### <a name="networking"></a>Redes  
+### <a name="networking"></a>Rede  
 
 > [!IMPORTANT]  
 > Para obter mais informações sobre a utilização de um ponto final privado e rede virtual com o seu espaço de trabalho, consulte [o isolamento e privacidade da Rede.](how-to-network-security-overview.md)
@@ -191,7 +191,7 @@ O Centro de Segurança do Azure oferece gestão de segurança unificada e prote�
 
 ### <a name="advanced"></a>Avançado
 
-Por padrão, as métricas e metadados para o espaço de trabalho são armazenados num caso DB Azure Cosmos que a Microsoft mantém. Estes dados são encriptados utilizando as teclas geridas pela Microsoft.
+Por predefinição, os metadados para o espaço de trabalho são armazenados num caso DB Azure Cosmos que a Microsoft mantém. Estes dados são encriptados utilizando as teclas geridas pela Microsoft.
 
 Para limitar os dados que a Microsoft recolhe no seu espaço de trabalho, selecione __High business impact workspace__ no portal, ou definido `hbi_workspace=true ` em Python. Para obter mais informações sobre esta definição, consulte [a encriptação em repouso](concept-data-encryption.md#encryption-at-rest).
 
@@ -200,7 +200,7 @@ Para limitar os dados que a Microsoft recolhe no seu espaço de trabalho, seleci
 
 #### <a name="use-your-own-key"></a>Use a sua própria chave
 
-Pode fornecer a sua própria chave para encriptação de dados. Ao fazê-lo, cria a instância DB do Azure Cosmos que armazena métricas e metadados na sua subscrição Azure.
+Pode fornecer a sua própria chave para encriptação de dados. Ao fazê-lo, cria a instância DB do Azure Cosmos que armazena metadados na sua subscrição Azure.
 
 [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
@@ -359,7 +359,7 @@ No [portal Azure,](https://portal.azure.com/) **selecione Delete**  na parte sup
 
 [!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 ### <a name="resource-provider-errors"></a>Erros do fornecedor de recursos
 

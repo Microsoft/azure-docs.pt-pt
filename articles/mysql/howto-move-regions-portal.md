@@ -1,18 +1,18 @@
 ---
 title: Mover regiões Azure - Portal Azure - Base de Dados Azure para MySQL
 description: Mova uma base de dados Azure para o servidor MySQL de uma região de Azure para outra usando uma réplica de leitura e o portal Azure.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/26/2020
-ms.openlocfilehash: 88f9b82df0ce1fae78f0c9de9c8d7a7b158d151e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 279526d31adf25d1f4cd5a6d9b15519679bd88b9
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546335"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540234"
 ---
 # <a name="move-an-azure-database-for-mysql-server-to-another-region-by-using-the-azure-portal"></a>Mover uma base de dados Azure para o servidor MySQL para outra região utilizando o portal Azure
 
@@ -35,8 +35,8 @@ Para criar um servidor de réplica de leitura transversal na região alvo utiliz
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 1. Selecione a base de dados Azure existente para o servidor MySQL que pretende utilizar como servidor de origem. Esta ação abre a página **de visão geral.**
-1. Selecione **a replicação** do menu, em **DEFINIÇÕES** .
-1. Selecione **Adicionar Réplica** .
+1. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
+1. Selecione **Adicionar Réplica**.
 1. Introduza um nome para o servidor de réplica.
 1. Selecione a localização para o servidor de réplica. A localização padrão é a mesma que a do servidor de origem. Verifique se selecionou o local do alvo onde pretende que a réplica seja implantada.
 1. Selecione **OK** para confirmar a criação da réplica. Durante a criação de réplicas, os dados são copiados do servidor de origem para a réplica. Criar tempo pode durar vários minutos ou mais, proporcionalmente ao tamanho do servidor de origem.
@@ -53,19 +53,19 @@ Para criar um servidor de réplica de leitura transversal na região alvo utiliz
 Parar a replicação no servidor de réplicas faz com que se torne um servidor autónomo. Para impedir a replicação da réplica do portal Azure, utilize os seguintes passos:
 
 1. Uma vez criada a réplica, localize e selecione a base de dados Azure para o servidor de origem MySQL. 
-1. Selecione **a replicação** do menu, em **DEFINIÇÕES** .
+1. Selecione **a replicação** do menu, em **DEFINIÇÕES**.
 1. Selecione o servidor de réplica.
-1. **Selecione a replicação stop** .
-1. Confirme que pretende parar a replicação clicando **OK** .
+1. **Selecione a replicação stop**.
+1. Confirme que pretende parar a replicação clicando **OK**.
 
 ## <a name="clean-up-source-server"></a>Limpar servidor de fonte
 
-Pode querer eliminar a base de dados Azure de origem para o servidor MySQL. Para isso, siga os seguintes passos:
+Pode querer eliminar a base de dados Azure de origem para o servidor MySQL. Para fazê-lo, siga os seguintes passos:
 
 1. Uma vez criada a réplica, localize e selecione a base de dados Azure para o servidor de origem MySQL.
-1. Na janela **'Vista Geral',** selecione **Delete** .
+1. Na janela **'Vista Geral',** selecione **Delete**.
 1. Digite o nome do servidor de origem para confirmar que pretende eliminar.
-1. Selecione **Eliminar** .
+1. Selecione **Eliminar**.
 
 ## <a name="next-steps"></a>Próximos passos
 

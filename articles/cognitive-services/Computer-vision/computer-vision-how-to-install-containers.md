@@ -12,12 +12,12 @@ ms.date: 10/22/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: no local, OCR, Docker, contentor
-ms.openlocfilehash: 07440b99d887ee6cb4b6d505ed7fb79f4c12c784
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 33fc13722a4d0f26c71aa85809a605188b610014
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677209"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94539017"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar Ler recipientes OCR Docker (Pré-visualização) 
 
@@ -50,7 +50,7 @@ Se estiver a utilizar os recipientes Read 2.0 hoje, consulte o [guia de migraç�
 
 Deve encontrar os seguintes pré-requisitos antes de utilizar os recipientes:
 
-|Obrigatório|Objetivo|
+|Necessário|Objetivo|
 |--|--|
 |Motor do Docker| Precisa do Motor Docker instalado num [computador anfitrião.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar recipientes Linux.<br><br>|
 |Familiaridade com Docker | Você deve ter uma compreensão básica de conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.| 
@@ -207,7 +207,7 @@ Utilize o anfitrião, `http://localhost:5000`, para APIs de contentor. Pode ver 
 Pode utilizar o `POST /vision/v3.1/read/analyze` e `GET /vision/v3.1/read/operations/{operationId}` operações em conjunto para ler assíncroneamente uma imagem, semelhante à forma como o serviço de Visão De Computador utiliza as operações correspondentes do REST. O método ASYNCHRONOUS POST devolverá um `operationId` que é usado como identificador ao pedido HTTP GET.
 
 
-A partir da UI swagger, selecione o `asyncBatchAnalyze` para expandi-lo no navegador. Em seguida, **selecione Experimente-o**  >  **Escolha o ficheiro** . Neste exemplo, usaremos a seguinte imagem:
+A partir da UI swagger, selecione o `asyncBatchAnalyze` para expandi-lo no navegador. Em seguida, **selecione Experimente-o**  >  **Escolha o ficheiro**. Neste exemplo, usaremos a seguinte imagem:
 
 ![separadores vs espaços](media/tabs-vs-spaces.png)
 
@@ -284,7 +284,7 @@ O `operation-location` url totalmente qualificado é acedido através de um HTTP
 
 Pode utilizar o `POST /vision/v2.0/read/core/asyncBatchAnalyze` e `GET /vision/v2.0/read/operations/{operationId}` operações em conjunto para ler assíncroneamente uma imagem, semelhante à forma como o serviço de Visão De Computador utiliza as operações correspondentes do REST. O método ASYNCHRONOUS POST devolverá um `operationId` que é usado como identificador ao pedido HTTP GET.
 
-A partir da UI swagger, selecione o `asyncBatchAnalyze` para expandi-lo no navegador. Em seguida, **selecione Experimente-o**  >  **Escolha o ficheiro** . Neste exemplo, usaremos a seguinte imagem:
+A partir da UI swagger, selecione o `asyncBatchAnalyze` para expandi-lo no navegador. Em seguida, **selecione Experimente-o**  >  **Escolha o ficheiro**. Neste exemplo, usaremos a seguinte imagem:
 
 ![separadores vs espaços](media/tabs-vs-spaces.png)
 
@@ -411,6 +411,6 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 
 * [Rever recipientes de configuração](computer-vision-resource-container-config.md) para configurações de configuração
 * Reveja [a visão geral da Visão computacional](overview.md) para saber mais sobre o reconhecimento de texto impresso e manuscrito
-* Consulte a [API de Visão De Computador](//westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) para obter mais informações sobre os métodos suportados pelo recipiente.
+* Consulte a [API de Visão De Computador](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) para obter mais informações sobre os métodos suportados pelo recipiente.
 * Consulte [perguntas frequentes (FAQ)](FAQ.md) para resolver problemas relacionados com a funcionalidade de Visão de Computador.
 * Use mais [recipientes de serviços cognitivos](../cognitive-services-container-support.md)

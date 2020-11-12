@@ -1,17 +1,17 @@
 ---
 title: Recomendações de desempenho - Azure Database for MySQL
 description: Este artigo descreve a funcionalidade de Recomendação de Desempenho na Base de Dados Azure para o MySQL
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 6f41863f45bdc90cb9fe589ba0a5011dea84a67c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1445ad3d6be020326c34d60c555c24c435548fd0
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84485214"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537650"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Performance Recommendations in Azure Database for MySQL (Recomendações de desempenho na Base de Dados do Azure para MySQL)
 
@@ -35,7 +35,7 @@ Selecione **Analisar** e escolher uma base de dados, que começará a análise. 
 
 A janela **de recomendações** apresentará uma lista de recomendações se alguma for encontrada e o ID de consulta relacionado que gerou esta recomendação. Com o ID de consulta, você pode usar a vista [mysql.query_store](concepts-query-store.md#mysqlquery_store) para saber mais sobre a consulta.
 
-:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Página de destino das Recomendações de Desempenho":::
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nova página de recomendações de desempenho":::
 
 As recomendações não são aplicadas automaticamente. Para aplicar a recomendação, copie o texto de consulta e execute-o a partir do seu cliente de eleição. Lembre-se de testar e monitorizar para avaliar a recomendação.
 

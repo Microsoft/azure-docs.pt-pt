@@ -1,17 +1,17 @@
 ---
 title: Migrar usando despejo e restauro - Azure Database for MySQL
 description: Este artigo explica duas formas comuns de fazer o back backs de apoio e restaurar as bases de dados na sua Base de Dados Azure para o MySQL, utilizando ferramentas como mysqldump, MySQL Workbench e PHPMyAdmin.
-author: ajlam
-ms.author: andrela
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 336021792b7e5340e35a0c59e0f113d4dad9307d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: f21587fe6a48d042ed98c126beb2a7dcaa39b7d8
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128968"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94537922"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrar a sua base de dados MySQL para a Dase de Dados do Azure para MySQL através da funcionalidade de captura e restauro
 
@@ -39,7 +39,7 @@ Os casos de utilização mais comuns são:
 
 - **Deslocando-se de outro prestador de serviços gerido** - A maioria dos prestadores de serviços geridos não podem fornecer acesso ao ficheiro de armazenamento físico por razões de segurança, pelo que a cópia de segurança lógica e a restauração é a única opção para migrar.
 - **Migrar do ambiente no local ou máquina virtual** - Azure Database for MySQL não suporta a restauração de backups físicos que fazem backups lógicos e restauram como a abordagem ÚNICA.
-- **Mover o armazenamento de backup de armazenamento localmente redundante para armazenamento geo-redundante** - A Azure Database for MySQL permite configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Uma vez que o servidor é provisionado, não é possível alterar a opção de redundância de armazenamento de cópia de segurança. Para mover o seu armazenamento de reserva de armazenamento local redundante para armazenamento geo-redundante, despejar e restaurar é a opção ÚNICA. 
+- **Mover o armazenamento de backup de armazenamento localmente redundante para armazenamento geo-redundante** - A Azure Database for MySQL permite configurar armazenamento localmente redundante ou geo-redundante para cópia de segurança só é permitido durante a criação do servidor. Assim que o servidor tiver sido aprovisionado, não poderá alterar a opção de redundância do armazenamento de cópias de segurança. Para mover o seu armazenamento de reserva de armazenamento local redundante para armazenamento geo-redundante, despejar e restaurar é a opção ÚNICA. 
 -  **A migração de motores de armazenamento alternativos para InnoDB** - Azure Database para o MySQL suporta apenas o motor de armazenamento InnoDB, pelo que não suporta motores de armazenamento alternativos. Se as suas tabelas estiverem configuradas com outros motores de armazenamento, converta-as no formato do motor InnoDB antes da migração para Azure Database para o MySQL.
 
     Por exemplo, se tiver um WordPress ou WebApp utilizando as tabelas MyISAM, primeiro converta essas tabelas migrando para o formato InnoDB antes de restaurar a Base de Dados Azure para o MySQL. Utilize a cláusula `ENGINE=InnoDB` para definir o motor utilizado ao criar uma nova tabela e, em seguida, transfira os dados para a tabela compatível antes da restauração.
@@ -73,7 +73,7 @@ Para se conectar, localize as informações de ligação na **visão geral** da 
 
 Adicione as informações de ligação na sua bancada MySQL Workbench.
 
-:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Encontre as informações de ligação no portal Azure":::
+:::image type="content" source="./media/concepts-migrate-dump-restore/2_setup-new-connection.png" alt-text="Cadeia de conexão mysql workbench":::
 
 ## <a name="preparing-the-target-azure-database-for-mysql-server-for-fast-data-loads"></a>Preparar a base de dados Azure alvo para o servidor MySQL para cargas de dados rápidas
 Para preparar o target Azure Database para o servidor MySQL para cargas de dados mais rápidas, os seguintes parâmetros e configuração do servidor precisam de ser alterados.

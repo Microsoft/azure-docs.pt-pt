@@ -1,7 +1,7 @@
 ---
 title: Arquitetura & conceitos-chave
 titleSuffix: Azure Machine Learning
-description: Conheça a arquitetura, termos e conceitos que compõem a Azure Machine Learning.
+description: Este artigo dá-lhe uma compreensão de alto nível da arquitetura, termos e conceitos que compõem a Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: f17cdd42c892f6c0d218875cf304846937ba58d7
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94444829"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94540197"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: Arquitetura e conceitos
 
@@ -267,6 +267,18 @@ O [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) é uma e
 Você usa [oleodutos de aprendizagem automática](concept-ml-pipelines.md) para criar e gerir fluxos de trabalho que cosem fases de aprendizagem automática. Por exemplo, um gasoduto pode incluir preparação de dados, formação de modelos, implantação de modelos e fases de inferência/pontuação. Cada fase pode abranger vários passos, cada um dos quais pode correr sem vigilância em vários alvos de computação. 
 
 Os passos do gasoduto são reutilizáveis e podem ser executados sem repetir os passos anteriores se a saída desses passos não tiver mudado. Por exemplo, pode reforçá-lo um modelo sem repetir passos de preparação de dados dispendiosos se os dados não mudarem. Os oleodutos também permitem que os cientistas de dados colaborem enquanto trabalham em áreas separadas de um fluxo de trabalho de aprendizagem automática.
+
+## <a name="monitoring-and-logging"></a>Monitorização e registos
+
+A Azure Machine Learning fornece as seguintes capacidades de monitorização e registo:
+
+* Para __cientistas de dados,__ pode monitorizar as suas experiências e registar informações a partir das suas pistas de treino. Para obter mais informações, veja os seguintes artigos:
+   * [Iniciar, monitorizar e cancelar treinos](how-to-manage-runs.md)
+   * [Métricas de registo para execuções de preparações](how-to-track-experiments.md)
+   * [Controlar experiências com o MLflow](how-to-use-mlflow.md)
+   * [Visualizar execuções com TensorBoard](how-to-monitor-tensorboard.md)
+* Para __os Administradores,__ pode monitorizar informações sobre o espaço de trabalho, recursos Azure relacionados, e eventos como a criação e eliminação de recursos através do Azure Monitor. Para obter mais informações, consulte [Como monitorizar o Azure Machine Learning](monitor-azure-machine-learning.md).
+* Para __DevOps__ ou __MLOps,__ pode monitorizar as informações geradas por modelos implementados como serviços web ou módulos IoT Edge para identificar problemas com as implementações e recolher dados submetidos ao serviço. Para obter mais informações, consulte [recolher dados do modelo](how-to-enable-data-collection.md) e monitorizar com insights de [aplicação.](how-to-enable-app-insights.md)
 
 ## <a name="interacting-with-your-workspace"></a>Interagindo com o seu espaço de trabalho
 
