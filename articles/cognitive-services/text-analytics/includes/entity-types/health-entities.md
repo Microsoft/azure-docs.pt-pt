@@ -9,12 +9,12 @@ ms.subservice: text-analytics
 ms.topic: include
 ms.date: 10/02/2020
 ms.author: aahi
-ms.openlocfilehash: 44bce7c6dd2443ea0ed1851325a5b84f325f5fae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 308b2a9cb00f44f0e330d4fef5592d8855ee3394
+ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91779856"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553162"
 ---
 ## <a name="text-analytics-for-health-categories-entities-and-attributes"></a>Análise de Texto para categorias de saúde, entidades e atributos
 
@@ -49,13 +49,13 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
 :::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
 
 
-:::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure-2.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/anatomy-entities-body-structure-2.png" alt-text="Um exemplo expandido da entidade da estrutura corporal.":::
 
 ### <a name="attributes"></a>Atributos
 
 **DIREÇÃO** - Termos direcionais, tais como: esquerda, lateral, superior, posterior, que caracteriza uma estrutura corporal.
 
-:::image type="content" source="../../media/ta-for-health/anatomy-attributes.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/anatomy-attributes.png" alt-text="Um exemplo de um atributo direcional.":::
 
 ### <a name="supported-relations"></a>Relações apoiadas
 
@@ -67,20 +67,20 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
 
 **IDADE** - Todos os termos e frases de idade, incluindo os de um paciente, membros da família, e outros. Por exemplo, 40 anos, 51, 3 meses de idade, adulto, bebé, idoso, jovem, menor, de meia-idade.
 
-:::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/age-entity.png" alt-text="Um exemplo de uma entidade etária.":::
 
-:::image type="content" source="../../media/ta-for-health/age-entity-2.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/age-entity-2.png" alt-text="Outro exemplo de uma entidade etária.":::
 
 
 **SEXO** - Termos que divulgam o sexo do sujeito. Por exemplo, homem, mulher, mulher, cavalheiro, senhora.
 
-:::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/gender-entity.png" alt-text="Um exemplo de uma entidade de género.":::
 
 ### <a name="attributes"></a>Atributos
 
 **RELATIONAL_OPERATOR** - Frases que exprimem a relação entre uma entidade demográfica e informações adicionais.
 
-:::image type="content" source="../../media/ta-for-health/relational-operator.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/relational-operator.png" alt-text="Um exemplo de um operador relacional.":::
 
 ## <a name="examinations"></a>Exames
 
@@ -88,31 +88,31 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
 
 **EXAMINATION_NAME** – Procedimentos e testes de diagnóstico. Por exemplo, ressonância magnética, ECG, teste de HIV, hemoglobina, contagem de plaquetas, sistemas de escala como *a balança de fezes de Bristol.*
 
-:::image type="content" source="../../media/ta-for-health/exam-name-entities.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/exam-name-entities.png" alt-text="Um exemplo de uma entidade de exame.":::
 
-:::image type="content" source="../../media/ta-for-health/exam-name-entities-2.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/exam-name-entities-2.png" alt-text="Outro exemplo de uma entidade de nome de exame.":::
 
 ### <a name="attributes"></a>Atributos
 
 **DIREÇÃO** – Termos direcionais que caracterizam um exame.
 
-:::image type="content" source="../../media/ta-for-health/exam-direction-attribute.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/exam-direction-attribute.png" alt-text="Um exemplo de um atributo de direção com uma entidade de nome de exame.":::
 
 **MEASUREMENT_UNIT** – A unidade do exame. Por exemplo, na *hemoglobina > 9,5 g/dL,* o termo *g/dL* é a unidade para o teste de *hemoglobina.*
 
-:::image type="content" source="../../media/ta-for-health/exam-unit-attribute.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/exam-unit-attribute.png" alt-text="Um exemplo de uma unidade de medição atribui-se a uma entidade de nome de exame.":::
 
 **MEASUREMENT_VALUE** – O valor do exame. Por exemplo, na *hemoglobina > 9,5 g/dL,* o termo *9.5* é o valor para o teste de *hemoglobina.*
 
-:::image type="content" source="../../media/ta-for-health/exam-value-attribute.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/exam-value-attribute.png" alt-text="Um exemplo de um valor de medição atribuído com uma entidade de nome de exame.":::
 
 **RELATIONAL_OPERATOR** – Frases que exprimem a relação entre um exame e informações adicionais. Por exemplo, o valor de medição necessário para um exame de destino.
 
-:::image type="content" source="../../media/ta-for-health/exam-relational-operator-attribute.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/exam-relational-operator-attribute.png" alt-text="Um exemplo de um operador relacional com uma entidade de nome de exame.":::
 
 **TEMPO** – Termos temporais relativos ao início e/ou duração (duração) de um exame. Por exemplo, quando ocorreu o teste.
 
-:::image type="content" source="../../media/ta-for-health/exam-time-attribute.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/exam-time-attribute.png" alt-text="Um exemplo de um atributo de tempo com uma entidade de nome de exame.":::
 
 ### <a name="supported-relations"></a>Relações apoiadas
 
@@ -128,7 +128,7 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
 
 **GENE** – Todas as menções de genes. Por exemplo, MTRR, F2.
 
-:::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/genomics-entities.png" alt-text="Um exemplo de uma entidade genética.":::
 
 **VARIANTE** – Todas as menções de variações genéticas. Por exemplo, c.524C>T, (MTRR):r.1462_1557del96
   
@@ -138,17 +138,17 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
   
 **ADMINISTRATIVE_EVENT** – Eventos que se relacionam com o sistema de saúde mas de natureza administrativa/semi-administrativa. Por exemplo, registo, admissão, ensaio, entrada de estudo, transferência, alta, hospitalização, internamento. 
 
-:::image type="content" source="../../media/ta-for-health/healthcare-event-entity.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-event-entity.png" alt-text="Um exemplo de uma entidade de eventos de saúde.":::
 
 **CARE_ENVIRONMENT** – Um ambiente ou local onde os pacientes recebem cuidados. Por exemplo, urgências, consultório médico, unidade de cardiologia, hospício, hospital.
 
-:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-environment-entity.png" alt-text="Esta imagem mostra um exemplo de uma entidade ambiental de saúde.":::
 
 **HEALTHCARE_PROFESSION** – Um profissional de saúde licenciado ou não licenciado. Por exemplo, dentista, patologista, neurologista, radiologista, farmacêutico, nutricionista, fisioterapeuta, quiroprático.
 
-:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity.png" alt-text="Esta imagem mostra mais um exemplo de uma entidade ambiental de saúde.":::
 
-:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/healthcare-profession-entity-2.png" alt-text="Mais um exemplo de uma entidade ambiental de saúde.":::
 
 ## <a name="medical-condition"></a>Condição médica
 
@@ -156,15 +156,15 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
 
 **DIAGNÓSTICO** - Doença, síndrome, envenenamento. Por exemplo, cancro da mama, Alzheimer, HTN, CHF, lesão da medula espinhal.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-entity.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-entity.png" alt-text="Um exemplo de uma entidade de condição médica.":::
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-entity-2.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-entity-2.png" alt-text="Outro exemplo de uma entidade de condição médica.":::
 
 **SYMPTOM_OR_SIGN** – Evidência subjetiva ou objetiva de doença ou outros diagnósticos. Por exemplo, dor no peito, dor de cabeça, tonturas, erupções cutâneas, SOB, abdómen era macio, bons sons intestinais, bem nutridos.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity.png" alt-text="Um exemplo de um sinal de condição médica ou entidade de sintomas.":::
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity-2.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-symptom-entity-2.png" alt-text="Outro exemplo de um sinal de condição médica ou entidade sintomática.":::
 
 ### <a name="attributes"></a>Atributos
 
@@ -178,41 +178,41 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
 6.  Escala de condição: Em alguns casos, uma condição é caracterizada por uma escala, que é uma lista finita ordenada de valores. Por exemplo, doentes com cancro do pâncreas de fase III.
 7.  Curso de condição: Um termo que se relaciona com o curso ou progressão de uma condição, tais como melhoria, agravamento, resolução, remissão. 
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis.png" alt-text="Um exemplo de um atributo de qualificação da condição e uma entidade de diagnóstico.":::
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-2.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-2.png" alt-text="Outro exemplo de um atributo de qualificação da condição e uma entidade de diagnóstico.":::
 
-:::image type="content" source="../../media/ta-for-health/conditional-qualifier-symptom-medication.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/conditional-qualifier-symptom-medication.png" alt-text="Um exemplo de um atributo de qualificação da condição com entidades de sintomas e medicação.":::
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-diagnosis-3.png" alt-text="Esta imagem mostra outro exemplo de um atributo de qualificação da condição com uma entidade de diagnóstico.":::
 
-:::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/condition-qualifier-symptom.png" alt-text="Esta imagem mostra um exemplo adicional de um atributo de qualificação da condição com uma entidade de diagnóstico.":::
 
 **DIREÇÃO** - Termos direcionais que caracterizam uma condição médica corporal.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-direction-attribute.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-direction-attribute.png" alt-text="Um exemplo de uma direção atribuída com uma entidade de condição médica.":::
 
 **FREQUÊNCIA** - Quantas vezes ocorreu uma condição médica, ocorre ou deve ocorrer.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute.png" alt-text="Um exemplo de um atributo de frequência com uma entidade de condição médica.":::
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute-2.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-frequency-attribute-2.png" alt-text="Outro exemplo de um atributo de direção com um sintoma ou entidade de sinalização.":::
 
 **MEASUREMENT_UNIT** - A unidade que caracteriza uma condição médica. Por exemplo, no *tumor de 1,5x2x1 cm,* o termo *cm* é a unidade de medição do *tumor*. 
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-unit-attribute.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-measure-unit-attribute.png" alt-text="Um exemplo de uma unidade de medição atribuem com entidade de condição médica.":::
 
 **MEASUREMENT_VALUE** - O valor que caracteriza uma condição médica. Por exemplo, no *tumor de 1,5x2x1 cm,* o termo *1,5x2x1* é o valor de medição do *tumor*. 
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-measure-value-attribute.png" alt-text="A screenshot mostra um exemplo de um atributo de direção com um sintoma ou entidade de sinal.":::
 
 **RELATIONAL_OPERATOR** - Frases que expressam a relação entre a condição médica de informação adicional. Por exemplo, o tempo ou o valor da medição. 
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-relational-operator.png" alt-text="A screenshot mostra outro exemplo de um atributo de direção com um sintoma ou entidade de sinal.":::
 
 **TEMPO** - Termos temporais relativos ao início e/ou duração (duração) de uma condição médica. Por exemplo, quando um sintoma começou (início) ou quando ocorreu uma doença.
 
-:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medical-condition-time-attribute.png" alt-text="A screenshot mostra um exemplo adicional de um atributo de direção com um sintoma ou entidade de sinal.":::
 
 ### <a name="supported-relations"></a>Relações apoiadas
 
@@ -228,37 +228,37 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
 
 **MEDICATION_CLASS** – Um conjunto de medicamentos que têm um mecanismo de ação semelhante, um modo de ação relacionado, uma estrutura química semelhante, e/ou são usados para tratar a mesma doença. Por exemplo, inibidor ACE, opióide, antibióticos, analgésicos.
 
-:::image type="content" source="../../media/ta-for-health/medication-entities-class.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medication-entities-class.png" alt-text="Um exemplo de uma entidade da classe de medicação.":::
 
 **MEDICATION_NAME** – Menções de medicação, incluindo nomes de marcas com direitos de autor e nomes não-marcas. Por exemplo, Advil, Ibuprofeno.
 
-:::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medication-entities-name.png" alt-text="Um exemplo de uma entidade de nome de medicação.":::
 
 ### <a name="attributes"></a>Atributos
 
 **DOSAGEM** - Quantidade de medicação encomendada. Por exemplo, Infund a solução de Cloreto de *Sódio 1000 mL*.
 
-:::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medication-dosage.png" alt-text="Um exemplo de um atributo de dose de medicação.":::
 
 **FREQUÊNCIA** - Quantas vezes deve ser tomado um medicamento.
 
-:::image type="content" source="../../media/ta-for-health/medication-frequency.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medication-frequency.png" alt-text="Um exemplo de um atributo de frequência de medicação.":::
 
-:::image type="content" source="../../media/ta-for-health/medication-frequency-2.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medication-frequency-2.png" alt-text="Outro exemplo de um atributo de frequência de medicação.":::
 
 **MEDICATION_FORM-** A forma da medicação. Por exemplo, solução, pílula, cápsula, tablet, patch, gel, pasta, espuma, spray, gotas, creme, xarope.
 
-:::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medication-form.png" alt-text="Um exemplo de um atributo de formulário de medicação.":::
 
 **MEDICATION_ROUTE** - O método administrativo de medicação. Por exemplo, oral, vaginal, IV, epidural, tópico, inalado.
 
-:::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medication-route.png" alt-text="Um exemplo de um atributo de rota de medicação.":::
 
 **RELATIONAL_OPERATOR** - Frases que expressam a relação entre a medicação e a informação adicional. Por exemplo, o valor de medição necessário.
 
-:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medication-relational-operator.png" alt-text="A screenshot mostra um exemplo de um atributo de operador relacional com uma entidade de medicação.":::
 
-:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/medication-time.png" alt-text="A screenshot mostra outro exemplo de um atributo de operador relacional com uma entidade de medicação.":::
 
 ### <a name="supported-relations"></a>Relações apoiadas
 
@@ -274,25 +274,25 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
 
 **TREATMENT_NAME** – Procedimentos terapêuticos. Por exemplo, cirurgia de substituição do joelho, transplante de medula óssea, TAVI, dieta.
 
-:::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/treatment-entities-name.png" alt-text="Um exemplo de uma entidade de nome de tratamento.":::
 
 ### <a name="attributes"></a>Atributos
 
 **DIREÇÃO** - Termos direcionais que caracterizam um tratamento.
 
-:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/treatment-direction.png" alt-text="A screenshot mostra um exemplo de um atributo de direção de tratamento.":::
 
 **FREQUÊNCIA** - Com que frequência ocorre ou deve ocorrer um tratamento.
 
-:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/treatment-frequency.png" alt-text="A screenshot mostra outro exemplo de um atributo de direção de tratamento.":::
  
 **RELATIONAL_OPERATOR** - Frases que expressam a relação entre o tratamento e a informação adicional.  Por exemplo, quanto tempo passou do procedimento anterior.
 
-:::image type="content" source="../../media/ta-for-health/treatment-relational-operator.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/treatment-relational-operator.png" alt-text="Um exemplo de um atributo relacional de tratamento.":::
 
 **TEMPO** - Termos temporais relativos ao início e/ou duração (duração) de um tratamento. Por exemplo, a data em que o tratamento foi dado.
 
-:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/treatment-time.png" alt-text="A screenshot mostra um exemplo de um atributo de tempo de tratamento.":::
 
 
 ### <a name="supported-relations"></a>Relações apoiadas
@@ -307,4 +307,4 @@ Adicionalmente, o serviço reconhece as relações entre os diferentes conceitos
 
 **FAMILY_RELATION** – Menções de familiares do sujeito. Por exemplo, pai, filha, irmãos, pais.
 
-:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="Um exemplo da entidade da estrutura corporal.":::
+:::image type="content" source="../../media/ta-for-health/family-relation.png" alt-text="A screenshot mostra outro exemplo de um atributo de tempo de tratamento.":::
