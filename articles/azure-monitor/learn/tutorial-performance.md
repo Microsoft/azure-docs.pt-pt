@@ -3,16 +3,16 @@ title: Diagnosticar problemas de desempenho com o Azure Application Insights | M
 description: Tutorial para localizar e diagnosticar problemas de desempenho na sua aplicação com o Azure Application Insights.
 ms.subservice: application-insights
 ms.topic: tutorial
-author: mrbullwinkle
-ms.author: mbullwin
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 06/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 3c7185e07190895dfcc97555c6603049ed41c18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df7cfff7d5bf1b89f88105f79c072d1d7e731b31
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322504"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592571"
 ---
 # <a name="find-and-diagnose-performance-issues-with-azure-application-insights"></a>Localizar e diagnosticar problemas de desempenho com o Azure Application Insights
 
@@ -42,7 +42,7 @@ Faça login no portal Azure em [https://portal.azure.com](https://portal.azure.c
 O Application Insights recolhe detalhes de desempenho das várias operações da sua aplicação. Ao identificar as operações com a duração mais longa, pode diagnosticar potenciais problemas ou direcionar melhor o desenvolvimento contínuo para melhorar o desempenho global da aplicação.
 
 1. Selecione **Application Insights** e, em seguida, selecione a sua subscrição.  
-1. Para abrir o painel **Desempenho**, selecione **Desempenho** no menu **Investigar** ou clique no gráfico **Tempo de Resposta do Servidor**.
+1. Para abrir o painel **Desempenho** , selecione **Desempenho** no menu **Investigar** ou clique no gráfico **Tempo de Resposta do Servidor**.
 
     ![Desempenho](media/tutorial-performance/1-overview.png)
 
@@ -90,7 +90,7 @@ Além de identificar os processos de servidor a otimizar, o Application Insights
 
     ![Resumo do browser](media/tutorial-performance/8-browser.png)
 
-2. Selecione num dos nomes de funcionamento e, em seguida, clique no botão de amostras azuis no canto inferior direito e selecione uma operação. Isto irá trazer os detalhes de transação de ponta a ponta e no lado direito pode ver as **Propriedades de Visualização**de Página. Isto permite-lhe visualizar detalhes do cliente que solicita a página, incluindo o tipo de navegador e a sua localização. Estas informações podem ajudá-lo a determinar se existem problemas de desempenho relacionados com tipos de clientes específicos.
+2. Selecione num dos nomes de funcionamento e, em seguida, clique no botão de amostras azuis no canto inferior direito e selecione uma operação. Isto irá trazer os detalhes de transação de ponta a ponta e no lado direito pode ver as **Propriedades de Visualização** de Página. Isto permite-lhe visualizar detalhes do cliente que solicita a página, incluindo o tipo de navegador e a sua localização. Estas informações podem ajudá-lo a determinar se existem problemas de desempenho relacionados com tipos de clientes específicos.
 
     ![Vista de página](media/tutorial-performance/9-page-view-properties.png)
 
@@ -102,11 +102,6 @@ Tal como os dados recolhidos para o desempenho do servidor, o Application Insigh
 2. Os registos abrem-se com uma consulta para cada uma das vistas do painel. A primeira consulta mostra a duração das diferentes vistas de página ao longo do tempo.
 
     ![Consulta de registos](media/tutorial-performance/10-page-view-logs.png)
-
-3.  Smart Diagnostics é uma característica de Logs identifica padrões únicos nos dados. Ao clicar no ponto de Diagnóstico Inteligente no gráfico de linhas, a mesma consulta é executada sem os registos que causaram a anomalia. Os detalhes desses registos são apresentados na secção de comentários da consulta, para que possa identificar as propriedades das vistas de página que estão a causar a duração excessiva.
-
-    ![Registos com Diagnósticos Inteligentes](media/tutorial-performance/11-page-view-logs-dsmart.png)
-
 
 ## <a name="next-steps"></a>Passos seguintes
 Agora que aprendeu a identificar as exceções do tempo de execução, avance para o próximo tutorial para saber como criar alertas em resposta a falhas.

@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: 919d2989cf1d86320d89e8f263bb2a192c992fb4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f2a01c4e4d364494d271fa676bca5bfac2677395
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533179"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592758"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Quickstart: Inicie seduário nos utilizadores e obtenha um token de acesso num JavaScript SPA
 
-Neste arranque rápido, você usa uma amostra de código para saber como uma aplicação de página única JavaScript (SPA) pode assinar em utilizadores de contas pessoais, contas de trabalho e contas escolares. Um JavaScript SPA também pode obter um token de acesso para ligar para a API do Microsoft Graph ou qualquer API web. Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
+Neste arranque rápido, você descarrega e execute uma amostra de código que demonstra como uma aplicação de página única JavaScript (SPA) pode iniciar sôm nos utilizadores e ligar para o Microsoft Graph. A amostra de código também demonstra como obter um token de acesso para ligar para a API do Gráfico microsoft ou qualquer API web.
+
+Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -108,7 +110,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 
 > [!div renderon="docs"]
 >
-> Em que:
+> Onde:
 > - *\<Enter_the_Application_Id_Here>* é o **ID de Aplicação (cliente)** para a aplicação que registou.
 > - *\<Enter_the_Cloud_Instance_Id_Here>* é o exemplo da nuvem Azure. Para a nuvem Azure principal ou global, basta *https://login.microsoftonline.com* entrar. Para nuvens **nacionais** (por exemplo, China), ver [nuvens nacionais.](./authentication-national-cloud.md)
 > - *\<Enter_the_Tenant_info_here>* é definida como uma das seguintes opções:
@@ -142,7 +144,7 @@ Neste arranque rápido, você usa uma amostra de código para saber como uma apl
 
 > [!div renderon="docs"]
 >
-> Em que:
+> Onde:
 > - *\<Enter_the_Graph_Endpoint_Here>* é o ponto final que as chamadas da API serão feitas contra. Para o serviço API principal ou global da Microsoft Graph, basta introduzir `https://graph.microsoft.com` . Para mais informações, consulte [a implantação nacional de nuvens](/graph/deployments)
 >
 > #### <a name="step-4-run-the-project"></a>Passo 4: Executar o projeto
@@ -203,7 +205,7 @@ O código quickstart também mostra como inicializar a biblioteca MSAL:
 const myMSALObj = new Msal.UserAgentApplication(msalConfig);
 ```
 
-> |Onde  | Description |
+> |Onde  | Descrição |
 > |---------|---------|
 > |`clientId`     | Identificação de aplicação da aplicação registada no portal Azure.|
 > |`authority`    | (Opcional) O URL de autoridade que suporta tipos de conta, conforme descrito anteriormente na secção de configuração. A autoridade por defeito `https://login.microsoftonline.com/common` é. |
@@ -231,7 +233,7 @@ myMSALObj.loginPopup(loginRequest)
 });
 ```
 
-> |Onde  | Description |
+> |Onde  | Descrição |
 > |---------|---------|
 > | `scopes`   | (Opcional) Contém âmbitos que estão a ser solicitados para o consentimento do utilizador no momento de início de sedu. Por exemplo, `[ "user.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ). |
 
@@ -261,7 +263,7 @@ myMSALObj.acquireTokenSilent(tokenRequest)
     });
 ```
 
-> |Onde  | Description |
+> |Onde  | Descrição |
 > |---------|---------|
 > | `scopes`   | Contém âmbitos a serem solicitados para serem devolvidos no token de acesso para a API. Por exemplo, `[ "mail.read" ]` para o Microsoft Graph ou para `[ "<Application ID URL>/scope" ]` APIs web personalizados (isto é, `api://<Application ID>/access_as_user` ).|
 

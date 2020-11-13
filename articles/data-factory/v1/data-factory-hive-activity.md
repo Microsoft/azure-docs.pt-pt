@@ -1,6 +1,6 @@
 ---
 title: Transformar dados usando a Atividade da Colmeia - Azure
-description: Saiba como pode usar a Atividade da Colmeia numa fábrica de dados Azure v1 para executar consultas de Hive num cluster hdinsight a pedido/seu próprio hdinsight.
+description: Saiba como pode utilizar a Atividade da Colmeia na Azure Data Factory v1 para executar consultas de Hive num cluster a pedido/seu próprio HDInsight.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 36e0d8a0c0ee5e5202c47acdd74b869181cfaf9e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0271029814071b3a692209d3a2015cfdbe5fa941
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371686"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616778"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Transformar dados usando a atividade da Colmeia na Fábrica de Dados Azure 
 > [!div class="op_single_selector" title1="Atividades de Transformação"]
@@ -26,8 +26,8 @@ ms.locfileid: "92371686"
 > * [Atividade mapReduce](data-factory-map-reduce.md)
 > * [Atividade de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade de Faísca](data-factory-spark.md)
-> * [Azure Machine Learning Studio (clássico) Atividade de execução de lote](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (clássico) Atualização De Recursos Atividade](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de Execução em Lotes do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de Recursos de Atualização do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade de U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
 > * [.NET Atividade Personalizada](data-factory-use-custom-activities.md)

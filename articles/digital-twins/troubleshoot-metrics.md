@@ -5,14 +5,14 @@ description: Veja como ver as métricas do Azure Digital Twins no Azure Monitor.
 author: baanders
 ms.author: baanders
 ms.date: 8/4/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7fde67ab9b9160bb89493748d09e83bd9cfcff34
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 46e053856b05f5a009eb1ae8bc6a7246dfb6167e
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091706"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616693"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Problemas na resolução de gémeos digitais Azure: Métricas
 
@@ -26,7 +26,7 @@ As métricas são ativadas por padrão. Pode ver as métricas do Azure Digital T
 
 2. Encontre a sua instância Azure Digital Twins no [portal Azure](https://portal.azure.com) (pode abrir a página para ela digitando o seu nome na barra de pesquisa do portal). 
 
-    A partir do menu do caso, selecione **Metrics** .
+    A partir do menu do caso, selecione **Metrics**.
    
     :::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Screenshot mostrando a página métrica para Azure Digital Twins":::
 
@@ -34,12 +34,12 @@ As métricas são ativadas por padrão. Pode ver as métricas do Azure Digital T
     
 3. Pode optar por enviar os seus dados de métricas para um ponto final do Event Hubs ou uma conta de Armazenamento Azure selecionando **as definições** de Diagnóstico do menu e, em seguida, adicione a **definição** de diagnóstico .
 
-    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot mostrando a página métrica para Azure Digital Twins":::
+    :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot mostrando a página e botão de definições de diagnóstico para adicionar":::
 
     Para obter mais informações sobre este processo, consulte [*Resolução de Problemas: Configurar diagnósticos*](troubleshoot-diagnostics.md).
 
-4. Pode optar por configurar alertas para os dados das suas métricas selecionando **Alertas** do menu e, em seguida, **+ Nova regra de alerta** .
-    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot mostrando a página métrica para Azure Digital Twins":::
+4. Pode optar por configurar alertas para os dados das suas métricas selecionando **Alertas** do menu e, em seguida, **+ Nova regra de alerta**.
+    :::image type="content" source="media/troubleshoot-alerts/alerts-pre.png" alt-text="Screenshot mostrando a página e botão alertas para adicionar":::
 
     Para obter mais informações sobre este processo, consulte [*Resolução de Problemas: Configurar alertas*](troubleshoot-alerts.md).
 

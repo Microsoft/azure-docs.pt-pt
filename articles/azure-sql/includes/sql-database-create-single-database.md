@@ -4,14 +4,14 @@ ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
 ms.date: 03/10/2020
-ms.author: mathoma
+ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: ad6e444f9672fbe521e9c6963649d250830154d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15209bc9dae1f10e1158c805ba7903b9f946766f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84046139"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593953"
 ---
 Neste passo, você cria um [servidor SQL lógico](../database/logical-servers.md) e uma [única base de dados](../database/single-database-overview.md) que utiliza dados de amostras AdventureWorksLT. Pode criar a base de dados utilizando menus e ecrãs do portal Azure, ou utilizando um script Azure CLI ou PowerShell na Azure Cloud Shell.
 
@@ -21,7 +21,7 @@ Todos os métodos incluem a configuração de uma regra de firewall ao nível do
 
 Para criar um grupo de recursos, servidor e base de dados única no portal Azure:
 
-1. Inicie sessão no [portal](https://portal.azure.com).
+1. Inscreva-se no [portal.](https://portal.azure.com)
 1. A partir da barra de pesquisa, procure e selecione **Azure SQL**.
 1. Na página **Azure SQL,** **selecione Adicionar**.
 
@@ -33,13 +33,13 @@ Para criar um grupo de recursos, servidor e base de dados única no portal Azure
    ![Criar base de dados individual](./media/sql-database-create-single-database/create-single-database.png)
 
 1. No separador **Basics** do formulário de base de **dados Create SQL,** nos **detalhes do Projeto,** selecione a **Assinatura** Azure correta se ainda não estiver selecionada.
-1. No **grupo de Recursos**, selecione Criar **novo,** insira *no myResourceGroup*e selecione **OK**.
+1. No **grupo de Recursos** , selecione Criar **novo,** insira *no myResourceGroup* e selecione **OK**.
 1. Em **informações sobre bases de dados,** para **o nome da base de dados** insira *mySampleDatabase*.
-1. Para **o Servidor**, selecione Criar **novo**e preencha o novo formulário do **servidor** da seguinte forma:
-   - **Nome do servidor**: *Insira o mysqlserver,* e alguns caracteres para singularidade.
-   - **Início de administração do servidor**: Insira *o azureuser*.
-   - **Senha**: Introduza uma palavra-passe que satisfaça os requisitos e introduza-a novamente no campo **de palavra-passe Confirmar.**
-   - **Localização**: Desça e escolha um local, como **(EUA) Leste DOS EUA**.
+1. Para **o Servidor** , selecione Criar **novo** e preencha o novo formulário do **servidor** da seguinte forma:
+   - **Nome do servidor** : *Insira o mysqlserver,* e alguns caracteres para singularidade.
+   - **Início de administração do servidor** : Insira *o azureuser*.
+   - **Senha** : Introduza uma palavra-passe que satisfaça os requisitos e introduza-a novamente no campo **de palavra-passe Confirmar.**
+   - **Localização** : Desça e escolha um local, como **(EUA) Leste DOS EUA**.
 
    Selecione **OK**.
 
@@ -47,7 +47,7 @@ Para criar um grupo de recursos, servidor e base de dados única no portal Azure
 
    Grave o login e a palavra-passe do servidor para que possa iniciar sessão no servidor e nas suas bases de dados. Se esquecer o seu login ou palavra-passe, pode obter o nome de login ou redefinir a palavra-passe na página do **servidor SQL** após a criação da base de dados. Para abrir a página do **servidor SQL,** selecione o nome do servidor na página **'Vista Geral'** da base de dados.
 
-1. Em **Compute + armazenamento**, se pretender reconfigurar as predefinições, selecione a base de **dados Configure**.
+1. Em **Compute + armazenamento** , se pretender reconfigurar as predefinições, selecione a base de **dados Configure**.
 
    Na página **Configure,** pode opcionalmente:
    - Alterar o **nível de Computação** de **Provisionado** para **Serverless**.
@@ -61,14 +61,14 @@ Para criar um grupo de recursos, servidor e base de dados única no portal Azure
    ![Nova base de dados SQL - Separador básico](./media/sql-database-create-single-database/new-sql-database-basics.png)
 
 1. No **separador Rede,** segundo o **método conectividade,** selecione **Public endpoint**.
-1. De acordo com **as regras de Firewall**, desa um endereço IP do cliente **atual** para **Sim**.
+1. De acordo com **as regras de Firewall** , desa um endereço IP do cliente **atual** para **Sim**.
 1. Selecione **Seguinte: Definições adicionais** na parte inferior da página.
 
    ![Separador de rede](./media/sql-database-create-single-database/networking.png)
   
    Para obter mais informações sobre as definições de firewall, consulte [permitir que os serviços e recursos do Azure acedam a este servidor](../database/network-access-controls-overview.md) e adicione um ponto final [privado](../database/private-endpoint-overview.md).
 
-1. No **separador Definições Adicionais,** na secção Fonte de **Dados,** para **utilizar os dados existentes**, selecione **Sample**.
+1. No **separador Definições Adicionais,** na secção Fonte de **Dados,** para **utilizar os dados existentes** , selecione **Sample**.
 1. Selecione **'Rever + criar'** na parte inferior da página.
 
    ![Separador de configurações adicionais](./media/sql-database-create-single-database/additional-settings.png)
@@ -149,11 +149,11 @@ O código anterior utiliza estes comandos Azure CLI:
 
 | Comando | Descrição |
 |---|---|
-| [conjunto de conta az](/cli/azure/account?view=azure-cli-latest#az-account-set) | Define uma subscrição para ser a subscrição ativa atual. |
+| [conjunto de conta az](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Define uma subscrição para ser a subscrição ativa atual. |
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor que acolhe bases de dados e piscinas elásticas. |
 | [az sql servidor firewall-rule criar](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Cria uma regra de firewall ao nível do servidor. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest) | Cria uma base de dados. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest&preserve-view=true) | Cria uma base de dados. |
 
 Para obter mais amostras do Azure SQL Database Azure CLI, consulte [as amostras do Azure CLI](../database/az-cli-script-samples-content-guide.md).
 

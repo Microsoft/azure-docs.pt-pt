@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 10/30/2020
-ms.openlocfilehash: 752948d9dd6640a20963303833e7da613bc2e211
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 17c3e9ee157cedd31be39f472f619a2df9ae32a6
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577350"
+ms.locfileid: "94594186"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados com o Azure Data Share  
 
@@ -67,7 +67,7 @@ Pode seguir a [demonstração passo](https://youtu.be/aeGISgK1xro) a passo para 
  
 #### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Pré-requisitos para receber dados na piscina SQL Azure Synapse Analytics (espaço de trabalho)
 
-* Uma piscina SQL Azure Synapse Analytics (espaço de trabalho).
+* Uma piscina DE SQL dedicada Azure Synapse (espaço de trabalho). Receber dados em pool SQL sem servidor não é suportado atualmente.
 * Permissão para escrever para a piscina SQL no espaço de trabalho synapse, que está presente no *Microsoft.Synapse/workspaces/sqlPools/write*. Esta permissão existe na função de **Contribuidor**.
 * Permissão para a identidade gerida do recurso Data Share para aceder à piscina SQL do espaço de trabalho Synapse. Isto pode ser feito através dos seguintes passos: 
     1. No portal Azure, navegue para o espaço de trabalho da Sinapse. Selecione o administrador do SqL Ative Directory da navegação esquerda e coloque-se como administrador do **Azure Ative Directory**.

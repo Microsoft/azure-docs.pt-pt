@@ -12,18 +12,18 @@ ms.date: 09/14/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: reconhecimento de imagem, identificador de imagem, app de reconhecimento de imagem, visão personalizada
-ms.openlocfilehash: 47227a60b1ed45499afdb42fbc062abc5ae51ff9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa338bf708abaa49d65b6a817009224973f3fb29
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90605568"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616914"
 ---
 # <a name="what-is-custom-vision"></a>O que é a Visão Personalizada?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-A Azure Custom Vision é um serviço de reconhecimento de imagem que permite construir, implementar e melhorar os seus próprios identificadores de imagem. Um identificador de imagem aplica etiquetas (que representam classes ou objetos) a imagens, de acordo com as suas características visuais. Ao contrário do serviço [de Visão Computacional,](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) a Visão Personalizada permite especificar as etiquetas e treinar modelos personalizados para os detetar.
+A Azure Custom Vision é um serviço de reconhecimento de imagem que permite construir, implementar e melhorar os seus próprios identificadores de imagem. Um identificador de imagem aplica etiquetas (que representam classes ou objetos) a imagens, de acordo com as suas características visuais. Ao contrário do serviço [de Visão Computacional,](../computer-vision/overview.md) a Visão Personalizada permite especificar as etiquetas e treinar modelos personalizados para os detetar.
 
 ## <a name="what-it-does"></a>O que faz
 

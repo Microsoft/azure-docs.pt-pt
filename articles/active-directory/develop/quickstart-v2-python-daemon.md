@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 8e947a7db7b10746ebd01726fd2103cf3e5c8df6
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 6503955c69b8ca64678efbc0c01cea7f78509f8d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533213"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592724"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação de consola Python usando a identidade da app
 
-Neste quickstart, escreva uma aplicação Python que obtém um token de acesso usando a identidade da aplicação e, em seguida, ligue para a Microsoft Graph API para apresentar uma [lista de utilizadores](/graph/api/user-list) no diretório. Este cenário é útil para situações em que um trabalho sem cabeça, sem supervisão ou um serviço de janelas precisa de ser executado com uma identidade de aplicação, em vez da identidade de um utilizador.
+Neste quickstart, você descarrega e execute uma amostra de código que demonstra como uma aplicação Python pode obter um token de acesso usando a identidade da aplicação para ligar para a Microsoft Graph API e mostrar uma [lista de utilizadores](/graph/api/user-list) no diretório. A amostra de código demonstra como um trabalho sem supervisão ou serviço windows pode funcionar com uma identidade de aplicação, em vez da identidade de um utilizador. 
 
 > [!div renderon="docs"]
 > ![Mostra como funciona a app de amostras gerada por este quickstart](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
@@ -100,7 +100,7 @@ Para fazer esta amostra, precisa:
 >    "client_id": "Enter_the_Application_Id_Here",
 >    "secret": "Enter_the_Client_Secret_Here"
 >    ```
->    Em que:
+>    Onde:
 >    - `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 >    - `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino Ou** Inquilino (por exemplo, contoso.microsoft.com)
 >    - `Enter_the_Client_Secret_Here` - substituir este valor pelo segredo do cliente criado no passo 1.
@@ -135,7 +135,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> Em que:
+>> Onde:
 >> * `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino Ou** Inquilino (por exemplo, contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 
@@ -190,7 +190,7 @@ app = msal.ConfidentialClientApplication(
     client_credential=config["secret"])
 ```
 
-> | Em que: |Description |
+> | Onde: |Descrição |
 > |---------|---------|
 > | `config["secret"]` | É o segredo do cliente criado para a aplicação no Portal Azure. |
 > | `config["client_id"]` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
@@ -211,7 +211,7 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 ```
 
-> |Em que:| Description |
+> |Onde:| Descrição |
 > |---------|---------|
 > | `config["scope"]` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido em Expor uma secção **API** no Registo de Aplicação do Portal Azure (Pré-visualização). |
 

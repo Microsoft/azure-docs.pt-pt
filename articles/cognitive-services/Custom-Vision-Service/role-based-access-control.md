@@ -10,22 +10,22 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 096946a1a63c0826381875cd3ce4eaf0129a85df
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d265b6698a87c1c651dff1413cf48dd4984cd606
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146364"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616897"
 ---
 # <a name="azure-role-based-access-control"></a>Controlo de acesso baseado em funções do Azure
 
-A Custom Vision suporta o controlo de acesso baseado em funções Azure (Azure RBAC), um sistema de autorização para gerir o acesso individual aos recursos Azure. Utilizando o Azure RBAC, atribui diferentes membros da equipa a diferentes níveis de permissões para os seus projetos de Visão Personalizada. Para obter mais informações sobre o Azure RBAC, consulte a documentação do [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/).
+A Custom Vision suporta o controlo de acesso baseado em funções Azure (Azure RBAC), um sistema de autorização para gerir o acesso individual aos recursos Azure. Utilizando o Azure RBAC, atribui diferentes membros da equipa a diferentes níveis de permissões para os seus projetos de Visão Personalizada. Para obter mais informações sobre o Azure RBAC, consulte a documentação do [Azure RBAC](../../role-based-access-control/index.yml).
 
 ## <a name="add-role-assignment-to-custom-vision-resource"></a>Adicionar atribuição de função ao recurso Visão Personalizada
 
 O Azure RBAC pode ser atribuído a um recurso de Visão Personalizada. Para conceder acesso a um recurso Azure, adicione uma atribuição de funções.
 1. No [portal do Azure](https://ms.portal.azure.com/), selecione **Todos os serviços**. 
-1. Em seguida, selecione os **Serviços Cognitivos**e navegue para o seu recurso específico de treino de visão personalizada.
+1. Em seguida, selecione os **Serviços Cognitivos** e navegue para o seu recurso específico de treino de visão personalizada.
    > [!NOTE]
    > Também pode configurar o Azure RBAC para grupos de recursos inteiros, subscrições ou grupos de gestão. Faça-o selecionando o nível de âmbito pretendido e, em seguida, navegando para o item pretendido (por exemplo, selecionando **grupos de Recursos** e, em seguida, clicando no seu grupo de recursos pretendido).
 1. Selecione **o controlo de acesso (IAM)** no painel de navegação esquerdo.

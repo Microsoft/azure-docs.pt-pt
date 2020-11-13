@@ -13,16 +13,18 @@ ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: b6b02348f9d77348976f6b814c982c5250dab7aa
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: d50a953c9593c9ae78889be336697686e59d965f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896519"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592752"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API usando a identidade da app da consola
 
-Neste arranque rápido, você vai aprender a escrever uma aplicação .NET Core que pode obter um token de acesso usando a própria identidade da aplicação e, em seguida, ligar para a Microsoft Graph API para mostrar uma [lista de utilizadores](/graph/api/user-list) no diretório. Este cenário é útil para situações em que um trabalho sem cabeça, sem supervisão ou um serviço de janelas precisa de ser executado com uma identidade de aplicação, em vez da identidade de um utilizador. (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
+Neste arranque rápido, descarrega e executa uma amostra de código que demonstra como uma aplicação de consola .NET Core pode obter um token de acesso para ligar para a API do Microsoft Graph e apresentar uma [lista de utilizadores](/graph/api/user-list) no diretório. A amostra de código também demonstra como um trabalho ou um serviço de janelas pode funcionar com uma identidade de aplicação, em vez da identidade de um utilizador. 
+
+Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +40,7 @@ Este arranque rápido requer [.NET Core 3.1](https://www.microsoft.com/net/downl
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
 > 1. Aceda ao novo [portal Azure - Painel de inscrições](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs) da App.
-> 1. Introduza um nome para a sua aplicação e xelecione **Registar** .
+> 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 >
 > ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Opção 2: registar e configurar manualmente a aplicação e o exemplo de código
@@ -50,13 +52,13 @@ Este arranque rápido requer [.NET Core 3.1](https://www.microsoft.com/net/downl
 > 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 > 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
 > 1. Navegue para a plataforma de identidade da Microsoft para programadores [Página de registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908) procurando **registos de Aplicações** na barra de pesquisa do Portal Azure.
-> 1. Selecione **Novo registo** .
+> 1. Selecione **Novo registo**.
 > 1. Quando aparecer uma página de **inscrição,** insira as informações de registo do seu pedido.
 > 1. Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `Daemon-console` exemplo, selecione **Registar-se** para criar a aplicação.
 > 1. Uma vez registado, selecione o menu **Certificados & segredos.**
-> 1. Sob **os segredos do Cliente,** selecione **+ Novo segredo de cliente.** Dê-lhe um nome e **selecione Adicionar** . Copie o segredo num local seguro. Vai precisar que o utilize no seu código e não voltará a ser exibido no portal.
-> 1. Agora, selecione o menu **API Permissões,** selecione + Adicione um botão **de permissão,** selecione **Microsoft Graph** .
-> 1. Selecione **permissões de aplicação** .
+> 1. Sob **os segredos do Cliente,** selecione **+ Novo segredo de cliente.** Dê-lhe um nome e **selecione Adicionar**. Copie o segredo num local seguro. Vai precisar que o utilize no seu código e não voltará a ser exibido no portal.
+> 1. Agora, selecione o menu **API Permissões,** selecione + Adicione um botão **de permissão,** selecione **Microsoft Graph**.
+> 1. Selecione **permissões de aplicação**.
 > 1. No nó **do utilizador,** selecione **User.Read.All** e, em seguida, selecione **Adicionar permissões**
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -90,8 +92,8 @@ Este arranque rápido requer [.NET Core 3.1](https://www.microsoft.com/net/downl
 > [!div renderon="docs"]
 > #### <a name="step-3-configure-your-visual-studio-project"></a>Passo 3: Configurar o projeto do Visual Studio
 >
-> 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples** .
-> 1. Abra a solução em Visual Studio - **1-Call-MSGraph\daemon-console.sln** (opcional).
+> 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
+> 1. Abra a solução em Visual Studio - **1-Call-MSGraph\daemon-consola.sln** (opcional).
 > 1. Editar **appsettings.js** e substituir os valores dos `ClientId` campos, `Tenant` e com os `ClientSecret` seguintes:
 >
 >    ```json
@@ -99,7 +101,7 @@ Este arranque rápido requer [.NET Core 3.1](https://www.microsoft.com/net/downl
 >    "ClientId": "Enter_the_Application_Id_Here",
 >    "ClientSecret": "Enter_the_Client_Secret_Here"
 >    ```
->   Em que:
+>   Onde:
 >   - `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 >   - `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino Ou** Inquilino (por exemplo, contoso.microsoft.com)
 >   - `Enter_the_Client_Secret_Here` - substituir este valor pelo segredo do cliente criado no passo 1.
@@ -135,7 +137,7 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 ```
 
 > [!div renderon="docs"]
->> Em que:
+>> Onde:
 >> * `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino Ou** Inquilino (por exemplo, contoso.microsoft.com)
 >> * `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
 
@@ -155,7 +157,7 @@ cd {ProjectFolder}\1-Call-MSGraph\daemon-console
 dotnet run
 ```
 
-> Em que:
+> Onde:
 > * *{ProjectFolder}* é a pasta onde extraiu o ficheiro zip. Exemplo **C:\Azure-Samples\active-directory-dotnetcore-daemon-v2**
 
 Como resultado, deverá ver uma lista de utilizadores no seu diretório AD Azure.
@@ -170,7 +172,7 @@ Como resultado, deverá ver uma lista de utilizadores no seu diretório AD Azure
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client)](https://www.nuget.org/packages/Microsoft.Identity.Client)é a biblioteca utilizada para assinar nos utilizadores e solicitar fichas usadas para aceder a uma API protegida pela plataforma de identidade Microsoft. Como descrito, este quickstart solicita fichas usando a própria identidade da aplicação em vez de permissões delegadas. O fluxo de autenticação utilizado neste caso é conhecido como *[o fluxo de credenciais de clientes](v2-oauth2-client-creds-grant-flow.md)* . Para obter mais informações sobre como utilizar MSAL.NET com o fluxo de credenciais do cliente, consulte [este artigo](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client)](https://www.nuget.org/packages/Microsoft.Identity.Client)é a biblioteca utilizada para assinar nos utilizadores e solicitar fichas usadas para aceder a uma API protegida pela plataforma de identidade Microsoft. Como descrito, este quickstart solicita fichas usando a própria identidade da aplicação em vez de permissões delegadas. O fluxo de autenticação utilizado neste caso é conhecido como *[o fluxo de credenciais de clientes](v2-oauth2-client-creds-grant-flow.md)*. Para obter mais informações sobre como utilizar MSAL.NET com o fluxo de credenciais do cliente, consulte [este artigo](https://aka.ms/msal-net-client-credentials).
 
  Pode instalar MSAL.NET executando o seguinte comando na **Consola de Gestor de Pacotes** do Estúdio Visual:
 
@@ -196,7 +198,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-> | Em que: | Descrição |
+> | Onde: | Descrição |
 > |---------|---------|
 > | `config.ClientSecret` | É o segredo do cliente criado para a aplicação no Portal Azure. |
 > | `config.ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
@@ -213,7 +215,7 @@ result = await app.AcquireTokenForClient(scopes)
                   .ExecuteAsync();
 ```
 
-> |Em que:| Descrição |
+> |Onde:| Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido em Expor uma secção **API** no Registo de Aplicação do Portal Azure (Pré-visualização). |
 

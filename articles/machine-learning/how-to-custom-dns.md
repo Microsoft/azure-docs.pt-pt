@@ -8,19 +8,19 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 10/05/2020
+ms.date: 11/13/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e3d95be52215b03a30dc4b5c7f251357f163b24a
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93311572"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616098"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Como utilizar a área de trabalho com um servidor DNS personalizado
 
-Ao utilizar o Azure Machine Learning com uma rede virtual, [existem várias formas de lidar com a resolução do nome DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Por predefinição, o Azure lida automaticamente com a resolução de nomes para o seu espaço de trabalho e ponto final privado. No entanto, __ao utilizar o seu próprio servidor DNS personalizado,__ tem de criar manualmente entradas DNS para o espaço de trabalho.
+Ao utilizar o Azure Machine Learning com uma rede virtual, [existem várias formas de lidar com a resolução do nome DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Por predefinição, o Azure lida automaticamente com a resolução de nomes para o seu espaço de trabalho e ponto final privado. Se, em vez disso, _utilizar o seu próprio servidor DNS personalizado_ _, deve criar manualmente entradas DNS para o espaço de trabalho.
 
 > [!IMPORTANT]
 > Este artigo abrange apenas como encontrar os endereços de domínio totalmente qualificados (FQDN) e IP para estas entradas, não fornece informações sobre a configuração dos registos DNS para estes itens. Consulte a documentação do seu software DNS para obter informações sobre como adicionar registos.
@@ -40,13 +40,14 @@ Ao utilizar o Azure Machine Learning com uma rede virtual, [existem várias form
 A lista que se segue contém os nomes de domínio totalmente qualificados (FQDN) utilizados pelo seu espaço de trabalho e ponto final privado:
 
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `<workspace-GUID>.studio.workspace.<region>.api.azureml.ms`
-* `cert-<workspace-GUID>.workspace.<region>.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.experiments.azureml.net`
 * `<workspace-GUID>.workspace.<region>.modelmanagement.azureml.net`
 * `<workspace-GUID>.workspace.<region>.aether.ms`
 * `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.ml`
-* Se criar uma instância computacional, também deve adicionar uma entrada `<instance-name>.<region>.instances.azureml.ms` para com IP privado de ponto final privado do espaço de trabalho. Por favor, note que a instância compute pode ser acedida apenas a partir da rede virtual.
+* Se criar uma instância computacional, também deve adicionar uma entrada `<instance-name>.<region>.instances.azureml.ms` para o IP privado do ponto final privado do espaço de trabalho.
+
+    > [!NOTE]
+    > As instâncias computacional só podem ser acedidas a partir da rede virtual.
 
 Para encontrar os endereços IP internos para as FQDNs no VNet, utilize um dos seguintes métodos:
 
@@ -82,8 +83,6 @@ A informação devolvida de todos os métodos é a mesma; uma lista do FQDN e en
 | FQDN | Endereço IP |
 | ----- | ----- |
 | `fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `fb7e20a0-8891-458b-b969-55ddb3382f51.studio.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
-| `cert-fb7e20a0-8891-458b-b969-55ddb3382f51.workspace.eastus.api.azureml.ms` | `10.1.0.5` |
 | `ml-myworkspace-eastus-fb7e20a0-8891-458b-b969-55ddb3382f51.notebooks.azure.net` | `10.1.0.6` |
 
 > [!IMPORTANT]

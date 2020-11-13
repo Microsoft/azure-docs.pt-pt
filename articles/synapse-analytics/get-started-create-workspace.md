@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 5a4f3c06f53191339bf42125c0781f3ac1238b32
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 862d2a93058c63dbfad1db49346edcbfe3c02ad1
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94561051"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592452"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -48,9 +48,9 @@ Depois de criar o seu espaço de trabalho Azure Synapse, tem duas formas de abri
 
 1. No Synapse Studio, no painel do lado esquerdo, **selecione Gerir**  >  **as piscinas SQL**.
 1. Selecione **Novo**
-1. Para **o nome da piscina SQL** selecione **SQLDB1**
+1. Para **o nome da piscina SQL** selecione **SQLPOOL1**
 1. Para **nível de desempenho** escolha **DW100C**
-1. Selecione **Rever + criar** > **Criar**. A sua piscina SQL dedicada estará pronta em poucos minutos. A sua piscina SQL dedicada está associada a uma base de dados dedicada à piscina SQL que também se chama **SQLDB1**.
+1. Selecione **Rever + criar** > **Criar**. A sua piscina SQL dedicada estará pronta em poucos minutos. A sua piscina SQL dedicada está associada a uma base de dados dedicada à piscina SQL que também se chama **SQLPOOL1.**
 
 Uma piscina SQL dedicada consome recursos faturados desde que esteja ativo. Pode fazer uma pausa na piscina mais tarde para reduzir custos.
 

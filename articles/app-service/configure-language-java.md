@@ -10,12 +10,12 @@ ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18, devx-track-java, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 2e77d76ddae540a311655eca36c53b23c418f5e3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 9abc069c202af425970e46286d88d1c18ece5a20
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92744145"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616200"
 ---
 # <a name="configure-a-java-app-for-azure-app-service"></a>Configure um aplicativo Java para o Azure App Service
 
@@ -31,7 +31,7 @@ Caso contrário, o seu método de implantação dependerá do seu tipo de arquiv
 
 ### <a name="java-se"></a>Java SE
 
-Para implementar ficheiros .jar para Java SE, utilize o `/api/zipdeploy/` ponto final do site Kudu. Para mais informações sobre esta API, consulte [esta documentação.](./deploy-zip.md#rest)
+Para implementar ficheiros .jar para a Java SE, utilize o `/api/zipdeploy/` ponto final do site Kudu. Para mais informações sobre esta API, consulte [esta documentação.](./deploy-zip.md#rest)
 
 ### <a name="tomcat"></a>Tomcat
 
@@ -47,7 +47,7 @@ Para implementar ficheiros .auriculares, [utilize FTP](deploy-ftp.md).
 
 ::: zone-end
 
-Não desloque o seu .war ou .jar utilizando FTP. A ferramenta FTP foi concebida para carregar scripts de arranque, dependências ou outros ficheiros de tempo de execução. Não é a escolha ideal para implementar aplicações web.
+Não desloque a sua .guerra ou .jar utilizando FTP. A ferramenta FTP foi concebida para carregar scripts de arranque, dependências ou outros ficheiros de tempo de execução. Não é a escolha ideal para implementar aplicações web.
 
 ## <a name="logging-and-debugging-apps"></a>Aplicativos de registo e depuragem
 
@@ -68,11 +68,11 @@ Relatórios de desempenho, visualizações de tráfego e check-ups de saúde est
 
 Para obter mais informações, consulte [os registos de streaming em Cloud Shell](troubleshoot-diagnostic-logs.md#in-cloud-shell).
 
+::: zone pivot="platform-linux"
+
 ### <a name="ssh-console-access"></a>Acesso à consola SSH
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
-
-::: zone pivot="platform-linux"
 
 ### <a name="troubleshooting-tools"></a>Ferramentas de resolução de problemas
 
@@ -330,10 +330,10 @@ Esta secção mostra como ligar as aplicações java implementadas no Azure App 
 ::: zone pivot="platform-windows"
 
 1. Criar uma conta NewRelic na [NewRelic.com](https://newrelic.com/signup)
-2. Descarregue o agente Java da NewRelic, terá um nome de ficheiro semelhante ao *newrelic-java-x.x.x.zip* .
+2. Descarregue o agente Java da NewRelic, terá um nome de ficheiro semelhante ao *newrelic-java-x.x.x.zip*.
 3. Copie a chave da sua licença e vai precisar dela para configurar o agente mais tarde.
-4. [SSH na sua instância de Serviço de Aplicações](configure-linux-open-ssh-session.md) e criar um novo diretório */home/site/wwwroot/apm* .
-5. Faça o upload dos ficheiros de agente Java NewRelic desembalados para um diretório em */home/site/wwwroot/apm* . Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/newrelic* .
+4. [SSH na sua instância de Serviço de Aplicações](configure-linux-open-ssh-session.md) e criar um novo diretório */home/site/wwwroot/apm*.
+5. Faça o upload dos ficheiros de agente Java NewRelic desembalados para um diretório em */home/site/wwwroot/apm*. Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/newrelic*.
 6. Modifique o ficheiro YAML em */home/site/wwwroot/apm/newrelic/newrelic.yml* e substitua o valor da licença de espaço reservado pela sua própria chave de licença.
 7. No portal Azure, navegue pela sua aplicação no Serviço de Aplicações e crie uma nova Definição de Aplicação.
 
@@ -344,10 +344,10 @@ Esta secção mostra como ligar as aplicações java implementadas no Azure App 
 ::: zone pivot="platform-linux"
 
 1. Criar uma conta NewRelic na [NewRelic.com](https://newrelic.com/signup)
-2. Descarregue o agente Java da NewRelic, terá um nome de ficheiro semelhante ao *newrelic-java-x.x.x.zip* .
+2. Descarregue o agente Java da NewRelic, terá um nome de ficheiro semelhante ao *newrelic-java-x.x.x.zip*.
 3. Copie a chave da sua licença e vai precisar dela para configurar o agente mais tarde.
-4. [SSH na sua instância de Serviço de Aplicações](configure-linux-open-ssh-session.md) e criar um novo diretório */home/site/wwwroot/apm* .
-5. Faça o upload dos ficheiros de agente Java NewRelic desembalados para um diretório em */home/site/wwwroot/apm* . Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/newrelic* .
+4. [SSH na sua instância de Serviço de Aplicações](configure-linux-open-ssh-session.md) e criar um novo diretório */home/site/wwwroot/apm*.
+5. Faça o upload dos ficheiros de agente Java NewRelic desembalados para um diretório em */home/site/wwwroot/apm*. Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/newrelic*.
 6. Modifique o ficheiro YAML em */home/site/wwwroot/apm/newrelic/newrelic.yml* e substitua o valor da licença de espaço reservado pela sua própria chave de licença.
 7. No portal Azure, navegue pela sua aplicação no Serviço de Aplicações e crie uma nova Definição de Aplicação.
    
@@ -364,8 +364,8 @@ Esta secção mostra como ligar as aplicações java implementadas no Azure App 
 
 1. Criar uma conta AppDynamics na [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Descarregue o agente Java a partir do site appDynamics, o nome do ficheiro será semelhante ao *AppServerAgent-x.x.x.xxxxx.zip*
-3. Utilize a [consola Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) para criar um novo diretório */home/site/wwwroot/apm* .
-4. Faça o upload dos ficheiros do agente Java para um diretório em */home/site/wwwroot/apm* . Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/appdynamics* .
+3. Utilize a [consola Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) para criar um novo diretório */home/site/wwwroot/apm*.
+4. Faça o upload dos ficheiros do agente Java para um diretório em */home/site/wwwroot/apm*. Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/appdynamics*.
 5. No portal Azure, navegue pela sua aplicação no Serviço de Aplicações e crie uma nova Definição de Aplicação.
 
    - Para aplicações **Java SE,** crie uma variável ambiental nomeada `JAVA_OPTS` com o valor onde está o nome do seu Serviço de `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` Aplicações.
@@ -376,8 +376,8 @@ Esta secção mostra como ligar as aplicações java implementadas no Azure App 
 
 1. Criar uma conta AppDynamics na [AppDynamics.com](https://www.appdynamics.com/community/register/)
 2. Descarregue o agente Java a partir do site appDynamics, o nome do ficheiro será semelhante ao *AppServerAgent-x.x.x.xxxxx.zip*
-3. [SSH na sua instância de Serviço de Aplicações](configure-linux-open-ssh-session.md) e criar um novo diretório */home/site/wwwroot/apm* .
-4. Faça o upload dos ficheiros do agente Java para um diretório em */home/site/wwwroot/apm* . Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/appdynamics* .
+3. [SSH na sua instância de Serviço de Aplicações](configure-linux-open-ssh-session.md) e criar um novo diretório */home/site/wwwroot/apm*.
+4. Faça o upload dos ficheiros do agente Java para um diretório em */home/site/wwwroot/apm*. Os ficheiros do seu agente devem estar em */home/site/wwwroot/apm/appdynamics*.
 5. No portal Azure, navegue pela sua aplicação no Serviço de Aplicações e crie uma nova Definição de Aplicação.
 
    - Para aplicações **Java SE,** crie uma variável ambiental nomeada `JAVA_OPTS` com o valor onde está o nome do seu Serviço de `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` `<app-name>` Aplicações.
@@ -541,7 +541,7 @@ Em seguida, determine se a fonte de dados deve estar disponível para uma aplica
 
 #### <a name="shared-server-level-resources"></a>Recursos ao nível do servidor partilhados
 
-A adição de uma fonte de dados partilhada e ao nível do servidor exigirá que edite a server.xml do Tomcat. Em primeiro lugar, faça o upload de um [script de arranque](faq-app-service-linux.md#built-in-images) e desemcora o caminho para o script no Comando de Arranque de **Configuração**  >  **Startup Command** . Pode carregar o script de arranque utilizando [FTP](deploy-ftp.md).
+A adição de uma fonte de dados partilhada e ao nível do servidor exigirá que edite a server.xml do Tomcat. Em primeiro lugar, faça o upload de um [script de arranque](faq-app-service-linux.md#built-in-images) e desemcora o caminho para o script no Comando de Arranque de **Configuração**  >  **Startup Command**. Pode carregar o script de arranque utilizando [FTP](deploy-ftp.md).
 
 O seu script de arranque fará uma [transformação de xsl](https://www.w3schools.com/xml/xsl_intro.asp) para o ficheiro server.xml e descolou o ficheiro xml resultante para `/usr/local/tomcat/conf/server.xml` . O script de arranque deve instalar libxslt via apk. O seu ficheiro xsl e o script de arranque podem ser carregados via FTP. Abaixo está um script de arranque exemplo.
 
@@ -678,7 +678,7 @@ Existem três passos principais ao [registar uma fonte de dados com o JBoss EAP]
     ```
 
 1. Utilizando um cliente FTP à sua escolha, faça o upload do seu controlador JDBC, `jboss-cli-commands.cli` `startup_script.sh` e a definição do módulo para `/site/deployments/tools/` .
-2. Configure o seu site para funcionar `startup_script.sh` quando o recipiente começar. No Portal Azure, navegue para o Comando de Arranque de **Configuration**  >  **Configurações Gerais** de Configuração  >  **Startup Command** . Desa um campo de comando de `/home/site/deployments/tools/startup_script.sh` arranque. **Guarde** as suas alterações.
+2. Configure o seu site para funcionar `startup_script.sh` quando o recipiente começar. No Portal Azure, navegue para o Comando de Arranque de **Configuration**  >  **Configurações Gerais** de Configuração  >  **Startup Command**. Desa um campo de comando de `/home/site/deployments/tools/startup_script.sh` arranque. **Guarde** as suas alterações.
 
 Para confirmar que a fonte de dados foi adicionada ao servidor JBoss, SSH no seu webapp e executado `$JBOSS_HOME/bin/jboss-cli.sh --connect` . Assim que estiver ligado ao JBoss, faça a `/subsystem=datasources:read-resource` impressão para imprimir uma lista das fontes de dados.
 

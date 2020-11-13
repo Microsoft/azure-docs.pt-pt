@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/15/2020
-ms.openlocfilehash: 205600e488822c5ade4b808c29c66741d28a84a7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 87d6ca8ee69ca49cf52b61e6beddb56721658afa
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94575919"
+ms.locfileid: "94593744"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partilhar e receber dados da Base de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -19,7 +19,7 @@ ms.locfileid: "94575919"
 
 A Azure Data Share suporta a partilha de dados Azure SQL e Azure Synapse Analytics. Este artigo explica como partilhar e receber dados destas fontes.
 
-A Azure Data Share suporta a partilha de tabelas ou vistas da Azure SQL Database e da Azure Synapse Analytics (anteriormente Azure SQL DW), e a partilha de tabelas da piscina SQL SQL da Azure Synapse Analytics (espaço de trabalho). Os consumidores de dados podem optar por aceitar os dados em Azure Data Lake Storage Gen2 ou Azure Blob Storage como ficheiro csv ou parquet, bem como na Base de Dados Azure SQL e Azure Synapse Analytics como tabelas.
+A Azure Data Share suporta a partilha de tabelas e vistas da Azure SQL Database e da Azure Synapse Analytics (anteriormente Azure SQL DW), e a partilha de tabelas da Azure Synapse Analytics (workspace) dedicada à piscina SQL. A partilha da piscina SQL sem servidor Azure Synapse Analytics (espaço de trabalho) não é suportada atualmente. Os consumidores de dados podem optar por aceitar os dados em Azure Data Lake Storage Gen2 ou Azure Blob Storage como ficheiro csv ou parquet, bem como na Base de Dados Azure SQL e Azure Synapse Analytics como tabelas.
 
 Ao aceitar dados no Azure Data Lake Store Gen2 ou no Azure Blob Storage, as imagens completas substituem o conteúdo do ficheiro-alvo se já existirem.
 Quando os dados são recebidos na tabela SQL e se a tabela-alvo ainda não existir, a Azure Data Share cria a tabela SQL com o esquema de origem. Se já existir uma tabela-alvo com o mesmo nome, será largada e substituída com o último instantâneo completo. As imagens incrementais não são suportadas atualmente.
@@ -61,7 +61,7 @@ Pode seguir a [demonstração passo](https://youtu.be/hIE-TjJD8Dc) a passo para 
 
 #### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Pré-requisitos para a partilha da piscina SQL da Azure Synapse Analytics (espaço de trabalho)
 
-* Uma piscina SQL Azure Synapse Analytics (espaço de trabalho) com mesas que pretende partilhar. A partilha de pontos de vista não é atualmente suportada.
+* Uma piscina DE SQL dedicada Azure Synapse (espaço de trabalho) com mesas que pretende partilhar. A partilha de pontos de vista não é atualmente suportada. A partilha da piscina SQL sem servidor não é suportada atualmente.
 * Permissão para escrever para a piscina SQL no espaço de trabalho synapse, que está presente no *Microsoft.Synapse/workspaces/sqlPools/write*. Esta permissão existe na função de **Contribuidor**.
 * Permissão para a identidade gerida do recurso Data Share para aceder à piscina SQL do espaço de trabalho Synapse. Isto pode ser feito através dos seguintes passos: 
     1. No portal Azure, navegue para o espaço de trabalho da Sinapse. Selecione o administrador do SqL Ative Directory da navegação esquerda e coloque-se como administrador do **Azure Ative Directory**.
@@ -132,7 +132,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
     ![AdicionarDatasets](./media/add-datasets.png "Adicionar conjuntos de dados")    
 
-1. Selecione o seu servidor SQL ou espaço de trabalho Synapse, forneça credenciais se solicitado e selecione **Seguinte** para navegar no objeto que pretende partilhar e selecione 'Adicionar conjuntos de dados'. 
+1. Selecione o seu servidor SQL ou espaço de trabalho Synapse, forneça credenciais se solicitado e selecione **Seguinte** para navegar no objeto que pretende partilhar e selecione 'Adicionar conjuntos de dados'. Você pode selecionar tabelas e vistas de Azure SQL Database e Azure Synapse Analytics (anteriormente Azure SQL DW), ou tabelas da piscina de SQL dedicada Azure Synapse (espaço de trabalho). 
 
     ![SelecioneDatasets](./media/select-datasets-sql.png "Selecione conjuntos de dados")    
 
@@ -201,7 +201,7 @@ Pode seguir a [demonstração passo](https://youtu.be/aeGISgK1xro) a passo para 
  
 #### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Pré-requisitos para receber dados na piscina SQL Azure Synapse Analytics (espaço de trabalho)
 
-* Uma piscina SQL Azure Synapse Analytics (espaço de trabalho).
+* Uma piscina DE SQL dedicada Azure Synapse (espaço de trabalho). Receber dados em pool SQL sem servidor não é suportado atualmente.
 * Permissão para escrever para a piscina SQL no espaço de trabalho synapse, que está presente no *Microsoft.Synapse/workspaces/sqlPools/write*. Esta permissão existe na função de **Contribuidor**.
 * Permissão para a identidade gerida do recurso Data Share para aceder à piscina SQL do espaço de trabalho Synapse. Isto pode ser feito através dos seguintes passos: 
     1. No portal Azure, navegue para o espaço de trabalho da Sinapse. Selecione o administrador do SqL Ative Directory da navegação esquerda e coloque-se como administrador do **Azure Ative Directory**.

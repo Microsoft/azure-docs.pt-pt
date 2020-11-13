@@ -9,18 +9,18 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: e042fd62d99c9fdf88a144c93739bf1f3f08a78c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 12163419ad779acfa116f1dee66284623e2d45fb
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325584"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616115"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Depuragem interativa com código de estúdio visual
 
 
 
-Aprenda a depurar interativamente experiências, oleodutos e implementações de Aprendizagem automática Azure, utilizando o Código do Estúdio Visual (Código VS) e [o depugpy](https://github.com/microsoft/debugpy/).
+Aprenda a depurar interativamente experiências, oleodutos e implementações de Aprendizagem automática Azure, utilizando o Código do Estúdio Visual (Código VS) e [o depuração](https://github.com/microsoft/debugpy/).
 
 ## <a name="run-and-debug-experiments-locally"></a>Executar e depurar experiências localmente
 

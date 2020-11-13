@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6a1a7e19e598980b21ee6c41f6984de38d6a6f2b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c9d9c43ae1be755ccb30fc377692257a81332ea8
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791618"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593727"
 ---
 # <a name="tutorial-index-from-multiple-data-sources-using-the-net-sdk"></a>Tutorial: Índice de várias fontes de dados utilizando o .NET SDK
 
@@ -66,21 +66,21 @@ Esta amostra usa dois pequenos conjuntos de dados que descrevem sete hotéis fic
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com)e, em seguida, navegue na sua página geral da conta Azure Cosmos DB.
 
-1. Selecione **Data Explorer** e, em seguida, selecione **New Database** .
+1. Selecione **Data Explorer** e, em seguida, selecione **New Database**.
 
    :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-newdb.png" alt-text="Criar uma nova base de dados" border="false":::
 
-1. Insira o nome **hotel-quartos-db** . Aceite valores predefinidos para as definições restantes.
+1. Insira o nome **hotel-quartos-db**. Aceite valores predefinidos para as definições restantes.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Criar uma nova base de dados" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-dbname.png" alt-text="Base de dados configure" border="false":::
 
 1. Criar um novo recipiente. Use a base de dados existente que acabou de criar. **Insira hotéis** para o nome do recipiente e use **/HotelId** para a chave partição.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Criar uma nova base de dados" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-add-container.png" alt-text="Adicionar contentor" border="false":::
 
 1. Selecione **Itens** em **hotéis** e, em seguida, clique em **Enviar artigo** na barra de comando. Navegue para e, em seguida, selecione o **ficheiro cosmosdb/HotelsDataSubset_CosmosDb.jsna** pasta do projeto.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Criar uma nova base de dados" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/cosmos-upload.png" alt-text="Upload para a coleção DB da Azure Cosmos" border="false":::
 
 1. Use o botão Refresh para refrescar a sua visão dos itens na coleção de hotéis. Devia ver sete novos documentos da base de dados listados.
 
@@ -88,15 +88,15 @@ Esta amostra usa dois pequenos conjuntos de dados que descrevem sete hotéis fic
 
 ### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
-1. Inscreva-se no [portal Azure,](https://portal.azure.com)navegue para a sua conta de armazenamento Azure, clique em **Blobs** e clique **em + Recipiente** .
+1. Inscreva-se no [portal Azure,](https://portal.azure.com)navegue para a sua conta de armazenamento Azure, clique em **Blobs** e clique **em + Recipiente**.
 
 1. [Crie um recipiente de blob](../storage/blobs/storage-quickstart-blobs-portal.md) chamado **quartos de hotel** para armazenar os ficheiros JSON do quarto de hotel. Pode definir o Nível de Acesso Público a qualquer um dos seus valores válidos.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Criar uma nova base de dados" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-add-container.png" alt-text="Criar um contentor de blobs" border="false":::
 
-1. Depois de criado o recipiente, abra-o e selecione **upload** na barra de comando. Navegue para a pasta que contém os ficheiros de amostragem. Selecione todos e, em seguida, clique em **Upload** .
+1. Depois de criado o recipiente, abra-o e selecione **upload** na barra de comando. Navegue para a pasta que contém os ficheiros de amostragem. Selecione todos e, em seguida, clique em **Upload**.
 
-   :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Criar uma nova base de dados" border="false":::
+   :::image type="content" source="media/tutorial-multiple-data-sources/blob-upload.png" alt-text="Carregar ficheiros" border="false":::
 
 1. Copie o nome da conta de armazenamento e uma cadeia de ligação da página **'Chaves de Acesso'** para o Bloco de Notas. Vai precisar de ambos os valores para **appsettings.jsnum** passo posterior.
 
@@ -112,21 +112,21 @@ Para autenticar o seu serviço de pesquisa, necessitará do URL de serviço e de
 
 1. Em **Definições**  >  **Teclas,** obtenha uma chave de administração para todos os direitos sobre o serviço. Existem duas chaves de administração intercambiáveis, previstas para a continuidade do negócio, caso precise de rolar uma. Pode utilizar a tecla primária ou secundária nos pedidos de adição, modificação e eliminação de objetos.
 
-   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Criar uma nova base de dados" border="false":::
+   :::image type="content" source="media/search-get-started-javascript/service-name-and-keys.png" alt-text="Obtenha o nome de serviço e as chaves de administração e consulta" border="false":::
 
 Ter uma chave válida estabelece fidedignidade, numa base por pedido, entre a aplicação a enviar o pedido e o serviço que o processa.
 
 ## <a name="2---set-up-your-environment"></a>2 - Configurar o seu ambiente
 
-1. Inicie o Visual Studio e no menu **Ferramentas,** selecione **NuGet Package Manager** e, em seguida, **Gerencie pacotes NuGet para solução...** . 
+1. Inicie o Visual Studio e no menu **Ferramentas,** selecione **NuGet Package Manager** e, em seguida, **Gerencie pacotes NuGet para solução...**. 
 
 1. No separador **Procurar,** encontrar e instalar **Azure.Search.Documents** (versão 11.0 ou posterior). Terá de clicar através de diálogos adicionais para completar a instalação.
 
-    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Criar uma nova base de dados" border="false":::
+    :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png" alt-text="Utilização do NuGet para adicionar bibliotecas Azure" border="false":::
 
 1. Procure a **Microsoft.Extensions.Configuration** e **Microsoft.Extensions.Configuration.Jsem** pacotes NuGet e instale-os também.
 
-1. Abra o ficheiro de solução **/v11/AzureSearchMultipleDataSources.sln** .
+1. Abra o ficheiro de solução **/v11/AzureSearchMultipleDataSources.sln**.
 
 1. No Solution Explorer, edite o **appsettings.jsno** ficheiro para adicionar informações de ligação.  
 
@@ -162,7 +162,7 @@ Os indexantes de Pesquisa Cognitiva Azure podem usar mapeamentos de campo para r
 
 ## <a name="4---explore-the-code"></a>4 - Explorar o código
 
-Uma vez que as definições de dados e configurações estejam no lugar, o programa de amostra em **/v11/AzureSearchMultipleDataSources.sln** deve estar pronto para construir e executar.
+Uma vez que as definições de dados e configuração estejam no lugar, o programa de amostra em **/v11/AzureSearchMultipleDataSources.sln** deve estar pronto para construir e executar.
 
 Esta simples aplicação de consola C#/.NET executa as seguintes tarefas:
 
@@ -240,7 +240,7 @@ private static async Task CreateAndRunCosmosDbIndexerAsync(string indexName, Sea
     await indexerClient.CreateOrUpdateDataSourceConnectionAsync(cosmosDbDataSource);
 ```
 
-Após a criação da fonte de dados, o programa configura um indexante DB Azure Cosmos chamado **hotel-quartos-cosmos-indexante** .
+Após a criação da fonte de dados, o programa configura um indexante DB Azure Cosmos chamado **hotel-quartos-cosmos-indexante**.
 
 O programa atualizará quaisquer indexantes existentes com o mesmo nome, sobreescrevendo o indexante existente com o conteúdo do código acima. Também inclui ações de reset e execução, caso pretenda executar este exemplo mais de uma vez.
 
@@ -350,7 +350,7 @@ await indexerClient.CreateOrUpdateIndexerAsync(blobIndexer);
 try
 {
     // Run the indexer.
-    await searchService.Indexers.RunAsync(cosmosDbIndexer.Name);
+    await searchService.Indexers.RunAsync(blobIndexer.Name);
 }
 catch (CloudException e) when (e.Response.StatusCode == (HttpStatusCode)429)
 {
@@ -369,7 +369,7 @@ Pode explorar o índice de pesquisa povoado após o programa ter sido executado,
 
 No portal Azure, abra a página **geral** do serviço de pesquisa e encontre o índice **de amostra de quartos de hotel** na lista de **Índices.**
 
-  :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="Criar uma nova base de dados" border="false":::
+  :::image type="content" source="media/tutorial-multiple-data-sources/index-list.png" alt-text="Lista de índices de Pesquisa Cognitiva Azure" border="false":::
 
 Clique no índice de amostra de quartos de hotel na lista. Verá uma interface do Explorador de Pesquisa para o índice. Insira uma consulta para um termo como "Luxo". Você deve ver pelo menos um documento nos resultados, e este documento deve mostrar uma lista de objetos de sala na sua matriz de quartos.
 
@@ -381,7 +381,7 @@ O código de amostra verifica os objetos existentes e elimina-os ou atualiza-os 
 
 Também pode utilizar o portal para eliminar índices, indexadores e fontes de dados.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando se está a trabalhar na sua própria subscrição, no final de um projeto, é uma boa ideia remover os recursos de que já não precisa. Os recursos que deixar em execução podem custar-lhe dinheiro. Pode eliminar recursos individualmente ou eliminar o grupo de recursos para eliminar todo o conjunto de recursos.
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 5fe1c3e344705b6cde9791f889b22be53a9e8c76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/13/2020
+ms.openlocfilehash: 69d27c102ca059974da87224e44f0ad7aa103fff
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372600"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592639"
 ---
 # <a name="import-data-module"></a>Módulo de Dados de Importação
 
@@ -54,9 +54,17 @@ Se os dados de origem alterarem, pode atualizar o conjunto de dados e adicionar 
 
 1. Selecione o módulo para abrir o painel direito.
 
-1. Selecione **Data source**, e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
+1. Selecione **Data source** , e escolha o tipo de fonte de dados. Pode ser HTTP ou datastore.
 
     Se escolher a datastore, pode selecionar as datas-lojas existentes que já se registaram no seu espaço de trabalho Azure Machine Learning ou criar uma nova loja de dados. Em seguida, defina o caminho dos dados para importar na datastore. Pode navegar facilmente no caminho clicando **No Screenshot do caminho de navegação** mostra a ![ ligação do caminho de Navegação que abre a caixa de diálogo de seleção path.](media/module/import-data-path.png)
+
+    > [!NOTE]
+    > O módulo **de dados de importação** destina-se apenas aos dados **tabulares.**
+    > Se pretender importar vários ficheiros de dados tabulares uma vez, requer as seguintes condições, caso contrário ocorrerão erros:
+    > 1. Para incluir todos os ficheiros de dados na pasta, é necessário inserir `folder_name/**` o **Path**.
+    > 2. Todos os ficheiros de dados devem ser codificados no unicode-8.
+    > 3. Todos os ficheiros de dados devem ter os mesmos números de colunas e nomes de colunas.
+    > 4. O resultado da importação de vários ficheiros de dados está a concatenar todas as linhas de vários ficheiros em ordem.
 
 1. Selecione o esquema de pré-visualização para filtrar as colunas que pretende incluir. Também pode definir configurações avançadas como Delimiter nas opções de Parsing.
 
@@ -77,11 +85,11 @@ Se os dados de origem alterarem, pode atualizar o conjunto de dados e adicionar 
 
     Se não houver cabeçalhos de coluna existentes nos dados, novos nomes de colunas são gerados usando o formato col1, col2,... Coln*.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
-Quando a importação estiver concluída, clique no conjunto de dados de saída e **selecione Visualize** para ver se os dados foram importados com sucesso.
+Quando a importação estiver concluída, clique com o botão direito no conjunto de dados de saída e **selecione Visualize** para ver se os dados foram importados com sucesso.
 
-Se pretender guardar os dados para reutilização, em vez de importar um novo conjunto de dados cada vez que o pipeline for executado, selecione o ícone **do conjunto de dados Do Registo** sob o separador **Saídas** no painel direito do módulo. Escolha um nome para o conjunto de dados. O conjunto de dados guardado preserva os dados no momento da poupança, o conjunto de dados não é atualizado quando o pipeline é reexecutado, mesmo que o conjunto de dados no pipeline mude. Isto pode ser útil para tirar fotos de dados.
+Se pretender guardar os dados para reutilização, em vez de importar um novo conjunto de dados cada vez que o pipeline for executado, selecione o ícone **do conjunto de dados Do Registo** sob o separador **Saídas+logs** no painel direito do módulo. Escolha um nome para o conjunto de dados. O conjunto de dados guardado preserva os dados no momento da poupança, o conjunto de dados não é atualizado quando o pipeline é reexecutado, mesmo que o conjunto de dados no pipeline mude. Isto pode ser útil para tirar fotos de dados.
 
 Após a importação dos dados, poderá necessitar de preparações adicionais para modelação e análise:
 

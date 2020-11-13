@@ -1,18 +1,18 @@
 ---
-title: Ativar e consultar registos de diagnósticos
+title: Ativar e consultar registos de diagnóstico
 titleSuffix: Azure Digital Twins
 description: Veja como ativar o registo com as definições de diagnóstico e consulte os registos para visualização imediata.
 author: baanders
 ms.author: baanders
 ms.date: 11/9/2020
-ms.topic: troubleshooting
+ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0d775ffa1ce063c01fc6762d77201e5a4caaad87
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94411770"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616659"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins: Registo de diagnósticos
 
@@ -114,7 +114,7 @@ Aqui estão as descrições de campo e propriedade para registos API.
 
 | Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
-| `Time` | Data e Hora | A data e hora em que este evento ocorreu, na UTC |
+| `Time` | DateTime | A data e hora em que este evento ocorreu, na UTC |
 | `ResourceID` | String | O ID de Recursos Azure Resource Manager para o recurso onde o evento teve lugar |
 | `OperationName` | String  | O tipo de ação que está a ser realizada durante o evento |
 | `OperationVersion` | String | A versão API utilizada durante o evento |
@@ -200,7 +200,7 @@ Este é o esquema para `ADTEventRoutesOperation` registos. Estes contêm detalhe
 
 |Nome do campo | Tipo de dados | Descrição |
 |-----|------|-------------|
-| `Time` | Data e Hora | A data e hora em que este evento ocorreu, na UTC |
+| `Time` | DateTime | A data e hora em que este evento ocorreu, na UTC |
 | `ResourceId` | String | O ID de Recursos Azure Resource Manager para o recurso onde o evento teve lugar |
 | `OperationName` | String  | O tipo de ação que está a ser realizada durante o evento |
 | `Category` | String | O tipo de recurso que está a ser emitido |

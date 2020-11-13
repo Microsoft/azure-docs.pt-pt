@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7f505ad3090470d2afeb9b16ffbe5c872cb9586b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 8f541e2302bc1f1de132de76e0638f9843d7003f
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94538109"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592486"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mariadb"></a>Configure a conectividade SSL na sua aplicação para ligar de forma segura à Base de Dados Azure para MariaDB
 A Azure Database for MariaDB suporta ligar a sua Base de Dados Azure para servidor MariaDB a aplicações de clientes utilizando a Camada de Tomadas Seguras (SSL). A imposição de ligações SSL entre o servidor de base de dados e as aplicações de cliente ajuda a proteger contra ataques "man-in-the-middle" ao encriptar o fluxo de dados entre o servidor e a sua aplicação.
@@ -23,8 +23,11 @@ A Azure Database for MariaDB suporta ligar a sua Base de Dados Azure para servid
 Faça o download do certificado necessário para comunicar através do SSL com a sua Base de Dados Azure para o servidor MariaDB e guarde o ficheiro de [https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) certificado para a sua unidade local (este tutorial utiliza c:\ssl, por exemplo).
 **Para o Microsoft Internet Explorer e Microsoft Edge:** Depois de concluído o download, rebatize o certificado para BaltimoreCyberTrustRoot.crt.pem.
 
+>[!NOTE]
+> Com base no feedback dos clientes, alargamos a depreciação do certificado de raiz para a nossa CA raiz de Baltimore até 15 de fevereiro de 2021 (02/15/2021).
+
 > [!IMPORTANT] 
-> O certificado de raiz SSL está previsto expirar a partir de 26 de outubro de 2020 (10/26/2020). Por favor, atualize a sua aplicação para utilizar o [novo certificado.](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) Para saber mais, consulte [as atualizações de certificados planeadas](concepts-certificate-rotation.md)
+> O certificado de raiz SSL está previsto para expirar a partir de 15 de fevereiro de 2021 (02/15/2021). Por favor, atualize a sua aplicação para utilizar o [novo certificado.](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) Para saber mais, consulte [as atualizações de certificados planeadas](concepts-certificate-rotation.md)
 
 Consulte os seguintes links para certificados para servidores em nuvens soberanas: [Azure Government](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem), [Azure China](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)e [Azure Germany](https://www.d-trust.net/cgi-bin/D-TRUST_Root_Class_3_CA_2_2009.crt).
 

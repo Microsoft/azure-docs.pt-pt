@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ef999d4b452f3f31942e1fb2ddb46efe760acff0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: c3cdc0a9fb9fa236fae37a52194f446278a42f72
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342152"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616251"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Como modelar e criar partições de dados no Azure Cosmos DB com um exemplo do mundo real
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,8 @@ ms.locfileid: "93342152"
 Este artigo baseia-se em vários conceitos de DB da Azure Cosmos, como [modelação de dados,](modeling-data.md) [partição,](partitioning-overview.md)e [produção antejada](request-units.md) para demonstrar como lidar com um exercício de design de dados no mundo real.
 
 Se normalmente trabalha com bases de dados relacionais, provavelmente já construiu hábitos e intuições sobre como desenhar um modelo de dados. Devido aos constrangimentos específicos, mas também aos pontos fortes únicos da Azure Cosmos DB, a maioria destas melhores práticas não se traduz bem e pode arrastá-lo para soluções sub-ideais. O objetivo deste artigo é guiá-lo através do processo completo de modelação de um caso de uso no mundo real em Azure Cosmos DB, desde a modelação de artigos até à colocação de entidades e partição de contentores.
+
+[Faça o download ou veja um código fonte gerado pela comunidade](https://github.com/jwidmer/AzureCosmosDbBlogExample) que ilustra os conceitos deste artigo. Esta amostra de código foi contribuída por um colaborador da comunidade e a equipa DB da Azure Cosmos não suporta a sua manutenção.
 
 ## <a name="the-scenario"></a>Cenário
 

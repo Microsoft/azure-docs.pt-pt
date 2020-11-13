@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: ebc6ca630ea3cabb519805ae8505abf336a2a9ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 833ec0f706786ebb86a54fb3c5b13d9c6e5c6062
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604296"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616234"
 ---
 # <a name="tutorial-use-custom-vision-with-an-iot-device-to-report-visual-states"></a>Tutorial: Use a Visão Personalizada com um dispositivo IoT para reportar estados visuais
 
@@ -41,27 +41,27 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 * Também terá de [criar um recurso IoT Hub](https://ms.portal.azure.com/#create/Microsoft.IotHub) no Azure.
 * [Estúdio Visual 2015 ou mais tarde](https://www.visualstudio.com/downloads/)
 * Opcionalmente, um dispositivo IoT com a versão 17763 ou superior do Windows 10 IoT Core. Também pode executar a aplicação diretamente a partir do seu PC.
-   * Para Raspberry Pi 2 e 3, pode configurar o Windows 10 diretamente a partir da aplicação IoT Dashboard. Para outros dispositivos, como o DrangonBoard, terá de o piscar utilizando o [método eMMC](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). Se precisar de ajuda para configurar um novo dispositivo, consulte [configurar](https://docs.microsoft.com/windows/iot-core/tutorials/quickstarter/devicesetup) o seu dispositivo na documentação IoT do Windows.
+   * Para Raspberry Pi 2 e 3, pode configurar o Windows 10 diretamente a partir da aplicação IoT Dashboard. Para outros dispositivos, como o DrangonBoard, terá de o piscar utilizando o [método eMMC](/windows/iot-core/tutorials/quickstarter/devicesetup#flashing-with-emmc-for-dragonboard-410c-other-qualcomm-devices). Se precisar de ajuda para configurar um novo dispositivo, consulte [configurar](/windows/iot-core/tutorials/quickstarter/devicesetup) o seu dispositivo na documentação IoT do Windows.
 
 ## <a name="about-the-visual-alerts-app"></a>Sobre a aplicação Alertas Visuais
 
 A aplicação IoT Visual Alerts funciona em ciclo contínuo, alternando entre quatro estados diferentes conforme apropriado:
 
-* **No Model**: Um estado de não-operatório. A aplicação irá dormir continuamente por um segundo e verificar a câmara.
-* **Captação de Imagens de Treino**: Neste estado, a aplicação captura uma imagem e envia-a como uma imagem de treino para o projeto target Custom Vision. A aplicação dorme então durante 500 ms e repete a operação até que o número de imagens definidas sejam capturadas. Em seguida, despoleta o treino do modelo Visão Personalizada.
-* **Waiting For Trained Model**: Neste estado, a aplicação chama a API de Visão Personalizada a cada segundo para verificar se o projeto-alvo contém uma iteração treinada. Quando encontra um, descarrega o modelo ONNX correspondente para um ficheiro local e muda para o estado **de Pontuação.**
-* **Pontuação**: Neste estado, a aplicação utiliza o Windows ML para avaliar uma única moldura da câmara contra o modelo ONNX local. A classificação de imagem resultante é exibida no ecrã e enviada como mensagem para o IoT Hub. A aplicação dorme então durante um segundo antes de marcar uma nova imagem.
+* **No Model** : Um estado de não-operatório. A aplicação irá dormir continuamente por um segundo e verificar a câmara.
+* **Captação de Imagens de Treino** : Neste estado, a aplicação captura uma imagem e envia-a como uma imagem de treino para o projeto target Custom Vision. A aplicação dorme então durante 500 ms e repete a operação até que o número de imagens definidas sejam capturadas. Em seguida, despoleta o treino do modelo Visão Personalizada.
+* **Waiting For Trained Model** : Neste estado, a aplicação chama a API de Visão Personalizada a cada segundo para verificar se o projeto-alvo contém uma iteração treinada. Quando encontra um, descarrega o modelo ONNX correspondente para um ficheiro local e muda para o estado **de Pontuação.**
+* **Pontuação** : Neste estado, a aplicação utiliza o Windows ML para avaliar uma única moldura da câmara contra o modelo ONNX local. A classificação de imagem resultante é exibida no ecrã e enviada como mensagem para o IoT Hub. A aplicação dorme então durante um segundo antes de marcar uma nova imagem.
 
 ## <a name="examine-the-code-structure"></a>Examinar a estrutura de código
 
 Os seguintes ficheiros tratam da funcionalidade principal da aplicação.
 
-| Ficheiro | Descrição |
+| Ficheiro | Description |
 |-------------|-------------|
 | [MainPage.xaml](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml) | Este ficheiro define a interface de utilizador XAML. Acolhe o controlo da câmara web e contém as etiquetas utilizadas para atualizações de estado.|
 | [MainPage.xaml.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/MainPage.xaml.cs) | Este código controla o comportamento da UI XAML. Contém o código de processamento da máquina estatal.|
 | [CustomVision\CustomVisionServiceWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionServiceWrapper.cs) | Esta aula é um invólucro que lida com a integração com o Serviço de Visão Personalizada.|
-| [CustomVision\CustomVisionNXModel.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionONNXModel.cs) | Esta classe é um invólucro que lida com a integração com o Windows ML para carregar o modelo ONNX e marcar imagens contra ele.|
+| [CustomVision\CustomVisionONNXModel.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/CustomVision/CustomVisionONNXModel.cs) | Esta classe é um invólucro que lida com a integração com o Windows ML para carregar o modelo ONNX e marcar imagens contra ele.|
 | [IoTHub\IotHubWrapper.cs](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/blob/master/IoTVisualAlerts/IoTHub/IoTHubWrapper.cs) | Esta classe é um invólucro que lida com a integração com o IoT Hub para carregar os resultados da pontuação para o Azure.|
 
 ## <a name="set-up-the-visual-alerts-app"></a>Configurar a app Alertas Visuais
@@ -69,7 +69,7 @@ Os seguintes ficheiros tratam da funcionalidade principal da aplicação.
 Siga estes passos para obter a aplicação IoT Visual Alerts em funcionamento no seu pc ou dispositivo IoT.
 
 1. Clone ou descarregue a [amostra IoTVisualAlerts](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts) no GitHub.
-1. Abra a solução _IoTVisualAlerts.sln_ em Visual Studio
+1. Abra a solução _IoTVisualAlerts.sln_ em Estúdio Visual
 1. Integre o seu projeto De Visão Personalizada:
     1. No script _CustomVision\CustomVisionServiceWrapper.cs,_ atualize a variável com a `ApiKey` sua chave de treino.
     1. Em seguida, atualize a `Endpoint` variável com o URL do ponto final associado à sua chave.
@@ -107,8 +107,8 @@ Para repetir este processo com o seu próprio cenário:
 1. Inscreva-se no site da [Visão Personalizada.](http://customvision.ai)
 1. Encontre o seu projeto-alvo, que deve agora ter todas as imagens de treino que a aplicação carregou.
 1. Para cada estado visual que pretende identificar, selecione as imagens apropriadas e aplique manualmente a etiqueta.
-    * Por exemplo, se o seu objetivo é distinguir entre uma sala vazia e uma sala com pessoas dentro, recomendamos marcar cinco ou mais imagens com as pessoas como uma nova classe, **People**, e marcar cinco ou mais imagens sem pessoas como a etiqueta **Negative.** Isto ajudará o modelo a diferenciar os dois Estados.
-    * Como outro exemplo, se o seu objetivo é aproximar-se do quão cheia é uma prateleira, então poderá usar tags como **EmptyShelf**, **PartiallyFullShelf**e **FullShelf**.
+    * Por exemplo, se o seu objetivo é distinguir entre uma sala vazia e uma sala com pessoas dentro, recomendamos marcar cinco ou mais imagens com as pessoas como uma nova classe, **People** , e marcar cinco ou mais imagens sem pessoas como a etiqueta **Negative.** Isto ajudará o modelo a diferenciar os dois Estados.
+    * Como outro exemplo, se o seu objetivo é aproximar-se do quão cheia é uma prateleira, então poderá usar tags como **EmptyShelf** , **PartiallyFullShelf** e **FullShelf**.
 1. Quando terminar, selecione o botão **Train.**
 1. Uma vez que o treino esteja concluído, a aplicação irá detetar que uma iteração treinada está disponível. Iniciará o processo de exportação do modelo treinado para ONNX e descarregá-lo-á para o dispositivo.
 
@@ -142,5 +142,5 @@ Neste tutorial, você configura e executou uma aplicação que deteta informaç�
 > [Amostra IoTVisualAlerts (GitHub)](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates/tree/master/IoTVisualAlerts)
 
 * Adicione um método IoT Hub para mudar a aplicação diretamente para o estado **do Modelo Treinado.** Desta forma, pode treinar o modelo com imagens que não são captadas pelo próprio dispositivo e, em seguida, empurrar o novo modelo para o dispositivo no comando.
-* Siga o tutorial [de dados do sensor em tempo real](https://docs.microsoft.com/azure/iot-hub/iot-hub-live-data-visualization-in-power-bi) para criar um Painel de Instrumentos Power BI para visualizar os alertas IoT Hub enviados pela amostra.
-* Siga o tutorial [de monitorização remota IoT](https://docs.microsoft.com/azure/iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps) para criar uma App Lógica que responda aos alertas do IoT Hub quando os estados visuais são detetados.
+* Siga o tutorial [de dados do sensor em tempo real](../../iot-hub/iot-hub-live-data-visualization-in-power-bi.md) para criar um Painel de Instrumentos Power BI para visualizar os alertas IoT Hub enviados pela amostra.
+* Siga o tutorial [de monitorização remota IoT](../../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md) para criar uma App Lógica que responda aos alertas do IoT Hub quando os estados visuais são detetados.

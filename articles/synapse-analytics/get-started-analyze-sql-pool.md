@@ -10,21 +10,21 @@ ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: c46adf9e9f5c1b2e74c1098ebf137c4556bfc58d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: bc16dde7d3156df08b946a15012a201054cd8e0a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147556"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592605"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com piscinas SQL dedicadas
 
 O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma piscina DE SQL dedicada. Neste tutorial, você usará os dados do Táxi nyc para explorar as capacidades de uma piscina SQL desatada.
 
-## <a name="load-the-nyc-taxi-data-into-sqldb1"></a>Carregue os dados do táxi de NYC em SQLDB1
+## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Carregue os dados do táxi de NYC em SQLPOOL1
 
 1. No Synapse Studio, navegue para o centro **de Desenvolvimento** e, em seguida, crie um novo script SQL
-1. Selecione a piscina 'SQLDB1' (piscina criada no [PASSO 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) deste tutorial) na secção 'Ligar a' do script.
+1. Selecione a piscina 'SQLPOOL1' (piscina criada no [PASSO 1](https://docs.microsoft.com/azure/synapse-analytics/get-started-create-workspace#create-a-sql-pool) deste tutorial) na secção 'Ligar a' do script.
 1. Introduza o seguinte código:
     ```
     CREATE TABLE [dbo].[Trip]
@@ -76,10 +76,10 @@ O Azure Synapse Analytics fornece-lhe a capacidade de analisar dados com uma pis
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Explore os dados do Táxi nyc na piscina dedicada SQL
 
 1. No Estúdio Synapse, vá ao centro **de dados.**
-1. Vá às **tabelas SQLDB1**  >  **Tables**. Verá várias mesas carregadas.
+1. Vá às **Mesas SQLPOOL1.**  >  **Tables** Verá várias mesas carregadas.
 1. Clique à direita no **dbo. Tabela** de trip e selecione **Novo Script SQL**  >  **Selecione TOP 100 Rows**.
 1. Aguarde enquanto um novo script SQL é criado e executado.
-1. Note que no topo do script SQL **Connect** é automaticamente definido para a piscina SQL chamada **SQLDB1**.
+1. Note que no topo do script SQL **Connect** é automaticamente definido para a piscina SQL chamada **SQLPOOL1**.
 1. Substitua o texto do script SQL por este código e execute-o.
 
     ```sql

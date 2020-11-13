@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2020
+ms.date: 11/13/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: d65b2db9c69d006476ae1d08a1af3e60efe48930
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 563cd14d0eccdbe6d91ae09029da766dacbceb87
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280563"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616880"
 ---
 # <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure
 
@@ -40,7 +40,7 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
-### <a name="group"></a>Group
+### <a name="group"></a>Grupo
 
 Para obter o ID de um grupo, você pode usar os comandos de grupo [get-AzADGroup](/powershell/module/az.resources/get-azadgroup) ou [az ad show.](/cli/azure/ad/group#az-ad-group-show)
 
@@ -209,14 +209,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
 
 ### <a name="resource-scope"></a>Âmbito do recurso
 
-Se precisar de adicionar uma atribuição de função ao nível de um recurso, o formato da atribuição de funções é diferente. Fornece o espaço de nome do fornecedor de recursos e o tipo de recurso do recurso para atribuir a função. Também inclui o nome do recurso em nome da atribuição de funções.
-
-Para o tipo e nome da atribuição de funções, utilize o seguinte formato:
-
-```json
-"type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
-"name": "{resource-name}/Microsoft.Authorization/{role-assign-GUID}"
-```
+Se precisar de adicionar uma atribuição de função ao nível de um recurso, desaprote a `scope` propriedade na atribuição de funções para o nome do recurso.
 
 O modelo a seguir demonstra:
 
@@ -230,7 +223,7 @@ Para utilizar o modelo, deve especificar as seguintes entradas:
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "principalId": {
@@ -248,6 +241,13 @@ Para utilizar o modelo, deve especificar as seguintes entradas:
             ],
             "metadata": {
                 "description": "Built-in role to assign"
+            }
+        },
+        "roleNameGuid": {
+            "type": "string",
+            "defaultValue": "[newGuid()]",
+            "metadata": {
+                "description": "A new GUID used to identify the role assignment"
             }
         },
         "location": {
@@ -274,9 +274,10 @@ Para utilizar o modelo, deve especificar as seguintes entradas:
             "properties": {}
         },
         {
-            "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
-            "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(variables('storageName'))))]",
+            "type": "Microsoft.Authorization/roleAssignments",
+            "apiVersion": "2020-04-01-preview",
+            "name": "[parameters('roleNameGuid')]",
+            "scope": "[concat('Microsoft.Storage/storageAccounts', '/', variables('storageName'))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],

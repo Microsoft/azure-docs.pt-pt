@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: 63abbc739849a201275995c81a28ede9f9c84b5a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eaac8bdf828d2dd9a8e2dfae0b1b2b5985d1951d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91613344"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592707"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Quickstart: Adicione o início de sôs com a Microsoft a uma aplicação web Python
 
-Neste arranque rápido, aprenderás a integrar uma aplicação web Python com a plataforma de identidade da Microsoft. A sua aplicação irá iniciar seduca num utilizador, obter um token de acesso para ligar para a API do Gráfico da Microsoft e fazer um pedido para a API do Microsoft Graph.
+Neste quickstart, você descarrega e execute uma amostra de código que demonstra como uma aplicação web Python pode assinar nos utilizadores e obter um token de acesso para ligar para a Microsoft Graph API. Os utilizadores com uma Conta Microsoft pessoal ou uma conta em qualquer organização do Azure Ative (Azure AD) podem assinar na aplicação.
 
-Quando tiver concluído o guia, a sua aplicação aceitará inscrições de contas pessoais da Microsoft (incluindo outlook.com, live.com e outras) e contas de trabalho ou escola de qualquer empresa ou organização que utilize o Azure Ative Directory. (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
+Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,7 +56,7 @@ Quando tiver concluído o guia, a sua aplicação aceitará inscrições de cont
 > 1. Selecione **Novo registo**.
 > 1. Quando a página **Registar uma aplicação** for apresentada, introduza as informações de registo da aplicação:
 >      - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `python-webapp` exemplo.
->      - Nos **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
+>      - Nos **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional e contas pessoais da Microsoft.**
 >      - Selecione **Registar**.
 >      - Na página **geral** da aplicação, note o valor **de ID da Aplicação (cliente)** para posterior utilização.
 > 1. Selecione a **Autenticação** do menu e, em seguida, adicione as seguintes informações:
@@ -116,7 +116,7 @@ Quando tiver concluído o guia, a sua aplicação aceitará inscrições de cont
 > CLIENT_SECRET = "Enter_the_Client_Secret_Here"
 > AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 > ```
-> Em que:
+> Onde:
 >
 > - `Enter_the_Application_Id_here` - é o Id da Aplicação que registou.
 > - `Enter_the_Client_Secret_Here` - é o Segredo de **Cliente** que criou em **Certificados & Segredos**  para a aplicação que registou.
@@ -128,7 +128,7 @@ Quando tiver concluído o guia, a sua aplicação aceitará inscrições de cont
 > [!div renderon="docs"]
 > #### <a name="step-4-run-the-code-sample"></a>Passo 4: Executar a amostra de código
 
-1. Você precisará instalar a biblioteca MSAL Python, a estrutura do Frasco, as Sessões de Flask para gestão de sessão do lado do servidor e os pedidos utilizando o pip da seguinte forma:
+1. Você precisará instalar a biblioteca MSAL Python, estrutura flask, Flask-Sessions para gestão de sessão do lado do servidor e pedidos usando pip da seguinte forma:
 
     ```Shell
     pip install -r requirements.txt

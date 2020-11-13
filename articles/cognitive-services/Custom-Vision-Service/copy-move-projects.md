@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: pafarley
-ms.openlocfilehash: c742240cc82035b2a9af16348eaa9f2a40a32fa3
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 548d936538a909da10796d0377f119826582c420
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900324"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616064"
 ---
 # <a name="copy-and-move-your-custom-vision-projects"></a>Copie e mova os seus projetos de Visão Personalizada
 
@@ -30,7 +30,7 @@ Se a sua aplicação ou negócio depender da utilização de um projeto de Visã
 
 - Dois recursos da Azure Custom Vision. Se não os tiver, vá ao portal Azure e [crie um novo recurso de Visão Personalizada](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true).
 - As chaves de treino e URLs de ponto final dos seus recursos de Visão Personalizada. Pode encontrar estes valores no **separador Visão Geral** do recurso no portal Azure.
-- Um projeto criado de Visão Personalizada. Consulte [Construir um classificador](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/getting-started-build-a-classifier) para obter instruções sobre como fazê-lo.
+- Um projeto criado de Visão Personalizada. Consulte [Construir um classificador](./getting-started-build-a-classifier.md) para obter instruções sobre como fazê-lo.
 
 ## <a name="process-overview"></a>Visão geral do processo
 
@@ -137,7 +137,7 @@ Receberá uma `200/OK` resposta com metadados sobre o seu projeto recém-importa
 }
 ```
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, aprendeu a copiar e mover um projeto entre os recursos da Visão Personalizada. Em seguida, explore os docs de referência da API para ver o que mais pode fazer com a Visão Personalizada.
 * [Documentação de referência da API REST](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Training_3.3/operations/5eb0bcc6548b571998fddeb3)

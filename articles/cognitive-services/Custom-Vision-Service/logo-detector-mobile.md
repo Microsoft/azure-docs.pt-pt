@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d7d66e247c6a6240bd6fde08612b8eb770bd3b92
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b85b2d9b81e84ec6c6e09fef16c66a919aa30cd7
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737541"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616761"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Tutorial: Reconhecer logotipos de serviço Azure em imagens de câmara
 
@@ -34,13 +34,13 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - [Estúdio Visual 2017 ou mais tarde](https://www.visualstudio.com/downloads/)
-- A carga de trabalho de Xamarin para Estúdio Visual (ver [Instalação de Xamarin)](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows)
+- A carga de trabalho de Xamarin para Estúdio Visual (ver [Instalação de Xamarin)](/xamarin/cross-platform/get-started/installation/windows)
 - Um emulador iOS ou Android para Estúdio Visual
-- O [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcional)
+- O [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest) (opcional)
 
 ## <a name="get-the-source-code"></a>Obter o código-fonte
 
-Se quiser utilizar a aplicação web fornecida, clone ou descarregue o código fonte da aplicação a partir do repositório de [Provisão Visual](https://github.com/Microsoft/AIVisualProvision) da IA no GitHub. Abra o ficheiro *Source/VisualProvision.sln* no Visual Studio. Mais tarde, irá editar alguns dos ficheiros do projeto para que possa executar a aplicação.
+Se quiser utilizar a aplicação web fornecida, clone ou descarregue o código fonte da aplicação a partir do repositório de [Provisão Visual](https://github.com/Microsoft/AIVisualProvision) da IA no GitHub. Abra o ficheiro *.sln Fonte/VisualProvision* no Estúdio Visual. Mais tarde, irá editar alguns dos ficheiros do projeto para que possa executar a aplicação.
 
 ## <a name="create-an-object-detector"></a>Criar um detetor de objetos
 
@@ -56,7 +56,7 @@ Depois de fazer o upload das imagens de treino, selecione a primeira no visor. A
 
 ![Marcação de logotipo no site da Visão Personalizada](media/azure-logo-tutorial/tag-logos.png)
 
-A aplicação está configurada para trabalhar com cordas de etiqueta específicas. Encontrará as definições no ficheiro *Source\VisualProvision\Services\Recognition\Recognition\RecognitionService.cs:*
+A aplicação está configurada para trabalhar com cordas de etiqueta específicas. Encontrará as definições no ficheiro *Source\VisualProvision\Services\Recognition\Recognition\RecognitionService.cs* ficheiro:
 
 [!code-csharp[Tag definitions](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/RecognitionService.cs?name=snippet_constants)]
 
@@ -88,23 +88,23 @@ Este resultado assume a forma de uma **instância PredictionResult,** que por si
 
 [!code-csharp[Custom Vision fields](~/AIVisualProvision/Source/VisualProvision/Services/Recognition/Prediction.cs?name=snippet_prediction_class)]
 
-Para saber mais sobre como a aplicação lida com estes dados, comece com o método **GetResourcesAsync.** Este método é definido no ficheiro *Fonte/VisualProvision/Serviços/Reconhecimento/ReconhecimentoService.cs.*  
+Para saber mais sobre como a aplicação lida com estes dados, comece com o método **GetResourcesAsync.** Este método é definido no ficheiro *Fonte/VisualProvision/Services/Recognition/RecognitionService.cs.*  
 
 ## <a name="add-computer-vision"></a>Adicionar visão de computador
 
 A parte da Visão Personalizada do tutorial está completa. Se quiser executar a aplicação, também terá de integrar o serviço de Visão de Computador. A aplicação utiliza a funcionalidade de reconhecimento de texto da Visão de Computador para complementar o processo de deteção do logotipo. Um logótipo Azure pode ser reconhecido pela sua aparência *ou* pelo texto impresso perto dele. Ao contrário dos modelos Custom Vision, a Visão Computacional está pré-treinada para realizar determinadas operações em imagens ou vídeos.
 
-Subscreva o serviço de Visão De Computador para obter uma URL de chave e ponto final. Para obter ajuda neste passo, consulte [como obter as teclas de subscrição](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe).
+Subscreva o serviço de Visão De Computador para obter uma URL de chave e ponto final. Para obter ajuda neste passo, consulte [como obter as teclas de subscrição](../cognitive-services-apis-create-account.md?tabs=singleservice%2Cwindows).
 
 ![O serviço de Visão de Computador no portal Azure, com o menu Quickstart selecionado. Um link para chaves é delineado, assim como o URL de ponto final da API](media/azure-logo-tutorial/comvis-keys.png)
 
-Em seguida, abra o ficheiro *Source\VisualProvision\AppSettings.cs* e povoe as `ComputerVisionEndpoint` `ComputerVisionKey` variáveis e variáveis com os valores corretos.
+Em seguida, abra o *ficheiro Source\VisualProvision\AppSettings.cs* e povoe as `ComputerVisionEndpoint` `ComputerVisionKey` variáveis e variáveis com os valores corretos.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?name=snippet_comvis_keys)]
 
 ## <a name="create-a-service-principal"></a>Criar um principal de serviço
 
-A aplicação requer uma conta principal do serviço Azure para implementar serviços na sua subscrição Azure. Um diretor de serviço permite-lhe delegar permissões específicas numa aplicação usando o controlo de acesso baseado em funções Azure. Para saber mais, consulte o [guia dos principais serviços.](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals)
+A aplicação requer uma conta principal do serviço Azure para implementar serviços na sua subscrição Azure. Um diretor de serviço permite-lhe delegar permissões específicas numa aplicação usando o controlo de acesso baseado em funções Azure. Para saber mais, consulte o [guia dos principais serviços.](/azure-stack/operator/azure-stack-create-service-principals)
 
 Pode criar um principal de serviço utilizando a Azure Cloud Shell ou o Azure CLI, como mostrado aqui. Para começar, inicie sinsutil e selecione a subscrição que pretende utilizar.
 
@@ -176,7 +176,7 @@ Siga estes passos para executar a aplicação:
 
 Se seguiu todos os passos deste cenário e utilizou a app para implantar os serviços Azure na sua conta, vá ao [portal Azure.](https://ms.portal.azure.com/) Aí, cancele os serviços que não quer usar.
 
-Se planeia criar o seu próprio projeto de deteção de objetos com a Visão Personalizada, é melhor eliminar o projeto de deteção de logotipo que criou neste tutorial. Uma subscrição gratuita para a Custom Vision permite apenas dois projetos. Para eliminar o projeto de deteção de logotipo, no site da [Visão Personalizada,](https://customvision.ai)abra **Projetos** e, em seguida, selecione o ícone do lixo no **âmbito do My New Project** .
+Se planeia criar o seu próprio projeto de deteção de objetos com a Visão Personalizada, é melhor eliminar o projeto de deteção de logotipo que criou neste tutorial. Uma subscrição gratuita para a Custom Vision permite apenas dois projetos. Para eliminar o projeto de deteção de logotipo, no site da [Visão Personalizada,](https://customvision.ai)abra **Projetos** e, em seguida, selecione o ícone do lixo no **âmbito do My New Project**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

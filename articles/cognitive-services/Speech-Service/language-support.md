@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: a864717304dacaf6cf4c77c92050827af619ed39
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: cfd28171524ada5f5feea9e18e4b88a291254e88
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736675"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616795"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -26,7 +26,7 @@ O suporte linguístico varia de acordo com a funcionalidade do serviço speech. 
 
 Tanto o Microsoft Speech SDK como o REST API suportam os seguintes idiomas (locais). 
 
-Para melhorar a precisão, a personalização é oferecida para um subconjunto das línguas através do upload **de Transcrições áudio + etiqueta humana** ou texto **relacionado: frases** . Para saber mais sobre personalização, consulte [Começar com Discurso Personalizado.](how-to-custom-speech.md)
+Para melhorar a precisão, a personalização é oferecida para um subconjunto das línguas através do upload **de Transcrições áudio + etiqueta humana** ou texto **relacionado: frases**. Para saber mais sobre personalização, consulte [Começar com Discurso Personalizado.](how-to-custom-speech.md)
 
 <!--
 To get the AM and ML bits:
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Linguagem                          | Região | Personalizações                                   |
+| Linguagem                          | Local (BCP-47) | Personalizações                                   |
 |-----------------------------------|--------|--------------------------------------------------|
 |Árabe (Bahrein), padrão moderno  |`ar-BH` | Modelo de linguagem                                   |
 |Árabe (Egito)                     |`ar-EG` | Modelo de linguagem                                   |
@@ -136,7 +136,7 @@ As vozes neurais podem ser usadas para tornar as interações com chatbots e ass
 
 Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-|Linguagem  | Região           | Sexo | Nome de voz | Suporte de estilo |
+|Linguagem  | Local (BCP-47)          | Sexo | Nome de voz | Suporte de estilo |
 |--|--|--|--|--|
 | Árabe (Egito) | `ar-EG` | Mulheres | `ar-EG-SalmaNeural` | Geral |
 | Árabe (Arábia Saudita) | `ar-SA` | Mulheres | `ar-SA-ZariyahNeural` | Geral |
@@ -219,7 +219,7 @@ Para aprender como pode configurar e ajustar vozes neurais, consulte a [linguage
 
 Mais de 75 vozes padrão estão disponíveis em mais de 45 línguas e locais, que permitem converter texto em discurso sintetizado. Para obter mais informações sobre a disponibilidade regional, consulte [as regiões.](regions.md#standard-and-neural-voices)
 
-| Linguagem | Região | Sexo | Nome de voz |
+| Linguagem | Local (BCP-47) | Sexo | Nome de voz |
 |--|--|--|--|
 | Árabe (árabe)  |  `ar-EG`  |  Mulheres  |  `ar-EG-Hoda`|
 | Árabe (Arábia Saudita)  |  `ar-SA`  |  Homens  |  `ar-SA-Naayf`|
@@ -397,7 +397,7 @@ A API **de Tradução de Discursos** apoia diferentes línguas para a tradução
 
 Consulte a tabela seguinte para as línguas suportadas para as várias APIs de reconhecimento de altifalantes. Consulte a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o reconhecimento de colunas.
 
-| Linguagem | Região | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
+| Linguagem | Local (BCP-47) | Verificação dependente de texto | Verificação independente de texto | Identificação independente de texto |
 |----|----|----|----|----|
 |Inglês (E.U.A.)  |  en-PT  |  sim  |  sim  |  sim |
 |Chinês (mandarim, simplificado) | zh-CN     |     n/a |     sim |     sim|

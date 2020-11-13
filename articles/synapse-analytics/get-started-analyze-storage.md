@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 07/20/2020
-ms.openlocfilehash: 2a22174fb23a4f0f7bebd58e276a6778e986ce9e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fabfdce72202f79e2ac5bad08d124df7ce2de542
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322921"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592588"
 ---
 # <a name="analyze-data-in-a-storage-account"></a>Analisar dados numa conta de armazenamento
 
@@ -36,16 +36,16 @@ Execute o seguinte código num caderno. Cria um ficheiro CSV e um ficheiro parqu
 %%pyspark
 df = spark.sql("SELECT * FROM nyctaxi.passengercountstats")
 df = df.repartition(1) # This ensure we'll get a single file during write()
-df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats.csv")
-df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats.parquet")
+df.write.mode("overwrite").csv("/NYCTaxi/PassengerCountStats_csvformat")
+df.write.mode("overwrite").parquet("/NYCTaxi/PassengerCountStats_parquetformat")
 ```
 
 ### <a name="analyze-data-in-a-storage-account"></a>Analisar dados numa conta de armazenamento
 
 1. No Synapse Studio, vá ao centro **de dados** e, em seguida, selecione **Linked**.
 1. Vá às **contas de armazenamento**  >  **myworkspace (Primário - contosolake)**.
-1. Selecione **utilizadores (Primário)**. Devia ver a pasta **NYCTaxi.** No interior deverá ver duas pastas chamadas **PassengerCountStats.csv** e **PassengerCountStats.parquet**.
-1. Abra a pasta **PassengerCountStats.parquet.** Lá dentro, verá um arquivo de parquet com um nome como `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` .
+1. Selecione **utilizadores (Primário)**. Devia ver a pasta **NYCTaxi.** No interior deverá ver duas pastas chamadas **PassengerCountStats_csvformat** e **PassengerCountStats_parquetformat**.
+1. Abra a pasta **PassengerCountStats_parquetformat.** Lá dentro, verá um arquivo de parquet com um nome como `part-00000-2638e00c-0790-496b-a523-578da9a15019-c000.snappy.parquet` .
 1. Clique à direita **em .parquet** e, em seguida, selecione **novo caderno**. Cria um caderno que tem uma célula como esta:
 
     ```py

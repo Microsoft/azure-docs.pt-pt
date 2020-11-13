@@ -1,6 +1,6 @@
 ---
 title: Transformar dados usando a atividade do porco na fábrica de dados Azure
-description: Saiba como pode usar a Atividade do Porco numa fábrica de dados Azure v1 para executar scripts de porco num cluster on-demand/seu próprio HDInsight.
+description: Saiba como pode usar a Atividade do Porco na Azure Data Factory v1 para executar scripts de porco num cluster on-demand/seu próprio HDInsight.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 35990312658492e1e41b47096a43748c3a4e653e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c94d66bf98645e12a6c603f2b35d229080717734
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359905"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616863"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do porco na fábrica de dados Azure
 > [!div class="op_single_selector" title1="Atividades de Transformação"]
@@ -26,8 +26,8 @@ ms.locfileid: "92359905"
 > * [Atividade mapReduce](data-factory-map-reduce.md)
 > * [Atividade de streaming de Hadoop](data-factory-hadoop-streaming-activity.md)
 > * [Atividade de Faísca](data-factory-spark.md)
-> * [Azure Machine Learning Studio (clássico) Atividade de execução de lote](data-factory-azure-ml-batch-execution-activity.md)
-> * [Azure Machine Learning Studio (clássico) Atualização De Recursos Atividade](data-factory-azure-ml-update-resource-activity.md)
+> * [Atividade de Execução em Lotes do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-batch-execution-activity.md)
+> * [Atividade de Recursos de Atualização do Azure Machine Learning Studio (clássico)](data-factory-azure-ml-update-resource-activity.md)
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade de U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
 > * [.NET Atividade Personalizada](data-factory-use-custom-activities.md)
@@ -210,7 +210,7 @@ Para utilizar o script de porco parametrizado, faça o seguinte:
       }
     }
     ```
-* No Pig Script, consulte os parâmetros que utilizam o '**$parameterName**' como mostrado no seguinte exemplo:
+* No Pig Script, consulte os parâmetros que utilizam o ' **$parameterName** ' como mostrado no seguinte exemplo:
 
     ```
     PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);

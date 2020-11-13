@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: amikuma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: e223b5ae072a323ad56ed396c06580fea9b8b7ab
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 52e6c70b76b83c73059dc887eaefe8403befac13
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335252"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594237"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Quickstart: Inicie os utilizadores e obtenha um token de acesso numa aplicação web nó usando o fluxo de código auth
 
-Neste quickstart, você executou uma amostra de código que demonstra como uma aplicação web Node.js pode assinar em utilizadores de contas pessoais, contas de trabalho e contas escolares usando o fluxo de código de autorização. A amostra de código também demonstra obter um token de acesso para chamar uma API web, neste caso a Microsoft Graph API. Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
+Neste arranque rápido, você descarrega e execute uma amostra de código que demonstra como uma Node.js aplicação web pode assinar nos utilizadores usando o fluxo de código de autorização. A amostra de código também demonstra como obter um token de acesso para ligar para a Microsoft Graph API. 
+
+Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 Este quickstart utiliza a Biblioteca de Autenticação da Microsoft para Node.js (nó MSAL) com o fluxo de código de autorização.
 
@@ -39,7 +41,7 @@ Este quickstart utiliza a Biblioteca de Autenticação da Microsoft para Node.js
 >
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 >
-> 1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+> 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 > 1. Se a sua conta lhe der acesso a mais do que um inquilino, selecione a sua conta no topo direito e, em seguida, desacione a sua sessão de portal para o inquilino AD AZure que pretende usar.
 > 1. Selecione [Registos de aplicações](https://go.microsoft.com/fwlink/?linkid=2083908).
 > 1. Selecione **Novo registo**.

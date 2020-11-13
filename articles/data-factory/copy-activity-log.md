@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: c54b81ca25602fa77ad66bbb818df3cd8eee39a1
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: e56a840da07a2f6e966867699506f0122a0e7956
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94519977"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593660"
 ---
 #  <a name="session-log-in-copy-activity"></a>Sessão iniciar sessão na atividade de cópia
 
@@ -60,22 +60,23 @@ O exemplo a seguir fornece uma definição JSON para permitir o registo de sess�
         },
         "logLocationSettings": {
             "linkedServiceName": {
-                "referenceName": "ADLSGen2",
+               "referenceName": "ADLSGen2",
                "type": "LinkedServiceReference"
-            }
+            },
+            "path": "sessionlog/"
         }
     }
 }
 ```
 
-Propriedade | Descrição | Valores permitidos | Necessário
+Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
-enableCopyActivityLog | Quando o definir como verdadeiro, terá a oportunidade de registar ficheiros copiados, ficheiros ignorados ou linhas ignoradas.  | Verdadeiro<br/>Falso (predefinição) | No
-logLevel | "Info" registará todos os ficheiros copiados, ficheiros ignorados e linhas ignoradas. "Aviso" registará ficheiros ignorados e apenas saltará linhas.  | Informações<br/>Aviso (predefinição) | No
-enableReliableLogging | Quando for verdade, a atividade de cópia em modo fiável irá descarregar os registos imediatamente assim que cada ficheiro for copiado para o destino.  Quando estiver a copiar grandes quantidades de ficheiros com modo de registo fiável ativado na atividade de cópia, deve esperar que o resultado da cópia seja impactado, uma vez que são necessárias operações de dupla escrita para cada cópia de ficheiros. Um pedido é para a loja de destino e outro pedido é para a loja de armazenamento de registos.  A atividade de cópia no melhor modo de esforço irá lavar os registos com um lote de registos dentro de um período de tempo, onde a produção de cópia será muito menos impactada. A completude e a atualidade da exploração madeireira não estão garantidas neste modo, uma vez que existem algumas possibilidades de que o último lote de eventos de registo não tenha sido lavado no ficheiro de registo quando a atividade da cópia falhou. Neste momento, verá que alguns ficheiros copiados para o destino não estão registados.  | Verdadeiro<br/>Falso (predefinição) | No
-logLocationSettings | Um grupo de propriedades que podem ser usadas para especificar a localização para armazenar os registos de sessão. | | No
-linkedServiceName | O serviço ligado do [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou [da Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar os ficheiros de registo de sessão. | Os nomes de um ou tipo de `AzureBlobStorage` `AzureBlobFS` serviço ligado, que se refere à instância que utiliza para armazenar os ficheiros de registo. | No
-caminho | O caminho dos ficheiros de registo. | Especifique o caminho que pretende armazenar os ficheiros de registo. Se não providenciar um caminho, o serviço cria um recipiente para si. | No
+enableCopyActivityLog | Quando o definir como verdadeiro, terá a oportunidade de registar ficheiros copiados, ficheiros ignorados ou linhas ignoradas.  | Verdadeiro<br/>Falso (predefinição) | Não
+logLevel | "Info" registará todos os ficheiros copiados, ficheiros ignorados e linhas ignoradas. "Aviso" registará ficheiros ignorados e apenas saltará linhas.  | Informações<br/>Aviso (predefinição) | Não
+enableReliableLogging | Quando for verdade, a atividade de cópia em modo fiável irá descarregar os registos imediatamente assim que cada ficheiro for copiado para o destino.  Quando estiver a copiar grandes quantidades de ficheiros com modo de registo fiável ativado na atividade de cópia, deve esperar que o resultado da cópia seja impactado, uma vez que são necessárias operações de dupla escrita para cada cópia de ficheiros. Um pedido é para a loja de destino e outro pedido é para a loja de armazenamento de registos.  A atividade de cópia no melhor modo de esforço irá lavar os registos com um lote de registos dentro de um período de tempo, onde a produção de cópia será muito menos impactada. A completude e a atualidade da exploração madeireira não estão garantidas neste modo, uma vez que existem algumas possibilidades de que o último lote de eventos de registo não tenha sido lavado no ficheiro de registo quando a atividade da cópia falhou. Neste momento, verá que alguns ficheiros copiados para o destino não estão registados.  | Verdadeiro<br/>Falso (predefinição) | Não
+logLocationSettings | Um grupo de propriedades que podem ser usadas para especificar a localização para armazenar os registos de sessão. | | Não
+linkedServiceName | O serviço ligado do [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou [da Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar os ficheiros de registo de sessão. | Os nomes de um ou tipo de `AzureBlobStorage` `AzureBlobFS` serviço ligado, que se refere à instância que utiliza para armazenar os ficheiros de registo. | Não
+caminho | O caminho dos ficheiros de registo. | Especifique o caminho que pretende armazenar os ficheiros de registo. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não
 
 
 ## <a name="monitoring"></a>Monitorização

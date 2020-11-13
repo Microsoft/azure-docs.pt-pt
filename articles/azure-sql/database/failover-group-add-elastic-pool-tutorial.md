@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: seo-lt-2019 sqldbrb=1
 ms.devlang: ''
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer: sstein
+author: stevestein
+ms.author: sstein
+ms.reviewer: ''
 ms.date: 08/27/2019
-ms.openlocfilehash: a9f5bac475fd019b294f79abf0acdfaff198f52b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cdbc44158de2f24d7d33d68311979c3b8bdda85d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91442753"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593982"
 ---
 # <a name="tutorial-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Tutorial: Adicione uma piscina elástica Azure SQL Database a um grupo de failover
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -55,14 +55,14 @@ Crie a sua piscina elástica utilizando o portal Azure.
     ![Selecione piscina elástica](./media/failover-group-add-elastic-pool-tutorial/select-azure-sql-elastic-pool.png)
 
 1. Configure a sua piscina elástica com os seguintes valores:
-   - **Nome**: Forneça um nome único para a sua piscina elástica, tal como `myElasticPool` .
-   - **Subscrição**: Selecione a sua subscrição a partir do drop-down.
-   - **Grupo de Recursos**: Selecione `myResourceGroup` a partir do drop-down, o grupo de recursos que criou na secção 1.
-   - **Servidor**: Selecione o servidor criado na secção 1 a partir do drop-down.  
+   - **Nome** : Forneça um nome único para a sua piscina elástica, tal como `myElasticPool` .
+   - **Subscrição** : Selecione a sua subscrição a partir do drop-down.
+   - **Grupo de Recursos** : Selecione `myResourceGroup` a partir do drop-down, o grupo de recursos que criou na secção 1.
+   - **Servidor** : Selecione o servidor criado na secção 1 a partir do drop-down.  
 
        ![Crie um novo servidor para piscina elástica](./media/failover-group-add-elastic-pool-tutorial/use-existing-server-for-elastic-pool.png)
 
-   - **Cálculo + armazenamento**: Selecione **Configure piscina elástica** para configurar o seu cálculo, armazenamento e adicione a sua única base de dados à sua piscina elástica. No separador **Definições de Pool,** deixe o padrão da Gen5, com 2 vCores e 32gb.
+   - **Cálculo + armazenamento** : Selecione **Configure piscina elástica** para configurar o seu cálculo, armazenamento e adicione a sua única base de dados à sua piscina elástica. No separador **Definições de Pool,** deixe o padrão da Gen5, com 2 vCores e 32gb.
 
 1. Na página **Configurar,** selecione o **separador Bases de Dados** e, em seguida, escolha **adicionar base de dados**. Escolha a base de dados que criou na secção 1 e, em seguida, **selecione Aplicar** para adicioná-la à sua piscina elástica. **Selecione Aplicar** novamente para aplicar as definições de piscina elástica e fechar a página **Configure.**
 
@@ -143,13 +143,13 @@ Crie o seu grupo de failover utilizando o portal Azure.
 
     ![Adicione novo grupo de failover](./media/failover-group-add-elastic-pool-tutorial/elastic-pool-failover-group.png)
 
-1. Na página **do Grupo Failover,** introduza ou selecione os seguintes valores e, em seguida, selecione **Criar**:
-    - **Nome do grupo failover**: Digite um nome único de grupo de failover, tais como `failovergrouptutorial` .
-    - **Servidor secundário**: Selecione a opção para *configurar as definições necessárias* e, em seguida, escolha **criar um novo servidor**. Em alternativa, pode escolher um servidor já existente como servidor secundário. Depois de introduzir os seguintes valores para o seu novo servidor secundário, **selecione**.
-        - **Nome do servidor**: Digite um nome único para o servidor secundário, tal como `mysqlsecondary` .
-        - **Início de administração do servidor**: Tipo `azureuser`
-        - **Palavra-passe**: Digite uma palavra-passe complexa que satisfaça os requisitos de senha.
-        - **Localização**: Escolha uma localização a partir da entrega, tal como `East US` . Esta localização não pode ser a mesma localização do seu servidor primário.
+1. Na página **do Grupo Failover,** introduza ou selecione os seguintes valores e, em seguida, selecione **Criar** :
+    - **Nome do grupo failover** : Digite um nome único de grupo de failover, tais como `failovergrouptutorial` .
+    - **Servidor secundário** : Selecione a opção para *configurar as definições necessárias* e, em seguida, escolha **criar um novo servidor**. Em alternativa, pode escolher um servidor já existente como servidor secundário. Depois de introduzir os seguintes valores para o seu novo servidor secundário, **selecione**.
+        - **Nome do servidor** : Digite um nome único para o servidor secundário, tal como `mysqlsecondary` .
+        - **Início de administração do servidor** : Tipo `azureuser`
+        - **Palavra-passe** : Digite uma palavra-passe complexa que satisfaça os requisitos de senha.
+        - **Localização** : Escolha uma localização a partir da entrega, tal como `East US` . Esta localização não pode ser a mesma localização do seu servidor primário.
 
        > [!NOTE]
        > As definições de login e firewall do servidor devem corresponder à do seu servidor primário.
@@ -348,7 +348,7 @@ Esta parte do tutorial utiliza os seguintes cmdlets PowerShell:
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Limpe os recursos eliminando o grupo de recursos.
 

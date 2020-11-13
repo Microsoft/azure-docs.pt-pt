@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 11/12/2020
 ms.author: cherylmc
-ms.openlocfilehash: 7853ac3ece01057282bc6cb421018020e15273b5
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 5bff5b341dcbdaa7ccae2b02e62e3e6bd4d115f9
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92079195"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94594271"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Trabalhar com acesso NSG e Azure Bastion
 
@@ -34,15 +34,16 @@ Esta secção mostra-lhe o tráfego de rede entre o utilizador e o Bastião Azur
 
 ### <a name="azurebastionsubnet"></a><a name="apply"></a>AzureBastionSubnet
 
-O Azure Bastion é implantado especificamente para ***a AzureBastionSubnet***.
+Azure Bastion é implantado especificamente para * **AzureBastionSubnet** _.
 
-* **Tráfego ingresso:**
+_ **Tráfego ingresso:**
 
    * **Tráfego ingresso da internet pública:** O Bastião Azure criará um IP público que necessita do porto 443 habilitado no IP público para o tráfego de entrada. A porta 3389/22 NÃO é obrigada a ser aberta na AzureBastionSubnet.
    * **Tráfego ingresso do avião de controlo Azure Bastion:** Para a conectividade do plano de controlo, ative a porta 443 de entrada a partir da etiqueta de serviço **GatewayManager.** Isto permite que o avião de controlo, isto é, o Gateway Manager possa falar com Azure Bastion.
+   * **Tráfego ingresso do Azure Loadbalancer:** Para as sondas de saúde, ative a porta 443 de entrada a partir da etiqueta de serviço **AzureLoadBalancer.** Isto permite que o balançador de carga azul, detete problemas de conectividade com o backend.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="NSG":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="A screenshot mostra regras de segurança de entrada para a conectividade Azure Bastion.":::
 
 * **Tráfego de Egress:**
 
@@ -50,7 +51,7 @@ O Azure Bastion é implantado especificamente para ***a AzureBastionSubnet***.
    * **Tráfego Egress para outros pontos finais públicos em Azure:** O Azure Bastion precisa de ser capaz de se ligar a vários pontos finais públicos dentro de Azure (por exemplo, para armazenar registos de diagnósticos e registos de medição). Por esta razão, a Azure Bastion precisa de uma saída para a marca de serviço 443 para **a AzureCloud.**
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="NSG":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="A screenshot mostra regras de segurança de saída para a conectividade Azure Bastion.":::
 
 ### <a name="target-vm-subnet"></a>Sub-rede VM alvo
 Esta é a sub-rede que contém a máquina virtual alvo a que pretende fazer RDP/SSH.

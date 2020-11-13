@@ -12,12 +12,12 @@ ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: 158a82b43e573e5d34ec9a44c4a47cd1126de8ed
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0ec70963dd7f464ae4e72c3bf79e06ebfb5238fc
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424588"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616183"
 ---
 # <a name="tutorial---build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Tutorial - Construa um ponto final SCIM e configuure o fornecimento de utilizadores com Azure AD
 
@@ -88,7 +88,8 @@ O esquema acima definido seria representado utilizando a carga útil JSON abaixo
      "location":
  "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
    }
- ```
+}   
+```
 
 ### <a name="table-2-default-user-attribute-mapping"></a>Quadro 2: Mapeamento de atributos de utilizador predefinido
 Em seguida, pode utilizar a tabela abaixo para entender como os atributos que a sua aplicação requer podem mapear para um atributo em AD AD e no SCIM RFC. Pode [personalizar](customize-application-attributes.md) como os atributos são mapeados entre a Azure AD e o seu ponto final SCIM. Note que não precisa de suportar tanto os utilizadores como os grupos ou todos os atributos apresentados abaixo. São uma referência para a forma como os atributos em AD Azure são frequentemente mapeados para propriedades no protocolo SCIM. 
@@ -126,7 +127,7 @@ Em seguida, pode utilizar a tabela abaixo para entender como os atributos que a 
 | objectId |externalId |
 | proxyAddresses |e-mails[tipo eq "outros"]. Valor |
 
-Existem vários pontos finais definidos no SCIM RFC. Pode começar com o ponto final /Utilizador e depois expandir a partir daí. O ponto final /Schemas é útil quando se utiliza atributos personalizados ou se o seu esquema muda frequentemente. Permite que um cliente recupere automaticamente o esquema mais atualizado. O ponto final /Granel é especialmente útil quando grupos de apoio. O quadro abaixo descreve os vários pontos finais definidos na norma SCIM. O ponto final /Schemas é útil quando se utiliza atributos personalizados ou se o seu esquema muda frequentemente. Permite que um cliente recupere automaticamente o esquema mais atualizado. O ponto final /Granel é especialmente útil quando grupos de apoio. O quadro abaixo descreve os vários pontos finais definidos na norma SCIM. 
+Existem vários pontos finais definidos no SCIM RFC. Pode começar com o ponto final /Utilizador e depois expandir a partir daí. O ponto final /Schemas é útil quando se utiliza atributos personalizados ou se o seu esquema muda frequentemente. Permite que um cliente recupere automaticamente o esquema mais atualizado. O ponto final /Granel é especialmente útil quando grupos de apoio. O quadro abaixo descreve os vários pontos finais definidos na norma SCIM.
  
 ### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>Quadro 4: Determinar os pontos finais que gostaria de desenvolver
 |PONTO FINAL|DESCRIÇÃO|
@@ -808,7 +809,7 @@ Para mais informações sobre HTTPS em ASP.NET Utilização do núcleo o seguint
 
 Os pedidos do Azure Ative Directory incluem um token portador de OAuth 2.0. Qualquer serviço que receba o pedido deve autenticar o emitente como sendo a Azure Ative Directory para o inquilino esperado do Azure Ative Directory.
 
-No token, o emitente é identificado por uma reivindicação do ISS, como `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` . Neste exemplo, o endereço base do valor da reclamação, `https://sts.windows.net` identifica o Azure Ative Directory como o emitente, enquanto o segmento de endereço relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_, é um identificador único do inquilino do Diretório Ativo Azure para o qual o token foi emitido.
+No token, o emitente é identificado por uma reivindicação do ISS, como `"iss":"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"` . Neste exemplo, o endereço base do valor da reclamação, `https://sts.windows.net` identifica o Azure Ative Directory como o emitente, enquanto o segmento de endereço relativo, _cbb1a5ac-f33b-45fa-9bf5-f37db0fed422_ , é um identificador único do inquilino do Diretório Ativo Azure para o qual o token foi emitido.
 
 O público para o token será o ID do modelo de candidatura para a aplicação na galeria, cada uma das aplicações registadas num único inquilino pode receber a mesma `iss` reclamação com pedidos de SCIM. O ID do modelo de aplicação para todas as aplicações personalizadas é _8adf8e6e-67b2-4cf2-a259-e3dc5476c621_. O símbolo gerado pelo serviço de fornecimento Azure AD só deve ser utilizado para testes. Não deve ser utilizado em ambientes de produção.
 
@@ -916,7 +917,7 @@ Envie um pedido GET ao controlador Token para obter um token ao portador válido
 
 ### <a name="handling-provisioning-and-deprovisioning-of-users"></a>Tratamento do fornecimento e desprovisionamento dos utilizadores
 
-***Exemplo 1. Consultar o serviço para um utilizador correspondente**_
+***Exemplo 1. Consultar o serviço para um utilizador correspondente** _
 
 O Azure Ative Directory consulta o serviço para um utilizador com um `externalId` valor de atributo correspondente ao valor de atributo mailSname de um utilizador em Azure AD. A consulta é expressa como um pedido de Hipertext Transfer Protocol (HTTP) como este exemplo, em que jyoung é uma amostra de um nome de correioNickname de um utilizador em Azure Ative Directory.
 
@@ -949,7 +950,7 @@ _ parâmetros. Filtros Alternativos.Contagem: 1
 * parâmetros. AlternateFiltros.ElementAt(0). ComparaçãoOperador: CompareOperador.Equals
 * parâmetros. AlternateFilter.ElementAt(0). ComparaçãoValue: "jyoung"
 
-***Exemplo 2. Provision a um utilizador**_
+***Exemplo 2. Provision a um utilizador** _
 
 Se a resposta a uma consulta ao serviço web para um utilizador com um `externalId` valor de atributo que corresponda ao valor de atributo mailSname de um utilizador não devolver nenhum utilizador, então o Azure Ative Directory solicita que a prestação de serviço seja um utilizador correspondente ao do Diretório Ativo Azure.  Aqui está um exemplo de tal pedido: 
 
@@ -1025,7 +1026,7 @@ No exemplo de um pedido de recuperação do estado atual de um utilizador, os va
 _ Identificador: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
-***Exemplo 4. Consulta o valor de um atributo de referência a atualizar**_ 
+***Exemplo 4. Consulta o valor de um atributo de referência a atualizar** _ 
 
 Se um atributo de referência for atualizado, então o Azure Ative Directory consulta o serviço para determinar se o valor atual do atributo de referência na loja de identidade frontalmente pelo serviço já corresponde ao valor desse atributo no Azure Ative Directory. Para os utilizadores, o único atributo do qual o valor atual é consultado desta forma é o atributo do gestor. Aqui está um exemplo de um pedido para determinar se o atributo do gestor de um objeto de utilizador tem atualmente um determinado valor: No código de amostra o pedido é traduzido numa chamada para o método QueryAsync do prestador do serviço. O valor das propriedades do objeto fornecido como o valor do argumento dos parâmetros são os seguintes: 
   
@@ -1041,7 +1042,7 @@ _ parâmetros. Filtros Alternativos.Contagem: 2
 
 Aqui, o valor do índice x pode ser 0 e o valor do índice y pode ser 1, ou o valor de x pode ser 1 e o valor de y pode ser 0, dependendo da ordem das expressões do parâmetro de consulta do filtro.   
 
-***Exemplo 5. Pedido da Azure AD a um serviço SCIM para atualizar um utilizador**_ 
+***Exemplo 5. Pedido da Azure AD a um serviço SCIM para atualizar um utilizador** _ 
 
 Aqui está um exemplo de um pedido do Azure Ative Directory a um serviço SCIM para atualizar um utilizador: 
 
@@ -1089,7 +1090,7 @@ _ ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * (PatchRequest como PatchRequest2). Operações.ElementAt(0). Valor.ElementAt(0). Referência: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
 * (PatchRequest como PatchRequest2). Operações.ElementAt(0). Valor.ElementAt(0). Valor: 2819c223-7f76-453a-919d-413861904646
 
-***Exemplo 6. Desprovisione um utilizador**_
+***Exemplo 6. Desprovisione um utilizador** _
 
 Para desprovisionar um utilizador de uma loja de identidade frontalizada por um serviço SCIM, a Azure AD envia um pedido como:
 
@@ -1147,8 +1148,8 @@ As aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligad
 7. No campo URL do **inquilino,** insira o URL do ponto final SCIM da aplicação. Exemplo: `https://api.contoso.com/scim/`
 8. Se o ponto final do SCIM necessitar de um token portador de OAuth de um emitente diferente do Azure AD, em seguida, copie o símbolo do portador de OAuth necessário no campo **token secreto** opcional. Se este campo ficar em branco, o Azure AD inclui um token portador de OAuth emitido a partir de Azure AD a cada pedido. As aplicações que usam o Azure AD como fornecedor de identidade podem validar este token emitido pela AZure AD. 
    > [!NOTE]
-   > Não*_é_* recomendado deixar este campo em branco e confiar num símbolo gerado pela Azure AD. Esta opção está disponível principalmente para efeitos de teste.
-9. Selecione _*Ligação de teste** para que o Azure Ative Directory tente ligar-se ao ponto final DO SCIM. Se a tentativa falhar, é apresentada informação de erro.  
+   > Não *_é_* recomendado deixar este campo em branco e confiar num símbolo gerado pela Azure AD. Esta opção está disponível principalmente para efeitos de teste.
+9. Selecione _ *Ligação de teste* * para que o Azure Ative Directory tente ligar-se ao ponto final DO SCIM. Se a tentativa falhar, é apresentada informação de erro.  
 
     > [!NOTE]
     > **A Ligação** de Teste consulta o ponto final DO SCIM para um utilizador que não existe, utilizando um GUID aleatório como a propriedade correspondente selecionada na configuração AD Azure. A resposta correta esperada é HTTP 200 OK com uma mensagem scim ListResponse vazia.
@@ -1159,7 +1160,7 @@ As aplicações que suportam o perfil SCIM descrito neste artigo podem ser ligad
     > [!NOTE]
     > Pode desativar opcionalmente a sincronização de objetos de grupo desativando o mapeamento de "grupos".
 
-12. Em **Definições**, o campo **Scope** define quais os utilizadores e grupos que estão sincronizados. Selecione **Sync apenas utilizadores e grupos atribuídos** (recomendado) apenas para sincronizar utilizadores e grupos atribuídos no **separador Utilizadores e grupos.**
+12. Em **Definições** , o campo **Scope** define quais os utilizadores e grupos que estão sincronizados. Selecione **Sync apenas utilizadores e grupos atribuídos** (recomendado) apenas para sincronizar utilizadores e grupos atribuídos no **separador Utilizadores e grupos.**
 13. Uma vez concluída a sua configuração, desa um conjunto do **Estado de Provisionamento** para **On**.
 14. **Selecione Guardar** para iniciar o serviço de fornecimento de Ad Azure.
 15. Se sincronizar apenas utilizadores e grupos designados (recomendado), certifique-se de selecionar o **separador Utilizadores e grupos** e atribuir os utilizadores ou grupos que pretende sincronizar.

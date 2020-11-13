@@ -5,19 +5,19 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/05/2020
-ms.openlocfilehash: 86d647a79b7babc2780cb0db904e689f3916673f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: 19c9ec39d85bfc56b118498aba62c3752d6d771c
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500390"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616931"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>Acesso aos recursos da Rede Virtual Azure a partir de Azure Logic Apps utilizando ambientes de serviços de integração (ISEs)
 
 Por vezes, as suas aplicações lógicas precisam de acesso a recursos seguros, como máquinas virtuais (VMs) e outros sistemas ou serviços, que estão dentro ou ligados a uma [rede virtual Azure.](../virtual-network/virtual-networks-overview.md) Para configurar este acesso, pode [criar um ambiente de serviço de *integração* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). Um ISE é uma instância do serviço Logic Apps que utiliza recursos dedicados e funciona separadamente do serviço "global" multi-inquilino Logic Apps.
 
-Por exemplo, alguma rede virtual Azure utiliza pontos finais privados, que pode configurar através do [Azure Private Link,](../private-link/private-link-overview.md)para fornecer acesso aos serviços Azure PaaS, tais como Azure Storage, Azure Cosmos DB, ou Azure SQL Database, serviços de parceiros ou serviços ao cliente que estão hospedados no Azure. Se as suas aplicações lógicas precisam de acesso a redes virtuais que usam pontos finais privados, tem de criar, implementar e executar essas aplicações lógicas dentro de um ISE.
+Por exemplo, algumas redes virtuais Azure utilizam pontos finais privados, que pode configurar através do [Azure Private Link,](../private-link/private-link-overview.md)para fornecer acesso aos serviços Azure PaaS, tais como Azure Storage, Azure Cosmos DB, ou Azure SQL Database, serviços de parceiros ou serviços ao cliente que estão hospedados no Azure. Se as suas aplicações lógicas precisam de acesso a redes virtuais que usam pontos finais privados, tem de criar, implementar e executar essas aplicações lógicas dentro de um ISE.
 
 Quando cria um ISE, o Azure *injeta* ou implementa esse ISE na sua rede virtual Azure. Em seguida, pode utilizar este ISE como localização para as aplicações lógicas e contas de integração que precisam de acesso.
 
@@ -65,9 +65,9 @@ Quando cria e executa aplicações lógicas num ISE, obtém as mesmas experiênc
 
   Com raras exceções, se um conector ISE estiver disponível para um sistema no local ou fonte de dados, pode ligar-se diretamente sem utilizar o [gateway de dados no local.](../logic-apps/logic-apps-gateway-connection.md) Para mais informações, consulte [o Acesso aos sistemas no local](#on-premises) mais tarde neste tópico.
 
-* Os conectores geridos que não exibem a etiqueta **ISE** continuam a funcionar para aplicações lógicas dentro de um ISE. Estes conectores *funcionam sempre no serviço multi-inquilinos Logic Apps*, não no ISE.
+* Os conectores geridos que não exibem a etiqueta **ISE** continuam a funcionar para aplicações lógicas dentro de um ISE. Estes conectores *funcionam sempre no serviço multi-inquilinos Logic Apps* , não no ISE.
 
-* Os conectores personalizados que cria *fora de um ISE*– quer necessitem ou não do [portal de dados no local](../logic-apps/logic-apps-gateway-connection.md), continuam a trabalhar para aplicações lógicas dentro de um ISE. No entanto, os conectores personalizados que cria *dentro de um ISE* não funcionarão com o portal de dados no local. Para obter mais informações, consulte [o Acesso aos sistemas de acesso ao local.](#on-premises)
+* Os conectores personalizados que cria *fora de um ISE* – quer necessitem ou não do [portal de dados no local](../logic-apps/logic-apps-gateway-connection.md), continuam a trabalhar para aplicações lógicas dentro de um ISE. No entanto, os conectores personalizados que cria *dentro de um ISE* não funcionarão com o portal de dados no local. Para obter mais informações, consulte [o Acesso aos sistemas de acesso ao local.](#on-premises)
 
 <a name="on-premises"></a>
 
@@ -79,15 +79,15 @@ As aplicações lógicas que funcionam dentro de um ISE podem aceder diretamente
 
 * O conector **ISE,** se disponível, para um sistema no local ou fonte de dados
 
-  Se um conector ISE estiver disponível, pode aceder diretamente ao sistema ou fonte de dados sem o [gateway de dados no local.](../logic-apps/logic-apps-gateway-connection.md) No entanto, se necessitar de aceder ao SQL Server a partir de um ISE e utilizar a autenticação do Windows, deve utilizar a versão não ISE do conector e o portal de dados no local. A versão ISE do conector não suporta a autenticação do Windows. Para obter mais informações, consulte [os conectores ISE](../connectors/apis-list.md#ise-connectors) e [Ligue-se a partir de um ambiente de serviço de integração.](../connectors/apis-list.md#integration-service-environment)
+  Se estiver disponível um conector ISE, pode aceder diretamente ao sistema ou fonte de dados sem o [gateway de dados no local.](../logic-apps/logic-apps-gateway-connection.md) No entanto, se necessitar de aceder ao SQL Server a partir de um ISE e utilizar a autenticação do Windows, deve utilizar a versão não ISE do conector e o portal de dados no local. A versão ISE do conector não suporta a autenticação do Windows. Para obter mais informações, consulte [os conectores ISE](../connectors/apis-list.md#ise-connectors) e [Ligue-se a partir de um ambiente de serviço de integração.](../connectors/apis-list.md#integration-service-environment)
 
 * Um conector personalizado
 
-  * Os conectores personalizados que cria *fora de um ISE*– quer necessitem ou não do [portal de dados no local](../logic-apps/logic-apps-gateway-connection.md), continuam a trabalhar para aplicações lógicas dentro de um ISE.
+  * Os conectores personalizados que cria *fora de um ISE* – quer necessitem ou não do [portal de dados no local](../logic-apps/logic-apps-gateway-connection.md), continuam a trabalhar para aplicações lógicas dentro de um ISE.
 
   * Os conectores personalizados que cria *dentro de um ISE* não funcionam com o portal de dados no local. No entanto, estes conectores podem aceder diretamente aos sistemas e fontes de dados no local que se encontrem dentro ou ligados à rede virtual que acolhe o seu ISE. Assim, as aplicações lógicas que estão dentro de um ISE geralmente não precisam da porta de dados ao aceder a esses recursos.
 
-Para aceder a sistemas e fontes de dados no local que não possuam conectores ISE, estão fora da sua rede virtual ou não estão ligados à sua rede virtual, ainda tem de utilizar o portal de dados no local. As aplicações lógicas dentro de um ISE podem continuar a usar conectores que não têm a etiqueta **CORE** ou **ISE.** Esses conectores funcionam apenas no serviço multi-inquilinos Logic Apps, em vez de no seu ISE. 
+Para aceder a sistemas e fontes de dados no local que não possuam conectores ISE, estão fora da sua rede virtual ou não estão ligados à sua rede virtual, ainda tem de utilizar o portal de dados no local. As aplicações lógicas dentro de um ISE podem continuar a usar conectores que não têm a etiqueta **CORE** ou **ISE.** Esses conectores funcionam no serviço multi-inquilinos Logic Apps, em vez de no seu ISE. 
 
 <a name="ise-level"></a>
 
@@ -117,18 +117,26 @@ Ao criar o ise, pode optar por utilizar os pontos finais de acesso interno ou ex
 > [!IMPORTANT]
 > Pode selecionar o ponto final de acesso apenas durante a criação do ISE e não pode alterar esta opção mais tarde.
 
-* **Interna**: Os pontos finais privados permitem chamadas para aplicações lógicas no seu ISE onde pode ver e aceder a entradas e saídas a partir de aplicações lógicas executa o histórico *apenas a partir de dentro da sua rede virtual.*
+* **Interna** : Os pontos finais privados permitem chamadas para aplicações lógicas no seu ISE onde pode ver e aceder a entradas e saídas a partir de aplicações lógicas executa o histórico *apenas a partir de dentro da sua rede virtual.*
 
   > [!IMPORTANT]
-  > Certifique-se de que tem conectividade de rede entre os pontos finais privados e o computador de onde pretende aceder ao histórico de execução. Caso contrário, quando tenta ver o histórico de execução da sua aplicação lógica, obtém-se um erro que diz "Erro inesperado. Falhou em conseguir".
+  > Se precisar de utilizar estes gatilhos baseados em webhook, utilize pontos finais externos, *não* pontos finais internos, quando criar o seu ISE:
+  > 
+  > * Azure DevOps
+  > * Azure Event Grid
+  > * Common Data Service
+  > * Office 365
+  > * SAP (versão ISE)
+  > 
+  > Além disso, certifique-se de que tem conectividade de rede entre os pontos finais privados e o computador de onde pretende aceder ao histórico de execução. Caso contrário, quando tenta ver o histórico de execução da sua aplicação lógica, obtém-se um erro que diz "Erro inesperado. Falhou em conseguir".
   >
   > ![Erro de ação do Azure Storage resultante da incapacidade de enviar tráfego através de firewall](./media/connect-virtual-network-vnet-isolated-environment-overview/integration-service-environment-error.png)
   >
   > Por exemplo, o seu computador cliente pode existir dentro da rede virtual do ISE ou dentro de uma rede virtual que está ligada à rede virtual do ISE através de um esprevamento ou de uma rede privada virtual. 
 
-* **Externo**: Os pontos finais públicos permitem chamadas para aplicações lógicas no seu ISE onde pode ver e aceder a entradas e saídas a partir de aplicações lógicas executa o histórico *de fora da sua rede virtual.* Se utilizar grupos de segurança de rede (NSGs), certifique-se de que estão configurados com regras de entrada para permitir o acesso às entradas e saídas do histórico de execução. Para obter mais informações, consulte [Ativar o acesso ao ISE.](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)
+* **Externo** : Os pontos finais públicos permitem chamadas para aplicações lógicas no seu ISE onde pode ver e aceder a entradas e saídas a partir de aplicações lógicas executa o histórico *de fora da sua rede virtual.* Se utilizar grupos de segurança de rede (NSGs), certifique-se de que estão configurados com regras de entrada para permitir o acesso às entradas e saídas do histórico de execução. Para obter mais informações, consulte [Ativar o acesso ao ISE.](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access)
 
-Para determinar se o seu ISE utiliza um ponto final de acesso interno ou externo, no menu do ise, em **Definições**, selecione **Propriedades,** e encontre a propriedade **do ponto final access:**
+Para determinar se o seu ISE utiliza um ponto final de acesso interno ou externo, no menu do ise, em **Definições** , selecione **Propriedades,** e encontre a propriedade **do ponto final access:**
 
 ![Localizar o ponto final de acesso do ISE](./media/connect-virtual-network-vnet-isolated-environment-overview/find-ise-access-endpoint.png)
 

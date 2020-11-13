@@ -8,14 +8,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/28/2020
+ms.date: 11/13/2020
 ms.custom: designer
-ms.openlocfilehash: 31b742144bfb20af14cf6f5e95f5dfc951845ee2
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5a5d166e36b2870ceb081c1c6d2635e01ab43a4d
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555520"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592554"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementar um modelo de machine learning com o designer
 
@@ -112,6 +112,8 @@ Após o fim da implementação, pode ver o seu ponto de chegada em tempo real in
 1. No separador **Detalhes,** pode ver mais informações como o REST URI, status e tags.
 
 1. No separador **Consumir,** pode encontrar chaves de segurança e definir métodos de autenticação.
+
+1. No separador **Registos de Implementação,** pode encontrar os registos de implementação detalhados do seu ponto final em tempo real. 
 
 Para obter mais informações sobre o consumo do seu serviço web, consulte [Consumir um modelo implementado como um webservice](how-to-consume-web-service.md)
 

@@ -3,18 +3,30 @@ title: Azure Event Grid - Validação de subscrição de resolução de problema
 description: Este artigo mostra-lhe como pode resolver validações de subscrição.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 48844859013507ab684ef8879b7b85dd6b6fe8cd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857760182675d5673a3b09495c2faaf7372a4164
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86118992"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592945"
 ---
 # <a name="troubleshoot-azure-event-grid-subscription-validations"></a>Validações de subscrição de Azure Event Grid de resolução de problemas
-Este artigo fornece-lhe informações sobre validações de subscrição de eventos de resolução de problemas. 
+Durante a criação de subscrição de eventos, se estiver a ver uma mensagem de erro `The attempt to validate the provided endpoint https://your-endpoint-here failed. For more details, visit https://aka.ms/esvalidation` como, indica que há uma falha no aperto de mão de validação. Para resolver este erro, verifique os seguintes aspetos:
+
+- Faça um HTTP POST no seu url webhook com uma [amostra SubscriçãoSevent](webhook-event-delivery.md#validation-details) request body usando Carteiro ou curl ou ferramenta semelhante.
+- Se o seu webhook estiver a implementar um mecanismo de aperto de mão de validação sincronizado, verifique se o Código de Validação é devolvido como parte da resposta.
+- Se o seu webhook estiver a implementar um mecanismo de aperto de mão de validação assíncrona, verifique se é o HTTP POST que está a devolver 200 OK.
+- Se o seu webhook estiver a voltar `403 (Forbidden)` na resposta, verifique se o seu webhook está por detrás de um Gateway de Aplicação Azure ou firewall de aplicação web. Se for, então precisa de desativar estas regras de firewall e fazer um HTTP POST novamente:
+    - 920300 (Pedido de falta de um cabeçalho de aceitação)
+    - 942430 (Deteção restrita de anomalias de caracteres SQL (args): # de caracteres especiais excedidos (12))
+    - 920230 (Codificação de URL múltipla detetada)
+    - 942130 (ataque de injeção SQL: tautologia SQL detetada.)
+    - 931130 (Possível inclusão de ficheiros remotos (RFI) ataque = referência/ligação off-domain)
 
 > [!IMPORTANT]
 > Para obter informações detalhadas sobre a validação do ponto final para webhooks, consulte [a entrega do evento Webhook](webhook-event-delivery.md).
+
+As secções seguintes mostram-lhe como validar uma subscrição de eventos usando o Carteiro e o Curl.  
 
 ## <a name="validate-event-grid-event-subscription-using-postman"></a>Validar a subscrição do evento da Grade de Eventos usando o Carteiro
 Aqui está um exemplo de usar o Carteiro para validar uma subscrição webhook de um evento de Grade de Eventos: 
@@ -65,14 +77,7 @@ Aqui está um exemplo de usar o Carteiro para validar uma subscrição webhook d
 
 Utilize o método **HTTP OPTIONS** para validação com eventos na nuvem. Para saber mais sobre a validação de eventos em nuvem para webhooks, consulte [a validação de Endpoint com eventos na nuvem.](webhook-event-delivery.md#endpoint-validation-with-event-grid-events)
 
-## <a name="error-code-403"></a>Código de erro: 403
-Se o seu webhook estiver a devolver o 403 (Proibido) na resposta, verifique se o seu webhook está por detrás de um Gateway de Aplicações Azure ou firewall de aplicação web. Se for, tem de desativar as seguintes regras de firewall e fazer um HTTP POST novamente:
-
-  - 920300 (Solicito falta de um cabeçalho de aceitação, podemos corrigir isto)
-  - 942430 (Deteção restrita de anomalias de caracteres SQL (args): # de caracteres especiais excedidos (12))
-  - 920230 (Encoding multiple URL Detetado)
-  - 942130 (SqL Injection Attack: SQL Tautology Detected.)
-  - 931130 (Possível Inclusão de Ficheiros Remotos (RFI) Ataque = Off-Domain Referência/Ligação)
+## <a name="troubleshoot-event-subscription-validation"></a>Validação de subscrição de eventos de resolução de problemas
 
 ## <a name="next-steps"></a>Passos seguintes
 Se precisar de mais ajuda, publique o seu problema no [fórum Stack Overflow](https://stackoverflow.com/questions/tagged/azure-eventgrid) ou abra um bilhete de [apoio.](https://azure.microsoft.com/support/options/) 

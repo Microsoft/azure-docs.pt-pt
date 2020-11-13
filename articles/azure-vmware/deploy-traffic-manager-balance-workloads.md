@@ -3,12 +3,12 @@ title: Implementar gestor de tráfego para equilibrar cargas de trabalho da Azur
 description: Saiba como integrar o Traffic Manager com a Azure VMware Solution (AVS) para equilibrar as cargas de trabalho das aplicações em vários pontos finais em diferentes regiões.
 ms.topic: how-to
 ms.date: 08/14/2020
-ms.openlocfilehash: d461cc444c60e1907a34a08c68139446301c133c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 076d9c77d68df3d8acb7b531b3dfbea40fb3cedd
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91580147"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593141"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-avs-workloads"></a>Implementar gestor de tráfego para equilibrar cargas de trabalho da Azure VMware Solution (AVS)
 
@@ -30,7 +30,7 @@ Como mostrado no seguinte número, o Azure Traffic Manager fornece um equilíbri
 
 A ligação sobre a rede virtual entre as duas regiões de nuvem privada AVS, Eua Ocidental e Europa Ocidental, e um servidor no local no Leste dos EUA, usa um gateway ExpressRoute.   
 
-![Integração do Gestor de Tráfego com AVS](media/traffic-manager/traffic-manager-topology.png)
+![Diagrama da arquitetura da integração do Gestor de Tráfego com Azure VMware Solution](media/traffic-manager/traffic-manager-topology.png)
  
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -55,15 +55,15 @@ Os seguintes passos verificam a configuração correta dos seus gateways de apli
     - AVS-GW-EUS (nas instalações)
     - AVS-GW-WEU
 
-    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Lista de entradas de aplicação." lightbox="media/traffic-manager/app-gateways-list-1.png":::
+    :::image type="content" source="media/traffic-manager/app-gateways-list-1.png" alt-text="Screenshot da página de gateway de aplicação mostrando lista de gateways de aplicações configurados." lightbox="media/traffic-manager/app-gateways-list-1.png":::
 
 2. Selecione um dos seus gateways de aplicação previamente implantados. Abre-se uma janela mostrando várias informações no gateway de aplicação. Selecione **piscinas backend** para verificar a configuração de uma das piscinas de backend.
 
-   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Lista de entradas de aplicação." lightbox="media/traffic-manager/backend-pool-config.png":::
+   :::image type="content" source="media/traffic-manager/backend-pool-config.png" alt-text="Screenshot da página de gateway da aplicação mostrando detalhes do gateway de aplicações selecionado." lightbox="media/traffic-manager/backend-pool-config.png":::
  
 3. Neste caso, vemos um membro do pool de backend de máquina virtual configurado como um servidor web com um endereço IP de 172.29.1.10.
  
-    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Lista de entradas de aplicação.":::
+    :::image type="content" source="media/traffic-manager/backend-pool-ip-address.png" alt-text="Screenshot da página de pool backend Edit com endereço IP alvo realçado.":::
 
     Pode verificar da mesma forma a configuração dos outros gateways de aplicação e membros do pool backend. 
 
@@ -75,15 +75,15 @@ No nosso cenário, um segmento NSX-T está configurado no ambiente AVS onde a m�
 
 1. Selecione **Segmentos** para ver os seus segmentos configurados. Neste caso, vemos que o Contoso-segment1 está ligado ao gateway Contoso-T01, um router flexível Tier-1.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Lista de entradas de aplicação.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-segment-avs.png" alt-text="Screenshot mostrando perfis de segmento no NSX-T Manager.":::    
 
 2. Selecione **Gateways Tier-1** para ver uma lista dos seus gateways Tier-1 com o número de segmentos ligados. Selecione o segmento ligado ao Contoso-T01. Abre-se uma janela mostrando a interface lógica configurada no router Tier-01. Isto serve como porta de entrada para a máquina virtual do membro da piscina de backend ligada ao segmento.
 
-   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Lista de entradas de aplicação.":::    
+   :::image type="content" source="media/traffic-manager/nsx-t-segment-linked-2.png" alt-text="Screenshot mostrando o endereço de gateway do segmento selecionado.":::    
 
 3. No cliente VM vSphere, selecione a máquina virtual para ver os seus detalhes. Note que o seu endereço IP corresponde ao que vimos no passo 3 da secção anterior: 172.29.1.10.
 
-    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Lista de entradas de aplicação.":::    
+    :::image type="content" source="media/traffic-manager/nsx-t-vm-details.png" alt-text="Screenshot mostrando detalhes VM no VSphere Client.":::    
 
 4. Selecione a máquina virtual e, em seguida, clique em **AÇÕES > Editar Definições** para verificar a ligação ao segmento NSX-T.
 
@@ -99,29 +99,23 @@ No nosso cenário, um segmento NSX-T está configurado no ambiente AVS onde a m�
 
 1. Selecione o perfil de Gestor de Tráfego no painel de resultados de pesquisa, selecione **Pontos de Final** e, em seguida, **+ Adicionar**.
 
-2. Introduza os detalhes necessários: Tipo, Nome, Nome de domínio totalmente qualificado (FQDN) ou IP, e Peso (neste cenário, estamos atribuindo um peso de 1 a cada ponto final). Selecione **Adicionar**.
-
-   :::image type="content" source="media/traffic-manager/traffic-manager-profile.png" alt-text="Lista de entradas de aplicação.":::  
- 
-   Isto cria o ponto final externo. O estado do monitor deve estar **online**. 
-
-   Repita os mesmos passos para criar mais dois pontos finais externos, um numa região diferente e outro no local. Uma vez criados, os três serão exibidos no perfil de Gestor de Tráfego, e o estado dos três deve estar **Online**.
+2. Introduza os detalhes necessários: Tipo, Nome, Nome de domínio totalmente qualificado (FQDN) ou IP, e Peso (neste cenário, estamos atribuindo um peso de 1 a cada ponto final). Selecione **Adicionar**. Isto cria o ponto final externo. O estado do monitor deve estar **online**. Repita os mesmos passos para criar mais dois pontos finais externos, um numa região diferente e outro no local. Uma vez criados, os três serão exibidos no perfil de Gestor de Tráfego, e o estado dos três deve estar **Online**.
 
 3. Selecione **Descrição geral**. Copie o URL em **nome DNS**.
 
-   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Lista de entradas de aplicação."::: 
+   :::image type="content" source="media/traffic-manager/traffic-manager-endpoints.png" alt-text="Screenshot mostrando uma visão geral do ponto final do Traffic Manager com o nome DNS em destaque."::: 
 
 4. Cole o URL de nome DNS num browser. A imagem que se segue mostra o tráfego direcionado para a região da Europa Ocidental.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Lista de entradas de aplicação."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-europe.png" alt-text="Screenshot da janela do navegador mostrando tráfego encaminhado para a Europa Ocidental."::: 
 
 5. Atualize o seu browser. A imagem que se segue mostra o tráfego agora direcionado para outro conjunto de membros da piscina na região oeste dos EUA.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Lista de entradas de aplicação."::: 
+   :::image type="content" source="media/traffic-manager/traffic-to-west-us.png" alt-text="Screenshot da janela do navegador mostrando tráfego encaminhado para os EUA Ocidentais."::: 
 
 6. Refresque o seu navegador novamente. A imagem que se segue mostra o tráfego agora direcionado para o conjunto final de membros da piscina backend no local.
 
-   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Lista de entradas de aplicação.":::
+   :::image type="content" source="media/traffic-manager/traffic-to-on-premises.png" alt-text="Screenshot da janela do navegador mostrando tráfego encaminhado para o local.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

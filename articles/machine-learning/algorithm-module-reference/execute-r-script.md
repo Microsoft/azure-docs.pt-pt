@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: 3e94172096daf5fd06549f8645d05b874948a917
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 1e71d3883b8dacefa9b501ee3a9a0533d5c7d515
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420823"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94592673"
 ---
 # <a name="execute-r-script-module"></a>Executar módulo de script R
 
@@ -121,10 +121,10 @@ Depois de terminado o curso do gasoduto, pode visualizar a imagem no painel dire
 
 ## <a name="access-to-registered-dataset"></a>Acesso ao conjunto de dados registado
 
-Pode consultar o seguinte código de amostra para [aceder aos conjuntos de dados registados](../how-to-create-register-datasets.md) no seu espaço de trabalho:
+Pode consultar o seguinte código de amostra para aceder aos [conjuntos de dados registados](../how-to-create-register-datasets.md) no seu espaço de trabalho:
 
 ```R
-        azureml_main <- function(dataframe1, dataframe2){
+    azureml_main <- function(dataframe1, dataframe2){
   print("R script run.")
   run = get_current_run()
   ws = run$experiment$workspace
@@ -235,9 +235,9 @@ Existem muitas maneiras de estender o seu pipeline usando scripts R personalizad
 
 ### <a name="add-an-r-script-as-an-input"></a>Adicione um script R como entrada
 
-O módulo Execut R Script suporta ficheiros de script r arbitrários como entradas. Para usá-las, deve enviá-las para o seu espaço de trabalho como parte do ficheiro .zip.
+O módulo Execut R Script suporta ficheiros de script r arbitrários como entradas. Para usá-las, tem de enviá-las para o seu espaço de trabalho como parte do ficheiro .zip.
 
-1. Para carregar um ficheiro .zip que contenha código R para o seu espaço de trabalho, aceda à página de ativos **datasets.** Selecione **Criar conjunto de dados** e, em seguida, selecione **A partir do ficheiro local** e da opção do tipo de conjunto de dados **de ficheiro.**  
+1. Para fazer o upload de um ficheiro .zip que contenha código R para o seu espaço de trabalho, aceda à página de ativos **datasets.** Selecione **Criar conjunto de dados** e, em seguida, selecione **A partir do ficheiro local** e da opção do tipo de conjunto de dados **de ficheiro.**  
 
 1. Verifique se o ficheiro com fecho aparece nos **meus conjuntos de dados** na categoria **Datasets** na árvore do módulo esquerdo.
 
@@ -285,7 +285,7 @@ azureml_main <- function(dataframe1, dataframe2){
 }
  ```
 
-### <a name="read-a-zip-file-as-input"></a>Leia um ficheiro .zip como entrada
+### <a name="read-a-zip-file-as-input"></a>Leia um ficheiro de .zip como entrada
 
 Esta amostra mostra como utilizar um conjunto de dados num ficheiro .zip como entrada para o módulo executo R Script.
 

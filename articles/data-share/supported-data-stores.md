@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 10/30/2020
-ms.openlocfilehash: 47c484268573334057e6b4dd14bbae849f9ce774
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 11/12/2020
+ms.openlocfilehash: 6289395b5d508de8da3e5c8c89caebb4b0e9b817
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94577226"
+ms.locfileid: "94592435"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados suportados no Azure Data Share
 
@@ -55,7 +55,7 @@ O Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheir
 Consulte a [Partilha e receba dados do Azure Blob Storage e do Azure Data Lake Storage](how-to-share-from-storage.md) para mais detalhes.
 
 ## <a name="share-from-a-sql-based-source"></a>Partilhar a partir de uma fonte baseada em SQL
-A Azure Data Share suporta a partilha de tabelas ou vistas da Azure SQL Database e da Azure Synapse Analytics (anteriormente Azure SQL DW), e a partilha de tabelas da piscina SQL SQL da Azure Synapse Analytics (espaço de trabalho). Os consumidores de dados podem optar por aceitar os dados em Azure Data Lake Storage Gen2 ou Azure Blob Storage como ficheiro csv ou parquet, bem como na Base de Dados Azure SQL e Azure Synapse Analytics como tabelas.
+A Azure Data Share suporta a partilha de tabelas e vistas da Azure SQL Database e da Azure Synapse Analytics (anteriormente Azure SQL DW), e a partilha de tabelas da Azure Synapse Analytics (workspace) dedicada à piscina SQL. A partilha da piscina SQL sem servidor Azure Synapse Analytics (espaço de trabalho) não é suportada atualmente. Os consumidores de dados podem optar por aceitar os dados em Azure Data Lake Storage Gen2 ou Azure Blob Storage como ficheiro csv ou parquet, bem como na Base de Dados Azure SQL e Azure Synapse Analytics como tabelas.
 
 Ao aceitar dados no Azure Data Lake Store Gen2 ou no Azure Blob Storage, as imagens completas substituem o conteúdo do ficheiro-alvo se já existirem.
 Quando os dados são recebidos em tabela e se a tabela-alvo já não existir, a Azure Data Share cria a tabela SQL com o esquema de origem. Se já existir uma tabela-alvo com o mesmo nome, será largada e substituída com o último instantâneo completo. As imagens incrementais não são suportadas atualmente.

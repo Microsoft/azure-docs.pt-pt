@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: a62133737d48a8ebf454b5fab83ef52ef2daad09
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a9dba9222816ef2cc7891ff7f803e6a7409802a4
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098438"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94593455"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-image-search-api"></a>Tutorial: Criar uma aplicação de página única com a API de Pesquisa de Imagens do Bing
 
@@ -122,7 +122,7 @@ Por predefinição, o processador `onsubmit` devolve `false`, que impede o formu
 
 ![[Formulário de Pesquisa de Imagens do Bing]](media/cognitive-services-bing-images-api/image-search-spa-form.png)
 
-A API de Pesquisa de Imagens do Bing oferece vários [parâmetros de consulta de filtro](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) para restringir e filtrar os resultados da pesquisa. O formulário HTML nesta aplicação utiliza e apresenta as seguintes opções de parâmetros:
+A API de Pesquisa de Imagens do Bing oferece vários [parâmetros de consulta de filtro](/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#filter-query-parameters) para restringir e filtrar os resultados da pesquisa. O formulário HTML nesta aplicação utiliza e apresenta as seguintes opções de parâmetros:
 
 | Opção | Descrição |
 |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -322,7 +322,7 @@ function renderImageResults(items) {
 
 A API de Pesquisa de Imagens do Bing pode devolver quatro tipos de sugestões de pesquisa para ajudar a orientar as experiências de pesquisa dos utilizadores, cada um no seu próprio objeto de nível superior:
 
-| Sugestão         | Description                                                                                                                                                                                                         |
+| Sugestão         | Descrição                                                                                                                                                                                                         |
 |--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `pivotSuggestions` | Consultas que substituem uma palavra “pivô” na pesquisa original por outra diferente. Por exemplo, se procurar "flores vermelhas", uma palavra pivô poderá ser "vermelhas" e uma sugestão pivô "flores amarelas". |
 | `queryExpansions`  | Consultas que reduzem a consulta original mediante a adição de mais termos. Por exemplo, se procurar "Microsoft Surface", uma expansão da consulta poderá ser "Microsoft Surface Pro".                                   |

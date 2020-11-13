@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: pafarley
-ms.openlocfilehash: f7259fe486a473f994d7795de5926b86717bb1b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ccf742e5ff612816cae1056ef7bf0e64fc9dbb5b
+ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85391711"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94616472"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de lançamento do serviço de visão personalizada
 
@@ -41,7 +41,7 @@ ms.locfileid: "85391711"
 
 - O Serviço de Visão Personalizada inseriu disponibilidade geral no Azure!
 - Adição de Formação Avançada com um novo backend de aprendizagem automática para um melhor desempenho, especialmente em conjuntos de dados desafiantes e classificação de grãos finos. Com treino avançado, você pode especificar um orçamento de tempo de computação para a formação e a Visão Personalizada irá identificar experimentalmente as melhores configurações de treino e aumento. Para iterações rápidas, pode continuar a utilizar o treino rápido existente.
-- Introduziu 3.0 APIs. Anunciada a depreciação das APIs pré-3.0 no dia 1 de outubro de 2019. Consulte os quickstarts da documentação para [.Net,](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/csharp-tutorial) [Python,](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/python-tutorial) [Node,](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/node-tutorial) [Java](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/java-tutorial)ou [Go](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/go-tutorial) por exemplos sobre como começar.
+- Introduziu 3.0 APIs. Anunciada a depreciação das APIs pré-3.0 no dia 1 de outubro de 2019. Consulte os quickstarts da documentação para [.Net,](./quickstarts/image-classification.md) [Python,](./quickstarts/image-classification.md) [Node,](./quickstarts/image-classification.md) [Java](./quickstarts/image-classification.md)ou [Go](./quickstarts/image-classification.md) por exemplos sobre como começar.
 - Substituiu as "Iterações Predefinidos" por Publicar/Não publicar nas APIs 3.0.
 - Foram adicionados novos objetivos de exportação de modelos. A exportação de dockerfile foi atualizada para apoiar a ARM para Raspberry Pi 3. O apoio à exportação foi adicionado ao [Kit Vision AI Dev.](https://visionaidevkit.com/). .
 - Limite aumentado de Tags por projeto para 500 para nível S0. Limite aumentado de Imagens por projeto para 100.000 para nível S0.

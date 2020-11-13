@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/28/2020
+ms.date: 11/12/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 8f73f2a86e97dad1d6a0b0f05c54f3f896b4b49d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: b670ec3cee2ebd1cc98ea2e04fb2b0dfd90e4e1a
+ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579220"
+ms.locfileid: "94594220"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
@@ -52,8 +52,8 @@ A tabela seguinte mostra como cada recurso de armazenamento Blob é suportado co
 |Domínios personalizados|Ainda não suportado|Ainda não suportado|[Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md)|
 |Âmbitos de encriptação|Ainda não suportado|Ainda não suportado|[Criar e gerir os âmbitos de encriptação (pré-visualização)](encryption-scope-manage.md)|
 |Feed de alterações|Ainda não suportado|Ainda não suportado|[Alterar suporte de alimentação no armazenamento Azure Blob](storage-blob-change-feed.md)|
-|Replicação de objetos|Ainda não suportado|Ainda não suportado|[Configure a replicação do objeto para as bolhas de bloco (pré-visualização)](object-replication-configure.md)|
-|Versão blob|Ainda não suportado|Ainda não suportado|[Ativar e gerir a versão blob (pré-visualização)](versioning-enable.md)|
+|Replicação de objetos|Ainda não suportado|Ainda não suportado|[Configurar a replicação do objeto para bolhas de bloco](object-replication-configure.md)|
+|Versão blob|Ainda não suportado|Ainda não suportado|[Ativar e gerir a versão blob](versioning-enable.md)|
 
 <div id="blob-container-ACL"><sup>1</sup> Pode colocar ACLs na pasta raiz do recipiente, mas não no próprio recipiente.</div><br>
 
