@@ -3,14 +3,14 @@ title: Faça o back up ações de ficheiros Azure com a Azure CLI
 description: Saiba como usar o Azure CLI para apoiar as ações de ficheiros da Azure no cofre dos Serviços de Recuperação
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 12d258a3242530745cc8ce31afae18f622323488
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 34eea8daa6a0a8920c842178664055838b06a78a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293293"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565896"
 ---
-# <a name="back-up-azure-file-shares-with-cli"></a>Faça o back up ações de ficheiros Azure com o CLI
+# <a name="back-up-azure-file-shares-with-azure-cli"></a>Faça o back up ações de ficheiros Azure com a Azure CLI
 
 A interface de linha de comando Azure (CLI) proporciona uma experiência de linha de comando para a gestão dos recursos Azure. É uma ótima ferramenta para construir automatização personalizada para usar recursos Azure. Este artigo detalha como fazer o back up Azure file shares with Azure CLI. Também pode realizar estes passos com o [Azure PowerShell](./backup-azure-afs-automation.md) ou no [portal do Azure](backup-afs.md).
 
@@ -20,9 +20,9 @@ No final deste tutorial, você aprenderá a realizar as operações abaixo com A
 * Ativar backup para ações de ficheiros Azure
 * Desencadear uma cópia de segurança a pedido para ações de ficheiros
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Para instalar e utilizar a CLI localmente, tem de executar a CLI do Azure versão 2.0.18 ou posterior. Para encontrar a versão CLI, `run az --version` . Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+ - Este tutorial requer a versão 2.0.18 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 

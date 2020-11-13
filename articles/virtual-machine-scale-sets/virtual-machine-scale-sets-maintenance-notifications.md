@@ -6,22 +6,22 @@ ms.author: mimckitt
 ms.topic: conceptual
 ms.service: virtual-machine-scale-sets
 ms.subservice: management
-ms.date: 08/20/2019
+ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 767b5a6be9c9aaff1bfe82ebc46b3b9179e271e4
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2aa589d237a8cfeb8e0dc947896dba82e755631c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736986"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564774"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Planned maintenance notifications for virtual machine scale sets (Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais)
 
 
 O Azure executa periodicamente atualizações para melhorar a fiabilidade, desempenho e segurança da infraestrutura hospedeira para máquinas virtuais (VMs). As atualizações podem incluir a correção do ambiente de hospedagem ou a atualização e desmantelamento de hardware. A maioria das atualizações não afeta os VMs hospedados. No entanto, as atualizações afetam os VM nestes cenários:
 
-- Se a manutenção não necessitar de um reboot, o Azure utiliza migração no local para interromper o VM enquanto o hospedeiro é atualizado. As operações de manutenção que não necessitam de um reboot são aplicadas por domínio de avaria. Os progressos são interrompidos se forem recebidos sinais de saúde de aviso.
+- Se a manutenção não necessitar de um reboot, o Azure faz uma pausa no VM durante alguns segundos enquanto o hospedeiro é atualizado. Estes tipos de operações de manutenção são aplicados domínio de avaria por domínio de avaria. Os progressos são interrompidos se forem recebidos sinais de saúde de aviso.
 
 - Se a manutenção necessitar de um reboot, recebe um aviso de quando a manutenção está planeada. Nestes casos, é-lhe dada uma janela de tempo que normalmente é de 35 dias onde você pode começar a manutenção por si mesmo, quando funciona para si.
 
@@ -44,7 +44,7 @@ As seguintes diretrizes podem ajudá-lo a decidir se deve iniciar a manutenção
 > A manutenção de autosserviço pode não estar disponível para todos os seus VMs. Para determinar se a recolocação proactiva está disponível para o seu VM, procure **iniciar agora** o estado de manutenção. Atualmente, a manutenção de self-service não está disponível para Azure Cloud Services (Web/Worker Role) e Azure Service Fabric.
 
 
-A manutenção de autosserviço não é recomendada para implementações que utilizem *conjuntos de disponibilidade* . Os conjuntos de disponibilidade são configurações altamente disponíveis nas quais apenas um domínio de atualização é afetado a qualquer momento. Para conjuntos de disponibilidade:
+A manutenção de autosserviço não é recomendada para implementações que utilizem *conjuntos de disponibilidade*. Os conjuntos de disponibilidade são configurações altamente disponíveis nas quais apenas um domínio de atualização é afetado a qualquer momento. Para conjuntos de disponibilidade:
 
 - Deixe a Azure ativar a manutenção. Para uma manutenção que requer um reboot, a manutenção é feita por domínio de atualização. Os domínios de atualização não recebem necessariamente a manutenção sequencialmente. Há uma pausa de 30 minutos entre os domínios de atualização.
 - Se uma perda temporária de alguma da sua capacidade (contagem de domínio de 1/atualização) for uma preocupação, pode facilmente compensar a perda atribuindo instâncias adicionais durante o período de manutenção.
@@ -72,12 +72,12 @@ A manutenção de autosserviço não é recomendada para implementações que ut
 
 Quando uma onda de manutenção planeada está programada, pode ver a lista de conjuntos de escala de máquinas virtuais que são afetados pela onda de manutenção que se avizinha utilizando o portal Azure. 
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. No menu esquerdo, selecione **Todos os serviços** e, em seguida, selecione **conjuntos de escala de máquina virtual** .
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. No menu esquerdo, selecione **Todos os serviços** e, em seguida, selecione **conjuntos de escala de máquina virtual**.
 3. Em **conjuntos de escala de máquina virtual,** selecione **editar colunas** para abrir a lista de colunas disponíveis.
-4. Na secção **colunas disponíveis,** selecione **a manutenção de self-service** e, em seguida, mova-a para a lista de **colunas selecionadas.** Selecione **Aplicar** .  
+4. Na secção **colunas disponíveis,** selecione **a manutenção de self-service** e, em seguida, mova-a para a lista de **colunas selecionadas.** Selecione **Aplicar**.  
 
-    Para facilitar a procura do produto **de manutenção self-service,** pode alterar a opção de drop-down na secção **colunas Disponíveis** de **All** to **Properties** .
+    Para facilitar a procura do produto **de manutenção self-service,** pode alterar a opção de drop-down na secção **colunas Disponíveis** de **All** to **Properties**.
 
 A coluna **de manutenção de autosserviço** aparece agora na lista de conjuntos de escala de máquinas virtuais. Cada conjunto de escala de máquina virtual pode ter um dos seguintes valores para a coluna de manutenção de autosserviço:
 
@@ -91,11 +91,11 @@ A coluna **de manutenção de autosserviço** aparece agora na lista de conjunto
 
 O Azure comunica um horário de manutenção planeada enviando um e-mail ao proprietário da assinatura e ao grupo de coproprietários. Pode adicionar destinatários e canais a esta comunicação criando alertas de Registo de Atividade. Para obter mais informações, consulte [a atividade de subscrição do Monitor com o Registo de Atividades Azure](../azure-monitor/platform/platform-logs-overview.md).
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
-2. No menu esquerdo, selecione **Monitor** . 
-3. No painel **Monitor - Alertas (clássicos),** selecione **+Adicione o alerta de registo de atividade** .
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+2. No menu esquerdo, selecione **Monitor**. 
+3. No painel **Monitor - Alertas (clássicos),** selecione **+Adicione o alerta de registo de atividade**.
 4. Na página **de alerta de registo de atividades Adicionar,** selecione ou introduza as informações solicitadas. Em **Critérios,** certifique-se de que define os seguintes valores:
-   - **Categoria de evento** : Select **Service Health** .
+   - **Categoria de evento** : Select **Service Health**.
    - **Serviços** : Selecione **conjuntos de balanças de máquinas virtuais e máquinas virtuais.**
    - **Tipo** : Selecione **a manutenção planeada.** 
     
@@ -106,7 +106,7 @@ Para saber mais sobre como configurar alertas de Registo de Atividade, consulte 
 
 Pode ver mais detalhes relacionados com a manutenção na visão geral dos conjuntos de escala de máquinas virtuais. Se pelo menos um VM no conjunto de escala de máquina virtual for incluído na onda de manutenção planeada, uma nova fita de notificação é adicionada perto do topo da página. Selecione a fita de notificação para ir à página **Manutenção.** 
 
-Na página **manutenção,** pode ver qual a instância VM afetada pela manutenção planeada. Para iniciar a manutenção, selecione a caixa de verificação que corresponde ao VM afetado. Em seguida, selecione  **Iniciar a manutenção** .
+Na página **manutenção,** pode ver qual a instância VM afetada pela manutenção planeada. Para iniciar a manutenção, selecione a caixa de verificação que corresponde ao VM afetado. Em seguida, selecione  **Iniciar a manutenção**.
 
 Depois de iniciar a manutenção, os VMs afetados na sua balança de máquinas virtuais são submetidos a manutenção e estão temporariamente indisponíveis. Se perdeu a janela de autosserviço, ainda pode ver a janela de tempo quando o seu conjunto de escala de máquina virtual será mantido pelo Azure.
  
@@ -135,7 +135,7 @@ As seguintes propriedades são devolvidas em **ManutençãoRedeployStatus:**
 
 ### <a name="start-maintenance-on-your-vm-instance-by-using-powershell"></a>Inicie a manutenção no seu exemplo VM utilizando o PowerShell
 
-Pode iniciar a manutenção num VM se **o IsCustomerInitiatedMaintenanceAllowed** for **verdadeiro** . Utilize o [cmdlet Set-AzVmss](/powershell/module/az.compute/set-azvmss) com `-PerformMaintenance` parâmetro.
+Pode iniciar a manutenção num VM se **o IsCustomerInitiatedMaintenanceAllowed** for **verdadeiro**. Utilize o [cmdlet Set-AzVmss](/powershell/module/az.compute/set-azvmss) com `-PerformMaintenance` parâmetro.
 
 ```powershell
 Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -PerformMaintenance 
@@ -185,7 +185,7 @@ Para obter mais informações sobre a elevada disponibilidade, consulte [Regiõe
 
 **P: Como posso ser notificado sobre a manutenção planeada?**
 
-**A:** Uma onda de manutenção planeada começa por definir um horário para uma ou mais regiões de Azure. Logo a seguir, é enviada uma notificação por e-mail aos proprietários da subscrição (um email por subscrição). Pode adicionar canais e destinatários para esta notificação utilizando alertas de Registo de Atividade. Se colocar um VM numa região em que a manutenção planeada já está programada, não recebe a notificação. Em vez disso, verifique o estado de manutenção do VM.
+**A:** Uma onda de manutenção planeada começa por definir um horário para uma ou mais regiões de Azure. Pouco tempo depois, é enviada uma notificação por e-mail para os administradores de subscrição, coadministradores, proprietários e contribuintes (um e-mail por subscrição). Canais e destinatários adicionais para esta notificação podem ser configurados usando Alertas de Registo de Atividade. Caso desloque uma máquina virtual para uma região onde a manutenção planeada já esteja programada, não receberá a notificação. Em vez disso, verifique o estado de manutenção do VM.
 
 **P: Não vejo qualquer indicação de manutenção planeada no portal, PowerShell ou CLI. Qual é o problema?**
 
@@ -202,7 +202,7 @@ Para obter mais informações sobre a elevada disponibilidade, consulte [Regiõe
 **P: Não vejo nenhuma informação de manutenção nos meus VMs. O que é que correu mal?**
 
 **A:** Existem várias razões pelas quais poderá não ver nenhuma informação de manutenção nos seus VMs:
-   - Está a utilizar uma subscrição marcada como *Microsoft Internal* .
+   - Está a utilizar uma subscrição marcada como *Microsoft Internal*.
    - Os seus VMs não estão programados para manutenção. Pode ser que a onda de manutenção tenha terminado, foi cancelada, ou foi modificada para que os seus VMs não sejam mais afetados por ela.
    - Não tem a coluna **manutenção** adicionada à sua visualização da lista VM. Embora tenhamos adicionado esta coluna à vista predefinida, se configurar a sua visão para ver colunas não predefinidas, deve adicionar manualmente a coluna **manutenção** à sua vista de lista VM.
 

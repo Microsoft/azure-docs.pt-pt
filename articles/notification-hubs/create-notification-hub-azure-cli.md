@@ -14,12 +14,12 @@ ms.author: dbradish
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/18/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e7e140e26da79475bea032c8190ee64740370d04
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 6c565be3aea43fc4dc86fd793e0dc2dea0b08d4c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92312877"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563754"
 ---
 # <a name="quickstart-create-an-azure-notification-hub-using-the-azure-cli"></a>Quickstart: Criar um centro de notificação Azure utilizando o Azure CLI
 
@@ -32,7 +32,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
-> Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI. Executar [a versão az](/cli/azure/reference-index?#az_version) para encontrar a versão e bibliotecas dependentes que estão instaladas. Para atualizar para a versão mais recente, executar [atualização az](/cli/azure/reference-index?#az_upgrade).
+> Os Centros de Notificação requerem a versão 2.0.67 ou posterior do Azure CLI. Execute o comando [az version](/cli/azure/reference-index#az_version) para localizar a versão e as bibliotecas dependentes instaladas. Para atualizar para a versão mais recente, execute o comando [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -156,7 +156,7 @@ az group create --name spnhubrg --location eastus
    > [!NOTE]
    > Um [espaço de nome de Centros de Notificação](/cli/azure/ext/notification-hub/notification-hub/namespace/authorization-rule#ext-notification-hub-az-notification-hub-namespace-authorization-rule-list-keys) e um centro de [notificação](/cli/azure/ext/notification-hub/notification-hub/authorization-rule#ext-notification-hub-az-notification-hub-authorization-rule-list-keys) têm políticas de acesso separadas. Certifique-se de que está a utilizar a referência Azure CLI correta ao consultar as teclas e as cordas de ligação.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, utilize o comando de eliminação do [grupo AZ](/cli/azure/group) para remover o grupo de recursos e todos os recursos relacionados:
 

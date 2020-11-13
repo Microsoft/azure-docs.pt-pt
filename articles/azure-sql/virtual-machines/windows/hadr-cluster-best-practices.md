@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: b385d6dfb5beba481ad92403d69f5d0988f3bce3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 86db8c88fae7a5fd1ec4828d8936c6cb8172a61c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786433"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564570"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Melhores práticas de configuração do cluster (SQL Server em VMs do Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,6 +30,10 @@ Este artigo fornece as melhores práticas de configuração do cluster para ambo
 ## <a name="networking"></a>Redes
 
 Utilize um único NIC por servidor (nó de cluster) e uma única sub-rede. O networking Azure tem redundância física, o que torna niCs adicionais e sub-redes desnecessários num cluster de hóspedes virtuais Azure. O relatório de validação do cluster irá avisá-lo de que os nós são alcançáveis apenas numa única rede. Pode ignorar este aviso em aglomerados de failover de hóspedes virtuais da Azure.
+
+### <a name="tuning-failover-cluster-network-thresholds"></a>Afinação dos limiares da rede de cluster de falhas
+
+Ao executar os nós do Cluster Failover do Windows em Azure Vms com SQL Server AlwaysOn, recomenda-se alterar a definição do cluster para um estado de monitorização mais descontraído.  Isto tornará o cluster muito mais estável e fiável.  Para mais informações sobre este assunto, consulte [IaaS com SQL AlwaysOn - Afinação dos limiares da rede de clusters](/windows-server/troubleshoot/iaas-sql-failover-cluser)de falhas.
 
 ## <a name="quorum"></a>Quórum
 

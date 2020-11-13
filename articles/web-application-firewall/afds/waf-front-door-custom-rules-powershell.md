@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: 40f0195ced375da09891eb577bd81f36b2f37cba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a0e262db9f5c37189a589eefc451a88dd5ea8c6
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005553"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563414"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configure uma política de Firewall de aplicação web usando a Azure PowerShell
 
@@ -27,9 +27,9 @@ Antes de começar a configurar uma política de limite de taxa, crie o seu ambie
 
 ### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
 
-O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerir os recursos do Azure. 
+O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](../../azure-resource-manager/management/overview.md) para gerir os recursos do Azure. 
 
-Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
+Pode instalar o [Azure PowerShell](/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
 
 #### <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 

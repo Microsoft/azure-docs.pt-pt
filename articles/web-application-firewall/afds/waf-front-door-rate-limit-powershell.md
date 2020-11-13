@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 4b8aa72c7b77da8fdde9925325587b67411de8d8
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: 23b893bad591af5f1e923b68e8d30453f859792b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94506418"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563482"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Configure uma regra limite de taxa de firewall de aplicação web usando Azure PowerShell
 A regra limite de taxa Azure Web Application Firewall (WAF) para Azure Front Door controla o número de pedidos permitidos aos clientes durante um minuto de duração.
@@ -26,9 +26,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar a configurar uma política de limite de taxa, crie o seu ambiente PowerShell e crie um perfil da Porta Frontal.
 ### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
-O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerir os recursos do Azure. 
+O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](../../azure-resource-manager/management/overview.md) para gerir os recursos do Azure. 
 
-Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
+Pode instalar o [Azure PowerShell](/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Ligue ao Azure com um diálogo interativo para iniciar sação
 ```
@@ -105,6 +105,4 @@ O exemplo abaixo utiliza o nome do Grupo de Recursos *myResourceGroupFD1* com o 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [a Porta da Frente.](../../frontdoor/front-door-overview.md) 
-
-
+- Saiba mais sobre [a Porta da Frente.](../../frontdoor/front-door-overview.md)

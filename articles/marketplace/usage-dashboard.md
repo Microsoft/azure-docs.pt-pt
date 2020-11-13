@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 1ae30d97e64dc17086e199c3fcc8188f54e6ab69
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 5e2bdec8b3c628f1d470acb3e27bb18eabbc71ac
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490122"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565543"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de utilização na análise do mercado comercial
 

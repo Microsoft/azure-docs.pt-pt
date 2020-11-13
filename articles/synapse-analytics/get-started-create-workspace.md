@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: 65d89436486940ad5239dd2c3e83401b82234a21
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 5a4f3c06f53191339bf42125c0781f3ac1238b32
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555469"
+ms.locfileid: "94561051"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -63,10 +63,7 @@ Uma piscina SQL dedicada consome recursos faturados desde que esteja ativo. Pode
 1. Para **o número de nós** Definir o mínimo para 3 e o máximo a 3
 1. Selecione **Rever + criar** > **Criar**. A tua piscina Apache Spark estará pronta em alguns segundos.
 
-Quando realizar atividade spark em Azure Synapse, especifique uma piscina spark para usar. A piscina diz ao Azure Synapse quantos recursos de faíscas usar. Paga apenas os recursos que utilizar. Quando deixa de utilizar ativamente a piscina, os recursos são automaticamente eliminados e são reciclados.
-
-> [!NOTE]
-> As bases de dados spark são criadas independentemente a partir de piscinas Spark. Um espaço de trabalho tem sempre uma base de dados Spark chamada **predefinição.** Pode criar bases de dados adicionais de Spark.
+A piscina Spark diz ao Azure Synapse quantos recursos de faíscas usar. Paga apenas os recursos que utilizar. Quando deixa de utilizar ativamente a piscina, os recursos são automaticamente eliminados e são reciclados.
 
 ## <a name="the-serverless-sql-pool"></a>A piscina SQL sem servidor
 

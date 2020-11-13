@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: cherylmc
-ms.openlocfilehash: ecebaf9384bcb0dbbb6fe36df4dd474738422149
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 8e97a2f077efd4d00eec4a91645dc1b65057ebd9
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043415"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565012"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>Configure a VPN client for P2S OpenVPN protocol connections: Azure AD authentication (Configurar um cliente VPN para ligações de protocolo P2S OpenVPN: autenticação do Azure Active Directory)
 
@@ -32,7 +32,7 @@ Utilize este [link](https://go.microsoft.com/fwlink/?linkid=2117554) para descar
 
 1. Vá para iniciar, em seguida, selecione Definições > aplicações de privacidade > de fundo.
 2. No âmbito de Aplicações de Fundo, certifique-se **de que as aplicações são executadas em segundo plano.**
-3. Em Escolha quais aplicações podem ser executadas em segundo plano, rode as definições para O Cliente VPN Azure para **On** .
+3. Em Escolha quais aplicações podem ser executadas em segundo plano, rode as definições para O Cliente VPN Azure para **On**.
 
   ![permissão](./media/openvpn-azure-ad-client/backgroundpermission.png)
 
@@ -54,7 +54,7 @@ Ao trabalhar com um perfil baseado em certificado, certifique-se de que os certi
 
 Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utilizadores, pode exportá-lo usando os seguintes passos:
 
-1. Realce o perfil de cliente VPN que pretende exportar, selecione o **...** e, em seguida, selecione **Export** .
+1. Realce o perfil de cliente VPN que pretende exportar, selecione o **...** e, em seguida, selecione **Export**.
 
     ![Screenshot mostra Exportação selecionada do menu.](./media/openvpn-azure-ad-client/export/export1.jpg)
 
@@ -64,15 +64,15 @@ Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utiliza
 
 ### <a name="to-import-a-client-profile"></a><a name="import"></a>Importar um perfil de cliente
 
-1. Na página, selecione **Import** .
+1. Na página, selecione **Import**.
 
     ![Screenshot mostra Import selecionado a partir do menu plus.](./media/openvpn-azure-ad-client/import/import1.jpg)
 
-2. Navegue no ficheiro xml do perfil e selecione-o. Com o ficheiro selecionado, selecione **Abrir** .
+2. Navegue no ficheiro xml do perfil e selecione-o. Com o ficheiro selecionado, selecione **Abrir**.
 
     ![A screenshot mostra uma caixa de diálogo aberta onde pode selecionar um ficheiro.](./media/openvpn-azure-ad-client/import/import2.jpg)
 
-3. Especifique o nome do perfil e **selecione Guardar** .
+3. Especifique o nome do perfil e **selecione Guardar**.
 
     ![A screenshot mostra o nome de ligação adicionado e o botão Guardar selecionado.](./media/openvpn-azure-ad-client/import/import3.jpg)
 
@@ -80,13 +80,13 @@ Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utiliza
 
     ![A screenshot mostra o botão 'Ligar' para a ligação que acabaste de criar.](./media/openvpn-azure-ad-client/import/import4.jpg)
 
-5. Uma vez ligado, o ícone ficará verde e dirá **Conectado** .
+5. Uma vez ligado, o ícone ficará verde e dirá **Conectado**.
 
     ![A screenshot mostra a ligação num estado ligado com a opção de desligar.](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="to-delete-a-client-profile"></a><a name="delete"></a>Para eliminar um perfil de cliente
 
-1. Selecione as elipses ao lado do perfil do cliente que pretende eliminar. Em seguida, **selecione Remover** .
+1. Selecione as elipses ao lado do perfil do cliente que pretende eliminar. Em seguida, **selecione Remover**.
 
     ![Screenshot mostra Remover selecionado do menu.](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
@@ -96,11 +96,11 @@ Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utiliza
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Criar uma ligação
 
-1. Na página, selecione **+** , em seguida , + **Adicionar** .
+1. Na página, selecione **+** , em seguida , + **Adicionar**.
 
     ![Screenshot mostra Adicionar selecionado a partir do menu mais.](./media/openvpn-azure-ad-client/create/create1.jpg)
 
-2. Preencha a informação de ligação. Se não tiver a certeza dos valores, contacte o seu administrador. Depois de preencher os valores, **selecione Guardar** .
+2. Preencha a informação de ligação. Se não tiver a certeza dos valores, contacte o seu administrador. Depois de preencher os valores, **selecione Guardar**.
 
     ![A screenshot mostra o painel onde pode introduzir os valores necessários.](./media/openvpn-azure-ad-client/create/create2.jpg)
 
@@ -108,11 +108,11 @@ Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utiliza
 
     ![A screenshot mostra o botão Ligar para a sua ligação.](./media/openvpn-azure-ad-client/create/create3.jpg)
 
-4. Selecione as credenciais adequadas e, em seguida, **selecione Continue** .
+4. Selecione as credenciais adequadas e, em seguida, **selecione Continue**.
 
     ![A imagem mostra o Sinal na caixa de diálogo.](./media/openvpn-azure-ad-client/create/create4.jpg)
 
-5. Uma vez ligado com sucesso, o ícone ficará verde e dirá **Conectado** .
+5. Uma vez ligado com sucesso, o ícone ficará verde e dirá **Conectado**.
 
     ![A screenshot mostra a ligação num estado ligado.](./media/openvpn-azure-ad-client/create/create5.jpg)
 
@@ -120,7 +120,7 @@ Uma vez que tenha um perfil de trabalho e precise distribuí-lo a outros utiliza
 
 Estes passos ajudam-no a configurar a sua ligação para ligar automaticamente com a Always-on.
 
-1. Na página inicial do seu cliente VPN, selecione **VPN Settings** .
+1. Na página inicial do seu cliente VPN, selecione **VPN Settings**.
 
     ![A screenshot mostra V P N Connections onde pode selecionar Configurações V P N.](./media/openvpn-azure-ad-client/auto/auto1.jpg)
 
@@ -138,7 +138,7 @@ Estes passos ajudam-no a configurar a sua ligação para ligar automaticamente c
 
 ## <a name="diagnose-connection-issues"></a><a name="diagnose"></a>Diagnosticar problemas de conexão
 
-1. Para diagnosticar problemas de ligação, pode utilizar a ferramenta **Diagnosticar.** Selecione a **...** ao lado da ligação VPN que pretende diagnosticar para revelar o menu. Em seguida, selecione **Diagnosticar** .
+1. Para diagnosticar problemas de ligação, pode utilizar a ferramenta **Diagnosticar.** Selecione a **...** ao lado da ligação VPN que pretende diagnosticar para revelar o menu. Em seguida, selecione **Diagnosticar**.
 
     ![A screenshot mostra o Diagnóstico selecionado no menu.](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
 
@@ -192,7 +192,7 @@ Pode modificar o ficheiro XML de **\<dnsservers> \<dnsserver> \</dnsserver> \</d
 ```
 
 > [!NOTE]
-> O cliente OpenVPN Azure AD utiliza entradas na Tabela de Política de Resolução de Nomes DNS (NRPT), o que significa que os servidores DNS não serão listados sob a saída de `ipconfig /all` . Para confirmar as definições de DNS em utilização, consulte [a Get-DnsClientNrptPolicy](https://docs.microsoft.com/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) no PowerShell.
+> O cliente OpenVPN Azure AD utiliza entradas na Tabela de Política de Resolução de Nomes DNS (NRPT), o que significa que os servidores DNS não serão listados sob a saída de `ipconfig /all` . Para confirmar as definições de DNS em utilização, consulte [a Get-DnsClientNrptPolicy](/powershell/module/dnsclient/get-dnsclientnrptpolicy?view=win10-ps) no PowerShell.
 >
 
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>Como adiciono rotas personalizadas ao cliente VPN?

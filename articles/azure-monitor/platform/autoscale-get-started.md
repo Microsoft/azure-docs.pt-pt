@@ -4,12 +4,12 @@ description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Ma
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 543ecc80abeb9a437a895224de6ade679698c4d7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377025"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565641"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Começa com a Autoscale em Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
@@ -127,7 +127,7 @@ A via de verificação de saúde deve verificar os componentes críticos da sua 
 
 #### <a name="security"></a>Segurança 
 
-As equipas de desenvolvimento das grandes empresas precisam frequentemente de aderir aos requisitos de segurança para as suas APIs expostas. Para garantir o ponto final do healthcheck, deve primeiro utilizar funcionalidades como [restrições IP,](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules) [certificados](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)de cliente ou uma Rede Virtual para restringir o acesso à aplicação. Pode assegurar o próprio ponto final do healthcheck, exigindo que `User-Agent` o pedido de entrada corresponda `ReadyForRequest/1.0` . O User-Agent não pode ser falsificado, uma vez que o pedido já estava assegurado pelas funcionalidades de segurança anteriores.
+As equipas de desenvolvimento das grandes empresas precisam frequentemente de aderir aos requisitos de segurança para as suas APIs expostas. Para garantir o ponto final do healthcheck, deve primeiro utilizar funcionalidades como [restrições IP,](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule) [certificados](../../app-service/app-service-ip-restrictions.md#set-an-ip-address-based-rule)de cliente ou uma Rede Virtual para restringir o acesso à aplicação. Pode assegurar o próprio ponto final do healthcheck, exigindo que `User-Agent` o pedido de entrada corresponda `ReadyForRequest/1.0` . O User-Agent não pode ser falsificado, uma vez que o pedido já estava assegurado pelas funcionalidades de segurança anteriores.
 
 ### <a name="behavior"></a>Comportamento
 

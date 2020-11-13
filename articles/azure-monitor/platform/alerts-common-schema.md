@@ -1,15 +1,15 @@
 ---
-title: Esquema de alerta comum para alertas de monitores Azure
+title: Esquema de alerta comum para alertas do Monitor Azure
 description: Compreender o esquema de alerta comum, por que deve usá-lo e como habilitá-lo
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: bb182f88a896be436e3981ff4e361010ee2655f6
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: aa619976c8fa03b925d66e884ad03fc4e385693e
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108835"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565607"
 ---
 # <a name="common-alert-schema"></a>Esquema de alertas comuns
 
@@ -20,8 +20,8 @@ Este artigo descreve o que é o esquema comum de alerta, os benefícios de usá-
 O esquema de alerta comum normaliza a experiência de consumo para notificações de alerta hoje em Azure. Historicamente, os três tipos de alerta em Azure hoje em dia (métrica, log e log de atividade) tiveram os seus próprios modelos de e-mail, esquemas webhook, etc. Com o esquema de alerta comum, pode agora receber notificações de alerta com um esquema consistente.
 
 Qualquer instância de alerta descreve **o recurso que foi afetado** e a causa do **alerta,** e estas instâncias são descritas no esquema comum nas seguintes secções:
-* **Essenciais**: Um conjunto de **campos padronizados,** comuns em todos os tipos de alerta, que descrevem **em que recurso** o alerta está ligado juntamente com metadados de alerta comuns adicionais (por exemplo, gravidade ou descrição). 
-* **Contexto de alerta**: Um conjunto de campos que descrevem a **causa do alerta,** com campos que variam **em função do tipo de alerta.** Por exemplo, um alerta métrico teria campos como o nome métrico e o valor métrico no contexto de alerta, enquanto um alerta de registo de atividade teria informações sobre o evento que gerou o alerta. 
+* **Essenciais** : Um conjunto de **campos padronizados,** comuns em todos os tipos de alerta, que descrevem **em que recurso** o alerta está ligado juntamente com metadados de alerta comuns adicionais (por exemplo, gravidade ou descrição). 
+* **Contexto de alerta** : Um conjunto de campos que descrevem a **causa do alerta,** com campos que variam **em função do tipo de alerta.** Por exemplo, um alerta métrico teria campos como o nome métrico e o valor métrico no contexto de alerta, enquanto um alerta de registo de atividade teria informações sobre o evento que gerou o alerta. 
 
 Os cenários típicos de integração que ouvimos dos clientes envolvem o encaminhamento do caso de alerta para a equipa em causa com base em algum pivô (por exemplo, grupo de recursos), após o qual a equipa responsável começa a trabalhar nele. Com o esquema de alerta comum, você pode ter uma lógica de encaminhamento padronizada através de tipos de alerta, aproveitando os campos essenciais, deixando os campos de contexto como é para as equipas em causa investigarem mais.
 

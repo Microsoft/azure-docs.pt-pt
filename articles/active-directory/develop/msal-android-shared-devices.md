@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: c1bf6b33176bf7942fbd76fa86ecd61b4f24e154
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc32b4f583aea2fa9a34ab8b235f3f99fe4def9d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366008"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562173"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo partilhado para dispositivos Android
 
-> [!NOTE]
-> Esta funcionalidade está em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Esta característica [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Os trabalhadores da firstline, como os associados de retalho, os tripulantes de voo e os trabalhadores de serviços de campo, usam frequentemente um dispositivo móvel partilhado para fazer o seu trabalho. Isso torna-se problemático quando começam a partilhar palavras-passe ou números pin para aceder a dados de clientes e negócios no dispositivo partilhado.
 

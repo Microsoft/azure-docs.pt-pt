@@ -6,12 +6,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 07/17/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3ae22294d86ab65be0f09b734735885177c1cf63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c4920eaa7a5619be37d38afd763e7be416d3124
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777314"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565726"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Tutorial: Use personalizar em .NET chat bot
 
@@ -105,9 +105,9 @@ A seleção de funcionalidades é aleatória neste chat bot. Num bot real, utili
 ### <a name="design-considerations-for-this-bot"></a>Considerações de design para este bot
 
 Há algumas advertências a notar sobre esta conversa:
-* **Interação bot**: A conversa é muito simples porque está demonstrando Rank and Reward em um caso de uso simples. Não demonstra a funcionalidade completa do Bot Framework SDK ou do Emulator.
-* **Personalização**: As funcionalidades são selecionadas aleatoriamente para simular a utilização. Não aleatoriamente aleatoriamente características num cenário de personalização de produção.
-* **Compreensão linguística (LUIS)**: As poucas expressões de exemplo do modelo LUIS destinam-se apenas a esta amostra. Não utilize tão poucas expressões de exemplo na sua aplicação LUIS de produção.
+* **Interação bot** : A conversa é muito simples porque está demonstrando Rank and Reward em um caso de uso simples. Não demonstra a funcionalidade completa do Bot Framework SDK ou do Emulator.
+* **Personalização** : As funcionalidades são selecionadas aleatoriamente para simular a utilização. Não aleatoriamente aleatoriamente características num cenário de personalização de produção.
+* **Compreensão linguística (LUIS)** : As poucas expressões de exemplo do modelo LUIS destinam-se apenas a esta amostra. Não utilize tão poucas expressões de exemplo na sua aplicação LUIS de produção.
 
 
 ## <a name="install-required-software"></a>Instalar o software necessário
@@ -130,7 +130,7 @@ git clone https://github.com/Azure-Samples/cognitive-services-personalizer-sampl
 
 Para utilizar este chat bot, você precisa criar recursos Azure para Personalizar e Compreensão de Linguagem (LUIS).
 
-* [Criar recursos LUIS.](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-azure-portal) Selecione **ambos** no passo de criação porque você precisa tanto de recursos de autoria e previsão.
+* [Criar recursos LUIS.](../luis/luis-how-to-azure-subscription.md#create-luis-resources-in-the-azure-portal) Selecione **ambos** no passo de criação porque você precisa tanto de recursos de autoria e previsão.
 * [Crie o recurso Personalizer](how-to-create-resource.md) e copie a chave e o ponto final do portal Azure. Terá de definir estes valores no `appsettings.json` ficheiro do projeto .NET.
 
 ### <a name="create-luis-app"></a>Criar app LUIS
@@ -142,9 +142,9 @@ Se é novo no LUIS, tem de [se inscrever](https://www.luis.ai) e migrar imediata
 1. No diálogo pop-up, selecione **Escolher o ficheiro** e, em seguida, selecione o `/samples/ChatbotExample/CognitiveModels/coffeebot.json` ficheiro. Insira o `Personalizer Coffee bot` nome.
 1. Selecione o botão **Train** na navegação superior direita do portal LUIS.
 1. Selecione o botão **Publicar** para publicar a aplicação na **ranhura de Produção** para o tempo de execução da previsão.
-1. **Selecione Gerir**e, em seguida, **Configurações**. Copiar o valor do ID da **aplicação.** Terá de definir este valor no `appsettings.json` ficheiro do projeto .NET.
+1. **Selecione Gerir** e, em seguida, **Configurações**. Copiar o valor do ID da **aplicação.** Terá de definir este valor no `appsettings.json` ficheiro do projeto .NET.
 1. Ainda na secção **Gerir,** selecione **Recursos Azure**. Isto exibe os recursos associados na aplicação.
-1. **Selecione Adicionar recurso de previsão**. No diálogo pop-up, selecione a sua subscrição e o recurso de previsão criado numa secção anterior deste tutorial e, em seguida, selecione **'Fazer**' ).
+1. **Selecione Adicionar recurso de previsão**. No diálogo pop-up, selecione a sua subscrição e o recurso de previsão criado numa secção anterior deste tutorial e, em seguida, selecione **'Fazer** ' ).
 1. Copiar os valores da **chave primária** e **URL de ponto final**. Terá de definir estes valores no `appsettings.json` ficheiro do projeto .NET.
 
 ### <a name="configure-bot-with-appsettingsjson-file"></a>Configure bot com appsettings.jsno arquivo
@@ -178,18 +178,18 @@ Mantenha o site em funcionamento porque o tutorial explica o que o bot está a f
 
 1. Abra o Emulador De Estrutura bot e selecione **Open Bot**.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Screenshot do navegador exibindo o site do chat bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-startup.png" alt-text="Screenshot do ecrã de arranque do emulador de bot.":::
 
 
-1. Configure o bot com o seguinte **URL bot** e, em seguida, selecione **Connect**:
+1. Configure o bot com o seguinte **URL bot** e, em seguida, selecione **Connect** :
 
     `http://localhost:3978/api/messages`
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Screenshot do navegador exibindo o site do chat bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-open-bot-settings.png" alt-text="Screenshot das definições de bot emulador de bot.":::
 
     O emulador liga-se ao bot de chat e exibe o texto instrutivo, juntamente com informações de registo e depuragem úteis para o desenvolvimento local.
 
-    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Screenshot do navegador exibindo o site do chat bot.":::
+    :::image type="content" source="media/tutorial-chat-bot/bot-emulator-bot-conversation-first-turn.png" alt-text="Screenshot do emulador de bot na primeira volta da conversa.":::
 
 ## <a name="use-the-bot-in-the-bot-emulator"></a>Use o bot no emulador de bot
 
@@ -425,7 +425,7 @@ Se pretender utilizar o Personalizer num bot de produção, planeie:
 * Cálculo baseado em caso de utilização da recompensa: Este exemplo mostrou duas recompensas de zero e uma sem intervalo entre e nenhum valor negativo para uma pontuação. O seu sistema fez de necessidade de mais pontuação granular.
 * Canais bot: Esta amostra utiliza um único canal mas se pretender utilizar mais do que um canal, ou variações de bots num único canal, isso poderá ter de ser considerado como parte das características de contexto do modelo Personalizer.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando terminar este tutorial, limpe os seguintes recursos:
 

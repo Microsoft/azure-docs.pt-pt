@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 06/17/2020
-ms.openlocfilehash: 6c87fcf4f56b7092436fa16658a72ead24d9fec2
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 38bc0ec546526cd0c6631b7cd5b70753c3235d18
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423033"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563992"
 ---
 # <a name="tutorial-establish-azure-functions-private-site-access"></a>Tutorial: Estabelecer acesso ao site privado Azure Functions
 
@@ -172,7 +172,7 @@ O próximo passo é configurar restrições de acesso para garantir que [apenas]
 1. A página _de Restrições de Acesso_ mostra agora que existe uma nova restrição. Pode levar alguns segundos para que o estado de _Ponto final_ seja alterado de Desativado através do Provisioning to Enabled.
 
     >[!IMPORTANT]
-    > Cada aplicação de função tem um [site Advanced Tool (Kudu)](../app-service/app-service-ip-restrictions.md#scm-site) que é usado para gerir implementações de aplicações de função. Este site é acedido a partir de um URL como: `<FUNCTION_APP_NAME>.scm.azurewebsites.net` . Permitir restrições de acesso no site kudu impede a implementação do código do projeto a partir de uma estação de trabalho de desenvolvedor local, e então um agente é necessário dentro da rede virtual para realizar a implementação.
+    > Cada aplicação de função tem um [site Advanced Tool (Kudu)](../app-service/app-service-ip-restrictions.md#restrict-access-to-an-scm-site) que é usado para gerir implementações de aplicações de função. Este site é acedido a partir de um URL como: `<FUNCTION_APP_NAME>.scm.azurewebsites.net` . Permitir restrições de acesso no site kudu impede a implementação do código do projeto a partir de uma estação de trabalho de desenvolvedor local, e então um agente é necessário dentro da rede virtual para realizar a implementação.
 
 ## <a name="access-the-functions-app"></a>Aceda à aplicação funções
 

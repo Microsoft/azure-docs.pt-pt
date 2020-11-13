@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 901c090d26959950d0ffd6a96253bdc36c9331c5
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: a9289fad6f7ae1030628bedcf1a62cacc0b1e23a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94556340"
+ms.locfileid: "94564485"
 ---
 # <a name="prepare-virtual-machines-for-an-fci-sql-server-on-azure-vms"></a>Preparar máquinas virtuais para um FCI (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -58,6 +58,8 @@ Selecione cuidadosamente a opção de disponibilidade de VM que corresponda à c
 
 Depois de configurar a sua disponibilidade em VM, está pronto para criar as suas máquinas virtuais. Pode optar por utilizar uma imagem do Azure Marketplace que tem ou não o SQL Server já instalado na mesmo. No entanto, se escolher uma imagem para SQL Server em VMs Azure, terá de desinstalar o SQL Server a partir da máquina virtual antes de configurar a instância do cluster de failover. 
 
+### <a name="considerations"></a>Considerações
+Num cluster de ativação pós-falha convidado da VM IaaS do Azure, recomendamos um único NIC por servidor (nó de cluster) e uma única sub-rede. O azure networking tem redundância física, o que torna NICs adicionais e sub-redes desnecessários em um cluster de hóspedes Azure IaaS VM. Embora o relatório de validação do cluster emita um aviso de que os nós apenas são acessíveis numa única rede, este aviso pode ser ignorado com segurança nos clusters de ativação pós-falha convidados da VM IaaS do Azure.
 
 Coloque ambas as máquinas virtuais:
 

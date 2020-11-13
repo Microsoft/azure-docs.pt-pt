@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 2682202b68deeeb1dbbe2493ecb9592acd1788b8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: ceecaf88f87a94473011eb48e944db7a011b3acc
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415090"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563788"
 ---
 # <a name="orders-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de encomendas na análise do mercado comercial
 

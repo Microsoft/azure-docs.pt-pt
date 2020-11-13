@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/09/2020
-author: shganesh-dev
-ms.author: shganesh
-ms.openlocfilehash: 08a889a0a26f90798f3ac8524cceb6ca83d4955a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 9821cc8905caa9576662a192fc704c53b35af82d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94415253"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564876"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Painel de clientes na análise do mercado comercial
 
@@ -23,7 +23,7 @@ Para aceder ao dashboard de Clientes no Partner Center, no **Mercado Comercial**
 >[!NOTE]
 > Para definições detalhadas de terminologia analítica, consulte [terminologia de análise de mercado comercial e questões comuns.](./partner-center-portal/faq-terminology.md)
 
-## <a name="customers-dashboard"></a>Painel de clientes
+## <a name="customers-dashboard"></a>Dashboard de clientes
 
 O dashboard cliente exibe dados para clientes que adquiriram as suas ofertas. Pode ver as representações gráficas dos seguintes itens:
 

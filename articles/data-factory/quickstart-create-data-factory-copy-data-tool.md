@@ -1,6 +1,6 @@
 ---
 title: Copie dados utilizando a ferramenta Azure Copy Data
-description: Crie uma fábrica de dados do Azure e utilize a ferramenta Copiar Dados para copiar dados de uma localização no armazenamento de Blobs do Azure para outra localização.
+description: Crie uma Fábrica de Dados Azure e, em seguida, utilize a ferramenta Dados de Cópia para copiar dados de um local no armazenamento de Azure Blob para outro local.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 24ebd9a89f94d062672ec7246163abb93396813f
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555966"
+ms.locfileid: "94564723"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: Utilize a ferramenta Dados de Cópia para copiar dados
 
@@ -43,7 +43,7 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 
 1. Na página **Nova fábrica de dados** , introduza **ADFTutorialDataFactory** em **Nome**. 
  
-   O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados (por exemplo, **&lt; o seu nome &gt; ADFTutorialDataFactory)** e tente criar novamente. Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
+   O nome da Fábrica de Dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados (por exemplo, **&lt; o seu nome &gt; ADFTutorialDataFactory)** e tente criar novamente. Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
   
    ![Erro quando um nome não está disponível](./media/doc-common-process/name-not-available-error.png)
 1. Em **Subscrição** , selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 

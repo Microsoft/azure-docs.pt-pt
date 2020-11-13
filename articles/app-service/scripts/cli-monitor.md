@@ -9,22 +9,22 @@ ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18, devx-track-azurecli
-ms.openlocfilehash: b44196d62b964e46f5b9dda9076e265c1c819723
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 995ca98a21e5ec392182bb48932765cca35acf3a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88960467"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562462"
 ---
-# <a name="monitor-an-app-service-appwith-web-server-logs-using-azure-cli"></a>Monitorize uma aplicação de Serviço de Aplicações com registos de servidores web usando O Azure CLI
+# <a name="monitor-an-app-service-app-with-web-server-logs-using-azure-cli"></a>Monitorize uma aplicação de Serviço de Aplicações com registos de servidores web usando O Azure CLI
 
 Este script de amostra cria um grupo de recursos, plano de Serviço de Aplicações e app, e configura a aplicação para ativar registos de servidores web. Em seguida, transfere os ficheiros de registo para revisão.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar a CLI localmente, precisa da versão 2.0 ou posterior da CLI do Azure. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+ - Este tutorial requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="sample-script"></a>Script de exemplo
 

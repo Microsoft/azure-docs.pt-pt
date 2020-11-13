@@ -1,6 +1,6 @@
 ---
 title: Copiar dados do armazenamento do Azure Blob para o SQL utilizando a ferramenta Copy Data
-description: Crie uma fábrica de dados Azure e, em seguida, utilize a ferramenta Dados de Cópia para copiar dados do armazenamento de Azure Blob para uma Base de Dados SQL.
+description: Crie uma Fábrica de Dados Azure e, em seguida, utilize a ferramenta Dados de Cópia para copiar dados do armazenamento de Azure Blob para uma Base de Dados SQL.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: c6893dc9a5ca59736597edf6cfb2a4664c9daea3
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: de01a8a8522f93684ed428fd4ef19963b1af2059
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94553714"
+ms.locfileid: "94564315"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copie os dados do armazenamento do Azure Blob para uma Base de Dados SQL utilizando a ferramenta Dados de Cópia
 

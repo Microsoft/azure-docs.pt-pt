@@ -5,22 +5,22 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 92990df3049f7fa1074d55fc34734e13d6673cd7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 27294f91fd6c79b10a85678a7acd60de56cf1ca4
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91328824"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562343"
 ---
-# <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Criar uma cópia de segurança de uma máquina virtual no Azure com a CLI
+# <a name="back-up-a-virtual-machine-in-azure-with-the-azure-cli"></a>Apoie uma máquina virtual em Azure com o Azure CLI
 
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Pode criar cópias de segurança em intervalos regulares para manter os seus dados protegidos. O Azure Backup cria pontos de recuperação que podem ser armazenados em cofres de recuperação georredundantes. Este artigo mostra em detalhe como criar cópias de segurança de máquinas virtuais (VMs) no Azure com a CLI do Azure. Também pode realizar estes passos com o [Azure PowerShell](quick-backup-vm-powershell.md) ou no [portal do Azure](quick-backup-vm-portal.md).
 
 Este início rápido ativa a cópia de segurança numa VM do Azure existente. Se tiver de criar uma nova, pode [criá-la com a CLI do Azure](../virtual-machines/linux/quick-create-cli.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Para instalar e utilizar a CLI localmente, tem de executar a CLI do Azure versão 2.0.18 ou posterior. Para encontrar a versão da CLI, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+ - Este arranque rápido requer a versão 2.0.18 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
@@ -28,8 +28,8 @@ Um cofre dos Serviços de Recuperação é um contentor lógico que armazena os 
 
 Crie um cofre dos Serviços de Recuperação com [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Especifique o mesmo grupo de recursos e a mesma localização da VM que quer proteger. Se utilizou o [início rápido da VM](../virtual-machines/linux/quick-create-cli.md), então criou:
 
-- um grupo de recursos com o nome *myResourceGroup*,
-- uma VM com o nome *myVM*,
+- um grupo de recursos com o nome *myResourceGroup* ,
+- uma VM com o nome *myVM* ,
 - recursos na localização *eastus*.
 
 ```azurecli-interactive
@@ -38,7 +38,7 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. O armazenamento geo-redundante garante que os seus dados de reserva são replicados numa região secundária de Azure que fica a centenas de quilómetros da região primária. Se a definição de redundância de armazenamento precisar de ser modificada, utilize o cmdlet [de backup-propriedades de backup do cofre az.](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set)
+Por predefinição, o cofre dos Serviços de Recuperação está definido para Armazenamento georredundante. Geo-Redundant armazenamento garante que os seus dados de reserva são replicados para uma região secundária de Azure que fica a centenas de milhas da região primária. Se a definição de redundância de armazenamento precisar de ser modificada, utilize o cmdlet [de backup-propriedades de backup do cofre az.](/cli/azure/backup/vault/backup-properties#az-backup-vault-backup-properties-set)
 
 ```azurecli
 az backup vault backup-properties set \
@@ -81,7 +81,7 @@ Os parâmetros seguintes são utilizados para criar a cópia de segurança da VM
 
 - `--container-name` é o nome da VM
 - `--item-name` é o nome da VM
-- O valor `--retain-until` deve ser definido como a última data disponível, no formato de data em UTC (**dd-mm-aaaa**), até à qual pretende que o ponto de recuperação esteja disponível.
+- O valor `--retain-until` deve ser definido como a última data disponível, no formato de data em UTC ( **dd-mm-aaaa** ), até à qual pretende que o ponto de recuperação esteja disponível.
 
 O exemplo seguinte cria uma cópia de segurança da VM com o nome *myVM* e define a expiração do ponto de recuperação como 18 de outubro de 2017:
 
@@ -114,7 +114,7 @@ a0a8e5e6  Backup           InProgress  myvm         2017-09-19T03:09:21  0:00:48
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Quando o *Estado* da tarefa de cópia de segurança mostrar *Concluído*, a VM estará protegida com os Serviços de Recuperação e tem armazenado um ponto de recuperação completo.
+Quando o *Estado* da tarefa de cópia de segurança mostrar *Concluído* , a VM estará protegida com os Serviços de Recuperação e tem armazenado um ponto de recuperação completo.
 
 ## <a name="clean-up-deployment"></a>Limpar a implementação
 

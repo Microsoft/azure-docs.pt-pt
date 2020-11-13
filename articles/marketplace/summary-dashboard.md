@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/09/2020
-author: mingshen-ms
-ms.author: mingshen
-ms.openlocfilehash: 957c1d8a87e334af421c53b1425d3aec0766f31a
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+author: sayantanroy83
+ms.author: sroy
+ms.openlocfilehash: 6b59da408ae7c88aaf8b9e7423fe955a861edf0f
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94414970"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565522"
 ---
 # <a name="summary-dashboard-in-commercial-marketplace-analytics"></a>Dashboard de resumo na análise do mercado comercial
 

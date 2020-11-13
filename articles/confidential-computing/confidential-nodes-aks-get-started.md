@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 95626836afb09ada286cf7e171f97db450167999
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341911"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564349"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Quickstart: Implementar um cluster Azure Kubernetes Service (AKS) com nós de computação confidencial usando Azure CLI (pré-visualização)
 
@@ -19,7 +19,7 @@ Este quickstart destina-se a desenvolvedores ou operadores de cluster que preten
 
 ## <a name="overview"></a>Descrição geral
 
-Neste quickstart, você aprenderá a implementar um cluster Azure Kubernetes Service (AKS) com nós de computação confidencial usando o Azure CLI e executar uma aplicação hello world em um enclave. AKS é um serviço gerido pela Kubernetes que permite implementar e gerir rapidamente clusters. Leia mais sobre a AKS [aqui.](https://docs.microsoft.com/azure/aks/intro-kubernetes)
+Neste quickstart, você aprenderá a implementar um cluster Azure Kubernetes Service (AKS) com nós de computação confidencial usando o Azure CLI e executar uma aplicação hello world em um enclave. AKS é um serviço gerido pela Kubernetes que permite implementar e gerir rapidamente clusters. Leia mais sobre a AKS [aqui.](../aks/intro-kubernetes.md)
 
 > [!NOTE]
 > Os DCsv2 VMs de computação confidencial alavancam hardware especializado que está sujeito a preços mais elevados e disponibilidade de região. Para obter mais informações, consulte a página de máquinas virtuais para [SKUs disponíveis e regiões apoiadas.](virtual-machine-solutions.md)
@@ -27,17 +27,17 @@ Neste quickstart, você aprenderá a implementar um cluster Azure Kubernetes Ser
 ### <a name="deployment-pre-requisites"></a>Pré-requisitos de implantação
 
 1. Tenha uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar
-1. Tenha a versão Azure CLI 2.0.64 ou posteriormente instalada e configurada na sua máquina de implantação (Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [instalar o Azure CLI](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
+1. Tenha a versão Azure CLI 2.0.64 ou posteriormente instalada e configurada na sua máquina de implantação (Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [instalar o Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)
 1. [extensão mínima de pré-visualização aks](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) versão 0.4.62 
-1. Tenha um mínimo de seis núcleos **DC <x> s-v2** disponíveis na sua subscrição para uso. Por predefinição, a quota de núcleos VM para a computação confidencial por assinatura Azure 8 núcleos. Se planeia providenciar um cluster que exija mais de 8 núcleos, siga [estas](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) instruções para aumentar o bilhete de aumento de quota
+1. Tenha um mínimo de seis núcleos **DC <x> s-v2** disponíveis na sua subscrição para uso. Por predefinição, a quota de núcleos VM para a computação confidencial por assinatura Azure 8 núcleos. Se planeia providenciar um cluster que exija mais de 8 núcleos, siga [estas](../azure-portal/supportability/per-vm-quota-requests.md) instruções para aumentar o bilhete de aumento de quota
 
 ### <a name="confidential-computing-node-features-dcxs-v2"></a>Características confidenciais do nó de computação (DC <x> s-v2)
 
 1. Nóiro operário Linux suportando apenas contentores Linux
 1. Máquinas Virtuais Ubuntu Generation 2 18.04
-1. CPU baseado em Intel SGX com memória de cache de página encriptada (EPC). Leia mais [aqui](https://docs.microsoft.com/azure/confidential-computing/faq)
+1. CPU baseado em Intel SGX com memória de cache de página encriptada (EPC). Leia mais [aqui](./faq.md)
 1. Kubernetes versão 1.16+
-1. Controlador Intel SGX DCAP pré-instalado. Leia mais [aqui](https://docs.microsoft.com/azure/confidential-computing/faq)
+1. Controlador Intel SGX DCAP pré-instalado. Leia mais [aqui](./faq.md)
 1. CLI baseado em implementado durante a pré-visualização
 
 
@@ -81,7 +81,7 @@ Em primeiro lugar, crie um grupo de recursos para o cluster utilizando o grupo a
 az group create --name myResourceGroup --location westus2
 ```
 
-Agora crie um cluster AKS usando os az aks criar comando. O exemplo a seguir cria um aglomerado com um único nó de tamanho `Standard_DC2s_v2` . Pode escolher outra lista suportada de SKUs DCsv2 a partir [daqui:](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
+Agora crie um cluster AKS usando os az aks criar comando. O exemplo a seguir cria um aglomerado com um único nó de tamanho `Standard_DC2s_v2` . Pode escolher outra lista suportada de SKUs DCsv2 a partir [daqui:](../virtual-machines/dcv2-series.md)
 
 ```azurecli-interactive
 az aks create \
@@ -94,14 +94,14 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
-O comando acima deve providenciar um novo cluster AKS com piscinas de nó **DC <x> s-v2** e instalar automaticamente dois conjuntos de daemon - ([SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin)  &  [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
+O comando acima deve providenciar um novo cluster AKS com piscinas de nó **DC <x> s-v2** e instalar automaticamente dois conjuntos de daemon - ( [SGX Device Plugin](confidential-nodes-aks-overview.md#sgx-plugin)  &  [SGX Quote Helper](confidential-nodes-aks-overview.md#sgx-quote))
 
 Obtenha as credenciais para o seu cluster AKS usando o comando az aks get-credentials:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-Verifique se os nóns são criados corretamente e os conjuntos de daemon relacionados com SGX estão a funcionar em piscinas de nó ** <x> s-v2 DC** usando cápsulas kubectl get & comando dos nosdes como mostrado abaixo:
+Verifique se os nóns são criados corretamente e os conjuntos de daemon relacionados com SGX estão a funcionar em piscinas de nó **<x> s-v2 DC** usando cápsulas kubectl get & comando dos nosdes como mostrado abaixo:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -130,7 +130,7 @@ Em primeiro lugar, permite ativar os addons AKS relacionados com a computação 
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-Agora adicione uma piscina de nó ** <x> s-v2 DC** ao cluster
+Agora adicione uma piscina de nó **<x> s-v2 DC** ao cluster
     
 > [!NOTE]
 > Para utilizar a capacidade de computação confidencial, o seu cluster AKS existente precisa de ter no mínimo um conjunto de nós baseado em **DC <x> s-v2** VM SKU. Saiba mais sobre a computação confidencial DCsv2 VMs SKU's aqui [disponível SKUs e regiões apoiadas.](virtual-machine-solutions.md)
@@ -225,7 +225,7 @@ Hello world from the enclave
 Enclave called into host to print: Hello World!
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Para remover as piscinas de nó associados ou eliminar o cluster AKS, utilize os comandos abaixo:
 
@@ -244,6 +244,3 @@ az aks nodepool delete --cluster-name myAKSCluster --name myNodePoolName --resou
 Executar Python, Nó, etc. Aplicações confidencialmente através de contentores confidenciais visitando [amostras confidenciais de contentores.](https://github.com/Azure-Samples/confidential-container-samples)
 
 Executar aplicações de conhecimento do Enclave visitando [as amostras do contentor do Azure do Enclave Aware.](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/)
-
-
-

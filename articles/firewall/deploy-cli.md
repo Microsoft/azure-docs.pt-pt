@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7c6640b6634a017819735b9d0f7b906f8dc91d0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89075431"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565879"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Implementar e configurar firewall Azure usando Azure CLI
 
@@ -44,22 +44,11 @@ Neste artigo, vai aprender a:
 
 Se preferir, pode concluir este procedimento utilizando o [portal Azure](tutorial-firewall-deploy-portal.md) ou [a Azure PowerShell](deploy-ps.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
-
-### <a name="azure-cli"></a>CLI do Azure
-
-Se optar por instalar e utilizar o CLI localmente, execute a versão 2.0.4 ou posterior do Azure CLI. Para encontrar a versão, corra **az -- versão**. Para obter informações sobre a instalação ou atualização, consulte [instalar o Azure CLI]( /cli/azure/install-azure-cli).
-
-Instale a extensão Azure Firewall:
-
-```azurecli-interactive
-az extension add -n azure-firewall
-```
-
+- Este artigo requer a versão 2.0.4 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="set-up-the-network"></a>Configurar a rede
 
@@ -290,7 +279,7 @@ Então agora verificaste que as regras da firewall estão a funcionar:
 * Pode resolver nomes DNS com o servidor DNS externo configurado.
 * Pode navegar para o único FQDN permitido, mas não para quaisquer outros.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Pode manter os seus recursos de firewall para o próximo tutorial, ou se já não for necessário, eliminar o grupo de recursos **Test-FW-RG** para eliminar todos os recursos relacionados com firewall:
 

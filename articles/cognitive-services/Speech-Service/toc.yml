@@ -28,8 +28,6 @@
       items:
         - name: Alterar o idioma de origem do reconhecimento de voz
           href: how-to-specify-source-language.md
-        - name: Melhorar a precisão com Discurso Personalizado
-          href: how-to-custom-speech.md
         - name: Utilizar formatos de entrada de áudio comprimido
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: 'codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk'
@@ -45,20 +43,18 @@
           href: tutorial-tenant-model.md
     - name: Personalização
       items:
+        - name: O que é a Voz Personalizada?
+          href: custom-speech-overview.md
         - name: Testar um modelo com ficheiros de áudio no Speech Studio
           href: quickstarts/speech-studio-test-model.md
         - name: Preparar dados para Voz Personalizada
           href: how-to-custom-speech-test-and-train.md
         - name: Inspecionar dados da Voz Personalizada
           href: how-to-custom-speech-inspect-data.md
-        - name: Avaliar a precisão da Voz Personalizada
+        - name: Avaliar e melhorar a precisão da Voz Personalizada
           href: how-to-custom-speech-evaluate-data.md
-        - name: Melhorar a precisão da Voz Personalizada
-          href: how-to-custom-speech-improve-accuracy.md
-        - name: Preparar um modelo para Voz Personalizada
+        - name: Preparar e implementar um modelo de Voz Personalizada
           href: how-to-custom-speech-train-model.md
-        - name: Implementar um modelo personalizado
-          href: how-to-custom-speech-deploy-model.md
         - name: CI/CD para Voz Personalizada
           href: how-to-custom-speech-continuous-integration-continuous-deployment.md
         - name: criar transcrições humanas
@@ -391,6 +387,10 @@
                       href: how-to-custom-commands-setup-web-endpoints.md
                     - name: Exportar a sua aplicação de Comandos Personalizados como competência
                       href: how-to-custom-commands-integrate-remote-skills.md
+                    - name: Atualizar um comando a partir da aplicação cliente
+                      href: how-to-custom-commands-update-command-from-client.md
+                    - name: Atualizar um comando a partir de um ponto final Web
+                      href: how-to-custom-commands-update-command-from-web-endpoint.md
                 - name: Implementação
                   items:
                     - name: Implementação Contínua com o Azure DevOps
@@ -494,7 +494,7 @@
           href: 'https://speech.microsoft.com'
         - name: Criar uma aplicação de Comandos Personalizados com o Speech Studio
           href: quickstart-custom-speech-commands-create-new.md
-- name: Implementar
+- name: Implementação
   items:
     - name: Ativar registo
       href: how-to-use-logging.md

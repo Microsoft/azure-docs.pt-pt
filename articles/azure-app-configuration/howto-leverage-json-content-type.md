@@ -10,12 +10,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
-ms.openlocfilehash: 725beb50e55852e35ee4434539ff158f082059df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee262c0eb2431085e71d8ee0035bcdab9833d1cf
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88122042"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565777"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Alavancar o tipo de conteúdo para armazenar valores-chave JSON na Configuração de Aplicações
 
@@ -25,9 +25,9 @@ Os dados são armazenados na Configuração da Aplicação como valores-chave, o
 ## <a name="overview"></a>Descrição geral
 
 Na Configuração de Aplicações, pode utilizar o tipo de mídia JSON como o tipo de conteúdo dos seus valores-chave para obter benefícios como:
-- **Gestão de dados mais simples**: Gerir valores-chave, como matrizes, tornar-se-á muito mais fácil no portal Azure.
-- **Exportação de dados melhorados**: Tipos primitivos, matrizes e objetos JSON serão preservados durante a exportação de dados.
-- **Suporte nativo com o fornecedor de Configuração**de Aplicações : Os valores-chave com o tipo de conteúdo JSON funcionarão bem quando consumidos pelas bibliotecas do fornecedor de Configuração de Aplicações nas suas aplicações.
+- **Gestão de dados mais simples** : Gerir valores-chave, como matrizes, tornar-se-á muito mais fácil no portal Azure.
+- **Exportação de dados melhorados** : Tipos primitivos, matrizes e objetos JSON serão preservados durante a exportação de dados.
+- **Suporte nativo com o fornecedor de Configuração** de Aplicações : Os valores-chave com o tipo de conteúdo JSON funcionarão bem quando consumidos pelas bibliotecas do fornecedor de Configuração de Aplicações nas suas aplicações.
 
 #### <a name="valid-json-content-type"></a>Tipo de conteúdo válido JSON
 
@@ -63,13 +63,11 @@ Neste tutorial, irá aprender a:
 > * Consuma os valores-chave JSON nas suas aplicações.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Azure subscription - [crie uma gratuitamente](https://azure.microsoft.com/free/).
-- Versão mais recente do Azure CLI (2.10.0 ou mais tarde). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). Se estiver a utilizar o Azure CLI, tem de iniciar sê-lo `az login` primeiro. Pode utilizar opcionalmente a Azure Cloud Shell.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- Este tutorial requer a versão 2.10.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-an-app-configuration-store"></a>Criar uma loja de configuração de aplicativos
 
@@ -82,7 +80,7 @@ Os valores-chave JSON podem ser criados usando o portal Azure, O Azure CLI ou im
 
 ### <a name="create-json-key-values-using-azure-portal"></a>Criar valores-chave JSON utilizando o portal Azure
 
-Navegue na sua loja de configuração de **aplicações**e selecione Configuration Explorer  >  **Crie**  >  **valor-chave** para adicionar os seguintes pares de valor-chave:
+Navegue na sua loja de configuração de **aplicações** e selecione Configuration Explorer  >  **Crie**  >  **valor-chave** para adicionar os seguintes pares de valor-chave:
 
 | Chave | Valor | Tipo de Conteúdo |
 |---|---|---|
@@ -185,7 +183,7 @@ A forma mais fácil de consumir os valores-chave JSON na sua aplicação é atra
 Se estiver a utilizar a API SDK ou REST para ler valores-chave da Configuração da Aplicação, com base no tipo de conteúdo, a sua aplicação é responsável por desseeciar o valor de um valor-chave JSON utilizando qualquer deserializador JSON padrão.
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 

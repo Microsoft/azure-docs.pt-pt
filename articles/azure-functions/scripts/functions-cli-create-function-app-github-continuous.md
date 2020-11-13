@@ -4,12 +4,12 @@ description: Criar uma aplicação de funções e implementar o código de funç
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 7f7c272fa95d2697d41cb751e39ef72b0da86a12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 752d8a729c56fc2e0e110fcedc263eab4ba7a96b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498529"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565318"
 ---
 # <a name="create-a-function-app-in-azure-that-is-deployed-from-github"></a>Criar uma aplicação de funções no Azure que é implementada a partir do GitHub
 
@@ -22,9 +22,9 @@ Neste exemplo, precisa de:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se, em vez disso, utilizar a CLI do Azure localmente, terá de instalar e utilizar a versão 2.0 ou uma versão posterior. Para determinar a versão da CLI do Azure, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+ - Este tutorial requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada. 
 
 ## <a name="sample-script"></a>Script de exemplo
 

@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: a995460793686d8293d77965e74e2cbf916925a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8fc6e71494df36cd6f823661b18e4a3d8ce2938c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87005604"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563686"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall-waf"></a>Configure uma resposta personalizada para a Firewall de Aplicação Web Azure (WAF)
 
-Por predefinição, quando a WAF bloqueia um pedido por causa de uma regra compatível, devolve um código de estado 403 com a mensagem **bloqueada.** A mensagem predefinida também inclui o string de referência de rastreio que pode ser usado para ligar para [registar entradas](https://docs.microsoft.com/azure/web-application-firewall/afds/waf-front-door-monitor) para o pedido.  Pode configurar um código de estado de resposta personalizado e uma mensagem personalizada com cadeia de referência para o seu caso de utilização. Este artigo descreve como configurar uma página de resposta personalizada quando um pedido é bloqueado pela WAF.
+Por predefinição, quando a WAF bloqueia um pedido por causa de uma regra compatível, devolve um código de estado 403 com a mensagem **bloqueada.** A mensagem predefinida também inclui o string de referência de rastreio que pode ser usado para ligar para [registar entradas](./waf-front-door-monitor.md) para o pedido.  Pode configurar um código de estado de resposta personalizado e uma mensagem personalizada com cadeia de referência para o seu caso de utilização. Este artigo descreve como configurar uma página de resposta personalizada quando um pedido é bloqueado pela WAF.
 
 ## <a name="configure-custom-response-status-code-and-message-use-portal"></a>Configurar código de estado de resposta personalizada e portal de utilização de mensagens
 
@@ -27,15 +27,17 @@ Pode configurar um código de estado de resposta personalizado e um organismo em
 
 No exemplo acima, mantivemos o código de resposta como 403, e configuramos uma mensagem curta "Please contact us", como mostra a imagem abaixo:
 
-:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Definições de política da WAF" insere a cadeia de referência única no corpo de resposta. O valor corresponde ao campo TrackingReference nos `FrontdoorAccessLog` registos e `FrontdoorWebApplicationFirewallLog` registos.
+:::image type="content" source="../media/waf-front-door-configure-custom-response-code/custom-response.png" alt-text="Exemplo de resposta personalizada":::
+
+"{{azure-ref}}" insere a cadeia de referência única no corpo de resposta. O valor corresponde ao campo TrackingReference nos `FrontdoorAccessLog` registos e `FrontdoorWebApplicationFirewallLog` registos.
 
 ## <a name="configure-custom-response-status-code-and-message-use-powershell"></a>Configure código de estado de resposta personalizada e utilização de mensagem PowerShell
 
 ### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
 
-O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerir os recursos do Azure. 
+O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](../../azure-resource-manager/management/overview.md) para gerir os recursos do Azure. 
 
-Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
+Pode instalar o [Azure PowerShell](/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
 
 ### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Ligue ao Azure com um diálogo interativo para o sent-in
 

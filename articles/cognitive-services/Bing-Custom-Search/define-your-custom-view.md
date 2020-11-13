@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: e8747b822916ba2c9ef7b45cc3cbbaa88d16dcb1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94367561"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565794"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configure a sua experiência de Pesquisa Personalizada Bing
 
@@ -24,13 +24,13 @@ ms.locfileid: "94367561"
 > Bing Search APIs aforados usando Serviços Cognitivos será suportado durante os próximos três anos ou até o final do seu Contrato de Empresa, o que acontecer primeiro.
 > Para obter instruções de migração, consulte [os Serviços de Busca Bing.](https://aka.ms/cogsvcs/bingmigration)
 
-Uma instância de Pesquisa Personalizada permite-lhe adaptar a experiência de pesquisa para incluir conteúdo apenas a partir de websites que os seus utilizadores se preocupam. Em vez de realizar uma pesquisa em toda a web, Bing procura apenas as fatias da web que lhe interessam. Para criar a sua vista personalizada da Web, utilize a Pesquisa Personalizada do portal [Bing](https://customsearch.ai).
+Uma instância de Pesquisa Personalizada permite-lhe adaptar a experiência de pesquisa para incluir conteúdo apenas a partir de websites que os seus utilizadores se preocupam. Em vez de realizar uma pesquisa em toda a web, Bing procura apenas as fatias da web que lhe interessam. Para criar a sua vista personalizada da Web, utilize a Pesquisa Personalizada do portal [Bing](https://www.customsearch.ai).
 
 O portal permite criar um caso de pesquisa que especifica as fatias da web: domínios, sub-páginas e páginas web, que pretende que bing procure, e aqueles que não quer que ele procure. O portal também pode sugerir conteúdo que possa querer incluir.
 
 Utilize o seguinte ao definir as suas fatias da web:
 
-| Nome da fatia | Description                                                                                                                                                                                                                                                                                                |
+| Nome da fatia | Descrição                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Domínio     | Uma fatia de domínio inclui todos os conteúdos encontrados dentro de um domínio de internet. Por exemplo, `www.microsoft.com`. Omitir `www.` faz com que Bing também procure os subdomínios do domínio. Por exemplo, se `microsoft.com` especificar, Bing também devolve resultados de `support.microsoft.com` ou `technet.microsoft.com` . |
 | Sub-página    | Uma fatia de sub-página inclui todo o conteúdo encontrado na sub-página e caminhos abaixo dela. Pode especificar um máximo de duas sub-páginas no caminho. Por exemplo, `www.microsoft.com/en-us/windows/`                                                                                                                       |
@@ -97,7 +97,7 @@ Pode testar a sua instância de pesquisa utilizando o painel de pré-visualizaç
 
 O portal permite-lhe ajustar o ranking de pesquisa de conteúdos a partir de domínios específicos, sub-páginas e páginas web. Depois de enviar uma consulta de pesquisa no painel de pré-visualização, cada resultado de pesquisa contém uma lista de ajustes que pode fazer para ele:  
 
-| Ajustamento | Description |
+| Ajustamento | Descrição |
 |------------|-------------|
 | Bloquear      | Move o domínio, sub-página ou página web para a lista bloqueada. Bing excluirá o conteúdo do site selecionado de aparecer nos resultados da pesquisa.                    |
 | Impulsionar      | Aumenta o conteúdo do domínio ou sub-página para ser mais elevado nos resultados da pesquisa.                                                                                        |

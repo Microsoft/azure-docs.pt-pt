@@ -4,12 +4,12 @@ description: Exemplo do Script da CLI do Azure - Criar uma Função do Azure que
 ms.topic: sample
 ms.date: 04/20/2017
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 3eec4e22f80d1efd180dc6770a781ee14db680be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b95ec2da96e385ba4595a5552e64d6cc039c0e16
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87498553"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565335"
 ---
 # <a name="create-a-function-app-with-a-named-storage-account-connection"></a>Criar uma aplicação de função com uma conexão de conta de armazenamento chamada 
 
@@ -17,9 +17,9 @@ Este script de exemplo das Funções do Azure cria uma aplicação de funções 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se utilizar a CLI localmente, certifique-se de que a versão em execução é a 2.0 ou posterior. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+ - Este tutorial requer a versão 2.0 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="sample-script"></a>Script de exemplo
 

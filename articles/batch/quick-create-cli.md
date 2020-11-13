@@ -4,12 +4,12 @@ description: Aprenda rapidamente a criar uma conta Batch e executar um trabalho 
 ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8824d4485167955dd1b928bc57381b2e6b672c5d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb5bb4a627ff26250519651f5e6d47ddd6f5a776
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88213099"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562309"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Início Rápido; Executar o seu primeiro trabalho do Batch com a CLI do Azure
 
@@ -17,13 +17,11 @@ Começa com o Azure Batch utilizando o CLI Azure para criar uma conta Batch, um 
 
 A CLI do Azure é utilizada para criar e gerir recursos do Azure a partir da linha de comandos ou em scripts. Depois de concluir este início rápido, irá compreender os conceitos principais do serviço do Batch e estará pronto para experimentar o Batch com cargas de trabalho mais realistas em grande escala.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- Se optar por instalar e utilizar o CLI localmente, este arranque rápido requer que execute a versão 2.0.20 ou posterior do Azure CLI. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- Este arranque rápido requer a versão 2.0.20 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -53,7 +51,7 @@ az storage account create \
 
 Crie uma conta do Batch com o comando [az batch account create](/cli/azure/batch/account#az-batch-account-create). Precisa de uma conta para criar recursos de computação (conjuntos de nós de computação) e tarefas do Batch.
 
-O exemplo a seguir cria uma conta Batch chamada *mybatchaccount* em *QuickstartBatch-rg*, e liga a conta de armazenamento que criou.  
+O exemplo a seguir cria uma conta Batch chamada *mybatchaccount* em *QuickstartBatch-rg* , e liga a conta de armazenamento que criou.  
 
 ```azurecli-interactive
 az batch account create \
@@ -93,7 +91,7 @@ az batch pool show --pool-id mypool \
 
 Continue para os passos seguintes para criar tarefas enquanto o estado do conjunto é alterado. O conjunto está pronto para executar tarefas, quando o estado de atribuição for `steady` e todos os nós estiverem em execução.
 
-## <a name="create-a-job"></a>Criar uma tarefa
+## <a name="create-a-job"></a>Criar um trabalho
 
 Agora que tem um conjunto, crie um trabalho para ser executado no mesmo. Os trabalhos do Batch são grupos lógicos de uma ou mais tarefas. Os trabalhos incluem definições comuns às tarefas, como a prioridade e o conjunto no qual as tarefas vão ser executadas. Crie uma tarefa do Batch através do comando [az batch job create](/cli/azure/batch/job#az-batch-job-create). O exemplo seguinte cria uma tarefa *myjob* no conjunto *mypool*. Inicialmente, o trabalho não tem tarefas.
 
@@ -107,7 +105,7 @@ az batch job create \
 
 Agora utilize o comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) para criar algumas tarefas para executar na tarefa. Neste exemplo, cria quatro tarefas idênticas. Cada tarefa executa um `command-line` para apresentar as variáveis de ambiente do Batch num nó de computação e, em seguida, aguarda 90 segundos. Quando utiliza o Batch, esta linha de comandos é onde especifica a aplicação ou o script. O Batch apresenta várias formas de implementar aplicações e scripts para os nós de computação.
 
-O seguinte script do Bash cria 4 tarefas paralelas (*mytask1* para *mytask4*).
+O seguinte script do Bash cria 4 tarefas paralelas ( *mytask1* para *mytask4* ).
 
 ```azurecli-interactive
 for i in {1..4}
@@ -137,7 +135,7 @@ A saída do comando inclui muitos detalhes, mas tome nota do `exitCode` da linha
 
 ## <a name="view-task-output"></a>Ver resultado das tarefas
 
-Para listar os ficheiros criados por uma tarefa num nó de computação, utilize o comando [az batch task file list](/cli/azure/batch/task). O comando seguinte lista os ficheiros criados por *mytask1*:
+Para listar os ficheiros criados por uma tarefa num nó de computação, utilize o comando [az batch task file list](/cli/azure/batch/task). O comando seguinte lista os ficheiros criados por *mytask1* :
 
 ```azurecli-interactive
 az batch task file list \

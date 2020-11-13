@@ -4,20 +4,20 @@ description: Este script de amostra demonstra como adicionar uma aplicação par
 ms.topic: sample
 ms.date: 01/29/2018
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fa4f273949e59c66292f5742501be9c2ad6a9fa4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 414a401168b1b378ed33f4904607243de0267d22
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87494456"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565811"
 ---
 # <a name="cli-example-add-an-application-to-an-azure-batch-account"></a>Exemplo da CLI: Adicionar uma aplicação a uma conta do Azure Batch
 
 Este script demonstra como adicionar uma aplicação para utilizar com um conjunto ou tarefas do Azure Batch. Para configurar uma aplicação para adicionar à sua conta do Batch, reúna o executável juntamente com quaisquer dependências num ficheiro zip. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar a CLI localmente, este artigo requer a execução da versão 2.0.20 ou posterior da CLI do Azure. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). 
+ - Este tutorial requer a versão 2.0.20 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada. 
 
 ## <a name="example-script"></a>Script de exemplo
 

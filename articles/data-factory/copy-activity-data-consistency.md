@@ -11,23 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 3/27/2020
 ms.author: yexu
-ms.openlocfilehash: 55db5cf62e2e4ba2844a47ad405afa88349dc8fd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e7c66518cd62ef1debd8ceb1c38ba93101c8395d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634917"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565658"
 ---
-#  <a name="data-consistency-verification-in-copy-activity-preview"></a>Verificação da consistência dos dados na atividade de cópia (Pré-visualização)
+#  <a name="data-consistency-verification-in-copy-activity"></a>Verificação da consistência dos dados na atividade da cópia
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Ao mover dados de origem para loja de destino, a atividade de cópia da Azure Data Factory fornece uma opção para que você faça uma verificação adicional de consistência de dados para garantir que os dados não são apenas copiados com sucesso de fonte para loja de destino, mas também verificado como consistente entre a loja de origem e destino. Uma vez encontrados ficheiros inconsistentes durante o movimento de dados, pode abortar a atividade da cópia ou continuar a copiar o resto, permitindo que a definição de tolerância a falhas ignore ficheiros inconsistentes. Pode obter os nomes de ficheiros ignorados, permitindo a definição de registo de sessão na atividade de cópia. 
-
-> [!IMPORTANT]
-> Esta funcionalidade está atualmente em pré-visualização com as seguintes limitações em que estamos a trabalhar ativamente:
->- Quando ativa a definição de registo de sessão na atividade de cópia para registar os ficheiros inconsistentes que estão a ser ignorados, a pôr em prática o ficheiro de registo não pode ser 100% garantida se a atividade da cópia falhar.
->- O registo de sessão contém apenas ficheiros inconsistentes, onde os ficheiros copiados com sucesso não são registados até ao momento.
+Ao mover dados de origem para loja de destino, a atividade de cópia da Azure Data Factory fornece uma opção para que você faça uma verificação adicional de consistência de dados para garantir que os dados não são apenas copiados com sucesso de fonte para loja de destino, mas também verificado como consistente entre a loja de origem e destino. Uma vez encontrados ficheiros inconsistentes durante o movimento de dados, pode abortar a atividade da cópia ou continuar a copiar o resto, permitindo que a definição de tolerância a falhas ignore ficheiros inconsistentes. Pode obter os nomes de ficheiros ignorados, permitindo a definição de registo de sessão na atividade de cópia. Pode consultar a [atividade de registo de sessão na cópia](copy-activity-log.md) para mais detalhes.
 
 ## <a name="supported-data-stores-and-scenarios"></a>Lojas e cenários de dados suportados
 
@@ -60,13 +55,19 @@ O exemplo a seguir fornece uma definição JSON para permitir a verificação da
     "skipErrorFile": { 
         "dataInconsistency": true 
     }, 
-    "logStorageSettings": { 
-        "linkedServiceName": { 
-            "referenceName": "ADLSGen2_storage", 
-            "type": "LinkedServiceReference" 
-        }, 
-        "path": "/sessionlog/" 
-} 
+    "logSettings": {
+        "enableCopyActivityLog": true,
+        "copyActivityLogSettings": {
+            "logLevel": "Warning",
+            "enableReliableLogging": false
+        },
+        "logLocationSettings": {
+            "linkedServiceName": {
+                "referenceName": "ADLSGen2",
+               "type": "LinkedServiceReference"
+            }
+        }
+    }
 } 
 ```
 
@@ -74,7 +75,7 @@ Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | -------- 
 validarDataConsistency | Se se definir como verdadeiro para esta propriedade, ao copiar ficheiros binários, a atividade de cópia verificará o tamanho do ficheiro, o último TermodifiedDate e a caixa de verificação MD5 para cada ficheiro binário copiado da fonte para a loja de destino para garantir a consistência dos dados entre a loja de origem e destino. Ao copiar dados tabulares, a atividade de cópia verificará a contagem total de filas após o cumprimento do trabalho para garantir que o número total de linhas lidas a partir da fonte é o mesmo que o número de linhas copiadas para o destino mais o número de linhas incompatíveis que foram ignoradas. Esteja ciente de que o desempenho da cópia será afetado ativando esta opção.  | Verdadeiro<br/>Falso (predefinição) | Não
 dataInconsistency | Um dos pares de valores-chave dentro do saco de propriedade skipErrorFile para determinar se deseja saltar os ficheiros inconsistentes. <br/> -Verdade: quer copiar o resto ignorando ficheiros inconsistentes.<br/> - Falso: pretende abortar a atividade de cópia uma vez encontrado um ficheiro inconsistente.<br/>Esteja ciente de que esta propriedade só é válida quando estiver a copiar ficheiros binários e definir validar aDataConsistency como True.  | Verdadeiro<br/>Falso (predefinição) | Não
-logStorageSettings | Um grupo de propriedades que podem ser especificadas para permitir o registo de sessão para registar ficheiros ignorados. | | Não
+logSettings | Um grupo de propriedades que podem ser especificadas para permitir o registo de sessão para registar ficheiros ignorados. | | Não
 linkedServiceName | O serviço ligado do [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou [da Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar os ficheiros de registo de sessão. | Os nomes de um ou tipo de `AzureBlobStorage` `AzureBlobFS` serviço ligado, que se refere à instância que utiliza para armazenar os ficheiros de registo. | Não
 caminho | O caminho dos ficheiros de registo. | Especifique o caminho que pretende armazenar os ficheiros de registo. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não
 
@@ -95,7 +96,7 @@ Após o funcionar da atividade da cópia, pode ver o resultado da verificação 
             "filesWritten": 1, 
             "filesSkipped": 2, 
             "throughput": 297,
-            "logPath": "https://myblobstorage.blob.core.windows.net//myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
+            "logFilePath": "myfolder/a84bf8d4-233f-4216-8cb5-45962831cd1b/",
             "dataConsistencyVerification": 
            { 
                 "VerificationResult": "Verified", 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 8/12/2020
 ms.author: JenCook
-ms.openlocfilehash: 235f4eb236e144d41ffb9958b09dab0cf5c269b6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2c266d31a3aacc5bc97434de2246bfb1285a1ee
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462433"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565709"
 ---
 # <a name="how-to-run-an-application-with-fortanix-enclave-manager"></a>Como: Executar uma aplicação com Fortanix Enclave Manager 
 
@@ -60,31 +60,31 @@ Este tutorial mostra-lhe como converter a sua imagem de aplicação numa imagem 
 
 6. Neste tutorial, usaremos o registo de estivadores de Fortanix para a aplicação da amostra. Preencha os detalhes das seguintes informações. Use o seu registo privado de estivadores para manter a imagem de saída. 
  
-    - **Nome da aplicação**: Python Application Server
-    - **Descrição**: Python Flask Server
-    - **Nome da imagem de entrada**: fortanix/python-flask
-    - **Nome da imagem de saída**: fortanx-private/python-flask-sgx
-    - **ISVPRODID**: 1
-    - **ISVSVM**: 1
-    - **Tamanho da memória**: 1 GB
-    - **Contagem de fios**: 128
+    - **Nome da aplicação** : Python Application Server
+    - **Descrição** : Python Flask Server
+    - **Nome da imagem de entrada** : fortanix/python-flask
+    - **Nome da imagem de saída** : fortanx-private/python-flask-sgx
+    - **ISVPRODID** : 1
+    - **ISVSVM** : 1
+    - **Tamanho da memória** : 1 GB
+    - **Contagem de fios** : 128
 
-    *Opcional*: Executar o pedido.
+    *Opcional* : Executar o pedido.
     - **Estivador Hub:**[https://hub.docker.com/u/fortanix](https://hub.docker.com/u/fortanix)
-    - **Aplicação**: fortanix/python-flask
+    - **Aplicação** : fortanix/python-flask
 
         Execute o seguinte comando:
          ```bash
             sudo docker run fortanix/python-flask
          ```
 
-1. Adicione um certificado. Preencha as informações utilizando os detalhes abaixo e, em seguida, selecione **NEXT**:
-    - **Domínio**: myapp.domain.dom
-    - **Tipo**: Certificado emitido pelo Gestor do Enclave 
-    - **Caminho chave**: /appkey.pem
-    - **Tipo chave**: RSA
-    - **Percurso do certificado**: /appcert.pem
-    - **Tamanho da chave RSA**: 2048 Bits
+1. Adicione um certificado. Preencha as informações utilizando os detalhes abaixo e, em seguida, selecione **NEXT** :
+    - **Domínio** : myapp.domain.dom
+    - **Tipo** : Certificado emitido pelo Gestor do Enclave 
+    - **Caminho chave** : /appkey.pem
+    - **Tipo chave** : RSA
+    - **Percurso do certificado** : /appcert.pem
+    - **Tamanho da chave RSA** : 2048 Bits
     
 
 ## <a name="create-an-image"></a>Criar uma imagem
@@ -115,12 +115,12 @@ A criação de um Agente De Nó Fortanix irá implementar uma máquina virtual, 
 1. Vá ao [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) e assine com as suas credenciais Azure.
 1. Na barra de pesquisa, escreva **Fortanix Confidencial Computação Node Agent**. Selecione a App que aparece na caixa de pesquisa chamada **Fortanix Confidential Computing Node Agent** para navegar para a página inicial da oferta. 
      ![mercado de pesquisa](media/how-to-fortanix-enclave-manager/search-fortanix-marketplace.png)
-1. Selecione **Get It Now**, preencha as suas informações se necessário e selecione **Continue**. Será redirecionado para o portal Azure. 
+1. Selecione **Get It Now** , preencha as suas informações se necessário e selecione **Continue**. Será redirecionado para o portal Azure. 
 1. Selecione **Criar** para introduzir a página de implementação do Agente de Computação Confidencial Fortanix.
 1. Nesta página, você estará inserindo informações para implementar uma máquina virtual. Especificamente, este VM é uma máquina virtual ativada por Intel SGX DCsv2-Series a partir de Azure com o software Fortanix Node Agent instalado. O Agente Nó permitirá que a sua imagem convertida seja executada de forma segura nos nós Intel SGX em Azure.  Selecione o grupo **de subscrição** e **recursos** onde pretende implementar a máquina virtual e os recursos associados. 
  
     > [!NOTE]
-    > Existem constrangimentos ao implementar DCsv2-Series máquinas virtuais em Azure. Poderá ter de solicitar uma quota para núcleos adicionais. Leia sobre [soluções de computação confidencial em VMs Azure](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) para mais informações. 
+    > Existem constrangimentos ao implementar DCsv2-Series máquinas virtuais em Azure. Poderá ter de solicitar uma quota para núcleos adicionais. Leia sobre [soluções de computação confidencial em VMs Azure](./virtual-machine-solutions.md) para mais informações. 
 
 1. Selecione uma região disponível.
 1. Introduza um nome para a sua máquina virtual no campo **Nome do Nó.** 
@@ -158,7 +158,7 @@ onde,
 1. Verifique se há uma aplicação em execução com um nó computacional associado
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não é necessário, pode eliminar o grupo de recursos, a máquina virtual e os recursos associados. A eliminação do grupo de recursos irá desenrolar os nós associados à sua imagem convertida. 
 
@@ -174,4 +174,4 @@ Neste arranque rápido, usou a ferramenta Fortanix para converter a sua imagem d
 
 Para saber mais sobre as ofertas confidenciais de computação da Azure, consulte [a Visão Geral da computação confidencial do Azure](overview.md)
 
- Saiba como completar tarefas semelhantes utilizando outras ofertas de terceiros em Azure, como [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) e [Scone.](https://sconedocs.github.io)  
+ Saiba como completar tarefas semelhantes utilizando outras ofertas de terceiros em Azure, como [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) e [Scone.](https://sconedocs.github.io)

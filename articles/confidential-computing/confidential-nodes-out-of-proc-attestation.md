@@ -6,12 +6,12 @@ author: agowdamsft
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 90b74e51dce994c3041c15feec729ff1fae2bb00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91001032"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564162"
 ---
 # <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>Gestão de software de plataforma com conjunto de ajudante de cotação SGX
 
@@ -20,13 +20,13 @@ ms.locfileid: "91001032"
 ## <a name="overview"></a>Descrição geral
  
 A Intel suporta dois modos de atestado para executar a geração de citações:
-- **in-proc**: acolhe os componentes de software fidedignos dentro do processo de aplicação do enclave
+- **in-proc** : acolhe os componentes de software fidedignos dentro do processo de aplicação do enclave
 
-- **fora do proc**: hospeda os componentes de software fidedignos fora da aplicação do enclave.
+- **fora do proc** : hospeda os componentes de software fidedignos fora da aplicação do enclave.
  
 Aplicações SGX construídas usando Open Enclave SDK por padrão uso no modo de atestado in-proc. As aplicações baseadas em SGX permitem o out-of-proc e exigiriam um alojamento extra e exporia os componentes necessários, como o Architectural Enclave Service Manager (AESM), externo à aplicação.
 
-A utilização desta funcionalidade é **altamente recomendada**, uma vez que melhora o tempo de uptime para as suas aplicações do enclave durante as atualizações da Plataforma Intel ou atualizações do controlador DCAP.
+A utilização desta funcionalidade é **altamente recomendada** , uma vez que melhora o tempo de uptime para as suas aplicações do enclave durante as atualizações da Plataforma Intel ou atualizações do controlador DCAP.
 
 ## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>Porquê e quais são os benefícios de fora-de-proc?
 
@@ -126,10 +126,10 @@ spec:
 
 [Amostras de arranque rápido recipientes confidenciais](https://github.com/Azure-Samples/confidential-container-samples)
 
-[Lista DCsv2 SKU](https://docs.microsoft.com/azure/virtual-machines/dcv2-series)
+[Lista DCsv2 SKU](../virtual-machines/dcv2-series.md)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation]: ../attestation/index.yml
 
 
 <!-- LINKS - internal -->

@@ -7,21 +7,21 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: e4b112b93a552ff62b08c102e710cd914265ba5c
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: b13f5bfffced9afd80663d606e30e028e52643ac
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339330"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563843"
 ---
 # <a name="manage-azure-cosmos-core-sql-api-resources-using-azure-cli"></a>Gerir recursos API Azure Cosmos Core (SQL) utilizando O Azure CLI
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 O guia a seguir descreve os comandos comuns para automatizar a gestão das contas, das bases de dados e dos contentores do Azure Cosmos DB com a CLI do Azure. As páginas de referência para todos os comandos Azure Cosmos DB CLI estão disponíveis na [Referência Azure CLI](/cli/azure/cosmosdb). Você também pode encontrar mais exemplos em [amostras de CLI Azure para Azure Cosmos DB](cli-samples.md), incluindo como criar e gerir contas, bases de dados e contentores da Cosmos para MongoDB, Gremlin, Cassandra e Table API.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este tópico requer que esteja a executar a versão 2.12.1 ou posterior do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+- Este artigo requer a versão 2.12.1 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 Para as amostras de Azure CLI para outras APIs ver [amostras de CLI para Cassandra](cli-samples-cassandra.md), [Amostras de CLI para API MongoDB,](cli-samples-mongodb.md) [Amostras de CLI para Gremlin,](cli-samples-gremlin.md) [Amostras de CLI para quadro](cli-samples-table.md)
 
@@ -43,7 +43,7 @@ As seguintes secções demonstram como gerir a conta Azure Cosmos, incluindo:
 * [Cadeias de ligação de lista](#list-connection-strings)
 * [Regenerar a chave da conta](#regenerate-account-key)
 
-### <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
+### <a name="create-an-azure-cosmos-db-account"></a>Criar uma conta do Azure Cosmos DB
 
 Crie uma conta DB Azure Cosmos com SQL API, consistência de sessão nas regiões oeste dos EUA 2 e Leste dos EUA 2:
 
@@ -546,6 +546,6 @@ az lock delete --ids $lockid
 
 Para obter mais informações sobre o Azure CLI, consulte:
 
-* [Instalar O Azure CLI](/cli/azure/install-azure-cli)
+* [Instalar a CLI do Azure](/cli/azure/install-azure-cli)
 * [Referência Azure CLI](/cli/azure/cosmosdb)
 * [Amostras adicionais de Azure CLI para Azure Cosmos DB](cli-samples.md)

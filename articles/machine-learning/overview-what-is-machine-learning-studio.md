@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 229c1d2aaab6029ccec3f8831f42a7ce8de2e31e
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 018a0e3a244d1f0e36ce638d646ab05861c10e38
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555486"
+ms.locfileid: "94565913"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio (clássico)?
 
@@ -103,3 +103,4 @@ Visite o [estúdio,](https://ml.azure.com)ou explore as diferentes opções de a
   + [Use cadernos Jupyter em uma instância de computação para treinar & implementar modelos](tutorial-1st-experiment-sdk-setup.md)
   + [Utilize machine learning automatizado para treinar & implementar modelos](tutorial-first-experiment-automated-ml.md)  
   + [Use o designer para treinar & implementar modelos](tutorial-designer-automobile-price-train-score.md)
+  + [Use o estúdio numa rede virtual segura](how-to-enable-studio-virtual-network.md)

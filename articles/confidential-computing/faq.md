@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.subservice: workloads
 ms.date: 4/17/2020
 ms.author: jencook
-ms.openlocfilehash: cf90ff5b94eb03f76dffc8b64dd4d92a44ac20ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9df3d9771029e6d72e9d0092a129cddc27be6cd7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91848913"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94564111"
 ---
 # <a name="frequently-asked-questions-for-azure-confidential-computing"></a>Perguntas frequentes para Azure Confidential Computing
 
@@ -32,13 +32,13 @@ Aqui estão algumas formas de implementar um DCsv2 VM:
 
 **Todas as imagens de SO funcionarão com a computação confidencial do Azure?**
 
-N.º As máquinas virtuais só podem ser implantadas em máquinas operativas da Geração 2 com o Ubuntu Server 18.04, o Ubuntu Server 16.04, o Windows Server 2019 Datacenter e o Windows Server 2016 Datacenter. Ler mais sobre Gen 2 VMs em [Linux](../virtual-machines/linux/generation-2.md) e [Windows](../virtual-machines/windows/generation-2.md)
+Não. As máquinas virtuais só podem ser implantadas em máquinas operativas da Geração 2 com o Ubuntu Server 18.04, o Ubuntu Server 16.04, o Windows Server 2019 Datacenter e o Windows Server 2016 Datacenter. Ler mais sobre Gen 2 VMs em [Linux](../virtual-machines/generation-2.md) e [Windows](../virtual-machines/generation-2.md)
 
 **As máquinas virtuais DCsv2 estão acinzentadas no portal e não posso selecionar uma**
 
 Com base na bolha de informação ao lado do VM, existem diferentes ações a tomar:
-   -    **Não suportadoGereração**: Mude a geração da imagem da máquina virtual para "Gen2".
-   -    **Não Disponível Para Aubstrução**: A região ainda não está disponível para a sua subscrição. Selecione uma região disponível.
+   -    **Não suportadoGereração** : Mude a geração da imagem da máquina virtual para "Gen2".
+   -    **Não Disponível Para Aubstrução** : A região ainda não está disponível para a sua subscrição. Selecione uma região disponível.
    -    **InsuficienteSQuota:** [Crie um pedido de apoio para aumentar a sua quota.](../azure-portal/supportability/per-vm-quota-requests.md) As assinaturas de teste gratuitos não têm quota para VMs de computação confidencial. 
 
 **As máquinas virtuais DCsv2 não aparecem quando tento procurá-las no seletor de tamanho do portal**
@@ -55,7 +55,7 @@ DC-Series VMs funcionam em processadores Intel de 6 núcleos mais antigos com In
 
 **As máquinas virtuais DCsv2 estão disponíveis globalmente?**
 
-N.º Neste momento, estas máquinas virtuais só estão disponíveis em regiões selecionadas. Consulte a página de [produtos por regiões](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para as últimas regiões disponíveis. 
+Não. Neste momento, estas máquinas virtuais só estão disponíveis em regiões selecionadas. Consulte a página de [produtos por regiões](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para as últimas regiões disponíveis. 
 
 **A hiper-rosca está desligada nestas máquinas?**
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/10/2020
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: a7ab7debffc8e88f385fbba6ae52af74ef98b25f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 479b1d8ed1f4238486bb78e33a6139463578dbba
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91266945"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563312"
 ---
 # <a name="set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Crie uma política de WAF de geo filtragem para a sua Porta frontal
 
@@ -25,9 +25,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 Antes de começar a configurar uma política de geo-filtro, configurar o seu ambiente PowerShell e criar um perfil da Porta Frontal.
 ### <a name="set-up-your-powershell-environment"></a>Configurar o ambiente do PowerShell
-O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) para gerir os recursos do Azure. 
+O Azure PowerShell fornece um conjunto de cmdlets que utilizam o modelo do [Azure Resource Manager](../../azure-resource-manager/management/overview.md) para gerir os recursos do Azure. 
 
-Pode instalar o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
+Pode instalar o [Azure PowerShell](/powershell/azure/) no seu computador local e utilizá-lo em qualquer sessão do PowerShell. Siga as instruções na página, para iniciar sômposições com as suas credenciais Azure e instale o módulo Az PowerShell.
 
 #### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>Ligue ao Azure com um diálogo interativo para iniciar sação
 

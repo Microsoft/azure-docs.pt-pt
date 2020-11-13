@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 7c1bfa618ea0ddddd7666698bc4fffa3ced5079d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 7d07dda7741aa075b8d853a8d06d3d3218ca901a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323074"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94563822"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -32,7 +32,7 @@ Para que a funcionalidade do Jupyter funcione, certifique-se de que a comunicaç
 
 Um caso compute é uma estação de trabalho totalmente gerida baseada em nuvem otimizada para o seu ambiente de desenvolvimento de aprendizagem automática. Proporciona os seguintes benefícios:
 
-|Principais vantagens|Description|
+|Principais vantagens|Descrição|
 |----|----|
 |Produtividade|Pode construir e implementar modelos utilizando cadernos integrados e as seguintes ferramentas no estúdio Azure Machine Learning:<br/>- Jupyter<br/>- JupyterLab<br/>- RStudio (pré-visualização)<br/>A instância compute está totalmente integrada com o espaço de trabalho e estúdio Azure Machine Learning. Pode partilhar cadernos e dados com outros cientistas de dados no espaço de trabalho.<br/> Também pode utilizar [o Código VS](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) com instâncias computacional.
 |Gerido & seguro|Reduza a sua pegada de segurança e adicione o cumprimento dos requisitos de segurança da empresa. As instâncias computacional fornecem políticas de gestão robustas e configurações seguras de rede, tais como:<br/><br/>- Autoprovisionamento a partir de modelos de gestor de recursos ou SDK de aprendizagem automática Azure<br/>- [Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [Suporte de rede virtual](./how-to-secure-training-vnet.md#compute-instance)<br/>- Política SSH para permitir/desativar o acesso ao SSH<br/>TLS 1.2 habilitado |
@@ -110,7 +110,7 @@ Pode realizar as seguintes ações:
 
 * [Criar uma instância computacional](#create). 
 * Refresque o separador de instâncias computacional.
-* Comece, pare e reinicie uma instância de computação.  Pagas pelo exemplo sempre que está a funcionar. Pare a instância de cálculo quando não estiver a usá-lo para reduzir o custo. Parar um caso de computação o impede. Então, comece de novo quando precisar.
+* Comece, pare e reinicie uma instância de computação.  Pagas pelo exemplo sempre que está a funcionar. Pare a instância de cálculo quando não estiver a usá-lo para reduzir o custo. Parar um caso de computação o impede. Então, comece de novo quando precisar. Por favor, note que parar a instância de computação para a faturação durante horas de cálculo, mas ainda será cobrado para o disco, IP público e equilibrador de carga padrão.
 * Apagar uma instância computacional.
 * Filtre a lista de computações para mostrar apenas aqueles que criou.
 
