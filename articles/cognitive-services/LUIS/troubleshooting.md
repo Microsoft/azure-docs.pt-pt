@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.openlocfilehash: 8eb37b993ee5bc3944228cba72be0557b52e3dc6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 17b070fea422268ec12e0ccd3357ae0549a78916
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149253"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566270"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Perguntas Frequentes (FAQ) do Language Understanding 
 
@@ -91,11 +91,11 @@ Obtém 403 e 429 códigos de estado de erro quando excede as transações por se
 
 Quando utilizar todas essas consultas gratuitas de 1000 pontos finais ou exceder a quota mensal de transações do seu nível de preços, recebe um código de estado de erro HTTP 403.
 
-Para corrigir este erro, tem de [alterar o seu nível de preços](luis-how-to-azure-subscription.md#change-pricing-tier) para um nível mais elevado ou criar um novo [recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-lo à sua aplicação.](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)
+Para corrigir este erro, tem de [alterar o seu nível de preços](luis-how-to-azure-subscription.md#change-the-pricing-tier) para um nível mais elevado ou criar um novo [recurso](get-started-portal-deploy-app.md#create-the-endpoint-resource) e [atribuí-lo à sua aplicação.](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)
 
 As soluções para este erro incluem:
 
-* No [portal Azure](https://portal.azure.com), no seu recurso de Compreensão linguística, no **nível de preços de gestão de recursos ->**, altere o seu nível de preços para um nível de TPS mais elevado. Não precisa de fazer nada no portal de Compreensão de Idiomas se o seu recurso já estiver atribuído à sua aplicação de Compreensão de Idiomas.
+* No [portal Azure](https://portal.azure.com), no seu recurso de Compreensão linguística, no **nível de preços de gestão de recursos ->** , altere o seu nível de preços para um nível de TPS mais elevado. Não precisa de fazer nada no portal de Compreensão de Idiomas se o seu recurso já estiver atribuído à sua aplicação de Compreensão de Idiomas.
 *  Se o seu uso exceder o nível de preços mais elevado, adicione mais recursos de Compreensão linguística com um equilibrador de carga à sua frente. O [recipiente de compreensão de linguagem](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
 
 ### <a name="i-received-an-http-429-error-status-code-how-do-i-fix-it"></a>Recebi um código de estado de erro HTTP 429. Como posso corrigi-lo?
@@ -106,7 +106,7 @@ Este código de estado é devolvido quando as suas transações por segundo exce
 
 As soluções incluem:
 
-* Pode [aumentar o seu nível de preços,](luis-how-to-azure-subscription.md#change-pricing-tier)se não estiver no nível mais alto.
+* Pode [aumentar o seu nível de preços,](luis-how-to-azure-subscription.md#change-the-pricing-tier)se não estiver no nível mais alto.
 * Se o seu uso exceder o nível de preços mais elevado, adicione mais recursos de Compreensão linguística com um equilibrador de carga à sua frente. O [recipiente de compreensão de linguagem](luis-container-howto.md) com Kubernetes ou Docker Compose pode ajudar com isso.
 * Pode limitar os pedidos de candidatura ao seu cliente com uma [política de relemisão](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults#general-guidelines) que implementa quando obtém este código de estado.
 
@@ -190,7 +190,7 @@ Ver [Comboio com todos os dados.](luis-how-to-train.md#train-with-all-data)
 ## <a name="app-publishing"></a>Publicação de aplicativos
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Qual é a iD do inquilino na janela "Adicionar uma chave à sua aplicação"?
-Em Azure, um inquilino representa o cliente ou organização que está associado a um serviço. Encontre o seu ID do seu inquilino no portal Azure na caixa de ID do **Diretório** selecionando propriedades de gestão **de diretório azure**  >  **Manage**  >  **Properties**ative.
+Em Azure, um inquilino representa o cliente ou organização que está associado a um serviço. Encontre o seu ID do seu inquilino no portal Azure na caixa de ID do **Diretório** selecionando propriedades de gestão **de diretório azure**  >  **Manage**  >  **Properties** ative.
 
 ![ID do inquilino no portal Azure](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -224,7 +224,7 @@ As teclas de autoria estão disponíveis no portal LUIS após [migrar para a exp
 ## <a name="app-management"></a>Gestão de aplicações
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Como faço o download de um registo de declarações de utilizadores?
-Por padrão, a sua aplicação LUIS regista declarações dos utilizadores. Para descarregar um registo de declarações que os utilizadores enviam para a sua aplicação LUIS, vá às **Minhas Apps**e selecione a aplicação. Na barra de ferramentas contextual, selecione **Registos de ponto final de exportação**. O registo é formatado como um ficheiro de valor separado em vírgula (CSV).
+Por padrão, a sua aplicação LUIS regista declarações dos utilizadores. Para descarregar um registo de declarações que os utilizadores enviam para a sua aplicação LUIS, vá às **Minhas Apps** e selecione a aplicação. Na barra de ferramentas contextual, selecione **Registos de ponto final de exportação**. O registo é formatado como um ficheiro de valor separado em vírgula (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Como posso desativar o registo de expressões?
 Pode desativar o registo de declarações do utilizador definindo `log=false` no URL Endpoint que a sua aplicação do cliente utiliza para consultar o LUIS. No entanto, desligar o registo desativa a capacidade da sua app LUIS de sugerir expressões ou melhorar o desempenho que se baseia na [aprendizagem ativa.](luis-concept-review-endpoint-utterances.md#what-is-active-learning) Se você definir `log=false` por causa de preocupações de privacidade de dados, você não pode baixar um registo dessas declarações de usuários de LUIS ou usar essas expressões para melhorar a sua app.
@@ -268,7 +268,7 @@ A primeira questão é isolar se a questão está relacionada com o LUIS ou acon
 #### <a name="resolve-issue-in-luis"></a>Resolver problema no LUIS
 Passe a mesma expressão para LUIS a partir do [ponto final do LUIS.](luis-get-started-create-app.md#query-the-v2-api-prediction-endpoint) Se receber um erro, resolva o problema no LUIS até que o erro não seja mais devolvido. Os erros comuns incluem:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - Esta questão indica que tem de mudar de uma chave de autoria para uma [chave de ponto final](luis-how-to-azure-subscription.md) ou precisa de alterar os [níveis](luis-how-to-azure-subscription.md#change-pricing-tier)de serviço .
+* `Out of call volume quota. Quota will be replenished in <time>.` - Esta questão indica que tem de mudar de uma chave de autoria para uma [chave de ponto final](luis-how-to-azure-subscription.md) ou precisa de alterar os [níveis](luis-how-to-azure-subscription.md#change-the-pricing-tier)de serviço .
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Resolver problema no Azure Bot Service
 

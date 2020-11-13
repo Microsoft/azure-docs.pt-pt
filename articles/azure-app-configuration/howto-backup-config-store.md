@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: b48adfdfda4b3e120b2246e67a70000d25c25f3a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737094"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565930"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Fazer o back up Lojas de Configuração de Aplicativos automaticamente
 
@@ -37,14 +37,17 @@ A motivação por trás do backup de lojas de Configuração de aplicações é 
 
 Neste tutorial, você vai criar uma loja secundária na `centralus` região e todos os outros recursos na `westus` região.
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)].
 
-- Subscrição do Azure. [Crie um de graça.](https://azure.microsoft.com/free/) 
+## <a name="prerequisites"></a>Pré-requisitos 
+
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) com a carga de trabalho de desenvolvimento Azure.
-- [.NET Core SDK](https://dotnet.microsoft.com/download).
-- Versão mais recente do Azure CLI (2.3.1 ou posterior). Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli). Se estiver a utilizar o Azure CLI, tem de iniciar sação primeiro utilizando `az login` . Pode utilizar opcionalmente a Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- [.NET Core SDK](https://dotnet.microsoft.com/download).
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+- Este tutorial requer a versão 2.3.1 ou posterior do CLI Azure. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -248,7 +251,7 @@ Se não vir o novo cenário na sua loja secundária:
 - Também pode configurar a monitorização e alerta para funções Azure utilizando [insights de aplicação Azure](../azure-functions/functions-monitoring.md?tabs=cmd). 
 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se pretender continuar a trabalhar com esta Configuração de Aplicações e subscrição de eventos, não limpe os recursos criados neste artigo. Se não pretender continuar, utilize o seguinte comando para eliminar os recursos criados neste artigo.
 
 ```azurecli-interactive

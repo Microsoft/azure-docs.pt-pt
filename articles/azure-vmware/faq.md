@@ -2,14 +2,14 @@
 title: Perguntas mais frequentes
 description: Fornece respostas a algumas das perguntas comuns sobre a Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 09/25/2020
+ms.date: 11/12/2020
 ms.author: dikamath
-ms.openlocfilehash: 33250b0ba9209f7806346668dac0ef308101e7c2
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 99e9e53693e42f907250331894f55ed0160f9e30
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94487797"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577520"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Perguntas frequentes sobre Azure VMware Solution
 
@@ -229,9 +229,15 @@ Você terá privilégios completos de administrador em NSX-T e poderá gerir o c
 
 Para questões gerais sobre preços, consulte a página [de preços](https://azure.microsoft.com/pricing/details/azure-vmware) da Solução VMware Azure. 
 
+#### <a name="can-azure-vmware-solution-be-purchased-through-a-microsoft-csp"></a>A Azure VMware Solution pode ser adquirida através de um Microsoft CSP?
+
+Sim, os clientes podem implementar a Azure VMware Solution dentro de uma subscrição Azure gerida por um CSP.
+
 #### <a name="who-supports-azure-vmware-solution"></a>Quem suporta a Azure VMware Solution?
 
-A Microsoft fornece suporte para Azure VMware Solution. Pode submeter um pedido de [apoio.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+A Microsoft fornece suporte para Azure VMware Solution. Pode submeter um pedido de [apoio.](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 
+
+Para as subscrições geridas pela CSP, o primeiro nível de suporte será fornecido pelo Provedor de Solução da mesma forma que a CSP para outros serviços da Azure.
 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Que contas preciso para criar uma nuvem privada Azure VMware Solution?
 
@@ -246,6 +252,10 @@ A Microsoft e a Red Hat partilham uma equipa de suporte integrada e de apoio que
 VMware HCX Enterprise Edition (EE) está disponível com a Azure VMware Solution como uma função/serviço *de pré-visualização.* Enquanto vMware HCX EE para Azure VMware Solution está em Pré-visualização, é uma função/serviço gratuito e sujeito a termos e condições de serviço de pré-visualização. Assim que o serviço VMware HCX EE for classificado, receberá um aviso de 30 dias de que a faturação irá mudar. Pode desligar ou optar por sair do serviço.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Como solicito um aumento da quota de anfitrião para a Azure VMware Solution?
+
+Para as subscrições geridas pela CSP, o cliente deve realizar o pedido ao parceiro e a equipa parceira irá envolver-se com a Microsoft para que o contingente seja aumentado para a subscrição. 
+
+Para as assinaturas EA, o cliente deve seguir este procedimento.
 
 * Vai precisar de um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
 * Você precisará de uma conta Azure numa subscrição do Azure.
@@ -283,9 +293,12 @@ Antes de criar o seu recurso Azure VMware Solution, tem de enviar um bilhete de 
 
    ```azurecli-interactive
    az provider register -n Microsoft.AVS --subscription <your subscription ID>
-   `"
 
-   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+   For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md). 
+
+#### Are Reserved Instances available for purchasing through the Cloud Solution Provider (CSP) program?
+
+Yes. CSP can purchase reserved instances on behalf of their customers, see [Save costs with a reserved instance](reserved-instance.md) article. 
 
 
 ## Customer communication

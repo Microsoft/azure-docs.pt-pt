@@ -5,12 +5,12 @@ ms.author: mikben
 ms.date: 10/10/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: dd75e5e97e5dca898ba10e91528782861fb949ec
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 0559a9b763d273579373bb57922606f14ff6e6db
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114640"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94574381"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -74,6 +74,9 @@ Podemos agora ligar o botão **de Reunião de Equipas** de Junção ao código q
 
 ```javascript
 meetingButton.addEventListener("click", () => {
+    
+    // set display name in the meeting
+    callAgent.updateDisplayName('YOUR_NAME');
     
     // join with meeting link
     call = callAgent.join({meetingLink: 'MEETING_LINK'}, {});

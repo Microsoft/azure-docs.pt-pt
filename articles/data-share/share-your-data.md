@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 08/28/2020
-ms.openlocfilehash: 232f50c05182799c93a636baa2aec8ed93419be8
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 10/30/2020
+ms.openlocfilehash: 5eb374806d0bdafa7f05b001e4446b184a446b52
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94489476"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577418"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Tutorial: Partilhar dados com o Azure Data Share  
 
@@ -31,21 +31,25 @@ Neste tutorial, irá aprender a:
 * O endereço de e-mail Azure do seu destinatário (usando o seu pseudónimo de e-mail não funciona).
 * Se a loja de dados Azure de origem estiver numa subscrição Azure diferente da que utilizará para criar o recurso Data Share, registe o [fornecedor de recursos Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) na subscrição onde está localizada a loja de dados Azure. 
 
-### <a name="share-from-a-storage-account"></a>Partilhar a partir de uma conta de armazenamento:
+### <a name="share-from-a-storage-account"></a>Partilhar a partir de uma conta de armazenamento
 
 * Uma conta de Armazenamento Azure: Se ainda não tiver uma, pode criar uma [conta de Armazenamento Azure](../storage/common/storage-account-create.md)
-* Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuidor.
-* Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função de Proprietário. 
+* Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de **Contribuidor**.
+* Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função de **Proprietário**. 
 
 
-### <a name="share-from-a-sql-based-source"></a>Partilhar a partir de uma fonte baseada em SQL:
+### <a name="share-from-a-sql-based-source"></a>Partilhar a partir de uma fonte baseada em SQL
+Abaixo está a lista de pré-requisitos para a partilha de dados de fonte SQL. 
 
-* Uma Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente SQL Data Warehouse) com tabelas e vistas que pretende partilhar.
-* Permissão para escrever nas bases de dados do servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de Contribuidor.
-* Permissão para que a partilha de dados aceda ao armazém de dados. Isto pode ser feito através dos seguintes passos: 
-    1. Coloque-se como o Azure Ative Directory Admin para o servidor SQL.
-    1. Ligue-se à Base de Dados/Armazém de Dados Azure SQL utilizando o Azure Ative Directory.
-    1. Utilize o Editor de Consulta (pré-visualização) para executar o seguinte script para adicionar o recurso Data Share Managed Identity como db_datareader. Tem de se ligar utilizando o Ative Directory e não a autenticação do SQL Server. 
+#### <a name="prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Pré-requisitos para a partilha da Azure SQL Database ou da Azure Synapse Analytics (anteriormente Azure SQL DW)
+Pode seguir a [demonstração passo](https://youtu.be/hIE-TjJD8Dc) a passo para configurar os pré-requisitos.
+
+* Uma Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL DW) com tabelas e vistas que pretende partilhar.
+* Permissão para escrever nas bases de dados do servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de **Contribuidor**.
+* Permissão para a identidade gerida do recurso Data Share para aceder à base de dados. Isto pode ser feito através dos seguintes passos: 
+    1. No portal Azure, navegue para o servidor SQL e coloque-se como O **Administrador Ativo Azure.**
+    1. Conecte-se à Base de Dados/Armazém de Dados Azure SQL utilizando [o Editor de Consulta](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) ou o SQL Server Management Studio com a autenticação do Azure Ative Directory. 
+    1. Execute o seguinte script para adicionar o recurso Data Share Identidade Gerida como um db_datareader. Tem de se ligar utilizando o Ative Directory e não a autenticação do SQL Server. 
     
         ```sql
         create user "<share_acct_name>" from external provider;     
@@ -53,17 +57,40 @@ Neste tutorial, irá aprender a:
         ```                   
        Note que o *<share_acc_name>* é o nome do seu recurso Data Share. Se ainda não criou um recurso De Partilha de Dados, poderá voltar a este pré-requisito mais tarde.  
 
-* Um Utilizador da Base de Dados Azure SQL com acesso "db_datareader" para navegar e selecione as tabelas e/ou vistas que deseja partilhar. 
+* Um Utilizador da Base de Dados Azure SQL com acesso **"db_datareader"** para navegar e selecione as tabelas e/ou vistas que deseja partilhar. 
 
-* Acesso ao Servidor IP SQL do cliente. Isto pode ser feito através dos seguintes passos: 
-    1. No servidor SQL no portal Azure, navegue para *Firewalls e redes virtuais*
-    1. Clique **no** alternador para permitir o acesso aos Serviços Azure.
-    1. Clique **em +Adicionar IP ao cliente** e clique em **Guardar.** O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a partilhar dados SQL do portal Azure. Também pode adicionar uma gama de IP. 
+* Acesso sql Server Firewall. Isto pode ser feito através dos seguintes passos: 
+    1. No portal Azure, navegue para o servidor SQL. Selecione *Firewalls e redes virtuais* a partir da navegação à esquerda.
+    1. Clique **em Sim** para permitir que os *serviços e recursos do Azure acedam a este servidor.*
+    1. Clique **em +Adicionar IP ao cliente.** O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a partilhar dados SQL do portal Azure. Também pode adicionar uma gama de IP.
+    1. Clique em **Guardar**. 
+
+#### <a name="prerequisites-for-sharing-from-azure-synapse-analytics-workspace-sql-pool"></a>Pré-requisitos para a partilha da piscina SQL da Azure Synapse Analytics (espaço de trabalho)
+
+* Uma piscina SQL Azure Synapse Analytics (espaço de trabalho) com mesas que pretende partilhar. A partilha de pontos de vista não é atualmente suportada.
+* Permissão para escrever para a piscina SQL no espaço de trabalho synapse, que está presente no *Microsoft.Synapse/workspaces/sqlPools/write*. Esta permissão existe na função de **Contribuidor**.
+* Permissão para a identidade gerida do recurso Data Share para aceder à piscina SQL do espaço de trabalho Synapse. Isto pode ser feito através dos seguintes passos: 
+    1. No portal Azure, navegue para o espaço de trabalho da Sinapse. Selecione o administrador do SqL Ative Directory da navegação esquerda e coloque-se como administrador do **Azure Ative Directory**.
+    1. Abra o Estúdio Synapse, *selecione Gerir* a partir da navegação à esquerda. Selecione *o controlo de acesso* sob Segurança. Atribua-se o papel **de administrador SQL** ou **workspace.**
+    1. No Synapse Studio, *selecione Desenvolver* a partir da navegação à esquerda. Execute o seguinte script no pool SQL para adicionar o recurso Data Share Identidade Gerida como db_datareader. 
+    
+        ```sql
+        create user "<share_acct_name>" from external provider;     
+        exec sp_addrolemember db_datareader, "<share_acct_name>"; 
+        ```                   
+       Note que o *<share_acc_name>* é o nome do seu recurso Data Share. Se ainda não criou um recurso De Partilha de Dados, poderá voltar a este pré-requisito mais tarde.  
+
+* Acesso ao espaço de trabalho Synapse Firewall. Isto pode ser feito através dos seguintes passos: 
+    1. No portal Azure, navegue para o espaço de trabalho da Sinapse. Selecione *Firewalls* da navegação à esquerda.
+    1. Clique **em ON** para permitir que os *serviços e recursos da Azure acedam a este espaço de trabalho.*
+    1. Clique **em +Adicionar IP ao cliente.** O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a partilhar dados SQL do portal Azure. Também pode adicionar uma gama de IP.
+    1. Clique em **Guardar**. 
+
 
 ### <a name="share-from-azure-data-explorer"></a>Partilhar a partir do Azure Data Explorer
 * Um cluster Azure Data Explorer com bases de dados que pretende partilhar.
-* Permissão para escrever ao cluster Azure Data Explorer, que está presente no *Microsoft.Kusto/clusters/write*. Esta permissão existe na função de Contribuidor.
-* Permissão para adicionar atribuição de funções ao cluster Azure Data Explorer, que está presente na *Microsoft.Authorization/role assignments/write*. Esta permissão existe na função de Proprietário.
+* Permissão para escrever ao cluster Azure Data Explorer, que está presente no *Microsoft.Kusto/clusters/write*. Esta permissão existe na função de **Contribuidor**.
+* Permissão para adicionar atribuição de funções ao cluster Azure Data Explorer, que está presente na *Microsoft.Authorization/role assignments/write*. Esta permissão existe na função de **Proprietário**.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
 
@@ -113,7 +140,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
     ![Adicione conjuntos de dados à sua parte](./media/datasets.png "Conjuntos de dados")
 
-1. Selecione o tipo de conjunto de dados que gostaria de adicionar. Verá uma lista diferente de tipos de conjuntos de dados dependendo do tipo de partilha (instantâneo ou no local) que selecionou no passo anterior. Se partilhar de uma Base de Dados Azure SQL ou Azure Synapse Analytics, você será solicitado para algumas credenciais SQL. Autenticar utilizando o utilizador que criou como parte dos pré-requisitos.
+1. Selecione o tipo de conjunto de dados que gostaria de adicionar. Verá uma lista diferente de tipos de conjuntos de dados dependendo do tipo de partilha (instantâneo ou no local) que selecionou no passo anterior. Se partilhar de uma Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL DW), você será solicitado para credenciais SQL para listar tabelas.
 
     ![AdicionarDatasets](./media/add-datasets.png "Adicionar conjuntos de dados")    
 

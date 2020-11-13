@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 9/30/2020
 ms.subservice: alerts
-ms.openlocfilehash: d99e37171f2fb5b86bee897caca55c3e8782f92e
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: d1a1a31d5894338e0deeed27fabcde9fdbf6f588
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108818"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566491"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos apoiados para alertas métricos no Azure Monitor
 
@@ -26,7 +26,7 @@ Atualmente, pode criar alertas métricos mais recentes apenas no portal Azure, [
 ## <a name="metrics-and-dimensions-supported"></a>Métricas e Dimensões Suportadas
 Mais recentes alertas métricos alertam para métricas que usam dimensões. Pode utilizar as dimensões para filtrar a sua métrica para o nível certo. Todas as métricas suportadas juntamente com as dimensões aplicáveis podem ser exploradas e visualizadas a partir do [Azure Monitor - Metrics Explorer](./metrics-charts.md).
 
-Aqui está a lista completa de fontes métricas do monitor Azure apoiadas pelos alertas mais recentes:
+Aqui está a lista completa de fontes métricas do Azure Monitor apoiadas pelos alertas mais recentes:
 
 |Tipo de recurso  |Dimensões Suportadas |Alertas multi-recursos| Métricas disponíveis|
 |---------|---------|-----|----------|
@@ -76,7 +76,7 @@ Aqui está a lista completa de fontes métricas do monitor Azure apoiadas pelos 
 |Microsoft.Kusto/Clusters | Sim |Não |[Clusters de Exploradores de Dados](./metrics-supported.md#microsoftkustoclusters)|
 |Microsoft.Logic/integrationServiceEnvironments | Sim | Não |[Ambientes de Serviço de Integração](./metrics-supported.md#microsoftlogicintegrationserviceenvironments) |
 |Microsoft.Logic/workflows | Não | Não |[Logic Apps](./metrics-supported.md#microsoftlogicworkflows) |
-|Microsoft.MachineLearningServices/workspaces | Sim | Não | [Aprendizagem automática](./metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
+|Microsoft.MachineLearningServices/workspaces | Sim | Não | [Machine Learning](./metrics-supported.md#microsoftmachinelearningservicesworkspaces) |
 |Microsoft.Maps/contas | Sim | Não | [Contas de Mapas](./metrics-supported.md#microsoftmapsaccounts) |
 |Microsoft.Media/mediaservices | Não | Não | [Serviços de Multimédia](./metrics-supported.md#microsoftmediamediaservices) |
 |Microsoft.Media/mediaservices/streamingEndpoints | Sim | Não | [Pontos finais de streaming de serviços de mídia](./metrics-supported.md#microsoftmediamediaservicesstreamingendpoints) |

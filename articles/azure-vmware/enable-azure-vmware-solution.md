@@ -2,24 +2,26 @@
 title: Como ativar o seu recurso Azure VMware Solution
 description: Saiba como submeter um pedido de suporte para ativar o seu recurso Azure VMware Solution. Também pode solicitar mais nós na sua nuvem privada Azure VMware Solution.
 ms.topic: how-to
-ms.date: 09/22/2020
-ms.openlocfilehash: dc90a322b5592ca7f400a82deca65ea753711c27
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.date: 11/12/2020
+ms.openlocfilehash: 7c805e9e622f55593ff1fbb72a355d233b7e3618
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948736"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576403"
 ---
 # <a name="how-to-enable-azure-vmware-solution-resource"></a>Como ativar o recurso Azure VMware Solution
-Saiba como submeter um pedido de suporte para ativar o seu recurso Azure VMware Solution. Também pode solicitar mais nós na sua nuvem privada Azure VMware Solution.
+Saiba como submeter um pedido de suporte para ativar o seu recurso [Azure VMware Solution.](introduction.md) Também pode solicitar mais nós na sua nuvem privada Azure VMware Solution.
 
 ## <a name="eligibility-criteria"></a>Critérios de elegibilidade
 
-* Vai precisar de um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
-* Você precisará de uma conta Azure numa subscrição do Azure.
+Você precisará de uma conta Azure numa subscrição do Azure. A subscrição da Azure deve respeitar um dos seguintes critérios:
+
+* Uma subscrição ao abrigo de um [Acordo de Empresa Azure (EA)](../cost-management-billing/manage/ea-portal-agreements.md) com a Microsoft.
+* Um Fornecedor de Solução Cloud (CSP) geriu a subscrição ao abrigo de um plano Azure.
 
 
-## <a name="enable-azure-vmware-solution-resource"></a>Ativar o recurso Azure VMware Solution
+## <a name="enable-azure-vmware-solution-for-ea-customers"></a>Ativar a Solução VMware Azure para clientes EA
 Antes de criar o seu recurso Azure VMware Solution, terá de submeter um bilhete de apoio para que os seus nós tenham os seus nós atribuídos. Uma vez que a equipa de apoio recebe o seu pedido, leva até cinco dias úteis para confirmar o seu pedido e alocar os seus nós. Se tiver uma nuvem privada Azure VMware Solution e quiser mais nós atribuídos, passará pelo mesmo processo.
 
 
@@ -56,3 +58,25 @@ Antes de criar o seu recurso Azure VMware Solution, terá de submeter um bilhete
    ```
 
    Para obter formas adicionais de registar o fornecedor de recursos, consulte [os fornecedores e tipos de recursos Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+
+## <a name="enable-azure-vmware-solution-for-csp-customers"></a>Ativar a Solução VMware Azure para clientes CSP 
+
+Os CSPs devem utilizar [o Microsoft Partner Center](https://partner.microsoft.com) para ativar a Solução VMware Azure para os seus clientes. 
+
+1. No **Partner Center,** selecione **CSP** para aceder à área **clientes.**
+
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-customers-screen.png" alt-text="Área de clientes do Microsoft Partner Center" lightbox="media/enable-azure-vmware-solution/csp-customers-screen.png":::
+
+1. Selecione o seu cliente e, em seguida, **selecione Adicionar produtos**.
+
+   :::image type="content" source="media/enable-azure-vmware-solution/csp-partner-center.png" alt-text="Centro de Parceiros Microsoft" lightbox="media/enable-azure-vmware-solution/csp-partner-center.png":::
+
+1. Selecione **O plano Azure** e, em seguida, selecione **Adicionar ao carrinho**. 
+
+1. Reveja e termine a configuração geral da subscrição do plano Azure para o seu cliente. Para obter mais informações, consulte [a documentação do Microsoft Partner Center](https://docs.microsoft.com/partner-center/azure-plan-manage).
+
+Depois de configurar o plano Azure e as permissões de RBAC necessárias como CSP, irá envolver a Microsoft usando um procedimento semelhante para permitir a quota para uma subscrição do plano Azure. Uma vez adicionado ao plano Azure, o cliente ou o administrador parceiro podem implementar uma Nuvem Privada Azure VMware através do portal Azure. 
+
+## <a name="next-steps"></a>Passos seguintes
+
+Depois de ativar o seu recurso Azure VMware Solution e tiver a rede adequada no lugar, pode [criar uma nuvem privada.](tutorial-create-private-cloud.md)

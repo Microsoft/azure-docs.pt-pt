@@ -3,12 +3,12 @@ title: 'Quickstart: A sua primeira consulta de API REST'
 description: Neste arranque rápido, siga os passos para ligar para o ponto final do Gráfico de Recursos para API REST e executar a sua primeira consulta.
 ms.date: 10/14/2020
 ms.topic: quickstart
-ms.openlocfilehash: 8be0556b6aa2fd234c0f3e25d83c0239c8f674bb
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: eafbd0b408ab50f901d52e59efcfbd5f89b46fe5
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057234"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566083"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-rest-api"></a>Quickstart: Execute a sua primeira consulta de Gráfico de Recursos usando a API REST
 
@@ -30,7 +30,7 @@ Para as especificações do Gráfico de Recurso Azure, consulte [a API do Gráfi
 
 ### <a name="rest-api-and-powershell"></a>API REST e PowerShell
 
-Se ainda não tem uma ferramenta para fazer chamadas à API REST, considere utilizar o PowerShell para estas instruções. A seguinte amostra de código recebe um cabeçalho para autenticar com Azure. Gere um cabeçalho de autenticação, por vezes denominado **Token de portador**, e forneça o URI da API REST para ligar a parâmetros ou um **Corpo do Pedido**:
+Se ainda não tem uma ferramenta para fazer chamadas à API REST, considere utilizar o PowerShell para estas instruções. A seguinte amostra de código recebe um cabeçalho para autenticar com Azure. Gere um cabeçalho de autenticação, por vezes denominado **Token de portador** , e forneça o URI da API REST para ligar a parâmetros ou um **Corpo do Pedido** :
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if not using Cloud Shell
@@ -50,7 +50,7 @@ $response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
 ```
 
 Substitua `{subscriptionId}` na `$restUri` variável para obter informações sobre a sua subscrição.
-A `$response` variável detém o resultado do `Invoke-RestMethod` cmdlet, que pode ser analisado com cmdlets como [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Se o ponto final de serviço da API REST esperar um **Corpo do Pedido**, forneça uma variável com o formato JSON para o parâmetro `-Body` de `Invoke-RestMethod`.
+A `$response` variável detém o resultado do `Invoke-RestMethod` cmdlet, que pode ser analisado com cmdlets como [ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). Se o ponto final de serviço da API REST esperar um **Corpo do Pedido** , forneça uma variável com o formato JSON para o parâmetro `-Body` de `Invoke-RestMethod`.
 
 ## <a name="run-your-first-resource-graph-query"></a>Executar a primeira consulta do Resource Graph
 
@@ -76,7 +76,6 @@ No corpo de pedido de cada chamada de API REST, há uma variável que é usada q
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5"
-         }
      }
      ```
 
@@ -99,7 +98,6 @@ No corpo de pedido de cada chamada de API REST, há uma variável que é usada q
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | limit 5 | order by name asc"
-         }
      }
      ```
 
@@ -122,7 +120,6 @@ No corpo de pedido de cada chamada de API REST, há uma variável que é usada q
              "{subscriptionID}"
          ],
          "query": "Resources | project name, type | order by name asc | limit 5"
-         }
      }
      ```
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e074be91f343e04ba3049aea51f83f7f6364cdb0
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: e1549dda367105db34272eab8a90c1760dd5bb5c
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564043"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576449"
 ---
 # <a name="set-up-azure-app-service-access-restrictions"></a>Configurar restrições de acesso ao Serviço de Aplicações Azure
 
@@ -179,7 +179,7 @@ Também pode definir valores manualmente fazendo qualquer um dos seguintes:
 As restrições de acesso também estão disponíveis para aplicações de função com a mesma funcionalidade que os planos do Serviço de Aplicações. Quando ativa as restrições de acesso, também desativa o editor de código do portal Azure para quaisquer IPs não permitidos.
 
 ## <a name="next-steps"></a>Passos seguintes
-[Restrições de acesso para Funções Azure](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)  
+[Restrições de acesso para Funções Azure](../azure-functions/functions-networking-options.md#inbound-access-restrictions)  
 [Integração de Gateway de Aplicação com pontos finais de serviço](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->

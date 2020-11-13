@@ -3,12 +3,12 @@ title: Visão geral do agente Windows da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
 ms.date: 09/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: f1f74ff12d007553c0c0c9b16f56a27371618bbb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 8a66f99f535013b8aac52fdee43b91a8c734b10a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370173"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577588"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
@@ -60,7 +60,7 @@ As seguintes versões do sistema operativo Windows e Linux são oficialmente sup
 
 * Para máquinas a bordo, você é membro da **função de azure connected machine onboarding.**
 
-* Para ler, modificar, reesoar e eliminar uma máquina, é membro da função de Administrador de **Recursos da Máquina Azure.** 
+* Para ler, modificar e eliminar uma máquina, é membro da função de Administrador de **Recursos da Máquina Azure.** 
 
 ### <a name="azure-subscription-and-service-limits"></a>Subscrição do Azure e limites do serviço
 
@@ -190,7 +190,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registar |Descrição |
+    |Registo |Descrição |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
@@ -234,7 +234,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registar |Descrição |
+    |Registo |Descrição |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|

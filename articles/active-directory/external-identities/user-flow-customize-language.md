@@ -1,6 +1,6 @@
 ---
 title: Personalização linguística nos fluxos de utilizadores de AD Azure
-description: Saiba como personalizar a experiência linguística nos fluxos do seu utilizador.
+description: Saiba como personalizar a experiência linguística nos fluxos de utilizador no Azure Ative Directory.
 services: active-directory
 author: msmimart
 manager: celestedg
@@ -11,12 +11,12 @@ ms.date: 05/06/2020
 ms.author: mimart
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c73a5491c0ad543d57a6721f37d81ae661c0a653
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 98ead87ce2bd3b4e3ffc45763aa5151168c72078
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441441"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576517"
 ---
 # <a name="language-customization-in-azure-active-directory-preview"></a>Personalização linguística no Diretório Ativo Azure (Pré-visualização)
 

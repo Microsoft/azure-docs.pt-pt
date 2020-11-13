@@ -1,6 +1,6 @@
 ---
 title: Serviços remotos de gateway de desktop com diretório ativo Azure
-description: Orientação arquitetónica para alcançar este padrão de autenticação
+description: Orientação arquitetónica sobre a obtenção de serviços de gateway remoto de desktop com diretório ativo Azure.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff099d41970ad4d78d5c6035a60f448f29ab24b1
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 57466cccb71444d5711a9221c324a107757c5e82
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114355"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576800"
 ---
 # <a name="remote-desktop-gateway-services"></a>Serviços remotos de gateway de desktop
 
@@ -34,13 +34,13 @@ Tem de fornecer acesso remoto e proteger a sua implementação de Serviços de A
 
 * **Utilizador:** Acede RDS servido por Application Proxy.
 
-* **Web browser**: O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
+* **Web browser** : O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
 
-* **Azure AD**: Autentica o utilizador. 
+* **Azure AD** : Autentica o utilizador. 
 
-* **Serviço de procuração de aplicação**: Atua como procuração inversa para encaminhar o pedido do utilizador para RDS. O Application Proxy também pode impor quaisquer políticas de Acesso Condicional. 
+* **Serviço de procuração de aplicação** : Atua como procuração inversa para encaminhar o pedido do utilizador para RDS. O Application Proxy também pode impor quaisquer políticas de Acesso Condicional. 
 
-* **Serviços remotos de desktop**: Funciona como uma plataforma para aplicações virtualizadas individuais, fornecendo acesso seguro ao ambiente de trabalho móvel e remoto, e proporcionando aos utilizadores finais a capacidade de executar as suas aplicações e desktops a partir da nuvem. 
+* **Serviços remotos de desktop** : Funciona como uma plataforma para aplicações virtualizadas individuais, fornecendo acesso seguro ao ambiente de trabalho móvel e remoto, e proporcionando aos utilizadores finais a capacidade de executar as suas aplicações e desktops a partir da nuvem. 
 
 ## <a name="implement-remote-desktop-gateway-services-with-azure-ad"></a>Implementar serviços remote desktop gateway com Azure AD
 

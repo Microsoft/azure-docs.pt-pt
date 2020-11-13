@@ -1,16 +1,16 @@
 ---
-title: Base de conhecimento de design - QnA Maker
+title: Base de conhecimento de design - conceitos do QnA Maker
 description: Aprenda a desenhar uma base de conhecimento - QnA Maker.
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: b2661b61e0422f796813be0908d866028ee128a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c21c82b5fd024598da30f4ac7b1ed01e64561e3b
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91776906"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576194"
 ---
 # <a name="question-and-answer-pair-concepts"></a>Conceitos de pares de perguntas e respostas
 
@@ -28,8 +28,8 @@ Cada par é representado por um **ID**.
 As definições **opcionais** para um par incluem:
 
 * **Formas alternativas da pergunta** - isto ajuda a QnA Maker a devolver a resposta correta para uma maior variedade de frases de perguntas
-* **Metadados**: Os metadados são tags associadas a um par QnA e são representados como pares de valor-chave. As tags de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência de consulta é realizada.
-* **Pedidos multi-turn, usados**para continuar uma conversa multi-volta
+* **Metadados** : Os metadados são tags associadas a um par QnA e são representados como pares de valor-chave. As tags de metadados são usadas para filtrar pares QnA e limitar o conjunto sobre o qual a correspondência de consulta é realizada.
+* **Pedidos multi-turn, usados** para continuar uma conversa multi-volta
 
 ![Bases de conhecimento do QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png)
 

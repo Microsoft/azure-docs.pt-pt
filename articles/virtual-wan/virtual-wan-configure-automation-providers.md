@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0029f3fbcf96036a247356042e4c39d59f86a224
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29fff3a6a430e3bc1a0b3a13876b55d22f7cb545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88208350"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566474"
 ---
 # <a name="automation-guidelines-for-virtual-wan-partners"></a>Diretrizes de automatização para parceiros de WAN Virtual
 
@@ -31,11 +31,11 @@ Um dispositivo de ramificação (um dispositivo VPN ou SDWAN CPE) normalmente ut
   * Upload de informações de dispositivos de ramo em Azure Virtual WAN
   * Descarregar a configuração do Azure e configurar a conectividade do dispositivo de ramo para o Azure Virtual WAN
 
-### <a name="additional-information"></a><a name ="additional"></a>Informações adicionais
+### <a name="additional-information"></a><a name ="additional"></a>Informação adicional
 
-* [REST API](https://docs.microsoft.com/rest/api/virtualwan/virtualhubs) para automatizar a criação do Virtual Hub
-* [REST API](https://docs.microsoft.com/rest/api/virtualwan/vpngateways) para automatizar gateway Azure VPN para WAN Virtual
-* [REST API](https://docs.microsoft.com/rest/api/virtualwan/vpnconnections) para ligar um VPNSite a um Hub Azure VPN
+* [REST API](/rest/api/virtualwan/virtualhubs) para automatizar a criação do Virtual Hub
+* [REST API](/rest/api/virtualwan/vpngateways) para automatizar gateway Azure VPN para WAN Virtual
+* [REST API](/rest/api/virtualwan/vpnconnections) para ligar um VPNSite a um Hub Azure VPN
 * [Políticas IPsec predefinidos](#default)
 
 ## <a name="customer-experience"></a><a name ="ae"></a>Experiência do cliente
@@ -63,11 +63,11 @@ Os clientes devem ser capazes de configurar um controlo de acesso adequado para 
 
 ###  <a name="upload-branch-device-information"></a><a name="branch"></a>Enviar informações sobre dispositivos de filial
 
-Deve conceber a experiência do utilizador para enviar informações de sucursais (no local) para a Azure. Pode utilizar [APIs REST](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) para VPNSite para criar as informações do site em VIRTUAL WAN. Pode fornecer todos os dispositivos SDWAN/VPN de ramo ou selecionar personalizações de dispositivos conforme apropriado.
+Deve conceber a experiência do utilizador para enviar informações de sucursais (no local) para a Azure. Pode utilizar [APIs REST](/rest/api/virtualwan/vpnsites) para VPNSite para criar as informações do site em VIRTUAL WAN. Pode fornecer todos os dispositivos SDWAN/VPN de ramo ou selecionar personalizações de dispositivos conforme apropriado.
 
 ### <a name="device-configuration-download-and-connectivity"></a><a name="device"></a>Descarregamento de configuração do dispositivo e conectividade
 
-Este passo envolve o download da configuração Azure e a configuração da conectividade do dispositivo de ramificação para a Azure Virtual WAN. Neste passo, um cliente que não utilize um fornecedor descarregaria manualmente a configuração Azure e aplicava-a no seu dispositivo SDWAN/VPN no local. Como provedor, deve automatizar este passo. Consulte as [APIs de](https://docs.microsoft.com/rest/api/virtualwan/vpnsitesconfiguration/download) descarregamento para obter informações adicionais. O controlador do dispositivo pode chamar a API DE REST 'GetVpnConfiguration' para descarregar a configuração Azure.
+Este passo envolve o download da configuração Azure e a configuração da conectividade do dispositivo de ramificação para a Azure Virtual WAN. Neste passo, um cliente que não utilize um fornecedor descarregaria manualmente a configuração Azure e aplicava-a no seu dispositivo SDWAN/VPN no local. Como provedor, deve automatizar este passo. Consulte as [APIs de](/rest/api/virtualwan/vpnsitesconfiguration/download) descarregamento para obter informações adicionais. O controlador do dispositivo pode chamar a API DE REST 'GetVpnConfiguration' para descarregar a configuração Azure.
 
 **Notas de configuração**
 

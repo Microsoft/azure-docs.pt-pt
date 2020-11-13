@@ -2,13 +2,13 @@
 title: Ligue a máquina híbrida com servidores ativados do Arco Azure
 description: Saiba como conectar e registar a sua máquina híbrida com servidores ativados Azure Arc.
 ms.topic: quickstart
-ms.date: 09/23/2020
-ms.openlocfilehash: b57f30821a105a99041d8187716b75096116ea8e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/12/2020
+ms.openlocfilehash: 3779d95ac138e83b1d953f744e07ae553890a5d7
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91327889"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576837"
 ---
 # <a name="quickstart-connect-hybrid-machine-with-azure-arc-enabled-servers"></a>Quickstart: Ligue a máquina híbrida com servidores ativados do Azure Arc
 
@@ -42,34 +42,40 @@ Os servidores ativados Azure Arc dependem dos seguintes fornecedores de recursos
 Registe-os utilizando os seguintes comandos:
 
 ```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
 ## <a name="generate-installation-script"></a>Gerar script de instalação
 
 O script para automatizar o download, instalação e estabelecer a ligação com a Azure Arc, está disponível a partir do portal Azure. Para concluir o processo, faça o seguinte:
 
-1. Lançar o serviço Azure Arc no portal Azure clicando em **todos os serviços,** procurando e selecionando **máquinas - Azure Arc**.
+1. Lance o serviço Azure Arc no portal Azure clicando em **todos os serviços,** procurando e selecionando **Servidores - Azure Arc**.
 
     :::image type="content" source="./media/quick-enable-hybrid-vm/search-machines.png" alt-text="Pesquisa de servidores ativados arc em todos os serviços" border="false":::
 
-1. Na página **Machines - Azure Arc,** selecione **adicione,** na parte superior esquerda, ou a opção **Create - Azure Arc** na parte inferior do painel médio.
+1. Na página **Servers - Azure Arc,** selecione **Adicionar** na parte superior esquerda.
 
-1. Na página **de método Selecione uma** página de método, selecione as **máquinas Add utilizando azulejos de script interativos** e, em seguida, selecione **Gerar script**.
+1. Na página **de método Selecione uma** página de método, selecione os **servidores Add utilizando azulejos de script interativos** e, em seguida, selecione **Gerar script**.
 
-1. Na página **de script 'Gerar',** selecione o grupo de subscrição e recursos onde pretende que a máquina seja gerida dentro do Azure. Selecione um local Azure onde os metadados da máquina serão armazenados.
+1. Na página **de script 'Gerar',** selecione o grupo de subscrição e recursos onde pretende que a máquina seja gerida dentro do Azure. Selecione um local Azure onde os metadados da máquina serão armazenados. Esta localização pode ser a mesma ou diferente, como a localização do grupo de recursos.
 
-1. Na página **de script 'Gerar',** na lista de down-down **do sistema Operativo,** selecione o sistema operativo em que o script estará em execução.
+1. Na página **Pré-Requisitos,** reveja as informações e, em seguida, selecione **Seguinte: Detalhes do recurso**.
 
-1. Se a máquina estiver a comunicar através de um servidor proxy para se ligar à internet, selecione **Seguinte: Proxy Server**.
+1. Na página **de detalhes do recurso,** forneça o seguinte:
 
-1. No **separador servidor Proxy,** especifique o endereço IP do servidor proxy ou o nome e número de porta que a máquina utilizará para comunicar com o servidor proxy. Introduza o valor no `http://<proxyURL>:<proxyport>` formato.
+    1. Na lista de down-down do **grupo de recursos,** selecione o grupo de recursos a partir do quais a máquina será gerida.
+    1. Na lista de drop-down da **Região,** selecione a região Azure para armazenar os metadados dos servidores.
+    1. Na lista de **suspensos do sistema Operativo,** selecione o sistema operativo que o script está configurado para ser executado.
+    1. Se a máquina estiver a comunicar através de um servidor proxy para se ligar à internet, especifique o endereço IP do servidor proxy ou o nome e número de porta que a máquina utilizará para comunicar com o servidor proxy. Introduza o valor no `http://<proxyURL>:<proxyport>` formato.
+    1. Selecione **Seguinte: Tags**.
 
-1. Selecione **Review + gerar**.
+1. Na página **Tags,** reveja as etiquetas de **localização físicas** padrão sugeridas e introduza um valor, ou especifique uma ou mais **tags personalizadas** para suportar os seus padrões.
 
-1. No **separador 'Rever +' gerar,** rever as informações de resumo e, em seguida, selecione **Download**. Se ainda precisar de fazer alterações, selecione **Anterior**.
+1. Selecione **Seguinte: Descarregue e execute o script**.
+
+1. Na página de **descarregamento e execução** do script, reveja as informações do resumo e, em seguida, selecione **Download**. Se ainda precisar de fazer alterações, selecione **Anterior**.
 
 ## <a name="install-the-agent-using-the-script"></a>Instale o agente usando o script
 
@@ -99,7 +105,7 @@ O script para automatizar o download, instalação e estabelecer a ligação com
 
 Depois de instalar o agente e configurá-lo para ligar aos servidores ativados do Azure Arc, vá ao portal Azure para verificar se o servidor se ligou com sucesso. Veja a sua máquina no [portal Azure](https://aka.ms/hybridmachineportal).
 
-:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Pesquisa de servidores ativados arc em todos os serviços" border="false":::
+:::image type="content" source="./media/quick-enable-hybrid-vm/enabled-machine.png" alt-text="Uma ligação de máquina bem sucedida" border="false":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

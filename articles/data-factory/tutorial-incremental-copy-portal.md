@@ -1,6 +1,6 @@
 ---
 title: Copie incrementalmente uma tabela usando o portal Azure
-description: Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta de uma tabela na Base de Dados Azure SQL para armazenamento Azure Blob.
+description: Neste tutorial, você cria uma Azure Data Factory com um pipeline que carrega dados delta de uma tabela na Base de Dados Azure SQL para armazenamento Azure Blob.
 services: data-factory
 author: dearandyxu
 ms.author: yexu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: 9bd7c9622ebad602fc4833664e2a47d7c91ea897
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: 6dba148f0cde81905bc66f7750ff5e04edc948aa
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555350"
+ms.locfileid: "94566400"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-the-azure-portal"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o armazenamento de Azure Blob utilizando o portal Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta de uma tabela na Base de Dados Azure SQL para armazenamento Azure Blob.
+Neste tutorial, você cria uma Azure Data Factory com um pipeline que carrega dados delta de uma tabela na Base de Dados Azure SQL para armazenamento Azure Blob.
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -41,7 +41,7 @@ Vai executar os seguintes passos neste tutorial:
 > * Rever os resultados da segunda execução
 
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 Eis o diagrama de nível elevado da solução:
 
 ![Carregar dados de forma incremental](media/tutorial-Incremental-copy-portal/incrementally-load.png)
@@ -159,7 +159,7 @@ END
 
 3. Na página **Nova fábrica de dados** , introduza **ADFIncCopyTutorialDF** no **nome**.
 
-   O nome da fábrica de dados Azure deve ser **globalmente único.** Se vir um ponto de exclamação vermelho com o seguinte erro, altere o nome da fábrica de dados (por exemplo, oseunomeADFIncCopyTutorialDF) e tente criá-la novamente. Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
+   O nome da Fábrica de Dados Azure deve ser **globalmente único.** Se vir um ponto de exclamação vermelho com o seguinte erro, altere o nome da fábrica de dados (por exemplo, oseunomeADFIncCopyTutorialDF) e tente criá-la novamente. Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
 
     *O nome da fábrica de dados "ADFIncCopyTutorialDF" não está disponível*
 4. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados.
@@ -275,7 +275,7 @@ Neste tutorial, vai criar um pipeline com duas atividades de Pesquisa, uma ativi
 
         | Nome | Tipo | Valor |
         | ---- | ---- | ----- |
-        | LastModifiedtime | Data e Hora | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
+        | LastModifiedtime | DateTime | @{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue} |
         | TableName | String | @{activity('LookupOldWaterMarkActivity').output.firstRow.TableName} |
 
         ![Atividade de procedimento armazenado - definições do procedimento armazenado](./media/tutorial-incremental-copy-portal/sproc-activity-stored-procedure-settings.png)

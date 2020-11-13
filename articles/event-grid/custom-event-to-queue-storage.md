@@ -4,12 +4,12 @@ description: 'Quickstart: Use Azure Event Grid e Azure CLI para publicar um tóp
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: e2c017b95493000b3c206aa7b2398bbf7ef464ee
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87497349"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566321"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Quickstart: Encaminhe eventos personalizados para o armazenamento da Fila Azure com Azure CLI e Grade de Eventos
 
@@ -17,12 +17,11 @@ O Azure Event Grid é um serviço de eventos para a cloud. O armazenamento de Fi
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se estiver a utilizar o Azure CLI ou o Azure PowerShell na sua máquina local em vez de utilizar a Cloud Shell no portal Azure, certifique-se de que tem as seguintes versões de Azure CLI e Azure PowerShell. 
+- Este artigo requer a versão 2.0.56 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
-- Versão Azure CLI 2.0.56 ou superior. Para obter instruções sobre a instalação da versão mais recente do Azure [CLI, consulte instalar o Azure CLI](/cli/azure/install-azure-cli). 
-- Versão Azure PowerShell 1.1.0 ou maior. Descarregue a versão mais recente do Azure PowerShell na sua máquina Windows a partir de [downloads Azure - Ferramentas da linha de comando](https://azure.microsoft.com/downloads/). 
+- Se estiver a utilizar o Azure PowerShell na sua máquina local em vez de utilizar a Cloud Shell no portal Azure, certifique-se de que tem a versão 1.1.0 ou superior do Azure PowerShell. Descarregue a versão mais recente do Azure PowerShell na sua máquina Windows a partir de [downloads Azure - Ferramentas da linha de comando](https://azure.microsoft.com/downloads/). 
 
 Este artigo dá-lhe comandos para a utilização do Azure CLI. 
 

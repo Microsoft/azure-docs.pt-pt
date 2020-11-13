@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 08/14/2020
-ms.openlocfilehash: 9031ea2d862a23df5d597b790fffc49e624e53fb
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.date: 10/30/2020
+ms.openlocfilehash: 752948d9dd6640a20963303833e7da613bc2e211
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491924"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577350"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Tutorial: Aceitar e receber dados com o Azure Data Share  
 
@@ -32,19 +32,24 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
 * Um convite para partilha de dados: Um convite da Microsoft Azure com um tema intitulado "Azure Data Share invitation **<yourdataprovider@domain.com>** from".
 * Registe o [fornecedor de recursos Microsoft.DataShare](concepts-roles-permissions.md#resource-provider-registration) na subscrição do Azure, onde irá criar um recurso Data Share e a subscrição Azure onde estão localizadas as lojas de dados Azure alvo.
 
-### <a name="receive-data-into-a-storage-account"></a>Receber dados numa conta de armazenamento: 
+### <a name="receive-data-into-a-storage-account"></a>Receber dados numa conta de armazenamento
 
 * Uma conta de Armazenamento Azure: Se ainda não tiver uma, pode criar uma [conta de Armazenamento Azure](../storage/common/storage-account-create.md). 
 * Permissão para escrever na conta de armazenamento, que está presente na *Microsoft.Storage/storageAccounts/write*. Esta permissão existe na função de Contribuidor. 
 * Permissão para adicionar atribuição de funções à conta de armazenamento, que está presente na *Microsoft.Autorização/atribuições/escrita de funções.* Esta permissão existe na função de Proprietário.  
 
-### <a name="receive-data-into-a-sql-based-target"></a>Receber dados num alvo baseado em SQL:
+### <a name="receive-data-into-a-sql-based-target"></a>Receber dados num alvo baseado em SQL
+Se optar por receber dados na Base de Dados Azure SQL, a Azure Synapse Analytics, abaixo está a lista de pré-requisitos. 
 
-* Permissão para escrever para bases de dados no servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de Contribuidor. 
-* Permissão para a identidade gerida do recurso de partilha de dados para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics. Isto pode ser feito através dos seguintes passos: 
-    1. Coloque-se como o Azure Ative Directory Admin para o servidor SQL.
-    1. Ligue-se à Base de Dados/Armazém de Dados Azure SQL utilizando o Azure Ative Directory.
-    1. Utilize o Editor de Consulta (pré-visualização) para executar o seguinte script para adicionar a Identidade Gerida de Partilha de Dados como uma "db_datareader, db_datawriter, db_ddladmin". Tem de se ligar utilizando o Ative Directory e não a autenticação do SQL Server. 
+#### <a name="prerequisites-for-receiving-data-into-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw"></a>Pré-requisitos para receber dados na Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL DW)
+Pode seguir a [demonstração passo](https://youtu.be/aeGISgK1xro) a passo para configurar os pré-requisitos.
+
+* Uma Base de Dados Azure SQL ou Azure Synapse Analytics (anteriormente Azure SQL DW).
+* Permissão para escrever para bases de dados no servidor SQL, que está presente no *Microsoft.Sql/servers/databases/write*. Esta permissão existe na função de **Contribuidor**. 
+* Permissão para a identidade gerida do recurso Data Share para aceder à Base de Dados Azure SQL ou Azure Synapse Analytics. Isto pode ser feito através dos seguintes passos: 
+    1. No portal Azure, navegue para o servidor SQL e coloque-se como O **Administrador Ativo Azure.**
+    1. Conecte-se à Base de Dados/Armazém de Dados Azure SQL utilizando [o Editor de Consulta](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) ou o SQL Server Management Studio com a autenticação do Azure Ative Directory. 
+    1. Execute o seguinte script para adicionar a Identidade Gerida de Partilha de Dados como um "db_datareader, db_datawriter, db_ddladmin". Tem de se ligar utilizando o Ative Directory e não a autenticação do SQL Server. 
 
         ```sql
         create user "<share_acc_name>" from external provider; 
@@ -54,11 +59,34 @@ Certifique-se de que todos os pré-requisitos estão completos antes de aceitar 
         ```      
         Note que o *<share_acc_name>* é o nome do seu recurso Data Share. Se ainda não criou um recurso De Partilha de Dados, poderá voltar a este pré-requisito mais tarde.         
 
-* Acesso ao Servidor IP SQL do cliente. Isto pode ser feito através dos seguintes passos: 
+* Acesso sql Server Firewall. Isto pode ser feito através dos seguintes passos: 
     1. No servidor SQL no portal Azure, navegue para *Firewalls e redes virtuais*
-    1. Clique **no** alternador para permitir o acesso aos Serviços Azure.
-    1. Clique **em +Adicionar IP ao cliente** e clique em **Guardar.** O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a receber dados num alvo SQL a partir do portal Azure. Também pode adicionar uma gama de IP. 
+    1. Clique **em Sim** para permitir que os *serviços e recursos do Azure acedam a este servidor.*
+    1. Clique **em +Adicionar IP ao cliente.** O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a partilhar dados SQL do portal Azure. Também pode adicionar uma gama de IP.
+    1. Clique em **Guardar**. 
+ 
+#### <a name="prerequisites-for-receiving-data-into-azure-synapse-analytics-workspace-sql-pool"></a>Pré-requisitos para receber dados na piscina SQL Azure Synapse Analytics (espaço de trabalho)
 
+* Uma piscina SQL Azure Synapse Analytics (espaço de trabalho).
+* Permissão para escrever para a piscina SQL no espaço de trabalho synapse, que está presente no *Microsoft.Synapse/workspaces/sqlPools/write*. Esta permissão existe na função de **Contribuidor**.
+* Permissão para a identidade gerida do recurso Data Share para aceder à piscina SQL do espaço de trabalho Synapse. Isto pode ser feito através dos seguintes passos: 
+    1. No portal Azure, navegue para o espaço de trabalho da Sinapse. Selecione o administrador do SqL Ative Directory da navegação esquerda e coloque-se como administrador do **Azure Ative Directory**.
+    1. Abra o Estúdio Synapse, *selecione Gerir* a partir da navegação à esquerda. Selecione *o controlo de acesso* sob Segurança. Atribua-se o papel **de administrador SQL** ou **workspace.**
+    1. No Synapse Studio, *selecione Desenvolver* a partir da navegação à esquerda. Execute o seguinte script na piscina SQL para adicionar o recurso Data Share Identidade Gerida como um 'db_datareader, db_datawriter, db_ddladmin'. 
+    
+        ```sql
+        create user "<share_acc_name>" from external provider; 
+        exec sp_addrolemember db_datareader, "<share_acc_name>"; 
+        exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
+        exec sp_addrolemember db_ddladmin, "<share_acc_name>";
+        ```                   
+       Note que o *<share_acc_name>* é o nome do seu recurso Data Share. Se ainda não criou um recurso De Partilha de Dados, poderá voltar a este pré-requisito mais tarde.  
+
+* Acesso ao espaço de trabalho Synapse Firewall. Isto pode ser feito através dos seguintes passos: 
+    1. No portal Azure, navegue para o espaço de trabalho da Sinapse. Selecione *Firewalls* da navegação à esquerda.
+    1. Clique **em ON** para permitir que os *serviços e recursos da Azure acedam a este espaço de trabalho.*
+    1. Clique **em +Adicionar IP ao cliente.** O endereço IP do cliente está sujeito a alterações. Este processo poderá ter de ser repetido da próxima vez que estiver a partilhar dados SQL do portal Azure. Também pode adicionar uma gama de IP.
+    1. Clique em **Guardar**. 
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Receba dados num cluster Azure Data Explorer: 
 

@@ -13,16 +13,19 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 378dab95d8fb3519bb2fc5c934a760e051a18d29
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88116315"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575888"
 ---
 # <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Orientação do programador para a funcionalidade de Acesso Condicional do Diretório Ativo Azure
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
+
+> [!NOTE]
+> Para a versão da plataforma de identidade da Microsoft deste artigo, consulte a orientação do Desenvolvedor para acesso condicional ao [Azure Ative Directory](/azure/active-directory/develop/v2-conditional-access-dev-guide).
 
 A funcionalidade de Acesso Condicional no Azure Ative Directory (Azure AD) oferece uma das várias formas que pode usar para proteger a sua aplicação e proteger um serviço. O Acesso Condicional permite aos desenvolvedores e clientes empresariais proteger os serviços de várias formas, incluindo:
 
@@ -40,7 +43,7 @@ Para desenvolvedores que couem apps para Azure AD, este artigo mostra como você
 
 ### <a name="app-types-impacted"></a>Tipos de aplicativos impactados
 
-Na maioria dos casos comuns, o Acesso Condicional não altera o comportamento de uma aplicação nem requer quaisquer alterações do desenvolvedor.Apenas em certos casos quando uma aplicação solicita, indiretamente ou silenciosamente, um símbolo para um serviço, uma aplicação requer alterações de código para lidar com "desafios" do Acesso Condicional.Pode ser tão simples como realizar um pedido de inscrição interativo.
+Na maioria dos casos comuns, o Acesso Condicional não altera o comportamento de uma aplicação nem requer quaisquer alterações do desenvolvedor. Apenas em certos casos quando uma aplicação solicita, indiretamente ou silenciosamente, um símbolo para um serviço, uma aplicação requer alterações de código para lidar com "desafios" do Acesso Condicional. Pode ser tão simples como realizar um pedido de inscrição interativo.
 
 Especificamente, os seguintes cenários requerem código para lidar com "desafios" do Acesso Condicional:
 
@@ -175,7 +178,7 @@ A nossa aplicação precisa de apanhar o `error=interaction_required` . A aplica
 
 Para experimentar este cenário, consulte a nossa [amostra de código JS SPA Em nome de código.](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) Esta amostra de código utiliza a política de Acesso Condicional e a API web que registou anteriormente com um JS SPA para demonstrar este cenário. Mostra como lidar corretamente com o desafio de reclamações e obter um token de acesso que pode ser usado para a sua API Web. Alternativamente, check-out a amostra de [ código geralAngular.js](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) para orientação num SPA angular
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
 * Para saber mais sobre as capacidades, consulte [o Acesso Condicional no Diretório Ativo Azure.](../conditional-access/overview.md)
 * Para obter mais amostras de código AZure, consulte [o repo de amostras de código do GitHub.](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory)

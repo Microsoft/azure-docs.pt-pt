@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d9a7d7db93e00b9fcccab08522b3363935badf26
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 003203ef1a25102f9fd3c50001603dbd5d33ce5a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203845"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94565975"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipular modelos
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -113,7 +113,7 @@ Os limites de um modelo são definidos pela caixa que contém todo o modelo - ta
 
     Este script deve ser adicionado ao mesmo GameObject que o script que implementa  **o Modelo De BaseRemoteRendered**. Neste caso, isto significa **RemoteRenderedModel**. Semelhante aos scripts anteriores, este código inicial irá lidar com todas as alterações de estado, eventos e dados relacionados com limites remotos.
 
-    Existem dois métodos para implementar: **QueryBounds** e **ProcessQueryResult**. **A QueryBounds** apanha os limites, e o **ProcessQueryResult** toma o resultado da consulta e aplica-o ao **BoxCollider**local.
+    Existem dois métodos para implementar: **QueryBounds** e **ProcessQueryResult**. **A QueryBounds** apanha os limites, e o **ProcessQueryResult** toma o resultado da consulta e aplica-o ao **BoxCollider** local.
 
     O método **DeryBounds** é simples: envie uma consulta para a sessão de renderização remota e ouça o `Completed` evento.
 
@@ -152,7 +152,7 @@ Os limites de um modelo são definidos pela caixa que contém todo o modelo - ta
     }
     ```
 
-Agora, quando o script **RemoteBounds** for adicionado ao mesmo objeto de jogo que o **RemoteRenderedModel**, um **BoxCollider** será adicionado se necessário e quando o modelo atingir o seu `Loaded` estado, os limites serão automaticamente questionados e aplicados ao **BoxCollider.**
+Agora, quando o script **RemoteBounds** for adicionado ao mesmo objeto de jogo que o **RemoteRenderedModel** , um **BoxCollider** será adicionado se necessário e quando o modelo atingir o seu `Loaded` estado, os limites serão automaticamente questionados e aplicados ao **BoxCollider.**
 
 1. Utilizando o **TestModel** GameObject criado anteriormente, adicione o componente **RemoteBounds.**
 1. Confirme que o guião é adicionado.
@@ -308,7 +308,7 @@ O método **do RemoteRayCastPointerHandler** `OnPointerClicked` é chamado por M
 
 Enviar pedidos de ray casting em clique é uma estratégia eficiente para consultar objetos remotos. No entanto, não é uma experiência de utilizador ideal porque o cursor colide com o colisor da caixa, não com o próprio modelo.
 
-Também pode criar um novo ponteiro MRTK que lança os seus raios na sessão remota com mais frequência. Embora esta seja uma abordagem mais complexa, a experiência do utilizador seria melhor. Esta estratégia está fora do âmbito deste tutorial, mas um exemplo desta abordagem pode ser visto na App Showcase, encontrada no [repositório de amostras ARR.](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase)
+Também pode criar um novo ponteiro MRTK que lança os seus raios na sessão remota com mais frequência. Embora esta seja uma abordagem mais complexa, a experiência do utilizador seria melhor. Esta estratégia está fora do âmbito deste tutorial, mas um exemplo desta abordagem pode ser visto na App Showcase, encontrada no [repositório de amostras ARR.](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase)
 
 Quando um elenco de raios é concluído com sucesso no **RemoteRayCastPointerHandler,** o hit `Entity` é emitido a partir do evento `OnRemoteEntityClicked` Unidade. Para responder a esse evento, criaremos um script de ajuda que aceite o `Entity` e execute uma ação nele. Vamos começar por fazer com que o guião imprima o nome do `Entity` registo de depurrão.
 

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e8fed99fe0b1de52d2e2d0018dfd8867b54b63b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595250"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566525"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Rota tráfego web com base no URL usando o Azure CLI
 
@@ -32,11 +32,11 @@ Neste artigo, vai aprender a:
 
 Se preferir, pode concluir este procedimento utilizando [a Azure PowerShell](tutorial-url-route-powershell.md) ou o [portal Azure](create-url-route-portal.md).
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Se optar por instalar e utilizar o CLI localmente, este artigo requer que execute a versão 2.0.4 ou posterior do Azure CLI. Para localizar a versão, execute `az --version`. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli).
+ - Este tutorial requer a versão 2.0.4 ou posterior do CLI Azure. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Criar recursos de rede
 
-Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com `az network vnet create`. Em seguida, adicione uma sub-rede denominada *myBackendSubnet*, que é precisa para os servidores de back-end, com `az network vnet subnet create`. Crie o endereço IP público com o nome *myAGPublicIPAddress* com `az network public-ip create`.
+Crie a rede virtual denominada *myVNet* e a sub-rede denominada *myAGSubnet* com `az network vnet create`. Em seguida, adicione uma sub-rede denominada *myBackendSubnet* , que é precisa para os servidores de back-end, com `az network vnet subnet create`. Crie o endereço IP público com o nome *myAGPublicIPAddress* com `az network public-ip create`.
 
 ```azurecli-interactive
 az network vnet create \
@@ -129,7 +129,7 @@ az network application-gateway frontend-port create \
 
 ### <a name="add-a-backend-listener"></a>Adicionar um serviço de escuta de back-end
 
-Utilize * para adicionar o serviço de escuta do back-end denominado *backendListener`az network application-gateway http-listener create` que é preciso para encaminhar o tráfego.
+Utilize *para adicionar o serviço de escuta do back-end denominado* backendListener`az network application-gateway http-listener create` que é preciso para encaminhar o tráfego.
 
 
 ```azurecli-interactive
@@ -183,7 +183,7 @@ az network application-gateway rule create \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Criar conjuntos de dimensionamento de máquinas virtuais
 
-Neste artigo, cria três conjuntos de escala de máquina virtual que suportam as três piscinas de backend que criou. Vai criar conjuntos de dimensionamento denominados *myvmss1*, *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o NGINX.
+Neste artigo, cria três conjuntos de escala de máquina virtual que suportam as três piscinas de backend que criou. Vai criar conjuntos de dimensionamento denominados *myvmss1* , *myvmss2* e *myvmss3*. Cada conjunto de dimensionamento contém duas instâncias de máquina virtual onde vai instalar o NGINX.
 
 ```azurecli-interactive
 for i in `seq 1 3`; do
@@ -255,7 +255,7 @@ Altere o URL para http:// &lt; endereço IP &gt; :8080/video/test.html, substitu
 
 ![Testar o URL de vídeo no gateway de aplicação](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não forem precisos, remova o grupo de recursos, o gateway de aplicação e todos os recursos relacionados.
 

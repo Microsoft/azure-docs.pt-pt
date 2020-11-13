@@ -1,6 +1,6 @@
 ---
 title: Autenticação baseada em palavra-passe com Diretório Ativo Azure
-description: Orientação arquitetónica para alcançar este padrão de autenticação
+description: Orientação arquitetónica para a obtenção de autenticação baseada em palavra-passe com o Azure Ative Directory.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f05bf8f5f7ec4907c2cd61ff48e3438dfa1e097a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 74815976036abafc56f97e622351a1018fe30504
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114360"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576937"
 ---
 # <a name="password-based-authentication-with-azure-active-directory"></a>Autenticação baseada em palavra-passe com Diretório Ativo Azure
 
@@ -37,11 +37,11 @@ Você precisa proteger com pré-autenticação e fornecer SSO através de abobad
 
 * **Utilizador:** Acessos formaram uma aplicação baseada nas minhas apps ou visitando diretamente o site. 
 
-* **Web browser**: O componente com o que o utilizador interage para aceder ao URL externo da aplicação. O utilizador acede à aplicação baseada em formulários através da extensão MyApps. 
+* **Web browser** : O componente com o que o utilizador interage para aceder ao URL externo da aplicação. O utilizador acede à aplicação baseada em formulários através da extensão MyApps. 
 
-* **Extensão MyApps**: Identifica a aplicação SSO configurada baseada em palavra-passe e fornece as credenciais ao sinal em forma. A extensão MyApps está instalada no navegador web. 
+* **Extensão MyApps** : Identifica a aplicação SSO configurada baseada em palavra-passe e fornece as credenciais ao sinal em forma. A extensão MyApps está instalada no navegador web. 
 
-* **Azure AD**: Autentica o utilizador.
+* **Azure AD** : Autentica o utilizador.
 
 ## <a name="implement-password-based-sso-with-azure-ad"></a>Implementar SSO baseado em palavra-passe com Azure AD
 

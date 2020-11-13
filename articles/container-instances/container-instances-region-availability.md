@@ -4,12 +4,12 @@ description: Disponibilidade de recursos de computação e memória para o servi
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 2a833c93c80d932305f47b6e292e5e5df4d0cb95
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93395874"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576619"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores Azure nas regiões de Azure
 
@@ -55,6 +55,9 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 
 Estão disponíveis os seguintes recursos máximos para um grupo de contentores implantado com [recursos gpu](container-instances-gpu.md) (pré-visualização).
 
+> [!IMPORTANT]
+> Neste momento, as implantações com recursos gpu não são suportadas numa implantação de rede virtual Azure e só estão disponíveis em grupos de contentores Linux.
+
 | GPU SKUs | Contagem de GPU | CPU Máxima | Memória Máxima (GB) | Armazenamento (GB) |
 | --- | --- | --- | --- | --- |
 | K80 | 1 | 6 | 56 | 50 |
@@ -67,6 +70,9 @@ Estão disponíveis os seguintes recursos máximos para um grupo de contentores 
 ## <a name="windows-container-groups"></a>Grupos de contentores windows
 
 As seguintes regiões e recursos máximos estão disponíveis para grupos de contentores com recipientes [suportados e de pré-visualização](container-instances-faq.md#what-windows-base-os-images-are-supported) do Windows Server.
+
+> [!IMPORTANT]
+> Neste momento, as implementações com grupos de contentores Windows não são suportadas numa implementação de rede virtual Azure.
 
 ###  <a name="windows-server-2016"></a>Windows Server 2016
 

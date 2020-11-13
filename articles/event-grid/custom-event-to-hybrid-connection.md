@@ -4,12 +4,12 @@ description: 'Tutorial: Use a Azure Event Grid e a Azure CLI para publicar um t�
 ms.date: 07/07/2020
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 77633a717478ff143c3b084adc0b69019abb203f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c709d77827551860cc917c3c84c5a849d9fdc512
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87832132"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566831"
 ---
 # <a name="tutorial-route-custom-events-to-azure-relay-hybrid-connections-with-azure-cli-and-event-grid"></a>Tutorial: Encaminhar eventos personalizados para Azure Relay Hybrid Connections com Azure CLI e Grade de Eventos
 
@@ -17,12 +17,11 @@ O Azure Event Grid é um serviço de eventos para a cloud. As Ligações Híbrid
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Este artigo pressupõe que já tem uma ligação híbrida e uma aplicação de serviço de escuta. Para começar a trabalhar com ligações híbridas, veja [Introdução às Ligações Híbridas de Reencaminhamento - .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) ou [Introdução às Ligações Híbridas de Reencaminhamento - Nó](../azure-relay/relay-hybrid-connections-node-get-started.md).
+- Este artigo pressupõe que já tem uma ligação híbrida e uma aplicação de serviço de escuta. Para começar a trabalhar com ligações híbridas, veja [Introdução às Ligações Híbridas de Reencaminhamento - .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) ou [Introdução às Ligações Híbridas de Reencaminhamento - Nó](../azure-relay/relay-hybrid-connections-node-get-started.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-> [!NOTE]
-> Se estiver a utilizar o Azure CLI na sua máquina local, utilize a versão 2.0.56 do Azure CLI. Para obter instruções sobre a instalação da versão mais recente do Azure [CLI, consulte instalar o Azure CLI](/cli/azure/install-azure-cli).
+- Este artigo requer a versão 2.0.56 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -105,7 +104,7 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 
 A aplicação de serviço de escuta deverá receber a mensagem de evento.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Se quiser continuar a trabalhar com este evento, não limpe os recursos criados neste artigo. Caso contrário, utilize o comando seguinte para eliminar os recursos que criou neste artigo.
 
 ```azurecli-interactive

@@ -5,13 +5,13 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: f3ecf8ef22d3f1d66b7148b809475a830c7e9f13
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/30/2020
+ms.openlocfilehash: 47c484268573334057e6b4dd14bbae849f9ce774
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318585"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577226"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Armazenamentos de dados suportados no Azure Data Share
 
@@ -23,14 +23,15 @@ Neste artigo, você vai aprender sobre o rico conjunto de lojas de dados Azure q
 
 A tabela abaixo detalha as fontes de dados suportadas para a Azure Data Share. 
 
-| Arquivo de dados | Partilha baseada em instantâneos | Partilha no local 
-|:--- |:--- |:--- |:--- |:--- |:--- |
-| Armazenamento de Blobs do Azure |✓ | |
-| Armazenamento do Azure Data Lake Ger1 |✓ | |
-| Armazenamento do Azure Data Lake Ger2 |✓ ||
-| Base de Dados SQL do Azure |✓ | |
-| Azure Synapse Analytics (anteriormente Azure SQL DW) |✓ | |
-| Azure Data Explorer | |✓ |
+| Arquivo de dados | Partilha baseada em instantâneo (instantâneo completo) | Partilha baseada em instantâneo (instantâneo incremental) | Partilha no local 
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
+| Armazenamento de Blobs do Azure |✓ |✓ | |
+| Armazenamento do Azure Data Lake Ger1 |✓ |✓ | |
+| Armazenamento do Azure Data Lake Ger2 |✓ |✓ ||
+| Base de Dados SQL do Azure |✓ | | |
+| Azure Synapse Analytics (anteriormente Azure SQL DW) |✓ | | |
+| Piscina Azure Synapse Analytics (espaço de trabalho) SQL | Pré-visualização pública | | |
+| Azure Data Explorer | | |✓ |
 
 ## <a name="data-store-support-matrix"></a>Matriz de suporte de loja de dados
 
@@ -38,14 +39,15 @@ O Azure Data Share oferece flexibilidade aos consumidores de dados ao decidir em
 
 A tabela abaixo detalha diferentes combinações e escolhas que os consumidores de dados têm ao aceitar e configurar a sua partilha de dados. Para obter mais informações sobre como configurar os mapeamentos do conjunto de dados, consulte [como configurar os mapeamentos do conjunto de dados](how-to-configure-mapping.md).
 
-| Arquivo de dados | Armazenamento de Blobs do Azure | Armazenamento do Azure Data Lake Ger1 | Armazenamento do Azure Data Lake Ger2 | Base de Dados SQL do Azure | Azure Synapse Analytics | Azure Data Explorer
-|:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Armazenamento de Blobs do Azure | ✓ || ✓ ||
-| Armazenamento do Azure Data Lake Ger1 | ✓ | | ✓ ||
-| Armazenamento do Azure Data Lake Ger2 | ✓ | | ✓ ||
-| Base de Dados SQL do Azure | ✓ | | ✓ | ✓ | ✓ ||
-| Azure Synapse Analytics (anteriormente Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ ||
-| Azure Data Explorer |||||| ✓ |
+| Arquivo de dados | Armazenamento de Blobs do Azure | Armazenamento do Azure Data Lake Ger1 | Armazenamento do Azure Data Lake Ger2 | Base de Dados SQL do Azure | Azure Synapse Analytics (anteriormente Azure SQL DW) | Piscina Azure Synapse Analytics (espaço de trabalho) SQL | Azure Data Explorer
+|:--- |:--- |:--- |:--- |:--- |:--- |:--- | :--- |
+| Armazenamento de Blobs do Azure | ✓ || ✓ |||
+| Armazenamento do Azure Data Lake Ger1 | ✓ | | ✓ |||
+| Armazenamento do Azure Data Lake Ger2 | ✓ | | ✓ |||
+| Base de Dados SQL do Azure | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Azure Synapse Analytics (anteriormente Azure SQL DW) | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Piscina Azure Synapse Analytics (espaço de trabalho) SQL | ✓ | | ✓ | ✓ | ✓ | ✓ ||
+| Azure Data Explorer ||||||| ✓ |
 
 ## <a name="share-from-a-storage-account"></a>Partilhar a partir de uma conta de armazenamento
 O Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheiros da Azure Data Lake Gen1 e da Azure Data Lake Gen2. Também suporta a partilha de bolhas, pastas e contentores do Azure Blob Storage. Apenas a bolha de blocos está atualmente suportada. Quando os sistemas de ficheiros, contentores ou pastas são partilhados na partilha baseada em instantâneos, o consumidor de dados pode optar por fazer uma cópia completa dos dados de partilha ou aproveitar a capacidade incremental de instantâneo para copiar apenas ficheiros novos ou atualizados. O instantâneo incremental baseia-se no último tempo modificado dos ficheiros. Os ficheiros existentes com o mesmo nome serão substituídos.
@@ -53,7 +55,7 @@ O Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheir
 Consulte a [Partilha e receba dados do Azure Blob Storage e do Azure Data Lake Storage](how-to-share-from-storage.md) para mais detalhes.
 
 ## <a name="share-from-a-sql-based-source"></a>Partilhar a partir de uma fonte baseada em SQL
-A Azure Data Share suporta a partilha de tabelas ou vistas da Azure SQL Database e da Azure Synapse Analytics (anteriormente Azure SQL DW). Os consumidores de dados podem optar por aceitar os dados em Azure Data Lake Storage Gen2 ou Azure Blob Storage como ficheiro csv ou parquet, bem como na Base de Dados Azure SQL e Azure Synapse Analytics como tabelas.
+A Azure Data Share suporta a partilha de tabelas ou vistas da Azure SQL Database e da Azure Synapse Analytics (anteriormente Azure SQL DW), e a partilha de tabelas da piscina SQL SQL da Azure Synapse Analytics (espaço de trabalho). Os consumidores de dados podem optar por aceitar os dados em Azure Data Lake Storage Gen2 ou Azure Blob Storage como ficheiro csv ou parquet, bem como na Base de Dados Azure SQL e Azure Synapse Analytics como tabelas.
 
 Ao aceitar dados no Azure Data Lake Store Gen2 ou no Azure Blob Storage, as imagens completas substituem o conteúdo do ficheiro-alvo se já existirem.
 Quando os dados são recebidos em tabela e se a tabela-alvo já não existir, a Azure Data Share cria a tabela SQL com o esquema de origem. Se já existir uma tabela-alvo com o mesmo nome, será largada e substituída com o último instantâneo completo. As imagens incrementais não são suportadas atualmente.

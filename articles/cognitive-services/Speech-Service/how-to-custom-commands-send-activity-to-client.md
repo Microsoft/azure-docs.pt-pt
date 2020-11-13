@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: fc62c87fd12457c60d3eb26cba6814aa1df76f87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52a4dbc4ff01515af8cd7d2503877184a09f7e64
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839219"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566100"
 ---
 # <a name="send-custom-commands-activity-to-client-application"></a>Enviar atividade de Comandos Personalizados para a aplicação do cliente
 
@@ -40,11 +40,13 @@ Completa as seguintes tarefas:
 1. Copie o JSON abaixo para **o conteúdo da Atividade**
    ```json
    {
-     "type": "event",
-     "name": "UpdateDeviceState",
-     "state": "{OnOff}",
-     "device": "{SubjectDevice}"
-   }
+      "type": "event",
+      "name": "UpdateDeviceState",
+      "value": {
+        "state": "{OnOff}",
+        "device": "{SubjectDevice}"
+      }
+    }
    ```
 1. Clique em **Guardar** para criar uma nova regra com uma ação de Atividade de Envio, **Treinar** e **Publicar** a alteração
 
@@ -55,7 +57,7 @@ Completa as seguintes tarefas:
 
 Em [Como-a: Configurar a aplicação do cliente com a Speech SDK (Preview)](./how-to-custom-commands-setup-speech-sdk.md)criou uma aplicação de cliente UWP com a Speech SDK que manuseava comandos `turn on the tv` como, `turn off the fan` . . Com alguns visuais adicionados, pode ver o resultado desses comandos.
 
-Para adicionar caixas etiquetadas com texto indicando **dentro** ou **fora**, adicione o seguinte bloco XML do StackPanel a `MainPage.xaml` .
+Para adicionar caixas etiquetadas com texto indicando **dentro** ou **fora** , adicione o seguinte bloco XML do StackPanel a `MainPage.xaml` .
 
 ```xml
 <StackPanel Orientation="Vertical" H......>
@@ -114,8 +116,8 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
     if (name.Equals("UpdateDeviceState"))
     {
         Debug.WriteLine("Here");
-        var state = activity?.device != null ? activity.state.ToString() : string.Empty;
-        var device = activity?.device != null ? activity.device.ToString() : string.Empty;
+        var state = activity?.value?.state != null ? activity.value.state.ToString() : string.Empty;
+        var device = activity?.value?.device != null ? activity.value.device.ToString() : string.Empty;
 
         if (state.Equals("on") || state.Equals("off"))
         {

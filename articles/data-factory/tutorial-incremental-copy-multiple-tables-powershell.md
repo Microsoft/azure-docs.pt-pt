@@ -1,6 +1,6 @@
 ---
 title: Copie incrementalmente várias tabelas usando PowerShell
-description: Neste tutorial, cria-se uma fábrica de dados Azure com um pipeline que carrega dados delta de várias tabelas numa base de dados do SQL Server para a Base de Dados Azure SQL.
+description: Neste tutorial, cria-se uma Azure Data Factory com um pipeline que carrega dados delta de várias tabelas numa base de dados do SQL Server para a Base de Dados Azure SQL.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
-ms.openlocfilehash: be98ff2a31e3216088fb9197fab477d9b1088f26
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 54dea3ba7bbc3339b7b044b476c321fd95138ac2
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634101"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566423"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-azure-sql-database-using-powershell"></a>Carregue gradualmente dados de várias tabelas no SQL Server para Azure SQL Database usando PowerShell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, cria-se uma fábrica de dados Azure com um pipeline que carrega dados delta de várias tabelas numa base de dados do SQL Server para a Base de Dados Azure SQL.    
+Neste tutorial, cria-se uma Azure Data Factory com um pipeline que carrega dados delta de várias tabelas numa base de dados do SQL Server para a Base de Dados Azure SQL.    
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -42,11 +42,11 @@ Vai executar os seguintes passos neste tutorial:
 ## <a name="overview"></a>Descrição geral
 Eis os passos importantes para criar esta solução: 
 
-1. **Selecionar a coluna de limite de tamanho** .
+1. **Selecionar a coluna de limite de tamanho**.
 
     Selecione uma coluna para cada tabela na loja de dados de origem, que pode identificar os registos novos ou atualizados para cada execução. Normalmente, os dados nesta coluna selecionada (por exemplo, last_modify_time ou ID) continuam a aumentar quando as linhas são criadas ou atualizadas. O valor máximo nesta coluna é utilizado como limite de tamanho.
 
-2. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho** .
+2. **Preparar um arquivo de dados para armazenar o valor de limite de tamanho**.
 
     Neste tutorial, vai armazenar o valor de marca d'água numa base de dados SQL.
 
@@ -69,14 +69,14 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Sql Server** . Utiliza uma base de dados SQL Server como base de dados de origem neste tutorial. 
-* **Base de Dados Azure SQL** . Utiliza uma base de dados na Base de Dados Azure SQL como loja de dados da pia. Se não tiver uma base de dados SQL, consulte [criar uma base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma. 
+* **Sql Server**. Utiliza uma base de dados SQL Server como base de dados de origem neste tutorial. 
+* **Base de Dados Azure SQL**. Utiliza uma base de dados na Base de Dados Azure SQL como loja de dados da pia. Se não tiver uma base de dados SQL, consulte [criar uma base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md) para obter etapas para criar uma. 
 
 ### <a name="create-source-tables-in-your-sql-server-database"></a>Criar tabelas de origem na base de dados do SQL Server
 
 1. Abra [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)e ligue-se à sua base de dados SQL Server.
 
-2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)** , clique à direita na base de dados e escolha **Nova Consulta** .
+2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)** , clique à direita na base de dados e escolha **Nova Consulta**.
 
 3. Execute o seguinte comando SQL na base de dados para criar tabelas com o nome `customer_table` e `project_table`:
 
@@ -115,7 +115,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
 1. Abra [o SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) ou [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio)e ligue-se à sua base de dados SQL Server.
 
-2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)** , clique à direita na base de dados e escolha **Nova Consulta** .
+2. No **Server Explorer (SSMS)** ou no **painel Connections (Azure Data Studio)** , clique à direita na base de dados e escolha **Nova Consulta**.
 
 3. Execute o seguinte comando SQL na base de dados para criar tabelas com o nome `customer_table` e `project_table`:  
 
@@ -812,23 +812,23 @@ O pipeline aceita uma lista de nomes de tabela como parâmetro. A **atividade Fo
 
 ## <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-2. Clique em **Todos os serviços** , pesquise com a palavra-chave *Fábricas de dados* e selecione **Fábricas de dados** . 
+2. Clique em **Todos os serviços** , pesquise com a palavra-chave *Fábricas de dados* e selecione **Fábricas de dados**. 
 
-3. Pesquise pela sua fábrica de dados na lista de fábricas de dados e selecione-a para abrir a página **Fábrica de dados** . 
+3. Pesquise pela sua fábrica de dados na lista de fábricas de dados e selecione-a para abrir a página **Fábrica de dados**. 
 
 4. Na página da **fábrica de dados,** selecione **Author & Monitor** para lançar a Azure Data Factory num separador.
 
 5. Na página **Let's get start,** selecione **Monitor** no lado esquerdo. 
 ![A screenshot mostra a página Let's get start for Azure Data Factory.](media/doc-common-process/get-started-page-monitor-button.png)    
 
-6. Pode ver todas as execuções de pipelines e os respetivos estados. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito** . Para verificar os parâmetros transmitidos para o pipeline, selecione a ligação na coluna **Parâmetros** . Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro** .
+6. Pode ver todas as execuções de pipelines e os respetivos estados. Note que no seguinte exemplo, o estado da execução do pipeline é **Com Êxito**. Para verificar os parâmetros transmitidos para o pipeline, selecione a ligação na coluna **Parâmetros**. Se tiver ocorrido um erro, pode ver uma ligação na coluna **Erro**.
 
     ![A screenshot mostra que o gasoduto funciona para uma fábrica de dados, incluindo o seu oleoduto.](media/tutorial-incremental-copy-multiple-tables-powershell/monitor-pipeline-runs-4.png)    
 7. Quando selecionar o link na coluna **Ações,** vê toda a atividade a correr para o oleoduto. 
 
-8. Para voltar à vista **Pipeline Runs,** selecione **All Pipeline Runs** . 
+8. Para voltar à vista **Pipeline Runs,** selecione **All Pipeline Runs**. 
 
 ## <a name="review-the-results"></a>Rever os resultados
 

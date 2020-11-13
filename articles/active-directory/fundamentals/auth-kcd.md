@@ -1,6 +1,6 @@
 ---
 title: Kerberos constrangido delegação com diretório ativo Azure
-description: Orientação arquitetónica para alcançar este padrão de autenticação
+description: Orientação arquitetónica para alcançar Kerberos constrangido delegação com Azure Ative Direy.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77f90cd7aa8d972226a8f134eaa7b3abfe7bea66
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 62c8f230ca2b2d0db1170cde9b24f9e4819889bb
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114462"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577129"
 ---
 # <a name="windows-authentication---kerberos-constrained-delegation-with-azure-active-directory"></a>Autenticação do Windows - Kerberos constrangido delegação com Diretório Ativo Azure
 
@@ -38,17 +38,17 @@ Ativa sSO nas suas aplicações KCD no local que utilizam a Autenticação Integ
 
 * **Utilizador:** Acede a aplicação legado servida pela Application Proxy.
 
-* **Web browser**: O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
+* **Web browser** : O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
 
-* **Azure AD**: Autentica o utilizador. 
+* **Azure AD** : Autentica o utilizador. 
 
-* **Serviço de procuração de aplicação**: Atua como procuração inversa para enviar o pedido do utilizador para a aplicação no local. Fica em Azure AD. O Application Proxy também pode impor quaisquer políticas de acesso condicional.
+* **Serviço de procuração de aplicação** : Atua como procuração inversa para enviar o pedido do utilizador para a aplicação no local. Fica em Azure AD. O Application Proxy também pode impor quaisquer políticas de acesso condicional.
 
-* **Conector Proxy de aplicação**: Instalado no local nos servidores do Windows para fornecer conectividade à aplicação. Devolve a resposta ao Azure AD. Realiza a negociação do KCD com o Ative Directory, fazendo-se passar pelo utilizador para obter um sinal kerberos para a aplicação.
+* **Conector Proxy de aplicação** : Instalado no local nos servidores do Windows para fornecer conectividade à aplicação. Devolve a resposta ao Azure AD. Realiza a negociação do KCD com o Ative Directory, fazendo-se passar pelo utilizador para obter um sinal kerberos para a aplicação.
 
-* **Diretório Ativo**: Envia o token Kerberos para a aplicação ao conector Application Proxy.
+* **Diretório Ativo** : Envia o token Kerberos para a aplicação ao conector Application Proxy.
 
-* **Aplicações legados**: Aplicações que recebem pedidos de utilizador da Application Proxy. As aplicações antigas devolvem a resposta ao conector Application Proxy.
+* **Aplicações legados** : Aplicações que recebem pedidos de utilizador da Application Proxy. As aplicações antigas devolvem a resposta ao conector Application Proxy.
 
 ## <a name="implement-windows-authentication-kcd-with-azure-ad"></a>Implementar autenticação do Windows (KCD) com Azure AD
 

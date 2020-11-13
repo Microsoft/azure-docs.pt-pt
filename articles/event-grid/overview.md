@@ -3,12 +3,12 @@ title: O que é o Azure Event Grid?
 description: Envie dados de eventos de uma fonte para os manipuladores com a Azure Event Grid. Construa aplicações baseadas em eventos e integre-se com os serviços Azure.
 ms.topic: overview
 ms.date: 09/24/2020
-ms.openlocfilehash: 73d218058c5f95d8c2d2324f1a0e1e77b24f1364
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4f614a22fdfa7d2272c70751f56f19145a10fa6
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91326508"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576687"
 ---
 # <a name="what-is-azure-event-grid"></a>O que é o Azure Event Grid?
 
@@ -54,7 +54,7 @@ Para obter detalhes completos sobre as capacidades de cada processador, bem como
 * [Logic Apps](handler-webhooks.md#logic-apps)
 * [Power Automamate (anteriormente conhecido como Microsoft Flow)](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Service Bus](handler-service-bus.md)
-* [Armazenamento de Filas](handler-storage-queues.md)
+* [Armazenamento de fila](handler-storage-queues.md)
 * [WebHooks](handler-webhooks.md)
 
 ## <a name="concepts"></a>Conceitos
@@ -78,7 +78,7 @@ Seguem-se algumas das principais funcionalidades do Azure Event Grid:
 * **Fan-out** - Subscreva vários pontos finais para o mesmo evento para enviar cópias do evento para o número de lugares necessários.
 * **Fiabilidade** - 24 horas de retração com recuo exponencial para garantir que os eventos são entregues.
 * **Pagar por evento** - pague apenas pela quantidade utilizada no Event Grid.
-* **Débito elevado** - crie cargas de trabalho de elevado volume no Event Grid com suporte para milhões de eventos por segundo.
+* **High Throughoff -** Construa cargas de trabalho de alto volume na Grade de Eventos.
 * **Eventos incorporados** - comece a executar rapidamente com os eventos incorporados definidos por recursos.
 * **Eventos Personalizados** - Use a Grade de Eventos para encaminhar, filtrar e entregar eventos personalizados na sua aplicação.
 

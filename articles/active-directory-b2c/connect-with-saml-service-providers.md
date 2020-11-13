@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c59a104796e11b15af805e34f9cd14b2ce8bd075
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 6f7888e978fd4eb19232c156ce65b6e4967d9c5a
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628852"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94575973"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registar um pedido DE SAML em Azure AD B2C
 
@@ -99,12 +99,12 @@ Se ainda não tiver um certificado, pode usar um certificado auto-assinado para 
 Em seguida, faça o upload do certificado de assinatura de afirmação e resposta DA SAML para Azure AD B2C.
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com) e navegue pelo seu inquilino Azure AD B2C.
-1. No âmbito **de Políticas** , selecione Quadro de Experiência **de Identidade** e, em seguida, **As teclas de política** .
-1. **Selecione Adicionar** e, em seguida, selecione **Opções**  >  **Upload** .
-1. Introduza um **Nome,** por exemplo *SamlIdpCert* . O prefixo *B2C_1A_* é automaticamente adicionado ao nome da sua chave.
+1. No âmbito **de Políticas** , selecione Quadro de Experiência **de Identidade** e, em seguida, **As teclas de política**.
+1. **Selecione Adicionar** e, em seguida, selecione **Opções**  >  **Upload**.
+1. Introduza um **Nome,** por exemplo *SamlIdpCert*. O prefixo *B2C_1A_* é automaticamente adicionado ao nome da sua chave.
 1. Faça o upload do seu certificado utilizando o controlo de ficheiros de upload.
 1. Insira a senha do certificado.
-1. Selecione **Criar** .
+1. Selecione **Criar**.
 1. Verifique se a chave aparece como esperado. Por exemplo, *B2C_1A_SamlIdpCert.*
 
 ## <a name="2-prepare-your-policy"></a>2. Prepare a sua política
@@ -260,7 +260,7 @@ O seu ficheiro de política final do partido deve parecer o seguinte código XML
 
 Guarde as suas alterações e carrete o novo ficheiro de política. Depois de ter carregado ambas as políticas (a extensão e os ficheiros do partido em funções), abra um navegador web e navegue para os metadados da política.
 
-Metadados IDP de política Azure AD B2C são informações utilizadas no protocolo SAML para expor a configuração de um fornecedor de identidade SAML. Os metadados definem a localização dos serviços, tais como a inscrição e a assinatura, certificados, método de inscrição e muito mais. Os metadados de política Azure AD B2C estão disponíveis no seguinte URL. Substitua `tenant-name` pelo nome do seu inquilino Azure AD B2C, e pelo nome `policy-name` (ID) da apólice:
+Metadados IDP de política Azure AD B2C são informações utilizadas no protocolo SAML para expor a configuração de um fornecedor de identidade SAML. Os metadados definem a localização dos serviços, tais como a inscrição e a assinatura, certificados, método de inscrição e muito mais. Os metadados de política Azure AD B2C estão disponíveis no seguinte URL. Substitua `tenant-name` pelo nome do seu inquilino Azure AD B2C, e pelo nome `policy-name` (ID) da apólice, por exemplo, .../B2C_1A_SAML2_signup_signin/Samlp/metadados:
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -270,14 +270,14 @@ Sua política personalizada e inquilino Azure AD B2C estão agora prontos. Em se
 
 ### <a name="41-register-your-application-in-azure-ad-b2c"></a>4.1 Registe a sua candidatura no Azure AD B2C
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Selecione o filtro **de subscrição Diretório +** no menu superior e, em seguida, selecione o diretório que contém o seu inquilino Azure AD B2C.
-1. No menu esquerdo, selecione **Azure AD B2C** . Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C** .
-1. Selecione **as inscrições da App** e, em seguida, selecione Novo **registo** .
-1. Insira um **Nome** para a inscrição. Por exemplo, *SAMLApp1* .
+1. No menu esquerdo, selecione **Azure AD B2C**. Ou, selecione **Todos os serviços** e procure e selecione **Azure AD B2C**.
+1. Selecione **as inscrições da App** e, em seguida, selecione Novo **registo**.
+1. Insira um **Nome** para a inscrição. Por exemplo, *SAMLApp1*.
 1. Nos **tipos de conta suportada,** selecione Contas neste **diretório organizacional apenas**
 1. Em **Redirecionar URI** , selecione **Web** e, em seguida, insira `https://localhost` . Modifica este valor mais tarde no manifesto do registo de candidatura.
-1. Selecione **Registar** .
+1. Selecione **Registar**.
 
 ### <a name="42-update-the-app-manifest"></a>4.2 Atualizar o manifesto da aplicação
 

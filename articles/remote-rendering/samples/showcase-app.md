@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 04/01/2020
 ms.topic: sample
-ms.openlocfilehash: e1e91a892a1c8b69b3dc7f6c79109377e13bd7ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3d74dbfde2f65d2d4048f589f160ea3c091bf2b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80804457"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566287"
 ---
 # <a name="unity-showcase-application"></a>Aplicação de demonstração do Unity
 
@@ -20,9 +20,9 @@ A aplicação De unidade showcase é uma aplicação de amostra baseada em unida
 
 ## <a name="source-repository"></a>Repositório de origem
 
-O código-fonte desta aplicação juntamente com as instruções de construção/implantação podem ser encontrados no [repositório de amostras ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/AzureRemoteRenderingShowcase).
+O código-fonte desta aplicação juntamente com as instruções de construção/implantação podem ser encontrados no [repositório de amostras ARR](https://github.com/Azure/azure-remote-rendering/tree/master/Unity/Showcase).
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Quickstart: Renderiza um modelo com Unidade](../quickstarts/render-model.md)
-* [Quickstart: Converter um modelo para renderização](../quickstarts/convert-model.md)
+* [Início Rápido: Converter um modelo para composição](../quickstarts/convert-model.md)

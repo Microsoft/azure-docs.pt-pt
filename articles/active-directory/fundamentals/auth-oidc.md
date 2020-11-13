@@ -1,6 +1,6 @@
 ---
 title: A autenticação OpenID Connect com diretório ativo Azure
-description: Orientação arquitetónica para alcançar este padrão de autenticação
+description: Orientação arquitetónica para alcançar a autenticação OpenID Connect com diretório ativo Azure.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6f2ad3b5e86eebfc2d6f1f42f8a2ab0520144b5
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: f38da0dd2dc2adc8049e2b307c861651a55ed700
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114367"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576993"
 ---
 # <a name="openid-connect-authentication-with-azure-active-directory"></a>A autenticação OpenID Connect com diretório ativo Azure
 
@@ -38,13 +38,13 @@ Existe a necessidade de consentimento do utilizador e de iniciar sindus.
 
 ## <a name="components-of-system"></a>Componentes do sistema
 
-* **Utilizador**: Solicita um serviço a partir da aplicação.
+* **Utilizador** : Solicita um serviço a partir da aplicação.
 
-* **Agente de confiança**: O componente com o que o utilizador interage. Este agente de confiança é geralmente um navegador web.
+* **Agente de confiança** : O componente com o que o utilizador interage. Este agente de confiança é geralmente um navegador web.
 
-* **Aplicação**: A aplicação, ou Servidor de Recursos, é onde reside o recurso ou dados. Confia no fornecedor de identidade para autenticar e autorizar o agente de confiança. 
+* **Aplicação** : A aplicação, ou Servidor de Recursos, é onde reside o recurso ou dados. Confia no fornecedor de identidade para autenticar e autorizar o agente de confiança. 
 
-* **Azure AD**: O fornecedor OIDC, também conhecido como fornecedor de identidade, gere de forma segura qualquer coisa a ver com a informação do utilizador, o seu acesso e as relações de confiança entre as partes num fluxo. Autentica a identidade do utilizador, concede e revoga o acesso aos recursos e altera as fichas. 
+* **Azure AD** : O fornecedor OIDC, também conhecido como fornecedor de identidade, gere de forma segura qualquer coisa a ver com a informação do utilizador, o seu acesso e as relações de confiança entre as partes num fluxo. Autentica a identidade do utilizador, concede e revoga o acesso aos recursos e altera as fichas. 
 
 ## <a name="implement-oidc-with-azure-ad"></a>Implementar OIDC com Azure AD
 

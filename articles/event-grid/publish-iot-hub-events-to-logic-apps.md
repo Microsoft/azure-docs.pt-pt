@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/14/2020
 ms.author: philmea
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 5092aa0b5b23f04af1f49933bca234815f03f454
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 857ae8d824443e9a8abdac7c4a66e2b014be2be0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604600"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566355"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>Tutorial: Enviar notificações por e-mail sobre eventos do Hub IoT do Azure com o Event Grid e o Logic Apps
 
@@ -21,15 +21,15 @@ O Azure Event Grid permite-lhe reagir a eventos no Hub IoT ao acionar ações na
 
 Este artigo percorre uma configuração de amostra que usa IoT Hub e Grade de Eventos. No final, tem uma aplicação lógica Azure configurada para enviar um e-mail de notificação sempre que um dispositivo se conecta ou desliga para o seu hub IoT. A Grelha de Eventos pode ser usada para obter uma notificação oportuna sobre a desconexão de dispositivos críticos. As métricas e diagnósticos podem levar vários (ou seja, 20 ou mais -- embora não queiramos colocar um número nele) minutos para aparecer em registos/alertas. Isso pode ser inaceitável para infraestruturas críticas.
 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição ativa do Azure. Se não tiver uma subscrição, pode [criar uma conta Azure gratuita.](https://azure.microsoft.com/pricing/free-trial/)
+* Uma conta de e-mail de qualquer fornecedor de e-mail que seja suportado por Azure Logic Apps, como Office 365 Outlook ou Outlook.com. Esta conta de e-mail é utilizada para enviar notificações de eventos.
 
-* Uma conta de e-mail de qualquer fornecedor de e-mail que seja suportado por Azure Logic Apps, como Office 365 Outlook ou Outlook.com. Esta conta de e-mail é utilizada para enviar notificações de eventos. 
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 Pode criar rapidamente um novo hub IoT utilizando o terminal Azure Cloud Shell no portal.
 
@@ -91,7 +91,7 @@ Um acionador é um evento específico que inicia a sua aplicação lógica. Nest
 
    ![Use a carga útil da amostra](./media/publish-iot-hub-events-to-logic-apps/sample-payload.png)
 
-1. Cole o *esquema de evento ligado* ao dispositivo JSON na caixa de texto e, em seguida, selecione **Fazer**:
+1. Cole o *esquema de evento ligado* ao dispositivo JSON na caixa de texto e, em seguida, selecione **Fazer** :
 
    ```json
      [{  
@@ -137,11 +137,11 @@ Ações são os passos que ocorrem depois de o acionador iniciar o fluxo de trab
 
 1. Crie o modelo de e-mail. 
 
-   * **Para**: introduza o endereço de e-mail para receber os e-mails de notificação. Neste tutorial, utilize uma conta de e-mail a que pode aceder para fazer o teste. 
+   * **Para** : introduza o endereço de e-mail para receber os e-mails de notificação. Neste tutorial, utilize uma conta de e-mail a que pode aceder para fazer o teste. 
 
-   * **Assunto**: preencha o texto do assunto. Ao clicar na caixa de texto 'Assunto', pode selecionar conteúdo dinâmico para incluir. Por exemplo, este tutorial `IoT Hub alert: {eventType}` utiliza. Se não conseguir ver o conteúdo Dynamic, selecione a hiperligação **de conteúdo dinâmico Add** - isto alterna-o para dentro e para fora.
+   * **Assunto** : preencha o texto do assunto. Ao clicar na caixa de texto 'Assunto', pode selecionar conteúdo dinâmico para incluir. Por exemplo, este tutorial `IoT Hub alert: {eventType}` utiliza. Se não conseguir ver o conteúdo Dynamic, selecione a hiperligação **de conteúdo dinâmico Add** - isto alterna-o para dentro e para fora.
 
-   * **Corpo**: escreva o texto do e-mail. Selecione as propriedades JSON da ferramenta de seletor para incluir conteúdo dinâmico com base nos dados de eventos. Se não conseguir ver o conteúdo Dynamic, selecione a hiperligação **de conteúdo dinâmico Add** sob a caixa de texto do **Corpo.** Se não lhe mostrar os campos que deseja, clique *mais* no ecrã de conteúdo dinâmico para incluir os campos da ação anterior.
+   * **Corpo** : escreva o texto do e-mail. Selecione as propriedades JSON da ferramenta de seletor para incluir conteúdo dinâmico com base nos dados de eventos. Se não conseguir ver o conteúdo Dynamic, selecione a hiperligação **de conteúdo dinâmico Add** sob a caixa de texto do **Corpo.** Se não lhe mostrar os campos que deseja, clique *mais* no ecrã de conteúdo dinâmico para incluir os campos da ação anterior.
 
    O modelo de e-mail pode ter um aspeto semelhante ao deste exemplo:
 
@@ -226,13 +226,13 @@ Teste a sua aplicação lógica simulando rapidamente uma ligação do dispositi
 
     ![Correio de alerta de exemplo](./media/publish-iot-hub-events-to-logic-apps/alert-mail.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Este tutorial utilizou recursos que incorrem em custos na sua subscrição do Azure. Quando terminar de experimentar o tutorial e testar os seus resultados, desative ou elimine recursos que não quer manter. 
 
 Para eliminar todos os recursos criados neste tutorial, elimine o grupo de recursos. 
 
-1. Selecione **grupos de recursos**e, em seguida, selecione o grupo de recursos que criou para este tutorial.
+1. Selecione **grupos de recursos** e, em seguida, selecione o grupo de recursos que criou para este tutorial.
 
 2. No painel de grupo de recursos, **selecione Eliminar o grupo de recursos**. É-lhe pedido que introduza o nome do grupo de recursos e, em seguida, pode eliminá-lo. Todos os recursos aí contidos são também removidos.
 

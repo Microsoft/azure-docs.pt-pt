@@ -1,6 +1,6 @@
 ---
 title: Autenticação RADIUS com Diretório Ativo Azure
-description: Orientação arquitetónica para alcançar este padrão de autenticação
+description: Orientação arquitetónica para a obtenção da autenticação RADIUS com o Diretório Ativo Azure.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff6210741d87602b4f695633b11d2641a6bb6781
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 155b359c109de948ab9b9d6862ef7507ee76f619
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114527"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576817"
 ---
 # <a name="radius-authentication-with-azure-active-directory"></a>Autenticação RADIUS com Diretório Ativo Azure
 
@@ -30,7 +30,7 @@ O Azure Ative Directory (Azure AD) permite a autenticação de vários fatores c
 
 O servidor NPS do Windows autentica as credenciais de um utilizador contra o Ative Directory e, em seguida, envia o pedido de autenticação multi-factor para o Azure. O utilizador recebe então um desafio no seu autenticador móvel. Uma vez bem sucedido, a aplicação do cliente é permitida a ligação ao serviço. 
 
-## <a name="usewhen"></a>Utilizar quando: 
+## <a name="use-when"></a>Utilize se: 
 
 É necessário adicionar autenticação multi-factor a aplicações como
 * uma Rede Privada Virtual (VPN)
@@ -45,19 +45,19 @@ O servidor NPS do Windows autentica as credenciais de um utilizador contra o Ati
 ![diagrama arquitetónico](./media/authentication-patterns/radius-auth.png)
 
 
-## <a name="componentsofthe-system"></a>Componentes do sistema 
+## <a name="components-of-the-system"></a>Componentes do sistema 
 
-* **Pedido de cliente (cliente VPN)**: Envia pedido de autenticação ao cliente RADIUS.
+* **Pedido de cliente (cliente VPN)** : Envia pedido de autenticação ao cliente RADIUS.
 
-* **RADIUS cliente**: Converte os pedidos da aplicação do cliente e envia-os para o servidor RADIUS que tem a extensão NPS instalada.
+* **RADIUS cliente** : Converte os pedidos da aplicação do cliente e envia-os para o servidor RADIUS que tem a extensão NPS instalada.
 
-* **RADIUS servidor**: Conecta-se com o Ative Directory para efetuar a autenticação primária para o pedido RADIUS. Após o sucesso, passa o pedido para a extensão NPS de autenticação multi-factor Azure.
+* **RADIUS servidor** : Conecta-se com o Ative Directory para efetuar a autenticação primária para o pedido RADIUS. Após o sucesso, passa o pedido para a extensão NPS de autenticação multi-factor Azure.
 
-* **Extensão NPS**: Desencadeia um pedido de autenticação multi-factor Azure para uma autenticação secundária. Se for bem sucedido, a extensão NPS completa o pedido de autenticação fornecendo ao servidor RADIUS fichas de segurança que incluem a reclamação de autenticação multi-factor, emitida pelo Serviço de Token de Segurança da Azure.
+* **Extensão NPS** : Desencadeia um pedido de autenticação multi-factor Azure para uma autenticação secundária. Se for bem sucedido, a extensão NPS completa o pedido de autenticação fornecendo ao servidor RADIUS fichas de segurança que incluem a reclamação de autenticação multi-factor, emitida pelo Serviço de Token de Segurança da Azure.
 
-* **Autenticação multi-factor Azure**: Comunica com a Azure AD para recuperar os dados do utilizador e efetua uma autenticação secundária utilizando um método de verificação configurado pelo utilizador.
+* **Autenticação multi-factor Azure** : Comunica com a Azure AD para recuperar os dados do utilizador e efetua uma autenticação secundária utilizando um método de verificação configurado pelo utilizador.
 
-## <a name="implementradiuswith-azure-ad"></a>Implementar RADIUS com Azure AD 
+## <a name="implement-radius-with-azure-ad"></a>Implementar RADIUS com Azure AD 
 
 * [Fornecer capacidades de autenticação multi-factor Azure usando NPS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-nps-extension) 
 

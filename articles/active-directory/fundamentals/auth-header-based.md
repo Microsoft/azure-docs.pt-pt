@@ -1,6 +1,6 @@
 ---
 title: Autenticação baseada em cabeçalho com Diretório Ativo Azure
-description: Orientação arquitetónica para alcançar este padrão de autenticação
+description: Orientação arquitetónica para a obtenção de autenticação baseada em cabeçalho com diretório Azure Ative.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f364e4e14dd1b7c60cb81f06051d9dedd94396a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: bb54410fb314376b68d7297a3452f0990762343d
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92114457"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94577163"
 ---
 # <a name="header-based-authentication-with-azure-active-directory"></a>Autenticação baseada em cabeçalho com Diretório Ativo Azure
 
@@ -36,15 +36,15 @@ Os utilizadores remotos precisam de uma única sintenção (SSO) para aplicaçõ
 
 * **Utilizador:** Acede a aplicações antigas servidas pela Application Proxy.
 
-* **Web browser**: O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
+* **Web browser** : O componente com o que o utilizador interage para aceder ao URL externo da aplicação.
 
-* **Azure AD**: Autentica o utilizador. 
+* **Azure AD** : Autentica o utilizador. 
 
-* **Serviço de procuração de aplicação**: Atua como procuração inversa para enviar o pedido do utilizador para a aplicação no local. Reside em Azure AD e também pode impor quaisquer políticas de acesso condicional.
+* **Serviço de procuração de aplicação** : Atua como procuração inversa para enviar o pedido do utilizador para a aplicação no local. Reside em Azure AD e também pode impor quaisquer políticas de acesso condicional.
 
-* **Conector Proxy de aplicação**: Instalados no local nos servidores do Windows para fornecer conectividade às aplicações. Só usa ligações de saída. Devolve a resposta ao Azure AD.
+* **Conector Proxy de aplicação** : Instalados no local nos servidores do Windows para fornecer conectividade às aplicações. Só usa ligações de saída. Devolve a resposta ao Azure AD.
 
-* **Aplicações legados**: Aplicações que recebem pedidos de utilizador da Application Proxy. A aplicação legacy recebe os cabeçalhos HTTP necessários para configurar uma sessão e devolver uma resposta. 
+* **Aplicações legados** : Aplicações que recebem pedidos de utilizador da Application Proxy. A aplicação legacy recebe os cabeçalhos HTTP necessários para configurar uma sessão e devolver uma resposta. 
 
 ## <a name="implement-header-based-authentication-with-azure-ad"></a>Implementar autenticação baseada em cabeçalho com Azure AD
 

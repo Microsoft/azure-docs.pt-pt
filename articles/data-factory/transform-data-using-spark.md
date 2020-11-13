@@ -1,6 +1,6 @@
 ---
 title: Transformar dados usando a atividade da Faísca
-description: Aprenda a transformar dados executando programas Spark a partir de um oleoduto de fábrica de dados Azure usando a Atividade de Faísca.
+description: Aprenda a transformar dados executando programas Spark a partir de um oleoduto Azure Data Factory utilizando a Atividade de Faísca.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,12 +10,12 @@ ms.author: abnarain
 manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 05/08/2020
-ms.openlocfilehash: d8cc934ebe8b465bc43e37d0d3a3fc58feda8c0a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cac64b17e7aad9aa2bf88386f21d5f82b3013fa3
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637722"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566780"
 ---
 # <a name="transform-data-using-spark-activity-in-azure-data-factory"></a>Transformar dados usando a atividade da Spark na Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -77,7 +77,7 @@ A tabela a seguir descreve as propriedades JSON utilizadas na definição JSON:
 ## <a name="folder-structure"></a>Estrutura de pasta
 Os trabalhos de faísca são mais extensíveis do que os trabalhos de Porco/Colmeia. Para trabalhos com Spark, você pode fornecer várias dependências, tais como pacotes de frascos (colocados no java CLASSPATH), ficheiros python (colocados no PYTHONPATH) e quaisquer outros ficheiros.
 
-Crie a seguinte estrutura de pasta no armazenamento Azure Blob referenciado pelo serviço ligado a HDInsight. Em seguida, faça o upload de ficheiros dependentes para as sub-pastas apropriadas na pasta raiz representada pela **entradaFilePath** . Por exemplo, faça o upload dos ficheiros python para o sub-dobrador de pyFiles e para os ficheiros de frascos da pasta raiz. No tempo de funcionamento, o serviço Data Factory espera a seguinte estrutura de pasta no armazenamento Azure Blob:     
+Crie a seguinte estrutura de pasta no armazenamento Azure Blob referenciado pelo serviço ligado a HDInsight. Em seguida, faça o upload de ficheiros dependentes para as sub-pastas apropriadas na pasta raiz representada pela **entradaFilePath**. Por exemplo, faça o upload dos ficheiros python para o sub-dobrador de pyFiles e para os ficheiros de frascos da pasta raiz. No tempo de funcionamento, o serviço Data Factory espera a seguinte estrutura de pasta no armazenamento Azure Blob:     
 
 | Caminho                  | Descrição                              | Obrigatório | Tipo   |
 | --------------------- | ---------------------------------------- | -------- | ------ |

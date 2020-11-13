@@ -4,14 +4,14 @@ description: Alerta à escala usando uma regra de alerta único para séries de 
 author: harelbr
 ms.author: harelbr
 ms.topic: conceptual
-ms.date: 10/04/2020
+ms.date: 11/12/2020
 ms.subservice: alerts
-ms.openlocfilehash: 81e09e6d9c6a57339f1d6f1eb5ce4f494555fa19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66987a28acc8a2c9ae71d89ff5760fa508e32963
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704485"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566508"
 ---
 # <a name="monitor-multiple-time-series-in-a-single-metric-alert-rule"></a>Monitorize várias séries de tempo numa única regra de alerta métrico
 
@@ -43,7 +43,7 @@ Um exemplo de tal regra de alerta (apenas com as propriedades relevantes indicad
 
 
 Para esta regra de alerta, é monitorizada uma única série de tempo métrica:
--   CPU percentual onde *o recurso*='myVM1' > 70%
+-   CPU percentual onde *o recurso* ='myVM1' > 70%
 
 ![Uma regra de alerta numa única série de tempo](media/alerts-metric-multiple-time-series-single-rule/simple-alert-rule.png)
 
@@ -65,8 +65,8 @@ Um exemplo de tal regra de alerta:
 -   Limiar: *70*
 
 Para esta regra de alerta, duas séries de tempo métricas estão a ser monitorizadas separadamente:
--   CPU percentual onde *o recurso*='myVM1' > 70%
--   CPU percentual onde *o recurso*='myVM2' > 70%
+-   CPU percentual onde *o recurso* ='myVM1' > 70%
+-   CPU percentual onde *o recurso* ='myVM2' > 70%
 
 ![Uma regra de alerta de vários recursos](media/alerts-metric-multiple-time-series-single-rule/multi-resource-alert-rule.png)
  
@@ -101,8 +101,8 @@ Por exemplo:
 
 Para esta regra de alerta, estão a ser monitorizadas duas séries de tempo métricas:
 
-- CPU percentual onde *o recurso*='myVM1' > 70%
-- Rede no total onde *o recurso*='myVM1' > 20 MB
+- CPU percentual onde *o recurso* ='myVM1' > 70%
+- Rede no total onde *o recurso* ='myVM1' > 20 MB
 
 ![Uma regra de alerta de várias condições](media/alerts-metric-multiple-time-series-single-rule/multi-condition-alert-rule.png)
  
@@ -129,9 +129,9 @@ Um exemplo de uma regra de alerta que monitoriza várias dimensões é:
 
 Para esta regra de alerta, três séries de tempo métricas estão a ser monitorizadas:
 
-- Transações em *que o recurso*='myStorage1' e o nome da *API*='GetBlob' > 70
-- Transações em *que o recurso*='myStorage1' e o nome da *API*='DeleteBlob' > 70
-- Transações em *que o recurso*='myStorage1' e o nome da *API*='PutPage' > 70
+- Transações em *que o recurso* ='myStorage1' e o nome da *API* ='GetBlob' > 70
+- Transações em *que o recurso* ='myStorage1' e o nome da *API* ='DeleteBlob' > 70
+- Transações em *que o recurso* ='myStorage1' e o nome da *API* ='PutPage' > 70
 
 ![Uma regra de alerta de várias dimensões com valores de uma dimensão](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-1.png)
 
@@ -149,12 +149,12 @@ Um exemplo deste tipo de regra de alerta:
 
 Para esta regra de alerta, seis séries de tempo métricas estão a ser monitorizadas separadamente:
 
-- Transações em *que o recurso*='myStorage1' e o nome da *API*='GetBlob' e *a Autenticação*='SAS' > 70
-- Transações em *que o recurso*='myStorage1' e o nome da *API*='GetBlob' e *a autenticação*='AccountKey' > 70
-- Transações em *que o recurso*='myStorage1' e o nome *API*='DeleteBlob' e *a autenticação*='SAS' > 70
-- Transações em *que o recurso*='myStorage1' e o nome *API*='DeleteBlob' e *a autenticação*='AccountKey' > 70
-- Transações em *que o recurso*='myStorage1' e o nome da *API*='PutPage' e *a autenticação*='SAS' > 70
-- Transações em *que o Recurso*='myStorage1' e o Nome *API*='PutPage' e *Autenticação*='AccountKey' > 70
+- Transações em *que o recurso* ='myStorage1' e o nome da *API* ='GetBlob' e *a Autenticação* ='SAS' > 70
+- Transações em *que o recurso* ='myStorage1' e o nome da *API* ='GetBlob' e *a autenticação* ='AccountKey' > 70
+- Transações em *que o recurso* ='myStorage1' e o nome *API* ='DeleteBlob' e *a autenticação* ='SAS' > 70
+- Transações em *que o recurso* ='myStorage1' e o nome *API* ='DeleteBlob' e *a autenticação* ='AccountKey' > 70
+- Transações em *que o recurso* ='myStorage1' e o nome da *API* ='PutPage' e *a autenticação* ='SAS' > 70
+- Transações em *que o Recurso* ='myStorage1' e o Nome *API* ='PutPage' e *Autenticação* ='AccountKey' > 70
 
 ![Uma regra de alerta de várias dimensões com valores de múltiplas dimensões](media/alerts-metric-multiple-time-series-single-rule/multi-dimension-2.png)
  
@@ -163,6 +163,7 @@ Para esta regra de alerta, seis séries de tempo métricas estão a ser monitori
 1.  **Selecionando todas as dimensões atuais e futuras** – Pode optar por monitorizar todos os valores possíveis de uma dimensão, incluindo valores futuros. Tal regra de alerta irá escalar automaticamente para monitorizar todos os valores da dimensão sem que necessite de modificar a regra de alerta sempre que um valor de dimensão for adicionado ou removido.
 2.  **Excluindo as dimensões** – Selecionar o operador '≠' (excluir) para um valor de dimensão equivale a selecionar todos os outros valores dessa dimensão, incluindo valores futuros.
 3.  **Dimensões novas e personalizadas** – Os valores de dimensão apresentados no portal Azure baseiam-se em dados métricos recolhidos nos últimos três dias. Se o valor de dimensão que procura ainda não for emitido, pode adicionar um valor de dimensão personalizada.
+4. **Dimensões correspondentes com um prefixo** - Pode optar por monitorizar todos os valores de dimensão que começam com um padrão específico, selecionando o operador 'Começa com' e introduzindo um prefixo personalizado.
 
 ![Características avançadas de várias dimensões](media/alerts-metric-multiple-time-series-single-rule/advanced-features.png)
 

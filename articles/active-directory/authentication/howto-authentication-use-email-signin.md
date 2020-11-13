@@ -10,14 +10,17 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calui
-ms.openlocfilehash: c822aaebb2451d709f6afcdeba959f39c4d491cb
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c3fcff5673f4498e92f5d66fe96d806a08527197
+ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91964541"
+ms.lasthandoff: 11/13/2020
+ms.locfileid: "94576024"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sessão no Azure Ative Directory usando o e-mail como iD de login alternativo (pré-visualização)
+
+> [!NOTE]
+> Iniciar sessão no Azure AD com e-mail como ID de login alternativo é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Muitas organizações querem permitir que os utilizadores inscrevam-se no Azure Ative Directory (Azure AD) usando as mesmas credenciais que o seu ambiente de diretório no local. Com esta abordagem, conhecida como autenticação híbrida, os utilizadores apenas precisam de se lembrar de um conjunto de credenciais.
 
@@ -27,12 +30,12 @@ Algumas organizações não mudaram para a autenticação híbrida pelas seguint
 * A alteração da UPN AZure cria uma correspondência errada entre ambientes on-prem e Ad Azure que podem causar problemas com certas aplicações e serviços.
 * Devido a razões de negócio ou conformidade, a organização não quer usar a UPN no local para assinar no Azure AD.
 
-Para ajudar na mudança para a autenticação híbrida, pode agora configurar a AD Azure para permitir que os utilizadores iniciem sessão com um e-mail no seu domínio verificado como um ID de login alternativo. Por exemplo, se *Contoso* rebranded para *Fabrikam*, em vez de continuar a assinar com o legado `balas@contoso.com` UPN, o e-mail como um ID de login alternativo pode agora ser usado. Para aceder a uma aplicação ou serviços, os utilizadores iniciariam sessão no AZure AD utilizando o seu e-mail atribuído, como `balas@fabrikam.com` .
+Para ajudar na mudança para a autenticação híbrida, pode agora configurar a AD Azure para permitir que os utilizadores iniciem sessão com um e-mail no seu domínio verificado como um ID de login alternativo. Por exemplo, se *Contoso* rebranded para *Fabrikam* , em vez de continuar a assinar com o legado `balas@contoso.com` UPN, o e-mail como um ID de login alternativo pode agora ser usado. Para aceder a uma aplicação ou serviços, os utilizadores iniciariam sessão no AZure AD utilizando o seu e-mail atribuído, como `balas@fabrikam.com` .
 
 Este artigo mostra-lhe como ativar e usar o e-mail como um ID de login alternativo. Esta funcionalidade está disponível na edição Azure AD Free e superior.
 
 > [!NOTE]
-> Iniciar sessão no Azure AD com e-mail como ID de login alternativo é uma funcionalidade de pré-visualização pública do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade destina-se apenas aos utilizadores Azure AD autenticados na nuvem.
 
 ## <a name="overview-of-azure-ad-sign-in-approaches"></a>Visão geral das abordagens de inscrição da AD AZure
 
@@ -169,13 +172,79 @@ Com a política aplicada, pode levar até uma hora para se propagar e para que o
 
 Para testar que os utilizadores podem iniciar scontabilidade com e-mail, navegue [https://myprofile.microsoft.com][my-profile] e inscreva-se com uma conta de utilizador com base no seu endereço de e-mail, `balas@fabrikam.com` como, por exemplo, não a SUA UPN, como `balas@contoso.com` . . A experiência de inscrição deve parecer e sentir o mesmo que com um evento de inscrição baseado na UPN.
 
+## <a name="enable-staged-rollout-to-test-user-sign-in-with-an-email-address"></a>Ativar o lançamento encenado para testar o sence do utilizador com um endereço de e-mail  
+
+[O lançamento encenado][staged-rollout] permite aos administradores de inquilinos permitir funcionalidades para grupos específicos. Recomenda-se que os administradores de inquilinos utilizem o roll-in encenado para testar o pedido de entrada do utilizador com um endereço de e-mail. Quando os administradores estiverem prontos para implementar esta funcionalidade em todo o seu inquilino, devem usar uma política de Home Realm Discovery.  
+
+
+Precisa de permissões de administrador de *inquilinos* para completar os seguintes passos:
+
+1. Abra uma sessão PowerShell como administrador e, em seguida, instale o módulo *AzureADPreview* utilizando o cmdlet [install-Module:][Install-Module]
+
+    ```powershell
+    Install-Module AzureADPreview
+    ```
+
+    Se solicitado, selecione **Y** para instalar o NuGet ou para instalar a partir de um repositório não fidedvo.
+
+2. Inscreva-se no seu inquilino Azure AD como *administrador de inquilino* utilizando o cmdlet [Connect-AzureAD:][Connect-AzureAD]
+
+    ```powershell
+    Connect-AzureAD
+    ```
+
+    O comando devolve informações sobre a sua conta, ambiente e identificação do inquilino.
+
+3. Listar todas as políticas de lançamento encenadas existentes utilizando o seguinte cmdlet:
+   
+   ```powershell
+   Get-AzureADMSFeatureRolloutPolicy
+   ``` 
+
+4. Se não houver políticas de lançamento encenadas existentes para esta funcionalidade, crie uma nova política de implementação encenada e tome nota do ID da política:
+
+   ```powershell
+   New-AzureADMSFeatureRolloutPolicy -Feature EmailAsAlternateId -DisplayName "EmailAsAlternateId Rollout Policy" -IsEnabled $true
+   ```
+
+5. Encontre o iD do directórioObject para que o grupo seja adicionado à política de lançamento encenada. Note o valor devolvido para o parâmetro *ID,* porque será usado no passo seguinte.
+   
+   ```powershell
+   Get-AzureADMSGroup -SearchString "Name of group to be added to the staged rollout policy"
+   ```
+
+6. Adicione o grupo à política de lançamento encenada, como mostra o exemplo a seguir. Substitua o valor no parâmetro *-Id* pelo valor devolvido para o ID da apólice no passo 4 e substitua o valor no parâmetro *-RefObjectId* pelo *ID* indicado no passo 5. Pode demorar até 1 hora até que os utilizadores do grupo possam usar os seus endereços de procuração para iniciar surgiu.
+
+   ```powershell
+   Add-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -RefObjectId "GROUP_OBJECT_ID"
+   ```
+   
+Para os novos membros adicionados ao grupo, pode demorar até 24 horas até que possam usar os seus endereços de procuração para iniciar siva.
+
+### <a name="removing-groups"></a>Remoção de grupos
+
+Para remover um grupo de uma política de lançamento encenada, executar o seguinte comando:
+
+```powershell
+Remove-AzureADMSFeatureRolloutPolicyDirectoryObject -Id "ROLLOUT_POLICY_ID" -ObjectId "GROUP_OBJECT_ID" 
+```
+
+### <a name="removing-policies"></a>Remoção de políticas
+
+Para remover uma política de implementação encenada, primeiro desative a política e depois remova-a do sistema:
+
+```powershell
+Set-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID" -IsEnabled $false 
+Remove-AzureADMSFeatureRolloutPolicy -Id "ROLLOUT_POLICY_ID"
+```
+
 ## <a name="troubleshoot"></a>Resolução de problemas
 
 Se os utilizadores tiverem problemas com eventos de inscrição utilizando o seu endereço de e-mail, reveja as seguintes etapas de resolução de problemas:
 
 1. Certifique-se de que a conta de utilizador tem o seu endereço de e-mail definido para o atributo *ProxyAddresses* no ambiente DS AD on-prem.
 1. Verifique se o Azure AD Connect está configurado e sincroniza com sucesso as contas dos utilizadores do ambiente DS AD pré-pré-m em Azure AD.
-1. Confirme que a política Azure AD *HomeRealmDiscoveryPolicy* tem o atributo *AlternateIdLogin* definido como *"Enabled": verdadeiro*:
+1. Confirme que a política Azure AD *HomeRealmDiscoveryPolicy* tem o atributo *AlternateIdLogin* definido como *"Enabled": verdadeiro* :
 
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
@@ -202,4 +271,5 @@ Para obter mais informações sobre operações de identidade híbrida, consulte
 [Get-AzureADPolicy]: /powershell/module/azuread/get-azureadpolicy
 [New-AzureADPolicy]: /powershell/module/azuread/new-azureadpolicy
 [Set-AzureADPolicy]: /powershell/module/azuread/set-azureadpolicy
+[staged-rollout]: /powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged-rollout
 [my-profile]: https://myprofile.microsoft.com

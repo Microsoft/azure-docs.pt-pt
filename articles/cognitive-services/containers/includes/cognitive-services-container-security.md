@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 11/11/2020
 ms.author: aahi
-ms.openlocfilehash: 348fb301d1a36c8df405c641f7644889417b11ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb9b0da609169288521d21ee6d5e412a786c7549
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91545246"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94574555"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Segurança do contentor Azure Cognitive Services
 
@@ -33,7 +33,7 @@ Como uma abordagem alternativa e *segura,* os consumidores de recipientes de Ser
 
 ### <a name="container-networking"></a>Funcionamento em rede do contentor
 
-Os recipientes dos Serviços Cognitivos são obrigados a submeter informações de medição para efeitos de faturação. A única exceção é *os contentores offline,* uma vez que seguem uma metodologia de faturação diferente. A não identificação de vários canais de rede em que os contentores dos Serviços Cognitivos dependem impedirá o funcionamento do contentor.
+Os recipientes dos Serviços Cognitivos são obrigados a submeter informações de medição para efeitos de faturação. A não identificação de vários canais de rede em que os contentores dos Serviços Cognitivos dependem impedirá o funcionamento do contentor.
 
 #### <a name="allow-list-cognitive-services-domains-and-ports"></a>Permitir listar domínios e portas de Serviços Cognitivos
 

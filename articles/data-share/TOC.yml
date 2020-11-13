@@ -8,7 +8,6 @@
     - name: Arquivos de dados suportados
       href: supported-data-stores.md
 - name: Guias de Início Rápido
-  expanded: true
   items:
     - name: Partilhar dados - portal do Azure
       href: share-your-data-portal.md
@@ -16,6 +15,7 @@
       displayName: Resource Manager
       href: share-your-data-arm.md
 - name: Tutoriais
+  expanded: true
   items:
     - name: Partilhar dados
       href: share-your-data.md
@@ -54,7 +54,7 @@
       href: how-to-delete-invitation.md
     - name: Revogar uma subscrição de partilha
       href: how-to-revoke-share-subscription.md
-    - name: Monitorizar
+    - name: Monitor
       href: how-to-monitor.md
     - name: Segurança
       href: security.md

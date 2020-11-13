@@ -1,15 +1,15 @@
 ---
-title: Tutorial - SAP HANA DB backup em Azure usando CLI
+title: Tutorial - SAP HANA DB backup em Azure usando Azure CLI
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA que estão a funcionar num Azure VM para um cofre dos Serviços de Recuperação de Backup Azure utilizando o Azure CLI.
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f11e01c6af18cac956d58b9c692d7b57c8fe653a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2cc34ae33ad283c30bbc5ce05a31b5e35a192de
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324965"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94566661"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Ressarça as bases de dados SAP HANA num Azure VM utilizando O Azure CLI
 
@@ -26,9 +26,9 @@ Este documento pressupõe que já tem uma base de dados SAP HANA instalada num A
 
 Confira os [cenários que apoiamos atualmente](./sap-hana-backup-support-matrix.md#scenario-support) para a SAP HANA.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Para instalar e utilizar o CLI localmente, tem de executar a versão Azure CLI xx.xxx.x ou posterior. Para encontrar a versão da CLI, execute `az --version`. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+ - Este tutorial requer versão xx.xx.xxx ou posteriormente do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação 
 
