@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.author: kaprochi
-ms.openlocfilehash: 46bdc314e7aa0002937e808d7982f43c8e725d6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de0065abaf5669859e864186fc9a3fb88219414b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357476"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555826"
 ---
 # <a name="cicd-for-custom-speech"></a>CI/CD para Voz Personalizada
 
@@ -37,7 +37,7 @@ Ao longo do caminho, os fluxos de trabalho devem nomear e armazenar dados, teste
 
 ### <a name="ci-workflow-for-testing-data-updates"></a>Fluxo de trabalho ci para testar atualizações de dados
 
-O principal objetivo dos fluxos de trabalho ci/CD é construir um novo modelo utilizando os dados de formação e testar esse modelo utilizando os dados de teste para determinar se a [Taxa de Erro](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) de Palavra (WER) melhorou em comparação com o modelo anterior de melhor desempenho (o "modelo de referência"). Se o novo modelo tiver um melhor desempenho, torna-se o novo modelo de referência com o qual os futuros modelos são comparados.
+O principal objetivo dos fluxos de trabalho ci/CD é construir um novo modelo utilizando os dados de formação e testar esse modelo utilizando os dados de teste para determinar se a [Taxa de Erro](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) de Palavra (WER) melhorou em comparação com o modelo anterior de melhor desempenho (o "modelo de referência"). Se o novo modelo tiver um melhor desempenho, torna-se o novo modelo de referência com o qual os futuros modelos são comparados.
 
 O fluxo de trabalho do CI para testar atualizações de dados deve voltar a testar o modelo de referência atual com os dados de teste atualizados para calcular o WER revisto. Isto garante que quando o WER de um novo modelo é comparado com o WER do benchmark, ambos os modelos foram testados com os mesmos dados de teste e você está comparando como com similares.
 
@@ -85,7 +85,7 @@ O [repo do modelo DevOps](https://github.com/Azure-Samples/Speech-Service-DevOps
 - Copie o repositório do modelo para a sua conta GitHub e, em seguida, crie recursos Azure e um [principal de serviço](../../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) para os fluxos de trabalho CI/CD das ações do GitHub.
 - Caminhe pelo "[dev loop interior](https://mitchdenny.com/the-inner-loop/)." Atualizar dados de treino e teste de um ramo de recurso, testar as alterações com um modelo de desenvolvimento temporário, e levantar um pedido de pull para propor e rever as alterações.
 - Quando os dados de formação são atualizados num pedido de puxar para *dominar,* treine modelos com o fluxo de trabalho CI das Ações GitHub.
-- Realize testes de precisão automatizados para estabelecer a Taxa de Erro de [Texto](how-to-custom-speech-evaluate-data.md#what-is-word-error-rate-wer) (WER) de um modelo. Guarde os resultados dos testes em Azure Blob.
+- Realize testes de precisão automatizados para estabelecer a Taxa de Erro de [Texto](how-to-custom-speech-evaluate-data.md#evaluate-custom-speech-accuracy) (WER) de um modelo. Guarde os resultados dos testes em Azure Blob.
 - Execute o fluxo de trabalho do CD para criar um ponto final quando o WER melhorar.
 
 ## <a name="next-steps"></a>Passos seguintes

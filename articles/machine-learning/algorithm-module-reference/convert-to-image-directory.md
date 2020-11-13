@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/09/2020
-ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/12/2020
+ms.openlocfilehash: 1489ce74da2ecff5212feb5a1a2e3c9151b73424
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324907"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555588"
 ---
 # <a name="convert-to-image-directory"></a>Converter para o Diretório da Imagem
 
@@ -41,13 +41,14 @@ Este artigo descreve como usar o módulo Converte para Diretório de Imagem para
     > [!WARNING]
     > Os conjuntos de dados atualmente rotulados exportados da Data Labeling não são suportados no designer.
 
-    As imagens com estas extensões (em minúsculas) são suportadas: '.jpg', '.jpeg', '.png', '.ppm', 'bmp', 'pgm', '.tif', '.tiff', '.webp'. Também pode ter vários tipos de imagens numa pasta. Não é necessário conter a mesma contagem de imagens em cada pasta de categoria.
+    As imagens com estas extensões (em minúsculas) são apoiadas: '.jpg', '.jpeg', '.png', '.ppm', '.bmp', 'pgm', '.tif', '.tiff', '.webp'. Também pode ter vários tipos de imagens numa pasta. Não é necessário conter a mesma contagem de imagens em cada pasta de categoria.
 
-    Pode utilizar a pasta ou o ficheiro comprimido com extensão '.zip', '.tar', '.gz' e '.bz2'. **Os ficheiros comprimidos são recomendados para um melhor desempenho.** 
+    Pode utilizar a pasta ou o ficheiro comprimido com extensão '.zip', '.tar', '.gz', e '.bz2'. **Os ficheiros comprimidos são recomendados para um melhor desempenho.** 
     
     ![Conjunto de dados de amostra de imagem](./media/module/image-sample-dataset.png)
 
-    Para a pontuação, a pasta do conjunto de dados de imagem só precisa de conter imagens não classificadas.
+    > [!NOTE]
+    > Para inferência, a pasta do conjunto de dados de imagem só precisa de conter imagens não classificadas.
 
 1. [Registe o conjunto de dados de imagem como um conjunto](../how-to-create-register-datasets.md) de dados de ficheiros no seu espaço de trabalho, uma vez que a entrada do módulo Converte para o Diretório de Imagem deve ser um conjunto de **dados de ficheiros**.
 
@@ -70,13 +71,13 @@ A saída do módulo **Converte para Diretório de Imagem** está no formato de *
 
 ###  <a name="expected-inputs"></a>Entradas esperadas  
 
-| Nome          | Tipo                  | Description   |
+| Nome          | Tipo                  | Descrição   |
 | ------------- | --------------------- | ------------- |
 | Conjunto de dados de entrada | AnyDirectory, ZipFile | Conjunto de dados de entrada |
 
 ###  <a name="output"></a>Saída  
 
-| Nome                   | Tipo           | Description            |
+| Nome                   | Tipo           | Descrição            |
 | ---------------------- | -------------- | ---------------------- |
 | Diretório de imagem de saída | ImageDirectory | Diretório de imagem de saída |
 

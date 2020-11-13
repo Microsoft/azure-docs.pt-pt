@@ -2,13 +2,13 @@
 title: Configurar configurações de utilização em laboratórios de sala de aula dos Serviços de Laboratório Azure
 description: Aprenda a configurar o número de alunos para um laboratório, registei-os no laboratório, controle o número de horas que podem usar o VM, e muito mais.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 742fcd2b504bce7ad2257edd559e4b66a9172d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.openlocfilehash: d3100f1a7e67e3b0d403375de02cb3daf5fcfb31
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91399674"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555724"
 ---
 # <a name="add-and-manage-lab-users"></a>Adicionar e gerir utilizadores de laboratório
 
@@ -22,7 +22,7 @@ Nesta secção, adicione os alunos a um laboratório manualmente ou carregando u
 
     Por padrão, a opção **de acesso Restrict** é ligada e, a menos que estejam na lista de utilizadores, os alunos não podem inscrever-se no laboratório mesmo que tenham um link de registo. Apenas os utilizadores listados podem registar-se no laboratório utilizando o link de registo que envia. Neste procedimento, adicione utilizadores à lista. Em alternativa, pode desligar **o acesso Restrict,** que permite aos alunos inscreverem-se no laboratório desde que tenham o link de registo. 
 
-1. No topo do painel de **Utilizadores,** **selecione Adicionar utilizadores**e, em seguida, selecione **Adicionar por endereço de e-mail**. 
+1. No topo do painel de **Utilizadores,** **selecione Adicionar utilizadores** e, em seguida, selecione **Adicionar por endereço de e-mail**. 
 
     ![O botão "Adicionar utilizadores"](./media/how-to-configure-student-usage/add-users-button.png)
 
@@ -41,13 +41,15 @@ Nesta secção, adicione os alunos a um laboratório manualmente ou carregando u
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Adicione os utilizadores carregando um ficheiro CSV
 
-Também pode adicionar utilizadores carregando um ficheiro CSV que contém os seus endereços de e-mail.
+Também pode adicionar utilizadores carregando um ficheiro CSV que contém os seus endereços de e-mail. 
+
+Um ficheiro de texto CSV é utilizado para armazenar dados tabulares separados por vírgula (CSV) (números e texto). Em vez de armazenar informação em campos de colunas (como em folhas de cálculo), um ficheiro CSV armazena informações separadas por vírgulas. Cada linha num ficheiro CSV terá o mesmo número de "campos" separados por vírgulas. Pode utilizar o Excel para criar e editar facilmente ficheiros CSV.
 
 1. No Microsoft Excel, crie um ficheiro CSV que lista os endereços de e-mail dos alunos numa coluna.
 
     ![Lista de utilizadores num ficheiro CSV](./media/how-to-configure-student-usage/csv-file-with-users.png)
 
-1. Na parte superior do painel de **Utilizadores,** **selecione Adicionar utilizadores**e, em seguida, selecione **Upload CSV**.
+1. Na parte superior do painel de **Utilizadores,** **selecione Adicionar utilizadores** e, em seguida, selecione **Upload CSV**.
 
     ![O botão "Upload CSV"](./media/how-to-configure-student-usage/upload-csv-button.png)
 
@@ -79,11 +81,11 @@ Este método mostra-lhe como enviar e-mail com um link de registo e uma mensagem
 
 1. Na janela **de envio por e-mail,** introduza uma mensagem opcional e, em seguida, selecione **Enviar**. 
 
-    O e-mail inclui automaticamente o link de registo. Para obter e guardar o link de registo separadamente, selecione a elipse **(...**) no topo do painel de **Utilizadores** e, em seguida, selecione **o link de registo**. 
+    O e-mail inclui automaticamente o link de registo. Para obter e guardar o link de registo separadamente, selecione a elipse **(...** ) no topo do painel de **Utilizadores** e, em seguida, selecione **o link de registo**. 
 
     ![A janela "Enviar link de registo por e-mail"](./media/tutorial-setup-classroom-lab/send-email.png)
 
-    A coluna **Convite** da lista **de Utilizadores** apresenta o estado do convite para cada utilizador adicionado. O estado deve alterar-se para **Enviar** e, em seguida, para **Enviar em \<date> **. 
+    A coluna **Convite** da lista **de Utilizadores** apresenta o estado do convite para cada utilizador adicionado. O estado deve alterar-se para **Enviar** e, em seguida, para **Enviar em \<date>**. 
 
 ### <a name="invite-selected-users"></a>Convidar utilizadores selecionados
 
@@ -95,7 +97,7 @@ Este método mostra-lhe como convidar apenas certos alunos e obter um link de in
 
     ![Convidar utilizadores selecionados](./media/how-to-configure-student-usage/invite-selected-users.png)
 
-1. Na janela **de envio por e-mail,** introduza uma **mensagem**opcional e, em seguida, selecione **Enviar**. 
+1. Na janela **de envio por e-mail,** introduza uma **mensagem** opcional e, em seguida, selecione **Enviar**. 
 
     ![Enviar e-mail para utilizadores selecionados](./media/how-to-configure-student-usage/send-invitation-to-selected-users.png)
 
@@ -109,7 +111,7 @@ Nesta secção, pode obter o link de registo do portal e enviá-lo utilizando a 
 
     ![Ligação de registo do aluno](./media/how-to-configure-student-usage/registration-link-button.png)
 
-1. Na janela **de registo do Utilizador,** selecione **Copy**e, em seguida, selecione 'Fazer' ( 'Copiar' e, em seguida, selecione **'Fazer'.** 
+1. Na janela **de registo do Utilizador,** selecione **Copy** e, em seguida, selecione 'Fazer' ( 'Copiar' e, em seguida, selecione **'Fazer'.** 
 
     ![A janela de registo do utilizador](./media/how-to-configure-student-usage/registration-link.png)
 
@@ -120,7 +122,7 @@ Nesta secção, pode obter o link de registo do portal e enviá-lo utilizando a 
 ## <a name="view-registered-users"></a>Ver utilizadores registados
 
 1. Vá ao site da [Azure Lab Services.](https://labs.azure.com) 
-1. Selecione **Iniciar sômin**e, em seguida, insira as suas credenciais. O Azure Lab Services suporta contas organizacionais e contas Microsoft.
+1. Selecione **Iniciar sômin** e, em seguida, insira as suas credenciais. O Azure Lab Services suporta contas organizacionais e contas Microsoft.
 1. Na página **dos meus laboratórios,** selecione o laboratório cujo uso quer rastrear. 
 1. No painel esquerdo, selecione **Utilizadores,** ou selecione o azulejo **do Utilizadores.** 
 
@@ -137,7 +139,7 @@ Pode definir uma quota de hora para cada aluno fazendo o seguinte:
 
     ![A janela "Quota por utilizador"](./media/how-to-configure-student-usage/quota-per-user.png)    
 
-    Os valores alterados são agora apresentados na **Quota por utilizador: \<number of hours> ** botão na barra de ferramentas e na lista de utilizadores, como mostrado aqui:
+    Os valores alterados são agora apresentados na **Quota por utilizador: \<number of hours>** botão na barra de ferramentas e na lista de utilizadores, como mostrado aqui:
 
     ![Horário de quota por utilizador](./media/how-to-configure-student-usage/quot-per-user-after.png)
 
@@ -154,7 +156,7 @@ Para fixar quotas adicionais, faça o seguinte:
 
     ![O botão "Ajustar quota"](./media/how-to-configure-student-usage/adjust-quota-button.png)
 
-1. Na **quota ajustar \<selected user or users email address> para **, insira o número de horas de laboratório adicionais que pretende conceder ao aluno ou estudantes selecionados e, em seguida, selecione **Aplicar**. 
+1. Na **quota ajustar \<selected user or users email address> para** , insira o número de horas de laboratório adicionais que pretende conceder ao aluno ou estudantes selecionados e, em seguida, selecione **Aplicar**. 
 
     ![A "Quota de Ajuste..." janela](./media/how-to-configure-student-usage/additional-quota.png)
 
@@ -167,11 +169,12 @@ Para fixar quotas adicionais, faça o seguinte:
 Para adicionar alunos a um laboratório de sala de aula, você usa as suas contas de e-mail. Os alunos podem ter os seguintes tipos de contas de e-mail:
 
 - Uma conta de e-mail estudantil fornecida pelo azure ative directory da sua universidade.
-- Uma conta de e-mail de domínio microsoft, como *outlook.com,* *hotmail.com,* *msn.com*ou *live.com*.
+- Uma conta de e-mail de domínio microsoft, como *outlook.com,* *hotmail.com,* *msn.com* ou *live.com*.
 - Uma conta de e-mail não-Microsoft, como a fornecida pela Yahoo! ou Google. No entanto, este tipo de contas deve estar ligado a uma conta microsoft.
 - Uma conta do GitHub. Esta conta deve estar ligada a uma conta microsoft.
 
 ### <a name="use-a-non-microsoft-email-account"></a>Utilize uma conta de e-mail não Microsoft
+
 Os estudantes podem usar contas de e-mail não-Microsoft para se registarem e iniciarem singurção num laboratório de sala de aula.  No entanto, o registo requer que criem primeiro uma conta Microsoft que esteja ligada ao seu endereço de e-mail não Microsoft.
 
 Muitos estudantes podem já ter uma conta Microsoft que está ligada ao seu endereço de e-mail não-Microsoft. Por exemplo, os estudantes já têm uma conta Microsoft se utilizaram o seu endereço de e-mail com outros produtos ou serviços da Microsoft, tais como Office, Skype, OneDrive ou Windows.  
@@ -186,6 +189,7 @@ Aqui está um link para os estudantes [se inscreverem para uma conta microsoft](
 > Quando os alunos se inscrevem num laboratório de sala de aula, não lhes é dada a opção de criar uma conta microsoft. Por esta razão, recomendamos que inclua este link de http://signup.live.com inscrição, no e-mail de registo do laboratório de sala de aula que envia para estudantes que estão usando contas não Microsoft.
 
 ### <a name="use-a-github-account"></a>Use uma conta GitHub
+
 Os alunos também podem usar uma conta GitHub existente para se registarem e se inscreverem num laboratório de sala de aula. Se já tiverem uma conta Microsoft ligada à sua conta GitHub, os estudantes podem iniciar scontabilidade e fornecer a sua palavra-passe como mostrado na secção anterior. 
 
 Se ainda não ligaram a sua conta GitHub a uma conta da Microsoft, podem fazer o seguinte:
@@ -203,12 +207,13 @@ Se ainda não ligaram a sua conta GitHub a uma conta da Microsoft, podem fazer o
 ## <a name="export-a-list-of-users-to-a-csv-file"></a>Exportar uma lista de utilizadores para um ficheiro CSV
 
 1. Vá ao painel **de utilizadores.**
-1. Na barra de ferramentas, selecione a elipse **(...**) e, em seguida, selecione **Export CSV**. 
+1. Na barra de ferramentas, selecione a elipse **(...** ) e, em seguida, selecione **Export CSV**. 
 
     ![O botão "Exportação CSV"](./media/how-to-export-users-virtual-machines-csv/users-export-csv.png)
 
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Consulte os seguintes artigos:
 
 - Para administradores: [Criar e gerir contas de laboratório](how-to-manage-lab-accounts.md)

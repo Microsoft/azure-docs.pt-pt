@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3e38de191557f0602d1b544c6590018f98405b0
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785226"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560796"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é Azure Web Application Firewall no Gateway de aplicações Azure?
 
@@ -132,9 +132,9 @@ O Gateway DE Aplicação WAF pode ser configurado para ser executado nos dois mo
 
 O OWASP tem dois modos para decidir se bloqueia o tráfego: modo tradicional e modo de pontuação de anomalias.
 
-No modo tradicional, o tráfego que corresponda a qualquer regra é considerado independentemente de quaisquer outras regras. Este modo é fácil de entender. Mas a falta de informação sobre quantas regras correspondem a um pedido específico é uma limitação. Então, o modo de pontuação de anomalia foi introduzido. É o padrão para OWASP 3. *x* .
+No modo tradicional, o tráfego que corresponda a qualquer regra é considerado independentemente de quaisquer outras regras. Este modo é fácil de entender. Mas a falta de informação sobre quantas regras correspondem a um pedido específico é uma limitação. Então, o modo de pontuação de anomalia foi introduzido. É o padrão para OWASP 3. *x*.
 
-No modo de pontuação de anomalia, o tráfego que corresponde a qualquer regra não é imediatamente bloqueado quando a firewall está no modo prevenção. As regras têm uma certa gravidade: *Crítico,* *Erro,* *Aviso* ou *Aviso* . Essa gravidade afeta um valor numérico para o pedido, que é chamado de Pontuação de Anomalia. Por exemplo, uma partida de regra de *aviso* contribui com 3 para a pontuação. Um *jogo de regras críticas* contribui com 5.
+No modo de pontuação de anomalia, o tráfego que corresponde a qualquer regra não é imediatamente bloqueado quando a firewall está no modo prevenção. As regras têm uma certa gravidade: *Crítico,* *Erro,* *Aviso* ou *Aviso*. Essa gravidade afeta um valor numérico para o pedido, que é chamado de Pontuação de Anomalia. Por exemplo, uma partida de regra de *aviso* contribui com 3 para a pontuação. Um *jogo de regras críticas* contribui com 5.
 
 |Gravidade  |Valor  |
 |---------|---------|
@@ -160,7 +160,7 @@ Os registos gateway de aplicação estão integrados com [o Azure Monitor](../..
 
 #### <a name="azure-security-center"></a>Centro de Segurança do Azure
 
-[O Centro de Segurança](../../security-center/security-center-intro.md) ajuda-o a prevenir, detetar e responder a ameaças. Proporciona uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. O Gateway de Aplicação está [integrado no Centro de Segurança.](../../application-gateway/application-gateway-integration-security-center.md) O Centro de Segurança verifica o seu ambiente para detetar aplicações web desprotegidas. Pode recomendar a Aplicação Gateway WAF para proteger estes recursos vulneráveis. Cria-se as firewalls diretamente do Centro de Segurança. Estes casos da WAF estão integrados no Centro de Segurança. Enviam alertas e informações de saúde ao Centro de Segurança para reportar.
+[O Centro de Segurança](../../security-center/security-center-introduction.md) ajuda-o a prevenir, detetar e responder a ameaças. Proporciona uma maior visibilidade e controlo sobre a segurança dos seus recursos Azure. O Gateway de Aplicação está [integrado no Centro de Segurança.](../../application-gateway/application-gateway-integration-security-center.md) O Centro de Segurança verifica o seu ambiente para detetar aplicações web desprotegidas. Pode recomendar a Aplicação Gateway WAF para proteger estes recursos vulneráveis. Cria-se as firewalls diretamente do Centro de Segurança. Estes casos da WAF estão integrados no Centro de Segurança. Enviam alertas e informações de saúde ao Centro de Segurança para reportar.
 
 ![Janela geral do Centro de Segurança](../media/ag-overview/figure1.png)
 

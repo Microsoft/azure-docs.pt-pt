@@ -4,13 +4,13 @@ description: A região especificada no portal Azure é a mesma onde vai publicar
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 11/19/2019
-ms.openlocfilehash: 134f71e957b39cf35b4e45e42c2101fbce233f05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2020
+ms.openlocfilehash: a591a8d0df751c071a17b1d77febdb3607a1b53d
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91277160"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555775"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Regiões de autoria e publicação e as chaves associadas
 
@@ -23,9 +23,9 @@ Existem três portais de autoria LUIS, baseados na região. Tem de criar e publi
 
 |LUIS|Região de autoria|Nome da região de Azure|
 |--|--|--|
-|[www.luis.ai][www.luis.ai] <br>[previous.luis.ai](https://previous.luis.ai)|U.S.<br>não a Europa<br>não a Austrália| `westus`|
-|[au.luis.ai][au.luis.ai] <br>[previous.au.luis.ai](https://previous.au.luis.ai)|Austrália| `australiaeast`|
-|[eu.luis.ai][eu.luis.ai] <br>[previous.eu.luis.ai](https://previous.eu.luis.ai)|Europa|`westeurope`|
+|[www.luis.ai][www.luis.ai] |U.S.<br>não a Europa<br>não a Austrália| `westus`|
+|[au.luis.ai][au.luis.ai] |Austrália| `australiaeast`|
+|[eu.luis.ai][eu.luis.ai] |Europa|`westeurope`|
 
 As regiões [autorais emparelharam regiões de insuporte.](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
 
@@ -76,7 +76,7 @@ Para publicar para outras regiões, cria apenas aplicações [https://www.luis.a
 
  Região global | Autoria da região da API & site de autoria| Publicação & região de consulta<br>`API region name`   |  Formato URL de ponto final   |
 |-----|------|------|------|
-| África | `westus`<br>[www.luis.ai][www.luis.ai]| África do Sul Norte<br>`southafricanorth` |  `https://southafricanorth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
+| África | `westus`<br>[www.luis.ai][www.luis.ai]| Norte da África do Sul<br>`southafricanorth` |  `https://southafricanorth.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Ásia | `westus`<br>[www.luis.ai][www.luis.ai]| Índia Central<br>`centralindia` |  `https://centralindia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Ásia | `westus`<br>[www.luis.ai][www.luis.ai]| Ásia Leste<br>`eastasia`     |  `https://eastasia.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |
 | Ásia | `westus`<br>[www.luis.ai][www.luis.ai]| Leste do Japão<br>`japaneast`     |   `https://japaneast.api.cognitive.microsoft.com/luis/v2.0/apps/YOUR-APP-ID?subscription-key=YOUR-SUBSCRIPTION-KEY`   |

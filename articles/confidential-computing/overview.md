@@ -8,12 +8,12 @@ ms.subservice: workloads
 ms.topic: overview
 ms.date: 09/22/2020
 ms.author: JenCook
-ms.openlocfilehash: 16f45c39a329998f4b4da4ea89315683a0fab790
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 44479db6b29075e87b0d2dcef6f0d9bc1881738c
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90967582"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560830"
 ---
 # <a name="confidential-computing-on-azure"></a>Computação confidencial em Azure
 
@@ -49,11 +49,11 @@ Um TEE é um ambiente que impõe a execução de apenas código autorizado. Quai
 Correr cargas de trabalho na nuvem requer confiança. Você dá esta confiança a vários fornecedores que permitem diferentes componentes da sua aplicação.
 
 
-**Fornecedores de software de aplicações**: Confie no software implementando on-prem, utilizando código aberto ou construindo software de aplicação interna.
+**Fornecedores de software de aplicações** : Confie no software implementando on-prem, utilizando código aberto ou construindo software de aplicação interna.
 
-**Fornecedores de hardware**: Confie no hardware utilizando hardware no local ou hardware interno. 
+**Fornecedores de hardware** : Confie no hardware utilizando hardware no local ou hardware interno. 
 
-**Fornecedores de infraestruturas**: Confie em fornecedores de nuvem ou gere os seus próprios centros de dados no local.
+**Fornecedores de infraestruturas** : Confie em fornecedores de nuvem ou gere os seus próprios centros de dados no local.
 
 
 A computação confidencial Azure facilita a confiança no fornecedor de nuvem, reduzindo a necessidade de confiança em vários aspetos da infraestrutura de nuvem computacional. A computação confidencial Azure minimiza a confiança para o núcleo de OS do hospedeiro, o hipervisor, o administrador VM e o administrador anfitrião.
@@ -68,13 +68,13 @@ Um TCB mais baixo significa maior segurança. Há menos risco de exposição a v
 
 A computação confidencial Azure permite-lhe alavancar capacidades de computação confidenciais num ambiente virtualizado. Agora pode utilizar ferramentas, software e infraestruturas em nuvem para construir em cima de hardware seguro.  
 
-**Impedir o acesso não autorizado**: Executar dados sensíveis na nuvem. Confie que a Azure fornece a melhor proteção de dados possível, com pouca ou nenhuma alteração do que é feito hoje.
+**Impedir o acesso não autorizado** : Executar dados sensíveis na nuvem. Confie que a Azure fornece a melhor proteção de dados possível, com pouca ou nenhuma alteração do que é feito hoje.
 
-**Conformidade regulamentar**: Migrar para a nuvem e manter o controlo total dos dados para satisfazer os regulamentos governamentais para proteger informações pessoais e garantir o IP organizacional.
+**Conformidade regulamentar** : Migrar para a nuvem e manter o controlo total dos dados para satisfazer os regulamentos governamentais para proteger informações pessoais e garantir o IP organizacional.
 
-**Colaboração segura e não fidedtiva**: Enfrente problemas à escala de trabalho em toda a indústria, penteando dados entre organizações, mesmo concorrentes, para desbloquear uma ampla análise de dados e insights mais profundos.
+**Colaboração segura e não fidedtiva** : Enfrente problemas à escala de trabalho em toda a indústria, penteando dados entre organizações, mesmo concorrentes, para desbloquear uma ampla análise de dados e insights mais profundos.
 
-**Processamento isolado**: Ofereça uma nova onda de produtos que removam a responsabilidade sobre dados privados com processamento cego. Os dados do utilizador nem sequer podem ser recuperados pelo prestador de serviços. 
+**Processamento isolado** : Ofereça uma nova onda de produtos que removam a responsabilidade sobre dados privados com processamento cego. Os dados do utilizador nem sequer podem ser recuperados pelo prestador de serviços. 
 
 ## <a name="get-started"></a>Começar Agora
 ### <a name="azure-compute"></a>Computação do Azure
@@ -84,7 +84,7 @@ Construa aplicações em cima de ofertas confidenciais do IaaS computacional em 
 
 ### <a name="azure-security"></a>Azure Security 
 Certifique-se de que as suas cargas de trabalho estão seguras através de métodos de verificação e gestão de chaves ligadas a hardware. 
-- Atestado: [Microsoft Azure Atesstation (Preview)](https://docs.microsoft.com/azure/attestation/overview)
+- Atestado: [Microsoft Azure Atesstation (Preview)](../attestation/overview.md)
 - Gestão chave: Managed-HSM (Pré-visualização)
 
 ### <a name="develop"></a>Programar
@@ -94,7 +94,7 @@ Comece a usar aplicações conscientes do enclave e implemente algoritmos confid
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Instale uma máquina virtual série DCsv2 e instale o OE SDK nela.
+Instale uma máquina virtual DCsv2-Series e instale o OE SDK nela.
 
 > [!div class="nextstepaction"]
 > [Implementar um VM de computação confidencial no Azure Marketplace](quick-create-marketplace.md)

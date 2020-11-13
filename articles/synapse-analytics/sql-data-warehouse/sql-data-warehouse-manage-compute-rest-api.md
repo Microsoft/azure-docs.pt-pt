@@ -1,6 +1,6 @@
 ---
 title: Pausa, currículo, escala com APIs de REST
-description: Gerir o poder de computação em Azure Synapse Analytics data warehouse através de REST APIs.
+description: Gerir a potência de computação para piscinas SQL dedicadas (anteriormente SQL DW) em Azure Synapse Analytics através de REST APIs.
 services: synapse-analytics
 author: antvgski
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 03/29/2019
 ms.author: anvang
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: bbb8e82710b4c8ca7736b53d427b3880faf2be05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 49702051b5399d5079aacc97c00233a23ba8712d
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85213283"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556017"
 ---
-# <a name="rest-apis-for-azure-synapse-analytics-data-warehouse"></a>REST APIs para armazém de dados Azure Synapse Analytics
+# <a name="rest-apis-for-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>REST APIs para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics
 
-REST APIs para gerir o computação no armazém de dados Azure Synapse Analytics.
+REST APIs para gerir o cálculo para piscina SQL dedicada (anteriormente SQL DW) em Azure Synapse Analytics.
 
 ## <a name="scale-compute"></a>Dimensionar computação
 
@@ -64,7 +64,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="get-maintenance-schedule"></a>Obtenha horário de manutenção
 
-Verifique o horário de manutenção que foi definido para um armazém de dados.
+Verifique o calendário de manutenção que foi definido para uma piscina SQL dedicada (anteriormente SQL DW).
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -73,7 +73,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 ## <a name="set-maintenance-schedule"></a>Definir horário de manutenção
 
-Para definir e atualizar um horário de manutenção num armazém de dados existente.
+Para definir e atualizar um calendário de manutenção numa piscina SQL dedicada existente (anteriormente SQL DW).
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

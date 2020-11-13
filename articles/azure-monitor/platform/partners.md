@@ -4,12 +4,12 @@ description: Conheça os parceiros do Azure Monitor e como pode aceder à docume
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: b56b2386422d9f7f2fa598ff804a2206bf4b4d83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc33e9d8d613b9d0575da069d884e454d9930eac
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91460101"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555644"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -151,7 +151,7 @@ A Microfocus **ArcSight** tem um conector inteligente para os centros de eventos
 
 A Microfocus **Operations Bridge** monitoriza automaticamente todos os recursos de TI híbridos – qualquer dispositivo, sistema operativo, base de dados, aplicação ou serviço, independentemente do local onde funciona e aplica AIOps a todos os tipos de dados – eventos, métricas, registos e dependências. Fornece uma combinação única de monitorização de qualidade de serviço, juntamente com análises profundas de saúde de aplicações, e inclui uma monitorização abrangente de desempenho e disponibilidade dos serviços microsoft Azure. Operations Bridge permite que os clientes forneçam um único painel de vidro, disponível em qualquer dispositivo com um browser, de forma a que tanto as partes interessadas de negócios como de TI possam compreender.
 
-Saiba mais
+Saber mais
 - [Visão geral da Suite OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Transferência](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope é um componente na Suite da Ponte de Operações.
@@ -300,6 +300,16 @@ A Sumo Logic é um serviço seguro, nativo da nuvem, de análise de dados de má
 A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas, otimizando simultaneamente o desempenho, o custo e a conformidade em tempo real. A Turbonomic ajuda as organizações a serem elásticas na sua propriedade Azure, otimizando continuamente a propriedade para garantir que as aplicações obtenham constantemente os recursos necessários para entregar o seu SLA e nada mais através do cálculo, armazenamento e rede para a camada IaaS e PaaS. As organizações podem simular migrações, escalar adequadamente as cargas de trabalho e retirar recursos do datacenter para migrar responsavelmente para Azure a tempo, dentro do orçamento, garantindo tanto o desempenho como o cumprimento. Turbonomic é impulsionado pela API e funciona como um VM sem agente em Azure e no local.
 
 [Introdução turbonómica](https://turbonomic.com/)
+
+## <a name="bmc-helix"></a>Hélice BMC
+
+![Logotipo da Hélix BMC](./media/partners/BMCHelix.png)
+
+A BMC Helix é uma plataforma autónoma de serviços e operações SaaS. Integrado com inteligência de 360 graus, capacita as empresas a descobrir, monitorizar, prestar serviço, remediar, otimizar e oferecer experiências omnicanais para TI e linhas de negócio.
+Além disso, ao integrar perfeitamente a ITSM e a ITM Operations Management (ITOM), a BMC Helix permite que os utilizadores de TI e de negócios eliminem silos de TI, façam decisões de negócio orientadas por dados e proporcionem experiências de clientes líderes no setor.
+Os clientes podem implantar a plataforma BMC Helix com a implementação em nuvem da sua escolha – pública, privada ou híbrida. Além disso, os clientes têm uma escolha de soluções AI/ML para alavancar os principais fornecedores do setor.
+
+[Saiba mais sobre a BMC Helix](https://www.bmc.com/it-solutions/bmc-helix.html?vu=helix)
 
 ## <a name="next-steps"></a>Passos seguintes
 

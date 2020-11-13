@@ -9,18 +9,18 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 79a4db1f7d4be88260ea41ce1090007bc66cc7c8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312036"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556034"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteja o seu espaço de trabalho Synapse (pré-visualização) 
 
 Este artigo irá ensiná-lo a usar funções e controlar o acesso a atividades de controlo e acesso a dados. Seguindo estas instruções, o controlo de acesso em Azure Synapse Analytics é simplificado. Basta adicionar e remover os utilizadores a um dos três grupos de segurança.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para garantir um espaço de trabalho synapse (pré-visualização), seguirá um padrão de configuração dos seguintes itens:
 
@@ -31,7 +31,7 @@ Para garantir um espaço de trabalho synapse (pré-visualização), seguirá um 
   - Faísca Apache para administrador azure Synapse Analytics
 - Controlo de acesso para dados em Azure Data Lake Storage Gen 2 (ADLSGEN2).
 - Controlo de acesso para bases de dados Synapse SQL e Spark
-- 
+
 ## <a name="steps-to-secure-a-synapse-workspace"></a>Passos para garantir um espaço de trabalho da Sinapse
 
 Este documento utiliza nomes padrão para simplificar as instruções. Substitua-os por quaisquer nomes à sua escolha.

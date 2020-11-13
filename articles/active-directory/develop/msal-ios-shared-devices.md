@@ -13,19 +13,17 @@ ms.date: 03/31/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 949ddae903a53957f62b89a01ce477edb92917c1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a97e14bcb68629f5f175a4913146187949af08be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92365917"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561068"
 ---
 # <a name="shared-device-mode-for-ios-devices"></a>Modo de dispositivo partilhado para dispositivos iOS
 
-> [!NOTE]
-> Esta funcionalidade está em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Esta característica [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Os trabalhadores da firstline, como os associados de retalho, os tripulantes de voo e os trabalhadores de serviços de campo, usam frequentemente um dispositivo móvel partilhado para realizar o seu trabalho. Estes dispositivos partilhados podem apresentar riscos de segurança se os seus utilizadores partilharem as suas palavras-passe ou PINs, intencionalmente ou não, para acederem a dados de clientes e negócios no dispositivo partilhado.
 
@@ -43,9 +41,9 @@ Para criar uma aplicação de modo de dispositivo compartilhado, os desenvolvedo
 
 1. **Os administradores de dispositivos** preparam o dispositivo para ser partilhado utilizando um fornecedor de gestão de dispositivos móveis (MDM) como o Microsoft Intune para gerir os dispositivos na sua organização. O MDM empurra a aplicação microsoft Authenticator para os dispositivos e liga o "Modo Partilhado" para cada dispositivo através de uma atualização de perfil para o dispositivo. Esta definição de Modo Partilhado é o que altera o comportamento das aplicações suportadas no dispositivo. Esta configuração do fornecedor MDM define o modo de dispositivo partilhado para o dispositivo e permite o [plug-in Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) que é necessário para o modo de dispositivo partilhado.
 
-1. [**Requerido apenas durante a Pré-visualização Pública**] Um utilizador com [função de Administrador de Dispositivos Cloud](../roles/permissions-reference.md#cloud-device-administrator) deve então lançar a [aplicação Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e juntar o seu dispositivo à organização.
+1. [ **Requerido apenas durante a Pré-visualização Pública** ] Um utilizador com [função de Administrador de Dispositivos Cloud](../roles/permissions-reference.md#cloud-device-administrator) deve então lançar a [aplicação Microsoft Authenticator](../user-help/user-help-auth-app-overview.md) e juntar o seu dispositivo à organização.
 
-    Para configurar a adesão aos seus papéis organizacionais no portal Azure: **Azure Ative Directory**  >  **Roles and Administrators**Cloud  >  **Device Administrators**
+    Para configurar a adesão aos seus papéis organizacionais no portal Azure: **Azure Ative Directory**  >  **Roles and Administrators** Cloud  >  **Device Administrators**
 
 As seguintes secções ajudam-no a atualizar a sua aplicação para suportar o modo de dispositivo partilhado.
 
@@ -58,9 +56,9 @@ O seu dispositivo necessita de ser configurado para suportar o modo de dispositi
 
 1. No Portal de Configuração Intune, informe o dispositivo para ativar o [plug-in Microsoft Enterprise SSO para dispositivos Apple](apple-sso-plugin.md) com a seguinte configuração:
 
-    - **Tipo**: Redirecionamento
-    - **ID de extensão**: com.microsoft.azureauthenticator.ssoextension
-    - **Team ID**: (este campo não é necessário para iOS)
+    - **Tipo** : Redirecionamento
+    - **ID de extensão** : com.microsoft.azureauthenticator.ssoextension
+    - **Team ID** : (este campo não é necessário para iOS)
     - **URLs:**   
         - `https://login.microsoftonline.com`
         - `https://login.microsoft.com`

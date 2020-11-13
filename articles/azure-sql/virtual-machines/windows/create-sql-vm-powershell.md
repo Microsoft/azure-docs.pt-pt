@@ -15,12 +15,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6bf17f85892691fe930d3d4b1e12846da8f9dc58
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c49f8b2732a1b62760cec69626d56751971e6a44
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789816"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556442"
 ---
 # <a name="how-to-use-azure-powershell-to-provision-sql-server-on-azure-virtual-machines"></a>Como utilizar o Azure PowerShell para o fornecimento de servidor SQL em Máquinas Virtuais Azure
 
@@ -367,12 +367,17 @@ A máquina virtual é criada.
 
 ## <a name="install-the-sql-iaas-agent"></a>Instalar o Agente Iaas do SQL
 
-As máquinas virtuais sql Server suportam funcionalidades de gestão automatizadas com a extensão do [agente iaaS do servidor SQL](sql-server-iaas-agent-extension-automate-management.md). Para instalar o agente no novo VM e registá-lo junto do fornecedor de recursos, executar o comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) após a criação da máquina virtual. Especifique o tipo de licença para o seu SQL Server VM, escolhendo entre o pay-as-you-go ou trazer a sua própria licença através do [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Para obter mais informações sobre o licenciamento, consulte [o modelo de licenciamento.](licensing-model-azure-hybrid-benefit-ahb-change.md) 
+As máquinas virtuais sql Server suportam funcionalidades de gestão automatizadas com a extensão do [agente iaaS do servidor SQL](sql-server-iaas-agent-extension-automate-management.md). Para registar o seu SQL Server com a extensão, executar o comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm) após a criação da máquina virtual. Especifique o tipo de licença para o seu SQL Server VM, escolhendo entre o pay-as-you-go ou trazer a sua própria licença através do [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). Para obter mais informações sobre o licenciamento, consulte [o modelo de licenciamento.](licensing-model-azure-hybrid-benefit-ahb-change.md) 
 
 
    ```powershell
    New-AzSqlVM -ResourceGroupName $ResourceGroupName -Name $VMName -Location $Location -LicenseType <PAYG/AHUB> 
    ```
+
+Há três formas de registar com a extensão: 
+- [Automaticamente para todos os VMs atuais e futuros numa subscrição](sql-agent-extension-automatic-registration-all-vms.md)
+- [Manualmente para um único VM](sql-agent-extension-manually-register-single-vm.md)
+- [Manualmente para vários VMs a granel](sql-agent-extension-manually-register-vms-bulk.md)
 
 
 ## <a name="stop-or-remove-a-vm"></a>Parar ou remover um VM

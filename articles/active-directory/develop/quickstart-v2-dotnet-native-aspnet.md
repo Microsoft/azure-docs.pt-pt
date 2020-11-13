@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 786f566b121d5f0d5d64e7b8b269c7cdfab9e4a6
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 6874794dcf33d77d0b03f2a5713bdf42a40d6891
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91825062"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560915"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Quickstart: Ligue para uma API web ASP.NET protegida pela plataforma de identidade da Microsoft
 
-Neste arranque rápido, expõe uma API web e protege-a para que apenas os utilizadores autenticados possam aceder à sua. O artigo mostra como expor uma API web ASP.NET para que possa aceitar fichas que sejam emitidas por contas pessoais, como outlook.com ou live.com, e contas de trabalho ou escola de qualquer empresa ou organização que tenha integrado com a plataforma de identidade da Microsoft.
+Neste quickstart, você descarrega e execute uma amostra de código que demonstra como proteger uma API web ASP.NET, limitando o acesso aos seus recursos apenas a contas autorizadas. A amostra suporta a autorização de contas e contas pessoais da Microsoft em qualquer organização do Azure Ative Directory (Azure AD).
 
 O artigo também usa uma aplicação da Windows Presentation Foundation (WPF) para demonstrar como pode solicitar um token de acesso para aceder a uma API web.
 
@@ -59,20 +59,20 @@ Para registar as suas aplicações manualmente, escolha o inquilino Azure Ative 
 1. Quando a página do Registo abrir uma página de **inscrição,** insira as informações de registo do seu pedido:
 
     1. Na secção **Nome,** insira um nome de aplicação significativo que será apresentado aos utilizadores da aplicação. Por exemplo, insira **AppModelv2-NativeClient-DotNet-TodoListService**.
-    1. Para **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional**.
+    1. Para **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional**.
     1. Selecione **Registar** para criar a aplicação.
 
 1. Na página **de Visão Geral** da aplicação, procure o valor de **ID da Aplicação (cliente)** e, em seguida, grave-o para utilização posterior. Você precisará dele para configurar o ficheiro de configuração do Estúdio Visual para este projeto (isto é, `ClientId` no ficheiro *TodoListService\Web.config).*
 
 1. Na secção **Expor uma API,** selecione **Adicionar um âmbito,** aceitar o ID URI de aplicação proposto `api://{clientId}` selecionando Guardar e **Continuar,** e, em seguida, introduzir as seguintes informações:
 
-    1. Para **o nome Scope**, **introduza access_as_user**.
-    1. Para **Quem pode consentir**, certifique-se de que a opção **Dedmins e utilizadores** está selecionada.
+    1. Para **o nome Scope** , **introduza access_as_user**.
+    1. Para **Quem pode consentir** , certifique-se de que a opção **Dedmins e utilizadores** está selecionada.
     1. Na caixa de **nome de visualização de consentimento** do Administrador, **insira o Access TodoListService como utilizador**.
     1. Na caixa de descrição do consentimento do **Administrador,** **insira acessos à API web TodoListService como utilizador**.
     1. Na caixa de **nome de visualização** do consentimento do Utilizador, **insira o Access TodoListService como utilizador**.
     1. Na caixa de descrição do **consentimento do Utilizador,** **insira acessos à API web TodoListService como utilizador**.
-    1. Para **o Estado**, mantenha **ativado**.
+    1. Para **o Estado** , mantenha **ativado**.
     1. Selecione **Adicionar âmbito**.
 
 ### <a name="configure-the-service-project"></a>Configure o projeto de serviço
@@ -85,7 +85,7 @@ Configure o projeto de serviço para corresponder à API web registada, fazendo 
 
 ### <a name="add-the-new-scope-to-the-appconfig-file"></a>Adicione o novo âmbito ao ficheiro app.config
 
-Para adicionar o novo âmbito ao ficheiro todoListClient *app.config, * faça o seguinte:
+Para adicionar o novo âmbito ao ficheiro todoListClient *app.config,* faça o seguinte:
 
 1. Na pasta raiz do projeto TodoListClient, abra o ficheiro *app.config.*
 
@@ -107,7 +107,7 @@ Para registar a aplicação TodoListClient, faça o seguinte:
 1. Quando a página do Registo abrir uma página de **inscrição,** insira as informações de registo do seu pedido:
 
     1. Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação (por exemplo, **NativeClient-DotNet-TodoListClient).**
-    1. Para **tipos de conta suportada**, selecione Contas em qualquer **diretório organizacional**.
+    1. Para **tipos de conta suportada** , selecione Contas em qualquer **diretório organizacional**.
     1. Selecione **Registar** para criar a aplicação.
 
    > [!NOTE]
@@ -116,14 +116,14 @@ Para registar a aplicação TodoListClient, faça o seguinte:
    > - `organizations`: Pode iniciar scontabilidade utilizando uma conta de trabalho ou escola.
    > - `consumers`: Só pode iniciar scontabilidade utilizando uma conta pessoal da Microsoft.
 
-1. Na página **'Visão Geral'** da aplicação, selecione **Autenticação**e, em seguida, faça o seguinte:
+1. Na página **'Visão Geral'** da aplicação, selecione **Autenticação** e, em seguida, faça o seguinte:
 
     1. Nas **configurações da Plataforma,** selecione o botão **Adicionar uma plataforma.**
-    1. Para **aplicações móveis e desktop**, selecione **aplicações móveis e desktop**.
+    1. Para **aplicações móveis e desktop** , selecione **aplicações móveis e desktop**.
     1. Para **redirecionar URIs,** selecione a **https://login.microsoftonline.com/common/oauth2/nativeclient** caixa de verificação.
     1. Selecione **Configurar**.
 
-1. Selecione **permissões API**, e, em seguida, faça o seguinte:
+1. Selecione **permissões API** , e, em seguida, faça o seguinte:
 
     1. Selecione o botão **Adicionar uma permissão**.
     1. Selecione o **separador As Minhas APIs.**

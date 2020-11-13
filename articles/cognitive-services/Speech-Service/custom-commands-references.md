@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 052418924e73252a780689aea33e84d5bfdbc3f6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 98510132b2341736664dfafa52e9567df95652be
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927656"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561102"
 ---
 # <a name="custom-commands-concepts-and-definitions"></a>Conceitos e definições de Comandos Personalizados
 
@@ -46,8 +46,10 @@ Um parâmetro é identificado pela propriedade do nome. Deve sempre dar um nome 
 ### <a name="isglobal"></a>IsGlobal
 Esta caixa de verificação indica se o âmbito deste parâmetro é partilhado em todos os comandos da aplicação. Se um parâmetro for global, o seu valor pode potencialmente ser fornecido a partir de qualquer âmbito de comando. Depois de atribuído um valor, pode ser encaminhado a partir de qualquer um dos comandos. 
 
-### <a name="required"></a>Necessário
+### <a name="required"></a>Obrigatório
 Esta caixa de verificação indica se é necessário um valor para este parâmetro para a realização ou conclusão do comando. Tem de configurar respostas para solicitar ao utilizador que forneça um valor se um parâmetro for marcado conforme necessário.
+
+Note que, se configurar um **parâmetro necessário** para ter um **valor Padrão,** o sistema ainda irá explicitamente solicitar o valor do parâmetro.
 
 ### <a name="type"></a>Tipo
 Os Comandos Personalizados suportam os seguintes tipos de parâmetros:
@@ -57,7 +59,7 @@ Os Comandos Personalizados suportam os seguintes tipos de parâmetros:
 * Número
 * String
 
-Todos estes tipos de parâmetros suportam a configuração de valor predefinido, que pode configurar a partir do portal Azure.
+Todos estes tipos de parâmetros, com exceção da Geografia, suportam a configuração do valor predefinido, que pode configurar a partir do portal.
 
 ### <a name="configuration"></a>Configuração
 Configuração é uma propriedade de parâmetro definida apenas para o tipo String. São suportados os seguintes valores:
@@ -75,7 +77,7 @@ As validações são construções aplicáveis a certos tipos de parâmetros que
 * Número
 
 ## <a name="rules-configuration"></a>Configuração de regras
-Uma regra nos Comandos Personalizados é definida por um conjunto de *condições* que, quando satisfeitas, executam um conjunto de *ações* . As regras também permitem configurar *o estado pós-execução* e *as expectativas* para a próxima volta.
+Uma regra nos Comandos Personalizados é definida por um conjunto de *condições* que, quando satisfeitas, executam um conjunto de *ações*. As regras também permitem configurar *o estado pós-execução* e *as expectativas* para a próxima volta.
 
 ### <a name="types"></a>Tipos
 Os Comandos Personalizados suportam as seguintes categorias de regras:

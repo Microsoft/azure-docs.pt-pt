@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Prever preços dos carros com o designer'
 titleSuffix: Azure Machine Learning
-description: Aprenda a treinar, marcar e implementar um modelo de machine learning utilizando uma interface de arrastar e largar. Este tutorial é parte uma parte de uma série de duas partes sobre a previsão dos preços dos automóveis usando a regressão linear.
+description: Modelo de aprendizagem de máquinas de comboio para prever os preços do automóvel usando regressão linear. Este tutorial é a primeira parte de uma série composta por duas partes.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.custom: designer
-ms.openlocfilehash: d9422cfb9bd8e5539f1a9b43d6fb7b137778f3d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0475e7a7b9bb40e77fe23362ff098350037bdd30
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91404923"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555282"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer"></a>Tutorial: Prever preço do automóvel com o designer
 
@@ -130,7 +130,7 @@ Quando treinas um modelo, tens de fazer alguma coisa em relação aos dados que 
 
 1. No painel de detalhes do módulo à direita da tela, **selecione Editar coluna**.
 
-1. Expandir os **nomes da Coluna** cair ao lado de **Incluir**, e selecione Todas  **as colunas**.
+1. Expandir os **nomes da Coluna** cair ao lado de **Incluir** , e selecione Todas  **as colunas**.
 
 1. Selecione **+** o para adicionar uma nova regra.
 
@@ -155,7 +155,7 @@ O seu conjunto de dados ainda tem valores em falta depois de remover a coluna **
 > [!TIP]
 > A limpeza dos valores em falta dos dados de entrada é um pré-requisito para a utilização da maioria dos módulos do designer.
 
-1. Na paleta de módulos à esquerda da tela, expanda a secção **Transformação de Dados**e encontre o módulo **de Dados Desaparecidos Limpos.**
+1. Na paleta de módulos à esquerda da tela, expanda a secção **Transformação de Dados** e encontre o módulo **de Dados Desaparecidos Limpos.**
 
 1. Arraste o módulo **de dados em falta** para a tela do gasoduto. Conecte-o ao **módulo Select Columns no dataset.** 
 
@@ -210,7 +210,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
     
     Esta opção exibe várias categorias de módulos que pode utilizar para inicializar algoritmos de aprendizagem.
 
-1. Selecione **Regression**  >  **Linear Regression**, e arraste-a para a tela do gasoduto.
+1. Selecione **Regression**  >  **Linear Regression** , e arraste-a para a tela do gasoduto.
 
 1. Na paleta de módulos, expanda a secção **De formação do Módulo,** e arraste o módulo **Train Model** para a tela.
 
@@ -221,7 +221,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
     > [!IMPORTANT]
     > Certifique-se de que as portas de saída esquerda de **Dados Divididos** se ligam ao **Modelo de Comboio.** A porta esquerda contém o conjunto de treino. A porta direita contém o conjunto de teste.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Selecione coluna":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png"alt-text="Screenshot mostrando a configuração correta do módulo Modelo de Comboio. O módulo linear de regressão liga-se à porta esquerda do módulo Modelo de Comboio e o módulo de Dados Divididos liga-se à porta direita do Modelo de Comboio.":::
 
 1. Selecione o módulo **Modelo de Comboio.**
 
@@ -236,7 +236,7 @@ Treine o modelo dando-lhe um conjunto de dados que inclui o preço. O algoritmo 
 
     O seu oleoduto deve ser assim:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Selecione coluna":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png"alt-text="Screenshot mostrando a configuração correta do pipeline depois de adicionar o módulo Modelo de Comboio.":::
 
 ### <a name="add-the-score-model-module"></a>Adicione o módulo Modelo de Pontuação
 
@@ -256,7 +256,7 @@ Utilize o módulo **Modelo avaliar** para avaliar o quão bem o seu modelo obtev
 
     O oleoduto final deve ser mais ou menos assim:
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Selecione coluna":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png"alt-text="Screenshot mostrando a configuração correta do pipeline.":::
 
 ## <a name="submit-the-pipeline"></a>Enviar o oleoduto
 
@@ -285,7 +285,7 @@ Após a execução concluída, pode ver os resultados do percurso do gasoduto. P
 
     Aqui pode ver os preços previstos e os preços reais a partir dos dados de teste.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Selecione coluna":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/score-result.png"alt-text="Screenshot da visualização de saída realçando a coluna Marcador":::
 
 ### <a name="evaluate-models"></a>Avaliar modelos
 
@@ -295,15 +295,15 @@ Utilize o **Modelo de Avaliação** para ver como o modelo treinado foi bem exec
 
 As seguintes estatísticas são mostradas para o seu modelo:
 
-* **Erro Absoluto Médio (MAE)**: A média de erros absolutos. Um erro é a diferença entre o valor previsto e o valor real.
-* **Raiz Média Erro Quadrado (RMSE)**: A raiz quadrada da média de erros quadrados de previsões feitas no conjunto de dados do teste.
-* **Erro relativo absoluto**: A média dos erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
-* **Erro ao quadrado absoluto**: A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
-* **Coeficiente de Determinação**: Também conhecido como valor quadrado R, esta métrica estatística indica o quão bem um modelo se encaixa nos dados.
+* **Erro Absoluto Médio (MAE)** : A média de erros absolutos. Um erro é a diferença entre o valor previsto e o valor real.
+* **Raiz Média Erro Quadrado (RMSE)** : A raiz quadrada da média de erros quadrados de previsões feitas no conjunto de dados do teste.
+* **Erro relativo absoluto** : A média dos erros absolutos relativos à diferença absoluta entre os valores reais e a média de todos os valores reais.
+* **Erro ao quadrado absoluto** : A média dos erros ao quadrado relativos à diferença ao quadrado entre os valores reais e a média de todos os valores reais.
+* **Coeficiente de Determinação** : Também conhecido como valor quadrado R, esta métrica estatística indica o quão bem um modelo se encaixa nos dados.
 
 Em cada uma das estatísticas de erros, quanto mais pequeno, melhor. Um valor menor indica que as previsões estão mais próximas dos valores reais. Para o coeficiente de determinação, quanto mais próximo o seu valor for de um (1.0), melhor serão as previsões.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Salte esta secção se quiser continuar com a parte 2 do tutorial, [implantando modelos](tutorial-designer-automobile-price-deploy.md).
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: dc0cdca2355403bc8f5409d9a6ca7f4ae89caf25
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: aa0a001f9c35202939eeb4a7752803b998a3acf7
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90947551"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562020"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Quickstart: Proteja uma API web core ASP.NET com plataforma de identidade microsoft
 
-Neste arranque rápido, utiliza-se uma amostra de código para aprender a proteger uma API web core ASP.NET para que possa ser acedida apenas por contas autorizadas. As contas podem ser contas pessoais (hotmail.com, outlook.com e outras) e contas de trabalho e escola em qualquer instância do Azure Ative Directory (Azure AD).
+Neste quickstart, você descarrega uma amostra de código API web ASP.NET e revê o seu código que restringe o acesso a recursos apenas a contas autorizadas. A amostra suporta a autorização de contas e contas pessoais da Microsoft em qualquer organização do Azure Ative Directory (Azure AD).
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Pré-requisitos
@@ -38,19 +38,19 @@ Neste arranque rápido, utiliza-se uma amostra de código para aprender a proteg
 > 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 > 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 > 1. Procure e selecione **Azure Active Directory**.
-> 1. Em **Gestão**, selecione **registos de Aplicações,** em seguida, **Novo registo**.
+> 1. Em **Gestão** , selecione **registos de Aplicações,** em seguida, **Novo registo**.
 > 1. Introduza um **Nome** para a sua aplicação, por `AspNetCoreWebApi-Quickstart` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
 > 1. Selecione **Registar**.
-> 1. Under **Manage**, selecione **Expor uma API**
+> 1. Under **Manage** , selecione **Expor uma API**
 > 1. **Selecione Adicionar um âmbito** e selecione Guardar e continuar **a** aceitar o **ID URI de aplicação predefinido**.
 > 1. No painel de âmbito Adicionar um painel de **âmbito,** insira os seguintes valores:
 >    - **Nome do âmbito:**`access_as_user`
->    - **Quem pode consentir?**: **Administradores e utilizadores**
+>    - **Quem pode consentir?** : **Administradores e utilizadores**
 >    - **Nome do exposição de consentimento de administração:**`Access AspNetCoreWebApi-Quickstart`
->    - **Descrição do consentimento da administração**: `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
+>    - **Descrição do consentimento da administração** : `Allows the app to access AspNetCoreWebApi-Quickstart as the signed-in user.`
 >    - **Nome de visualização do consentimento do utilizador:**`Access AspNetCoreWebApi-Quickstart`
->    - **Descrição do consentimento do utilizador**: `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
->    - **Estado**: **Habilitado**
+>    - **Descrição do consentimento do utilizador** : `Allow the application to access AspNetCoreWebApi-Quickstart on your behalf.`
+>    - **Estado** : **Habilitado**
 > 1. **Selecione Adicionar âmbito** para completar a adição de âmbito.
 
 ## <a name="step-2-download-the-aspnet-core-project"></a>Passo 2: Descarregue o projeto ASP.NET Core
@@ -75,7 +75,7 @@ Neste arranque rápido, utiliza-se uma amostra de código para aprender a proteg
 >    - Substitua `Enter_the_Application_Id_here` pelo ID de **Aplicação (cliente)** da aplicação que registou no portal Azure. Pode encontrar **iD de aplicação (cliente)** na **página** geral da aplicação.
 >    - Substitua `Enter_the_Tenant_Info_Here` por uma das seguintes:
 >       - Se a sua candidatura apoiar **apenas neste diretório organizacional,** substitua este valor pelo **ID do Diretório (inquilino)** (um **GUIADO)** ou nome de inquilino (por exemplo, `contoso.onmicrosoft.com` ). Pode encontrar o ID do **Diretório (inquilino)** na **página** geral da aplicação.
->       - Se a sua aplicação suportar **Contas em qualquer diretório organizacional**, substitua este valor por `organizations`
+>       - Se a sua aplicação suportar **Contas em qualquer diretório organizacional** , substitua este valor por `organizations`
 >       - Se a sua aplicação suportar **todos os utilizadores da conta microsoft,** deixe este valor como `common`
 >
 > Para este arranque rápido, não altere quaisquer outros valores no *appsettings.jsno* ficheiro.
@@ -98,7 +98,7 @@ O middleware *Microsoft.AspNetCore.Authentication* utiliza uma `Startup` classe 
 
 O `AddAuthentication()` método configura o serviço para adicionar a autenticação baseada em JwtBearer.
 
-A linha que contém `.AddMicrosoftIdentityWebApi` adiciona a autorização da plataforma de identidade da Microsoft à sua API web. Em seguida, é configurado para validar fichas de acesso emitidas pelo ponto final da plataforma de identidade da Microsoft com base nas informações `AzureAD` na secção doappsettings.js* no* ficheiro de configuração:
+A linha que contém `.AddMicrosoftIdentityWebApi` adiciona a autorização da plataforma de identidade da Microsoft à sua API web. Em seguida, é configurado para validar fichas de acesso emitidas pelo ponto final da plataforma de identidade da Microsoft com base nas informações `AzureAD` na secção doappsettings.js *no* ficheiro de configuração:
 
 | *appsettings.jsna* chave | Descrição                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|

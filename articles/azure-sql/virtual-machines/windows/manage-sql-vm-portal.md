@@ -12,12 +12,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 467cbe91f4e516dc6facd2d30c38da1483308b77
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b563e8ca93487a123f97f0bbb86624dc3be2db0
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316975"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556295"
 ---
 # <a name="manage-sql-server-vms-in-azure-by-using-the-azure-portal"></a>Gerir VMs de servidor SQL em Azure utilizando o portal Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,7 +30,7 @@ No [portal Azure,](https://portal.azure.com)o recurso [**de máquinas virtuais S
 ## <a name="remarks"></a>Observações
 
 - Recomendamos que utilize o recurso [**de máquinas virtuais SQL**](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) para visualizar e gerir os seus VMs sql server em Azure. Mas atualmente, o recurso **de máquinas virtuais SQL** não suporta a gestão de VMs de servidor SQL [de suporte final.](sql-server-2008-extend-end-of-support.md) Para gerir as definições para os VMs do seu servidor SQL de ponta de suporte, utilize o separador de configuração do [SQL Server](#access-the-sql-server-configuration-tab) precedido. 
-- O recurso **de máquinas virtuais SQL** está disponível apenas para VMs SQL Server que se [registaram com o fornecedor de recursos SQL VM](sql-vm-resource-provider-register.md). 
+- O recurso **de máquinas virtuais SQL** está disponível apenas para VMs sql servidor que tenham [registado com a extensão SQL IaaS Agent](sql-agent-extension-manually-register-single-vm.md). 
 
 
 ## <a name="access-the-sql-virtual-machines-resource"></a>Aceda ao recurso de máquinas virtuais SQL
@@ -57,7 +57,7 @@ Para aceder ao recurso **de máquinas virtuais SQL,** faça o seguinte:
 > O recurso **de máquinas virtuais SQL** destina-se a configurações dedicadas do SQL Server. Selecione o nome do VM na **caixa de máquinas Virtual** para abrir definições específicas do VM, mas não exclusivas do SQL Server. 
 
 ## <a name="access-the-sql-server-configuration-tab"></a>Aceda ao separador de configuração do SQL Server
-O **separador de configuração do SQL Server** foi depreciado. Neste momento, é o único método para gerir VMs de servidor SQL [de suporte em fim de suporte](sql-server-2008-extend-end-of-support.md) e VMs do Servidor SQL que não foram registados com o fornecedor de recursos [SQL VM](sql-vm-resource-provider-register.md).
+O **separador de configuração do SQL Server** foi depreciado. Neste momento, é o único método para gerir VMs de servidor SQL [de suporte em fim de suporte](sql-server-2008-extend-end-of-support.md) e VMs do Servidor SQL que não foram [registados com a extensão do Agente IAAS SQL](sql-agent-extension-manually-register-single-vm.md).
 
 Para aceder ao separador de configuração do **SQL Server** predetado, aceda ao recurso **de máquinas Virtuais.** Utilize os passos seguintes:
 

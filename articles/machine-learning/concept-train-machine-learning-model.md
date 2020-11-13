@@ -1,7 +1,7 @@
 ---
 title: Construa modelos de comboio &
 titleSuffix: Azure Machine Learning
-description: Aprenda a treinar modelos com Azure Machine Learning, incluindo trabalhar com estruturas populares como Scikit-learn, TensorFlow e PyTorch. Os oleodutos machine learning facilitam o agendamento de corridas sem supervisão, utilizam ambientes de computação heterogéneo e reutilizam partes do seu fluxo de trabalho. E as configurações de execução fornecem controlo granular sobre os alvos de computação que o processo de treino funciona.
+description: Aprenda a treinar modelos com Azure Machine Learning. Explore os diferentes métodos de treino e escolha o certo para o seu projeto.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2448f5f778f19674aec63291acb72536c65ca6c9
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324817"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555894"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Modelos de trem com Azure Machine Learning
 

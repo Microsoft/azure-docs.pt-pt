@@ -1,6 +1,6 @@
 ---
 title: Copie gradualmente dados usando o Change Tracking utilizando o portal Azure
-description: Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta com base em informações de rastreamento de alterações na base de dados de origem na Base de Dados Azure SQL para um armazenamento de bolhas Azure.
+description: Neste tutorial, você cria uma Azure Data Factory com um pipeline que carrega dados delta com base em informações de rastreamento de alterações na base de dados de origem na Base de Dados Azure SQL para um armazenamento de bolhas Azure.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/12/2018
-ms.openlocfilehash: 78b9d3f30ebc8f74433f04c4474121682c4a3f36
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5f87e693d2592f830ec785f2163c232915544d1
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542024"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561136"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-the-azure-portal"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o Armazenamento Azure Blob utilizando informações de rastreio de alterações utilizando o portal Azure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Neste tutorial, você cria uma fábrica de dados Azure com um pipeline que carrega dados delta com base em informações de rastreamento de **alterações** na base de dados de origem na Base de Dados Azure SQL para um armazenamento de bolhas Azure.  
+Neste tutorial, você cria uma Azure Data Factory com um pipeline que carrega dados delta com base em informações de rastreamento de **alterações** na base de dados de origem na Base de Dados Azure SQL para um armazenamento de bolhas Azure.  
 
 Vai executar os seguintes passos neste tutorial:
 
@@ -50,7 +50,7 @@ Eis os passos de fluxo de trabalho ponto-a-ponto normais para carregar dados inc
     3. Carregue os dados completos da base de dados de origem num armazenamento de bolhas Azure.
 2. **Carregamento incremental de dados delta com base numa agenda** (executar periodicamente após o carregamento de dados inicial):
     1. Obter os valores SYS_CHANGE_VERSION novos e antigos.
-    3. Carregar os dados delta ao associar as chaves primárias das linhas alteradas (entre dois valores SYS_CHANGE_VERSION) de **change_tracking_tables** com dados da **tabela de origem**, e em seguida, mover os dados delta para o destino.
+    3. Carregar os dados delta ao associar as chaves primárias das linhas alteradas (entre dois valores SYS_CHANGE_VERSION) de **change_tracking_tables** com dados da **tabela de origem** , e em seguida, mover os dados delta para o destino.
     4. Atualize o SYS_CHANGE_VERSION para o carregamento delta da próxima vez.
 
 ## <a name="high-level-solution"></a>Solução de alto nível
@@ -76,7 +76,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 ### <a name="create-a-data-source-table-in-azure-sql-database"></a>Criar uma tabela de fontes de dados na Base de Dados Azure SQL
 
 1. Lançar **SQL Server Management Studio,** e ligar-se à Base de Dados SQL.
-2. No **Explorador de Servidores**, clique com botão direito do rato em **base de dados** e escolha **Nova Consulta**.
+2. No **Explorador de Servidores** , clique com botão direito do rato em **base de dados** e escolha **Nova Consulta**.
 3. Executar o seguinte comando SQL contra a sua base de dados para criar uma tabela chamada `data_source_table` data source store.  
 
     ```sql
@@ -156,19 +156,19 @@ Instale os mais recentes módulos Azure PowerShell seguindo instruções sobre [
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. No menu esquerdo, **selecione Criar um recurso**Data +  >  **Analytics**  >  **Data Factory**:
+1. No menu esquerdo, **selecione Criar um recurso** Data +  >  **Analytics**  >  **Data Factory** :
 
    ![Seleção do Data Factory no painel "Novo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
-2. Na página **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** no **nome**.
+2. Na página **Nova fábrica de dados** , introduza **ADFTutorialDataFactory** no **nome**.
 
      ![Página Nova fábrica de dados](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-azure-data-factory.png)
 
-   O nome da fábrica de dados Azure deve ser **globalmente único.** Se receber o seguinte erro, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialDataFactory) e tente criá-la novamente. Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
+   O nome da Fábrica de Dados Azure deve ser **globalmente único.** Se receber o seguinte erro, altere o nome da fábrica de dados (por exemplo, oseunomeADFTutorialDataFactory) e tente criá-la novamente. Veja o artigo [Data Factory – Naming Rules](naming-rules.md) (Data Factory – Regras de Nomenclatura) para obter as regras de nomenclatura dos artefactos do Data Factory.
 
    *O nome da fábrica de dados "ADFTutorialDataFactory" não está disponível*
 3. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados.
-4. No **Grupo de Recursos**, siga um destes passos:
+4. No **Grupo de Recursos** , siga um destes passos:
 
       - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
       - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
@@ -181,11 +181,11 @@ Instale os mais recentes módulos Azure PowerShell seguindo instruções sobre [
 8. No painel de instrumentos, vê-se o seguinte azulejo com estado: **Implantação da fábrica de dados**.
 
     ![Mosaico “implementar a fábrica de dados”](media/tutorial-incremental-copy-change-tracking-feature-portal/deploying-data-factory.png)
-9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
+9. Depois de concluída a criação, vai ver a página **Data Factory** , conforme mostrado na imagem.
 
    ![Home page da fábrica de dados](./media/tutorial-incremental-copy-change-tracking-feature-portal/data-factory-home-page.png)
 10. Clique no mosaico **Criar e Monitorizar** para iniciar a interface de utilizador (IU) do Azure Data Factory num separador à parte.
-11. Na página **introdução**, mude para o separador **Editar**, no painel do lado esquerdo, conforme mostrado na imagem abaixo:
+11. Na página **introdução** , mude para o separador **Editar** , no painel do lado esquerdo, conforme mostrado na imagem abaixo:
 
     ![botão Criar pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/get-started-page.png)
 
@@ -198,10 +198,10 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 1. Clique em **Ligações** e em **+ Nova**.
 
    ![Botão Nova ligação](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-connection-button-storage.png)
-2. Na janela **Novo Serviço Ligado**, selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**.
+2. Na janela **Novo Serviço Ligado** , selecione **Armazenamento de Blobs do Azure** e clique em **Continuar**.
 
    ![Selecionar Armazenamento de Blobs do Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-storage.png)
-3. Na janela **Novo Serviço Ligado**, siga os passos abaixo:
+3. Na janela **Novo Serviço Ligado** , siga os passos abaixo:
 
     1. Introduza **AzureStorageLinkedService** em **Nome**.
     2. Selecione a sua conta de Armazenamento Azure para **o nome da conta de armazenamento**.
@@ -214,8 +214,8 @@ Neste passo, vai ligar a sua Conta de Armazenamento do Azure à fábrica de dado
 Neste passo, ligue a sua base de dados à fábrica de dados.
 
 1. Clique em **Ligações** e em **+ Nova**.
-2. Na janela **Novo Serviço Ligado**, selecione **Base de Dados SQL do Azure** e clique em **Continuar**.
-3. Na janela **Novo Serviço Ligado**, siga os passos abaixo:
+2. Na janela **Novo Serviço Ligado** , selecione **Base de Dados SQL do Azure** e clique em **Continuar**.
+3. Na janela **Novo Serviço Ligado** , siga os passos abaixo:
 
     1. Introduza **AzureSqlDatabaseLinkedService** no campo **Nome**.
     2. Selecione o seu servidor para o campo **de nomes do Servidor.**
@@ -239,7 +239,7 @@ Neste passo, vai criar um conjunto de dados para representar os dados de origem.
 2. Selecione **Base de Dados SQL do Azure** e clique em **Concluir**.
 
    ![Tipo de conjunto de dados de origem - Base de Dados SQL do Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/select-azure-sql-database.png)
-3. Verá um separador novo para configurar o conjunto de dados. Também verá o conjunto de dados na vista de árvore. Na janela **Propriedades**, altere o nome do conjunto de dados para **SourceDataset**.
+3. Verá um separador novo para configurar o conjunto de dados. Também verá o conjunto de dados na vista de árvore. Na janela **Propriedades** , altere o nome do conjunto de dados para **SourceDataset**.
 
    ![Nome do conjunto de dados de origem](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-name.png)    
 4. Mude para o separador **Ligação** e faça os seguintes passos:
@@ -258,14 +258,14 @@ Neste passo, cria um conjunto de dados para representar os dados que são copiad
 2. Selecione **Armazenamento de Blobs do Azure** e clique em **Concluir**.
 
    ![Tipo de conjunto de dados de sink - Blob de Armazenamento do Azure](./media/tutorial-incremental-copy-change-tracking-feature-portal/source-dataset-type.png)
-3. Verá um separador novo para configurar o conjunto de dados. Também verá o conjunto de dados na vista de árvore. Na janela **Propriedades**, altere o nome do conjunto de dados para **SinkDataset**.
+3. Verá um separador novo para configurar o conjunto de dados. Também verá o conjunto de dados na vista de árvore. Na janela **Propriedades** , altere o nome do conjunto de dados para **SinkDataset**.
 
    ![Conjunto de dados de sink - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-name.png)
-4. Mude para o separador **Ligação**, na janela Propriedades, e siga os passos abaixo:
+4. Mude para o separador **Ligação** , na janela Propriedades, e siga os passos abaixo:
 
     1. Selecione **AzureStorageLinkedService** em **Serviço ligado**.
     2. Introduza **adftutorial/incchgtracking** na parte **folder** de **filePath**.
-    3. Introduza ** \@ o CONCAT («Incremental-', pipeline(). RunId, '.txt')** para parte do **ficheiro.** **filePath**  
+    3. Introduza **\@ o CONCAT («Incremental-', pipeline(). RunId, '.txt')** para parte do **ficheiro.** **file**  
 
        ![Conjunto de dados de sink - ligação](./media/tutorial-incremental-copy-change-tracking-feature-portal/sink-dataset-connection.png)
 
@@ -274,7 +274,7 @@ Neste passo, vai criar um conjunto de dados para armazenar a versão de controlo
 
 1. Na vista de árvore, clique em **+ (mais)** e em **Conjunto de Dados**.
 2. Selecione **Base de Dados SQL do Azure** e clique em **Concluir**.
-3. Verá um separador novo para configurar o conjunto de dados. Também verá o conjunto de dados na vista de árvore. Na janela **Propriedades**, altere o nome do conjunto de dados para **ChangeTrackingDataset**.
+3. Verá um separador novo para configurar o conjunto de dados. Também verá o conjunto de dados na vista de árvore. Na janela **Propriedades** , altere o nome do conjunto de dados para **ChangeTrackingDataset**.
 4. Mude para o separador **Ligação** e faça os seguintes passos:
 
     1. Selecione **AzureSqlDatabaseLinkedService** em **Serviço ligado**.
@@ -283,22 +283,22 @@ Neste passo, vai criar um conjunto de dados para armazenar a versão de controlo
 ## <a name="create-a-pipeline-for-the-full-copy"></a>Criar um pipeline para a cópia completa
 Neste passo, cria um pipeline com uma atividade de cópia que copia os dados inteiros do arquivo de dados de origem (Base de Dados SQL do Azure) para o arquivo de dados de destino (Armazenamento de Blobs do Azure).
 
-1. Clique em **+ (mais)**, no painel do lado esquerdo, e clique em **Pipeline**.
+1. Clique em **+ (mais)** , no painel do lado esquerdo, e clique em **Pipeline**.
 
     ![A screenshot mostra a opção Pipeline para uma fábrica de dados.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu.png)
-2. Verá um separador novo para configurar o pipeline. Também verá o pipeline na vista de árvore. Na janela **Propriedades**, altere o nome do pipeline para **FullCopyPipeline**.
+2. Verá um separador novo para configurar o pipeline. Também verá o pipeline na vista de árvore. Na janela **Propriedades** , altere o nome do pipeline para **FullCopyPipeline**.
 
     ![A screenshot mostra um oleoduto com um nome introduzido.](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-name.png)
-3. Na caixa de ferramentas **Atividades**, expanda **Fluxo de Dados** e arraste e largue a atividade **Copy** na superfície de desenho do pipeline e defina o nome ** FullCopyActivity**.
+3. Na caixa de ferramentas **Atividades** , expanda **Fluxo de Dados** e arraste e largue a atividade **Copy** na superfície de desenho do pipeline e defina o nome **FullCopyActivity**.
 
     ![Nome da atividade Full Copy](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-activity-name.png)
 4. Mude para o separador **Origem** e selecione **SourceDataset** no campo **Conjunto de Dados de Origem**.
 
     ![Atividade Copy - origem](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-source.png)
-5. Mude para o separador **Sink** e selecione **SinkDataset** no campo**Conjunto de Dados de Sink**.
+5. Mude para o separador **Sink** e selecione **SinkDataset** no campo **Conjunto de Dados de Sink**.
 
     ![Atividade Copy - sink](./media/tutorial-incremental-copy-change-tracking-feature-portal/copy-activity-sink.png)
-6. Para validar a definição do pipeline, clique em **Validar**, na barra de ferramentas. Confirme que não há nenhum erro de validação. Clique em **>>** para fechar o **Relatório de Validação do Pipeline**.
+6. Para validar a definição do pipeline, clique em **Validar** , na barra de ferramentas. Confirme que não há nenhum erro de validação. Clique em **>>** para fechar o **Relatório de Validação do Pipeline**.
 
     ![Validar o pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/full-copy-pipeline-validate.png)
 7. Para publicar entidades (serviços ligados, conjuntos de dados e pipelines), clique em **Publicar**. Aguarde até que a publicação seja bem-sucedida.
@@ -307,22 +307,22 @@ Neste passo, cria um pipeline com uma atividade de cópia que copia os dados int
 8. Aguarde até ver a mensagem **Publicação com êxito**.
 
     ![Publicação com êxito](./media/tutorial-incremental-copy-change-tracking-feature-portal/publishing-succeeded.png)
-9. Também pode clicar no botão **Mostrar Notificações**, no lado esquerdo, para ver notificações. Para fechar a janela de notificações, clique em **X**.
+9. Também pode clicar no botão **Mostrar Notificações** , no lado esquerdo, para ver notificações. Para fechar a janela de notificações, clique em **X**.
 
     ![Mostrar notificações](./media/tutorial-incremental-copy-change-tracking-feature-portal/show-notifications.png)
 
 
 ### <a name="run-the-full-copy-pipeline"></a>Execute o pipeline da cópia completa
-Clique em **Acionar**, na barra de ferramentas do pipeline, e clique em **Acionar Agora**.
+Clique em **Acionar** , na barra de ferramentas do pipeline, e clique em **Acionar Agora**.
 
 ![A screenshot mostra a opção Trigger Now selecionada no menu Trigger.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu.png)
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Monitorize o pipeline da cópia completa
 
-1. Clique no separador **Monitorizar**, no lado esquerdo. Verá a execução do pipeline na lista e o respetivo estado. Para atualizar a lista, clique em **Atualizar**. As ligações na coluna Ações permitem-lhe ver as execuções de atividades associadas à execução do pipeline e voltar a executar o pipeline.
+1. Clique no separador **Monitorizar** , no lado esquerdo. Verá a execução do pipeline na lista e o respetivo estado. Para atualizar a lista, clique em **Atualizar**. As ligações na coluna Ações permitem-lhe ver as execuções de atividades associadas à execução do pipeline e voltar a executar o pipeline.
 
     ![A screenshot mostra que o oleoduto funciona para uma fábrica de dados.](./media/tutorial-incremental-copy-change-tracking-feature-portal/monitor-full-copy-pipeline-run.png)
-2. Para ver as execuções de atividades associadas à execução do pipeline, clique na ligação **Ver Execuções de Atividades**, na coluna **Ações**. Há apenas uma atividade no pipeline, pelo que só vai ver uma entrada na lista. Para voltar à vista do gasoduto, clique na ligação **Pipelines** na parte superior.
+2. Para ver as execuções de atividades associadas à execução do pipeline, clique na ligação **Ver Execuções de Atividades** , na coluna **Ações**. Há apenas uma atividade no pipeline, pelo que só vai ver uma entrada na lista. Para voltar à vista do gasoduto, clique na ligação **Pipelines** na parte superior.
 
     ![A screenshot mostra que a atividade funciona para uma fábrica de dados com a ligação Pipelines chamada.](./media/tutorial-incremental-copy-change-tracking-feature-portal/activity-runs-full-copy.png)
 
@@ -363,19 +363,19 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
 1. Na UI da Fábrica de Dados, mude para o **separador Editar.** Clique **+ (mais)** no painel esquerdo e clique em **Pipeline**.
 
     ![A screenshot mostra como criar um oleoduto numa fábrica de dados.](./media/tutorial-incremental-copy-change-tracking-feature-portal/new-pipeline-menu-2.png)
-2. Verá um separador novo para configurar o pipeline. Também verá o pipeline na vista de árvore. Na janela **Propriedades**, altere o nome do pipeline para **IncrementalCopyPipeline**.
+2. Verá um separador novo para configurar o pipeline. Também verá o pipeline na vista de árvore. Na janela **Propriedades** , altere o nome do pipeline para **IncrementalCopyPipeline**.
 
     ![Nome do pipeline](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-pipeline-name.png)
 3. Expanda **Geral** na caixa de ferramentas **Atividades** e arraste e largue a atividade **Lookup** na superfície de desenho do pipeline. Defina o nome da atividade como **LookupLastChangeTrackingVersionActivity**. Esta atividade obtém a versão do controlo de alterações utilizada na última operação de cópia que está armazenada na tabela **table_store_ChangeTracking_version**.
 
     ![A screenshot mostra um oleoduto com uma atividade de procura.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-name.png)
-4. Mude para **Definições**, na janela **Propriedades** e selecione **ChangeTrackingDataset** no campo **Conjunto de Dados de Origem**.
+4. Mude para **Definições** , na janela **Propriedades** e selecione **ChangeTrackingDataset** no campo **Conjunto de Dados de Origem**.
 
     ![A screenshot mostra o separador Definições na janela Propriedades.](./media/tutorial-incremental-copy-change-tracking-feature-portal/first-lookup-activity-settings.png)
 5. Arraste e largue a atividade **Lookup** da caixa de ferramentas **Atividades** para a superfície de desenho do pipeline. Defina o nome da atividade como **LookupCurrentChangeTrackingVersionActivity**. Esta atividade obtém a versão atual do controlo de alterações.
 
     ![A screenshot mostra um oleoduto com duas atividades de procura.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-name.png)
-6. Mude para **Definições**, na janela **Propriedades**, e siga os passos abaixo:
+6. Mude para **Definições** , na janela **Propriedades** , e siga os passos abaixo:
 
    1. Selecione **SourceDataset** no campo **Conjunto de Dados de Origem**.
    2. Selecione **Consulta** em **Utilize Consulta**.
@@ -386,10 +386,10 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
        ```
 
       ![A screenshot mostra uma consulta adicionada ao separador Definições na janela Propriedades.](./media/tutorial-incremental-copy-change-tracking-feature-portal/second-lookup-activity-settings.png)
-7. Na caixa de ferramentas **Atividades**, expanda **Fluxo de Dados** e arraste e largue a atividade **Copy** na superfície de desenho do pipeline. Defina o nome da atividade como **IncrementalCopyActivity**. Esta atividade copia os dados entre a última versão do controlo de alterações e a atual para o arquivo de dados de destino.
+7. Na caixa de ferramentas **Atividades** , expanda **Fluxo de Dados** e arraste e largue a atividade **Copy** na superfície de desenho do pipeline. Defina o nome da atividade como **IncrementalCopyActivity**. Esta atividade copia os dados entre a última versão do controlo de alterações e a atual para o arquivo de dados de destino.
 
     ![Atividade Copy - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/incremental-copy-activity-name.png)
-8. Mude para o separador **Origem**, na janela **Propriedades**, e siga os passos abaixo:
+8. Mude para o separador **Origem** , na janela **Propriedades** , e siga os passos abaixo:
 
    1. Selecione **SourceDataset** em **Conjunto de Dados de Origem**.
    2. Selecione **Consulta** em **Utilize Consulta**.
@@ -400,23 +400,23 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
        ```
 
       ![Atividade Copy - definições da origem](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-source-settings.png)
-9. Mude para o separador **Sink** e selecione **SinkDataset** no campo**Conjunto de Dados de Sink**.
+9. Mude para o separador **Sink** e selecione **SinkDataset** no campo **Conjunto de Dados de Sink**.
 
     ![Atividade Copy - definições do sink](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-sink-settings.png)
-10. **Ligue ambas as atividades Lookup à atividade Copy**, uma a uma. Arraste o botão **verde** associado à atividade **Lookup** para a atividade **Copy**.
+10. **Ligue ambas as atividades Lookup à atividade Copy** , uma a uma. Arraste o botão **verde** associado à atividade **Lookup** para a atividade **Copy**.
 
     ![Ligar as atividades Lookup e Copy](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-lookup-and-copy.png)
 11. Arraste e largue a atividade **Stored Procedure** da caixa de ferramentas **Atividades** para a superfície de desenho do pipeline. Defina o nome da atividade como **StoredProceduretoUpdateChangeTrackingActivity**. Esta atividade atualiza a versão do controlo de alterações na tabela **table_store_ChangeTracking_version**.
 
     ![Atividade Stored Procedure - nome](./media/tutorial-incremental-copy-change-tracking-feature-portal/stored-procedure-activity-name.png)
-12. Mude para o separador *Conta do SQL** e selecione **AzureSqlDatabaseLinkedService** em **Serviço ligado**.
+12. Mude para o separador *Conta do SQL* * e selecione **AzureSqlDatabaseLinkedService** em **Serviço ligado**.
 
     ![Atividade Stored Procedure - Conta do SQL](./media/tutorial-incremental-copy-change-tracking-feature-portal/sql-account-tab.png)
 13. Mude para o separador **Procedimento Armazenado** e siga os passos abaixo:
 
-    1. Para **Nome do Procedimento armazenado**, selecione **Update_ChangeTracking_Version**.  
+    1. Para **Nome do Procedimento armazenado** , selecione **Update_ChangeTracking_Version**.  
     2. Selecione **Parâmetro de importação**.
-    3. Na secção **Parâmetros de procedimentos armazenados**, especifique os seguintes valores para os parâmetros:
+    3. Na secção **Parâmetros de procedimentos armazenados** , especifique os seguintes valores para os parâmetros:
 
         | Nome | Tipo | Valor |
         | ---- | ---- | ----- |
@@ -427,7 +427,7 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
 14. **Ligue a atividade Copy à atividade Stored Procedure**. Arraste e largue o botão **verde** associado à atividade Copy na atividade Stored Procedure.
 
     ![Ligar as atividades Copy e Stored Procedure](./media/tutorial-incremental-copy-change-tracking-feature-portal/connect-copy-stored-procedure.png)
-15. Clique em **Validar**, na barra de ferramentas. Confirme que não há erros de validação. Clique em **>>** para fechar a janela **Relatório de Validação do Pipeline**.
+15. Clique em **Validar** , na barra de ferramentas. Confirme que não há erros de validação. Clique em **>>** para fechar a janela **Relatório de Validação do Pipeline**.
 
     ![Botão Validar](./media/tutorial-incremental-copy-change-tracking-feature-portal/validate-button.png)
 16. Clique no botão **Publicar Tudo** para publicar entidades (serviços ligados, conjuntos de dados e pipelines) no serviço Data Factory. Aguarde até ver a mensagem **Publicação com êxito**.
@@ -435,16 +435,16 @@ Neste passo, cria um pipeline com as seguintes atividades e execute-o periodicam
        ![A screenshot mostra o botão Publicar Tudo para uma fábrica de dados.](./media/tutorial-incremental-copy-change-tracking-feature-portal/publish-button-2.png)    
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Executar o pipeline da cópia incremental
-1. Clique em **Acionar**, na barra de ferramentas do pipeline, e clique em **Acionar Agora**.
+1. Clique em **Acionar** , na barra de ferramentas do pipeline, e clique em **Acionar Agora**.
 
     ![O Screenshot mostra um pipeline com atividades e a opção Trigger Now selecionada a partir do menu Trigger.](./media/tutorial-incremental-copy-change-tracking-feature-portal/trigger-now-menu-2.png)
-2. Na janela **Executar Pipeline**, selecione **Concluir**.
+2. Na janela **Executar Pipeline** , selecione **Concluir**.
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Monitorizar o pipeline da cópia incremental
-1. Clique no separador **Monitorizar**, no lado esquerdo. Verá a execução do pipeline na lista e o respetivo estado. Para atualizar a lista, clique em **Atualizar**. As ligações na coluna **Ações** permitem-lhe ver as execuções de atividades associadas à execução do pipeline e voltar a executar o pipeline.
+1. Clique no separador **Monitorizar** , no lado esquerdo. Verá a execução do pipeline na lista e o respetivo estado. Para atualizar a lista, clique em **Atualizar**. As ligações na coluna **Ações** permitem-lhe ver as execuções de atividades associadas à execução do pipeline e voltar a executar o pipeline.
 
     ![A screenshot mostra que o gasoduto funciona para uma fábrica de dados, incluindo o seu oleoduto.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-pipeline-runs.png)
-2. Para ver as execuções de atividades associadas à execução do pipeline, clique na ligação **Ver Execuções de Atividades**, na coluna **Ações**. Há apenas uma atividade no pipeline, pelo que só vai ver uma entrada na lista. Para voltar à vista do gasoduto, clique na ligação **Pipelines** na parte superior.
+2. Para ver as execuções de atividades associadas à execução do pipeline, clique na ligação **Ver Execuções de Atividades** , na coluna **Ações**. Há apenas uma atividade no pipeline, pelo que só vai ver uma entrada na lista. Para voltar à vista do gasoduto, clique na ligação **Pipelines** na parte superior.
 
     ![A screenshot mostra que o gasoduto corre para uma fábrica de dados com vários marcados como bem sucedidos.](./media/tutorial-incremental-copy-change-tracking-feature-portal/inc-copy-activity-runs.png)
 

@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 10/07/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
-ms.openlocfilehash: 297b34fd9981308ece52545ac5878eaa144f4829
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 28d912153b52580727e0fb5086e0a7ae55e8b545
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91824396"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560932"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Início Rápido: Chamar a Microsoft Graph API a partir de uma aplicação da Plataforma Universal do Windows (UWP)
 
-Este quickstart utiliza uma amostra de código para demonstrar como uma aplicação Universal Windows Platform (UWP) pode assinar em utilizadores com contas pessoais ou contas de trabalho e escola, obter um token de acesso e ligar para a API do Microsoft Graph. Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
+Neste quickstart, você descarrega e execute uma amostra de código que demonstra como uma aplicação Universal Windows Platform (UWP) pode assinar nos utilizadores e obter um token de acesso para ligar para a Microsoft Graph API. 
+
+Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Pré-requisitos
@@ -51,11 +53,11 @@ Este quickstart utiliza uma amostra de código para demonstrar como uma aplicaç
 > 1. Selecione **Novo registo**.
 > 1. No **Registo de um pedido,** insira as informações de registo do seu pedido:
 >      - Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `UWP-App-calling-MsGraph` exemplo.
->      - Na secção **Tipos de conta suportados**, selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.
+>      - Na secção **Tipos de conta suportados** , selecione **Contas em qualquer diretório organizacional e contas Microsoft pessoais (por exemplo, Skype, Xbox, Outlook.com)**.
 > 1. Selecione **Registar-se** para criar a aplicação e, em seguida, grave o **ID de Aplicação (cliente)** para utilização num passo posterior.
-> 1. Em **Gestão**, **selecione Autenticação**.
-> 1. **Selecione Adicionar uma plataforma**de  >  **aplicações móveis e desktop**.
-> 1. Em **Redirecionar URIs**, selecione `https://login.microsoftonline.com/common/oauth2/nativeclient` .
+> 1. Em **Gestão** , **selecione Autenticação**.
+> 1. **Selecione Adicionar uma plataforma** de  >  **aplicações móveis e desktop**.
+> 1. Em **Redirecionar URIs** , selecione `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 > 1. Selecione **Configurar**.
 
 > [!div renderon="portal" class="sxs-lookup"]
@@ -96,7 +98,7 @@ Este quickstart utiliza uma amostra de código para demonstrar como uma aplicaç
 >    private const string ClientId = "Enter_the_Application_Id_here";
 >    ```
 >
->    Pode encontrar o **ID da Aplicação (cliente)** no painel **de visão geral** da aplicação no portal Azure **(Azure Ative Directory**  >  **App registrations**  >  *{Your app registration}*).
+>    Pode encontrar o **ID da Aplicação (cliente)** no painel **de visão geral** da aplicação no portal Azure **(Azure Ative Directory**  >  **App registrations**  >  *{Your app registration}* ).
 > 1. Criar e, em seguida, selecionar um novo certificado de teste auto-assinado para o pacote:
 >     1. No **Solution Explorer,** clique duas vezes no ficheiro *Package.appxmanifest.*
 >     1. Selecione Certificado de Escolha **de Embalagens...**  >  **Choose Certificate...**  >  **Criar...**.
@@ -110,10 +112,10 @@ Este quickstart utiliza uma amostra de código para demonstrar como uma aplicaç
 
 Para executar a aplicação da amostra na sua máquina local:
 
-1. Na barra de ferramentas Visual Studio, escolha a plataforma certa (provavelmente **x64** ou **x86**, não ARM). O dispositivo-alvo deve ser alterado de *Dispositivo* para *Máquina Local*.
+1. Na barra de ferramentas Visual Studio, escolha a plataforma certa (provavelmente **x64** ou **x86** , não ARM). O dispositivo-alvo deve ser alterado de *Dispositivo* para *Máquina Local*.
 1. Selecione **Debug** (Depurar)  > **Start Without Debugging** (Iniciar Sem Depuração).
     
-    Se for solicitado para o fazer, pode primeiro ter de ativar **o Modo de Desenvolvimento**– e depois iniciar sem **depurar** novamente para lançar a app.
+    Se for solicitado para o fazer, pode primeiro ter de ativar **o Modo de Desenvolvimento** – e depois iniciar sem **depurar** novamente para lançar a app.
 
 Quando a janela da aplicação aparecer, pode selecionar o botão **API do Gráfico de Chamada do Microsoft,** introduzir as suas credenciais e consentir com as permissões solicitadas pela aplicação. Se for bem sucedida, a aplicação apresenta algumas informações e dados simbólicos obtidos da chamada para a API do Gráfico da Microsoft.
 

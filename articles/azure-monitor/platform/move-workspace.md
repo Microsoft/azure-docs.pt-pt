@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2019
-ms.openlocfilehash: e80ff2c04cf71fa322bb0bf41e8132f595c0644e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 11/12/2020
+ms.openlocfilehash: 04da4d6466d450d04d7008332e32ea3d59cd0252
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372281"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555537"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para diferentes grupos de subscrição ou recursos
 
@@ -29,14 +29,14 @@ A fonte de espaço de trabalho e as assinaturas de destino devem existir dentro 
 ```
 
 ## <a name="workspace-move-considerations"></a>Considerações de movimento de espaço de trabalho
-As soluções geridas que são instaladas no espaço de trabalho serão movidas com a operação de movimento do espaço de trabalho Log Analytics. Os agentes conectados permanecerão ligados e manterão o envio de dados para o espaço de trabalho após a mudança. Uma vez que a operação de movimento requer que não existam Serviços Ligados do espaço de trabalho, as soluções que dependem desse link devem ser removidas para permitir a movimentação do espaço de trabalho.
-
-Soluções que devem ser removidas antes de poder desvincular a sua conta de automação:
-
-- Gestão de Atualizações
-- Monitorização de Alterações
-- Iniciar/Parar VMs durante horas de inatividade
-- Centro de Segurança do Azure
+- As soluções geridas que são instaladas no espaço de trabalho serão movidas com a operação de movimento do espaço de trabalho Log Analytics. 
+- As teclas do espaço de trabalho são regeradas com movimento de espaço de trabalho (primário e secundário). se você chave a sua chave espaço de trabalho é um cofre, atualize-os com as novas chaves geradas. 
+- Os agentes conectados permanecerão ligados e manterão o envio de dados para o espaço de trabalho após a mudança. 
+- Uma vez que a operação de movimento requer que não existam Serviços Ligados do espaço de trabalho, as soluções que dependem desse link devem ser removidas para permitir a movimentação do espaço de trabalho. Soluções que devem ser removidas antes de poder desvincular a sua conta de automação:
+  - Gestão de Atualizações
+  - Monitorização de Alterações
+  - Iniciar/Parar VMs durante horas de inatividade
+  - Centro de Segurança do Azure
 
 >[!IMPORTANT]
 > **Clientes Azure Sentinel**
@@ -104,7 +104,7 @@ Utilize o seguinte procedimento para mover o seu espaço de trabalho utilizando 
 1. Abra o menu **de espaços de trabalho Log Analytics** e, em seguida, selecione o seu espaço de trabalho.
 2. Na página **'Vista Geral',** clique em **alterar** ao lado de um **grupo de recursos** ou **subscrição**.
 3. Uma nova página abre com uma lista de recursos relacionados com o espaço de trabalho. Selecione os recursos para se mover para o mesmo grupo de subscrição de destino e recursos que o espaço de trabalho. 
-4. Selecione um grupo **de subscrição** e **recursos de**destino. Se estiver a mover o espaço de trabalho para outro grupo de recursos na mesma subscrição, não verá a opção **Subscrição.**
+4. Selecione um grupo **de subscrição** e **recursos de** destino. Se estiver a mover o espaço de trabalho para outro grupo de recursos na mesma subscrição, não verá a opção **Subscrição.**
 5. Clique **em OK** para mover o espaço de trabalho e os recursos selecionados.
 
     ![O Screenshot mostra o painel de visão geral no espaço de trabalho do Log Analytics com opções para alterar o grupo de recursos e o nome da subscrição.](media/move-workspace/portal.png)

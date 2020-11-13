@@ -7,15 +7,15 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/07/2019
-ms.openlocfilehash: 0119d134861b54ac14c6fe22b638ab459344c5ec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/09/2019
+ms.openlocfilehash: fa516f577254f827a6437697df82010bd9b631ee
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569879"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555915"
 ---
-# <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando fluxos de dados de mapeamento
+# <a name="transform-data-using-mapping-data-flows"></a>Transformar dados com o fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -36,32 +36,32 @@ Neste tutorial, vai executar os seguintes passos:
 * **Assinatura Azure**. Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 * **Conta de armazenamento Azure**. Utiliza o armazenamento ADLS como *fonte* e *lava* datas. Se não tiver uma conta de armazenamento, veja [Criar uma conta de armazenamento do Azure](../storage/common/storage-account-create.md) para seguir os passos para criar uma.
 
-O ficheiro que estamos a transformar neste tutorial é MoviesDB.csv, que pode ser encontrado [aqui.](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv) Para recuperar o ficheiro do GitHub, copie o conteúdo para um editor de texto à sua escolha para guardar localmente como ficheiro .csv. Para fazer o upload do ficheiro para a sua conta de armazenamento, consulte as bolhas de [upload com o Portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos serão referentes a um contentor chamado "dados de amostra".
+O ficheiro que estamos a transformar neste tutorial é MoviesDB.csv, que pode ser encontrado [aqui.](https://raw.githubusercontent.com/djpmsft/adf-ready-demo/master/moviesDB.csv) Para recuperar o ficheiro do GitHub, copie o conteúdo para um editor de texto à sua escolha para guardar localmente como ficheiro .csv. Para fazer o upload do ficheiro para a sua conta de armazenamento, consulte [as bolhas de upload com o portal Azure](../storage/blobs/storage-quickstart-blobs-portal.md). Os exemplos serão referentes a um contentor chamado "dados de amostra".
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 Neste passo, cria-se uma fábrica de dados e abre-se o Data Factory UX para criar um pipeline na fábrica de dados.
 
 1. Abra **o Microsoft Edge** ou o Google **Chrome**. Atualmente, a Data Factory UI é suportada apenas nos navegadores Web Microsoft Edge e Google Chrome.
-2. No menu esquerdo, **selecione Criar uma**Fábrica de  >  Dados de**Análise**  >  **de**Recursos:
+2. No menu esquerdo, **selecione Criar uma** Fábrica de  >  Dados de **Integração de** Recursos  >  **Data Factory** :
 
    ![Seleção do Data Factory no painel "Novo"](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
+3. Na página **Nova fábrica de dados** , em **Nome** , introduza **ADFTutorialDataFactory**.
 
    O nome da fábrica de dados Azure deve ser *globalmente único.* Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. (por exemplo, o seu nomeADFTutorialDataFactory). Para obter as regras de nomenclatura dos artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
 
      ![Nova fábrica de dados](./media/doc-common-process/name-not-available-error.png)
 4. Selecione a **subscrição** do Azure na qual pretende criar a fábrica de dados.
-5. Em **Grupo de Recursos**, efetue um destes passos:
+5. Em **Grupo de Recursos** , efetue um destes passos:
 
     a. Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente.
 
     b. Selecione **Criar novo** e introduza o nome de um grupo de recursos. 
          
     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md). 
-6. Em **Versão**, selecione **V2**.
-7. Em **Localização**, selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. As lojas de dados (por exemplo, Azure Storage e SQL Database) e os cálculos (por exemplo, Azure HDInsight) utilizados pela fábrica de dados podem estar noutras regiões.
+6. Em **Versão** , selecione **V2**.
+7. Em **Localização** , selecione uma localização para a fábrica de dados. Só aparecem na lista pendente as localizações que são suportadas. As lojas de dados (por exemplo, Azure Storage e SQL Database) e os cálculos (por exemplo, Azure HDInsight) utilizados pela fábrica de dados podem estar noutras regiões.
 8. Selecione **Criar**.
 9. Depois de concluída a criação, vê o aviso no Centro de Notificações. Selecione **Ir para o recurso** para navegar para a página de fábrica de dados.
 10. Selecione **Criar e Monitorizar** para iniciar a IU do Data Factory num separador à parte.
@@ -70,7 +70,7 @@ Neste passo, cria-se uma fábrica de dados e abre-se o Data Factory UX para cria
 
 Neste passo, irá criar um oleoduto que contenha uma atividade de Fluxo de Dados.
 
-1. Na página **Vamos começar**, selecione **Criar pipeline**.
+1. Na página **Vamos começar** , selecione **Criar pipeline**.
 
    ![Criar pipeline](./media/doc-common-process/get-started-page.png)
 
@@ -131,7 +131,7 @@ Assim que criar o fluxo de dados, será automaticamente enviado para a tela de f
 
     Se tiver um cluster de depuração ativo, pode verificar a sua lógica clicando em **Refresh** para ver a saída da expressão em comparação com as entradas utilizadas. Há mais do que uma resposta certa sobre como pode realizar esta lógica usando a linguagem de expressão de fluxo de dados.
 
-    ![Filtrar](media/tutorial-data-flow/filter2.png)
+    ![Filtro](media/tutorial-data-flow/filter2.png)
 
     Clique **em Guardar e Terminar** assim que terminar com a sua expressão.
 
@@ -147,7 +147,7 @@ Assim que criar o fluxo de dados, será automaticamente enviado para a tela de f
 1. Vá ao **separador Agregados.** Na caixa de texto esquerda, nomeie a coluna agregada **AverageComedyRating**. Clique na caixa de expressão certa para introduzir a expressão agregada através do construtor de expressão.
 
     ![Screenshot que mostra a opção do ano no separador Agregados em Definições Agregadas.](media/tutorial-data-flow/agg3.png)
-1. Para obter a média de **classificação**de coluna, utilize a ```avg()``` função agregada. Como **o Rating** é uma corda e requer uma entrada ```avg()``` numérica, temos de converter o valor num número através da ```toInteger()``` função. Esta é a expressão parece:
+1. Para obter a média de **classificação** de coluna, utilize a ```avg()``` função agregada. Como **o Rating** é uma corda e requer uma entrada ```avg()``` numérica, temos de converter o valor num número através da ```toInteger()``` função. Esta é a expressão parece:
 
     ```avg(toInteger(Rating))```
 

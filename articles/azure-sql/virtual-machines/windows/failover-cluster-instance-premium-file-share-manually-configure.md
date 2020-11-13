@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 1994cda9dbf22a81216408ee07d51f635e89cff4
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 56509bfcd267a590946eb750bd74ce1f67aecc00
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285270"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556408"
 ---
 # <a name="create-an-fci-with-a-premium-file-share-sql-server-on-azure-vms"></a>Criar um FCI com uma partilha de ficheiros premium (SQL Server em VMs Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -189,7 +189,7 @@ Depois de configurar o cluster failover, pode criar o SQL Server FCI.
 
 ## <a name="register-with-the-sql-vm-rp"></a>Registe-se com o SQL VM RP
 
-Para gerir o seu SQL Server VM a partir do portal, registe-o com o fornecedor de recursos SQL VM (RP) em [modo de gestão leve](sql-vm-resource-provider-register.md#lightweight-management-mode), atualmente o único modo suportado com FCI e SQL Server em VMs Azure. 
+Para gerir o seu SQL Server VM a partir do portal, registe-o com a extensão sql IaaS Agent (RP) no [modo de gestão leve](sql-agent-extension-manually-register-single-vm.md#lightweight-management-mode), atualmente o único modo suportado com FCI e SQL Server em VMs Azure. 
 
 Registar um SQL Server VM em modo leve com PowerShell (-LicenseType pode ser `PAYG` `AHUB` ou):
 
@@ -210,7 +210,7 @@ Para encaminhar o tráfego adequadamente para o nó primário atual, configufiqu
 
 - O Coordenador de Transações Distribuídas da Microsoft (MSDTC) não é suportado no Windows Server 2016 e anteriormente. 
 - O Filestream não é suportado por um cluster de failover com uma partilha de ficheiros premium. Para utilizar o fluxo de ficheiros, desloque o seu cluster utilizando os discos partilhados [Desrmessórios Diretos](failover-cluster-instance-storage-spaces-direct-manually-configure.md) ou [Azure.](failover-cluster-instance-azure-shared-disks-manually-configure.md)
-- Apenas é suportado o registo com o fornecedor de recursos SQL VM em [modo de gestão leve.](sql-server-iaas-agent-extension-automate-management.md#management-modes) 
+- Apenas é suportado o registo com a extensão sql IaaS Agent em [modo de gestão leve.](sql-server-iaas-agent-extension-automate-management.md#management-modes) 
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -221,6 +221,6 @@ Se as ações de ficheiros premium não forem a solução de armazenamento fci a
 
 Para saber mais, consulte uma visão geral da [FCI com o SQL Server em VMs Azure](failover-cluster-instance-overview.md) e [as melhores práticas de configuração do cluster](hadr-cluster-best-practices.md). 
 
-Para obter mais informações, consulte: 
+Para obter mais informações, veja: 
 - [Tecnologias de cluster windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server falha casos de cluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

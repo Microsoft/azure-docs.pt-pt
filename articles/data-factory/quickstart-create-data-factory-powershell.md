@@ -1,6 +1,6 @@
 ---
 title: Copiar dados no Blob Storage utilizando a Azure Data Factory
-description: Crie uma fábrica de dados Azure utilizando o PowerShell para copiar dados de um local no armazenamento de Azure Blob para outro local.
+description: Crie uma Fábrica de Dados Azure utilizando o PowerShell para copiar dados de um local no armazenamento de Azure Blob para outro local.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,14 +13,14 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 04/10/2020
 ms.author: jingwang
-ms.openlocfilehash: 1377743fbaefdb812f18768307421fdae637ed54
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a7fcb4be47e0e1e62c190a9b089243a178df8e7a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637586"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94562054"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Quickstart: Create an Azure data factory using PowerShell (Guia de Início Rápido: Criar uma fábrica de dados do Azure com o PowerShell)
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Quickstart: Criar uma fábrica de dados Azure utilizando o PowerShell
 
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
@@ -28,7 +28,7 @@ ms.locfileid: "92637586"
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este início rápido descreve como utilizar o PowerShell para criar uma fábrica de dados do Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para ter acesso a um tutorial sobre como **transformar** dados com o Azure Data Factory, veja [Tutorial: Transformar dados com o Spark](transform-data-using-spark.md).
+Este quickstart descreve como usar o PowerShell para criar uma Fábrica de Dados Azure. O pipeline que criar nesta fábrica de dados **copia** dados de uma pasta para outra pasta num armazenamento de blobs do Azure. Para ter acesso a um tutorial sobre como **transformar** dados com o Azure Data Factory, veja [Tutorial: Transformar dados com o Spark](transform-data-using-spark.md).
 
 > [!NOTE]
 > Este artigo não disponibiliza uma introdução detalhada do serviço Data Factory. Para obter uma introdução ao serviço Azure Data Factory, veja [Introdução ao Azure Data Factory](introduction.md).
@@ -136,15 +136,15 @@ Crie os serviços ligados numa fábrica de dados para ligar os seus arquivos de 
     }
     ```
 
-    Se estiver a utilizar o Bloco de Notas, selecione **Todos os Ficheiros** no campo **Guardar com o tipo** , na caixa de diálogo **Guardar como** . Caso contrário, pode adicionar a extensão `.txt` ao ficheiro. Por exemplo, `AzureStorageLinkedService.json.txt`. Se criar o ficheiro no Explorador de Ficheiros antes de o abrir no Bloco de Notas, poderá não ver a extensão `.txt`, uma vez que a opção **Ocultar extensões para tipos de ficheiros conhecidos** está definida por predefinição. Antes de avançar para o próximo passo, remova a extensão `.txt`.
+    Se estiver a utilizar o Bloco de Notas, selecione **Todos os Ficheiros** no campo **Guardar com o tipo** , na caixa de diálogo **Guardar como**. Caso contrário, pode adicionar a extensão `.txt` ao ficheiro. Por exemplo, `AzureStorageLinkedService.json.txt`. Se criar o ficheiro no Explorador de Ficheiros antes de o abrir no Bloco de Notas, poderá não ver a extensão `.txt`, uma vez que a opção **Ocultar extensões para tipos de ficheiros conhecidos** está definida por predefinição. Antes de avançar para o próximo passo, remova a extensão `.txt`.
 
-2. No **PowerShell** , mude para a pasta **ADFv2QuickStartPSH** .
+2. No **PowerShell** , mude para a pasta **ADFv2QuickStartPSH**.
 
     ```powershell
     Set-Location 'C:\ADFv2QuickStartPSH'
     ```
 
-3. Executar o **set-AzDataFactoryV2LinkedService** para criar o serviço ligado: **AzureStorageLinkedService** .
+3. Executar o **set-AzDataFactoryV2LinkedService** para criar o serviço ligado: **AzureStorageLinkedService**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
@@ -163,7 +163,7 @@ Crie os serviços ligados numa fábrica de dados para ligar os seus arquivos de 
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
 
-Neste procedimento, vai criar dois conjuntos de dados, **InputDataset** e **OutputDataset** . Estes conjuntos de dados são do tipo **Binário.** Dizem respeito ao serviço ligado do Armazenamento do Azure que criou na secção anterior.
+Neste procedimento, vai criar dois conjuntos de dados, **InputDataset** e **OutputDataset**. Estes conjuntos de dados são do tipo **Binário.** Dizem respeito ao serviço ligado do Armazenamento do Azure que criou na secção anterior.
 O conjunto de dados de entrada representa a origem de dados na pasta de entrada. Na definição do conjunto de dados de entrada, vai especificar o contentor de blobs ( **adftutorial** ), a pasta ( **input** ) e o ficheiro ( **emp.txt** ) que contêm os dados de origem.
 O conjunto de dados de saída representa os dados que são copiados para o destino. Na definição do conjunto de dados de saída, vai especificar o contentor de blobs ( **adftutorial** ), a pasta ( **output** ) e o ficheiro para o qual os dados vão ser copiados. 
 1. Crie um ficheiro JSON nomeado **InputDataset.jsna** pasta **C:\ADFv2QuickStartPSH,** com o seguinte conteúdo:
@@ -231,7 +231,7 @@ O conjunto de dados de saída representa os dados que são copiados para o desti
     }
     ```
 
-4. Executar o **cmdlet Set-AzDataFactoryV2Dataset** para criar o **OutDataset** .
+4. Executar o **cmdlet Set-AzDataFactoryV2Dataset** para criar o **OutDataset**.
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `

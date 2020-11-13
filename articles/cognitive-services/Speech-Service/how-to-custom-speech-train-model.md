@@ -1,38 +1,35 @@
 ---
-title: Treine um modelo para discurso personalizado - serviço de fala
+title: Treine e implemente um modelo de discurso personalizado - serviço de fala
 titleSuffix: Azure Cognitive Services
-description: A formação de um modelo de voz para texto pode melhorar a precisão de reconhecimento para o modelo de base da Microsoft ou um modelo personalizado. Um modelo é treinado usando transcrições com rótulo humano e texto relacionado.
+description: Neste artigo, você aprende a treinar e implementar modelos de Discurso Personalizado. A formação de um modelo de voz para texto pode melhorar a precisão de reconhecimento para o modelo de base da Microsoft ou um modelo personalizado. Um modelo é treinado usando transcrições com rótulo humano e texto relacionado.
 services: cognitive-services
-author: erhopf
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: erhopf
-ms.openlocfilehash: bf9209e0c256412ccb06ea62a197046a7b012e00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.author: trbye
+ms.openlocfilehash: 34c0703ee7c335ca904a21bcce6ed44abc6dc13f
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84629028"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555792"
 ---
-# <a name="train-a-model-for-custom-speech"></a>Preparar um modelo para Voz Personalizada
+# <a name="train-and-deploy-a-custom-speech-model"></a>Treine e implemente um modelo de discurso personalizado
 
-A formação de um modelo de voz para texto pode melhorar a precisão de reconhecimento para o modelo de base da Microsoft. Um modelo é treinado usando transcrições com rótulo humano e texto relacionado. Estes conjuntos de dados, juntamente com dados áudio previamente carregados, são usados para refinar e treinar o modelo de fala-a-texto.
+Neste artigo, você aprende a treinar e implementar modelos de Discurso Personalizado. A formação de um modelo de voz para texto pode melhorar a precisão de reconhecimento para o modelo de base da Microsoft. Um modelo é treinado usando transcrições com rótulo humano e texto relacionado. Estes conjuntos de dados, juntamente com dados áudio previamente carregados, são usados para refinar e treinar o modelo de fala-a-texto.
 
 ## <a name="use-training-to-resolve-accuracy-issues"></a>Use a formação para resolver problemas de precisão
 
-Se estiver a encontrar problemas de reconhecimento com o seu modelo, usar transcrições com rótulo humano e dados relacionados para treino adicional pode ajudar a melhorar a precisão. Utilize esta tabela para determinar que conjunto de dados utilizar para resolver os seus problemas):
+Se estiver a encontrar problemas de reconhecimento com um modelo base, usar transcrições com rótulo humano e dados relacionados para treinar um modelo personalizado pode ajudar a melhorar a precisão. Utilize esta tabela para determinar que conjunto de dados utilizar para resolver os seus problemas):
 
 | Caso de utilização | Tipo de dados |
 | -------- | --------- |
 | Melhorar a precisão do reconhecimento no vocabulário e gramática específicos da indústria, como terminologia médica ou jargão de TI. | Texto relacionado (frases/expressões) |
 | Defina a forma fonética e exibida de uma palavra ou termo que tenha pronúncia não padrão, como nomes de produtos ou siglas. | Texto relacionado (pronúncia) |
 | Melhore a precisão do reconhecimento em estilos de fala, acentos ou ruídos de fundo específicos. | Transcrições com rótulo humano + áudio + |
-
-> [!IMPORTANT]
-> Se não tiver carregado um conjunto de dados, consulte [Prepare-se e teste os seus dados.](how-to-custom-speech-test-data.md) Este documento fornece instruções para o upload de dados e diretrizes para a criação de conjuntos de dados de alta qualidade.
 
 ## <a name="train-and-evaluate-a-model"></a>Treine e avalie um modelo
 
@@ -49,22 +46,37 @@ O primeiro passo para treinar um modelo é carregar dados de treino. Utilize [pr
 
 A tabela Training apresenta uma nova entrada que corresponde a este modelo recém-criado. A tabela também apresenta o estado: Processamento, Sucesso, Falhado.
 
-## <a name="evaluate-the-accuracy-of-a-trained-model"></a>Avaliar a precisão de um modelo treinado
+Consulte o [como avaliar](how-to-custom-speech-evaluate-data.md) e melhorar a precisão do modelo de discurso personalizado. Se optar por testar a precisão, é importante selecionar um conjunto de dados acústico que seja diferente daquele que usou com o seu modelo para obter uma noção realista do desempenho do modelo.
 
-Pode inspecionar os dados e avaliar a precisão do modelo utilizando estes documentos:
+## <a name="deploy-a-custom-model"></a>Implementar um modelo personalizado
 
-- [Fiscalizar os seus dados](how-to-custom-speech-inspect-data.md)
-- [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
+Depois de ter carregado e inspecionado dados, avaliado a precisão e treinado um modelo personalizado, pode implementar um ponto final personalizado para usar com as suas apps, ferramentas e produtos. 
 
-Se optar por testar a precisão, é importante selecionar um conjunto de dados acústico que seja diferente daquele que usou com o seu modelo para obter uma noção realista do desempenho do modelo.
+Para criar um novo ponto final personalizado, inscreva-se no [portal Discurso Personalizado](https://speech.microsoft.com/customspeech) e selecione **Implementação** a partir do menu Desemesto de Discurso Personalizado no topo da página. Se esta for a sua primeira corrida, vai notar que não há pontos finais listados na tabela. Depois de criar um ponto final, use esta página para rastrear cada ponto final implantado.
+
+Em seguida, **selecione Adicionar ponto final** e introduza um **Nome** e **Descrição** para o seu ponto de final personalizado. Em seguida, selecione o modelo personalizado que gostaria de associar a este ponto final. A partir desta página, também pode ativar o registo. A sessão de registo permite-lhe monitorizar o tráfego do ponto final. Se for desativado, o tráfego não será armazenado.
+
+![Como implementar um modelo](./media/custom-speech/custom-speech-deploy-model.png)
+
+> [!NOTE]
+> Não se esqueça de aceitar os termos de uso e detalhes de preços.
+
+Em seguida, **selecione Criar**. Esta ação devolve-o à página **de Implementação.** A tabela agora inclui uma entrada que corresponde ao seu ponto final personalizado. O estado do ponto final mostra o seu estado atual. Pode levar até 30 minutos para instantaneaizar um novo ponto final usando os seus modelos personalizados. Quando o estado da implantação muda para **Concluir,** o ponto final está pronto a ser utilizado.
+
+Depois de o seu ponto final ser implantado, o nome do ponto final aparece como um link. Clique no link para apresentar informações específicas do seu ponto final, como a chave de ponto final, URL de ponto final e código de amostra.
+
+## <a name="view-logging-data"></a>Ver dados de registo
+
+Os dados de registo estão disponíveis para download em **Detalhes > Endpoint**.
+> [!NOTE]
+>Os dados de registo estão disponíveis durante 30 dias no armazenamento da Microsoft e serão removidos posteriormente. Caso uma conta de armazenamento detida por um cliente esteja ligada à subscrição de serviços cognitivos, os dados de registo não serão automaticamente eliminados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Implemente o seu modelo](how-to-custom-speech-deploy-model.md)
+* Saiba [como utilizar o seu modelo personalizado.](how-to-specify-source-language.md)
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
 - [Prepare e teste os seus dados](how-to-custom-speech-test-data.md)
 - [Fiscalizar os seus dados](how-to-custom-speech-inspect-data.md)
 - [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)
-- [Preparar o seu modelo](how-to-custom-speech-train-model.md)

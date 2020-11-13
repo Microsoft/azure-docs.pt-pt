@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte para o
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: ee37e994c9e72c3d3c98455360dc68746f49d278
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ae2eb97f214204b813564b6373c4e9dc176f483c
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92743132"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555441"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte para backup Azure
 
@@ -25,7 +25,7 @@ Outras matrizes de suporte estão disponíveis:
 
 ## <a name="vault-support"></a>Suporte de abóbada
 
-A Azure Backup usa cofres dos Serviços de Recuperação para orquestrar e gerir backups. Também usa cofres para armazenar dados com reserva.
+A Azure Backup utiliza cofres de Serviços de Recuperação para orquestrar e gerir backups para os seguintes tipos de carga de trabalho - Azure VMs, SQL in Azure VMs, SAP HANA em VMs Azure, Azure File shares e cargas de trabalho no local usando Azure Backup Agent, Azure Backup Server e System Center DPM. Também utiliza cofres dos Serviços de Recuperação para armazenar dados de reserva para estas cargas de trabalho.
 
 A tabela a seguir descreve as características dos cofres dos Serviços de Recuperação:
 
@@ -114,10 +114,10 @@ O Azure Backup suporta encriptação para dados em trânsito e em repouso.
 
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-**Máquinas Windows no local sem DPM/MABS** | ![Sim][green] | ![Sim][green]
-**VMs do Azure** | ![Sim][green] | ![Sim][green]
-**Máquinas Windows no local ou VMs Azure com DPM** | ![Sim][green] | ![Sim][green]
-**Máquinas Windows no local ou VMs Azure com MABS** | ![Sim][green] | ![Sim][green]
+**Máquinas Windows no local sem DPM/MABS** | ![Yes][green] | ![Yes][green]
+**VMs do Azure** | ![Yes][green] | ![Yes][green]
+**Máquinas Windows no local ou VMs Azure com DPM** | ![Yes][green] | ![Yes][green]
+**Máquinas Windows no local ou VMs Azure com MABS** | ![Yes][green] | ![Yes][green]
 
 ## <a name="compression-support"></a>Suporte à compressão
 
@@ -130,7 +130,7 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 --- | --- | ---
 **Backup direto das máquinas Windows no local** | ND | ![Sim][green]
 **Backup dos VMs Azure utilizando a extensão VM** | ND | ND
-**Backup nas máquinas de Azure no local utilizando MABS/DPM** | ![Sim][green] | ![Sim][green]
+**Backup nas máquinas de Azure no local utilizando MABS/DPM** | ![Yes][green] | ![Yes][green]
 
 ## <a name="retention-limits"></a>Limites de retenção
 
@@ -150,10 +150,10 @@ O Azure Backup adicionou a funcionalidade Cross Region Restore para reforçar a 
 
 | Tipo de Gestão de Backup | Suportado                                                    | Regiões apoiadas |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| VM do Azure               | Sim.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas azure e nuvens soberanas.  |
-| SQL /SAP HANA | Sim                                                          | Todas as regiões públicas, com exceção da França |
-| Agente MARS/Nas instalações  | Não                                                           | N/D               |
-| AFS (ações de ficheiros Azure)                 | Não                                                           | N/D               |
+| VM do Azure               | Yes.   Suportado para VMs e VMs encriptados com discos inferiores a 4-TB | Todas as regiões públicas azure e nuvens soberanas.  |
+| SQL /SAP HANA | Yes                                                          | Todas as regiões públicas, com exceção da França |
+| Agente MARS/Nas instalações  | No                                                           | N/D               |
+| AFS (ações de ficheiros Azure)                 | No                                                           | N/D               |
 
 ## <a name="next-steps"></a>Passos seguintes
 

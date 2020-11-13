@@ -9,12 +9,12 @@ ms.date: 07/06/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 08e1878adab680329a33bc44020b49dce38de4d6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7246bb3453f6e4863faf15dbcbfdf8534481ddad
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88959699"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561453"
 ---
 # <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-cli"></a>Crie uma aplicação de Serviço de Aplicações e implemente o Private Endpoint usando o Azure CLI
 
@@ -22,9 +22,9 @@ Este script de amostra cria uma aplicação no Serviço de Aplicações com os s
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Se decidir instalar e utilizar o Azure CLI localmente, este quickstart requer que utilize a versão 2.0.28 ou posterior do Azure CLI. Para encontrar a sua versão instalada, corra `az --version` . Consulte [o Azure CLI](/cli/azure/install-azure-cli) para obter informações de instalação ou atualização.
+ - Este tutorial requer a versão 2.0.28 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -64,7 +64,7 @@ az webapp create \
 
 ## <a name="create-a-vnet"></a>Criar uma VNet
 
-Criar uma Rede Virtual com [a rede Az vnet criar.](/cli/azure/network/vnet) Este exemplo cria uma Rede Virtual padrão chamada *myVNet* com uma sub-rede chamada *mySubnet*:
+Criar uma Rede Virtual com [a rede Az vnet criar.](/cli/azure/network/vnet) Este exemplo cria uma Rede Virtual padrão chamada *myVNet* com uma sub-rede chamada *mySubnet* :
 
 ```azurecli-interactive
 az network vnet create \

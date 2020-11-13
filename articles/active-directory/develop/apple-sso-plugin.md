@@ -13,19 +13,17 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: ec0ab4601e15129ecd8917e0e750a3e1661dc558
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7ec6ab8b52d9d43d898f481a2f36310e5c0897d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530702"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561085"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Microsoft Enterprise SSO plug-in para dispositivos Apple (Preview)
 
-> [!NOTE]
-> Esta funcionalidade está em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>[!IMPORTANT]
+> Esta característica [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 O *plug-in Microsoft Enterprise SSO para dispositivos Apple* fornece contas únicas de sign-on (SSO) para contas Azure Ative Directory (Azure AD) em todas as aplicações que suportam a funcionalidade [Enterprise Single Sign-On](https://developer.apple.com/documentation/authenticationservices) da Apple. A Microsoft trabalhou em estreita colaboração com a Apple para desenvolver este plug-in para aumentar a usabilidade da sua aplicação, ao mesmo tempo que forneceu a melhor proteção que a Apple e a Microsoft podem fornecer.
 
@@ -53,9 +51,9 @@ Para ativar o plug-in Microsoft Enterprise SSO para dispositivos Apple, os seus 
 
 Utilize os seguintes parâmetros para configurar o plug-in Microsoft Enterprise SSO para dispositivos Apple:
 
-- **Tipo**: Redirecionamento
+- **Tipo** : Redirecionamento
 - **ID de extensão:**`com.microsoft.azureauthenticator.ssoextension`
-- **Team ID**: (este campo não é necessário para iOS)
+- **Team ID** : (este campo não é necessário para iOS)
 - **URLs:**
   - `https://login.microsoftonline.com`
   - `https://login.microsoft.com`
@@ -82,7 +80,7 @@ Utilize os seguintes parâmetros para configurar o plug-in Microsoft Enterprise 
 
 - **Chave:**`AppAllowList`
 - **Tipo:**`String`
-- **Valor**: Lista delimitada de IDs de pacotes de aplicações para as aplicações que podem participar no SSO
+- **Valor** : Lista delimitada de IDs de pacotes de aplicações para as aplicações que podem participar no SSO
 - **Exemplo:**`com.contoso.workapp, com.contoso.travelapp`
 
 [As aplicações consentidas](./application-consent-experience.md) que são permitidas pelo administrador do MDM para participar no SSO podem obter silenciosamente um símbolo para o utilizador final. Por isso, é importante apenas adicionar aplicações fidedignas à lista de admissões. 

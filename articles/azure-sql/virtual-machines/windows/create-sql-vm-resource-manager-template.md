@@ -7,12 +7,12 @@ ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: b57303a1c9fdba2bea8637bef6c148622087a8d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d0dd8ee1b99ddd2abf4fad154c70315a3d33c83
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789782"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556425"
 ---
 # <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Quickstart: Criar VM do servidor SQL usando um modelo ARM
 
@@ -20,7 +20,7 @@ Utilize este modelo de Gestor de Recursos Azure (modelo ARM) para implantar um s
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
 [![Implementar no Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
@@ -45,14 +45,14 @@ Os cinco recursos Azure são definidos no modelo:
 - [Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups): Cria um grupo de segurança de rede. 
 - [Microsoft.Network/networkInterfaces](/azure/templates/microsoft.network/networkinterfaces): Configura a interface de rede. 
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Cria uma máquina virtual em Azure. 
-- [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): regista a máquina virtual com o fornecedor de recursos SQL VM. 
+- [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): regista a máquina virtual com a extensão SQL IaaS Agent. 
 
 Mais SQL Server em modelos Azure VM pode ser encontrado na galeria de [modelos quickstart](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria uma máquina virtual com a versão prevista do SQL Server instalada e registada com o fornecedor de recursos SQL VM. 
+1. Selecione a imagem seguinte para iniciar sessão no Azure e abrir um modelo. O modelo cria uma máquina virtual com a versão pretendida do SQL Server instalada e registada com a extensão sql IaaS Agent. 
 
    [![Implementar no Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
@@ -60,7 +60,7 @@ Mais SQL Server em modelos Azure VM pode ser encontrado na galeria de [modelos q
 
     * **Assinatura** : Selecione uma subscrição Azure.
     * **Grupo de recursos** : O grupo de recursos preparado para o seu SQL Server VM. 
-    * **Região** : Selecione uma região.  Por exemplo, **E.U.A. Central** .
+    * **Região** : Selecione uma região.  Por exemplo, **E.U.A. Central**.
     * **Nome da máquina virtual** : Introduza um nome para máquina virtual SQL Server. 
     * **Tamanho da máquina virtual** : Escolha o tamanho adequado para a sua máquina virtual a partir do drop-down.
     * **Nome de rede virtual existente** : Introduza o nome da rede virtual preparada para o seu SQL Server VM. 
@@ -77,7 +77,7 @@ Mais SQL Server em modelos Azure VM pode ser encontrado na galeria de [modelos q
     * **Log Path** : O caminho para os ficheiros de registo do SQL Server. 
     * **Localização** : A localização de todos os recursos, este valor deve continuar a ser o padrão de `[resourceGroup().location]` . 
 
-3. Selecione **Rever + criar** . Depois de o SQL Server VM ter sido implementado com sucesso, recebe uma notificação.
+3. Selecione **Rever + criar**. Depois de o SQL Server VM ter sido implementado com sucesso, recebe uma notificação.
 
 O portal do Azure é utilizado para implementar o modelo. Além do portal Azure, também pode utilizar a Azure PowerShell, o Azure CLI e a REST API. Para aprender outros métodos de implementação, consulte [os modelos de implementação](../../../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -92,7 +92,7 @@ read resourcegroupName &&
 az resource list --resource-group $resourcegroupName 
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não for necessário, elimine o grupo de recursos utilizando o Azure CLI ou o Azure PowerShell:
 

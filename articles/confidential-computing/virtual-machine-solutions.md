@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: f9b73e0919d660947edd0417f7379b3f6e6140c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d5ce3cde8c86d66bec025c778318a192ef60b73
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88245857"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560859"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluções em máquinas virtuais Azure
 
@@ -29,7 +29,7 @@ Comece a implementar um VM DCsv2-Series através do mercado comercial da Microso
 
 ### <a name="current-available-sizes-and-regions"></a>Tamanhos e regiões disponíveis atuais
 
-Para obter uma lista de todos os tamanhos de VM confidenciais geralmente disponíveis em regiões disponíveis e zonas de disponibilidade, executar o seguinte comando no [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
+Para obter uma lista de todos os tamanhos de VM confidenciais geralmente disponíveis em regiões disponíveis e zonas de disponibilidade, executar o seguinte comando no [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 ```azurecli-interactive
 az vm list-skus `
@@ -47,7 +47,7 @@ az vm list-skus `
     --query "[?family=='standardDCSv2Family']"
 ```
 ### <a name="dedicated-host-requirements"></a>Requisitos dedicados do anfitrião
-Implantando um **Standard_DC8_v2** tamanho de máquina virtual no DCSv2-Series família VM ocupará o anfitrião completo e não será partilhado com outros inquilinos ou subscrições. Esta família VM SKU proporciona o isolamento que você pode precisar para satisfazer os requisitos regulamentares de conformidade e segurança que normalmente são cumpridos por ter um serviço de hospedo dedicado. Quando escolher **Standard_DC8_v2** SKU, o servidor de anfitrião físico irá alocar todos os recursos de hardware disponíveis, incluindo a memória EPC apenas à sua máquina virtual. Por favor, note que esta funcionalidade existe através do design de infraestruturas e todas as funcionalidades do **Standard_DC8_v2** serão suportadas. Esta implementação não é a mesma que o serviço [Azure Dedicad Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) que é fornecido por outras Famílias Azure VM.
+Implantando um **Standard_DC8_v2** tamanho de máquina virtual no DCSv2-Series família VM ocupará o anfitrião completo e não será partilhado com outros inquilinos ou subscrições. Esta família VM SKU proporciona o isolamento que você pode precisar para satisfazer os requisitos regulamentares de conformidade e segurança que normalmente são cumpridos por ter um serviço de hospedo dedicado. Quando escolher **Standard_DC8_v2** SKU, o servidor de anfitrião físico irá alocar todos os recursos de hardware disponíveis, incluindo a memória EPC apenas à sua máquina virtual. Por favor, note que esta funcionalidade existe através do design de infraestruturas e todas as funcionalidades do **Standard_DC8_v2** serão suportadas. Esta implementação não é a mesma que o serviço [Azure Dedicad Host](../virtual-machines/dedicated-hosts.md) que é fornecido por outras Famílias Azure VM.
 
 
 ## <a name="deployment-considerations"></a>Considerações sobre implementação
@@ -59,14 +59,14 @@ Siga um tutorial de arranque rápido para implementar uma máquina virtual DCsv2
 - **Preços e disponibilidade regional** - Encontre os preços dos VMs DCsv2-Series na [página de preços da máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Consulte [os produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para obter disponibilidade nas regiões de Azure.
 
 
-- **Cota de núcleos** – Poderá ter de aumentar a quota de núcleos na sua subscrição Azure a partir do valor predefinido. A sua subscrição também pode limitar o número de núcleos que pode implementar em certas famílias de tamanho VM, incluindo a Série DCsv2. Para solicitar um aumento de quota, [abra gratuitamente um pedido de apoio](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) ao cliente online. Nota: os limites predefinidos podem variar dependendo da sua categoria de subscrição.
+- **Cota de núcleos** – Poderá ter de aumentar a quota de núcleos na sua subscrição Azure a partir do valor predefinido. A sua subscrição também pode limitar o número de núcleos que pode implementar em certas famílias de tamanho VM, incluindo a Série DCsv2. Para solicitar um aumento de quota, [abra gratuitamente um pedido de apoio](../azure-portal/supportability/per-vm-quota-requests.md) ao cliente online. Nota: os limites predefinidos podem variar dependendo da sua categoria de subscrição.
 
   > [!NOTE]
   > Contacte o Suporte Azure se tiver necessidades de capacidade em larga escala. As quotas azure são limites de crédito, não garantias de capacidade. Independentemente da sua quota, só é cobrado pelos núcleos que usa.
   
 - **Redimensionamento** – Devido ao seu hardware especializado, só é possível redimensionar casos confidenciais de computação dentro da mesma família. Por exemplo, só é possível redimensionar um VM da série DCsv2 de um tamanho da série DCsv2 para outro. Redimensionar de um tamanho de computação não confidencial para um tamanho de computação confidencial não é suportado.  
 
-- **Imagem** – Para fornecer suporte à Extensão da Intel Software Guard (Intel SGX) em casos confidenciais de computação, todas as implementações devem ser executadas em imagens da Geração 2. A azure confidential computing suporta cargas de trabalho em execução em Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2 e Windows Server 2016 Gen 2. Leia sobre [o suporte para a geração 2 VMs em Azure](../virtual-machines/linux/generation-2.md) para saber mais sobre cenários suportados e não apoiados. 
+- **Imagem** – Para fornecer suporte à Extensão da Intel Software Guard (Intel SGX) em casos confidenciais de computação, todas as implementações devem ser executadas em imagens da Geração 2. A azure confidential computing suporta cargas de trabalho em execução em Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 gen2 e Windows Server 2016 Gen 2. Leia sobre [o suporte para a geração 2 VMs em Azure](../virtual-machines/generation-2.md) para saber mais sobre cenários suportados e não apoiados. 
 
 - **Armazenamento** – Discos de dados de máquinas virtuais de computação confidencial Azure e os nossos discos efémeros de SISTEMA estão em discos NVMe. As instâncias suportam apenas discos Premium SSD e SSD Standard, não Ultra SSD ou HdD Standard. O tamanho da máquina virtual **DC8_v2** não suporta armazenamento Premium. 
 
@@ -76,7 +76,7 @@ Siga um tutorial de arranque rápido para implementar uma máquina virtual DCsv2
 
 Ao utilizar máquinas virtuais em Azure, é responsável pela implementação de uma solução de alta disponibilidade e recuperação de desastres para evitar qualquer tempo de inatividade. 
 
-A azure computação confidencial não suporta redundância de zona através de Zonas de Disponibilidade neste momento. Para obter a maior disponibilidade e redundância para computação confidencial, utilize [Conjuntos de Disponibilidade](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Devido às restrições de hardware, os Conjuntos de Disponibilidade para instâncias confidenciais de computação só podem ter um máximo de 10 domínios de atualização. 
+A azure computação confidencial não suporta redundância de zona através de Zonas de Disponibilidade neste momento. Para obter a maior disponibilidade e redundância para computação confidencial, utilize [Conjuntos de Disponibilidade](../virtual-machines/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Devido às restrições de hardware, os Conjuntos de Disponibilidade para instâncias confidenciais de computação só podem ter um máximo de 10 domínios de atualização. 
 
 ## <a name="deployment-with-azure-resource-manager-arm-template"></a>Implementação com o modelo de gestor de recursos Azure (ARM)
 

@@ -2,6 +2,8 @@
   href: cut-planes.md
 - name: Composição de Depuração
   href: debug-rendering.md
+- name: Efeito de Fresnel
+  href: fresnel-effect.md
 - name: Substituição do estado hierárquico
   href: override-hierarchical-state.md
 - name: Câmara

@@ -1,6 +1,6 @@
 ---
 title: O que é o Azure Machine Learning Studio (clássico)?
-description: O estúdio Azure Machine Learning é um portal web para espaços de trabalho de Aprendizagem automática Azure. O estúdio combina experiências sem código e código para criar uma plataforma inclusiva de ciência de dados.
+description: O estúdio é um portal web para espaços de trabalho Azure Machine Learning. O estúdio combina experiências sem código e código para uma plataforma inclusiva de ciência de dados.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 345c925d3b1350dfc2ea69d65d8d14688c6930b9
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 229c1d2aaab6029ccec3f8831f42a7ce8de2e31e
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310165"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555486"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio (clássico)?
 

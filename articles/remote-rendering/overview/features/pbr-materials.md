@@ -5,18 +5,18 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 76e7b3d0b0dd514feb7d16a6bc23d1b908be683f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f2e63903546e173e17f2b457b78eb41bcdf65dbd
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207211"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555571"
 ---
 # <a name="pbr-materials"></a>Materiais PBR
 
 *Os materiais PBR* são um dos tipos de [material](../../concepts/materials.md) suportado na renderização remota Azure. São utilizados para [malhas](../../concepts/meshes.md) que devem receber iluminação realista.
 
-PBR significa **P**hysicamente **B**ased **R**endering e significa que o material descreve as propriedades visuais de uma superfície de uma forma fisicamente plausível, de modo que os resultados realistas são possíveis em todas as condições de iluminação. A maioria dos motores de jogo modernos e ferramentas de criação de conteúdo suportam materiais PBR porque são considerados a melhor aproximação de cenários do mundo real para renderização em tempo real.
+PBR significa **P** hysicamente **B** ased **R** endering e significa que o material descreve as propriedades visuais de uma superfície de uma forma fisicamente plausível, de modo que os resultados realistas são possíveis em todas as condições de iluminação. A maioria dos motores de jogo modernos e ferramentas de criação de conteúdo suportam materiais PBR porque são considerados a melhor aproximação de cenários do mundo real para renderização em tempo real.
 
 ![Modelo de amostra de capacete glTF renderizado por ARR](media/helmet.png)
 
@@ -26,7 +26,7 @@ No entanto, os materiais PBR não são uma solução universal. Existem materiai
 
 Estas propriedades são comuns a todos os materiais:
 
-* **albedoColor:** Esta cor é multiplicada com outras cores, como o *albedoMap* ou * :::no-loc text="vertex "::: as cores.* Se *a transparência* for ativada num material, o canal alfa é utilizado para ajustar a opacidade, com significado totalmente `1` opaco e `0` significado totalmente transparente. O padrão é branco.
+* **albedoColor:** Esta cor é multiplicada com outras cores, como o *albedoMap* ou *:::no-loc text="vertex "::: as cores.* Se *a transparência* for ativada num material, o canal alfa é utilizado para ajustar a opacidade, com significado totalmente `1` opaco e `0` significado totalmente transparente. O padrão é branco.
 
   > [!NOTE]
   > Quando um material PBR é totalmente transparente, como um pedaço de vidro perfeitamente limpo, ainda reflete o ambiente. Pontos brilhantes como o sol ainda são visíveis no reflexo. Isto é diferente para [materiais de cor.](color-materials.md)
@@ -43,9 +43,15 @@ Estas propriedades são comuns a todos os materiais:
 
 * **TransparênciaDesseepth:** Se a bandeira TransparencyWritesDepth for colocada no material e o material for transparente, os objetos que utilizam este material também contribuirão para o tampão de profundidade final. Consulte a bandeira de material PBR *transparente* na secção seguinte. Para ativar esta funcionalidade é recomendado se o seu caso de utilização necessitar de uma [reprojecção tardia](late-stage-reprojection.md) mais plausível de cenas totalmente transparentes. Para cenas opacas/transparentes mistas, este cenário pode introduzir comportamentos de reprojecção implausíveis ou artefactos de reprojecção. Por esta razão, a definição predefinida e recomendada para o caso de utilização geral é para desativar esta bandeira. Os valores de profundidade escrita são retirados da camada de profundidade por pixel do objeto mais próximo da câmara.
 
+* **FresnelEffect:** Esta bandeira de material permite o [efeito fresnel](../../overview/features/fresnel-effect.md) aditivo no respetivo material. O aparecimento do efeito rege-se pelos outros parâmetros do fresnel explicados no seguinte. 
+
+* **FresnelEffectColor:** A cor fresnel usada para este material. Só é importante quando o efeito fresnel tiver sido definido neste material (ver acima). Esta propriedade controla a cor base do brilho do fresnel (ver [efeito fresnel](../../overview/features/fresnel-effect.md) para uma explicação completa). Atualmente apenas os valores do canal rgb são importantes e o valor alfa será ignorado.
+
+* **FresnelEffectExponent:** O expoente fresnel usado para este material. Só é importante quando o efeito fresnel tiver sido definido neste material (ver acima). Esta propriedade controla a propagação do brilho do fresnel. O valor mínimo 0.01 causa uma propagação em todo o objeto. O valor máximo de 10.0 limita o brilho apenas às arestas mais brilhantes visíveis.
+
 ## <a name="pbr-material-properties"></a>Propriedades de materiais PBR
 
-A ideia central da renderização baseada fisicamente é usar propriedades *BaseColor,* *Metalness*e *Aspereza* para imitar uma ampla gama de materiais do mundo real. Uma descrição detalhada do PBR está fora do âmbito deste artigo. Para mais informações sobre o PBR, consulte [outras fontes.](http://www.pbr-book.org) As seguintes propriedades são específicas dos materiais PBR:
+A ideia central da renderização baseada fisicamente é usar propriedades *BaseColor,* *Metalness* e *Aspereza* para imitar uma ampla gama de materiais do mundo real. Uma descrição detalhada do PBR está fora do âmbito deste artigo. Para mais informações sobre o PBR, consulte [outras fontes.](http://www.pbr-book.org) As seguintes propriedades são específicas dos materiais PBR:
 
 * **baseColor:** Em materiais PBR, a *cor albedo* é referida como a *cor base.* Em Azure Remote Rendering a propriedade *de cor albedo* já está presente através das propriedades de material comum, pelo que não existe nenhuma propriedade de cor base adicional.
 

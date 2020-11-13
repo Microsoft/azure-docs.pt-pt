@@ -11,16 +11,18 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5226c12467dc148357eddfd617c4566c591abb26
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 25c5e6445bb5d673db1cfb755f320302a9e9c5b5
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94533094"
+ms.locfileid: "94561867"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início rápido: Adquirir um token e chamar a Microsoft Graph API a partir de uma aplicação de ambiente de trabalho do Windows
 
-Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de ambiente de trabalho do Windows que pode iniciar sessão em contas pessoais, profissionais e escolares, obter um token de acesso e chamar a Microsoft Graph API. (Ver [como funciona a amostra](#how-the-sample-works) para uma ilustração.)
+Neste arranque rápido, descarrega e executa uma amostra de código que demonstra como uma aplicação do Windows desktop .NET (WPF) pode iniciar sôm nos utilizadores e obter um token de acesso para ligar para a API do Gráfico microsoft. 
+
+Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 
 > [!div renderon="docs"]
 > ## <a name="prerequisites"></a>Pré-requisitos
@@ -92,7 +94,7 @@ Neste início rápido, irá aprender como escrever uma aplicação .NET (WPF) de
 >    private static string Tenant = "Enter_the_Tenant_Info_Here";
 >    ```
 >
-> Em que:
+> Onde:
 > - `Enter_the_Application_Id_here` - é o **ID da Aplicação (cliente)** que registou.
 > - `Enter_the_Tenant_Info_Here` - está definido para uma das seguintes opções:
 >   - Se a sua aplicação suportar **Contas neste diretório organizacional** , substitua este valor pelo **Id do Inquilino** ou pelo **Nome do inquilino** (por exemplo, contoso.microsoft.com)
@@ -132,7 +134,7 @@ PublicClientApplicationBuilder.Create(ClientId)
                 .Build();
 ```
 
-> |Em que: | Description |
+> |Onde: | Descrição |
 > |---------|---------|
 > | `ClientId` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 
@@ -154,7 +156,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(_scopes)
                                       .ExecuteAsync();
 ```
 
-> |Em que:| Description |
+> |Onde:| Descrição |
 > |---------|---------|
 > | `_scopes` | Contém os âmbitos que estão a ser solicitados, tais como `{ "user.read" }` para o Microsoft Graph ou para `{ "api://<Application ID>/access_as_user" }` APIs web personalizados. |
 
@@ -169,7 +171,7 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
                                       .ExecuteAsync();
 ```
 
-> |Em que: | Description |
+> |Onde: | Descrição |
 > |---------|---------|
 > | `scopes` | Contém os âmbitos que estão a ser solicitados, tais como `{ "user.read" }` para o Microsoft Graph ou para `{ "api://<Application ID>/access_as_user" }` APIs web personalizados. |
 > | `firstAccount` | Especifica o primeiro utilizador na cache (a MSAL suporta vários utilizadores numa única aplicação). |

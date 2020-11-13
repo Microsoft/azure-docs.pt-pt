@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7a7d96c13b47bee9c092be926dc54555979e6c6f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 78b422cd41f4cea72b74257fe70c09471e9d2d5b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790122"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556589"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Cópia de segurança automática v2 para máquinas virtuais Azure (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,7 +48,7 @@ Para utilizar o Backup Automatizado v2, reveja os seguintes pré-requisitos:
 **Configuração da base de dados:**
 
 - As bases de dados dos _utilizadores-alvo_ devem utilizar o modelo de recuperação total. As bases de dados do sistema não têm de utilizar o modelo de recuperação completo. No entanto, se necessitar de cópias de segurança para modelar ou MSDB, deve utilizar o modelo de recuperação completo. Para obter mais informações sobre o impacto do modelo de recuperação total nas cópias de segurança, consulte [backup no modelo de recuperação completo](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105)). 
-- O SQL Server VM foi registado com o fornecedor de recursos SQL VM em [modo de gestão completa.](sql-vm-resource-provider-register.md#upgrade-to-full) 
+- O SQL Server VM foi registado com a extensão sql IaaS Agent em [modo de gestão completa](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full). 
 -  A cópia de segurança automatizada baseia-se na extensão completa do [agente iaaS do sql Server](sql-server-iaas-agent-extension-automate-management.md). Como tal, a cópia de segurança automatizada é suportada apenas em bases de dados-alvo a partir da instância padrão, ou numa única instância nomeada. Se não houver instância padrão e várias instâncias nomeadas, a extensão SQL IaaS falha e a cópia de segurança automatizada não funcionará. 
 
 ## <a name="settings"></a>Definições
@@ -56,7 +56,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 ### <a name="basic-settings"></a>Definições Básicas
 
-| Definição | Alcance (Padrão) | Descrição |
+| Definição | Alcance (Padrão) | Description |
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** | Ativar/Desativar (Desativado) | Permite ou desativa backup automatizado para um Azure VM que executa o SQL Server 2016/2017 Developer, Standard ou Enterprise. |
 | **Período de Retenção** | 1-30 dias (30 dias) | O número de dias para reter reforços. |
@@ -66,7 +66,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 ### <a name="advanced-settings"></a>Definições Avançadas
 
-| Definição | Alcance (Padrão) | Descrição |
+| Definição | Alcance (Padrão) | Description |
 | --- | --- | --- |
 | **Backups de bases de dados do sistema** | Ativar/Desativar (Desativado) | Quando ativado, esta funcionalidade também confirma as bases de dados do sistema: Master, MSDB e Model. Para as bases de dados MSDB e Model, verifique se estão em modo de recuperação total se pretender que sejam tomadas cópias de segurança de registo. Os backups de registo nunca são levados para o Mestre. E não há reforços para o TempDB. |
 | **Horário de backup** | Manual/Automatizado (Automatizado) | Por predefinição, o calendário de backup é automaticamente determinado com base no crescimento do registo. A agenda manual de cópias de segurança permite ao utilizador especificar a janela de tempo para cópias de segurança. Neste caso, as cópias de segurança só ocorrem na frequência especificada e durante a janela de tempo especificada de um determinado dia. |
@@ -117,7 +117,7 @@ Então, na terça-feira, às 10:00, por 6 horas, as cópias de segurança comple
 
 Utilize o portal Azure para configurar o Backup Automatizado v2 quando criar uma nova máquina virtual SQL Server 2016 ou 2017 no modelo de implementação do Gestor de Recursos.
 
-No separador definições do **SQL Server,** selecione **Ative** under **Automated backup** . A imagem do portal Azure que se segue mostra as definições **de Backup Automatizada SQL.**
+No separador definições do **SQL Server,** selecione **Ative** under **Automated backup**. A imagem do portal Azure que se segue mostra as definições **de Backup Automatizada SQL.**
 
 ![Configuração de backup automatizado SQL no portal Azure](./media/automated-backup/automated-backup-blade.png)
 

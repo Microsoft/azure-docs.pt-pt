@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
-ms.date: 06/10/2020
-ms.openlocfilehash: 756c62aa070f05c4b66de0cde6c7df59d9b1d09a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 11/09/2020
+ms.openlocfilehash: 24ebd9a89f94d062672ec7246163abb93396813f
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "84735201"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555966"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: Utilize a ferramenta Dados de Cópia para copiar dados
 
@@ -37,24 +37,24 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 1. Aceda ao [portal do Azure](https://portal.azure.com). 
-1. A partir do menu do portal Azure, **selecione Criar uma**Fábrica de  >  Dados de**Analytics**  >  **Análise de**Recursos:
+1. A partir do menu do portal Azure, **selecione Criar uma** Fábrica de  >  Dados **de Integração de**  >  **Data Factory** Recursos:
 
     ![Criação de nova fábrica de dados](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-1. Na página **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** em **Nome**. 
+1. Na página **Nova fábrica de dados** , introduza **ADFTutorialDataFactory** em **Nome**. 
  
-   O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados (por exemplo, ** &lt; o seu nome &gt; ADFTutorialDataFactory)** e tente criar novamente. Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
+   O nome da fábrica de dados Azure deve ser *globalmente único.* Se vir o seguinte erro, altere o nome da fábrica de dados (por exemplo, **&lt; o seu nome &gt; ADFTutorialDataFactory)** e tente criar novamente. Para regras de nomenclatura de artefactos do Data Factory, veja o artigo [Data Factory – Regras de Nomenclatura](naming-rules.md).
   
    ![Erro quando um nome não está disponível](./media/doc-common-process/name-not-available-error.png)
-1. Em **Subscrição**, selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
-1. Em **Grupo de Recursos**, siga um destes passos:
+1. Em **Subscrição** , selecione a sua subscrição do Azure na qual pretende criar a fábrica de dados. 
+1. Em **Grupo de Recursos** , siga um destes passos:
      
    - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista. 
    - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
          
    Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
-1. Em **Versão**, selecione **V2**.
-1. Em **Localização**, selecione a localização para a fábrica de dados.
+1. Em **Versão** , selecione **V2**.
+1. Em **Localização** , selecione a localização para a fábrica de dados.
 
    A lista mostra apenas as localizações suportadas pelo Data Factory e onde serão armazenados os seus metadados do Azure Data Factory. As lojas de dados associadas (como a Azure Storage e a Azure SQL Database) e os cálculos (como o Azure HDInsight) que a Data Factory utiliza podem funcionar noutras regiões.
 
@@ -66,14 +66,14 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 
 ## <a name="start-the-copy-data-tool"></a>Iniciar a ferramenta Copiar Dados
 
-1. Na página **Vamos começar**, selecione o mosaico **Copiar Dados** para iniciar a ferramenta Copiar Dados. 
+1. Na página **Vamos começar** , selecione o mosaico **Copiar Dados** para iniciar a ferramenta Copiar Dados. 
 
    ![Mosaico "Copiar Dados"](./media/doc-common-process/get-started-page.png)
 
 1. Na página **Propriedades** da ferramenta Copiar Dados, pode especificar um nome para o pipeline e a respetiva descrição e, em seguida, selecionar **Seguinte**. 
 
    ![Página "Propriedades"](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
-1. Na página **Arquivo de dados de origem**, conclua os seguintes passos:
+1. Na página **Arquivo de dados de origem** , conclua os seguintes passos:
 
     a. Clique **+ Crie uma nova ligação** para adicionar uma ligação.
 
@@ -88,7 +88,7 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
     d. Selecione o serviço ligado recém-criado como fonte e, em seguida, clique em **Seguinte**.
 
 
-1. Na página **Escolher o ficheiro ou pasta de entrada**, complete os seguintes passos:
+1. Na página **Escolher o ficheiro ou pasta de entrada** , complete os seguintes passos:
 
    a. Clique **em navegar** para navegar para a pasta **adftutorial/entrada,** selecione o ficheiro **emp.txt** e, em seguida, clique em **Escolher**. 
 
@@ -103,11 +103,11 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 
    ![Página "Escolher ficheiro ou pasta de saída"](./media/quickstart-create-data-factory-copy-data-tool/configure-sink-path.png) 
 
-1. Na página **Definições**, selecione **Seguinte** para utilizar as configurações predefinidas. 
+1. Na página **Definições** , selecione **Seguinte** para utilizar as configurações predefinidas. 
 
 1. Reveja todas as definições na página **Resumo** e selecione **Seguinte**. 
 
-1. Na página **Implementação concluída**, selecione **Monitorização** para monitorizar o pipeline que criou. 
+1. Na página **Implementação concluída** , selecione **Monitorização** para monitorizar o pipeline que criou. 
 
     ![Página "Implementação concluída"](./media/quickstart-create-data-factory-copy-data-tool/deployment-page.png)
 

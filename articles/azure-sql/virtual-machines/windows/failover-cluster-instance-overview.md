@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 5845a3bdc4b86fbbe44c92779e5aae95044eb6b2
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289302"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556375"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com servidor SQL em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -148,10 +148,11 @@ Para obter mais detalhes sobre as opções de conectividade do cluster, consulte
 
 Considere as seguintes limitações para casos de cluster de failover com SQL Server em Azure Virtual Machines. 
 
-### <a name="lightweight-resource-provider"></a>Fornecedor de recursos leves   
-Neste momento, as instâncias de cluster de failover do SQL Server em máquinas virtuais Azure são suportadas apenas com o modo de [gestão leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) da Extensão do [Agente IAAS do SQL Server](sql-server-iaas-agent-extension-automate-management.md). Para mudar do modo de extensão total para leve, elimine o recurso **da máquina virtual SQL** para os VMs correspondentes e registe-os com o fornecedor de recursos SQL VM em modo leve. Quando estiver a eliminar o recurso da **máquina virtual SQL** utilizando o portal Azure, limpe a caixa de verificação ao lado da máquina virtual correta. 
+### <a name="lightweight-extension-support"></a>Suporte de extensão leve   
 
-A extensão completa suporta funcionalidades como backup automatizado, patching e gestão avançada do portal. Estas funcionalidades não funcionarão para VMs do SQL Server depois de o agente ser reinstalado em modo de gestão leve.
+Neste momento, as instâncias de cluster de failover do SQL Server nas máquinas virtuais Azure são suportadas apenas com o modo de [gestão leve](sql-server-iaas-agent-extension-automate-management.md#management-modes) da Extensão do Agente IAAS do SQL Server. Para mudar do modo de extensão total para leve, elimine o recurso **de máquina virtual SQL** para os VMs correspondentes e registe-os com a extensão SQL IaaS Agent em modo leve. Quando estiver a eliminar o recurso da **máquina virtual SQL** utilizando o portal Azure, limpe a caixa de verificação ao lado da máquina virtual correta para evitar a eliminação da máquina virtual. 
+
+A extensão completa suporta funcionalidades como backup automatizado, patching e gestão avançada do portal. Estas funcionalidades não funcionarão para VMs sql server registados em modo de gestão leve.
 
 ### <a name="msdtc"></a>MSDTC 
 
@@ -167,7 +168,7 @@ Nas Máquinas Virtuais Azure, o MSDTC não é suportado para Windows Server 2016
 
 Rever [as melhores práticas](hadr-cluster-best-practices.md)do cluster, e depois preparar [o seu SQL Server VM para a FCI](failover-cluster-instance-prepare-vm.md). 
 
-Para obter mais informações, consulte: 
+Para obter mais informações, veja: 
 
 - [Tecnologias de cluster windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server falha casos de cluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

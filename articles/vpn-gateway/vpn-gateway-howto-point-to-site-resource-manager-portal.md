@@ -8,18 +8,20 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3fcf63932db0ad9abe5d99c2e4bf084b0acc750c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: c9a77fc8d6e832165a78b9d83cc0a22b31b65362
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427914"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555997"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configure uma ligação VPN ponto-a-local a um VNet utilizando a autenticação de certificado azure nativo: portal Azure
 
 Este artigo ajuda-o a ligar de forma segura clientes individuais que executam Windows, Linux ou macOS a um Azure VNet. As ligações VPN Ponto a Site são úteis quando pretende ligar à VNet a partir de uma localização remota, como em teletrabalho em casa ou numa conferência. Pode também utilizar P2S em vez de uma VPN Site a Site, quando são poucos os clientes que precisam de ligar a uma VNet. As ligações Ponto a Site não precisam de nenhum dispositivo VPN ou endereço IP destinado ao público. A P2S cria a ligação VPN através de SSTP (Secure Socket Tunneling Protocol) ou de IKEv2. Para obter mais informações sobre VPN Ponto a Site, veja [Acerca da VPN Ponto a Site](point-to-site-about.md).
 
-:::image type="content" source="./media/vpn-gateway-how-to-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Ligue de um computador a um Azure VNet - diagrama de ligação ponto-a-local":::
+:::image type="content" source="./media\vpn-gateway-howto-point-to-site-resource-manager-portal/point-to-site-diagram.png" alt-text="Ligue de um computador a um Azure VNet - diagrama de ligação ponto-a-local":::
+
+C:\Users\cherylmc\Documents\GitHub\azure-docs-pr\articles\vpn-gateway\media\vpn-gateway-howto-point-to-site-resource-manager-portal
 
 Para obter mais informações sobre a VPN ponto-a-local, consulte [Sobre a VPN ponto a local.](point-to-site-about.md) Para criar esta configuração utilizando o Azure PowerShell, consulte [configurar uma VPN ponto a local utilizando a Azure PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md).
 

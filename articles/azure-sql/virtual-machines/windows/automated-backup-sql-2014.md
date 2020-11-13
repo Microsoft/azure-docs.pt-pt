@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8119d01ae8e8ed1e809753e433b063a844a2c5c3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ccd998bc2f6e2771ff4dd1bedfa2213af7573102
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790683"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556595"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Backup automatizado para máquinas virtuais SQL Server 2014 (Gestor de Recursos)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -50,14 +50,14 @@ Para utilizar a cópia de segurança automatizada, considere os seguintes pré-r
 **Configuração da base de dados:**
 
 - As bases de dados dos _utilizadores-alvo_ devem utilizar o modelo de recuperação total. As bases de dados do sistema não têm de utilizar o modelo de recuperação completo. No entanto, se necessitar de cópias de segurança para modelar ou MSDB, deve utilizar o modelo de recuperação completo. Para obter mais informações sobre o impacto do modelo de recuperação total nas cópias de segurança, consulte [backup no modelo de recuperação completo](/previous-versions/sql/sql-server-2008-r2/ms190217(v=sql.105)). 
-- O SQL Server VM foi registado com o fornecedor de recursos SQL VM em [modo de gestão completa.](sql-vm-resource-provider-register.md#upgrade-to-full) 
+- O SQL Server VM foi registado com a extensão sql IaaS Agent em [modo de gestão completa](sql-agent-extension-manually-register-single-vm.md#upgrade-to-full). 
 -  A cópia de segurança automatizada baseia-se na extensão completa do [agente iaaS do sql Server](sql-server-iaas-agent-extension-automate-management.md). Como tal, a cópia de segurança automatizada é suportada apenas em bases de dados-alvo a partir da instância padrão, ou numa única instância nomeada. Se não houver instância padrão e várias instâncias nomeadas, a extensão SQL IaaS falha e a cópia de segurança automatizada não funcionará. 
 
 ## <a name="settings"></a>Definições
 
 A tabela a seguir descreve as opções que podem ser configuradas para cópia de segurança automatizada. Os passos de configuração reais variam consoante utilize o portal Azure ou os comandos Azure Windows PowerShell.
 
-| Definição | Alcance (Padrão) | Descrição |
+| Definição | Alcance (Padrão) | Description |
 | --- | --- | --- |
 | **Cópia de Segurança Automatizada** | Ativar/Desativar (Desativado) | Ativa ou desativa a Cópia de Segurança Automatizada para um Azure VM que executa o SQL Server 2014 Standard ou Enterprise. |
 | **Período de Retenção** | 1-30 dias (30 dias) | O número de dias para reter um reforço. |
@@ -70,7 +70,7 @@ A tabela a seguir descreve as opções que podem ser configuradas para cópia de
 
 Utilize o portal Azure para configurar a Cópia de Segurança Automatizada quando criar uma nova máquina virtual SQL Server 2014 no modelo de implementação do Gestor de Recursos.
 
-No separador de definições do **SQL Server,** desloque-se para **a cópia de segurança automatizada** e selecione **Ative** . A imagem do portal Azure que se segue mostra as definições **de Backup Automatizada SQL.**
+No separador de definições do **SQL Server,** desloque-se para **a cópia de segurança automatizada** e selecione **Ative**. A imagem do portal Azure que se segue mostra as definições **de Backup Automatizada SQL.**
 
 ![Configuração de backup automatizado SQL no portal Azure](./media/automated-backup-sql-2014/azure-sql-arm-autobackup.png)
 
@@ -80,7 +80,7 @@ No separador de definições do **SQL Server,** desloque-se para **a cópia de s
 
 Para os VMs do servidor SQL existentes, pode ativar e desativar cópias de segurança automatizadas, alterar o período de retenção, especificar a conta de armazenamento e ativar a encriptação a partir do portal Azure. 
 
-Navegue para o [recurso de máquinas virtuais SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) para a sua máquina virtual SQL Server 2014 e, em seguida, selecione **Backups** . 
+Navegue para o [recurso de máquinas virtuais SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) para a sua máquina virtual SQL Server 2014 e, em seguida, selecione **Backups**. 
 
 ![Backup automatizado SQL para VMs existentes](./media/automated-backup-sql-2014/azure-sql-rm-autobackup-existing-vms.png)
 
@@ -186,7 +186,7 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 Pode levar vários minutos para instalar e configurar o Agente IAAS do SQL Server.
 
 > [!NOTE]
-> Existem outras definições para **New-AzVMSqlServerAutoBackupConfig** que se aplicam apenas ao SQL Server 2016 e ao Backup Automático v2. O SQL Server 2014 não suporta as seguintes definições: **BackupSystemDbs** , **BackupScheduleType** , **FullBackupFrequency** , **FullBackupStartHour** , **FullBackupWindowInHours** e **LogBackupFrequencyInMinutes** . Se tentar configurar estas definições numa máquina virtual SQL Server 2014, não há erro, mas as definições não são aplicadas. Se pretender utilizar estas definições numa máquina virtual SQL Server 2016, consulte [cópias de segurança automatizada v2 para máquinas virtuais SQL Server 2016 Azure](automated-backup.md).
+> Existem outras definições para **New-AzVMSqlServerAutoBackupConfig** que se aplicam apenas ao SQL Server 2016 e ao Backup Automático v2. O SQL Server 2014 não suporta as seguintes definições: **BackupSystemDbs** , **BackupScheduleType** , **FullBackupFrequency** , **FullBackupStartHour** , **FullBackupWindowInHours** e **LogBackupFrequencyInMinutes**. Se tentar configurar estas definições numa máquina virtual SQL Server 2014, não há erro, mas as definições não são aplicadas. Se pretender utilizar estas definições numa máquina virtual SQL Server 2016, consulte [cópias de segurança automatizada v2 para máquinas virtuais SQL Server 2016 Azure](automated-backup.md).
 
 Para ativar a encriptação, modifique o script anterior para passar o parâmetro **EnableEncrypation** juntamente com uma palavra-passe (cadeia segura) para o parâmetro **CertificatePassword.** O seguinte script permite as definições de Backup Automatizada no exemplo anterior e adiciona encriptação.
 
@@ -261,7 +261,7 @@ Para monitorizar a cópia de segurança automatizada no SQL Server 2014, tem dua
 Em primeiro lugar, pode sondar o estado chamando [msdb.smart_admin.sp_get_backup_diagnostics](/sql/relational-databases/system-stored-procedures/managed-backup-sp-get-backup-diagnostics-transact-sql). Ou consultar a função [msdb.smart_admin.fn_get_health_status](/sql/relational-databases/system-functions/managed-backup-fn-get-health-status-transact-sql) valued.
 
 > [!NOTE]
-> O esquema de Cópia de Segurança Gerida no SQL Server 2014 é **msdb.smart_admin** . No SQL Server 2016 isto mudou para **msdb.managed_backup** , e os tópicos de referência usam este esquema mais recente. Mas para o SQL Server 2014, deve continuar a utilizar o esquema **smart_admin** para todos os objetos de backup geridos.
+> O esquema de Cópia de Segurança Gerida no SQL Server 2014 é **msdb.smart_admin**. No SQL Server 2016 isto mudou para **msdb.managed_backup** , e os tópicos de referência usam este esquema mais recente. Mas para o SQL Server 2014, deve continuar a utilizar o esquema **smart_admin** para todos os objetos de backup geridos.
 
 Outra opção é aproveitar a funcionalidade de Correio da Base de Dados incorporada para notificações.
 

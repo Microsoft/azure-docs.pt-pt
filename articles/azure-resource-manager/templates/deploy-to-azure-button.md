@@ -3,12 +3,12 @@ title: Botão Implementar no Azure
 description: Utilize o botão para implementar os modelos do Gestor de Recursos Azure a partir de um repositório GitHub.
 ms.topic: conceptual
 ms.date: 11/10/2020
-ms.openlocfilehash: 7d002508f6b2402f8cff40fb0369896080ecbbad
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 25ec5fd7a0c5b356097412ab6f1765cb0886522a
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94490904"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555271"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Use um botão de implementação para implementar modelos do repositório GitHub
 
@@ -19,11 +19,15 @@ O âmbito de implantação é determinado pelo esquema do modelo. Para obter mai
 * [grupos de recursos](deploy-to-resource-group.md)
 * [assinaturas](deploy-to-subscription.md)
 * [grupos de gestão](deploy-to-management-group.md)
-* [inquilinos](deploy-to-tenant.md).
+* [inquilinos](deploy-to-tenant.md)
 
 ## <a name="use-common-image"></a>Use imagem comum
 
 Para adicionar o botão à sua página web ou repositório, utilize a seguinte imagem:
+
+```markdown
+![Deploy to Azure](https://aka.ms/deploytoazurebutton)
+```
 
 ```html
 <img src="https://aka.ms/deploytoazurebutton"/>
@@ -48,6 +52,7 @@ https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-st
 Em seguida, converta o URL num valor codificado por URL. Pode utilizar um codificader on-line ou executar um comando. O exemplo seguinte do PowerShell mostra como codificar um valor url.
 
 ```powershell
+$url = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 [uri]::EscapeDataString($url)
 ```
 
@@ -70,6 +75,8 @@ https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.github
 ```
 
 Tem o URL completo para a ligação.
+
+Tipicamente, você hospeda o modelo em um repo público. Se utilizar um repo privado, deve incluir um símbolo para aceder ao conteúdo bruto do modelo. O símbolo gerado pelo GitHub é válido por apenas um curto período de tempo. Precisaria de atualizar frequentemente o link.
 
 Se estiver a utilizar [Git com Azure Repos](/azure/devops/repos/git/) em vez de um repo GitHub, ainda pode utilizar o botão Implementar para Azure. Certifique-se de que o seu repo é público. Utilize a [operação Itens](/rest/api/azure/devops/git/items/get) para obter o modelo. O seu pedido deve estar no seguinte formato:
 

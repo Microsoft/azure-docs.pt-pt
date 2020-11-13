@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: eaaedc4404419e6028250a994077dd3df20b83d4
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: fb1f1d098970927ba04c840e77ec0a0b8d76ca02
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 11/12/2020
-ms.locfileid: "94539656"
+ms.locfileid: "94561323"
 ---
 # <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Segurança e governação da empresa para a Azure Machine Learning
 
@@ -105,7 +105,13 @@ Opcionalmente, pode configurar as suas próprias identidades geridas para uso co
 
 Para restringir o acesso físico aos recursos de Aprendizagem automática Azure, pode utilizar a Rede Virtual Azure (VNet). Os VNets permitem criar ambientes de rede que estejam parcialmente, ou totalmente, isolados da internet pública. Isto reduz a superfície de ataque para a sua solução, bem como as chances de exfiltração de dados.
 
-Para mais informações, consulte [o isolamento da rede virtual e a visão geral da privacidade.](how-to-network-security-overview.md)
+Para obter mais informações, consulte os documentos seguintes:
+
+* [Isolamento de rede virtual e visão geral da privacidade](how-to-network-security-overview.md)
+* [Recursos de área de trabalho seguros](how-to-secure-workspace-vnet.md)
+* [Ambiente de preparação seguro](how-to-secure-training-vnet.md)
+* [Ambiente de inferência seguro](how-to-secure-inferencing-vnet.md)
+* [Use o estúdio numa rede virtual segura](how-to-enable-studio-virtual-network.md)
 
 <a id="encryption-at-rest"></a><a id="azure-blob-storage"></a>
 
@@ -123,7 +129,7 @@ Também pode querer encriptar [as informações de diagnóstico registadas a par
 
 Existem vários cenários de monitorização com a Azure Machine Learning, dependendo do papel e do que está a ser monitorizado.
 
-| Função | Monitorização a utilizar | Description |
+| Função | Monitorização a utilizar | Descrição |
 | ---- | ----- | ----- |
 | Administrador, DevOps, MLOps | [Métricas do Monitor Azure,](#azure-monitor) [log de atividade,](#activity-log) [digitalização da vulnerabilidade](#vulnerability-scanning) | Informação de nível de serviço |
 | Cientista de Dados, MLOps | [Monitor corre](#monitor-runs) | Informações registadas durante os treinos |

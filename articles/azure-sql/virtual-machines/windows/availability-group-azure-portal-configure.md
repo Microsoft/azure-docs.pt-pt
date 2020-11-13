@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: 3a8086c75a7125b744730de83c760db44ce222e9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9ecac482c138447a3a9dc99193fb131b688993e4
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790105"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556612"
 ---
 # <a name="use-azure-portal-to-configure-an-availability-group-preview-for-sql-server-on-azure-vm"></a>Utilize o portal Azure para configurar um grupo de disponibilidade (Pré-visualização) para O Servidor SQL em Azure VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Para configurar um grupo de disponibilidade Always On utilizando o portal Azure,
 
 - Uma [subscrição do Azure](https://azure.microsoft.com/free/).
 - Um grupo de recursos com um controlador de domínio. 
-- Uma ou mais VMs de domínio [em Azure executando SQL Server 2016 (ou posteriormente) Edição empresarial](./create-sql-vm-portal.md) no *mesmo* conjunto de disponibilidade ou *diferentes* zonas de disponibilidade que foram [registadas com o fornecedor de recursos SQL VM em modo de gestão total](sql-vm-resource-provider-register.md) e estão usando a mesma conta de domínio para o serviço SQL Server em cada VM.
+- Uma ou mais VMs de domínio [em Azure executando SQL Server 2016 (ou posteriormente) Edição empresarial](./create-sql-vm-portal.md) no *mesmo* conjunto de disponibilidade ou *diferentes* zonas de disponibilidade que foram [registadas com a extensão sql IaaS Agent em modo de gestão total](sql-agent-extension-manually-register-single-vm.md) e estão usando a mesma conta de domínio para o serviço SQL Server em cada VM.
 - Dois endereços IP disponíveis (não utilizados por nenhuma entidade). Um é para o equilibrador de carga interno. O outro é para o ouvinte do grupo de disponibilidade dentro da mesma sub-rede que o grupo de disponibilidade. Se estiver a utilizar um equilibrador de carga existente, só precisa de um endereço IP disponível para o ouvinte do grupo de disponibilidade. 
 
 ## <a name="permissions"></a>Permissões
@@ -50,7 +50,7 @@ Precisa das seguintes permissões de conta para configurar o grupo de disponibil
 
 ## <a name="configure-cluster"></a>Aglomerado de configuração
 
-Configure o cluster utilizando o portal Azure. Pode criar um novo cluster, ou se já tiver um cluster existente, pode a bordo do fornecedor de recursos SQL VM para a gestão do portal.
+Configure o cluster utilizando o portal Azure. Pode criar um novo cluster, ou se já tiver um cluster existente, pode a bordo da extensão do Agente IAAS SQL para a gestão do portal.
 
 
 ### <a name="create-a-new-cluster"></a>Criar um novo cluster
@@ -61,18 +61,25 @@ Se ainda não tiver um cluster existente, crie-o utilizando o portal Azure com e
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Navegue para o seu recurso [de máquinas virtuais SQL.](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 
-1. Selecione **Alta Disponibilidade** em **Definições** . 
+1. Selecione **Alta Disponibilidade** em **Definições**. 
 1. Selecione **+ novo cluster de falha do Servidor do Windows** para abrir a página de cluster **Configure Windows Failover.**  
 
    :::image type="content" source="media/availability-group-az-portal-configure/create-new-cluster.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal":::
 
 1. Diga o seu cluster e forneça uma conta de armazenamento para usar como Testemunha da Nuvem. Utilize uma conta de armazenamento existente ou selecione **Criar novo** para criar uma nova conta de armazenamento. O nome da conta de armazenamento deve ter entre 3 e 24 caracteres de comprimento e utilizar apenas números e letras minúsculas.
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-1.png" alt-text="Fornecer nome, conta de armazenamento e credenciais para o cluster":::
 
 1. Expanda **as credenciais do Windows Server Failover Cluster** para fornecer [credenciais](/rest/api/sqlvm/sqlvirtualmachinegroups/createorupdate#wsfcdomainprofile) para a conta de serviço sql Server, bem como para o operador de cluster e contas de bootstrap se forem diferentes da conta utilizada para o serviço SQL Server. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal"
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Fornecer credenciais para a conta de Serviço SQL, conta de operador de cluster e conta de botas cluster":::
+
+1. Selecione os VMs do servidor SQL que pretende adicionar ao cluster. Note se é necessário ou não um reinício e proceda com cautela. Apenas VMs que são registados com a extensão SQL IaaS Agent em modo de gestão completa, e estão na mesma localização, domínio e na mesma rede virtual que o VM do servidor SQL primário será visível. 
+1. **Selecione Aplicar** para criar o cluster. Pode verificar o estado da sua implantação no **registo de atividade** que está acessível a partir do ícone da campainha na barra de navegação superior. 
+1. Para que um cluster de failover seja suportado pela Microsoft, tem de passar na validação do cluster. Ligue-se ao VM utilizando o seu método preferido (como o Protocolo de Ambiente de Trabalho Remoto (RDP) e valide que o seu cluster passa a validação antes de prosseguir. Se não o fizer, deixa o seu aglomerado num estado não apoiado. Pode validar o cluster utilizando o Failover Cluster Manager (FCM) ou o seguinte comando PowerShell:
+
+    ```powershell
+    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
     ```
     
 
@@ -85,10 +92,10 @@ Para tal, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Navegue para o seu recurso [de máquinas virtuais SQL.](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 
-1. Selecione **Alta Disponibilidade** em **Definições** . 
+1. Selecione **Alta Disponibilidade** em **Definições**. 
 1. Selecione **o Cluster de Falha do Servidor do Windows existente** para abrir a página do Cluster de Falha do Servidor do **Windows.** 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal":::
+   :::image type="content" source="media/availability-group-az-portal-configure/onboard-existing-cluster.png" alt-text="A bordo de um cluster existente a partir da página de Alta Disponibilidade no seu recurso de máquinas virtuais SQL":::
 
 1. Reveja as definições do seu cluster. 
 1. Selecione **Aplicar** a bordo do seu cluster e, em seguida, selecionar **Sim** na hora de proceder.
@@ -102,24 +109,24 @@ Depois de o seu cluster ter sido criado ou a bordo, crie o grupo de disponibilid
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Navegue para o seu recurso [de máquinas virtuais SQL.](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 
-1. Selecione **Alta Disponibilidade** em **Definições** . 
+1. Selecione **Alta Disponibilidade** em **Definições**. 
 1. Selecione **+ Novo grupo de disponibilidade para** abrir a página do grupo de disponibilidade **Criar.**
 
-   :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal":::
+   :::image type="content" source="media/availability-group-az-portal-configure/create-new-availability-group.png" alt-text="Selecione sempre novo no grupo de disponibilidade para abrir a página do grupo de disponibilidade de criação.":::
 
 1. Insira um nome para o grupo de disponibilidade. 
 1. Selecione **Configurar** o ouvinte para abrir a página **de ouvintes do grupo de disponibilidade Configure.** 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/create-availability-group.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal":::
+   :::image type="content" source="media/availability-group-az-portal-configure/create-availability-group.png" alt-text="Fornecer um nome para o grupo de disponibilidade e configurar um ouvinte":::
 
 1. Preencha os valores e utilize um equilibrador de carga existente, ou selecione **Criar novo** para criar um novo equilibrador de carga.  **Selecione Aplicar** para guardar as suas definições e criar o seu ouvinte e o balançador de carga. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-listener.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-new-listener.png" alt-text="Preencha os valores na forma de criar o seu novo ouvinte e equilibrador de carga":::
 
 1. Escolha **+ Selecione réplica** para abrir a página de **réplicas do grupo de configure.**
 1. Selecione as máquinas virtuais que pretende adicionar ao grupo de disponibilidade e escolha as definições de grupo de disponibilidade que melhor se adequam às necessidades do seu negócio. **Selecione Aplicar** para guardar as suas definições. 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal":::
+   :::image type="content" source="media/availability-group-az-portal-configure/add-replicas.png" alt-text="Escolha VMs para adicionar ao seu grupo de disponibilidade e configurar configurações adequadas ao seu negócio":::
 
 1. Verifique as definições do grupo de disponibilidade e, em seguida, **selecione Aplicar** para criar o seu grupo de disponibilidade. 
 
@@ -139,9 +146,9 @@ Para adicionar bases de dados ao seu grupo de disponibilidade utilizando o SQL S
 1. Open SQL Server Management Studio (SSMS).
 1. Ligue-se à sua instância sql Server. 
 1. Expandir **sempre em alta disponibilidade** no Explorador de **Objetos.**
-1. Expandir **Grupos de Disponibilidade,** clicar com o botão direito do seu grupo de disponibilidade e optar por **adicionar base de dados...** .
+1. Expandir **Grupos de Disponibilidade,** clicar com o botão direito do seu grupo de disponibilidade e optar por **adicionar base de dados...**.
 
-   :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal":::
+   :::image type="content" source="media/availability-group-az-portal-configure/add-database.png" alt-text="Clique com o direito no grupo de disponibilidade no explorador de objetos e escolha adicionar base de dados":::
 
 1. Siga as indicações para selecionar a(s) base de dados(s) que pretende adicionar ao seu grupo de disponibilidade. 
 1. Selecione **OK** para guardar as suas definições e adicione a sua base de dados ao grupo de disponibilidade. 
@@ -149,7 +156,7 @@ Para adicionar bases de dados ao seu grupo de disponibilidade utilizando o SQL S
 
 Após a adição das bases de dados, pode verificar o estado do seu grupo de disponibilidade no portal Azure: 
 
-:::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal":::
+:::image type="content" source="media/availability-group-az-portal-configure/healthy-availability-group.png" alt-text="Verifique o estado do seu grupo de disponibilidade a partir da página de alta disponibilidade do portal Azure após a sincronização das bases de dados":::
 
 ## <a name="add-more-vms"></a>Adicione mais VMs
 
@@ -157,14 +164,14 @@ Para adicionar mais VMs do Servidor SQL ao cluster, siga estes passos:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 1. Navegue para o seu recurso [de máquinas virtuais SQL.](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) 
-1. Selecione **Alta Disponibilidade** em **Definições** . 
+1. Selecione **Alta Disponibilidade** em **Definições**. 
 1. Selecione **Configurar o Cluster de Falha do Servidor do Windows** para abrir a página de Cluster de Falha do Servidor do **Windows.** 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal":::
+   :::image type="content" source="media/availability-group-az-portal-configure/configure-existing-cluster.png" alt-text="Selecione Configurar o Cluster de Falha do Servidor do Windows para adicionar VMs ao seu cluster.":::
 
 1. Expanda **as credenciais do Windows Server Failover Cluster** e introduza nas contas utilizadas para o serviço SQL Server, operador de cluster e contas de botas de cluster. 
 1. Selecione os VMs do servidor SQL que pretende adicionar ao cluster. 
-1. Selecione **Aplicar** . 
+1. Selecione **Aplicar**. 
 
 Pode verificar o estado da sua implantação no **registo de atividade** que está acessível a partir do ícone da campainha na barra de navegação superior. 
 
@@ -174,11 +181,11 @@ Pode verificar o estado da sua implantação no **registo de atividade** que est
 
 Pode **adicionar mais réplicas** ao grupo de disponibilidade, **configurar o Ouvinte,** ou **Eliminar o Ouvinte** da página De Alta **Disponibilidade** no portal Azure selecionando as elipses (...) junto ao seu grupo de disponibilidade: 
 
-:::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal":::
+:::image type="content" source="media/availability-group-az-portal-configure/configure-listener.png" alt-text="Selecione as elipses ao lado do grupo de disponibilidade e, em seguida, selecione adicionar réplica para adicionar mais réplicas ao grupo de disponibilidade.":::
 
 ## <a name="remove-cluster"></a>Remover o aglomerado
 
-Remova todos os VMs do SQL Server do cluster para destruí-lo e, em seguida, remova os metadados de cluster do fornecedor de recursos SQL VM. Pode fazê-lo utilizando a versão mais recente do [Azure CLI](/cli/azure/install-azure-cli) ou PowerShell. 
+Remova todos os VMs do SqL Server do cluster para destruí-lo e, em seguida, remova os metadados de cluster da extensão sql IaaS Agent. Pode fazê-lo utilizando a versão mais recente do [Azure CLI](/cli/azure/install-azure-cli) ou PowerShell. 
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -194,7 +201,7 @@ az sql vm remove-from-group --name <VM2 name>  --resource-group <resource group 
 
 Se estes são os únicos VMs no aglomerado, então o aglomerado será destruído. Se houver outros VMs no cluster para além dos VMs do SQL Server que foram removidos, os outros VMs não serão removidos e o cluster não será destruído. 
 
-Em seguida, remova os metadados de cluster do fornecedor de recursos SQL VM: 
+Em seguida, remova os metadados de cluster da extensão do Agente IAAS SQL: 
 
 ```azurecli-interactive
 # Remove the cluster from the SQL VM RP metadata
@@ -222,7 +229,7 @@ $sqlvm = Get-AzSqlVM -Name <VM Name> -ResourceGroupName <Resource Group Name>
 Se estes são os únicos VMs no aglomerado, então o aglomerado será destruído. Se houver outros VMs no cluster para além dos VMs do SQL Server que foram removidos, os outros VMs não serão removidos e o cluster não será destruído. 
 
 
-Em seguida, remova os metadados de cluster do fornecedor de recursos SQL VM: 
+Em seguida, remova os metadados de cluster da extensão do Agente IAAS SQL: 
 
 ```powershell-interactive
 # Remove the cluster metadata
@@ -245,11 +252,11 @@ Para ver os registos para a implantação e verificar o histórico de implantaç
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 1. Navegue para o seu grupo de recursos.
-1. Selecione **Implementações** em **Definições** .
+1. Selecione **Implementações** em **Definições**.
 1. Selecione a implementação de interesse para saber mais sobre a implementação. 
 
 
-   :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="Criar um novo cluster selecionando o cluster + novo no portal" :::
+   :::image type="content" source="media/availability-group-az-portal-configure/failed-deployment.png" alt-text="Selecione a implementação que está interessada em aprender mais sobre." :::
 
 ### <a name="common-errors"></a>Erros comuns
 

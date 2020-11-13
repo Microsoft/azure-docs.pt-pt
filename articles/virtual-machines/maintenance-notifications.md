@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 8/12/2020
 ms.author: shants
-ms.openlocfilehash: 14c7c3deb60c50fe71cf52959e342a3dcf2afc94
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 53cde1178a4faae0fbd11222e4219f70be29145d
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92151555"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560813"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Tratamento de notificações de manutenção planeadas
 
 O Azure realiza periodicamente atualizações para melhorar a fiabilidade, o desempenho e a segurança da infraestrutura de anfitrião para máquinas virtuais. As atualizações são alterações como corrigir o ambiente de hospedagem ou atualizar e desativar hardware. A maioria destas atualizações são concluídas sem qualquer impacto nas máquinas virtuais acolhidas. No entanto, há casos em que as atualizações têm impacto:
 
-- Se a manutenção não necessitar de um reboot, o Azure utiliza migração no local para fazer uma pausa no VM enquanto o hospedeiro é atualizado. Estes tipos de operações de manutenção são aplicados domínio de avaria por domínio de avaria. Os progressos são interrompidos se forem recebidos sinais de saúde de aviso.
+- Se a manutenção não necessitar de um reboot, o Azure faz uma pausa no VM durante alguns segundos enquanto o hospedeiro é atualizado. Estes tipos de operações de manutenção são aplicados domínio de avaria por domínio de avaria. Os progressos são interrompidos se forem recebidos sinais de saúde de aviso.
 
 - Se a manutenção necessitar de um reboot, recebe um aviso de quando a manutenção está planeada. É-lhe dada uma janela de tempo de cerca de 35 dias onde pode iniciar a manutenção, quando funcionar para si.
 
@@ -80,7 +80,7 @@ Para obter mais informações sobre a elevada disponibilidade, consulte [Disponi
 
 **P: Como sou notificado sobre a manutenção planeada?**
 
-**A:** Uma onda de manutenção planeada começa por definir um horário para uma ou mais regiões de Azure. Logo a seguir, é enviada uma notificação por e-mail para o administrador de subscrição e administradores (um e-mail por subscrição). Canais e destinatários adicionais para esta notificação podem ser configurados usando Alertas de Registo de Atividade. Caso desloque uma máquina virtual para uma região onde a manutenção planeada já esteja programada, não receberá a notificação, mas precisará verificar o estado de manutenção do VM.
+**A:** Uma onda de manutenção planeada começa por definir um horário para uma ou mais regiões de Azure. Pouco tempo depois, é enviada uma notificação por e-mail para os administradores de subscrição, coadministradores, proprietários e contribuintes (um e-mail por subscrição). Canais e destinatários adicionais para esta notificação podem ser configurados usando Alertas de Registo de Atividade. Caso desloque uma máquina virtual para uma região onde a manutenção planeada já esteja programada, não receberá a notificação, mas precisará verificar o estado de manutenção do VM.
 
 **P: Não vejo qualquer indicação de manutenção planeada no portal, PowerShell ou CLI. O que se passa?**
 

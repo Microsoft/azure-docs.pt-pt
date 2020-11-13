@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 10/07/2020
-ms.openlocfilehash: f7b96bcebb2106e52c62426ca2b64f9305e09141
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: 65d89436486940ad5239dd2c3e83401b82234a21
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515414"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555469"
 ---
 # <a name="creating-a-synapse-workspace"></a>Criação de um espaço de trabalho sinapse
 
@@ -47,14 +47,9 @@ Depois de criar o seu espaço de trabalho Azure Synapse, tem duas formas de abri
 ## <a name="create-a-dedicated-sql-pool"></a>Crie uma piscina SQL dedicada
 
 1. No Synapse Studio, no painel do lado esquerdo, **selecione Gerir**  >  **as piscinas SQL**.
-1. Selecione **Novo** e introduza estas definições:
-
-    |Definição | Valor sugerido | 
-    |---|---|---|
-    |**Nome da piscina SQL**| **SQLDB1**|
-    |**Nível de desempenho**|**DW100C**|
-    |||
-
+1. Selecione **Novo**
+1. Para **o nome da piscina SQL** selecione **SQLDB1**
+1. Para **nível de desempenho** escolha **DW100C**
 1. Selecione **Rever + criar** > **Criar**. A sua piscina SQL dedicada estará pronta em poucos minutos. A sua piscina SQL dedicada está associada a uma base de dados dedicada à piscina SQL que também se chama **SQLDB1**.
 
 Uma piscina SQL dedicada consome recursos faturados desde que esteja ativo. Pode fazer uma pausa na piscina mais tarde para reduzir custos.
@@ -62,14 +57,10 @@ Uma piscina SQL dedicada consome recursos faturados desde que esteja ativo. Pode
 ## <a name="create-a-serverless-apache-spark-pool"></a>Crie uma piscina Apache Spark sem servidor
 
 1. No Synapse Studio, no painel do lado esquerdo, **selecione Gerir**  >  **as piscinas Apache Spark**.
-1. Selecione **Novo** e introduza estas definições:
-
-    |Definição | Valor sugerido | 
-    |---|---|---|
-    |**Nome da piscina Apache Spark**|**Faísca1**
-    |**Tamanho do nó**| **Pequeno**|
-    |**Número de nós**| Definir o mínimo para 3 e o máximo para 3|
-
+1. Selecione **Novo** 
+1. Para **o nome da piscina Apache Spark** **insi spark1**.
+1. Para **o tamanho do nó,** **introduza Pequeno**.
+1. Para **o número de nós** Definir o mínimo para 3 e o máximo a 3
 1. Selecione **Rever + criar** > **Criar**. A tua piscina Apache Spark estará pronta em alguns segundos.
 
 Quando realizar atividade spark em Azure Synapse, especifique uma piscina spark para usar. A piscina diz ao Azure Synapse quantos recursos de faíscas usar. Paga apenas os recursos que utilizar. Quando deixa de utilizar ativamente a piscina, os recursos são automaticamente eliminados e são reciclados.

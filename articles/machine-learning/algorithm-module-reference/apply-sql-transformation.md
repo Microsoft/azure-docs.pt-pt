@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: 9a195497b4376633bd3c767d7d0ea029109fdf9d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/12/2020
+ms.openlocfilehash: c66fbe59fd5b2660d02bfca285f78666d64569fe
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76314543"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555605"
 ---
 # <a name="apply-sql-transformation"></a>Aplicar Transformação SQL
 
@@ -29,11 +29,26 @@ Utilizando o módulo de transformação DE Apply SQL, pode:
 -   Execute declarações de consulta SQL para filtrar ou alterar dados e devolva os resultados da consulta como uma tabela de dados.  
 
 > [!IMPORTANT]
-> O motor SQL utilizado neste módulo é **SQLite.** Para obter mais informações sobre a sintaxe SQLite, consulte [SQL como entendido pela SQLite](https://www.sqlite.org/index.html) para obter mais informações.  
+> O motor SQL utilizado neste módulo é **SQLite.** Para obter mais informações sobre a sintaxe SQLite, consulte [SQL como entendido pela SQLite.](https://www.sqlite.org/index.html)
+> Este módulo irá colidir com os dados para o SQLite, que está na memória DB, daí que a execução do módulo requer muito mais memória e pode atingir um `Out of memory` erro. Certifique-se de que o seu computador tem RAM suficiente.
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>Como configurar Aplicar A Transformação SQL  
 
 O módulo pode levar até três conjuntos de dados como entradas. Quando referenciar os conjuntos de dados ligados a cada porta de entrada, deve utilizar os nomes `t1` `t2` , e `t3` . O número da tabela indica o índice da porta de entrada.  
+
+Segue-se o código de amostra para mostrar como juntar duas tabelas. t1 e t2 são dois conjuntos de dados ligados às portas de entrada esquerda e média da **Transformação Do SQL:**
+
+```sql
+SELECT t1.*
+    , t3.Average_Rating
+FROM t1 join
+    (SELECT placeID
+        , AVG(rating) AS Average_Rating
+    FROM t2
+    GROUP BY placeID
+    ) as t3
+on t1.placeID = t3.placeID
+```
   
 O parâmetro restante é uma consulta SQL, que utiliza a sintaxe SQLite. Ao escrever várias linhas na caixa de texto **sql Script,** utilize um ponto e vírgula para terminar cada declaração. Caso contrário, as quebras de linha são convertidas em espaços.  
 

@@ -1,6 +1,6 @@
 ---
-title: Encriptação de dados do Microsoft Azure Microsoft Docs
-description: Este artigo fornece uma visão geral da encriptação de dados do Microsoft Azure em repouso, as capacidades globais e considerações gerais.
+title: Azure Data Encryption-at-Rest - Azure Security
+description: Este artigo fornece uma visão geral da encriptação de dados Azure em repouso, as capacidades globais e considerações gerais.
 services: security
 documentationcenter: na
 author: msmbaldwin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: dafc55656be2d8ef2c0f52d633c7db7eeee83534
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: c9a68661a89f53c5aa27bdd046b5bc09a47db400
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412787"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94556629"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Encriptação de dados inativa do Azure
 
@@ -128,7 +128,7 @@ Todos os serviços de Armazenamento Azure (armazenamento de bolhas, armazenament
 
 A Azure SQL Database suporta atualmente a encriptação em repouso para o lado do serviço gerido pela Microsoft e cenários de encriptação do lado do cliente.
 
-O suporte para encriptação do servidor é atualmente fornecido através da funcionalidade SQL chamada Encriptação de Dados Transparente. Uma vez que um cliente da Base de Dados Azure SQL permite a chave TDE são automaticamente criados e geridos para eles. A encriptação em repouso pode ser ativada nos níveis de base de dados e servidor. A partir de junho de 2017, [a Encriptação de Dados Transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) é ativada por padrão em bases de dados recém-criadas. A Azure SQL Database suporta chaves geridas pelo cliente RSA 2048 no Cofre da Chave Azure. Para obter mais informações, consulte [encriptação de dados transparente com suporte de chave própria para Azure SQL Database and Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql?view=azuresqldb-current).
+O suporte para encriptação do servidor é atualmente fornecido através da funcionalidade SQL chamada Encriptação de Dados Transparente. Uma vez que um cliente da Base de Dados Azure SQL permite a chave TDE são automaticamente criados e geridos para eles. A encriptação em repouso pode ser ativada nos níveis de base de dados e servidor. A partir de junho de 2017, [a Encriptação de Dados Transparente (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) é ativada por padrão em bases de dados recém-criadas. A Azure SQL Database suporta chaves geridas pelo cliente RSA 2048 no Cofre da Chave Azure. Para obter mais informações, consulte [encriptação de dados transparente com suporte de chave própria para Azure SQL Database and Data Warehouse](/sql/relational-databases/security/encryption/transparent-data-encryption-byok-azure-sql).
 
 A encriptação do lado do cliente dos dados da Base de Dados Azure SQL é suportada através da funcionalidade [Always Encrypted.](/sql/relational-databases/security/encryption/always-encrypted-database-engine) Sempre encriptado utiliza uma chave que foi criada e armazenada pelo cliente. Os clientes podem armazenar a chave principal numa loja de certificados Windows, Azure Key Vault ou num Módulo de Segurança de Hardware local. Utilizando o SQL Server Management Studio, os utilizadores do SQL escolhem a chave que gostariam de usar para encriptar qual coluna.
 
@@ -140,3 +140,4 @@ A proteção dos dados dos clientes armazenados nos Serviços Azure é da maior 
 
 - Consulte [os modelos](encryption-models.md) de encriptação de dados para saber mais sobre chaves geridas pelo serviço e chaves geridas pelo cliente.
 - Saiba como o Azure usa [encriptação dupla](double-encryption.md) para mitigar ameaças que vêm com dados encriptadores.
+- Saiba o que a Microsoft faz para garantir a [integridade da plataforma e a segurança](platform.md) dos anfitriões através dos pipelines de construção, integração, operacionalização e reparação de hardware.

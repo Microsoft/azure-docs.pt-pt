@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Implementar modelos ML com o designer'
 titleSuffix: Azure Machine Learning
-description: Este tutorial mostra-lhe como construir uma solução de análise preditiva no designer de Aprendizagem automática Azure. Treine, marque e implemente um modelo de aprendizagem automática utilizando módulos de arrasto e queda.
+description: Construa uma solução de análise preditiva no designer de Aprendizagem automática Azure. Treine, marque e implemente um modelo de aprendizagem automática utilizando módulos de arrasto e queda.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 95e5b3ac568cfa370fd1e49fad990b681aef46d9
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 31b742144bfb20af14cf6f5e95f5dfc951845ee2
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92311522"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555520"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implementar um modelo de machine learning com o designer
 
@@ -40,7 +40,7 @@ Para implantar o seu oleoduto, tem primeiro de converter o gasoduto de treino nu
 
 ### <a name="create-a-real-time-inference-pipeline"></a>Criar um pipeline de inferência em tempo real
 
-1. Acima da tela do gasoduto, **selecione Criar o gasoduto**de  >  **inferência em tempo real**.
+1. Acima da tela do gasoduto, **selecione Criar o gasoduto** de  >  **inferência em tempo real**.
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Screenshot mostrando onde encontrar o botão de pipeline criar":::
 
@@ -59,7 +59,7 @@ Para implantar o seu oleoduto, tem primeiro de converter o gasoduto de treino nu
     > Por predefinição, a Entrada de **Serviço Web** espera o mesmo esquema de dados que os dados de treino utilizados para criar o pipeline preditivo. Neste cenário, o preço está incluído no esquema. No entanto, o preço não é usado como um fator durante a previsão.
     >
 
-1. **Selecione Enviar**, e use o mesmo alvo de cálculo e experimente que usou na primeira parte.
+1. **Selecione Enviar** , e use o mesmo alvo de cálculo e experimente que usou na primeira parte.
 
     Se esta for a primeira corrida, pode levar até 20 minutos para o seu oleoduto terminar de funcionar. As definições de computação padrão têm um tamanho mínimo de nó de 0, o que significa que o designer deve alocar recursos depois de estar inativo. As repetidas operações de gasoduto levarão menos tempo, uma vez que os recursos de computação já estão atribuídos. Além disso, o designer utiliza resultados em cache para cada módulo para melhorar ainda mais a eficiência.
 
@@ -99,7 +99,7 @@ Depois de o seu serviço AKS ter terminado o fornecimento, volte ao gasoduto de 
 
 1. Selecione **Implementar**.
     
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot mostrando onde encontrar o botão de pipeline criar":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Screenshot mostrando como configurar um novo ponto final em tempo real":::
 
     Uma notificação de sucesso acima da tela aparece após o fim da implantação. Pode levar alguns minutos.
 
@@ -115,7 +115,7 @@ Após o fim da implementação, pode ver o seu ponto de chegada em tempo real in
 
 Para obter mais informações sobre o consumo do seu serviço web, consulte [Consumir um modelo implementado como um webservice](how-to-consume-web-service.md)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 

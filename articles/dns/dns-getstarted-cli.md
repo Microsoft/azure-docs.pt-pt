@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7d02095bbe3326209cff6b4e99858b2598c7a914
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 1929cd512d18d7fd234aff1f55814c423455e63b
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282230"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94561374"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Início Rápido: criar uma zona DNS do Azure e registar com a CLI do Azure
 
@@ -24,14 +24,11 @@ Uma zona DNS é utilizada para alojar os registos DNS para um determinado domín
 
 O Azure DNS também suporta zonas privadas de DNS. Para saber mais sobre zonas DNS privadas, veja [Utilizar o DNS do Azure para domínios privados](private-dns-overview.md). Para obter um exemplo de como criar uma zona DNS privada, veja [Começar a utilizar zonas privadas do DNS do Azure com a CLI](./private-dns-getstarted-cli.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- [Versão Azure CLI 2.0.4 ou posterior](/cli/azure/install-azure-cli) (se executar a Azure CLI localmente).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+- Este artigo requer a versão 2.0.4 ou posterior do Azure CLI. Se utilizar o Azure Cloud Shell, a versão mais recente já está instalada.
 
 ## <a name="create-the-resource-group"></a>Criar o grupo de recursos
 
@@ -99,9 +96,9 @@ Agora que tem uma zona de DNS de teste com um registo de teste 'A', pode testar 
 
    ![A screenshot mostra uma janela de pedido de comando com um comando de procura n s e valores para Servidor, Endereço, Nome e Endereço.](media/dns-getstarted-portal/nslookup.PNG)
 
-O nome de anfitrião **www \. contoso.xyz** resolve para **10.10.10.10**, tal como o configuraste. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
+O nome de anfitrião **www \. contoso.xyz** resolve para **10.10.10.10** , tal como o configuraste. Este resultado verifica que a resolução de nomes está a funcionar corretamente.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando já não forem necessários, pode eliminar todos os recursos criados neste Início Rápido ao eliminar o grupo de recursos:
 

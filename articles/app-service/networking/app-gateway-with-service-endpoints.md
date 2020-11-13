@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: dbf38c303f024884971e95f7be9d4dfc50d118de
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 954e94063ec91cd2a6d67d154dfd7da553e0935a
+ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127829"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94560898"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integração de Gateway de Aplicação com pontos finais de serviço
 Existem três variações do Serviço de Aplicações que requerem uma configuração ligeiramente diferente da integração com o Azure Application Gateway. As variações incluem o Serviço regular de Aplicações - também conhecido como multi-inquilino, Internal Load Balancer (ILB) App Service Environment (ASE) e ASE Externo. Este artigo irá percorrer como configurá-lo com o App Service (multi-inquilino) e discutir considerações sobre iLB, e ASE Externo.
@@ -36,7 +36,7 @@ Com o portal Azure, segue quatro passos para a disposição e configuração da 
 1. Criar um Serviço de Aplicações utilizando um dos Quickstarts na documentação do Serviço de Aplicações, por [exemplo.Net Core Quickstart](../quickstart-dotnetcore.md)
 2. Crie um Gateway de Aplicação utilizando o [portal Quickstart,](../../application-gateway/quick-create-portal.md)mas ignore a secção de alvos de backend Add.
 3. Configure o [Serviço de Aplicações como backend no Gateway de Aplicações,](../../application-gateway/configure-web-app-portal.md)mas ignore a secção de acesso Restrict.
-4. Finalmente criar a restrição de [acesso utilizando pontos finais de serviço](../../app-service/app-service-ip-restrictions.md#service-endpoints).
+4. Finalmente criar a restrição de [acesso utilizando pontos finais de serviço](../../app-service/app-service-ip-restrictions.md#use-service-endpoints).
 
 Agora pode aceder ao Serviço de Aplicações através do Application Gateway, mas se tentar aceder diretamente ao Serviço de Aplicações, deverá receber um erro 403 HTTP indicando que o site está parado.
 
