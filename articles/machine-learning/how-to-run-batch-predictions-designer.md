@@ -1,7 +1,7 @@
 ---
 title: Executar previsões de lote usando O designer de aprendizagem de máquinas Azure
 titleSuffix: Azure Machine Learning
-description: Aprenda a treinar um modelo e crie um pipeline de previsão de lote utilizando o designer. Implemente o oleoduto como um serviço web parametrizado, que pode ser acionado a partir de qualquer biblioteca HTTP.
+description: Aprenda a criar um pipeline de previsão de lote. Implemente o gasoduto como um serviço web parametrizado e desencadeie-o a partir de qualquer biblioteca HTTP.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2ef125f65e13f7a9fa756553b1de148d4849babc
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325452"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553951"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Executar previsões de lote usando O designer de aprendizagem de máquinas Azure
 

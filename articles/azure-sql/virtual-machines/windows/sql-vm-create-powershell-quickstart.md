@@ -13,12 +13,12 @@ ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: fcb6d4da3d9b044cf722c6333f61a0f8d38f1956
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: a4c8f0c636e254c4afc2d6cd83a744939096233a
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91598007"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553629"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Quickstart: Criar o SQL Server numa máquina virtual do Windows com Azure PowerShell
 
@@ -150,9 +150,9 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 
 ## <a name="register-with-sql-vm-rp"></a>Registo com Fornecedor de Recursos da VM do SQL 
 
-Para obter a integração do portal e as funcionalidades SQL VM, tem de se registar com o [fornecedor de recursos SQL VM.](sql-vm-resource-provider-register.md)
+Para obter a integração do portal e as funcionalidades SQL VM, tem de se registar com a [extensão sql IaaS Agent](sql-agent-extension-manually-register-single-vm.md).
 
-Para obter a funcionalidade completa, terá de se registar com o fornecedor de recursos em pleno modo. No entanto, ao fazê-lo reinicia o serviço SQL Server, pelo que a abordagem recomendada é registar-se em modo leve e, em seguida, atualizar para a totalidade durante uma janela de manutenção. 
+Para obter a funcionalidade completa, terá de se registar com a extensão em pleno modo. No entanto, ao fazê-lo reinicia o serviço SQL Server, pelo que a abordagem recomendada é registar-se em modo leve e, em seguida, atualizar para a totalidade durante uma janela de manutenção. 
 
 Primeiro, registe o seu SQL Server VM no modo leve: 
 
@@ -171,7 +171,7 @@ Em seguida, durante uma janela de manutenção, atualize para o modo completo:
 # Get the existing Compute VM
 $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
       
-# Register with SQL VM resource provider in full mode
+# Register with SQL IaaS Agent extension in full mode
 Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
 ```
 
@@ -197,7 +197,7 @@ Update-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManag
 
 1. Depois de iniciar sessão no Remote Desktop, lance o **SQL Server Management Studio 2017** a partir do menu inicial.
 
-1. Na caixa de diálogo **'Ligar ao Servidor',** mantenha as predefinições. O nome do servidor é o nome da VM. A autenticação está definida como **Autenticação do Windows**. Selecione **Ligar**.
+1. Na caixa de diálogo **'Ligar ao Servidor',** mantenha as predefinições. O nome do servidor é o nome da VM. A autenticação está definida como **Autenticação do Windows**. Selecione **Connect** (Ligar).
 
 Está agora ligado ao SQL Server localmente. Se pretender ligar-se remotamente, tem de [configurar a conectividade](ways-to-connect-to-sql.md) a partir do portal Azure ou manualmente.
 

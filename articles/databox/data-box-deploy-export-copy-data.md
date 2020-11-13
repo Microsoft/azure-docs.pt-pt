@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/10/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: fb1415874c42e3913d98d4a674732a4d9b98a0c5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ecc6e1e1a543f3190e9f73512ca0b9ae45cc3fe9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123913"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335218"
 ---
 # <a name="tutorial-copy-data-from-azure-data-box-via-smb-preview"></a>Tutorial: Copiar dados do Azure Data Box via SMB (Pré-visualização)
 
@@ -54,9 +54,9 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
 
 2. Na caixa de diálogo Aceder à partilha e copiar os dados, copie o **Nome de utilizador** e a **Palavra-passe** correspondentes à partilha. Selecione **OK**.
     
-    ![Obter credenciais de partilhas 2](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
+    ![Obter credenciais de partilha, aceder à partilha e copiar dados](media/data-box-deploy-export-copy-data/get-share-credentials-2.png)
 
-3. Para aceder às partilhas associadas à conta de armazenamento (*exportbvtdataset2* no exemplo seguinte) a partir do computador anfitrião, abra uma janela de comandos. Na linha de comandos, escreva:
+3. Para aceder às partilhas associadas à conta de armazenamento ( *exportbvtdataset2* no exemplo seguinte) a partir do computador anfitrião, abra uma janela de comandos. Na linha de comandos, escreva:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -73,13 +73,13 @@ Se estiver a utilizar um computador anfitrião do Windows Server, execute estes 
     The command completed successfully.
     ```
 
-4. Prima Windows + R. Na janela **Executar**, especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Ficheiros.
+5. Prima Windows + R. Na janela **Executar** , especifique o `\\<device IP address>`. Selecione **OK** para abrir o Explorador de Ficheiros.
     
-    ![Ligar à partilha através do Explorador de Ficheiros](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
+    ![Ligar à partilha através do Explorador de Ficheiros e introduzir o IP do dispositivo](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-1.png)
 
     Agora deve conseguir ver as partilhas como pastas.
     
-    ![Ligar à partilha através do Explorador de Ficheiros 2](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
+    ![Ligar à partilha através do Explorador de Ficheiros e ver as partilhas](media/data-box-deploy-export-copy-data/connect-shares-file-explorer-2.png)
 
     
 Se estiver a utilizar um cliente Linux, utilize o comando a seguir para montar a partilha SMB. O parâmetro “vers” abaixo é a versão do SMB compatível com o sistema anfitrião Linux. Ligue a versão apropriada no comando a seguir. Para as versões do SMB compatíveis com o Data Box, veja a secção [Sistemas de ficheiros suportados pelos clientes Linux](./data-box-system-requirements.md#supported-file-transfer-protocols-for-clients) 

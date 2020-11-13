@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: quickstart
 ms.date: 09/28/2020
 ms.author: lcozzens
-ms.openlocfilehash: 866f1c404df2de87c2b3ce58b791ceb5257fca1b
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 88481346f22176b8e307b53774b42d753838f90b
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074452"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554828"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Quickstart: Adicione bandeiras de recurso a uma aplicação core ASP.NET
 
@@ -29,7 +29,7 @@ As bibliotecas de Gestão de Recursos Centrais .NET alargam o quadro com suporte
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-8. Selecione **Operations**  >  **Gestor de Funcionalidades de**Operações  >  **Adicione** para adicionar uma bandeira de recurso chamada *Beta*.
+8. Selecione **Operations**  >  **Gestor de Funcionalidades de** Operações  >  **Adicione** para adicionar uma bandeira de recurso chamada *Beta*.
 
     > [!div class="mx-imgBorder"]
     > ![Ativar a bandeira de recurso chamada Beta](media/add-beta-feature-flag.png)
@@ -106,9 +106,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    Com a alteração anterior, o [fornecedor de configuração para configuração de aplicações](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) foi registado na API de Configuração de Núcleo .NET.
+    Com a alteração anterior, o [fornecedor de configuração para configuração de aplicações](https://go.microsoft.com/fwlink/?linkid=2074664) foi registado na API de Configuração de Núcleo .NET.
 
-1. Em *Startup.cs*, adicione uma referência ao gestor de recurso .NET Core:
+1. Em *Startup.cs* , adicione uma referência ao gestor de recurso .NET Core:
 
     ```csharp
     using Microsoft.FeatureManagement;
@@ -181,36 +181,9 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     O código anterior permite que o `<feature>` Tag Helper seja utilizado nos *ficheiros .cshtml* do projeto.
 
-1. Em *Views/Shared/_Layout.cshtml*, substitua o `<nav>` código de barras por baixo da seguinte `<body>`  >  `<header>` marcação:
+1. Abra *_Layout.cshtml* no *diretório views* \\ *shared.* Localize o `<nav>` código de barras em `<body>`  >  `<header>` . Insira uma nova `<feature>` etiqueta entre os itens de navegação *Home* e *Privacy,* como mostram as linhas abaixo destacadas.
 
-    ```cshtml
-    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-        <div class="container">
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">TestFeatureFlags</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <feature name="Beta">
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Beta" asp-action="Index">Beta</a>
-                    </li>
-                    </feature>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    ```
-
-    Na marcação anterior, note o `<feature>` Ajudante de Marca que rodeia o item da lista *Beta.*
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
 1. Criar um *diretório De Pontos/Beta* e um ficheiro *Index.cshtml* contendo a seguinte marcação:
 
@@ -244,15 +217,17 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-before.png" alt-text="App local de arranque rápido antes de mudar" border="true":::
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos**e selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
+1. Inicie sessão no [portal do Azure](https://portal.azure.com). Selecione **Todos os recursos** e selecione a instância da loja de Configuração de Aplicações que criou no arranque rápido.
 
-1. Selecione **O Gestor de Funcionalidades**e altere o estado da tecla *Beta* para **On**.
+1. Selecione **O Gestor de Recursos**. 
+
+1. Ativar a bandeira *Beta* selecionando a caixa de verificação em **Enabled**.
 
 1. Volte para a concha de comando. Cancelar o processo de funcionamento `dotnet` pressionando <kbd>ctrl+C</kbd>. Reinicie a sua aplicação utilizando `dotnet run` .
 
 1. Refresque a página do navegador para ver as novas definições de configuração.
 
-    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="App local de arranque rápido antes de mudar" border="true":::
+    :::image type="content" source="media/quickstarts/aspnet-core-feature-flag-local-after.png" alt-text="App local quickstart após mudança" border="true":::
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
@@ -260,7 +235,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a para gerir funcionalidades numa aplicação web core ASP.NET através das [bibliotecas de Gestão de Recursos.](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration)
+Neste quickstart, criou uma nova loja de Configuração de Aplicações e utilizou-a para gerir funcionalidades numa aplicação web core ASP.NET através das [bibliotecas de Gestão de Recursos.](https://go.microsoft.com/fwlink/?linkid=2074664)
 
 * Saiba mais sobre [gestão de recursos.](./concept-feature-management.md)
 * [Gerir bandeiras de características](./manage-feature-flags.md).

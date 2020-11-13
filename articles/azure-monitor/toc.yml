@@ -180,6 +180,21 @@
               href: app/pricing.md
             - name: Registar utilização e custos de dados
               href: platform/manage-cost-storage.md
+    - name: Métricas do Azure Monitor
+      items:
+        - name: Descrição geral
+          displayname: Metrics
+          href: platform/data-platform-metrics.md
+        - name: Explorador de Métricas
+          items:
+            - name: Introdução ao Explorador de Métricas
+              href: platform/metrics-getting-started.md
+            - name: Funcionalidades avançadas do Explorador de Métricas
+              href: platform/metrics-charts.md
+            - name: Exemplos de gráficos de métricas
+              href: platform/metric-chart-samples.md
+            - name: Resolução de problemas de gráficos de métricas
+              href: platform/metrics-troubleshoot.md
     - name: Registos do Azure Monitor
       items:
         - name: Descrição geral
@@ -262,21 +277,10 @@
               href: platform/logs-export-logic-app.md
             - name: Consultar dados exportados com o Data Explorer
               href: platform/azure-data-explorer-query-storage.md
-    - name: Métricas do Azure Monitor
-      items:
-        - name: Descrição geral
-          displayname: Metrics
-          href: platform/data-platform-metrics.md
-        - name: Explorador de Métricas
-          items:
-            - name: Introdução ao Explorador de Métricas
-              href: platform/metrics-getting-started.md
-            - name: Funcionalidades avançadas do Explorador de Métricas
-              href: platform/metrics-charts.md
-            - name: Exemplos de gráficos de métricas
-              href: platform/metric-chart-samples.md
-            - name: Resolução de problemas de gráficos de métricas
-              href: platform/metrics-troubleshoot.md
+            - name: Enviar para o Excel
+              href: log-query/log-excel.md
+            - name: Enviar para o Power BI
+              href: log-query/log-powerbi.md
     - name: Registos da plataforma
       items:
         - name: Descrição geral
@@ -575,12 +579,16 @@
                   displayname: 'ilogger, logging, log'
                   href: app/ilogger.md
             - name: ASP.NET
-              displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
-              href: app/asp-net.md
-            - name: Aplicações não HTTP/Aplicações de fundo
+              items:
+                - name: Monitorização de Aplicações ASP.NET
+                  displayname: 'ASP.NET, c#, csharp, .NET, NET, dotnet'
+                  href: app/asp-net.md
+                - name: Resolver problemas de ASP.NET
+                  href: app/asp-net-troubleshoot-no-data.md
+            - name: Aplicações não HTTP/de fundo
               displayname: 'console, .NET, .NET Core, dotnet console, dotnet, c#, csharp, NET, worker, background, generic host'
               href: app/worker-service.md
-            - name: Consola .NET
+            - name: Consola ASP.NET
               displayname: 'console, .NET, dotnet console, dotnet, c#, csharp, NET'
               href: app/console.md
             - name: Java
@@ -590,18 +598,10 @@
                   href: app/java-get-started.md
                 - name: Rastreios de pedido
                   href: app/java-trace-logs.md
-                - name: Métricas do Unix
-                  href: app/java-collectd.md
                 - name: Dependências
                   href: app/java-agent.md
                 - name: Filtrar telemetria
                   href: app/java-filter-telemetry.md
-                - name: Métricas do Micrometer
-                  displayname: java
-                  href: app/micrometer-java.md
-                - name: Aplicação Spring Boot
-                  displayname: java
-                  href: /java/azure/spring-framework/configure-spring-boot-java-applicationinsights
                 - name: Resolução de problemas
                   href: app/java-troubleshoot.md
             - name: Node.js
@@ -637,8 +637,6 @@
             - name: Resumo da API do Application Insights
               displayname: 'SDK, API, custom events, custom metrics, trackevent,trackmetric, getmetric, trackrequest, trackexception, tracktrace, trackdependency'
               href: app/api-custom-events-metrics.md
-            - name: Resolver problemas de ASP.NET
-              href: app/asp-net-troubleshoot-no-data.md
             - name: Remover o Application Insights
               href: app/remove-application-insights.md
         - name: Monitorização sem código
@@ -1241,6 +1239,8 @@
               href: app/release-notes.md
             - name: Extensão de aplicação Web
               href: app/web-app-extension-release-notes.md
+            - name: Depurador de Instantâneos
+              href: app/snapshot-collector-release-notes.md
         - name: Modelo de dados
           items:
             - name: Descrição geral
@@ -1323,6 +1323,11 @@
           href: platform/resource-logs-blob-format.md
         - name: Análise do Key Vault (preterido)
           href: insights/azure-key-vault-deprecated.md
+        - name: Métricas do Unix
+          href: app/java-collectd.md
+        - name: Métricas do Micrometer
+          displayname: java
+          href: app/micrometer-java.md
         - name: Vistas
           items:
             - name: Estruturador de Vista

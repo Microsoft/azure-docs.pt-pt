@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: ce3174516d8046df53b5290bcfeea03756937129
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 26ac1714330bba06c01d33b47105f04c600c7729
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201533"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94555112"
 ---
 # <a name="color-materials"></a>Materiais de cor
 
@@ -22,7 +22,7 @@ Os materiais de cor são mais eficientes para renderizar do que [os materiais PB
 
 Estas propriedades são comuns a todos os materiais:
 
-* **albedoColor:** Esta cor é multiplicada com outras cores, como o *albedoMap* ou * :::no-loc text="vertex"::: as cores.* Se *a transparência* for ativada num material, o canal alfa é utilizado para ajustar a opacidade, com significado totalmente `1` opaco e `0` significado totalmente transparente. O padrão é branco.
+* **albedoColor:** Esta cor é multiplicada com outras cores, como o *albedoMap* ou *:::no-loc text="vertex"::: as cores.* Se *a transparência* for ativada num material, o canal alfa é utilizado para ajustar a opacidade, com significado totalmente `1` opaco e `0` significado totalmente transparente. O padrão é branco.
 
   > [!NOTE]
   > Como os materiais de cor não refletem o ambiente, um material de cor totalmente transparente torna-se invisível. Isto é diferente para [materiais PBR.](pbr-materials.md)
@@ -38,6 +38,12 @@ Estas propriedades são comuns a todos os materiais:
 * **isDoubleSided:** Se a dupla faceta for verdadeira, os triângulos com este material são renderizados mesmo que a câmara esteja a olhar para as suas faces traseiras. Por predefinição, esta opção é desativada. Ver também [ :::no-loc text="Single-sided"::: renderização.](single-sided-rendering.md)
 
 * **TransparênciaDesseepth:** Se a bandeira TransparencyWritesDepth for colocada no material e o material for transparente, os objetos que utilizam este material também contribuirão para o tampão de profundidade final. Consulte a transparência da propriedade do material *de corMode* na secção seguinte. Para ativar esta funcionalidade é recomendado se o seu caso de utilização necessitar de uma [reprojecção tardia](late-stage-reprojection.md) mais plausível de cenas totalmente transparentes. Para cenas opacas/transparentes mistas, este cenário pode introduzir comportamentos de reprojecção implausíveis ou artefactos de reprojecção. Por esta razão, a definição predefinida e recomendada para o caso de utilização geral é para desativar esta bandeira. Os valores de profundidade escrita são retirados da camada de profundidade por pixel do objeto mais próximo da câmara.
+
+* **FresnelEffect:** Esta bandeira de material permite o [efeito fresnel](../../overview/features/fresnel-effect.md) aditivo no respetivo material. O aparecimento do efeito rege-se pelos outros parâmetros do fresnel explicados no seguinte. 
+
+* **FresnelEffectColor:** A cor fresnel usada para este material. Só é importante quando o efeito fresnel tiver sido definido neste material (ver acima). Esta propriedade controla a cor base do brilho do fresnel (ver [efeito fresnel](../../overview/features/fresnel-effect.md) para uma explicação completa). Atualmente apenas os valores do canal rgb são importantes e o valor alfa será ignorado.
+
+* **FresnelEffectExponent:** O expoente fresnel usado para este material. Só é importante quando o efeito fresnel tiver sido definido neste material (ver acima). Esta propriedade controla a propagação do brilho do fresnel. O valor mínimo 0.01 causa uma propagação em todo o objeto. O valor máximo de 10.0 limita o brilho apenas às arestas mais brilhantes visíveis.
 
 ## <a name="color-material-properties"></a>Propriedades de materiais de cor
 

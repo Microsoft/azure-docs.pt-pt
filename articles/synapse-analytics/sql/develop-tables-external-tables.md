@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: a5a958228d79c86550604109d7aaf19e68593a57
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a9f58a9cdf8dea9631443d499548f2aee61eda69
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314960"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553680"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Utilize tabelas externas com Sinapse SQL
 
@@ -22,7 +22,7 @@ Uma tabela externa aponta para dados localizados em Hadoop, Azure Storage blob, 
 
 ## <a name="external-tables-in-dedicated-sql-pool-and-serverless-sql-pool"></a>Mesas externas em piscina SQL dedicada e piscina SQL sem servidor
 
-### <a name="dedicated-sql-pool"></a>[Piscina SQL dedicada](#tab/sql-pool) 
+### <a name="dedicated-sql-pool"></a>[Conjunto de SQL dedicado](#tab/sql-pool) 
 
 Na piscina SQL dedicada, você pode usar uma mesa externa para:
 
@@ -64,7 +64,7 @@ Fontes de dados externas são usadas para se ligarem a contas de armazenamento. 
 
 ### <a name="syntax-for-create-external-data-source"></a>Sintaxe para criar fonte de dados externos
 
-#### <a name="dedicated-sql-pool"></a>[Piscina SQL dedicada](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Conjunto de SQL dedicado](#tab/sql-pool)
 
 ```syntaxsql
 CREATE EXTERNAL DATA SOURCE <data_source_name>
@@ -119,7 +119,7 @@ TYPE = `HADOOP` é a opção obrigatória na piscina DE SQL dedicada e especific
 
 ### <a name="example-for-create-external-data-source"></a>Exemplo para CRIAR FONTE DE DADOS EXTERNA
 
-#### <a name="dedicated-sql-pool"></a>[Piscina SQL dedicada](#tab/sql-pool)
+#### <a name="dedicated-sql-pool"></a>[Conjunto de SQL dedicado](#tab/sql-pool)
 
 O exemplo a seguir cria uma fonte de dados externa para o Azure Data Lake Gen2 que aponta para o conjunto de dados de Nova Iorque:
 
@@ -388,8 +388,6 @@ Utilizando as capacidades de exploração do Data Lake, pode agora criar e consu
 - Tem de ter acesso ao espaço de trabalho com, pelo menos, a função de acesso arm-contribuinte de dados de armazenamento à Conta ADLS Gen2
 
 - Você deve ter pelo menos [permissões para criar](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) e consultar mesas externas na piscina SQL ou SQL OD
-
-- O serviço ligado associado à Conta ADLS Gen2 **deve ter acesso ao ficheiro.** Por exemplo, se o mecanismo de autenticação do serviço ligado for identidade gerida, o espaço de trabalho Identidade Gerida deve ter pelo menos permissão do leitor blob de armazenamento na conta de armazenamento
 
 A partir do painel de dados, selecione o ficheiro que pretende criar a tabela externa a partir de:
 > [!div class="mx-imgBorder"]

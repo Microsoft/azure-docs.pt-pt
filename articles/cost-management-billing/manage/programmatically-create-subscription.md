@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.reviewer: andalmia
 ms.author: banders
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 7b44abbbf2e7592205d5d5c291ce99d381a283f7
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: de93d96085269c2cc8fcf6c18d7e6643facfcaa4
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043282"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372715"
 ---
 # <a name="programmatically-create-azure-subscriptions-with-the-latest-apis"></a>Criar subscrições do Azure através de programação com as APIs mais recentes
 
@@ -798,7 +798,15 @@ Pode criar subscrições no seu modelo do Azure Resource Manager, o que lhe perm
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Tem de ter uma função de proprietário, contribuidor ou criador de subscrição do Azure numa secção da fatura ou uma função de proprietário ou contribuidor num perfil de faturação ou numa conta de faturação para criar subscrições. Para obter mais informações, veja [Tarefas e funções da faturação da subscrição](understand-mca-roles.md#subscription-billing-roles-and-tasks).
+Para criar subscrições, tem de ter uma das funções abaixo: 
+
+- Proprietário de Subscrição do Azure numa Secção de Fatura
+- Contribuidor de Subscrição do Azure numa Secção de Fatura
+- Criador de Subscrição do Azure numa Secção de Fatura
+- Proprietário de Subscrição do Azure num Perfil ou Conta de Faturação
+- Contribuidor de Subscrição do Azure num Perfil ou Conta de Faturação
+
+ Para obter mais informações, veja [Tarefas e funções da faturação da subscrição](understand-mca-roles.md#subscription-billing-roles-and-tasks).
 
 Além disso, como está a fazer uma implementação de modelo do Resource Manager, precisa de ter permissões de escrita no objeto raiz. Assim, se estiver a criar a implementação do ARM num grupo de gestão, precisa de ter permissões de escrita no grupo de gestão. Repare que a ação é simplesmente criar uma implementação do ARM. Se for criada uma subscrição, esta será criada apenas no grupo de gestão especificado no modelo do Resource Manager.
 

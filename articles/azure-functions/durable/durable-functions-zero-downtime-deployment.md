@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c96f2cc37c47c77b82ca86d5fd0295f0c66a896
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87093073"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553697"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementação de tempo de inatividade zero para funções duradouras
 
@@ -54,7 +54,7 @@ Utilize o seguinte procedimento para configurar este cenário.
 
 1. Para cada slot, crie uma nova configuração de aplicações, por exemplo, `DurableManagementStorage` . Desa couuser o seu valor à cadeia de ligação de diferentes contas de armazenamento. Estas contas de armazenamento são utilizadas pela extensão funções duráveis para [uma execução fiável](./durable-functions-orchestrations.md). Utilize uma conta de armazenamento separada para cada ranhura. Não marque esta definição como uma definição de ranhura de implantação.
 
-1. Nahost.jsda sua aplicação de função [ na secção DuraableTask do ficheiro](durable-functions-bindings.md#hostjson-settings), especifique como o nome da `azureStorageConnectionStringName` definição de aplicação que criou no passo 3.
+1. Nahost.jsda sua aplicação de função [ na secção duraableTask do ficheiro,](durable-functions-bindings.md#hostjson-settings)especifique `connectionStringName` (Durable 2.x) ou `azureStorageConnectionStringName` (Durable 1.x) como o nome da definição de aplicação que criou no passo 3.
 
 O diagrama seguinte mostra a configuração descrita de slots de implantação e contas de armazenamento. Neste cenário de pré-desafectação potencial, a versão 2 de uma aplicação de função encontra-se em execução na ranhura de produção, enquanto a versão 1 permanece na ranhura de preparação.
 
@@ -71,7 +71,10 @@ Os seguintes fragmentos JSON são exemplos da definição da cadeia de ligação
   "version": 2.0,
   "extensions": {
     "durableTask": {
-      "azureStorageConnectionStringName": "DurableManagementStorage"
+      "hubName": "MyTaskHub",
+      "storageProvider": {
+        "connectionStringName": "DurableManagementStorage"
+      }
     }
   }
 }

@@ -1,30 +1,31 @@
 ---
-title: Utilize filtros de funcionalidades para permitir uma funcionalidade para um subconjunto de utilizadores
+title: Utilize filtros de funcionalidades para permitir bandeiras de características condicionais
 titleSuffix: Azure App Configuration
-description: Saiba como utilizar filtros de funcionalidades para permitir uma funcionalidade para um subconjunto de utilizadores
+description: Saiba como utilizar filtros de funcionalidades para permitir bandeiras de características condicionais
 ms.service: azure-app-configuration
 ms.custom: devx-track-csharp
 author: lisaguthrie
 ms.author: lcozzens
 ms.topic: conceptual
 ms.date: 3/9/2020
-ms.openlocfilehash: 5b2eb942581f6e4163012b0f767d04c02689bb7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af8df66e02dc9316311f36dec60374a7c4e649b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88206767"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554769"
 ---
-# <a name="use-feature-filters-to-enable-a-feature-for-a-subset-of-users"></a>Utilize filtros de funcionalidades para permitir uma funcionalidade para um subconjunto de utilizadores
+# <a name="use-feature-filters-to-enable-conditional-feature-flags"></a>Utilize filtros de funcionalidades para permitir bandeiras de características condicionais
 
 As bandeiras de funcionalidade permitem ativar ou desativar a funcionalidade na sua aplicação. Uma simples bandeira de recurso está dentro ou fora. A aplicação comporta-se sempre da mesma forma. Por exemplo, pode lançar uma nova funcionalidade por trás de uma bandeira de recurso. Quando a bandeira da funcionalidade está ativada, todos os utilizadores vêem a nova funcionalidade. Desativar a bandeira de recurso esconde a nova funcionalidade.
 
 Em contrapartida, uma _bandeira de característica_ condicional permite que a bandeira de características seja ativada ou desativada de forma dinâmica. A aplicação pode comportar-se de forma diferente, dependendo dos critérios de bandeira de características. Suponha que pretenda mostrar a sua nova funcionalidade a um pequeno subconjunto de utilizadores no início. Uma bandeira de funcionalidade condicional permite-lhe ativar a bandeira da funcionalidade para alguns utilizadores, desativando-a para outros. _Os filtros de recurso_ determinam o estado da bandeira de recurso cada vez que é avaliado.
 
-A `Microsoft.FeatureManagement` biblioteca inclui dois filtros de características:
+A `Microsoft.FeatureManagement` biblioteca inclui três filtros de características:
 
 - `PercentageFilter` permite a bandeira de recurso com base numa percentagem.
 - `TimeWindowFilter` permite a bandeira de recurso durante uma janela de tempo especificada.
+- `TargetingFilter` permite a bandeira de funcionalidade para utilizadores e grupos especificados.
 
 Também pode criar o seu próprio filtro de funcionalidades que implementa a [interface Microsoft.FeatureManagement.IFeatureFilter](/dotnet/api/microsoft.featuremanagement.ifeaturefilter).
 
@@ -48,7 +49,7 @@ Pode configurar estas definições para bandeiras de funcionalidades definidas n
 
 1. Siga as instruções em [Quickstart: Adicione bandeiras de funcionalidades a uma aplicação Core ASP.NET](./quickstart-feature-flag-aspnet-core.md) para criar uma aplicação web com uma bandeira de recurso.
 
-1. No portal Azure, vá à sua loja de configuração e clique em **'Feature Manager'.**
+1. No portal Azure, vá à sua loja de configuração e clique em **Feature Manager**.
 
 1. Clique no menu de contexto para a bandeira de funcionalidade *Beta* que criou no arranque rápido. Clique em **Editar**.
 
@@ -84,9 +85,9 @@ Pode configurar estas definições para bandeiras de funcionalidades definidas n
 Para ver os efeitos desta bandeira de funcionalidade, lance a aplicação e acerte o botão **Refresh** no seu navegador várias vezes. Verá que o item *Beta* aparece na barra de ferramentas cerca de 50% das vezes. Está escondido o resto do tempo, porque a `PercentageFilter` funcionalidade *Beta* desativa para um subconjunto de pedidos. O vídeo que se segue mostra este comportamento em ação.
 
 > [!div class="mx-imgBorder"]
-> ![PercentagemFiltro em ação](./media/feature-flags-percentagefilter.gif)
+> ![DireccionamentoFiltro em ação](./media/feature-flags-percentagefilter.gif)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Visão geral da gestão de recursos](./concept-feature-management.md)
+> [Ativar o lançamento encenado de funcionalidades para públicos direcionados](./howto-targetingfilter-aspnet-core.md)

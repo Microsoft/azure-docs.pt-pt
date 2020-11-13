@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: dd816ebcf2a40e6a0b7febcc3fe5c1006dac20bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e35c408d2e0ec2954ffdcbbce47f98ac49b16b8
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209953"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554704"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>Tutorial: Gerir bandeiras de recurso na Configuração da App Azure
 
@@ -50,12 +50,13 @@ Para adicionar uma nova bandeira de recurso:
 
     ![Criação de bandeira de recurso](./media/azure-app-configuration-feature-flag-create.png)
 
-1. Quando o estado estiver *ligado*, selecione **+Adicione o filtro** para especificar quaisquer condições adicionais para qualificar o estado. Introduza uma tecla de filtro incorporada ou personalizada e, em seguida, selecione **+Adicione o parâmetro** para associar um ou mais parâmetros com o filtro. Os filtros incorporados incluem:
+1. Quando o estado estiver *ligado* , selecione **+Adicione o filtro** para especificar quaisquer condições adicionais para qualificar o estado. Introduza uma tecla de filtro incorporada ou personalizada e, em seguida, selecione **+Adicione o parâmetro** para associar um ou mais parâmetros com o filtro. Os filtros incorporados incluem:
 
     | Chave | Parâmetros JSON |
     |---|---|
     | Microsoft.Percentagem | {"Valor": 0-100 por cento} |
     | Microsoft.TimeWindow | {"Start": tempo UTC, "Fim": tempo UTC} |
+    | Microsoft.Targeting | { "Público": bolha JSON que define utilizadores, grupos e percentagens de lançamento. Veja um exemplo sob o `EnabledFor` elemento deste ficheiro de [definições](https://github.com/microsoft/FeatureManagement-Dotnet/blob/master/examples/FeatureFlagDemo/appsettings.json) }
 
     ![Filtro de bandeira de recurso](./media/azure-app-configuration-feature-flag-filter.png)
 

@@ -1,32 +1,30 @@
 ---
 title: Azure Service Bus - navegação de mensagens
-description: Navegue e espreite as mensagens Service Bus permite que um cliente da Azure Service Bus enumerou todas as mensagens que residem numa fila ou subscrição.
+description: Navegue e espreite as mensagens Service Bus permite que um cliente da Azure Service Bus enumere todas as mensagens numa fila ou subscrição.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 6e50fc737f6c81c07854ff07d8cc64061306749b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/11/2020
+ms.openlocfilehash: c52c9c967d4eada1a931e188ed4d25f7691cfb91
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827450"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94553646"
 ---
 # <a name="message-browsing"></a>Navegação de mensagens
 
-A navegação de mensagens, ou olhando, permite que um cliente do Service Bus enumerou todas as mensagens que residem numa fila ou subscrição, tipicamente para fins de diagnóstico e depuragem.
+A navegação de mensagens, ou olhando, permite que um cliente do Service Bus enumerou todas as mensagens numa fila ou numa subscrição, para fins de diagnóstico e depuragem.
 
-As operações de espreitar devolvem todas as mensagens que existem no registo de mensagens de fila ou subscrição, não apenas as disponíveis para aquisição imediata com `Receive()` ou o `OnMessage()` loop. A `State` propriedade de cada mensagem indica-lhe se a mensagem está ativa (disponível para ser recebida), [adiada](message-deferral.md)ou [agendada.](message-sequencing.md)
+A operação de espreitar numa fila devolve todas as mensagens na fila, não apenas as disponíveis para aquisição imediata com `Receive()` ou o `OnMessage()` loop. A `State` propriedade de cada mensagem indica-lhe se a mensagem está ativa (disponível para ser recebida), [adiada](message-deferral.md)ou [agendada.](message-sequencing.md) A operação de espreitar uma subscrição retorna todas as mensagens exceto mensagens programadas no registo de mensagens de subscrição. 
 
-As mensagens consumidas e expiradas são limpas por uma "recolha de lixo" assíncrona e não necessariamente quando as mensagens expiram, podendo, `Peek` portanto, devolver mensagens que já expiraram e serão removidas ou enviadas quando uma operação de receção é invocada na fila ou subscrição.
+As mensagens consumidas e expiradas são limpas por uma "recolha de lixo" assíncronea. Este passo pode não ocorrer necessariamente imediatamente após a expiração das mensagens. É por isso `Peek` que, pode devolver mensagens que já expiraram. Estas mensagens serão removidas ou enviadas com letras mortas quando uma operação de receção for invocada na fila ou subscrição da próxima vez. Tenha este comportamento em mente ao tentar recuperar mensagens diferidas da fila. Uma mensagem expirada já não é elegível para recuperação regular por qualquer outro meio, mesmo quando é devolvida por Peek. A devolução destas mensagens é por design, uma vez que Peek é uma ferramenta de diagnóstico que reflete o estado atual do registo.
 
-Isto é especialmente importante para ter em mente quando se tenta recuperar mensagens diferidas da fila. Uma mensagem para a qual o instantâneo [ExpirasAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) já não é elegível para recuperação regular por qualquer outro meio, mesmo quando é devolvido por Peek. A devolução destas mensagens é deliberada, uma vez que Peek é uma ferramenta de diagnóstico que reflete o estado atual do registo.
-
-Peek também devolve mensagens que estavam bloqueadas e estão a ser processadas por outros recetores, mas ainda não foram concluídas. No entanto, como o Peek devolve uma imagem desligada, o estado de bloqueio de uma mensagem não pode ser observado em mensagens espreitadas, e as propriedades [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) e [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) lançam uma [InvalidOperationException](/dotnet/api/system.invalidoperationexception) quando a aplicação tenta lê-las.
+Peek também devolve mensagens que estavam bloqueadas e estão atualmente a ser processadas por outros recetores. No entanto, como Peek devolve uma imagem desligada, o estado de bloqueio de uma mensagem não pode ser observado em mensagens espreitadas. As propriedades [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) e [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) lançam uma [InvalidOperationException](/dotnet/api/system.invalidoperationexception) quando a aplicação tenta lê-las.
 
 ## <a name="peek-apis"></a>Espreite as APIs
 
-Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem em todas as bibliotecas clientes .NET e Java e em todos os objetos recetores: **MessageReceiver**, **MessageSession**. Peek trabalha em todas as filas e subscrições e respetivas filas de letras mortas.
+Os métodos [Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) e [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) existem nas bibliotecas clientes .NET e Java e em objetos recetores: **MessageReceiver** , **MessageSession**. Peek trabalha em filas, subscrições e respetivas filas de cartas mortas.
 
-Quando chamado repetidamente, o método Peek enumera todas as mensagens que existem na fila ou no registo de subscrição, na ordem de número de sequência, do número de sequência mais baixo disponível para o mais alto. Esta é a ordem em que as mensagens foram encosadas e não é a ordem em que as mensagens podem eventualmente ser recuperadas.
+Quando chamado repetidamente, **Peek** enumera todas as mensagens na fila ou registo de subscrição, por ordem, do número de sequência mais baixo disponível para o mais alto. É a ordem em que as mensagens foram encosadas, não a ordem pela qual as mensagens podem eventualmente ser recuperadas.
 
 [PeekBatch](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatch#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatch_System_Int32_) recupera várias mensagens e devolve-as como uma enumeração. Se não houver mensagens disponíveis, o objeto de enumeração está vazio, não nulo.
 

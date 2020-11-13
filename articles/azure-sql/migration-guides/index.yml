@@ -14,12 +14,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: sstein
   ms.date: 11/06/2020
-  ms.openlocfilehash: 940f28fa76a8f735318010eab4b55d464295c25a
-  ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+  ms.openlocfilehash: 66742b89eac90f707ec156472d7b1f5ebf9fe467
+  ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
   ms.translationtype: HT
   ms.contentlocale: pt-PT
   ms.lasthandoff: 11/11/2020
-  ms.locfileid: "94495285"
+  ms.locfileid: "94505959"
 landingContent:
 - title: Base de Dados SQL do Azure
   linkLists:

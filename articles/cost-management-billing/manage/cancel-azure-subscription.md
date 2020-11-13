@@ -7,18 +7,18 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 11/09/2020
 ms.author: banders
-ms.openlocfilehash: 16ba70717d04c44e950ce2ed2c47e54859c4be47
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: f90d1fe22ae2f46fdc6d764ce98db8e0f48b8b35
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684886"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94408027"
 ---
 # <a name="cancel-your-azure-subscription"></a>Cancelar a sua subscrição do Azure
 
-Se já não precisar da subscrição do Azure, pode cancelá-la no portal do Azure.
+Se já não precisar da subscrição do Azure, pode cancelar a mesma no portal do Azure.
 
 Embora não seja necessário, a Microsoft *recomenda* que faça o seguinte antes de cancelar a sua subscrição:
 
@@ -69,11 +69,23 @@ Se tiver uma subscrição de avaliação gratuita, não tem de aguardar 30 dias 
 
 Se cancelar a sua subscrição com tarifas Pay As You Go por engano, pode [reativá-la no Centro de Contas](subscription-disabled.md).
 
-Se a sua subscrição não for uma subscrição com tarifas Pay As You Go, entre em contacto com o suporte no prazo de 90 dias após o cancelamento para reativar a sua subscrição.
+Se a sua subscrição não for uma subscrição com tarifas Pay As You Go, contacte o suporte no prazo de 90 dias após o cancelamento para reativar a sua subscrição.
 
-## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos.
+## <a name="why-dont-i-see-the-cancel-subscription-option-on-the-azure-portal"></a>Por que motivo não vejo a opção Cancelar Subscrição no portal do Azure? 
 
-Se tiver dúvidas ou precisar de ajuda, [crie um pedido de suporte](https://go.microsoft.com/fwlink/?linkid=2083458).
+Talvez não tenha as permissões necessárias para cancelar uma subscrição. Veja [Quem pode cancelar uma subscrição?](https://docs.microsoft.com/azure/cost-management-billing/manage/cancel-azure-subscription#who-can-cancel-a-subscription) para obter uma descrição de quem pode cancelar vários tipos de subscrições.
+
+## <a name="how-do-i-delete-my-azure-account"></a>Como devo proceder para eliminar a minha Conta do Azure?
+
+*Preciso de remover a minha conta, incluindo todas as minhas informações pessoais. Já cancelei as minhas subscrições ativas (Avaliação Gratuita). Não tenho nenhuma subscrição ativa e gostaria de eliminar totalmente a minha conta*.
+
+* Se tiver uma conta de Azure Active Directory através da sua organização, o administrador do Azure AD poderá eliminar a conta. Depois disso, os seus serviços serão desativados. Isto significa que as máquinas virtuais são desalocadas, os endereços IP temporários são libertados e o armazenamento é só de leitura. Em resumo, depois de cancelar, a faturação é interrompida imediatamente.
+
+* Se não tiver uma conta do Azure AD através da sua organização, pode cancelar e eliminar as suas subscrições do Azure e, em seguida, remover o seu cartão de crédito da conta. Embora a ação não elimine a conta, torna-a inoperável. Pode avançar um pouco e também eliminar a conta Microsoft associada se não estiver a ser utilizada para nenhuma outra finalidade.
+
+## <a name="how-do-i-cancel-a-visual-studio-professional-account"></a>Como devo proceder para cancelar uma conta do Visual Studio Professional?
+
+Veja o artigo [Renovação e Cancelamento](https://docs.microsoft.com/visualstudio/subscriptions/faq/admin/renewal-cancellation). Se tiver uma subscrição do Azure para o Visual Studio, a mesma também terá de ser cancelada e eliminada.
 
 ## <a name="next-steps"></a>Passos seguintes
 

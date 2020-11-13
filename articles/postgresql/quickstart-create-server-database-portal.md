@@ -22,29 +22,29 @@ A Base de Dados do Azure para o PostgreSQL é um serviço gerido com o qual pode
 É necessária uma subscrição Azure. Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar um servidor da Base de Dados do Azure para PostgreSQL
-Vá ao [portal Azure](https://portal.azure.com/) para criar uma base de dados Azure para a base de dados de servidor único postgreSQL. Procure e selecione *Azure Database para servidores PostgreSQL* .
+Vá ao [portal Azure](https://portal.azure.com/) para criar uma base de dados Azure para a base de dados de servidor único postgreSQL. Procure e selecione *Azure Database para servidores PostgreSQL*.
 
 >[!div class="mx-imgBorder"]
 > :::image type="content" source="./media/quickstart-create-database-portal/search-postgres.png" alt-text="Encontre a base de dados Azure para postgreSQL.":::
 
-1. Selecione **Adicionar** .
+1. Selecione **Adicionar**.
 
-2. Na base de dados De Azure para a página PostgreSQL , selecione  **Servidor Único** .
+2. Na base de dados De Azure para a página PostgreSQL , selecione  **Servidor Único**.
 
     >[!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-database-portal/select-single-server.png" alt-text="Encontre a base de dados Azure para postgreSQL.":::
+    > :::image type="content" source="./media/quickstart-create-database-portal/select-single-server.png" alt-text="Selecione um servidor único":::
 
 3. Agora introduza o formulário Basics com as **seguintes** informações.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="./media/quickstart-create-database-portal/create-basics.png" alt-text="Encontre a base de dados Azure para postgreSQL.":::
+   > :::image type="content" source="./media/quickstart-create-database-portal/create-basics.png" alt-text="Screenshot que mostra o separador Basics para criar um único servidor.":::
 
    |Definição|Valor sugerido|Descrição|
    |:---|:---|:---|
    |Subscrição|seu nome de assinatura|selecione a subscrição Azure desejada.|
    |Grupo de recursos|*grupo myresource*| Um novo ou um grupo de recursos existente da sua subscrição.|
    |Nome do servidor |*mydemoserver*|Um nome exclusivo que identifique a sua Base de Dados do Azure para o servidor PostgreSQL. O nome de domínio *postgres.database.azure.com* é anexado ao nome do servidor que fornece. O servidor só pode conter letras minúsculas, números e o caráter de hífen (-). Deve conter 3 a 63 caracteres.|
-   |Origem de dados | Nenhum | Selecione **Nenhum** para criar um novo servidor de raiz. Selecione **Backup** apenas se estiver a restaurar a partir de um geo-backup de um servidor existente.|
+   |Origem de dados | Nenhuma | Selecione **Nenhum** para criar um novo servidor de raiz. Selecione **Backup** apenas se estiver a restaurar a partir de um geo-backup de um servidor existente.|
    |Nome de utilizador de administrador |*myadmin*| Insira o nome de utilizador do seu administrador de serviço. Não pode começar com **pg_** e estes valores não são permitidos: **azure_superuser** , **azure_pg_admin,** **administrador,** **administrador,** **raiz,** **hóspede,** ou **público.**|
    |Palavra-passe |a sua palavra-passe| Uma nova palavra-passe para o utilizador de administração do servidor. Deve conter 8 a 128 caracteres de três das seguintes categorias: letras maiúsculas inglesas, letras minúsculas inglesas, números (0 a 9) e caracteres não alfanuméricos (por exemplo, !, $, #, %).|
    |Localização|sua localização desejada| Selecione uma localização da lista de dropdown.|
@@ -60,7 +60,7 @@ Vá ao [portal Azure](https://portal.azure.com/) para criar uma base de dados Az
     > Uma base de dados vazia, **postgres,** é criada. Também encontrará uma base **de dados azure_maintenance** que é usada para separar os processos de serviço geridos das ações do utilizador. Não pode aceder à base **de dados azure_maintenance.**
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-database-portal/deployment-success.png" alt-text="Encontre a base de dados Azure para postgreSQL.":::
+> :::image type="content" source="./media/quickstart-create-database-portal/deployment-success.png" alt-text="implementação de sucesso.":::
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/postgres-doc-feedback)
 
@@ -68,9 +68,9 @@ Vá ao [portal Azure](https://portal.azure.com/) para criar uma base de dados Az
 Por predefinição, o servidor que cria não é acessível ao público. Tem de dar permissões ao seu endereço IP. Aceda ao recurso do seu servidor no portal Azure e selecione a segurança de **ligação** do menu do lado esquerdo para o seu recurso de servidor. Se não sabe como encontrar o seu recurso, consulte os [recursos abertos.](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resources-portal#open-resources)
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Encontre a base de dados Azure para postgreSQL.":::
+> :::image type="content" source="./media/quickstart-create-database-portal/add-current-ip-firewall.png" alt-text="Screenshot que mostra regras de firewall para segurança de ligação.":::
 
-**Selecione Adicionar o endereço IP do cliente atual** e, em seguida, selecione **Guardar** . Pode adicionar mais endereços IP ou fornecer uma gama IP para ligar ao seu servidor a partir desses endereços IP. Para obter mais informações, consulte [as regras de Firewall na Base de Dados Azure para PostgreSQL](./concepts-firewall-rules.md).
+**Selecione Adicionar o endereço IP do cliente atual** e, em seguida, selecione **Guardar**. Pode adicionar mais endereços IP ou fornecer uma gama IP para ligar ao seu servidor a partir desses endereços IP. Para obter mais informações, consulte [as regras de Firewall na Base de Dados Azure para PostgreSQL](./concepts-firewall-rules.md).
 
 > [!NOTE]
 > Para evitar problemas de conectividade, verifique se a sua rede permite o tráfego de saída sobre a porta 5432. A base de dados Azure para PostgreSQL utiliza esta porta.
@@ -83,7 +83,7 @@ Você pode usar [psql](http://postgresguide.com/utilities/psql.html) ou [pgAdmin
 
 1. Tome nota do nome do seu servidor, nome de login de administrador do servidor, palavra-passe e ID de subscrição para o seu servidor recém-criado a partir da secção **visão geral** do seu servidor.
     > [!div class="mx-imgBorder"]
-    > :::image type="content" source="./media/quickstart-create-database-portal/overview-new.png" alt-text="Encontre a base de dados Azure para postgreSQL.":::
+    > :::image type="content" source="./media/quickstart-create-database-portal/overview-new.png" alt-text="obter informações de conexão.":::
 
 
 2. Abra o Azure Cloud Shell no portal selecionando o ícone no lado superior esquerdo.
@@ -92,7 +92,7 @@ Você pode usar [psql](http://postgresguide.com/utilities/psql.html) ou [pgAdmin
    > Se estiver a abrir a Cloud Shell pela primeira vez, verá um pedido para criar um grupo de recursos e uma conta de armazenamento. Este é um passo único e será automaticamente anexado para todas as sessões.
 
    > [!div class="mx-imgBorder"]
-   > :::image type="content" source="media/quickstart-create-database-portal/use-in-cloud-shell.png" alt-text="Encontre a base de dados Azure para postgreSQL.":::
+   > :::image type="content" source="media/quickstart-create-database-portal/use-in-cloud-shell.png" alt-text="Screenshot que mostra informações do servidor e o ícone para abrir Azure Cloud Shell.":::
 
 3. Executar o seguinte comando no terminal Azure Cloud Shell. Substitua os valores pelo nome real do servidor e pelo nome de início de sessão do utilizador administrativo. Utilize as **postagens vazias** da base de dados com o utilizador administrativo neste formato: `<admin-username>@<servername>` .
 
@@ -141,13 +141,13 @@ Para eliminar o grupo de recursos:
 
 1. No portal Azure, procure e selecione **grupos de Recursos.**
 2. Na lista de grupos de recursos, escolha o nome do seu grupo de recursos.
-3. Na página **'Visão Geral'** do seu grupo de recursos, selecione **Delete resource group** .
-4. Na caixa de diálogo de confirmação, insira o nome do seu grupo de recursos e, em seguida, selecione **Delete** .
+3. Na página **'Visão Geral'** do seu grupo de recursos, selecione **Delete resource group**.
+4. Na caixa de diálogo de confirmação, insira o nome do seu grupo de recursos e, em seguida, selecione **Delete**.
 
 Para eliminar o servidor, selecione o botão **Eliminar** na página **'Vista Geral'** do seu servidor:
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="media/quickstart-create-database-portal/12-delete.png" alt-text="Encontre a base de dados Azure para postgreSQL.":::
+> :::image type="content" source="media/quickstart-create-database-portal/12-delete.png" alt-text="Screenshot que mostra o botão para apagar um servidor.":::
 
 [Tendo problemas? Deixe-nos saber.](https://aka.ms/postgres-doc-feedback)
 

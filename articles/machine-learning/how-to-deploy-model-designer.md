@@ -1,7 +1,7 @@
 ---
 title: Use o estúdio para implementar modelos treinados no designer
 titleSuffix: Azure Machine Learning
-description: Use o estúdio Azure Machine Learning para implementar modelos treinados no designer.
+description: Utilize o estúdio Azure Machine Learning para implementar modelos de machine learning sem escrever uma única linha de código.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 10/29/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy, studio
-ms.openlocfilehash: 0d98d5103e26eb0b4ee0d31b95f1d07cdaa396ae
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 23c6417741d0753fcdaaf30c89c8f51348cc5dc5
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927588"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554687"
 ---
 # <a name="use-the-studio-to-deploy-models-trained-in-the-designer"></a>Use o estúdio para implementar modelos treinados no designer
 
@@ -56,7 +56,7 @@ Após a conclusão do pipeline de treino, registe o modelo treinado no seu espa�
 
     ![Screenshot do painel direito do módulo do modelo de comboio](./media/how-to-deploy-model-designer/train-model-right-pane.png)
 
-1. Introduza um nome para o seu modelo e, em seguida, **selecione Guardar** .
+1. Introduza um nome para o seu modelo e, em seguida, **selecione Guardar**.
 
 Depois de registar o seu modelo, pode encontrá-lo na página de ativos dos **Modelos** no estúdio.
     
@@ -104,7 +104,7 @@ Depois de descarregar os ficheiros necessários, está pronto para implementar o
 
     - Insira um nome para o ponto final.
     - Selecione para implementar o modelo para o [Serviço Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md) ou [para a instância do contentor Azure](how-to-deploy-azure-container-instance.md).
-    - Faça o upload do `score.py` ficheiro de script para **entrada** .
+    - Faça o upload do `score.py` ficheiro de script para **entrada**.
     - Faça o upload `conda_env.yml` do **ficheiro de dependências da Conda.** 
 
     >[!TIP]
@@ -300,7 +300,7 @@ score_params = dict(
 
 * [Treine um modelo no designer](tutorial-designer-automobile-price-train-score.md)
 * [Implementar modelos com Azure Machine Learning SDK](how-to-deploy-and-where.md)
-* [Resolução de problemas de uma implantação falhada](how-to-troubleshoot-deployment.md)
+* [Resolver problemas de uma implementação com falhas](how-to-troubleshoot-deployment.md)
 * [Implementar no Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Criar aplicações de clientes para consumir serviços web](how-to-consume-web-service.md)
 * [Atualizar serviços Web](how-to-deploy-update-web-service.md)

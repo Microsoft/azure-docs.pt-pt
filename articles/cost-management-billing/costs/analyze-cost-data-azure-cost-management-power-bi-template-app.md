@@ -3,17 +3,17 @@ title: Analisar custos com a Aplicação Power BI
 description: Este artigo explica como instalar e utilizar a Aplicação Power BI do Azure Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/14/2020
+ms.date: 11/09/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 7282ef9269c1168214fe57d3faa5488e531af8da
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1c5adf58f670f3cadcedbe710568551004b77b78
+ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
 ms.translationtype: HT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131127"
+ms.lasthandoff: 11/10/2020
+ms.locfileid: "94413246"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analisar o custo com a Aplicação Power BI do Azure Cost Management para Contratos Enterprise (EA)
 
@@ -38,11 +38,11 @@ Para instalar a aplicação:
 1. Abra a [Aplicação Power BI do Azure Cost Management](https://aka.ms/costmgmt/ACMApp).
 2. Na página Power BI AppSource, selecione **Obter agora**.
 3. Selecione **Continuar** para concordar com os termos de utilização e a política de privacidade.
-4. Na caixa **Instalar esta aplicação do Power BI**, selecione **Instalar**.
+4. Na caixa **Instalar esta aplicação do Power BI** , selecione **Instalar**.
 5. Se necessário, crie uma área de trabalho e selecione **Continuar**.
 6. Quando a instalação estiver concluída, é apresentada uma notificação a indicar que a sua nova aplicação está pronta.
 7. Selecione **Ir para a aplicação**.
-8. Em **Comece já com a sua nova aplicação**, em **Ligar os dados**, selecione **Ligar**.  
+8. Em **Comece já com a sua nova aplicação** , em **Ligar os dados** , selecione **Ligar**.  
   ![Comece já com a sua nova aplicação - Ligar](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/connect-data2.png)
 9. Na caixa de diálogo que aparece, introduza o seu número de inscrição de EA em **BillingProfileIdOrEnrollmentNumber**. Especifique o número de meses de dados a obter. Mantenha o valor de **Âmbito** predefinido **Enrollment Number** e, em seguida, selecione **Seguinte**.  
   ![Introduzir informações de inscrição de EA](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ea-number.png)  
@@ -80,7 +80,7 @@ Os seguintes relatórios estão disponíveis na aplicação.
 
 ![Relatório completo dos Benefícios Híbridos do Azure](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report-full.png)
 
-O relatório também identifica as VMs do Windows nas quais o Benefício Híbrido está **ativado**, mas há _menos do que_ 8 vCPUs. Mostra também as VMs nas quais o Benefício Híbrido não está **ativado**, que tenham 8 _ou mais_ vCPUs. Esta informação ajuda-o a utilizar totalmente o seu Benefício Híbrido. Aplique o benefício às suas máquinas virtuais mais caras para maximizar as suas poupanças potenciais.
+O relatório também identifica as VMs do Windows nas quais o Benefício Híbrido está **ativado** , mas há _menos do que_ 8 vCPUs. Mostra também as VMs nas quais o Benefício Híbrido não está **ativado** , que tenham 8 _ou mais_ vCPUs. Esta informação ajuda-o a utilizar totalmente o seu Benefício Híbrido. Aplique o benefício às suas máquinas virtuais mais caras para maximizar as suas poupanças potenciais.
 
 ![Benefícios Híbridos do Azure – Menos de 8 vCPUs e vCPUs não ativadas](./media/analyze-cost-data-azure-cost-management-power-bi-template-app/ahb-report.png)
 
@@ -204,8 +204,8 @@ As seguintes informações resumem os dados disponíveis através da aplicação
 | [**Orçamentos**](/rest/api/consumption/budgets/get#definitions) | Detalhes do orçamento para ver os custos reais ou a utilização em relação aos alvos do orçamento existente. |
 | [**Folhas de preços**](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet#see-also) | Taxas de medidor aplicáveis para o perfil de faturação fornecido ou a inscrição de EA. |
 | [**Custos de RI**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges#response) | Custos associados às suas instâncias reservadas nos últimos 24 meses. |
-| [**Recomendações de RI (partilhadas)** ](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Recomendações de compra de instâncias reservadas com base em todas as suas tendências de utilização da subscrição nos últimos 7, 30 ou 60 dias. |
-| [**Recomendações de RI (individuais)** ](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Recomendações de compra de instâncias reservadas com base nas tendências de utilização da sua subscrição individual nos últimos 7, 30 ou 60 dias. |
+| [**Recomendações de RI (partilhadas)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response) | Recomendações de compra de instâncias reservadas com base em todas as suas tendências de utilização da subscrição nos últimos 7 dias. |
+| [**Recomendações de RI (individuais)**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#response-1) | Recomendações de compra de instâncias reservadas com base nas tendências de utilização da sua subscrição individual nos últimos 7 dias. |
 | [**Detalhes de utilização de RI**](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#response) | Detalhes de consumo das suas instâncias reservadas existentes durante o último mês. |
 | [**Resumo de utilização de RI**](/rest/api/consumption/reservationssummaries/list) | Percentagem de utilização de reserva diária do Azure. |
 | [**Detalhes de utilização**](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#usage-details-field-definitions) | Uma discriminação das quantidades consumidas e dos custos estimados para o perfil de faturação indicado na inscrição de EA. |

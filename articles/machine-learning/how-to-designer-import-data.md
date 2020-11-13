@@ -1,7 +1,7 @@
 ---
 title: Importar dados para o designer
 titleSuffix: Azure Machine Learning
-description: Saiba como importar dados para o designer de Aprendizagem automática Azure de várias fontes de dados.
+description: Aprenda a importar dados para o designer Azure Machine Learning utilizando conjuntos de dados de aprendizagem automática Azure e o módulo de dados de importação.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ce0bb2a30ec4092d0053adf2de711547595c900
+ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985608"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94554721"
 ---
 # <a name="import-data-into-azure-machine-learning-designer"></a>Importar dados para o designer de aprendizagem automática Azure
 
@@ -89,7 +89,7 @@ O designer suporta conjuntos de dados tabulares criados a partir das seguintes f
 
 O designer reconhece internamente os seguintes tipos de dados:
 
-* Cadeia
+* String
 * Número inteiro
 * Decimal
 * Booleano
